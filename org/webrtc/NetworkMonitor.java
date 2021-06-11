@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.NetworkMonitorAutoDetect;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NetworkMonitor {
     public static final String TAG = "NetworkMonitor";
     @Nullable
@@ -17,12 +17,12 @@ public class NetworkMonitor {
     public final ArrayList<NetworkObserver> networkObservers;
     public int numObservers;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class InstanceHolder {
         public static final NetworkMonitor instance = new NetworkMonitor();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface NetworkObserver {
         void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType);
     }

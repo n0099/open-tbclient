@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IMcsSdkService extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public abstract class Stub extends Binder implements IMcsSdkService {
         public static final String DESCRIPTOR = "com.mcs.aidl.IMcsSdkService";
         public static final int TRANSACTION_process = 1;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class Proxy implements IMcsSdkService {
             public IBinder mRemote;
 

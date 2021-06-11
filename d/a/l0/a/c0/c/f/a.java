@@ -26,27 +26,27 @@ import org.json.JSONObject;
 public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> {
 
     /* renamed from: i  reason: collision with root package name */
-    public SwanAppActivity f40866i;
+    public SwanAppActivity f44542i;
     public d.a.l0.a.h0.g.f j;
     public d.a.l0.a.z0.f.b k;
     public int l;
 
     /* renamed from: d.a.l0.a.c0.c.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0573a extends d.a.l0.a.t0.a {
+    public class C0629a extends d.a.l0.a.t0.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f40867a;
+        public final /* synthetic */ SwanEditText f44543a;
 
-        public C0573a(SwanEditText swanEditText) {
-            this.f40867a = swanEditText;
+        public C0629a(SwanEditText swanEditText) {
+            this.f44543a = swanEditText;
         }
 
         @Override // d.a.l0.a.t0.a, d.a.l0.a.t0.b
         public void b() {
             if (a.this.k != null) {
                 a.this.k.dismiss();
-                a.this.r0(this.f40867a);
+                a.this.r0(this.f44543a);
             }
         }
 
@@ -56,7 +56,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
                 return false;
             }
             a.this.k.dismiss();
-            a.this.r0(this.f40867a);
+            a.this.r0(this.f44543a);
             return true;
         }
     }
@@ -65,37 +65,37 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     public class b implements b.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f40869a;
+        public final /* synthetic */ SwanEditText f44545a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.c0.c.f.b f40870b;
+        public final /* synthetic */ d.a.l0.a.c0.c.f.b f44546b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.t0.a f40871c;
+        public final /* synthetic */ d.a.l0.a.t0.a f44547c;
 
         public b(SwanEditText swanEditText, d.a.l0.a.c0.c.f.b bVar, d.a.l0.a.t0.a aVar) {
-            this.f40869a = swanEditText;
-            this.f40870b = bVar;
-            this.f40871c = aVar;
+            this.f44545a = swanEditText;
+            this.f44546b = bVar;
+            this.f44547c = aVar;
         }
 
         @Override // d.a.l0.a.z0.f.b.d
         public void a() {
-            if (d.a.l0.a.c0.b.a.f40832h) {
+            if (d.a.l0.a.c0.b.a.f44508h) {
                 Log.d("Component-Input", "numeric keyboard onKeyboardHide");
             }
-            a.this.A0(this.f40869a);
-            a.this.f40866i.unregisterCallback(this.f40871c);
+            a.this.A0(this.f44545a);
+            a.this.f44542i.unregisterCallback(this.f44547c);
         }
 
         @Override // d.a.l0.a.z0.f.b.d
         public void b(int i2) {
-            if (d.a.l0.a.c0.b.a.f40832h) {
+            if (d.a.l0.a.c0.b.a.f44508h) {
                 Log.d("Component-Input", "numeric keyboard onKeyboardShow");
             }
             a aVar = a.this;
-            aVar.B0(aVar.f40866i, this.f40869a, this.f40870b, i2);
-            a.this.f40866i.registerCallback(this.f40871c);
+            aVar.B0(aVar.f44542i, this.f44545a, this.f44546b, i2);
+            a.this.f44542i.registerCallback(this.f44547c);
         }
     }
 
@@ -103,23 +103,23 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     public class c implements TextView.OnEditorActionListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.c0.c.f.b f40873a;
+        public final /* synthetic */ d.a.l0.a.c0.c.f.b f44549a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f40874b;
+        public final /* synthetic */ SwanEditText f44550b;
 
         public c(d.a.l0.a.c0.c.f.b bVar, SwanEditText swanEditText) {
-            this.f40873a = bVar;
-            this.f40874b = swanEditText;
+            this.f44549a = bVar;
+            this.f44550b = swanEditText;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
             d.a.l0.a.z0.c.d(d.a.l0.a.z0.b.d().c(), a.this.l);
-            if (this.f40873a.P) {
+            if (this.f44549a.P) {
                 return true;
             }
-            this.f40874b.clearFocus();
+            this.f44550b.clearFocus();
             return false;
         }
     }
@@ -128,10 +128,10 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     public class d implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f40876e;
+        public final /* synthetic */ SwanEditText f44552e;
 
         public d(a aVar, SwanEditText swanEditText) {
-            this.f40876e = swanEditText;
+            this.f44552e = swanEditText;
         }
 
         @Override // android.text.TextWatcher
@@ -145,7 +145,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             if (i3 != i4) {
-                d.a.l0.a.z0.c.c(this.f40876e, i3 > i4 ? '\b' : charSequence.charAt((i2 + i4) - 1));
+                d.a.l0.a.z0.c.c(this.f44552e, i3 > i4 ? '\b' : charSequence.charAt((i2 + i4) - 1));
             }
         }
     }
@@ -154,30 +154,30 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     public class e implements View.OnFocusChangeListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.c0.c.f.b f40877e;
+        public final /* synthetic */ d.a.l0.a.c0.c.f.b f44553e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f40878f;
+        public final /* synthetic */ SwanEditText f44554f;
 
         public e(d.a.l0.a.c0.c.f.b bVar, SwanEditText swanEditText) {
-            this.f40877e = bVar;
-            this.f40878f = swanEditText;
+            this.f44553e = bVar;
+            this.f44554f = swanEditText;
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
-            if (d.a.l0.a.c0.b.a.f40832h) {
+            if (d.a.l0.a.c0.b.a.f44508h) {
                 Log.d("Component-Input", "onFocusChange:" + z);
             }
             if (z) {
                 return;
             }
             d.a.l0.a.e0.d.g("Component-Input", "send blur callback");
-            if (!TextUtils.equals("text", this.f40877e.O) && a.this.k != null) {
+            if (!TextUtils.equals("text", this.f44553e.O) && a.this.k != null) {
                 a.this.k.dismiss();
             }
-            d.a.l0.a.z0.c.b(this.f40878f, a.this.l);
-            a.this.r0(this.f40878f);
+            d.a.l0.a.z0.c.b(this.f44554f, a.this.l);
+            a.this.r0(this.f44554f);
         }
     }
 
@@ -185,34 +185,34 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     public class f implements d.a.l0.a.p2.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f40880a;
+        public final /* synthetic */ SwanEditText f44556a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f40881b;
+        public final /* synthetic */ SwanAppActivity f44557b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.c0.c.f.b f40882c;
+        public final /* synthetic */ d.a.l0.a.c0.c.f.b f44558c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ View f40883d;
+        public final /* synthetic */ View f44559d;
 
         public f(SwanEditText swanEditText, SwanAppActivity swanAppActivity, d.a.l0.a.c0.c.f.b bVar, View view) {
-            this.f40880a = swanEditText;
-            this.f40881b = swanAppActivity;
-            this.f40882c = bVar;
-            this.f40883d = view;
+            this.f44556a = swanEditText;
+            this.f44557b = swanAppActivity;
+            this.f44558c = bVar;
+            this.f44559d = view;
         }
 
         @Override // d.a.l0.a.p2.a
         public void a(String str, int i2) {
-            a.this.A0(this.f40880a);
-            d.a.l0.a.p2.c.i().k(this.f40883d);
+            a.this.A0(this.f44556a);
+            d.a.l0.a.p2.c.i().k(this.f44559d);
         }
 
         @Override // d.a.l0.a.p2.a
         public void b(String str, int i2) {
-            if (this.f40880a.hasFocus()) {
-                a.this.B0(this.f40881b, this.f40880a, this.f40882c, i2);
+            if (this.f44556a.hasFocus()) {
+                a.this.B0(this.f44557b, this.f44556a, this.f44558c, i2);
             }
         }
 
@@ -228,7 +228,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
 
     public a(@Nullable Context context, @NonNull d.a.l0.a.c0.c.f.b bVar, @NonNull SwanAppActivity swanAppActivity, @NonNull d.a.l0.a.h0.g.f fVar, @NonNull g gVar) {
         super(context, bVar);
-        this.f40866i = swanAppActivity;
+        this.f44542i = swanAppActivity;
         this.j = fVar;
         d.a.l0.a.z0.c.a(gVar);
     }
@@ -239,7 +239,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     }
 
     public final void A0(@NonNull SwanEditText swanEditText) {
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-Input", "scrollBackWhenKeyboardHide, mKeyboardHeight：" + this.l);
         }
         if (this.l != 0) {
@@ -254,7 +254,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     public final void B0(@NonNull SwanAppActivity swanAppActivity, @NonNull SwanEditText swanEditText, d.a.l0.a.c0.c.f.b bVar, int i2) {
         int i3;
         d.a.l0.a.p.e.c h2 = d.a.l0.a.g1.f.V().h();
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-Input", "scrollUpWhenKeyboardShow, mKeyboardHeight：" + this.l + "，keyboardHeight : " + i2);
         }
         if (this.l == i2 || h2 == null) {
@@ -296,7 +296,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
         swanEditText.setOnFocusChangeListener(new e(bVar, swanEditText));
         if (TextUtils.equals("text", bVar.O)) {
             View decorView = swanAppActivity.getWindow().getDecorView();
-            d.a.l0.a.p2.c.i().l(decorView, bVar.f40845f, new f(swanEditText, swanAppActivity, bVar, decorView));
+            d.a.l0.a.p2.c.i().l(decorView, bVar.f44521f, new f(swanEditText, swanAppActivity, bVar, decorView));
         }
         d.a.l0.a.z0.b.d().f(dVar);
         swanEditText.addTextChangedListener(dVar);
@@ -308,7 +308,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
             method.setAccessible(true);
             method.invoke(swanEditText, Boolean.FALSE);
         } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-            if (d.a.l0.a.c0.b.a.f40832h) {
+            if (d.a.l0.a.c0.b.a.f44508h) {
                 e2.printStackTrace();
             }
         }
@@ -356,7 +356,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
         swanEditText.setText(bVar.x);
         int i2 = 1;
         swanEditText.setSingleLine(true);
-        swanEditText.setTag(bVar.f40848i);
+        swanEditText.setTag(bVar.f44524i);
         if (!TextUtils.equals("text", bVar.O)) {
             String str = bVar.O;
             char c2 = 65535;
@@ -373,8 +373,8 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
             } else if (c2 != 1) {
                 i2 = 0;
             }
-            this.k = new d.a.l0.a.z0.f.b(this.f40866i, swanEditText, i2, bVar.G);
-            this.k.e(new b(swanEditText, bVar, new C0573a(swanEditText)));
+            this.k = new d.a.l0.a.z0.f.b(this.f44542i, swanEditText, i2, bVar.G);
+            this.k.e(new b(swanEditText, bVar, new C0629a(swanEditText)));
             this.k.f();
         }
         if (bVar.M) {
@@ -394,7 +394,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
         if (t) {
             swanEditText.addTextChangedListener(d.a.l0.a.z0.b.d().e());
         } else {
-            C0(swanEditText, bVar, this.f40866i);
+            C0(swanEditText, bVar, this.f44542i);
         }
     }
 
@@ -402,7 +402,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     @Override // d.a.l0.a.c0.a.d.a
     /* renamed from: w0 */
     public void T(@NonNull SwanEditText swanEditText, @NonNull d.a.l0.a.c0.c.f.b bVar) {
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-Input", "renderPadding");
         }
         swanEditText.setPadding(0, -6, 0, 0);
@@ -412,7 +412,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     @Override // d.a.l0.a.c0.a.c.b
     /* renamed from: x0 */
     public void W(@NonNull SwanEditText swanEditText, @NonNull d.a.l0.a.c0.c.f.b bVar) {
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-Input", "renderText");
         }
         if (t()) {
@@ -420,7 +420,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
             try {
                 swanEditText.setSelection(bVar.x.length());
             } catch (IndexOutOfBoundsException e2) {
-                if (d.a.l0.a.c0.b.a.f40832h) {
+                if (d.a.l0.a.c0.b.a.f44508h) {
                     e2.printStackTrace();
                 }
                 d.a.l0.a.c0.g.a.a("Component-Input", "value is invalid, out of max length");
@@ -447,7 +447,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
         swanEditText.setFocusableInTouchMode(true);
         swanEditText.requestFocus();
         if (TextUtils.equals(((d.a.l0.a.c0.c.f.b) n()).O, "text")) {
-            InputMethodManager inputMethodManager = (InputMethodManager) this.f40866i.getSystemService("input_method");
+            InputMethodManager inputMethodManager = (InputMethodManager) this.f44542i.getSystemService("input_method");
             if (inputMethodManager != null) {
                 inputMethodManager.showSoftInput(swanEditText, 0);
             }
@@ -462,7 +462,7 @@ public final class a extends d.a.l0.a.c0.a.a.a<SwanEditText, d.a.l0.a.c0.c.f.b> 
     @Override // d.a.l0.a.c0.a.c.b
     /* renamed from: y0 */
     public void Y(@NonNull SwanEditText swanEditText, @NonNull d.a.l0.a.c0.c.f.b bVar) {
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-Input", "renderTextStyleFontWeight");
         }
         String str = bVar.D;

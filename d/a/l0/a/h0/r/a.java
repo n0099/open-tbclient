@@ -13,10 +13,10 @@ import java.io.IOException;
 public class a extends b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f42541b = k.f43199a;
+    public static final boolean f46217b = k.f46875a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f42542c = "swan_preset" + File.separator + "preset_list.json";
+    public static final String f46218c = "swan_preset" + File.separator + "preset_list.json";
 
     @Override // d.a.l0.a.h0.r.b
     public boolean e(c cVar) {
@@ -24,18 +24,18 @@ public class a extends b {
             return false;
         }
         Context appContext = AppRuntime.getAppContext();
-        String str = "swan_preset" + File.separator + cVar.f48012g + File.separator + cVar.q;
+        String str = "swan_preset" + File.separator + cVar.f51686g + File.separator + cVar.q;
         try {
-            File j = j(cVar.f48013h, cVar.f48012g, cVar.f48014i);
+            File j = j(cVar.f51687h, cVar.f51686g, cVar.f51688i);
             if (j == null) {
-                if (f42541b) {
+                if (f46217b) {
                     Log.e("AssetPresetController", "获取解压路径失败");
                 }
                 return false;
             }
             return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
         } catch (IOException e2) {
-            if (f42541b) {
+            if (f46217b) {
                 e2.printStackTrace();
             }
             return false;
@@ -50,6 +50,6 @@ public class a extends b {
 
     @Override // d.a.l0.a.h0.r.b
     public String i() {
-        return h.b(d.a.l0.a.c1.a.b(), f42542c);
+        return h.b(d.a.l0.a.c1.a.b(), f46218c);
     }
 }

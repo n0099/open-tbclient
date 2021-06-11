@@ -3,28 +3,28 @@ package com.sdk.base.framework.c;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35659a = "";
+    public String f39338a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public long f35660b;
+    public long f39339b;
 
     public final String a() {
-        return this.f35659a;
+        return this.f39338a;
     }
 
     public final void a(long j) {
-        this.f35660b = j;
+        this.f39339b = j;
     }
 
     public final void a(String str) {
-        this.f35659a = str;
+        this.f39338a = str;
     }
 
     public final long b() {
-        return this.f35660b;
+        return this.f39339b;
     }
 
     public final String toString() {
-        return "_$101005Bean{url='" + this.f35659a + "', time=" + this.f35660b + '}';
+        return "_$101005Bean{url='" + this.f39338a + "', time=" + this.f39339b + '}';
     }
 }

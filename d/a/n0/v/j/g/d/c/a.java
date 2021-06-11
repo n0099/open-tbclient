@@ -8,50 +8,50 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f62163a;
+    public TbPageContext f65878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f62164b;
+    public BdTypeListView f65879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.a.c.j.e.a> f62165c;
+    public List<d.a.c.k.e.a> f65880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaEnterEffectAdapter f62166d;
+    public AlaEnterEffectAdapter f65881d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaEnterEffectCategoryAdapter f62167e;
+    public AlaEnterEffectCategoryAdapter f65882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f62168f;
+    public List<n> f65883f;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
-        this.f62163a = tbPageContext;
-        this.f62164b = bdTypeListView;
+        this.f65878a = tbPageContext;
+        this.f65879b = bdTypeListView;
         a();
     }
 
     public final void a() {
-        this.f62165c = new ArrayList();
-        AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.f62163a.getPageActivity());
-        this.f62166d = alaEnterEffectAdapter;
-        this.f62165c.add(alaEnterEffectAdapter);
-        AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.f62163a.getPageActivity());
-        this.f62167e = alaEnterEffectCategoryAdapter;
-        this.f62165c.add(alaEnterEffectCategoryAdapter);
-        this.f62164b.a(this.f62165c);
+        this.f65880c = new ArrayList();
+        AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.f65878a.getPageActivity());
+        this.f65881d = alaEnterEffectAdapter;
+        this.f65880c.add(alaEnterEffectAdapter);
+        AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.f65878a.getPageActivity());
+        this.f65882e = alaEnterEffectCategoryAdapter;
+        this.f65880c.add(alaEnterEffectCategoryAdapter);
+        this.f65879b.a(this.f65880c);
     }
 
     public void b() {
-        for (d.a.c.j.e.a aVar : this.f62165c) {
-            aVar.K();
+        for (d.a.c.k.e.a aVar : this.f65880c) {
+            aVar.L();
         }
     }
 
@@ -59,13 +59,13 @@ public class a {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f62164b.setData(list);
-        this.f62168f = this.f62164b.getData();
+        this.f65879b.setData(list);
+        this.f65883f = this.f65879b.getData();
     }
 
     public void d(String str, int i2) {
         List<n> list;
-        if (StringUtils.isNull(str) || (list = this.f62168f) == null) {
+        if (StringUtils.isNull(str) || (list = this.f65883f) == null) {
             return;
         }
         for (n nVar : list) {
@@ -81,7 +81,7 @@ public class a {
 
     public void e(String str, boolean z) {
         List<n> list;
-        if (TextUtils.isEmpty(str) || (list = this.f62168f) == null) {
+        if (TextUtils.isEmpty(str) || (list = this.f65883f) == null) {
             return;
         }
         for (n nVar : list) {
@@ -98,7 +98,7 @@ public class a {
 
     public void f(String str, boolean z) {
         List<n> list;
-        if (TextUtils.isEmpty(str) || (list = this.f62168f) == null) {
+        if (TextUtils.isEmpty(str) || (list = this.f65883f) == null) {
             return;
         }
         for (n nVar : list) {

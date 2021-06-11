@@ -12,17 +12,17 @@ import java.util.HashMap;
 public class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f55370a;
+    public c f59059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f55371b;
+    public HashMap<String, String> f59060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Gson f55372c;
+    public Gson f59061c;
 
     public a(int i2) {
         super(i2);
-        this.f55372c = new Gson();
+        this.f59061c = new Gson();
     }
 
     public String a(String str) {
@@ -30,7 +30,7 @@ public class a extends d {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        HashMap<String, String> hashMap = this.f55371b;
+        HashMap<String, String> hashMap = this.f59060b;
         if (hashMap != null) {
             return hashMap.get(replace);
         }
@@ -40,24 +40,24 @@ public class a extends d {
     public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
         String a2 = a(httpMessageTask.getUrl());
-        if (a2 != null && this.f55370a != null) {
+        if (a2 != null && this.f59059a != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
-                json = netMessage.getSocketMessage() != null ? this.f55372c.toJson(netMessage.getSocketMessage().getData()) : "";
+                json = netMessage.getSocketMessage() != null ? this.f59061c.toJson(netMessage.getSocketMessage().getData()) : "";
             } else {
-                json = this.f55372c.toJson(httpMessage.getParams());
+                json = this.f59061c.toJson(httpMessage.getParams());
             }
-            this.f55370a.a(httpMessageTask.getUrl(), this.f55372c.toJson(a2), this.f55372c.toJson(json));
+            this.f59059a.a(httpMessageTask.getUrl(), this.f59061c.toJson(a2), this.f59061c.toJson(json));
         }
         return httpMessage;
     }
 
     public void c(c cVar) {
-        this.f55370a = cVar;
+        this.f59059a = cVar;
     }
 
     public void d(HashMap<String, String> hashMap) {
-        this.f55371b = hashMap;
+        this.f59060b = hashMap;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */

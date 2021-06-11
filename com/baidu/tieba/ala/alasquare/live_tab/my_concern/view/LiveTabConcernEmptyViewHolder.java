@@ -6,10 +6,10 @@ import d.a.n0.v.d.c.f.d.b;
 public class LiveTabConcernEmptyViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f13756a;
+    public b f13821a;
 
     public LiveTabConcernEmptyViewHolder(b bVar) {
-        super(bVar.l());
-        this.f13756a = bVar;
+        super(bVar.m());
+        this.f13821a = bVar;
     }
 }

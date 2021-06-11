@@ -35,7 +35,6 @@ import javax.xml.transform.stream.StreamResult;
 import kotlin.jvm.internal.ByteCompanionObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -45,42 +44,42 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte f31446a;
+        public byte f31537a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte f31447b;
+        public byte f31538b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EC3SpecificBox.Entry f31448c;
+        public EC3SpecificBox.Entry f31539c;
 
         public a(FlatManifestWriterImpl flatManifestWriterImpl, byte b2, byte b3, EC3SpecificBox.Entry entry) {
-            this.f31446a = b2;
-            this.f31447b = b3;
-            this.f31448c = entry;
+            this.f31537a = b2;
+            this.f31538b = b3;
+            this.f31539c = entry;
         }
 
         public byte a() {
-            return this.f31446a;
+            return this.f31537a;
         }
 
         public byte b() {
-            return this.f31447b;
+            return this.f31538b;
         }
 
         public a c() {
-            int i2 = this.f31448c.chan_loc;
+            int i2 = this.f31539c.chan_loc;
             if (i2 == 0) {
-                this.f31446a = (byte) (this.f31446a | 3);
+                this.f31537a = (byte) (this.f31537a | 3);
             } else if (i2 == 1) {
-                this.f31446a = (byte) (this.f31446a | StandardMessageCodec.LIST);
+                this.f31537a = (byte) (this.f31537a | StandardMessageCodec.LIST);
             } else if (i2 == 2) {
-                this.f31447b = (byte) (this.f31447b | ByteCompanionObject.MIN_VALUE);
+                this.f31538b = (byte) (this.f31538b | ByteCompanionObject.MIN_VALUE);
             } else if (i2 == 3) {
-                this.f31447b = (byte) (this.f31447b | 8);
+                this.f31538b = (byte) (this.f31538b | 8);
             } else if (i2 == 6) {
-                this.f31447b = (byte) (this.f31447b | 5);
+                this.f31538b = (byte) (this.f31538b | 5);
             } else if (i2 == 7) {
-                this.f31447b = (byte) (this.f31447b | 2);
+                this.f31538b = (byte) (this.f31538b | 2);
             }
             return this;
         }
@@ -450,12 +449,12 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         if (VisualSampleEntry.TYPE3.equals(getFormat(visualSampleEntry))) {
             AvcConfigurationBox avcConfigurationBox = (AvcConfigurationBox) visualSampleEntry.getBoxes(AvcConfigurationBox.class).get(0);
             d.h.a.a.a.a aVar = new d.h.a.a.a.a();
-            aVar.f66376a = getBitrate(track);
-            aVar.f66380e = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
-            aVar.f66377b = "AVC1";
-            aVar.f66378c = visualSampleEntry.getWidth();
-            aVar.f66379d = visualSampleEntry.getHeight();
-            aVar.f66381f = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.f70162a = getBitrate(track);
+            aVar.f70166e = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
+            aVar.f70163b = "AVC1";
+            aVar.f70164c = visualSampleEntry.getWidth();
+            aVar.f70165d = visualSampleEntry.getHeight();
+            aVar.f70167f = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -536,12 +535,12 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 d.h.a.a.a.a aVar = (d.h.a.a.a.a) linkedList.get(i2);
                 Element createElement3 = newDocument.createElement("QualityLevel");
                 createElement3.setAttribute("Index", Integer.toString(i2));
-                createElement3.setAttribute(str2, Long.toString(aVar.f66376a));
-                createElement3.setAttribute(str4, aVar.f66377b);
-                createElement3.setAttribute("MaxWidth", Long.toString(aVar.f66378c));
-                createElement3.setAttribute("MaxHeight", Long.toString(aVar.f66379d));
-                createElement3.setAttribute(str, aVar.f66380e);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.f66381f));
+                createElement3.setAttribute(str2, Long.toString(aVar.f70162a));
+                createElement3.setAttribute(str4, aVar.f70163b);
+                createElement3.setAttribute("MaxWidth", Long.toString(aVar.f70164c));
+                createElement3.setAttribute("MaxHeight", Long.toString(aVar.f70165d));
+                createElement3.setAttribute(str, aVar.f70166e);
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.f70167f));
                 createElement2.appendChild(createElement3);
                 i2++;
                 str13 = str13;
@@ -580,7 +579,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             }
             if (this.audioFragmentsDurations != null) {
                 Element createElement5 = newDocument.createElement(str8);
-                createElement5.setAttribute(str9, MediaStreamTrack.AUDIO_TRACK_KIND);
+                createElement5.setAttribute(str9, "audio");
                 createElement5.setAttribute(str10, Long.toString(j2));
                 createElement5.setAttribute(str11, Integer.toString(this.audioFragmentsDurations.length));
                 createElement5.setAttribute(str12, "audio/{bitrate}/{start time}");

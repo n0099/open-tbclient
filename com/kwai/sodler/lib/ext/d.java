@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 @SuppressLint({"LongLogTag"})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
@@ -30,7 +30,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
@@ -66,7 +66,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class c {
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
@@ -92,8 +92,8 @@ public class d {
     }
 
     /* renamed from: com.kwai.sodler.lib.ext.d$d  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class C0400d {
+    /* loaded from: classes7.dex */
+    public static final class C0450d {
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
             List<File> list = (List) com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories").get(obj);
@@ -117,7 +117,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class e {
         public static void b(ClassLoader classLoader, File file) {
             String path = file.getPath();
@@ -141,7 +141,7 @@ public class d {
             if (file != null) {
                 if (file.exists()) {
                     if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || Build.VERSION.SDK_INT > 25) {
-                        C0400d.b(classLoader, file);
+                        C0450d.b(classLoader, file);
                     } else if (Build.VERSION.SDK_INT == 24) {
                         c.b(classLoader, file);
                     } else if (Build.VERSION.SDK_INT >= 23) {

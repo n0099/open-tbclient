@@ -11,7 +11,7 @@ import com.baidu.cloudbase.download.exception.DownloadException;
 import d.a.k.b.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CaptureDownloadService extends Service {
     public static final String ACTION_CANCEL = "com.baidu.cloudar.download.ACTION_CANCEL";
     public static final String ACTION_CANCEL_ALL = "com.baidu.cloudar.download.ACTION_CANCEL_ALL";
@@ -25,92 +25,92 @@ public class CaptureDownloadService extends Service {
     public static final String TAG = "CaptureDownloadService";
     public d.a.k.b.a mDownloadManager;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a extends d.a.k.b.c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ac f4627a;
+        public ac f4646a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4628b;
+        public int f4647b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f4629c;
+        public long f4648c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LocalBroadcastManager f4630d;
+        public LocalBroadcastManager f4649d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4631e;
+        public int f4650e;
 
         public a(int i2, ac acVar, Context context) {
-            this.f4631e = i2;
-            this.f4627a = acVar;
-            this.f4630d = LocalBroadcastManager.getInstance(context);
+            this.f4650e = i2;
+            this.f4646a = acVar;
+            this.f4649d = LocalBroadcastManager.getInstance(context);
         }
 
         public final boolean a(int i2) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f4629c <= 300 || i2 == this.f4628b) {
+            if (currentTimeMillis - this.f4648c <= 300 || i2 == this.f4647b) {
                 return false;
             }
-            this.f4629c = currentTimeMillis;
-            this.f4628b = i2;
+            this.f4648c = currentTimeMillis;
+            this.f4647b = i2;
             return true;
         }
 
         public final void b(ac acVar) {
             Intent intent = new Intent();
             intent.setAction(CaptureDownloadService.ACTION_DOWNLOAD_BROAD_CAST);
-            intent.putExtra("extra_position", this.f4631e);
+            intent.putExtra("extra_position", this.f4650e);
             intent.putExtra("extra_file_info", acVar.a().toString());
-            this.f4630d.sendBroadcast(intent);
+            this.f4649d.sendBroadcast(intent);
         }
 
         @Override // d.a.k.b.c.a
         public void onCompleted(String str) {
-            ac acVar = this.f4627a;
-            acVar.f1408g = 6;
-            acVar.f1406e = 100;
-            acVar.f1409h = str;
+            ac acVar = this.f4646a;
+            acVar.f1421g = 6;
+            acVar.f1419e = 100;
+            acVar.f1422h = str;
             b(acVar);
         }
 
         @Override // d.a.k.b.c.a
         public void onDownloadCanceled() {
-            ac acVar = this.f4627a;
-            acVar.f1408g = 0;
-            acVar.f1406e = 0;
-            acVar.f1407f = "";
+            ac acVar = this.f4646a;
+            acVar.f1421g = 0;
+            acVar.f1419e = 0;
+            acVar.f1420f = "";
             b(acVar);
         }
 
         @Override // d.a.k.b.c.a
         public void onDownloadPaused() {
-            ac acVar = this.f4627a;
-            acVar.f1408g = 4;
+            ac acVar = this.f4646a;
+            acVar.f1421g = 4;
             b(acVar);
         }
 
         @Override // d.a.k.b.c.a
         public void onFailed(DownloadException downloadException) {
             downloadException.printStackTrace();
-            ac acVar = this.f4627a;
-            acVar.f1408g = 5;
+            ac acVar = this.f4646a;
+            acVar.f1421g = 5;
             b(acVar);
         }
 
         @Override // d.a.k.b.c.a
         public void onProgress(long j, long j2, int i2) {
-            if (this.f4629c == 0) {
-                this.f4629c = System.currentTimeMillis();
+            if (this.f4648c == 0) {
+                this.f4648c = System.currentTimeMillis();
             }
-            ac acVar = this.f4627a;
-            acVar.f1408g = 3;
-            acVar.f1406e = i2;
-            acVar.f1407f = d.a.k.b.d.a.a(j, j2);
+            ac acVar = this.f4646a;
+            acVar.f1421g = 3;
+            acVar.f1419e = i2;
+            acVar.f1420f = d.a.k.b.d.a.a(j, j2);
             if (a(i2)) {
-                b(this.f4627a);
+                b(this.f4646a);
             }
         }
     }
@@ -142,7 +142,7 @@ public class CaptureDownloadService extends Service {
 
     private void download(int i2, ac acVar, String str) {
         b.a aVar = new b.a();
-        aVar.d(acVar.f1405d);
+        aVar.d(acVar.f1418d);
         this.mDownloadManager.f(aVar.a(), str, new a(i2, acVar, getApplicationContext()));
     }
 
@@ -198,7 +198,7 @@ public class CaptureDownloadService extends Service {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x007e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0081, code lost:
         if (r0.equals(com.baidu.cloudbase.download.CaptureDownloadService.ACTION_DOWNLOAD) != false) goto L8;
      */
     @Override // android.app.Service
@@ -215,14 +215,14 @@ public class CaptureDownloadService extends Service {
             if (!TextUtils.isEmpty(stringExtra)) {
                 try {
                     JSONObject jSONObject = new JSONObject(stringExtra);
-                    acVar.f1402a = jSONObject.optString("name");
-                    acVar.f1403b = jSONObject.optString("id");
-                    acVar.f1404c = jSONObject.optString("image");
-                    acVar.f1405d = jSONObject.optString("url");
-                    acVar.f1406e = jSONObject.optInt("progress");
-                    acVar.f1407f = jSONObject.optString("downloadPerSize");
-                    acVar.f1408g = jSONObject.optInt("status");
-                    acVar.f1409h = jSONObject.optString("savePath");
+                    acVar.f1415a = jSONObject.optString("name");
+                    acVar.f1416b = jSONObject.optString("id");
+                    acVar.f1417c = jSONObject.optString("image");
+                    acVar.f1418d = jSONObject.optString("url");
+                    acVar.f1419e = jSONObject.optInt("progress");
+                    acVar.f1420f = jSONObject.optString("downloadPerSize");
+                    acVar.f1421g = jSONObject.optInt("status");
+                    acVar.f1422h = jSONObject.optString("savePath");
                 } catch (JSONException unused) {
                 }
             }

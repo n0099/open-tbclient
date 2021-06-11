@@ -10,6 +10,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidubce.services.vod.VodClient;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import d.a.c.e.p.k;
 import java.io.Serializable;
 import org.json.JSONArray;
@@ -216,7 +217,7 @@ public class MarkData implements Serializable {
                 this.originalThreadInfo = originalThreadInfo;
                 originalThreadInfo.l(optJSONObject);
             }
-            this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt("thread_type")));
+            this.mIsPhotoLiveThread = EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL.equals(String.valueOf(jSONObject.optInt("thread_type")));
             int optInt = jSONObject.optInt("mark_status");
             JSONArray optJSONArray = jSONObject.optJSONArray(VodClient.PATH_MEDIA);
             if (optJSONArray != null && optJSONArray.length() > 0) {

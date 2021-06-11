@@ -40,17 +40,17 @@ public class MyForbiddenFansActivity extends BaseActivity {
     public TextView mRemoveView;
     public TextView mResultTipView;
     public LinearLayout mRootView;
-    public b.InterfaceC1448b mNetDataCallBack = new a();
+    public b.InterfaceC1504b mNetDataCallBack = new a();
     public View.OnClickListener mRemoveAllClick = new b();
     public View.OnClickListener mRemoveSingleClick = new c();
     public View.OnClickListener mPersonClick = new d();
 
     /* loaded from: classes4.dex */
-    public class a implements b.InterfaceC1448b {
+    public class a implements b.InterfaceC1504b {
         public a() {
         }
 
-        @Override // d.a.n0.o0.a.b.InterfaceC1448b
+        @Override // d.a.n0.o0.a.b.InterfaceC1504b
         public void a(int i2, String str, ArrayList<d.a.n0.o0.a.a> arrayList) {
             if (MyForbiddenFansActivity.this.isProgressBarShown()) {
                 MyForbiddenFansActivity.this.hideProgressBar();
@@ -64,7 +64,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             } else {
                 MyForbiddenFansActivity.this.hideNoDataView();
                 MyForbiddenFansActivity.this.updateLoadMoreView(arrayList);
-                MyForbiddenFansActivity.this.mAdapter.j(arrayList);
+                MyForbiddenFansActivity.this.mAdapter.r(arrayList);
                 MyForbiddenFansActivity.this.mAdapter.notifyDataSetChanged();
             }
         }
@@ -102,7 +102,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                 myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.neterror));
             } else if (view.getTag() instanceof d.a.n0.o0.a.a) {
                 TiebaStatic.log(new StatisticItem("c13105"));
-                MyForbiddenFansActivity.this.mRemoveController.f(((d.a.n0.o0.a.a) view.getTag()).f57759a);
+                MyForbiddenFansActivity.this.mRemoveController.f(((d.a.n0.o0.a.a) view.getTag()).f61448a);
             }
         }
     }
@@ -116,7 +116,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
         public void onClick(View view) {
             if (view.getTag() instanceof d.a.n0.o0.a.a) {
                 d.a.n0.o0.a.a aVar = (d.a.n0.o0.a.a) view.getTag();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MyForbiddenFansActivity.this.getActivity(), String.valueOf(aVar.f57759a), aVar.f57760b)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MyForbiddenFansActivity.this.getActivity(), String.valueOf(aVar.f61448a), aVar.f61449b)));
             }
         }
     }
@@ -150,13 +150,13 @@ public class MyForbiddenFansActivity extends BaseActivity {
         public void b(int i2, String str, boolean z, int i3, long j) {
             if (!z) {
                 if (i2 == 0 && i3 == 1 && MyForbiddenFansActivity.this.mAdapter.d(j)) {
-                    if (MyForbiddenFansActivity.this.mAdapter.g()) {
+                    if (MyForbiddenFansActivity.this.mAdapter.o()) {
                         MyForbiddenFansActivity.this.showNoDataView();
                     } else if (MyForbiddenFansActivity.this.mAdapter.getItemCount() <= 20 && MyForbiddenFansActivity.this.mModel.f()) {
                         MyForbiddenFansActivity.this.mModel.h();
                     } else {
                         MyForbiddenFansActivity myForbiddenFansActivity = MyForbiddenFansActivity.this;
-                        myForbiddenFansActivity.updateLoadMoreView(myForbiddenFansActivity.mAdapter.e());
+                        myForbiddenFansActivity.updateLoadMoreView(myForbiddenFansActivity.mAdapter.m());
                         MyForbiddenFansActivity.this.mAdapter.notifyDataSetChanged();
                     }
                 }
@@ -166,7 +166,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                 }
                 if (i2 == 0) {
                     if (MyForbiddenFansActivity.this.mAdapter.d(j)) {
-                        if (MyForbiddenFansActivity.this.mAdapter.g()) {
+                        if (MyForbiddenFansActivity.this.mAdapter.o()) {
                             MyForbiddenFansActivity.this.showNoDataView();
                             return;
                         } else if (MyForbiddenFansActivity.this.mAdapter.getItemCount() <= 20 && MyForbiddenFansActivity.this.mModel.f()) {
@@ -174,7 +174,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                             return;
                         } else {
                             MyForbiddenFansActivity myForbiddenFansActivity2 = MyForbiddenFansActivity.this;
-                            myForbiddenFansActivity2.updateLoadMoreView(myForbiddenFansActivity2.mAdapter.e());
+                            myForbiddenFansActivity2.updateLoadMoreView(myForbiddenFansActivity2.mAdapter.m());
                             MyForbiddenFansActivity.this.mAdapter.notifyDataSetChanged();
                             return;
                         }
@@ -296,8 +296,8 @@ public class MyForbiddenFansActivity extends BaseActivity {
         this.mModel.j(this.mNetDataCallBack);
         this.mRemoveController = new d.a.n0.o0.a.d(getPageContext(), getUniqueId());
         this.mRemoveView.setOnClickListener(this.mRemoveAllClick);
-        this.mAdapter.k(this.mPersonClick);
-        this.mAdapter.l(this.mRemoveSingleClick);
+        this.mAdapter.s(this.mPersonClick);
+        this.mAdapter.t(this.mRemoveSingleClick);
         this.mRemoveController.g(new f());
         showProgressBar(true, 0, 0);
         this.mModel.g();

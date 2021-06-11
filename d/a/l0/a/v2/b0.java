@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes3.dex */
 public final class b0 {
     static {
-        boolean z = d.a.l0.a.k.f43199a;
+        boolean z = d.a.l0.a.k.f46875a;
     }
 
     public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i2) {

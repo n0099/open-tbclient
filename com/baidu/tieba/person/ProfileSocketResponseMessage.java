@@ -235,14 +235,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         if (this.ucCardData == null || (h2 = a.f().h("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) == null || !this.isSelf) {
             return;
         }
-        List<g.a> list = this.ucCardData.f55182a;
+        List<g.a> list = this.ucCardData.f58871a;
         if (ListUtils.getCount(list) > 4) {
-            list.get(4).f55184b = 8L;
+            list.get(4).f58873b = 8L;
             for (g.a aVar : list) {
-                if (aVar.f55184b > d.a.c.e.m.b.f(h2.get(aVar.f55183a), 0L)) {
-                    aVar.f55185c = true;
+                if (aVar.f58873b > d.a.c.e.m.b.f(h2.get(aVar.f58872a), 0L)) {
+                    aVar.f58874c = true;
                 } else {
-                    aVar.f55185c = false;
+                    aVar.f58874c = false;
                 }
             }
         }

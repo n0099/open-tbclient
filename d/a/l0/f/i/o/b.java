@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class b implements d.a.l0.f.i.l.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f46775a;
+    public boolean f50449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f46776b;
+    public Context f50450b;
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback<String> {
@@ -46,13 +46,13 @@ public class b implements d.a.l0.f.i.l.g {
     }
 
     public b(Context context) {
-        this.f46776b = context;
+        this.f50450b = context;
     }
 
     @Override // d.a.l0.f.i.l.g
     public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
         boolean startsWith = str.startsWith("https://");
-        this.f46775a = startsWith;
+        this.f50449a = startsWith;
         if (startsWith) {
             ((PostBodyRequest.PostBodyRequestBuilder) d.a.l0.m.e.a.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
         } else {
@@ -63,7 +63,7 @@ public class b implements d.a.l0.f.i.l.g {
     @Override // d.a.l0.f.i.l.g
     public void b(String str, ResponseCallback<d.a.l0.f.i.k.a> responseCallback) {
         boolean startsWith = str.startsWith("https://");
-        this.f46775a = startsWith;
+        this.f50449a = startsWith;
         if (startsWith) {
             d.a.l0.m.e.a.g().getRequest().url(str).build().executeAsync(responseCallback);
         } else {
@@ -77,9 +77,9 @@ public class b implements d.a.l0.f.i.l.g {
             return;
         }
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a();
-        aVar.f47970b = "POST";
-        aVar.f47969a = "https://pimlog.baidu.com/mapp/advlog";
-        aVar.f47972d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
+        aVar.f51644b = "POST";
+        aVar.f51643a = "https://pimlog.baidu.com/mapp/advlog";
+        aVar.f51646d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
         d.a.l0.m.e.a.g().e(aVar);
     }
 
@@ -87,7 +87,7 @@ public class b implements d.a.l0.f.i.l.g {
     public void d(String str) {
         a aVar = new a(this);
         boolean startsWith = str.startsWith("https://");
-        this.f46775a = startsWith;
+        this.f50449a = startsWith;
         if (startsWith) {
             d.a.l0.m.e.a.g().getRequest().url(str).build().executeAsync(aVar);
         } else {
@@ -98,7 +98,7 @@ public class b implements d.a.l0.f.i.l.g {
     @Override // d.a.l0.f.i.l.g
     public void e(String str, ResponseCallback<AdResponseInfo> responseCallback) {
         boolean startsWith = str.startsWith("https://");
-        this.f46775a = startsWith;
+        this.f50449a = startsWith;
         if (startsWith) {
             d.a.l0.m.e.a.g().getRequest().url(str).build().executeAsync(responseCallback);
         } else {

@@ -11,35 +11,35 @@ import java.util.concurrent.RejectedExecutionException;
 public final class TileOverlay {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f7038b = "TileOverlay";
+    public static final String f7081b = "TileOverlay";
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f7039f;
+    public static int f7082f;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaiduMap f7040a;
+    public BaiduMap f7083a;
 
     /* renamed from: g  reason: collision with root package name */
-    public TileProvider f7044g;
+    public TileProvider f7087g;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Tile> f7042d = new HashMap<>();
+    public HashMap<String, Tile> f7085d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public HashSet<String> f7043e = new HashSet<>();
+    public HashSet<String> f7086e = new HashSet<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f7041c = Executors.newFixedThreadPool(1);
+    public ExecutorService f7084c = Executors.newFixedThreadPool(1);
 
     public TileOverlay(BaiduMap baiduMap, TileProvider tileProvider) {
-        this.f7040a = baiduMap;
-        this.f7044g = tileProvider;
+        this.f7083a = baiduMap;
+        this.f7087g = tileProvider;
     }
 
     private synchronized Tile a(String str) {
-        if (this.f7042d.containsKey(str)) {
-            Tile tile = this.f7042d.get(str);
-            this.f7042d.remove(str);
+        if (this.f7085d.containsKey(str)) {
+            Tile tile = this.f7085d.get(str);
+            this.f7085d.remove(str);
             return tile;
         }
         return null;
@@ -47,15 +47,15 @@ public final class TileOverlay {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(String str, Tile tile) {
-        this.f7042d.put(str, tile);
+        this.f7085d.put(str, tile);
     }
 
     private synchronized boolean b(String str) {
-        return this.f7043e.contains(str);
+        return this.f7086e.contains(str);
     }
 
     private synchronized void c(String str) {
-        this.f7043e.add(str);
+        this.f7086e.add(str);
     }
 
     public Tile a(int i2, int i3, int i4) {
@@ -66,28 +66,28 @@ public final class TileOverlay {
         if (a2 != null) {
             return a2;
         }
-        BaiduMap baiduMap = this.f7040a;
-        if (baiduMap != null && f7039f == 0) {
-            WinRound winRound = baiduMap.getMapStatus().f6894a.j;
-            f7039f = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2);
+        BaiduMap baiduMap = this.f7083a;
+        if (baiduMap != null && f7082f == 0) {
+            WinRound winRound = baiduMap.getMapStatus().f6937a.j;
+            f7082f = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2);
         }
-        if (this.f7042d.size() > f7039f) {
+        if (this.f7085d.size() > f7082f) {
             a();
         }
-        if (b(str3) || this.f7041c.isShutdown()) {
+        if (b(str3) || this.f7084c.isShutdown()) {
             return null;
         }
         try {
             c(str3);
-            this.f7041c.execute(new w(this, i2, i3, i4, str3));
+            this.f7084c.execute(new w(this, i2, i3, i4, str3));
             return null;
         } catch (RejectedExecutionException unused) {
-            str = f7038b;
+            str = f7081b;
             str2 = "ThreadPool excepiton";
             Log.e(str, str2);
             return null;
         } catch (Exception unused2) {
-            str = f7038b;
+            str = f7081b;
             str2 = "fileDir is not legal";
             Log.e(str, str2);
             return null;
@@ -95,17 +95,17 @@ public final class TileOverlay {
     }
 
     public synchronized void a() {
-        Logger.logE(f7038b, "clearTaskSet");
-        this.f7043e.clear();
-        this.f7042d.clear();
+        Logger.logE(f7081b, "clearTaskSet");
+        this.f7086e.clear();
+        this.f7085d.clear();
     }
 
     public void b() {
-        this.f7041c.shutdownNow();
+        this.f7084c.shutdownNow();
     }
 
     public boolean clearTileCache() {
-        BaiduMap baiduMap = this.f7040a;
+        BaiduMap baiduMap = this.f7083a;
         if (baiduMap == null) {
             return false;
         }
@@ -113,7 +113,7 @@ public final class TileOverlay {
     }
 
     public void removeTileOverlay() {
-        BaiduMap baiduMap = this.f7040a;
+        BaiduMap baiduMap = this.f7083a;
         if (baiduMap == null) {
             return;
         }

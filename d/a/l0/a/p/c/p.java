@@ -1,125 +1,44 @@
 package d.a.l0.a.p.c;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import java.util.Map;
-import okhttp3.HttpUrl;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.alibaba.fastjson.asm.Label;
+import d.a.l0.a.c2.f.o;
+import d.a.l0.a.v2.s0;
+import java.io.File;
 /* loaded from: classes2.dex */
-public class p extends d.a.l0.a.c1.d.a {
-    @Override // d.a.l0.a.p.d.a0
-    public String A() {
-        return null;
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public long B() {
-        return 0L;
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public HttpRequest C(Context context, Map<String, String> map) {
-        return M("ma/accredit_v1", map);
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public String I() {
-        return d.a.l0.a.d0.c.w(String.format("%s/ma/grs/brand/applist", N()), true);
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public HttpRequest J(Context context, Map<String, String> map) {
-        return M("ma/user/openid", map);
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public String L() {
-        return String.format("%s/ma/ai", N());
-    }
-
-    public final HttpRequest M(String str, Map<String, String> map) {
-        HttpUrl parse = HttpUrl.parse(N());
-        if (parse == null) {
-            return null;
-        }
-        HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : d.a.l0.a.d0.b.b().f41308d.entrySet()) {
-            addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
-        }
-        HttpUrl build = addPathSegments.build();
-        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a();
-        aVar.f47970b = "POST";
-        aVar.f47969a = d.a.l0.a.d0.c.w(build.toString(), true);
-        aVar.f47972d = d.a.l0.a.e2.c.d.b(map);
-        aVar.f47974f = true;
-        aVar.f47975g = true;
-        aVar.f47976h = false;
-        HttpRequestBuilder a2 = d.a.l0.m.e.b.a(aVar);
-        d.a.l0.m.e.a.g().t(a2, aVar);
-        return a2.build();
-    }
-
-    public final String N() {
-        return d.a.l0.a.d0.c.f41309a;
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public HttpRequest a(Context context, Map<String, String> map) {
-        return M("ma/user/checksessionkey", map);
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public String b() {
-        return d.a.l0.a.d0.c.w(String.format("%s/ma/update", N()), true);
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public String c() {
-        return d.a.l0.a.d0.c.v(String.format("%s/ma/history/sync", N()));
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public String e() {
-        return String.format("%s/ma/component/comment/bos_auth", "https://ossapi.baidu.com");
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public HttpRequest g(Context context, Map<String, String> map) {
-        return M("ma/user/swanid", map);
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public String i() {
-        return d.a.l0.a.c1.a.m().a();
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public boolean isDebug() {
+public class p implements d.a.l0.a.p.d.d0 {
+    @Override // d.a.l0.a.p.d.d0
+    public boolean a(Activity activity, String str, o.b bVar) {
         return false;
     }
 
-    @Override // d.a.l0.a.p.d.a0
-    public HttpRequest o(Context context, Map<String, String> map) {
-        return M("ma/accredit_data", map);
+    @Override // d.a.l0.a.p.d.d0
+    public boolean b(Context context, String str) {
+        return true;
     }
 
-    @Override // d.a.l0.a.p.d.a0
-    public HttpRequest r(Context context, Map<String, String> map) {
-        return M("ma/login", map);
+    @Override // d.a.l0.a.p.d.d0
+    public boolean c(Activity activity, Uri uri, String str) {
+        if (activity == null || uri == null || uri.getPath() == null || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (d.a.l0.a.v2.d.i()) {
+            uri = s0.a(activity, new File(uri.getPath()));
+        }
+        d(activity, uri, str);
+        return true;
     }
 
-    @Override // d.a.l0.a.p.d.a0
-    public HttpRequest s(Context context, Map<String, String> map) {
-        return M("ma/open/data", map);
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public String t() {
-        return d.a.l0.a.d0.c.v(String.format("%s/ma/reset", N()));
-    }
-
-    @Override // d.a.l0.a.p.d.a0
-    public String z() {
-        return d.a.l0.a.d0.c.v(String.format("%s/api/subscribe/v1/relation/get", d.a.l0.a.d0.a.c()));
+    public final void d(Activity activity, Uri uri, String str) {
+        Intent intent = new Intent("android.intent.action.VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
+        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        intent.addFlags(1);
+        intent.setDataAndType(uri, str);
+        d.a.l0.a.v2.f.f(activity, intent);
     }
 }

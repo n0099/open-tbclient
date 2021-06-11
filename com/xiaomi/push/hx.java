@@ -20,10 +20,10 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static final jg f595a = new jg("XmPushActionCheckClientInfo");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f37823a = new iy("", (byte) 8, 1);
+    public static final iy f41502a = new iy("", (byte) 8, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f37824b = new iy("", (byte) 8, 2);
+    public static final iy f41503b = new iy("", (byte) 8, 2);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -32,11 +32,11 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         int a2;
         int a3;
         if (hx.class.equals(hxVar.getClass())) {
-            int compareTo = Boolean.valueOf(m414a()).compareTo(Boolean.valueOf(hxVar.m414a()));
+            int compareTo = Boolean.valueOf(m413a()).compareTo(Boolean.valueOf(hxVar.m413a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m414a() || (a3 = ir.a(this.f596a, hxVar.f596a)) == 0) {
+            if (!m413a() || (a3 = ir.a(this.f596a, hxVar.f596a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hxVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -62,17 +62,17 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m511a();
+        jbVar.m510a();
         while (true) {
-            iy m507a = jbVar.m507a();
-            byte b2 = m507a.f37969a;
+            iy m506a = jbVar.m506a();
+            byte b2 = m506a.f41648a;
             if (b2 == 0) {
                 break;
             }
-            short s = m507a.f807a;
+            short s = m506a.f807a;
             if (s != 1) {
                 if (s == 2 && b2 == 8) {
-                    this.f598b = jbVar.m505a();
+                    this.f598b = jbVar.m504a();
                     b(true);
                     jbVar.g();
                 }
@@ -80,7 +80,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                 jbVar.g();
             } else {
                 if (b2 == 8) {
-                    this.f596a = jbVar.m505a();
+                    this.f596a = jbVar.m504a();
                     a(true);
                     jbVar.g();
                 }
@@ -89,7 +89,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             }
         }
         jbVar.f();
-        if (!m414a()) {
+        if (!m413a()) {
             throw new jc("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
         } else if (b()) {
             a();
@@ -103,12 +103,12 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m414a() {
+    public boolean m413a() {
         return this.f597a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m415a(hx hxVar) {
+    public boolean m414a(hx hxVar) {
         return hxVar != null && this.f596a == hxVar.f596a && this.f598b == hxVar.f598b;
     }
 
@@ -122,14 +122,14 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         a();
         jbVar.a(f595a);
-        jbVar.a(f37823a);
+        jbVar.a(f41502a);
         jbVar.a(this.f596a);
         jbVar.b();
-        jbVar.a(f37824b);
+        jbVar.a(f41503b);
         jbVar.a(this.f598b);
         jbVar.b();
         jbVar.c();
-        jbVar.m515a();
+        jbVar.m514a();
     }
 
     public void b(boolean z) {
@@ -142,7 +142,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hx)) {
-            return m415a((hx) obj);
+            return m414a((hx) obj);
         }
         return false;
     }

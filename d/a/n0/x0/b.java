@@ -5,17 +5,17 @@ import tbclient.GoodsWin;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Integer f63220a;
+    public Integer f66935a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63221b;
+    public String f66936b;
 
     public boolean a() {
-        return this.f63220a.intValue() == 1;
+        return this.f66935a.intValue() == 1;
     }
 
     public void b(GoodsWin goodsWin) {
-        this.f63220a = goodsWin.show;
-        this.f63221b = goodsWin.goods_url;
+        this.f66935a = goodsWin.show;
+        this.f66936b = goodsWin.goods_url;
     }
 }

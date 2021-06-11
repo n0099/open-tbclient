@@ -29,7 +29,7 @@ import d.a.m0.r.s.a;
 import d.a.n0.e2.f.a.a;
 import d.a.n0.e2.f.a.b;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForbidActivity extends BaseActivity<ForbidActivity> {
     public d mAdapter;
     public d.a.m0.r.s.a mErrorDialog;
@@ -48,7 +48,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     public String mUserNameShow;
     public String mUserPortrait;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements RadioGroup.OnCheckedChangeListener {
         public a() {
         }
@@ -60,12 +60,12 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements b.InterfaceC1250b {
+    /* loaded from: classes5.dex */
+    public class b implements b.InterfaceC1306b {
         public b() {
         }
 
-        @Override // d.a.n0.e2.f.a.b.InterfaceC1250b
+        @Override // d.a.n0.e2.f.a.b.InterfaceC1306b
         public void a(ForbidTplData forbidTplData) {
             if (StringUtils.isNull(forbidTplData.error.errMsg)) {
                 ForbidActivity.this.showToast(R.string.neterror);
@@ -74,7 +74,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             }
         }
 
-        @Override // d.a.n0.e2.f.a.b.InterfaceC1250b
+        @Override // d.a.n0.e2.f.a.b.InterfaceC1306b
         public void b(ForbidTplData forbidTplData) {
             ForbidActivity.this.mForbidIdView.setText(ForbidActivity.this.mUserNameShow);
             int i2 = forbidTplData.type;
@@ -91,16 +91,16 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements a.b {
 
             /* renamed from: com.baidu.tieba.pb.account.forbid.ForbidActivity$c$a$a  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class C0201a implements a.e {
-                public C0201a() {
+            /* loaded from: classes5.dex */
+            public class C0203a implements a.e {
+                public C0203a() {
                 }
 
                 @Override // d.a.m0.r.s.a.e
@@ -136,7 +136,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                             forbidActivity.mErrorDialog = new d.a.m0.r.s.a(forbidActivity.getActivity());
                         }
                         ForbidActivity.this.mErrorDialog.setMessage(str);
-                        ForbidActivity.this.mErrorDialog.setPositiveButton(R.string.know, new C0201a());
+                        ForbidActivity.this.mErrorDialog.setPositiveButton(R.string.know, new C0203a());
                         ForbidActivity.this.mErrorDialog.setCanceledOnTouchOutside(false);
                         ForbidActivity.this.mErrorDialog.create(ForbidActivity.this.getPageContext());
                         ForbidActivity.this.mErrorDialog.show();
@@ -162,38 +162,38 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public String[] f18804e;
+        public String[] f18881e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f18805f = 0;
+        public int f18882f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public View.OnClickListener f18806g = new a();
+        public View.OnClickListener f18883g = new a();
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.f18805f = ((e) view.getTag()).f18810c;
+                d.this.f18882f = ((e) view.getTag()).f18887c;
                 d.this.notifyDataSetChanged();
             }
         }
 
         public d(String[] strArr) {
-            this.f18804e = strArr;
+            this.f18881e = strArr;
         }
 
         public String b() {
             int i2;
-            String[] strArr = this.f18804e;
-            if (strArr == null || (i2 = this.f18805f) >= strArr.length) {
+            String[] strArr = this.f18881e;
+            if (strArr == null || (i2 = this.f18882f) >= strArr.length) {
                 return null;
             }
             return strArr[i2];
@@ -201,7 +201,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
 
         @Override // android.widget.Adapter
         public int getCount() {
-            String[] strArr = this.f18804e;
+            String[] strArr = this.f18881e;
             if (strArr == null) {
                 return 0;
             }
@@ -225,38 +225,38 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.forbid_list_item, (ViewGroup) null);
                 eVar = new e(null);
-                eVar.f18808a = (TextView) view.findViewById(R.id.reason_text);
-                eVar.f18809b = (ImageView) view.findViewById(R.id.check_img);
+                eVar.f18885a = (TextView) view.findViewById(R.id.reason_text);
+                eVar.f18886b = (ImageView) view.findViewById(R.id.check_img);
                 view.setTag(eVar);
-                view.setOnClickListener(this.f18806g);
+                view.setOnClickListener(this.f18883g);
             } else {
                 eVar = (e) view.getTag();
             }
-            eVar.f18810c = i2;
-            eVar.f18808a.setText(this.f18804e[i2]);
-            if (eVar.f18810c == this.f18805f) {
-                SkinManager.setImageResource(eVar.f18809b, R.drawable.icon_found_information_choose);
-                eVar.f18809b.setVisibility(0);
-                SkinManager.setViewTextColor(eVar.f18808a, R.color.common_color_10047, 1);
+            eVar.f18887c = i2;
+            eVar.f18885a.setText(this.f18881e[i2]);
+            if (eVar.f18887c == this.f18882f) {
+                SkinManager.setImageResource(eVar.f18886b, R.drawable.icon_found_information_choose);
+                eVar.f18886b.setVisibility(0);
+                SkinManager.setViewTextColor(eVar.f18885a, R.color.common_color_10047, 1);
             } else {
-                eVar.f18809b.setVisibility(4);
-                SkinManager.setViewTextColor(eVar.f18808a, R.color.common_color_10039, 1);
+                eVar.f18886b.setVisibility(4);
+                SkinManager.setViewTextColor(eVar.f18885a, R.color.common_color_10039, 1);
             }
             return view;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f18808a;
+        public TextView f18885a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f18809b;
+        public ImageView f18886b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f18810c;
+        public int f18887c;
 
         public e() {
         }

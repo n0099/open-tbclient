@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.tieba.service.AsInstallService;
+import com.kwai.video.player.KsMediaMeta;
 import java.util.HashMap;
 import kotlin.text.Typography;
 import org.json.JSONObject;
@@ -12,26 +13,26 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f65137a = {"ab_version", "device_brand", "language", "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", AsInstallService.SCHEME_PACKAGE_ADDED, "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", Constants.KEY_DEVICE_ID, "openudid", "clientudid", "aid"};
+    public static final String[] f68868a = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", AsInstallService.SCHEME_PACKAGE_ADDED, "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", Constants.KEY_DEVICE_ID, "openudid", "clientudid", "aid"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f65138b = {"ab_version", "device_brand", "language", "os_api", "resolution", "google_aid", "build_serial", "carrier", CommonUrlParamManager.PARAM_IID, "app_name", "version_name", "device_type", "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", Constants.KEY_DEVICE_ID, "openudid", "clientudid", "aid"};
+    public static final String[] f68869b = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", CommonUrlParamManager.PARAM_IID, "app_name", "version_name", "device_type", "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", Constants.KEY_DEVICE_ID, "openudid", "clientudid", "aid"};
 
     public static String a(Context context, JSONObject jSONObject, String str, boolean z, d dVar) {
         HashMap<String, String> a2;
         if (TextUtils.isEmpty(str)) {
             return str;
         }
-        HashMap hashMap = new HashMap(f65137a.length + 10);
+        HashMap hashMap = new HashMap(f68868a.length + 10);
         int i2 = 0;
         while (true) {
-            String[] strArr = f65137a;
+            String[] strArr = f68868a;
             if (i2 >= strArr.length) {
                 break;
             }
             String optString = jSONObject.optString(strArr[i2], null);
             if (!TextUtils.isEmpty(optString)) {
-                hashMap.put(f65138b[i2], optString);
+                hashMap.put(f68869b[i2], optString);
             }
             i2++;
         }
@@ -55,8 +56,8 @@ public class y {
         } catch (Exception e3) {
             r0.b(e3);
         }
-        if (a.f64966f.size() > 0) {
-            hashMap.putAll(a.f64966f);
+        if (a.f68697f.size() > 0) {
+            hashMap.putAll(a.f68697f);
         }
         if (z) {
             hashMap.put("ssmix", "a");
@@ -113,7 +114,7 @@ public class y {
         String str = a.h() ? "/service/2/app_log/?tt_data=a" : "/service/2/app_log/?";
         for (int i2 = 0; i2 < x.b().f().length; i2++) {
             strArr[i2] = a(context, jSONObject, x.b().f()[i2] + str, true, a.k());
-            strArr[i2] = x.e(strArr[i2], x.f65127d);
+            strArr[i2] = x.e(strArr[i2], x.f68858d);
         }
         return strArr;
     }

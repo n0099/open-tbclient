@@ -20,17 +20,17 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45745a = k.f43199a;
+    public static final boolean f49419a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f45746b = {31, -117};
+    public static final byte[] f49420b = {31, -117};
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static File a(byte[] bArr, File file) {
         if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
-            byte[] bArr2 = f45746b;
+            byte[] bArr2 = f49420b;
             bArr[0] = bArr2[0];
             bArr[1] = bArr2[1];
             try {
@@ -47,17 +47,17 @@ public class b {
                         }
                         sb.append(readLine);
                     }
-                    if (f45745a) {
+                    if (f49419a) {
                         Log.d("SwanAppCloneModule", "first char:" + sb.charAt(0));
                     }
                     String string = new JSONObject(sb.toString()).getString(d.a.l0.a.x0.a.d.a.l);
-                    if (f45745a) {
+                    if (f49419a) {
                         Log.d("SwanAppCloneModule", string);
                     }
                     byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
                     File file2 = new File(file, d.a.l0.a.x0.a.d.a.l);
                     new FileOutputStream(file2).write(doFinal);
-                    if (f45745a) {
+                    if (f49419a) {
                         Log.d("SwanAppCloneModule", file2.getAbsolutePath());
                     }
                     bufferedReader.close();
@@ -68,7 +68,7 @@ public class b {
                 } finally {
                 }
             } catch (Exception e2) {
-                if (f45745a) {
+                if (f49419a) {
                     e2.printStackTrace();
                 }
             }
@@ -89,7 +89,7 @@ public class b {
             messageDigest.update(bArr);
             return d.S(messageDigest.digest(), "", false);
         } catch (NoSuchAlgorithmException e2) {
-            if (f45745a) {
+            if (f49419a) {
                 e2.printStackTrace();
                 return null;
             }

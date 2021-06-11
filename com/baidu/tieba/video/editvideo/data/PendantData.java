@@ -25,7 +25,7 @@ public class PendantData extends OrmObject {
         this.pendantType = 4;
     }
 
-    public void s() {
+    public void w() {
         if (TextUtils.isEmpty(this.size)) {
             return;
         }

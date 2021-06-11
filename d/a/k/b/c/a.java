@@ -1,7 +1,7 @@
 package d.a.k.b.c;
 
 import com.baidu.cloudbase.download.exception.DownloadException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
     public abstract void onCompleted(String str);
 

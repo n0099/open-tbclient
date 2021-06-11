@@ -19,16 +19,16 @@ public class QuantumChannel extends d.a.q.e.a {
     public static final int k = d.a.q.e.c.a.a(8);
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1788a f6182f;
+    public a.C1846a f6225f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f6183g;
+    public d f6226g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f6184h;
+    public f f6227h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f6185i;
+    public c f6228i;
 
     /* loaded from: classes2.dex */
     public static class b extends Exception {
@@ -49,20 +49,20 @@ public class QuantumChannel extends d.a.q.e.a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f6186a;
+        public String f6229a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6187b;
+        public String f6230b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f6188c;
+        public String f6231c;
 
         public c() {
             d.a.q.g.b.b bVar = new d.a.q.g.b.b();
             try {
-                this.f6186a = new String(bVar.a(d.a.q.e.c.b.e()));
-                this.f6187b = new String(bVar.a(d.a.q.e.c.b.f()));
-                this.f6188c = new String(bVar.a(d.a.q.e.c.b.g()));
+                this.f6229a = new String(bVar.a(d.a.q.e.c.b.e()));
+                this.f6230b = new String(bVar.a(d.a.q.e.c.b.f()));
+                this.f6231c = new String(bVar.a(d.a.q.e.c.b.g()));
             } catch (Exception unused) {
                 throw new IllegalStateException("");
             }
@@ -73,117 +73,117 @@ public class QuantumChannel extends d.a.q.e.a {
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6189a;
+        public int f6232a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f6190b;
+        public long f6233b;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f6192d;
+        public long f6235d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f6193e;
+        public String f6236e;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.a.q.g.c.a.e f6191c = new d.a.q.g.c.a.e();
+        public d.a.q.g.c.a.e f6234c = new d.a.q.g.c.a.e();
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f6194f = true;
+        public boolean f6237f = true;
 
         public d() {
         }
 
         public int a() {
-            return this.f6189a;
+            return this.f6232a;
         }
 
         public void b(int i2) {
-            if (this.f6189a != i2) {
-                this.f6189a = i2;
-                this.f6194f = true;
+            if (this.f6232a != i2) {
+                this.f6232a = i2;
+                this.f6237f = true;
             }
         }
 
         public void c(long j) {
-            if (this.f6190b != j) {
-                this.f6190b = j;
-                this.f6194f = true;
+            if (this.f6233b != j) {
+                this.f6233b = j;
+                this.f6237f = true;
             }
         }
 
         public boolean d(long j, long j2) {
-            if (this.f6191c.c(j, j2)) {
-                this.f6194f = true;
+            if (this.f6234c.c(j, j2)) {
+                this.f6237f = true;
                 return true;
             }
             return false;
         }
 
         public boolean e(String str) {
-            String str2 = this.f6193e;
+            String str2 = this.f6236e;
             if (str2 == str) {
                 return false;
             }
             if (str == null || !str.equals(str2)) {
-                this.f6194f = true;
-                this.f6193e = str;
+                this.f6237f = true;
+                this.f6236e = str;
                 return true;
             }
             return false;
         }
 
         public long f(long j) {
-            return this.f6191c.a(j);
+            return this.f6234c.a(j);
         }
 
         public long g() {
-            return this.f6192d;
+            return this.f6235d;
         }
 
         public boolean h(long j) {
-            if (this.f6192d != j) {
-                this.f6192d = j;
-                this.f6194f = true;
+            if (this.f6235d != j) {
+                this.f6235d = j;
+                this.f6237f = true;
                 return true;
             }
             return false;
         }
 
         public String i() {
-            return this.f6193e;
+            return this.f6236e;
         }
 
         public void j() {
-            String g2 = QuantumChannel.this.f6182f.g("pub.dat", true);
+            String g2 = QuantumChannel.this.f6225f.g("pub.dat", true);
             if (TextUtils.isEmpty(g2)) {
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(g2);
-                this.f6189a = jSONObject.getInt("pub_ver");
-                this.f6190b = jSONObject.getLong("pub_lst_ts");
-                this.f6192d = jSONObject.getLong("pkg_lst_up_ts");
-                this.f6191c.b(jSONObject.getLong("flags"));
+                this.f6232a = jSONObject.getInt("pub_ver");
+                this.f6233b = jSONObject.getLong("pub_lst_ts");
+                this.f6235d = jSONObject.getLong("pkg_lst_up_ts");
+                this.f6234c.b(jSONObject.getLong("flags"));
                 jSONObject.getInt("d_form_ver");
-                this.f6193e = jSONObject.optString("aid");
-                this.f6194f = false;
+                this.f6236e = jSONObject.optString("aid");
+                this.f6237f = false;
             } catch (Exception unused) {
-                this.f6194f = true;
+                this.f6237f = true;
             }
         }
 
         public boolean k() {
-            if (this.f6194f) {
+            if (this.f6237f) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("pub_ver", this.f6189a);
-                    jSONObject.put("pub_lst_ts", this.f6190b);
-                    jSONObject.put("pkg_lst_up_ts", this.f6192d);
-                    jSONObject.put("flags", this.f6191c.d());
+                    jSONObject.put("pub_ver", this.f6232a);
+                    jSONObject.put("pub_lst_ts", this.f6233b);
+                    jSONObject.put("pkg_lst_up_ts", this.f6235d);
+                    jSONObject.put("flags", this.f6234c.d());
                     jSONObject.put("d_form_ver", 1);
-                    jSONObject.put("aid", this.f6193e);
-                    QuantumChannel.this.f6182f.i("pub.dat", jSONObject.toString(), true);
-                    this.f6194f = false;
+                    jSONObject.put("aid", this.f6236e);
+                    QuantumChannel.this.f6225f.i("pub.dat", jSONObject.toString(), true);
+                    this.f6237f = false;
                     return true;
                 } catch (Exception unused) {
                 }
@@ -196,52 +196,52 @@ public class QuantumChannel extends d.a.q.e.a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public a.C1782a f6196a;
+        public a.C1840a f6239a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f6197b;
+        public byte[] f6240b;
 
         /* loaded from: classes2.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public int f6198a = 160;
+            public int f6241a = 160;
 
             /* renamed from: b  reason: collision with root package name */
-            public byte[] f6199b = new byte[160];
+            public byte[] f6242b = new byte[160];
 
             /* renamed from: c  reason: collision with root package name */
-            public int f6200c;
+            public int f6243c;
 
             public a a(byte b2) {
-                c(this.f6200c + 1);
-                byte[] bArr = this.f6199b;
-                int i2 = this.f6200c;
-                this.f6200c = i2 + 1;
+                c(this.f6243c + 1);
+                byte[] bArr = this.f6242b;
+                int i2 = this.f6243c;
+                this.f6243c = i2 + 1;
                 bArr[i2] = b2;
                 return this;
             }
 
             public e b() {
-                return new e(Arrays.copyOf(this.f6199b, this.f6200c));
+                return new e(Arrays.copyOf(this.f6242b, this.f6243c));
             }
 
             public final void c(int i2) {
-                byte[] bArr = this.f6199b;
+                byte[] bArr = this.f6242b;
                 if (i2 - bArr.length > 0) {
                     int length = bArr.length;
                     int i3 = length + (length >> 1);
                     if (i3 - i2 >= 0) {
                         i2 = i3;
                     }
-                    this.f6199b = Arrays.copyOf(this.f6199b, i2);
+                    this.f6242b = Arrays.copyOf(this.f6242b, i2);
                 }
             }
         }
 
         public e(byte[] bArr) {
-            this.f6197b = bArr;
-            this.f6196a = d.a.q.e.c.a.b(bArr);
+            this.f6240b = bArr;
+            this.f6239a = d.a.q.e.c.a.b(bArr);
         }
 
         public static int b(byte b2) {
@@ -275,21 +275,21 @@ public class QuantumChannel extends d.a.q.e.a {
         }
 
         public int a() {
-            return this.f6197b.length;
+            return this.f6240b.length;
         }
 
         public int c(int i2) {
             if (i2 >= 0) {
-                byte[] bArr = this.f6197b;
+                byte[] bArr = this.f6240b;
                 if (i2 < bArr.length) {
                     return b(bArr[i2]);
                 }
             }
-            throw new IllegalArgumentException("illegal index " + i2 + " with current length is " + this.f6197b.length);
+            throw new IllegalArgumentException("illegal index " + i2 + " with current length is " + this.f6240b.length);
         }
 
         public byte[] f() {
-            return this.f6196a.a();
+            return this.f6239a.a();
         }
     }
 
@@ -297,16 +297,16 @@ public class QuantumChannel extends d.a.q.e.a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public Method f6201a;
+        public Method f6244a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f6202b;
+        public Method f6245b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f6203c;
+        public Method f6246c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Class<?> f6204d;
+        public Class<?> f6247d;
 
         public f(Context context) {
             try {
@@ -318,7 +318,7 @@ public class QuantumChannel extends d.a.q.e.a {
 
         public int a(Object obj, Object obj2) {
             try {
-                return ((Integer) this.f6202b.invoke(obj, obj2)).intValue();
+                return ((Integer) this.f6245b.invoke(obj, obj2)).intValue();
             } catch (Exception unused) {
                 throw new d.a("");
             }
@@ -326,7 +326,7 @@ public class QuantumChannel extends d.a.q.e.a {
 
         public Object b(Context context) {
             try {
-                return this.f6203c.invoke(context, new Object[0]);
+                return this.f6246c.invoke(context, new Object[0]);
             } catch (Exception unused) {
                 throw new d.a("");
             }
@@ -334,7 +334,7 @@ public class QuantumChannel extends d.a.q.e.a {
 
         public void c(Object obj, Object obj2, int i2) {
             try {
-                this.f6201a.invoke(obj, obj2, Integer.valueOf(i2), 1);
+                this.f6244a.invoke(obj, obj2, Integer.valueOf(i2), 1);
             } catch (Exception unused) {
                 throw new d.a("");
             }
@@ -342,16 +342,16 @@ public class QuantumChannel extends d.a.q.e.a {
 
         public final void d(Context context) {
             Method d2 = com.baidu.helios.channels.csc.d.d(Context.class, com.baidu.helios.channels.csc.d.c(d.a.q.e.c.b.c()), null);
-            this.f6203c = d2;
+            this.f6246c = d2;
             Object invoke = d2.invoke(context, new Object[0]);
             Intent intent = new Intent();
             intent.setClassName(context.getPackageName(), "");
-            this.f6204d = com.baidu.helios.channels.csc.d.d(intent.getClass(), com.baidu.helios.channels.csc.d.c(d.a.q.e.c.b.d()), null).invoke(intent, new Object[0]).getClass();
+            this.f6247d = com.baidu.helios.channels.csc.d.d(intent.getClass(), com.baidu.helios.channels.csc.d.c(d.a.q.e.c.b.d()), null).invoke(intent, new Object[0]).getClass();
             String c2 = com.baidu.helios.channels.csc.d.c(d.a.q.e.c.b.a());
             Class<?> cls = invoke.getClass();
             Class cls2 = Integer.TYPE;
-            this.f6201a = com.baidu.helios.channels.csc.d.d(cls, c2, new Class[]{this.f6204d, cls2, cls2});
-            this.f6202b = com.baidu.helios.channels.csc.d.d(invoke.getClass(), com.baidu.helios.channels.csc.d.c(d.a.q.e.c.b.b()), new Class[]{this.f6204d});
+            this.f6244a = com.baidu.helios.channels.csc.d.d(cls, c2, new Class[]{this.f6247d, cls2, cls2});
+            this.f6245b = com.baidu.helios.channels.csc.d.d(invoke.getClass(), com.baidu.helios.channels.csc.d.c(d.a.q.e.c.b.b()), new Class[]{this.f6247d});
         }
     }
 
@@ -370,85 +370,85 @@ public class QuantumChannel extends d.a.q.e.a {
     public class h extends a.c {
 
         /* renamed from: d  reason: collision with root package name */
-        public String f6205d;
+        public String f6248d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6206e;
+        public int f6249e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6207f;
+        public long f6250f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f6208g;
+        public String f6251g;
 
         public h(QuantumChannel quantumChannel, String str) {
-            super(quantumChannel.f6182f, str);
+            super(quantumChannel.f6225f, str);
         }
 
         @Override // d.a.q.e.a.c
         public void c(JSONObject jSONObject) {
-            this.f6205d = jSONObject.getString("pkg");
-            this.f6206e = jSONObject.getInt("aid_ver");
-            this.f6207f = jSONObject.getLong("last_fe_ts");
-            this.f6208g = jSONObject.getString("id");
+            this.f6248d = jSONObject.getString("pkg");
+            this.f6249e = jSONObject.getInt("aid_ver");
+            this.f6250f = jSONObject.getLong("last_fe_ts");
+            this.f6251g = jSONObject.getString("id");
             jSONObject.getInt("d_form_ver");
         }
 
         @Override // d.a.q.e.a.c
         public void e(JSONObject jSONObject) {
-            jSONObject.put("pkg", this.f6205d);
-            jSONObject.put("aid_ver", this.f6206e);
-            jSONObject.put("last_fe_ts", this.f6207f);
-            jSONObject.put("id", this.f6208g);
+            jSONObject.put("pkg", this.f6248d);
+            jSONObject.put("aid_ver", this.f6249e);
+            jSONObject.put("last_fe_ts", this.f6250f);
+            jSONObject.put("id", this.f6251g);
             jSONObject.put("d_form_ver", 1);
         }
 
         public String f() {
-            return this.f6205d;
+            return this.f6248d;
         }
 
         public void g(int i2) {
-            if (this.f6206e != i2) {
-                this.f6206e = i2;
+            if (this.f6249e != i2) {
+                this.f6249e = i2;
                 a(true);
             }
         }
 
         public void h(long j) {
-            if (this.f6207f != j) {
-                this.f6207f = j;
+            if (this.f6250f != j) {
+                this.f6250f = j;
                 a(true);
             }
         }
 
         public void i(String str) {
-            if (str.equals(this.f6205d)) {
+            if (str.equals(this.f6248d)) {
                 return;
             }
-            this.f6205d = str;
+            this.f6248d = str;
             a(true);
         }
 
         public int j() {
-            return this.f6206e;
+            return this.f6249e;
         }
 
         public void k(String str) {
-            if (str.equals(this.f6208g)) {
+            if (str.equals(this.f6251g)) {
                 return;
             }
-            this.f6208g = str;
+            this.f6251g = str;
             a(true);
         }
 
         public String l() {
-            return this.f6208g;
+            return this.f6251g;
         }
     }
 
     public QuantumChannel() {
         super("csc", 9000000L);
-        this.f6183g = new d();
+        this.f6226g = new d();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF, IF] complete} */
@@ -456,11 +456,11 @@ public class QuantumChannel extends d.a.q.e.a {
     public a.h b(String str, a.g gVar) {
         h hVar;
         try {
-            Object b2 = this.f6184h.b(this.f64091a.f64095a);
+            Object b2 = this.f6227h.b(this.f67809a.f67813a);
             if (b2 == null) {
                 return a.h.b(-101, null);
             }
-            if (gVar.f64101a) {
+            if (gVar.f67819a) {
                 hVar = new h(this, str);
                 hVar.d();
                 if (str.equals(hVar.f())) {
@@ -486,45 +486,45 @@ public class QuantumChannel extends d.a.q.e.a {
                 try {
                     if (!p(b2, str)) {
                         a.h b3 = a.h.b(-2, null);
-                        if (gVar.f64101a && hVar != null) {
+                        if (gVar.f67819a && hVar != null) {
                             hVar.b();
                         }
                         return b3;
                     }
                     String i2 = d.a.q.h.c.a.i(o(b2, str));
                     int i3 = i(b2, str);
-                    if (gVar.f64101a && hVar != null) {
+                    if (gVar.f67819a && hVar != null) {
                         hVar.k(i2);
                         hVar.i(str);
                         hVar.h(System.currentTimeMillis());
                         hVar.g(i3);
                     }
                     a.h e3 = a.h.e(i2);
-                    if (gVar.f64101a && hVar != null) {
+                    if (gVar.f67819a && hVar != null) {
                         hVar.b();
                     }
                     return e3;
                 } catch (Throwable th) {
-                    if (gVar.f64101a && hVar != null) {
+                    if (gVar.f67819a && hVar != null) {
                         hVar.b();
                     }
                     throw th;
                 }
             } catch (b e4) {
                 a.h c2 = a.h.c(e4);
-                if (gVar.f64101a && hVar != null) {
+                if (gVar.f67819a && hVar != null) {
                     hVar.b();
                 }
                 return c2;
             } catch (g unused3) {
                 a.h a2 = a.h.a(-102);
-                if (gVar.f64101a && hVar != null) {
+                if (gVar.f67819a && hVar != null) {
                     hVar.b();
                 }
                 return a2;
             } catch (d.a unused4) {
                 a.h b4 = a.h.b(-2, null);
-                if (gVar.f64101a && hVar != null) {
+                if (gVar.f67819a && hVar != null) {
                     hVar.b();
                 }
                 return b4;
@@ -536,24 +536,24 @@ public class QuantumChannel extends d.a.q.e.a {
 
     @Override // d.a.q.e.a
     public void e(a.d dVar) {
-        this.f6182f = this.f64092b.f("csc");
-        this.f6184h = new f(this.f64091a.f64095a);
-        this.f6185i = new c();
+        this.f6225f = this.f67810b.f("csc");
+        this.f6227h = new f(this.f67809a.f67813a);
+        this.f6228i = new c();
     }
 
     @Override // d.a.q.e.a
     public a.f f(a.e eVar) {
-        this.f6183g.j();
+        this.f6226g.j();
         try {
             return j(eVar);
         } finally {
-            this.f6183g.k();
+            this.f6226g.k();
         }
     }
 
     public final int h(Object obj, Object obj2) {
         try {
-            return this.f6184h.a(obj, obj2);
+            return this.f6227h.a(obj, obj2);
         } catch (d.a e2) {
             throw e2;
         } catch (Throwable th) {
@@ -579,31 +579,31 @@ public class QuantumChannel extends d.a.q.e.a {
         long j2;
         int i2;
         String i3;
-        Context context = this.f64091a.f64095a;
+        Context context = this.f67809a.f67813a;
         PackageManager packageManager = context.getPackageManager();
         String packageName = context.getPackageName();
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
-            boolean z = packageInfo.lastUpdateTime != this.f6183g.g();
-            this.f6183g.h(packageInfo.lastUpdateTime);
-            if (!z && this.f6183g.f(6L) == 4) {
+            boolean z = packageInfo.lastUpdateTime != this.f6226g.g();
+            this.f6226g.h(packageInfo.lastUpdateTime);
+            if (!z && this.f6226g.f(6L) == 4) {
                 return a.f.b(-101);
             }
-            d.a.q.h.a a2 = this.f64091a.f64097c.a("aid");
+            d.a.q.h.a a2 = this.f67809a.f67815c.a("aid");
             try {
-                Object b2 = this.f6184h.b(context);
+                Object b2 = this.f6227h.b(context);
                 if (b2 == null) {
                     return a.f.b(-102);
                 }
                 try {
                     try {
-                        if (this.f6183g.f(1L) == 1 && (i3 = this.f6183g.i()) != null && i3.equals(a2.c()) && p(b2, packageName)) {
-                            if (this.f6183g.a() == i(b2, packageName)) {
+                        if (this.f6226g.f(1L) == 1 && (i3 = this.f6226g.i()) != null && i3.equals(a2.c()) && p(b2, packageName)) {
+                            if (this.f6226g.a() == i(b2, packageName)) {
                                 return a.f.d();
                             }
                         }
                         byte[] d2 = a2.d();
-                        this.f6183g.e(a2.c());
+                        this.f6226g.e(a2.c());
                         e d3 = e.d(d2, d2.length * 8);
                         try {
                             try {
@@ -614,12 +614,12 @@ public class QuantumChannel extends d.a.q.e.a {
                                     } catch (b unused) {
                                         i2 = -101;
                                         j2 = 4;
-                                        this.f6183g.d(j2, 6L);
+                                        this.f6226g.d(j2, 6L);
                                         return a.f.b(i2);
                                     }
                                 }
                                 int nextInt = new Random().nextInt(255);
-                                this.f6183g.b(nextInt);
+                                this.f6226g.b(nextInt);
                                 byte[] bArr = new byte[1];
                                 for (int i5 = 0; i5 < 1; i5++) {
                                     bArr[i5] = (byte) ((nextInt >> (i5 * 8)) & 255);
@@ -636,17 +636,17 @@ public class QuantumChannel extends d.a.q.e.a {
                                         }
                                         try {
                                             m(b2, k(packageName), 1);
-                                            this.f6183g.c(System.currentTimeMillis());
-                                            this.f6183g.d(1L, 1L);
+                                            this.f6226g.c(System.currentTimeMillis());
+                                            this.f6226g.d(1L, 1L);
                                             return a.f.d();
                                         } catch (b unused2) {
-                                            this.f6183g.d(4L, 6L);
+                                            this.f6226g.d(4L, 6L);
                                             return a.f.b(-101);
                                         } catch (d.a unused3) {
                                             return a.f.b(-102);
                                         }
                                     } catch (b unused4) {
-                                        this.f6183g.d(4L, 6L);
+                                        this.f6226g.d(4L, 6L);
                                         return a.f.b(-101);
                                     } catch (g unused5) {
                                         return a.f.b(-103);
@@ -654,7 +654,7 @@ public class QuantumChannel extends d.a.q.e.a {
                                         return a.f.b(-102);
                                     }
                                 } catch (b unused7) {
-                                    this.f6183g.d(4L, 6L);
+                                    this.f6226g.d(4L, 6L);
                                     return a.f.b(-101);
                                 } catch (d.a unused8) {
                                     return a.f.b(-102);
@@ -670,7 +670,7 @@ public class QuantumChannel extends d.a.q.e.a {
                         return a.f.b(-103);
                     }
                 } catch (b unused12) {
-                    this.f6183g.d(4L, 6L);
+                    this.f6226g.d(4L, 6L);
                     return a.f.b(-101);
                 } catch (g unused13) {
                     m(obj, k(packageName), 0);
@@ -688,7 +688,7 @@ public class QuantumChannel extends d.a.q.e.a {
 
     public final Object k(String str) {
         try {
-            return com.baidu.helios.channels.csc.d.b(this.f6184h.f6204d, new Object[]{str, this.f6185i.f6187b});
+            return com.baidu.helios.channels.csc.d.b(this.f6227h.f6247d, new Object[]{str, this.f6228i.f6230b});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new b("");
@@ -697,8 +697,8 @@ public class QuantumChannel extends d.a.q.e.a {
 
     public final Object l(String str, int i2) {
         try {
-            Class<?> cls = this.f6184h.f6204d;
-            return com.baidu.helios.channels.csc.d.b(cls, new Object[]{str, this.f6185i.f6186a + i2});
+            Class<?> cls = this.f6227h.f6247d;
+            return com.baidu.helios.channels.csc.d.b(cls, new Object[]{str, this.f6228i.f6229a + i2});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new b("");
@@ -707,7 +707,7 @@ public class QuantumChannel extends d.a.q.e.a {
 
     public final void m(Object obj, Object obj2, int i2) {
         try {
-            this.f6184h.c(obj, obj2, i2);
+            this.f6227h.c(obj, obj2, i2);
         } catch (d.a e2) {
             throw e2;
         } catch (Throwable th) {
@@ -717,8 +717,8 @@ public class QuantumChannel extends d.a.q.e.a {
 
     public final Object n(String str, int i2) {
         try {
-            Class<?> cls = this.f6184h.f6204d;
-            return com.baidu.helios.channels.csc.d.b(cls, new Object[]{str, this.f6185i.f6188c + i2});
+            Class<?> cls = this.f6227h.f6247d;
+            return com.baidu.helios.channels.csc.d.b(cls, new Object[]{str, this.f6228i.f6231c + i2});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new b("");

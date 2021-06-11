@@ -1,18 +1,28 @@
 package i.a.a.f;
+
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.AccountDelayMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ConsumeConfirmMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 /* loaded from: classes8.dex */
-public class a implements d.r.b.a.a.g.a {
+public final class a implements IAppPayServiceListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f68943a;
+    public static final a f72254a = new a();
 
-    public static a a() {
-        a aVar;
-        synchronized (a.class) {
-            if (f68943a == null) {
-                f68943a = new a();
-            }
-            aVar = f68943a;
-        }
-        return aVar;
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
+    public void onAccountDelayMessage(AccountDelayMessage accountDelayMessage) {
+        RLog.debug("GiftEventCallbackImpl", "onAccountDelayMessage appId == " + accountDelayMessage.appid);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
+    public void onConsumeConfirmMessage(ConsumeConfirmMessage consumeConfirmMessage) {
+        RLog.debug("GiftEventCallbackImpl", "onConsumeConfirmMessage appId == " + consumeConfirmMessage.appid);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
+    public void onCurrencyChargeMessage(CurrencyChargeMessage currencyChargeMessage) {
+        RLog.debug("GiftEventCallbackImpl", "onCurrencyChargeMessage appId == " + currencyChargeMessage.appid);
     }
 }

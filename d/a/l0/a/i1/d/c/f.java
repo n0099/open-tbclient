@@ -8,19 +8,19 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42881c;
+    public String f46557c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42879a = 3;
+    public int f46555a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42880b = true;
+    public boolean f46556b = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42882d = j.j;
+    public String f46558d = j.j;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42883e = 60;
+    public int f46559e = 60;
 
     public static f a(JSONObject jSONObject) {
         f fVar = new f();
@@ -46,13 +46,13 @@ public class f {
                         i2 |= 2;
                     }
                 }
-                fVar.f42879a = i2;
+                fVar.f46555a = i2;
             }
-            fVar.f42880b = jSONObject.optBoolean("compressed", true);
+            fVar.f46556b = jSONObject.optBoolean("compressed", true);
             int optInt = jSONObject.optInt("maxDuration", 60);
-            fVar.f42883e = optInt <= 60 ? optInt : 60;
-            fVar.f42882d = jSONObject.optString(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
-            fVar.f42881c = jSONObject.optString("cb");
+            fVar.f46559e = optInt <= 60 ? optInt : 60;
+            fVar.f46558d = jSONObject.optString(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
+            fVar.f46557c = jSONObject.optString("cb");
         }
         return fVar;
     }

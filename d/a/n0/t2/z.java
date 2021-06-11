@@ -23,17 +23,17 @@ import tbclient.VideoInfo;
 public class z implements v {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<AdvertAppInfo> f61203a;
+    public List<AdvertAppInfo> f64895a;
 
     @Override // d.a.n0.t2.v
-    public d.a.c.j.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+    public d.a.c.k.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         if (baseFragmentActivity == null) {
             return null;
         }
-        if (bdUniqueId == AdvertAppInfo.d4) {
+        if (bdUniqueId == AdvertAppInfo.g4) {
             return new d.a.n0.t2.b0.f(baseFragmentActivity, bdUniqueId);
         }
-        if (bdUniqueId == AdvertAppInfo.b4) {
+        if (bdUniqueId == AdvertAppInfo.e4) {
             return new d.a.n0.t2.b0.e(baseFragmentActivity, bdUniqueId);
         }
         return null;
@@ -73,11 +73,11 @@ public class z implements v {
     }
 
     @Override // d.a.n0.t2.v
-    public d.a.c.j.e.a<?, ?> h(u uVar, BdUniqueId bdUniqueId) {
+    public d.a.c.k.e.a<?, ?> h(u uVar, BdUniqueId bdUniqueId) {
         if (uVar == null || bdUniqueId == null) {
             return null;
         }
-        if (bdUniqueId == AdvertAppInfo.a4) {
+        if (bdUniqueId == AdvertAppInfo.d4) {
             return new d.a.n0.t2.b0.c(uVar, bdUniqueId);
         }
         return new d.a.n0.t2.b0.d(uVar, bdUniqueId);
@@ -85,7 +85,7 @@ public class z implements v {
 
     @Override // d.a.n0.t2.v
     public void i() {
-        List<AdvertAppInfo> list = this.f61203a;
+        List<AdvertAppInfo> list = this.f64895a;
         if (list != null) {
             StringUtils.string(Integer.valueOf(list.size()));
         }
@@ -93,10 +93,10 @@ public class z implements v {
 
     @Override // d.a.n0.t2.v
     public List<AdvertAppInfo> j() {
-        if (this.f61203a == null) {
-            this.f61203a = new ArrayList();
+        if (this.f64895a == null) {
+            this.f64895a = new ArrayList();
         }
-        return this.f61203a;
+        return this.f64895a;
     }
 
     @Override // d.a.n0.t2.v
@@ -105,7 +105,7 @@ public class z implements v {
         if (advertAppInfo == null) {
             return;
         }
-        AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.O3;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.R3;
         AdCard adCard = null;
         if (iLegoAdvert instanceof AdCard) {
             adCard = (AdCard) iLegoAdvert;
@@ -124,20 +124,20 @@ public class z implements v {
         bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, videoInfo.video_width.intValue() / videoInfo.video_height.intValue());
         bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, videoInfo.video_duration.intValue());
         bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, advertAppInfo.getDownloadId());
-        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, advertAppInfo.N3);
+        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, advertAppInfo.Q3);
         bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, adCard.goodsStyle);
         bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, adCard.scheme);
         d.a.n0.t2.f0.b.f fVar = adCard.tailFrame;
         if (fVar != null) {
-            fVar.f61081e = adCard.getButtonText();
+            fVar.f64773e = adCard.getButtonText();
             bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, adCard.tailFrame.e());
         }
         AdWebVideoActivity.setConfigAndJump(new AdWebVideoActivityConfig(context, "", m, true, true, true, bundle));
     }
 
     @Override // d.a.n0.t2.v
-    public d.a.c.j.e.a<?, ?> l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        if (bdUniqueId == AdvertAppInfo.c4) {
+    public d.a.c.k.e.a<?, ?> l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        if (bdUniqueId == AdvertAppInfo.f4) {
             return new d.a.n0.t2.b0.a(tbPageContext, bdUniqueId, str);
         }
         if (bdUniqueId != null) {

@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.model.message;
 
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JavaExceptionMessage extends ExceptionMessage {
     public static final long serialVersionUID = -2410125079234148135L;
 

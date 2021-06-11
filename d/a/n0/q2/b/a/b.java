@@ -13,22 +13,22 @@ import kotlinx.coroutines.DebugKt;
 public final class b {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f58335e = Pattern.compile(",");
+    public static final Pattern f62026e = Pattern.compile(",");
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f58336a;
+    public final Context f62027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f58337b;
+    public Point f62028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f58338c;
+    public Point f62029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Point f58339d;
+    public Point f62030d;
 
     public b(Context context) {
-        this.f58336a = context;
+        this.f62027a = context;
     }
 
     public static boolean a(Camera camera) {
@@ -37,7 +37,7 @@ public final class b {
 
     public static int b(CharSequence charSequence, int i2) {
         int i3 = 0;
-        for (String str : f58335e.split(charSequence)) {
+        for (String str : f62026e.split(charSequence)) {
             try {
                 double parseDouble = Double.parseDouble(str.trim());
                 int i4 = (int) (10.0d * parseDouble);
@@ -97,14 +97,14 @@ public final class b {
     }
 
     public Point e() {
-        return this.f58338c;
+        return this.f62029c;
     }
 
     public int f() {
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         int i2 = 0;
         Camera.getCameraInfo(0, cameraInfo);
-        int rotation = ((WindowManager) this.f58336a.getSystemService("window")).getDefaultDisplay().getRotation();
+        int rotation = ((WindowManager) this.f62027a.getSystemService("window")).getDefaultDisplay().getRotation();
         if (rotation != 0) {
             if (rotation == 1) {
                 i2 = 90;
@@ -125,30 +125,30 @@ public final class b {
         if (a(camera)) {
             parameters.setFocusMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
         }
-        this.f58337b = a.d(this.f58336a);
+        this.f62028b = a.d(this.f62027a);
         Point point = new Point();
-        Point point2 = this.f58337b;
+        Point point2 = this.f62028b;
         point.x = point2.x;
         point.y = point2.y;
-        int c2 = a.c(this.f58336a);
+        int c2 = a.c(this.f62027a);
         if (c2 == 0) {
-            Point point3 = this.f58337b;
+            Point point3 = this.f62028b;
             point.x = point3.y;
             point.y = point3.x;
         }
         Point g2 = g(parameters, point);
-        this.f58339d = g2;
+        this.f62030d = g2;
         if (c2 == 0) {
-            Point point4 = this.f58339d;
-            this.f58338c = new Point(point4.y, point4.x);
+            Point point4 = this.f62030d;
+            this.f62029c = new Point(point4.y, point4.x);
             return;
         }
-        this.f58338c = g2;
+        this.f62029c = g2;
     }
 
     public void i(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        Point point = this.f58339d;
+        Point point = this.f62030d;
         parameters.setPreviewSize(point.x, point.y);
         j(parameters);
         camera.setDisplayOrientation(f());

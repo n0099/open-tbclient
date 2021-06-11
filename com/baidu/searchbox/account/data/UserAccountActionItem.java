@@ -85,9 +85,9 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             }
             if (!TextUtils.isEmpty(this.mSrc)) {
                 if (!TextUtils.isEmpty(this.mSubSrc)) {
-                    jSONObject.put(KEY_SRC, this.mSrc + "_" + this.mSubSrc);
+                    jSONObject.put("src", this.mSrc + "_" + this.mSubSrc);
                 } else {
-                    jSONObject.put(KEY_SRC, this.mSrc);
+                    jSONObject.put("src", this.mSrc);
                 }
             }
             return jSONObject;
@@ -172,8 +172,8 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             if (jSONObject.has("type")) {
                 this.mType = jSONObject.getString("type");
             }
-            if (jSONObject.has(KEY_SRC)) {
-                this.mSrc = jSONObject.getString(KEY_SRC);
+            if (jSONObject.has("src")) {
+                this.mSrc = jSONObject.getString("src");
             }
             if (jSONObject.has(KEY_SUB_SRC)) {
                 this.mSubSrc = jSONObject.getString(KEY_SUB_SRC);

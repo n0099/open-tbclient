@@ -1,26 +1,26 @@
 package com.meizu.cloud.pushsdk.b.a;
 
 import com.meizu.cloud.pushsdk.b.c.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f34568a;
+    public final T f38247a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.meizu.cloud.pushsdk.b.b.a f34569b;
+    public final com.meizu.cloud.pushsdk.b.b.a f38248b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f34570c;
+    public k f38249c;
 
     public c(com.meizu.cloud.pushsdk.b.b.a aVar) {
-        this.f34568a = null;
-        this.f34569b = aVar;
+        this.f38247a = null;
+        this.f38248b = aVar;
     }
 
     public c(T t) {
-        this.f34568a = t;
-        this.f34569b = null;
+        this.f38247a = t;
+        this.f38248b = null;
     }
 
     public static <T> c<T> a(com.meizu.cloud.pushsdk.b.b.a aVar) {
@@ -32,18 +32,18 @@ public class c<T> {
     }
 
     public T a() {
-        return this.f34568a;
+        return this.f38247a;
     }
 
     public void a(k kVar) {
-        this.f34570c = kVar;
+        this.f38249c = kVar;
     }
 
     public boolean b() {
-        return this.f34569b == null;
+        return this.f38248b == null;
     }
 
     public com.meizu.cloud.pushsdk.b.b.a c() {
-        return this.f34569b;
+        return this.f38248b;
     }
 }

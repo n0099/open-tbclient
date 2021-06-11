@@ -7,36 +7,36 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes4.dex */
-public class c extends d.a.c.j.e.a<d.a.n0.v.j.d.f, CardViewHolder<d.a.n0.v.j.h.b>> {
+public class c extends d.a.c.k.e.a<d.a.n0.v.j.d.f, CardViewHolder<d.a.n0.v.j.h.b>> {
     public TbPageContext m;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.v.j.d.f f62015e;
+        public final /* synthetic */ d.a.n0.v.j.d.f f65730e;
 
         public a(d.a.n0.v.j.d.f fVar) {
-            this.f62015e = fVar;
+            this.f65730e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.f0(this.f62015e);
+            c.this.g0(this.f65730e);
         }
     }
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.a.n0.v.j.d.f.f62062f);
+        super(tbPageContext.getPageActivity(), d.a.n0.v.j.d.f.f65777f);
         this.m = tbPageContext;
     }
 
-    public final void f0(d.a.n0.v.j.d.f fVar) {
-        d.a.n0.v.j.d.c h2;
-        if (fVar == null || (h2 = fVar.h()) == null || h2.b() == null) {
+    public final void g0(d.a.n0.v.j.d.f fVar) {
+        d.a.n0.v.j.d.c c2;
+        if (fVar == null || (c2 = fVar.c()) == null || c2.b() == null) {
             return;
         }
-        if (!h2.c()) {
+        if (!c2.c()) {
             TiebaStatic.log("c11864");
         } else {
             TiebaStatic.log("c11857");
@@ -52,22 +52,22 @@ public class c extends d.a.c.j.e.a<d.a.n0.v.j.d.f, CardViewHolder<d.a.n0.v.j.h.b
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public CardViewHolder<d.a.n0.v.j.h.b> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public CardViewHolder<d.a.n0.v.j.h.b> Q(ViewGroup viewGroup) {
         return new CardViewHolder<>(new d.a.n0.v.j.h.b(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.v.j.d.f fVar, CardViewHolder<d.a.n0.v.j.h.b> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.v.j.d.f fVar, CardViewHolder<d.a.n0.v.j.h.b> cardViewHolder) {
         if (cardViewHolder.b() == null) {
             return null;
         }
-        cardViewHolder.b().m(fVar);
-        cardViewHolder.b().n(this.m, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.b().n(fVar);
+        cardViewHolder.b().o(this.m, TbadkCoreApplication.getInst().getSkinType());
         cardViewHolder.b().o.setOnClickListener(new a(fVar));
-        return cardViewHolder.b().l();
+        return cardViewHolder.b().m();
     }
 }

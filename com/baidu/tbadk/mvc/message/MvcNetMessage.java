@@ -17,7 +17,7 @@ public class MvcNetMessage<T extends g, D extends h> extends NetMessage {
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        return this.requestData.c(z);
+        return this.requestData.e(z);
     }
 
     public T getRequestData() {

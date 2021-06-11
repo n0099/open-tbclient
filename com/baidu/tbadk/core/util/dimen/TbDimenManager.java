@@ -93,6 +93,11 @@ public class TbDimenManager {
         this.mApplication.registerActivityLifecycleCallbacks(tbDimenAdaptActivityLifecycle);
     }
 
+    public boolean needAdapt() {
+        float f2 = this.mDefaultDensity;
+        return ((double) f2) > 2.5d && f2 < 3.0f;
+    }
+
     public void adaptDimen(Context context) {
         DisplayMetrics metrics = getMetrics(context);
         DisplayMetrics metrics2 = getMetrics(this.mApplication);

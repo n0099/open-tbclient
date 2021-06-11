@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.livecard.holder.FrsPageAlaVideoHolder;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import d.a.c.j.e.s;
+import d.a.c.k.e.s;
 import d.a.m0.r.q.a2;
 import d.a.m0.r.q.z1;
 import d.a.n0.r0.k;
@@ -63,51 +63,51 @@ public class f extends k<z1, FrsPageAlaVideoHolder> implements z, d.a.n0.o.f {
     }
 
     @Override // d.a.n0.r0.k, d.a.n0.z.y
-    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super.n(tbPageContext, bdUniqueId);
+    public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super.o(tbPageContext, bdUniqueId);
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: u0 */
-    public FrsPageAlaVideoHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: v0 */
+    public FrsPageAlaVideoHolder Q(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
         if (tbPageContext == null) {
             return null;
         }
-        d.a.n0.v.i.e.e eVar = new d.a.n0.v.i.e.e(tbPageContext, this.f39232i);
+        d.a.n0.v.i.e.e eVar = new d.a.n0.v.i.e.e(tbPageContext, this.f42913i);
         this.w = eVar;
-        eVar.V(this.f39232i);
+        eVar.V(this.f42913i);
         this.w.a(this.x);
-        this.w.o(this.z);
+        this.w.p(this.z);
         return new FrsPageAlaVideoHolder(this.w);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: v0 */
-    public View W(int i2, View view, ViewGroup viewGroup, z1 z1Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: w0 */
+    public View X(int i2, View view, ViewGroup viewGroup, z1 z1Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         TiebaStatic.log("c11842");
         CustomMessage customMessage = new CustomMessage(2921017);
         FrsViewData frsViewData = this.n;
         int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
         a2 a2Var = z1Var.w;
-        a2Var.N1 = (i2 + 1) - topThreadSize;
+        a2Var.O1 = (i2 + 1) - topThreadSize;
         customMessage.setData(a2Var);
         this.o.sendMessage(customMessage);
         if (z1Var != null) {
-            d.a.n0.v.i.e.e eVar = frsPageAlaVideoHolder.f14004a;
+            d.a.n0.v.i.e.e eVar = frsPageAlaVideoHolder.f14061a;
             if (eVar instanceof d.a.n0.o.e) {
                 eVar.setPage(this.y);
             }
-            frsPageAlaVideoHolder.f14004a.a(this.x);
-            frsPageAlaVideoHolder.f14004a.W(g0());
-            frsPageAlaVideoHolder.f14004a.m(z1Var.w);
-            z1Var.w.B4();
+            frsPageAlaVideoHolder.f14061a.a(this.x);
+            frsPageAlaVideoHolder.f14061a.X(h0());
+            frsPageAlaVideoHolder.f14061a.n(z1Var.w);
+            z1Var.w.C4();
         }
         this.q = (s) viewGroup;
         return frsPageAlaVideoHolder.a();

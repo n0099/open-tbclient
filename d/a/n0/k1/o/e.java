@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SparseIntArray f56638a = new SparseIntArray();
+    public static final SparseIntArray f60327a = new SparseIntArray();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<BdUniqueId> f56639b = new SparseArray<>();
+    public static final SparseArray<BdUniqueId> f60328b = new SparseArray<>();
 
     public e() {
         c();

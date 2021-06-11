@@ -8,25 +8,25 @@ import android.widget.MediaController;
 public class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaController.MediaPlayerControl f56853c;
+    public MediaController.MediaPlayerControl f60542c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f56854d;
+    public b f60543d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f56855e;
+    public d f60544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f56856f;
+    public c f60545f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f56851a = 1000;
+    public int f60540a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56852b = 0;
+    public int f60541b = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f56857g = new a(Looper.getMainLooper());
+    public Handler f60546g = new a(Looper.getMainLooper());
 
     /* loaded from: classes5.dex */
     public class a extends Handler {
@@ -36,22 +36,22 @@ public class f {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message == null || message.what != 1 || f.this.f56853c == null || !f.this.f56853c.isPlaying()) {
+            if (message == null || message.what != 1 || f.this.f60542c == null || !f.this.f60542c.isPlaying()) {
                 return;
             }
-            int currentPosition = f.this.f56853c.getCurrentPosition();
-            int duration = f.this.f56853c.getDuration();
-            if (currentPosition < f.this.f56852b) {
-                if (f.this.f56854d != null) {
-                    f.this.f56854d.a();
+            int currentPosition = f.this.f60542c.getCurrentPosition();
+            int duration = f.this.f60542c.getDuration();
+            if (currentPosition < f.this.f60541b) {
+                if (f.this.f60543d != null) {
+                    f.this.f60543d.a();
                 }
-            } else if (currentPosition == f.this.f56852b && f.this.f56855e != null) {
-                f.this.f56855e.a();
+            } else if (currentPosition == f.this.f60541b && f.this.f60544e != null) {
+                f.this.f60544e.a();
             }
-            if (f.this.f56856f != null) {
-                f.this.f56856f.a(duration, currentPosition);
+            if (f.this.f60545f != null) {
+                f.this.f60545f.a(duration, currentPosition);
             }
-            f.this.f56852b = currentPosition;
+            f.this.f60541b = currentPosition;
             f.this.h();
         }
     }
@@ -72,33 +72,33 @@ public class f {
     }
 
     public final void h() {
-        this.f56857g.removeMessages(1);
-        Handler handler = this.f56857g;
-        handler.sendMessageDelayed(handler.obtainMessage(1), this.f56851a);
+        this.f60546g.removeMessages(1);
+        Handler handler = this.f60546g;
+        handler.sendMessageDelayed(handler.obtainMessage(1), this.f60540a);
     }
 
     public void i(b bVar) {
-        this.f56854d = bVar;
+        this.f60543d = bVar;
     }
 
     public void j(c cVar) {
-        this.f56856f = cVar;
+        this.f60545f = cVar;
     }
 
     public void k(d dVar) {
-        this.f56855e = dVar;
+        this.f60544e = dVar;
     }
 
     public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.f56853c = mediaPlayerControl;
+        this.f60542c = mediaPlayerControl;
     }
 
     public void m() {
-        this.f56852b = 0;
+        this.f60541b = 0;
         h();
     }
 
     public void n() {
-        this.f56857g.removeMessages(1);
+        this.f60546g.removeMessages(1);
     }
 }

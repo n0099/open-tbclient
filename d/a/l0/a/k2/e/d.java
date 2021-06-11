@@ -26,7 +26,7 @@ public class d extends a0 {
                 return false;
             }
             String M = d.a.l0.a.k2.b.M(optParamsAsJo.optString("filePath"), d.a.l0.a.a2.e.V());
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
                 Log.d("GetSavedFileInfoAction", "——> handle: filePath " + M);
             }
@@ -39,7 +39,7 @@ public class d extends a0 {
             if (h2 == null) {
                 d.a.l0.a.e0.d.b("getSavedFile", "file info is null");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, d.a.l0.a.c2.b.a(2001)));
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("GetSavedFileInfoAction", "——> handle: file not exist");
                 }
                 return false;
@@ -48,7 +48,7 @@ public class d extends a0 {
             try {
                 jSONObject.put("createTime", Math.round((float) (h2.a() / 1000)));
                 jSONObject.put("size", h2.c());
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get("createTime") + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
@@ -57,7 +57,7 @@ public class d extends a0 {
                 d.a.l0.a.e0.d.l("getSavedFile", "file info to json fail");
                 e2.printStackTrace();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, d.a.l0.a.c2.b.a(2003)));
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("GetSavedFileInfoAction", "——> handle: jsonException ");
                 }
                 return false;

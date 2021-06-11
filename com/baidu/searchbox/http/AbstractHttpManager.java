@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.searchbox.http.RequestHandler;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.request.DeleteRequest;
@@ -228,7 +227,7 @@ public abstract class AbstractHttpManager {
     public OkHttpClient initClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         try {
-            builder.connectTimeout(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS).readTimeout(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS).writeTimeout(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(10, 5L, TimeUnit.MINUTES));
+            builder.connectTimeout(30000L, TimeUnit.MILLISECONDS).readTimeout(30000L, TimeUnit.MILLISECONDS).writeTimeout(30000L, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(10, 5L, TimeUnit.MINUTES));
             if (this.sHttpDns != null && (this.sHttpDns instanceof Dns)) {
                 builder.dns((Dns) this.sHttpDns);
             }

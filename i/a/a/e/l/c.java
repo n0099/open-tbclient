@@ -1,22 +1,26 @@
 package i.a.a.e.l;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 /* loaded from: classes8.dex */
 public class c {
-    public static void a(Context context, View view) {
-        if (context == null || view == null) {
-            return;
-        }
-        ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+    /* renamed from: a  reason: collision with root package name */
+    public PayType f72159a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f72160b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f72161c;
+
+    public c(PayType payType, String str, String str2) {
+        this.f72160b = "";
+        this.f72159a = payType;
+        this.f72160b = str;
+        this.f72161c = str2;
     }
 
-    public static void b(Activity activity, View view) {
-        if (view == null && (view = activity.getCurrentFocus()) == null) {
-            return;
-        }
-        ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view, 1);
+    public String a() {
+        return this.f72160b;
     }
 }

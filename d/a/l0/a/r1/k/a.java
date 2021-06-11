@@ -3,54 +3,54 @@ package d.a.l0.a.r1.k;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44460a;
+    public String f48134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f44461b;
+    public long f48135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f44462c;
+    public long f48136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44463d = 0;
+    public int f48137d = 0;
 
     public String a() {
-        return this.f44460a;
+        return this.f48134a;
     }
 
     public int b() {
-        return this.f44463d;
+        return this.f48137d;
     }
 
     public long c() {
-        return this.f44462c - this.f44461b;
+        return this.f48136c - this.f48135b;
     }
 
     public long d() {
-        return this.f44462c;
+        return this.f48136c;
     }
 
     public long e() {
-        return this.f44461b;
+        return this.f48135b;
     }
 
     public void f(String str) {
-        this.f44460a = str;
+        this.f48134a = str;
     }
 
     public void g(int i2) {
-        this.f44463d = i2;
+        this.f48137d = i2;
     }
 
     public void h(long j) {
-        this.f44462c = j;
+        this.f48136c = j;
     }
 
     public void i(long j) {
-        this.f44461b = j;
+        this.f48135b = j;
     }
 
     public String toString() {
-        return "ApiCalledInfo{mApiName='" + this.f44460a + "', mStart=" + this.f44461b + ", mEnd=" + this.f44462c + ", cost = " + (this.f44462c - this.f44461b) + "ms}";
+        return "ApiCalledInfo{mApiName='" + this.f48134a + "', mStart=" + this.f48135b + ", mEnd=" + this.f48136c + ", cost = " + (this.f48136c - this.f48135b) + "ms}";
     }
 }

@@ -15,22 +15,22 @@ public class MsgMultiImageTextView extends e {
 
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_multi_pictext_view);
-        B();
+        F();
     }
 
-    public final void B() {
-        this.f54344h = (TextView) d(R.id.tex_msgitem_time);
+    public final void F() {
+        this.f58033h = (TextView) d(R.id.tex_msgitem_time);
         this.t = (MultiContentView) d(R.id.msg_content);
     }
 
-    public void F(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
+    public void G(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage == null) {
             return;
         }
-        w(chatMessage);
-        List<a.C1318a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-        this.t.setPosition(this.f54342f);
-        this.t.setOnItemViewLongClickListener(this.f54339c);
+        x(chatMessage);
+        List<a.C1374a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        this.t.setPosition(this.f58031f);
+        this.t.setOnItemViewLongClickListener(this.f58028c);
         this.t.setNeedNightMode(true);
         this.t.setType(1);
         this.t.setData(tbPageContext, b2, view);

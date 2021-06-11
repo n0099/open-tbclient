@@ -19,26 +19,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class a {
-    public static final boolean p = k.f43199a;
+    public static final boolean p = k.f46875a;
     public static final Map<String, a> q = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Activity f41765a;
+    public final Activity f45441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41766b;
+    public final String f45442b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f41767c;
+    public final String f45443c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41768d;
+    public boolean f45444d;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f41771g;
+    public JSONObject f45447g;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.l0.a.a2.e f41773i;
+    public d.a.l0.a.a2.e f45449i;
     public final d.a.l0.a.q2.a j;
     public boolean k;
     public boolean l;
@@ -47,27 +47,27 @@ public final class a {
     public final d.a.l0.a.v2.d1.a o;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<d.a.l0.a.v2.e1.b<a>> f41769e = new HashSet();
+    public final Set<d.a.l0.a.v2.e1.b<a>> f45445e = new HashSet();
 
     /* renamed from: f  reason: collision with root package name */
-    public TaskState f41770f = TaskState.INIT;
+    public TaskState f45446f = TaskState.INIT;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41772h = false;
+    public boolean f45448h = false;
 
     /* renamed from: d.a.l0.a.e2.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0624a implements Runnable {
-        public RunnableC0624a() {
+    public class RunnableC0680a implements Runnable {
+        public RunnableC0680a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            synchronized (a.this.f41769e) {
-                for (d.a.l0.a.v2.e1.b bVar : a.this.f41769e) {
+            synchronized (a.this.f45445e) {
+                for (d.a.l0.a.v2.e1.b bVar : a.this.f45445e) {
                     bVar.onCallback(a.this);
                 }
-                a.this.f41769e.clear();
+                a.this.f45445e.clear();
             }
         }
     }
@@ -95,10 +95,10 @@ public final class a {
             JSONObject jSONObject;
             JSONObject jSONObject2;
             int i2;
-            if (iVar != null && iVar.c() && (jSONObject = iVar.f41736a) != null) {
+            if (iVar != null && iVar.c() && (jSONObject = iVar.f45412a) != null) {
                 d.a.l0.a.e0.d.a("OpenData", "opendata=", jSONObject);
-                a.this.j.b(iVar.f41736a.optInt("errno", 10001));
-                a.this.j.e(iVar.f41736a.optString("errmsg", "internal error"));
+                a.this.j.b(iVar.f45412a.optInt("errno", 10001));
+                a.this.j.e(iVar.f45412a.optString("errmsg", "internal error"));
                 if (0 != a.this.j.g()) {
                     d.a.l0.a.e2.c.d.j("by errno", Boolean.TRUE);
                     a.this.j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
@@ -106,7 +106,7 @@ public final class a {
                     a.this.z(10001);
                     return;
                 }
-                JSONObject optJSONObject = iVar.f41736a.optJSONObject("data");
+                JSONObject optJSONObject = iVar.f45412a.optJSONObject("data");
                 if (optJSONObject == null) {
                     d.a.l0.a.e2.c.d.j("by data parse", Boolean.TRUE);
                     a.this.j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
@@ -122,8 +122,8 @@ public final class a {
                     a.this.z(10001);
                     return;
                 }
-                a.this.f41771g = optJSONObject.optJSONObject("opendata");
-                if (!a.this.f41768d && (i2 = e2.j) < 0) {
+                a.this.f45447g = optJSONObject.optJSONObject("opendata");
+                if (!a.this.f45444d && (i2 = e2.j) < 0) {
                     if (i2 == -2) {
                         a.this.j.b(LightappBusinessClient.SVC_ID_H5_SECURITCENTER);
                     } else {
@@ -133,23 +133,23 @@ public final class a {
                     a.this.B();
                     return;
                 } else if (e2.j > 0) {
-                    if (!a.this.f41772h || !TextUtils.equals(e2.f41695b, "mobile") || (jSONObject2 = a.this.f41771g) == null || jSONObject2.optInt("errno") != 1129) {
+                    if (!a.this.f45448h || !TextUtils.equals(e2.f45371b, "mobile") || (jSONObject2 = a.this.f45447g) == null || jSONObject2.optInt("errno") != 1129) {
                         a.this.B();
                         return;
                     } else {
                         a.this.w(e2, false);
                         return;
                     }
-                } else if (!a.this.f41773i.d0()) {
-                    if (!a.this.f41772h && e2.c()) {
-                        if (!TextUtils.equals(e2.f41695b, "mobile") || d.a.l0.a.s.a.f.f44582d.f()) {
+                } else if (!a.this.f45449i.d0()) {
+                    if (!a.this.f45448h && e2.c()) {
+                        if (!TextUtils.equals(e2.f45371b, "mobile") || d.a.l0.a.s.a.f.f48256d.f()) {
                             a.this.G();
                         } else {
                             a.this.H();
                         }
                         d.a.l0.a.j2.k.N(a.this.n, "phoneNumberLogin");
                         return;
-                    } else if (TextUtils.equals(e2.f41695b, "mobile")) {
+                    } else if (TextUtils.equals(e2.f45371b, "mobile")) {
                         a.this.v(e2);
                         return;
                     } else {
@@ -174,26 +174,26 @@ public final class a {
     public class d implements n.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.c.f f41777a;
+        public final /* synthetic */ d.a.l0.a.e2.c.f f45453a;
 
         public d(d.a.l0.a.e2.c.f fVar) {
-            this.f41777a = fVar;
+            this.f45453a = fVar;
         }
 
         @Override // d.a.l0.a.p.d.n.c
         public void a(boolean z) {
             d.a.l0.a.e0.d.g("OpenData", "checkPhoneNumberStatus onSuccess isBind = " + z + ". needAuth = true");
             if (z) {
-                a.this.L(this.f41777a);
+                a.this.L(this.f45453a);
             } else {
-                a.this.w(this.f41777a, true);
+                a.this.w(this.f45453a, true);
             }
         }
 
         @Override // d.a.l0.a.p.d.n.c
         public void b() {
             d.a.l0.a.e0.d.g("OpenData", "checkPhoneNumberStatus onFail. needAuth = true");
-            a.this.L(this.f41777a);
+            a.this.L(this.f45453a);
         }
     }
 
@@ -201,20 +201,20 @@ public final class a {
     public class e implements n.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f41779a;
+        public final /* synthetic */ boolean f45455a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.c.f f41780b;
+        public final /* synthetic */ d.a.l0.a.e2.c.f f45456b;
 
         /* renamed from: d.a.l0.a.e2.d.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0625a implements n.c {
-            public C0625a() {
+        public class C0681a implements n.c {
+            public C0681a() {
             }
 
             @Override // d.a.l0.a.p.d.n.c
             public void a(boolean z) {
-                d.a.l0.a.e0.d.g("OpenData", "bindPhoneNumber check onSuccess isBind =" + z + ". needAuth = " + e.this.f41779a);
+                d.a.l0.a.e0.d.g("OpenData", "bindPhoneNumber check onSuccess isBind =" + z + ". needAuth = " + e.this.f45455a);
                 if (z) {
                     a.this.m = true;
                     a.this.K();
@@ -226,10 +226,10 @@ public final class a {
 
             @Override // d.a.l0.a.p.d.n.c
             public void b() {
-                d.a.l0.a.e0.d.g("OpenData", "bindPhoneNumber check onFail. needAuth = " + e.this.f41779a);
+                d.a.l0.a.e0.d.g("OpenData", "bindPhoneNumber check onFail. needAuth = " + e.this.f45455a);
                 e eVar = e.this;
-                if (eVar.f41779a) {
-                    a.this.L(eVar.f41780b);
+                if (eVar.f45455a) {
+                    a.this.L(eVar.f45456b);
                 } else {
                     a.this.B();
                 }
@@ -237,14 +237,14 @@ public final class a {
         }
 
         public e(boolean z, d.a.l0.a.e2.c.f fVar) {
-            this.f41779a = z;
-            this.f41780b = fVar;
+            this.f45455a = z;
+            this.f45456b = fVar;
         }
 
         @Override // d.a.l0.a.p.d.n.a
         public void onFinish() {
-            d.a.l0.a.e0.d.g("OpenData", "bindPhoneNumber onFinish. needAuth = " + this.f41779a);
-            d.a.l0.a.c1.a.a0().g(new C0625a());
+            d.a.l0.a.e0.d.g("OpenData", "bindPhoneNumber onFinish. needAuth = " + this.f45455a);
+            d.a.l0.a.c1.a.a0().g(new C0681a());
         }
     }
 
@@ -280,7 +280,7 @@ public final class a {
                 a.this.B();
             } else {
                 d.a.l0.a.e2.c.d.j("Login Preparation ok, is already login", Boolean.FALSE);
-                a.this.f41772h = true;
+                a.this.f45448h = true;
                 a.this.l = true;
                 a.this.K();
             }
@@ -305,7 +305,7 @@ public final class a {
                 a.this.B();
             } else {
                 d.a.l0.a.e2.c.d.j("Login Preparation ok, is already login", Boolean.FALSE);
-                a.this.f41772h = true;
+                a.this.f45448h = true;
                 a.this.K();
             }
         }
@@ -315,10 +315,10 @@ public final class a {
     public class i implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<a.b>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f41786e;
+        public final /* synthetic */ boolean f45462e;
 
         public i(boolean z) {
-            this.f41786e = z;
+            this.f45462e = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -326,11 +326,11 @@ public final class a {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<a.b> iVar) {
             a.b bVar;
-            if (!this.f41786e && !a.this.k) {
+            if (!this.f45462e && !a.this.k) {
                 a.this.B();
-            } else if (iVar != null && iVar.c() && (bVar = iVar.f41736a) != null && bVar.f41741c != null) {
+            } else if (iVar != null && iVar.c() && (bVar = iVar.f45412a) != null && bVar.f45417c != null) {
                 a aVar = a.this;
-                aVar.f41771g = bVar.f41741c;
+                aVar.f45447g = bVar.f45417c;
                 aVar.B();
             } else {
                 d.a.l0.a.q2.a aVar2 = a.this.j;
@@ -370,10 +370,10 @@ public final class a {
         this.l = false;
         this.m = false;
         this.o = new b();
-        this.f41765a = activity;
-        this.f41766b = str;
-        this.f41767c = str2;
-        this.f41768d = z;
+        this.f45441a = activity;
+        this.f45442b = str;
+        this.f45443c = str2;
+        this.f45444d = z;
         this.n = str3;
     }
 
@@ -425,8 +425,8 @@ public final class a {
             jSONObject.put("appid", Q.getAppId());
             jSONObject.put("msg", d.a.l0.a.e2.c.d.f(i2));
             if (fVar != null) {
-                jSONObject.put("scope", fVar.f41695b);
-                jSONObject.put("scopeData", fVar.f41694a);
+                jSONObject.put("scope", fVar.f45371b);
+                jSONObject.put("scopeData", fVar.f45370a);
             }
         } catch (JSONException e2) {
             if (p) {
@@ -440,30 +440,30 @@ public final class a {
     public final void B() {
         this.o.a();
         synchronized (q) {
-            q.remove(D(this.f41766b, this.f41768d));
+            q.remove(D(this.f45442b, this.f45444d));
         }
-        this.f41770f = TaskState.FINISHED;
-        if (this.f41771g == null && 0 == this.j.a()) {
-            if (this.f41772h) {
+        this.f45446f = TaskState.FINISHED;
+        if (this.f45447g == null && 0 == this.j.a()) {
+            if (this.f45448h) {
                 this.j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
             } else {
                 this.j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
             }
         }
         d.a.l0.a.e0.d.g("OpenData", "onFinish" + toString());
-        d.a.l0.a.e2.c.d.k(new RunnableC0624a());
+        d.a.l0.a.e2.c.d.k(new RunnableC0680a());
     }
 
     public boolean E() {
-        return TaskState.FINISHED == this.f41770f && 0 == this.j.a() && this.f41771g != null;
+        return TaskState.FINISHED == this.f45446f && 0 == this.j.a() && this.f45447g != null;
     }
 
     public boolean F() {
-        return TaskState.FINISHED == this.f41770f && this.f41771g != null;
+        return TaskState.FINISHED == this.f45446f && this.f45447g != null;
     }
 
     public final void G() {
-        this.f41773i.j().f(this.f41765a, null, new h());
+        this.f45449i.j().f(this.f45441a, null, new h());
     }
 
     public final void H() {
@@ -471,19 +471,19 @@ public final class a {
     }
 
     public final void I() {
-        this.f41772h = this.f41773i.j().e(this.f41765a);
+        this.f45448h = this.f45449i.j().e(this.f45441a);
         K();
     }
 
     public final void J(boolean z) {
-        if (TextUtils.isEmpty(this.f41767c)) {
-            d.a.l0.a.e2.c.j.a a2 = d.a.l0.a.a2.d.g().y().a().b().a(this.f41765a, z, this.f41766b, this.f41767c);
+        if (TextUtils.isEmpty(this.f45443c)) {
+            d.a.l0.a.e2.c.j.a a2 = d.a.l0.a.a2.d.g().y().a().b().a(this.f45441a, z, this.f45442b, this.f45443c);
             a2.r(this.n);
             a2.p(new i(z));
             a2.a();
             return;
         }
-        d.a.l0.a.e2.c.j.b d2 = d.a.l0.a.a2.d.g().y().a().b().d(this.f41765a, true, z, new String[]{this.f41766b}, this.f41767c, true);
+        d.a.l0.a.e2.c.j.b d2 = d.a.l0.a.a2.d.g().y().a().b().d(this.f45441a, true, z, new String[]{this.f45442b}, this.f45443c, true);
         d2.r(this.n);
         d2.p(new j());
         d2.a();
@@ -491,23 +491,23 @@ public final class a {
 
     public final void K() {
         d.a.l0.a.j2.k.N(this.n, "requestOpenData");
-        d.a.l0.a.e2.c.j.g c2 = d.a.l0.a.a2.d.g().y().a().b().c(this.f41765a, this.f41766b, this.f41767c, this.f41768d, this.f41772h);
+        d.a.l0.a.e2.c.j.g c2 = d.a.l0.a.a2.d.g().y().a().b().c(this.f45441a, this.f45442b, this.f45443c, this.f45444d, this.f45448h);
         c2.r(this.n);
         c2.p(new c());
         c2.a();
     }
 
     public final void L(@NonNull d.a.l0.a.e2.c.f fVar) {
-        d.a.l0.a.e2.c.d.t(this.f41765a, this.f41773i, fVar, this.f41771g, new f());
+        d.a.l0.a.e2.c.d.t(this.f45441a, this.f45449i, fVar, this.f45447g, new f());
     }
 
     public final void M(d.a.l0.a.v2.e1.b<a> bVar) {
-        d.a.l0.a.e0.d.g("OpenData", "start session : " + this.f41766b);
-        this.f41770f = TaskState.CALLING;
-        this.k = TextUtils.equals(this.f41766b, "snsapi_userinfo");
+        d.a.l0.a.e0.d.g("OpenData", "start session : " + this.f45442b);
+        this.f45446f = TaskState.CALLING;
+        this.k = TextUtils.equals(this.f45442b, "snsapi_userinfo");
         u(bVar);
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
-        this.f41773i = i2;
+        this.f45449i = i2;
         if (i2 == null) {
             d.a.l0.a.e2.c.d.j("SwanApp is null", Boolean.TRUE);
             this.j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
@@ -515,17 +515,17 @@ public final class a {
             z(10001);
             return;
         }
-        i2.T().f41568f.d(this.o);
+        i2.T().f45244f.d(this.o);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s(%s) isResultOK(%s) %s\n", "OpenData", this.f41766b, Boolean.valueOf(E()), super.toString()));
+        sb.append(String.format(Locale.getDefault(), "%s(%s) isResultOK(%s) %s\n", "OpenData", this.f45442b, Boolean.valueOf(E()), super.toString()));
         sb.append(String.format(Locale.getDefault(), "Err(%s)\n", this.j));
-        if (this.f41771g != null) {
-            sb.append(String.format(Locale.getDefault(), "Data(%s)\n", this.f41771g));
+        if (this.f45447g != null) {
+            sb.append(String.format(Locale.getDefault(), "Data(%s)\n", this.f45447g));
         }
-        sb.append(String.format(Locale.getDefault(), "state=%s\n", this.f41770f));
+        sb.append(String.format(Locale.getDefault(), "state=%s\n", this.f45446f));
         return sb.toString();
     }
 
@@ -533,8 +533,8 @@ public final class a {
         if (bVar == null) {
             return this;
         }
-        synchronized (this.f41769e) {
-            this.f41769e.add(bVar);
+        synchronized (this.f45445e) {
+            this.f45445e.add(bVar);
         }
         return this;
     }
@@ -558,6 +558,6 @@ public final class a {
     }
 
     public final void z(int i2) {
-        A(i2, d.a.l0.a.e2.c.f.d(this.f41766b, new JSONObject()));
+        A(i2, d.a.l0.a.e2.c.f.d(this.f45442b, new JSONObject()));
     }
 }

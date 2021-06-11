@@ -13,21 +13,21 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34761a = "";
+    public static String f38440a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34762b = "";
+    public static String f38441b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f34762b)) {
-            f34762b = !a() ? c(context) : d(context);
-            return f34762b;
+        if (TextUtils.isEmpty(f38441b)) {
+            f38441b = !a() ? c(context) : d(context);
+            return f38441b;
         }
-        return f34762b;
+        return f38441b;
     }
 
     public static String a(String str) {
@@ -73,7 +73,7 @@ public class c {
         String str;
         WifiInfo connectionInfo;
         String macAddress;
-        if (TextUtils.isEmpty(f34761a)) {
+        if (TextUtils.isEmpty(f38440a)) {
             try {
                 str = null;
             } catch (Exception unused) {
@@ -85,8 +85,8 @@ public class c {
                     macAddress = connectionInfo.getMacAddress();
                     str = macAddress;
                 }
-                f34761a = str;
-                return f34761a;
+                f38440a = str;
+                return f38440a;
             }
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager != null) {
@@ -102,12 +102,12 @@ public class c {
                     str = macAddress;
                 }
             }
-            f34761a = str;
-            return f34761a;
+            f38440a = str;
+            return f38440a;
             d.j.a.a.a.b("DeviceUtils", "get address exception ");
-            return f34761a;
+            return f38440a;
         }
-        return f34761a;
+        return f38440a;
     }
 
     public static String c(Context context) {
@@ -128,6 +128,6 @@ public class c {
 
     public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.f34744a ? (String) a2.f34745b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.f38423a ? (String) a2.f38424b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

@@ -5,6 +5,7 @@ import android.util.Log;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
+import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -56,7 +57,7 @@ public class a {
             JSONArray jSONArray2 = new JSONArray((Collection) this.S);
             jSONObject.put("msg", this.C);
             jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.R);
-            jSONObject.put("ttl", this.B);
+            jSONObject.put(ResultTB.TTL, this.B);
             jSONObject.put("cachetime", this.D);
             jSONObject.put("ip", jSONArray);
             jSONObject.put(HttpDnsCacheForHost.JSON_KEY_IPV6, jSONArray2);
@@ -90,7 +91,7 @@ public class a {
             JSONObject jSONObject = new JSONObject(this.T);
             this.C = jSONObject.optString("msg", "error");
             this.R = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-            this.B = jSONObject.optInt("ttl", -1);
+            this.B = jSONObject.optInt(ResultTB.TTL, -1);
             this.D = jSONObject.optLong("cachetime", -1L);
             JSONArray optJSONArray = jSONObject.optJSONArray("ip");
             this.m = new ArrayList(optJSONArray.length());

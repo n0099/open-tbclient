@@ -14,10 +14,10 @@ import d.a.c.e.p.l;
 import d.a.m0.d.c;
 import d.a.m0.d.d;
 import d.a.m0.d.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonListActivityStatic {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements e {
         @Override // d.a.m0.d.e
         public View a(Context context) {

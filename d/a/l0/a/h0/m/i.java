@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class i extends l {
-    public static final boolean p = d.a.l0.a.k.f43199a;
+    public static final boolean p = d.a.l0.a.k.f46875a;
     public final boolean o;
 
     public i(d.a.l0.a.v2.e1.b<Exception> bVar) {
@@ -19,12 +19,12 @@ public class i extends l {
     @Override // d.a.l0.n.f.g
     public Map<String, String> A() {
         Map<String, String> A = super.A();
-        if (this.o && d.a.l0.n.j.i.l.f48154a) {
+        if (this.o && d.a.l0.n.j.i.l.f51828a) {
             if (A == null) {
                 A = new HashMap<>();
             }
             A.put("hb_type", "1");
-            A.put("lastsynctime", String.valueOf(d.a.l0.n.j.i.l.f48156c));
+            A.put("lastsynctime", String.valueOf(d.a.l0.n.j.i.l.f51830c));
             A.put("SWAN-TIMEOUT-SETTING", String.valueOf(d.a.l0.n.j.i.l.b(60) * 1000));
         }
         return A;
@@ -60,10 +60,10 @@ public class i extends l {
             return aVar;
         }
         d.a.l0.a.p0.g.a aVar2 = new d.a.l0.a.p0.g.a();
-        aVar2.f44089b = bVar.f48014i;
-        aVar2.f44088a = bVar.j;
-        aVar2.f44090c = bVar.f48006a;
-        aVar2.f44091d = bVar.m;
+        aVar2.f47763b = bVar.f51688i;
+        aVar2.f47762a = bVar.j;
+        aVar2.f47764c = bVar.f51680a;
+        aVar2.f47765d = bVar.m;
         if (d.a.l0.a.p0.b.b(0, aVar2) == null) {
             if (p) {
                 Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
@@ -111,7 +111,7 @@ public class i extends l {
         }
         a.b c2 = d.a.l0.a.m2.f.a.c(dVar, 0);
         d.a.l0.a.e0.d.h("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c2);
-        d.a.l0.t.d.j(dVar.f48006a);
+        d.a.l0.t.d.j(dVar.f51680a);
         if (c2.c()) {
             long e2 = d.a.l0.a.m2.f.a.e(0);
             if (e2 > 0) {

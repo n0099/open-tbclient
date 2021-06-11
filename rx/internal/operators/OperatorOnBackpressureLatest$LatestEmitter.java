@@ -7,7 +7,7 @@ import h.k;
 import h.o.a.q;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements f, k, e<T> {
     public static final Object EMPTY = new Object();
     public static final long NOT_REQUESTED = -4611686018427387904L;

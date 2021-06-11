@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.a.c.e.p.j;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.k1.o.l.k;
 import d.a.n0.r0.i1.g;
 import java.util.ArrayList;
@@ -21,19 +21,19 @@ import java.util.List;
 public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
 
     /* renamed from: e  reason: collision with root package name */
-    public e f59376e;
+    public e f63067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.d.l.a f59377f;
+    public d.a.d.l.a f63068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.j.e.a f59378g;
+    public d.a.c.k.e.a f63069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f59379h;
+    public TbPageContext f63070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeRecyclerView f59380i;
+    public BdTypeRecyclerView f63071i;
     public String l;
     public boolean m;
     public String q;
@@ -43,7 +43,7 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
     public BdUniqueId u;
     public RecyclerView.SmoothScroller v;
     public List<n> j = new ArrayList();
-    public final List<d.a.c.j.e.a> k = new ArrayList();
+    public final List<d.a.c.k.e.a> k = new ArrayList();
     public boolean n = false;
     public int o = -1;
     public int p = -1;
@@ -72,9 +72,9 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
 
     public f(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, c cVar, boolean z, String str, String str2, BdUniqueId bdUniqueId) {
         this.m = false;
-        this.f59379h = tbPageContext;
+        this.f63070h = tbPageContext;
         this.u = bdUniqueId;
-        this.f59380i = bdTypeRecyclerView;
+        this.f63071i = bdTypeRecyclerView;
         this.m = z;
         this.r = cVar;
         this.l = str;
@@ -83,8 +83,8 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
     }
 
     public void A() {
-        this.f59376e.z0();
-        this.f59377f.s0();
+        this.f63067e.A0();
+        this.f63068f.s0();
     }
 
     public void B(d.a.n0.r0.i1.g gVar) {
@@ -138,7 +138,7 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
                     i4++;
                 }
             }
-            if ((this.j.get(i2) instanceof d.a.n0.r0.i1.g) && str.equals(((d.a.n0.r0.i1.g) this.j.get(i2)).m())) {
+            if ((this.j.get(i2) instanceof d.a.n0.r0.i1.g) && str.equals(((d.a.n0.r0.i1.g) this.j.get(i2)).i())) {
                 z = true;
                 i6 = i2;
             }
@@ -169,7 +169,7 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
         }
         this.o = i2;
         this.p = i2;
-        if (ListUtils.isEmpty(this.j) || this.f59380i == null) {
+        if (ListUtils.isEmpty(this.j) || this.f63071i == null) {
             return;
         }
         for (n nVar : this.j) {
@@ -234,28 +234,28 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
     }
 
     public final void j() {
-        this.f59376e = new e(this.f59379h, this, this.r, this.m, this.l, this.q, this, this.u, this, this);
-        this.f59377f = new d.a.d.l.a(this.f59379h, d.a.d.b.f39527b, this, this.r, this);
-        this.f59378g = new d.a.d.l.b(this.f59379h, d.a.d.b.f39526a);
-        this.k.add(this.f59376e);
-        this.k.add(this.f59378g);
-        this.k.add(this.f59377f);
-        this.f59380i.a(this.k);
+        this.f63067e = new e(this.f63070h, this, this.r, this.m, this.l, this.q, this, this.u, this, this);
+        this.f63068f = new d.a.d.l.a(this.f63070h, d.a.d.b.f43208b, this, this.r, this);
+        this.f63069g = new d.a.d.l.b(this.f63070h, d.a.d.b.f43207a);
+        this.k.add(this.f63067e);
+        this.k.add(this.f63069g);
+        this.k.add(this.f63068f);
+        this.f63071i.a(this.k);
     }
 
     public boolean k() {
-        return this.f59376e.n0() || this.f59377f.h0();
+        return this.f63067e.m0() || this.f63068f.i0();
     }
 
     public final boolean l(n nVar) {
-        d.a.d.e l;
+        d.a.d.e g2;
         if (nVar == null) {
             return false;
         }
         if (nVar instanceof d.a.n0.r0.i1.g) {
             return true;
         }
-        return (!(nVar instanceof d.a.d.d) || (l = ((d.a.d.d) nVar).l()) == null || l.f39537a) ? false : true;
+        return (!(nVar instanceof d.a.d.d) || (g2 = ((d.a.d.d) nVar).g()) == null || g2.f43218a) ? false : true;
     }
 
     public boolean m(int i2) {
@@ -266,7 +266,7 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
     }
 
     public boolean n() {
-        return this.f59376e.p0();
+        return this.f63067e.p0();
     }
 
     public void o(String str, boolean z) {
@@ -276,36 +276,36 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
             return;
         }
         for (n nVar : this.j) {
-            if (nVar != null && (nVar instanceof d.a.n0.r0.i1.g) && (bVar = (gVar = (d.a.n0.r0.i1.g) nVar).y) != null && str.equals(bVar.f58700a)) {
-                gVar.y.f58704e = z;
+            if (nVar != null && (nVar instanceof d.a.n0.r0.i1.g) && (bVar = (gVar = (d.a.n0.r0.i1.g) nVar).y) != null && str.equals(bVar.f62391a)) {
+                gVar.y.f62395e = z;
             }
         }
     }
 
     public void p() {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f59380i;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f63071i;
         if (bdTypeRecyclerView == null || bdTypeRecyclerView.getListAdapter() == null) {
             return;
         }
-        this.f59380i.getListAdapter().notifyDataSetChanged();
+        this.f63071i.getListAdapter().notifyDataSetChanged();
     }
 
     public void q(Configuration configuration) {
-        this.f59376e.q0(configuration);
+        this.f63067e.q0(configuration);
     }
 
     public void r() {
-        this.f59376e.onDestroy();
-        this.f59377f.n0();
+        this.f63067e.onDestroy();
+        this.f63068f.m0();
     }
 
     public boolean s(int i2) {
-        return this.f59376e.u0(i2);
+        return this.f63067e.v0(i2);
     }
 
     public void t() {
-        this.f59376e.v0();
-        this.f59377f.q0();
+        this.f63067e.w0();
+        this.f63068f.q0();
     }
 
     public final void u() {
@@ -316,7 +316,7 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
     }
 
     public void v() {
-        this.f59376e.w0();
+        this.f63067e.x0();
     }
 
     public void w(List<BaseCardInfo> list, boolean z) {
@@ -327,9 +327,9 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
         this.j.addAll(list);
         if (this.n) {
             this.n = false;
-            this.f59380i.setData(this.j);
+            this.f63071i.setData(this.j);
         } else {
-            this.f59380i.setDataWithPartChange(this.j, size, list.size());
+            this.f63071i.setDataWithPartChange(this.j, size, list.size());
         }
         if (list.size() > 0 && this.m && z) {
             u();
@@ -361,13 +361,13 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
     }
 
     public void x(boolean z) {
-        this.f59376e.x0(z);
+        this.f63067e.y0(z);
     }
 
     public void y(int i2) {
         this.o = i2;
         this.p = i2;
-        if (ListUtils.isEmpty(this.j) || this.f59380i == null) {
+        if (ListUtils.isEmpty(this.j) || this.f63071i == null) {
             return;
         }
         for (n nVar : this.j) {
@@ -390,10 +390,10 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
                     iVar2.setWaitConfirm(false);
                 }
                 if (this.v == null) {
-                    this.v = new a(this, this.f59379h.getContext());
+                    this.v = new a(this, this.f63070h.getContext());
                 }
-                this.v.setTargetPosition(i2 + this.f59380i.getHeaderViewsCount() + i3);
-                this.f59380i.getLayoutManager().startSmoothScroll(this.v);
+                this.v.setTargetPosition(i2 + this.f63071i.getHeaderViewsCount() + i3);
+                this.f63071i.getLayoutManager().startSmoothScroll(this.v);
                 p();
             }
         } else if (this.o == this.j.size() - 1 && (this.j.get(this.o) instanceof d.a.n0.k1.o.l.i)) {
@@ -409,6 +409,6 @@ public class f implements d.a.n0.r0.i1.a, d.a.n0.k1.o.l.f, b, d.a.n0.k1.o.l.g {
     }
 
     public void z() {
-        this.f59376e.y0();
+        this.f63067e.z0();
     }
 }

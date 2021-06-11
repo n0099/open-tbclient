@@ -56,10 +56,10 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
 
     public void setData(a2 a2Var) {
         String str;
-        if (a2Var == null || a2Var.r1() == null) {
+        if (a2Var == null || a2Var.s1() == null) {
             return;
         }
-        AlaUserInfoData alaUserInfoData = a2Var.r1().user_info;
+        AlaUserInfoData alaUserInfoData = a2Var.s1().user_info;
         if (a2Var.T() != null) {
             str = a2Var.T().getName_show();
         } else {
@@ -69,10 +69,10 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             str = i0.m(str, 10) + StringHelper.STRING_MORE;
         }
         if (alaUserInfoData != null) {
-            this.alaCardUserHeadImg.V(alaUserInfoData.portrait, 28, false);
+            this.alaCardUserHeadImg.U(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(a2Var.r1().audience_count)));
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(a2Var.s1().audience_count)));
     }
 
     public void setUserHeadImgVisible(int i2) {

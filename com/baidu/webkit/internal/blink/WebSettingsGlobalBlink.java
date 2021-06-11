@@ -113,7 +113,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static String PREF_NAME_MULTIPROCESS = "zeus_preferences_multiprocess";
     public static String PREF_KEY_RENDER_CRASHES = "zeus_render_crashes";
     public static String PREF_KEY_MULTIPROCESS_DISABLED = "zeus_multiprocess_disabled";
-    public static long RENDER_CRASH_LOG_TIMEOUT = VideoCloudSetting.HOUR_MILLISECOND;
+    public static long RENDER_CRASH_LOG_TIMEOUT = 3600000;
     public static int MAX_RENDER_CRASH_COUNT = 3;
 
     public static String GetCloudSettingsValue(String str) {

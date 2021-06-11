@@ -114,7 +114,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Message<?> message;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f12576c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(PushDialogActivity.this.getPageContext().getUniqueId()) || updateAttentionMessage.getData().f12574a) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f12638c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(PushDialogActivity.this.getPageContext().getUniqueId()) || updateAttentionMessage.getData().f12636a) {
                     return;
                 }
                 d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(PushDialogActivity.this);
@@ -245,7 +245,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         @Override // d.a.c.e.k.c
         /* renamed from: f */
         public void b(GifView gifView) {
-            gifView.n0();
+            gifView.l0();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -256,9 +256,9 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         public GifView h(GifView gifView) {
-            gifView.s0();
+            gifView.q0();
             gifView.setImageDrawable(null);
-            gifView.t0();
+            gifView.s0();
             gifView.setBackgroundDrawable(null);
             return gifView;
         }
@@ -288,7 +288,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         public View e(View view) {
-            ((PlayVoiceBntNew) view).l();
+            ((PlayVoiceBntNew) view).m();
             return view;
         }
 
@@ -296,7 +296,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         @Override // d.a.c.e.k.c
         /* renamed from: f */
         public void b(View view) {
-            ((PlayVoiceBntNew) view).k();
+            ((PlayVoiceBntNew) view).l();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -309,7 +309,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         public View h(View view) {
-            ((PlayVoiceBntNew) view).k();
+            ((PlayVoiceBntNew) view).l();
             return view;
         }
     }
@@ -499,7 +499,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.lifeSequence = str;
         TiebaStatic.eventStat(this, "push_dialog", str);
         super.onCreate(bundle);
-        this.screenLockUtils = d.a.n0.v2.a.j().f62310d;
+        this.screenLockUtils = d.a.n0.v2.a.j().f66025d;
         if (this.mCancelController == null) {
             this.mCancelController = new d.a.n0.m3.b();
         }
@@ -568,7 +568,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         if (z && aVar != null) {
             d.a.n0.p2.c cVar = this.mView;
             if (cVar != null) {
-                cVar.i(aVar);
+                cVar.j(aVar);
                 TiebaStatic.log(new StatisticItem("c13197").param("tid", getTid()));
                 TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 2).param("obj_source", this.mModel.c() != 0 ? 2 : 1).param("tid", getTid()));
                 return;
@@ -584,7 +584,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.lifeSequence = str;
         TiebaStatic.eventStat(this, "push_dialog", str);
         super.onPause();
-        this.mView.g();
+        this.mView.h();
     }
 
     public void onPhoneClicked(Context context, String str, String str2) {
@@ -596,7 +596,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.lifeSequence = str;
         TiebaStatic.eventStat(this, "push_dialog", str);
         super.onResume();
-        this.mView.h();
+        this.mView.i();
     }
 
     public void onSongClicked(Context context, String str) {

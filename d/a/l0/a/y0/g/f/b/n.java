@@ -15,6 +15,6 @@ public class n extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
     /* renamed from: e */
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.g.h.b bVar) {
         d(bVar, command.what, null, true);
-        bVar.W();
+        bVar.T();
     }
 }

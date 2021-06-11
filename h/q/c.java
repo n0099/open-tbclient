@@ -7,25 +7,25 @@ import rx.exceptions.OnCompletedFailedException;
 import rx.exceptions.OnErrorFailedException;
 import rx.exceptions.OnErrorNotImplementedException;
 import rx.exceptions.UnsubscribeFailedException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c<T> extends j<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final j<? super T> f68720e;
+    public final j<? super T> f71976e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f68721f;
+    public boolean f71977f;
 
     public c(j<? super T> jVar) {
         super(jVar);
-        this.f68720e = jVar;
+        this.f71976e = jVar;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void b(Throwable th) {
         h.r.f.c().b().a(th);
         try {
-            this.f68720e.onError(th);
+            this.f71976e.onError(th);
             try {
                 unsubscribe();
             } catch (Throwable th2) {
@@ -57,12 +57,12 @@ public class c<T> extends j<T> {
     @Override // h.e
     public void onCompleted() {
         UnsubscribeFailedException unsubscribeFailedException;
-        if (this.f68721f) {
+        if (this.f71977f) {
             return;
         }
-        this.f68721f = true;
+        this.f71977f = true;
         try {
-            this.f68720e.onCompleted();
+            this.f71976e.onCompleted();
             try {
                 unsubscribe();
             } finally {
@@ -85,20 +85,20 @@ public class c<T> extends j<T> {
     @Override // h.e
     public void onError(Throwable th) {
         h.m.a.e(th);
-        if (this.f68721f) {
+        if (this.f71977f) {
             return;
         }
-        this.f68721f = true;
+        this.f71977f = true;
         b(th);
     }
 
     @Override // h.e
     public void onNext(T t) {
         try {
-            if (this.f68721f) {
+            if (this.f71977f) {
                 return;
             }
-            this.f68720e.onNext(t);
+            this.f71976e.onNext(t);
         } catch (Throwable th) {
             h.m.a.f(th, this);
         }

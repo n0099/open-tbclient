@@ -21,25 +21,25 @@ import rx.schedulers.Schedulers;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f50990a;
+    public static JSONObject f54667a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<Long> f50991b = new ArrayList<>();
+    public static ArrayList<Long> f54668b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f50992c = new Hashtable<>();
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f54669c = new Hashtable<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f50993d = true;
+    public static boolean f54670d = true;
 
     /* loaded from: classes3.dex */
     public static class a implements h.n.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f50994e;
+        public final /* synthetic */ String f54671e;
 
         public a(String str) {
-            this.f50994e = str;
+            this.f54671e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +47,7 @@ public class d {
         /* renamed from: a */
         public void call(String str) {
             String p = d.a.m0.r.d0.b.j().p("old_sniff_url", "");
-            if (TextUtils.isEmpty(this.f50994e) || this.f50994e.equals(p)) {
+            if (TextUtils.isEmpty(this.f54671e) || this.f54671e.equals(p)) {
                 d.q(false);
                 return;
             }
@@ -55,7 +55,7 @@ public class d {
             if (!file.exists()) {
                 file.mkdir();
             }
-            if (d.a.m0.z0.b.c().a(new File(file, "sniff.json"), this.f50994e) > 0) {
+            if (d.a.m0.z0.b.c().a(new File(file, "sniff.json"), this.f54671e) > 0) {
                 d.a.m0.r.d0.b.j().x("old_sniff_url", "");
             }
             d.q(true);
@@ -66,17 +66,17 @@ public class d {
     public static class b implements h.n.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f50995e;
+        public final /* synthetic */ boolean f54672e;
 
         public b(boolean z) {
-            this.f50995e = z;
+            this.f54672e = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(String str) {
-            if (d.f50990a == null || this.f50995e) {
+            if (d.f54667a == null || this.f54672e) {
                 d.h();
             }
             d.p();
@@ -87,19 +87,19 @@ public class d {
     public static class c<X, Y> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final X f50996a;
+        public final X f54673a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Y f50997b;
+        public final Y f54674b;
 
         public c(X x, Y y) {
-            this.f50996a = x;
-            this.f50997b = y;
+            this.f54673a = x;
+            this.f54674b = y;
         }
     }
 
     public static String e() {
-        if (f50991b.size() > 0) {
+        if (f54668b.size() > 0) {
             return j();
         }
         return g();
@@ -121,7 +121,7 @@ public class d {
             for (String str : p.split(",")) {
                 arrayList.add(Long.valueOf(str));
             }
-            f50991b = arrayList;
+            f54668b = arrayList;
         } else {
             q(false);
         }
@@ -139,7 +139,7 @@ public class d {
                 }
                 synchronized (d.class) {
                     try {
-                        f50990a = new JSONObject(readFileData);
+                        f54667a = new JSONObject(readFileData);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -153,7 +153,7 @@ public class d {
     }
 
     public static String j() {
-        ArrayList<Long> arrayList = f50991b;
+        ArrayList<Long> arrayList = f54668b;
         if (arrayList == null || arrayList.size() == 0) {
             return "";
         }
@@ -166,14 +166,14 @@ public class d {
     }
 
     public static void k(int i2, int i3) {
-        ArrayList<Long> arrayList = f50991b;
+        ArrayList<Long> arrayList = f54668b;
         if (i2 < arrayList.size()) {
             arrayList.set(i2, Long.valueOf(arrayList.get(i2).longValue() | (1 << i3)));
         }
     }
 
     public static void l(int i2, int i3) {
-        ArrayList<Long> arrayList = f50991b;
+        ArrayList<Long> arrayList = f54668b;
         if (i2 < arrayList.size()) {
             arrayList.set(i2, Long.valueOf(arrayList.get(i2).longValue() & (~(1 << i3))));
         }
@@ -188,7 +188,7 @@ public class d {
     }
 
     public static void o(int i2, JSONArray jSONArray) {
-        if (i2 >= f50991b.size()) {
+        if (i2 >= f54668b.size()) {
             Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
             return;
         }
@@ -199,12 +199,12 @@ public class d {
             String optString = jSONArray.optString(i3);
             i3++;
             c<Integer, Integer> cVar = new c<>(Integer.valueOf(i2), Integer.valueOf(i3));
-            ArrayList<c<Integer, Integer>> arrayList = f50992c.get(optString);
+            ArrayList<c<Integer, Integer>> arrayList = f54669c.get(optString);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(cVar);
-            f50992c.put(optString, arrayList);
+            f54669c.put(optString, arrayList);
             f(packageManager, optString, i2, i3);
         }
         n(i2);
@@ -213,30 +213,30 @@ public class d {
 
     public static void p() {
         JSONArray optJSONArray;
-        JSONObject jSONObject = f50990a;
+        JSONObject jSONObject = f54667a;
         if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
             return;
         }
         int length = optJSONArray.length();
-        int size = f50991b.size();
+        int size = f54668b.size();
         ArrayList<Long> arrayList = new ArrayList<>();
         for (int i2 = 0; i2 < length; i2++) {
             if (i2 < size) {
-                arrayList.add(f50991b.get(i2));
+                arrayList.add(f54668b.get(i2));
             } else {
                 arrayList.add(0L);
             }
         }
-        f50991b = arrayList;
+        f54668b = arrayList;
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject == null) {
                 return;
             }
-            r(i3, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f50993d);
+            r(i3, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f54670d);
         }
-        if (f50993d) {
-            f50993d = false;
+        if (f54670d) {
+            f54670d = false;
         }
     }
 
@@ -268,7 +268,7 @@ public class d {
         }
         String substring = intent.getDataString().length() > 8 ? intent.getDataString().substring(8) : "";
         String action = intent.getAction();
-        ArrayList<c<Integer, Integer>> arrayList = f50992c.get(substring);
+        ArrayList<c<Integer, Integer>> arrayList = f54669c.get(substring);
         if (arrayList == null || arrayList.size() == 0) {
             return;
         }
@@ -276,8 +276,8 @@ public class d {
         while (it.hasNext()) {
             c<Integer, Integer> next = it.next();
             if (next != null) {
-                int intValue = next.f50996a.intValue();
-                int intValue2 = next.f50997b.intValue();
+                int intValue = next.f54673a.intValue();
+                int intValue2 = next.f54674b.intValue();
                 if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
                     k(intValue, intValue2);
                 } else {

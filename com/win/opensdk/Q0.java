@@ -12,37 +12,37 @@ import org.json.JSONObject;
 public class Q0 {
 
     /* renamed from: a */
-    public static String f36917a = "https://pp.xdplt.com/";
+    public static String f40596a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f36918b = f36917a + "behavior?";
+    public static final String f40597b = f40596a + "behavior?";
 
     /* renamed from: c */
-    public static final String f36919c = f36917a + "report?";
+    public static final String f40598c = f40596a + "report?";
 
     /* renamed from: d */
-    public static String f36920d = "https://cd.xdplt.com/";
+    public static String f40599d = "https://cd.xdplt.com/";
 
     /* renamed from: e */
-    public static String f36921e = "jy/da?";
+    public static String f40600e = "jy/da?";
 
     /* renamed from: f */
-    public static String f36922f = "?";
+    public static String f40601f = "?";
 
     /* renamed from: g */
-    public static String f36923g = "jy/da?";
+    public static String f40602g = "jy/da?";
 
     /* renamed from: h */
-    public static String f36924h = "jy/da?";
+    public static String f40603h = "jy/da?";
 
     /* renamed from: i */
-    public static String f36925i = "jy/da?";
+    public static String f40604i = "jy/da?";
 
     public static /* synthetic */ void a(P0 p0) {
         String str;
         if (p0 != null) {
-            str = p0.f36893c;
-            if (TextUtils.isEmpty(str) || p0.f36891a == null || TextUtils.isEmpty(p0.f36892b)) {
+            str = p0.f40572c;
+            if (TextUtils.isEmpty(str) || p0.f40570a == null || TextUtils.isEmpty(p0.f40571b)) {
                 return;
             }
             u1.a(new O0(p0));
@@ -54,8 +54,8 @@ public class Q0 {
             try {
                 if (jSONObject.length() != 0) {
                     w wVar = new w();
-                    wVar.f37156c = jSONObject.optString("traceid", "");
-                    wVar.f37155b = jSONObject.optString("pid", "");
+                    wVar.f40835c = jSONObject.optString("traceid", "");
+                    wVar.f40834b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -64,7 +64,7 @@ public class Q0 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(wVar.f37156c);
+                                info.setTraceid(wVar.f40835c);
                                 info.setPid(wVar.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString("load", ""));
@@ -120,7 +120,7 @@ public class Q0 {
                             }
                         }
                     }
-                    wVar.f37154a = arrayList;
+                    wVar.f40833a = arrayList;
                     return wVar;
                 }
             } catch (Exception unused) {
@@ -130,8 +130,16 @@ public class Q0 {
     }
 
     public static /* synthetic */ void a(P0 p0, HashMap hashMap) {
-        if (p0.f36892b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
-            hashMap.put("lo_timeout", String.valueOf(s1.d(p0.f36891a)));
+        if (p0.f40571b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+            hashMap.put("lo_timeout", String.valueOf(s1.d(p0.f40570a)));
+            float a2 = s1.a(p0.f40570a, "splash_width", 0.0f);
+            if (a2 > 0.0f) {
+                hashMap.put("sp_w", String.valueOf(a2));
+            }
+            float a3 = s1.a(p0.f40570a, "splash_height", 0.0f);
+            if (a3 > 0.0f) {
+                hashMap.put("sp_h", String.valueOf(a3));
+            }
         }
     }
 }

@@ -18,13 +18,13 @@ import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
 /* loaded from: classes3.dex */
 public class f extends g.f {
-    public static final boolean k = k.f43199a;
+    public static final boolean k = k.f46875a;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.a.l0.n.h.e f40693h;
+    public final d.a.l0.n.h.e f44369h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.a.l0.n.f.d f40694i;
+    public final d.a.l0.n.f.d f44370i;
     public d.a.l0.a.n2.g.b j;
 
     /* loaded from: classes3.dex */
@@ -40,8 +40,8 @@ public class f extends g.f {
 
     public f(d.a.l0.n.h.e eVar, d.a.l0.n.f.d dVar) {
         super("extract");
-        this.f40693h = eVar;
-        this.f40694i = dVar;
+        this.f44369h = eVar;
+        this.f44370i = dVar;
     }
 
     @Override // d.a.l0.a.a1.g.f
@@ -60,7 +60,7 @@ public class f extends g.f {
         String string = bundle.getString("launch_id");
         if (k) {
             aVar = d.a.l0.a.f1.g.a.d(string);
-            b.C0635b e2 = aVar.e();
+            b.C0691b e2 = aVar.e();
             e2.b("SwanExtractor");
             e2.d(1);
         } else {
@@ -74,11 +74,11 @@ public class f extends g.f {
     }
 
     public final void j() {
-        d.a.l0.n.h.e eVar = this.f40693h;
-        if (eVar == null || eVar.f48013h != 0 || e.w()) {
+        d.a.l0.n.h.e eVar = this.f44369h;
+        if (eVar == null || eVar.f51687h != 0 || e.w()) {
             return;
         }
-        e.e(this.f40693h.f48012g + File.separator + this.f40693h.f48014i);
+        e.e(this.f44369h.f51686g + File.separator + this.f44369h.f51688i);
     }
 
     public final boolean k(InputStream inputStream, String str) {
@@ -148,7 +148,7 @@ public class f extends g.f {
     }
 
     public final void p(String str, String str2) {
-        d.a.l0.n.f.d dVar = this.f40694i;
+        d.a.l0.n.f.d dVar = this.f44370i;
         if (dVar != null) {
             dVar.n(str, str2);
         }
@@ -156,9 +156,9 @@ public class f extends g.f {
 
     public final d.a.l0.a.q2.a q(@NonNull BufferedInputStream bufferedInputStream, String str) {
         File i2;
-        a.C0562a c0562a;
+        a.C0618a c0618a;
         d.a.l0.a.f1.g.a d2 = d.a.l0.a.f1.g.a.d(str);
-        d.a.l0.n.h.e eVar = this.f40693h;
+        d.a.l0.n.h.e eVar = this.f44369h;
         if (eVar == null) {
             d.a.l0.a.q2.a aVar = new d.a.l0.a.q2.a();
             aVar.j(11L);
@@ -167,14 +167,14 @@ public class f extends g.f {
             d.a.l0.a.q2.e.a().f(aVar);
             return aVar;
         }
-        int i3 = eVar.f48013h;
+        int i3 = eVar.f51687h;
         boolean z = true;
         if (i3 == 1) {
             d.a.l0.a.p.b.a.e g2 = d.a.l0.a.c1.b.g();
-            d.a.l0.n.h.e eVar2 = this.f40693h;
-            i2 = g2.a(eVar2.f48012g, String.valueOf(eVar2.f48014i));
+            d.a.l0.n.h.e eVar2 = this.f44369h;
+            i2 = g2.a(eVar2.f51686g, String.valueOf(eVar2.f51688i));
         } else if (i3 == 0) {
-            i2 = e.C0561e.i(eVar.f48012g, String.valueOf(eVar.f48014i));
+            i2 = e.C0617e.i(eVar.f51686g, String.valueOf(eVar.f51688i));
         } else {
             d.a.l0.a.q2.a aVar2 = new d.a.l0.a.q2.a();
             aVar2.j(11L);
@@ -224,17 +224,17 @@ public class f extends g.f {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 a.b h2 = d.a.l0.a.a1.h.a.h(bufferedInputStream);
-                int i4 = h2 == null ? -1 : h2.f40715b;
+                int i4 = h2 == null ? -1 : h2.f44391b;
                 boolean z2 = i4 != -1;
                 m(z2);
                 if (z2) {
-                    c0562a = d.a.l0.a.a1.h.a.c(bufferedInputStream, i2, i4);
-                    if (c0562a == null || !c0562a.f40712a) {
+                    c0618a = d.a.l0.a.a1.h.a.c(bufferedInputStream, i2, i4);
+                    if (c0618a == null || !c0618a.f44388a) {
                         z = false;
                     }
                 } else {
                     z = d.a.l0.t.g.d(bufferedInputStream, i2.getPath());
-                    c0562a = null;
+                    c0618a = null;
                     i4 = 0;
                 }
                 l(z2);
@@ -242,10 +242,10 @@ public class f extends g.f {
                 if (k) {
                     d.a.l0.a.a1.h.a.g((int) (currentTimeMillis2 - currentTimeMillis));
                 }
-                if (this.f40694i != null) {
+                if (this.f44370i != null) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("download_package_type_id", i4);
-                    h.a(this.f40694i, bundle, "event_download_package_type");
+                    h.a(this.f44370i, bundle, "event_download_package_type");
                 }
                 o();
                 if (z) {
@@ -255,7 +255,7 @@ public class f extends g.f {
                 aVar6.j(11L);
                 if (z2) {
                     aVar6.h(2330L);
-                    aVar6.e("decrypt failed:" + c0562a.f40713b);
+                    aVar6.e("decrypt failed:" + c0618a.f44389b);
                 } else {
                     aVar6.h(2320L);
                     aVar6.e("unzip failed");

@@ -6,7 +6,7 @@ import d.b.c.b.d.k;
 public class a extends VAdError {
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f26923b;
+    public Intent f27026b;
 
     public a(k kVar) {
         super(kVar);
@@ -14,6 +14,6 @@ public class a extends VAdError {
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        return this.f26923b != null ? "User needs to (re)enter credentials." : super.getMessage();
+        return this.f27026b != null ? "User needs to (re)enter credentials." : super.getMessage();
     }
 }

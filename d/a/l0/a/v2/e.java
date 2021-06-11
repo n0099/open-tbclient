@@ -21,19 +21,19 @@ import java.lang.ref.WeakReference;
 public class e implements SlideInterceptor {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f45396i = d.a.l0.a.k.f43199a;
+    public static final boolean f49070i = d.a.l0.a.k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<SwanAppActivity> f45398f;
+    public WeakReference<SwanAppActivity> f49072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.l0.a.g2.b f45399g;
+    public d.a.l0.a.g2.b f49073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BroadcastReceiver f45400h = new a();
+    public BroadcastReceiver f49074h = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public SlideHelper f45397e = new SlideHelper();
+    public SlideHelper f49071e = new SlideHelper();
 
     /* loaded from: classes3.dex */
     public class a extends BroadcastReceiver {
@@ -47,9 +47,9 @@ public class e implements SlideInterceptor {
                 if (TextUtils.isEmpty(stringExtra)) {
                     return;
                 }
-                if (("homekey".equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && e.this.f45397e != null) {
-                    e.this.f45397e.closePane();
-                    e.this.f45397e.setCanSlide(false);
+                if (("homekey".equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && e.this.f49071e != null) {
+                    e.this.f49071e.closePane();
+                    e.this.f49071e.setCanSlide(false);
                 }
             }
         }
@@ -59,10 +59,10 @@ public class e implements SlideInterceptor {
     public class b implements SlidingPaneLayout.PanelSlideListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45401a;
+        public final /* synthetic */ SwanAppActivity f49075a;
 
         public b(SwanAppActivity swanAppActivity) {
-            this.f45401a = swanAppActivity;
+            this.f49075a = swanAppActivity;
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
@@ -71,19 +71,19 @@ public class e implements SlideInterceptor {
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelOpened(View view) {
-            this.f45401a.onBackPressed(3);
+            this.f49075a.onBackPressed(3);
             e.this.h();
-            this.f45401a.overridePendingTransition(0, 0);
+            this.f49075a.overridePendingTransition(0, 0);
             d.a.l0.a.m1.g.f().i();
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelSlide(View view, float f2) {
-            View maskView = e.this.f45397e.getMaskView();
+            View maskView = e.this.f49071e.getMaskView();
             if (maskView != null) {
                 maskView.setAlpha(1.0f - f2);
-                if (this.f45401a.hasActivedFrame()) {
-                    this.f45401a.getFrame().i0();
+                if (this.f49075a.hasActivedFrame()) {
+                    this.f49075a.getFrame().i0();
                 }
                 if (f2 == 0.0f) {
                     maskView.setBackgroundColor(Color.parseColor(SlideHelper.DEFAULT_MASK_COLOR));
@@ -96,39 +96,39 @@ public class e implements SlideInterceptor {
     }
 
     public e(SwanAppActivity swanAppActivity) {
-        this.f45398f = new WeakReference<>(swanAppActivity);
+        this.f49072f = new WeakReference<>(swanAppActivity);
     }
 
     public final boolean c() {
-        SwanAppActivity swanAppActivity = this.f45398f.get();
+        SwanAppActivity swanAppActivity = this.f49072f.get();
         return (swanAppActivity == null || swanAppActivity.getResources().getConfiguration().orientation == 2 || Build.VERSION.SDK_INT == 26) ? false : true;
     }
 
     public void e() {
-        this.f45397e.closePane();
+        this.f49071e.closePane();
     }
 
     public void f() {
-        SwanAppActivity swanAppActivity = this.f45398f.get();
+        SwanAppActivity swanAppActivity = this.f49072f.get();
         if (swanAppActivity == null || swanAppActivity.isDestroyed()) {
             return;
         }
-        this.f45397e.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
-        this.f45397e.attachActivity(swanAppActivity);
-        this.f45397e.setEnableReleaseWhenNoTranslucent(false);
-        this.f45397e.setFadeColor(0);
-        this.f45397e.setSlideInterceptor(this);
-        this.f45397e.setSlideListener(new b(swanAppActivity));
+        this.f49071e.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
+        this.f49071e.attachActivity(swanAppActivity);
+        this.f49071e.setEnableReleaseWhenNoTranslucent(false);
+        this.f49071e.setFadeColor(0);
+        this.f49071e.setSlideInterceptor(this);
+        this.f49071e.setSlideListener(new b(swanAppActivity));
         d.a.l0.a.p.e.b g2 = g();
         if (g2 != null) {
-            this.f45397e.setRegionFactor(g2.F());
+            this.f49071e.setRegionFactor(g2.F());
         }
     }
 
     public final d.a.l0.a.p.e.b g() {
         d.a.l0.a.h0.g.g swanAppFragmentManager;
         d.a.l0.a.h0.g.d m;
-        SwanAppActivity swanAppActivity = this.f45398f.get();
+        SwanAppActivity swanAppActivity = this.f49072f.get();
         if (swanAppActivity == null || (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) == null || (m = swanAppFragmentManager.m()) == null || !(m instanceof d.a.l0.a.h0.g.f)) {
             return null;
         }
@@ -137,7 +137,7 @@ public class e implements SlideInterceptor {
 
     public final void h() {
         if (d.a.l0.a.c1.a.H().a()) {
-            this.f45399g.c(8);
+            this.f49073g.c(8);
         }
     }
 
@@ -146,7 +146,7 @@ public class e implements SlideInterceptor {
     public boolean isSlidable(MotionEvent motionEvent) {
         d.a.l0.a.h0.g.g swanAppFragmentManager;
         d.a.l0.a.p.e.b g2;
-        SwanAppActivity swanAppActivity = this.f45398f.get();
+        SwanAppActivity swanAppActivity = this.f49072f.get();
         if (swanAppActivity == null || !swanAppActivity.hasActivedFrame() || (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) == null || (g2 = g()) == null) {
             return false;
         }
@@ -155,7 +155,7 @@ public class e implements SlideInterceptor {
     }
 
     public final boolean j() {
-        SwanAppActivity swanAppActivity = this.f45398f.get();
+        SwanAppActivity swanAppActivity = this.f49072f.get();
         if (swanAppActivity != null && !swanAppActivity.isDestroyed() && swanAppActivity.hasActivedFrame()) {
             d.a.l0.a.h0.g.f o = swanAppActivity.getSwanAppFragmentManager().o();
             if (o != null) {
@@ -165,16 +165,16 @@ public class e implements SlideInterceptor {
                 }
                 if (D1.l || D1.m) {
                     d.a.l0.a.e2.c.f fVar = d.a.l0.a.n1.q.c.a.g(true).get("scope_disable_swipe_back");
-                    if (fVar == null || fVar.f41697d) {
+                    if (fVar == null || fVar.f45373d) {
                         return false;
                     }
-                    SlideHelper slideHelper = this.f45397e;
+                    SlideHelper slideHelper = this.f49071e;
                     if (slideHelper != null) {
                         slideHelper.setRegionFactor(0.1d);
                     }
                 }
                 return true;
-            } else if (f45396i) {
+            } else if (f49070i) {
                 Log.d("SwanActivitySlideHelper", "topFragment = null; return false");
             }
         }
@@ -182,67 +182,67 @@ public class e implements SlideInterceptor {
     }
 
     public void k() {
-        SwanAppActivity swanAppActivity = this.f45398f.get();
+        SwanAppActivity swanAppActivity = this.f49072f.get();
         if (swanAppActivity == null) {
             return;
         }
         d.a.l0.a.g2.b skinDecorator = swanAppActivity.getSkinDecorator();
-        this.f45399g = skinDecorator;
+        this.f49073g = skinDecorator;
         if (skinDecorator == null) {
             return;
         }
         if (d.a.l0.a.f1.c.a.c(false).booleanValue()) {
-            this.f45399g.c(0);
+            this.f49073g.c(0);
         }
         f();
     }
 
     public void n() {
-        SwanAppActivity swanAppActivity = this.f45398f.get();
+        SwanAppActivity swanAppActivity = this.f49072f.get();
         if (swanAppActivity == null) {
             return;
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-        swanAppActivity.registerReceiver(this.f45400h, intentFilter);
+        swanAppActivity.registerReceiver(this.f49074h, intentFilter);
     }
 
     public void p() {
         SwanAppActivity swanAppActivity;
-        WeakReference<SwanAppActivity> weakReference = this.f45398f;
+        WeakReference<SwanAppActivity> weakReference = this.f49072f;
         if (weakReference == null || (swanAppActivity = weakReference.get()) == null) {
             return;
         }
-        swanAppActivity.unregisterReceiver(this.f45400h);
+        swanAppActivity.unregisterReceiver(this.f49074h);
     }
 
     public void q() {
-        if (this.f45398f.get() == null) {
+        if (this.f49072f.get() == null) {
             return;
         }
-        this.f45397e.setCanSlide(c());
+        this.f49071e.setCanSlide(c());
     }
 
     public void r() {
-        SwanAppActivity swanAppActivity = this.f45398f.get();
+        SwanAppActivity swanAppActivity = this.f49072f.get();
         if (swanAppActivity == null) {
             return;
         }
         b.a launchInfo = swanAppActivity.getLaunchInfo();
         if ((launchInfo != null && "1230000000000000".equals(launchInfo.T())) || swanAppActivity.getFrameType() == 1) {
-            this.f45397e.setCanSlide(false);
+            this.f49071e.setCanSlide(false);
         } else {
-            this.f45397e.setCanSlide(c());
+            this.f49071e.setCanSlide(c());
         }
     }
 
     public void s() {
         if (d.a.l0.a.f1.c.a.c(true).booleanValue()) {
-            this.f45399g.c(0);
+            this.f49073g.c(0);
         }
     }
 
     public void u(boolean z) {
-        this.f45397e.setCanSlide(z);
+        this.f49071e.setCanSlide(z);
     }
 }

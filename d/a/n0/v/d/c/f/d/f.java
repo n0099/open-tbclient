@@ -24,11 +24,11 @@ public class f extends d.a.n0.z.b<d.a.n0.v.d.c.f.b.b> {
 
     public f(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.q = l();
-        this.s = (RelativeLayout) l().findViewById(R.id.id_tab_live_sub_offline_item_wrapper);
-        this.m = (TextView) l().findViewById(R.id.id_tab_live_sub_offline_item_name);
-        this.n = (TextView) l().findViewById(R.id.id_tab_live_sub_offline_item_description);
-        HeadImageView headImageView = (HeadImageView) l().findViewById(R.id.id_tab_live_sub_offline_item_avatar);
+        this.q = m();
+        this.s = (RelativeLayout) m().findViewById(R.id.id_tab_live_sub_offline_item_wrapper);
+        this.m = (TextView) m().findViewById(R.id.id_tab_live_sub_offline_item_name);
+        this.n = (TextView) m().findViewById(R.id.id_tab_live_sub_offline_item_description);
+        HeadImageView headImageView = (HeadImageView) m().findViewById(R.id.id_tab_live_sub_offline_item_avatar);
         this.o = headImageView;
         headImageView.setAutoChangeStyle(true);
         this.o.setIsRound(true);
@@ -36,18 +36,18 @@ public class f extends d.a.n0.z.b<d.a.n0.v.d.c.f.b.b> {
         this.o.setPlaceHolder(1);
         this.o.setBorderWidth(l.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
         this.o.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.p = (TextView) l().findViewById(R.id.id_tab_live_sub_offline_item_time);
+        this.p = (TextView) m().findViewById(R.id.id_tab_live_sub_offline_item_time);
         this.s.setOnClickListener(this);
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.tab_sub_live_offline_item_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         SkinManager.setBackgroundResource(this.q, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0108);
@@ -56,24 +56,24 @@ public class f extends d.a.n0.z.b<d.a.n0.v.d.c.f.b.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (h() != null) {
-            h().a(view, this.r);
+        if (i() != null) {
+            i().a(view, this.r);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.v.d.c.f.b.b bVar) {
+    /* renamed from: t */
+    public void n(d.a.n0.v.d.c.f.b.b bVar) {
         if (bVar != null) {
             this.r = bVar;
-            String str = bVar.f61535g;
+            String str = bVar.f65248g;
             if (StringUtils.isNull(str)) {
-                str = StringUtils.isNull(bVar.f61534f) ? "" : bVar.f61534f;
+                str = StringUtils.isNull(bVar.f65247f) ? "" : bVar.f65247f;
             }
             this.m.setText(str);
-            this.n.setText(StringUtils.isNull(bVar.f61537i) ? "" : bVar.f61537i);
-            this.o.V(bVar.f61536h, 10, false);
+            this.n.setText(StringUtils.isNull(bVar.f65250i) ? "" : bVar.f65250i);
+            this.o.U(bVar.f65249h, 10, false);
             this.p.setText(StringUtils.isNull(bVar.j) ? "" : bVar.j);
         }
     }

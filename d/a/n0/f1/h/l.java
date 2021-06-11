@@ -11,10 +11,10 @@ import java.util.List;
 public class l extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f54503d = null;
+    public static a f58192d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f54504e = "tb_oficial_msg_";
+    public static String f58193e = "tb_oficial_msg_";
 
     public l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
@@ -23,10 +23,10 @@ public class l extends a {
     public static synchronized l t() {
         l lVar;
         synchronized (l.class) {
-            if (f54503d == null) {
-                f54503d = new l();
+            if (f58192d == null) {
+                f58192d = new l();
             }
-            lVar = (l) f54503d;
+            lVar = (l) f58192d;
         }
         return lVar;
     }
@@ -128,7 +128,7 @@ public class l extends a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("read_count", Integer.valueOf(i2));
             h e2 = h.e();
-            int j3 = e2.j(f54504e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
+            int j3 = e2.j(f58193e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
             BdLog.d("updateReadCount result = " + j3);
         } catch (Exception e3) {
             e3.printStackTrace();

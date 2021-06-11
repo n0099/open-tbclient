@@ -8,30 +8,30 @@ import org.json.JSONObject;
 public class c implements a<JSONObject> {
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f43028b;
+    public JSONArray f46704b;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.f43028b == null) {
-                this.f43028b = new JSONArray();
+            if (this.f46704b == null) {
+                this.f46704b = new JSONArray();
             }
-            this.f43028b.put(jSONObject);
-            if (a.f43026a) {
+            this.f46704b.put(jSONObject);
+            if (a.f46702a) {
                 Log.d("WhiteCollector", "FEStage: " + jSONObject);
             }
         }
     }
 
     public void b() {
-        this.f43028b = null;
+        this.f46704b = null;
     }
 
     public JSONObject c() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("stageError", this.f43028b);
+            jSONObject.put("stageError", this.f46704b);
         } catch (JSONException e2) {
-            if (a.f43026a) {
+            if (a.f46702a) {
                 Log.e("WhiteCollector", Log.getStackTraceString(e2));
             }
         }

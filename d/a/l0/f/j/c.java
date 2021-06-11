@@ -11,16 +11,16 @@ import d.a.l0.a.v2.w;
 public class c implements d.a.l0.h.t.c.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f46866b = "hasDownloadApk";
+    public static String f50540b = "hasDownloadApk";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46867a = "com.baidu.gamenow";
+    public String f50541a = "com.baidu.gamenow";
 
     @Override // d.a.l0.h.t.c.b
     public boolean a(Object obj) {
         if (obj instanceof Download) {
             Download download = (Download) obj;
-            if (TextUtils.equals(d.a.l0.f.j.m.c.f46874a, download.getKeyByUser())) {
+            if (TextUtils.equals(d.a.l0.f.j.m.c.f50548a, download.getKeyByUser())) {
                 return true;
             }
             return TextUtils.isEmpty(w.d(download.getFromParam()).optString("apk_id"));
@@ -42,8 +42,8 @@ public class c implements d.a.l0.h.t.c.b {
             Download download = (Download) obj;
             d.a.l0.f.j.n.a aVar = new d.a.l0.f.j.n.a(download);
             d.a.l0.f.j.r.b.n().f("statusInstalled", new d.a.l0.f.j.r.a(), download.getKeyByUser(), aVar.h(), aVar.j());
-            if (TextUtils.equals(aVar.k(), this.f46867a)) {
-                d.a.l0.a.k2.g.h.a().putBoolean(f46866b, true);
+            if (TextUtils.equals(aVar.k(), this.f50541a)) {
+                d.a.l0.a.k2.g.h.a().putBoolean(f50540b, true);
                 d.a.l0.f.j.r.b.n().p(13, aVar.k(), aVar.f(), aVar.j());
             }
         }

@@ -13,27 +13,27 @@ import d.a.n0.r0.w1.d.d;
 public class GameSubCommentView {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15516a;
+    public View f15578a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SpannableTextView f15517b;
+    public SpannableTextView f15579b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.InterfaceC1556a f15518c;
+    public a.InterfaceC1612a f15580c;
 
     /* loaded from: classes4.dex */
     public static class GameSubCommentViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public GameSubCommentView f15519a;
+        public GameSubCommentView f15581a;
 
         public GameSubCommentViewHolder(GameSubCommentView gameSubCommentView) {
             super(gameSubCommentView.c());
-            this.f15519a = gameSubCommentView;
+            this.f15581a = gameSubCommentView;
         }
 
         public void b(d dVar) {
-            this.f15519a.b(dVar);
+            this.f15581a.b(dVar);
         }
     }
 
@@ -41,42 +41,42 @@ public class GameSubCommentView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f15520e;
+        public final /* synthetic */ d f15582e;
 
         public a(d dVar) {
-            this.f15520e = dVar;
+            this.f15582e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (GameSubCommentView.this.f15518c != null) {
-                GameSubCommentView.this.f15518c.c(this.f15520e);
+            if (GameSubCommentView.this.f15580c != null) {
+                GameSubCommentView.this.f15580c.c(this.f15582e);
             }
         }
     }
 
     public GameSubCommentView(TbPageContext<?> tbPageContext) {
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
-        this.f15516a = inflate;
+        this.f15578a = inflate;
         SpannableTextView spannableTextView = (SpannableTextView) inflate.findViewById(R.id.sub_comment_tv);
-        this.f15517b = spannableTextView;
+        this.f15579b = spannableTextView;
         SkinManager.setViewTextColor(spannableTextView, R.color.CAM_X0106);
     }
 
     public void b(d dVar) {
-        if (dVar == null || dVar.f59776h == null) {
+        if (dVar == null || dVar.f63467h == null) {
             return;
         }
-        this.f15517b.e(dVar);
-        this.f15517b.setOnClickListener(new a(dVar));
+        this.f15579b.e(dVar);
+        this.f15579b.setOnClickListener(new a(dVar));
     }
 
     public View c() {
-        return this.f15516a;
+        return this.f15578a;
     }
 
-    public void d(a.InterfaceC1556a interfaceC1556a) {
-        this.f15518c = interfaceC1556a;
-        this.f15517b.setClickListener(interfaceC1556a);
+    public void d(a.InterfaceC1612a interfaceC1612a) {
+        this.f15580c = interfaceC1612a;
+        this.f15579b.setClickListener(interfaceC1612a);
     }
 }

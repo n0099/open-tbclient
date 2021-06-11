@@ -19,71 +19,71 @@ import com.baidu.tieba.R$styleable;
 public class SettingTextNormalImageView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20465e;
+    public Context f20542e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f20466f;
+    public LinearLayout f20543f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20467g;
+    public TextView f20544g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f20468h;
+    public TbImageView f20545h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f20469i;
+    public ImageView f20546i;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20465e = context;
+        this.f20542e = context;
         b();
         a(attributeSet);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f20465e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
+        TypedArray obtainStyledAttributes = this.f20542e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
         String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
         int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.f20467g.setText(string);
+            this.f20544g.setText(string);
         }
         if (color > -1) {
-            this.f20467g.setTextColor(color);
+            this.f20544g.setTextColor(color);
         }
-        this.f20466f.setClickable(false);
-        this.f20466f.setFocusable(false);
+        this.f20543f.setClickable(false);
+        this.f20543f.setFocusable(false);
     }
 
     public final void b() {
-        LayoutInflater.from(this.f20465e).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.f20466f = (LinearLayout) findViewById(R.id.container);
-        this.f20467g = (TextView) findViewById(R.id.text);
-        this.f20468h = (TbImageView) findViewById(R.id.icon);
-        this.f20469i = (ImageView) findViewById(R.id.arrow);
+        LayoutInflater.from(this.f20542e).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
+        this.f20543f = (LinearLayout) findViewById(R.id.container);
+        this.f20544g = (TextView) findViewById(R.id.text);
+        this.f20545h = (TbImageView) findViewById(R.id.icon);
+        this.f20546i = (ImageView) findViewById(R.id.arrow);
     }
 
     public void c(int i2) {
-        SkinManager.setViewTextColor(this.f20467g, R.color.CAM_X0105, 1);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20469i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        SkinManager.setViewTextColor(this.f20544g, R.color.CAM_X0105, 1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20546i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
-        this.f20468h.invalidate();
+        this.f20545h.invalidate();
     }
 
     public void setLocalIcon(int i2) {
-        this.f20468h.A();
-        this.f20468h.setConrers(0);
-        this.f20468h.setImageResource(i2);
+        this.f20545h.A();
+        this.f20545h.setConrers(0);
+        this.f20545h.setImageResource(i2);
     }
 
     public void setText(String str) {
-        this.f20467g.setText(str);
+        this.f20544g.setText(str);
     }
 
     public SettingTextNormalImageView(Context context) {
         super(context);
-        this.f20465e = context;
+        this.f20542e = context;
         b();
         c(TbadkCoreApplication.getInst().getSkinType());
     }

@@ -8,7 +8,7 @@ import com.xiaomi.push.service.XMPushService;
 public final class w extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f38171a;
+    public final /* synthetic */ ib f41850a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f977a;
@@ -17,15 +17,15 @@ public final class w extends XMPushService.i {
     public final /* synthetic */ String f978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f38172b;
+    public final /* synthetic */ String f41851b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(int i2, XMPushService xMPushService, ib ibVar, String str, String str2) {
         super(i2);
         this.f977a = xMPushService;
-        this.f38171a = ibVar;
+        this.f41850a = ibVar;
         this.f978a = str;
-        this.f38172b = str2;
+        this.f41851b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -36,9 +36,9 @@ public final class w extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ib a2 = q.a((Context) this.f977a, this.f38171a);
+            ib a2 = q.a((Context) this.f977a, this.f41850a);
             a2.f629a.a("error", this.f978a);
-            a2.f629a.a("reason", this.f38172b);
+            a2.f629a.a("reason", this.f41851b);
             y.a(this.f977a, a2);
         } catch (fw e2) {
             com.xiaomi.channel.commonutils.logger.b.a(e2);

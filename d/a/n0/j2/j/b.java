@@ -51,16 +51,16 @@ public class b extends d.a.n0.z.b<d.a.n0.j2.e.b> {
             Object data = customResponsedMessage.getData();
             if (data instanceof d.a.n0.e3.q0.e) {
                 d.a.n0.e3.q0.e eVar = (d.a.n0.e3.q0.e) data;
-                if (eVar.f54223a == b.this.v.j) {
-                    if (eVar.f54224b) {
+                if (eVar.f57912a == b.this.v.j) {
+                    if (eVar.f57913b) {
                         b.this.v.m = true;
                         b.this.u.setVisibility(0);
-                        b.this.z(true);
-                        d.a.c.e.p.l.L(b.this.f63442g, R.string.attention_success);
-                    } else if (StringUtils.isNull(eVar.f54225c)) {
-                        d.a.c.e.p.l.L(b.this.f63442g, R.string.attention_fail);
+                        b.this.A(true);
+                        d.a.c.e.p.l.L(b.this.f67160g, R.string.attention_success);
+                    } else if (StringUtils.isNull(eVar.f57914c)) {
+                        d.a.c.e.p.l.L(b.this.f67160g, R.string.attention_fail);
                     } else {
-                        d.a.c.e.p.l.M(b.this.f63442g, eVar.f54225c);
+                        d.a.c.e.p.l.M(b.this.f67160g, eVar.f57914c);
                     }
                 }
             }
@@ -69,8 +69,8 @@ public class b extends d.a.n0.z.b<d.a.n0.j2.e.b> {
 
     /* renamed from: d.a.n0.j2.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1404b extends CustomMessageListener {
-        public C1404b(int i2) {
+    public class C1460b extends CustomMessageListener {
+        public C1460b(int i2) {
             super(i2);
         }
 
@@ -83,16 +83,16 @@ public class b extends d.a.n0.z.b<d.a.n0.j2.e.b> {
             Object data = customResponsedMessage.getData();
             if (data instanceof d.a.n0.e3.q0.e) {
                 d.a.n0.e3.q0.e eVar = (d.a.n0.e3.q0.e) data;
-                if (eVar.f54223a == b.this.v.j) {
-                    if (eVar.f54224b) {
+                if (eVar.f57912a == b.this.v.j) {
+                    if (eVar.f57913b) {
                         b.this.v.m = false;
                         b.this.u.setVisibility(0);
                         b bVar = b.this;
-                        bVar.z(bVar.v.m);
-                        d.a.c.e.p.l.L(b.this.f63442g, R.string.unlike_success);
+                        bVar.A(bVar.v.m);
+                        d.a.c.e.p.l.L(b.this.f67160g, R.string.unlike_success);
                         return;
                     }
-                    d.a.c.e.p.l.L(b.this.f63442g, R.string.unlike_failure);
+                    d.a.c.e.p.l.L(b.this.f67160g, R.string.unlike_failure);
                 }
             }
         }
@@ -101,18 +101,32 @@ public class b extends d.a.n0.z.b<d.a.n0.j2.e.b> {
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.y = new a(2001437);
-        this.z = new C1404b(2001438);
-        w(l());
+        this.z = new C1460b(2001438);
+        x(m());
+    }
+
+    public final void A(boolean z) {
+        if (z) {
+            this.u.setText(this.f67160g.getString(R.string.relate_forum_is_followed));
+            SkinManager.setViewTextColor(this.u, R.color.CAM_X0110);
+            SkinManager.setBackgroundResource(this.u, R.color.transparent);
+            this.u.setClickable(false);
+            return;
+        }
+        this.u.setText(this.f67160g.getString(R.string.focus_text));
+        SkinManager.setViewTextColor(this.u, R.color.CAM_X0302, 1);
+        SkinManager.setBackgroundResource(this.u, R.drawable.polymeric_attention_btn_bg);
+        this.u.setClickable(true);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_polymeric_attention_bar_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext tbPageContext, int i2) {
-        if (this.f63440e != i2) {
+    public void o(TbPageContext tbPageContext, int i2) {
+        if (this.f67158e != i2) {
             SkinManager.setBackgroundResource(this.m, R.drawable.item_person_header_attention_bg_selector);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0106, 1);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0106, 1);
@@ -122,10 +136,10 @@ public class b extends d.a.n0.z.b<d.a.n0.j2.e.b> {
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0108, 1);
             d.a.n0.j2.e.b bVar = this.v;
             if (bVar != null) {
-                z(bVar.m);
+                A(bVar.m);
             }
         }
-        this.f63440e = i2;
+        this.f67158e = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -134,22 +148,22 @@ public class b extends d.a.n0.z.b<d.a.n0.j2.e.b> {
             if (!this.x) {
                 TiebaStatic.log(new StatisticItem("c11595"));
             }
-            this.f63441f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f63442g).createNormalCfg(this.v.l, "")));
+            this.f67159f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f67160g).createNormalCfg(this.v.l, "")));
         } else if (this.u == view) {
             TiebaStatic.log(new StatisticItem("c11596"));
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                ViewHelper.skipToLoginActivity(this.f63442g);
+                ViewHelper.skipToLoginActivity(this.f67160g);
             } else if (d.a.c.e.p.k.isForumName(this.v.l)) {
                 d.a.n0.j2.e.b bVar = this.v;
                 if (bVar.m) {
                     return;
                 }
-                this.w.H(bVar.l, String.valueOf(bVar.j));
+                this.w.L(bVar.l, String.valueOf(bVar.j));
             }
         }
     }
 
-    public final void w(View view) {
+    public final void x(View view) {
         this.m = view.findViewById(R.id.card_polymeric_attention_bar_rootview);
         this.n = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_day);
         this.o = (TextView) view.findViewById(R.id.card_polymeric_attention_bar_month);
@@ -161,14 +175,14 @@ public class b extends d.a.n0.z.b<d.a.n0.j2.e.b> {
         this.u = (TextView) view.findViewById(R.id.card_polymeric_attention_btn);
         this.m.setOnClickListener(this);
         this.u.setOnClickListener(this);
-        this.f63441f.registerListener(this.y);
-        this.f63441f.registerListener(this.z);
+        this.f67159f.registerListener(this.y);
+        this.f67159f.registerListener(this.z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: x */
-    public void m(d.a.n0.j2.e.b bVar) {
+    /* renamed from: y */
+    public void n(d.a.n0.j2.e.b bVar) {
         Context context;
         int i2;
         String string;
@@ -180,56 +194,42 @@ public class b extends d.a.n0.z.b<d.a.n0.j2.e.b> {
             this.m.setVisibility(0);
         }
         this.v = bVar;
-        this.x = bVar.f56388e;
-        this.n.setVisibility(bVar.f56390g ? 0 : 4);
-        this.o.setVisibility(bVar.f56390g ? 0 : 4);
-        this.n.setText(bVar.f56392i);
-        this.o.setText(bVar.f56391h);
+        this.x = bVar.f60077e;
+        this.n.setVisibility(bVar.f60079g ? 0 : 4);
+        this.o.setVisibility(bVar.f60079g ? 0 : 4);
+        this.n.setText(bVar.f60081i);
+        this.o.setText(bVar.f60080h);
         TextView textView = this.p;
-        if (bVar.f56388e) {
-            string = this.f63442g.getString(R.string.me);
+        if (bVar.f60077e) {
+            string = this.f67160g.getString(R.string.me);
         } else {
-            if (bVar.f56389f == 2) {
-                context = this.f63442g;
+            if (bVar.f60078f == 2) {
+                context = this.f67160g;
                 i2 = R.string.she;
             } else {
-                context = this.f63442g;
+                context = this.f67160g;
                 i2 = R.string.he;
             }
             string = context.getString(i2);
         }
         textView.setText(string);
-        this.r.V(bVar.k, 10, false);
+        this.r.U(bVar.k, 10, false);
         String str = bVar.l;
         if (i0.b(str) > 10) {
             str = i0.k(str, 0, 10) + StringHelper.STRING_MORE;
         }
-        this.s.setText(String.format(this.f63442g.getString(R.string.person_polymeric_bar_suffix), str));
+        this.s.setText(String.format(this.f67160g.getString(R.string.person_polymeric_bar_suffix), str));
         String numFormatOverWanNa = StringHelper.numFormatOverWanNa(bVar.n);
-        this.t.setText(bVar.f56388e ? String.format(this.f63442g.getString(R.string.person_polymeric_attention_post_host), numFormatOverWanNa, StringHelper.numFormatOverWanNa(bVar.o)) : String.format(this.f63442g.getString(R.string.person_polymeric_attention_post_guess), numFormatOverWanNa));
-        if (!bVar.m && !bVar.f56388e) {
+        this.t.setText(bVar.f60077e ? String.format(this.f67160g.getString(R.string.person_polymeric_attention_post_host), numFormatOverWanNa, StringHelper.numFormatOverWanNa(bVar.o)) : String.format(this.f67160g.getString(R.string.person_polymeric_attention_post_guess), numFormatOverWanNa));
+        if (!bVar.m && !bVar.f60077e) {
             this.u.setVisibility(0);
-            z(bVar.m);
+            A(bVar.m);
             return;
         }
         this.u.setVisibility(8);
     }
 
-    public void y(LikeModel likeModel) {
+    public void z(LikeModel likeModel) {
         this.w = likeModel;
-    }
-
-    public final void z(boolean z) {
-        if (z) {
-            this.u.setText(this.f63442g.getString(R.string.relate_forum_is_followed));
-            SkinManager.setViewTextColor(this.u, R.color.CAM_X0110);
-            SkinManager.setBackgroundResource(this.u, R.color.transparent);
-            this.u.setClickable(false);
-            return;
-        }
-        this.u.setText(this.f63442g.getString(R.string.focus_text));
-        SkinManager.setViewTextColor(this.u, R.color.CAM_X0302, 1);
-        SkinManager.setBackgroundResource(this.u, R.drawable.polymeric_attention_btn_bg);
-        this.u.setClickable(true);
     }
 }

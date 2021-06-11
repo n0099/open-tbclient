@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.java_websocket.WebSocket;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends b {
     public Timer connectionLostTimer;
     public TimerTask connectionLostTimerTask;
@@ -17,22 +17,22 @@ public abstract class a extends b {
     public boolean websocketRunning = false;
 
     /* renamed from: g.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1914a extends TimerTask {
+    /* loaded from: classes8.dex */
+    public class C1963a extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<WebSocket> f68362e = new ArrayList<>();
+        public ArrayList<WebSocket> f71618e = new ArrayList<>();
 
-        public C1914a() {
+        public C1963a() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            this.f68362e.clear();
+            this.f71618e.clear();
             try {
-                this.f68362e.addAll(a.this.getConnections());
+                this.f71618e.addAll(a.this.getConnections());
                 long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * 1500);
-                Iterator<WebSocket> it = this.f68362e.iterator();
+                Iterator<WebSocket> it = this.f71618e.iterator();
                 while (it.hasNext()) {
                     WebSocket next = it.next();
                     if (next instanceof c) {
@@ -57,7 +57,7 @@ public abstract class a extends b {
                     printStream3.println("Exception during connection lost ping: " + e2.getMessage());
                 }
             }
-            this.f68362e.clear();
+            this.f71618e.clear();
         }
     }
 
@@ -77,11 +77,11 @@ public abstract class a extends b {
     private void restartConnectionLostTimer() {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
-        C1914a c1914a = new C1914a();
-        this.connectionLostTimerTask = c1914a;
+        C1963a c1963a = new C1963a();
+        this.connectionLostTimerTask = c1963a;
         Timer timer = this.connectionLostTimer;
         int i2 = this.connectionLostTimeout;
-        timer.scheduleAtFixedRate(c1914a, i2 * 1000, i2 * 1000);
+        timer.scheduleAtFixedRate(c1963a, i2 * 1000, i2 * 1000);
     }
 
     public int getConnectionLostTimeout() {

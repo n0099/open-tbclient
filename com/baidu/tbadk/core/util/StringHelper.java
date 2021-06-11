@@ -10,11 +10,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
 import java.text.DecimalFormat;
@@ -344,7 +342,7 @@ public class StringHelper extends k {
     }
 
     public static String formatDayOrHourTime(long j) {
-        int i2 = (int) (j / VideoCloudSetting.HOUR_MILLISECOND);
+        int i2 = (int) (j / 3600000);
         if (i2 >= 24) {
             return ((i2 / 24) + 1) + TIME_DAY;
         }
@@ -352,7 +350,7 @@ public class StringHelper extends k {
     }
 
     public static String formatDayTime(long j) {
-        return (((j / VideoCloudSetting.HOUR_MILLISECOND) / 24) + 1) + TIME_DAY;
+        return (((j / 3600000) / 24) + 1) + TIME_DAY;
     }
 
     public static String formatDistanceNum(double d2) {
@@ -867,14 +865,14 @@ public class StringHelper extends k {
         long time = date2.getTime() - date3.getTime();
         if (time < 0) {
             return time > -120000 ? "刚刚" : k.getDateStringDay(date3);
-        } else if (time < StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+        } else if (time < 30000) {
             return "刚刚";
         } else {
             if (time < 60000) {
                 return "半分钟前";
             }
-            if (time < VideoCloudSetting.HOUR_MILLISECOND) {
-                return String.valueOf((time * 60) / VideoCloudSetting.HOUR_MILLISECOND) + "分钟前";
+            if (time < 3600000) {
+                return String.valueOf((time * 60) / 3600000) + "分钟前";
             } else if (time < 86400000) {
                 return day == 0 ? k.getDateStringHm(date3) : "1天前";
             } else if (time >= 2678400000L) {
@@ -1697,14 +1695,14 @@ public class StringHelper extends k {
         long time = date2.getTime() - date3.getTime();
         if (time < 0) {
             return time > -120000 ? "刚刚" : k.getDateStringDay(date3);
-        } else if (time < StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+        } else if (time < 30000) {
             return "刚刚";
         } else {
             if (time < 60000) {
                 return "半分钟前";
             }
-            if (time < VideoCloudSetting.HOUR_MILLISECOND) {
-                return String.valueOf((time * 60) / VideoCloudSetting.HOUR_MILLISECOND) + "分钟前";
+            if (time < 3600000) {
+                return String.valueOf((time * 60) / 3600000) + "分钟前";
             } else if (time < 86400000) {
                 return day == 0 ? k.getDateStringHm(date3) : "1天前";
             } else if (time < 2678400000L) {

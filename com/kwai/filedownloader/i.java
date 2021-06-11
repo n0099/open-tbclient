@@ -1,5 +1,5 @@
 package com.kwai.filedownloader;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class i {
     public void a(a aVar) {
     }

@@ -18,34 +18,34 @@ import java.util.List;
 public class x extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.a.m0.e.a> f57389e;
+    public List<d.a.m0.e.a> f61078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57390f;
+    public String f61079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f57391g;
+    public Context f61080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.m0.b0.b f57392h = new d.a.m0.b0.b();
+    public d.a.m0.b0.b f61081h = new d.a.m0.b0.b();
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57393i;
+    public int f61082i;
     public int j;
 
     /* loaded from: classes4.dex */
     public class a implements d.a.m0.a0.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f57394e;
+        public final /* synthetic */ ViewGroup f61083e;
 
         public a(x xVar, ViewGroup viewGroup) {
-            this.f57394e = viewGroup;
+            this.f61083e = viewGroup;
         }
 
         @Override // d.a.m0.a0.b
-        public void a(d.a.c.j.d.a aVar, String str, boolean z) {
-            HeadImageView headImageView = (HeadImageView) this.f57394e.findViewWithTag(str);
+        public void a(d.a.c.k.d.a aVar, String str, boolean z) {
+            HeadImageView headImageView = (HeadImageView) this.f61083e.findViewWithTag(str);
             if (headImageView == null || aVar == null) {
                 return;
             }
@@ -57,13 +57,13 @@ public class x extends BaseAdapter {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f57395a;
+        public HeadImageView f61084a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f57396b;
+        public TextView f61085b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f57397c;
+        public ImageView f61086c;
 
         public b(x xVar) {
         }
@@ -74,30 +74,30 @@ public class x extends BaseAdapter {
     }
 
     public x(Context context) {
-        this.f57391g = context;
-        this.j = (int) this.f57391g.getResources().getDimension(R.dimen.ds120);
-        this.f57393i = d.a.c.e.p.l.k(this.f57391g) / 2;
+        this.f61080g = context;
+        this.j = (int) this.f61080g.getResources().getDimension(R.dimen.ds120);
+        this.f61082i = d.a.c.e.p.l.k(this.f61080g) / 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public d.a.m0.e.a getItem(int i2) {
-        List<d.a.m0.e.a> list = this.f57389e;
+        List<d.a.m0.e.a> list = this.f61078e;
         if (list == null || i2 < 0 || i2 >= list.size()) {
             return null;
         }
-        return this.f57389e.get(i2);
+        return this.f61078e.get(i2);
     }
 
     public void b(List<d.a.m0.e.a> list, String str) {
-        this.f57389e = list;
-        this.f57390f = str;
+        this.f61078e = list;
+        this.f61079f = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<d.a.m0.e.a> list = this.f57389e;
+        List<d.a.m0.e.a> list = this.f61078e;
         if (list != null) {
             return list.size();
         }
@@ -115,49 +115,49 @@ public class x extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f57391g).inflate(R.layout.collect_album_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.f61080g).inflate(R.layout.collect_album_list_item, viewGroup, false);
             bVar = new b(this, null);
-            bVar.f57395a = (HeadImageView) view.findViewById(R.id.item_head);
-            bVar.f57396b = (TextView) view.findViewById(R.id.item_name);
+            bVar.f61084a = (HeadImageView) view.findViewById(R.id.item_head);
+            bVar.f61085b = (TextView) view.findViewById(R.id.item_name);
             ImageView imageView = (ImageView) view.findViewById(R.id.item_arrow);
-            bVar.f57397c = imageView;
+            bVar.f61086c = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
             view.setTag(bVar);
         }
-        bVar.f57395a.setTag(null);
-        bVar.f57395a.setDefaultResource(R.drawable.pic_image_h_not);
-        bVar.f57395a.V(null, 12, false);
-        bVar.f57395a.invalidate();
+        bVar.f61084a.setTag(null);
+        bVar.f61084a.setDefaultResource(R.drawable.pic_image_h_not);
+        bVar.f61084a.U(null, 12, false);
+        bVar.f61084a.invalidate();
         d.a.m0.e.a item = getItem(i2);
         if (item != null) {
             if (!TextUtils.isEmpty(item.g())) {
                 item.g();
-                String s = d.a.c.e.p.l.s(bVar.f57396b.getPaint(), item.g(), this.f57393i);
-                bVar.f57396b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+                String s = d.a.c.e.p.l.s(bVar.f61085b.getPaint(), item.g(), this.f61082i);
+                bVar.f61085b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
             } else {
-                bVar.f57396b.setText("");
+                bVar.f61085b.setText("");
             }
             String b2 = item.b();
-            if (!TextUtils.isEmpty(b2) && b2.equals(this.f57390f)) {
-                bVar.f57397c.setVisibility(0);
+            if (!TextUtils.isEmpty(b2) && b2.equals(this.f61079f)) {
+                bVar.f61086c.setVisibility(0);
             } else {
-                bVar.f57397c.setVisibility(8);
+                bVar.f61086c.setVisibility(8);
             }
             ImageFileInfo e2 = item.e();
             if (e2 != null) {
                 e2.clearPageActions();
                 int i3 = this.j;
                 e2.addPageAction(d.a.m0.b0.g.d.g(i3, i3));
-                d.a.c.j.d.a c2 = this.f57392h.c(e2, false);
-                bVar.f57395a.setTag(e2.toCachedKey(false));
+                d.a.c.k.d.a c2 = this.f61081h.c(e2, false);
+                bVar.f61084a.setTag(e2.toCachedKey(false));
                 if (c2 != null) {
-                    bVar.f57395a.invalidate();
+                    bVar.f61084a.invalidate();
                 } else {
-                    this.f57392h.e(e2, new a(this, viewGroup), false, false);
+                    this.f61081h.e(e2, new a(this, viewGroup), false, false);
                 }
             }
         } else {
-            bVar.f57396b.setText("");
+            bVar.f61085b.setText("");
         }
         return view;
     }

@@ -3,31 +3,31 @@ package d.a.m0.r;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49640a;
+    public String f53315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49641b;
+    public int f53316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49642c;
+    public int f53317c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49643d;
+    public int f53318d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49644e;
+    public int f53319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49645f;
+    public int f53320f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49646g;
+    public int f53321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49647h;
+    public int f53322h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49648i;
+    public int f53323i;
     public int j;
     public int k;
     public int l;
@@ -67,15 +67,15 @@ public class b {
     }
 
     public void G(String str) {
-        this.f49640a = str;
+        this.f53315a = str;
     }
 
     public void H(int i2) {
-        this.f49647h = i2;
+        this.f53322h = i2;
     }
 
     public void I(int i2) {
-        this.f49648i = i2;
+        this.f53323i = i2;
     }
 
     public void J(int i2) {
@@ -95,19 +95,19 @@ public class b {
     }
 
     public void N(int i2) {
-        this.f49645f = i2;
+        this.f53320f = i2;
     }
 
     public void O(int i2) {
-        this.f49646g = i2;
+        this.f53321g = i2;
     }
 
     public void P(int i2) {
-        this.f49643d = i2;
+        this.f53318d = i2;
     }
 
     public void Q(int i2) {
-        this.f49644e = i2;
+        this.f53319e = i2;
     }
 
     public void R(String str) {
@@ -120,11 +120,11 @@ public class b {
     }
 
     public int b() {
-        return this.f49641b;
+        return this.f53316b;
     }
 
     public int c() {
-        return this.f49642c;
+        return this.f53317c;
     }
 
     public int d() {
@@ -160,15 +160,15 @@ public class b {
     }
 
     public String l() {
-        return this.f49640a;
+        return this.f53315a;
     }
 
     public int m() {
-        return this.f49647h;
+        return this.f53322h;
     }
 
     public int n() {
-        return this.f49648i;
+        return this.f53323i;
     }
 
     public int o() {
@@ -188,11 +188,11 @@ public class b {
     }
 
     public int s() {
-        return this.f49645f;
+        return this.f53320f;
     }
 
     public int t() {
-        return this.f49646g;
+        return this.f53321g;
     }
 
     public String toString() {
@@ -200,19 +200,19 @@ public class b {
     }
 
     public int u() {
-        return this.f49643d;
+        return this.f53318d;
     }
 
     public int v() {
-        return this.f49644e;
+        return this.f53319e;
     }
 
     public void w(int i2) {
-        this.f49641b = i2;
+        this.f53316b = i2;
     }
 
     public void x(int i2) {
-        this.f49642c = i2;
+        this.f53317c = i2;
     }
 
     public void y(int i2) {

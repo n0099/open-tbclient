@@ -5,17 +5,17 @@ import java.io.IOException;
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Process f22480a;
+    public final /* synthetic */ Process f22583a;
 
     public c(Process process) {
-        this.f22480a = process;
+        this.f22583a = process;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
             do {
-            } while (this.f22480a.getErrorStream().read(new byte[8192]) >= 0);
+            } while (this.f22583a.getErrorStream().read(new byte[8192]) >= 0);
         } catch (IOException unused) {
         }
     }

@@ -15,7 +15,7 @@ import java.util.List;
 public class a implements b<HybridUbcFlow> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final List<String> f44576e = new ArrayList(5);
+    public static final List<String> f48250e = new ArrayList(5);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.l0.a.v2.e1.b
@@ -24,9 +24,9 @@ public class a implements b<HybridUbcFlow> {
         d.a.l0.a.r1.r.a.f().c(false);
         String g2 = hybridUbcFlow.g("launchid");
         if (!TextUtils.isEmpty(g2)) {
-            synchronized (f44576e) {
-                if (!f44576e.contains(g2)) {
-                    f44576e.add(g2);
+            synchronized (f48250e) {
+                if (!f48250e.contains(g2)) {
+                    f48250e.add(g2);
                     c(g2, hybridUbcFlow);
                 }
             }
@@ -35,9 +35,9 @@ public class a implements b<HybridUbcFlow> {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        synchronized (f44576e) {
-            if (!f44576e.contains(str)) {
-                f44576e.add(str);
+        synchronized (f48250e) {
+            if (!f48250e.contains(str)) {
+                f48250e.add(str);
                 b(str, hybridUbcFlow);
             }
         }

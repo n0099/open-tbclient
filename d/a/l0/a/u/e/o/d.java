@@ -15,13 +15,13 @@ public class d extends d.a.l0.a.u.c.d {
 
         /* renamed from: d.a.l0.a.u.e.o.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0866a implements a.c {
+        public class C0922a implements a.c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ l f45157a;
+            public final /* synthetic */ l f48831a;
 
-            public C0866a(l lVar) {
-                this.f45157a = lVar;
+            public C0922a(l lVar) {
+                this.f48831a = lVar;
             }
 
             @Override // d.a.l0.a.n2.f.a.c
@@ -30,10 +30,10 @@ public class d extends d.a.l0.a.u.c.d {
                 try {
                     jSONObject.put("direction", f2);
                     jSONObject.put("accuracy", d.a.l0.a.n2.f.a.h(i2));
-                    this.f45157a.d(d.this, jSONObject);
+                    this.f48831a.d(d.this, jSONObject);
                 } catch (JSONException e2) {
                     d.a.l0.a.e0.d.b("Api-Compass", "handle compass,json error，" + e2.toString());
-                    this.f45157a.f(d.this, "Json error");
+                    this.f48831a.f(d.this, "Json error");
                 }
             }
         }
@@ -47,7 +47,7 @@ public class d extends d.a.l0.a.u.c.d {
             l lVar = new l("compassChange", jSONObject, str);
             d.a.l0.a.n2.f.a i2 = d.a.l0.a.n2.f.a.i();
             i2.l(d.this.i());
-            i2.o(new C0866a(lVar));
+            i2.o(new C0922a(lVar));
             d.a.l0.a.e0.d.g("Api-Compass", "start listen compass");
             i2.p();
             lVar.b(d.this);
@@ -60,14 +60,14 @@ public class d extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Compass", "start listen compass");
         }
         return j(str, true, new a());
     }
 
     public d.a.l0.a.u.h.b t() {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Compass", "stop accelerometer");
         }
         d.a.l0.a.e0.d.g("Api-Compass", "stop listen compass");

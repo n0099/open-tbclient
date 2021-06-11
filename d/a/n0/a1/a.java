@@ -3,7 +3,7 @@ package d.a.n0.a1;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import d.a.n0.b1.c.c;
+import d.a.n0.b1.d.c;
 /* loaded from: classes4.dex */
 public class a extends CustomMessageTask {
 

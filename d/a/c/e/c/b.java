@@ -7,17 +7,17 @@ import java.util.concurrent.FutureTask;
 public abstract class b<V> extends FutureTask<V> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdAsyncTask<?, ?, ?> f38508e;
+    public BdAsyncTask<?, ?, ?> f42161e;
 
     public b(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
         super(callable);
-        this.f38508e = null;
-        this.f38508e = bdAsyncTask;
+        this.f42161e = null;
+        this.f42161e = bdAsyncTask;
     }
 
     public abstract void b();
 
     public BdAsyncTask<?, ?, ?> c() {
-        return this.f38508e;
+        return this.f42161e;
     }
 }

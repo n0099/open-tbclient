@@ -10,19 +10,19 @@ import com.baidu.tieba.R;
 public class v implements Comparable<v> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50136e;
+    public int f53812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50137f;
+    public int f53813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50138g;
+    public String f53814g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50139h;
+    public String f53815h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f50140i;
+    public String f53816i;
     public String j;
     public String k;
     public String l;
@@ -36,8 +36,8 @@ public class v implements Comparable<v> {
     public int t;
 
     public v(int i2, int i3) {
-        this.f50136e = i2;
-        this.f50137f = i3;
+        this.f53812e = i2;
+        this.f53813f = i3;
     }
 
     public static v b(TbLinkSpanGroup tbLinkSpanGroup, d.a.n0.x0.a aVar) {
@@ -54,11 +54,11 @@ public class v implements Comparable<v> {
         } else {
             str = aVar.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
         }
-        vVar.f50139h = str;
-        vVar.f50138g = aVar.c();
+        vVar.f53815h = str;
+        vVar.f53814g = aVar.c();
         vVar.q = aVar.a();
         if (!ListUtils.isEmpty(aVar.b()) && aVar.b().get(0) != null) {
-            vVar.f50140i = aVar.b().get(0).a();
+            vVar.f53816i = aVar.b().get(0).a();
         }
         vVar.p = aVar.f();
         vVar.j = aVar.d();
@@ -78,15 +78,15 @@ public class v implements Comparable<v> {
         if (dVar == null) {
             return vVar;
         }
-        vVar.f50138g = dVar.f49782e;
-        vVar.f50140i = dVar.f49781d;
-        vVar.p = dVar.f49783f;
-        vVar.j = dVar.f49784g;
-        vVar.k = dVar.f49780c;
-        vVar.r = dVar.f49785h;
-        String str = dVar.f49786i;
-        vVar.m = dVar.f49779b == 1;
-        vVar.s = dVar.f49779b;
+        vVar.f53814g = dVar.f53457e;
+        vVar.f53816i = dVar.f53456d;
+        vVar.p = dVar.f53458f;
+        vVar.j = dVar.f53459g;
+        vVar.k = dVar.f53455c;
+        vVar.r = dVar.f53460h;
+        String str = dVar.f53461i;
+        vVar.m = dVar.f53454b == 1;
+        vVar.s = dVar.f53454b;
         tbLinkSpanGroup.y(vVar);
         return vVar;
     }

@@ -2,7 +2,7 @@ package org.apache.http.impl.client;
 
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RoutedRequest {
     public final RequestWrapper request;
     public final HttpRoute route;

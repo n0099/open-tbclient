@@ -33,31 +33,31 @@ import java.util.List;
 public class c implements o {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f61100a;
+    public TbPageContext f64792a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStub f61101b;
+    public ViewStub f64793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f61102c;
+    public View f64794c;
 
     /* renamed from: d  reason: collision with root package name */
-    public XfremodeRoundLayout f61103d;
+    public XfremodeRoundLayout f64795d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f61104e;
+    public TbImageView f64796e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f61105f;
+    public TextView f64797f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f61106g;
+    public TextView f64798g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdAppInfoView f61107h;
+    public AdAppInfoView f64799h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ApkDownloadView f61108i;
+    public ApkDownloadView f64800i;
     public TextView j;
     public ImageView k;
     public TextView l;
@@ -77,7 +77,7 @@ public class c implements o {
             AdCard adCard = c.this.m;
             c.this.q.add(adCard.getAdvertAppInfo());
             d.a.n0.t2.i0.d.k(adCard.getAdvertAppInfo());
-            c.this.f61102c.setVisibility(8);
+            c.this.f64794c.setVisibility(8);
         }
     }
 
@@ -110,8 +110,8 @@ public class c implements o {
 
     /* renamed from: d.a.n0.t2.f0.d.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1621c implements b.a {
-        public C1621c() {
+    public class C1677c implements b.a {
+        public C1677c() {
         }
 
         @Override // d.a.n0.q.d.g.b.a
@@ -122,22 +122,22 @@ public class c implements o {
     }
 
     public c(ViewStub viewStub, TbPageContext tbPageContext) {
-        this.f61101b = viewStub;
-        this.f61100a = tbPageContext;
+        this.f64793b = viewStub;
+        this.f64792a = tbPageContext;
     }
 
     @Override // d.a.n0.t2.o
     public void a(AdvertAppInfo advertAppInfo, d.a.m0.z0.c cVar) {
         if (advertAppInfo == null) {
-            View view = this.f61102c;
+            View view = this.f64794c;
             if (view != null) {
                 view.setVisibility(8);
                 return;
             }
             return;
         }
-        if (this.f61102c == null) {
-            l(this.f61101b);
+        if (this.f64794c == null) {
+            l(this.f64793b);
             this.p = new ArrayList();
             this.q = new ArrayList();
         }
@@ -169,19 +169,19 @@ public class c implements o {
         }
         AdCard adCard = this.m;
         if (adCard != null && adCard.getAdvertAppInfo() != null) {
-            String str = this.m.getAdvertAppInfo().Q3;
-            b2.setExtInfo(this.m.getAdvertAppInfo().N3);
+            String str = this.m.getAdvertAppInfo().T3;
+            b2.setExtInfo(this.m.getAdvertAppInfo().Q3);
             b2.setDownloadKey(this.m.getDownloadKey());
             b2.setPage(str);
             b2.setDeeplinkUrl(this.m.scheme);
         }
-        d.a.n0.q.c.b.d.a aVar = new d.a.n0.q.c.b.d.a(this.f61108i, b2);
+        d.a.n0.q.c.b.d.a aVar = new d.a.n0.q.c.b.d.a(this.f64800i, b2);
         this.o = new d.a.n0.q.d.h.b(aVar);
         if (b2.extra().getPercent() > 0) {
             aVar.e(b2);
         }
         n();
-        this.f61108i.c(b2.getCurrentState());
+        this.f64800i.c(b2.getCurrentState());
     }
 
     public float h(@StringRes int i2) {
@@ -194,21 +194,21 @@ public class c implements o {
 
     public final void i() {
         this.j.setVisibility(8);
-        this.f61108i.setVisibility(0);
+        this.f64800i.setVisibility(0);
         AdCard adCard = this.m;
         d.a.n0.t2.f0.b.b bVar = adCard.downloadInfo;
         if (bVar == null) {
             return;
         }
-        String str = bVar.f61061a;
+        String str = bVar.f64753a;
         DownloadData o = o(this.m, adCard.getPosition());
         if (y.q(str)) {
             o.setStatus(8);
         } else {
-            o.setStatus(this.f61108i.getDownloadStatus());
+            o.setStatus(this.f64800i.getDownloadStatus());
         }
-        this.f61108i.setData(o);
-        this.f61108i.setOnClickInterceptListener(new C1621c());
+        this.f64800i.setData(o);
+        this.f64800i.setOnClickInterceptListener(new C1677c());
     }
 
     public final void j() {
@@ -223,16 +223,16 @@ public class c implements o {
         }
         if (h2 == null) {
             d.a.n0.t2.f0.b.b bVar = this.m.downloadInfo;
-            h2 = DownloadCacheKey.create(downloadId, bVar.f61062b, bVar.f61061a);
+            h2 = DownloadCacheKey.create(downloadId, bVar.f64754b, bVar.f64753a);
             e.c().i(h2, null);
         }
         g(h2);
     }
 
     public final void k() {
-        this.f61108i.setVisibility(8);
+        this.f64800i.setVisibility(8);
         d.a.n0.t2.f0.b.a aVar = this.m.operate;
-        String str = aVar != null ? aVar.f61059b : null;
+        String str = aVar != null ? aVar.f64751b : null;
         if (TextUtils.isEmpty(str)) {
             str = "立即查看";
         }
@@ -243,38 +243,38 @@ public class c implements o {
     public final void l(ViewStub viewStub) {
         viewStub.setLayoutResource(R.layout.ad_pic_banner_layout);
         View inflate = viewStub.inflate();
-        this.f61102c = inflate;
-        this.f61103d = (XfremodeRoundLayout) inflate.findViewById(R.id.ad_img_container);
-        this.f61104e = (TbImageView) this.f61102c.findViewById(R.id.ad_img);
-        this.f61105f = (TextView) this.f61102c.findViewById(R.id.ad_brand_name);
-        this.f61106g = (TextView) this.f61102c.findViewById(R.id.ad_title);
-        AdAppInfoView adAppInfoView = (AdAppInfoView) this.f61102c.findViewById(R.id.ad_app_info_view);
-        this.f61107h = adAppInfoView;
+        this.f64794c = inflate;
+        this.f64795d = (XfremodeRoundLayout) inflate.findViewById(R.id.ad_img_container);
+        this.f64796e = (TbImageView) this.f64794c.findViewById(R.id.ad_img);
+        this.f64797f = (TextView) this.f64794c.findViewById(R.id.ad_brand_name);
+        this.f64798g = (TextView) this.f64794c.findViewById(R.id.ad_title);
+        AdAppInfoView adAppInfoView = (AdAppInfoView) this.f64794c.findViewById(R.id.ad_app_info_view);
+        this.f64799h = adAppInfoView;
         adAppInfoView.setTextColor(R.color.CAM_X0101);
-        this.f61108i = (ApkDownloadView) this.f61102c.findViewById(R.id.ad_download_btn);
-        this.j = (TextView) this.f61102c.findViewById(R.id.ad_transform_btn);
-        this.k = (ImageView) this.f61102c.findViewById(R.id.ad_close_view);
-        this.l = (TextView) this.f61102c.findViewById(R.id.ad_tag);
-        this.f61103d.setRoundLayoutRadius(h(R.string.J_X05));
+        this.f64800i = (ApkDownloadView) this.f64794c.findViewById(R.id.ad_download_btn);
+        this.j = (TextView) this.f64794c.findViewById(R.id.ad_transform_btn);
+        this.k = (ImageView) this.f64794c.findViewById(R.id.ad_close_view);
+        this.l = (TextView) this.f64794c.findViewById(R.id.ad_tag);
+        this.f64795d.setRoundLayoutRadius(h(R.string.J_X05));
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
         d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.j);
         d2.m(R.string.J_X01);
         d2.f(R.color.CAM_X0201);
-        TbPageContext tbPageContext = this.f61100a;
+        TbPageContext tbPageContext = this.f64792a;
         if (tbPageContext != null) {
-            this.f61108i.j(tbPageContext.getUniqueId());
+            this.f64800i.j(tbPageContext.getUniqueId());
         }
-        this.f61108i.setTextSize(R.dimen.T_X08);
-        this.f61108i.setTextColorInitSkin(R.color.CAM_X0105);
-        this.f61108i.setTextColorSkin(R.color.CAM_X0105);
-        this.f61108i.setStrokeWidth(R.dimen.ds0);
-        this.f61108i.setBackgroundSkin(R.drawable.pic_banner_down_btn_bg);
-        this.f61108i.i();
+        this.f64800i.setTextSize(R.dimen.T_X08);
+        this.f64800i.setTextColorInitSkin(R.color.CAM_X0105);
+        this.f64800i.setTextColorSkin(R.color.CAM_X0105);
+        this.f64800i.setStrokeWidth(R.dimen.ds0);
+        this.f64800i.setBackgroundSkin(R.drawable.pic_banner_down_btn_bg);
+        this.f64800i.i();
         int[] p = l.p(TbadkCoreApplication.getInst());
         int i2 = p[0];
         int i3 = p[1];
         this.k.setOnClickListener(new a());
-        this.f61102c.setOnClickListener(new b());
+        this.f64794c.setOnClickListener(new b());
     }
 
     public final void m(AdvertAppInfo advertAppInfo) {
@@ -294,7 +294,7 @@ public class c implements o {
 
     public DownloadData o(AdCard adCard, int i2) {
         DownloadData downloadData = new DownloadData(adCard.getDownloadId());
-        downloadData.setUrl(adCard.downloadInfo.f61062b);
+        downloadData.setUrl(adCard.downloadInfo.f64754b);
         downloadData.setName(adCard.userName);
         downloadData.setPosition(i2);
         downloadData.setNotifyId(d.a.c.e.m.b.d(adCard.adId, 0));
@@ -314,48 +314,48 @@ public class c implements o {
     }
 
     public final void q(AdvertAppInfo advertAppInfo, d.a.m0.z0.c cVar) {
-        AdCard adCard = (AdCard) advertAppInfo.O3;
+        AdCard adCard = (AdCard) advertAppInfo.R3;
         this.m = adCard;
         if (adCard != null && !cVar.j && !cVar.k) {
             if (this.q.contains(advertAppInfo)) {
-                this.f61102c.setVisibility(8);
+                this.f64794c.setVisibility(8);
                 return;
             }
-            this.f61102c.setVisibility(0);
+            this.f64794c.setVisibility(0);
             m(advertAppInfo);
-            ((RelativeLayout.LayoutParams) this.f61102c.getLayoutParams()).bottomMargin = cVar.f50987h + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52);
-            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f61102c);
+            ((RelativeLayout.LayoutParams) this.f64794c.getLayoutParams()).bottomMargin = cVar.f54664h + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52);
+            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.f64794c);
             d2.m(R.string.J_X06);
             d2.f(R.color.CAM_X0214);
-            this.f61104e.V(this.m.userImage, 17, false);
-            this.f61105f.setText(this.m.userName);
-            this.f61106g.setText(this.m.threadTitle);
+            this.f64796e.U(this.m.userImage, 17, false);
+            this.f64797f.setText(this.m.userName);
+            this.f64798g.setText(this.m.threadTitle);
             if (this.m.appInfoModel == null) {
-                this.f61107h.setVisibility(8);
+                this.f64799h.setVisibility(8);
                 this.l.setVisibility(0);
-                this.f61105f.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X05));
-                this.f61106g.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X07));
-                this.f61106g.setMaxLines(2);
+                this.f64797f.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X05));
+                this.f64798g.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X07));
+                this.f64798g.setMaxLines(2);
             } else {
-                this.f61107h.setVisibility(0);
+                this.f64799h.setVisibility(0);
                 this.l.setVisibility(8);
-                this.f61107h.setAd(advertAppInfo);
-                this.f61107h.setAppInfo(this.m.appInfoModel);
-                this.f61105f.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06));
-                this.f61106g.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X08));
-                this.f61106g.setMaxLines(1);
+                this.f64799h.setAd(advertAppInfo);
+                this.f64799h.setAppInfo(this.m.appInfoModel);
+                this.f64797f.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06));
+                this.f64798g.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X08));
+                this.f64798g.setMaxLines(1);
             }
-            if (advertAppInfo.E4()) {
+            if (advertAppInfo.F4()) {
                 i();
                 j();
                 return;
-            } else if (advertAppInfo.G4()) {
+            } else if (advertAppInfo.H4()) {
                 k();
                 return;
             } else {
                 return;
             }
         }
-        this.f61102c.setVisibility(8);
+        this.f64794c.setVisibility(8);
     }
 }

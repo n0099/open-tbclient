@@ -1,6 +1,6 @@
 package org.apache.http.protocol;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DefaultedHttpContext implements HttpContext {
     public DefaultedHttpContext(HttpContext httpContext, HttpContext httpContext2) {
         throw new RuntimeException("Stub!");

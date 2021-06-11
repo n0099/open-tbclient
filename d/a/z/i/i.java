@@ -12,10 +12,10 @@ import java.util.jar.JarFile;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f64954a = new Object();
+    public static Object f68685a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<byte[]> f64955b;
+    public static WeakReference<byte[]> f68686b;
 
     public static Signature[] a(String str) {
         WeakReference<byte[]> weakReference;
@@ -23,11 +23,11 @@ public class i {
         byte[] bArr;
         JarFile jarFile2;
         boolean z;
-        synchronized (f64954a) {
-            weakReference = f64955b;
+        synchronized (f68685a) {
+            weakReference = f68686b;
             jarFile = null;
             if (weakReference != null) {
-                f64955b = null;
+                f68686b = null;
                 bArr = weakReference.get();
             } else {
                 bArr = null;
@@ -81,8 +81,8 @@ public class i {
                             }
                         }
                     } else {
-                        synchronized (f64954a) {
-                            f64955b = weakReference;
+                        synchronized (f68685a) {
+                            f68686b = weakReference;
                         }
                         if (certificateArr == null || certificateArr.length <= 0) {
                             try {

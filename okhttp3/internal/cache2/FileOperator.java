@@ -3,7 +3,7 @@ package okhttp3.internal.cache2;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import okio.Buffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FileOperator {
     public final FileChannel fileChannel;
 

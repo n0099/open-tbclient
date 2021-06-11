@@ -13,19 +13,19 @@ import d.a.l0.f.f;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f47598a;
+    public View f51272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDraweeView f47599b;
+    public SimpleDraweeView f51273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f47600c;
+    public TextView f51274c;
 
     @SuppressLint({"InflateParams"})
     public b(Context context) {
         View inflate = LayoutInflater.from(context).inflate(f.swangame_recommend_button, (ViewGroup) null);
-        this.f47598a = inflate;
-        this.f47599b = (SimpleDraweeView) inflate.findViewById(e.swangame_recommend_button_icon);
-        this.f47600c = (TextView) this.f47598a.findViewById(e.swangame_recommend_button_name);
+        this.f51272a = inflate;
+        this.f51273b = (SimpleDraweeView) inflate.findViewById(e.swangame_recommend_button_icon);
+        this.f51274c = (TextView) this.f51272a.findViewById(e.swangame_recommend_button_name);
     }
 }

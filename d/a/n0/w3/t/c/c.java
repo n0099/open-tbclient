@@ -15,13 +15,13 @@ import java.util.List;
 public class c extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public View f62983c;
+    public View f66698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HorizontalListView f62984d;
+    public HorizontalListView f66699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f62985e;
+    public f f66700e;
 
     public c(d.a.c.a.f fVar) {
         super(fVar);
@@ -29,36 +29,36 @@ public class c extends a {
 
     @Override // d.a.n0.w3.t.c.a
     public void d() {
-        View inflate = LayoutInflater.from(this.f62976a.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-        this.f62983c = inflate;
-        this.f62984d = (HorizontalListView) inflate.findViewById(R.id.horizontal_list);
+        View inflate = LayoutInflater.from(this.f66691a.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
+        this.f66698c = inflate;
+        this.f66699d = (HorizontalListView) inflate.findViewById(R.id.horizontal_list);
         f fVar = new f();
-        this.f62985e = fVar;
-        this.f62984d.setAdapter((ListAdapter) fVar);
+        this.f66700e = fVar;
+        this.f66699d.setAdapter((ListAdapter) fVar);
     }
 
     public View e() {
-        return this.f62983c;
+        return this.f66698c;
     }
 
     public void f() {
-        this.f62985e.notifyDataSetChanged();
+        this.f66700e.notifyDataSetChanged();
     }
 
     public void g(List<String> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f62985e.c(list);
-        this.f62985e.notifyDataSetChanged();
+        this.f66700e.c(list);
+        this.f66700e.notifyDataSetChanged();
     }
 
     public void h() {
-        SkinManager.setBackgroundColor(this.f62983c, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f66698c, R.color.CAM_X0201);
         f();
     }
 
-    public void j(e eVar) {
-        this.f62985e.d(eVar);
+    public void i(e eVar) {
+        this.f66700e.d(eVar);
     }
 }

@@ -12,7 +12,7 @@ public class b extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b r() {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-BrightnessApi", "handle");
         }
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();

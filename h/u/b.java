@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b implements k {
 
     /* renamed from: e  reason: collision with root package name */
-    public Set<k> f68759e;
+    public Set<k> f72015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f68760f;
+    public volatile boolean f72016f;
 
     public static void c(Collection<k> collection) {
         if (collection == null) {
@@ -36,13 +36,13 @@ public final class b implements k {
         if (kVar.isUnsubscribed()) {
             return;
         }
-        if (!this.f68760f) {
+        if (!this.f72016f) {
             synchronized (this) {
-                if (!this.f68760f) {
-                    if (this.f68759e == null) {
-                        this.f68759e = new HashSet(4);
+                if (!this.f72016f) {
+                    if (this.f72015e == null) {
+                        this.f72015e = new HashSet(4);
                     }
-                    this.f68759e.add(kVar);
+                    this.f72015e.add(kVar);
                     return;
                 }
             }
@@ -51,12 +51,12 @@ public final class b implements k {
     }
 
     public void b(k kVar) {
-        if (this.f68760f) {
+        if (this.f72016f) {
             return;
         }
         synchronized (this) {
-            if (!this.f68760f && this.f68759e != null) {
-                boolean remove = this.f68759e.remove(kVar);
+            if (!this.f72016f && this.f72015e != null) {
+                boolean remove = this.f72015e.remove(kVar);
                 if (remove) {
                     kVar.unsubscribe();
                 }
@@ -66,21 +66,21 @@ public final class b implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68760f;
+        return this.f72016f;
     }
 
     @Override // h.k
     public void unsubscribe() {
-        if (this.f68760f) {
+        if (this.f72016f) {
             return;
         }
         synchronized (this) {
-            if (this.f68760f) {
+            if (this.f72016f) {
                 return;
             }
-            this.f68760f = true;
-            Set<k> set = this.f68759e;
-            this.f68759e = null;
+            this.f72016f = true;
+            Set<k> set = this.f72015e;
+            this.f72015e = null;
             c(set);
         }
     }

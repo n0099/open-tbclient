@@ -5,6 +5,7 @@ import androidx.annotation.IntRange;
 import com.airbnb.lottie.model.content.GradientColor;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.MiscUtils;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,7 @@ public class GradientColorParser implements ValueParser<GradientColor> {
         }
     }
 
-    @IntRange(from = 0, to = 255)
+    @IntRange(from = 0, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
     private int getOpacityAtPosition(double d2, double[] dArr, double[] dArr2) {
         double d3;
         int i2 = 1;

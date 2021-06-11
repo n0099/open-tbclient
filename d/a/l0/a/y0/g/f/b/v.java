@@ -21,9 +21,9 @@ public class v extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
         if (obj instanceof String) {
             String str2 = (String) obj;
             if (TextUtils.equals(str2, com.alipay.sdk.widget.j.j)) {
-                bVar.s(false);
+                bVar.r(false);
             } else if (TextUtils.equals(str2, "front")) {
-                bVar.s(true);
+                bVar.r(true);
             }
         }
     }

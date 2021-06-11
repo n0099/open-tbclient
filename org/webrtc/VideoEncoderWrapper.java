@@ -3,7 +3,7 @@ package org.webrtc;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoEncoderWrapper {
     @CalledByNative
     public static VideoEncoder.Callback createEncoderCallback(final long j) {

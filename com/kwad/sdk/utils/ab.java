@@ -2,25 +2,36 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import com.kwad.sdk.api.core.ResContext;
-/* loaded from: classes6.dex */
+import com.kwad.sdk.api.loader.Loader;
+import com.kwad.sdk.api.loader.Wrapper;
+/* loaded from: classes7.dex */
 public class ab {
     public static int a(Context context, String str) {
-        Resources a2 = a(context);
-        if (a2 == null) {
-            a2 = context.getResources();
+        if (context instanceof ResContext) {
+            context = ((ResContext) context).getDelegatedContext();
         }
-        return a2.getIdentifier(str, "drawable", context.getPackageName());
+        return context.getResources().getIdentifier(str, "drawable", context.getPackageName());
+    }
+
+    public static int a(Context context, String str, String str2) {
+        a(str2, str);
+        return a(context).getIdentifier(str, str2, b(context));
     }
 
     public static Resources a(Context context) {
-        if (context == null) {
-            return null;
-        }
-        Context applicationContext = context.getApplicationContext();
-        if (applicationContext instanceof ResContext) {
-            applicationContext = ((ResContext) applicationContext).getDelegatedContext();
-        }
-        return applicationContext.getResources();
+        return Wrapper.wrapContextIfNeed(context).getResources();
+    }
+
+    public static void a(String str, String str2) {
+    }
+
+    public static Drawable b(Context context, String str) {
+        return a(context).getDrawable(a(context, str, "drawable"));
+    }
+
+    public static String b(Context context) {
+        return Loader.get().getExternalResource() != null ? "com.kwad.sdk" : context.getPackageName();
     }
 }

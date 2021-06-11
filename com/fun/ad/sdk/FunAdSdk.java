@@ -1,10 +1,10 @@
 package com.fun.ad.sdk;
 
 import a.a.a.a.a;
-import a.a.a.a.e;
-import a.a.a.a.i;
-import a.a.a.a.l;
-import a.a.a.a.x.d;
+import a.a.a.a.f;
+import a.a.a.a.j;
+import a.a.a.a.m;
+import a.a.a.a.y.d;
 import android.content.Context;
 import android.os.Looper;
 import android.os.SystemClock;
@@ -28,8 +28,8 @@ public final class FunAdSdk {
     }
 
     public static FunAdFactory getAdFactory() {
-        e eVar = e.f1021c;
-        return eVar == null ? new e() : eVar;
+        f fVar = f.f1023c;
+        return fVar == null ? new f() : fVar;
     }
 
     public static Context getAppContext() {
@@ -41,7 +41,7 @@ public final class FunAdSdk {
     }
 
     public static String getPlatformId(String str) {
-        return i.a(str);
+        return j.a(str);
     }
 
     public static boolean init(FunAdConfig funAdConfig, FunAdCallback funAdCallback2) {
@@ -60,9 +60,9 @@ public final class FunAdSdk {
                     }
                     sFunAdConfig = funAdConfig;
                     funAdCallback = funAdCallback2;
-                    l.a();
-                    l.f1078c = System.currentTimeMillis();
-                    l.f1082g = SystemClock.currentThreadTimeMillis();
+                    m.a();
+                    m.f1082c = System.currentTimeMillis();
+                    m.f1086g = SystemClock.currentThreadTimeMillis();
                     try {
                         Class.forName("com.win.opensdk.PBInitialize");
                     } catch (ClassNotFoundException unused) {
@@ -88,14 +88,13 @@ public final class FunAdSdk {
                     } catch (ClassNotFoundException unused5) {
                         a.a("SDK依赖性错误：请在build.gradle里正确集成fun_openid_sdk_xxx.aar");
                     }
-                    l.f1076a.f1086b = System.currentTimeMillis() - l.f1078c;
-                    l.f1076a.f1087c = SystemClock.currentThreadTimeMillis() - l.f1082g;
-                    i.f1041b = sdkInitializeCallback;
-                    i.a(true);
+                    m.f1080a.f1089a = System.currentTimeMillis() - m.f1082c;
+                    m.f1080a.f1090b = SystemClock.currentThreadTimeMillis() - m.f1086g;
+                    j.f1045b = sdkInitializeCallback;
+                    j.a(true);
                     isAdSdkInitialized = true;
-                    l.f1076a.f1090f = System.currentTimeMillis() - l.f1077b;
-                    l.f1076a.f1091g = SystemClock.currentThreadTimeMillis() - l.f1081f;
-                    l.f1076a.a();
+                    m.f1080a.f1093e = System.currentTimeMillis() - m.f1081b;
+                    m.f1080a.f1094f = SystemClock.currentThreadTimeMillis() - m.f1085f;
                     return true;
                 }
                 throw new IllegalStateException("This method could only be called on main thread.");
@@ -111,6 +110,6 @@ public final class FunAdSdk {
     }
 
     public static boolean isSdkInitializeComplete() {
-        return i.f1045f;
+        return j.f1049f;
     }
 }

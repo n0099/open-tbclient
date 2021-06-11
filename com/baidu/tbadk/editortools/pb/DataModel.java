@@ -9,9 +9,9 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         super(fVar);
     }
 
-    public abstract String s();
+    public abstract String w();
 
-    public abstract WriteData t(String str);
+    public abstract WriteData x(String str);
 
-    public abstract boolean u();
+    public abstract boolean y();
 }

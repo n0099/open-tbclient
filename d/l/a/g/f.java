@@ -11,17 +11,17 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f66452a;
+    public final String f70238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<g> f66453b;
+    public final List<g> f70239b;
 
     public f(JSONObject jSONObject) {
-        this.f66452a = jSONObject.optString("imageKey");
+        this.f70238a = jSONObject.optString("imageKey");
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("frames");
         if (optJSONArray != null) {
@@ -37,20 +37,20 @@ public final class f {
                 }
             }
         }
-        this.f66453b = CollectionsKt___CollectionsKt.toList(arrayList);
+        this.f70239b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
     public final List<g> a() {
-        return this.f66453b;
+        return this.f70239b;
     }
 
     public final String b() {
-        return this.f66452a;
+        return this.f70238a;
     }
 
     public f(SpriteEntity spriteEntity) {
         List<g> emptyList;
-        this.f66452a = spriteEntity.imageKey;
+        this.f70238a = spriteEntity.imageKey;
         List<FrameEntity> list = spriteEntity.frames;
         if (list != null) {
             emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
@@ -67,6 +67,6 @@ public final class f {
         } else {
             emptyList = CollectionsKt__CollectionsKt.emptyList();
         }
-        this.f66453b = emptyList;
+        this.f70239b = emptyList;
     }
 }

@@ -7,18 +7,18 @@ import d.a.l0.a.k;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43371a = k.f43199a;
+    public static final boolean f47047a = k.f46875a;
 
     public static String a(PMSAppInfo pMSAppInfo) {
         if (pMSAppInfo == null) {
-            if (f43371a) {
+            if (f47047a) {
                 Log.e("AppInfoExt", "appInfo can not be null, please check");
                 return "";
             }
             return "";
         }
         String str = pMSAppInfo.serverExt;
-        if (f43371a) {
+        if (f47047a) {
             Log.d("AppInfoExt", "appId - " + pMSAppInfo.appId + ",get app info' ext - " + str);
         }
         return str;

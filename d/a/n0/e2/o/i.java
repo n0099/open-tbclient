@@ -8,9 +8,13 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
 /* loaded from: classes5.dex */
 public interface i {
-    PbActivity A();
+    PbModel A();
 
-    PbModel.g W();
+    PbActivity B();
+
+    PbFragment C0();
+
+    PbModel.g Y();
 
     void finish();
 
@@ -18,9 +22,5 @@ public interface i {
 
     void registerListener(MessageListener<?> messageListener);
 
-    VideoPbFragment w();
-
-    PbModel z();
-
-    PbFragment z0();
+    VideoPbFragment x();
 }

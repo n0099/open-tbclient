@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f54495a;
+    public static h f58184a;
 
     public static h e() {
-        if (f54495a == null) {
+        if (f58184a == null) {
             synchronized (h.class) {
-                if (f54495a == null) {
-                    f54495a = new h();
+                if (f58184a == null) {
+                    f58184a = new h();
                 }
             }
         }
-        return f54495a;
+        return f58184a;
     }
 
     public SQLiteStatement a(String str) {

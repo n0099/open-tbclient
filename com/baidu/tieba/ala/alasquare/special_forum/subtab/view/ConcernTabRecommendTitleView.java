@@ -18,36 +18,36 @@ public class ConcernTabRecommendTitleView extends b<g> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f13886a;
+        public View f13943a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f13887b;
+        public TextView f13944b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f13888c;
+        public View f13945c;
 
         public ViewHolder(View view) {
             super(view);
-            this.f13886a = view;
-            this.f13887b = (TextView) view.findViewById(R.id.title);
-            this.f13888c = this.f13886a.findViewById(R.id.divider);
+            this.f13943a = view;
+            this.f13944b = (TextView) view.findViewById(R.id.title);
+            this.f13945c = this.f13943a.findViewById(R.id.divider);
         }
     }
 
     public ConcernTabRecommendTitleView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.m = new ViewHolder(l());
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.m = new ViewHolder(m());
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.special_bar_concern_recommend_title;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setViewTextColor(this.m.f13887b, R.color.CAM_X0109);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        SkinManager.setViewTextColor(this.m.f13944b, R.color.CAM_X0109);
     }
 
     @Override // android.view.View.OnClickListener
@@ -56,14 +56,14 @@ public class ConcernTabRecommendTitleView extends b<g> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(g gVar) {
+    /* renamed from: t */
+    public void n(g gVar) {
         ViewHolder viewHolder = this.m;
         if (viewHolder != null) {
-            if (gVar.f61730e) {
-                viewHolder.f13888c.setVisibility(0);
+            if (gVar.f65444e) {
+                viewHolder.f13945c.setVisibility(0);
             } else {
-                viewHolder.f13888c.setVisibility(8);
+                viewHolder.f13945c.setVisibility(8);
             }
         }
     }

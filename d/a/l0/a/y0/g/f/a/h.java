@@ -20,7 +20,7 @@ public class h extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.a> {
         Object obj = command.obj;
         if (obj instanceof JSONObject) {
             JSONObject jSONObject = (JSONObject) obj;
-            aVar.U(jSONObject.optInt("width"), jSONObject.optInt("height"));
+            aVar.R(jSONObject.optInt("width"), jSONObject.optInt("height"));
         }
     }
 }

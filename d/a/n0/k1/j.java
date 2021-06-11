@@ -23,31 +23,31 @@ import java.util.List;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final NavigationBar f56603a;
+    public final NavigationBar f60292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final RelativeLayout f56604b;
+    public final RelativeLayout f60293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TextView f56605c;
+    public final TextView f60294c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final TbImageView f56606d;
+    public final TbImageView f60295d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final View f56607e;
+    public final View f60296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final LinearLayout f56608f;
+    public final LinearLayout f60297f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TbImageView f56609g;
+    public final TbImageView f60298g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final TbImageView f56610h;
+    public final TbImageView f60299h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final TbImageView f56611i;
+    public final TbImageView f60300i;
     public final List<TbImageView> j;
     public LegoListActivity k;
 
@@ -55,19 +55,19 @@ public class j {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f56612e;
+        public final /* synthetic */ String f60301e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f56613f;
+        public final /* synthetic */ String f60302f;
 
         public a(String str, String str2) {
-            this.f56612e = str;
-            this.f56613f = str2;
+            this.f60301e = str;
+            this.f60302f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            j.this.f(this.f56612e, this.f56613f);
+            j.this.f(this.f60301e, this.f60302f);
         }
     }
 
@@ -75,15 +75,15 @@ public class j {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f56615e;
+        public final /* synthetic */ List f60304e;
 
         public b(List list) {
-            this.f56615e = list;
+            this.f60304e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            j.this.e(this.f56615e);
+            j.this.e(this.f60304e);
         }
     }
 
@@ -91,15 +91,15 @@ public class j {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f56617e;
+        public final /* synthetic */ String f60306e;
 
         public c(String str) {
-            this.f56617e = str;
+            this.f60306e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            v.c(j.this.k.getPageContext(), this.f56617e);
+            v.c(j.this.k.getPageContext(), this.f60306e);
         }
     }
 
@@ -107,15 +107,15 @@ public class j {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.k1.p.d f56619e;
+        public final /* synthetic */ d.a.n0.k1.p.d f60308e;
 
         public d(d.a.n0.k1.p.d dVar) {
-            this.f56619e = dVar;
+            this.f60308e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            j.this.h(this.f56619e);
+            j.this.h(this.f60308e);
         }
     }
 
@@ -123,15 +123,15 @@ public class j {
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f56621e;
+        public final /* synthetic */ ShareItem f60310e;
 
         public e(ShareItem shareItem) {
-            this.f56621e = shareItem;
+            this.f60310e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.p.a.a(this.f56621e.t);
+            d.a.c.e.p.a.a(this.f60310e.t);
             d.a.c.e.p.l.M(j.this.k.getActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
@@ -139,47 +139,47 @@ public class j {
     public j(LegoListActivity legoListActivity) {
         this.k = legoListActivity;
         NavigationBar navigationBar = (NavigationBar) legoListActivity.findViewById(R.id.view_navigation_bar);
-        this.f56603a = navigationBar;
-        this.f56607e = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, legoListActivity.mCommonOnClickListener);
-        this.f56604b = (RelativeLayout) this.f56603a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.title_textview, (View.OnClickListener) null);
-        ((LinearLayout) this.f56603a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_CENTER)).setGravity(17);
-        this.f56605c = (TextView) this.f56604b.findViewById(R.id.lego_title);
-        this.f56606d = (TbImageView) this.f56604b.findViewById(R.id.lego_title_img);
-        LinearLayout linearLayout = (LinearLayout) this.f56604b.findViewById(R.id.ll_right);
-        this.f56608f = linearLayout;
-        this.f56609g = (TbImageView) linearLayout.findViewById(R.id.iv1);
-        this.f56610h = (TbImageView) this.f56608f.findViewById(R.id.iv2);
-        this.f56611i = (TbImageView) this.f56608f.findViewById(R.id.iv3);
+        this.f60292a = navigationBar;
+        this.f60296e = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, legoListActivity.mCommonOnClickListener);
+        this.f60293b = (RelativeLayout) this.f60292a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.title_textview, (View.OnClickListener) null);
+        ((LinearLayout) this.f60292a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_CENTER)).setGravity(17);
+        this.f60294c = (TextView) this.f60293b.findViewById(R.id.lego_title);
+        this.f60295d = (TbImageView) this.f60293b.findViewById(R.id.lego_title_img);
+        LinearLayout linearLayout = (LinearLayout) this.f60293b.findViewById(R.id.ll_right);
+        this.f60297f = linearLayout;
+        this.f60298g = (TbImageView) linearLayout.findViewById(R.id.iv1);
+        this.f60299h = (TbImageView) this.f60297f.findViewById(R.id.iv2);
+        this.f60300i = (TbImageView) this.f60297f.findViewById(R.id.iv3);
         ArrayList arrayList = new ArrayList();
         this.j = arrayList;
-        arrayList.add(this.f56609g);
-        this.j.add(this.f56610h);
-        this.j.add(this.f56611i);
+        arrayList.add(this.f60298g);
+        this.j.add(this.f60299h);
+        this.j.add(this.f60300i);
     }
 
     public void d() {
-        this.f56603a.setVisibility(8);
+        this.f60292a.setVisibility(8);
     }
 
     public final void e(List<d.a.n0.k1.p.d> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f56608f.setVisibility(0);
+        this.f60297f.setVisibility(0);
         for (int i2 = 0; i2 < list.size() && i2 < this.j.size(); i2++) {
             this.j.get(i2).setVisibility(0);
-            if (list.get(i2).f56753d == 2) {
+            if (list.get(i2).f60442d == 2) {
                 SkinManager.setImageResource(this.j.get(i2), R.drawable.icon_nav_share_n);
             } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.j.get(i2).V(list.get(i2).f56751b, 10, false);
+                this.j.get(i2).U(list.get(i2).f60440b, 10, false);
             } else {
-                this.j.get(i2).V(list.get(i2).f56750a, 10, false);
+                this.j.get(i2).U(list.get(i2).f60439a, 10, false);
             }
-            if (!TextUtils.isEmpty(list.get(i2).f56752c)) {
-                String str = list.get(i2).f56752c;
-                if (list.get(i2).f56753d == 1) {
+            if (!TextUtils.isEmpty(list.get(i2).f60441c)) {
+                String str = list.get(i2).f60441c;
+                if (list.get(i2).f60442d == 1) {
                     this.j.get(i2).setOnClickListener(new c(str));
-                } else if (list.get(i2).f56753d == 2) {
+                } else if (list.get(i2).f60442d == 2) {
                     this.j.get(i2).setOnClickListener(new d(list.get(i2)));
                 }
             }
@@ -190,38 +190,38 @@ public class j {
     }
 
     public final void f(String str, String str2) {
-        TbImageView tbImageView = this.f56606d;
-        if (tbImageView == null || this.f56605c == null) {
+        TbImageView tbImageView = this.f60295d;
+        if (tbImageView == null || this.f60294c == null) {
             return;
         }
         tbImageView.setVisibility(0);
-        this.f56605c.setVisibility(8);
+        this.f60294c.setVisibility(8);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.f56606d.V(str2, 10, false);
+            this.f60295d.U(str2, 10, false);
         } else {
-            this.f56606d.V(str, 10, false);
+            this.f60295d.U(str, 10, false);
         }
     }
 
     public void g(List<d.a.n0.k1.p.d> list) {
         if (ListUtils.isEmpty(list)) {
-            this.f56608f.setVisibility(8);
+            this.f60297f.setVisibility(8);
             return;
         }
         e(list);
-        this.f56608f.postDelayed(new b(list), 1000L);
+        this.f60297f.postDelayed(new b(list), 1000L);
     }
 
     public void h(d.a.n0.k1.p.d dVar) {
-        if (dVar == null || dVar.f56753d != 2) {
+        if (dVar == null || dVar.f60442d != 2) {
             return;
         }
-        String str = dVar.f56756g;
+        String str = dVar.f60445g;
         Uri parse = str == null ? null : Uri.parse(str);
         ShareItem shareItem = new ShareItem();
-        shareItem.r = dVar.f56754e;
-        shareItem.s = dVar.f56755f;
-        shareItem.t = dVar.f56752c;
+        shareItem.r = dVar.f60443e;
+        shareItem.s = dVar.f60444f;
+        shareItem.t = dVar.f60441c;
         if (parse != null) {
             shareItem.v = parse;
         }
@@ -232,13 +232,13 @@ public class j {
     }
 
     public void i(String str) {
-        SkinManager.setViewTextColor(this.f56605c, R.color.CAM_X0105);
-        this.f56605c.setVisibility(0);
-        this.f56606d.setVisibility(8);
+        SkinManager.setViewTextColor(this.f60294c, R.color.CAM_X0105);
+        this.f60294c.setVisibility(0);
+        this.f60295d.setVisibility(8);
         if (!TextUtils.isEmpty(str)) {
-            this.f56605c.setText(str);
+            this.f60294c.setText(str);
         } else {
-            this.f56605c.setText("");
+            this.f60294c.setText("");
         }
     }
 
@@ -247,6 +247,6 @@ public class j {
             return;
         }
         f(str, str2);
-        this.f56606d.postDelayed(new a(str, str2), 1000L);
+        this.f60295d.postDelayed(new a(str, str2), 1000L);
     }
 }

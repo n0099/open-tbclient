@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -205,7 +204,7 @@ public class GroupInfoSyncManagerImpl {
                 LogUtils.d("", "SYNCGROUP star begin..." + starGroupList.toString());
                 GroupInfoSyncManagerImpl.handleGetGroupinfos(context, starGroupList);
             }
-        }, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        }, 30000L);
     }
 
     public static void syncAllGroupListDone(Context context) {

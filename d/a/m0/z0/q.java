@@ -30,31 +30,31 @@ import java.util.UUID;
 public class q extends BdAsyncTask<String, String, b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f51065a;
+    public Activity f54742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51066b;
+    public String f54743b;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f51068d;
+    public a f54745d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51069e;
+    public String f54746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51070f;
+    public String f54747f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f51071g;
+    public File f54748g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51072h;
+    public boolean f54749h;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51067c = 0;
+    public int f54744c = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f51073i = true;
+    public boolean f54750i = true;
     public boolean j = false;
 
     /* loaded from: classes3.dex */
@@ -68,42 +68,42 @@ public class q extends BdAsyncTask<String, String, b> {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f51074a;
+        public boolean f54751a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51075b;
+        public String f54752b;
 
         public b(q qVar, boolean z, String str) {
-            this.f51074a = z;
-            this.f51075b = str;
+            this.f54751a = z;
+            this.f54752b = str;
         }
 
         public String a() {
-            return this.f51075b;
+            return this.f54752b;
         }
 
         public boolean b() {
-            return this.f51074a;
+            return this.f54751a;
         }
     }
 
     public q(Activity activity, String str, a aVar) {
-        this.f51065a = activity;
-        this.f51066b = str;
-        this.f51068d = aVar;
+        this.f54742a = activity;
+        this.f54743b = str;
+        this.f54745d = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public b doInBackground(String... strArr) {
-        if (TextUtils.isEmpty(this.f51066b)) {
+        if (TextUtils.isEmpty(this.f54743b)) {
             return new b(this, false, "url is null");
         }
         if (!j()) {
             return new b(this, false, "make file error");
         }
-        if (!this.f51072h) {
+        if (!this.f54749h) {
             if (!d()) {
                 return new b(this, false, "download error");
             }
@@ -129,7 +129,7 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public final boolean d() {
-        return c(this.f51066b, this.f51070f, 3);
+        return c(this.f54743b, this.f54747f, 3);
     }
 
     public final HttpURLConnection e(URL url, int i2, int i3) throws SocketException, ProtocolException {
@@ -230,7 +230,7 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public q h(boolean z) {
-        this.f51072h = z;
+        this.f54749h = z;
         return this;
     }
 
@@ -259,7 +259,7 @@ public class q extends BdAsyncTask<String, String, b> {
     public final boolean j() {
         File externalStoragePublicDirectory;
         try {
-            if (this.f51067c == 1) {
+            if (this.f54744c == 1) {
                 FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/");
                 FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/");
                 FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + SevenZipUtils.FILE_NAME_TEMP + "/.nomedia/");
@@ -269,27 +269,27 @@ public class q extends BdAsyncTask<String, String, b> {
             }
             if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
                 String absolutePath = externalStoragePublicDirectory.getAbsolutePath();
-                this.f51069e = absolutePath;
-                if (!TextUtils.isEmpty(absolutePath) && !this.f51069e.endsWith("/")) {
-                    this.f51069e += "/";
+                this.f54746e = absolutePath;
+                if (!TextUtils.isEmpty(absolutePath) && !this.f54746e.endsWith("/")) {
+                    this.f54746e += "/";
                 }
             } else {
-                this.f51069e = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                this.f54746e = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
             }
-            File file = new File(this.f51069e);
+            File file = new File(this.f54746e);
             if (!file.exists()) {
                 file.mkdir();
             }
-            this.f51070f = this.f51069e + (this.f51067c == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace("-", "").toLowerCase()) + f(this.f51066b);
-            File file2 = new File(this.f51070f);
-            this.f51071g = file2;
+            this.f54747f = this.f54746e + (this.f54744c == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace("-", "").toLowerCase()) + f(this.f54743b);
+            File file2 = new File(this.f54747f);
+            this.f54748g = file2;
             if (file2.exists()) {
-                this.f51071g.delete();
+                this.f54748g.delete();
             }
-            if (this.f51071g.exists()) {
+            if (this.f54748g.exists()) {
                 return true;
             }
-            this.f51071g.createNewFile();
+            this.f54748g.createNewFile();
             return true;
         } catch (IOException e2) {
             e2.printStackTrace();
@@ -298,8 +298,8 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public final void k() {
-        if (this.f51071g != null) {
-            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.f51071g)));
+        if (this.f54748g != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.f54748g)));
         }
     }
 
@@ -309,26 +309,26 @@ public class q extends BdAsyncTask<String, String, b> {
     public void onPostExecute(b bVar) {
         super.onPostExecute(bVar);
         if (bVar == null) {
-            a aVar = this.f51068d;
+            a aVar = this.f54745d;
             if (aVar != null) {
                 aVar.onError(-2, "error");
             }
         } else if (!bVar.b()) {
-            a aVar2 = this.f51068d;
+            a aVar2 = this.f54745d;
             if (aVar2 != null) {
                 aVar2.onError(-1, bVar.a());
             }
         } else {
-            if (this.j && i(new File(this.f51070f))) {
-                String replace = this.f51070f.replace(f(this.f51070f), ".gif");
-                this.f51071g.renameTo(new File(replace));
-                this.f51070f = replace;
-                this.f51071g = new File(this.f51070f);
+            if (this.j && i(new File(this.f54747f))) {
+                String replace = this.f54747f.replace(f(this.f54747f), ".gif");
+                this.f54748g.renameTo(new File(replace));
+                this.f54747f = replace;
+                this.f54748g = new File(this.f54747f);
             }
             k();
-            a aVar3 = this.f51068d;
+            a aVar3 = this.f54745d;
             if (aVar3 != null) {
-                aVar3.onSuccess(this.f51070f);
+                aVar3.onSuccess(this.f54747f);
             }
         }
     }
@@ -349,22 +349,22 @@ public class q extends BdAsyncTask<String, String, b> {
                         String headerField = httpURLConnection.getHeaderField("Location");
                         d.a.c.e.m.a.e(httpURLConnection);
                         try {
-                            if (this.f51071g != null) {
-                                this.f51071g.delete();
+                            if (this.f54748g != null) {
+                                this.f54748g.delete();
                             }
                         } catch (Exception unused) {
                         }
-                        this.f51070f = this.f51069e + (this.f51067c == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace("-", "").toLowerCase()) + f(headerField);
-                        File file = new File(this.f51070f);
-                        this.f51071g = file;
+                        this.f54747f = this.f54746e + (this.f54744c == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace("-", "").toLowerCase()) + f(headerField);
+                        File file = new File(this.f54747f);
+                        this.f54748g = file;
                         if (file.exists()) {
-                            this.f51071g.delete();
+                            this.f54748g.delete();
                         }
-                        if (!this.f51071g.exists()) {
-                            this.f51071g.createNewFile();
+                        if (!this.f54748g.exists()) {
+                            this.f54748g.createNewFile();
                         }
                         d.a.c.e.m.a.d(fileOutputStream);
-                        FileOutputStream fileOutputStream2 = new FileOutputStream(this.f51071g, true);
+                        FileOutputStream fileOutputStream2 = new FileOutputStream(this.f54748g, true);
                         try {
                             httpURLConnection = e(new URL(headerField), i2, i3);
                             httpURLConnection.connect();
@@ -389,7 +389,7 @@ public class q extends BdAsyncTask<String, String, b> {
         }
         if (responseCode == 200) {
             String headerField2 = httpURLConnection.getHeaderField("Content-Length");
-            if ((headerField2 != null ? d.a.c.e.m.b.d(headerField2, 0) : 0) != 0 || !this.f51073i) {
+            if ((headerField2 != null ? d.a.c.e.m.b.d(headerField2, 0) : 0) != 0 || !this.f54750i) {
                 inputStream = httpURLConnection.getInputStream();
                 byte[] bArr = new byte[1024];
                 while (true) {
@@ -427,8 +427,8 @@ public class q extends BdAsyncTask<String, String, b> {
 
     public final boolean n() {
         FileOutputStream fileOutputStream;
-        String str = this.f51066b;
-        byte[] decode = Base64.decode(str.substring(str.indexOf(",") + 1, this.f51066b.length()), 0);
+        String str = this.f54743b;
+        byte[] decode = Base64.decode(str.substring(str.indexOf(",") + 1, this.f54743b.length()), 0);
         for (int i2 = 0; i2 < decode.length; i2++) {
             if (decode[i2] < 0) {
                 decode[i2] = (byte) (decode[i2] + 256);
@@ -437,7 +437,7 @@ public class q extends BdAsyncTask<String, String, b> {
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                fileOutputStream = new FileOutputStream(this.f51071g, true);
+                fileOutputStream = new FileOutputStream(this.f54748g, true);
             } catch (Throwable th) {
                 th = th;
             }
@@ -464,11 +464,11 @@ public class q extends BdAsyncTask<String, String, b> {
     }
 
     public void o(boolean z) {
-        this.f51073i = z;
+        this.f54750i = z;
     }
 
     public void p(int i2) {
-        this.f51067c = i2;
+        this.f54744c = i2;
     }
 
     public void q(boolean z) {

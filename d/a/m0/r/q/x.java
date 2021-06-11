@@ -10,17 +10,17 @@ import tbclient.FrsPage.Size;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a0> f50166a = new ArrayList<>();
+    public ArrayList<a0> f53842a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50167b;
+    public String f53843b;
 
     public ArrayList<a0> a() {
-        return this.f50166a;
+        return this.f53842a;
     }
 
     public String b() {
-        return this.f50167b;
+        return this.f53843b;
     }
 
     public void c(ActivityHead activityHead) {
@@ -37,7 +37,7 @@ public class x {
         if (size2 != null) {
             size2.height.intValue();
         }
-        this.f50167b = activityHead.obj_id;
+        this.f53843b = activityHead.obj_id;
         e(activityHead.head_imgs);
     }
 
@@ -47,7 +47,7 @@ public class x {
         }
         a0 a0Var = new a0();
         a0Var.k(headImgs);
-        this.f50166a.add(a0Var);
+        this.f53842a.add(a0Var);
     }
 
     public void e(List<HeadImgs> list) {
@@ -60,6 +60,6 @@ public class x {
     }
 
     public void f(ArrayList<a0> arrayList) {
-        this.f50166a = arrayList;
+        this.f53842a = arrayList;
     }
 }

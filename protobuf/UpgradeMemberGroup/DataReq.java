@@ -2,7 +2,7 @@ package protobuf.UpgradeMemberGroup;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer flag;
@@ -11,7 +11,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_FLAG = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer flag;
         public Long groupId;

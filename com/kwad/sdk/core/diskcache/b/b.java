@@ -6,39 +6,39 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32092a;
+    public Context f34130a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32093b;
+    public int f34131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32094c;
+    public long f34132c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f32095d;
+    public File f34133d;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f32096a;
+        public Context f34134a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32097b = 1;
+        public int f34135b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f32098c = 100;
+        public long f34136c = 100;
 
         /* renamed from: d  reason: collision with root package name */
-        public File f32099d;
+        public File f34137d;
 
         public a(Context context) {
-            this.f32096a = context.getApplicationContext();
+            this.f34134a = context.getApplicationContext();
         }
 
         public a a(int i2) {
             if (i2 > 0) {
-                this.f32097b = i2;
+                this.f34135b = i2;
                 return this;
             }
             throw new IllegalArgumentException("appVersion <= 0");
@@ -46,7 +46,7 @@ public class b {
 
         public a a(long j) {
             if (j > 0) {
-                this.f32098c = j;
+                this.f34136c = j;
                 return this;
             }
             throw new IllegalArgumentException("maxSize <= 0");
@@ -54,16 +54,16 @@ public class b {
 
         public a a(File file) {
             d.a(file, "directory is not allow null");
-            this.f32099d = file;
+            this.f34137d = file;
             return this;
         }
 
         public b a() {
             b bVar = new b();
-            bVar.f32092a = this.f32096a;
-            bVar.f32093b = this.f32097b;
-            bVar.f32094c = this.f32098c;
-            bVar.f32095d = this.f32099d;
+            bVar.f34130a = this.f34134a;
+            bVar.f34131b = this.f34135b;
+            bVar.f34132c = this.f34136c;
+            bVar.f34133d = this.f34137d;
             return bVar;
         }
     }

@@ -42,17 +42,17 @@ public class d {
                 Pair pair = (Pair) bVar.b(h.class);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
                 String uri = ((Uri) pair.first).toString();
-                a2.f30116h = false;
-                a2.f30115g = SystemClock.uptimeMillis();
-                a2.f30113e.add(new StatisticModel.PackageStatisticModel.DownloadFailRecords(uri, th.getMessage()));
+                a2.f30219h = false;
+                a2.f30218g = SystemClock.uptimeMillis();
+                a2.f30216e.add(new StatisticModel.PackageStatisticModel.DownloadFailRecords(uri, th.getMessage()));
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
             public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
-                a2.f30116h = true;
-                a2.f30115g = SystemClock.uptimeMillis();
+                a2.f30219h = true;
+                a2.f30218g = SystemClock.uptimeMillis();
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -60,12 +60,12 @@ public class d {
                 super.c(bVar, dVar);
                 Pair pair = (Pair) bVar.b(h.class);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
-                a2.f30112d = ((Uri) pair.first).toString();
+                a2.f30215d = ((Uri) pair.first).toString();
                 a2.p = i.a(context);
-                a2.f30114f = SystemClock.uptimeMillis();
+                a2.f30217f = SystemClock.uptimeMillis();
                 a2.q = Long.valueOf(((UpdatePackage) pair.second).getPatch().getId());
                 a2.r = Long.valueOf(((UpdatePackage) pair.second).getFullPackage().getId());
-                a2.f30111c = ((UpdatePackage) pair.second).getChannel();
+                a2.f30214c = ((UpdatePackage) pair.second).getChannel();
             }
         };
     }
@@ -249,14 +249,14 @@ public class d {
                 a2.p = i.a(context);
                 a2.x = SystemClock.uptimeMillis();
                 a2.r = Long.valueOf(((UpdatePackage) pair.second).getFullPackage().getId());
-                a2.f30111c = ((UpdatePackage) pair.second).getChannel();
+                a2.f30214c = ((UpdatePackage) pair.second).getChannel();
                 if (!TextUtils.isEmpty(((UpdatePackage) pair.second).getAccessKey())) {
-                    a2.f30109a = ((UpdatePackage) pair.second).getAccessKey();
+                    a2.f30212a = ((UpdatePackage) pair.second).getAccessKey();
                 }
                 if (TextUtils.isEmpty(((UpdatePackage) pair.second).getGroupName())) {
                     return;
                 }
-                a2.f30110b = ((UpdatePackage) pair.second).getGroupName();
+                a2.f30213b = ((UpdatePackage) pair.second).getGroupName();
             }
         };
     }
@@ -288,7 +288,7 @@ public class d {
             public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
-                a2.f30117i = false;
+                a2.f30220i = false;
                 a2.l = SystemClock.uptimeMillis();
                 a2.s = th.getMessage();
             }
@@ -296,7 +296,7 @@ public class d {
             @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
             public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
-                b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel()).f30117i = true;
+                b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel()).f30220i = true;
             }
         };
     }

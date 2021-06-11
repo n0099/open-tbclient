@@ -22,7 +22,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class ah {
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar) {
-        return a(context, t, hfVar, !hfVar.equals(hf.Registration), context.getPackageName(), b.m98a(context).m99a());
+        return a(context, t, hfVar, !hfVar.equals(hf.Registration), context.getPackageName(), b.m97a(context).m98a());
     }
 
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar, boolean z, String str, String str2) {
@@ -35,12 +35,12 @@ public class ah {
         if (a2 != null) {
             ib ibVar = new ib();
             if (z) {
-                String d2 = b.m98a(context).d();
+                String d2 = b.m97a(context).d();
                 if (TextUtils.isEmpty(d2)) {
                     str3 = "regSecret is empty, return null";
                 } else {
                     try {
-                        a2 = com.xiaomi.push.h.b(bj.m167a(d2), a2);
+                        a2 = com.xiaomi.push.h.b(bj.m166a(d2), a2);
                     } catch (Exception unused) {
                         com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
                     }
@@ -59,30 +59,30 @@ public class ah {
             return ibVar;
         }
         str3 = "invoke convertThriftObjectToBytes method, return null.";
-        com.xiaomi.channel.commonutils.logger.b.m57a(str3);
+        com.xiaomi.channel.commonutils.logger.b.m56a(str3);
         return null;
     }
 
     public static iq a(Context context, ib ibVar) {
-        byte[] m443a;
-        if (ibVar.m445b()) {
+        byte[] m442a;
+        if (ibVar.m444b()) {
             try {
-                m443a = com.xiaomi.push.h.a(bj.m167a(b.m98a(context).d()), ibVar.m443a());
+                m442a = com.xiaomi.push.h.a(bj.m166a(b.m97a(context).d()), ibVar.m442a());
             } catch (Exception e2) {
                 throw new t("the aes decrypt failed.", e2);
             }
         } else {
-            m443a = ibVar.m443a();
+            m442a = ibVar.m442a();
         }
         iq a2 = a(ibVar.a(), ibVar.f636b);
         if (a2 != null) {
-            ip.a(a2, m443a);
+            ip.a(a2, m442a);
         }
         return a2;
     }
 
     public static iq a(hf hfVar, boolean z) {
-        switch (ai.f37233a[hfVar.ordinal()]) {
+        switch (ai.f40912a[hfVar.ordinal()]) {
             case 1:
                 return new ig();
             case 2:

@@ -17,7 +17,6 @@ import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
@@ -67,17 +66,17 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f23854a = new SessionCache();
+            public static final SessionCache f23957a = new SessionCache();
         }
 
         public static SessionCache getInstance() {
-            return a.f23854a;
+            return a.f23957a;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
             synchronized (SessionCache.class) {
                 if (sessionCache != null) {
-                    a.f23854a.mCache = sessionCache.mCache;
+                    a.f23957a.mCache = sessionCache.mCache;
                 }
             }
         }
@@ -169,7 +168,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             list.add(new RestNameValuePair("key", str));
         }
         String cookie = PayUtils.getCookie(context);
-        LogUtil.w("TEST", "appendCertification(" + context + FieldBuilder.SE + cookie + SmallTailInfo.EMOTION_SUFFIX);
+        LogUtil.w("TEST", "appendCertification(" + context + "|" + cookie + SmallTailInfo.EMOTION_SUFFIX);
         if (!TextUtils.isEmpty(cookie)) {
             list.add(new RestNameValuePair(PARAM_COOKIE, SafePay.getInstance().encryptProxy(cookie)));
         } else {

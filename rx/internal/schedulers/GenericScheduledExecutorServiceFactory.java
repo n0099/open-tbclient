@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public enum GenericScheduledExecutorServiceFactory {
     ;
     

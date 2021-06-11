@@ -5,18 +5,18 @@ import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39936a = 2000;
+    public long f43617a = 2000;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f39937b;
+    public a f43618b;
 
     public abstract void a(int i2, V8ExceptionInfo v8ExceptionInfo);
 
     public void b(a aVar) {
-        this.f39937b = aVar;
+        this.f43618b = aVar;
     }
 
     public void c(long j) {
-        this.f39936a = j;
+        this.f43617a = j;
     }
 }

@@ -29,7 +29,6 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.down.utils.Utils;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import d.a.s.a;
 import java.io.File;
 import java.net.InetAddress;
@@ -871,7 +870,7 @@ public final class Utility {
 
     public static boolean syncUserProfileTime(Context context, String str, String str2) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - readLongData(context, str + BaseUtils.getMd5(str2), -1L) >= Constants.SYNC_USERS_PROFILE_RANDTIME * VideoCloudSetting.HOUR_MILLISECOND) {
+        if (currentTimeMillis - readLongData(context, str + BaseUtils.getMd5(str2), -1L) >= Constants.SYNC_USERS_PROFILE_RANDTIME * 3600000) {
             writeLongData(context, str + BaseUtils.getMd5(str2), currentTimeMillis);
             return true;
         }

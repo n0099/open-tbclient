@@ -3,11 +3,11 @@ package d.a.n0.r0.s1.a.d;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59632a;
+    public int f63323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59633b;
+    public String f63324b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f59634c;
+    public Object f63325c;
 }

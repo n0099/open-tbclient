@@ -59,15 +59,15 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         if (this.E == null || this.F == null || (aVar = this.p0) == null) {
             return;
         }
-        n0(aVar.getThreadData(), "share", 0);
-        p0(this.p0.getThreadData(), "2", "1");
+        l0(aVar.getThreadData(), "share", 0);
+        m0(this.p0.getThreadData(), "2", "1");
         if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.F)) {
             final ShareItem shareItem = new ShareItem();
             shareItem.r = this.p0.getTitle();
             shareItem.D = this.p0.getTitle();
             shareItem.t = this.p0.getShareLink();
             shareItem.F = 3;
-            shareItem.f12600f = true;
+            shareItem.f12662f = true;
             String imageUrl = this.p0.getImageUrl();
             Uri parse = imageUrl == null ? null : Uri.parse(imageUrl);
             if (parse != null) {
@@ -93,7 +93,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public void G(a2 a2Var) {
         super.G(a2Var);
         if (this.l0 == 1) {
-            this.f12348f.setText(StringHelper.cutChineseAndEnglishWithSuffix(a2Var.i0(), 12, ""));
+            this.f12410f.setText(StringHelper.cutChineseAndEnglishWithSuffix(a2Var.i0(), 12, ""));
         }
     }
 
@@ -178,29 +178,29 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         setManageVisible(false);
         setSelectVisible(false);
         setShowFlag(11);
-        m0();
+        k0();
     }
 
     public final void j0(int i2) {
         if (i2 == 1) {
-            n0(this.p0.getThreadData(), "nozan", 0);
-            p0(this.p0.getThreadData(), "1", "2");
+            l0(this.p0.getThreadData(), "nozan", 0);
+            m0(this.p0.getThreadData(), "1", "2");
             return;
         }
-        n0(this.p0.getThreadData(), FeedData.TYPE_ZAN, 0);
-        p0(this.p0.getThreadData(), "1", "1");
+        l0(this.p0.getThreadData(), FeedData.TYPE_ZAN, 0);
+        m0(this.p0.getThreadData(), "1", "1");
     }
 
-    public final void m0() {
-        if (this.f12350h != null) {
+    public final void k0() {
+        if (this.f12412h != null) {
             View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AgreeData data = AdThreadCommentAndPraiseInfoLayout.this.f12350h.getData();
+                    AgreeData data = AdThreadCommentAndPraiseInfoLayout.this.f12412h.getData();
                     if (data == null) {
                         return;
                     }
-                    AdThreadCommentAndPraiseInfoLayout.this.f12350h.getImgAgree().cancelAnimation();
+                    AdThreadCommentAndPraiseInfoLayout.this.f12412h.getImgAgree().cancelAnimation();
                     int i2 = 0;
                     if (data.hasAgree) {
                         if (data.agreeType == 2) {
@@ -208,7 +208,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                             data.hasAgree = false;
                             data.diffAgreeNum--;
                             data.agreeNum--;
-                            AdThreadCommentAndPraiseInfoLayout.this.f12350h.y();
+                            AdThreadCommentAndPraiseInfoLayout.this.f12412h.y();
                             i2 = 1;
                         } else {
                             data.agreeType = 2;
@@ -216,14 +216,14 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                             data.diffAgreeNum += 2;
                             data.agreeNum++;
                             data.disAgreeNum--;
-                            AdThreadCommentAndPraiseInfoLayout.this.f12350h.z(true);
+                            AdThreadCommentAndPraiseInfoLayout.this.f12412h.z(true);
                         }
                     } else {
                         data.agreeType = 2;
                         data.hasAgree = true;
                         data.diffAgreeNum++;
                         data.agreeNum++;
-                        AdThreadCommentAndPraiseInfoLayout.this.f12350h.z(true);
+                        AdThreadCommentAndPraiseInfoLayout.this.f12412h.z(true);
                     }
                     AdThreadCommentAndPraiseInfoLayout.this.j0(i2);
                 }
@@ -231,11 +231,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             View.OnClickListener onClickListener2 = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AgreeData data = AdThreadCommentAndPraiseInfoLayout.this.f12350h.getData();
+                    AgreeData data = AdThreadCommentAndPraiseInfoLayout.this.f12412h.getData();
                     if (data == null) {
                         return;
                     }
-                    AdThreadCommentAndPraiseInfoLayout.this.f12350h.getImgDisagree().cancelAnimation();
+                    AdThreadCommentAndPraiseInfoLayout.this.f12412h.getImgDisagree().cancelAnimation();
                     int i2 = 1;
                     if (data.hasAgree) {
                         if (data.agreeType == 5) {
@@ -243,7 +243,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                             data.hasAgree = false;
                             data.diffAgreeNum++;
                             data.disAgreeNum--;
-                            AdThreadCommentAndPraiseInfoLayout.this.f12350h.y();
+                            AdThreadCommentAndPraiseInfoLayout.this.f12412h.y();
                             AdThreadCommentAndPraiseInfoLayout.this.j0(i2);
                         }
                         data.agreeType = 5;
@@ -251,43 +251,34 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         data.diffAgreeNum -= 2;
                         data.agreeNum--;
                         data.disAgreeNum++;
-                        AdThreadCommentAndPraiseInfoLayout.this.f12350h.z(false);
+                        AdThreadCommentAndPraiseInfoLayout.this.f12412h.z(false);
                     } else {
                         data.agreeType = 5;
                         data.hasAgree = true;
                         data.diffAgreeNum--;
                         data.disAgreeNum++;
-                        AdThreadCommentAndPraiseInfoLayout.this.f12350h.z(false);
+                        AdThreadCommentAndPraiseInfoLayout.this.f12412h.z(false);
                     }
                     i2 = 0;
                     AdThreadCommentAndPraiseInfoLayout.this.j0(i2);
                 }
             };
-            this.f12350h.getImgAgree().setOnClickListener(onClickListener);
-            this.f12350h.getAgreeNumView().setOnClickListener(onClickListener);
-            this.f12350h.getImgDisagree().setOnClickListener(onClickListener2);
-            this.f12350h.getDisagreeNumView().setOnClickListener(onClickListener2);
+            this.f12412h.getImgAgree().setOnClickListener(onClickListener);
+            this.f12412h.getAgreeNumView().setOnClickListener(onClickListener);
+            this.f12412h.getImgDisagree().setOnClickListener(onClickListener2);
+            this.f12412h.getDisagreeNumView().setOnClickListener(onClickListener2);
         }
     }
 
-    public final void n0(AdvertAppInfo advertAppInfo, String str, int i2) {
+    public final void l0(AdvertAppInfo advertAppInfo, String str, int i2) {
         d.a.n0.t2.i0.c b2 = d.a.n0.t2.i0.g.b(advertAppInfo, 8, i2);
         b2.c(str);
         e.b().d(b2);
     }
 
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void onChangeSkinType() {
-        super.onChangeSkinType();
-        this.j.setClickable(false);
-        this.j.setEnabled(false);
-        SkinManager.setViewTextColor(this.f12351i, this.n0);
-        SkinManager.setViewTextColor(this.m, this.o0);
-    }
-
-    public final void p0(AdvertAppInfo advertAppInfo, final String str, final String str2) {
+    public final void m0(AdvertAppInfo advertAppInfo, final String str, final String str2) {
         if (advertAppInfo != null) {
-            String str3 = advertAppInfo.N3;
+            String str3 = advertAppInfo.Q3;
             new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -305,6 +296,15 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 }
             }.execute(r0, h0(str3, "cpid"), h0(str3, "idea_id"));
         }
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void onChangeSkinType() {
+        super.onChangeSkinType();
+        this.j.setClickable(false);
+        this.j.setEnabled(false);
+        SkinManager.setViewTextColor(this.f12413i, this.n0);
+        SkinManager.setViewTextColor(this.m, this.o0);
     }
 
     public void setDisPraiseViewVisibility(boolean z) {
@@ -345,9 +345,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updatePraiseNum(a2 a2Var) {
         if (a2Var != null) {
-            this.f12350h.setAgreeAlone(true);
-            if (this.f12350h.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                ((LinearLayout.LayoutParams) this.f12350h.getLayoutParams()).weight = 1.0f;
+            this.f12412h.setAgreeAlone(true);
+            if (this.f12412h.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                ((LinearLayout.LayoutParams) this.f12412h.getLayoutParams()).weight = 1.0f;
             }
             AgreeData L = a2Var.L();
             if (L != null && L.agreeNum == 0 && L.diffAgreeNum == 0) {
@@ -358,7 +358,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             }
         }
         super.updatePraiseNum(a2Var);
-        AgreeView agreeView = this.f12350h;
+        AgreeView agreeView = this.f12412h;
         if (agreeView != null) {
             agreeView.t(TbadkCoreApplication.getInst().getSkinType());
         }

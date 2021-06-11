@@ -9,18 +9,18 @@ import androidx.annotation.NonNull;
 public final class e implements Handler.Callback {
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile Handler f67342e = new Handler(a.f67343a, this);
+    public volatile Handler f71128e = new Handler(a.f71129a, this);
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Looper f67343a;
+        public static final Looper f71129a;
 
         static {
             HandlerThread handlerThread = new HandlerThread("DownloadWatchDog");
             handlerThread.start();
-            f67343a = handlerThread.getLooper();
+            f71129a = handlerThread.getLooper();
         }
     }
 
@@ -30,11 +30,11 @@ public final class e implements Handler.Callback {
     }
 
     public static Looper a() {
-        return a.f67343a;
+        return a.f71129a;
     }
 
     public void b(b bVar, long j) {
-        Handler handler = this.f67342e;
+        Handler handler = this.f71128e;
         if (handler == null) {
             return;
         }
@@ -45,11 +45,11 @@ public final class e implements Handler.Callback {
     }
 
     public void c() {
-        Handler handler = this.f67342e;
+        Handler handler = this.f71128e;
         if (handler == null) {
             return;
         }
-        this.f67342e = null;
+        this.f71128e = null;
         handler.removeCallbacksAndMessages(null);
     }
 

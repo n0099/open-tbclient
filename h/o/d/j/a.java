@@ -2,7 +2,7 @@ package h.o.d.j;
 
 import java.util.Iterator;
 import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a<E> extends b<E> {
     @Override // java.util.AbstractCollection, java.util.Collection
     public final boolean isEmpty() {

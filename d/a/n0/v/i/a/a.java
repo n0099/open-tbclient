@@ -22,8 +22,8 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
         this.w = "";
     }
 
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         t0(i2, view, viewGroup, (g) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
         return view;
     }
@@ -34,13 +34,13 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public FrsPageAlaInsertRecLiveHolder P(ViewGroup viewGroup) {
+    public FrsPageAlaInsertRecLiveHolder Q(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
         if (tbPageContext == null) {
             return null;
@@ -52,16 +52,16 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
     }
 
     public View t0(int i2, View view, ViewGroup viewGroup, g gVar, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
-        super.W(i2, view, viewGroup, gVar, frsPageAlaInsertRecLiveHolder);
+        super.X(i2, view, viewGroup, gVar, frsPageAlaInsertRecLiveHolder);
         if (gVar != null) {
             FrsViewData frsViewData = this.n;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            List<a2> list = gVar.f53973e;
+            List<a2> list = gVar.f57662e;
             if (list != null && list.get(0) != null) {
-                gVar.f53973e.get(0).N1 = (i2 + 1) - topThreadSize;
+                gVar.f57662e.get(0).O1 = (i2 + 1) - topThreadSize;
             }
-            frsPageAlaInsertRecLiveHolder.f14002a.a(this.w);
-            frsPageAlaInsertRecLiveHolder.f14002a.m(gVar);
+            frsPageAlaInsertRecLiveHolder.f14059a.a(this.w);
+            frsPageAlaInsertRecLiveHolder.f14059a.n(gVar);
         }
         return view;
     }

@@ -34,45 +34,45 @@ import java.util.List;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f61197a = null;
+    public static List<String> f64889a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f61198b = {BaseWebViewActivity.SHOUBAI_SCHEME, "taobao", ThirdPartyUtil.TYPE_WEIXIN, "alipays"};
+    public static final String[] f64890b = {BaseWebViewActivity.SHOUBAI_SCHEME, "taobao", ThirdPartyUtil.TYPE_WEIXIN, "alipays"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f61199c = false;
+    public static volatile boolean f64891c = false;
 
     /* loaded from: classes5.dex */
     public static class a implements TbImageView.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f61200a;
+        public final /* synthetic */ TbImageView f64892a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f61201b;
+        public final /* synthetic */ int f64893b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ float f61202c;
+        public final /* synthetic */ float f64894c;
 
         public a(TbImageView tbImageView, int i2, float f2) {
-            this.f61200a = tbImageView;
-            this.f61201b = i2;
-            this.f61202c = f2;
+            this.f64892a = tbImageView;
+            this.f64893b = i2;
+            this.f64894c = f2;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
-            ViewGroup.LayoutParams layoutParams = this.f61200a.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f64892a.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.height = this.f61201b;
-                float f2 = this.f61202c;
+                layoutParams.height = this.f64893b;
+                float f2 = this.f64894c;
                 if (f2 <= 0.0f) {
                     f2 = 2.0f;
                 }
                 layoutParams.width = (int) (layoutParams.height * f2);
-                this.f61200a.setLayoutParams(layoutParams);
+                this.f64892a.setLayoutParams(layoutParams);
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.f61200a.setAlpha(0.8f);
+                    this.f64892a.setAlpha(0.8f);
                 }
             }
         }
@@ -83,10 +83,10 @@ public class y {
     }
 
     public static void A() {
-        if (d.a.n0.a.h().x() || f61199c) {
+        if (d.a.n0.a.h().x() || f64891c) {
             return;
         }
-        f61199c = true;
+        f64891c = true;
         String[] strArr = {"com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic"};
         for (int i2 = 0; i2 < 2; i2++) {
             try {
@@ -97,14 +97,14 @@ public class y {
     }
 
     public static boolean B(AdvertAppInfo advertAppInfo, String str) {
-        if (advertAppInfo == null || !advertAppInfo.E4() || TextUtils.isEmpty(str) || !q(advertAppInfo.Y3) || str.startsWith("tieba://deeplink?")) {
+        if (advertAppInfo == null || !advertAppInfo.F4() || TextUtils.isEmpty(str) || !q(advertAppInfo.b4) || str.startsWith("tieba://deeplink?")) {
             return false;
         }
         return w(advertAppInfo);
     }
 
     public static final void a(AdvertAppInfo advertAppInfo) {
-        d.a.n0.t2.c0.e.n().g(advertAppInfo.X3, advertAppInfo.getDownloadId(), true);
+        d.a.n0.t2.c0.e.n().g(advertAppInfo.a4, advertAppInfo.getDownloadId(), true);
     }
 
     public static boolean b(String str) {
@@ -193,7 +193,7 @@ public class y {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.T3;
+        String str = advertAppInfo.W3;
         if (StringUtils.isNull(str)) {
             str = "";
         }
@@ -205,8 +205,8 @@ public class y {
             return false;
         }
         d.a.m0.u.a.k().h(advertAppInfo);
-        String str2 = advertAppInfo.T3;
-        d.a.n0.t2.c0.e.n().E(advertAppInfo.getDownloadId(), advertAppInfo.X3, StringUtils.isNull(str2) ? str : str2, i2, d.a.n0.t2.c0.e.o(advertAppInfo.Y3).intValue(), null, true, false, true, advertAppInfo.U3, downloadStaticsData, advertAppInfo.T3);
+        String str2 = advertAppInfo.W3;
+        d.a.n0.t2.c0.e.n().E(advertAppInfo.getDownloadId(), advertAppInfo.a4, StringUtils.isNull(str2) ? str : str2, i2, d.a.n0.t2.c0.e.o(advertAppInfo.b4).intValue(), null, true, false, true, advertAppInfo.X3, downloadStaticsData, advertAppInfo.W3);
         return true;
     }
 
@@ -220,7 +220,7 @@ public class y {
         }
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultBgResource(0);
-        tbImageView.V(str, 10, false);
+        tbImageView.U(str, 10, false);
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i2;
@@ -331,7 +331,7 @@ public class y {
         }
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultBgResource(0);
-        tbImageView.V(str, 10, false);
+        tbImageView.U(str, 10, false);
         tbImageView.setEvent(new a(tbImageView, i2, f2));
     }
 
@@ -347,7 +347,7 @@ public class y {
         if (advertAppInfo == null) {
             return false;
         }
-        return x(advertAppInfo.Y3);
+        return x(advertAppInfo.b4);
     }
 
     public static boolean x(String str) {
@@ -368,15 +368,15 @@ public class y {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (d.a.n0.k1.o.k.a.e(f61197a)) {
+        if (d.a.n0.k1.o.k.a.e(f64889a)) {
             List<String> a2 = d.a.m0.s.c.i.a();
-            f61197a = a2;
+            f64889a = a2;
             if (a2 == null) {
-                f61197a = new ArrayList();
+                f64889a = new ArrayList();
             }
-            f61197a.addAll(Arrays.asList(f61198b));
+            f64889a.addAll(Arrays.asList(f64890b));
         }
-        for (String str2 : f61197a) {
+        for (String str2 : f64889a) {
             if (str.startsWith(str2)) {
                 return s(context, Uri.parse(str)) == 1000;
             }

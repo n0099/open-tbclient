@@ -29,50 +29,50 @@ public class b0 extends z {
     @Override // d.b.b.z
     @NonNull
     public z a(@NonNull Cursor cursor) {
-        this.f65142e = cursor.getLong(0);
-        this.f65143f = cursor.getLong(1);
-        this.f65144g = cursor.getString(2);
-        this.f65145h = cursor.getString(3);
+        this.f68873e = cursor.getLong(0);
+        this.f68874f = cursor.getLong(1);
+        this.f68875g = cursor.getString(2);
+        this.f68876h = cursor.getString(3);
         this.m = cursor.getString(4);
         this.n = cursor.getString(5);
         this.q = cursor.getInt(6);
         this.r = cursor.getInt(7);
         this.p = cursor.getString(8);
         this.o = cursor.getString(9);
-        this.f65146i = cursor.getString(10);
+        this.f68877i = cursor.getString(10);
         this.j = cursor.getString(11);
         return this;
     }
 
     @Override // d.b.b.z
     public void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f65142e));
-        contentValues.put("tea_event_index", Long.valueOf(this.f65143f));
-        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65144g);
-        contentValues.put("user_unique_id", this.f65145h);
+        contentValues.put("local_time_ms", Long.valueOf(this.f68873e));
+        contentValues.put("tea_event_index", Long.valueOf(this.f68874f));
+        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f68875g);
+        contentValues.put("user_unique_id", this.f68876h);
         contentValues.put("category", this.m);
         contentValues.put("tag", this.n);
         contentValues.put("value", Long.valueOf(this.q));
         contentValues.put("ext_value", Long.valueOf(this.r));
         contentValues.put("params", this.p);
         contentValues.put(NotificationCompatJellybean.KEY_LABEL, this.o);
-        contentValues.put("ab_version", this.f65146i);
+        contentValues.put("ab_version", this.f68877i);
         contentValues.put("ab_sdk_version", this.j);
     }
 
     @Override // d.b.b.z
     public void e(@NonNull JSONObject jSONObject) {
-        jSONObject.put("local_time_ms", this.f65142e);
-        jSONObject.put("tea_event_index", this.f65143f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65144g);
-        jSONObject.put("user_unique_id", this.f65145h);
+        jSONObject.put("local_time_ms", this.f68873e);
+        jSONObject.put("tea_event_index", this.f68874f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f68875g);
+        jSONObject.put("user_unique_id", this.f68876h);
         jSONObject.put("category", this.m);
         jSONObject.put("tag", this.n);
         jSONObject.put("value", this.q);
         jSONObject.put("ext_value", this.r);
         jSONObject.put("params", this.p);
         jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.o);
-        jSONObject.put("ab_version", this.f65146i);
+        jSONObject.put("ab_version", this.f68877i);
         jSONObject.put("ab_sdk_version", this.j);
     }
 
@@ -83,17 +83,17 @@ public class b0 extends z {
 
     @Override // d.b.b.z
     public z h(@NonNull JSONObject jSONObject) {
-        this.f65142e = jSONObject.optLong("local_time_ms", 0L);
-        this.f65143f = jSONObject.optLong("tea_event_index", 0L);
-        this.f65144g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
-        this.f65145h = jSONObject.optString("user_unique_id", null);
+        this.f68873e = jSONObject.optLong("local_time_ms", 0L);
+        this.f68874f = jSONObject.optLong("tea_event_index", 0L);
+        this.f68875g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
+        this.f68876h = jSONObject.optString("user_unique_id", null);
         this.m = jSONObject.optString("category", null);
         this.n = jSONObject.optString("tag", null);
         this.q = jSONObject.optLong("value", 0L);
         this.r = jSONObject.optLong("ext_value", 0L);
         this.p = jSONObject.optString("params", null);
         this.o = jSONObject.optString(NotificationCompatJellybean.KEY_LABEL, null);
-        this.f65146i = jSONObject.optString("ab_version", null);
+        this.f68877i = jSONObject.optString("ab_version", null);
         this.j = jSONObject.optString("ab_sdk_version", null);
         return this;
     }
@@ -104,11 +104,11 @@ public class b0 extends z {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        jSONObject.put("local_time_ms", this.f65142e);
-        jSONObject.put("tea_event_index", this.f65143f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65144g);
-        if (!TextUtils.isEmpty(this.f65145h)) {
-            jSONObject.put("user_unique_id", this.f65145h);
+        jSONObject.put("local_time_ms", this.f68873e);
+        jSONObject.put("tea_event_index", this.f68874f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f68875g);
+        if (!TextUtils.isEmpty(this.f68876h)) {
+            jSONObject.put("user_unique_id", this.f68876h);
         }
         jSONObject.put("category", this.m);
         jSONObject.put("tag", this.n);
@@ -116,8 +116,8 @@ public class b0 extends z {
         jSONObject.put("ext_value", this.r);
         jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.o);
         jSONObject.put("datetime", this.k);
-        if (!TextUtils.isEmpty(this.f65146i)) {
-            jSONObject.put("ab_version", this.f65146i);
+        if (!TextUtils.isEmpty(this.f68877i)) {
+            jSONObject.put("ab_version", this.f68877i);
         }
         if (!TextUtils.isEmpty(this.j)) {
             jSONObject.put("ab_sdk_version", this.j);

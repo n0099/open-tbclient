@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -95,7 +94,7 @@ public class VideoCloudSetting {
             } else if (!str.contains(str2)) {
                 this.mSubItems = parseSubItems(str, str3);
             } else {
-                if (str2.endsWith(FieldBuilder.SE)) {
+                if (str2.endsWith("|")) {
                     str2 = "\\|";
                 }
                 String[] split = str.split(str2);
@@ -239,7 +238,7 @@ public class VideoCloudSetting {
         if (!TextUtils.isEmpty(videoCfgValue)) {
             str = videoCfgValue;
         }
-        videoCloudSettingItem.parseSettingItem(str, FieldBuilder.SE, ";");
+        videoCloudSettingItem.parseSettingItem(str, "|", ";");
         String str2 = DEFAULT_ERROR_LOG_ENABLE_ALL;
         String videoCfgValue2 = getVideoCfgValue(PREF_KEY_ENABLE_HOST, DEFAULT_ERROR_LOG_ENABLE_ALL);
         VideoCloudSettingItem videoCloudSettingItem2 = new VideoCloudSettingItem();
@@ -247,7 +246,7 @@ public class VideoCloudSetting {
         if (!TextUtils.isEmpty(videoCfgValue2)) {
             str2 = videoCfgValue2;
         }
-        videoCloudSettingItem2.parseSettingItem(str2, FieldBuilder.SE, ";");
+        videoCloudSettingItem2.parseSettingItem(str2, "|", ";");
         Log.d(TAG, "createVideoSetting videoEnableSdkVersion:" + str + " hostsStr:" + str2);
         VideoSettings videoSettings = new VideoSettings();
         videoSettings.getItems().put(0, videoCloudSettingItem);

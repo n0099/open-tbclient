@@ -12,10 +12,10 @@ import java.lang.reflect.Field;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f48314a;
+    public static Field f51988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f48315b;
+    public static boolean f51989b;
 
     /* loaded from: classes3.dex */
     public static class a extends b.a implements LayoutInflater.Factory2 {
@@ -25,22 +25,22 @@ public class c {
 
         @Override // android.view.LayoutInflater.Factory2
         public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-            return this.f48313e.onCreateView(view, str, context, attributeSet);
+            return this.f51987e.onCreateView(view, str, context, attributeSet);
         }
     }
 
     public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
-        if (!f48315b) {
+        if (!f51989b) {
             try {
                 Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
-                f48314a = declaredField;
+                f51988a = declaredField;
                 declaredField.setAccessible(true);
             } catch (NoSuchFieldException e2) {
                 Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e2);
             }
-            f48315b = true;
+            f51989b = true;
         }
-        Field field = f48314a;
+        Field field = f51988a;
         if (field != null) {
             try {
                 field.set(layoutInflater, factory2);

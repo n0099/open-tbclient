@@ -34,8 +34,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
             L0(tbImageView, b2, i3);
             return true;
         }
-        int i4 = cVar.f61069e;
-        int i5 = cVar.f61068d;
+        int i4 = cVar.f64761e;
+        int i5 = cVar.f64760d;
         if (i3 > 0 && i4 > 0 && i5 > 0) {
             int i6 = (i4 * i3) / i5;
             if (i6 > i3) {
@@ -65,14 +65,14 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void e0(AdCard adCard) {
+    public void d0(AdCard adCard) {
         c cVar = adCard.picInfo;
-        if (cVar != null && !d.a.n0.k1.o.k.a.e(cVar.f61067c)) {
-            String str = cVar.f61067c.get(0);
+        if (cVar != null && !d.a.n0.k1.o.k.a.e(cVar.f64759c)) {
+            String str = cVar.f64759c.get(0);
             boolean K0 = K0(this.j0, adCard, cVar);
             if (!TextUtils.isEmpty(str) && K0) {
                 this.t.setVisibility(0);
-                this.j0.V(str, 17, false);
+                this.j0.U(str, 17, false);
                 return;
             }
             this.t.setVisibility(8);
@@ -92,15 +92,15 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void m0(View view) {
-        float f0 = f0(R.string.J_X05);
+    public void k0(View view) {
+        float e0 = e0(R.string.J_X05);
         if (view instanceof XfremodeRoundLayout) {
-            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{f0, f0, f0, f0, f0, f0, f0, f0});
+            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{e0, e0, e0, e0, e0, e0, e0, e0});
         }
         this.i0 = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
         this.j0 = tbImageView;
         tbImageView.setPlaceHolder(3);
-        this.i0.setRoundLayoutRadius(new float[]{f0, f0, f0, f0, f0, f0, f0, f0});
+        this.i0.setRoundLayoutRadius(new float[]{e0, e0, e0, e0, e0, e0, e0, e0});
     }
 }

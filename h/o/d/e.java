@@ -2,16 +2,16 @@ package h.o.d;
 
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f68671a;
+    public static final int f71927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f68672b;
+    public static final boolean f71928b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements PrivilegedAction<ClassLoader> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.security.PrivilegedAction
@@ -23,12 +23,12 @@ public final class e {
 
     static {
         int d2 = d();
-        f68671a = d2;
-        f68672b = d2 != 0;
+        f71927a = d2;
+        f71928b = d2 != 0;
     }
 
     public static int a() {
-        return f68671a;
+        return f71927a;
     }
 
     public static ClassLoader b() {
@@ -39,7 +39,7 @@ public final class e {
     }
 
     public static boolean c() {
-        return f68672b;
+        return f71928b;
     }
 
     public static int d() {

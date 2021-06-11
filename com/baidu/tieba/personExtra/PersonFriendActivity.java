@@ -60,7 +60,7 @@ public class PersonFriendActivity extends BasePersonInfoActivity {
         PersonFriendModel personFriendModel = new PersonFriendModel(getPageContext(), getIsHost());
         this.mModel = personFriendModel;
         personFriendModel.setSex(getSex());
-        this.mModel.w(getUid());
+        this.mModel.A(getUid());
         this.mModel.setUniqueId(getUniqueId());
     }
 }

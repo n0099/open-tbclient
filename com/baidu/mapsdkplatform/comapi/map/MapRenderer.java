@@ -8,25 +8,25 @@ import javax.microedition.khronos.opengles.GL10;
 public class MapRenderer implements GLSurfaceView.Renderer {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f7560d = MapRenderer.class.getSimpleName();
+    public static final String f7603d = MapRenderer.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7561a;
+    public int f7604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7562b;
+    public int f7605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7563c;
+    public int f7606c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f7564e;
+    public long f7607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f7565f;
+    public a f7608f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final j f7566g;
+    public final j f7609g;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -34,8 +34,8 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     public MapRenderer(j jVar, a aVar) {
-        this.f7565f = aVar;
-        this.f7566g = jVar;
+        this.f7608f = aVar;
+        this.f7609g = jVar;
     }
 
     private void a(GL10 gl10) {
@@ -44,7 +44,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     private boolean a() {
-        return this.f7564e != 0;
+        return this.f7607e != 0;
     }
 
     public static native void nativeInit(long j);
@@ -54,7 +54,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     public static native void nativeResize(long j, int i2, int i3);
 
     public void a(long j) {
-        this.f7564e = j;
+        this.f7607e = j;
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -63,27 +63,27 @@ public class MapRenderer implements GLSurfaceView.Renderer {
             a(gl10);
             return;
         }
-        if (this.f7563c <= 1) {
-            nativeResize(this.f7564e, this.f7561a, this.f7562b);
-            this.f7563c++;
+        if (this.f7606c <= 1) {
+            nativeResize(this.f7607e, this.f7604a, this.f7605b);
+            this.f7606c++;
         }
-        this.f7565f.f();
-        int nativeRender = nativeRender(this.f7564e);
-        if (this.f7566g.a() == null) {
+        this.f7608f.f();
+        int nativeRender = nativeRender(this.f7607e);
+        if (this.f7609g.a() == null) {
             return;
         }
-        if (this.f7566g.a().f7624h != null) {
-            for (l lVar : this.f7566g.a().f7624h) {
-                if (this.f7566g.a() == null) {
+        if (this.f7609g.a().f7667h != null) {
+            for (l lVar : this.f7609g.a().f7667h) {
+                if (this.f7609g.a() == null) {
                     return;
                 }
-                ab J = this.f7566g.a().J();
+                ab J = this.f7609g.a().J();
                 if (lVar != null) {
                     lVar.a(gl10, J);
                 }
             }
         }
-        j jVar = this.f7566g;
+        j jVar = this.f7609g;
         if (nativeRender == 1) {
             jVar.requestRender();
         } else if (jVar.a().b()) {
@@ -97,7 +97,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
 
     @Override // android.opengl.GLSurfaceView.Renderer
     public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
-        long j = this.f7564e;
+        long j = this.f7607e;
         if (j != 0) {
             nativeResize(j, i2, i3);
         }
@@ -105,9 +105,9 @@ public class MapRenderer implements GLSurfaceView.Renderer {
 
     @Override // android.opengl.GLSurfaceView.Renderer
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-        nativeInit(this.f7564e);
+        nativeInit(this.f7607e);
         if (a()) {
-            this.f7565f.f();
+            this.f7608f.f();
         }
     }
 }

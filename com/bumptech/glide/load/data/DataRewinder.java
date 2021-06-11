@@ -2,10 +2,10 @@ package com.bumptech.glide.load.data;
 
 import androidx.annotation.NonNull;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface DataRewinder<T> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface Factory<T> {
         @NonNull
         DataRewinder<T> build(@NonNull T t);

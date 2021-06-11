@@ -15,7 +15,7 @@ import java.util.List;
 public class ds extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37447a;
+    public Context f41126a;
 
     /* renamed from: a  reason: collision with other field name */
     public SharedPreferences f239a;
@@ -24,7 +24,7 @@ public class ds extends ai.a {
     public com.xiaomi.push.service.aq f240a;
 
     public ds(Context context) {
-        this.f37447a = context;
+        this.f41126a = context;
         this.f239a = context.getSharedPreferences("mipush_extra", 0);
         this.f240a = com.xiaomi.push.service.aq.a(context);
     }
@@ -32,18 +32,18 @@ public class ds extends ai.a {
     private List<hn> a(File file) {
         RandomAccessFile randomAccessFile;
         FileInputStream fileInputStream;
-        di m233a = dj.a().m233a();
-        String a2 = m233a == null ? "" : m233a.a();
+        di m232a = dj.a().m232a();
+        String a2 = m232a == null ? "" : m232a.a();
         FileLock fileLock = null;
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         byte[] bArr = new byte[4];
-        synchronized (dm.f37441a) {
+        synchronized (dm.f41120a) {
             try {
-                File file2 = new File(this.f37447a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m630a(file2);
+                File file2 = new File(this.f41126a.getExternalFilesDir(null), "push_cdata.lock");
+                y.m629a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     FileLock lock = randomAccessFile.getChannel().lock();
@@ -137,14 +137,14 @@ public class ds extends ai.a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m237a() {
-        if (bg.e(this.f37447a)) {
+    private boolean m236a() {
+        if (bg.e(this.f41126a)) {
             return false;
         }
-        if ((bg.g(this.f37447a) || bg.f(this.f37447a)) && !c()) {
+        if ((bg.g(this.f41126a) || bg.f(this.f41126a)) && !c()) {
             return true;
         }
-        return (bg.h(this.f37447a) && !b()) || bg.i(this.f37447a);
+        return (bg.h(this.f41126a) && !b()) || bg.i(this.f41126a);
     }
 
     private boolean b() {
@@ -163,18 +163,18 @@ public class ds extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo171a() {
+    public String mo170a() {
         return "1";
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File file = new File(this.f37447a.getExternalFilesDir(null), "push_cdata.data");
-        if (!bg.d(this.f37447a)) {
+        File file = new File(this.f41126a.getExternalFilesDir(null), "push_cdata.data");
+        if (!bg.d(this.f41126a)) {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (!m237a() && file.exists()) {
+        } else if (!m236a() && file.exists()) {
             List<hn> a2 = a(file);
             if (!ad.a(a2)) {
                 int size = a2.size();
@@ -187,9 +187,9 @@ public class ds extends ai.a {
                 ie ieVar = new ie("-1", false);
                 ieVar.c(hp.DataCollection.f506a);
                 ieVar.a(a3);
-                di m233a = dj.a().m233a();
-                if (m233a != null) {
-                    m233a.a(ieVar, hf.Notification, null);
+                di m232a = dj.a().m232a();
+                if (m232a != null) {
+                    m232a.a(ieVar, hf.Notification, null);
                 }
                 a();
             }

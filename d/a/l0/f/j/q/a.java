@@ -3,29 +3,29 @@ package d.a.l0.f.j.q;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46939a;
+    public String f50613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46940b;
+    public String f50614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f46941c;
+    public int f50615c;
 
     public a(String str, int i2, String str2) {
-        this.f46939a = str;
-        this.f46940b = str2;
-        this.f46941c = i2;
+        this.f50613a = str;
+        this.f50614b = str2;
+        this.f50615c = i2;
     }
 
     public String a() {
-        return this.f46939a;
+        return this.f50613a;
     }
 
     public String b() {
-        return this.f46940b;
+        return this.f50614b;
     }
 
     public int c() {
-        return this.f46941c;
+        return this.f50615c;
     }
 }

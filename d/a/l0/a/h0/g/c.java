@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListener {
-    public static final boolean B0 = d.a.l0.a.k.f43199a;
+    public static final boolean B0 = d.a.l0.a.k.f46875a;
     public static String C0 = "pref_close_scope_alert_showed";
     public BaseAdapter x0;
     public FrameLayout z0;
@@ -56,19 +56,19 @@ public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListene
 
     /* renamed from: d.a.l0.a.h0.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class DialogInterface$OnClickListenerC0658c implements DialogInterface.OnClickListener {
+    public class DialogInterface$OnClickListenerC0714c implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.c.f f42024e;
+        public final /* synthetic */ d.a.l0.a.e2.c.f f45700e;
 
-        public DialogInterface$OnClickListenerC0658c(d.a.l0.a.e2.c.f fVar) {
-            this.f42024e = fVar;
+        public DialogInterface$OnClickListenerC0714c(d.a.l0.a.e2.c.f fVar) {
+            this.f45700e = fVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             c.this.Q2().T().z(c.C0, true);
-            c.this.U2(this.f42024e);
+            c.this.U2(this.f45700e);
         }
     }
 
@@ -91,7 +91,7 @@ public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListene
             }
             for (Map.Entry<String, d.a.l0.a.e2.c.f> entry : map.entrySet()) {
                 d.a.l0.a.e2.c.f value = entry.getValue();
-                if (!TextUtils.isEmpty(entry.getKey()) && value != null && !value.f41697d && value.b() && "2".equals(value.f41698e) && !"snsapi_base".equals(value.f41695b)) {
+                if (!TextUtils.isEmpty(entry.getKey()) && value != null && !value.f45373d && value.b() && "2".equals(value.f45374e) && !"snsapi_base".equals(value.f45371b)) {
                     c.this.y0.add(value);
                 }
             }
@@ -127,19 +127,19 @@ public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListene
             if (view == null || !(view.getTag() instanceof g)) {
                 view = View.inflate(c.this.q(), d.a.l0.a.g.aiapps_setting_item, null);
                 g gVar = new g();
-                gVar.f42031b = (CheckBox) view.findViewById(d.a.l0.a.f.checkbox);
-                gVar.f42030a = (TextView) view.findViewById(d.a.l0.a.f.title);
+                gVar.f45707b = (CheckBox) view.findViewById(d.a.l0.a.f.checkbox);
+                gVar.f45706a = (TextView) view.findViewById(d.a.l0.a.f.title);
                 view.setTag(gVar);
             }
             g gVar2 = (g) view.getTag();
             d.a.l0.a.e2.c.f item = getItem(i2);
-            String str = TextUtils.isEmpty(item.f41700g) ? item.f41699f : item.f41700g;
-            TextView textView = gVar2.f42030a;
+            String str = TextUtils.isEmpty(item.f45376g) ? item.f45375f : item.f45376g;
+            TextView textView = gVar2.f45706a;
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
             textView.setText(str);
-            gVar2.f42031b.setChecked(item.a());
+            gVar2.f45707b.setChecked(item.a());
             return view;
         }
     }
@@ -148,10 +148,10 @@ public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListene
     public class f implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.c.f f42028e;
+        public final /* synthetic */ d.a.l0.a.e2.c.f f45704e;
 
         public f(d.a.l0.a.e2.c.f fVar) {
-            this.f42028e = fVar;
+            this.f45704e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -164,7 +164,7 @@ public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListene
             }
             d.a.l0.a.z1.b.d.a.b(c.this.z0);
             if (iVar != null && iVar.c()) {
-                c.this.V2(this.f42028e, iVar.f41736a.f41751b);
+                c.this.V2(this.f45704e, iVar.f45412a.f45427b);
             } else {
                 d.a.l0.a.z1.b.f.e.f(h2, d.a.l0.a.h.aiapps_setting_scope_auth_failed).F();
             }
@@ -176,10 +176,10 @@ public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListene
     public class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f42030a;
+        public TextView f45706a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CheckBox f42031b;
+        public CheckBox f45707b;
 
         public g() {
         }
@@ -228,7 +228,7 @@ public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListene
             return;
         }
         d.a.l0.a.z1.b.d.a.e(h(), this.z0);
-        Q2.T().d(h(), fVar.f41695b, false, z, true, new f(fVar));
+        Q2.T().d(h(), fVar.f45371b, false, z, true, new f(fVar));
     }
 
     public final BaseAdapter P2() {
@@ -262,7 +262,7 @@ public class c extends d.a.l0.a.h0.g.d implements AdapterView.OnItemClickListene
         aVar.U(d.a.l0.a.h.aiapps_setting_scope_close_alert_title);
         aVar.v(d.a.l0.a.h.aiapps_setting_scope_close_alert_msg);
         aVar.n(new d.a.l0.a.w2.h.a());
-        aVar.O(d.a.l0.a.h.aiapps_setting_scope_close_alert_btn_pos, new DialogInterface$OnClickListenerC0658c(fVar));
+        aVar.O(d.a.l0.a.h.aiapps_setting_scope_close_alert_btn_pos, new DialogInterface$OnClickListenerC0714c(fVar));
         aVar.B(d.a.l0.a.h.aiapps_cancel, new b());
         aVar.m(true);
         aVar.K(new a());

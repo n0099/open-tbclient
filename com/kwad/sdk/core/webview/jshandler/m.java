@@ -1,64 +1,39 @@
 package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class m implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f32910a;
-
-    /* loaded from: classes6.dex */
-    public static final class a implements com.kwad.sdk.core.b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f32911a;
-
-        @Override // com.kwad.sdk.core.b
-        public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "lifeStatus", this.f32911a);
-            return jSONObject;
-        }
-    }
-
-    private void a(String str) {
-        if (this.f32910a != null) {
-            a aVar = new a();
-            aVar.f32911a = str;
-            this.f32910a.a(aVar);
-        }
-    }
+    public com.kwad.sdk.core.webview.a.c f35037a;
 
     @Override // com.kwad.sdk.core.webview.a.a
     @NonNull
     public String a() {
-        return "registerLifecycleListener";
+        return "registerDeeplinkListener";
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f32910a = cVar;
+        this.f35037a = cVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f32910a = null;
+        this.f35037a = null;
     }
 
     public void c() {
-        a("showStart");
+        com.kwad.sdk.core.webview.a.c cVar = this.f35037a;
+        if (cVar != null) {
+            cVar.a(null);
+        }
     }
 
     public void d() {
-        a("showEnd");
-    }
-
-    public void e() {
-        a("hideStart");
-    }
-
-    public void f() {
-        a("hideEnd");
+        com.kwad.sdk.core.webview.a.c cVar = this.f35037a;
+        if (cVar != null) {
+            cVar.a(-1, "deep link error");
+        }
     }
 }

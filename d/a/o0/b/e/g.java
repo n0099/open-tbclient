@@ -12,22 +12,22 @@ import java.util.concurrent.TimeUnit;
 public class g implements Executor {
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f63883i;
+    public final String f67601i;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63880f = false;
+    public boolean f67598f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f63881g = false;
+    public boolean f67599g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f63882h = -1;
+    public long f67600h = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f63879e = new LinkedBlockingQueue();
+    public final BlockingQueue<Runnable> f67597e = new LinkedBlockingQueue();
 
     public g(String str) {
-        this.f63883i = str;
+        this.f67601i = str;
     }
 
     public void a() throws IOException {
@@ -37,16 +37,16 @@ public class g implements Executor {
     public void b(int i2) throws IOException {
         long nanoTime = System.nanoTime();
         long convert = TimeUnit.NANOSECONDS.convert(i2, TimeUnit.MILLISECONDS);
-        if (!this.f63881g) {
-            if (!this.f63880f) {
-                this.f63880f = true;
-                while (this.f63880f) {
+        if (!this.f67599g) {
+            if (!this.f67598f) {
+                this.f67598f = true;
+                while (this.f67598f) {
                     if (i2 == 0) {
                         try {
                             c(false, 0L).run();
                         } catch (InterruptedIOException | RuntimeException e2) {
-                            this.f63880f = false;
-                            this.f63881g = true;
+                            this.f67598f = false;
+                            this.f67599g = true;
                             throw e2;
                         }
                     } else {
@@ -64,14 +64,14 @@ public class g implements Executor {
         Runnable poll;
         try {
             if (!z) {
-                poll = this.f63879e.take();
+                poll = this.f67597e.take();
             } else {
-                poll = this.f63879e.poll(j, TimeUnit.NANOSECONDS);
+                poll = this.f67597e.poll(j, TimeUnit.NANOSECONDS);
             }
             if (poll != null) {
                 return poll;
             }
-            d.a.o0.a.a.c("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.f63883i);
+            d.a.o0.a.a.c("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.f67601i);
             throw new SocketTimeoutException();
         } catch (InterruptedException e2) {
             InterruptedIOException interruptedIOException = new InterruptedIOException();
@@ -84,7 +84,7 @@ public class g implements Executor {
     public void execute(Runnable runnable) throws RejectedExecutionException {
         if (runnable != null) {
             try {
-                this.f63879e.put(runnable);
+                this.f67597e.put(runnable);
                 return;
             } catch (InterruptedException e2) {
                 throw new RejectedExecutionException(e2);
@@ -94,6 +94,6 @@ public class g implements Executor {
     }
 
     public void quit() {
-        this.f63880f = false;
+        this.f67598f = false;
     }
 }

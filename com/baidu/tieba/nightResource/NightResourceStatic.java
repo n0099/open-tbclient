@@ -20,7 +20,7 @@ public class NightResourceStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001281, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        c.f49649f = true;
+        c.f53324f = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001354));
     }
 }

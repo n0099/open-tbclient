@@ -61,7 +61,7 @@ public class TiebaSyncService extends BdBaseService {
         }
     }
 
-    public static /* synthetic */ int access$1108(TiebaSyncService tiebaSyncService) {
+    public static /* synthetic */ int access$1208(TiebaSyncService tiebaSyncService) {
         int i2 = tiebaSyncService.mHaveRetry;
         tiebaSyncService.mHaveRetry = i2 + 1;
         return i2;
@@ -200,16 +200,16 @@ public class TiebaSyncService extends BdBaseService {
             d.a.m0.r.d0.b.j().v("key_card_abstract_switch", t.b());
             c0 E = t.E();
             if (E != null) {
-                d.a.m0.r.d0.b.j().t("nani_key_is_show_download_nani_panel", E.f50421a);
-                d.a.m0.r.d0.b.j().t("nani_key_is_activate_app", E.f50422b);
-                d.a.m0.r.d0.b.j().v("nani_key_download_show_position", E.f50423c);
-                d.a.m0.r.d0.b.j().v("nani_key_download_show_rate", E.f50424d);
-                d.a.m0.r.d0.b.j().x("nani_key_download_link_url", E.f50425e);
-                d.a.m0.r.d0.b.j().x("nani_key_download_txt", E.f50426f);
-                d.a.m0.r.d0.b.j().x("nani_key_show_tail_txt", E.f50427g);
-                d.a.m0.r.d0.b.j().v("nani_key_show_tail_video_type", E.f50428h);
-                d.a.m0.r.d0.b.j().x("nani_key_show_tail_txt", E.f50427g);
-                d.a.m0.r.d0.b.j().x("nani_key_pre_h5_link", E.f50429i);
+                d.a.m0.r.d0.b.j().t("nani_key_is_show_download_nani_panel", E.f54097a);
+                d.a.m0.r.d0.b.j().t("nani_key_is_activate_app", E.f54098b);
+                d.a.m0.r.d0.b.j().v("nani_key_download_show_position", E.f54099c);
+                d.a.m0.r.d0.b.j().v("nani_key_download_show_rate", E.f54100d);
+                d.a.m0.r.d0.b.j().x("nani_key_download_link_url", E.f54101e);
+                d.a.m0.r.d0.b.j().x("nani_key_download_txt", E.f54102f);
+                d.a.m0.r.d0.b.j().x("nani_key_show_tail_txt", E.f54103g);
+                d.a.m0.r.d0.b.j().v("nani_key_show_tail_video_type", E.f54104h);
+                d.a.m0.r.d0.b.j().x("nani_key_show_tail_txt", E.f54103g);
+                d.a.m0.r.d0.b.j().x("nani_key_pre_h5_link", E.f54105i);
             }
             if (t.N() != null) {
                 TbSingleton.getInstance().setShakeData(t.N());
@@ -238,6 +238,14 @@ public class TiebaSyncService extends BdBaseService {
         YYLiveConfig u = this.mModel.u();
         if (u != null) {
             TbSingleton.getInstance().setYYLiveConfig(u);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onPostExecuteYYLiveTabConfigData() {
+        d.a.n0.y3.a v = this.mModel.v();
+        if (v != null) {
+            TbSingleton.getInstance().setYYLiveTabConfig(v);
         }
     }
 
@@ -286,10 +294,10 @@ public class TiebaSyncService extends BdBaseService {
     public class b extends BdAsyncTask<String, Integer, e> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20346a;
+        public NetWork f20423a;
 
         public b() {
-            this.f20346a = null;
+            this.f20423a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -300,53 +308,53 @@ public class TiebaSyncService extends BdBaseService {
             e eVar = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
-                this.f20346a = netWork;
+                this.f20423a = netWork;
                 netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-                this.f20346a.addPostData("board", Build.BOARD);
-                this.f20346a.addPostData("brand", Build.BRAND);
-                this.f20346a.addPostData("incremental", Build.VERSION.INCREMENTAL);
-                this.f20346a.addPostData("model", Build.MODEL);
+                this.f20423a.addPostData("board", Build.BOARD);
+                this.f20423a.addPostData("brand", Build.BRAND);
+                this.f20423a.addPostData("incremental", Build.VERSION.INCREMENTAL);
+                this.f20423a.addPostData("model", Build.MODEL);
                 Application app = TbadkCoreApplication.getInst().getApp();
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.k(app)));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.i(app)));
-                this.f20346a.addPostData("_phone_screen", stringBuffer.toString());
-                this.f20346a.addPostData("scr_w", String.valueOf(l.k(app)));
-                this.f20346a.addPostData("scr_h", String.valueOf(l.i(app)));
-                this.f20346a.addPostData("scr_dip", String.valueOf(l.h(app)));
+                this.f20423a.addPostData("_phone_screen", stringBuffer.toString());
+                this.f20423a.addPostData("scr_w", String.valueOf(l.k(app)));
+                this.f20423a.addPostData("scr_h", String.valueOf(l.i(app)));
+                this.f20423a.addPostData("scr_dip", String.valueOf(l.h(app)));
                 String str = "0";
                 if (d.d().e() > 0) {
-                    this.f20346a.addPostData("_msg_status", "0");
+                    this.f20423a.addPostData("_msg_status", "0");
                 } else {
-                    this.f20346a.addPostData("_msg_status", "1");
+                    this.f20423a.addPostData("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() >= 1) {
                         str = activeVersion;
                     }
-                    this.f20346a.addPostData("_active", str);
+                    this.f20423a.addPostData("_active", str);
                 }
-                this.f20346a.addPostData("_pic_quality", String.valueOf(k.c().e()));
+                this.f20423a.addPostData("_pic_quality", String.valueOf(k.c().e()));
                 if (TiebaSyncService.mStatistics != null) {
-                    this.f20346a.addPostData("_msg_type", TiebaSyncService.mStatistics);
+                    this.f20423a.addPostData("_msg_type", TiebaSyncService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.f20346a.addPostData(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
+                this.f20423a.addPostData(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
                 int versionCode = TbadkCoreApplication.getInst().getVersionCode();
-                NetWork netWork2 = this.f20346a;
+                NetWork netWork2 = this.f20423a;
                 netWork2.addPostData("versioncode", versionCode + "");
-                this.f20346a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.f20346a.addPostData(PackageTable.MD5, n.a());
-                String postNetData = this.f20346a.postNetData();
-                if (this.f20346a.isNetSuccess()) {
+                this.f20423a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.f20423a.addPostData(PackageTable.MD5, n.a());
+                String postNetData = this.f20423a.postNetData();
+                if (this.f20423a.isNetSuccess()) {
                     TbadkCoreApplication.getInst().clearActiveVersion();
                 }
-                if (this.f20346a.getNetContext().getResponse().isRequestSuccess()) {
+                if (this.f20423a.getNetContext().getResponse().isRequestSuccess()) {
                     e eVar2 = new e();
                     try {
-                        eVar2.y(postNetData);
+                        eVar2.z(postNetData);
                         if (TbadkCoreApplication.getClientId() == null && eVar2.i().a() != null && eVar2.i().a().length() > 0) {
                             TbadkCoreApplication.saveClientId(TiebaSyncService.this, eVar2.i().a());
                             TbadkCoreApplication.setClientId(eVar2.i().a());
@@ -388,14 +396,15 @@ public class TiebaSyncService extends BdBaseService {
                 TbadkCoreApplication.getInst().setIsFirstTimeMotivate(TiebaSyncService.this.mModel.m());
                 TbadkCoreApplication.getInst().setIsNeedNewUserLead(TiebaSyncService.this.mModel.n());
                 TbadkCoreApplication.getInst().loadLcsSwitchStratgy();
-                String v = TiebaSyncService.this.mModel.v();
-                if (!StringUtils.isNull(v)) {
-                    TbadkCoreApplication.getInst().setConfigVersion(v);
+                String w = TiebaSyncService.this.mModel.w();
+                if (!StringUtils.isNull(w)) {
+                    TbadkCoreApplication.getInst().setConfigVersion(w);
                 }
                 TiebaSyncService.this.onPostExecuteConfigData();
                 TiebaSyncService.this.onPostExecuteWlConfigData();
                 TiebaSyncService.this.onPostExecuteProfilData();
                 TiebaSyncService.this.onPostExecuteYYConfigData();
+                TiebaSyncService.this.onPostExecuteYYLiveTabConfigData();
                 if (TiebaSyncService.this.mModel.p() != null) {
                     TbSingleton.getInstance().setNewGodData(TiebaSyncService.this.mModel.p());
                 }
@@ -429,7 +438,7 @@ public class TiebaSyncService extends BdBaseService {
                 TiebaSyncService.this.stopSelf();
                 return;
             }
-            TiebaSyncService.access$1108(TiebaSyncService.this);
+            TiebaSyncService.access$1208(TiebaSyncService.this);
             if (TiebaSyncService.this.mHaveRetry < 10) {
                 TiebaSyncService.this.mHandler.removeCallbacks(TiebaSyncService.this.mRunnable);
                 TiebaSyncService.this.mHandler.postDelayed(TiebaSyncService.this.mRunnable, 60000L);
@@ -441,7 +450,7 @@ public class TiebaSyncService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaSyncService.this.mSyncTask = null;
-            NetWork netWork = this.f20346a;
+            NetWork netWork = this.f20423a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }

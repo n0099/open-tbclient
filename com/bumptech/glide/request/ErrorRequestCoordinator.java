@@ -1,7 +1,7 @@
 package com.bumptech.glide.request;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ErrorRequestCoordinator implements RequestCoordinator, Request {
     public Request error;
     @Nullable

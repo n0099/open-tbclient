@@ -14,6 +14,7 @@ import com.baidu.android.pushservice.frequency.UploadDataListener;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
 import com.heytap.mcssdk.mode.CommandMessage;
+import com.kwai.video.player.PlayerPostEvent;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -80,7 +81,7 @@ public class PushManager {
     }
 
     public static void enableHuaweiProxy(Context context, boolean z) {
-        PushSettings.f2712c = z ? 1 : 0;
+        PushSettings.f2731c = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", z ? 1 : 0);
     }
 
@@ -88,11 +89,11 @@ public class PushManager {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.f3068e = str;
+        f.f3087e = str;
         com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
-        f.f3069f = str2;
+        f.f3088f = str2;
         com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
-        PushSettings.f2713d = z ? 1 : 0;
+        PushSettings.f2732d = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", z ? 1 : 0);
     }
 
@@ -100,29 +101,29 @@ public class PushManager {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.f3070g = str;
+        f.f3089g = str;
         com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
-        f.f3071h = str2;
+        f.f3090h = str2;
         com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
-        PushSettings.f2714e = z ? 1 : 0;
+        PushSettings.f2733e = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableVivoProxy(Context context, boolean z) {
-        PushSettings.f2715f = z ? 1 : 0;
+        PushSettings.f2734f = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableXiaomiProxy(Context context, boolean z, String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            f.f3066c = str;
+            f.f3085c = str;
             com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPID_KEY", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            f.f3067d = str2;
+            f.f3086d = str2;
             com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPKEY_KEY", str2);
         }
-        PushSettings.f2711b = z ? 1 : 0;
+        PushSettings.f2730b = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", z ? 1 : 0);
     }
 
@@ -326,8 +327,8 @@ public class PushManager {
         if (f.m(context)) {
             return;
         }
-        f.f3064a = i2;
-        f.f3065b = str;
+        f.f3083a = i2;
+        f.f3084b = str;
         h.b(context);
         String f2 = m.f(context, str);
         if (TextUtils.isEmpty(f2)) {
@@ -337,12 +338,12 @@ public class PushManager {
         com.baidu.android.pushservice.g.a.a("PushManager", "startWork from " + context.getPackageName() + " checkResult: " + f2, context.getApplicationContext());
         m.a("startWork from " + context.getPackageName() + " checkResult: " + f2, context);
         if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2) || !PushSettings.e(context)) && i2 == 0) {
-            f.a(context, i2, f.f3065b);
+            f.a(context, i2, f.f3084b);
         } else {
             if (i2 != 0) {
                 Log.e("BDPushSDK-PushManager", "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !");
             }
-            f.c(context, 10101, f2);
+            f.c(context, PlayerPostEvent.MEDIA_INFO_PLAY_TO_END, f2);
         }
         m.k(context);
     }

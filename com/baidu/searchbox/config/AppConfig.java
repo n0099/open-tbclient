@@ -9,7 +9,6 @@ import android.util.Log;
 import android.widget.Toast;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.wallet.core.Domains;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -56,7 +55,7 @@ public class AppConfig {
         public static String sPackageName;
 
         public static String dumpAppInfo() {
-            String str = "AppInfo: " + getPackageName() + FieldBuilder.SE + getVersionName() + FieldBuilder.SE + getVersionCode() + "|isDaily=" + isDaily() + "|isWeekly=" + isWeekly() + "|isPreview=" + isPreview() + "|isDebug=" + AppConfig.isDebug();
+            String str = "AppInfo: " + getPackageName() + "|" + getVersionName() + "|" + getVersionCode() + "|isDaily=" + isDaily() + "|isWeekly=" + isWeekly() + "|isPreview=" + isPreview() + "|isDebug=" + AppConfig.isDebug();
             if (AppConfig.isDebug()) {
                 Log.d(TAG, str);
             }

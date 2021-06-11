@@ -19,27 +19,27 @@ public class e extends d.a.n0.z.b<d.a.n0.v.d.c.f.b.a> {
 
     public e(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.q = l();
-        this.m = (TextView) l().findViewById(R.id.id_tab_live_sub_notification_title);
-        this.n = (TextView) l().findViewById(R.id.id_tab_live_sub_notification_close_go_to_open);
-        this.o = (TbImageView) l().findViewById(R.id.id_tab_live_sub_notification_close_btn);
-        TbImageView tbImageView = (TbImageView) l().findViewById(R.id.id_tab_live_sub_notification_bg_img);
+        this.q = m();
+        this.m = (TextView) m().findViewById(R.id.id_tab_live_sub_notification_title);
+        this.n = (TextView) m().findViewById(R.id.id_tab_live_sub_notification_close_go_to_open);
+        this.o = (TbImageView) m().findViewById(R.id.id_tab_live_sub_notification_close_btn);
+        TbImageView tbImageView = (TbImageView) m().findViewById(R.id.id_tab_live_sub_notification_bg_img);
         this.p = tbImageView;
         tbImageView.setAutoChangeStyle(true);
         this.p.setDefaultResource(17170445);
         this.p.setDefaultBgResource(17170445);
         this.o.setOnClickListener(this);
         this.n.setOnClickListener(this);
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.tab_sub_notification_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         SkinManager.setBackgroundResource(this.q, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0101);
@@ -50,15 +50,15 @@ public class e extends d.a.n0.z.b<d.a.n0.v.d.c.f.b.a> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (h() != null) {
-            h().a(view, this.r);
+        if (i() != null) {
+            i().a(view, this.r);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.v.d.c.f.b.a aVar) {
+    /* renamed from: t */
+    public void n(d.a.n0.v.d.c.f.b.a aVar) {
         this.r = aVar;
     }
 }

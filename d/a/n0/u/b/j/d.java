@@ -26,10 +26,10 @@ import org.json.JSONObject;
 public class d implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public i.a f61294a;
+    public i.a f65007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f61295b = new a(2921366);
+    public CustomMessageListener f65008b = new a(2921366);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -40,11 +40,11 @@ public class d implements i {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.f61294a != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.f65007a != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.f61294a.b();
+                    d.this.f65007a.b();
                 } else {
-                    d.this.f61294a.a();
+                    d.this.f65007a.a();
                 }
             }
         }
@@ -54,19 +54,19 @@ public class d implements i {
     public class b implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i.a f61297a;
+        public final /* synthetic */ i.a f65010a;
 
         public b(d dVar, i.a aVar) {
-            this.f61297a = aVar;
+            this.f65010a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             if (delegateResult.isOk()) {
                 if (delegateResult.mResult.getBoolean("share_result")) {
-                    this.f61297a.b();
+                    this.f65010a.b();
                 } else {
-                    this.f61297a.a();
+                    this.f65010a.a();
                 }
             }
         }
@@ -74,13 +74,13 @@ public class d implements i {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.f61295b);
+        MessageManager.getInstance().registerListener(this.f65008b);
     }
 
     @Override // d.a.l0.a.c1.d.i
     public void a(Context context, JSONObject jSONObject, i.a aVar) {
         if (context instanceof Activity) {
-            this.f61294a = aVar;
+            this.f65007a = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");

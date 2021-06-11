@@ -18,7 +18,6 @@ import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.sdk.api.RequestParameters;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -34,47 +33,47 @@ import tbclient.AppPosInfo;
 public class e implements d.a.n0.t.a.h.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60795b = 5;
+    public int f64486b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile AdLoadState f60796c = AdLoadState.INIT;
+    public volatile AdLoadState f64487c = AdLoadState.INIT;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.d0.b.g.d f60797d;
+    public d.a.d0.b.g.d f64488d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<ViewGroup> f60798e;
+    public WeakReference<ViewGroup> f64489e;
 
     /* loaded from: classes4.dex */
     public class a implements d.a.d0.b.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.k.a f60799a;
+        public final /* synthetic */ d.a.m0.k.a f64490a;
 
         public a(d.a.m0.k.a aVar) {
-            this.f60799a = aVar;
+            this.f64490a = aVar;
         }
 
         @Override // d.a.d0.b.d
         public void a(String str) {
-            d.a.n0.t.a.j.a.j(d.a.n0.t.a.j.a.f60827c, str, 0);
-            d.a.n0.t.a.j.a.k(d.a.n0.t.a.j.a.f60827c, "1");
-            if (d.a.n0.t.a.h.b.f60817a) {
+            d.a.n0.t.a.j.a.j(d.a.n0.t.a.j.a.f64518c, str, 0);
+            d.a.n0.t.a.j.a.k(d.a.n0.t.a.j.a.f64518c, "1");
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "prologue ad loaded failed: " + str);
             }
             if (BdLog.isDebugMode()) {
                 BdLog.e("");
             }
-            e.this.f60796c = AdLoadState.FAILED;
+            e.this.f64487c = AdLoadState.FAILED;
             e("advert_show", 0);
         }
 
         @Override // d.a.d0.b.d
         public void b() {
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "prologue ad finish");
             }
-            d.a.m0.k.a aVar = this.f60799a;
+            d.a.m0.k.a aVar = this.f64490a;
             if (aVar != null) {
                 aVar.onAdDismiss();
             }
@@ -82,19 +81,19 @@ public class e implements d.a.n0.t.a.h.b {
 
         @Override // d.a.d0.b.d
         public void c(d.a.f0.a.g.d dVar) {
-            d.a.n0.t.a.j.a.j(d.a.n0.t.a.j.a.f60827c, "0", 0);
-            if (d.a.n0.t.a.h.b.f60817a) {
+            d.a.n0.t.a.j.a.j(d.a.n0.t.a.j.a.f64518c, "0", 0);
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "prologue gd loaded success");
             }
-            e.this.f60796c = AdLoadState.SUCCEED;
-            d.a.n0.t.a.h.a.c().g(this.f60799a);
+            e.this.f64487c = AdLoadState.SUCCEED;
+            d.a.n0.t.a.h.a.c().g(this.f64490a);
             e("advert_load", 1);
         }
 
         @Override // d.a.d0.b.d
         @NonNull
         public ViewGroup d() {
-            return (ViewGroup) e.this.f60798e.get();
+            return (ViewGroup) e.this.f64489e.get();
         }
 
         public final void e(String str, int i2) {
@@ -109,43 +108,43 @@ public class e implements d.a.n0.t.a.h.b {
         @Override // d.a.d0.b.d
         public void onAdClick() {
             boolean z;
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "prologue ad onclick");
             }
-            if (this.f60799a != null) {
-                if (e.this.f60797d == null || e.this.f60797d.f() == null) {
+            if (this.f64490a != null) {
+                if (e.this.f64488d == null || e.this.f64488d.f() == null) {
                     z = false;
                 } else {
-                    boolean z2 = e.this.f60797d.f().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
+                    boolean z2 = e.this.f64488d.f().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
                     r1 = z2;
-                    z = e.this.f60797d.f().optInt("full_type", 0) == 1;
+                    z = e.this.f64488d.f().optInt("full_type", 0) == 1;
                 }
-                this.f60799a.b(r1, z, e.this.f60795b);
+                this.f64490a.b(r1, z, e.this.f64486b);
             }
         }
 
         @Override // d.a.d0.b.d
         public void onAdShow() {
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "prologue ad show");
             }
-            d.a.m0.k.a aVar = this.f60799a;
+            d.a.m0.k.a aVar = this.f64490a;
             if (aVar != null) {
-                aVar.c(true, false, e.this.f60795b);
+                aVar.c(true, false, e.this.f64486b);
             }
-            d.a.n0.t.a.j.a.k(d.a.n0.t.a.j.a.f60827c, "0");
+            d.a.n0.t.a.j.a.k(d.a.n0.t.a.j.a.f64518c, "0");
             e("advert_show", 1);
         }
 
         @Override // d.a.d0.b.d
         public void onSkip() {
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "prologue ad onskip");
             }
-            if (e.this.f60797d != null) {
+            if (e.this.f64488d != null) {
                 int i2 = 1;
-                boolean z = e.this.f60797d.f().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
-                boolean z2 = e.this.f60797d.f().optInt("full_type", 0) == 1;
+                boolean z = e.this.f64488d.f().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
+                boolean z2 = e.this.f64488d.f().optInt("full_type", 0) == 1;
                 if (z2 && z) {
                     i2 = 4;
                 } else if (z) {
@@ -163,10 +162,10 @@ public class e implements d.a.n0.t.a.h.b {
     public static class b implements d.a.d0.a.b.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final Application f60801b;
+        public final Application f64492b;
 
         public b(Application application) {
-            this.f60801b = application;
+            this.f64492b = application;
         }
 
         @Override // d.a.d0.a.b.a
@@ -199,7 +198,7 @@ public class e implements d.a.n0.t.a.h.b {
         @Override // d.a.d0.a.b.a
         @NonNull
         public String a() {
-            return Settings.System.getString(this.f60801b.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            return Settings.System.getString(this.f64492b.getContentResolver(), IAdRequestParam.ANDROID_ID);
         }
 
         @Override // d.a.d0.a.b.a
@@ -267,10 +266,20 @@ public class e implements d.a.n0.t.a.h.b {
         @Override // d.a.d0.a.b.a
         @NonNull
         public String k() {
+            CookieManager cookieManager;
             String[] split;
-            String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
+            try {
+                cookieManager = CookieManager.getInstance();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                cookieManager = null;
+            }
+            if (cookieManager == null) {
+                return "";
+            }
+            String cookie = cookieManager.getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = d.a.m0.l.a.f49450a;
+                cookie = d.a.m0.l.a.f53124a;
             }
             if (cookie != null) {
                 for (String str : cookie.split(";")) {
@@ -278,6 +287,7 @@ public class e implements d.a.n0.t.a.h.b {
                         return str.trim().substring(8);
                     }
                 }
+                return "";
             }
             return "";
         }
@@ -303,7 +313,7 @@ public class e implements d.a.n0.t.a.h.b {
         @Override // d.a.d0.a.b.a
         @NonNull
         public Application o() {
-            return this.f60801b;
+            return this.f64492b;
         }
 
         @Override // d.a.d0.a.b.a
@@ -359,7 +369,7 @@ public class e implements d.a.n0.t.a.h.b {
             AppPosInfo a2;
             if (d.a.n0.t2.g0.a.e() != null && (a2 = d.a.n0.t2.g0.a.e().a()) != null) {
                 if (BdLog.isDebugMode()) {
-                    BdLog.e("" + a2.longitude + FieldBuilder.SE + a2.latitude);
+                    BdLog.e("" + a2.longitude + "|" + a2.latitude);
                 }
                 return new String[]{a2.longitude, a2.latitude};
             }
@@ -376,7 +386,7 @@ public class e implements d.a.n0.t.a.h.b {
 
         @Override // d.a.d0.a.b.a
         public boolean z() {
-            return this.f60801b.getResources().getConfiguration().orientation == 2;
+            return this.f64492b.getResources().getConfiguration().orientation == 2;
         }
     }
 
@@ -386,7 +396,7 @@ public class e implements d.a.n0.t.a.h.b {
 
     @Override // d.a.n0.t.a.h.b
     public AdLoadState a() {
-        return this.f60796c;
+        return this.f64487c;
     }
 
     @Override // d.a.n0.t.a.h.b
@@ -395,13 +405,13 @@ public class e implements d.a.n0.t.a.h.b {
             return;
         }
         d.a.m0.k.a a2 = dVar.a();
-        this.f60798e = new WeakReference<>(dVar.b());
+        this.f64489e = new WeakReference<>(dVar.b());
         try {
-            this.f60797d = new d.a.d0.b.g.d(TbadkCoreApplication.getInst().getContext(), "1481698145541", new RequestParameters.Builder().setHeight(l.k(dVar.b().getContext())).setWidth(l.i(dVar.b().getContext())).build(), new a(a2));
-            this.f60796c = AdLoadState.LOADING;
-            d.a.n0.t.a.j.a.i(d.a.n0.t.a.j.a.f60827c);
-            this.f60797d.g();
-            if (d.a.n0.t.a.h.b.f60817a) {
+            this.f64488d = new d.a.d0.b.g.d(TbadkCoreApplication.getInst().getContext(), "1481698145541", new RequestParameters.Builder().setHeight(l.k(dVar.b().getContext())).setWidth(l.i(dVar.b().getContext())).build(), new a(a2));
+            this.f64487c = AdLoadState.LOADING;
+            d.a.n0.t.a.j.a.i(d.a.n0.t.a.j.a.f64518c);
+            this.f64488d.g();
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "prologue ad start load");
             }
         } catch (OutOfMemoryError unused) {
@@ -417,35 +427,35 @@ public class e implements d.a.n0.t.a.h.b {
 
     @Override // d.a.n0.t.a.h.b
     public void destroy() {
-        d.a.d0.b.g.d dVar = this.f60797d;
+        d.a.d0.b.g.d dVar = this.f64488d;
         if (dVar != null) {
             dVar.e();
-            this.f60797d = null;
+            this.f64488d = null;
         }
     }
 
     public final void g() {
-        WeakReference<ViewGroup> weakReference = this.f60798e;
-        if (weakReference == null || weakReference.get().getParent() == null || !(this.f60798e.get().getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+        WeakReference<ViewGroup> weakReference = this.f64489e;
+        if (weakReference == null || weakReference.get().getParent() == null || !(this.f64489e.get().getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f60798e.get().getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f64489e.get().getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -1;
-        this.f60798e.get().setLayoutParams(layoutParams);
+        this.f64489e.get().setLayoutParams(layoutParams);
     }
 
     @Override // d.a.n0.t.a.h.b
     public void show() {
         WeakReference<ViewGroup> weakReference;
-        if (this.f60797d == null || (weakReference = this.f60798e) == null || weakReference.get() == null || this.f60796c != AdLoadState.SUCCEED) {
+        if (this.f64488d == null || (weakReference = this.f64489e) == null || weakReference.get() == null || this.f64487c != AdLoadState.SUCCEED) {
             return;
         }
         g();
-        this.f60796c = AdLoadState.SHOWED;
-        if (d.a.n0.t.a.h.b.f60817a) {
+        this.f64487c = AdLoadState.SHOWED;
+        if (d.a.n0.t.a.h.b.f64508a) {
             Log.d("IAdSdkSplash", "prologue ad start show");
         }
-        this.f60797d.k(this.f60798e.get());
+        this.f64488d.k(this.f64489e.get());
     }
 }

@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class cl {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37395a;
+    public static String f41074a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f185a;
@@ -15,7 +15,7 @@ public class cl {
     static {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f185a = simpleDateFormat;
-        f37395a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        f41074a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static hj a(Context context, String str) {
@@ -29,7 +29,7 @@ public class cl {
         hjVar.b(str);
         hjVar.a(true);
         hjVar.b(System.currentTimeMillis());
-        hjVar.g(bu.a(context).m179a());
+        hjVar.g(bu.a(context).m178a());
         hjVar.e("com.xiaomi.xmsf");
         hjVar.f("");
         hjVar.c("push_stat");

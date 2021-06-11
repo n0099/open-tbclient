@@ -15,16 +15,16 @@ import com.baidu.tieba.write.write.relevance.RelevanceItemSearchActivity;
 public class RelevanceItemListFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f22144e;
+    public View f22247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelevanceItemListController f22145f;
+    public RelevanceItemListController f22248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22146g;
+    public String f22249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f22147h = new a(2921529);
+    public CustomMessageListener f22250h = new a(2921529);
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -38,53 +38,53 @@ public class RelevanceItemListFragment extends BaseFragment {
             if (customResponsedMessage == null || !(customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
                 return;
             }
-            RelevanceItemListFragment.this.D0(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
-        }
-    }
-
-    public void D0(String str) {
-        RelevanceItemListController relevanceItemListController = this.f22145f;
-        if (relevanceItemListController == null) {
-            return;
-        }
-        relevanceItemListController.g(str);
-        this.f22145f.i().setVisibility(8);
-        showLoadingView(this.f22144e);
-    }
-
-    public final void E0() {
-        registerListener(this.f22147h);
-    }
-
-    public void F0() {
-        if (isLoadingViewAttached()) {
-            hideLoadingView(this.f22144e);
+            RelevanceItemListFragment.this.G0(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
         }
     }
 
     public void G0(String str) {
-        hideLoadingView(this.f22144e);
-        showNetRefreshView(this.f22144e, str, false);
+        RelevanceItemListController relevanceItemListController = this.f22248f;
+        if (relevanceItemListController == null) {
+            return;
+        }
+        relevanceItemListController.g(str);
+        this.f22248f.i().setVisibility(8);
+        showLoadingView(this.f22247e);
     }
 
-    public void H0() {
-        hideLoadingView(this.f22144e);
-        showNoDataNoRefreshView(this.f22144e, false);
+    public final void H0() {
+        registerListener(this.f22250h);
     }
 
-    public void I0(String str) {
-        this.f22146g = str;
+    public void I0() {
+        if (isLoadingViewAttached()) {
+            hideLoadingView(this.f22247e);
+        }
+    }
+
+    public void J0(String str) {
+        hideLoadingView(this.f22247e);
+        showNetRefreshView(this.f22247e, str, false);
+    }
+
+    public void K0() {
+        hideLoadingView(this.f22247e);
+        showNoDataNoRefreshView(this.f22247e, false);
+    }
+
+    public void L0(String str) {
+        this.f22249g = str;
     }
 
     public final void initData() {
-        this.f22145f = new RelevanceItemListController(this, this.f22144e, this.f22146g, getUniqueId());
+        this.f22248f = new RelevanceItemListController(this, this.f22247e, this.f22249g, getUniqueId());
         String obj = (((RelevanceItemSearchActivity) getActivity()).getSearchView() == null || ((RelevanceItemSearchActivity) getActivity()).getSearchView().h() == null) ? "" : ((RelevanceItemSearchActivity) getActivity()).getSearchView().h().getText().toString();
         if (!TextUtils.isEmpty(obj)) {
-            D0(obj);
+            G0(obj);
             return;
         }
-        showLoadingView(this.f22144e);
-        this.f22145f.h();
+        showLoadingView(this.f22247e);
+        this.f22248f.h();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -94,24 +94,24 @@ public class RelevanceItemListFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.f22144e == null) {
-            this.f22144e = layoutInflater.inflate(R.layout.fragment_relevance_item_list, (ViewGroup) null);
+        if (this.f22247e == null) {
+            this.f22247e = layoutInflater.inflate(R.layout.fragment_relevance_item_list, (ViewGroup) null);
         }
         initData();
-        E0();
-        return this.f22144e;
+        H0();
+        return this.f22247e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.f22145f.k();
+        this.f22248f.k();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.f22144e);
-        this.f22145f.h();
-        showLoadingView(this.f22144e);
+        hideNetRefreshView(this.f22247e);
+        this.f22248f.h();
+        showLoadingView(this.f22247e);
     }
 }

@@ -12,10 +12,10 @@ import d.a.c0.j;
 public class MaxHeightScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f9294e;
+    public float f9351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f9295f;
+    public float f9352f;
 
     public MaxHeightScrollView(Context context) {
         this(context, null);
@@ -28,20 +28,20 @@ public class MaxHeightScrollView extends ScrollView {
 
     public final void b(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.MaxHeightScrollView);
-        this.f9294e = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_maxHeightRatio, -1.0f);
-        this.f9295f = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_minHeightRatio, -1.0f);
+        this.f9351e = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_maxHeightRatio, -1.0f);
+        this.f9352f = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_minHeightRatio, -1.0f);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        if (this.f9294e > 0.0f || this.f9295f > 0.0f) {
+        if (this.f9351e > 0.0f || this.f9352f > 0.0f) {
             int size = View.MeasureSpec.getSize(i3);
-            float f2 = this.f9294e;
+            float f2 = this.f9351e;
             if (f2 > 0.0f) {
                 size = (int) Math.min(a(f2), size);
             }
-            float f3 = this.f9295f;
+            float f3 = this.f9352f;
             if (f3 > 0.0f) {
                 size = (int) Math.max(a(f3), size);
             }

@@ -3,15 +3,17 @@ package com.baidu.cyberplayer.sdk;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager;
 import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
-import com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader;
+import com.baidu.cyberplayer.sdk.remote.PrefetchOptions;
+import com.baidu.searchbox.playerserver.PlayerPolicyManager;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
 /* loaded from: classes2.dex */
 public class CyberPlayerManager {
-    public static final int CLARITY_MODE_AUTO = -1;
+    public static final int ABR_MODE = -1;
     public static final int COMMAND_ADD_STAGE_INFO = 1001;
     public static final int COMMAND_ON_FIRST_FRAME_DRAWED = 1002;
     public static final int COMMAND_SET_STATISTIC_INFO = 1003;
@@ -26,8 +28,12 @@ public class CyberPlayerManager {
     public static final int DELETING = -2;
     public static final int DIR_NOT_EXIST = -1;
     public static final int DP_MSG_INFO_CACHE_DURATION = 953;
+    public static final int DiskLevelCritical = 2;
+    public static final int DiskLevelNormal = 0;
+    public static final int DiskLevelWarning = 1;
     public static final String INSTALL_OPT_ABTEST_SID = "abtest_sid";
     public static final String INSTALL_OPT_ABTEST_SWITCH_START_CODE = "cybermedia_abtest_";
+    public static final String INSTALL_OPT_APP_VERSION_NAME = "app_version_name";
     public static final String INSTALL_OPT_CRASHPAD_INSTALL_TYPE = "crashpad_install_type";
     public static final String INSTALL_OPT_ENABLE_SF_SWITCH = "enable_spring_festival";
     public static final String INSTALL_OPT_PIPELINE_NUM = "pipeline_count";
@@ -38,7 +44,9 @@ public class CyberPlayerManager {
     public static final int LIB_TYPE_CRASHPAD = 16;
     public static final int LIB_TYPE_FFMPEG_EXTEND = 4;
     public static final int LIB_TYPE_PCDN = 2;
+    @Deprecated
     public static final int LIB_TYPE_RTC = 32;
+    public static final int LIB_TYPE_STRATEGY_OPTIMIZE = 64;
     public static final int LIB_TYPE_VIDEO_SR = 8;
     public static final int MEDIA_ERROR_FOMAT_DEMUXER_NOT_FOUND = -2006;
     public static final int MEDIA_ERROR_IO = -1004;
@@ -48,6 +56,9 @@ public class CyberPlayerManager {
     public static final int MEDIA_ERROR_REMOTE_DIED = -30001;
     public static final int MEDIA_ERROR_REMOTE_EXCEPTION = -30000;
     public static final int MEDIA_ERROR_SERVER_DIED = 100;
+    public static final int MEDIA_ERROR_SETDATASOURCE_EXCEPTION = -10001;
+    public static final int MEDIA_ERROR_STATE_EXCEPTION = -10002;
+    public static final int MEDIA_ERROR_SURFACE_EXCEPTION = -10000;
     public static final int MEDIA_ERROR_TIMED_OUT = -110;
     public static final int MEDIA_ERROR_UNKNOWN = 1;
     public static final int MEDIA_ERROR_UNSUPPORTED = -1010;
@@ -72,12 +83,15 @@ public class CyberPlayerManager {
     public static final int MEDIA_INFO_FIRST_DISP_INTERVAL = 904;
     public static final int MEDIA_INFO_FIRST_FRAME_DECODE_FAIL_CHANGE_MODE = 10011;
     public static final int MEDIA_INFO_HARDWARE_START_FAIL_CHANGE_MODE = 10010;
+    public static final int MEDIA_INFO_KERNEL_NET_TRAFFIC = 11002;
     public static final int MEDIA_INFO_LOOP_REPLAYED = 955;
     public static final int MEDIA_INFO_METADATA_UPDATE = 802;
     public static final int MEDIA_INFO_NET_RECONNECTING = 923;
     public static final int MEDIA_INFO_NOT_SEEKABLE = 801;
+    public static final int MEDIA_INFO_ON_SEI_DATA_CHANGED = 10103;
     public static final int MEDIA_INFO_PCDN_TRAFFIC = 11000;
     public static final int MEDIA_INFO_PLAY_COMPLETE = 10004;
+    public static final int MEDIA_INFO_PRERENDER_COMPLETE = 12006;
     public static final int MEDIA_INFO_PROCESS = 910;
     public static final int MEDIA_INFO_RESPONSE_BEGIN = 921;
     public static final int MEDIA_INFO_RESPONSE_END = 922;
@@ -105,6 +119,7 @@ public class CyberPlayerManager {
     public static final int MEDIA_INFO_VIDEO_ROTATION_CHANGED = 10001;
     public static final int MEDIA_INFO_VIDEO_SIZE_CHANGE = 10006;
     public static final int MEDIA_INFO_VIDEO_TRACK_LAGGING = 700;
+    public static final int MEDIA_INFO_WEAK_NETWORK_BEST_RANK = 12005;
     public static final int NETWORK_STATUS_GOOD = 2;
     public static final int NETWORK_STATUS_NORMAL = 1;
     public static final int NETWORK_STATUS_POOR = 0;
@@ -113,10 +128,14 @@ public class CyberPlayerManager {
     public static final String OPT_CLIENT_SET_URL_TIME = "client-set-url-time";
     public static final String OPT_CLIENT_USER_CLICK_TIME = "client-user-click-time";
     public static final String OPT_ENABLE_FILECACHE = "enable_filecache";
+    public static final String OPT_ENABLE_FIRSTSCREEN_ACCURATE_SEEK = "enable-firstscreen-accurate-seek";
+    public static final String OPT_ENABLE_HLS_VOD_FILECACHE = "hls-vod-filecache-enable";
     public static final String OPT_ENABLE_KERNEL_NET = "kernel-net-enable";
     public static final String OPT_ENABLE_P2P = "p2p-enable";
     public static final String OPT_ENABLE_PCDN = "pcdn-enable";
     public static final String OPT_ENABLE_PREBUFFER = "prebuffer-enable";
+    public static final String OPT_ENABLE_PRE_RENDER_ON_PREPARE = "pre-render-on-prepared-enable";
+    public static final String OPT_ENABLE_SEI_DATA_NOTIFICATION = "enable-sei-data-notification";
     public static final String OPT_FEED_VIDEO = "is-feed-video";
     public static final String OPT_FILE_MAX_SIZE = "file-max-size";
     public static final String OPT_FILE_MIN_SIZE = "file-min-size";
@@ -129,15 +148,26 @@ public class CyberPlayerManager {
     public static final String OPT_NEED_T5_AUTH = "need-t5-auth";
     public static final String OPT_PCDN_NETHANDLE = "pcdn-nethandle";
     public static final String OPT_PCDN_TYPE = "pcdn-type";
+    public static final String OPT_PREPARSE_IP = "preparse_ip";
     public static final String OPT_SR_OPTION = "sr_option";
     public static final String OPT_STAGE_TYPE = "stage-type";
     public static final String OPT_SUPPORT_PROCESS = "support-process";
+    public static final String OPT_VIDEO_BPS = "video-bps";
+    public static final String OPT_VIDEO_MOOV_SIZE = "video-moov-size";
     public static final String OPT_VIDEO_ROTATE = "video-rorate";
     public static final int PRECONNECT_SERVER = 1;
     public static final int PREFETCH_DATA = 0;
+    public static final int PREFETCH_DEFAULT = -1;
+    public static final int PREFETCH_DISABLE = 0;
+    public static final int PREFETCH_ENABLE = 1;
+    public static final int SEEK_CLOSEST = 3;
+    public static final int SEEK_PREVIOUS_SYNC = 0;
     public static final String STAGE_INFO_SOURCE = "stage_source";
     public static final String STAGE_INFO_TITLE = "stage_title";
     public static final String STAGE_INFO_TYPE = "stage_type";
+    public static final String STORAGE_QUOTA_CRITICAL = "storage_quota_critical";
+    public static final String STORAGE_QUOTA_NORMAL = "storage_quota_normal";
+    public static final String STORAGE_QUOTA_WARNING = "storage_quota_warning";
     public static final String STR_IS_FEED_VIDEO = "is_feed_video";
     public static final String STR_STAGE_INFO = "stage_info";
     public static final String STR_STATISTICS_INFO = "statistics_info";
@@ -151,6 +181,9 @@ public class CyberPlayerManager {
     public static final int SYSTEM_INFRA_KEY_VMSIZE_AVAILABLE = 4;
     public static final int SYSTEM_INFRA_KEY_VMSIZE_IN_SMAPS = 3;
     public static final int SYSTEM_INFRA_KEY_VMSIZE_SLICE = 5;
+    public static final int StorageQuotaCritical = 104857600;
+    public static final int StorageQuotaNormal = 314572800;
+    public static final int StorageQuotaWarning = 209715200;
     public static String VIDEO_FLOW_IS_PREFETCH = "video_flow_is_prefetch";
     public static String VIDEO_FLOW_STAGE = "video_flow_stage";
     public static String VIDEO_FLOW_URL = "video_flow_url";
@@ -168,37 +201,58 @@ public class CyberPlayerManager {
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4707a = false;
+    public static boolean f4727a = false;
+    public static int appID = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static OnDeleteListener f4708b;
+    public static boolean f4728b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OnVideoFlowListener f4709c;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static Context f4711e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f4712f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static int f4713g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f4714h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static Class<?> f4715i;
+    public static OnDeleteListener f4729c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f4710d = new Object();
-    public static Map<String, String> j = new HashMap();
+    public static OnUpdateDiskQuotaComplete f4730d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static OnVideoFlowListener f4731e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static HttpDNS2 f4732f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static GetNetHandleListener f4733g;
+    public static Context j;
+    public static String k;
+    public static int l;
+    public static String m;
+    public static String n;
+    public static Class<?> o;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final Object f4734h = new Object();
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final Object f4735i = new Object();
+    public static Map<String, String> p = new HashMap();
+
+    @Keep
+    /* loaded from: classes2.dex */
+    public interface GetNetHandleListener {
+        Long getKerNetHandle();
+
+        Long getPcdnNetHandle();
+    }
 
     @Keep
     /* loaded from: classes2.dex */
     public interface HttpDNS {
         List<String> getIpList(String str);
+    }
+
+    @Keep
+    /* loaded from: classes2.dex */
+    public interface HttpDNS2 {
+        List<String> getIpList2(String str, boolean z);
     }
 
     @Keep
@@ -261,6 +315,12 @@ public class CyberPlayerManager {
 
     @Keep
     /* loaded from: classes2.dex */
+    public interface OnUpdateDiskQuotaComplete {
+        void notifyCompletion();
+    }
+
+    @Keep
+    /* loaded from: classes2.dex */
     public interface OnVideoFlowListener {
         void onRecordFlow(HashMap<String, String> hashMap);
     }
@@ -271,20 +331,49 @@ public class CyberPlayerManager {
         void onVideoSizeChanged(int i2, int i3, int i4, int i5);
     }
 
+    static {
+        PlayerPolicyManager.getInstance().register(new CyberPlayerConfig());
+    }
+
     public static void a(Map<String, String> map) {
         if (map != null) {
             String str = map.get(INSTALL_OPT_ENABLE_SF_SWITCH);
-            if (TextUtils.isEmpty(str)) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    if (Integer.parseInt(str) == 1) {
+                        CyberLog.i("CyberPlayerManager", "parserGlobalInstallOptions isSpringFestivalEnable TRUE !! ");
+                        c.a().a(true);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            String str2 = map.get(INSTALL_OPT_APP_VERSION_NAME);
+            if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            try {
-                if (Integer.parseInt(str) == 1) {
-                    CyberLog.i("CyberPlayerManager", "parserGlobalInstallOptions isSpringFestivalEnable TRUE !! ");
-                    c.a().a(true);
-                }
-            } catch (Exception unused) {
-            }
+            CyberLog.i("CyberPlayerManager", "parserGlobalInstallOptions app version name:" + str2);
+            n = str2;
         }
+    }
+
+    public static long b(int i2) {
+        CyberCfgManager cyberCfgManager;
+        long j2 = 314572800;
+        String str = STORAGE_QUOTA_NORMAL;
+        if (i2 != 0) {
+            if (i2 == 1) {
+                cyberCfgManager = CyberCfgManager.getInstance();
+                j2 = 209715200;
+                str = STORAGE_QUOTA_WARNING;
+            } else if (i2 == 2) {
+                cyberCfgManager = CyberCfgManager.getInstance();
+                j2 = 104857600;
+                str = STORAGE_QUOTA_CRITICAL;
+            }
+            return cyberCfgManager.getCfgLongValue(str, j2);
+        }
+        cyberCfgManager = CyberCfgManager.getInstance();
+        return cyberCfgManager.getCfgLongValue(str, j2);
     }
 
     public static CyberAudioRecorder createCyberAudioRecorder() {
@@ -294,7 +383,7 @@ public class CyberPlayerManager {
 
     public static PlayerProvider createCyberPlayer(int i2, HttpDNS httpDNS) {
         CyberLog.d("CyberPlayerManager", "DuplayerCore Version:" + getCoreVersion() + " CyberSdk Version:" + getSDKVersion());
-        return l.a().a(i2, httpDNS, false);
+        return m.a().a(i2, httpDNS, false);
     }
 
     public static CyberVRRenderProvider createCyberVRRender(Context context) {
@@ -302,29 +391,29 @@ public class CyberPlayerManager {
     }
 
     public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
-        if (f4707a) {
+        if (f4727a) {
             if (onDeleteListener != null) {
                 onDeleteListener.onDeleteComplete(-2, 0L);
                 return;
             }
             return;
         }
-        f4707a = true;
-        f4708b = onDeleteListener;
+        f4727a = true;
+        f4729c = onDeleteListener;
         CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (CyberPlayerManager.f4710d) {
-                    long a2 = n.a(Boolean.TRUE);
-                    if (CyberPlayerManager.f4708b != null) {
+                synchronized (CyberPlayerManager.f4734h) {
+                    long a2 = o.a(Boolean.TRUE);
+                    if (CyberPlayerManager.f4729c != null) {
                         if (a2 < 0) {
-                            CyberPlayerManager.f4708b.onDeleteComplete((int) a2, 0L);
+                            CyberPlayerManager.f4729c.onDeleteComplete((int) a2, 0L);
                         } else {
-                            CyberPlayerManager.f4708b.onDeleteComplete(0, a2);
+                            CyberPlayerManager.f4729c.onDeleteComplete(0, a2);
                         }
                     }
-                    boolean unused = CyberPlayerManager.f4707a = false;
-                    OnDeleteListener unused2 = CyberPlayerManager.f4708b = null;
+                    boolean unused = CyberPlayerManager.f4727a = false;
+                    OnDeleteListener unused2 = CyberPlayerManager.f4729c = null;
                 }
             }
         });
@@ -335,15 +424,19 @@ public class CyberPlayerManager {
     }
 
     public static String getAppID() {
-        return f4714h;
+        return m;
+    }
+
+    public static String getAppVerionName() {
+        return n;
     }
 
     public static Context getApplicationContext() {
-        return f4711e;
+        return j;
     }
 
     public static String getClientID() {
-        return f4712f;
+        return k;
     }
 
     public static String getCoreVersion() {
@@ -355,12 +448,24 @@ public class CyberPlayerManager {
         return d.a(str, i2, i3, i4, map);
     }
 
+    public static List<String> getIPListWithHost(String str) {
+        HttpDNS2 httpDNS2 = f4732f;
+        if (httpDNS2 == null) {
+            return null;
+        }
+        return httpDNS2.getIpList2(str, false);
+    }
+
     public static Map<String, String> getInstallOpts() {
-        return j;
+        return p;
     }
 
     public static int getInstallType() {
-        return f4713g;
+        return l;
+    }
+
+    public static GetNetHandleListener getNetHandleListener() {
+        return f4733g;
     }
 
     public static int getNetworkStatus() {
@@ -372,7 +477,7 @@ public class CyberPlayerManager {
     }
 
     public static Class<?> getRemoteServiceClass() {
-        return f4715i;
+        return o;
     }
 
     public static String getSDKVersion() {
@@ -384,13 +489,13 @@ public class CyberPlayerManager {
     }
 
     public static long getVideoCacheSize() {
-        long k = n.k();
-        CyberLog.d("CyberPlayerManager", "getVideoCacheSize:" + k);
-        return k;
+        long k2 = o.k();
+        CyberLog.d("CyberPlayerManager", "getVideoCacheSize:" + k2);
+        return k2;
     }
 
     public static boolean hasCacheFile(String str) {
-        return d.b(str);
+        return d.c(str);
     }
 
     @Deprecated
@@ -409,17 +514,16 @@ public class CyberPlayerManager {
                 if (TextUtils.isEmpty(str)) {
                     throw new NullPointerException("clienID is null");
                 }
-                f4711e = context.getApplicationContext();
-                f4712f = str;
-                f4713g |= i2;
-                f4715i = cls;
-                f4714h = context.getPackageName();
-                DpSessionDatasUploader.getInstance().a(f4711e);
+                j = context.getApplicationContext();
+                k = str;
+                l |= i2;
+                o = cls;
+                m = context.getPackageName();
                 if (map != null) {
-                    j.putAll(map);
+                    p.putAll(map);
                     a(map);
                 }
-                com.baidu.cyberplayer.sdk.loader.b.a().a(str2, i2, map, installListener);
+                CyberCoreLoaderManager.a().a(str2, i2 | 64, map, installListener);
             } catch (Throwable th) {
                 throw th;
             }
@@ -427,60 +531,115 @@ public class CyberPlayerManager {
     }
 
     public static boolean isCoreLoaded() {
-        return isCoreLoaded(f4713g);
+        return isCoreLoaded(l);
     }
 
     public static boolean isCoreLoaded(int i2) {
         return d.a(i2);
     }
 
+    public static void onDiskUsageLevelChangedCallback(int i2, final int i3, OnUpdateDiskQuotaComplete onUpdateDiskQuotaComplete) {
+        if (f4728b) {
+            if (onUpdateDiskQuotaComplete != null) {
+                onUpdateDiskQuotaComplete.notifyCompletion();
+                return;
+            }
+            return;
+        }
+        f4728b = true;
+        f4730d = onUpdateDiskQuotaComplete;
+        CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.2
+            @Override // java.lang.Runnable
+            public void run() {
+                synchronized (CyberPlayerManager.f4735i) {
+                    o.a(CyberPlayerManager.b(i3));
+                    if (CyberPlayerManager.f4730d != null) {
+                        CyberPlayerManager.f4730d.notifyCompletion();
+                    }
+                    boolean unused = CyberPlayerManager.f4728b = false;
+                    OnUpdateDiskQuotaComplete unused2 = CyberPlayerManager.f4730d = null;
+                }
+            }
+        });
+    }
+
     public static void onExit() {
         CyberLog.i("CyberPlayerManager", "onExit call by app");
     }
 
+    public static void preResolveHosts(List<String> list) {
+        CyberLog.d("CyberPlayer", "preResolveHosts hosts: " + list);
+        if (f4732f != null) {
+            for (String str : list) {
+                f4732f.getIpList2(str, false);
+            }
+        }
+    }
+
+    @Deprecated
     public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS) {
-        d.a(str, str2, str3, 1, 0, i2, httpDNS, "");
+        d.a(str, str2, str3, 1, 0, i2, httpDNS, "", -1, -1, -1, -1, null);
     }
 
+    @Deprecated
     public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4) {
-        if (str4 == null) {
-            str4 = "";
-        }
-        d.a(str, str2, str3, 1, 0, i2, httpDNS, str4);
+        d.a(str, str2, str3, 1, 0, i2, httpDNS, str4 == null ? "" : str4, -1, -1, -1, -1, null);
     }
 
+    public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4, int i3, int i4, int i5, int i6) {
+        d.a(str, str2, str3, 1, 0, i2, httpDNS, str4 == null ? "" : str4, i3, i4, i5, i6, null);
+    }
+
+    @Deprecated
     public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS) {
-        d.a(str, str2, str3, 0, i2, i3, httpDNS, "");
+        PlayerPolicyManager.getInstance().update();
+        d.a(str, str2, str3, 0, i2, i3, httpDNS, "", -1, -1, -1, -1, null);
     }
 
+    @Deprecated
     public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4) {
-        if (str4 == null) {
-            str4 = "";
-        }
-        d.a(str, str2, str3, 0, i2, i3, httpDNS, str4);
+        String str5 = str4 == null ? "" : str4;
+        PlayerPolicyManager.getInstance().update();
+        d.a(str, str2, str3, 0, i2, i3, httpDNS, str5, -1, -1, -1, -1, null);
     }
 
+    public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4, int i4, int i5, int i6, int i7, PrefetchOptions prefetchOptions) {
+        String str5 = str4 == null ? "" : str4;
+        PlayerPolicyManager.getInstance().update();
+        d.a(str, str2, str3, 0, i2, i3, httpDNS, str5, i4, i5, i6, i7, prefetchOptions);
+    }
+
+    @Deprecated
     public static void prefetch(String str, String str2, String str3, int i2, HttpDNS httpDNS) {
-        d.a(str, str2, str3, 0, 0, i2, httpDNS, "");
+        PlayerPolicyManager.getInstance().update();
+        d.a(str, str2, str3, 0, 0, i2, httpDNS, "", -1, -1, -1, -1, null);
     }
 
+    @Deprecated
     public static void prefetch(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4) {
-        if (str4 == null) {
-            str4 = "";
-        }
-        d.a(str, str2, str3, 0, 0, i2, httpDNS, str4);
+        String str5 = str4 == null ? "" : str4;
+        PlayerPolicyManager.getInstance().update();
+        d.a(str, str2, str3, 0, 0, i2, httpDNS, str5, -1, -1, -1, -1, null);
     }
 
     public static void setCollectVideoFlow(OnVideoFlowListener onVideoFlowListener) {
-        f4709c = onVideoFlowListener;
+        f4731e = onVideoFlowListener;
+    }
+
+    public static void setHttpDNS2(HttpDNS2 httpDNS2) {
+        f4732f = httpDNS2;
+    }
+
+    public static void setNetHandleListener(GetNetHandleListener getNetHandleListener) {
+        f4733g = getNetHandleListener;
     }
 
     public static void stopPrefetch(String str) {
-        d.a(str);
+        d.b(str);
     }
 
     public static void videoFlowCallback(HashMap<String, String> hashMap) {
-        OnVideoFlowListener onVideoFlowListener = f4709c;
+        OnVideoFlowListener onVideoFlowListener = f4731e;
         if (onVideoFlowListener != null) {
             onVideoFlowListener.onRecordFlow(hashMap);
         }

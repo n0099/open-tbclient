@@ -9,11 +9,11 @@ import java.io.File;
 public class o extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48454a;
+    public Context f52128a;
 
     public o(Context context) {
         super(context.getApplicationContext(), "OpenStat.db", (SQLiteDatabase.CursorFactory) null, 5);
-        this.f48454a = context.getApplicationContext();
+        this.f52128a = context.getApplicationContext();
     }
 
     public final void a(SQLiteDatabase sQLiteDatabase) {
@@ -51,11 +51,11 @@ public class o extends SQLiteOpenHelper {
     }
 
     public long e() {
-        return new File(this.f48454a.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
+        return new File(this.f52128a.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
     }
 
     public long f() {
-        return new File(this.f48454a.getDatabasePath("OpenStat.db").getPath()).length();
+        return new File(this.f52128a.getDatabasePath("OpenStat.db").getPath()).length();
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -64,7 +64,7 @@ public class o extends SQLiteOpenHelper {
         try {
             sQLiteDatabase = super.getReadableDatabase();
         } catch (Exception unused) {
-            new File(this.f48454a.getDatabasePath("OpenStat.db").getPath()).delete();
+            new File(this.f52128a.getDatabasePath("OpenStat.db").getPath()).delete();
             sQLiteDatabase = null;
         }
         return sQLiteDatabase;
@@ -78,7 +78,7 @@ public class o extends SQLiteOpenHelper {
             try {
                 sQLiteDatabase.enableWriteAheadLogging();
             } catch (Exception unused) {
-                new File(this.f48454a.getDatabasePath("OpenStat.db").getPath()).delete();
+                new File(this.f52128a.getDatabasePath("OpenStat.db").getPath()).delete();
                 return sQLiteDatabase;
             }
         } catch (Exception unused2) {

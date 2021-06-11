@@ -24,26 +24,26 @@ public class z extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.f> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f41289e;
+        public final /* synthetic */ JSONObject f44965e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f41290f;
+        public final /* synthetic */ d.a.l0.a.a2.e f44966f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f41291g;
+        public final /* synthetic */ Context f44967g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f41292h;
+        public final /* synthetic */ String f44968h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41293i;
+        public final /* synthetic */ CallbackHandler f44969i;
 
         public a(JSONObject jSONObject, d.a.l0.a.a2.e eVar, Context context, String str, CallbackHandler callbackHandler) {
-            this.f41289e = jSONObject;
-            this.f41290f = eVar;
-            this.f41291g = context;
-            this.f41292h = str;
-            this.f41293i = callbackHandler;
+            this.f44965e = jSONObject;
+            this.f44966f = eVar;
+            this.f44967g = context;
+            this.f44968h = str;
+            this.f44969i = callbackHandler;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -51,11 +51,11 @@ public class z extends a0 {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.f fVar) {
             String str;
-            if (fVar == null || fVar.f41697d || fVar.j != 1 || TextUtils.isEmpty(fVar.o.optString("web_url"))) {
+            if (fVar == null || fVar.f45373d || fVar.j != 1 || TextUtils.isEmpty(fVar.o.optString("web_url"))) {
                 str = "";
             } else {
                 String optString = fVar.o.optString("web_url");
-                String optString2 = this.f41289e.optString("path");
+                String optString2 = this.f44965e.optString("path");
                 if (!TextUtils.isEmpty(optString2)) {
                     if (!optString.endsWith("/")) {
                         optString = optString + "/";
@@ -68,13 +68,13 @@ public class z extends a0 {
                 str = o0.a(o0.a(optString, "_swebfr", "1"), "hostname", d.a.l0.a.c1.a.m().a());
             }
             if (!q0.G() && TextUtils.isEmpty(str)) {
-                str = d.a.l0.d.g.c.e().g(this.f41290f.D(), this.f41290f.l(), this.f41289e.optString("path"));
+                str = d.a.l0.d.g.c.e().g(this.f44966f.D(), this.f44966f.l(), this.f44965e.optString("path"));
             }
             String str2 = str;
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("ShareAction", "final share url is " + str2);
             }
-            z.this.p(str2, this.f41291g, this.f41292h, this.f41293i, this.f41289e, this.f41290f);
+            z.this.p(str2, this.f44967g, this.f44968h, this.f44969i, this.f44965e, this.f44966f);
         }
     }
 
@@ -82,33 +82,33 @@ public class z extends a0 {
     public class b implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41294e;
+        public final /* synthetic */ Context f44970e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41295f;
+        public final /* synthetic */ CallbackHandler f44971f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41296g;
+        public final /* synthetic */ String f44972g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f41297h;
+        public final /* synthetic */ JSONObject f44973h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f41298i;
+        public final /* synthetic */ String f44974i;
 
         public b(Context context, CallbackHandler callbackHandler, String str, JSONObject jSONObject, String str2) {
-            this.f41294e = context;
-            this.f41295f = callbackHandler;
-            this.f41296g = str;
-            this.f41297h = jSONObject;
-            this.f41298i = str2;
+            this.f44970e = context;
+            this.f44971f = callbackHandler;
+            this.f44972g = str;
+            this.f44973h = jSONObject;
+            this.f44974i = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
-            z.this.n(this.f41294e, this.f41295f, this.f41296g, this.f41297h, d.a.l0.a.e2.c.d.h(iVar), this.f41298i);
+            z.this.n(this.f44970e, this.f44971f, this.f44972g, this.f44973h, d.a.l0.a.e2.c.d.h(iVar), this.f44974i);
         }
     }
 
@@ -116,24 +116,24 @@ public class z extends a0 {
     public class c implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41299a;
+        public final /* synthetic */ CallbackHandler f44975a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f41300b;
+        public final /* synthetic */ String f44976b;
 
         public c(CallbackHandler callbackHandler, String str) {
-            this.f41299a = callbackHandler;
-            this.f41300b = str;
+            this.f44975a = callbackHandler;
+            this.f44976b = str;
         }
 
         @Override // d.a.l0.a.c1.d.i.a
         public void a() {
-            z.this.q(this.f41299a, this.f41300b, false);
+            z.this.q(this.f44975a, this.f44976b, false);
         }
 
         @Override // d.a.l0.a.c1.d.i.a
         public void b() {
-            z.this.q(this.f41299a, this.f41300b, true);
+            z.this.q(this.f44975a, this.f44976b, true);
         }
     }
 
@@ -145,7 +145,7 @@ public class z extends a0 {
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
         if (context != null && eVar != null) {
             if (eVar.d0()) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("ShareAction", "ShareAction does not supported when app is invisible.");
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -166,7 +166,7 @@ public class z extends a0 {
             try {
                 a2.put("iconUrl", a2.optString("imageUrl", ""));
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("ShareAction", e2.toString());
                 }
             }
@@ -184,7 +184,7 @@ public class z extends a0 {
         if (Q == null) {
             return null;
         }
-        return d.a.l0.a.k2.b.M(str, Q.f40749f);
+        return d.a.l0.a.k2.b.M(str, Q.f44425f);
     }
 
     public final void n(@NonNull Context context, CallbackHandler callbackHandler, String str, @NonNull JSONObject jSONObject, boolean z, String str2) {
@@ -202,7 +202,7 @@ public class z extends a0 {
                 jSONObject.put("pannel", optJSONArray);
             }
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("ShareAction", e2.toString());
             }
         }
@@ -226,7 +226,7 @@ public class z extends a0 {
             try {
                 jSONObject.putOpt("imageUrl", s0.a(d.a.l0.a.g1.f.V().getActivity(), new File(m2)).toString());
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e2.printStackTrace();
                 }
             }
@@ -246,7 +246,7 @@ public class z extends a0 {
                 optJSONObject2.putOpt("info", optJSONObject);
                 jSONObject.putOpt("command", optJSONObject2);
             } catch (JSONException e3) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e3.printStackTrace();
                 }
             }
@@ -260,7 +260,7 @@ public class z extends a0 {
             optJSONObject2.putOpt("info", optJSONObject);
             jSONObject.putOpt("command", optJSONObject2);
         } catch (JSONException e4) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e4.printStackTrace();
             }
         }
@@ -278,7 +278,7 @@ public class z extends a0 {
                         jSONObject.put("pannel", optJSONArray2);
                     }
                 } catch (JSONException e2) {
-                    if (a0.f40949b) {
+                    if (a0.f44625b) {
                         Log.d("ShareAction", e2.toString());
                     }
                 }
@@ -307,7 +307,7 @@ public class z extends a0 {
         try {
             jSONObject.put("result", z);
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("ShareAction", e2.toString());
             }
         }

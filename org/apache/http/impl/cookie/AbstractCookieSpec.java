@@ -4,7 +4,7 @@ import java.util.Collection;
 import org.apache.http.cookie.CookieAttributeHandler;
 import org.apache.http.cookie.CookieSpec;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractCookieSpec implements CookieSpec {
     public AbstractCookieSpec() {
         throw new RuntimeException("Stub!");

@@ -9,19 +9,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.model.message.AddPollPostHttpResponseMessage;
 import com.baidu.tieba.model.message.AddPollPostRequestNetMessage;
 import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AddPollPostModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18339e;
+    public b f18415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f18340f;
+    public long f18416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f18341g;
+    public d.a.c.c.g.a f18417g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
         public a(int i2, int i3) {
             super(i2, i3);
@@ -30,7 +30,7 @@ public class AddPollPostModel extends BdBaseModel {
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str;
-            if (responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && AddPollPostModel.this.f18340f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
+            if (responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && AddPollPostModel.this.f18416f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
                 boolean z = responsedMessage instanceof AddPollPostHttpResponseMessage;
                 if (z || (responsedMessage instanceof AddPollPostSocketResponseMessage)) {
                     AddPollPostHttpResponseMessage addPollPostHttpResponseMessage = z ? (AddPollPostHttpResponseMessage) responsedMessage : null;
@@ -48,23 +48,31 @@ public class AddPollPostModel extends BdBaseModel {
                         i2 = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
                         str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
                     }
-                    if (AddPollPostModel.this.f18339e != null) {
-                        AddPollPostModel.this.f18339e.a(i2, str);
+                    if (AddPollPostModel.this.f18415e != null) {
+                        AddPollPostModel.this.f18415e.a(i2, str);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i2, String str);
     }
 
     public AddPollPostModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f18341g = new a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
-        v();
+        this.f18417g = new a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
+        z();
+    }
+
+    public void A(b bVar) {
+        this.f18415e = bVar;
+    }
+
+    public void B(long j) {
+        this.f18416f = j;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -78,10 +86,14 @@ public class AddPollPostModel extends BdBaseModel {
     }
 
     public void registerListener() {
-        registerListener(this.f18341g);
+        registerListener(this.f18417g);
     }
 
-    public void u(String str, String str2, long j) {
+    public void unRegisterListener() {
+        MessageManager.getInstance().unRegisterListener(this.f18417g);
+    }
+
+    public void y(String str, String str2, long j) {
         AddPollPostRequestNetMessage addPollPostRequestNetMessage = new AddPollPostRequestNetMessage();
         addPollPostRequestNetMessage.setThreadId(d.a.c.e.m.b.f(str, 0L));
         addPollPostRequestNetMessage.setOptions(str2);
@@ -89,20 +101,8 @@ public class AddPollPostModel extends BdBaseModel {
         sendMessage(addPollPostRequestNetMessage);
     }
 
-    public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.f18341g);
-    }
-
-    public final void v() {
+    public final void z() {
         d.a.n0.e3.d0.a.h(309006, AddPollPostSocketResponseMessage.class, false, false);
         d.a.n0.e3.d0.a.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
-    }
-
-    public void w(b bVar) {
-        this.f18339e = bVar;
-    }
-
-    public void x(long j) {
-        this.f18340f = j;
     }
 }

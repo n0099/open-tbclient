@@ -24,7 +24,7 @@ public final class b {
 
     /* renamed from: d.a.l0.e.o.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0969b {
+    public interface InterfaceC1025b {
         d.a.l0.n.l.b a();
 
         void b(boolean z, d.a.l0.a.h0.s.c cVar);
@@ -42,13 +42,13 @@ public final class b {
                 }
             }
             e eVar = new e();
-            eVar.f42571a = "by_silent";
+            eVar.f46247a = "by_silent";
             d.a.l0.a.c1.a.n0().b(eVar, new a());
         }
     }
 
     @Inject(force = false)
-    public static InterfaceC0969b b() {
+    public static InterfaceC1025b b() {
         return d.a.n0.u.b.l.b.a();
     }
 }

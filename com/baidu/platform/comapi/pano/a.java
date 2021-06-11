@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AsyncHttpClient f9261a = new AsyncHttpClient();
+    public AsyncHttpClient f9318a = new AsyncHttpClient();
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -84,6 +84,6 @@ public class a {
             return;
         }
         a(builder, "token", authToken);
-        this.f9261a.get(a(builder), new b(this, interfaceC0117a));
+        this.f9318a.get(a(builder), new b(this, interfaceC0117a));
     }
 }

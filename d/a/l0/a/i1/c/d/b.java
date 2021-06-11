@@ -18,7 +18,6 @@ import kotlinx.coroutines.DebugKt;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class b extends a0 {
 
@@ -26,81 +25,81 @@ public class b extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.c.b f42741e;
+        public final /* synthetic */ d.a.l0.a.i1.c.b f46417e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioPlayer f42742f;
+        public final /* synthetic */ SwanAppAudioPlayer f46418f;
 
         /* renamed from: d.a.l0.a.i1.c.d.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0705a implements Runnable {
+        public class RunnableC0761a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f42743e;
+            public final /* synthetic */ String f46419e;
 
-            public RunnableC0705a(String str) {
-                this.f42743e = str;
+            public RunnableC0761a(String str) {
+                this.f46419e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 a aVar = a.this;
-                d.a.l0.a.i1.c.b bVar = aVar.f42741e;
-                bVar.f42721c = this.f42743e;
-                aVar.f42742f.J(bVar);
+                d.a.l0.a.i1.c.b bVar = aVar.f46417e;
+                bVar.f46397c = this.f46419e;
+                aVar.f46418f.J(bVar);
             }
         }
 
         public a(b bVar, d.a.l0.a.i1.c.b bVar2, SwanAppAudioPlayer swanAppAudioPlayer) {
-            this.f42741e = bVar2;
-            this.f42742f = swanAppAudioPlayer;
+            this.f46417e = bVar2;
+            this.f46418f = swanAppAudioPlayer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(String str) {
-            q0.b0(new RunnableC0705a(str));
+            q0.b0(new RunnableC0761a(str));
         }
     }
 
     /* renamed from: d.a.l0.a.i1.c.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0706b implements d.a.l0.a.v2.e1.b<String> {
+    public class C0762b implements d.a.l0.a.v2.e1.b<String> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.c.b f42745e;
+        public final /* synthetic */ d.a.l0.a.i1.c.b f46421e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioPlayer f42746f;
+        public final /* synthetic */ SwanAppAudioPlayer f46422f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f42747g;
+        public final /* synthetic */ CallbackHandler f46423g;
 
         /* renamed from: d.a.l0.a.i1.c.d.b$b$a */
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f42748e;
+            public final /* synthetic */ String f46424e;
 
             public a(String str) {
-                this.f42748e = str;
+                this.f46424e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                C0706b c0706b = C0706b.this;
-                d.a.l0.a.i1.c.b bVar = c0706b.f42745e;
-                bVar.f42721c = this.f42748e;
-                c0706b.f42746f.w(bVar, c0706b.f42747g);
+                C0762b c0762b = C0762b.this;
+                d.a.l0.a.i1.c.b bVar = c0762b.f46421e;
+                bVar.f46397c = this.f46424e;
+                c0762b.f46422f.w(bVar, c0762b.f46423g);
             }
         }
 
-        public C0706b(b bVar, d.a.l0.a.i1.c.b bVar2, SwanAppAudioPlayer swanAppAudioPlayer, CallbackHandler callbackHandler) {
-            this.f42745e = bVar2;
-            this.f42746f = swanAppAudioPlayer;
-            this.f42747g = callbackHandler;
+        public C0762b(b bVar, d.a.l0.a.i1.c.b bVar2, SwanAppAudioPlayer swanAppAudioPlayer, CallbackHandler callbackHandler) {
+            this.f46421e = bVar2;
+            this.f46422f = swanAppAudioPlayer;
+            this.f46423g = callbackHandler;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,7 +116,7 @@ public class b extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("AudioPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
@@ -136,11 +135,11 @@ public class b extends a0 {
         char c2;
         boolean z;
         char c3;
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("AudioPlayerAction", "handleSubAction subAction: " + str);
         }
         if (eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioPlayerAction", "AudioPlayerAction does not supported when app is invisible.");
             }
             int hashCode = str.hashCode();
@@ -171,7 +170,7 @@ public class b extends a0 {
         }
         JSONObject j = j(unitedSchemeEntity.getParam("params"));
         if (j == null) {
-            d.b(MediaStreamTrack.AUDIO_TRACK_KIND, "object is null");
+            d.b("audio", "object is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else if (TextUtils.equals(str, "/swanAPI/audio/setInnerAudioOption")) {
@@ -187,17 +186,17 @@ public class b extends a0 {
                 k = k(optString);
             }
             if (k == null) {
-                d.b(MediaStreamTrack.AUDIO_TRACK_KIND, "player is null");
+                d.b("audio", "player is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             d.a.l0.a.i1.c.b a2 = d.a.l0.a.i1.c.b.a(j, k.t());
             if (!a2.b()) {
-                d.b(MediaStreamTrack.AUDIO_TRACK_KIND, "params is invalid");
+                d.b("audio", "params is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioPlayerAction", "subAction is : " + str);
             }
             switch (str.hashCode()) {
@@ -256,37 +255,37 @@ public class b extends a0 {
             }
             switch (c2) {
                 case 0:
-                    d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "open, audio id:" + a2.f42719a);
+                    d.g("audio", "open, audio id:" + a2.f46395a);
                     n(context, callbackHandler, k, a2);
                     z = true;
                     break;
                 case 1:
-                    d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "update, audio id:" + a2.f42719a);
+                    d.g("audio", "update, audio id:" + a2.f46395a);
                     o(context, k, a2);
                     z = true;
                     break;
                 case 2:
-                    d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "play, audio id:" + a2.f42719a);
+                    d.g("audio", "play, audio id:" + a2.f46395a);
                     k.z();
                     z = true;
                     break;
                 case 3:
-                    d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "pause, audio id:" + a2.f42719a);
+                    d.g("audio", "pause, audio id:" + a2.f46395a);
                     k.x();
                     z = true;
                     break;
                 case 4:
-                    d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "seek, audio id:" + a2.f42719a);
-                    k.D(a2.f42726h);
+                    d.g("audio", "seek, audio id:" + a2.f46395a);
+                    k.D(a2.f46402h);
                     z = true;
                     break;
                 case 5:
-                    d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "stop, audio id:" + a2.f42719a);
+                    d.g("audio", "stop, audio id:" + a2.f46395a);
                     k.I();
                     z = true;
                     break;
                 case 6:
-                    d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "release, audio id:" + a2.f42719a);
+                    d.g("audio", "release, audio id:" + a2.f46395a);
                     k.B();
                     z = true;
                     break;
@@ -307,7 +306,7 @@ public class b extends a0 {
             try {
                 return new JSONObject(str);
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("AudioPlayerAction", Log.getStackTraceString(e2));
                 }
             }
@@ -340,13 +339,13 @@ public class b extends a0 {
         jSONArray.put("voice_recognition");
         try {
             jSONObject.put("audioSources", jSONArray.toString());
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioPlayerAction", "audioSource:" + jSONObject.toString());
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -363,7 +362,7 @@ public class b extends a0 {
         try {
             boolean optBoolean = jSONObject.optBoolean("mixWithOther", false);
             eVar.J().h("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("AudioPlayerAction", "Audio Mix Changed to " + optBoolean);
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -377,16 +376,16 @@ public class b extends a0 {
 
     public final void n(Context context, CallbackHandler callbackHandler, SwanAppAudioPlayer swanAppAudioPlayer, d.a.l0.a.i1.c.b bVar) {
         y k = d.a.l0.a.c1.a.k();
-        if (k != null && d.a.l0.a.k2.b.s(bVar.f42721c) == PathType.CLOUD) {
-            k.b(context, bVar.f42721c, new C0706b(this, bVar, swanAppAudioPlayer, callbackHandler));
+        if (k != null && d.a.l0.a.k2.b.s(bVar.f46397c) == PathType.CLOUD) {
+            k.b(context, bVar.f46397c, new C0762b(this, bVar, swanAppAudioPlayer, callbackHandler));
         } else {
             swanAppAudioPlayer.w(bVar, callbackHandler);
         }
     }
 
     public final void o(Context context, SwanAppAudioPlayer swanAppAudioPlayer, d.a.l0.a.i1.c.b bVar) {
-        if (TextUtils.isEmpty(bVar.f42721c) && d.a.l0.a.k2.b.s(bVar.f42721c) == PathType.CLOUD) {
-            d.a.l0.a.c1.a.k().b(context, bVar.f42721c, new a(this, bVar, swanAppAudioPlayer));
+        if (TextUtils.isEmpty(bVar.f46397c) && d.a.l0.a.k2.b.s(bVar.f46397c) == PathType.CLOUD) {
+            d.a.l0.a.c1.a.k().b(context, bVar.f46397c, new a(this, bVar, swanAppAudioPlayer));
         } else {
             swanAppAudioPlayer.J(bVar);
         }

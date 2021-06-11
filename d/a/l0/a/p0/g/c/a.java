@@ -2,7 +2,7 @@ package d.a.l0.a.p0.g.c;
 
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     @NonNull
     String a();

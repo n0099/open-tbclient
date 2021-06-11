@@ -24,11 +24,11 @@ public class k extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
     @Override // d.a.l0.a.y0.a
     /* renamed from: e */
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.g.h.b bVar) {
-        ArrayList<d.a.l0.a.y0.g.i.a> w = bVar.w();
+        ArrayList<d.a.l0.a.y0.g.i.a> v = bVar.v();
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
-        if (w != null) {
-            Iterator<d.a.l0.a.y0.g.i.a> it = w.iterator();
+        if (v != null) {
+            Iterator<d.a.l0.a.y0.g.i.a> it = v.iterator();
             while (it.hasNext()) {
                 d.a.l0.a.y0.g.i.a next = it.next();
                 JSONObject a2 = next == null ? null : next.a();

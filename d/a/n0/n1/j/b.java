@@ -18,19 +18,19 @@ import d.a.n0.n1.j.a;
 public class b implements IConnectListener {
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f57673i = "imlog";
+    public static String f61362i = "imlog";
 
     /* renamed from: f  reason: collision with root package name */
-    public c f57675f;
+    public c f61364f;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57674e = false;
+    public boolean f61363e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f57676g = new a(2005016);
+    public CustomMessageListener f61365g = new a(2005016);
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57677h = false;
+    public boolean f61366h = false;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -50,19 +50,19 @@ public class b implements IConnectListener {
 
     /* renamed from: d.a.n0.n1.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1443b implements a.b {
-        public C1443b() {
+    public class C1499b implements a.b {
+        public C1499b() {
         }
 
         @Override // d.a.n0.n1.j.a.b
         public void a(int i2, String str) {
             Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.loginToIm -> loginResult errno=" + i2 + ", errMsg=" + str);
             StringBuilder sb = new StringBuilder();
-            sb.append(b.f57673i);
+            sb.append(b.f61362i);
             sb.append("LiveIMManager");
             String sb2 = sb.toString();
-            LogUtils.d(sb2, "LiveIMManager onLoginResult errno = " + i2 + ", errMsg = " + str + ", isConnected = " + b.this.f57674e);
-            if (i2 != 0 || b.this.f57674e) {
+            LogUtils.d(sb2, "LiveIMManager onLoginResult errno = " + i2 + ", errMsg = " + str + ", isConnected = " + b.this.f61363e);
+            if (i2 != 0 || b.this.f61363e) {
                 return;
             }
             b.this.onResult(0);
@@ -118,27 +118,27 @@ public class b implements IConnectListener {
 
     public void b(String str) {
         Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.init id =" + str);
-        if (this.f57677h) {
+        if (this.f61366h) {
             return;
         }
-        this.f57677h = true;
+        this.f61366h = true;
         d.a.n0.n1.j.a.a().b(TbadkCoreApplication.getInst());
         d();
         c();
-        if (this.f57675f == null) {
-            this.f57675f = new c(this, null);
+        if (this.f61364f == null) {
+            this.f61364f = new c(this, null);
         }
-        this.f57675f.register();
-        MessageManager.getInstance().registerListener(this.f57676g);
+        this.f61364f.register();
+        MessageManager.getInstance().registerListener(this.f61365g);
     }
 
     public void c() {
-        d.a.n0.n1.j.a.a().d(new C1443b());
+        d.a.n0.n1.j.a.a().d(new C1499b());
     }
 
     public final void d() {
-        LogUtils.d(f57673i + "LiveIMManager", "registerIMConnectListener");
-        this.f57674e = false;
+        LogUtils.d(f61362i + "LiveIMManager", "registerIMConnectListener");
+        this.f61363e = false;
         BIMManager.unregisterConnectListener();
         BIMManager.registerConnectListener(this);
     }
@@ -146,12 +146,12 @@ public class b implements IConnectListener {
     @Override // com.baidu.android.imsdk.account.IConnectListener
     public void onResult(int i2) {
         Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.onResult statuscode=" + i2);
-        LogUtils.d(f57673i + "LiveIMManager", "IConnectListener onResult statusCode=" + i2);
-        this.f57674e = true;
+        LogUtils.d(f61362i + "LiveIMManager", "IConnectListener onResult statusCode=" + i2);
+        this.f61363e = true;
         if (i2 == 0) {
-            LogUtils.d(f57673i + "LiveIMManager", "IConnectListener net connect");
+            LogUtils.d(f61362i + "LiveIMManager", "IConnectListener net connect");
         } else if (i2 == 1) {
-            LogUtils.d(f57673i + "LiveIMManager", "IConnectListener net disconnect");
+            LogUtils.d(f61362i + "LiveIMManager", "IConnectListener net disconnect");
         }
     }
 }

@@ -9,7 +9,7 @@ public final class GeneralRange<T> implements Serializable {
     public final Comparator<? super T> comparator;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient GeneralRange<T> f30994e;
+    public transient GeneralRange<T> f31085e;
     public final boolean hasLowerBound;
     public final boolean hasUpperBound;
     public final BoundType lowerBoundType;
@@ -163,11 +163,11 @@ public final class GeneralRange<T> implements Serializable {
     }
 
     public GeneralRange<T> reverse() {
-        GeneralRange<T> generalRange = this.f30994e;
+        GeneralRange<T> generalRange = this.f31085e;
         if (generalRange == null) {
             GeneralRange<T> generalRange2 = new GeneralRange<>(Ordering.from(this.comparator).reverse(), this.hasUpperBound, getUpperEndpoint(), getUpperBoundType(), this.hasLowerBound, getLowerEndpoint(), getLowerBoundType());
-            generalRange2.f30994e = this;
-            this.f30994e = generalRange2;
+            generalRange2.f31085e = this;
+            this.f31085e = generalRange2;
             return generalRange2;
         }
         return generalRange;

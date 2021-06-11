@@ -10,12 +10,12 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public final class BitRateBox extends AbstractBox {
     public static final String TYPE = "btrt";
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_5 = null;
     public long avgBitrate;
     public long bufferSizeDb;
     public long maxBitrate;

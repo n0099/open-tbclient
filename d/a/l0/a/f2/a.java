@@ -46,37 +46,37 @@ import java.util.regex.Pattern;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41870a = k.f43199a;
+    public static final boolean f45546a = k.f46875a;
 
     /* renamed from: d.a.l0.a.f2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0637a implements c.b {
+    public static class C0693a implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f41871a;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f45547a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a f41872b;
+        public final /* synthetic */ c.a f45548b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f41873c;
+        public final /* synthetic */ int f45549c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ f f41874d;
+        public final /* synthetic */ f f45550d;
 
-        public C0637a(d.a.l0.a.f1.e.b bVar, c.a aVar, int i2, f fVar) {
-            this.f41871a = bVar;
-            this.f41872b = aVar;
-            this.f41873c = i2;
-            this.f41874d = fVar;
+        public C0693a(d.a.l0.a.f1.e.b bVar, c.a aVar, int i2, f fVar) {
+            this.f45547a = bVar;
+            this.f45548b = aVar;
+            this.f45549c = i2;
+            this.f45550d = fVar;
         }
 
         @Override // d.a.l0.a.h0.m.r.c.b
         public void a(Bitmap bitmap) {
             if (d.a.l0.a.a2.e.i() != null) {
                 SwanAppActivity x = d.a.l0.a.a2.d.g().x();
-                a.q(x, this.f41871a, this.f41872b, bitmap, this.f41873c);
-                a.r(x, this.f41871a, this.f41874d);
+                a.q(x, this.f45547a, this.f45548b, bitmap, this.f45549c);
+                a.r(x, this.f45547a, this.f45550d);
             }
         }
     }
@@ -85,72 +85,72 @@ public final class a {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f41875e;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f45551e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f41876f;
+        public final /* synthetic */ Context f45552f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f41877g;
+        public final /* synthetic */ int f45553g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f41878h;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f45554h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f41879i;
+        public final /* synthetic */ Bitmap f45555i;
         public final /* synthetic */ d.a.l0.a.f1.e.c j;
 
         public b(d.a.l0.a.f1.e.b bVar, Context context, int i2, d.a.l0.a.f1.e.b bVar2, Bitmap bitmap, d.a.l0.a.f1.e.c cVar) {
-            this.f41875e = bVar;
-            this.f41876f = context;
-            this.f41877g = i2;
-            this.f41878h = bVar2;
-            this.f41879i = bitmap;
+            this.f45551e = bVar;
+            this.f45552f = context;
+            this.f45553g = i2;
+            this.f45554h = bVar2;
+            this.f45555i = bitmap;
             this.j = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             p S = d.a.l0.a.c1.a.S();
-            String o1 = this.f41875e.o1();
-            if (!TextUtils.isEmpty(o1) && S.b(this.f41876f, o1)) {
+            String o1 = this.f45551e.o1();
+            if (!TextUtils.isEmpty(o1) && S.b(this.f45552f, o1)) {
                 a.n(PrefetchEvent.STATE_CLICK);
-                if (S.a(this.f41876f, o1)) {
-                    if (this.f41877g != 1) {
-                        a.u(this.f41876f);
+                if (S.a(this.f45552f, o1)) {
+                    if (this.f45553g != 1) {
+                        a.u(this.f45552f);
                         return;
                     }
                     return;
-                } else if (S.c(this.f41876f, o1)) {
+                } else if (S.c(this.f45552f, o1)) {
                     a.n("show");
-                    if (this.f41877g != 1) {
-                        a.u(this.f41876f);
+                    if (this.f45553g != 1) {
+                        a.u(this.f45552f);
                         return;
                     }
                     return;
                 }
             }
             if (d.a.l0.a.v2.d.j()) {
-                a.t(this.f41876f, this.f41878h.H(), this.f41878h.K(), this.f41879i, d.a.l0.a.f1.e.c.d1(this.f41876f, this.j));
+                a.t(this.f45552f, this.f45554h.H(), this.f45554h.K(), this.f45555i, d.a.l0.a.f1.e.c.d1(this.f45552f, this.j));
             } else {
                 try {
-                    this.f41876f.sendBroadcast(a.m(this.f41878h.K(), this.f41879i, d.a.l0.a.f1.e.c.d1(this.f41876f, this.j)));
+                    this.f45552f.sendBroadcast(a.m(this.f45554h.K(), this.f45555i, d.a.l0.a.f1.e.c.d1(this.f45552f, this.j)));
                 } catch (Throwable th) {
-                    if (a.f41870a) {
+                    if (a.f45546a) {
                         th.printStackTrace();
                     }
                     try {
-                        this.f41876f.sendBroadcast(a.m(this.f41878h.K(), u.a(this.f41879i, ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT, true), d.a.l0.a.f1.e.c.d1(this.f41876f, this.j)));
+                        this.f45552f.sendBroadcast(a.m(this.f45554h.K(), u.a(this.f45555i, ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT, true), d.a.l0.a.f1.e.c.d1(this.f45552f, this.j)));
                     } catch (Throwable th2) {
-                        if (a.f41870a) {
+                        if (a.f45546a) {
                             th2.printStackTrace();
                         }
-                        d.a.l0.a.z1.b.f.e.f(this.f41876f, h.aiapps_shortcut_add_failure).F();
+                        d.a.l0.a.z1.b.f.e.f(this.f45552f, h.aiapps_shortcut_add_failure).F();
                     }
                 }
             }
-            if (this.f41877g != 1) {
-                a.u(this.f41876f);
+            if (this.f45553g != 1) {
+                a.u(this.f45552f);
             }
         }
     }
@@ -159,12 +159,12 @@ public final class a {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41880e;
+        public final /* synthetic */ Context f45556e;
 
         /* renamed from: d.a.l0.a.f2.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class DialogInterface$OnClickListenerC0638a implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0638a(c cVar) {
+        public class DialogInterface$OnClickListenerC0694a implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0694a(c cVar) {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -173,18 +173,18 @@ public final class a {
         }
 
         public c(Context context) {
-            this.f41880e = context;
+            this.f45556e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            h.a aVar = new h.a(this.f41880e);
+            h.a aVar = new h.a(this.f45556e);
             aVar.n(new d.a.l0.a.w2.h.a());
             d.a.l0.a.z1.b.b.h c2 = aVar.c();
             aVar.U(d.a.l0.a.h.aiapps_add_shortcut_note_dialog_title);
-            aVar.w(a.p(this.f41880e, c2));
+            aVar.w(a.p(this.f45556e, c2));
             aVar.y();
-            aVar.H(d.a.l0.a.h.aiapps_confirm_text, new DialogInterface$OnClickListenerC0638a(this));
+            aVar.H(d.a.l0.a.h.aiapps_confirm_text, new DialogInterface$OnClickListenerC0694a(this));
             aVar.J(d.a.l0.a.c1.a.H().a());
             aVar.a();
             c2.setCancelable(false);
@@ -196,20 +196,20 @@ public final class a {
     public static class d extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.z1.b.b.h f41881e;
+        public final /* synthetic */ d.a.l0.a.z1.b.b.h f45557e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f41882f;
+        public final /* synthetic */ Context f45558f;
 
         public d(d.a.l0.a.z1.b.b.h hVar, Context context) {
-            this.f41881e = hVar;
-            this.f41882f = context;
+            this.f45557e = hVar;
+            this.f45558f = context;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            this.f41881e.dismiss();
-            a0.g(this.f41882f);
+            this.f45557e.dismiss();
+            a0.g(this.f45558f);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -222,23 +222,23 @@ public final class a {
     public static class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f41883e;
+        public final /* synthetic */ f f45559e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f41884f;
+        public final /* synthetic */ Context f45560f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f41885g;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f45561g;
 
         public e(f fVar, Context context, d.a.l0.a.f1.e.b bVar) {
-            this.f41883e = fVar;
-            this.f41884f = context;
-            this.f41885g = bVar;
+            this.f45559e = fVar;
+            this.f45560f = context;
+            this.f45561g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f41883e.a(a.s(this.f41884f, this.f41885g.K(), this.f41885g.H()));
+            this.f45559e.a(a.s(this.f45560f, this.f45561g.K(), this.f45561g.H()));
         }
     }
 
@@ -264,7 +264,7 @@ public final class a {
             r(context, bVar, fVar);
             return;
         }
-        d.a.l0.a.h0.m.r.c.c(Q, aVar.G(), new C0637a(bVar, aVar, i2, fVar));
+        d.a.l0.a.h0.m.r.c.c(Q, aVar.G(), new C0693a(bVar, aVar, i2, fVar));
     }
 
     public static void k(Context context, d.a.l0.a.f1.e.b bVar, f fVar) {
@@ -287,11 +287,11 @@ public final class a {
 
     public static void n(String str) {
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43190f = d.a.l0.a.a2.d.g().getAppId();
-        eVar.f43186b = str;
-        eVar.f43185a = d.a.l0.a.j2.k.m(d.a.l0.a.a2.d.g().l());
+        eVar.f46866f = d.a.l0.a.a2.d.g().getAppId();
+        eVar.f46862b = str;
+        eVar.f46861a = d.a.l0.a.j2.k.m(d.a.l0.a.a2.d.g().l());
         if (d.a.l0.a.a2.e.Q() != null && d.a.l0.a.a2.e.Q().L() != null) {
-            eVar.f43187c = d.a.l0.a.a2.e.Q().L().T();
+            eVar.f46863c = d.a.l0.a.a2.e.Q().L().T();
         }
         d.a.l0.a.j2.k.u("1591", eVar);
     }
@@ -376,7 +376,7 @@ public final class a {
             }
             return 0;
         } catch (Exception e2) {
-            if (f41870a) {
+            if (f45546a) {
                 Log.d("SwanAppShortcutHelper", "fail: " + e2);
                 return -1;
             }
@@ -392,7 +392,7 @@ public final class a {
                 shortcutManager.requestPinShortcut(new ShortcutInfo.Builder(context, str).setShortLabel(str2).setLongLabel(str2).setIcon(Icon.createWithBitmap(bitmap)).setIntent(intent).build(), null);
                 return;
             } catch (IllegalStateException e2) {
-                if (f41870a) {
+                if (f45546a) {
                     throw e2;
                 }
                 return;
@@ -403,7 +403,7 @@ public final class a {
 
     public static void u(Context context) {
         if (!(context instanceof Activity)) {
-            if (f41870a) {
+            if (f45546a) {
                 throw new IllegalArgumentException("context must be activity.");
             }
             return;

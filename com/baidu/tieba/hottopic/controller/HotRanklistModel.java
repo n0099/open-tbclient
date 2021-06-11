@@ -14,10 +14,10 @@ import d.a.n0.d1.c.j;
 public class HotRanklistModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f16744e;
+    public b f16820e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f16745f;
+    public d.a.c.c.g.a f16821f;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -32,9 +32,9 @@ public class HotRanklistModel extends BdBaseModel {
             }
             if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == HotRanklistModel.this.getUniqueId()) {
                 if (!responsedMessage.hasError()) {
-                    HotRanklistModel.this.v(responsedMessage);
+                    HotRanklistModel.this.z(responsedMessage);
                 } else {
-                    HotRanklistModel.this.f16744e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                    HotRanklistModel.this.f16820e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -47,10 +47,23 @@ public class HotRanklistModel extends BdBaseModel {
 
     public HotRanklistModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f16744e = null;
+        this.f16820e = null;
         a aVar = new a(CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289);
-        this.f16745f = aVar;
+        this.f16821f = aVar;
         registerListener(aVar);
+    }
+
+    public final void A(String str, String str2, String str3, long j) {
+        RequestHotRanklistMessage requestHotRanklistMessage = new RequestHotRanklistMessage();
+        requestHotRanklistMessage.setCallFrom(str);
+        requestHotRanklistMessage.setListType(str2);
+        requestHotRanklistMessage.setNeedTabList(str3);
+        requestHotRanklistMessage.setFid(j);
+        sendMessage(requestHotRanklistMessage);
+    }
+
+    public void B(b bVar) {
+        this.f16820e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -64,8 +77,8 @@ public class HotRanklistModel extends BdBaseModel {
         return false;
     }
 
-    public void u(String str, String str2, String str3, long j) {
-        w(str, str2, str3, j);
+    public void y(String str, String str2, String str3, long j) {
+        A(str, str2, str3, j);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0022  */
@@ -73,7 +86,7 @@ public class HotRanklistModel extends BdBaseModel {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void v(ResponsedMessage<?> responsedMessage) {
+    public final void z(ResponsedMessage<?> responsedMessage) {
         String str;
         if (responsedMessage == null) {
             return;
@@ -95,12 +108,12 @@ public class HotRanklistModel extends BdBaseModel {
                         jVar = responseSocketHotRanklistMessage.getHotRanklistData();
                     }
                 }
-                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f52587b)) {
-                    jVar.f52586a = jVar.f52587b.get(0).f52612f;
+                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f56276b)) {
+                    jVar.f56275a = jVar.f56276b.get(0).f56301f;
                 } else {
-                    jVar.f52586a = str;
+                    jVar.f56275a = str;
                 }
-                this.f16744e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+                this.f16820e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
             }
         }
         str = null;
@@ -110,20 +123,7 @@ public class HotRanklistModel extends BdBaseModel {
         }
         if (!StringUtils.isNull(str)) {
         }
-        jVar.f52586a = str;
-        this.f16744e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
-    }
-
-    public final void w(String str, String str2, String str3, long j) {
-        RequestHotRanklistMessage requestHotRanklistMessage = new RequestHotRanklistMessage();
-        requestHotRanklistMessage.setCallFrom(str);
-        requestHotRanklistMessage.setListType(str2);
-        requestHotRanklistMessage.setNeedTabList(str3);
-        requestHotRanklistMessage.setFid(j);
-        sendMessage(requestHotRanklistMessage);
-    }
-
-    public void x(b bVar) {
-        this.f16744e = bVar;
+        jVar.f56275a = str;
+        this.f16820e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
     }
 }

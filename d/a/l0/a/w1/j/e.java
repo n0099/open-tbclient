@@ -13,39 +13,39 @@ import androidx.annotation.NonNull;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f45619a = 0;
+    public static int f49293a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f45620b = 0;
+    public static int f49294b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f45621c = 0;
+    public static int f49295c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f45622d = 0;
+    public static int f49296d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f45623e = 0;
+    public static int f49297e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f45624f = 0;
+    public static int f49298f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f45625g = false;
+    public static boolean f49299g = false;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f45626e;
+        public final /* synthetic */ View f49300e;
 
         public a(View view) {
-            this.f45626e = view;
+            this.f49300e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.m(this.f45626e);
+            e.m(this.f49300e);
         }
     }
 
@@ -58,59 +58,59 @@ public class e {
     public static class c implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.a.l0.a.w1.k.b f45627e;
+        public final d.a.l0.a.w1.k.b f49301e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ViewGroup f45628f;
+        public final ViewGroup f49302f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b f45629g;
+        public final b f49303g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f45630h = 0;
+        public int f49304h = 0;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f45631i;
+        public boolean f49305i;
         public final Activity j;
         public int k;
 
         public c(Activity activity, ViewGroup viewGroup, d.a.l0.a.w1.k.b bVar, b bVar2) {
             this.j = activity;
-            this.f45629g = bVar2;
-            this.f45628f = viewGroup;
-            this.f45627e = bVar;
+            this.f49303g = bVar2;
+            this.f49302f = viewGroup;
+            this.f49301e = bVar;
         }
 
         public final void a(int i2) {
             int abs;
             int j;
-            if (this.f45630h == 0) {
-                this.f45630h = i2;
-                this.f45627e.refreshHeight(e.j(c()));
+            if (this.f49304h == 0) {
+                this.f49304h = i2;
+                this.f49301e.refreshHeight(e.j(c()));
             }
-            if (d.a.l0.a.w1.j.b.e(this.f45628f.getContext())) {
-                abs = ((View) this.f45628f.getParent()).getHeight() - i2;
+            if (d.a.l0.a.w1.j.b.e(this.f49302f.getContext())) {
+                abs = ((View) this.f49302f.getParent()).getHeight() - i2;
             } else {
-                abs = Math.abs(i2 - this.f45630h);
+                abs = Math.abs(i2 - this.f49304h);
             }
             if (abs > e.g(c())) {
-                if (!e.l(c(), abs) || this.f45627e.getHeight() == (j = e.j(c()))) {
+                if (!e.l(c(), abs) || this.f49301e.getHeight() == (j = e.j(c()))) {
                     return;
                 }
-                this.f45627e.refreshHeight(j);
-            } else if (Math.abs(abs) == e.i(this.f45628f.getContext())) {
-                this.f45630h -= abs;
+                this.f49301e.refreshHeight(j);
+            } else if (Math.abs(abs) == e.i(this.f49302f.getContext())) {
+                this.f49304h -= abs;
             }
         }
 
         public final void b(int i2) {
-            View view = (View) this.f45628f.getParent();
+            View view = (View) this.f49302f.getParent();
             int height = view.getHeight() - view.getPaddingTop();
             boolean z = true;
-            if (!d.a.l0.a.w1.j.b.e(this.f45628f.getContext())) {
+            if (!d.a.l0.a.w1.j.b.e(this.f49302f.getContext())) {
                 int i3 = this.k;
                 if (i3 == 0) {
-                    z = this.f45631i;
+                    z = this.f49305i;
                 } else if (i2 >= i3 - e.g(c())) {
                     z = false;
                 }
@@ -118,28 +118,28 @@ public class e {
             } else if (height <= i2) {
                 z = false;
             }
-            if (this.f45631i != z) {
-                this.f45627e.onSoftInputShowing(z);
-                b bVar = this.f45629g;
+            if (this.f49305i != z) {
+                this.f49301e.onSoftInputShowing(z);
+                b bVar = this.f49303g;
                 if (bVar != null) {
                     bVar.onSoftInputShowing(z);
                 }
             }
-            this.f45631i = z;
+            this.f49305i = z;
         }
 
         public final Context c() {
-            return this.f45628f.getContext();
+            return this.f49302f.getContext();
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int i2;
-            View childAt = this.f45628f.getChildAt(0);
+            View childAt = this.f49302f.getChildAt(0);
             Rect rect = new Rect();
             if (childAt == null) {
                 i2 = -1;
-            } else if (!d.a.l0.a.w1.j.b.e(this.f45628f.getContext()) && (!g.e(this.j) || !g.c(this.j))) {
+            } else if (!d.a.l0.a.w1.j.b.e(this.f49302f.getContext()) && (!g.e(this.j) || !g.c(this.j))) {
                 i2 = childAt.getHeight();
             } else {
                 childAt.getWindowVisibleDisplayFrame(rect);
@@ -163,49 +163,49 @@ public class e {
     }
 
     public static int d(Resources resources) {
-        if (f45622d == 0) {
-            f45622d = resources.getDimensionPixelSize(d.a.l0.a.d.aiapps_max_panel_height);
+        if (f49296d == 0) {
+            f49296d = resources.getDimensionPixelSize(d.a.l0.a.d.aiapps_max_panel_height);
         }
-        return f45622d;
+        return f49296d;
     }
 
     public static int e(Context context) {
-        if (f45620b == 0) {
-            f45620b = context.getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_max_softinput_height);
+        if (f49294b == 0) {
+            f49294b = context.getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_max_softinput_height);
         }
-        return f45620b;
+        return f49294b;
     }
 
     public static int f(Resources resources) {
-        if (f45621c == 0) {
-            f45621c = resources.getDimensionPixelSize(d.a.l0.a.d.aiapps_min_panel_height);
+        if (f49295c == 0) {
+            f49295c = resources.getDimensionPixelSize(d.a.l0.a.d.aiapps_min_panel_height);
         }
-        return f45621c;
+        return f49295c;
     }
 
     public static int g(Context context) {
-        if (f45619a == 0) {
-            f45619a = context.getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_min_softinput_height);
+        if (f49293a == 0) {
+            f49293a = context.getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_min_softinput_height);
         }
-        return f45619a;
+        return f49293a;
     }
 
     public static int h(Context context) {
-        if (f45623e == 0) {
-            f45623e = d.a.l0.a.w1.h.e.a(context, f(context.getResources()));
+        if (f49297e == 0) {
+            f49297e = d.a.l0.a.w1.h.e.a(context, f(context.getResources()));
         }
-        return f45623e;
+        return f49297e;
     }
 
     public static synchronized int i(Context context) {
         int i2;
         int identifier;
         synchronized (e.class) {
-            if (!f45625g && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android")) > 0) {
-                f45624f = context.getResources().getDimensionPixelSize(identifier);
-                f45625g = true;
+            if (!f49299g && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android")) > 0) {
+                f49298f = context.getResources().getDimensionPixelSize(identifier);
+                f49299g = true;
             }
-            i2 = f45624f;
+            i2 = f49298f;
         }
         return i2;
     }
@@ -222,8 +222,8 @@ public class e {
     }
 
     public static boolean l(Context context, int i2) {
-        if (f45623e != i2 && i2 >= 0) {
-            f45623e = i2;
+        if (f49297e != i2 && i2 >= 0) {
+            f49297e = i2;
             return d.a.l0.a.w1.h.e.b(context, i2);
         }
         return false;

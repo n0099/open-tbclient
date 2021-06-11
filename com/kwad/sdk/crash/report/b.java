@@ -19,14 +19,14 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f32996a;
+    public c f35120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32997b = "";
+    public String f35121b = "";
 
     private String a(String str) {
         return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
@@ -35,7 +35,7 @@ public abstract class b {
     public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
 
     public void a(c cVar) {
-        this.f32996a = cVar;
+        this.f35120a = cVar;
     }
 
     @SuppressLint({"CheckResult"})
@@ -123,7 +123,7 @@ public abstract class b {
         ArrayList<File> arrayList = new ArrayList();
         try {
             ExceptionMessage a3 = a(file, file2, file3, a2);
-            this.f32996a.a(a3);
+            this.f35120a.a(a3);
             f.a(file4);
             ArrayList arrayList2 = new ArrayList();
             Collections.addAll(arrayList2, file3, file4);
@@ -149,7 +149,7 @@ public abstract class b {
                 h.b(file8.getPath());
             }
             h.b(file5.getPath());
-            f.b(com.kwad.sdk.crash.c.b.f32965b);
+            f.b(com.kwad.sdk.crash.c.b.f35089b);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
@@ -243,15 +243,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f32997b + e + "\n";
-                        this.f32997b = str;
+                        str = this.f35121b + e + "\n";
+                        this.f35121b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f32997b + e + "\n";
-                        this.f32997b = str;
+                        str = this.f35121b + e + "\n";
+                        this.f35121b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

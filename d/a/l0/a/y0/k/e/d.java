@@ -14,7 +14,7 @@ public class d extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
     @Override // d.a.l0.a.y0.a
     /* renamed from: e */
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.k.g.a aVar) {
-        command.ret = aVar.G();
+        command.ret = aVar.getVideoSarDen();
         String str = command.what;
         d(aVar, str, "SarDen: " + command.ret, false);
     }

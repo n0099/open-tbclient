@@ -8,13 +8,13 @@ import org.json.JSONArray;
 public class a0 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint.Cap f40585a;
+    public Paint.Cap f44261a;
 
     @Override // d.a.l0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
-        Paint.Cap cap = this.f40585a;
+        Paint.Cap cap = this.f44261a;
         if (cap != null) {
-            bVar.f40588g.setStrokeCap(cap);
+            bVar.f44264g.setStrokeCap(cap);
         }
     }
 
@@ -23,11 +23,11 @@ public class a0 extends a {
         if (jSONArray.length() > 0) {
             String optString = jSONArray.optString(0);
             if (TextUtils.equals(optString, "butt")) {
-                this.f40585a = Paint.Cap.BUTT;
+                this.f44261a = Paint.Cap.BUTT;
             } else if (TextUtils.equals(optString, "round")) {
-                this.f40585a = Paint.Cap.ROUND;
+                this.f44261a = Paint.Cap.ROUND;
             } else if (TextUtils.equals(optString, "square")) {
-                this.f40585a = Paint.Cap.SQUARE;
+                this.f44261a = Paint.Cap.SQUARE;
             }
         }
     }

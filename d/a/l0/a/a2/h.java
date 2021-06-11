@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public interface h {
-    public static final Set<String> I0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+    public static final Set<String> K0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
     void A(i.a aVar);
 

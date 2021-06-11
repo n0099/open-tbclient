@@ -22,9 +22,11 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
+import com.baidu.sapi2.enums.LoginTypes;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.share.ShareCallPacking;
-import com.baidu.sapi2.share.ShareStatKey;
+import com.baidu.sapi2.share.ShareLoginModel;
+import com.baidu.sapi2.share.ShareResultCallback;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
@@ -167,7 +169,7 @@ public class LoginActivity extends BaseActivity {
             public void onSuccess() {
                 LoginActivity.this.a(AccountType.NORMAL, false);
             }
-        }, i2, i3, intent, this.B, ShareStatKey.PASS_INNER);
+        }, i2, i3, intent, this.B, "pass");
         if ((i2 == 2001 && i3 == 1001) || this.t) {
             a((AccountType) null, true);
             this.t = false;
@@ -195,6 +197,28 @@ public class LoginActivity extends BaseActivity {
             }
         } else if (i2 == 2020) {
             a(AccountType.NORMAL, false);
+        } else if (i2 == 100004) {
+            ShareLoginModel.getInstance().processShareResult(this, intent, new ShareResultCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.9
+                @Override // com.baidu.sapi2.share.ShareResultCallback
+                public void onResultAccount(SapiAccount sapiAccount) {
+                    WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
+                    if (sapiAccount == null) {
+                        Toast.makeText(LoginActivity.this, "授权失败，请选择其他方式登录", 0).show();
+                        WebLoginDTO webLoginDTO = new WebLoginDTO();
+                        webLoginDTO.excludeTypes = LoginTypes.SHARE;
+                        CoreViewRouter.getInstance().startLogin(webAuthListener, webLoginDTO);
+                        return;
+                    }
+                    if (webAuthListener != null) {
+                        WebAuthResult webAuthResult = new WebAuthResult();
+                        webAuthResult.accountType = AccountType.NORMAL;
+                        webAuthResult.setResultCode(0);
+                        webAuthListener.onSuccess(webAuthResult);
+                    }
+                    LoginActivity.this.finish();
+                    CoreViewRouter.getInstance().release();
+                }
+            });
         }
         if (i2 == 2001 && i3 == 3001) {
             a(intent);
@@ -246,6 +270,14 @@ public class LoginActivity extends BaseActivity {
         if (this.executeSubClassMethod) {
             this.sapiWebView.back();
         }
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        this.sapiWebView.mExcludeTypes = LoginTypes.SHARE;
+        setTitleText(g.sapi_sdk_title_sms_login);
+        this.sapiWebView.loadLogin(1, this.B);
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -304,9 +336,15 @@ public class LoginActivity extends BaseActivity {
             this.sapiWebView.setShareAccountClickCallback(new SapiWebView.ShareAccountClickCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.7
                 @Override // com.baidu.sapi2.SapiWebView.ShareAccountClickCallback
                 public void onClick(String str, String str2, String str3, String str4, String str5) {
+                    if (ShareLoginModel.getInstance().isMeetShareV4(LoginActivity.this, str)) {
+                        Log.d(LoginActivity.D, "openShareLogin: is meet share_v4");
+                        ShareLoginModel.getInstance().openV4ShareLogin(LoginActivity.this, str, "pass");
+                        return;
+                    }
+                    Log.d(LoginActivity.D, "openShareLogin: is not share_v4");
                     ShareCallPacking shareCallPacking = new ShareCallPacking();
                     LoginActivity loginActivity = LoginActivity.this;
-                    shareCallPacking.startLoginShareActivityForResult(loginActivity, str, str2, str3, str4, loginActivity.B, str5, ShareStatKey.PASS_INNER);
+                    shareCallPacking.startLoginShareActivityForResult(loginActivity, str, str2, str3, str4, loginActivity.B, str5, "pass");
                 }
             });
         }
@@ -339,6 +377,7 @@ public class LoginActivity extends BaseActivity {
                 this.sapiWebView.supportTouchGuide = config.supportTouchGuide;
             }
             this.B.add(new PassNameValuePair(SapiWebView.PARAMS_SCREEN_TYPE, String.valueOf(webLoginDTO.screenType)));
+            this.B.add(new PassNameValuePair(SapiWebView.PARAMS_IS_ACCEPT_BROWSEMODE_AGREEMENT, String.valueOf(webLoginDTO.isAcceptBrowseModeAgreement)));
         }
         if (!TextUtils.isEmpty(this.A)) {
             try {

@@ -19,31 +19,31 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f44026a = e.q();
+    public static final File f47700a = e.q();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f44027b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
+    public static final byte[] f47701b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements e.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44028a;
+        public final /* synthetic */ CallbackHandler f47702a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44029b;
+        public final /* synthetic */ String f47703b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f44030c;
+        public final /* synthetic */ String f47704c;
 
         public a(CallbackHandler callbackHandler, String str, String str2) {
-            this.f44028a = callbackHandler;
-            this.f44029b = str;
-            this.f44030c = str2;
+            this.f47702a = callbackHandler;
+            this.f47703b = str;
+            this.f47704c = str2;
         }
 
         @Override // d.a.l0.a.a1.e.c
@@ -52,39 +52,39 @@ public final class b {
 
         @Override // d.a.l0.a.a1.e.c
         public void onFailed() {
-            d.h("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.f44030c);
-            if (this.f44028a == null || TextUtils.isEmpty(this.f44029b)) {
+            d.h("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.f47704c);
+            if (this.f47702a == null || TextUtils.isEmpty(this.f47703b)) {
                 return;
             }
-            this.f44028a.handleSchemeDispatchCallback(this.f44029b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            this.f47702a.handleSchemeDispatchCallback(this.f47703b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
         }
 
         @Override // d.a.l0.a.a1.e.c
         public void onSuccess() {
-            if (this.f44028a != null && !TextUtils.isEmpty(this.f44029b)) {
+            if (this.f47702a != null && !TextUtils.isEmpty(this.f47703b)) {
                 File j = b.j();
                 d.h("DebugDynamicLibControl", "debug动态库下载成功 file=" + j.getAbsolutePath());
                 Pair g2 = b.g(j);
                 if (!((Boolean) g2.first).booleanValue()) {
                     d.h("DebugDynamicLibControl", "debug动态库解密失败 file=" + j.getAbsolutePath());
-                    this.f44028a.handleSchemeDispatchCallback(this.f44029b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
+                    this.f47702a.handleSchemeDispatchCallback(this.f47703b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
                     return;
                 } else if (((Boolean) b.s((File) g2.second).first).booleanValue()) {
                     b.r(true);
-                    this.f44028a.handleSchemeDispatchCallback(this.f44029b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    this.f47702a.handleSchemeDispatchCallback(this.f47703b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;
                 } else {
                     d.h("DebugDynamicLibControl", "debug动态库解压失败 file=" + j.getAbsolutePath());
-                    this.f44028a.handleSchemeDispatchCallback(this.f44029b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
+                    this.f47702a.handleSchemeDispatchCallback(this.f47703b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
                     return;
                 }
             }
-            d.h("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.f44028a + " cb=" + this.f44029b);
+            d.h("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.f47702a + " cb=" + this.f47703b);
         }
     }
 
     public static File d(String str) {
-        return new File(f44026a.getAbsolutePath() + File.separator + str + File.separator + "debug");
+        return new File(f47700a.getAbsolutePath() + File.separator + str + File.separator + "debug");
     }
 
     public static void e() {
@@ -117,7 +117,7 @@ public final class b {
                 file2.deleteOnExit();
                 file2.createNewFile();
                 IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                SecretKeySpec secretKeySpec = new SecretKeySpec(f44027b, "AES");
+                SecretKeySpec secretKeySpec = new SecretKeySpec(f47701b, "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 fileOutputStream.write(cipher.doFinal(bArr2));
@@ -153,11 +153,11 @@ public final class b {
     }
 
     public static File j() {
-        return new File(d.a.l0.a.f1.c.a.d().get(0).f45423a, "debugDynamicLib.zip");
+        return new File(d.a.l0.a.f1.c.a.d().get(0).f49097a, "debugDynamicLib.zip");
     }
 
     public static File k() {
-        return new File(d.a.l0.a.f1.c.a.d().get(0).f45423a, "aiapps_debug_dynamic_lib");
+        return new File(d.a.l0.a.f1.c.a.d().get(0).f49097a, "aiapps_debug_dynamic_lib");
     }
 
     public static boolean l() {
@@ -171,7 +171,7 @@ public final class b {
     public static List<File> n() {
         File[] B;
         ArrayList arrayList = new ArrayList();
-        for (File file : d.a.l0.t.d.B(f44026a)) {
+        for (File file : d.a.l0.t.d.B(f47700a)) {
             if (file.isDirectory()) {
                 File[] B2 = d.a.l0.t.d.B(file);
                 int length = B2.length;
@@ -195,7 +195,7 @@ public final class b {
     public static List<String> o() {
         File[] B;
         ArrayList arrayList = new ArrayList();
-        for (File file : d.a.l0.t.d.B(f44026a)) {
+        for (File file : d.a.l0.t.d.B(f47700a)) {
             if (file.isDirectory()) {
                 File[] B2 = d.a.l0.t.d.B(file);
                 int length = B2.length;

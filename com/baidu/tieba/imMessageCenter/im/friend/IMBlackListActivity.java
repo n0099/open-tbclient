@@ -45,12 +45,12 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     if (IMBlackListActivity.this.mDialog != null) {
                         IMBlackListActivity.this.mDialog.dismiss();
                     }
-                    IMBlackListActivity.this.mView.j(responseGetMaskInfoMessage.getBlackList());
+                    IMBlackListActivity.this.mView.k(responseGetMaskInfoMessage.getBlackList());
                     return;
                 }
                 IMBlackListActivity.this.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? IMBlackListActivity.this.getResources().getString(R.string.neterror) : responseGetMaskInfoMessage.getErrorString());
                 if (j.z()) {
-                    IMBlackListActivity.this.mView.h();
+                    IMBlackListActivity.this.mView.i();
                 }
             } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
@@ -60,7 +60,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     IMBlackListActivity iMBlackListActivity = IMBlackListActivity.this;
                     iMBlackListActivity.showToast(iMBlackListActivity.getPageContext().getString(R.string.black_list_remove_success));
                     if (IMBlackListActivity.this.mNeedRemovedData != null) {
-                        IMBlackListActivity.this.mView.k(IMBlackListActivity.this.mNeedRemovedData);
+                        IMBlackListActivity.this.mView.l(IMBlackListActivity.this.mNeedRemovedData);
                         IMBlackListActivity.this.mNeedRemovedData = null;
                         return;
                     }
@@ -132,11 +132,11 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
 
     private void loadData() {
         this.mModel.loadBlackList();
-        this.mView.g();
+        this.mView.h();
     }
 
     private void showDialog(BlackListItemData blackListItemData) {
-        createDialog(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.t()));
+        createDialog(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.x()));
         this.mDialog.show();
     }
 

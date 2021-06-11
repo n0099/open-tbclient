@@ -5,7 +5,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestExpectContinue implements HttpRequestInterceptor {
     public RequestExpectContinue() {
         throw new RuntimeException("Stub!");

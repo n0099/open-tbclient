@@ -35,22 +35,22 @@ import java.util.ArrayList;
 public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, r0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f13966e;
+    public NavigationBar f14023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13967f;
+    public ImageView f14024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FragmentTabHost f13968g;
+    public FragmentTabHost f14025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AlaGameFrsLiveTabAdapter f13969h;
+    public AlaGameFrsLiveTabAdapter f14026h;
     public String k;
     public String l;
     public String m;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13970i = -1;
+    public int f14027i = -1;
     public final Handler j = new Handler();
     public CustomMessageListener n = new a(0);
     public CustomMessageListener o = new b(2001621);
@@ -69,12 +69,12 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                 return;
             }
             if (customResponsedMessage.getCmd() == 2001617) {
-                if (AlaGameFrsLiveTabFragment.this.f13966e == null || AlaGameFrsLiveTabFragment.this.f13966e.getNavBarIsShow()) {
+                if (AlaGameFrsLiveTabFragment.this.f14023e == null || AlaGameFrsLiveTabFragment.this.f14023e.getNavBarIsShow()) {
                     return;
                 }
-                AlaGameFrsLiveTabFragment.this.f13966e.showNavigationBarWithAnimation();
-            } else if (customResponsedMessage.getCmd() == 2001618 && AlaGameFrsLiveTabFragment.this.f13966e != null && AlaGameFrsLiveTabFragment.this.f13966e.getNavBarIsShow()) {
-                AlaGameFrsLiveTabFragment.this.f13966e.hideNavigationBarWithAnimation();
+                AlaGameFrsLiveTabFragment.this.f14023e.showNavigationBarWithAnimation();
+            } else if (customResponsedMessage.getCmd() == 2001618 && AlaGameFrsLiveTabFragment.this.f14023e != null && AlaGameFrsLiveTabFragment.this.f14023e.getNavBarIsShow()) {
+                AlaGameFrsLiveTabFragment.this.f14023e.hideNavigationBarWithAnimation();
             }
         }
     }
@@ -88,10 +88,10 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (AlaGameFrsLiveTabFragment.this.f13968g == null || AlaGameFrsLiveTabFragment.this.f13969h == null || AlaGameFrsLiveTabFragment.this.f13969h.getCount() < 2) {
+            if (AlaGameFrsLiveTabFragment.this.f14025g == null || AlaGameFrsLiveTabFragment.this.f14026h == null || AlaGameFrsLiveTabFragment.this.f14026h.getCount() < 2) {
                 return;
             }
-            AlaGameFrsLiveTabFragment.this.f13968g.setCurrentTab(1);
+            AlaGameFrsLiveTabFragment.this.f14025g.setCurrentTab(1);
         }
     }
 
@@ -136,7 +136,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             }
             String[] split = ((String) customResponsedMessage.getData()).split("_");
             if (split.length == 2 && "FrsGameLive".equals(split[0]) && 2 == Integer.valueOf(split[1]).intValue()) {
-                AlaGameFrsLiveTabFragment.this.t();
+                AlaGameFrsLiveTabFragment.this.u();
             }
         }
     }
@@ -171,7 +171,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof k0) || AlaGameFrsLiveTabFragment.this.f13969h.getCount() > 0) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof k0) || AlaGameFrsLiveTabFragment.this.f14026h.getCount() > 0) {
                 return;
             }
             k0 k0Var = (k0) customResponsedMessage.getData();
@@ -183,45 +183,45 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             ArrayList arrayList2 = new ArrayList();
             if (k0Var.e() != null) {
                 for (d.a.m0.e0.b bVar : k0Var.e()) {
-                    if (bVar.getFragmentTabStructure().f49334a != null) {
-                        arrayList.add(bVar.getFragmentTabStructure().f49334a);
-                        arrayList2.add(Integer.valueOf(bVar.getFragmentTabStructure().f49338e));
+                    if (bVar.getFragmentTabStructure().f53008a != null) {
+                        arrayList.add(bVar.getFragmentTabStructure().f53008a);
+                        arrayList2.add(Integer.valueOf(bVar.getFragmentTabStructure().f53012e));
                     }
                 }
             }
-            AlaGameFrsLiveTabFragment.this.f13969h.b(arrayList);
-            int count = AlaGameFrsLiveTabFragment.this.f13969h.getCount();
+            AlaGameFrsLiveTabFragment.this.f14026h.c(arrayList);
+            int count = AlaGameFrsLiveTabFragment.this.f14026h.getCount();
             for (int i2 = 0; i2 < count; i2++) {
                 AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment = AlaGameFrsLiveTabFragment.this;
-                alaGameFrsLiveTabFragment.J0(alaGameFrsLiveTabFragment.f13969h.getItem(i2), ((Integer) arrayList2.get(i2)).intValue(), AlaGameFrsLiveTabFragment.this.L0(i2));
+                alaGameFrsLiveTabFragment.M0(alaGameFrsLiveTabFragment.f14026h.getItem(i2), ((Integer) arrayList2.get(i2)).intValue(), AlaGameFrsLiveTabFragment.this.O0(i2));
             }
-            AlaGameFrsLiveTabFragment.this.f13968g.l();
-            AlaGameFrsLiveTabFragment.this.f13968g.d(0);
+            AlaGameFrsLiveTabFragment.this.f14025g.l();
+            AlaGameFrsLiveTabFragment.this.f14025g.d(0);
         }
     }
 
-    public final void J0(Fragment fragment, int i2, String str) {
+    public final void M0(Fragment fragment, int i2, String str) {
         if (fragment == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12151c = fragment;
-        bVar.f12149a = i2;
+        bVar.f12213c = fragment;
+        bVar.f12211a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.tbds42));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         fragmentTabIndicator.setContentTvTopMargin(9);
-        this.f13968g.a(bVar);
+        this.f14025g.a(bVar);
     }
 
-    public final int K0(String str) {
+    public final int N0(String str) {
         return (!"live".equals(str) && "dynamic".equals(str)) ? 1 : 0;
     }
 
-    public final String L0(int i2) {
+    public final String O0(int i2) {
         if (i2 != 0) {
             if (i2 != 1) {
                 return getResources().getString(R.string.frsgame_title);
@@ -231,8 +231,8 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         return getResources().getString(R.string.frsgame_title);
     }
 
-    public final void M0() {
-        this.f13969h = new AlaGameFrsLiveTabAdapter(getChildFragmentManager());
+    public final void P0() {
+        this.f14026h = new AlaGameFrsLiveTabAdapter(getChildFragmentManager());
         g gVar = new g(2001619);
         gVar.setTag(getUniqueId());
         gVar.setPriority(Integer.MAX_VALUE);
@@ -246,35 +246,30 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
 
-    public void N0(String str) {
+    public void Q0(String str) {
         this.m = str;
     }
 
-    public void O0(String str) {
+    public void R0(String str) {
         this.k = str;
     }
 
-    public void P0(String str) {
+    public void S0(String str) {
         this.l = str;
-        Q0();
+        T0();
     }
 
-    public final void Q0() {
-        if (this.f13966e != null) {
+    public final void T0() {
+        if (this.f14023e != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.l, 5, true, true) + getResources().getString(R.string.forum));
-            this.f13966e.setCenterTextTitle(sb.toString());
+            this.f14023e.setCenterTextTitle(sb.toString());
         }
-    }
-
-    @Override // d.a.n0.r0.r0
-    public NavigationBar e0() {
-        return this.f13966e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, d.a.m0.k0.a
     public String getCurrentPageKey() {
-        FragmentTabHost fragmentTabHost = this.f13968g;
+        FragmentTabHost fragmentTabHost = this.f14025g;
         if (fragmentTabHost == null) {
             return null;
         }
@@ -289,6 +284,11 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
     @Override // com.baidu.tbadk.core.BaseFragment, d.a.m0.k0.a
     public d.a.m0.k0.b getPageStayFilter() {
         return new f();
+    }
+
+    @Override // d.a.n0.r0.r0
+    public NavigationBar h0() {
+        return this.f14023e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -306,10 +306,10 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         Resources resources;
         int i3;
         super.onChangeSkinType(i2);
-        FragmentTabHost fragmentTabHost = this.f13968g;
+        FragmentTabHost fragmentTabHost = this.f14025g;
         if (fragmentTabHost != null) {
             fragmentTabHost.setNeedShowThemeStyle(false);
-            FragmentTabWidget fragmentTabWidget = this.f13968g.getFragmentTabWidget();
+            FragmentTabWidget fragmentTabWidget = this.f14025g.getFragmentTabWidget();
             if (i2 == 1) {
                 resources = getResources();
                 i3 = R.color.CAM_X0105_1;
@@ -318,23 +318,23 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                 i3 = R.color.CAM_X0105;
             }
             fragmentTabWidget.setDiverColor(resources.getColor(i3));
-            this.f13968g.o(i2);
-            SkinManager.setBackgroundColor(this.f13968g.getTabWrapper(), R.color.common_color_10274);
+            this.f14025g.p(i2);
+            SkinManager.setBackgroundColor(this.f14025g.getTabWrapper(), R.color.common_color_10274);
         }
-        NavigationBar navigationBar = this.f13966e;
+        NavigationBar navigationBar = this.f14023e;
         if (navigationBar != null) {
             navigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundColor(this.f13966e.getBottomLine(), R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f14023e.getBottomLine(), R.color.CAM_X0204);
         }
-        ImageView imageView = this.f13967f;
+        ImageView imageView = this.f14024f;
         if (imageView != null) {
             SkinManager.setNavbarIconSrc(imageView, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
         }
-        AlaGameFrsLiveTabAdapter alaGameFrsLiveTabAdapter = this.f13969h;
+        AlaGameFrsLiveTabAdapter alaGameFrsLiveTabAdapter = this.f14026h;
         if (alaGameFrsLiveTabAdapter != null) {
             int count = alaGameFrsLiveTabAdapter.getCount();
             for (int i4 = 0; i4 < count; i4++) {
-                Fragment item = this.f13969h.getItem(i4);
+                Fragment item = this.f14026h.getItem(i4);
                 if (item instanceof BaseFragment) {
                     ((BaseFragment) item).changeSkinType(i2);
                 }
@@ -353,27 +353,27 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setOrientation(1);
         NavigationBar navigationBar = new NavigationBar(getPageContext().getPageActivity());
-        this.f13966e = navigationBar;
+        this.f14023e = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new c());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.g(getPageContext().getPageActivity(), R.dimen.ds24), 0);
-        ImageView imageView = (ImageView) this.f13966e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
-        this.f13967f = imageView;
+        ImageView imageView = (ImageView) this.f14023e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
+        this.f14024f = imageView;
         imageView.setLayoutParams(layoutParams);
-        this.f13967f.setOnClickListener(new d());
-        Q0();
-        linearLayout.addView(this.f13966e, new LinearLayout.LayoutParams(-1, -2));
-        this.f13966e.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        SkinManager.setBackgroundColor(this.f13966e.getBottomLine(), R.color.CAM_X0204);
+        this.f14024f.setOnClickListener(new d());
+        T0();
+        linearLayout.addView(this.f14023e, new LinearLayout.LayoutParams(-1, -2));
+        this.f14023e.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        SkinManager.setBackgroundColor(this.f14023e.getBottomLine(), R.color.CAM_X0204);
         FragmentTabHost fragmentTabHost = new FragmentTabHost(getActivity());
-        this.f13968g = fragmentTabHost;
+        this.f14025g = fragmentTabHost;
         fragmentTabHost.setup(getChildFragmentManager());
-        this.f13968g.setOnPageChangeListener(this);
-        this.f13968g.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.tbds104));
-        this.f13968g.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.ds12));
-        this.f13968g.getFragmentTabWidget().setDviderRectWidth(l.g(getActivity(), R.dimen.tbds84));
-        this.f13968g.getFragmentTabWidget().setDviderRectHeight(l.g(getActivity(), R.dimen.tbds4));
-        linearLayout.addView(this.f13968g);
+        this.f14025g.setOnPageChangeListener(this);
+        this.f14025g.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.tbds104));
+        this.f14025g.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.ds12));
+        this.f14025g.getFragmentTabWidget().setDviderRectWidth(l.g(getActivity(), R.dimen.tbds84));
+        this.f14025g.getFragmentTabWidget().setDviderRectHeight(l.g(getActivity(), R.dimen.tbds4));
+        linearLayout.addView(this.f14025g);
         return linearLayout;
     }
 
@@ -393,7 +393,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i2) {
-        this.f13970i = i2;
+        this.f14027i = i2;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -406,19 +406,19 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         FragmentTabHost fragmentTabHost;
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.f13970i < 0) {
-                M0();
-                this.f13970i = 0;
-                this.f13968g.setCurrentTab(0);
+            if (this.f14027i < 0) {
+                P0();
+                this.f14027i = 0;
+                this.f14025g.setCurrentTab(0);
             }
             String p = d.a.m0.r.d0.b.j().p("square_jump_tab_name", null);
             if (!TextUtils.isEmpty(p)) {
-                this.f13968g.setCurrentTab(K0(p));
+                this.f14025g.setCurrentTab(N0(p));
             }
             d.a.m0.r.d0.b.j().x("square_jump_tab_name", "");
         }
-        if (isAdded() && (fragmentTabHost = this.f13968g) != null && (fragmentTabHost.getCurrentFragment() instanceof BaseFragment)) {
-            ((BaseFragment) this.f13968g.getCurrentFragment()).setPrimary(isPrimary());
+        if (isAdded() && (fragmentTabHost = this.f14025g) != null && (fragmentTabHost.getCurrentFragment() instanceof BaseFragment)) {
+            ((BaseFragment) this.f14025g.getCurrentFragment()).setPrimary(isPrimary());
         }
     }
 
@@ -432,16 +432,16 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         super.onStop();
     }
 
-    public void t() {
-        FragmentTabHost fragmentTabHost = this.f13968g;
+    public void u() {
+        FragmentTabHost fragmentTabHost = this.f14025g;
         if (fragmentTabHost == null) {
             return;
         }
-        FragmentTabHost.b f2 = this.f13968g.f(fragmentTabHost.getCurrentTabIndex());
+        FragmentTabHost.b f2 = this.f14025g.f(fragmentTabHost.getCurrentTabIndex());
         if (f2 == null) {
             return;
         }
-        int i2 = f2.f12149a;
+        int i2 = f2.f12211a;
         if (i2 == 3) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001446, "FrsGameLiveLive_3"));
         } else if (i2 == 2) {

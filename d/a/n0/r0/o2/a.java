@@ -14,65 +14,65 @@ import com.baidu.tieba.R;
 public class a implements View.OnClickListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59198f;
+    public boolean f62889f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f59199g;
+    public TbPageContext f62890g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f59200h;
+    public View f62891h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PopupWindow f59201i;
+    public PopupWindow f62892i;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59197e = R.string.attention_post_update_tip;
+    public int f62888e = R.string.attention_post_update_tip;
     public Handler j = new Handler();
-    public Runnable k = new RunnableC1526a();
+    public Runnable k = new RunnableC1582a();
 
     /* renamed from: d.a.n0.r0.o2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1526a implements Runnable {
+    public class RunnableC1582a implements Runnable {
 
         /* renamed from: d.a.n0.r0.o2.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1527a implements Runnable {
-            public RunnableC1527a() {
+        public class RunnableC1583a implements Runnable {
+            public RunnableC1583a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f59201i != null) {
+                if (a.this.f62892i != null) {
                     a.this.j();
                 }
             }
         }
 
-        public RunnableC1526a() {
+        public RunnableC1582a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f59199g == null || a.this.f59200h == null) {
+            if (a.this.f62890g == null || a.this.f62891h == null) {
                 return;
             }
-            Activity pageActivity = a.this.f59199g.getPageActivity();
+            Activity pageActivity = a.this.f62890g.getPageActivity();
             int g2 = d.a.c.e.p.l.g(pageActivity, R.dimen.ds64);
             a aVar = a.this;
-            View h2 = aVar.h(pageActivity, aVar.f59197e);
+            View h2 = aVar.h(pageActivity, aVar.f62888e);
             int[] iArr = new int[2];
-            a.this.f59200h.getLocationInWindow(iArr);
+            a.this.f62891h.getLocationInWindow(iArr);
             int g3 = d.a.c.e.p.l.g(pageActivity, R.dimen.ds32);
             int g4 = (iArr[1] - g2) + d.a.c.e.p.l.g(pageActivity, R.dimen.ds16);
-            a.this.f59201i = new PopupWindow(h2, -2, g2);
-            a.this.f59201i.showAtLocation(a.this.f59200h, 53, g3, g4);
-            a.this.j.postDelayed(new RunnableC1527a(), 3000L);
+            a.this.f62892i = new PopupWindow(h2, -2, g2);
+            a.this.f62892i.showAtLocation(a.this.f62891h, 53, g3, g4);
+            a.this.j.postDelayed(new RunnableC1583a(), 3000L);
         }
     }
 
     public a(TbPageContext tbPageContext, boolean z) {
-        this.f59199g = tbPageContext;
-        this.f59198f = z;
+        this.f62890g = tbPageContext;
+        this.f62889f = z;
     }
 
     public final View h(Activity activity, int i2) {
@@ -96,29 +96,29 @@ public class a implements View.OnClickListener {
     }
 
     public void j() {
-        PopupWindow popupWindow = this.f59201i;
+        PopupWindow popupWindow = this.f62892i;
         if (popupWindow != null) {
             popupWindow.dismiss();
-            this.f59201i = null;
+            this.f62892i = null;
         }
     }
 
     public void k(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (this.f59199g == null || view == null || StringUtils.isNull(currentAccount)) {
+        if (this.f62890g == null || view == null || StringUtils.isNull(currentAccount)) {
             return;
         }
-        this.f59200h = view;
-        if (this.f59198f) {
-            this.f59197e = R.string.attention_post_update_tip;
+        this.f62891h = view;
+        if (this.f62889f) {
+            this.f62888e = R.string.attention_post_update_tip;
             String str = currentAccount + "frs_god_new_post_tip_count";
             int k = d.a.m0.r.d0.b.j().k(str, 0);
             if (k >= 3) {
-                this.f59198f = false;
+                this.f62889f = false;
                 return;
             }
             d.a.m0.r.d0.b.j().v(str, k + 1);
-            this.f59198f = false;
+            this.f62889f = false;
             this.j.postDelayed(this.k, 500L);
         }
     }

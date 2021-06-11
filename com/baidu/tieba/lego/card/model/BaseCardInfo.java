@@ -11,11 +11,11 @@ public class BaseCardInfo extends BaseLegoCardInfo {
     }
 
     public String getFidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.C1409b.a(str).d("fid") : "";
+        return !TextUtils.isEmpty(str) ? b.C1465b.a(str).d("fid") : "";
     }
 
     public String getTouidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.C1409b.a(str).d("touid") : "";
+        return !TextUtils.isEmpty(str) ? b.C1465b.a(str).d("touid") : "";
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -23,10 +23,10 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         if (shouldResponseAttention()) {
             if (obj instanceof UpdateAttentionMessage.a) {
                 UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                return responseAttentionUser(aVar.f12576c, aVar.f12577d);
+                return responseAttentionUser(aVar.f12638c, aVar.f12639d);
             } else if (obj instanceof d.a.n0.k1.p.b) {
                 d.a.n0.k1.p.b bVar = (d.a.n0.k1.p.b) obj;
-                return responseAttentionForum(bVar.f56739a, bVar.f56740b);
+                return responseAttentionForum(bVar.f60428a, bVar.f60429b);
             } else {
                 return false;
             }

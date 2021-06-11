@@ -7,38 +7,38 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f34935a;
+    public int f38614a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34936b = String.valueOf(-1);
+    public String f38615b = String.valueOf(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34937c = "";
+    public String f38616c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34938d = "";
+    public String f38617d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34939e = -1;
+    public int f38618e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34940f = "";
+    public String f38619f = "";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f34941a;
+        public String f38620a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34942b;
+        public String f38621b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34943c;
+        public String f38622c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -62,23 +62,23 @@ public class e {
         }
 
         public String a() {
-            return this.f34943c;
+            return this.f38622c;
         }
 
         public void a(String str) {
-            this.f34941a = str;
+            this.f38620a = str;
         }
 
         public void b(String str) {
-            this.f34942b = str;
+            this.f38621b = str;
         }
 
         public void c(String str) {
-            this.f34943c = str;
+            this.f38622c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f34941a + "', message='" + this.f34942b + "', publicKey='" + this.f34943c + "'}";
+            return "PublicKeyStatus{code='" + this.f38620a + "', message='" + this.f38621b + "', publicKey='" + this.f38622c + "'}";
         }
     }
 
@@ -190,54 +190,54 @@ public class e {
     }
 
     public int a() {
-        return this.f34935a;
+        return this.f38614a;
     }
 
     public void a(int i2) {
-        this.f34935a = i2;
+        this.f38614a = i2;
     }
 
     public void a(String str) {
-        this.f34936b = str;
+        this.f38615b = str;
     }
 
     public String b() {
-        return this.f34936b;
+        return this.f38615b;
     }
 
     public void b(int i2) {
-        this.f34939e = i2;
+        this.f38618e = i2;
     }
 
     public void b(String str) {
-        this.f34937c = str;
+        this.f38616c = str;
     }
 
     public String c() {
-        return this.f34937c;
+        return this.f38616c;
     }
 
     public void c(String str) {
-        this.f34938d = str;
+        this.f38617d = str;
     }
 
     public String d() {
-        return this.f34938d;
+        return this.f38617d;
     }
 
     public void d(String str) {
-        this.f34940f = str;
+        this.f38619f = str;
     }
 
     public int e() {
-        return this.f34939e;
+        return this.f38618e;
     }
 
     public String f() {
-        return this.f34940f;
+        return this.f38619f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f34935a + ", taskId='" + this.f34936b + "', title='" + this.f34937c + "', content='" + this.f34938d + "', clickType=" + this.f34939e + ", params='" + this.f34940f + "'}";
+        return "SecurityMessage{timestamp=" + this.f38614a + ", taskId='" + this.f38615b + "', title='" + this.f38616c + "', content='" + this.f38617d + "', clickType=" + this.f38618e + ", params='" + this.f38619f + "'}";
     }
 }

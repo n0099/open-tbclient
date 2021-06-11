@@ -20,31 +20,31 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public class WebViewWindow extends LinearLayout {
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f1988f = new Handler(Looper.getMainLooper());
+    public static Handler f2001f = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f1989a;
+    public ImageView f2002a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f1990b;
+    public TextView f2003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f1991c;
+    public ImageView f2004c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProgressBar f1992d;
+    public ProgressBar f2005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f1993e;
+    public WebView f2006e;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f1994g;
+    public a f2007g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f1995h;
+    public b f2008h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f1996i;
+    public c f2009i;
     public View.OnClickListener j;
     public final float k;
 
@@ -78,49 +78,49 @@ public class WebViewWindow extends LinearLayout {
     }
 
     public ImageView getBackButton() {
-        return this.f1989a;
+        return this.f2002a;
     }
 
     public ProgressBar getProgressbar() {
-        return this.f1992d;
+        return this.f2005d;
     }
 
     public ImageView getRefreshButton() {
-        return this.f1991c;
+        return this.f2004c;
     }
 
     public TextView getTitle() {
-        return this.f1990b;
+        return this.f2003b;
     }
 
     public String getUrl() {
-        return this.f1993e.getUrl();
+        return this.f2006e.getUrl();
     }
 
     public WebView getWebView() {
-        return this.f1993e;
+        return this.f2006e;
     }
 
     public void setChromeProxy(a aVar) {
-        this.f1994g = aVar;
+        this.f2007g = aVar;
         if (aVar == null) {
-            this.f1993e.setWebChromeClient(null);
+            this.f2006e.setWebChromeClient(null);
         } else {
-            this.f1993e.setWebChromeClient(new s(this));
+            this.f2006e.setWebChromeClient(new s(this));
         }
     }
 
     public void setWebClientProxy(b bVar) {
-        this.f1995h = bVar;
+        this.f2008h = bVar;
         if (bVar == null) {
-            this.f1993e.setWebViewClient(null);
+            this.f2006e.setWebViewClient(null);
         } else {
-            this.f1993e.setWebViewClient(new t(this));
+            this.f2006e.setWebViewClient(new t(this));
         }
     }
 
     public void setWebEventProxy(c cVar) {
-        this.f1996i = cVar;
+        this.f2009i = cVar;
     }
 
     public WebViewWindow(Context context, AttributeSet attributeSet) {
@@ -139,41 +139,41 @@ public class WebViewWindow extends LinearLayout {
         linearLayout.setOrientation(0);
         linearLayout.setGravity(16);
         ImageView imageView = new ImageView(context);
-        this.f1989a = imageView;
+        this.f2002a = imageView;
         imageView.setOnClickListener(this.j);
-        this.f1989a.setScaleType(ImageView.ScaleType.CENTER);
-        this.f1989a.setImageDrawable(com.alipay.sdk.util.k.a(com.alipay.sdk.util.k.f1971a, context));
-        this.f1989a.setPadding(a(12), 0, a(12), 0);
-        linearLayout.addView(this.f1989a, new LinearLayout.LayoutParams(-2, -2));
+        this.f2002a.setScaleType(ImageView.ScaleType.CENTER);
+        this.f2002a.setImageDrawable(com.alipay.sdk.util.k.a(com.alipay.sdk.util.k.f1984a, context));
+        this.f2002a.setPadding(a(12), 0, a(12), 0);
+        linearLayout.addView(this.f2002a, new LinearLayout.LayoutParams(-2, -2));
         View view = new View(context);
         view.setBackgroundColor(-2500135);
         linearLayout.addView(view, new LinearLayout.LayoutParams(a(1), a(25)));
         TextView textView = new TextView(context);
-        this.f1990b = textView;
+        this.f2003b = textView;
         textView.setTextColor(-15658735);
-        this.f1990b.setTextSize(17.0f);
-        this.f1990b.setMaxLines(1);
-        this.f1990b.setEllipsize(TextUtils.TruncateAt.END);
+        this.f2003b.setTextSize(17.0f);
+        this.f2003b.setMaxLines(1);
+        this.f2003b.setEllipsize(TextUtils.TruncateAt.END);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.setMargins(a(17), 0, 0, 0);
         layoutParams.weight = 1.0f;
-        linearLayout.addView(this.f1990b, layoutParams);
+        linearLayout.addView(this.f2003b, layoutParams);
         ImageView imageView2 = new ImageView(context);
-        this.f1991c = imageView2;
+        this.f2004c = imageView2;
         imageView2.setOnClickListener(this.j);
-        this.f1991c.setScaleType(ImageView.ScaleType.CENTER);
-        this.f1991c.setImageDrawable(com.alipay.sdk.util.k.a(com.alipay.sdk.util.k.f1972b, context));
-        this.f1991c.setPadding(a(12), 0, a(12), 0);
-        linearLayout.addView(this.f1991c, new LinearLayout.LayoutParams(-2, -2));
+        this.f2004c.setScaleType(ImageView.ScaleType.CENTER);
+        this.f2004c.setImageDrawable(com.alipay.sdk.util.k.a(com.alipay.sdk.util.k.f1985b, context));
+        this.f2004c.setPadding(a(12), 0, a(12), 0);
+        linearLayout.addView(this.f2004c, new LinearLayout.LayoutParams(-2, -2));
         addView(linearLayout, new LinearLayout.LayoutParams(-1, a(48)));
     }
 
     private void c(Context context) {
         WebView webView = new WebView(context);
-        this.f1993e = webView;
+        this.f2006e = webView;
         webView.setVerticalScrollbarOverlay(true);
-        a(this.f1993e, context);
-        WebSettings settings = this.f1993e.getSettings();
+        a(this.f2006e, context);
+        WebSettings settings = this.f2006e.getSettings();
         settings.setUseWideViewPort(true);
         settings.setAppCacheMaxSize(5242880L);
         settings.setAppCachePath(context.getCacheDir().getAbsolutePath());
@@ -187,21 +187,21 @@ public class WebViewWindow extends LinearLayout {
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setDomStorageEnabled(true);
         try {
-            this.f1993e.removeJavascriptInterface("searchBoxJavaBridge_");
-            this.f1993e.removeJavascriptInterface("accessibility");
-            this.f1993e.removeJavascriptInterface("accessibilityTraversal");
+            this.f2006e.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.f2006e.removeJavascriptInterface("accessibility");
+            this.f2006e.removeJavascriptInterface("accessibilityTraversal");
         } catch (Exception unused) {
         }
-        addView(this.f1993e, new LinearLayout.LayoutParams(-1, -1));
+        addView(this.f2006e, new LinearLayout.LayoutParams(-1, -1));
     }
 
     private void b(Context context) {
         ProgressBar progressBar = new ProgressBar(context, null, 16973855);
-        this.f1992d = progressBar;
+        this.f2005d = progressBar;
         progressBar.setProgressDrawable(context.getResources().getDrawable(17301612));
-        this.f1992d.setMax(100);
-        this.f1992d.setBackgroundColor(-218103809);
-        addView(this.f1992d, new LinearLayout.LayoutParams(-1, a(2)));
+        this.f2005d.setMax(100);
+        this.f2005d.setBackgroundColor(-218103809);
+        addView(this.f2005d, new LinearLayout.LayoutParams(-1, a(2)));
     }
 
     public void a(WebView webView, Context context) {
@@ -212,19 +212,19 @@ public class WebViewWindow extends LinearLayout {
     }
 
     public void a(String str) {
-        this.f1993e.loadUrl(str);
+        this.f2006e.loadUrl(str);
     }
 
     public void a(String str, byte[] bArr) {
-        this.f1993e.postUrl(str, bArr);
+        this.f2006e.postUrl(str, bArr);
     }
 
     public void a() {
         removeAllViews();
-        this.f1993e.removeAllViews();
-        this.f1993e.setWebViewClient(null);
-        this.f1993e.setWebChromeClient(null);
-        this.f1993e.destroy();
+        this.f2006e.removeAllViews();
+        this.f2006e.setWebViewClient(null);
+        this.f2006e.setWebChromeClient(null);
+        this.f2006e.destroy();
     }
 
     private int a(int i2) {

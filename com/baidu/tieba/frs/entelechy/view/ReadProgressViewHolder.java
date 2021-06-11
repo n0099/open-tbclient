@@ -14,48 +14,48 @@ import d.a.n0.r0.v;
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f15328d;
+    public static final int f15390d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f15329e;
+    public static final int f15391e;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15330a;
+    public View f15392a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15331b;
+    public TextView f15393b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f15332c;
+    public Context f15394c;
 
     static {
         UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
-        f15328d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        f15329e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+        f15390d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        f15391e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
     }
 
     public ReadProgressViewHolder(View view, Context context) {
         super(view);
-        this.f15330a = view;
+        this.f15392a = view;
         TextView textView = (TextView) view.findViewById(R.id.view_frs_read_progress);
-        this.f15331b = textView;
-        int i2 = f15329e;
-        textView.setPadding(0, i2, 0, i2 - f15328d);
-        this.f15332c = context;
+        this.f15393b = textView;
+        int i2 = f15391e;
+        textView.setPadding(0, i2, 0, i2 - f15390d);
+        this.f15394c = context;
     }
 
     public void b() {
-        SkinManager.setViewTextColor(this.f15331b, R.color.CAM_X0304);
+        SkinManager.setViewTextColor(this.f15393b, R.color.CAM_X0304);
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_card_refresh16, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
         pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-        this.f15331b.setCompoundDrawables(pureDrawable, null, null, null);
+        this.f15393b.setCompoundDrawables(pureDrawable, null, null, null);
     }
 
     public void c(v vVar) {
         if (vVar == null) {
             return;
         }
-        this.f15331b.setText(R.string.read_here);
+        this.f15393b.setText(R.string.read_here);
         b();
     }
 }

@@ -1,9 +1,9 @@
 package org.webrtc;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaSource {
     public long nativeSource;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum State {
         INITIALIZING,
         LIVE,

@@ -8,21 +8,21 @@ import java.util.LinkedHashMap;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<String, Long> f64435a = new LinkedHashMap<>();
+    public final LinkedHashMap<String, Long> f68153a = new LinkedHashMap<>();
 
     /* loaded from: classes5.dex */
     public class a extends d.a.r0.a.f.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l f64436e;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l f68154e;
 
         public a(l lVar, com.baidu.ubs.analytics.a.l lVar2) {
-            this.f64436e = lVar2;
+            this.f68154e = lVar2;
         }
 
         @Override // d.a.r0.a.f.c
         public final void a() {
-            new c.j().c(this.f64436e);
+            new c.j().c(this.f68154e);
         }
     }
 
@@ -32,8 +32,8 @@ public final class l {
             return;
         }
         com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-        synchronized (this.f64435a) {
-            Long remove = this.f64435a.remove(str);
+        synchronized (this.f68153a) {
+            Long remove = this.f68153a.remove(str);
             if (remove == null) {
                 return;
             }
@@ -41,7 +41,7 @@ public final class l {
                 lVar.setStartTime(String.valueOf(remove));
                 lVar.t(str);
                 lVar.z(String.valueOf(System.currentTimeMillis()));
-                dVar = d.a.f64413a;
+                dVar = d.a.f68131a;
                 lVar.setPath(dVar.b());
                 lVar.x(m.d().I());
             } catch (Exception e2) {
@@ -56,8 +56,8 @@ public final class l {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        synchronized (this.f64435a) {
-            this.f64435a.put(str, Long.valueOf(System.currentTimeMillis()));
+        synchronized (this.f68153a) {
+            this.f68153a.put(str, Long.valueOf(System.currentTimeMillis()));
             String.valueOf(System.currentTimeMillis());
         }
     }

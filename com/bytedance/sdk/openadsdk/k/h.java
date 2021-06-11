@@ -8,7 +8,7 @@ import java.io.RandomAccessFile;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final RandomAccessFile f29475a;
+    public final RandomAccessFile f29578a;
 
     /* loaded from: classes6.dex */
     public static class a extends Exception {
@@ -19,7 +19,7 @@ public class h {
 
     public h(File file, String str) throws a {
         try {
-            this.f29475a = new RandomAccessFile(file, str);
+            this.f29578a = new RandomAccessFile(file, str);
         } catch (FileNotFoundException e2) {
             throw new a(e2);
         }
@@ -27,7 +27,7 @@ public class h {
 
     public void a(long j) throws a {
         try {
-            this.f29475a.seek(j);
+            this.f29578a.seek(j);
         } catch (IOException e2) {
             throw new a(e2);
         }
@@ -35,7 +35,7 @@ public class h {
 
     public void a(byte[] bArr, int i2, int i3) throws a {
         try {
-            this.f29475a.write(bArr, i2, i3);
+            this.f29578a.write(bArr, i2, i3);
         } catch (IOException e2) {
             throw new a(e2);
         }
@@ -43,13 +43,13 @@ public class h {
 
     public int a(byte[] bArr) throws a {
         try {
-            return this.f29475a.read(bArr);
+            return this.f29578a.read(bArr);
         } catch (IOException e2) {
             throw new a(e2);
         }
     }
 
     public void a() {
-        com.bytedance.sdk.openadsdk.k.g.d.a(this.f29475a);
+        com.bytedance.sdk.openadsdk.k.g.d.a(this.f29578a);
     }
 }

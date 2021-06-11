@@ -3,16 +3,16 @@ package d.a.l0.a.n2.h;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f43838a;
+    public c f47514a;
 
     public void a(int i2) {
-        c cVar = this.f43838a;
+        c cVar = this.f47514a;
         if (cVar != null) {
             cVar.a(i2);
         }
     }
 
     public void b(c cVar) {
-        this.f43838a = cVar;
+        this.f47514a = cVar;
     }
 }

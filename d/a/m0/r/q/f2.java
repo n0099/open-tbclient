@@ -40,7 +40,7 @@ public class f2 extends PostData {
         this.y0 = topNews.summary;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, d.a.c.j.e.n
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, d.a.c.k.e.n
     public BdUniqueId getType() {
         return z0;
     }

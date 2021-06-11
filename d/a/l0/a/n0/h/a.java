@@ -4,18 +4,18 @@ import android.app.Activity;
 import android.util.Log;
 import d.a.l0.a.k;
 import d.a.l0.a.v2.n0;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements d.a.l0.a.g1.k.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43596a = k.f43199a;
+    public static final boolean f47272a = k.f46875a;
 
     @Override // d.a.l0.a.g1.k.a
     public void a(boolean z, Activity activity) {
         if (c.a() && !z) {
-            long currentTimeMillis = f43596a ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = f47272a ? System.currentTimeMillis() : 0L;
             boolean C = n0.C();
-            if (f43596a) {
+            if (f47272a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
             }

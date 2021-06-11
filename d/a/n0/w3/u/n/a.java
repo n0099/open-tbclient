@@ -7,32 +7,32 @@ import android.graphics.Matrix;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Matrix f63085a = new Matrix();
+    public Matrix f66800a = new Matrix();
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f63086b;
+    public Bitmap f66801b;
 
     public a(Bitmap bitmap) {
-        this.f63086b = bitmap;
+        this.f66801b = bitmap;
     }
 
     public void a(Canvas canvas) {
         if (canvas == null) {
             return;
         }
-        canvas.drawBitmap(this.f63086b, this.f63085a, null);
+        canvas.drawBitmap(this.f66801b, this.f66800a, null);
     }
 
     public Matrix b() {
-        return this.f63085a;
+        return this.f66800a;
     }
 
     public Bitmap c() {
-        return this.f63086b;
+        return this.f66801b;
     }
 
     public int d() {
-        Bitmap bitmap = this.f63086b;
+        Bitmap bitmap = this.f66801b;
         if (bitmap == null) {
             return 0;
         }
@@ -40,7 +40,7 @@ public class a {
     }
 
     public int e() {
-        Bitmap bitmap = this.f63086b;
+        Bitmap bitmap = this.f66801b;
         if (bitmap == null) {
             return 0;
         }

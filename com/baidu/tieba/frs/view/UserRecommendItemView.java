@@ -17,19 +17,19 @@ import com.baidu.tieba.R;
 public class UserRecommendItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ClickableHeaderImageView f15919e;
+    public ClickableHeaderImageView f15981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CardUserLikeButton f15920f;
+    public CardUserLikeButton f15982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15921g;
+    public TextView f15983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15922h;
+    public TextView f15984h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f15923i;
+    public boolean f15985i;
     public int j;
 
     /* loaded from: classes4.dex */
@@ -39,13 +39,13 @@ public class UserRecommendItemView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            UserRecommendItemView.this.f15919e.onClick(UserRecommendItemView.this.f15919e);
+            UserRecommendItemView.this.f15981e.onClick(UserRecommendItemView.this.f15981e);
         }
     }
 
     public UserRecommendItemView(Context context) {
         super(context);
-        this.f15923i = false;
+        this.f15985i = false;
         this.j = -1;
         b(context);
     }
@@ -53,16 +53,16 @@ public class UserRecommendItemView extends LinearLayout {
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_user_recommend_item, (ViewGroup) this, true);
         ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.user_recommend_head);
-        this.f15919e = clickableHeaderImageView;
+        this.f15981e = clickableHeaderImageView;
         clickableHeaderImageView.setAutoChangeStyle(true);
-        this.f15919e.setDefaultResource(17170445);
-        this.f15919e.setIsRound(true);
-        this.f15919e.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f15981e.setDefaultResource(17170445);
+        this.f15981e.setIsRound(true);
+        this.f15981e.setScaleType(ImageView.ScaleType.FIT_XY);
         CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
-        this.f15920f = cardUserLikeButton;
+        this.f15982f = cardUserLikeButton;
         cardUserLikeButton.setGravity(17);
-        this.f15921g = (TextView) findViewById(R.id.user_recommend_username);
-        this.f15922h = (TextView) findViewById(R.id.user_recommend_fans_num);
+        this.f15983g = (TextView) findViewById(R.id.user_recommend_username);
+        this.f15984h = (TextView) findViewById(R.id.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -75,48 +75,48 @@ public class UserRecommendItemView extends LinearLayout {
             return;
         }
         this.j = i2;
-        this.f15922h.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0109));
-        if (this.f15923i) {
-            this.f15921g.setTextColor(SkinManager.getColor(i2, R.color.cp_cont_r));
+        this.f15984h.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0109));
+        if (this.f15985i) {
+            this.f15983g.setTextColor(SkinManager.getColor(i2, R.color.cp_cont_r));
         } else {
-            this.f15921g.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0105));
+            this.f15983g.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0105));
         }
         setBackgroundColor(SkinManager.getColor(i2, R.color.CAM_X0201));
-        this.f15920f.g(i2);
-        this.f15919e.setPlaceHolder(1);
+        this.f15982f.g(i2);
+        this.f15981e.setPlaceHolder(1);
     }
 
     public TextView getFansNum() {
-        return this.f15922h;
+        return this.f15984h;
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.f15919e;
+        return this.f15981e;
     }
 
     public CommonUserLikeButton getLikeBtn() {
-        return this.f15920f;
+        return this.f15982f;
     }
 
     public TextView getUsername() {
-        return this.f15921g;
+        return this.f15983g;
     }
 
     public void setIsGod(boolean z) {
-        if (this.f15923i == z) {
+        if (this.f15985i == z) {
             return;
         }
-        this.f15923i = z;
+        this.f15985i = z;
         if (z) {
-            this.f15921g.setTextColor(SkinManager.getColor(this.j, R.color.cp_cont_r));
+            this.f15983g.setTextColor(SkinManager.getColor(this.j, R.color.cp_cont_r));
         } else {
-            this.f15921g.setTextColor(SkinManager.getColor(this.j, R.color.CAM_X0105));
+            this.f15983g.setTextColor(SkinManager.getColor(this.j, R.color.CAM_X0105));
         }
     }
 
     public UserRecommendItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15923i = false;
+        this.f15985i = false;
         this.j = -1;
         b(context);
     }

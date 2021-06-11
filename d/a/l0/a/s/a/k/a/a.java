@@ -15,8 +15,8 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.a.s.a.k.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0815a implements Runnable {
-        public RunnableC0815a(a aVar) {
+    public class RunnableC0871a implements Runnable {
+        public RunnableC0871a(a aVar) {
         }
 
         @Override // java.lang.Runnable
@@ -61,6 +61,6 @@ public class a extends a0 {
 
     public final void j(JSONObject jSONObject) {
         d.a().c(jSONObject);
-        q0.X(new RunnableC0815a(this));
+        q0.X(new RunnableC0871a(this));
     }
 }

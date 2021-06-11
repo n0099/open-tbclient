@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.bytedance.sdk.openadsdk.l.h;
+import com.kwai.video.player.misc.IMediaFormat;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,24 +20,24 @@ import java.util.concurrent.TimeUnit;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f29363b;
+    public static volatile c f29466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d f29365c;
+    public final d f29468c;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile SQLiteStatement f29367e;
+    public volatile SQLiteStatement f29470e;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<Map<String, a>> f29364a = new SparseArray<>(2);
+    public final SparseArray<Map<String, a>> f29467a = new SparseArray<>(2);
 
     /* renamed from: d  reason: collision with root package name */
-    public final Executor f29366d = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingDeque(), new h(5, "video_proxy_db"));
+    public final Executor f29469d = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingDeque(), new h(5, "video_proxy_db"));
 
     public c(Context context) {
-        this.f29365c = new d(context.getApplicationContext());
-        this.f29364a.put(0, new ConcurrentHashMap());
-        this.f29364a.put(1, new ConcurrentHashMap());
+        this.f29468c = new d(context.getApplicationContext());
+        this.f29467a.put(0, new ConcurrentHashMap());
+        this.f29467a.put(1, new ConcurrentHashMap());
     }
 
     private String b(int i2) {
@@ -52,30 +53,30 @@ public class c {
     }
 
     public static c a(Context context) {
-        if (f29363b == null) {
+        if (f29466b == null) {
             synchronized (c.class) {
-                if (f29363b == null) {
-                    f29363b = new c(context);
+                if (f29466b == null) {
+                    f29466b = new c(context);
                 }
             }
         }
-        return f29363b;
+        return f29466b;
     }
 
     public a a(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        Map<String, a> map = this.f29364a.get(i2);
+        Map<String, a> map = this.f29467a.get(i2);
         a aVar = map == null ? null : map.get(str);
         if (aVar != null) {
             return aVar;
         }
         try {
-            Cursor query = this.f29365c.getReadableDatabase().query("video_http_header_t", null, "key=? AND flag=?", new String[]{str, String.valueOf(i2)}, null, null, null, "1");
+            Cursor query = this.f29468c.getReadableDatabase().query("video_http_header_t", null, "key=? AND flag=?", new String[]{str, String.valueOf(i2)}, null, null, null, "1");
             if (query != null) {
                 if (query.getCount() > 0 && query.moveToNext()) {
-                    aVar = new a(query.getString(query.getColumnIndex("key")), query.getString(query.getColumnIndex("mime")), query.getInt(query.getColumnIndex(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH)), i2, query.getString(query.getColumnIndex("extra")));
+                    aVar = new a(query.getString(query.getColumnIndex("key")), query.getString(query.getColumnIndex(IMediaFormat.KEY_MIME)), query.getInt(query.getColumnIndex(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH)), i2, query.getString(query.getColumnIndex("extra")));
                 }
                 query.close();
             }
@@ -90,25 +91,25 @@ public class c {
 
     public void a(final a aVar) {
         if (aVar != null) {
-            Map<String, a> map = this.f29364a.get(aVar.f29352d);
+            Map<String, a> map = this.f29467a.get(aVar.f29455d);
             if (map != null) {
-                map.put(aVar.f29349a, aVar);
+                map.put(aVar.f29452a, aVar);
             }
-            this.f29366d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.k.b.c.1
+            this.f29469d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.k.b.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (c.this.f29367e != null) {
-                            c.this.f29367e.clearBindings();
+                        if (c.this.f29470e != null) {
+                            c.this.f29470e.clearBindings();
                         } else {
-                            c.this.f29367e = c.this.f29365c.getWritableDatabase().compileStatement("INSERT INTO video_http_header_t (key,mime,contentLength,flag,extra) VALUES(?,?,?,?,?)");
+                            c.this.f29470e = c.this.f29468c.getWritableDatabase().compileStatement("INSERT INTO video_http_header_t (key,mime,contentLength,flag,extra) VALUES(?,?,?,?,?)");
                         }
-                        c.this.f29367e.bindString(1, aVar.f29349a);
-                        c.this.f29367e.bindString(2, aVar.f29350b);
-                        c.this.f29367e.bindLong(3, aVar.f29351c);
-                        c.this.f29367e.bindLong(4, aVar.f29352d);
-                        c.this.f29367e.bindString(5, aVar.f29353e);
-                        c.this.f29367e.executeInsert();
+                        c.this.f29470e.bindString(1, aVar.f29452a);
+                        c.this.f29470e.bindString(2, aVar.f29453b);
+                        c.this.f29470e.bindLong(3, aVar.f29454c);
+                        c.this.f29470e.bindLong(4, aVar.f29455d);
+                        c.this.f29470e.bindString(5, aVar.f29456e);
+                        c.this.f29470e.executeInsert();
                     } catch (Throwable unused) {
                     }
                 }
@@ -123,7 +124,7 @@ public class c {
         int size = collection.size() + 1;
         String[] strArr = new String[size];
         int i3 = -1;
-        Map<String, a> map = this.f29364a.get(i2);
+        Map<String, a> map = this.f29467a.get(i2);
         for (String str : collection) {
             if (map != null) {
                 map.remove(str);
@@ -133,22 +134,22 @@ public class c {
         }
         strArr[i3 + 1] = String.valueOf(i2);
         try {
-            SQLiteDatabase writableDatabase = this.f29365c.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f29468c.getWritableDatabase();
             writableDatabase.delete("video_http_header_t", "key IN(" + b(size) + ") AND flag=?", strArr);
         } catch (Throwable unused) {
         }
     }
 
     public void a(final int i2) {
-        Map<String, a> map = this.f29364a.get(i2);
+        Map<String, a> map = this.f29467a.get(i2);
         if (map != null) {
             map.clear();
         }
-        this.f29366d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.k.b.c.2
+        this.f29469d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.k.b.c.2
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    c.this.f29365c.getWritableDatabase().delete("video_http_header_t", "flag=?", new String[]{String.valueOf(i2)});
+                    c.this.f29468c.getWritableDatabase().delete("video_http_header_t", "flag=?", new String[]{String.valueOf(i2)});
                 } catch (Throwable unused) {
                 }
             }

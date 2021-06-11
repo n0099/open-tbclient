@@ -7,7 +7,7 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.m;
+import com.baidu.cyberplayer.sdk.n;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -19,20 +19,20 @@ public final class DpSessionDatasUploader {
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f4973a;
+    public static DpSessionDatasUploader f4986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f4974b = new d();
+    public d f4987b = new d();
 
     /* renamed from: c  reason: collision with root package name */
-    public d f4975c = new d("live_show_session");
+    public d f4988c = new d("live_show_session");
 
     private void a() {
-        d dVar = this.f4974b;
+        d dVar = this.f4987b;
         if (dVar != null) {
             dVar.a();
         }
-        d dVar2 = this.f4975c;
+        d dVar2 = this.f4988c;
         if (dVar2 != null) {
             dVar2.a();
         }
@@ -50,22 +50,22 @@ public final class DpSessionDatasUploader {
             a3 = a(str.getBytes(), false);
             cfgBoolValue = false;
         }
-        if (a(m.a(a3), a2, cfgBoolValue)) {
+        if (a(n.a(a3), a2, cfgBoolValue)) {
             a();
         } else {
-            a(Base64.encode(m.a(a(str.getBytes(), false)), 2), i2);
+            a(Base64.encode(n.a(a(str.getBytes(), false)), 2), i2);
         }
     }
 
     private void a(byte[] bArr, int i2) {
         d dVar;
         if (i2 == 24) {
-            dVar = this.f4975c;
+            dVar = this.f4988c;
             if (dVar == null) {
                 return;
             }
         } else {
-            dVar = this.f4974b;
+            dVar = this.f4987b;
             if (dVar == null) {
                 return;
             }
@@ -76,7 +76,7 @@ public final class DpSessionDatasUploader {
     public static byte[] a(byte[] bArr, boolean z) {
         if (z) {
             try {
-                return m.b(bArr);
+                return n.b(bArr);
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return null;
@@ -89,20 +89,20 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f4973a == null) {
-                f4973a = new DpSessionDatasUploader();
+            if (f4986a == null) {
+                f4986a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f4973a;
+            dpSessionDatasUploader = f4986a;
         }
         return dpSessionDatasUploader;
     }
 
     public String a(String str, int i2) {
-        String c2 = com.baidu.cyberplayer.sdk.c.a().c();
-        if (TextUtils.isEmpty(c2)) {
+        String e2 = com.baidu.cyberplayer.sdk.c.a().e();
+        if (TextUtils.isEmpty(e2)) {
             return null;
         }
-        String str2 = c2 + str;
+        String str2 = e2 + str;
         if (i2 == 24) {
             return str2 + "&upload_type=tieba_live";
         }
@@ -111,11 +111,11 @@ public final class DpSessionDatasUploader {
 
     public void a(Context context) {
         d dVar;
-        if (context == null || (dVar = this.f4974b) == null || this.f4975c == null) {
+        if (context == null || (dVar = this.f4987b) == null || this.f4988c == null) {
             return;
         }
         dVar.a(context);
-        this.f4975c.a(context);
+        this.f4988c.a(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00de */
@@ -247,7 +247,7 @@ public final class DpSessionDatasUploader {
             CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (i2 == 24) {
+                    if (com.baidu.cyberplayer.sdk.c.a().c() && i2 == 24) {
                         DpSessionDatasUploader.this.a(str, str2, 24);
                     }
                     DpSessionDatasUploader.this.a(str, str2, 1);

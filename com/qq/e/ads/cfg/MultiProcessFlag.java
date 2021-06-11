@@ -5,21 +5,21 @@ import com.qq.e.comm.util.GDTLogger;
 public class MultiProcessFlag {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f35180a;
+    public static boolean f38859a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f35181b;
+    public static boolean f38860b;
 
     public static boolean isMultiProcess() {
-        return f35180a;
+        return f38859a;
     }
 
     public static void setMultiProcess(boolean z) {
-        if (f35181b) {
+        if (f38860b) {
             GDTLogger.w("MultiProcessFlag has already be setted,reset will not take any effect");
             return;
         }
-        f35181b = true;
-        f35180a = z;
+        f38860b = true;
+        f38859a = z;
     }
 }

@@ -21,37 +21,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import d.a.c.e.m.h;
 import d.a.m0.r.l.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f52348a;
+    public TbPageContext f56037a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f52349b;
+    public BaseActivity f56038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.c2.b.b f52350c;
+    public d.a.n0.c2.b.b f56039c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdAsyncTask<?, ?, ?> f52351d;
+    public BdAsyncTask<?, ?, ?> f56040d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.c2.b.c f52352e;
+    public d.a.n0.c2.b.c f56041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52353f;
+    public String f56042f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f52354g = new View$OnClickListenerC1231a();
+    public View.OnClickListener f56043g = new View$OnClickListenerC1287a();
 
     /* renamed from: h  reason: collision with root package name */
-    public final a.InterfaceC1141a f52355h = new c();
+    public final a.InterfaceC1197a f56044h = new c();
 
     /* renamed from: d.a.n0.c2.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1231a implements View.OnClickListener {
-        public View$OnClickListenerC1231a() {
+    /* loaded from: classes5.dex */
+    public class View$OnClickListenerC1287a implements View.OnClickListener {
+        public View$OnClickListenerC1287a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -60,14 +60,14 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends WebAuthListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SocialType f52357e;
+        public final /* synthetic */ SocialType f56046e;
 
         public b(SocialType socialType) {
-            this.f52357e = socialType;
+            this.f56046e = socialType;
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener
@@ -78,8 +78,8 @@ public abstract class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            a.this.f52349b.closeLoadingDialog();
-            BaseActivity baseActivity = a.this.f52349b;
+            a.this.f56038b.closeLoadingDialog();
+            BaseActivity baseActivity = a.this.f56038b;
             baseActivity.showToast(String.format(baseActivity.getString(R.string.third_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
         }
 
@@ -87,73 +87,73 @@ public abstract class a {
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
             a.this.f();
-            DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), a.this.f52353f, this.f52357e.name().toLowerCase());
+            DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), a.this.f56042f, this.f56046e.name().toLowerCase());
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC1141a {
+    /* loaded from: classes5.dex */
+    public class c implements a.InterfaceC1197a {
         public c() {
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void a(String str, int i2, String str2) {
-            a.this.f52349b.closeLoadingDialog();
-            a.this.f52349b.showToast(str2);
+            a.this.f56038b.closeLoadingDialog();
+            a.this.f56038b.showToast(str2);
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void b(String str) {
             a.this.l();
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void c(AccountData accountData) {
-            a.this.f52349b.closeLoadingDialog();
+            a.this.f56038b.closeLoadingDialog();
             a.this.e(accountData);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f52360e;
+        public final /* synthetic */ AccountData f56049e;
 
         public d(a aVar, AccountData accountData) {
-            this.f52360e = accountData;
+            this.f56049e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.m0.r.l.c.g(this.f52360e);
+            d.a.m0.r.l.c.g(this.f56049e);
             d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }
 
     public a(TbPageContext tbPageContext, d.a.n0.c2.b.b bVar, String str) {
-        this.f52348a = tbPageContext;
+        this.f56037a = tbPageContext;
         if (tbPageContext.getPageActivity() instanceof BaseActivity) {
-            this.f52349b = (BaseActivity) tbPageContext.getPageActivity();
+            this.f56038b = (BaseActivity) tbPageContext.getPageActivity();
         }
-        this.f52350c = bVar;
-        this.f52353f = str;
-        bVar.d(this.f52354g);
+        this.f56039c = bVar;
+        this.f56042f = str;
+        bVar.d(this.f56043g);
     }
 
     public void c(int i2) {
-        this.f52349b.setResult(i2, new Intent());
-        this.f52349b.finish();
+        this.f56038b.setResult(i2, new Intent());
+        this.f56038b.finish();
     }
 
     public final void d() {
-        new LoginActivityConfig(this.f52349b, true, 25061).start();
+        new LoginActivityConfig(this.f56038b, true, 25061).start();
     }
 
     public final void e(AccountData accountData) {
         h(accountData);
         d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
-        TbadkCoreApplication.getInst().onUserChanged(this.f52349b.getIntent());
+        TbadkCoreApplication.getInst().onUserChanged(this.f56038b.getIntent());
         c(-1);
     }
 
@@ -161,14 +161,14 @@ public abstract class a {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            BdAsyncTask<?, ?, ?> bdAsyncTask = this.f52351d;
+            BdAsyncTask<?, ?, ?> bdAsyncTask = this.f56040d;
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
-            this.f52351d = d.a.m0.r.l.a.b().a(session.username, session.bduss, "", null, this.f52355h);
+            this.f56040d = d.a.m0.r.l.a.b().a(session.username, session.bduss, "", null, this.f56044h);
             return;
         }
-        this.f52349b.closeLoadingDialog();
+        this.f56038b.closeLoadingDialog();
         c(0);
     }
 
@@ -179,27 +179,27 @@ public abstract class a {
     public final void h(AccountData accountData) {
         h.a().c(new d(this, accountData));
         d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
-        TbadkCoreApplication.setCurrentAccount(accountData, this.f52348a.getPageActivity());
+        TbadkCoreApplication.setCurrentAccount(accountData, this.f56037a.getPageActivity());
         d.a.m0.l.a.f(TbadkCoreApplication.getInst());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
     }
 
     public void i(boolean z) {
-        this.f52350c.b(z);
+        this.f56039c.b(z);
     }
 
     public abstract void j(d.a.n0.c2.b.c cVar);
 
     public void k(boolean z) {
-        this.f52350c.e(z);
+        this.f56039c.e(z);
     }
 
     public void l() {
-        if (this.f52349b.getLoadingDialog() == null || !this.f52349b.getLoadingDialog().c()) {
-            this.f52349b.showLoadingDialog(this.f52348a.getString(R.string.sapi_logining));
-            if (this.f52349b.getLoadingDialog() != null) {
-                this.f52349b.getLoadingDialog().f(false);
-                this.f52349b.getLoadingDialog().g(false);
+        if (this.f56038b.getLoadingDialog() == null || !this.f56038b.getLoadingDialog().c()) {
+            this.f56038b.showLoadingDialog(this.f56037a.getString(R.string.sapi_logining));
+            if (this.f56038b.getLoadingDialog() != null) {
+                this.f56038b.getLoadingDialog().f(false);
+                this.f56038b.getLoadingDialog().g(false);
             }
         }
     }
@@ -210,9 +210,9 @@ public abstract class a {
 
     public void n(View view) {
         if (view.getId() == R.id.btn_close) {
-            this.f52349b.finish();
+            this.f56038b.finish();
         } else if (view.getId() == R.id.btn_skip) {
-            this.f52349b.finish();
+            this.f56038b.finish();
         } else if (view.getId() == R.id.qq_login_btn) {
             g();
         } else if (view.getId() == R.id.wechat_login_btn) {

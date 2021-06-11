@@ -9,21 +9,21 @@ import java.net.URL;
 public final class b extends ConnectivityManager.NetworkCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ URL f35551a;
+    public /* synthetic */ URL f39230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f35552b;
+    public /* synthetic */ a f39231b;
 
     public b(a aVar, URL url) {
-        this.f35552b = aVar;
-        this.f35551a = url;
+        this.f39231b = aVar;
+        this.f39230a = url;
     }
 
     @Override // android.net.ConnectivityManager.NetworkCallback
     public final void onAvailable(Network network) {
         super.onAvailable(network);
         try {
-            this.f35552b.f35544c = (HttpURLConnection) network.openConnection(this.f35551a);
+            this.f39231b.f39223c = (HttpURLConnection) network.openConnection(this.f39230a);
         } catch (IOException unused) {
         }
     }

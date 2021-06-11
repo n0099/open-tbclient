@@ -5,17 +5,17 @@ import android.graphics.Bitmap;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54036a = 0;
+    public int f57725a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54037b;
+    public String f57726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f54038c;
+    public Bitmap f57727c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54039d;
+    public String f57728d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54040e;
+    public String f57729e;
 }

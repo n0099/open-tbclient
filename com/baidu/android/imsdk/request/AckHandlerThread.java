@@ -53,16 +53,16 @@ public class AckHandlerThread extends HandlerThread {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(final Context context, final NewAckMessage newAckMessage) {
-        if (!a.f64463e || newAckMessage == null) {
+        if (!a.f68181e || newAckMessage == null) {
             return;
         }
         BLCPRequest bLCPRequest = new BLCPRequest();
-        bLCPRequest.f6322a = 2L;
-        bLCPRequest.f6323b = 95L;
-        bLCPRequest.f6324c = newAckMessage.getBody().getBytes();
-        bLCPRequest.f6325d = System.nanoTime();
+        bLCPRequest.f6365a = 2L;
+        bLCPRequest.f6366b = 95L;
+        bLCPRequest.f6367c = newAckMessage.getBody().getBytes();
+        bLCPRequest.f6368d = System.nanoTime();
         String str = TAG;
-        LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6325d);
+        LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6368d);
         d.a.t.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
             @Override // d.a.t.a.b.d.b
             public void onResponse(int i2, String str2, long j, long j2, long j3, byte[] bArr) {

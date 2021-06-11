@@ -21,19 +21,19 @@ import d.a.l0.a.v2.q0;
 public class b extends PopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f45808a;
+    public Activity f49482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f45809b;
+    public String[] f49483b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45810c;
+    public int f49484c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f45811d;
+    public e f49485d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.a.t0.a f45812e;
+    public d.a.l0.a.t0.a f49486e;
 
     /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -42,28 +42,28 @@ public class b extends PopupWindow {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            if (i2 < 0 || i2 > b.this.f45809b.length) {
+            if (i2 < 0 || i2 > b.this.f49483b.length) {
                 return;
             }
             if (i2 == 11) {
-                if (b.this.f45811d != null) {
-                    b.this.f45811d.d();
+                if (b.this.f49485d != null) {
+                    b.this.f49485d.d();
                 }
-            } else if (b.this.f45811d != null) {
-                b.this.f45811d.c(b.this.f45809b[i2]);
+            } else if (b.this.f49485d != null) {
+                b.this.f49485d.c(b.this.f49483b[i2]);
             }
         }
     }
 
     /* renamed from: d.a.l0.a.y0.e.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0910b implements Runnable {
+    public class RunnableC0966b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GridView f45814e;
+        public final /* synthetic */ GridView f49488e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdapterView.OnItemClickListener f45815f;
+        public final /* synthetic */ AdapterView.OnItemClickListener f49489f;
 
         /* renamed from: d.a.l0.a.y0.e.e.b$b$a */
         /* loaded from: classes3.dex */
@@ -74,29 +74,29 @@ public class b extends PopupWindow {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                RunnableC0910b runnableC0910b = RunnableC0910b.this;
-                runnableC0910b.f45815f.onItemClick(runnableC0910b.f45814e, view, intValue, intValue);
+                RunnableC0966b runnableC0966b = RunnableC0966b.this;
+                runnableC0966b.f49489f.onItemClick(runnableC0966b.f49488e, view, intValue, intValue);
             }
         }
 
-        public RunnableC0910b(b bVar, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
-            this.f45814e = gridView;
-            this.f45815f = onItemClickListener;
+        public RunnableC0966b(b bVar, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
+            this.f49488e = gridView;
+            this.f49489f = onItemClickListener;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int childCount = this.f45814e.getChildCount();
+            int childCount = this.f49488e.getChildCount();
             if (childCount > 0) {
-                this.f45814e.setClickable(false);
+                this.f49488e.setClickable(false);
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = this.f45814e.getChildAt(i2);
+                    View childAt = this.f49488e.getChildAt(i2);
                     childAt.setTag(Integer.valueOf(i2));
                     childAt.setOnClickListener(new a());
                 }
                 return;
             }
-            this.f45814e.setOnItemClickListener(this.f45815f);
+            this.f49488e.setOnItemClickListener(this.f49489f);
         }
     }
 
@@ -139,9 +139,9 @@ public class b extends PopupWindow {
 
     public b(@NonNull Activity activity, int i2, @NonNull e eVar) {
         super(activity);
-        this.f45809b = new String[12];
-        this.f45812e = new d();
-        this.f45811d = eVar;
+        this.f49483b = new String[12];
+        this.f49486e = new d();
+        this.f49485d = eVar;
         c(i2);
         d(activity);
     }
@@ -150,44 +150,44 @@ public class b extends PopupWindow {
         int i3 = 0;
         while (i3 < 9) {
             int i4 = i3 + 1;
-            this.f45809b[i3] = String.valueOf(i4);
+            this.f49483b[i3] = String.valueOf(i4);
             i3 = i4;
         }
         if (i2 == 1) {
-            this.f45809b[9] = "X";
+            this.f49483b[9] = "X";
         } else if (i2 == 0) {
-            this.f45809b[9] = "";
+            this.f49483b[9] = "";
         } else if (i2 == 2) {
-            this.f45809b[9] = ".";
+            this.f49483b[9] = ".";
         }
-        this.f45809b[10] = "0";
+        this.f49483b[10] = "0";
     }
 
     public final void d(@NonNull Activity activity) {
-        this.f45808a = activity;
+        this.f49482a = activity;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_keyboard_layout, (ViewGroup) null);
-        this.f45810c = activity.getResources().getDimensionPixelOffset(d.a.l0.a.d.aiapps_keyboard_total_height);
+        this.f49484c = activity.getResources().getDimensionPixelOffset(d.a.l0.a.d.aiapps_keyboard_total_height);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         GridView gridView = (GridView) linearLayout.findViewById(f.keyboard_grid_view);
-        gridView.setAdapter((ListAdapter) new d.a.l0.a.y0.e.e.a(activity, this.f45809b));
-        q0.X(new RunnableC0910b(this, gridView, new a()));
+        gridView.setAdapter((ListAdapter) new d.a.l0.a.y0.e.e.a(activity, this.f49483b));
+        q0.X(new RunnableC0966b(this, gridView, new a()));
         ImageView imageView = (ImageView) linearLayout.findViewById(f.close_btn);
         imageView.setOnClickListener(new c());
         imageView.setClickable(true);
         setContentView(linearLayout);
         setWidth(-1);
-        setHeight(this.f45810c);
+        setHeight(this.f49484c);
         setBackgroundDrawable(new BitmapDrawable());
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
         super.dismiss();
-        Activity activity = this.f45808a;
+        Activity activity = this.f49482a;
         if (activity instanceof SwanAppActivity) {
-            ((SwanAppActivity) activity).unregisterCallback(this.f45812e);
+            ((SwanAppActivity) activity).unregisterCallback(this.f49486e);
         }
-        e eVar = this.f45811d;
+        e eVar = this.f49485d;
         if (eVar != null) {
             eVar.a();
         }
@@ -197,14 +197,14 @@ public class b extends PopupWindow {
         if (isShowing()) {
             return;
         }
-        showAtLocation(this.f45808a.getWindow().getDecorView(), 80, 0, 0);
-        Activity activity = this.f45808a;
+        showAtLocation(this.f49482a.getWindow().getDecorView(), 80, 0, 0);
+        Activity activity = this.f49482a;
         if (activity instanceof SwanAppActivity) {
-            ((SwanAppActivity) activity).registerCallback(this.f45812e);
+            ((SwanAppActivity) activity).registerCallback(this.f49486e);
         }
-        e eVar = this.f45811d;
+        e eVar = this.f49485d;
         if (eVar != null) {
-            eVar.b(this.f45810c);
+            eVar.b(this.f49484c);
         }
     }
 }

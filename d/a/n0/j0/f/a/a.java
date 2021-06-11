@@ -6,48 +6,48 @@ import tbclient.ForumPopupInfo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f55857a;
+    public int f59546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55858b;
+    public String f59547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f55859c;
+    public long f59548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f55860d;
+    public long f59549d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f55861e;
+    public List<String> f59550e;
 
     public List<String> a() {
-        return this.f55861e;
+        return this.f59550e;
     }
 
     public long b() {
-        return this.f55859c;
+        return this.f59548c;
     }
 
     public int c() {
-        return this.f55857a;
+        return this.f59546a;
     }
 
     public String d() {
-        return this.f55858b;
+        return this.f59547b;
     }
 
     public long e() {
-        return this.f55860d;
+        return this.f59549d;
     }
 
     public void f(ForumPopupInfo forumPopupInfo) {
         if (forumPopupInfo == null) {
             return;
         }
-        this.f55857a = forumPopupInfo.forum_id.intValue();
-        this.f55859c = forumPopupInfo.mem_count_static.intValue();
-        this.f55860d = forumPopupInfo.thread_count_static.intValue();
-        this.f55861e = forumPopupInfo.forum_names;
-        this.f55858b = forumPopupInfo.forum_name;
+        this.f59546a = forumPopupInfo.forum_id.intValue();
+        this.f59548c = forumPopupInfo.mem_count_static.intValue();
+        this.f59549d = forumPopupInfo.thread_count_static.intValue();
+        this.f59550e = forumPopupInfo.forum_names;
+        this.f59547b = forumPopupInfo.forum_name;
     }
 }

@@ -5,22 +5,22 @@ import android.os.Bundle;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f43270a;
+    public final String f46946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f43271b;
+    public final int f46947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f43272c;
+    public final String f46948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f43273d;
+    public final String f46949d;
 
     public c(String str, int i2, String str2, String str3) {
-        this.f43270a = str;
-        this.f43271b = i2;
-        this.f43272c = str2;
-        this.f43273d = str3;
+        this.f46946a = str;
+        this.f46947b = i2;
+        this.f46948c = str2;
+        this.f46949d = str3;
     }
 
     public static Bundle a(String str, int i2, String str2, String str3) {
@@ -40,6 +40,6 @@ public class c {
     }
 
     public String toString() {
-        return "SpMethodInfo{mDataType=" + this.f43271b + ", mPrefName='" + this.f43272c + "', mDataValue='" + this.f43273d + "'}";
+        return "SpMethodInfo{mDataType=" + this.f46947b + ", mPrefName='" + this.f46948c + "', mDataValue='" + this.f46949d + "'}";
     }
 }

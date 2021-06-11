@@ -11,19 +11,19 @@ import java.util.concurrent.TimeUnit;
 public class a extends h {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f5949b = false;
+    public static volatile boolean f5992b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f5950c = false;
+    public static volatile boolean f5993c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f5951a;
+    public g f5994a;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5952d;
+    public int f5995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f5953e;
+    public CountDownLatch f5996e;
     public String t;
 
     public a(String str, b bVar) {
@@ -37,15 +37,15 @@ public class a extends h {
         int a2 = this.j.a();
         int b2 = this.j.b();
         LogUtil.i("previewSize:" + a2 + "," + b2);
-        f5949b = false;
-        f5950c = false;
+        f5992b = false;
+        f5993c = false;
         int c2 = this.j.c();
         try {
             MediaMuxer mediaMuxer = new MediaMuxer(this.t, 0);
             mediaMuxer.setOrientationHint(c2);
-            this.f5953e = new CountDownLatch(1);
-            g gVar = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.f5953e);
-            this.f5951a = gVar;
+            this.f5996e = new CountDownLatch(1);
+            g gVar = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.f5996e);
+            this.f5994a = gVar;
             gVar.a(this);
             this.o.d(c2);
             this.o.a(this.t);
@@ -60,21 +60,21 @@ public class a extends h {
 
     @Override // com.baidu.fsg.face.liveness.video.h
     public void b() {
-        if (this.f5978i) {
+        if (this.f6021i) {
             i();
-            this.f5978i = false;
-            this.f5951a.c();
-            this.f5952d += this.f5951a.e();
+            this.f6021i = false;
+            this.f5994a.c();
+            this.f5995d += this.f5994a.e();
         }
     }
 
     @Override // com.baidu.fsg.face.liveness.video.h
     public void c() {
-        if (this.f5978i) {
+        if (this.f6021i) {
             i();
-            this.f5978i = false;
-            this.f5951a.c();
-            this.f5952d += this.f5951a.e();
+            this.f6021i = false;
+            this.f5994a.c();
+            this.f5995d += this.f5994a.e();
         }
     }
 
@@ -86,7 +86,7 @@ public class a extends h {
                 a.this.e();
                 a.this.n = System.currentTimeMillis();
                 VideoInfo.a(a.this.o.a(), a.this.o);
-                a.this.f5952d = 0;
+                a.this.f5995d = 0;
             }
         });
     }
@@ -99,7 +99,7 @@ public class a extends h {
         while (true) {
             boolean z = false;
             try {
-                z = !this.f5953e.await(j2, TimeUnit.MILLISECONDS);
+                z = !this.f5996e.await(j2, TimeUnit.MILLISECONDS);
             } catch (InterruptedException unused) {
             }
             j2 = 5000;
@@ -108,15 +108,15 @@ public class a extends h {
                     return;
                 }
                 return;
-            } else if (!this.f5951a.isAlive()) {
-                if (this.p || this.f5951a.b()) {
+            } else if (!this.f5994a.isAlive()) {
+                if (this.p || this.f5994a.b()) {
                     return;
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
                 a(new RuntimeException("wait record stop" + (currentTimeMillis2 - currentTimeMillis) + "ms,timeout"));
                 return;
-            } else if (i2 != this.f5951a.f()) {
-                i2 = this.f5951a.f();
+            } else if (i2 != this.f5994a.f()) {
+                i2 = this.f5994a.f();
                 j = System.currentTimeMillis();
             } else if (System.currentTimeMillis() - j > 10000) {
                 String str = (System.currentTimeMillis() - j) + "ms cannot write finish, record fail";
@@ -132,18 +132,18 @@ public class a extends h {
         this.p = false;
         h();
         if (a()) {
-            this.f5951a.start();
+            this.f5994a.start();
             this.m = System.currentTimeMillis();
-            this.f5978i = true;
+            this.f6021i = true;
         }
     }
 
     @Override // com.baidu.fsg.face.liveness.video.e
     public void a(byte[] bArr, long j) {
-        if (!this.f5978i || bArr == null || this.k) {
+        if (!this.f6021i || bArr == null || this.k) {
             return;
         }
-        this.f5951a.a(bArr, j);
+        this.f5994a.a(bArr, j);
     }
 
     @Override // com.baidu.fsg.face.liveness.video.d
@@ -161,7 +161,7 @@ public class a extends h {
                 LogUtil.e(th.toString());
                 th.printStackTrace();
             }
-            if (this.f5978i) {
+            if (this.f6021i) {
                 LogUtil.i("stopRecordAndCancel");
                 c();
             }

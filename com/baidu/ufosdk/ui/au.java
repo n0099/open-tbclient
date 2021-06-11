@@ -6,10 +6,10 @@ import android.view.inputmethod.InputMethodManager;
 public final class au extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f22646a;
+    public final /* synthetic */ FeedbackFacePageActivity f22749a;
 
     public au(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f22646a = feedbackFacePageActivity;
+        this.f22749a = feedbackFacePageActivity;
     }
 
     public static Integer a() {
@@ -29,10 +29,10 @@ public final class au extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(Object obj) {
-        this.f22646a.finish();
+        this.f22749a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f22646a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f22646a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f22646a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f22749a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f22749a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f22749a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("exit!");
         }
@@ -40,10 +40,10 @@ public final class au extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final void onPreExecute() {
-        if (this.f22646a.getCurrentFocus() == null || this.f22646a.getCurrentFocus().getWindowToken() == null) {
+        if (this.f22749a.getCurrentFocus() == null || this.f22749a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f22646a.getSystemService("input_method")).hideSoftInputFromWindow(this.f22646a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f22749a.getSystemService("input_method")).hideSoftInputFromWindow(this.f22749a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

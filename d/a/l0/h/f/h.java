@@ -7,7 +7,7 @@ import com.baidu.down.retry.HttpRetryStatistic;
 import d.a.l0.a.k;
 /* loaded from: classes3.dex */
 public class h extends d.a.l0.a.h0.e.d {
-    public static final boolean E = k.f43199a;
+    public static final boolean E = k.f46875a;
     public View D;
 
     /* loaded from: classes3.dex */

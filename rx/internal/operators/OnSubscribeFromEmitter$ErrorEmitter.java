@@ -3,7 +3,7 @@ package rx.internal.operators;
 import h.j;
 import h.r.c;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
     public static final long serialVersionUID = 338953216916120960L;
     public boolean done;

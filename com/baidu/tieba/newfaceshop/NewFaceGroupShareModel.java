@@ -29,7 +29,7 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s(String str) {
+    public void w(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_FACE_GROUP);
         httpMessage.addParam("id", str);
         sendMessage(httpMessage);

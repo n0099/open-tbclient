@@ -11,30 +11,30 @@ import org.json.JSONObject;
 public class e extends d.a.l0.a.v1.a.a.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47021f;
+    public String f50695f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47022g;
+    public String f50696g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f47023h;
+    public JSONObject f50697h;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f47024e;
+        public final /* synthetic */ JSONObject f50698e;
 
         public a(JSONObject jSONObject) {
-            this.f47024e = jSONObject;
+            this.f50698e = jSONObject;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         @Override // java.lang.Runnable
         public void run() {
             char c2;
-            d.a.l0.g.c.a.n().G(e.this.f47023h);
-            String str = e.this.f47021f;
+            d.a.l0.g.c.a.n().G(e.this.f50697h);
+            String str = e.this.f50695f;
             switch (str.hashCode()) {
                 case -1261560102:
                     if (str.equals("queryStatus")) {
@@ -98,22 +98,22 @@ public class e extends d.a.l0.a.v1.a.a.a {
             }
             switch (c2) {
                 case 0:
-                    e.this.w(this.f47024e);
+                    e.this.w(this.f50698e);
                     return;
                 case 1:
-                    e.this.t(this.f47024e);
+                    e.this.t(this.f50698e);
                     return;
                 case 2:
                     e.this.s();
                     return;
                 case 3:
-                    e.this.r(this.f47024e);
+                    e.this.r(this.f50698e);
                     return;
                 case 4:
-                    e.this.v(this.f47024e);
+                    e.this.v(this.f50698e);
                     return;
                 case 5:
-                    e.this.p(this.f47024e);
+                    e.this.p(this.f50698e);
                     return;
                 case 6:
                     e.this.u();
@@ -141,11 +141,11 @@ public class e extends d.a.l0.a.v1.a.a.a {
 
     @Override // d.a.l0.a.v1.a.a.a
     public void b(@NonNull Bundle bundle) {
-        this.f47021f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
-        this.f47023h = w.d(bundle.getString("ubc_params", ""));
+        this.f50695f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
+        this.f50697h = w.d(bundle.getString("ubc_params", ""));
         JSONObject d2 = w.d(bundle.getString("data", ""));
-        this.f47022g = d2.optString("packageName");
-        d.a.l0.g.c.c.b.f46988d.execute(new a(d2));
+        this.f50696g = d2.optString("packageName");
+        d.a.l0.g.c.c.b.f50662d.execute(new a(d2));
     }
 
     public final void p(@NonNull JSONObject jSONObject) {
@@ -181,17 +181,17 @@ public class e extends d.a.l0.a.v1.a.a.a {
     }
 
     public final void x(d.a.l0.g.c.g.b bVar) {
-        this.f45272d.clear();
+        this.f48946d.clear();
         if (bVar != null) {
-            this.f45272d.putString("functionType", bVar.a());
-            this.f45272d.putString("resultData", bVar.b());
-            this.f45272d.putInt(l.f1974a, bVar.c());
+            this.f48946d.putString("functionType", bVar.a());
+            this.f48946d.putString("resultData", bVar.b());
+            this.f48946d.putInt(l.f1987a, bVar.c());
             if (bVar.d()) {
-                if (!TextUtils.equals(this.f47021f, "startDownload")) {
-                    d.a.l0.g.c.i.c.a(this.f47022g, this.f47021f, "success", null, new d.a.l0.g.c.i.a(this.f47023h));
+                if (!TextUtils.equals(this.f50695f, "startDownload")) {
+                    d.a.l0.g.c.i.c.a(this.f50696g, this.f50695f, "success", null, new d.a.l0.g.c.i.a(this.f50697h));
                 }
             } else {
-                d.a.l0.g.c.i.c.a(this.f47022g, this.f47021f, "fail", String.valueOf(bVar.c()), new d.a.l0.g.c.i.a(this.f47023h));
+                d.a.l0.g.c.i.c.a(this.f50696g, this.f50695f, com.baidu.pass.biometrics.face.liveness.b.b.g0, String.valueOf(bVar.c()), new d.a.l0.g.c.i.a(this.f50697h));
             }
         }
         c();

@@ -1,7 +1,7 @@
 package d.a.j.a;
 
 import java.util.Arrays;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static void a(byte[] bArr, byte[] bArr2, int i2) {
         if (i2 < 0) {

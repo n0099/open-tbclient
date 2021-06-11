@@ -16,7 +16,7 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b r(String str) {
-        if (d.a.l0.a.h0.o.g.a.f42449a) {
+        if (d.a.l0.a.h0.o.g.a.f46125a) {
             Log.d("SwanPrefetch", "receive prefetchResources data = " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);

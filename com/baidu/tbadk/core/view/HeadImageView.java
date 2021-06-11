@@ -18,8 +18,8 @@ public class HeadImageView extends TbClipImageView {
     public String C0;
     public String D0;
     public String E0;
-    public String K0;
-    public int L0;
+    public String F0;
+    public int G0;
     public int M0;
     public int N0;
     public int O0;
@@ -51,7 +51,7 @@ public class HeadImageView extends TbClipImageView {
         setConrers(15);
     }
 
-    public void d0(Canvas canvas) {
+    public void c0(Canvas canvas) {
         if (!this.z0 || this.y0 <= 0) {
             return;
         }
@@ -115,7 +115,7 @@ public class HeadImageView extends TbClipImageView {
         if (canvas == null) {
             return;
         }
-        d0(canvas);
+        c0(canvas);
     }
 
     public AlaInfoData getAlaInfo() {
@@ -123,7 +123,7 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public String getFName() {
-        return this.K0;
+        return this.F0;
     }
 
     public String getFid() {
@@ -131,7 +131,7 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public int getFloor() {
-        return this.L0;
+        return this.G0;
     }
 
     public int getLiveStatus() {
@@ -175,7 +175,7 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setFName(String str) {
-        this.K0 = str;
+        this.F0 = str;
     }
 
     public void setFid(String str) {
@@ -183,7 +183,7 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setFloor(int i2) {
-        this.L0 = i2;
+        this.G0 = i2;
     }
 
     public void setGodIconMargin(int i2) {
@@ -267,7 +267,7 @@ public class HeadImageView extends TbClipImageView {
         this.C0 = null;
         this.D0 = null;
         this.E0 = null;
-        this.K0 = null;
+        this.F0 = null;
         this.M0 = R.drawable.transparent_bg;
         this.N0 = R.color.CAM_X0209;
         this.O0 = R.drawable.ic_icon_mask_shen20_n;

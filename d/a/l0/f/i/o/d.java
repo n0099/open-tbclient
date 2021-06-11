@@ -1,6 +1,7 @@
 package d.a.l0.f.i.o;
 
 import android.content.Context;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class d extends e {
@@ -12,7 +13,7 @@ public class d extends e {
     public d(Context context, c cVar) {
         super(context, cVar);
         this.q = "banner";
-        this.r = "32";
+        this.r = EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS;
         this.s = "MSSP,ANTI,NMON";
         this.t = "LP,DL";
     }
@@ -24,9 +25,9 @@ public class d extends e {
         hashMap.put("prod", this.q);
         hashMap.put("at", this.r);
         hashMap.put("fet", this.s);
-        if (this.f46799i != null) {
-            hashMap.put("w", "" + this.f46799i.d());
-            hashMap.put("h", "" + this.f46799i.a());
+        if (this.f50473i != null) {
+            hashMap.put("w", "" + this.f50473i.d());
+            hashMap.put("h", "" + this.f50473i.a());
         }
         return hashMap;
     }

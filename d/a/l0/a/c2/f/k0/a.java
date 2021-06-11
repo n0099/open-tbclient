@@ -17,32 +17,32 @@ import d.a.l0.a.u.e.i.b;
 public final class a extends a0 implements b.c {
 
     /* renamed from: c  reason: collision with root package name */
-    public CallbackHandler f41122c;
+    public CallbackHandler f44798c;
 
     /* renamed from: d.a.l0.a.c2.f.k0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0586a implements d.a.l0.a.v2.e1.b<i<b.e>> {
+    public class C0642a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41123e;
+        public final /* synthetic */ CallbackHandler f44799e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.c f41124f;
+        public final /* synthetic */ a.c f44800f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f41125g;
+        public final /* synthetic */ e f44801g;
 
-        public C0586a(CallbackHandler callbackHandler, a.c cVar, e eVar) {
-            this.f41123e = callbackHandler;
-            this.f41124f = cVar;
-            this.f41125g = eVar;
+        public C0642a(CallbackHandler callbackHandler, a.c cVar, e eVar) {
+            this.f44799e = callbackHandler;
+            this.f44800f = cVar;
+            this.f44801g = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
-            a.this.k(iVar, this.f41123e, this.f41124f, this.f41125g.d0());
+            a.this.k(iVar, this.f44799e, this.f44800f, this.f44801g.d0());
         }
     }
 
@@ -52,19 +52,19 @@ public final class a extends a0 implements b.c {
 
     @Override // d.a.l0.a.u.e.i.b.c
     public void b(a.c cVar, int i2) {
-        if (this.f41122c == null) {
+        if (this.f44798c == null) {
             return;
         }
         d.b("GetLocationAction", "request location error code : " + i2);
-        this.f41122c.handleSchemeDispatchCallback(cVar.f45024c, UnitedSchemeUtility.wrapCallbackParams(i2).toString());
+        this.f44798c.handleSchemeDispatchCallback(cVar.f48698c, UnitedSchemeUtility.wrapCallbackParams(i2).toString());
     }
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("GetLocationAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        this.f41122c = callbackHandler;
+        this.f44798c = callbackHandler;
         if (eVar == null) {
             d.b("location", "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -72,12 +72,12 @@ public final class a extends a0 implements b.c {
         }
         a.c b2 = a.c.b(unitedSchemeEntity.getParam("params"));
         if (b2 != null && b2.a()) {
-            if (TextUtils.isEmpty(b2.f45024c)) {
+            if (TextUtils.isEmpty(b2.f48698c)) {
                 d.b("location", "empty cb");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            eVar.T().g(context, "mapp_location", new C0586a(callbackHandler, b2, eVar));
+            eVar.T().g(context, "mapp_location", new C0642a(callbackHandler, b2, eVar));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
@@ -88,23 +88,23 @@ public final class a extends a0 implements b.c {
 
     @Override // d.a.l0.a.u.e.i.b.c
     public void f(a.c cVar, String str) {
-        CallbackHandler callbackHandler = this.f41122c;
+        CallbackHandler callbackHandler = this.f44798c;
         if (callbackHandler == null) {
             return;
         }
-        callbackHandler.handleSchemeDispatchCallback(cVar.f45024c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
+        callbackHandler.handleSchemeDispatchCallback(cVar.f48698c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
     }
 
     @Override // d.a.l0.a.u.e.i.b.c
     public void g(a.c cVar, b bVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("GetLocationAction", "convert info : " + bVar.a());
         }
-        CallbackHandler callbackHandler = this.f41122c;
+        CallbackHandler callbackHandler = this.f44798c;
         if (callbackHandler == null) {
             return;
         }
-        callbackHandler.handleSchemeDispatchCallback(cVar.f45024c, UnitedSchemeUtility.wrapCallbackParams(bVar.a(), 0).toString());
+        callbackHandler.handleSchemeDispatchCallback(cVar.f48698c, UnitedSchemeUtility.wrapCallbackParams(bVar.a(), 0).toString());
     }
 
     public final void k(i<b.e> iVar, CallbackHandler callbackHandler, a.c cVar, boolean z) {
@@ -114,6 +114,6 @@ public final class a extends a0 implements b.c {
             return;
         }
         int b2 = iVar.b();
-        callbackHandler.handleSchemeDispatchCallback(cVar.f45024c, UnitedSchemeUtility.wrapCallbackParams(b2, d.a.l0.a.e2.c.d.f(b2)).toString());
+        callbackHandler.handleSchemeDispatchCallback(cVar.f48698c, UnitedSchemeUtility.wrapCallbackParams(b2, d.a.l0.a.e2.c.d.f(b2)).toString());
     }
 }

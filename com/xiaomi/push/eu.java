@@ -5,7 +5,7 @@ import android.content.Context;
 public class eu extends es {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37536a = 3600000;
+    public static int f41215a = 3600000;
 
     public eu(Context context) {
         super(context);
@@ -13,6 +13,6 @@ public class eu extends es {
 
     @Override // com.xiaomi.push.es, com.xiaomi.push.er.a
     public long a() {
-        return f37536a;
+        return f41215a;
     }
 }

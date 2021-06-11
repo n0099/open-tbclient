@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.c.j.e.w;
-import d.a.c.j.e.x;
+import d.a.c.k.e.w;
+import d.a.c.k.e.x;
 import d.a.n0.g1.b.f.b;
 import d.a.n0.g1.b.n;
 import java.util.ArrayList;
@@ -33,19 +33,19 @@ import java.util.ArrayList;
 public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public ReplyMeModelController f17596e;
+    public ReplyMeModelController f17672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public n f17597f;
+    public n f17673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f17598g;
+    public ViewGroup f17674g;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f17600i;
+    public boolean f17676i;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17599h = 3;
+    public int f17675h = 3;
     public CustomMessageListener j = new a(2016321);
     public CustomMessageListener k = new b(2001628);
     public final CustomMessageListener l = new c(2001120);
@@ -64,10 +64,10 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ReplyMessageFragment.this.f17596e != null) {
+                if (ReplyMessageFragment.this.f17672e != null) {
                     ReplyMessageFragment replyMessageFragment = ReplyMessageFragment.this;
-                    replyMessageFragment.showLoadingView(replyMessageFragment.f17598g, true);
-                    ReplyMessageFragment.this.f17596e.u();
+                    replyMessageFragment.showLoadingView(replyMessageFragment.f17674g, true);
+                    ReplyMessageFragment.this.f17672e.y();
                 }
             }
         }
@@ -87,21 +87,21 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                 return;
             }
             if (ReplyMessageFragment.this.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == ReplyMessageFragment.this.getActivity()) {
-                if (!TbadkCoreApplication.getInst().checkInterrupt() || ReplyMessageFragment.this.f17600i) {
-                    if (ReplyMessageFragment.this.f17597f != null) {
-                        ReplyMessageFragment.this.f17597f.Z(true);
+                if (!TbadkCoreApplication.getInst().checkInterrupt() || ReplyMessageFragment.this.f17676i) {
+                    if (ReplyMessageFragment.this.f17673f != null) {
+                        ReplyMessageFragment.this.f17673f.Z(true);
                         return;
                     }
                     return;
                 }
-                ReplyMessageFragment.this.f17600i = true;
-                ReplyMessageFragment.this.f17597f.Z(true);
+                ReplyMessageFragment.this.f17676i = true;
+                ReplyMessageFragment.this.f17673f.Z(true);
                 ReplyMessageFragment replyMessageFragment = ReplyMessageFragment.this;
-                replyMessageFragment.showLoadingView(replyMessageFragment.f17598g);
-                ReplyMessageFragment.this.f17596e.u();
+                replyMessageFragment.showLoadingView(replyMessageFragment.f17674g);
+                ReplyMessageFragment.this.f17672e.y();
                 return;
             }
-            ReplyMessageFragment.this.V0();
+            ReplyMessageFragment.this.Y0();
         }
     }
 
@@ -114,8 +114,8 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ReplyMessageFragment.this.f17597f != null) {
-                ReplyMessageFragment.this.f17597f.R((NewsNotifyMessage) customResponsedMessage);
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ReplyMessageFragment.this.f17673f != null) {
+                ReplyMessageFragment.this.f17673f.R((NewsNotifyMessage) customResponsedMessage);
             }
         }
     }
@@ -141,26 +141,26 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         public e() {
         }
 
-        @Override // d.a.c.j.e.w
-        public void b(View view, d.a.c.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+        @Override // d.a.c.k.e.w
+        public void b(View view, d.a.c.k.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if (nVar instanceof d.a.n0.g1.b.p.a) {
                 d.a.n0.g1.b.p.a aVar = (d.a.n0.g1.b.p.a) nVar;
                 if (aVar.D()) {
                     aVar.H(false);
-                    if (ReplyMessageFragment.this.f17597f != null) {
-                        ReplyMessageFragment.this.f17597f.N();
+                    if (ReplyMessageFragment.this.f17673f != null) {
+                        ReplyMessageFragment.this.f17673f.M();
                     }
                 }
                 if (aVar.C()) {
                     if (aVar.E()) {
-                        ReplyMessageFragment.this.Q0(aVar);
+                        ReplyMessageFragment.this.T0(aVar);
                     } else {
-                        ReplyMessageFragment.this.P0(aVar);
+                        ReplyMessageFragment.this.S0(aVar);
                     }
                 } else if (aVar.E()) {
-                    ReplyMessageFragment.this.R0(aVar);
+                    ReplyMessageFragment.this.U0(aVar);
                 } else {
-                    ReplyMessageFragment.this.S0(aVar);
+                    ReplyMessageFragment.this.V0(aVar);
                 }
                 if (aVar.w() != null) {
                     StatisticItem param = new StatisticItem(aVar.w()).param("obj_locate", 1);
@@ -175,7 +175,7 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                     StatisticItem statisticItem = new StatisticItem("c13720");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                     statisticItem.param("tid", aVar.z());
-                    statisticItem.param("fname", aVar.l());
+                    statisticItem.param("fname", aVar.g());
                     statisticItem.param("obj_type", 3);
                     TiebaStatic.log(statisticItem);
                 }
@@ -193,8 +193,8 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-            if (ReplyMessageFragment.this.f17597f != null) {
-                return new CustomResponsedMessage<>(2016322, Boolean.valueOf(ReplyMessageFragment.this.f17597f.P()));
+            if (ReplyMessageFragment.this.f17673f != null) {
+                return new CustomResponsedMessage<>(2016322, Boolean.valueOf(ReplyMessageFragment.this.f17673f.P()));
             }
             return new CustomResponsedMessage<>(2016322, Boolean.FALSE);
         }
@@ -207,31 +207,31 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         public class a implements b.c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f17608a;
+            public final /* synthetic */ int f17684a;
 
             public a(int i2) {
-                this.f17608a = i2;
+                this.f17684a = i2;
             }
 
             @Override // d.a.n0.g1.b.f.b.c
             public void a() {
-                ReplyMessageFragment.this.f17597f.G(this.f17608a);
-                ReplyMessageFragment.this.f17596e.t(this.f17608a);
+                ReplyMessageFragment.this.f17673f.G(this.f17684a);
+                ReplyMessageFragment.this.f17672e.x(this.f17684a);
             }
         }
 
         public g() {
         }
 
-        @Override // d.a.c.j.e.x
-        public boolean a(View view, d.a.c.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+        @Override // d.a.c.k.e.x
+        public boolean a(View view, d.a.c.k.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if (nVar instanceof d.a.n0.g1.b.p.a) {
                 d.a.n0.g1.b.p.a aVar = (d.a.n0.g1.b.p.a) nVar;
                 d.a.n0.g1.b.f.a aVar2 = new d.a.n0.g1.b.f.a();
-                aVar2.f55040a = 1;
-                aVar2.f55041b = d.a.c.e.m.b.f(aVar.z(), 0L);
-                aVar2.f55042c = d.a.c.e.m.b.f(aVar.t(), 0L);
-                aVar2.f55043d = aVar.h() != null ? aVar.h().oriUgcNid : "";
+                aVar2.f58729a = 1;
+                aVar2.f58730b = d.a.c.e.m.b.f(aVar.z(), 0L);
+                aVar2.f58731c = d.a.c.e.m.b.f(aVar.p(), 0L);
+                aVar2.f58732d = aVar.c() != null ? aVar.c().oriUgcNid : "";
                 d.a.n0.g1.b.f.b bVar = new d.a.n0.g1.b.f.b(ReplyMessageFragment.this.getPageContext());
                 bVar.g(aVar2);
                 bVar.h(new a(i2));
@@ -242,78 +242,78 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         }
     }
 
-    public void O0() {
-        this.f17597f.Z(false);
-    }
-
-    public final void P0(d.a.n0.g1.b.p.a aVar) {
-        if (aVar == null) {
-            return;
-        }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(aVar.z(), aVar.t(), "mention", false, aVar.v() == null ? "" : aVar.v().getUserName(), false, aVar.t(), 0);
-        createSubPbActivityConfig.setKeyPageStartFrom(12);
-        createSubPbActivityConfig.setBjhData(aVar.h());
-        createSubPbActivityConfig.setHighLightPostId(aVar.t());
-        createSubPbActivityConfig.setKeyOriUgcTopPid("0");
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-    }
-
-    public final void Q0(d.a.n0.g1.b.p.a aVar) {
-        if (aVar == null) {
-            return;
-        }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(aVar.z(), aVar.u(), "mention", false, aVar.v() == null ? "" : aVar.v().getUserName(), false, aVar.u(), 0);
-        createSubPbActivityConfig.setKeyPageStartFrom(12);
-        createSubPbActivityConfig.setBjhData(aVar.h());
-        createSubPbActivityConfig.setHighLightPostId(aVar.t());
-        createSubPbActivityConfig.setKeyOriUgcTopPid(aVar.t());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-    }
-
-    public final void R0(d.a.n0.g1.b.p.a aVar) {
-        if (aVar == null) {
-            return;
-        }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getPageContext().getContext()).createSubPbActivityConfig(aVar.z(), aVar.t(), "mention", false, aVar.v() == null ? "" : aVar.v().getUserName(), false, aVar.t(), 0);
-        createSubPbActivityConfig.setKeyPageStartFrom(12);
-        createSubPbActivityConfig.setHighLightPostId(aVar.t());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+    public void R0() {
+        this.f17673f.Z(false);
     }
 
     public final void S0(d.a.n0.g1.b.p.a aVar) {
         if (aVar == null) {
             return;
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(getPageContext().getContext()).createNormalCfg(aVar.z(), aVar.t(), 1, "mention");
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(aVar.z(), aVar.p(), "mention", false, aVar.t() == null ? "" : aVar.t().getUserName(), false, aVar.p(), 0);
+        createSubPbActivityConfig.setKeyPageStartFrom(12);
+        createSubPbActivityConfig.setBjhData(aVar.c());
+        createSubPbActivityConfig.setHighLightPostId(aVar.p());
+        createSubPbActivityConfig.setKeyOriUgcTopPid("0");
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+    }
+
+    public final void T0(d.a.n0.g1.b.p.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(aVar.z(), aVar.q(), "mention", false, aVar.t() == null ? "" : aVar.t().getUserName(), false, aVar.q(), 0);
+        createSubPbActivityConfig.setKeyPageStartFrom(12);
+        createSubPbActivityConfig.setBjhData(aVar.c());
+        createSubPbActivityConfig.setHighLightPostId(aVar.p());
+        createSubPbActivityConfig.setKeyOriUgcTopPid(aVar.p());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+    }
+
+    public final void U0(d.a.n0.g1.b.p.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getPageContext().getContext()).createSubPbActivityConfig(aVar.z(), aVar.p(), "mention", false, aVar.t() == null ? "" : aVar.t().getUserName(), false, aVar.p(), 0);
+        createSubPbActivityConfig.setKeyPageStartFrom(12);
+        createSubPbActivityConfig.setHighLightPostId(aVar.p());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+    }
+
+    public final void V0(d.a.n0.g1.b.p.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        PbActivityConfig createNormalCfg = new PbActivityConfig(getPageContext().getContext()).createNormalCfg(aVar.z(), aVar.p(), 1, "mention");
         createNormalCfg.setStartFrom(12);
-        createNormalCfg.setBjhData(aVar.h());
-        createNormalCfg.setHighLightPostId(aVar.t());
+        createNormalCfg.setBjhData(aVar.c());
+        createNormalCfg.setHighLightPostId(aVar.p());
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
     }
 
-    public void T0() {
-        ReplyMeModelController replyMeModelController = this.f17596e;
+    public void W0() {
+        ReplyMeModelController replyMeModelController = this.f17672e;
         if (replyMeModelController != null) {
-            replyMeModelController.w();
+            replyMeModelController.A();
         }
     }
 
-    public void U0(boolean z, ArrayList<d.a.c.j.e.n> arrayList) {
-        if (this.f17597f != null) {
-            hideLoadingView(this.f17598g);
-            hideNetRefreshView(this.f17598g);
-            this.f17597f.T(z, arrayList);
+    public void X0(boolean z, ArrayList<d.a.c.k.e.n> arrayList) {
+        if (this.f17673f != null) {
+            hideLoadingView(this.f17674g);
+            hideNetRefreshView(this.f17674g);
+            this.f17673f.T(z, arrayList);
         }
     }
 
-    public void V0() {
-        ReplyMeModelController replyMeModelController = this.f17596e;
+    public void Y0() {
+        ReplyMeModelController replyMeModelController = this.f17672e;
         if (replyMeModelController != null) {
-            replyMeModelController.y();
+            replyMeModelController.C();
         }
     }
 
-    public final void W0() {
+    public final void Z0() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016322, new f());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -326,15 +326,15 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
-        this.f17597f.O(i2, i3, intent);
+        this.f17673f.O(i2, i3, intent);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        if (this.f17599h != i2) {
-            this.f17599h = i2;
-            n nVar = this.f17597f;
+        if (this.f17675h != i2) {
+            this.f17675h = i2;
+            n nVar = this.f17673f;
             if (nVar != null) {
                 nVar.onChangeSkinType(i2);
             }
@@ -346,32 +346,32 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         registerListener(this.j);
         registerListener(this.k);
-        W0();
+        Z0();
         ReplyMeModelController replyMeModelController = new ReplyMeModelController(this);
-        this.f17596e = replyMeModelController;
-        replyMeModelController.v(bundle);
-        this.f17596e.setUniqueId(getUniqueId());
-        this.f17598g = (ViewGroup) layoutInflater.inflate(R.layout.reply_me_activity, viewGroup, false);
+        this.f17672e = replyMeModelController;
+        replyMeModelController.z(bundle);
+        this.f17672e.setUniqueId(getUniqueId());
+        this.f17674g = (ViewGroup) layoutInflater.inflate(R.layout.reply_me_activity, viewGroup, false);
         n nVar = new n(this);
-        this.f17597f = nVar;
-        nVar.Q(this.f17598g);
-        this.f17597f.Y(this.n);
-        this.f17597f.X(this.o);
+        this.f17673f = nVar;
+        nVar.Q(this.f17674g);
+        this.f17673f.Y(this.n);
+        this.f17673f.V(this.o);
         if (TbadkCoreApplication.getInst().checkInterrupt()) {
             if (getActivity() instanceof MessageCenterActivity) {
-                this.f17597f.Z(false);
-                showLoadingView(this.f17598g);
-                this.f17596e.u();
-                this.f17600i = true;
+                this.f17673f.Z(false);
+                showLoadingView(this.f17674g);
+                this.f17672e.y();
+                this.f17676i = true;
             }
         } else {
-            this.f17597f.Z(false);
-            showLoadingView(this.f17598g);
-            this.f17596e.u();
+            this.f17673f.Z(false);
+            showLoadingView(this.f17674g);
+            this.f17672e.y();
         }
         registerListener(this.l);
         registerListener(this.m);
-        return this.f17598g;
+        return this.f17674g;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -382,11 +382,11 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
         MessageManager.getInstance().unRegisterListener(this.k);
         MessageManager.getInstance().unRegisterListener(this.l);
         MessageManager.getInstance().unRegisterListener(this.m);
-        n nVar = this.f17597f;
+        n nVar = this.f17673f;
         if (nVar != null) {
             nVar.destroy();
         }
-        ReplyMeModelController replyMeModelController = this.f17596e;
+        ReplyMeModelController replyMeModelController = this.f17672e;
         if (replyMeModelController != null) {
             replyMeModelController.onDestroy();
         }
@@ -396,17 +396,17 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     public void onNetRefreshButtonClicked() {
         n nVar;
         super.onNetRefreshButtonClicked();
-        if (!l.D() || (nVar = this.f17597f) == null) {
+        if (!l.D() || (nVar = this.f17673f) == null) {
             return;
         }
         nVar.Z(true);
-        V0();
+        Y0();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        n nVar = this.f17597f;
+        n nVar = this.f17673f;
         if (nVar != null) {
             nVar.P();
         }
@@ -415,14 +415,14 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        n nVar = this.f17597f;
+        n nVar = this.f17673f;
         if (nVar != null) {
             nVar.S();
         }
     }
 
     public void onServerError(ErrorData errorData) {
-        hideLoadingView(this.f17598g);
+        hideLoadingView(this.f17674g);
         if (errorData != null) {
             if (!StringUtils.isNull(errorData.error_msg)) {
                 showToast(errorData.error_msg);
@@ -430,14 +430,14 @@ public class ReplyMessageFragment extends BaseFragment implements NoNetworkView.
                 showToast(R.string.im_error_default);
             }
         }
-        n nVar = this.f17597f;
+        n nVar = this.f17673f;
         if (nVar != null) {
             nVar.onServerError(errorData);
         }
-        n nVar2 = this.f17597f;
+        n nVar2 = this.f17673f;
         if (nVar2 != null && nVar2.H() != null) {
-            this.f17597f.H().setVisibility(8);
+            this.f17673f.H().setVisibility(8);
         }
-        showNetRefreshView(this.f17598g, null, false);
+        showNetRefreshView(this.f17674g, null, false);
     }
 }

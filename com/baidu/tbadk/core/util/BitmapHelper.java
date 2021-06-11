@@ -22,7 +22,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import d.a.c.e.p.m;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -1100,7 +1100,7 @@ public class BitmapHelper {
         ParcelFileDescriptor parcelFileDescriptor;
         Bitmap decodeFileDescriptor;
         try {
-            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7672a);
+            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7715a);
         } catch (Throwable unused) {
             parcelFileDescriptor = null;
         }

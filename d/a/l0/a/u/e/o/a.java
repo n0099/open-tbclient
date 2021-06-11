@@ -14,24 +14,24 @@ public class a extends d.a.l0.a.u.c.d {
 
     /* renamed from: d.a.l0.a.u.e.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0864a implements d.b {
+    public class C0920a implements d.b {
 
         /* renamed from: d.a.l0.a.u.e.o.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0865a implements a.InterfaceC0768a {
+        public class C0921a implements a.InterfaceC0824a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f45151a;
+            public final /* synthetic */ String f48825a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ l f45152b;
+            public final /* synthetic */ l f48826b;
 
-            public C0865a(String str, l lVar) {
-                this.f45151a = str;
-                this.f45152b = lVar;
+            public C0921a(String str, l lVar) {
+                this.f48825a = str;
+                this.f48826b = lVar;
             }
 
-            @Override // d.a.l0.a.n2.a.a.InterfaceC0768a
+            @Override // d.a.l0.a.n2.a.a.InterfaceC0824a
             public void a(double[] dArr) {
                 if (dArr != null && dArr.length == 3) {
                     JSONObject jSONObject = new JSONObject();
@@ -39,20 +39,20 @@ public class a extends d.a.l0.a.u.c.d {
                         jSONObject.put("x", dArr[0]);
                         jSONObject.put("y", dArr[1]);
                         jSONObject.put("z", dArr[2]);
-                        this.f45152b.d(a.this, jSONObject);
+                        this.f48826b.d(a.this, jSONObject);
                         return;
                     } catch (JSONException e2) {
                         d.a.l0.a.e0.d.b("Api-Accelerometer", "handle compass,json error，" + e2.toString());
-                        this.f45152b.f(a.this, "Json error");
+                        this.f48826b.f(a.this, "Json error");
                         return;
                     }
                 }
                 d.a.l0.a.e0.d.b("Api-Accelerometer", "illegal accelerometers");
-                a.this.d(this.f45151a, new d.a.l0.a.u.h.b(1001));
+                a.this.d(this.f48825a, new d.a.l0.a.u.h.b(1001));
             }
         }
 
-        public C0864a() {
+        public C0920a() {
         }
 
         @Override // d.a.l0.a.u.c.d.b
@@ -61,7 +61,7 @@ public class a extends d.a.l0.a.u.c.d {
             l lVar = new l("accelerometerChange", jSONObject, str);
             d.a.l0.a.n2.a.a a2 = d.a.l0.a.n2.a.a.a();
             a2.b(a.this.i(), b.a(jSONObject.optString("interval")));
-            a2.e(new C0865a(str, lVar));
+            a2.e(new C0921a(str, lVar));
             a2.f();
             lVar.b(a.this);
             return new d.a.l0.a.u.h.b(0);
@@ -72,18 +72,18 @@ public class a extends d.a.l0.a.u.c.d {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ArrayMap<String, Integer> f45154a;
+        public static ArrayMap<String, Integer> f48828a;
 
         static {
             ArrayMap<String, Integer> arrayMap = new ArrayMap<>(3);
-            f45154a = arrayMap;
+            f48828a = arrayMap;
             arrayMap.put(IMTrackDatabase.UiEnum.TABLE_NAME, 60);
-            f45154a.put("game", 20);
-            f45154a.put("normal", 200);
+            f48828a.put("game", 20);
+            f48828a.put("normal", 200);
         }
 
         public static int a(String str) {
-            Integer num = f45154a.get(str);
+            Integer num = f48828a.get(str);
             if (num != null) {
                 return num.intValue();
             }
@@ -96,14 +96,14 @@ public class a extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Accelerometer", "start listen accelerometer");
         }
-        return j(str, true, new C0864a());
+        return j(str, true, new C0920a());
     }
 
     public d.a.l0.a.u.h.b t() {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-Accelerometer", "stop accelerometer");
         }
         d.a.l0.a.e0.d.g("Api-Accelerometer", "stop listen accelerometer");

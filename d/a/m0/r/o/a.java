@@ -16,20 +16,20 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f49902b;
+    public static a f53578b;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<d.a.m0.a.d0.a> f49903a = new ArrayList<>();
+    public ArrayList<d.a.m0.a.e0.a> f53579a = new ArrayList<>();
 
     public static a b() {
-        if (f49902b == null) {
+        if (f53578b == null) {
             synchronized (a.class) {
-                if (f49902b == null) {
-                    f49902b = new a();
+                if (f53578b == null) {
+                    f53578b = new a();
                 }
             }
         }
-        return f49902b;
+        return f53578b;
     }
 
     public void a() {
@@ -44,8 +44,8 @@ public class a {
         return TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).getLong(str, 0L);
     }
 
-    public final ArrayList<d.a.m0.a.d0.a> e() {
-        return this.f49903a;
+    public final ArrayList<d.a.m0.a.e0.a> e() {
+        return this.f53579a;
     }
 
     public void f(JSONArray jSONArray) {
@@ -63,7 +63,7 @@ public class a {
         if (StringUtils.isNull(currentAccount) || jSONArray == null) {
             return;
         }
-        this.f49903a.clear();
+        this.f53579a.clear();
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             JSONObject jSONObject = null;
             try {
@@ -71,18 +71,18 @@ public class a {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            d.a.m0.a.d0.a aVar = new d.a.m0.a.d0.a();
-            aVar.f48681a = jSONObject.optInt("active_id");
-            aVar.f48682b = jSONObject.optInt("mission_id");
-            aVar.f48683c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
-            long d2 = d("business_update_time" + currentAccount + aVar.f48681a);
-            if (g("business_count_hint" + currentAccount + aVar.f48681a) && DateUtils.isToday(d2)) {
-                aVar.s = c("business_count_hint" + currentAccount + aVar.f48681a);
+            d.a.m0.a.e0.a aVar = new d.a.m0.a.e0.a();
+            aVar.f52357a = jSONObject.optInt("active_id");
+            aVar.f52358b = jSONObject.optInt("mission_id");
+            aVar.f52359c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
+            long d2 = d("business_update_time" + currentAccount + aVar.f52357a);
+            if (g("business_count_hint" + currentAccount + aVar.f52357a) && DateUtils.isToday(d2)) {
+                aVar.s = c("business_count_hint" + currentAccount + aVar.f52357a);
             } else {
                 aVar.s = jSONObject.optInt("show_num");
                 a();
-                i("business_count_hint" + currentAccount + aVar.f48681a, aVar.s);
-                j("business_update_time" + currentAccount + aVar.f48681a, System.currentTimeMillis());
+                i("business_count_hint" + currentAccount + aVar.f52357a, aVar.s);
+                j("business_update_time" + currentAccount + aVar.f52357a, System.currentTimeMillis());
             }
             aVar.t = jSONObject.optInt("show_time_begin");
             aVar.u = jSONObject.optInt("show_time_end");
@@ -102,7 +102,7 @@ public class a {
                     e4.printStackTrace();
                 }
             }
-            this.f49903a.add(aVar);
+            this.f53579a.add(aVar);
         }
     }
 
@@ -132,16 +132,16 @@ public class a {
     */
     public void l(String str, String str2) {
         int i2;
-        ArrayList<d.a.m0.a.d0.a> e2 = e();
+        ArrayList<d.a.m0.a.e0.a> e2 = e();
         if (e2 != null && j.z()) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (StringUtils.isNull(currentAccount)) {
                 return;
             }
             while (i2 < e2.size()) {
-                int i3 = e2.get(i2).f48681a;
-                int i4 = e2.get(i2).f48682b;
-                int i5 = e2.get(i2).f48683c;
+                int i3 = e2.get(i2).f52357a;
+                int i4 = e2.get(i2).f52358b;
+                int i5 = e2.get(i2).f52359c;
                 int c2 = c("business_count_hint" + currentAccount + i3);
                 long j = e2.get(i2).t;
                 long j2 = e2.get(i2).u;

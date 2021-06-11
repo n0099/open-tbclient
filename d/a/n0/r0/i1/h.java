@@ -18,19 +18,19 @@ import d.a.n0.r0.i1.g;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f58723a;
+    public c f62414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f58724b;
+    public TbPageContext f62415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.m0.s.e.a f58725c;
+    public d.a.m0.s.e.a f62416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f58726d = BdUniqueId.gen();
+    public BdUniqueId f62417d = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f58727e = new a(2001115);
+    public CustomMessageListener f62418e = new a(2001115);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -43,63 +43,63 @@ public class h {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
-            if (!(customResponsedMessage instanceof UpdateAttentionMessage) || h.this.f58723a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
+            if (!(customResponsedMessage instanceof UpdateAttentionMessage) || h.this.f62414a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
                 return;
             }
-            if (!data.f12574a) {
-                h.this.f58723a.c(updateAttentionMessage.getData().f12575b);
+            if (!data.f12636a) {
+                h.this.f62414a.c(updateAttentionMessage.getData().f12637b);
             } else {
-                h.this.f58723a.e(data.f12577d);
+                h.this.f62414a.e(data.f12639d);
             }
         }
     }
 
     public h(TbPageContext tbPageContext, c cVar) {
-        this.f58724b = tbPageContext;
-        this.f58723a = cVar;
-        this.f58725c = new d.a.m0.s.e.a(tbPageContext);
-        this.f58727e.setSelfListener(true);
-        this.f58727e.setTag(this.f58726d);
-        MessageManager.getInstance().registerListener(this.f58727e);
+        this.f62415b = tbPageContext;
+        this.f62414a = cVar;
+        this.f62416c = new d.a.m0.s.e.a(tbPageContext);
+        this.f62418e.setSelfListener(true);
+        this.f62418e.setTag(this.f62417d);
+        MessageManager.getInstance().registerListener(this.f62418e);
     }
 
     public void b() {
-        d.a.m0.s.e.a aVar = this.f58725c;
+        d.a.m0.s.e.a aVar = this.f62416c;
         if (aVar != null) {
             aVar.g();
         }
-        MessageManager.getInstance().unRegisterListener(this.f58727e);
+        MessageManager.getInstance().unRegisterListener(this.f62418e);
     }
 
     public void c(g gVar) {
         if (!j.z()) {
-            this.f58724b.showToast(R.string.no_network);
-        } else if (gVar == null || gVar.y == null || this.f58725c == null || !ViewHelper.checkUpIsLogin(this.f58724b.getPageActivity())) {
+            this.f62415b.showToast(R.string.no_network);
+        } else if (gVar == null || gVar.y == null || this.f62416c == null || !ViewHelper.checkUpIsLogin(this.f62415b.getPageActivity())) {
         } else {
-            d.a.m0.s.e.a aVar = this.f58725c;
+            d.a.m0.s.e.a aVar = this.f62416c;
             g.b bVar = gVar.y;
-            aVar.l(!bVar.f58704e, bVar.f58703d, bVar.f58700a, this.f58726d);
+            aVar.l(!bVar.f62395e, bVar.f62394d, bVar.f62391a, this.f62417d);
         }
     }
 
     public void d(g gVar) {
         if (!j.z()) {
-            this.f58724b.showToast(R.string.no_network);
-        } else if (gVar == null || this.f58723a == null || !ViewHelper.checkUpIsLogin(this.f58724b.getPageActivity())) {
+            this.f62415b.showToast(R.string.no_network);
+        } else if (gVar == null || this.f62414a == null || !ViewHelper.checkUpIsLogin(this.f62415b.getPageActivity())) {
         } else {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-            httpMessage.addParam("thread_id", gVar.f58690f);
+            httpMessage.addParam("thread_id", gVar.f62381f);
             httpMessage.addParam("op_type", Boolean.valueOf(gVar.p));
             httpMessage.addParam("obj_type", 3);
             httpMessage.addParam("agree_type", 2);
-            httpMessage.addParam("forum_id", gVar.f58689e);
+            httpMessage.addParam("forum_id", gVar.f62380e);
             httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
             if (!StringUtil.isEmpty(gVar.u)) {
                 httpMessage.addParam("obj_source", gVar.u);
             }
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.f58723a.d();
+            this.f62414a.d();
         }
     }
 }

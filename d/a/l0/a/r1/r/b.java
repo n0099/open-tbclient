@@ -12,14 +12,14 @@ import java.util.concurrent.ConcurrentHashMap;
 public class b implements d.a.l0.a.f1.f.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Runnable, String> f44574b;
+    public Map<Runnable, String> f48248b;
 
     /* renamed from: d.a.l0.a.r1.r.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0813b {
+    public static class C0869b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f44575a = new b();
+        public static final b f48249a = new b();
     }
 
     static {
@@ -27,22 +27,22 @@ public class b implements d.a.l0.a.f1.f.a {
     }
 
     public static b b() {
-        return C0813b.f44575a;
+        return C0869b.f48249a;
     }
 
     public final void a() {
-        if (this.f44574b.isEmpty()) {
+        if (this.f48248b.isEmpty()) {
             return;
         }
-        if (d.a.l0.a.f1.f.a.f41852a) {
-            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.f44574b.size());
+        if (d.a.l0.a.f1.f.a.f45528a) {
+            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.f48248b.size());
         }
-        for (Map.Entry<Runnable, String> entry : this.f44574b.entrySet()) {
+        for (Map.Entry<Runnable, String> entry : this.f48248b.entrySet()) {
             if (entry != null) {
                 ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
             }
         }
-        this.f44574b.clear();
+        this.f48248b.clear();
     }
 
     public void c(Message message) {
@@ -53,20 +53,20 @@ public class b implements d.a.l0.a.f1.f.a {
         Bundle bundle = (Bundle) obj;
         boolean z = bundle.getBoolean("is_timeout", false);
         String string = bundle.getString(Constants.APP_ID, null);
-        if (d.a.l0.a.f1.f.a.f41852a) {
+        if (d.a.l0.a.f1.f.a.f45528a) {
             Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
         }
         a();
     }
 
     public void d(String str) {
-        if (d.a.l0.a.f1.f.a.f41852a) {
+        if (d.a.l0.a.f1.f.a.f45528a) {
             Log.e("SwanPerformance", "main process launch start，appId = " + str);
         }
         System.currentTimeMillis();
     }
 
     public b() {
-        this.f44574b = new ConcurrentHashMap();
+        this.f48248b = new ConcurrentHashMap();
     }
 }

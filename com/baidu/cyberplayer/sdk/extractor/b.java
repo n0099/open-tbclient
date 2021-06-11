@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import com.baidu.cyberplayer.sdk.CyberLog;
+import com.kwai.video.player.misc.IMediaFormat;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -15,15 +16,15 @@ import java.util.Map;
 public class b extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaExtractor f4843a = new MediaExtractor();
+    public MediaExtractor f4852a = new MediaExtractor();
 
     private Integer a(String str) {
         Integer num;
-        MediaExtractor mediaExtractor = this.f4843a;
+        MediaExtractor mediaExtractor = this.f4852a;
         if (mediaExtractor != null && Build.VERSION.SDK_INT >= 16) {
             int trackCount = mediaExtractor.getTrackCount();
             for (int i2 = 0; i2 < trackCount; i2++) {
-                if (this.f4843a.getTrackFormat(i2).getString("mime").startsWith(str)) {
+                if (this.f4852a.getTrackFormat(i2).getString(IMediaFormat.KEY_MIME).startsWith(str)) {
                     num = Integer.valueOf(i2);
                     break;
                 }
@@ -37,13 +38,13 @@ public class b extends ExtractorProvider {
     public Bundle getMediaMeta() {
         MediaFormat trackFormat;
         Bundle bundle = new Bundle();
-        if (this.f4843a != null) {
+        if (this.f4852a != null) {
             int intValue = a(FileUtils.VIDEO_FILE_START).intValue();
             int intValue2 = a("audio/").intValue();
             if (intValue != -1) {
                 intValue2 = intValue;
             }
-            if (intValue2 != -1 && (trackFormat = this.f4843a.getTrackFormat(intValue2)) != null) {
+            if (intValue2 != -1 && (trackFormat = this.f4852a.getTrackFormat(intValue2)) != null) {
                 try {
                     bundle.putLong("duration", trackFormat.getLong("durationUs") / 1000);
                     if (intValue != -1) {
@@ -62,16 +63,16 @@ public class b extends ExtractorProvider {
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void release() {
         CyberLog.i("MediaExtractorImpl", "release");
-        MediaExtractor mediaExtractor = this.f4843a;
+        MediaExtractor mediaExtractor = this.f4852a;
         if (mediaExtractor != null) {
             mediaExtractor.release();
-            this.f4843a = null;
+            this.f4852a = null;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri) {
-        MediaExtractor mediaExtractor = this.f4843a;
+        MediaExtractor mediaExtractor = this.f4852a;
         if (mediaExtractor != null) {
             try {
                 mediaExtractor.setDataSource(context, uri, (Map<String, String>) null);
@@ -83,7 +84,7 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        MediaExtractor mediaExtractor = this.f4843a;
+        MediaExtractor mediaExtractor = this.f4852a;
         if (mediaExtractor != null) {
             try {
                 mediaExtractor.setDataSource(context, uri, map);
@@ -95,7 +96,7 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(FileDescriptor fileDescriptor) {
-        MediaExtractor mediaExtractor = this.f4843a;
+        MediaExtractor mediaExtractor = this.f4852a;
         if (mediaExtractor != null) {
             try {
                 mediaExtractor.setDataSource(fileDescriptor);
@@ -107,7 +108,7 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(String str) {
-        MediaExtractor mediaExtractor = this.f4843a;
+        MediaExtractor mediaExtractor = this.f4852a;
         if (mediaExtractor != null) {
             try {
                 mediaExtractor.setDataSource(str);

@@ -17,6 +17,8 @@ import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
 import d.a.a0.a.f;
 import java.util.ArrayList;
@@ -33,11 +35,33 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public String t;
     public String u;
     public String v;
-    public AuthorizationListener w = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
+    public WebAuthResult webAuthResult = new WebAuthResult() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
+        @Override // com.baidu.sapi2.shell.result.WebAuthResult
+        public void finishActivity() {
+            super.finishActivity();
+            LoadExternalWebViewActivity.this.finish();
+            CoreViewRouter.getInstance().release();
+        }
+
+        @Override // com.baidu.sapi2.shell.result.WebAuthResult
+        public void finishActivity(boolean z) {
+            super.finishActivity();
+            LoadExternalWebViewActivity.this.finish();
+            CoreViewRouter.getInstance().release();
+        }
+    };
+    public AuthorizationListener w = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.2
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onFailed(int i2, String str) {
             if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.v)) {
                 new OneKeyLoginSdkCall().loadOneKeyLoginFail(CoreViewRouter.getInstance().getOneKeyLoginCallback(), -103, null);
+            }
+            LoadExternalWebViewActivity.this.webAuthResult.setResultCode(i2);
+            LoadExternalWebViewActivity.this.webAuthResult.setResultMsg(str);
+            WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
+            if (webAuthListener != null) {
+                webAuthListener.onFailure(LoadExternalWebViewActivity.this.webAuthResult);
+                CoreViewRouter.getInstance().release();
             }
             LoadExternalWebViewActivity.this.setResult(0);
             LoadExternalWebViewActivity.this.finish();
@@ -52,6 +76,14 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 if (oneKeyLoginCallback != null) {
                     oneKeyLoginCallback.onSuccess(oneKeyLoginResult);
                 }
+            }
+            WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
+            if (webAuthListener != null) {
+                WebAuthResult webAuthResult = LoadExternalWebViewActivity.this.webAuthResult;
+                webAuthResult.accountType = accountType;
+                webAuthResult.setResultCode(0);
+                webAuthListener.onSuccess(LoadExternalWebViewActivity.this.webAuthResult);
+                CoreViewRouter.getInstance().release();
             }
             Intent intent = new Intent();
             intent.putExtra("account_type", accountType.getType());
@@ -140,20 +172,20 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public void setupViews() {
         super.setupViews();
         this.sapiWebView.setAuthorizationListener(this.w);
-        this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.2
+        this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
                 LoadExternalWebViewActivity.this.a();
                 return false;
             }
         });
-        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.3
+        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.4
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
                 LoadExternalWebViewActivity.this.finish();
             }
         });
-        this.sapiWebView.setLeftBtnVisibleCallback(new SapiWebView.LeftBtnVisibleCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.4
+        this.sapiWebView.setLeftBtnVisibleCallback(new SapiWebView.LeftBtnVisibleCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.5
             @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
             public void onLeftBtnVisible(int i2) {
                 if (i2 == 0) {
@@ -163,7 +195,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 }
             }
         });
-        this.sapiWebView.setCoverWebBdussCallback(new SapiWebView.CoverWebBdussCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.5
+        this.sapiWebView.setCoverWebBdussCallback(new SapiWebView.CoverWebBdussCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.6
             @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussCallback
             public void onCoverBduss(String str, SapiWebView.CoverWebBdussResult coverWebBdussResult) {
                 SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
@@ -173,7 +205,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 coverWebBdussResult.setWebBduss(currentAccount.bduss);
             }
         });
-        this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.6
+        this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.7
             @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
             public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
                 Intent intent = new Intent(LoadExternalWebViewActivity.this, LoginActivity.class);
@@ -196,7 +228,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 LoadExternalWebViewActivity.this.startActivityForResult(intent, 2001);
             }
         });
-        this.sapiWebView.setAccountFreezeCallback(new SapiWebView.AccountFreezeCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.7
+        this.sapiWebView.setAccountFreezeCallback(new SapiWebView.AccountFreezeCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.8
             @Override // com.baidu.sapi2.SapiWebView.AccountFreezeCallback
             public void onAccountFreeze(SapiWebView.AccountFreezeCallback.AccountFreezeResult accountFreezeResult) {
                 Intent intent = new Intent();
@@ -205,7 +237,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 LoadExternalWebViewActivity.this.finish();
             }
         });
-        this.sapiWebView.setPreFillUserNameCallback(new SapiWebView.PreFillUserNameCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.8
+        this.sapiWebView.setPreFillUserNameCallback(new SapiWebView.PreFillUserNameCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.9
             @Override // com.baidu.sapi2.SapiWebView.PreFillUserNameCallback
             public void onPreFillUserName(SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult) {
                 Intent intent = new Intent();
@@ -214,7 +246,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 LoadExternalWebViewActivity.this.setResult(-1, intent);
             }
         });
-        this.sapiWebView.setWebviewPageFinishCallback(new SapiJsCallBacks.WebviewPageFinishCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.9
+        this.sapiWebView.setWebviewPageFinishCallback(new SapiJsCallBacks.WebviewPageFinishCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.10
             @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
             public void onFinish(String str) {
                 if (CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback() != null) {

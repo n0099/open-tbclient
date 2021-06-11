@@ -1,5 +1,5 @@
 package d.a.l.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class g {
-    public static final int tnconfig = 2131820663;
+    public static final int tnconfig = 2131820678;
 }

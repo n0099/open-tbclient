@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.c.j.e.b;
+import d.a.c.k.e.b;
 /* loaded from: classes3.dex */
 public class PbListView extends b {
     public Context j;
@@ -22,22 +22,22 @@ public class PbListView extends b {
     public boolean r;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f12309f = R.drawable.new_pic_emotion_03;
+    public final int f12371f = R.drawable.new_pic_emotion_03;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f12310g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+    public final int f12372g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f12311h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
+    public final int f12373h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f12312i = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    public final int f12374i = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     public TextView k = null;
     public ProgressBar l = null;
     public View.OnClickListener m = null;
     public View n = null;
     public View o = null;
-    public int q = this.f12309f;
+    public int q = this.f12371f;
     public int s = 0;
     public String t = null;
     public LinearLayout u = null;
@@ -63,7 +63,7 @@ public class PbListView extends b {
     }
 
     public void A(String str) {
-        B(str, this.f12312i);
+        B(str, this.f12374i);
     }
 
     public void B(String str, int i2) {
@@ -87,7 +87,7 @@ public class PbListView extends b {
         this.k.setText(str);
         this.r = true;
         this.p.setVisibility(0);
-        this.q = this.f12309f;
+        this.q = this.f12371f;
         d(TbadkCoreApplication.getInst().getSkinType());
         e(i2);
         this.D = false;
@@ -116,11 +116,11 @@ public class PbListView extends b {
         this.p.setVisibility(0);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.p.getLayoutParams();
         layoutParams.topMargin = i3;
-        layoutParams.bottomMargin = this.f12310g;
+        layoutParams.bottomMargin = this.f12372g;
         this.p.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.u.getLayoutParams();
         layoutParams2.height = -2;
-        layoutParams2.bottomMargin = this.f12311h;
+        layoutParams2.bottomMargin = this.f12373h;
         this.u.setLayoutParams(layoutParams2);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -179,7 +179,7 @@ public class PbListView extends b {
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.c.j.e.b
+    @Override // d.a.c.k.e.b
     public View a() {
         View inflate = LayoutInflater.from(this.j).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.n = inflate;
@@ -198,7 +198,7 @@ public class PbListView extends b {
         return this.n;
     }
 
-    @Override // d.a.c.j.e.b
+    @Override // d.a.c.k.e.b
     public void c() {
         View.OnClickListener onClickListener = this.m;
         if (onClickListener != null) {
@@ -294,7 +294,7 @@ public class PbListView extends b {
         this.p.setVisibility(8);
         i();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.u.getLayoutParams();
-        layoutParams.height = this.f12312i;
+        layoutParams.height = this.f12374i;
         layoutParams.bottomMargin = 0;
         this.u.setLayoutParams(layoutParams);
         d(TbadkCoreApplication.getInst().getSkinType());

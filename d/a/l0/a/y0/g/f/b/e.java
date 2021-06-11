@@ -23,11 +23,11 @@ public class e extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
         if (obj instanceof String) {
             String str2 = (String) obj;
             if (TextUtils.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, str2)) {
-                bVar.m0(str2);
+                bVar.j0(str2);
             } else if (TextUtils.equals(com.baidu.fsg.face.base.b.c.l, str2)) {
-                bVar.m0(str2);
+                bVar.j0(str2);
             } else if (TextUtils.equals(PackageTable.DISABLE, str2)) {
-                bVar.m0(str2);
+                bVar.j0(str2);
             }
         }
     }

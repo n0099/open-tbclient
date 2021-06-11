@@ -15,15 +15,15 @@ import com.kwai.sodler.lib.j;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f34403a = false;
+    public static boolean f37887a = false;
 
     public static synchronized void a(Context context) {
         synchronized (b.class) {
-            if (f34403a) {
+            if (f37887a) {
                 return;
             }
             j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
@@ -56,7 +56,7 @@ public class b {
                     }
                 }
             });
-            f34403a = true;
+            f37887a = true;
         }
     }
 

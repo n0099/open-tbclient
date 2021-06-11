@@ -5,17 +5,17 @@ import java.util.List;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f6302a;
+    public final /* synthetic */ e f6345a;
 
     public f(e eVar) {
-        this.f6302a = eVar;
+        this.f6345a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         List list;
-        e eVar = this.f6302a;
-        list = eVar.f6300b;
+        e eVar = this.f6345a;
+        list = eVar.f6343b;
         eVar.a(list);
     }
 }

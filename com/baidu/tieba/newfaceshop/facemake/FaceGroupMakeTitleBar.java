@@ -16,13 +16,13 @@ import com.baidu.tieba.R;
 public class FaceGroupMakeTitleBar extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f18570e;
+    public TextView f18646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18571f;
+    public TextView f18647f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f18572g;
+    public ImageView f18648g;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -42,32 +42,32 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.face_group_make_title_bar, (ViewGroup) this, true);
-        this.f18570e = (TextView) findViewById(R.id.tv_title);
-        this.f18571f = (TextView) findViewById(R.id.tv_right);
-        this.f18572g = (ImageView) findViewById(R.id.iv_close);
-        SkinManager.setViewTextColor(this.f18570e, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f18571f, R.color.common_color_10140);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18572g, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
-        this.f18572g.setOnClickListener(new a());
+        this.f18646e = (TextView) findViewById(R.id.tv_title);
+        this.f18647f = (TextView) findViewById(R.id.tv_right);
+        this.f18648g = (ImageView) findViewById(R.id.iv_close);
+        SkinManager.setViewTextColor(this.f18646e, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f18647f, R.color.common_color_10140);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18648g, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
+        this.f18648g.setOnClickListener(new a());
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
-        ImageView imageView = this.f18572g;
+        ImageView imageView = this.f18648g;
         if (imageView != null) {
             imageView.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightListener(View.OnClickListener onClickListener) {
-        this.f18571f.setOnClickListener(onClickListener);
+        this.f18647f.setOnClickListener(onClickListener);
     }
 
     public void setRightText(String str) {
-        this.f18571f.setText(str);
+        this.f18647f.setText(str);
     }
 
     public void setTitle(String str) {
-        this.f18570e.setText(str);
+        this.f18646e.setText(str);
     }
 
     public FaceGroupMakeTitleBar(Context context, AttributeSet attributeSet) {

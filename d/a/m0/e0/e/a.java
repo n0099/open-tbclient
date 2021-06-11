@@ -8,33 +8,33 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f49345a;
+    public BdUniqueId f53019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49346b;
+    public String f53020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f49347c;
+    public boolean f53021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f49348d;
+    public String f53022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49349e;
+    public boolean f53023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49350f;
+    public boolean f53024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f49351g;
+    public b f53025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.e.l.c<d.a.c.j.d.a> f49352h = new C1121a();
+    public d.a.c.e.l.c<d.a.c.k.d.a> f53026h = new C1177a();
 
     /* renamed from: d.a.m0.e0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1121a extends d.a.c.e.l.c<d.a.c.j.d.a> {
-        public C1121a() {
+    public class C1177a extends d.a.c.e.l.c<d.a.c.k.d.a> {
+        public C1177a() {
         }
 
         @Override // d.a.c.e.l.c
@@ -49,21 +49,21 @@ public class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             if (aVar != null && str != null) {
-                if (str.equals(a.this.f49346b)) {
-                    a.this.f49347c = true;
-                } else if (str.equals(a.this.f49348d)) {
-                    a.this.f49349e = true;
+                if (str.equals(a.this.f53020b)) {
+                    a.this.f53021c = true;
+                } else if (str.equals(a.this.f53022d)) {
+                    a.this.f53023e = true;
                 }
             }
-            if (a.this.f49347c && a.this.f49349e) {
-                a.this.f49350f = true;
+            if (a.this.f53021c && a.this.f53023e) {
+                a.this.f53024f = true;
             }
-            if (a.this.f49351g == null || !a.this.f49350f) {
+            if (a.this.f53025g == null || !a.this.f53024f) {
                 return;
             }
-            a.this.f49351g.a();
+            a.this.f53025g.a();
         }
     }
 
@@ -72,39 +72,39 @@ public class a {
     }
 
     public String k() {
-        return this.f49346b;
+        return this.f53020b;
     }
 
     public String l() {
-        return this.f49348d;
+        return this.f53022d;
     }
 
     public boolean m() {
-        return this.f49350f;
+        return this.f53024f;
     }
 
     public void n() {
-        String str = this.f49346b;
+        String str = this.f53020b;
         if (str != null && !k.isEmpty(str)) {
-            d.h().k(this.f49346b, j(), this.f49352h, 0, 0, this.f49345a, new Object[0]);
+            d.h().k(this.f53020b, j(), this.f53026h, 0, 0, this.f53019a, new Object[0]);
         }
-        String str2 = this.f49348d;
+        String str2 = this.f53022d;
         if (str2 == null || k.isEmpty(str2)) {
             return;
         }
-        d.h().k(this.f49348d, j(), this.f49352h, 0, 0, this.f49345a, new Object[0]);
+        d.h().k(this.f53022d, j(), this.f53026h, 0, 0, this.f53019a, new Object[0]);
     }
 
     public void o(JSONObject jSONObject) {
-        this.f49346b = jSONObject.optString("pic_before");
-        this.f49348d = jSONObject.optString("pic_after");
+        this.f53020b = jSONObject.optString("pic_before");
+        this.f53022d = jSONObject.optString("pic_after");
     }
 
     public void p(b bVar) {
-        this.f49351g = bVar;
+        this.f53025g = bVar;
     }
 
     public void q(BdUniqueId bdUniqueId) {
-        this.f49345a = bdUniqueId;
+        this.f53019a = bdUniqueId;
     }
 }

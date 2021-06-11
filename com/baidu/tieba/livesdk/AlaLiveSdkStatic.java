@@ -19,6 +19,7 @@ import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
 import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage;
+import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -43,27 +44,92 @@ import org.json.JSONObject;
 public class AlaLiveSdkStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f18032a = false;
+    public static boolean f18108a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f18033b;
+    public static CustomMessageListener f18109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f18034c;
+    public static CustomMessageListener f18110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static CustomMessageListener f18035d;
+    public static CustomMessageListener f18111d;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
+
+        /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0190a extends CustomMessageListener {
+            public C0190a(a aVar, int i2) {
+                super(i2);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                LiveNPSPluginManager.getInstance().startYYActivity(TbadkCoreApplication.getInst().getCurrentActivity());
+            }
+        }
+
         @Override // java.lang.Runnable
         public void run() {
-            MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f18035d);
+            MessageManager.getInstance().registerListener(new C0190a(this, 2921568));
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements UrlManager.UrlDealListener {
+    public static class b extends CustomMessageListener {
+
+        /* loaded from: classes3.dex */
+        public class a implements Runnable {
+
+            /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$b$a$a  reason: collision with other inner class name */
+            /* loaded from: classes3.dex */
+            public class RunnableC0191a implements Runnable {
+                public RunnableC0191a(a aVar) {
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    AlaLiveSdkStatic.n();
+                }
+            }
+
+            public a(b bVar) {
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                String clipBoardContent = UtilHelper.getClipBoardContent();
+                if (!StringUtils.isNull(clipBoardContent) && clipBoardContent.startsWith("#bdtiebalive://") && clipBoardContent.endsWith("#")) {
+                    AlaLiveSdkStatic.l();
+                    d.a.c.e.m.e.a().postDelayed(new RunnableC0191a(this), 1000L);
+                }
+            }
+        }
+
+        public b(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            d.a.c.e.m.e.a().postDelayed(new a(this), 100L);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c implements Runnable {
+        @Override // java.lang.Runnable
+        public void run() {
+            MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f18111d);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class d implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             Map<String, String> paramPair;
@@ -91,20 +157,20 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements UrlManager.UrlDealListener {
+    public static class e implements UrlManager.UrlDealListener {
 
         /* loaded from: classes3.dex */
         public class a implements d.a.n0.n1.k.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TbPageContext f18036a;
+            public final /* synthetic */ TbPageContext f18112a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f18037b;
+            public final /* synthetic */ String f18113b;
 
-            public a(c cVar, TbPageContext tbPageContext, String str) {
-                this.f18036a = tbPageContext;
-                this.f18037b = str;
+            public a(e eVar, TbPageContext tbPageContext, String str) {
+                this.f18112a = tbPageContext;
+                this.f18113b = str;
             }
 
             @Override // d.a.n0.n1.k.a
@@ -125,7 +191,7 @@ public class AlaLiveSdkStatic {
                     if (!TextUtils.isEmpty(optString4)) {
                         jSONObject2.put("transitionId", optString4);
                     }
-                    AlaLiveSdkStatic.m(this.f18036a, optInt, optString, jSONObject2, this.f18037b);
+                    AlaLiveSdkStatic.m(this.f18112a, optInt, optString, jSONObject2, this.f18113b);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -181,9 +247,9 @@ public class AlaLiveSdkStatic {
                     if (strArr[0].startsWith("bdtiebalive:video/live/tbean")) {
                         String str4 = (String) hashMap3.get("callback");
                         d.a.n0.n1.n.a aVar = new d.a.n0.n1.n.a();
-                        aVar.f57685a = str4;
-                        aVar.f57687c = (String) hashMap3.get("is_translucent");
-                        aVar.f57686b = TextUtils.equals((String) hashMap3.get("is_translucent"), "1");
+                        aVar.f61374a = str4;
+                        aVar.f61376c = (String) hashMap3.get("is_translucent");
+                        aVar.f61375b = TextUtils.equals((String) hashMap3.get("is_translucent"), "1");
                         d.a.n0.n1.a.e(tbPageContext.getPageActivity(), aVar, new a(this, tbPageContext, str4));
                     } else if (strArr[0].startsWith("bdtiebalive://video/live/start")) {
                         d.a.n0.n1.a.b(tbPageContext.getPageActivity(), strArr[0], hashMap3);
@@ -230,7 +296,7 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements UrlManager.UrlDealListener {
+    public static class f implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             Map<String, String> paramPair;
@@ -280,7 +346,7 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements CustomMessageTask.CustomRunnable<Object> {
+    public static class g implements CustomMessageTask.CustomRunnable<Object> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             return new CustomResponsedMessage<>(2921431);
@@ -288,8 +354,8 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class f extends d.a.c.c.f.b {
-        public f(int i2) {
+    public static class h extends d.a.c.c.f.b {
+        public h(int i2) {
             super(i2);
         }
 
@@ -342,8 +408,8 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class g extends CustomMessageListener {
-        public g(int i2) {
+    public static class i extends CustomMessageListener {
+        public i(int i2) {
             super(i2);
         }
 
@@ -355,8 +421,8 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class h extends CustomMessageListener {
-        public h(int i2) {
+    public static class j extends CustomMessageListener {
+        public j(int i2) {
             super(i2);
         }
 
@@ -368,7 +434,7 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class i implements CustomMessageTask.CustomRunnable<d.a.m0.d.f> {
+    public static class k implements CustomMessageTask.CustomRunnable<d.a.m0.d.f> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<d.a.m0.d.f> customMessage) {
             return new CustomResponsedMessage<>(2921548, Long.valueOf(d.a.n0.r1.a.j().k(TbadkCoreApplication.getInst().getContext())));
@@ -376,33 +442,33 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class j implements Runnable {
-        @Override // java.lang.Runnable
-        public void run() {
-            AlaLiveSdkStatic.s();
-            AlaLiveSdkStatic.z();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class k implements Runnable {
-        @Override // java.lang.Runnable
-        public void run() {
-            MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f18034c);
-        }
-    }
-
-    /* loaded from: classes3.dex */
     public static class l implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f18033b);
+            AlaLiveSdkStatic.s();
+            AlaLiveSdkStatic.A();
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class m extends CustomMessageListener {
-        public m(int i2) {
+    public static class m implements Runnable {
+        @Override // java.lang.Runnable
+        public void run() {
+            MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f18110c);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class n implements Runnable {
+        @Override // java.lang.Runnable
+        public void run() {
+            MessageManager.getInstance().registerListener(AlaLiveSdkStatic.f18109b);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class o extends CustomMessageListener {
+        public o(int i2) {
             super(i2);
         }
 
@@ -420,8 +486,8 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class n extends CustomMessageListener {
-        public n(int i2) {
+    public static class p extends CustomMessageListener {
+        public p(int i2) {
             super(i2);
         }
 
@@ -430,54 +496,12 @@ public class AlaLiveSdkStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12576c) || !updateAttentionMessage.getData().f12574a || updateAttentionMessage.getData().f12578e) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12638c) || !updateAttentionMessage.getData().f12636a || updateAttentionMessage.getData().f12640e) {
                     return;
                 }
                 AlaLiveSdkStatic.l();
-                d.a.n0.n1.a.p(updateAttentionMessage.getData().f12576c, updateAttentionMessage.getData().f12577d);
+                d.a.n0.n1.a.p(updateAttentionMessage.getData().f12638c, updateAttentionMessage.getData().f12639d);
             }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class o extends CustomMessageListener {
-
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-
-            /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$o$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class RunnableC0190a implements Runnable {
-                public RunnableC0190a(a aVar) {
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    AlaLiveSdkStatic.n();
-                }
-            }
-
-            public a(o oVar) {
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                String clipBoardContent = UtilHelper.getClipBoardContent();
-                if (!StringUtils.isNull(clipBoardContent) && clipBoardContent.startsWith("#bdtiebalive://") && clipBoardContent.endsWith("#")) {
-                    AlaLiveSdkStatic.l();
-                    d.a.c.e.m.e.a().postDelayed(new RunnableC0190a(this), 1000L);
-                }
-            }
-        }
-
-        public o(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.a.c.e.m.e.a().postDelayed(new a(this), 100L);
         }
     }
 
@@ -485,18 +509,26 @@ public class AlaLiveSdkStatic {
         r();
         p();
         q();
-        w();
+        x();
         u();
         d.a.n0.f1.c.b(AlaCmdConfigSocket.ALA_SOCKET_PUSH_ALERT, ALAPushAlertResponsedMessage.class, false);
         TbadkCoreApplication.getInst().RegisterIntent(AlaSDKShareEmptyActivityConfig.class, AlaSDKShareEmptyActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaWriteShareInBarActivityConfig.class, AlaShareInBarEmptyActivity.class);
         v();
         t();
-        x();
         y();
-        f18033b = new m(2921406);
-        f18034c = new n(2001115);
-        f18035d = new o(2007002);
+        z();
+        w();
+        f18109b = new o(2921406);
+        f18110c = new p(2001115);
+        f18111d = new b(2007002);
+    }
+
+    public static void A() {
+        MessageManager.getInstance().registerListener(new j(2921549));
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921548, new k());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static String k(HashMap<String, Object> hashMap) {
@@ -516,11 +548,11 @@ public class AlaLiveSdkStatic {
 
     public static void l() {
         try {
-            if (f18032a) {
+            if (f18108a) {
                 return;
             }
             new d.a.n0.n1.j.b().b("0");
-            f18032a = true;
+            f18108a = true;
         } catch (Throwable th) {
             BdLog.e(th);
         }
@@ -574,51 +606,48 @@ public class AlaLiveSdkStatic {
     }
 
     public static void p() {
-        UrlManager.getInstance().addListener(new d());
+        UrlManager.getInstance().addListener(new f());
     }
 
     public static void q() {
-        UrlManager.getInstance().addListener(new c());
+        UrlManager.getInstance().addListener(new e());
     }
 
     public static void r() {
-        UrlManager.getInstance().addListener(new b());
+        UrlManager.getInstance().addListener(new d());
     }
 
     public static void s() {
-        MessageManager.getInstance().registerListener(new g(2921545));
+        MessageManager.getInstance().registerListener(new i(2921545));
     }
 
     public static void t() {
-        d.a.c.e.m.e.a().post(new k());
+        d.a.c.e.m.e.a().post(new m());
     }
 
     public static void u() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921431, new e());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921431, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static void v() {
-        d.a.c.e.m.e.a().post(new a());
+        d.a.c.e.m.e.a().post(new c());
     }
 
     public static void w() {
-        MessageManager.getInstance().addMessageRule(new f(2002001));
+        d.a.c.e.m.e.a().post(new a());
     }
 
     public static void x() {
-        d.a.c.e.m.e.a().post(new l());
+        MessageManager.getInstance().addMessageRule(new h(2002001));
     }
 
     public static void y() {
-        d.a.c.e.m.e.a().post(new j());
+        d.a.c.e.m.e.a().post(new n());
     }
 
     public static void z() {
-        MessageManager.getInstance().registerListener(new h(2921549));
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921548, new i());
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
+        d.a.c.e.m.e.a().post(new l());
     }
 }

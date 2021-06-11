@@ -5,7 +5,7 @@ import android.os.Handler;
 import java.util.concurrent.Callable;
 import javax.annotation.Nullable;
 import org.webrtc.VideoFrame;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TextureBufferImpl implements VideoFrame.TextureBuffer {
     public final int height;
     public final int id;

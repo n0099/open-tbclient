@@ -18,26 +18,26 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
     public static class AlaGameFrsGameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsGameLiveDoubleView f13961a;
+        public AlaGameFrsGameLiveDoubleView f14018a;
 
         public AlaGameFrsGameLiveDoubleViewHolder(AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView) {
-            super(alaGameFrsGameLiveDoubleView.l());
-            this.f13961a = alaGameFrsGameLiveDoubleView;
+            super(alaGameFrsGameLiveDoubleView.m());
+            this.f14018a = alaGameFrsGameLiveDoubleView;
         }
     }
 
     public AlaGameFrsGameLiveDoubleView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        s();
+        t();
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.ala_sub_list_game_live;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         this.m.e(tbPageContext, i2);
         this.n.e(tbPageContext, i2);
     }
@@ -46,10 +46,10 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
     public void onClick(View view) {
     }
 
-    public final void s() {
+    public final void t() {
         this.m = new d.a.n0.v.e.d.a(k());
         this.n = new d.a.n0.v.e.d.a(k());
-        ViewGroup viewGroup = (ViewGroup) l();
+        ViewGroup viewGroup = (ViewGroup) m();
         View view = new View(b());
         viewGroup.addView(this.m.c());
         viewGroup.addView(view, new LinearLayout.LayoutParams(k().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
@@ -58,20 +58,20 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(a aVar) {
+    /* renamed from: u */
+    public void n(a aVar) {
         if (aVar != null) {
-            this.m.d(aVar.f61966e);
-            this.n.d(aVar.f61967f);
+            this.m.d(aVar.f65681e);
+            this.n.d(aVar.f65682f);
         }
     }
 
-    public void u(String str) {
+    public void v(String str) {
         this.m.f(str);
         this.n.f(str);
     }
 
-    public void v(c cVar) {
+    public void w(c cVar) {
         this.m.g(cVar);
         this.n.g(cVar);
     }

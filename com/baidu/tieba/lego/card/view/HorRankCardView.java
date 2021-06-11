@@ -36,19 +36,19 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard f17920e;
+        public final /* synthetic */ HorRankCard f17996e;
 
         public a(HorRankCard horRankCard) {
-            this.f17920e = horRankCard;
+            this.f17996e = horRankCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f17920e.getScheme())) {
+            if (TextUtils.isEmpty(this.f17996e.getScheme())) {
                 return;
             }
-            i.e(this.f17920e).d(TiebaStatic.Params.OBJ_URL, this.f17920e.getScheme()).b("obj_locate", HorRankCardView.this.getStatPosition()).a(this.f17920e);
-            v.c(HorRankCardView.this.m, this.f17920e.getScheme());
+            i.e(this.f17996e).d(TiebaStatic.Params.OBJ_URL, this.f17996e.getScheme()).b("obj_locate", HorRankCardView.this.getStatPosition()).a(this.f17996e);
+            v.c(HorRankCardView.this.m, this.f17996e.getScheme());
         }
     }
 

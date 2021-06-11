@@ -118,11 +118,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     public static String getExperimentID() {
-        e b2 = d.b(t.f48880c);
-        if (b2 == null || k.isEmpty(b2.f48828a)) {
+        e b2 = d.b(t.f52554c);
+        if (b2 == null || k.isEmpty(b2.f52502a)) {
             return "";
         }
-        String str = b2.f48828a;
+        String str = b2.f52502a;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1688589) {

@@ -3,5 +3,5 @@ package d.a.n0.k1.o.k;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f56667a = 1;
+    public static int f60356a = 1;
 }

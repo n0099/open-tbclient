@@ -36,53 +36,53 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile a f54695h;
+    public static volatile a f58384h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Long f54696i = 0L;
+    public static volatile Long f58385i = 0L;
     public static volatile long j = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.d f54699c;
+    public a.d f58388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.n0.f1.s.d f54700d;
+    public d.a.n0.f1.s.d f58389d;
 
     /* renamed from: e  reason: collision with root package name */
-    public VoiceSendModel f54701e;
+    public VoiceSendModel f58390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<a.b<ChatMessage>> f54702f;
+    public WeakReference<a.b<ChatMessage>> f58391f;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<ChatMessage> f54697a = new LinkedList<>();
+    public final LinkedList<ChatMessage> f58386a = new LinkedList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, d.a.m0.b0.a<ChatMessage>> f54698b = new HashMap<>();
+    public final HashMap<String, d.a.m0.b0.a<ChatMessage>> f58387b = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public VoiceSendModel.b f54703g = new h();
+    public VoiceSendModel.b f58392g = new h();
 
     /* renamed from: d.a.n0.f1.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1325a implements a.d {
+    public class C1381a implements a.d {
 
         /* renamed from: d.a.n0.f1.s.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1326a extends f0<Boolean> {
+        public class C1382a extends f0<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CommonGroupChatMessage f54705a;
+            public final /* synthetic */ CommonGroupChatMessage f58394a;
 
-            public C1326a(C1325a c1325a, CommonGroupChatMessage commonGroupChatMessage) {
-                this.f54705a = commonGroupChatMessage;
+            public C1382a(C1381a c1381a, CommonGroupChatMessage commonGroupChatMessage) {
+                this.f58394a = commonGroupChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.a.m0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.a.n0.f1.h.c.h().o(this.f54705a.getGroupId(), String.valueOf(this.f54705a.getRecordId()), String.valueOf(this.f54705a.getMsgId()), 2));
+                return Boolean.valueOf(d.a.n0.f1.h.c.h().o(this.f58394a.getGroupId(), String.valueOf(this.f58394a.getRecordId()), String.valueOf(this.f58394a.getMsgId()), 2));
             }
         }
 
@@ -91,17 +91,17 @@ public class a {
         public class b implements d.a.m0.z0.n<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CommonGroupChatMessage f54706a;
+            public final /* synthetic */ CommonGroupChatMessage f58395a;
 
-            public b(C1325a c1325a, CommonGroupChatMessage commonGroupChatMessage) {
-                this.f54706a = commonGroupChatMessage;
+            public b(C1381a c1381a, CommonGroupChatMessage commonGroupChatMessage) {
+                this.f58395a = commonGroupChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                a.m(this.f54706a);
+                a.m(this.f58395a);
             }
         }
 
@@ -110,17 +110,17 @@ public class a {
         public class c extends f0<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PersonalChatMessage f54707a;
+            public final /* synthetic */ PersonalChatMessage f58396a;
 
-            public c(C1325a c1325a, PersonalChatMessage personalChatMessage) {
-                this.f54707a = personalChatMessage;
+            public c(C1381a c1381a, PersonalChatMessage personalChatMessage) {
+                this.f58396a = personalChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.a.m0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.a.n0.f1.h.m.t().s(this.f54707a.getUserId(), this.f54707a.getToUserId(), String.valueOf(this.f54707a.getRecordId()), String.valueOf(this.f54707a.getMsgId()), 2));
+                return Boolean.valueOf(d.a.n0.f1.h.m.t().s(this.f58396a.getUserId(), this.f58396a.getToUserId(), String.valueOf(this.f58396a.getRecordId()), String.valueOf(this.f58396a.getMsgId()), 2));
             }
         }
 
@@ -129,17 +129,17 @@ public class a {
         public class d implements d.a.m0.z0.n<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PersonalChatMessage f54708a;
+            public final /* synthetic */ PersonalChatMessage f58397a;
 
-            public d(C1325a c1325a, PersonalChatMessage personalChatMessage) {
-                this.f54708a = personalChatMessage;
+            public d(C1381a c1381a, PersonalChatMessage personalChatMessage) {
+                this.f58397a = personalChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                a.m(this.f54708a);
+                a.m(this.f58397a);
             }
         }
 
@@ -148,17 +148,17 @@ public class a {
         public class e extends f0<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ OfficialChatMessage f54709a;
+            public final /* synthetic */ OfficialChatMessage f58398a;
 
-            public e(C1325a c1325a, OfficialChatMessage officialChatMessage) {
-                this.f54709a = officialChatMessage;
+            public e(C1381a c1381a, OfficialChatMessage officialChatMessage) {
+                this.f58398a = officialChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.a.m0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.a.n0.f1.h.l.t().s(this.f54709a.getUserId(), this.f54709a.getToUserId(), String.valueOf(this.f54709a.getRecordId()), String.valueOf(this.f54709a.getMsgId()), 2));
+                return Boolean.valueOf(d.a.n0.f1.h.l.t().s(this.f58398a.getUserId(), this.f58398a.getToUserId(), String.valueOf(this.f58398a.getRecordId()), String.valueOf(this.f58398a.getMsgId()), 2));
             }
         }
 
@@ -167,21 +167,21 @@ public class a {
         public class f implements d.a.m0.z0.n<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ OfficialChatMessage f54710a;
+            public final /* synthetic */ OfficialChatMessage f58399a;
 
-            public f(C1325a c1325a, OfficialChatMessage officialChatMessage) {
-                this.f54710a = officialChatMessage;
+            public f(C1381a c1381a, OfficialChatMessage officialChatMessage) {
+                this.f58399a = officialChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                a.m(this.f54710a);
+                a.m(this.f58399a);
             }
         }
 
-        public C1325a() {
+        public C1381a() {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:33:0x0090, code lost:
@@ -195,7 +195,7 @@ public class a {
             d.a.m0.b0.a aVar;
             int i2;
             synchronized (a.class) {
-                aVar = (d.a.m0.b0.a) a.this.f54698b.remove(str);
+                aVar = (d.a.m0.b0.a) a.this.f58387b.remove(str);
             }
             if (aVar == null) {
                 return;
@@ -219,15 +219,15 @@ public class a {
                 }
                 chatMessage.setContent(a.f(str3, str2, i3, i2));
                 a.j().t(chatMessage);
-                if (a.this.f54700d != null) {
-                    a.this.f54700d.a(1);
+                if (a.this.f58389d != null) {
+                    a.this.f58389d.a(1);
                 }
             }
             d.a.m0.r.z.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", -1, "result is null", new Object[0]);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
             if (chatMessage instanceof CommonGroupChatMessage) {
                 CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                h0.c(new C1326a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
+                h0.c(new C1382a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
             } else if (chatMessage instanceof PersonalChatMessage) {
                 PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
                 h0.c(new c(this, personalChatMessage), new d(this, personalChatMessage));
@@ -242,21 +242,21 @@ public class a {
     public class b extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatMessage f54711a;
+        public final /* synthetic */ CommonGroupChatMessage f58400a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f54712b;
+        public final /* synthetic */ LinkedList f58401b;
 
         public b(a aVar, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
-            this.f54711a = commonGroupChatMessage;
-            this.f54712b = linkedList;
+            this.f58400a = commonGroupChatMessage;
+            this.f58401b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.a.n0.f1.h.c.h().l(this.f54711a.getGroupId(), this.f54712b, false));
+            return Boolean.valueOf(d.a.n0.f1.h.c.h().l(this.f58400a.getGroupId(), this.f58401b, false));
         }
     }
 
@@ -264,23 +264,23 @@ public class a {
     public class c implements d.a.m0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatMessage f54713a;
+        public final /* synthetic */ CommonGroupChatMessage f58402a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChatMessage f54714b;
+        public final /* synthetic */ ChatMessage f58403b;
 
         public c(a aVar, CommonGroupChatMessage commonGroupChatMessage, ChatMessage chatMessage) {
-            this.f54713a = commonGroupChatMessage;
-            this.f54714b = chatMessage;
+            this.f58402a = commonGroupChatMessage;
+            this.f58403b = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
-            this.f54713a.setLogTime(System.currentTimeMillis());
-            MessageManager.getInstance().sendMessage(this.f54713a);
-            MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(this.f54713a.getGroupId(), this.f54714b.getCustomGroupType(), this.f54714b, 3)));
+            this.f58402a.setLogTime(System.currentTimeMillis());
+            MessageManager.getInstance().sendMessage(this.f58402a);
+            MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(this.f58402a.getGroupId(), this.f58403b.getCustomGroupType(), this.f58403b, 3)));
         }
     }
 
@@ -288,21 +288,21 @@ public class a {
     public class d extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatMessage f54715a;
+        public final /* synthetic */ PersonalChatMessage f58404a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f54716b;
+        public final /* synthetic */ LinkedList f58405b;
 
         public d(a aVar, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
-            this.f54715a = personalChatMessage;
-            this.f54716b = linkedList;
+            this.f58404a = personalChatMessage;
+            this.f58405b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.a.n0.f1.h.m.t().m(d.a.n0.f1.w.c.m(this.f54715a), this.f54716b, false));
+            return Boolean.valueOf(d.a.n0.f1.h.m.t().m(d.a.n0.f1.w.c.m(this.f58404a), this.f58405b, false));
         }
     }
 
@@ -310,23 +310,23 @@ public class a {
     public class e implements d.a.m0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatMessage f54717a;
+        public final /* synthetic */ PersonalChatMessage f58406a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChatMessage f54718b;
+        public final /* synthetic */ ChatMessage f58407b;
 
         public e(a aVar, PersonalChatMessage personalChatMessage, ChatMessage chatMessage) {
-            this.f54717a = personalChatMessage;
-            this.f54718b = chatMessage;
+            this.f58406a = personalChatMessage;
+            this.f58407b = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
-            this.f54717a.setLogTime(System.currentTimeMillis());
-            MessageManager.getInstance().sendMessage(this.f54717a);
-            MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.f54717a.getToUserId()), 2, this.f54718b, 3)));
+            this.f58406a.setLogTime(System.currentTimeMillis());
+            MessageManager.getInstance().sendMessage(this.f58406a);
+            MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.f58406a.getToUserId()), 2, this.f58407b, 3)));
         }
     }
 
@@ -334,21 +334,21 @@ public class a {
     public class f extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialChatMessage f54719a;
+        public final /* synthetic */ OfficialChatMessage f58408a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f54720b;
+        public final /* synthetic */ LinkedList f58409b;
 
         public f(a aVar, OfficialChatMessage officialChatMessage, LinkedList linkedList) {
-            this.f54719a = officialChatMessage;
-            this.f54720b = linkedList;
+            this.f58408a = officialChatMessage;
+            this.f58409b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.a.n0.f1.h.l.t().m(d.a.n0.f1.w.c.m(this.f54719a), this.f54720b, false));
+            return Boolean.valueOf(d.a.n0.f1.h.l.t().m(d.a.n0.f1.w.c.m(this.f58408a), this.f58409b, false));
         }
     }
 
@@ -356,23 +356,23 @@ public class a {
     public class g implements d.a.m0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialChatMessage f54721a;
+        public final /* synthetic */ OfficialChatMessage f58410a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChatMessage f54722b;
+        public final /* synthetic */ ChatMessage f58411b;
 
         public g(a aVar, OfficialChatMessage officialChatMessage, ChatMessage chatMessage) {
-            this.f54721a = officialChatMessage;
-            this.f54722b = chatMessage;
+            this.f58410a = officialChatMessage;
+            this.f58411b = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
-            this.f54721a.setLogTime(System.currentTimeMillis());
-            MessageManager.getInstance().sendMessage(this.f54721a);
-            MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.f54721a.getToUserId()), 4, this.f54722b, 3)));
+            this.f58410a.setLogTime(System.currentTimeMillis());
+            MessageManager.getInstance().sendMessage(this.f58410a);
+            MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.f58410a.getToUserId()), 4, this.f58411b, 3)));
         }
     }
 
@@ -381,20 +381,20 @@ public class a {
 
         /* renamed from: d.a.n0.f1.s.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1327a extends f0<Boolean> {
+        public class C1383a extends f0<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CommonGroupChatMessage f54724a;
+            public final /* synthetic */ CommonGroupChatMessage f58413a;
 
-            public C1327a(h hVar, CommonGroupChatMessage commonGroupChatMessage) {
-                this.f54724a = commonGroupChatMessage;
+            public C1383a(h hVar, CommonGroupChatMessage commonGroupChatMessage) {
+                this.f58413a = commonGroupChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.a.m0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.a.n0.f1.h.c.h().o(this.f54724a.getGroupId(), String.valueOf(this.f54724a.getRecordId()), String.valueOf(this.f54724a.getMsgId()), 2));
+                return Boolean.valueOf(d.a.n0.f1.h.c.h().o(this.f58413a.getGroupId(), String.valueOf(this.f58413a.getRecordId()), String.valueOf(this.f58413a.getMsgId()), 2));
             }
         }
 
@@ -402,17 +402,17 @@ public class a {
         public class b implements d.a.m0.z0.n<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CommonGroupChatMessage f54725a;
+            public final /* synthetic */ CommonGroupChatMessage f58414a;
 
             public b(h hVar, CommonGroupChatMessage commonGroupChatMessage) {
-                this.f54725a = commonGroupChatMessage;
+                this.f58414a = commonGroupChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                a.m(this.f54725a);
+                a.m(this.f58414a);
             }
         }
 
@@ -420,17 +420,17 @@ public class a {
         public class c extends f0<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PersonalChatMessage f54726a;
+            public final /* synthetic */ PersonalChatMessage f58415a;
 
             public c(h hVar, PersonalChatMessage personalChatMessage) {
-                this.f54726a = personalChatMessage;
+                this.f58415a = personalChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.a.m0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.a.n0.f1.h.m.t().s(this.f54726a.getUserId(), this.f54726a.getToUserId(), String.valueOf(this.f54726a.getRecordId()), String.valueOf(this.f54726a.getMsgId()), 2));
+                return Boolean.valueOf(d.a.n0.f1.h.m.t().s(this.f58415a.getUserId(), this.f58415a.getToUserId(), String.valueOf(this.f58415a.getRecordId()), String.valueOf(this.f58415a.getMsgId()), 2));
             }
         }
 
@@ -438,17 +438,17 @@ public class a {
         public class d implements d.a.m0.z0.n<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PersonalChatMessage f54727a;
+            public final /* synthetic */ PersonalChatMessage f58416a;
 
             public d(h hVar, PersonalChatMessage personalChatMessage) {
-                this.f54727a = personalChatMessage;
+                this.f58416a = personalChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                a.m(this.f54727a);
+                a.m(this.f58416a);
             }
         }
 
@@ -456,17 +456,17 @@ public class a {
         public class e extends f0<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ OfficialChatMessage f54728a;
+            public final /* synthetic */ OfficialChatMessage f58417a;
 
             public e(h hVar, OfficialChatMessage officialChatMessage) {
-                this.f54728a = officialChatMessage;
+                this.f58417a = officialChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.a.m0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.a.n0.f1.h.l.t().s(this.f54728a.getUserId(), this.f54728a.getToUserId(), String.valueOf(this.f54728a.getRecordId()), String.valueOf(this.f54728a.getMsgId()), 2));
+                return Boolean.valueOf(d.a.n0.f1.h.l.t().s(this.f58417a.getUserId(), this.f58417a.getToUserId(), String.valueOf(this.f58417a.getRecordId()), String.valueOf(this.f58417a.getMsgId()), 2));
             }
         }
 
@@ -474,17 +474,17 @@ public class a {
         public class f implements d.a.m0.z0.n<Boolean> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ OfficialChatMessage f54729a;
+            public final /* synthetic */ OfficialChatMessage f58418a;
 
             public f(h hVar, OfficialChatMessage officialChatMessage) {
-                this.f54729a = officialChatMessage;
+                this.f58418a = officialChatMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.m0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
-                a.m(this.f54729a);
+                a.m(this.f58418a);
             }
         }
 
@@ -505,8 +505,8 @@ public class a {
                         }
                         d.a.m0.r.z.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
                         a.j().t(chatMessage);
-                        if (a.this.f54700d != null) {
-                            a.this.f54700d.a(2);
+                        if (a.this.f58389d != null) {
+                            a.this.f58389d.a(2);
                             return;
                         }
                         return;
@@ -515,7 +515,7 @@ public class a {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                     if (chatMessage instanceof CommonGroupChatMessage) {
                         CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                        h0.c(new C1327a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
+                        h0.c(new C1383a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
                     } else if (chatMessage instanceof PersonalChatMessage) {
                         PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
                         h0.c(new c(this, personalChatMessage), new d(this, personalChatMessage));
@@ -533,26 +533,26 @@ public class a {
     public class i extends BdAsyncTask<Void, Void, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54730a;
+        public final /* synthetic */ String f58419a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54731b;
+        public final /* synthetic */ String f58420b;
 
         public i(String str, String str2) {
-            this.f54730a = str;
-            this.f54731b = str2;
+            this.f58419a = str;
+            this.f58420b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Bitmap doInBackground(Void... voidArr) {
-            return BitmapFactory.decodeFile(this.f54730a);
+            return BitmapFactory.decodeFile(this.f58419a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
-            a.this.r(this.f54731b, new d.a.c.j.d.a(bitmap, false));
+            a.this.r(this.f58420b, new d.a.c.k.d.a(bitmap, false));
         }
     }
 
@@ -560,17 +560,17 @@ public class a {
     public class j extends f0<LinkedHashMap<String, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54733a;
+        public final /* synthetic */ String f58422a;
 
         public j(a aVar, String str) {
-            this.f54733a = str;
+            this.f58422a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public LinkedHashMap<String, String> doInBackground() {
-            return d.a.n0.f1.h.c.h().f(this.f54733a, 2, null, 1000);
+            return d.a.n0.f1.h.c.h().f(this.f58422a, 2, null, 1000);
         }
     }
 
@@ -578,10 +578,10 @@ public class a {
     public class k implements d.a.m0.z0.n<LinkedHashMap<String, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.f1.s.c f54734a;
+        public final /* synthetic */ d.a.n0.f1.s.c f58423a;
 
         public k(a aVar, d.a.n0.f1.s.c cVar) {
-            this.f54734a = cVar;
+            this.f58423a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -613,7 +613,7 @@ public class a {
                     }
                 }
             }
-            this.f54734a.a(linkedHashMap2, hashMap);
+            this.f58423a.a(linkedHashMap2, hashMap);
         }
     }
 
@@ -621,17 +621,17 @@ public class a {
     public class l extends f0<LinkedHashMap<String, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54735a;
+        public final /* synthetic */ String f58424a;
 
         public l(a aVar, String str) {
-            this.f54735a = str;
+            this.f58424a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public LinkedHashMap<String, String> doInBackground() {
-            return d.a.n0.f1.h.m.t().f(this.f54735a, 2, null, 1000);
+            return d.a.n0.f1.h.m.t().f(this.f58424a, 2, null, 1000);
         }
     }
 
@@ -639,10 +639,10 @@ public class a {
     public class m implements d.a.m0.z0.n<LinkedHashMap<String, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.f1.s.c f54736a;
+        public final /* synthetic */ d.a.n0.f1.s.c f58425a;
 
         public m(a aVar, d.a.n0.f1.s.c cVar) {
-            this.f54736a = cVar;
+            this.f58425a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -674,7 +674,7 @@ public class a {
                     }
                 }
             }
-            this.f54736a.a(linkedHashMap2, hashMap);
+            this.f58425a.a(linkedHashMap2, hashMap);
         }
     }
 
@@ -682,17 +682,17 @@ public class a {
     public class n extends f0<LinkedHashMap<String, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54737a;
+        public final /* synthetic */ String f58426a;
 
         public n(a aVar, String str) {
-            this.f54737a = str;
+            this.f58426a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public LinkedHashMap<String, String> doInBackground() {
-            return d.a.n0.f1.h.l.t().f(this.f54737a, 2, null, 1000);
+            return d.a.n0.f1.h.l.t().f(this.f58426a, 2, null, 1000);
         }
     }
 
@@ -700,10 +700,10 @@ public class a {
     public class o implements d.a.m0.z0.n<LinkedHashMap<String, String>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.f1.s.c f54738a;
+        public final /* synthetic */ d.a.n0.f1.s.c f58427a;
 
         public o(a aVar, d.a.n0.f1.s.c cVar) {
-            this.f54738a = cVar;
+            this.f58427a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -735,7 +735,7 @@ public class a {
                     }
                 }
             }
-            this.f54738a.a(linkedHashMap2, hashMap);
+            this.f58427a.a(linkedHashMap2, hashMap);
         }
     }
 
@@ -757,14 +757,14 @@ public class a {
     }
 
     public static a j() {
-        if (f54695h == null) {
+        if (f58384h == null) {
             synchronized (a.class) {
-                if (f54695h == null) {
-                    f54695h = new a();
+                if (f58384h == null) {
+                    f58384h = new a();
                 }
             }
         }
-        return f54695h;
+        return f58384h;
     }
 
     public static void m(ChatMessage chatMessage) {
@@ -780,11 +780,11 @@ public class a {
     }
 
     public static void x(long j2) {
-        f54696i = Long.valueOf(j2);
+        f58385i = Long.valueOf(j2);
     }
 
     public boolean g(ChatMessage chatMessage) {
-        HashMap<String, d.a.m0.b0.a<ChatMessage>> hashMap = this.f54698b;
+        HashMap<String, d.a.m0.b0.a<ChatMessage>> hashMap = this.f58387b;
         if (hashMap != null && chatMessage != null) {
             for (Map.Entry<String, d.a.m0.b0.a<ChatMessage>> entry : hashMap.entrySet()) {
                 d.a.m0.b0.a<ChatMessage> value = entry.getValue();
@@ -794,16 +794,16 @@ public class a {
                         continue;
                     } else if (chatMessage.getCustomGroupType() != 2 && chatMessage.getCustomGroupType() != 4) {
                         if (chatMessage.getGroupId() != null && f2.getGroupId() != null && chatMessage.getGroupId().equals(f2.getGroupId())) {
-                            WeakReference<a.b<ChatMessage>> weakReference = this.f54702f;
+                            WeakReference<a.b<ChatMessage>> weakReference = this.f58391f;
                             if (weakReference != null && weakReference.get() != null) {
-                                value.m(this.f54702f.get());
+                                value.m(this.f58391f.get());
                             }
                             return true;
                         }
                     } else if (chatMessage.getToUserId() == f2.getToUserId()) {
-                        WeakReference<a.b<ChatMessage>> weakReference2 = this.f54702f;
+                        WeakReference<a.b<ChatMessage>> weakReference2 = this.f58391f;
                         if (weakReference2 != null && weakReference2.get() != null) {
-                            value.m(this.f54702f.get());
+                            value.m(this.f58391f.get());
                         }
                         return true;
                     }
@@ -814,7 +814,7 @@ public class a {
     }
 
     public boolean h(ChatMessage chatMessage) {
-        return i(chatMessage, this.f54697a) != -1;
+        return i(chatMessage, this.f58386a) != -1;
     }
 
     public final int i(ChatMessage chatMessage, LinkedList<ChatMessage> linkedList) {
@@ -839,16 +839,16 @@ public class a {
 
     public final void k() {
         VoiceSendModel voiceSendModel = new VoiceSendModel(null);
-        this.f54701e = voiceSendModel;
-        voiceSendModel.t(this.f54703g);
-        this.f54699c = new C1325a();
+        this.f58390e = voiceSendModel;
+        voiceSendModel.x(this.f58392g);
+        this.f58388c = new C1381a();
     }
 
     public final void l(ChatMessage chatMessage) {
         if (chatMessage == null) {
             return;
         }
-        this.f54697a.add(chatMessage);
+        this.f58386a.add(chatMessage);
     }
 
     public void n(String str, d.a.n0.f1.s.c cVar) {
@@ -864,13 +864,13 @@ public class a {
     }
 
     public final void q(ChatMessage chatMessage) {
-        int i2 = i(chatMessage, this.f54697a);
+        int i2 = i(chatMessage, this.f58386a);
         if (i2 >= 0) {
-            this.f54697a.remove(i2);
+            this.f58386a.remove(i2);
         }
     }
 
-    public final void r(String str, d.a.c.j.d.a aVar) {
+    public final void r(String str, d.a.c.k.d.a aVar) {
         d.a.m0.a0.c.k().d(str, aVar);
         d.a.c.e.a.f.c cVar = new d.a.c.e.a.f.c("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
         cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
@@ -881,7 +881,7 @@ public class a {
     }
 
     public final void s(String str, String str2) {
-        d.a.c.j.d.a m2 = d.a.m0.a0.c.k().m(str);
+        d.a.c.k.d.a m2 = d.a.m0.a0.c.k().m(str);
         String str3 = str2 + 10;
         if (m2 != null && m2.w()) {
             r(str3, m2);
@@ -916,33 +916,33 @@ public class a {
     }
 
     public void u(a.b<ChatMessage> bVar) {
-        this.f54702f = new WeakReference<>(bVar);
+        this.f58391f = new WeakReference<>(bVar);
     }
 
     public void v(d.a.n0.f1.s.d dVar) {
-        this.f54700d = dVar;
+        this.f58389d = dVar;
     }
 
     public void y(ChatMessage chatMessage, String str) {
-        d.a.m0.b0.a<ChatMessage> aVar = this.f54698b.get(str);
+        d.a.m0.b0.a<ChatMessage> aVar = this.f58387b.get(str);
         if (aVar == null) {
             aVar = new d.a.m0.b0.a<>(str, "IM");
             aVar.j();
             aVar.i(chatMessage);
-            WeakReference<a.b<ChatMessage>> weakReference = this.f54702f;
+            WeakReference<a.b<ChatMessage>> weakReference = this.f58391f;
             if (weakReference != null && weakReference.get() != null) {
-                aVar.m(this.f54702f.get());
+                aVar.m(this.f58391f.get());
             }
-            aVar.l(this.f54699c);
+            aVar.l(this.f58388c);
             if (chatMessage instanceof CommonGroupChatMessage) {
                 aVar.h(((CommonGroupChatMessage) chatMessage).getGroupId());
             } else if (chatMessage instanceof PersonalChatMessage) {
-                aVar.h(String.valueOf(f54696i));
+                aVar.h(String.valueOf(f58385i));
             } else if (chatMessage instanceof OfficialChatMessage) {
                 aVar.h(String.valueOf(j));
             }
             synchronized (a.class) {
-                this.f54698b.put(str, aVar);
+                this.f58387b.put(str, aVar);
             }
         }
         chatMessage.setLogTime(System.currentTimeMillis());
@@ -956,6 +956,6 @@ public class a {
             chatMessage.getClientLogID();
             chatMessage.getCmd();
         }
-        this.f54701e.u(voiceMsgData.getVoice_md5(), chatMessage);
+        this.f58390e.y(voiceMsgData.getVoice_md5(), chatMessage);
     }
 }

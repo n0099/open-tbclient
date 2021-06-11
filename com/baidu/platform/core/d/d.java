@@ -4,7 +4,7 @@ import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.FieldBuilder;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.platform.base.e {
@@ -14,29 +14,29 @@ public class d extends com.baidu.platform.base.e {
 
     private void a(DrivingRoutePlanOption drivingRoutePlanOption) {
         PlanNode planNode;
-        this.f9252a.a("qt", "cars");
-        this.f9252a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
-        this.f9252a.a("ie", "utf-8");
-        this.f9252a.a("lrn", "20");
-        this.f9252a.a("version", "6");
-        this.f9252a.a("extinfo", "32");
-        this.f9252a.a("mrs", "1");
-        this.f9252a.a("rp_format", "json");
-        this.f9252a.a("rp_filter", "mobile");
-        this.f9252a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
-        this.f9252a.a(IAdRequestParam.SN, a(drivingRoutePlanOption.mFrom));
-        this.f9252a.a("en", a(drivingRoutePlanOption.mTo));
+        this.f9309a.a("qt", "cars");
+        this.f9309a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
+        this.f9309a.a("ie", "utf-8");
+        this.f9309a.a("lrn", "20");
+        this.f9309a.a("version", "6");
+        this.f9309a.a("extinfo", EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS);
+        this.f9309a.a("mrs", "1");
+        this.f9309a.a("rp_format", "json");
+        this.f9309a.a("rp_filter", "mobile");
+        this.f9309a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
+        this.f9309a.a(IAdRequestParam.SN, a(drivingRoutePlanOption.mFrom));
+        this.f9309a.a("en", a(drivingRoutePlanOption.mTo));
         String str = drivingRoutePlanOption.mCityName;
         if (str != null) {
-            this.f9252a.a("c", str);
+            this.f9309a.a("c", str);
         }
         PlanNode planNode2 = drivingRoutePlanOption.mFrom;
         if (planNode2 != null) {
-            this.f9252a.a(Config.STAT_SDK_CHANNEL, planNode2.getCity());
+            this.f9309a.a(Config.STAT_SDK_CHANNEL, planNode2.getCity());
         }
         PlanNode planNode3 = drivingRoutePlanOption.mTo;
         if (planNode3 != null) {
-            this.f9252a.a("ec", planNode3.getCity());
+            this.f9309a.a("ec", planNode3.getCity());
         }
         List<PlanNode> list = drivingRoutePlanOption.mWayPoints;
         String str2 = new String();
@@ -47,13 +47,13 @@ public class d extends com.baidu.platform.base.e {
                     str2 = str2 + a(planNode);
                     str3 = str3 + planNode.getCity();
                     if (i2 != list.size() - 1) {
-                        str3 = str3 + FieldBuilder.SE;
-                        str2 = str2 + FieldBuilder.SE;
+                        str3 = str3 + "|";
+                        str2 = str2 + "|";
                     }
                 }
             }
-            this.f9252a.a("wp", str2);
-            this.f9252a.a("wpc", str3);
+            this.f9309a.a("wp", str2);
+            this.f9309a.a("wpc", str3);
         }
     }
 

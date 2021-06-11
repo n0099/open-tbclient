@@ -12,7 +12,7 @@ import d.a.c.e.l.c;
 import d.a.c.e.l.d;
 import d.a.c.e.m.e;
 import d.a.c.e.p.l;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import d.a.m0.r.f0.k;
 import d.a.m0.r.q.a2;
 import java.util.HashMap;
@@ -39,8 +39,8 @@ public class SpecHotTopicHelper {
             return;
         }
         String E0 = a2Var.E0();
-        String d1 = a2Var.d1();
-        if (StringUtils.isNull(E0) || StringUtils.isNull(d1)) {
+        String e1 = a2Var.e1();
+        if (StringUtils.isNull(E0) || StringUtils.isNull(e1)) {
             return;
         }
         Bitmap j = d.a.m0.a0.c.k().j(E0);
@@ -48,10 +48,10 @@ public class SpecHotTopicHelper {
             j = loadBdImageFromLocal.p();
             d.a.m0.a0.c.k().a(E0, j);
         }
-        Bitmap j2 = d.a.m0.a0.c.k().j(d1);
-        if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(d1, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(d1, 10)) != null) {
+        Bitmap j2 = d.a.m0.a0.c.k().j(e1);
+        if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(e1, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(e1, 10)) != null) {
             j2 = loadBdImageFromLocal2.p();
-            d.a.m0.a0.c.k().a(d1, j2);
+            d.a.m0.a0.c.k().a(e1, j2);
         }
         if (j != null && !j.isRecycled() && j2 != null && !j2.isRecycled()) {
             int i3 = 0;
@@ -73,7 +73,7 @@ public class SpecHotTopicHelper {
             }
             return;
         }
-        loadSpecTopicIconIfNeed(E0, d1);
+        loadSpecTopicIconIfNeed(E0, e1);
     }
 
     public static void loadSpecTopicIconIfNeed(final String str, final String str2) {
@@ -112,8 +112,8 @@ public class SpecHotTopicHelper {
     public static void setSpecTopicIcon(long j, a2 a2Var) {
         Pair<String, String> pair = mMap.get(Long.valueOf(j));
         if (pair != null) {
-            a2Var.x3(j);
-            a2Var.l4((String) pair.first, (String) pair.second);
+            a2Var.y3(j);
+            a2Var.m4((String) pair.first, (String) pair.second);
         }
     }
 }

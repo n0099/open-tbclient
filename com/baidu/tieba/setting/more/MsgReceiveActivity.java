@@ -30,30 +30,30 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     return;
                 }
                 if (z2) {
-                    MsgReceiveActivity.this.mView.j().h();
-                    MsgReceiveActivity.this.mView.p(false);
-                    MsgReceiveActivity.this.mView.r(false);
+                    MsgReceiveActivity.this.mView.k().h();
+                    MsgReceiveActivity.this.mView.q(false);
+                    MsgReceiveActivity.this.mView.s(false);
                     return;
                 }
-                MsgReceiveActivity.this.mView.j().k();
-                MsgReceiveActivity.this.mView.p(true);
-                MsgReceiveActivity.this.mView.r(true);
+                MsgReceiveActivity.this.mView.k().k();
+                MsgReceiveActivity.this.mView.q(true);
+                MsgReceiveActivity.this.mView.s(true);
             } else if (i2 == 9) {
                 if (z) {
                     return;
                 }
                 if (z2) {
-                    MsgReceiveActivity.this.mView.l().h();
+                    MsgReceiveActivity.this.mView.m().h();
                 } else {
-                    MsgReceiveActivity.this.mView.l().k();
+                    MsgReceiveActivity.this.mView.m().k();
                 }
             } else if (i2 == 7) {
                 if (z) {
                     d.d().P(z2);
                 } else if (z2) {
-                    MsgReceiveActivity.this.mView.h().h();
+                    MsgReceiveActivity.this.mView.i().h();
                 } else {
-                    MsgReceiveActivity.this.mView.h().k();
+                    MsgReceiveActivity.this.mView.i().k();
                 }
             }
         }
@@ -69,30 +69,30 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
             if (i2 != OfficialAccountPushModel.NET_SUCCESS || MsgReceiveActivity.this.mView == null) {
                 return;
             }
-            MsgReceiveActivity.this.mView.q(arrayList);
+            MsgReceiveActivity.this.mView.r(arrayList);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.mView.j()) {
+        if (view == this.mView.k()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mModel.v(8, true, this.mMsgRemindModelCallback);
-                this.mView.p(true);
-                this.mView.r(true);
+                this.mModel.z(8, true, this.mMsgRemindModelCallback);
+                this.mView.q(true);
+                this.mView.s(true);
                 return;
             }
-            this.mModel.v(8, false, this.mMsgRemindModelCallback);
-            this.mView.p(false);
-            this.mView.r(false);
-        } else if (view == this.mView.l()) {
+            this.mModel.z(8, false, this.mMsgRemindModelCallback);
+            this.mView.q(false);
+            this.mView.s(false);
+        } else if (view == this.mView.m()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mModel.v(9, true, this.mMsgRemindModelCallback);
+                this.mModel.z(9, true, this.mMsgRemindModelCallback);
             } else {
-                this.mModel.v(9, false, this.mMsgRemindModelCallback);
+                this.mModel.z(9, false, this.mMsgRemindModelCallback);
             }
-        } else if (view == this.mView.h()) {
-            this.mModel.v(7, switchState == BdSwitchView.SwitchState.OFF, this.mMsgRemindModelCallback);
+        } else if (view == this.mView.i()) {
+            this.mModel.z(7, switchState == BdSwitchView.SwitchState.OFF, this.mMsgRemindModelCallback);
         }
     }
 
@@ -105,7 +105,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.mView.g()) {
+        if (view == this.mView.h()) {
             finish();
         }
     }
@@ -115,7 +115,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         super.onCreate(bundle);
         f fVar = new f(this);
         this.mView = fVar;
-        fVar.m();
+        fVar.n();
         this.mModel = new MsgRemindModel(this);
     }
 
@@ -134,6 +134,6 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         if (this.mOfficialPushModel == null) {
             this.mOfficialPushModel = new OfficialAccountPushModel(this.mCallback);
         }
-        this.mOfficialPushModel.t();
+        this.mOfficialPushModel.x();
     }
 }

@@ -25,24 +25,24 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41148a = d.a.l0.a.k.f43199a;
+    public static final boolean f44824a = d.a.l0.a.k.f46875a;
 
     /* renamed from: d.a.l0.a.c2.f.p0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0587a implements Runnable {
+    public static class RunnableC0643a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41149e;
+        public final /* synthetic */ String f44825e;
 
-        public RunnableC0587a(String str) {
-            this.f41149e = str;
+        public RunnableC0643a(String str) {
+            this.f44825e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             d.a.l0.a.h0.g.g W = d.a.l0.a.g1.f.V().W();
             if (W != null) {
-                g.b i2 = W.i(this.f41149e);
+                g.b i2 = W.i(this.f44825e);
                 i2.f();
                 i2.b();
                 d.a.l0.a.e0.d.h("ActionUtils", "popAllFragment: finish");
@@ -51,35 +51,35 @@ public final class a {
     }
 
     public static d.a.l0.a.h0.u.d a(d.a.l0.a.p.e.b<?> bVar, d.a.l0.a.l1.b bVar2, String str) {
-        d.a.l0.a.a2.n.g e2 = d.a.l0.a.g1.f.V().e(bVar2.f43360h);
+        d.a.l0.a.a2.n.g e2 = d.a.l0.a.g1.f.V().e(bVar2.f47036h);
         d.a.l0.a.h0.u.d dVar = new d.a.l0.a.h0.u.d();
-        dVar.f42620i = bVar.L();
-        dVar.f42612a = bVar2.f43359g;
+        dVar.f46296i = bVar.L();
+        dVar.f46288a = bVar2.f47035g;
         if (d.a.l0.a.a2.e.i() != null) {
-            dVar.f42614c = d.a.l0.a.a2.e.i().S(bVar2.f43360h);
+            dVar.f46290c = d.a.l0.a.a2.e.i().S(bVar2.f47036h);
         }
-        dVar.k = d.a.l0.a.h0.u.a.c(d.a.l0.a.a2.e.i(), bVar2.f43357e);
-        dVar.f42613b = d.a.l0.a.l1.b.c(bVar2);
-        dVar.f42615d = e2.f40798g;
-        dVar.f42616e = String.valueOf(d.a.l0.a.e0.a.a());
+        dVar.k = d.a.l0.a.h0.u.a.c(d.a.l0.a.a2.e.i(), bVar2.f47033e);
+        dVar.f46289b = d.a.l0.a.l1.b.c(bVar2);
+        dVar.f46291d = e2.f44474g;
+        dVar.f46292e = String.valueOf(d.a.l0.a.e0.a.a());
         if (d.a.l0.a.a2.e.i() != null) {
-            String M = d.a.l0.a.a2.e.i().M(bVar2.f43360h);
+            String M = d.a.l0.a.a2.e.i().M(bVar2.f47036h);
             if (!TextUtils.isEmpty(M)) {
-                if (f41148a) {
+                if (f44824a) {
                     Log.d("ActionUtils", "add initData: " + M);
                 }
-                dVar.f42617f = M;
+                dVar.f46293f = M;
             }
         }
-        dVar.f42618g = f41148a || d.a.l0.a.g1.f.V().O();
-        dVar.f42619h = str;
+        dVar.f46294g = f44824a || d.a.l0.a.g1.f.V().O();
+        dVar.f46295h = str;
         if (d.a.l0.a.u1.a.a.G()) {
             dVar.j = d.a.l0.a.e0.f.b.d();
         }
-        if (f41148a) {
+        if (f44824a) {
             Log.i("ActionUtils", "buildPageEvent: " + Arrays.toString(new Exception().getStackTrace()));
         }
-        d.a.l0.a.n2.g.a.b(dVar.f42612a, dVar.f42613b);
+        d.a.l0.a.n2.g.a.b(dVar.f46288a, dVar.f46289b);
         return dVar;
     }
 
@@ -111,7 +111,7 @@ public final class a {
                 jSONObject.put("removedSlaveIDs", jSONArray);
             }
         } catch (JSONException e2) {
-            if (f41148a) {
+            if (f44824a) {
                 e2.printStackTrace();
             }
         }
@@ -130,7 +130,7 @@ public final class a {
                 jSONObject.put("pageUrl", str2);
             }
         } catch (JSONException e2) {
-            if (f41148a) {
+            if (f44824a) {
                 e2.printStackTrace();
             }
         }
@@ -140,19 +140,19 @@ public final class a {
     /* JADX WARN: Type inference failed for: r7v2, types: [d.a.l0.a.p.e.c] */
     public static void e(d.a.l0.a.p.e.b<?> bVar, d.a.l0.a.l1.b bVar2, String str) {
         d.a.l0.a.r1.g.a(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, "createAndLoadPage start.");
-        String a2 = q0.a(bVar2.f43359g, bVar2.f43357e, bVar2.f43358f);
+        String a2 = q0.a(bVar2.f47035g, bVar2.f47033e, bVar2.f47034f);
         d.a.l0.a.h0.u.d a3 = a(bVar, bVar2, str);
         d.a.l0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).C(new UbcFlowEvent("slave_dispatch_start"));
         d0.d();
         bVar.u().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, bVar2.f());
-        bVar.S(a3.f42613b);
+        bVar.S(a3.f46289b);
         d.a.l0.a.g1.f.V().m(bVar.b(), d.a.l0.a.h0.u.d.a(a3));
         if (d.a.l0.a.h0.u.e.b()) {
             d.a.l0.a.h0.u.e eVar = new d.a.l0.a.h0.u.e();
-            eVar.f42623a = bVar.b();
+            eVar.f46299a = bVar.b();
             d.a.l0.a.g1.f.V().v(d.a.l0.a.h0.u.e.a(eVar));
         }
-        d.a.l0.a.j2.e.F(bVar.b(), a3.f42613b);
+        d.a.l0.a.j2.e.F(bVar.b(), a3.f46289b);
         d.a.l0.a.h0.t.a.m(a2, bVar);
         d.a.l0.a.r1.g.a(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, "createAndLoadPage end.");
     }
@@ -177,7 +177,7 @@ public final class a {
 
     public static List<String> g(d.a.l0.a.h0.g.g gVar) {
         d.a.l0.a.h0.g.d j;
-        if (gVar != null && gVar.k() >= d.a.l0.a.u.e.k.b.f45079d && (j = gVar.j(0)) != null && (j instanceof d.a.l0.a.h0.g.f)) {
+        if (gVar != null && gVar.k() >= d.a.l0.a.u.e.k.b.f48753d && (j = gVar.j(0)) != null && (j instanceof d.a.l0.a.h0.g.f)) {
             return ((d.a.l0.a.h0.g.f) j).h3();
         }
         return null;
@@ -194,7 +194,7 @@ public final class a {
 
     public static boolean i(@NonNull String str) {
         String h2 = h();
-        if (f41148a) {
+        if (f44824a) {
             Log.i("ActionUtils", "lastPageUrl: " + h2 + "\ncurPageUrl: " + str);
         }
         if (h2 != null && str != null) {
@@ -241,7 +241,7 @@ public final class a {
         try {
             return new JSONObject(str3).optString(str2);
         } catch (JSONException e2) {
-            if (f41148a) {
+            if (f44824a) {
                 e2.printStackTrace();
             }
             return null;
@@ -262,6 +262,6 @@ public final class a {
 
     public static void q(String str) {
         d.a.l0.a.e0.d.h("ActionUtils", "popAllFragment: routeType=" + str);
-        q0.b0(new RunnableC0587a(str));
+        q0.b0(new RunnableC0643a(str));
     }
 }

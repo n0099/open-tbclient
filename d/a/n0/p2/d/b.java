@@ -9,43 +9,43 @@ import tbclient.GetLockWindowMsg.LockWindowThreadInfo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f58156a;
+    public long f61847a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58157b;
+    public String f61848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58158c;
+    public int f61849c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbRichText f58159d;
+    public TbRichText f61850d;
 
     public TbRichText a() {
-        return this.f58159d;
+        return this.f61850d;
     }
 
     public int b() {
-        return this.f58158c;
+        return this.f61849c;
     }
 
     public long c() {
-        return this.f58156a;
+        return this.f61847a;
     }
 
     public String d() {
-        return this.f58157b;
+        return this.f61848b;
     }
 
     public void e(Context context, LockWindowThreadInfo lockWindowThreadInfo) {
         if (lockWindowThreadInfo == null) {
             return;
         }
-        this.f58156a = lockWindowThreadInfo.tid.longValue();
-        this.f58157b = lockWindowThreadInfo.title;
-        this.f58158c = lockWindowThreadInfo.post_num.intValue();
+        this.f61847a = lockWindowThreadInfo.tid.longValue();
+        this.f61848b = lockWindowThreadInfo.title;
+        this.f61849c = lockWindowThreadInfo.post_num.intValue();
         if (ListUtils.isEmpty(lockWindowThreadInfo.content)) {
             return;
         }
-        this.f58159d = TbRichTextView.U(context, lockWindowThreadInfo.content, true);
+        this.f61850d = TbRichTextView.U(context, lockWindowThreadInfo.content, true);
     }
 }

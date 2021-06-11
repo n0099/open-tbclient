@@ -10,23 +10,23 @@ import java.lang.ref.WeakReference;
 public class d extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<AdDownloadData> f58201a;
+    public WeakReference<AdDownloadData> f61892a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<d.a.n0.q.d.g.a> f58202b;
+    public WeakReference<d.a.n0.q.d.g.a> f61893b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58204d = d.a.n0.a.h().b();
+    public int f61895d = d.a.n0.a.h().b();
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58203c = d.a.n0.a.h().c();
+    public int f61894c = d.a.n0.a.h().c();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f58205e = d.a.n0.a.h().a();
+    public long f61896e = d.a.n0.a.h().a();
 
     public d(d.a.n0.q.d.g.a aVar, AdDownloadData adDownloadData) {
-        this.f58201a = new WeakReference<>(adDownloadData);
-        this.f58202b = new WeakReference<>(aVar);
+        this.f61892a = new WeakReference<>(adDownloadData);
+        this.f61893b = new WeakReference<>(aVar);
         d(adDownloadData.getContentLength());
     }
 
@@ -40,7 +40,7 @@ public class d extends Handler {
     public final void b() {
         Message obtain = Message.obtain();
         obtain.what = 1;
-        sendMessageDelayed(obtain, (this.f58203c * 1000) / this.f58204d);
+        sendMessageDelayed(obtain, (this.f61894c * 1000) / this.f61895d);
     }
 
     public void c() {
@@ -49,9 +49,9 @@ public class d extends Handler {
 
     public void d(long j) {
         if (j > 1) {
-            long j2 = this.f58205e;
+            long j2 = this.f61896e;
             if (j2 > 0) {
-                this.f58203c = (int) (((((float) j) * this.f58204d) / 100.0f) / ((float) j2));
+                this.f61894c = (int) (((((float) j) * this.f61895d) / 100.0f) / ((float) j2));
             }
         }
     }
@@ -63,10 +63,10 @@ public class d extends Handler {
             c();
             return;
         }
-        AdDownloadData adDownloadData = this.f58201a.get();
-        d.a.n0.q.d.g.a aVar = this.f58202b.get();
+        AdDownloadData adDownloadData = this.f61892a.get();
+        d.a.n0.q.d.g.a aVar = this.f61893b.get();
         if (adDownloadData != null && aVar != null) {
-            if (this.f58204d <= 0) {
+            if (this.f61895d <= 0) {
                 adDownloadData.setFakePercent(0);
                 c();
                 return;
@@ -78,7 +78,7 @@ public class d extends Handler {
                 return;
             } else {
                 int fakePercent = adDownloadData.getFakePercent();
-                if (fakePercent >= this.f58204d) {
+                if (fakePercent >= this.f61895d) {
                     c();
                     return;
                 }

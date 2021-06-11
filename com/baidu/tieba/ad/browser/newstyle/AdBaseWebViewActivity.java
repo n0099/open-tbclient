@@ -195,11 +195,11 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         a.b d2 = d.a.m0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
         String str2 = "";
         if (d2 != null) {
-            String str3 = d2.f49863a;
+            String str3 = d2.f53539a;
             if (str3 == null) {
                 str3 = "";
             }
-            str = d2.f49864b;
+            str = d2.f53540b;
             if (str == null) {
                 str = "";
             }
@@ -453,7 +453,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         this.mView.t(this.mAdExtInfo);
         this.mView.s(this.mDeeplink);
         if (!this.mView.m() && UtilHelper.canUseStyleImmersiveSticky()) {
-            ViewHelper.addStateBarViewSpace(this.mView.f58185a, R.color.CAM_X0303, false);
+            ViewHelper.addStateBarViewSpace(this.mView.f61876a, R.color.CAM_X0303, false);
         }
         adjustResizeForSoftInput();
     }

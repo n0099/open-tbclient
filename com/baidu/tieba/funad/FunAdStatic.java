@@ -17,15 +17,15 @@ import d.a.n0.t0.d;
 public class FunAdStatic {
 
     /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<a.c> {
+    public static class a implements CustomMessageTask.CustomRunnable<a.d> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<a.c> run(CustomMessage<a.c> customMessage) {
+        public CustomResponsedMessage<a.d> run(CustomMessage<a.d> customMessage) {
             return new CustomResponsedMessage<>(2921525, new c());
         }
     }
 
     static {
-        b.f60382a.set(new d());
+        b.f64073a.set(new d());
         a();
     }
 

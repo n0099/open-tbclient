@@ -15,21 +15,21 @@ import tbclient.GetLevelInfo.DataRes;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f58031a;
+    public c f61722a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity<T> f58032b;
+    public BaseActivity<T> f61723b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.c.c.g.a f58033c = new C1462a(CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
+    public d.a.c.c.g.a f61724c = new C1518a(CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f58034d = new b(2003007);
+    public CustomMessageListener f61725d = new b(2003007);
 
     /* renamed from: d.a.n0.p0.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1462a extends d.a.c.c.g.a {
-        public C1462a(int i2, int i3) {
+    public class C1518a extends d.a.c.c.g.a {
+        public C1518a(int i2, int i3) {
             super(i2, i3);
         }
 
@@ -37,10 +37,10 @@ public class a<T> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
                 GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
-                a.this.f58031a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
+                a.this.f61722a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
             } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
                 GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
-                a.this.f58031a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
+                a.this.f61722a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
             }
         }
     }
@@ -58,7 +58,7 @@ public class a<T> {
                 return;
             }
             GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
-            a.this.f58031a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
+            a.this.f61722a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
         }
     }
 
@@ -68,25 +68,25 @@ public class a<T> {
     }
 
     public a(c cVar, BaseActivity<T> baseActivity) {
-        this.f58031a = cVar;
-        this.f58032b = baseActivity;
+        this.f61722a = cVar;
+        this.f61723b = baseActivity;
         b();
     }
 
     public final void b() {
-        this.f58032b.registerListener(this.f58034d);
-        this.f58032b.registerListener(this.f58033c);
+        this.f61723b.registerListener(this.f61725d);
+        this.f61723b.registerListener(this.f61724c);
     }
 
     public void c(int i2) {
         GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
         getLevelInfoReadCacheRequestMessage.setCacheKey("" + i2);
-        this.f58032b.sendMessage(getLevelInfoReadCacheRequestMessage);
+        this.f61723b.sendMessage(getLevelInfoReadCacheRequestMessage);
     }
 
     public void d(int i2) {
         GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
         getLevelInfoRequestMessage.setForumId(i2);
-        this.f58032b.sendMessage(getLevelInfoRequestMessage);
+        this.f61723b.sendMessage(getLevelInfoRequestMessage);
     }
 }

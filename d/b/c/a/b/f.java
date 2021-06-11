@@ -5,7 +5,7 @@ import java.io.IOException;
 public interface f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f65535a = new a();
+    public static final f f69266a = new a();
 
     /* loaded from: classes6.dex */
     public static class a implements f {

@@ -22,34 +22,34 @@ import d.a.m0.s.c.j0;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public LogoActivity f61381a;
+    public LogoActivity f65094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f61382b;
+    public View f65095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f61383c;
+    public View f65096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f61384d;
+    public TextView f65097d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f61385e;
+    public TextView f65098e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ScaleVideoView f61386f;
+    public ScaleVideoView f65099f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f61387g;
+    public g f65100g;
     public int j;
     public boolean k = true;
     public Runnable l = new a();
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.u3.a f61388h = new d.a.n0.u3.a();
+    public d.a.n0.u3.a f65101h = new d.a.n0.u3.a();
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.u3.c f61389i = new d.a.n0.u3.c();
+    public d.a.n0.u3.c f65102i = new d.a.n0.u3.c();
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -58,8 +58,8 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.f61387g != null) {
-                d.this.f61387g.onError();
+            if (d.this.f65100g != null) {
+                d.this.f65100g.onError();
             }
         }
     }
@@ -72,9 +72,9 @@ public class d {
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i2, int i3) {
             d.a.c.e.m.e.a().removeCallbacks(d.this.l);
-            if (d.this.f61387g != null) {
+            if (d.this.f65100g != null) {
                 d.this.k = false;
-                d.this.f61387g.onError();
+                d.this.f65100g.onError();
                 return true;
             }
             return true;
@@ -89,16 +89,16 @@ public class d {
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             d.a.c.e.m.e.a().removeCallbacks(d.this.l);
-            if (d.this.f61387g != null) {
+            if (d.this.f65100g != null) {
                 d.this.k = false;
-                d.this.f61387g.onSkip();
+                d.this.f65100g.onSkip();
             }
         }
     }
 
     /* renamed from: d.a.n0.u3.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1637d implements MediaPlayer.OnPreparedListener {
+    public class C1694d implements MediaPlayer.OnPreparedListener {
 
         /* renamed from: d.a.n0.u3.d$d$a */
         /* loaded from: classes5.dex */
@@ -116,13 +116,13 @@ public class d {
             }
         }
 
-        public C1637d() {
+        public C1694d() {
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             d.a.c.e.m.e.a().removeCallbacks(d.this.l);
-            d.this.f61386f.setMediaPlayer(mediaPlayer);
+            d.this.f65099f.setMediaPlayer(mediaPlayer);
             mediaPlayer.setOnInfoListener(new a());
             d.this.q();
         }
@@ -136,9 +136,9 @@ public class d {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.a.c.e.m.e.a().removeCallbacks(d.this.l);
-            if (d.this.f61387g != null) {
+            if (d.this.f65100g != null) {
                 d.this.k = false;
-                d.this.f61387g.onSkip();
+                d.this.f65100g.onSkip();
             }
         }
     }
@@ -147,21 +147,21 @@ public class d {
     public class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f61396e;
+        public final /* synthetic */ String f65109e;
 
         public f(String str) {
-            this.f61396e = str;
+            this.f65109e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TiebaStatic.log(new StatisticItem("c12945"));
-            if (k.isEmpty(this.f61396e)) {
+            if (k.isEmpty(this.f65109e)) {
                 return;
             }
             d.this.k = false;
-            d.this.f61387g.onSkip();
-            UrlManager.getInstance().dealOneLink(d.this.f61381a.getPageContext(), new String[]{this.f61396e});
+            d.this.f65100g.onSkip();
+            UrlManager.getInstance().dealOneLink(d.this.f65094a.getPageContext(), new String[]{this.f65109e});
         }
     }
 
@@ -174,20 +174,20 @@ public class d {
 
     public d(LogoActivity logoActivity) {
         this.j = 0;
-        this.f61381a = logoActivity;
+        this.f65094a = logoActivity;
         this.j = 0;
     }
 
     public boolean h() {
         d.a.n0.u3.a aVar;
-        return (d.a.m0.r.d0.b.j().k("key_video_splash_switch", 0) == 1) && (aVar = this.f61388h) != null && this.f61389i != null && aVar.b() && this.f61389i.l();
+        return (d.a.m0.r.d0.b.j().k("key_video_splash_switch", 0) == 1) && (aVar = this.f65101h) != null && this.f65102i != null && aVar.b() && this.f65102i.l();
     }
 
     public void i() {
         if (d.a.m0.r.d0.b.j().k("key_video_splash_switch", 0) == 1) {
             return;
         }
-        d.a.n0.u3.c cVar = this.f61389i;
+        d.a.n0.u3.c cVar = this.f65102i;
         if (cVar != null) {
             cVar.g();
         }
@@ -195,53 +195,53 @@ public class d {
     }
 
     public final View j(double d2) {
-        View inflate = LayoutInflater.from(this.f61381a).inflate(R.layout.video_splash_layout, (ViewGroup) null);
-        inflate.setLayoutParams(new RelativeLayout.LayoutParams(-1, (int) (l.i(this.f61381a) * d2)));
+        View inflate = LayoutInflater.from(this.f65094a).inflate(R.layout.video_splash_layout, (ViewGroup) null);
+        inflate.setLayoutParams(new RelativeLayout.LayoutParams(-1, (int) (l.i(this.f65094a) * d2)));
         ScaleVideoView scaleVideoView = (ScaleVideoView) inflate.findViewById(R.id.video);
-        this.f61386f = scaleVideoView;
+        this.f65099f = scaleVideoView;
         scaleVideoView.setOnErrorListener(new b());
-        this.f61386f.setOnCompletionListener(new c());
-        this.f61386f.setOnPreparedListener(new C1637d());
+        this.f65099f.setOnCompletionListener(new c());
+        this.f65099f.setOnPreparedListener(new C1694d());
         TextView textView = (TextView) inflate.findViewById(R.id.skip);
-        this.f61385e = textView;
+        this.f65098e = textView;
         textView.setOnClickListener(new e());
         String p = d.a.m0.r.d0.b.j().p("key_video_splash_config", "");
         j0 j0Var = new j0();
         j0Var.g(p);
         String c2 = j0Var.c();
         View findViewById = inflate.findViewById(R.id.tip_container);
-        this.f61383c = findViewById;
+        this.f65096c = findViewById;
         findViewById.setOnClickListener(new f(c2));
-        this.f61384d = (TextView) inflate.findViewById(R.id.tip_text);
+        this.f65097d = (TextView) inflate.findViewById(R.id.tip_text);
         String b2 = j0Var.b();
         if (k.isEmpty(b2)) {
-            b2 = this.f61381a.getString(R.string.video_splash_tip_default);
+            b2 = this.f65094a.getString(R.string.video_splash_tip_default);
         }
-        this.f61384d.setText(b2);
+        this.f65097d.setText(b2);
         s();
         return inflate;
     }
 
     public View k(double d2) {
-        if (this.f61382b == null) {
-            this.f61382b = j(d2);
+        if (this.f65095b == null) {
+            this.f65095b = j(d2);
         }
-        return this.f61382b;
+        return this.f65095b;
     }
 
     public final void l() {
-        ScaleVideoView scaleVideoView = this.f61386f;
+        ScaleVideoView scaleVideoView = this.f65099f;
         if (scaleVideoView != null) {
             scaleVideoView.setBackgroundResource(0);
         }
     }
 
     public final void m() {
-        d.a.n0.u3.c cVar = this.f61389i;
+        d.a.n0.u3.c cVar = this.f65102i;
         if (cVar == null || k.isEmpty(cVar.i())) {
             return;
         }
-        this.f61386f.setVideoPath(this.f61389i.i());
+        this.f65099f.setVideoPath(this.f65102i.i());
     }
 
     public void n() {
@@ -249,10 +249,10 @@ public class d {
     }
 
     public void o() {
-        ScaleVideoView scaleVideoView = this.f61386f;
+        ScaleVideoView scaleVideoView = this.f65099f;
         if (scaleVideoView != null) {
             this.j = scaleVideoView.getCurrentPosition();
-            this.f61386f.stopPlayback();
+            this.f65099f.stopPlayback();
             if (this.k) {
                 s();
             }
@@ -261,45 +261,45 @@ public class d {
 
     public void p() {
         this.k = true;
-        ScaleVideoView scaleVideoView = this.f61386f;
+        ScaleVideoView scaleVideoView = this.f65099f;
         if (scaleVideoView != null) {
             scaleVideoView.resume();
         }
     }
 
     public final void q() {
-        d.a.n0.u3.a aVar = this.f61388h;
+        d.a.n0.u3.a aVar = this.f65101h;
         if (aVar != null) {
             aVar.g(System.currentTimeMillis());
         }
         int i2 = this.j;
         if (i2 >= 0) {
-            this.f61386f.seekTo(i2);
+            this.f65099f.seekTo(i2);
         }
-        this.f61386f.start();
+        this.f65099f.start();
     }
 
     public void r(g gVar) {
-        this.f61387g = gVar;
+        this.f65100g = gVar;
     }
 
     public final void s() {
-        d.a.n0.u3.c cVar = this.f61389i;
+        d.a.n0.u3.c cVar = this.f65102i;
         if (cVar == null || !cVar.l()) {
             return;
         }
         try {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            mediaMetadataRetriever.setDataSource(this.f61389i.i());
+            mediaMetadataRetriever.setDataSource(this.f65102i.i());
             Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(0L);
-            if (this.f61386f != null) {
-                this.f61386f.setBackgroundDrawable(new BitmapDrawable(frameAtTime));
+            if (this.f65099f != null) {
+                this.f65099f.setBackgroundDrawable(new BitmapDrawable(frameAtTime));
             }
         } catch (Exception e2) {
             e2.printStackTrace();
-            ScaleVideoView scaleVideoView = this.f61386f;
+            ScaleVideoView scaleVideoView = this.f65099f;
             if (scaleVideoView != null) {
-                scaleVideoView.setBackgroundColor(this.f61381a.getResources().getColor(R.color.CAM_X0101));
+                scaleVideoView.setBackgroundColor(this.f65094a.getResources().getColor(R.color.CAM_X0101));
             }
         }
     }

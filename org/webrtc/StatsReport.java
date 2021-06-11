@@ -1,14 +1,14 @@
 package org.webrtc;
 
 import com.baidu.android.common.others.lang.StringUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatsReport {
     public final String id;
     public final double timestamp;
     public final String type;
     public final Value[] values;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Value {
         public final String name;
         public final String value;

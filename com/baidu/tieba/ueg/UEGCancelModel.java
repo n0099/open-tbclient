@@ -12,10 +12,10 @@ import d.a.c.e.p.j;
 public class UEGCancelModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21163e;
+    public b f21241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.c.c.g.a f21164f = new a(CmdConfigHttp.CMD_UEG_CANCEL, 309615);
+    public final d.a.c.c.g.a f21242f = new a(CmdConfigHttp.CMD_UEG_CANCEL, 309615);
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -30,14 +30,14 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
             boolean z = responsedMessage instanceof UEGCancelSocketResponseMessage;
-            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && UEGCancelModel.this.f21163e != null) {
+            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && UEGCancelModel.this.f21241e != null) {
                 if (z) {
                     UEGCancelSocketResponseMessage uEGCancelSocketResponseMessage = (UEGCancelSocketResponseMessage) responsedMessage;
                     if (uEGCancelSocketResponseMessage != null && uEGCancelSocketResponseMessage.getError() == 0) {
-                        UEGCancelModel.this.f21163e.a(uEGCancelSocketResponseMessage.getData());
+                        UEGCancelModel.this.f21241e.a(uEGCancelSocketResponseMessage.getData());
                     }
                 } else if ((responsedMessage instanceof UEGCancelResponsedMessage) && (uEGCancelResponsedMessage = (UEGCancelResponsedMessage) responsedMessage) != null && uEGCancelResponsedMessage.getError() == 0) {
-                    UEGCancelModel.this.f21163e.a(uEGCancelResponsedMessage.getData());
+                    UEGCancelModel.this.f21241e.a(uEGCancelResponsedMessage.getData());
                 }
             }
         }
@@ -51,7 +51,7 @@ public class UEGCancelModel extends BdBaseModel {
     public UEGCancelModel() {
         d.a.n0.e3.d0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
         d.a.n0.e3.d0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
-        registerListener(this.f21164f);
+        registerListener(this.f21242f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -65,10 +65,10 @@ public class UEGCancelModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f21164f);
+        MessageManager.getInstance().unRegisterListener(this.f21242f);
     }
 
-    public void t() {
+    public void x() {
         if (!j.z() || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return;
         }
@@ -77,7 +77,7 @@ public class UEGCancelModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(uEGCancelRequestMessage);
     }
 
-    public void u(b bVar) {
-        this.f21163e = bVar;
+    public void y(b bVar) {
+        this.f21241e = bVar;
     }
 }

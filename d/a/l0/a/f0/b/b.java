@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class b extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41807c;
+    public String f45483c;
 
     public b(e eVar) {
         super(eVar, "/swanAPI/setPhoneContact");
@@ -29,7 +29,7 @@ public class b extends a0 {
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
         if (context != null && callbackHandler != null && eVar != null) {
             if (eVar.d0()) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -40,7 +40,7 @@ public class b extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
             }
             String optString = optParamsAsJo.optString("action");
@@ -53,7 +53,7 @@ public class b extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            this.f41807c = optParamsAsJo.optString("cb");
+            this.f45483c = optParamsAsJo.optString("cb");
             char c2 = 65535;
             int hashCode = optString.hashCode();
             if (hashCode != -1183792455) {
@@ -122,18 +122,18 @@ public class b extends a0 {
     public final void m(Context context, Intent intent, CallbackHandler callbackHandler) {
         try {
             context.startActivity(intent);
-            if (TextUtils.isEmpty(this.f41807c)) {
+            if (TextUtils.isEmpty(this.f45483c)) {
                 return;
             }
-            callbackHandler.handleSchemeDispatchCallback(this.f41807c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
+            callbackHandler.handleSchemeDispatchCallback(this.f45483c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
         } catch (Exception e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SetPhoneContactAction", "startContactActivity:" + e2.toString());
             }
-            if (TextUtils.isEmpty(this.f41807c)) {
+            if (TextUtils.isEmpty(this.f45483c)) {
                 return;
             }
-            callbackHandler.handleSchemeDispatchCallback(this.f41807c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+            callbackHandler.handleSchemeDispatchCallback(this.f45483c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
         }
     }
 }

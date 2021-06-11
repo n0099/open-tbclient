@@ -9,27 +9,27 @@ import java.io.File;
 public class f implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f43239a;
+    public e f46915a;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f43240a;
+        public static final /* synthetic */ int[] f46916a;
 
         static {
             int[] iArr = new int[PathType.values().length];
-            f43240a = iArr;
+            f46916a = iArr;
             try {
                 iArr[PathType.RELATIVE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f43240a[PathType.ERROR.ordinal()] = 2;
+                f46916a[PathType.ERROR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f43240a[PathType.BD_FILE.ordinal()] = 3;
+                f46916a[PathType.BD_FILE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -49,16 +49,16 @@ public class f implements d {
     @Override // d.a.l0.a.k2.f.d
     public String c(String str) {
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
-        return Q == null ? "" : d.a.l0.a.k2.b.n(Q.f40749f, str, null);
+        return Q == null ? "" : d.a.l0.a.k2.b.n(Q.f44425f, str, null);
     }
 
     @Override // d.a.l0.a.k2.f.d
     @NonNull
     public synchronized e d() {
-        if (this.f43239a == null) {
-            this.f43239a = new g();
+        if (this.f46915a == null) {
+            this.f46915a = new g();
         }
-        return this.f43239a;
+        return this.f46915a;
     }
 
     @Override // d.a.l0.a.k2.f.d
@@ -73,13 +73,13 @@ public class f implements d {
     @Override // d.a.l0.a.k2.f.d
     public String f() {
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
-        return Q == null ? "" : d.a.l0.a.k2.b.z(Q.f40749f);
+        return Q == null ? "" : d.a.l0.a.k2.b.z(Q.f44425f);
     }
 
     @Override // d.a.l0.a.k2.f.d
     public String g(String str) {
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
-        return Q == null ? str : d.a.l0.a.k2.b.I(str, Q.f40749f);
+        return Q == null ? str : d.a.l0.a.k2.b.I(str, Q.f44425f);
     }
 
     @Override // d.a.l0.a.k2.f.d
@@ -97,7 +97,7 @@ public class f implements d {
         if (Q == null) {
             return null;
         }
-        return d.a.l0.a.k2.b.M(str, Q.f40749f);
+        return d.a.l0.a.k2.b.M(str, Q.f44425f);
     }
 
     @Override // d.a.l0.a.k2.f.d
@@ -115,7 +115,7 @@ public class f implements d {
     @Override // d.a.l0.a.k2.f.d
     public String k() {
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
-        return Q == null ? "" : d.a.l0.a.k2.b.x(Q.f40749f);
+        return Q == null ? "" : d.a.l0.a.k2.b.x(Q.f44425f);
     }
 
     @Override // d.a.l0.a.k2.f.d
@@ -141,7 +141,7 @@ public class f implements d {
     }
 
     public final PathType o(String str, PathType pathType) {
-        int i2 = a.f43240a[pathType.ordinal()];
+        int i2 = a.f46916a[pathType.ordinal()];
         if (i2 == 1) {
             return n(str) ? PathType.ERROR : pathType;
         } else if (i2 != 2) {

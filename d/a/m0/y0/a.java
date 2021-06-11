@@ -14,15 +14,15 @@ import d.a.c.e.n.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f50969a;
+    public b f54646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f50970b = new C1173a(CmdConfigHttp.CMD_TRACK_CONFIG);
+    public HttpMessageListener f54647b = new C1229a(CmdConfigHttp.CMD_TRACK_CONFIG);
 
     /* renamed from: d.a.m0.y0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1173a extends HttpMessageListener {
-        public C1173a(int i2) {
+    public class C1229a extends HttpMessageListener {
+        public C1229a(int i2) {
             super(i2);
         }
 
@@ -31,8 +31,8 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof TrackConfigResponseMessage) {
                 TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
-                if (a.this.f50969a != null) {
-                    a.this.f50969a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
+                if (a.this.f54646a != null) {
+                    a.this.f54646a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
                 }
             }
         }
@@ -44,7 +44,7 @@ public class a {
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.f50970b);
+        MessageManager.getInstance().registerListener(this.f54647b);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
         tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -52,7 +52,7 @@ public class a {
     }
 
     public void b(b bVar) {
-        this.f50969a = bVar;
+        this.f54646a = bVar;
     }
 
     public void c() {

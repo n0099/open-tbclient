@@ -12,25 +12,25 @@ public class b {
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f45615e;
+        public final /* synthetic */ View f49289e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f45616f;
+        public final /* synthetic */ View f49290f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f45617g;
+        public final /* synthetic */ c f49291g;
 
         public a(View view, View view2, c cVar) {
-            this.f45615e = view;
-            this.f45616f = view2;
-            this.f45617g = cVar;
+            this.f49289e = view;
+            this.f49290f = view2;
+            this.f49291g = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (d.a.l0.a.w1.h.b.c().e()) {
-                boolean c2 = b.c(this.f45615e, this.f45616f);
-                c cVar = this.f45617g;
+                boolean c2 = b.c(this.f49289e, this.f49290f);
+                c cVar = this.f49291g;
                 if (cVar != null) {
                     cVar.onClickSwitch(view, c2);
                 }
@@ -40,19 +40,19 @@ public class b {
 
     /* renamed from: d.a.l0.a.w1.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class View$OnTouchListenerC0894b implements View.OnTouchListener {
+    public static class View$OnTouchListenerC0950b implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f45618e;
+        public final /* synthetic */ View f49292e;
 
-        public View$OnTouchListenerC0894b(View view) {
-            this.f45618e = view;
+        public View$OnTouchListenerC0950b(View view) {
+            this.f49292e = view;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 1) {
-                this.f45618e.setVisibility(4);
+                this.f49292e.setVisibility(4);
                 return false;
             }
             return false;
@@ -70,7 +70,7 @@ public class b {
             view2.setOnClickListener(new a(view, view3, cVar));
         }
         if (e(view.getContext())) {
-            view3.setOnTouchListener(new View$OnTouchListenerC0894b(view));
+            view3.setOnTouchListener(new View$OnTouchListenerC0950b(view));
         }
     }
 

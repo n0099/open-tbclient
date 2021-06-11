@@ -11,13 +11,13 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f42162a = String.format("框架加载后%s秒无内容绘制；", 3);
+    public static final String f45838a = String.format("框架加载后%s秒无内容绘制；", 3);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f42163b = "检测到白屏区域超过" + a(0.7d) + "；";
+    public static final String f45839b = "检测到白屏区域超过" + a(0.7d) + "；";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f42164c = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
+    public static final String f45840c = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
 
     public static String a(double d2) {
         return ((int) (d2 * 100.0d)) + "%";
@@ -38,9 +38,9 @@ public class c {
         } else {
             sb.append("业务请求：响应缓慢；");
         }
-        int i2 = gVar.f42172b;
+        int i2 = gVar.f45848b;
         if (i2 > 0) {
-            sb.append(String.format("共发起请求%s个，失败%s个，缓慢%s个；", Integer.valueOf(i2), Integer.valueOf(gVar.f42173c.size()), Integer.valueOf(gVar.f42174d.size())));
+            sb.append(String.format("共发起请求%s个，失败%s个，缓慢%s个；", Integer.valueOf(i2), Integer.valueOf(gVar.f45849c.size()), Integer.valueOf(gVar.f45850d.size())));
         }
         int d2 = gVar.d();
         if (d2 == 0) {
@@ -53,20 +53,20 @@ public class c {
             sb.append("网络：离线；");
         }
         String g2 = k.g(System.currentTimeMillis(), "【HH:mm:ss】");
-        for (Map.Entry<String, Integer> entry : gVar.f42174d.entrySet()) {
+        for (Map.Entry<String, Integer> entry : gVar.f45850d.entrySet()) {
             try {
                 sb.append(String.format("\n%s请求%s耗时较长：%s ms", g2, new URL(entry.getKey()).getPath(), entry.getValue()));
             } catch (MalformedURLException e2) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     e2.printStackTrace();
                 }
             }
         }
-        for (String str2 : gVar.f42173c) {
+        for (String str2 : gVar.f45849c) {
             try {
                 sb.append(String.format("\n%s请求%s请求失败；", g2, new URL(str2).getPath()));
             } catch (MalformedURLException e3) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     e3.printStackTrace();
                 }
             }

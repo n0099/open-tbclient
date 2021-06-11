@@ -15,28 +15,28 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f60657e;
+    public TbPageContext<?> f64348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.s1.h.c.d f60658f;
+    public d.a.n0.s1.h.c.d f64349f;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f60660h;
+    public f f64351h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f60661i = new View$OnClickListenerC1599a();
+    public View.OnClickListener f64352i = new View$OnClickListenerC1655a();
     public View.OnClickListener j = new b();
     public View.OnClickListener k = new c();
     public d.a.n0.s1.h.f.a<Void> l = new d();
     public d.a.n0.s1.h.f.a<Integer> m = new e();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Object> f60659g = new ArrayList();
+    public List<Object> f64350g = new ArrayList();
 
     /* renamed from: d.a.n0.s1.h.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1599a implements View.OnClickListener {
-        public View$OnClickListenerC1599a() {
+    public class View$OnClickListenerC1655a implements View.OnClickListener {
+        public View$OnClickListenerC1655a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -53,7 +53,7 @@ public class a extends BaseAdapter {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TailData c2;
-            if (view == null || view.getTag() == null || (c2 = ((d.a.n0.s1.h.c.c) view.getTag()).c()) == null || a.this.f60658f.g()) {
+            if (view == null || view.getTag() == null || (c2 = ((d.a.n0.s1.h.c.c) view.getTag()).c()) == null || a.this.f64349f.g()) {
                 return;
             }
             a.this.i(c2.getId(), c2.getContent(), c2.getFontColor());
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
             if (view == null || (cVar = (d.a.n0.s1.h.c.c) view.getTag()) == null || cVar.c() == null) {
                 return;
             }
-            a.this.f60658f.e(cVar.c().getId());
+            a.this.f64349f.e(cVar.c().getId());
         }
     }
 
@@ -85,11 +85,11 @@ public class a extends BaseAdapter {
         /* renamed from: b */
         public void a(boolean z, String str, Void r3) {
             if (z) {
-                a.this.f60657e.showToast(str);
+                a.this.f64348e.showToast(str);
                 return;
             }
             a aVar = a.this;
-            aVar.l(aVar.f60658f.h());
+            aVar.l(aVar.f64349f.h());
         }
     }
 
@@ -103,7 +103,7 @@ public class a extends BaseAdapter {
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             if (z) {
-                a.this.f60657e.showToast(str);
+                a.this.f64348e.showToast(str);
                 return;
             }
             TailData tailData = new TailData();
@@ -118,11 +118,11 @@ public class a extends BaseAdapter {
     }
 
     public a(TbPageContext<?> tbPageContext, d.a.n0.s1.h.c.d dVar, f fVar) {
-        this.f60657e = tbPageContext;
-        this.f60658f = dVar;
-        this.f60658f.m(this.l);
-        this.f60658f.k(this.m);
-        this.f60660h = fVar;
+        this.f64348e = tbPageContext;
+        this.f64349f = dVar;
+        this.f64349f.m(this.l);
+        this.f64349f.k(this.m);
+        this.f64351h = fVar;
     }
 
     public final View f(View view) {
@@ -130,14 +130,14 @@ public class a extends BaseAdapter {
         d.a.n0.s1.h.c.b bVar;
         if (view == null) {
             bVar = new d.a.n0.s1.h.c.b();
-            view2 = bVar.b(this.f60657e.getPageActivity());
-            bVar.c(this.f60661i);
-            bVar.a(this.f60657e);
+            view2 = bVar.b(this.f64348e.getPageActivity());
+            bVar.c(this.f64352i);
+            bVar.a(this.f64348e);
         } else {
             view2 = view;
             bVar = (d.a.n0.s1.h.c.b) view.getTag();
         }
-        bVar.d(this.f60658f.f());
+        bVar.d(this.f64349f.f());
         return view2;
     }
 
@@ -150,27 +150,27 @@ public class a extends BaseAdapter {
         TailData tailData = (TailData) obj;
         if (view == null) {
             cVar = new d.a.n0.s1.h.c.c();
-            view2 = cVar.b(this.f60657e.getPageActivity());
+            view2 = cVar.b(this.f64348e.getPageActivity());
             cVar.h(this.j);
             cVar.f(this.k);
-            cVar.a(this.f60657e);
+            cVar.a(this.f64348e);
         } else {
             view2 = view;
             cVar = (d.a.n0.s1.h.c.c) view.getTag();
         }
         cVar.i(tailData);
-        cVar.g(Boolean.valueOf(this.f60658f.g()));
+        cVar.g(Boolean.valueOf(this.f64349f.g()));
         return view2;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f60659g.size();
+        return this.f64350g.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        return this.f60659g.get(i2);
+        return this.f64350g.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -180,7 +180,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
-        Object obj = this.f60659g.get(i2);
+        Object obj = this.f64350g.get(i2);
         if (obj instanceof TailData) {
             return 0;
         }
@@ -204,11 +204,11 @@ public class a extends BaseAdapter {
     }
 
     public final void h() {
-        this.f60657e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f60657e.getPageActivity(), this.f60658f.h().isEmpty())));
+        this.f64348e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f64348e.getPageActivity(), this.f64349f.h().isEmpty())));
     }
 
     public final void i(int i2, String str, String str2) {
-        this.f60657e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f60657e.getPageActivity(), i2, str, str2)));
+        this.f64348e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f64348e.getPageActivity(), i2, str, str2)));
     }
 
     public void j() {
@@ -217,20 +217,20 @@ public class a extends BaseAdapter {
     }
 
     public final void k() {
-        f fVar = this.f60660h;
+        f fVar = this.f64351h;
         if (fVar != null) {
             fVar.callback();
         }
-        this.f60659g.clear();
-        this.f60659g.addAll(this.f60658f.h());
-        if (this.f60658f.g()) {
+        this.f64350g.clear();
+        this.f64350g.addAll(this.f64349f.h());
+        if (this.f64349f.g()) {
             return;
         }
-        this.f60659g.add(new d.a.n0.s1.h.a.a(this.f60658f.f()));
+        this.f64350g.add(new d.a.n0.s1.h.a.a(this.f64349f.f()));
     }
 
     public final void l(List<TailData> list) {
-        this.f60658f.n(list);
+        this.f64349f.n(list);
         j();
     }
 }

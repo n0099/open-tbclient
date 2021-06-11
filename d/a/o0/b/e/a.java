@@ -9,11 +9,11 @@ import java.nio.ByteBuffer;
 public final class a extends f {
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f63853h;
+    public final int f67571h;
     public ByteBuffer j;
 
     /* renamed from: i  reason: collision with root package name */
-    public final UploadDataProvider f63854i = new b();
+    public final UploadDataProvider f67572i = new b();
     public boolean k = false;
 
     /* loaded from: classes5.dex */
@@ -23,10 +23,10 @@ public final class a extends f {
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long n() {
-            if (a.this.f63853h == -1) {
+            if (a.this.f67571h == -1) {
                 return a.this.k ? a.this.j.limit() : a.this.j.position();
             }
-            return a.this.f63853h;
+            return a.this.f67571h;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -57,7 +57,7 @@ public final class a extends f {
         }
         if (j >= 0) {
             int i2 = (int) j;
-            this.f63853h = i2;
+            this.f67571h = i2;
             this.j = ByteBuffer.allocate(i2);
             return;
         }
@@ -70,13 +70,13 @@ public final class a extends f {
 
     @Override // d.a.o0.b.e.f
     public UploadDataProvider r() {
-        return this.f63854i;
+        return this.f67572i;
     }
 
     @Override // d.a.o0.b.e.f
     public void s() throws IOException {
         this.k = true;
-        if (this.j.position() >= this.f63853h) {
+        if (this.j.position() >= this.f67571h) {
             this.j.flip();
             return;
         }
@@ -91,10 +91,10 @@ public final class a extends f {
     }
 
     public final void x(int i2) throws IOException {
-        if (this.f63853h != -1 && this.j.position() + i2 > this.f63853h) {
-            throw new ProtocolException("exceeded content-length limit of " + this.f63853h + " bytes");
+        if (this.f67571h != -1 && this.j.position() + i2 > this.f67571h) {
+            throw new ProtocolException("exceeded content-length limit of " + this.f67571h + " bytes");
         } else if (!this.k) {
-            if (this.f63853h == -1 && this.j.limit() - this.j.position() <= i2) {
+            if (this.f67571h == -1 && this.j.limit() - this.j.position() <= i2) {
                 ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.j.capacity() * 2, this.j.capacity() + i2));
                 this.j.flip();
                 allocate.put(this.j);
@@ -114,7 +114,7 @@ public final class a extends f {
 
     public a(d dVar) {
         if (dVar != null) {
-            this.f63853h = -1;
+            this.f67571h = -1;
             this.j = ByteBuffer.allocate(16384);
             return;
         }

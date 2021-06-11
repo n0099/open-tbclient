@@ -23,15 +23,15 @@ public class m {
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f58886e;
+        public final /* synthetic */ d.a.m0.r.s.a f62577e;
 
         public a(d.a.m0.r.s.a aVar) {
-            this.f58886e = aVar;
+            this.f62577e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f58886e.dismiss();
+            this.f62577e.dismiss();
         }
     }
 
@@ -39,33 +39,33 @@ public class m {
     public static class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f58887e;
+        public final /* synthetic */ d.a.m0.r.s.a f62578e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f58888f;
+        public final /* synthetic */ int f62579f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f58889g;
+        public final /* synthetic */ String f62580g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f58890h;
+        public final /* synthetic */ String f62581h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f58891i;
+        public final /* synthetic */ TbPageContext f62582i;
 
         public b(d.a.m0.r.s.a aVar, int i2, String str, String str2, TbPageContext tbPageContext) {
-            this.f58887e = aVar;
-            this.f58888f = i2;
-            this.f58889g = str;
-            this.f58890h = str2;
-            this.f58891i = tbPageContext;
+            this.f62578e = aVar;
+            this.f62579f = i2;
+            this.f62580g = str;
+            this.f62581h = str2;
+            this.f62582i = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f58887e.dismiss();
-            if (this.f58888f == 1) {
-                UrlManager.getInstance().dealOneLink(this.f58891i, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", this.f58889g, this.f58890h)});
+            this.f62578e.dismiss();
+            if (this.f62579f == 1) {
+                UrlManager.getInstance().dealOneLink(this.f62582i, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", this.f62580g, this.f62581h)});
             }
         }
     }
@@ -74,15 +74,15 @@ public class m {
     public static class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f58892e;
+        public final /* synthetic */ d.a.m0.r.s.a f62583e;
 
         public c(d.a.m0.r.s.a aVar) {
-            this.f58892e = aVar;
+            this.f62583e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f58892e.dismiss();
+            this.f62583e.dismiss();
         }
     }
 

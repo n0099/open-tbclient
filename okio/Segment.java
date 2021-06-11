@@ -1,7 +1,7 @@
 package okio;
 
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Segment {
     public static final int SHARE_MINIMUM = 1024;
     public static final int SIZE = 8192;

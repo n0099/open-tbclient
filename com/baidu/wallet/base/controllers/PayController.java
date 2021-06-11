@@ -60,16 +60,16 @@ public final class PayController {
     public static final int SELECT_PAY_WAY_FROM_WELCOME_ACT = 100;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f23184a;
+    public a f23287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IModifyPayTypeCallback f23185b;
+    public IModifyPayTypeCallback f23288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayCallBack f23186c;
+    public PayCallBack f23289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f23187d;
+    public Context f23290d;
 
     /* loaded from: classes5.dex */
     public static final class PayResultWrapper implements Serializable {
@@ -93,7 +93,7 @@ public final class PayController {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayController f23188a = new PayController();
+        public static PayController f23291a = new PayController();
     }
 
     private void a(Context context, Bundle bundle, Class<?> cls) {
@@ -123,7 +123,7 @@ public final class PayController {
     }
 
     public static PayController getInstance() {
-        return b.f23188a;
+        return b.f23291a;
     }
 
     public static BigDecimal priceToBigDecimal(String str) {
@@ -192,8 +192,8 @@ public final class PayController {
     }
 
     public void clearPreModifiedCallBack() {
-        if (this.f23185b != null) {
-            this.f23185b = null;
+        if (this.f23288b != null) {
+            this.f23288b = null;
         }
     }
 
@@ -212,7 +212,7 @@ public final class PayController {
     }
 
     public a getIConfirmPayCallback() {
-        return this.f23184a;
+        return this.f23287a;
     }
 
     public void gotoDiscountPage(BaseActivity baseActivity) {
@@ -268,29 +268,29 @@ public final class PayController {
     }
 
     public void onConfirmPay() {
-        a aVar = this.f23184a;
+        a aVar = this.f23287a;
         if (aVar != null) {
             aVar.a();
-            this.f23184a = null;
+            this.f23287a = null;
         }
     }
 
     public void onPreModifiedPayType(PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData) {
-        IModifyPayTypeCallback iModifyPayTypeCallback = this.f23185b;
+        IModifyPayTypeCallback iModifyPayTypeCallback = this.f23288b;
         if (iModifyPayTypeCallback == null) {
             return;
         }
         iModifyPayTypeCallback.onPayTypeModified(precashierModifyPayTypeDefaultData);
-        this.f23185b = null;
+        this.f23288b = null;
     }
 
     public void onPrePayMethodSetted() {
-        IModifyPayTypeCallback iModifyPayTypeCallback = this.f23185b;
+        IModifyPayTypeCallback iModifyPayTypeCallback = this.f23288b;
         if (iModifyPayTypeCallback == null) {
             return;
         }
         iModifyPayTypeCallback.onPayTypeSetted();
-        this.f23185b = null;
+        this.f23288b = null;
     }
 
     public void payPaying(BaseActivity baseActivity, PayResultContent payResultContent, int i2) {
@@ -325,12 +325,12 @@ public final class PayController {
     }
 
     public void setMiniPayCallback(PayCallBack payCallBack, Context context) {
-        this.f23186c = payCallBack;
-        this.f23187d = context;
+        this.f23289c = payCallBack;
+        this.f23290d = context;
     }
 
     public void setModifyPayTypeCallback(IModifyPayTypeCallback iModifyPayTypeCallback) {
-        this.f23185b = iModifyPayTypeCallback;
+        this.f23288b = iModifyPayTypeCallback;
     }
 
     public void startPaySettingActivity(Context context, PaySettingActivity.a aVar) {
@@ -377,8 +377,8 @@ public final class PayController {
     }
 
     public PayController() {
-        this.f23186c = null;
-        this.f23187d = null;
+        this.f23289c = null;
+        this.f23290d = null;
     }
 
     private void a(BaseActivity baseActivity, Bundle bundle, Class<?> cls) {

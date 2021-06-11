@@ -15,7 +15,7 @@ public class it extends ByteArrayOutputStream {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m503a() {
+    public byte[] m502a() {
         return ((ByteArrayOutputStream) this).buf;
     }
 }

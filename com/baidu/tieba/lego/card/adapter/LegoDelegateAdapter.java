@@ -29,34 +29,34 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View H(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View I(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
         this.p = iCardInfo;
-        return super.H(i2, view, viewGroup, iCardInfo);
+        return super.I(i2, view, viewGroup, iCardInfo);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public LegoDelegateViewHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public LegoDelegateViewHolder Q(ViewGroup viewGroup) {
         e a2 = b.h().a(this.o, this.p, this.m);
         if (a2 == null) {
             return null;
         }
-        a2.k(this.n);
+        a2.c(this.n);
         return new LegoDelegateViewHolder(a2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
         e eVar = (e) legoDelegateViewHolder.a();
         ICardInfo iCardInfo2 = this.p;
         if (eVar != null && iCardInfo2 != null) {
             eVar.setPosition(i2);
-            eVar.g(iCardInfo2);
+            eVar.i(iCardInfo2);
         }
         return (View) eVar;
     }

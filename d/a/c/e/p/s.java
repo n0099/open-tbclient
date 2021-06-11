@@ -1,5 +1,6 @@
 package d.a.c.e.p;
 
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
@@ -18,11 +19,11 @@ import javax.crypto.spec.PBEKeySpec;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f38893a;
+    public static final byte[] f42546a;
 
     static {
         Charset.forName("UTF-8");
-        f38893a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
+        f42546a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr, int i2, int i3) throws GeneralSecurityException {
@@ -32,7 +33,7 @@ public class s {
     }
 
     public static byte[] b(Key key, byte[] bArr) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(2, key);
         return cipher.doFinal(bArr);
     }
@@ -44,7 +45,7 @@ public class s {
     }
 
     public static byte[] d(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(1, publicKey);
         return cipher.doFinal(bArr);
     }
@@ -60,7 +61,7 @@ public class s {
         for (int i2 = 0; i2 < length; i2++) {
             cArr[i2] = (char) (((byte) str.charAt(i2)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, f38893a, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, f42546a, 5, 256));
     }
 
     public static String g(int i2) {

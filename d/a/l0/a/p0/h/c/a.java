@@ -3,15 +3,15 @@ package d.a.l0.a.p0.h.c;
 import android.text.TextUtils;
 import d.a.l0.a.e0.d;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends d.a.l0.a.p0.h.b<d.a.l0.a.p0.g.b.a> {
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f44103d;
+    public static boolean f47777d;
 
     static {
         d.a.l0.a.c1.a.Z().getSwitch("swan_extension_unzip_check", false);
-        f44103d = false;
+        f47777d = false;
     }
 
     public a() {
@@ -34,8 +34,8 @@ public class a extends d.a.l0.a.p0.h.b<d.a.l0.a.p0.g.b.a> {
 
     @Override // d.a.l0.a.p0.h.b
     public boolean k() {
-        d.h("ExtCore-SwanAppPresetControl", "isNeedUpdate sExtensionUnzipCheck=" + f44103d);
-        if (f44103d) {
+        d.h("ExtCore-SwanAppPresetControl", "isNeedUpdate sExtensionUnzipCheck=" + f47777d);
+        if (f47777d) {
             return !r(h().extensionCorePath) || super.k();
         }
         return super.k();

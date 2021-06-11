@@ -25,7 +25,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
 
         @Override // d.a.n0.i1.c.a
         public void callback(LabelRequestEnum labelRequestEnum, d.a.n0.i1.b.b bVar, int i2) {
-            int i3 = b.f17739a[labelRequestEnum.ordinal()];
+            int i3 = b.f17815a[labelRequestEnum.ordinal()];
             if (i3 != 1) {
                 if (i3 == 2 && i2 == 0) {
                     d.a.m0.r.d0.b.j().t("set_recommend_label", true);
@@ -60,24 +60,24 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f17739a;
+        public static final /* synthetic */ int[] f17815a;
 
         static {
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f17739a = iArr;
+            f17815a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f17739a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f17815a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
     private void loadData() {
-        this.mModel.x();
+        this.mModel.B();
         showLoadingView(this.mView.c(), true);
     }
 
@@ -107,7 +107,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             TiebaStatic.log(new StatisticItem("c12245").param("obj_type", this.mFrom));
             finish();
         } else if (view == this.mView.f()) {
-            this.mModel.y(this.mView.d());
+            this.mModel.C(this.mView.d());
         }
     }
 
@@ -119,7 +119,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         bVar.k(this);
         LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
         this.mModel = labelSettingModel;
-        labelSettingModel.z(this.mCallback);
+        labelSettingModel.D(this.mCallback);
         if (getIntent() != null) {
             this.mFrom = getIntent().getIntExtra("from", -1);
         }

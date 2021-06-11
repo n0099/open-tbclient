@@ -2,11 +2,9 @@ package com.baidu.wallet.base.iddetect.utils;
 
 import androidx.room.RoomMasterTable;
 import com.baidu.location.Address;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
-import com.baidu.tbadk.pay.PayConfig;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.tencent.connect.common.Constants;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -14,95 +12,95 @@ import java.util.regex.Pattern;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f23236a = {Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Constants.VIA_REPORT_TYPE_SET_AVATAR, Constants.VIA_REPORT_TYPE_JOININ_GROUP, Constants.VIA_REPORT_TYPE_MAKE_FRIEND, Constants.VIA_REPORT_TYPE_WPA_STATE, Constants.VIA_REPORT_TYPE_QQFAVORITES, Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "31", "32", "33", "34", "35", VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, PayConfig.PAYMENT_POS_KEY_MANGA, "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
+    public static final String[] f23339a = {"11", "12", "13", "14", Constants.VIA_REPORT_TYPE_WPA_STATE, Constants.VIA_REPORT_TYPE_QQFAVORITES, Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "36", "37", "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f23237b = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
+    public static final int[] f23340b = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f23238c = {"1", "0", "X", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "8", "7", "6", "5", "4", "3", "2"};
+    public static final String[] f23341c = {"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f23239d = new HashMap();
+    public static Map<String, String> f23342d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, Integer> f23240e = new HashMap();
+    public static Map<String, Integer> f23343e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, Integer> f23241f = new HashMap();
+    public static Map<String, Integer> f23344f = new HashMap();
 
     static {
-        f23239d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Address.Builder.BEI_JING);
-        f23239d.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, Address.Builder.TIAN_JIN);
-        f23239d.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, "河北");
-        f23239d.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "山西");
-        f23239d.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "内蒙古");
-        f23239d.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "辽宁");
-        f23239d.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
-        f23239d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");
-        f23239d.put("31", Address.Builder.SHANG_HAI);
-        f23239d.put("32", "江苏");
-        f23239d.put("33", "浙江");
-        f23239d.put("34", "安徽");
-        f23239d.put("35", "福建");
-        f23239d.put(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, "江西");
-        f23239d.put(PayConfig.PAYMENT_POS_KEY_MANGA, "山东");
-        f23239d.put("41", "河南");
-        f23239d.put(RoomMasterTable.DEFAULT_ID, "湖北");
-        f23239d.put("43", "湖南");
-        f23239d.put("44", "广东");
-        f23239d.put("45", "广西");
-        f23239d.put("46", "海南");
-        f23239d.put("50", Address.Builder.CHONG_QIN);
-        f23239d.put("51", "四川");
-        f23239d.put("52", "贵州");
-        f23239d.put("53", "云南");
-        f23239d.put("54", "西藏");
-        f23239d.put("61", "陕西");
-        f23239d.put("62", "甘肃");
-        f23239d.put("63", "青海");
-        f23239d.put(WebKitFactory.OS_64, "宁夏");
-        f23239d.put("65", "新疆");
-        f23239d.put("71", "台湾");
-        f23239d.put("81", "香港");
-        f23239d.put("82", "澳门");
-        f23239d.put("91", "国外");
-        f23240e.put("A", 10);
-        f23240e.put("B", 11);
-        f23240e.put("C", 12);
-        f23240e.put("D", 13);
-        f23240e.put("E", 14);
-        f23240e.put("F", 15);
-        f23240e.put("G", 16);
-        f23240e.put("H", 17);
-        f23240e.put("J", 18);
-        f23240e.put("K", 19);
-        f23240e.put("L", 20);
-        f23240e.put("M", 21);
-        f23240e.put("N", 22);
-        f23240e.put("P", 23);
-        f23240e.put("Q", 24);
-        f23240e.put("R", 25);
-        f23240e.put("S", 26);
-        f23240e.put("T", 27);
-        f23240e.put("U", 28);
-        f23240e.put("V", 29);
-        f23240e.put("X", 30);
-        f23240e.put("Y", 31);
-        f23240e.put("W", 32);
-        f23240e.put("Z", 33);
-        f23240e.put("I", 34);
-        f23240e.put("O", 35);
-        f23241f.put("A", 1);
-        f23241f.put("B", 2);
-        f23241f.put("C", 3);
-        f23241f.put("R", 18);
-        f23241f.put("U", 21);
-        f23241f.put("Z", 26);
-        f23241f.put("X", 24);
-        f23241f.put("W", 23);
-        f23241f.put("O", 15);
-        f23241f.put("N", 14);
+        f23342d.put("11", Address.Builder.BEI_JING);
+        f23342d.put("12", Address.Builder.TIAN_JIN);
+        f23342d.put("13", "河北");
+        f23342d.put("14", "山西");
+        f23342d.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "内蒙古");
+        f23342d.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "辽宁");
+        f23342d.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
+        f23342d.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");
+        f23342d.put(EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, Address.Builder.SHANG_HAI);
+        f23342d.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, "江苏");
+        f23342d.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, "浙江");
+        f23342d.put(EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, "安徽");
+        f23342d.put(EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "福建");
+        f23342d.put("36", "江西");
+        f23342d.put("37", "山东");
+        f23342d.put("41", "河南");
+        f23342d.put(RoomMasterTable.DEFAULT_ID, "湖北");
+        f23342d.put("43", "湖南");
+        f23342d.put("44", "广东");
+        f23342d.put("45", "广西");
+        f23342d.put("46", "海南");
+        f23342d.put("50", Address.Builder.CHONG_QIN);
+        f23342d.put("51", "四川");
+        f23342d.put("52", "贵州");
+        f23342d.put("53", "云南");
+        f23342d.put("54", "西藏");
+        f23342d.put("61", "陕西");
+        f23342d.put("62", "甘肃");
+        f23342d.put("63", "青海");
+        f23342d.put(WebKitFactory.OS_64, "宁夏");
+        f23342d.put("65", "新疆");
+        f23342d.put("71", "台湾");
+        f23342d.put("81", "香港");
+        f23342d.put("82", "澳门");
+        f23342d.put("91", "国外");
+        f23343e.put("A", 10);
+        f23343e.put("B", 11);
+        f23343e.put("C", 12);
+        f23343e.put("D", 13);
+        f23343e.put("E", 14);
+        f23343e.put("F", 15);
+        f23343e.put("G", 16);
+        f23343e.put("H", 17);
+        f23343e.put("J", 18);
+        f23343e.put("K", 19);
+        f23343e.put("L", 20);
+        f23343e.put("M", 21);
+        f23343e.put("N", 22);
+        f23343e.put("P", 23);
+        f23343e.put("Q", 24);
+        f23343e.put("R", 25);
+        f23343e.put("S", 26);
+        f23343e.put("T", 27);
+        f23343e.put("U", 28);
+        f23343e.put("V", 29);
+        f23343e.put("X", 30);
+        f23343e.put("Y", 31);
+        f23343e.put("W", 32);
+        f23343e.put("Z", 33);
+        f23343e.put("I", 34);
+        f23343e.put("O", 35);
+        f23344f.put("A", 1);
+        f23344f.put("B", 2);
+        f23344f.put("C", 3);
+        f23344f.put("R", 18);
+        f23344f.put("U", 21);
+        f23344f.put("Z", 26);
+        f23344f.put("X", 24);
+        f23344f.put("W", 23);
+        f23344f.put("O", 15);
+        f23344f.put("N", 14);
     }
 
     public static boolean a(String str) {
@@ -144,12 +142,12 @@ public final class d {
     }
 
     public static int a(int[] iArr) {
-        if (f23237b.length == iArr.length) {
+        if (f23340b.length == iArr.length) {
             int i2 = 0;
             for (int i3 = 0; i3 < iArr.length; i3++) {
                 int i4 = 0;
                 while (true) {
-                    int[] iArr2 = f23237b;
+                    int[] iArr2 = f23340b;
                     if (i4 < iArr2.length) {
                         if (i3 == i4) {
                             i2 += iArr[i3] * iArr2[i4];
@@ -172,7 +170,7 @@ public final class d {
             case 2:
                 return "x";
             case 3:
-                return HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9;
+                return "9";
             case 4:
                 return "8";
             case 5:

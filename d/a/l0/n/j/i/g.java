@@ -8,20 +8,20 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f48142a = d.a.l0.n.c.f47984a;
+    public static final boolean f51816a = d.a.l0.n.c.f51658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile g f48143b;
+    public static volatile g f51817b;
 
     public static g a() {
-        if (f48143b == null) {
+        if (f51817b == null) {
             synchronized (g.class) {
-                if (f48143b == null) {
-                    f48143b = new g();
+                if (f51817b == null) {
+                    f51817b = new g();
                 }
             }
         }
-        return f48143b;
+        return f51817b;
     }
 
     public String b() {
@@ -33,7 +33,7 @@ public class g {
         if (jSONObject == null) {
             return;
         }
-        if (f48142a) {
+        if (f51816a) {
             Log.d("LocalDebugSwitchManager", WebGLImageLoader.DATA_URL + jSONObject);
         }
         String optString = jSONObject.optString("version");

@@ -13,27 +13,27 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ThreadPoolExecutor f39862a;
+    public static ThreadPoolExecutor f43543a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LinkedBlockingQueue<Runnable> f39863b;
+    public static LinkedBlockingQueue<Runnable> f43544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadFactory f39864c = new a();
+    public static final ThreadFactory f43545c = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final RejectedExecutionHandler f39865d = new b();
+    public static final RejectedExecutionHandler f43546d = new b();
 
     /* loaded from: classes2.dex */
     public static class a implements ThreadFactory {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f39866e = new AtomicInteger(1);
+        public final AtomicInteger f43547e = new AtomicInteger(1);
 
         /* renamed from: d.a.f0.a.l.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0538a implements Thread.UncaughtExceptionHandler {
-            public C0538a(a aVar) {
+        public class C0594a implements Thread.UncaughtExceptionHandler {
+            public C0594a(a aVar) {
             }
 
             @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -44,8 +44,8 @@ public class d {
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable, "TaskScheduler #" + this.f39866e.getAndIncrement());
-            thread.setUncaughtExceptionHandler(new C0538a(this));
+            Thread thread = new Thread(runnable, "TaskScheduler #" + this.f43547e.getAndIncrement());
+            thread.setUncaughtExceptionHandler(new C0594a(this));
             return thread;
         }
     }
@@ -56,22 +56,22 @@ public class d {
         public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
             Log.w("ThreadPoolFactory", "Exceeded ThreadPoolExecutor pool size");
             synchronized (this) {
-                if (d.f39862a == null) {
-                    LinkedBlockingQueue unused = d.f39863b = new LinkedBlockingQueue();
-                    ThreadPoolExecutor unused2 = d.f39862a = new ThreadPoolExecutor(5, 5, 60L, TimeUnit.SECONDS, d.f39863b, d.f39864c);
+                if (d.f43543a == null) {
+                    LinkedBlockingQueue unused = d.f43544b = new LinkedBlockingQueue();
+                    ThreadPoolExecutor unused2 = d.f43543a = new ThreadPoolExecutor(5, 5, 60L, TimeUnit.SECONDS, d.f43544b, d.f43545c);
                 }
             }
-            d.f39862a.execute(runnable);
+            d.f43543a.execute(runnable);
         }
     }
 
     public static ScheduledThreadPoolExecutor f(int i2) {
-        return new ScheduledThreadPoolExecutor(i2, f39864c);
+        return new ScheduledThreadPoolExecutor(i2, f43545c);
     }
 
     public static ThreadPoolExecutor g(int i2, int i3) {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f39864c);
-        threadPoolExecutor.setRejectedExecutionHandler(f39865d);
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f43545c);
+        threadPoolExecutor.setRejectedExecutionHandler(f43546d);
         return threadPoolExecutor;
     }
 }

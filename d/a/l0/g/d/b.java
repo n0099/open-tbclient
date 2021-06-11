@@ -11,31 +11,31 @@ import org.json.JSONObject;
 public class b implements f1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Boolean> f47072a = new HashMap<>();
+    public HashMap<String, Boolean> f50746a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.g.d.a f47073b = new d.a.l0.g.d.a();
+    public d.a.l0.g.d.a f50747b = new d.a.l0.g.d.a();
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.u0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.u0.b f47074a;
+        public final /* synthetic */ d.a.l0.a.u0.b f50748a;
 
         public a(d.a.l0.a.u0.b bVar) {
-            this.f47074a = bVar;
+            this.f50748a = bVar;
         }
 
         @Override // d.a.l0.a.u0.b
-        public void b(@Nullable JSONObject jSONObject) {
+        public void a(@Nullable JSONObject jSONObject) {
             b.this.g(true);
-            this.f47074a.b(jSONObject);
+            this.f50748a.a(jSONObject);
         }
 
         @Override // d.a.l0.a.u0.b
         public void onFail(int i2, @Nullable String str) {
             b.this.g(false);
-            this.f47074a.onFail(i2, str);
+            this.f50748a.onFail(i2, str);
         }
     }
 
@@ -43,10 +43,10 @@ public class b implements f1 {
     @Nullable
     public d.a.l0.a.u.h.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull d.a.l0.a.u0.b bVar) {
         if (f()) {
-            bVar.b(null);
+            bVar.a(null);
             return null;
         }
-        return this.f47073b.a(jSONObject, c(bVar));
+        return this.f50747b.a(jSONObject, c(bVar));
     }
 
     public final d.a.l0.a.u0.b c(@NonNull d.a.l0.a.u0.b bVar) {
@@ -62,13 +62,13 @@ public class b implements f1 {
     }
 
     public boolean e(String str) {
-        return TextUtils.equals(this.f47073b.f47077a, str);
+        return TextUtils.equals(this.f50747b.f50751a, str);
     }
 
     public boolean f() {
         Boolean bool;
         String d2 = d();
-        if (TextUtils.isEmpty(d2) || (bool = this.f47072a.get(d2)) == null) {
+        if (TextUtils.isEmpty(d2) || (bool = this.f50746a.get(d2)) == null) {
             return false;
         }
         return bool.booleanValue();
@@ -79,6 +79,6 @@ public class b implements f1 {
         if (TextUtils.isEmpty(d2)) {
             return;
         }
-        this.f47072a.put(d2, Boolean.valueOf(z));
+        this.f50746a.put(d2, Boolean.valueOf(z));
     }
 }

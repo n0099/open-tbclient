@@ -107,7 +107,7 @@ public class b {
             HashSet hashSet = new HashSet();
             hashSet.add("da_page");
             hashSet.add("da_type");
-            String a2 = f.a(f.a(f.c(str, hashSet), "da_page", "NAVIDEO_TAIL_PLAYABLE"), "da_type", TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY);
+            String a2 = f.a(f.a(f.c(str, hashSet), "da_page", "NAVIDEO_TAIL_PLAYABLE"), "da_type", "102");
             d(a2.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), gVar);
         }
         d(adElementInfo.l(), gVar);
@@ -127,7 +127,7 @@ public class b {
             } else if (!TextUtils.isEmpty(adElementInfo.s())) {
                 c2 = f.a(c2, "da_page", "NAVIDEO_TAIL");
             }
-            String a2 = f.a(c2, "da_type", TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+            String a2 = f.a(c2, "da_type", "103");
             d(a2.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), gVar);
         }
     }

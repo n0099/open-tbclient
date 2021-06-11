@@ -9,27 +9,27 @@ public class f {
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f45697e = 5;
+        public int f49371e = 5;
 
         /* renamed from: f  reason: collision with root package name */
-        public long[] f45698f = new long[5];
+        public long[] f49372f = new long[5];
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Runnable f45699g;
+        public final /* synthetic */ Runnable f49373g;
 
         public a(Runnable runnable) {
-            this.f45699g = runnable;
+            this.f49373g = runnable;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            long[] jArr = this.f45698f;
+            long[] jArr = this.f49372f;
             System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
-            long[] jArr2 = this.f45698f;
+            long[] jArr2 = this.f49372f;
             jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
-            if (this.f45698f[0] >= SystemClock.uptimeMillis() - 1000) {
-                this.f45698f = new long[this.f45697e];
-                this.f45699g.run();
+            if (this.f49372f[0] >= SystemClock.uptimeMillis() - 1000) {
+                this.f49372f = new long[this.f49371e];
+                this.f49373g.run();
             }
         }
     }

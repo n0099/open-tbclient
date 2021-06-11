@@ -9,21 +9,21 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f46849a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
+    public static final String f50523a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f46850b = new a();
+    public static a f50524b = new a();
 
     public static a c() {
-        return f46850b;
+        return f50524b;
     }
 
     public synchronized void a(String str, String str2, long j) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
-            File file = new File(f46849a);
+            File file = new File(f50523a);
             if (!file.exists() && !file.mkdirs()) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     Log.d("GameGuideConfigCache", "创建缓存目录失败");
                 }
                 return;
@@ -36,13 +36,13 @@ public class a {
                     }
                 }
             }
-            boolean M = d.a.l0.t.d.M(str2, new File(f46849a, b(str, j)));
-            if (d.a.l0.a.k.f43199a) {
+            boolean M = d.a.l0.t.d.M(str2, new File(f50523a, b(str, j)));
+            if (d.a.l0.a.k.f46875a) {
                 Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + M);
             }
             return;
         }
-        if (d.a.l0.a.k.f43199a) {
+        if (d.a.l0.a.k.f46875a) {
             Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
         }
     }
@@ -62,7 +62,7 @@ public class a {
                     return false;
                 }
             } catch (Throwable th) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     th.printStackTrace();
                 }
             }
@@ -72,14 +72,14 @@ public class a {
 
     public synchronized String e(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
             }
             return null;
         }
-        File file = new File(f46849a);
+        File file = new File(f50523a);
         if (!file.exists()) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
             }
             return null;
@@ -99,7 +99,7 @@ public class a {
             }
             return d.a.l0.t.d.D(file2);
         }
-        if (d.a.l0.a.k.f43199a) {
+        if (d.a.l0.a.k.f46875a) {
             Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
         }
         return null;

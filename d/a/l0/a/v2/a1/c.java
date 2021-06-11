@@ -3,8 +3,8 @@ package d.a.l0.a.v2.a1;
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45356a;
+    public String f49030a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45357b;
+    public String f49031b;
 }

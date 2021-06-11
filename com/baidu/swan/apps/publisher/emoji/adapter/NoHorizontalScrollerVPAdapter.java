@@ -8,27 +8,27 @@ import java.util.List;
 public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<View> f11012a;
+    public List<View> f11074a;
 
     public NoHorizontalScrollerVPAdapter(List<View> list) {
-        this.f11012a = list;
+        this.f11074a = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
-        viewGroup.removeView(this.f11012a.get(i2));
+        viewGroup.removeView(this.f11074a.get(i2));
         super.destroyItem(viewGroup, i2, obj);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.f11012a.size();
+        return this.f11074a.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        viewGroup.addView(this.f11012a.get(i2));
-        return this.f11012a.get(i2);
+        viewGroup.addView(this.f11074a.get(i2));
+        return this.f11074a.get(i2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter

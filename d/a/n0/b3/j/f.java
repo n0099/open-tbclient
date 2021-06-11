@@ -11,68 +11,68 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f52219e;
+    public long f55908e;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<x1> f52215a = new ArrayList<>();
+    public ArrayList<x1> f55904a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f52216b = new ArrayList<>();
+    public ArrayList<a> f55905b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<b> f52217c = new ArrayList<>();
+    public ArrayList<b> f55906c = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<d> f52220f = new ArrayList<>();
+    public ArrayList<d> f55909f = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f52218d = true;
+    public boolean f55907d = true;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f52221a;
+        public String f55910a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52222b;
+        public String f55911b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f52223c;
+        public String f55912c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f52224d;
+        public boolean f55913d;
     }
 
     /* loaded from: classes5.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f52225a;
+        public boolean f55914a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52226b;
+        public String f55915b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f52227c;
+        public boolean f55916c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f52228d;
+        public int f55917d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f52229e;
+        public String f55918e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f52230f;
+        public String f55919f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f52231g;
+        public String f55920g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f52232h;
+        public String f55921h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f52233i;
+        public String f55922i;
         public long j;
         public long k;
         public String l;
@@ -84,58 +84,58 @@ public class f {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52234a;
+        public int f55923a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52235b;
+        public String f55924b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f52236c;
+        public String f55925c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f52237d;
+        public long f55926d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f52238e;
+        public long f55927e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f52239f;
+        public String f55928f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f52240g;
+        public String f55929g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f52241h;
+        public String f55930h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f52242i;
+        public String f55931i;
     }
 
     /* loaded from: classes5.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f52243a;
+        public String f55932a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f52244b;
+        public int f55933b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f52245c;
+        public String f55934c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f52246d;
+        public String f55935d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<c> f52247e;
+        public ArrayList<c> f55936e;
     }
 
     public ArrayList<a> a() {
-        return this.f52216b;
+        return this.f55905b;
     }
 
     public ArrayList<b> b() {
-        return this.f52217c;
+        return this.f55906c;
     }
 
     public boolean c() {
@@ -147,8 +147,8 @@ public class f {
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
         try {
-            if (this.f52215a != null && this.f52215a.size() != 0) {
-                Iterator<x1> it = this.f52215a.iterator();
+            if (this.f55904a != null && this.f55904a.size() != 0) {
+                Iterator<x1> it = this.f55904a.iterator();
                 while (it.hasNext()) {
                     x1 next = it.next();
                     if (next != null) {
@@ -160,21 +160,21 @@ public class f {
                 }
                 jSONObject.put("banner", jSONArray2);
             }
-            jSONObject.put("prevtime", this.f52219e);
+            jSONObject.put("prevtime", this.f55908e);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
-        if (this.f52220f != null && this.f52220f.size() != 0) {
-            Iterator<d> it2 = this.f52220f.iterator();
+        if (this.f55909f != null && this.f55909f.size() != 0) {
+            Iterator<d> it2 = this.f55909f.iterator();
             while (it2.hasNext()) {
                 d next2 = it2.next();
                 if (next2 != null) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("title", next2.f52243a);
-                    jSONObject3.put("type", next2.f52244b);
-                    jSONObject3.put("pic", next2.f52245c);
-                    jSONObject3.put("link", next2.f52246d);
-                    ArrayList<c> arrayList = next2.f52247e;
+                    jSONObject3.put("title", next2.f55932a);
+                    jSONObject3.put("type", next2.f55933b);
+                    jSONObject3.put("pic", next2.f55934c);
+                    jSONObject3.put("link", next2.f55935d);
+                    ArrayList<c> arrayList = next2.f55936e;
                     if (arrayList != null && arrayList.size() != 0) {
                         JSONArray jSONArray3 = new JSONArray();
                         Iterator<c> it3 = arrayList.iterator();
@@ -182,15 +182,15 @@ public class f {
                             c next3 = it3.next();
                             if (next3 != null) {
                                 JSONObject jSONObject4 = new JSONObject();
-                                jSONObject4.put("forum_id", next3.f52234a);
-                                jSONObject4.put("forum_name", next3.f52235b);
-                                jSONObject4.put("avatar", next3.f52236c);
-                                jSONObject4.put("explain", next3.f52239f);
-                                jSONObject4.put("desc", next3.f52240g);
-                                jSONObject4.put("tag", next3.f52241h);
-                                jSONObject4.put("thread_num", next3.f52238e);
-                                jSONObject4.put("member_count", next3.f52237d);
-                                jSONObject4.put("link", next3.f52242i);
+                                jSONObject4.put("forum_id", next3.f55923a);
+                                jSONObject4.put("forum_name", next3.f55924b);
+                                jSONObject4.put("avatar", next3.f55925c);
+                                jSONObject4.put("explain", next3.f55928f);
+                                jSONObject4.put("desc", next3.f55929g);
+                                jSONObject4.put("tag", next3.f55930h);
+                                jSONObject4.put("thread_num", next3.f55927e);
+                                jSONObject4.put("member_count", next3.f55926d);
+                                jSONObject4.put("link", next3.f55931i);
                                 jSONArray3.put(jSONObject4);
                             }
                         }
@@ -209,19 +209,19 @@ public class f {
     }
 
     public ArrayList<x1> e() {
-        return this.f52215a;
+        return this.f55904a;
     }
 
     public long f() {
-        return this.f52219e;
+        return this.f55908e;
     }
 
     public boolean g() {
         ArrayList<a> arrayList;
         ArrayList<b> arrayList2;
-        if (this.f52218d) {
-            ArrayList<x1> arrayList3 = this.f52215a;
-            return (arrayList3 == null || arrayList3.size() == 0) && ((arrayList = this.f52216b) == null || arrayList.size() == 0) && ((arrayList2 = this.f52217c) == null || arrayList2.size() == 0);
+        if (this.f55907d) {
+            ArrayList<x1> arrayList3 = this.f55904a;
+            return (arrayList3 == null || arrayList3.size() == 0) && ((arrayList = this.f55905b) == null || arrayList.size() == 0) && ((arrayList2 = this.f55906c) == null || arrayList2.size() == 0);
         }
         return true;
     }
@@ -243,7 +243,7 @@ public class f {
                             x1Var.d(optString);
                             x1Var.e(optString2);
                             x1Var.f(optString3);
-                            this.f52215a.add(x1Var);
+                            this.f55904a.add(x1Var);
                         }
                     }
                 }
@@ -277,32 +277,32 @@ public class f {
                         if (optInt == 1) {
                             i4++;
                             a aVar = new a();
-                            aVar.f52221a = jSONObject.optString("title", "");
-                            aVar.f52222b = jSONObject.optString("link", "");
-                            aVar.f52223c = jSONObject.optString("pic", "");
-                            aVar.f52224d = z;
-                            this.f52216b.add(aVar);
+                            aVar.f55910a = jSONObject.optString("title", "");
+                            aVar.f55911b = jSONObject.optString("link", "");
+                            aVar.f55912c = jSONObject.optString("pic", "");
+                            aVar.f55913d = z;
+                            this.f55905b.add(aVar);
                         } else if (optInt == 3) {
                             i4++;
                             a aVar2 = new a();
-                            aVar2.f52221a = jSONObject.optString("title", "");
-                            aVar2.f52222b = jSONObject.optString("link", "");
-                            aVar2.f52223c = jSONObject.optString("pic", "");
-                            aVar2.f52224d = true;
-                            this.f52216b.add(aVar2);
+                            aVar2.f55910a = jSONObject.optString("title", "");
+                            aVar2.f55911b = jSONObject.optString("link", "");
+                            aVar2.f55912c = jSONObject.optString("pic", "");
+                            aVar2.f55913d = true;
+                            this.f55905b.add(aVar2);
                         } else if ((optInt == 2 || optInt == 0) && (optJSONArray = jSONObject.optJSONArray("forum_list")) != null && optJSONArray.length() != 0) {
                             b bVar = new b();
-                            bVar.f52225a = true;
+                            bVar.f55914a = true;
                             int i5 = i3 - i4;
                             bVar.m = i5;
                             if (optInt == 2) {
-                                bVar.f52227c = true;
+                                bVar.f55916c = true;
                             } else {
-                                bVar.f52227c = z;
+                                bVar.f55916c = z;
                             }
                             bVar.l = jSONObject.optString("link", "");
-                            bVar.f52226b = jSONObject.optString("title", "");
-                            this.f52217c.add(bVar);
+                            bVar.f55915b = jSONObject.optString("title", "");
+                            this.f55906c.add(bVar);
                             int i6 = 0;
                             ?? r2 = z;
                             while (i6 < optJSONArray.length()) {
@@ -313,25 +313,25 @@ public class f {
                                 } else {
                                     b bVar2 = new b();
                                     if (optInt == 2) {
-                                        bVar2.f52227c = z2;
+                                        bVar2.f55916c = z2;
                                     } else {
-                                        bVar2.f52227c = r2;
+                                        bVar2.f55916c = r2;
                                     }
-                                    bVar2.f52225a = r2;
+                                    bVar2.f55914a = r2;
                                     bVar2.m = i5;
                                     bVar2.n = i6;
-                                    bVar2.f52228d = jSONObject2.optInt("forum_id", r2);
-                                    bVar2.f52229e = jSONObject2.optString("forum_name", str2);
-                                    bVar2.f52230f = jSONObject2.optString("avatar", str2);
-                                    bVar2.f52232h = jSONObject2.optString("explain", str2);
-                                    bVar2.f52233i = jSONObject2.optString("desc", str2);
-                                    bVar2.f52231g = jSONObject2.optString("tag", str2);
+                                    bVar2.f55917d = jSONObject2.optInt("forum_id", r2);
+                                    bVar2.f55918e = jSONObject2.optString("forum_name", str2);
+                                    bVar2.f55919f = jSONObject2.optString("avatar", str2);
+                                    bVar2.f55921h = jSONObject2.optString("explain", str2);
+                                    bVar2.f55922i = jSONObject2.optString("desc", str2);
+                                    bVar2.f55920g = jSONObject2.optString("tag", str2);
                                     i2 = i3;
                                     bVar2.j = jSONObject2.optLong("member_count", 0L);
                                     bVar2.k = jSONObject2.optLong("thread_num", 0L);
                                     str = str2;
                                     bVar2.l = jSONObject2.optString("link", str);
-                                    this.f52217c.add(bVar2);
+                                    this.f55906c.add(bVar2);
                                 }
                                 i6++;
                                 str2 = str;
@@ -357,12 +357,12 @@ public class f {
                 l(str);
                 return;
             } catch (Exception e2) {
-                this.f52218d = false;
+                this.f55907d = false;
                 BdLog.e(e2.toString());
                 return;
             }
         }
-        this.f52218d = false;
+        this.f55907d = false;
     }
 
     public void k(JSONObject jSONObject) {
@@ -371,14 +371,14 @@ public class f {
         }
         try {
             h(jSONObject.optJSONArray("banner"));
-            this.f52219e = jSONObject.optLong("prevtime");
+            this.f55908e = jSONObject.optLong("prevtime");
             JSONObject optJSONObject = jSONObject.optJSONObject("new_recommend_topic");
             if (optJSONObject == null) {
                 return;
             }
             i(optJSONObject.optJSONArray("new_list"));
         } catch (Exception e2) {
-            this.f52218d = false;
+            this.f55907d = false;
             BdLog.e(e2.toString());
         }
     }
@@ -395,28 +395,28 @@ public class f {
                     JSONObject jSONObject = optJSONArray.getJSONObject(i2);
                     if (jSONObject != null) {
                         d dVar = new d();
-                        this.f52220f.add(dVar);
-                        dVar.f52247e = new ArrayList<>();
-                        dVar.f52243a = jSONObject.optString("title", "");
-                        dVar.f52244b = jSONObject.optInt("type", -1);
-                        dVar.f52245c = jSONObject.optString("pic", "");
-                        dVar.f52246d = jSONObject.optString("link", "");
+                        this.f55909f.add(dVar);
+                        dVar.f55936e = new ArrayList<>();
+                        dVar.f55932a = jSONObject.optString("title", "");
+                        dVar.f55933b = jSONObject.optInt("type", -1);
+                        dVar.f55934c = jSONObject.optString("pic", "");
+                        dVar.f55935d = jSONObject.optString("link", "");
                         JSONArray optJSONArray2 = jSONObject.optJSONArray("forum_list");
                         if (optJSONArray2 != null && optJSONArray2.length() != 0) {
                             for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                                 JSONObject jSONObject2 = optJSONArray2.getJSONObject(i3);
                                 if (jSONObject2 != null) {
                                     c cVar = new c();
-                                    cVar.f52234a = jSONObject2.optInt("forum_id", 0);
-                                    cVar.f52235b = jSONObject2.optString("forum_name", "");
-                                    cVar.f52236c = jSONObject2.optString("avatar", "");
-                                    cVar.f52239f = jSONObject2.optString("explain", "");
-                                    cVar.f52240g = jSONObject2.optString("desc", "");
-                                    cVar.f52241h = jSONObject2.optString("tag", "");
-                                    cVar.f52237d = jSONObject2.optLong("member_count", 0L);
-                                    cVar.f52238e = jSONObject2.optLong("thread_num", 0L);
-                                    cVar.f52242i = jSONObject2.optString("link", "");
-                                    dVar.f52247e.add(cVar);
+                                    cVar.f55923a = jSONObject2.optInt("forum_id", 0);
+                                    cVar.f55924b = jSONObject2.optString("forum_name", "");
+                                    cVar.f55925c = jSONObject2.optString("avatar", "");
+                                    cVar.f55928f = jSONObject2.optString("explain", "");
+                                    cVar.f55929g = jSONObject2.optString("desc", "");
+                                    cVar.f55930h = jSONObject2.optString("tag", "");
+                                    cVar.f55926d = jSONObject2.optLong("member_count", 0L);
+                                    cVar.f55927e = jSONObject2.optLong("thread_num", 0L);
+                                    cVar.f55931i = jSONObject2.optString("link", "");
+                                    dVar.f55936e.add(cVar);
                                 }
                             }
                         }
@@ -429,10 +429,10 @@ public class f {
     }
 
     public void m(ArrayList<x1> arrayList) {
-        this.f52215a = arrayList;
+        this.f55904a = arrayList;
     }
 
     public void n(long j) {
-        this.f52219e = j;
+        this.f55908e = j;
     }
 }

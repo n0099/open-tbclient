@@ -89,15 +89,15 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public class a implements b.c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f13435a;
+            public final /* synthetic */ View f13500a;
 
             public a(View view) {
-                this.f13435a = view;
+                this.f13500a = view;
             }
 
             @Override // d.a.m0.r.s.b.c
             public void a(d.a.m0.r.s.b bVar, int i2, View view) {
-                View view2 = this.f13435a;
+                View view2 = this.f13500a;
                 if (view2 == null) {
                     return;
                 }
@@ -207,16 +207,16 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public class g implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f13441e;
+        public final /* synthetic */ boolean f13506e;
 
         public g(boolean z) {
-            this.f13441e = z;
+            this.f13506e = z;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             AccountActivity.this.destroyWaitingDialog();
-            if (this.f13441e) {
+            if (this.f13506e) {
                 AccountActivity.this.manualOpenSocket("account delete cancel");
             }
             AccountActivity.this.mDeleteTask = null;
@@ -248,13 +248,13 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public class i extends BdAsyncTask<Object, Integer, AccountData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public AccountData f13444a;
+        public AccountData f13509a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13445b = 0;
+        public int f13510b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f13446c;
+        public boolean f13511c;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -268,9 +268,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
 
         public i(boolean z, AccountData accountData) {
-            this.f13446c = false;
-            this.f13444a = accountData;
-            this.f13446c = z;
+            this.f13511c = false;
+            this.f13509a = accountData;
+            this.f13511c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -281,7 +281,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             } catch (Exception e2) {
                 BdLog.detailException(e2);
             }
-            if (this.f13444a == null) {
+            if (this.f13509a == null) {
                 return null;
             }
             try {
@@ -289,26 +289,26 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             } catch (Exception e3) {
                 BdLog.detailException(e3);
             }
-            if (this.f13446c) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.f13444a.getID()));
+            if (this.f13511c) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.f13509a.getID()));
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001189, this.f13444a.getID()));
-            d.a.n0.p.b.a(this.f13444a.getID());
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001189, this.f13509a.getID()));
+            d.a.n0.p.b.a(this.f13509a.getID());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
-            j.C("get_addresslist_switch" + this.f13444a.getID());
-            if (this.f13444a.getID().equals(currentAccount)) {
+            j.C("get_addresslist_switch" + this.f13509a.getID());
+            if (this.f13509a.getID().equals(currentAccount)) {
                 d.a.m0.s.a.b b2 = d.a.m0.s.a.a.b();
                 if (b2 != null) {
                     b2.a();
                 }
-                this.f13445b = 2;
+                this.f13510b = 2;
             } else {
                 d.a.m0.s.a.b b3 = d.a.m0.s.a.a.b();
                 if (b3 != null) {
-                    b3.c(this.f13444a);
+                    b3.c(this.f13509a);
                 }
-                this.f13445b = 0;
+                this.f13510b = 0;
             }
             return null;
         }
@@ -317,22 +317,22 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(AccountData accountData) {
-            if (this.f13444a != null) {
-                d.a.m0.r.z.a.a("account", -1L, 0, "account_change_delete_success", 0, "", "type", Integer.valueOf(this.f13445b), "delete_uid", this.f13444a.getID());
-                new j(this.f13444a.getBDUSS(), d.a.m0.r.l.e.a(this.f13444a)).start();
+            if (this.f13509a != null) {
+                d.a.m0.r.z.a.a("account", -1L, 0, "account_change_delete_success", 0, "", "type", Integer.valueOf(this.f13510b), "delete_uid", this.f13509a.getID());
+                new j(this.f13509a.getBDUSS(), d.a.m0.r.l.e.a(this.f13509a)).start();
             }
             AccountActivity.this.closeLoadingDialog();
-            if (this.f13445b != 0) {
+            if (this.f13510b != 0) {
                 d.a.c.e.m.e.a().postDelayed(new a(), 1000L);
                 d.a.m0.r.z.a.a("account", -1L, 0, "account_activity_delete_account", 0, "", new Object[0]);
                 TbadkCoreApplication.setCurrentAccount(null, AccountActivity.this.getPageContext().getPageActivity());
             }
-            int i2 = this.f13445b;
+            int i2 = this.f13510b;
             if (i2 == 0) {
                 AccountActivity accountActivity = AccountActivity.this;
                 accountActivity.showToast(accountActivity.getPageContext().getString(R.string.success));
-                AccountActivity.this.mModel.remove(this.f13444a);
-                this.f13444a = null;
+                AccountActivity.this.mModel.remove(this.f13509a);
+                this.f13509a = null;
                 AccountActivity.this.mAdapter.notifyDataSetChanged();
             } else if (i2 == 2) {
                 TbadkCoreApplication.getInst().onUserChanged();
@@ -352,16 +352,16 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public class j extends Thread {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f13449e;
+        public String f13514e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f13450f;
+        public String f13515f;
 
         public j(String str, String str2) {
-            this.f13449e = null;
-            this.f13450f = null;
-            this.f13449e = str;
-            this.f13450f = str2;
+            this.f13514e = null;
+            this.f13515f = null;
+            this.f13514e = str;
+            this.f13515f = str2;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -370,8 +370,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/logout");
             netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
             netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-            netWork.addPostData(HttpRequest.BDUSS, this.f13449e);
-            netWork.addPostData("stoken", this.f13450f);
+            netWork.addPostData(HttpRequest.BDUSS, this.f13514e);
+            netWork.addPostData("stoken", this.f13515f);
             netWork.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
             netWork.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
             netWork.postNetData();
@@ -379,32 +379,32 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class k implements a.InterfaceC1141a {
+    public class k implements a.InterfaceC1197a {
 
         /* renamed from: a  reason: collision with root package name */
-        public AccountData f13452a;
+        public AccountData f13517a;
 
         public k(AccountData accountData) {
-            this.f13452a = accountData;
+            this.f13517a = accountData;
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void a(String str, int i2, String str2) {
             d.a.m0.r.z.a.a("account", -1L, 0, "account_change_cslogin_fail", i2, str2, "uname", str);
             AccountActivity.this.closeLoadingDialog();
             AccountActivity.this.showToast(str2);
-            if (i2 != 1 || this.f13452a == null) {
+            if (i2 != 1 || this.f13517a == null) {
                 return;
             }
-            ReloginManager.g().f(this.f13452a);
-            AccountActivity.this.deleteAccount(false, this.f13452a);
+            ReloginManager.g().f(this.f13517a);
+            AccountActivity.this.deleteAccount(false, this.f13517a);
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void b(String str) {
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void c(AccountData accountData) {
             d.a.m0.r.z.a.a("account", -1L, 0, "account_change_cslogin_success", 0, "", "uid", accountData.getID());
             TiebaStatic.log(new StatisticItem("c12948").param("obj_type", 1));
@@ -416,11 +416,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public class l extends BdAsyncTask<Object, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public AccountData f13454a;
+        public AccountData f13519a;
 
         public l(AccountData accountData) {
-            this.f13454a = null;
-            this.f13454a = accountData;
+            this.f13519a = null;
+            this.f13519a = accountData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -433,11 +433,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                 }
-                this.f13454a.setIsActive(1);
-                d.a.m0.r.l.c.g(this.f13454a);
+                this.f13519a.setIsActive(1);
+                d.a.m0.r.l.c.g(this.f13519a);
                 d.a.m0.s.a.b b2 = d.a.m0.s.a.a.b();
                 if (b2 != null) {
-                    b2.b(this.f13454a);
+                    b2.b(this.f13519a);
                 }
             } catch (Exception e3) {
                 BdLog.detailException(e3);
@@ -452,7 +452,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            AccountActivity.this.handleChangeSuccess(this.f13454a);
+            AccountActivity.this.handleChangeSuccess(this.f13519a);
         }
     }
 

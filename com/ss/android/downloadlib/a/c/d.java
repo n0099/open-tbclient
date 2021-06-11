@@ -15,21 +15,21 @@ public interface d extends IInterface {
     public static abstract class a extends Binder implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f35777a = "";
+        public static String f39456a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.c.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0425a implements d {
+        public static class C0476a implements d {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f35778a;
+            public IBinder f39457a;
 
-            public C0425a(IBinder iBinder) {
-                if (TextUtils.isEmpty(a.f35777a)) {
+            public C0476a(IBinder iBinder) {
+                if (TextUtils.isEmpty(a.f39456a)) {
                     JSONObject s = n.s();
-                    String unused = a.f35777a = d.o.a.e.a.h.b.b(s.optString("t"), s.optString("s"));
+                    String unused = a.f39456a = d.o.a.e.a.h.b.b(s.optString("t"), s.optString("s"));
                 }
-                this.f35778a = iBinder;
+                this.f39457a = iBinder;
             }
 
             @Override // com.ss.android.downloadlib.a.c.d
@@ -37,14 +37,14 @@ public interface d extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f35777a);
+                    obtain.writeInterfaceToken(a.f39456a);
                     if (bVar != null) {
                         obtain.writeInt(1);
                         bVar.writeToParcel(obtain, 0);
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f35778a.transact(1, obtain, obtain2, 0);
+                    this.f39457a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -54,21 +54,21 @@ public interface d extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f35778a;
+                return this.f39457a;
             }
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
             if (i2 == 1) {
-                parcel.enforceInterface(f35777a);
+                parcel.enforceInterface(f39456a);
                 a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
                 return true;
             } else if (i2 != 1598968902) {
                 return super.onTransact(i2, parcel, parcel2, i3);
             } else {
-                parcel2.writeString(f35777a);
+                parcel2.writeString(f39456a);
                 return true;
             }
         }
@@ -77,11 +77,11 @@ public interface d extends IInterface {
             if (iBinder == null) {
                 return null;
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(f35777a);
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(f39456a);
             if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
                 return (d) queryLocalInterface;
             }
-            return new C0425a(iBinder);
+            return new C0476a(iBinder);
         }
     }
 

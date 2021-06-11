@@ -10,10 +10,10 @@ import javax.crypto.Cipher;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1514a = "d";
+    public static final String f1527a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1515b = "RSA/ECB/PKCS1Padding";
+    public static String f1528b = "RSA/ECB/PKCS1Padding";
 
     public static String a(String str, RSAPublicKey rSAPublicKey) {
         byte[] a2 = a(rSAPublicKey, str.getBytes());
@@ -28,18 +28,18 @@ public class d {
         try {
             return (RSAPublicKey) a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5se07mkN71qsSJHjZ2Z0+Z+4LlLvf2sz7Md38VAa3EmAOvI7vZp3hbAxicL724ylcmisTPtZQhT/9C+25AELqy9PN9JmzKpwoVTUoJvxG4BoyT49+gGVl6s6zo1byNoHUzTfkmRfmC9MC53HvG8GwKP5xtcdptFjAIcgIR7oAWQIDAQAB");
         } catch (Throwable th) {
-            CtAuth.warn(f1514a, "getPublicKey error", th);
+            CtAuth.warn(f1527a, "getPublicKey error", th);
             return null;
         }
     }
 
     public static byte[] a(RSAPublicKey rSAPublicKey, byte[] bArr) {
         try {
-            Cipher cipher = Cipher.getInstance(f1515b);
+            Cipher cipher = Cipher.getInstance(f1528b);
             cipher.init(1, rSAPublicKey);
             return cipher.doFinal(bArr);
         } catch (Throwable th) {
-            CtAuth.warn(f1514a, "Rsa encrypt4Ux error", th);
+            CtAuth.warn(f1527a, "Rsa encrypt4Ux error", th);
             return null;
         }
     }

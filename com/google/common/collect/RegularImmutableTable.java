@@ -75,26 +75,26 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
     public static class a implements Comparator<y0.a<R, C, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Comparator f31244e;
+        public final /* synthetic */ Comparator f31335e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Comparator f31245f;
+        public final /* synthetic */ Comparator f31336f;
 
         public a(Comparator comparator, Comparator comparator2) {
-            this.f31244e = comparator;
-            this.f31245f = comparator2;
+            this.f31335e = comparator;
+            this.f31336f = comparator2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(y0.a<R, C, V> aVar, y0.a<R, C, V> aVar2) {
-            Comparator comparator = this.f31244e;
+            Comparator comparator = this.f31335e;
             int compare = comparator == null ? 0 : comparator.compare(aVar.getRowKey(), aVar2.getRowKey());
             if (compare != 0) {
                 return compare;
             }
-            Comparator comparator2 = this.f31245f;
+            Comparator comparator2 = this.f31336f;
             if (comparator2 == null) {
                 return 0;
             }

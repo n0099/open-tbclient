@@ -13,26 +13,26 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet.home.ui.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f24224a;
+    public View f24327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f24225b;
+    public c f24328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f24226c;
+    public ImageView f24329c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24227d;
+    public String f24330d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f24228e;
+    public boolean f24331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.wallet.home.ui.b.a f24229f;
+    public com.baidu.wallet.home.ui.b.a f24332f;
 
     public WalletHomeActionBar(Context context) {
         super(context);
-        this.f24228e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
+        this.f24331e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
         initHomeActionBar(context);
     }
 
@@ -42,18 +42,18 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
     }
 
     public void initHomeActionBar(final Context context) {
-        this.f24229f = new com.baidu.wallet.home.ui.b.a(this);
+        this.f24332f = new com.baidu.wallet.home.ui.b.a(this);
         setLeftImgZone2NotifyTextColor(getResources().getColor(ResUtils.color(context, "wallet_base_whiteColor")));
         View rightZoneView = getRightZoneView();
-        this.f24224a = rightZoneView;
-        this.f24225b = new c(rightZoneView);
-        this.f24226c = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_dot"));
+        this.f24327a = rightZoneView;
+        this.f24328b = new c(rightZoneView);
+        this.f24329c = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_dot"));
         setSafeIconVisible(false);
         setRightImgZone2OnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.home.ui.widget.WalletHomeActionBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (WalletHomeActionBar.this.f24229f != null) {
-                    WalletHomeActionBar.this.f24229f.a(context);
+                if (WalletHomeActionBar.this.f24332f != null) {
+                    WalletHomeActionBar.this.f24332f.a(context);
                 }
             }
         });
@@ -62,12 +62,12 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
 
     @Override // com.baidu.wallet.home.ui.a.a
     public void refreshMenu(String str, HomeCfgResponse.TitleItemData[] titleItemDataArr, String str2) {
-        if (this.f24225b == null) {
-            this.f24225b = new c(this.f24224a);
+        if (this.f24328b == null) {
+            this.f24328b = new c(this.f24327a);
         }
-        this.f24225b.a(str, titleItemDataArr, str2);
-        this.f24225b.dismiss();
-        this.f24225b.notifyMenuSetChanged();
+        this.f24328b.a(str, titleItemDataArr, str2);
+        this.f24328b.dismiss();
+        this.f24328b.notifyMenuSetChanged();
     }
 
     @Override // com.baidu.wallet.home.ui.a.a
@@ -79,11 +79,11 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
     @Override // com.baidu.wallet.home.ui.a.a
     public void refreshRightZoneDot(boolean z) {
         if (z) {
-            this.f24226c.setVisibility(0);
-            this.f24226c.setImageResource(ResUtils.drawable(getContext(), "wallet_home_red_star"));
+            this.f24329c.setVisibility(0);
+            this.f24329c.setImageResource(ResUtils.drawable(getContext(), "wallet_home_red_star"));
             return;
         }
-        this.f24226c.setVisibility(8);
+        this.f24329c.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.a.a
@@ -98,16 +98,16 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
 
     @Override // com.baidu.wallet.home.ui.a.a
     public void showMenu() {
-        c cVar = this.f24225b;
+        c cVar = this.f24328b;
         if (cVar != null) {
             cVar.show();
         }
     }
 
     public void toRefreshTitleBar(Context context, String str, HomeCfgResponse.TitleConfig titleConfig, String str2) {
-        com.baidu.wallet.home.ui.b.a aVar = this.f24229f;
+        com.baidu.wallet.home.ui.b.a aVar = this.f24332f;
         if (aVar != null) {
-            this.f24227d = str2;
+            this.f24330d = str2;
             aVar.a(context, str, titleConfig, str2);
         }
     }
@@ -123,13 +123,13 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
 
     public WalletHomeActionBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24228e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
+        this.f24331e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
         initHomeActionBar(context);
     }
 
     public WalletHomeActionBar(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f24228e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
+        this.f24331e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
         initHomeActionBar(context);
     }
 }

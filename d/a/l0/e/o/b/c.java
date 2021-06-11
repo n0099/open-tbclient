@@ -19,8 +19,8 @@ public class c implements i1 {
         if (cVar == null) {
             return;
         }
-        if (eVar != null && !TextUtils.isEmpty(eVar.f42571a)) {
-            String str = eVar.f42571a;
+        if (eVar != null && !TextUtils.isEmpty(eVar.f46247a)) {
+            String str = eVar.f46247a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1195918653) {
@@ -38,7 +38,7 @@ public class c implements i1 {
                     b.b().b(true, cVar);
                     return;
                 }
-            } else if (eVar.f42572b) {
+            } else if (eVar.f46248b) {
                 b.b().b(false, cVar);
                 return;
             } else {
@@ -51,7 +51,7 @@ public class c implements i1 {
 
     @Override // d.a.l0.a.p.d.i1
     public boolean c() {
-        return d() || d.a.l0.a.n0.k.c.f43645d.w() || (d.a.l0.a.n0.k.c.f43645d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && g.N().i0());
+        return d() || d.a.l0.a.n0.k.c.f47321d.w() || (d.a.l0.a.n0.k.c.f47321d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && g.N().i0());
     }
 
     @Override // d.a.l0.a.p.d.i1

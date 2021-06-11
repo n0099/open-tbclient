@@ -2,6 +2,7 @@ package com.cmic.sso.sdk.b.a;
 
 import android.annotation.TargetApi;
 import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
 import com.cmic.sso.sdk.d.q;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -15,17 +16,17 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes6.dex */
 public class a implements b {
-    /* JADX WARN: Removed duplicated region for block: B:101:0x020d  */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x0210  */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0222  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x0240  */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0263  */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0266  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0278  */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0211  */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0214  */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x0226  */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x0244  */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x0267  */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x026a  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x027c  */
     /* JADX WARN: Removed duplicated region for block: B:90:0x01cc  */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x01db  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x01df  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x01ea  */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x01df  */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x01e3  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x01ee  */
     @Override // com.cmic.sso.sdk.b.a.b
     @TargetApi(21)
     /*
@@ -68,8 +69,8 @@ public class a implements b {
                 String e2 = cVar.e();
                 httpURLConnection.setRequestMethod(e2);
                 httpURLConnection.setDoOutput(true);
-                httpURLConnection.connect();
                 if (cVar instanceof com.cmic.sso.sdk.b.c.b) {
+                    httpURLConnection.connect();
                     ((com.cmic.sso.sdk.b.c.b) cVar).a(aVar);
                 }
                 if (e2.endsWith("POST")) {
@@ -91,7 +92,7 @@ public class a implements b {
                             com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb2.toString());
                             if (e instanceof SSLHandshakeException) {
                             }
-                            com.cmic.sso.sdk.c.a.f30553a.add(e);
+                            aVar.a().f30647a.add(e);
                             if (e instanceof EOFException) {
                             }
                             a(outputStream);
@@ -174,7 +175,7 @@ public class a implements b {
                                     com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb22.toString());
                                     if (e instanceof SSLHandshakeException) {
                                     }
-                                    com.cmic.sso.sdk.c.a.f30553a.add(e);
+                                    aVar.a().f30647a.add(e);
                                     if (e instanceof EOFException) {
                                     }
                                     a(outputStream);
@@ -244,7 +245,7 @@ public class a implements b {
                         if (e instanceof SSLHandshakeException) {
                             aVar.a("isNeedToGetCert", true);
                         }
-                        com.cmic.sso.sdk.c.a.f30553a.add(e);
+                        aVar.a().f30647a.add(e);
                         i3 = e instanceof EOFException ? 200050 : 102102;
                         a(outputStream);
                         a(inputStream);
@@ -335,14 +336,14 @@ public class a implements b {
 
     private void a(HttpURLConnection httpURLConnection, com.cmic.sso.sdk.a aVar, String str) {
         String a2;
-        if (!(httpURLConnection instanceof HttpsURLConnection) || aVar.b("CLOSE_CERT_VERIFY", true) || str.contains("https://config.cmpassport.com/client/uniConfig")) {
+        if (!(httpURLConnection instanceof HttpsURLConnection) || aVar.b("CLOSE_CERT_VERIFY", true) || str.contains("https://config2.cmpassport.com/client/uniConfig")) {
             return;
         }
         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "开启证书校验");
-        if (str.contains("getAuthToken")) {
-            a2 = q.a(q.f());
+        if (str.contains(TbConfig.TMP_LOG_DIR_NAME)) {
+            a2 = q.a(q.h());
         } else {
-            a2 = q.a(q.g());
+            a2 = q.a(q.f());
         }
         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "cer: " + a2);
         if (TextUtils.isEmpty(a2)) {

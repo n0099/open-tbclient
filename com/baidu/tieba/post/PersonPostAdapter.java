@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 public class PersonPostAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f20009a;
+    public int[] f20086a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonThreadFragment f20010b;
+    public PersonThreadFragment f20087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PersonReplyFragment f20011c;
+    public PersonReplyFragment f20088c;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
@@ -23,23 +23,15 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString(PersonPostActivity.KEY_EMPTYVIEW_TXT, personPostActivity.getEmptyViewText());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
-        this.f20011c = personReplyFragment;
+        this.f20088c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.f20011c.U0(personPostActivity);
+        this.f20088c.X0(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
-        this.f20010b = personThreadFragment;
+        this.f20087b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.f20010b.T0(personPostActivity);
-        this.f20010b.S0(personPostActivity);
-        this.f20009a = new int[]{0, 1};
-    }
-
-    public int b(int i2) {
-        return this.f20009a[i2];
-    }
-
-    public PersonThreadFragment c() {
-        return this.f20010b;
+        this.f20087b.W0(personPostActivity);
+        this.f20087b.V0(personPostActivity);
+        this.f20086a = new int[]{0, 1};
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -53,8 +45,16 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
             if (i2 != 1) {
                 return null;
             }
-            return this.f20011c;
+            return this.f20088c;
         }
-        return this.f20010b;
+        return this.f20087b;
+    }
+
+    public int i(int i2) {
+        return this.f20086a[i2];
+    }
+
+    public PersonThreadFragment j() {
+        return this.f20087b;
     }
 }

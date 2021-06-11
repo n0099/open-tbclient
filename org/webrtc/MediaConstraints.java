@@ -4,12 +4,12 @@ import com.baidu.android.common.others.lang.StringUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaConstraints {
     public final List<KeyValuePair> mandatory = new ArrayList();
     public final List<KeyValuePair> optional = new ArrayList();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class KeyValuePair {
         public final String key;
         public final String value;

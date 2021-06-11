@@ -15,18 +15,18 @@ public class e extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f40964e;
+        public final /* synthetic */ CallbackHandler f44640e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f40965f;
+        public final /* synthetic */ String f44641f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f40966g;
+        public final /* synthetic */ String f44642g;
 
         public a(e eVar, CallbackHandler callbackHandler, String str, String str2) {
-            this.f40964e = callbackHandler;
-            this.f40965f = str;
-            this.f40966g = str2;
+            this.f44640e = callbackHandler;
+            this.f44641f = str;
+            this.f44642g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,11 +34,11 @@ public class e extends a0 {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
-                d.a.l0.a.e2.c.d.p(iVar, this.f40964e, this.f40965f);
+                d.a.l0.a.e2.c.d.p(iVar, this.f44640e, this.f44641f);
                 return;
             }
-            this.f40964e.handleSchemeDispatchCallback(this.f40965f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            d.a.l0.a.v0.a.b().e(this.f40966g);
+            this.f44640e.handleSchemeDispatchCallback(this.f44641f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            d.a.l0.a.v0.a.b().e(this.f44642g);
         }
     }
 

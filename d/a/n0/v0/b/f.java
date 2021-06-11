@@ -14,28 +14,28 @@ import java.util.Iterator;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c.a.f<GiftTabActivity> f62215a;
+    public d.a.c.a.f<GiftTabActivity> f65930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DefaultGiftListModel f62216b;
+    public DefaultGiftListModel f65931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CategoryGiftListModel f62217c;
+    public CategoryGiftListModel f65932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FreeGiftChanceModel f62218d;
+    public FreeGiftChanceModel f65933d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.a.n0.v0.b.c> f62219e;
+    public ArrayList<d.a.n0.v0.b.c> f65934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<d.a.n0.v0.b.a> f62220f;
+    public ArrayList<d.a.n0.v0.b.a> f65935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<d.a.n0.v0.b.e> f62221g;
+    public ArrayList<d.a.n0.v0.b.e> f65936g;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f62223i;
+    public int f65938i;
     public String j;
     public int k;
     public j0 l;
@@ -43,7 +43,7 @@ public class f {
     public d n;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<Integer, ArrayList<i0>> f62222h = new HashMap<>();
+    public HashMap<Integer, ArrayList<i0>> f65937h = new HashMap<>();
     public DefaultGiftListModel.b o = new a();
     public CategoryGiftListModel.b p = new b();
     public FreeGiftChanceModel.b q = new c();
@@ -60,11 +60,11 @@ public class f {
                 if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
                     i5 = arrayList.get(0).a();
                 }
-                f.this.f62220f = arrayList;
-                f.this.f62222h.put(Integer.valueOf(i5), arrayList2);
-                f.this.f62221g = arrayList3;
+                f.this.f65935f = arrayList;
+                f.this.f65937h.put(Integer.valueOf(i5), arrayList2);
+                f.this.f65936g = arrayList3;
                 f.this.j = str2;
-                f.this.f62223i = i3;
+                f.this.f65938i = i3;
                 f fVar = f.this;
                 fVar.k = i4;
                 fVar.l = j0Var;
@@ -74,7 +74,7 @@ public class f {
                 e eVar = f.this.m;
                 String str3 = f.this.j;
                 f fVar2 = f.this;
-                eVar.a(i2, str, true, str3, fVar2.k, fVar2.l, fVar2.f62219e, f.this.f62220f, f.this.f62221g);
+                eVar.a(i2, str, true, str3, fVar2.k, fVar2.l, fVar2.f65934e, f.this.f65935f, f.this.f65936g);
             }
         }
     }
@@ -87,14 +87,14 @@ public class f {
         @Override // com.baidu.tieba.gift.giftTab.CategoryGiftListModel.b
         public void a(int i2, String str, int i3, ArrayList<i0> arrayList) {
             if (i2 == 0) {
-                f.this.f62222h.put(Integer.valueOf(i3), arrayList);
+                f.this.f65937h.put(Integer.valueOf(i3), arrayList);
                 f.this.q();
             }
             if (f.this.m != null) {
                 e eVar = f.this.m;
                 String str2 = f.this.j;
                 f fVar = f.this;
-                eVar.a(i2, str, false, str2, fVar.k, fVar.l, fVar.f62219e, f.this.f62220f, f.this.f62221g);
+                eVar.a(i2, str, false, str2, fVar.k, fVar.l, fVar.f65934e, f.this.f65935f, f.this.f65936g);
             }
         }
     }
@@ -109,9 +109,9 @@ public class f {
             if (i2 != 0) {
                 return;
             }
-            f.this.f62223i = i3;
+            f.this.f65938i = i3;
             if (f.this.n != null) {
-                f.this.n.a(f.this.f62223i);
+                f.this.n.a(f.this.f65938i);
             }
         }
     }
@@ -127,67 +127,67 @@ public class f {
     }
 
     public f(d.a.c.a.f<GiftTabActivity> fVar) {
-        this.f62215a = fVar;
+        this.f65930a = fVar;
         DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(fVar);
-        this.f62216b = defaultGiftListModel;
-        defaultGiftListModel.E(this.o);
-        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f62215a);
-        this.f62217c = categoryGiftListModel;
-        categoryGiftListModel.w(this.p);
-        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f62215a);
-        this.f62218d = freeGiftChanceModel;
-        freeGiftChanceModel.w(this.q);
+        this.f65931b = defaultGiftListModel;
+        defaultGiftListModel.I(this.o);
+        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f65930a);
+        this.f65932c = categoryGiftListModel;
+        categoryGiftListModel.A(this.p);
+        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f65930a);
+        this.f65933d = freeGiftChanceModel;
+        freeGiftChanceModel.A(this.q);
     }
 
     public void n(String str) {
-        if (this.f62218d == null) {
-            FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f62215a);
-            this.f62218d = freeGiftChanceModel;
-            freeGiftChanceModel.w(this.q);
+        if (this.f65933d == null) {
+            FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f65930a);
+            this.f65933d = freeGiftChanceModel;
+            freeGiftChanceModel.A(this.q);
         }
-        this.f62218d.v(str);
+        this.f65933d.z(str);
     }
 
     public void o(String str, long j) {
-        if (this.f62216b == null) {
-            DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.f62215a);
-            this.f62216b = defaultGiftListModel;
-            defaultGiftListModel.E(this.o);
+        if (this.f65931b == null) {
+            DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.f65930a);
+            this.f65931b = defaultGiftListModel;
+            defaultGiftListModel.I(this.o);
         }
-        this.f62216b.D(str, j);
+        this.f65931b.H(str, j);
     }
 
     public void p(int i2) {
-        if (this.f62217c == null) {
-            CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f62215a);
-            this.f62217c = categoryGiftListModel;
-            categoryGiftListModel.w(this.p);
+        if (this.f65932c == null) {
+            CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f65930a);
+            this.f65932c = categoryGiftListModel;
+            categoryGiftListModel.A(this.p);
         }
-        this.f62217c.v(i2);
+        this.f65932c.z(i2);
     }
 
     public final void q() {
         ArrayList<d.a.n0.v0.b.a> arrayList;
-        HashMap<Integer, ArrayList<i0>> hashMap = this.f62222h;
-        if (hashMap == null || hashMap.size() <= 0 || (arrayList = this.f62220f) == null || arrayList.size() <= 0) {
+        HashMap<Integer, ArrayList<i0>> hashMap = this.f65937h;
+        if (hashMap == null || hashMap.size() <= 0 || (arrayList = this.f65935f) == null || arrayList.size() <= 0) {
             return;
         }
-        if (this.f62219e == null) {
-            this.f62219e = new ArrayList<>();
+        if (this.f65934e == null) {
+            this.f65934e = new ArrayList<>();
         }
-        this.f62219e.clear();
-        Iterator<d.a.n0.v0.b.a> it = this.f62220f.iterator();
+        this.f65934e.clear();
+        Iterator<d.a.n0.v0.b.a> it = this.f65935f.iterator();
         while (it.hasNext()) {
             d.a.n0.v0.b.a next = it.next();
             if (next != null && !StringUtils.isNull(next.b())) {
                 d.a.n0.v0.b.c cVar = new d.a.n0.v0.b.c();
                 cVar.c(next.a());
                 cVar.d(next.b());
-                ArrayList<i0> arrayList2 = this.f62222h.get(Integer.valueOf(next.a()));
+                ArrayList<i0> arrayList2 = this.f65937h.get(Integer.valueOf(next.a()));
                 if (arrayList2 != null) {
                     cVar.e(arrayList2);
                 }
-                this.f62219e.add(cVar);
+                this.f65934e.add(cVar);
             }
         }
     }

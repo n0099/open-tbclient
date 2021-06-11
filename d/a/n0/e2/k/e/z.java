@@ -14,17 +14,17 @@ public class z extends o<a0, PbListAlaRecommendVH> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public PbListAlaRecommendVH P(ViewGroup viewGroup) {
-        return new PbListAlaRecommendVH(LayoutInflater.from(this.f39228e).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.m.A());
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public PbListAlaRecommendVH Q(ViewGroup viewGroup) {
+        return new PbListAlaRecommendVH(LayoutInflater.from(this.f42909e).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.m.B());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.e2.k.e.o, d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, a0 a0Var, PbListAlaRecommendVH pbListAlaRecommendVH) {
-        super.W(i2, view, viewGroup, a0Var, pbListAlaRecommendVH);
+    @Override // d.a.n0.e2.k.e.o, d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, a0 a0Var, PbListAlaRecommendVH pbListAlaRecommendVH) {
+        super.X(i2, view, viewGroup, a0Var, pbListAlaRecommendVH);
         if (a0Var == null) {
             return null;
         }
@@ -33,7 +33,7 @@ public class z extends o<a0, PbListAlaRecommendVH> {
         return view;
     }
 
-    public void i0(d.a.n0.e2.h.e eVar) {
+    public void j0(d.a.n0.e2.h.e eVar) {
         this.s = eVar;
     }
 }

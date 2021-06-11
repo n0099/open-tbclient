@@ -12,22 +12,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class c implements d.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f46733a;
+    public final ExecutorService f50407a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f46734b;
+    public final e f50408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DownloadInfo f46735c;
+    public final DownloadInfo f50409c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a f46736d;
+    public final a f50410d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f46737e = System.currentTimeMillis();
+    public long f50411e = System.currentTimeMillis();
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile AtomicBoolean f46738f = new AtomicBoolean(false);
+    public volatile AtomicBoolean f50412f = new AtomicBoolean(false);
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -35,44 +35,44 @@ public class c implements d.a {
     }
 
     public c(ExecutorService executorService, e eVar, DownloadInfo downloadInfo, a aVar) {
-        this.f46733a = executorService;
-        this.f46734b = eVar;
-        this.f46735c = downloadInfo;
-        this.f46736d = aVar;
+        this.f50407a = executorService;
+        this.f50408b = eVar;
+        this.f50409c = downloadInfo;
+        this.f50410d = aVar;
     }
 
     @Override // d.a.l0.f.i.k.d.d.a
     public void a() {
-        if (this.f46735c.getProgress() == this.f46735c.getSize()) {
-            this.f46735c.setPackageName(g.d(AppRuntime.getAppContext(), this.f46735c.getPath()));
-            this.f46735c.setStatus(DownloadState.DOWNLOADED.value());
-            this.f46734b.b(this.f46735c);
-            a aVar = this.f46736d;
+        if (this.f50409c.getProgress() == this.f50409c.getSize()) {
+            this.f50409c.setPackageName(g.d(AppRuntime.getAppContext(), this.f50409c.getPath()));
+            this.f50409c.setStatus(DownloadState.DOWNLOADED.value());
+            this.f50408b.b(this.f50409c);
+            a aVar = this.f50410d;
             if (aVar != null) {
-                aVar.e(this.f46735c);
+                aVar.e(this.f50409c);
             }
         }
     }
 
     @Override // d.a.l0.f.i.k.d.d.a
     public void b() {
-        if (this.f46738f.get()) {
+        if (this.f50412f.get()) {
             return;
         }
         synchronized (this) {
-            if (!this.f46738f.get()) {
-                this.f46738f.set(true);
+            if (!this.f50412f.get()) {
+                this.f50412f.set(true);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f46737e > 1000) {
-                    this.f46734b.b(this.f46735c);
-                    this.f46737e = currentTimeMillis;
+                if (currentTimeMillis - this.f50411e > 1000) {
+                    this.f50408b.b(this.f50409c);
+                    this.f50411e = currentTimeMillis;
                 }
-                this.f46738f.set(false);
+                this.f50412f.set(false);
             }
         }
     }
 
     public void c() {
-        this.f46733a.submit(new d(this.f46734b, this.f46735c, this));
+        this.f50407a.submit(new d(this.f50408b, this.f50409c, this));
     }
 }

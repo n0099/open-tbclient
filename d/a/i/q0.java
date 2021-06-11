@@ -30,16 +30,16 @@ public class q0 extends d.a.i.a<d.a.m0.r.q.a> {
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
-            if (q0.this.n == null || q0.this.n.m() == null) {
+            if (q0.this.n == null || q0.this.n.i() == null) {
                 return;
             }
             if (q0.this.d() != null) {
                 q0.this.d().a(q0.this.m, q0.this.n);
             }
-            String o0 = q0.this.n.m().o0();
+            String o0 = q0.this.n.i().o0();
             d.a.n0.z.m.a(o0);
             q0.this.s(o0);
-            q0.this.f40007e.o(new a.C0544a(1));
+            q0.this.f43688e.o(new a.C0600a(1));
         }
     }
 
@@ -75,13 +75,13 @@ public class q0 extends d.a.i.a<d.a.m0.r.q.a> {
     @Override // d.a.i.p
     /* renamed from: r */
     public void a(d.a.m0.r.q.a aVar) {
-        if (aVar == null || aVar.m() == null) {
+        if (aVar == null || aVar.i() == null) {
             return;
         }
         this.n = aVar;
-        ThreadCardUtils.setTitle(this.k, aVar.m(), this.o);
-        ThreadCardUtils.setAbstract(this.l, this.k, aVar.m(), q, this.o);
-        this.m.f(aVar.m().s1);
+        ThreadCardUtils.setTitle(this.k, aVar.i(), this.o);
+        ThreadCardUtils.setAbstract(this.l, this.k, aVar.i(), q, this.o);
+        this.m.f(aVar.i().t1);
     }
 
     public final void s(String str) {

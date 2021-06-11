@@ -56,8 +56,8 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
     public View C0;
     public View D0;
     public TextView E0;
-    public ImageView K0;
-    public View L0;
+    public ImageView F0;
+    public View G0;
     public GeoCoder M0;
     public BaiduMap N0;
     public TextureMapView O0;
@@ -78,18 +78,18 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
 
     /* renamed from: d.a.l0.j.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1070a implements Runnable {
+    public class RunnableC1126a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReverseGeoCodeResult f47893e;
+        public final /* synthetic */ ReverseGeoCodeResult f51567e;
 
-        public RunnableC1070a(ReverseGeoCodeResult reverseGeoCodeResult) {
-            this.f47893e = reverseGeoCodeResult;
+        public RunnableC1126a(ReverseGeoCodeResult reverseGeoCodeResult) {
+            this.f51567e = reverseGeoCodeResult;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.Y2(this.f47893e);
+            a.this.Y2(this.f51567e);
         }
     }
 
@@ -124,7 +124,7 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
     }
 
     public final void I2() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.K0, "translationY", 0.0f, -a1, 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.F0, "translationY", 0.0f, -a1, 0.0f);
         ofFloat.setInterpolator(new AccelerateInterpolator());
         ofFloat.setDuration(500L);
         ofFloat.start();
@@ -170,10 +170,10 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
         this.C0 = view.findViewById(d.a.l0.j.e.cancel);
         this.D0 = view.findViewById(d.a.l0.j.e.search);
         this.E0 = (TextView) view.findViewById(d.a.l0.j.e.finish);
-        this.K0 = (ImageView) view.findViewById(d.a.l0.j.e.center_ding);
+        this.F0 = (ImageView) view.findViewById(d.a.l0.j.e.center_ding);
         this.A0 = (FrameLayout) view.findViewById(d.a.l0.j.e.list_container);
         this.B0 = (FrameLayout) view.findViewById(d.a.l0.j.e.map_container);
-        this.L0 = view.findViewById(d.a.l0.j.e.loading_progress);
+        this.G0 = view.findViewById(d.a.l0.j.e.loading_progress);
         this.O0 = (TextureMapView) view.findViewById(d.a.l0.j.e.bdMapView);
         this.z0.setOnClickListener(this);
         this.E0.setOnClickListener(this);
@@ -255,7 +255,7 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
             case 16:
                 c cVar = this.R0;
                 if (cVar != null) {
-                    PoiInfo poiInfo = cVar.f47895a;
+                    PoiInfo poiInfo = cVar.f51569a;
                     if (TextUtils.equals(poiInfo.name, "[位置]")) {
                         poiInfo.name = "";
                     }
@@ -289,14 +289,14 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
             this.S0.clear();
             this.U0.setData(this.S0);
         }
-        this.L0.setVisibility(z ? 0 : 8);
+        this.G0.setVisibility(z ? 0 : 8);
     }
 
     public void V2() {
         d.a.l0.a.h0.g.g W = d.a.l0.a.g1.f.V().W();
         if (W != null) {
             g.b i2 = W.i("navigateTo");
-            i2.n(d.a.l0.a.h0.g.g.f42076g, d.a.l0.a.h0.g.g.f42078i);
+            i2.n(d.a.l0.a.h0.g.g.f45752g, d.a.l0.a.h0.g.g.f45754i);
             i2.j(this);
             i2.b();
         }
@@ -316,11 +316,11 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
     }
 
     public final void X2(c cVar) {
-        if (cVar == null || cVar.f47895a == null) {
+        if (cVar == null || cVar.f51569a == null) {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("city", cVar.f47895a.city);
+        bundle.putString("city", cVar.f51569a.city);
         d.a.l0.j.o.g.a P2 = d.a.l0.j.o.g.a.P2(bundle);
         P2.l1(this, 1);
         P2.V2();
@@ -377,7 +377,7 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
     public void c(c cVar) {
         PoiInfo poiInfo;
         LatLng latLng;
-        if (cVar == null || (poiInfo = cVar.f47895a) == null || (latLng = poiInfo.location) == null) {
+        if (cVar == null || (poiInfo = cVar.f51569a) == null || (latLng = poiInfo.location) == null) {
             return;
         }
         this.R0 = cVar;
@@ -386,10 +386,10 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
         if (this.Q0 == null) {
             this.Q0 = BitmapDescriptorFactory.fromResource(d.a.l0.j.d.aiapps_location_selected);
         }
-        if (!cVar.f47897c) {
-            this.P0 = (Marker) this.N0.addOverlay(new MarkerOptions().position(cVar.f47895a.location).zIndex(88).icon(this.Q0));
+        if (!cVar.f51571c) {
+            this.P0 = (Marker) this.N0.addOverlay(new MarkerOptions().position(cVar.f51569a.location).zIndex(88).icon(this.Q0));
         }
-        if (cVar.f47897c) {
+        if (cVar.f51571c) {
             return;
         }
         S2(false);
@@ -449,7 +449,7 @@ public class a extends d.a.l0.a.h0.g.d implements OnGetGeoCoderResultListener, B
         if (reverseGeoCodeResult == null || reverseGeoCodeResult.error != SearchResult.ERRORNO.NO_ERROR) {
             return;
         }
-        this.x0.postDelayed(new RunnableC1070a(reverseGeoCodeResult), 150L);
+        this.x0.postDelayed(new RunnableC1126a(reverseGeoCodeResult), 150L);
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback

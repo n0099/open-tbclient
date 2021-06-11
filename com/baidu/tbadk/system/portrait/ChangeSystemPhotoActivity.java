@@ -43,10 +43,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public ArrayList<d.a.m0.u0.a.b> recommendPhotos = null;
     public int currentChoosedID = -1;
     public h mResetTask = null;
-    public d.a.c.j.d.a mPhotoData = null;
+    public d.a.c.k.d.a mPhotoData = null;
     public String currentUrl = null;
     public boolean needUpload = true;
-    public d.a.c.e.l.c<d.a.c.j.d.a> mCallback = new g();
+    public d.a.c.e.l.c<d.a.c.k.d.a> mCallback = new g();
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -160,13 +160,13 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     }
 
     /* loaded from: classes3.dex */
-    public class g extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class g extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public g() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((g) aVar, str, i2);
             if (aVar == null) {
                 return;
@@ -217,16 +217,16 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public class h extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f12941a;
+        public NetWork f13006a;
 
         public h() {
-            this.f12941a = null;
+            this.f13006a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             ChangeSystemPhotoActivity.this.mResetTask = null;
-            NetWork netWork = this.f12941a;
+            NetWork netWork = this.f13006a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -243,10 +243,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Exception e2;
             String str;
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
-            this.f12941a = netWork;
+            this.f13006a = netWork;
             try {
                 netWork.addPostData("pic", ChangeSystemPhotoActivity.this.mPhotoData.n());
-                str = this.f12941a.postMultiNetData();
+                str = this.f13006a.postMultiNetData();
             } catch (Exception e3) {
                 e2 = e3;
                 str = null;
@@ -257,7 +257,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 BdLog.e(e2.getMessage());
                 return str;
             }
-            if (this.f12941a.getNetContext().getResponse().isRequestSuccess()) {
+            if (this.f13006a.getNetContext().getResponse().isRequestSuccess()) {
                 return str;
             }
             return null;
@@ -266,12 +266,12 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            if (this.f12941a != null) {
+            if (this.f13006a != null) {
                 d.a.m0.r.f0.a aVar = ChangeSystemPhotoActivity.this.mLoadingDialog;
                 if (aVar != null) {
                     aVar.h(false);
                 }
-                if (this.f12941a.getNetContext().getResponse().isRequestSuccess()) {
+                if (this.f13006a.getNetContext().getResponse().isRequestSuccess()) {
                     new d.a.m0.r.f0.c().c(ChangeSystemPhotoActivity.this.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.currentUrl);

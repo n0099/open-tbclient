@@ -28,7 +28,7 @@ public class a {
             str = "";
         }
         char c2 = 65535;
-        if (str.hashCode() == 49588 && str.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202)) {
+        if (str.hashCode() == 49588 && str.equals("202")) {
             c2 = 0;
         }
         return c2 != 0 ? NHSeperator.SP_NONE : NHSeperator.SP_SINGLE_LINE;

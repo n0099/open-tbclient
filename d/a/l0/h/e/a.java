@@ -3,11 +3,11 @@ package d.a.l0.h.e;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47306a;
+    public int f50980a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f47307b;
+    public int f50981b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f47308c;
+    public long f50982c;
 }

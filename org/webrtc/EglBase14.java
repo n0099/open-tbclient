@@ -14,7 +14,7 @@ import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EglBase14 implements EglBase {
     public static final int CURRENT_SDK_VERSION = Build.VERSION.SDK_INT;
     public static final int EGLExt_SDK_VERSION = 18;
@@ -25,7 +25,7 @@ public class EglBase14 implements EglBase {
     public EGLDisplay eglDisplay;
     public EGLSurface eglSurface = EGL14.EGL_NO_SURFACE;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Context implements EglBase.Context {
         public final EGLContext egl14Context;
 

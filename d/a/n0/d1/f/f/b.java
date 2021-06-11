@@ -17,50 +17,50 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<p> f52686e = new ArrayList();
+    public List<p> f56375e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f52687f;
+    public Context f56376f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52688g;
+    public int f56377g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52689h;
+    public int f56378h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f52690i;
+    public final int f56379i;
 
     public b(Context context, int i2) {
-        this.f52688g = 0;
-        this.f52689h = 0;
-        this.f52687f = context;
-        this.f52688g = context.getResources().getDimensionPixelSize(R.dimen.fontsize28);
-        this.f52689h = context.getResources().getDimensionPixelSize(R.dimen.ds16);
-        this.f52690i = i2;
+        this.f56377g = 0;
+        this.f56378h = 0;
+        this.f56376f = context;
+        this.f56377g = context.getResources().getDimensionPixelSize(R.dimen.fontsize28);
+        this.f56378h = context.getResources().getDimensionPixelSize(R.dimen.ds16);
+        this.f56379i = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public p getItem(int i2) {
-        if (i2 < 0 || i2 >= this.f52686e.size()) {
+        if (i2 < 0 || i2 >= this.f56375e.size()) {
             return null;
         }
-        return this.f52686e.get(i2);
+        return this.f56375e.get(i2);
     }
 
     public void b(List<p> list) {
-        this.f52686e.clear();
+        this.f56375e.clear();
         if (list != null && list.size() > 0) {
-            this.f52686e.addAll(list);
+            this.f56375e.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f52686e.size();
+        return this.f56375e.size();
     }
 
     @Override // android.widget.Adapter
@@ -74,19 +74,19 @@ public class b extends BaseAdapter {
         if (view instanceof TextView) {
             textView = (TextView) view;
         } else {
-            textView = new TextView(this.f52687f);
+            textView = new TextView(this.f56376f);
             textView.setGravity(17);
-            textView.setTextSize(0, this.f52688g);
-            int i3 = this.f52689h;
+            textView.setTextSize(0, this.f56377g);
+            int i3 = this.f56378h;
             textView.setPadding(0, i3, 0, i3);
         }
-        p pVar = (p) ListUtils.getItem(this.f52686e, i2);
+        p pVar = (p) ListUtils.getItem(this.f56375e, i2);
         if (pVar == null) {
             return null;
         }
-        textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(pVar.f52611e, 8, null));
+        textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(pVar.f56300e, 8, null));
         SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
-        if (i2 == this.f52690i) {
+        if (i2 == this.f56379i) {
             SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
         } else if (1 != TbadkCoreApplication.getInst().getSkinType() && 4 != TbadkCoreApplication.getInst().getSkinType()) {
             textView.setBackgroundResource(R.drawable.topic_btn_more_item);

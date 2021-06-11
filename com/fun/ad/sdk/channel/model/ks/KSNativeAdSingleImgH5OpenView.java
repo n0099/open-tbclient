@@ -1,8 +1,8 @@
 package com.fun.ad.sdk.channel.model.ks;
 
-import a.a.a.a.t.b.d.c;
-import a.a.a.a.x.c;
-import a.a.a.a.x.d;
+import a.a.a.a.u.b.d.c;
+import a.a.a.a.y.c;
+import a.a.a.a.y.d;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -19,22 +19,22 @@ import java.util.ArrayList;
 public class KSNativeAdSingleImgH5OpenView extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30687a;
+    public TextView f30778a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f30688b;
+    public ImageView f30779b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f30689c;
+    public ImageView f30780c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f30690d;
+    public TextView f30781d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f30691e;
+    public Button f30782e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f30692f;
+    public float f30783f;
 
     public KSNativeAdSingleImgH5OpenView(Context context) {
         this(context, null);
@@ -46,50 +46,50 @@ public class KSNativeAdSingleImgH5OpenView extends c {
 
     public KSNativeAdSingleImgH5OpenView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f30692f = 1.78f;
+        this.f30783f = 1.78f;
     }
 
-    @Override // a.a.a.a.t.b.d.c
+    @Override // a.a.a.a.u.b.d.c
     public void a(Activity activity, KsNativeAd ksNativeAd, KsNativeAd.AdInteractionListener adInteractionListener) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(this);
-        arrayList.add(this.f30691e);
+        arrayList.add(this.f30782e);
         ksNativeAd.registerViewForInteraction(this, arrayList, adInteractionListener);
         d.b("KSNativeAd Single getImageList: " + ksNativeAd.getImageList(), new Object[0]);
         if (ksNativeAd.getImageList() != null && !ksNativeAd.getImageList().isEmpty()) {
             KsImage ksImage = ksNativeAd.getImageList().get(0);
             d.b("KSNativeAd Single img: " + ksImage, new Object[0]);
             if (ksImage != null && ksImage.isValid()) {
-                this.f30692f = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
+                this.f30783f = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                 d.b("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight(), new Object[0]);
-                c.a.f1361a.a(this, ksImage.getImageUrl(), this.f30688b);
+                c.a.f1369a.a(this, ksImage.getImageUrl(), this.f30779b);
             }
         }
-        this.f30689c.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f30687a.setText(ksNativeAd.getAdDescription());
-        this.f30690d.setText(ksNativeAd.getAdSource());
-        this.f30691e.setText(ksNativeAd.getActionDescription());
+        this.f30780c.setImageBitmap(ksNativeAd.getSdkLogo());
+        this.f30778a.setText(ksNativeAd.getAdDescription());
+        this.f30781d.setText(ksNativeAd.getAdSource());
+        this.f30782e.setText(ksNativeAd.getActionDescription());
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30687a = (TextView) findViewById(R.id.ad_description);
-        this.f30688b = (ImageView) findViewById(R.id.ad_img);
-        this.f30689c = (ImageView) findViewById(R.id.ad_logo);
-        this.f30690d = (TextView) findViewById(R.id.ad_h5_description);
-        this.f30691e = (Button) findViewById(R.id.ad_h5_open);
+        this.f30778a = (TextView) findViewById(R.id.ad_description);
+        this.f30779b = (ImageView) findViewById(R.id.ad_img);
+        this.f30780c = (ImageView) findViewById(R.id.ad_logo);
+        this.f30781d = (TextView) findViewById(R.id.ad_h5_description);
+        this.f30782e = (Button) findViewById(R.id.ad_h5_open);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
         d.b("KSNativeAd onSizeChanged w: " + i2 + ", h: " + i3 + ", oldw: " + i4 + ", oldh: " + i5, new Object[0]);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30688b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30779b.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i6;
-        layoutParams.height = (int) (((float) i6) / this.f30692f);
+        layoutParams.height = (int) (((float) i6) / this.f30783f);
         d.b("KSNativeAd onSizeChanged adView width: " + layoutParams.width + ", height: " + layoutParams.height, new Object[0]);
-        this.f30688b.setLayoutParams(layoutParams);
+        this.f30779b.setLayoutParams(layoutParams);
     }
 }

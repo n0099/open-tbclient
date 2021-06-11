@@ -19,44 +19,44 @@ import java.util.regex.Pattern;
 public final class a implements m {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f58163d = Pattern.compile(UrlManager.patternText, 2);
+    public static final Pattern f61854d = Pattern.compile(UrlManager.patternText, 2);
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f58164e = new a();
+    public static a f61855e = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<m.a> f58165a = new LinkedList();
+    public final List<m.a> f61856a = new LinkedList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, m.b> f58166b = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<String, m.b> f61857b = new ConcurrentHashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public m.c f58167c = null;
+    public m.c f61858c = null;
 
     /* renamed from: d.a.n0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1471a implements Runnable {
+    public class RunnableC1527a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m.a f58168e;
+        public final /* synthetic */ m.a f61859e;
 
-        public RunnableC1471a(m.a aVar) {
-            this.f58168e = aVar;
+        public RunnableC1527a(m.a aVar) {
+            this.f61859e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f(this.f58168e);
+            a.this.f(this.f61859e);
         }
     }
 
     public static a l() {
-        return f58164e;
+        return f61855e;
     }
 
     @Override // d.a.n0.t2.m
     public boolean a(String str) {
-        return f58163d.matcher(str).find();
+        return f61854d.matcher(str).find();
     }
 
     @Override // d.a.n0.t2.m
@@ -73,15 +73,15 @@ public final class a implements m {
         if (l.C()) {
             f(aVar);
         } else {
-            e.a().post(new RunnableC1471a(aVar));
+            e.a().post(new RunnableC1527a(aVar));
         }
     }
 
     public final void f(m.a aVar) {
-        if (this.f58165a.contains(aVar)) {
+        if (this.f61856a.contains(aVar)) {
             return;
         }
-        this.f58165a.add(aVar);
+        this.f61856a.add(aVar);
     }
 
     public boolean g(Context context, String str, String[] strArr, boolean z, m.d dVar, boolean z2, Bundle bundle) {
@@ -90,12 +90,12 @@ public final class a implements m {
             return false;
         }
         String str2 = strArr[0];
-        m.b bVar = this.f58166b.get(m(str2));
+        m.b bVar = this.f61857b.get(m(str2));
         if (bVar != null) {
             bVar.a(context, j(k(str2)));
             return true;
         }
-        Iterator<m.a> it = this.f58165a.iterator();
+        Iterator<m.a> it = this.f61856a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z3 = false;
@@ -107,7 +107,7 @@ public final class a implements m {
                 break;
             }
         }
-        if (!z3 && this.f58167c != null) {
+        if (!z3 && this.f61858c != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 return true;
             }
@@ -123,7 +123,7 @@ public final class a implements m {
     public int i(Context context, String[] strArr) {
         int a2;
         if (strArr != null && strArr.length != 0) {
-            for (m.a aVar : this.f58165a) {
+            for (m.a aVar : this.f61856a) {
                 if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
                     return a2;
                 }
@@ -167,12 +167,12 @@ public final class a implements m {
     }
 
     public final void n(Context context, String str, String str2, boolean z, m.d dVar, boolean z2, Bundle bundle) {
-        if (f58163d.matcher(str2).find()) {
-            this.f58167c.a(context, str, str2, z, dVar, z2, bundle);
+        if (f61854d.matcher(str2).find()) {
+            this.f61858c.a(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
     public void o(m.c cVar) {
-        this.f58167c = cVar;
+        this.f61858c = cVar;
     }
 }

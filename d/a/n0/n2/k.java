@@ -12,28 +12,28 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f57721a;
+    public String f61410a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f57722b = true;
+    public boolean f61411b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57723c = 0;
+    public int f61412c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f57724d = false;
+    public boolean f61413d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.a.n0.m2.b> f57725e = new ArrayList();
+    public List<d.a.n0.m2.b> f61414e = new ArrayList();
 
     /* loaded from: classes5.dex */
     public static class a extends BdAsyncTask<Void, Void, Void> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            d.a.n0.u1.d.a(d.a.n0.u1.f.f61323b);
-            d.a.n0.u1.d.a(d.a.n0.u1.f.f61324c);
-            d.a.n0.u1.d.a(d.a.n0.u1.f.f61325d);
+            d.a.n0.u1.d.a(d.a.n0.u1.f.f65036b);
+            d.a.n0.u1.d.a(d.a.n0.u1.f.f65037c);
+            d.a.n0.u1.d.a(d.a.n0.u1.f.f65038d);
             return null;
         }
     }
@@ -52,9 +52,9 @@ public class k {
             }
             l lVar = lVarArr[0];
             synchronized ("debug") {
-                File file = new File(d.a.n0.u1.f.f61326e + d.a.n0.u1.f.f61322a + lVar.f57727b + d.a.n0.u1.f.f61322a + "debug");
+                File file = new File(d.a.n0.u1.f.f65039e + d.a.n0.u1.f.f65035a + lVar.f61416b + d.a.n0.u1.f.f65035a + "debug");
                 StringBuilder sb = new StringBuilder();
-                sb.append(lVar.f57726a.a().toString());
+                sb.append(lVar.f61415a.a().toString());
                 sb.append("\n");
                 d.a.n0.u1.d.g(file, sb.toString(), true);
             }
@@ -76,7 +76,7 @@ public class k {
             }
             e eVar = eVarArr[0];
             synchronized ("kpi") {
-                d.a.n0.u1.d.g(new File(d.a.n0.u1.f.f61326e + d.a.n0.u1.f.f61322a + eVar.f57696d + d.a.n0.u1.f.f61322a + "kpi"), k.e(eVar.f57693a, eVar.f57694b, eVar.f57695c).toString(), false);
+                d.a.n0.u1.d.g(new File(d.a.n0.u1.f.f65039e + d.a.n0.u1.f.f65035a + eVar.f61385d + d.a.n0.u1.f.f65035a + "kpi"), k.e(eVar.f61382a, eVar.f61383b, eVar.f61384c).toString(), false);
             }
             return null;
         }
@@ -89,7 +89,7 @@ public class k {
     }
 
     public k(String str) {
-        this.f57721a = str;
+        this.f61410a = str;
     }
 
     public static final JSONObject e(boolean z, int i2, boolean z2) {
@@ -109,7 +109,7 @@ public class k {
     }
 
     public void a(d.a.n0.m2.b bVar) {
-        this.f57725e.add(bVar);
+        this.f61414e.add(bVar);
         c();
         m(bVar);
         l();
@@ -119,10 +119,10 @@ public class k {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!ListUtils.isEmpty(this.f57725e)) {
-                int size = this.f57725e.size();
+            if (!ListUtils.isEmpty(this.f61414e)) {
+                int size = this.f61414e.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    jSONArray.put(this.f57725e.get(i2).a());
+                    jSONArray.put(this.f61414e.get(i2).a());
                 }
             }
             jSONObject.put("running", jSONArray);
@@ -134,7 +134,7 @@ public class k {
 
     public final void c() {
         if (d.a.c.e.p.f.c()) {
-            File file = new File(d.a.n0.u1.f.f61326e + d.a.n0.u1.f.f61322a + this.f57721a + d.a.n0.u1.f.f61322a);
+            File file = new File(d.a.n0.u1.f.f65039e + d.a.n0.u1.f.f65035a + this.f61410a + d.a.n0.u1.f.f65035a);
             if (file.exists()) {
                 return;
             }
@@ -143,36 +143,36 @@ public class k {
     }
 
     public JSONObject d() {
-        return e(this.f57722b, this.f57723c, this.f57724d);
+        return e(this.f61411b, this.f61412c, this.f61413d);
     }
 
     public void f() {
-        this.f57723c++;
+        this.f61412c++;
     }
 
     public boolean g() {
-        return this.f57723c > 0;
+        return this.f61412c > 0;
     }
 
     public boolean h() {
-        return this.f57724d;
+        return this.f61413d;
     }
 
     public void i() {
-        this.f57722b = false;
+        this.f61411b = false;
     }
 
     public void j() {
-        this.f57722b = true;
+        this.f61411b = true;
     }
 
     public void k() {
-        this.f57724d = true;
+        this.f61413d = true;
     }
 
     public final void l() {
         if (d.a.c.e.p.f.c()) {
-            new c(this).execute(new e(this.f57722b, this.f57723c, this.f57724d, this.f57721a));
+            new c(this).execute(new e(this.f61411b, this.f61412c, this.f61413d, this.f61410a));
         }
     }
 
@@ -180,6 +180,6 @@ public class k {
         if (!d.a.c.e.p.f.c() || bVar == null) {
             return;
         }
-        new b(this).execute(new l(bVar, this.f57721a));
+        new b(this).execute(new l(bVar, this.f61410a));
     }
 }

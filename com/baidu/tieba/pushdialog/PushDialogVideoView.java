@@ -55,19 +55,19 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public VideoControllerView.d S;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20070e;
+    public int f20147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20071f;
+    public int f20148f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20072g;
+    public int f20149g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20073h;
+    public int f20150h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f20074i;
+    public TbPageContext<?> f20151i;
     public TbCyberVideoView j;
     public d.a.n0.k2.m k;
     public ProgressBar l;
@@ -118,7 +118,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 if (PushDialogVideoView.this.S != null) {
                     PushDialogVideoView.this.S.a(currentPosition);
                 }
-                sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.f20070e - (currentPosition % PushDialogVideoView.this.f20070e));
+                sendMessageDelayed(obtainMessage(1), PushDialogVideoView.this.f20147e - (currentPosition % PushDialogVideoView.this.f20147e));
             }
         }
     }
@@ -289,8 +289,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public PushDialogVideoView(Context context) {
         super(context);
-        this.f20070e = 50;
-        this.f20071f = 3;
+        this.f20147e = 50;
+        this.f20148f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;
@@ -398,15 +398,15 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
         this.l.setVisibility(0);
         int duration = ((this.j.getDuration() / 200) / 50) * 50;
-        this.f20070e = duration;
+        this.f20147e = duration;
         if (duration < 50) {
-            this.f20070e = 50;
+            this.f20147e = 50;
         } else if (duration > 500) {
-            this.f20070e = 500;
+            this.f20147e = 500;
         }
         this.R.removeMessages(1);
         Handler handler = this.R;
-        handler.sendMessageDelayed(handler.obtainMessage(1), this.f20070e - (this.j.getCurrentPosition() % this.f20070e));
+        handler.sendMessageDelayed(handler.obtainMessage(1), this.f20147e - (this.j.getCurrentPosition() % this.f20147e));
     }
 
     public void O(String str, String str2) {
@@ -510,7 +510,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             this.F = true;
             this.u.setVisibility(8);
             O(this.r, this.s);
-        } else if (view != this.u.getTvOpenFreeData() || (tbPageContext = this.f20074i) == null) {
+        } else if (view != this.u.getTvOpenFreeData() || (tbPageContext = this.f20151i) == null) {
         } else {
             tbPageContext.getPageActivity().finish();
         }
@@ -519,7 +519,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        setMeasuredDimension(this.f20072g, this.f20073h);
+        setMeasuredDimension(this.f20149g, this.f20150h);
     }
 
     public void setNetworkChange() {
@@ -532,7 +532,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.f20074i = tbPageContext;
+        this.f20151i = tbPageContext;
         tbPageContext.registerListener(this.Q);
     }
 
@@ -548,7 +548,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     public void setThumbnail(String str) {
-        this.t.V(str, 17, false);
+        this.t.U(str, 17, false);
     }
 
     public void setVideoUrl(String str, String str2) {
@@ -576,8 +576,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public final void x(Context context) {
         LayoutInflater.from(context).inflate(R.layout.cell_push_dialog_video_layout, (ViewGroup) this, true);
         int k2 = d.a.c.e.p.l.k(context) - d.a.c.e.p.l.g(context, R.dimen.tbds132);
-        this.f20072g = k2;
-        this.f20073h = (int) (k2 * 0.5625f);
+        this.f20149g = k2;
+        this.f20150h = (int) (k2 * 0.5625f);
         TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) findViewById(R.id.videoView);
         this.j = tbCyberVideoView;
         tbCyberVideoView.setPlayMode("2");
@@ -587,7 +587,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         mVar.f(this.I);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.pgrBottomProgress);
         this.l = progressBar;
-        progressBar.setMax(this.f20072g);
+        progressBar.setMax(this.f20149g);
         this.l.setProgress(0);
         this.m = findViewById(R.id.black_mask);
         this.n = findViewById(R.id.layout_error);
@@ -623,16 +623,16 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public void z() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f20071f) {
+        if (skinType == this.f20148f) {
             return;
         }
-        this.f20071f = skinType;
+        this.f20148f = skinType;
     }
 
     public PushDialogVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20070e = 50;
-        this.f20071f = 3;
+        this.f20147e = 50;
+        this.f20148f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;
@@ -656,8 +656,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public PushDialogVideoView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f20070e = 50;
-        this.f20071f = 3;
+        this.f20147e = 50;
+        this.f20148f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;

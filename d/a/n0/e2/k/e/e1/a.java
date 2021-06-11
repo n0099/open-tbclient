@@ -30,12 +30,12 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
     public static boolean a(List<h> list, l lVar, PostData postData, PbModel pbModel) {
-        if (list != null && postData != null && pbModel != null && pbModel.y0() != null) {
-            e y0 = pbModel.y0();
-            if (y0.b0() && TbadkCoreApplication.isLogin() && !j(postData) && !y0.a0()) {
+        if (list != null && postData != null && pbModel != null && pbModel.C0() != null) {
+            e C0 = pbModel.C0();
+            if (C0.b0() && TbadkCoreApplication.isLogin() && !j(postData) && !C0.a0()) {
                 h hVar = new h(9, TbadkCoreApplication.getInst().getString(R.string.block_user), lVar);
                 list.add(hVar);
-                d.a.n0.o3.a.e(hVar.f50254d, postData);
+                d.a.n0.o3.a.e(hVar.f53930d, postData);
                 return true;
             }
         }
@@ -50,38 +50,38 @@ public class a {
         if (agreeData.hasAgree) {
             if (agreeData.agreeType == 2) {
                 h hVar = new h(-1, r0.g(R.string.c_agreeed, new Object[0]), lVar);
-                hVar.f50254d.setTag(sparseArray);
+                hVar.f53930d.setTag(sparseArray);
                 arrayList.add(hVar);
                 if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                     h hVar2 = new h(-2, r0.g(R.string.c_disagree, new Object[0]), lVar);
-                    hVar2.f50254d.setTag(sparseArray);
+                    hVar2.f53930d.setTag(sparseArray);
                     arrayList.add(hVar2);
                 }
             } else {
                 h hVar3 = new h(-1, r0.g(R.string.c_agree, new Object[0]), lVar);
-                hVar3.f50254d.setTag(sparseArray);
+                hVar3.f53930d.setTag(sparseArray);
                 arrayList.add(hVar3);
                 if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                     h hVar4 = new h(-2, r0.g(R.string.c_disagreeed, new Object[0]), lVar);
-                    hVar4.f50254d.setTag(sparseArray);
+                    hVar4.f53930d.setTag(sparseArray);
                     arrayList.add(hVar4);
                 }
             }
         } else {
             h hVar5 = new h(-1, r0.g(R.string.c_agree, new Object[0]), lVar);
-            hVar5.f50254d.setTag(sparseArray);
+            hVar5.f53930d.setTag(sparseArray);
             arrayList.add(hVar5);
             if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                 h hVar6 = new h(-2, r0.g(R.string.c_disagree, new Object[0]), lVar);
-                hVar6.f50254d.setTag(sparseArray);
+                hVar6.f53930d.setTag(sparseArray);
                 arrayList.add(hVar6);
             }
         }
         h hVar7 = new h(-3, r0.g(R.string.reply, new Object[0]), lVar);
-        hVar7.f50254d.setTag(sparseArray);
+        hVar7.f53930d.setTag(sparseArray);
         arrayList.add(hVar7);
         h hVar8 = new h(-4, r0.g(R.string.share, new Object[0]), lVar);
-        hVar8.f50254d.setTag(sparseArray);
+        hVar8.f53930d.setTag(sparseArray);
         arrayList.add(hVar8);
         list.addAll(0, arrayList);
         return list;
@@ -96,24 +96,24 @@ public class a {
             if (agreeData.agreeType == 2) {
                 if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                     h hVar = new h(-2, r0.g(R.string.action_dislike, new Object[0]), lVar);
-                    hVar.f50254d.setTag(sparseArray);
+                    hVar.f53930d.setTag(sparseArray);
                     arrayList.add(hVar);
                 }
             } else if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                 h hVar2 = new h(-2, r0.g(R.string.c_disagreeed, new Object[0]), lVar);
-                hVar2.f50254d.setTag(sparseArray);
+                hVar2.f53930d.setTag(sparseArray);
                 arrayList.add(hVar2);
             }
         } else if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
             h hVar3 = new h(-2, r0.g(R.string.action_dislike, new Object[0]), lVar);
-            hVar3.f50254d.setTag(sparseArray);
+            hVar3.f53930d.setTag(sparseArray);
             arrayList.add(hVar3);
         }
         h hVar4 = new h(-3, r0.g(R.string.reply, new Object[0]), lVar);
-        hVar4.f50254d.setTag(sparseArray);
+        hVar4.f53930d.setTag(sparseArray);
         arrayList.add(0, hVar4);
         h hVar5 = new h(-4, r0.g(R.string.share, new Object[0]), lVar);
-        hVar5.f50254d.setTag(sparseArray);
+        hVar5.f53930d.setTag(sparseArray);
         arrayList.add(1, hVar5);
         list.addAll(0, arrayList);
         return list;
@@ -229,7 +229,7 @@ public class a {
     }
 
     public static boolean h(PbModel pbModel) {
-        return (pbModel == null || pbModel.y0() == null || !pbModel.y0().b0()) ? false : true;
+        return (pbModel == null || pbModel.C0() == null || !pbModel.C0().b0()) ? false : true;
     }
 
     public static boolean i(r rVar) {

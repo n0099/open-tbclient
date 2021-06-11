@@ -21,29 +21,29 @@ import java.util.Arrays;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43516a = k.f43199a;
+    public static final boolean f47192a = k.f46875a;
 
     /* renamed from: d.a.l0.a.m2.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0748a implements Runnable {
+    public static class RunnableC0804a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f43517e;
+        public final /* synthetic */ long f47193e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f43518f;
+        public final /* synthetic */ int f47194f;
 
-        public RunnableC0748a(long j, int i2) {
-            this.f43517e = j;
-            this.f43518f = i2;
+        public RunnableC0804a(long j, int i2) {
+            this.f47193e = j;
+            this.f47194f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                d.a.l0.a.m2.a.c().a(this.f43517e, this.f43518f);
+                d.a.l0.a.m2.a.c().a(this.f47193e, this.f47194f);
             } catch (Exception e2) {
-                if (a.f43516a) {
+                if (a.f47192a) {
                     e2.printStackTrace();
                 }
             }
@@ -54,15 +54,15 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f43519a = 0;
+        public int f47195a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43520b;
+        public String f47196b;
 
         public static b a(int i2, String str) {
             b bVar = new b();
-            bVar.f43519a = i2;
-            bVar.f43520b = str;
+            bVar.f47195a = i2;
+            bVar.f47196b = str;
             return bVar;
         }
 
@@ -75,12 +75,12 @@ public class a {
         }
 
         public boolean c() {
-            return this.f43519a == 0;
+            return this.f47195a == 0;
         }
 
         @NonNull
         public String toString() {
-            return "RemoteCoreUpdateStatus{statusCode=" + this.f43519a + ", message='" + this.f43520b + "'}";
+            return "RemoteCoreUpdateStatus{statusCode=" + this.f47195a + ", message='" + this.f47196b + "'}";
         }
     }
 
@@ -93,31 +93,31 @@ public class a {
         if (dVar == null) {
             return b.b("framework is null.");
         }
-        long j = dVar.f48014i;
+        long j = dVar.f51688i;
         if (j == 0) {
             return b.b("invalid version code : " + dVar.j);
-        } else if (!j0.a(new File(dVar.f48006a), dVar.m)) {
+        } else if (!j0.a(new File(dVar.f51680a), dVar.m)) {
             return b.b("sign failed.");
         } else {
             String path = h(j, i2).getPath();
-            if (!d.a.l0.t.d.T(dVar.f48006a, path)) {
+            if (!d.a.l0.t.d.T(dVar.f51680a, path)) {
                 return b.b("unzip bundle failed.");
             }
             if (i2 == 0) {
-                boolean A = d.a.l0.t.d.A(dVar.f48006a, path);
-                if (f43516a) {
+                boolean A = d.a.l0.t.d.A(dVar.f51680a, path);
+                if (f47192a) {
                     Log.d("RemoteSwanCoreControl", "isZipFileMatchUnzipResult:" + A + ",path:" + path);
                 }
                 if (!A) {
                     d.a.l0.a.m2.b.m(1, i2, j);
                     d.a.l0.t.d.L(path);
-                    if (!d.a.l0.t.d.T(dVar.f48006a, path)) {
+                    if (!d.a.l0.t.d.T(dVar.f51680a, path)) {
                         return b.b("unzip bundle failed.");
                     }
                 }
             }
-            if (f43516a) {
-                String b2 = f.b(new File(dVar.f48006a), false);
+            if (f47192a) {
+                String b2 = f.b(new File(dVar.f51680a), false);
                 if (!TextUtils.isEmpty(b2)) {
                     h.a().putString(d.a.l0.a.m2.a.d(i2), b2);
                 }
@@ -125,7 +125,7 @@ public class a {
             if (ProcessUtils.isMainProcess()) {
                 d.a.l0.a.m2.b.b(g(i2), k(e(i2), j));
             }
-            l(dVar.j, dVar.f48014i, i2);
+            l(dVar.j, dVar.f51688i, i2);
             d.a.l0.a.e0.d.h("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + j);
             return b.d();
         }
@@ -177,7 +177,7 @@ public class a {
                 arrayList.add(Long.valueOf(b2.swanCoreVersionCode));
             }
         }
-        if (f43516a) {
+        if (f47192a) {
             Log.d("RemoteSwanCoreControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
         }
         return arrayList;
@@ -186,6 +186,6 @@ public class a {
     public static void l(String str, long j, int i2) {
         h.a().putString(j(i2), str);
         h.a().putLong(i(i2), j);
-        q.j(new RunnableC0748a(j, i2), "cacheSwanCoreInfo");
+        q.j(new RunnableC0804a(j, i2), "cacheSwanCoreInfo");
     }
 }

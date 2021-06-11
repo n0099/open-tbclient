@@ -13,39 +13,39 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public SingleThreadEmotionHorizontalAdater f63751a;
+    public SingleThreadEmotionHorizontalAdater f67469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdListView f63752b;
+    public BdListView f67470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f63753c;
+    public e f67471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<EmotionPackageData> f63754d;
+    public List<EmotionPackageData> f67472d;
 
     public b(TbPageContext<?> tbPageContext, BdListView bdListView) {
-        this.f63752b = bdListView;
+        this.f67470b = bdListView;
         e eVar = new e(tbPageContext);
-        this.f63753c = eVar;
+        this.f67471c = eVar;
         eVar.c(TbadkCoreApplication.getInst().getSkinType());
-        this.f63752b.addHeaderView(this.f63753c.b());
-        this.f63754d = new ArrayList();
-        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.f63754d, tbPageContext);
-        this.f63751a = singleThreadEmotionHorizontalAdater;
-        this.f63752b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
+        this.f67470b.addHeaderView(this.f67471c.b());
+        this.f67472d = new ArrayList();
+        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.f67472d, tbPageContext);
+        this.f67469a = singleThreadEmotionHorizontalAdater;
+        this.f67470b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
     }
 
     public void a(List<EmotionPackageData> list) {
         e eVar;
-        if (list == null || (eVar = this.f63753c) == null || this.f63751a == null) {
+        if (list == null || (eVar = this.f67471c) == null || this.f67469a == null) {
             return;
         }
         eVar.d(Integer.valueOf(list.size()));
-        this.f63754d.clear();
+        this.f67472d.clear();
         if (list != null) {
-            this.f63754d.addAll(list);
+            this.f67472d.addAll(list);
         }
-        this.f63751a.notifyDataSetChanged();
+        this.f67469a.notifyDataSetChanged();
     }
 }

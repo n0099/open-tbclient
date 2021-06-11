@@ -9,7 +9,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f47120a = new b();
+    public static final b f50794a = new b();
 
     /* loaded from: classes3.dex */
     public static final class a implements d.a.l0.h.a0.a {

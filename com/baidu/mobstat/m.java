@@ -10,27 +10,27 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class m extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8845a;
+    public String f8907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f8846b;
+    public SQLiteDatabase f8908b;
 
     public m(Context context, String str) throws SQLiteException {
         super(context, ".confd", (SQLiteDatabase.CursorFactory) null, 1);
-        this.f8845a = str;
+        this.f8907a = str;
     }
 
     public synchronized boolean a() {
         boolean z;
         z = false;
-        if (this.f8846b == null || !this.f8846b.isOpen()) {
+        if (this.f8908b == null || !this.f8908b.isOpen()) {
             try {
-                this.f8846b = getWritableDatabase();
+                this.f8908b = getWritableDatabase();
             } catch (NullPointerException unused) {
                 throw new NullPointerException("db path is null");
             }
         }
-        if (this.f8846b != null && this.f8846b.isOpen()) {
+        if (this.f8908b != null && this.f8908b.isOpen()) {
             z = true;
         }
         return z;
@@ -40,8 +40,8 @@ public class m extends SQLiteOpenHelper {
     public final int b() {
         Cursor cursor = null;
         try {
-            SQLiteDatabase sQLiteDatabase = this.f8846b;
-            cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.f8845a, null);
+            SQLiteDatabase sQLiteDatabase = this.f8908b;
+            cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.f8907a, null);
             if (cursor == null || !cursor.moveToNext()) {
                 if (cursor != null) {
                     cursor.close();
@@ -59,9 +59,9 @@ public class m extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
     public synchronized void close() {
         super.close();
-        if (this.f8846b != null) {
-            this.f8846b.close();
-            this.f8846b = null;
+        if (this.f8908b != null) {
+            this.f8908b.close();
+            this.f8908b = null;
         }
     }
 
@@ -77,7 +77,7 @@ public class m extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        this.f8846b = sQLiteDatabase;
+        this.f8908b = sQLiteDatabase;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -94,14 +94,14 @@ public class m extends SQLiteOpenHelper {
     }
 
     public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
-        return this.f8846b.query(this.f8845a, strArr, str, strArr2, str2, str3, str4, str5);
+        return this.f8908b.query(this.f8907a, strArr, str, strArr2, str2, str3, str4, str5);
     }
 
     public long a(String str, ContentValues contentValues) {
-        return this.f8846b.insert(this.f8845a, str, contentValues);
+        return this.f8908b.insert(this.f8907a, str, contentValues);
     }
 
     public int a(String str, String[] strArr) {
-        return this.f8846b.delete(this.f8845a, str, strArr);
+        return this.f8908b.delete(this.f8907a, str, strArr);
     }
 }

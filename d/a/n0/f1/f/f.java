@@ -19,28 +19,28 @@ import java.util.List;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<MsglistActivity<?>> f54362a;
+    public TbPageContext<MsglistActivity<?>> f58051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<ChatMessage> f54363b;
+    public List<ChatMessage> f58052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeListView f54364c;
+    public BdTypeListView f58053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MsgLeftViewItemAdapter f54365d;
+    public MsgLeftViewItemAdapter f58054d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MsgRightViewItemAdapter f54366e;
+    public MsgRightViewItemAdapter f58055e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MsgMidViewItemAdapter f54367f;
+    public MsgMidViewItemAdapter f58056f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<MsgCommonItemAdapter> f54368g;
+    public List<MsgCommonItemAdapter> f58057g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f54369h;
+    public CustomMessageListener f58058h;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -55,11 +55,11 @@ public class f {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f16982b == null || aVar.f16981a == null) {
+            if (aVar.f17058b == null || aVar.f17057a == null) {
                 return;
             }
-            f.this.f54368g.addAll(aVar.f16982b);
-            f.this.f54364c.a(new ArrayList(f.this.f54368g));
+            f.this.f58057g.addAll(aVar.f17058b);
+            f.this.f58053c.a(new ArrayList(f.this.f58057g));
         }
     }
 
@@ -68,63 +68,63 @@ public class f {
     }
 
     public List<ChatMessage> c() {
-        return this.f54363b;
+        return this.f58052b;
     }
 
     public final void d() {
-        MsgLeftViewItemAdapter msgLeftViewItemAdapter = new MsgLeftViewItemAdapter(this.f54362a, ChatMessage.TYPE_MSG_LEFT);
-        this.f54365d = msgLeftViewItemAdapter;
-        msgLeftViewItemAdapter.i0(true);
-        this.f54365d.j0(true);
-        MsgRightViewItemAdapter msgRightViewItemAdapter = new MsgRightViewItemAdapter(this.f54362a, ChatMessage.TYPE_MSG_RIGHT);
-        this.f54366e = msgRightViewItemAdapter;
-        msgRightViewItemAdapter.i0(true);
-        this.f54366e.j0(true);
-        this.f54367f = new MsgMidViewItemAdapter(this.f54362a, ChatMessage.TYPE_MSG_MID);
-        this.f54368g.add(this.f54365d);
-        this.f54368g.add(this.f54366e);
-        this.f54368g.add(this.f54367f);
+        MsgLeftViewItemAdapter msgLeftViewItemAdapter = new MsgLeftViewItemAdapter(this.f58051a, ChatMessage.TYPE_MSG_LEFT);
+        this.f58054d = msgLeftViewItemAdapter;
+        msgLeftViewItemAdapter.j0(true);
+        this.f58054d.k0(true);
+        MsgRightViewItemAdapter msgRightViewItemAdapter = new MsgRightViewItemAdapter(this.f58051a, ChatMessage.TYPE_MSG_RIGHT);
+        this.f58055e = msgRightViewItemAdapter;
+        msgRightViewItemAdapter.j0(true);
+        this.f58055e.k0(true);
+        this.f58056f = new MsgMidViewItemAdapter(this.f58051a, ChatMessage.TYPE_MSG_MID);
+        this.f58057g.add(this.f58054d);
+        this.f58057g.add(this.f58055e);
+        this.f58057g.add(this.f58056f);
         e();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.f16982b = new ArrayList();
-        aVar.f16981a = this.f54362a;
+        aVar.f17058b = new ArrayList();
+        aVar.f17057a = this.f58051a;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     public final void e() {
-        this.f54369h.setPriority(Integer.MAX_VALUE);
-        this.f54362a.registerListener(this.f54369h);
+        this.f58058h.setPriority(Integer.MAX_VALUE);
+        this.f58051a.registerListener(this.f58058h);
     }
 
     public void f(ChatMessage chatMessage) {
-        if (this.f54364c.getAdapter2() instanceof d.a.c.j.e.e) {
-            this.f54364c.getAdapter2().notifyDataSetChanged();
+        if (this.f58053c.getAdapter2() instanceof d.a.c.k.e.e) {
+            this.f58053c.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void g() {
-        if (this.f54364c.getAdapter2() instanceof d.a.c.j.e.e) {
-            this.f54364c.getAdapter2().notifyDataSetChanged();
+        if (this.f58053c.getAdapter2() instanceof d.a.c.k.e.e) {
+            this.f58053c.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void h() {
-        if (this.f54364c.getAdapter2() instanceof d.a.c.j.e.e) {
-            this.f54364c.getAdapter2().notifyDataSetInvalidated();
+        if (this.f58053c.getAdapter2() instanceof d.a.c.k.e.e) {
+            this.f58053c.getAdapter2().notifyDataSetInvalidated();
         }
     }
 
     public void i() {
-        if (this.f54369h != null) {
-            MessageManager.getInstance().unRegisterListener(this.f54369h);
-            this.f54369h = null;
+        if (this.f58058h != null) {
+            MessageManager.getInstance().unRegisterListener(this.f58058h);
+            this.f58058h = null;
         }
     }
 
     public void j(List<ChatMessage> list) {
-        this.f54363b = list;
+        this.f58052b = list;
         ArrayList arrayList = new ArrayList();
-        if (this.f54363b != null) {
+        if (this.f58052b != null) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (i2 > 0) {
@@ -134,49 +134,49 @@ public class f {
                     list.get(i2).getCacheData().setLastMsgTime(list.get(i2 - 1).getTime());
                 }
             }
-            arrayList.addAll(this.f54363b);
+            arrayList.addAll(this.f58052b);
         }
-        this.f54364c.setData(arrayList);
+        this.f58053c.setData(arrayList);
     }
 
     public void k(boolean z) {
-        MsgRightViewItemAdapter msgRightViewItemAdapter = this.f54366e;
+        MsgRightViewItemAdapter msgRightViewItemAdapter = this.f58055e;
         if (msgRightViewItemAdapter != null) {
             msgRightViewItemAdapter.s0(z);
         }
     }
 
     public void l(boolean z) {
-        MsgLeftViewItemAdapter msgLeftViewItemAdapter = this.f54365d;
+        MsgLeftViewItemAdapter msgLeftViewItemAdapter = this.f58054d;
         if (msgLeftViewItemAdapter != null) {
             msgLeftViewItemAdapter.s0(z);
         }
     }
 
     public void m(d.a.c.e.h.a aVar) {
-        for (MsgCommonItemAdapter msgCommonItemAdapter : this.f54368g) {
-            if (msgCommonItemAdapter.f0()) {
-                msgCommonItemAdapter.m0(aVar);
+        for (MsgCommonItemAdapter msgCommonItemAdapter : this.f58057g) {
+            if (msgCommonItemAdapter.g0()) {
+                msgCommonItemAdapter.l0(aVar);
             }
         }
     }
 
     public void n(d.a.c.e.h.b bVar) {
-        for (MsgCommonItemAdapter msgCommonItemAdapter : this.f54368g) {
-            if (msgCommonItemAdapter.g0()) {
-                msgCommonItemAdapter.n0(bVar);
+        for (MsgCommonItemAdapter msgCommonItemAdapter : this.f58057g) {
+            if (msgCommonItemAdapter.h0()) {
+                msgCommonItemAdapter.m0(bVar);
             }
         }
     }
 
     public f(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i2) {
-        this.f54363b = null;
-        this.f54368g = new ArrayList();
-        this.f54369h = new a(2001275);
-        this.f54362a = tbPageContext;
-        this.f54364c = bdTypeListView;
+        this.f58052b = null;
+        this.f58057g = new ArrayList();
+        this.f58058h = new a(2001275);
+        this.f58051a = tbPageContext;
+        this.f58053c = bdTypeListView;
         d();
-        this.f54365d.p0(i2);
-        this.f54366e.p0(i2);
+        this.f58054d.p0(i2);
+        this.f58055e.p0(i2);
     }
 }

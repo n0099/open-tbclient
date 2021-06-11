@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static void a(Closeable closeable) {
         if (closeable != null) {
@@ -31,20 +31,5 @@ public class b {
 
     public static void a(Writer writer) {
         a((Closeable) writer);
-    }
-
-    public static void a(Closeable... closeableArr) {
-        if (closeableArr == null) {
-            return;
-        }
-        for (Closeable closeable : closeableArr) {
-            if (closeable != null) {
-                try {
-                    closeable.close();
-                } catch (Throwable th) {
-                    com.kwad.sdk.core.d.a.a(th);
-                }
-            }
-        }
     }
 }

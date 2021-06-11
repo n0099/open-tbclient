@@ -108,7 +108,7 @@ public class LoadingActivity extends Activity implements d.a.l0.a.v2.e1.b<i.a> {
             this.mLogoView.setImageBitmap(d2);
         }
         String stringExtra = intent == null ? "" : intent.getStringExtra(EXT_SO_LIB_NAME);
-        e j = d.a.l0.a.n0.k.c.f43645d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+        e j = d.a.l0.a.n0.k.c.f47321d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
         this.mUpdating = j;
         if (j != null && !j.n()) {
             this.mUpdating.v(this.mProgressCallback);
@@ -196,7 +196,7 @@ public class LoadingActivity extends Activity implements d.a.l0.a.v2.e1.b<i.a> {
         if (m == null || !m.a()) {
             return;
         }
-        int min = (int) ((Math.min(Math.max(m.f43655a, 0L), m.f43656b) / m.f43656b) * 100.0d);
+        int min = (int) ((Math.min(Math.max(m.f47331a, 0L), m.f47332b) / m.f47332b) * 100.0d);
         TextView textView = this.mProgressView;
         if (textView == null || min <= 0) {
             return;
@@ -207,7 +207,7 @@ public class LoadingActivity extends Activity implements d.a.l0.a.v2.e1.b<i.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.l0.a.v2.e1.b
     public void onCallback(i.a aVar) {
-        if (TextUtils.equals(aVar.f40755f, EVENT_ID_HIDE)) {
+        if (TextUtils.equals(aVar.f44431f, EVENT_ID_HIDE)) {
             finish();
         }
     }

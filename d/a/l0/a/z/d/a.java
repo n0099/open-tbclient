@@ -12,13 +12,13 @@ public class a {
 
     /* renamed from: d.a.l0.a.z.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0926a implements Camera.AutoFocusCallback {
+    public static class C0982a implements Camera.AutoFocusCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45982a;
+        public final /* synthetic */ String f49656a;
 
-        public C0926a(String str) {
-            this.f45982a = str;
+        public C0982a(String str) {
+            this.f49656a = str;
         }
 
         @Override // android.hardware.Camera.AutoFocusCallback
@@ -27,7 +27,7 @@ public class a {
             if (camera == null || (parameters = camera.getParameters()) == null) {
                 return;
             }
-            parameters.setFocusMode(this.f45982a);
+            parameters.setFocusMode(this.f49656a);
             camera.setParameters(parameters);
         }
     }
@@ -75,6 +75,6 @@ public class a {
         String focusMode = parameters.getFocusMode();
         parameters.setFocusMode(c(parameters));
         camera.setParameters(parameters);
-        camera.autoFocus(new C0926a(focusMode));
+        camera.autoFocus(new C0982a(focusMode));
     }
 }

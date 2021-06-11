@@ -27,32 +27,32 @@ import d.a.c.e.p.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f53733a = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    public static final int f57422a = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     /* renamed from: d.a.n0.e2.n.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1281a extends ClickableSpan {
+    public static class C1337a extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f53734e;
+        public final /* synthetic */ String f57423e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f53735f;
+        public final /* synthetic */ String f57424f;
 
-        public C1281a(String str, String str2) {
-            this.f53734e = str;
-            this.f53735f = str2;
+        public C1337a(String str, String str2) {
+            this.f57423e = str;
+            this.f57424f = str2;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (StringUtils.isNull(this.f53734e)) {
+            if (StringUtils.isNull(this.f57423e)) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13313");
-            statisticItem.param("tid", this.f53735f);
+            statisticItem.param("tid", this.f57424f);
             TiebaStatic.log(statisticItem);
-            d.a.m0.l.a.s(TbadkCoreApplication.getInst().getApplicationContext(), false, this.f53734e);
+            d.a.m0.l.a.s(TbadkCoreApplication.getInst().getApplicationContext(), false, this.f57423e);
         }
     }
 
@@ -94,20 +94,20 @@ public class a {
     public static class c extends ReplacementSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53736e;
+        public int f57425e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f53737f;
+        public int f57426f;
 
         public c(int i2, int i3) {
-            this.f53736e = i2;
-            this.f53737f = i3;
+            this.f57425e = i2;
+            this.f57426f = i3;
         }
 
         public final TextPaint a(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.f53736e);
-            textPaint.setColor(this.f53737f);
+            textPaint.setTextSize(this.f57425e);
+            textPaint.setColor(this.f57426f);
             return textPaint;
         }
 
@@ -150,10 +150,10 @@ public class a {
         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_video_pb_ad_link);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         spannableString.setSpan(new b(drawable, 0), 0, 1, 17);
-        spannableString.setSpan(new C1281a(str2, str3), 0, 1, 17);
+        spannableString.setSpan(new C1337a(str2, str3), 0, 1, 17);
         spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
         SpannableString spannableString2 = new SpannableString(" 广告");
-        spannableString2.setSpan(new c(f53733a, color), 0, 3, 17);
+        spannableString2.setSpan(new c(f57422a, color), 0, 3, 17);
         spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
         textView.setHighlightColor(0);
         textView.setText(spannableStringBuilder);

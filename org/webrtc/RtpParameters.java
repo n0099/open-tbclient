@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RtpParameters {
     public final List<Codec> codecs;
     public final List<Encoding> encodings;
@@ -12,7 +12,7 @@ public class RtpParameters {
     public final Rtcp rtcp;
     public final String transactionId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Codec {
         public Integer clockRate;
         public MediaStreamTrack.MediaType kind;
@@ -62,7 +62,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Encoding {
         public boolean active;
         @Nullable
@@ -121,7 +121,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HeaderExtension {
         public final boolean encrypted;
         public final int id;
@@ -150,7 +150,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Rtcp {
         public final String cname;
         public final boolean reducedSize;

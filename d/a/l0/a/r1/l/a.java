@@ -19,10 +19,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44516a = k.f43199a;
+    public static final boolean f48190a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f44517b = AppRuntime.getAppContext().getExternalCacheDir();
+    public static final File f48191b = AppRuntime.getAppContext().getExternalCacheDir();
 
     public static JSONObject a() {
         JSONObject jSONObject = new JSONObject();
@@ -45,7 +45,7 @@ public class a {
     }
 
     public static String b() {
-        return f44517b + File.separator + "swan_perf";
+        return f48191b + File.separator + "swan_perf";
     }
 
     public static JSONObject c(List<UbcFlowEvent> list, JSONObject jSONObject) {
@@ -55,7 +55,7 @@ public class a {
             if (!ubcFlowEvent.b()) {
                 try {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("id", ubcFlowEvent.f10989a);
+                    jSONObject3.put("id", ubcFlowEvent.f11051a);
                     jSONObject3.put("time", ubcFlowEvent.g());
                     jSONObject3.put("value", ubcFlowEvent.j());
                     jSONArray.put(jSONObject3);
@@ -76,7 +76,7 @@ public class a {
     public static void d(List<UbcFlowEvent> list, JSONObject jSONObject) {
         d.a.l0.a.a2.e Q;
         Map<String, String> t;
-        if (f44516a) {
+        if (f48190a) {
             d.a.l0.q.d.b().f();
         }
         if (d.a.l0.a.u1.a.a.D() && (Q = d.a.l0.a.a2.e.Q()) != null && (t = o0.t(o0.o(Q.L().W()))) != null && TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
@@ -88,7 +88,7 @@ public class a {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            File file = new File(f44517b, "swan_perf");
+            File file = new File(f48191b, "swan_perf");
             if (file.exists() || file.mkdirs()) {
                 d.a.l0.t.d.M(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
             }

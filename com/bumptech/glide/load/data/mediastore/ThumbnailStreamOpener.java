@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThumbnailStreamOpener {
     public static final FileService DEFAULT_SERVICE = new FileService();
     public static final String TAG = "ThumbStreamOpener";

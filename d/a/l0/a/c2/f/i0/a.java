@@ -21,43 +21,43 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f41062f = k.f43199a;
+    public static final boolean f44738f = k.f46875a;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f41063g;
+    public static volatile a f44739g;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f41064a;
+    public Activity f44740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FloatButton f41065b;
+    public FloatButton f44741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41066c;
+    public String f44742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f41067d;
+    public JSONObject f44743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41068e = "";
+    public String f44744e = "";
 
     public static a d() {
-        if (f41063g == null) {
+        if (f44739g == null) {
             synchronized (a.class) {
-                if (f41063g == null) {
-                    f41063g = new a();
+                if (f44739g == null) {
+                    f44739g = new a();
                 }
             }
         }
-        return f41063g;
+        return f44739g;
     }
 
     public static void h() {
-        if (f41063g == null) {
+        if (f44739g == null) {
             return;
         }
-        f41063g = null;
+        f44739g = null;
     }
 
     public final FloatButton a(Context context, ViewGroup viewGroup) {
@@ -70,7 +70,7 @@ public class a {
     }
 
     public void b(Intent intent) {
-        if (intent == null || this.f41065b == null) {
+        if (intent == null || this.f44741b == null) {
             return;
         }
         String dataString = intent.getDataString();
@@ -78,19 +78,19 @@ public class a {
             return;
         }
         String substring = dataString.substring(8);
-        if (TextUtils.isEmpty(substring) || !substring.equals(this.f41068e)) {
+        if (TextUtils.isEmpty(substring) || !substring.equals(this.f44744e)) {
             return;
         }
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            this.f41066c = this.f41064a.getResources().getString(h.aiapps_tip_open_app);
+            this.f44742c = this.f44740a.getResources().getString(h.aiapps_tip_open_app);
         } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-            this.f41066c = this.f41064a.getResources().getString(h.swan_app_hover_button_download);
+            this.f44742c = this.f44740a.getResources().getString(h.swan_app_hover_button_download);
         }
-        this.f41065b.setFloatButtonText(this.f41066c);
+        this.f44741b.setFloatButtonText(this.f44742c);
     }
 
     public FloatButton c() {
-        return this.f41065b;
+        return this.f44741b;
     }
 
     public final FloatButton e(Context context) {
@@ -101,17 +101,17 @@ public class a {
     }
 
     public FloatButton f() {
-        Activity activity = this.f41064a;
+        Activity activity = this.f44740a;
         if (activity instanceof SwanAppActivity) {
-            if (this.f41065b == null) {
-                this.f41065b = a(activity, (ViewGroup) activity.findViewById(16908290));
+            if (this.f44741b == null) {
+                this.f44741b = a(activity, (ViewGroup) activity.findViewById(16908290));
             }
-            this.f41065b.setFloatButtonText(this.f41066c);
-            this.f41065b.setFloatButtonDrawable(this.f41064a.getResources().getDrawable(e.swan_app_hover_button_shape));
-            this.f41065b.setFloatButtonDefaultPosition();
-            this.f41065b.setFloatButtonStyle(this.f41067d);
-            this.f41065b.setVisibility(0);
-            return this.f41065b;
+            this.f44741b.setFloatButtonText(this.f44742c);
+            this.f44741b.setFloatButtonDrawable(this.f44740a.getResources().getDrawable(e.swan_app_hover_button_shape));
+            this.f44741b.setFloatButtonDefaultPosition();
+            this.f44741b.setFloatButtonStyle(this.f44743d);
+            this.f44741b.setVisibility(0);
+            return this.f44741b;
         }
         return null;
     }
@@ -119,27 +119,27 @@ public class a {
     public void g(Activity activity, JSONObject jSONObject) {
         String string;
         if (jSONObject != null) {
-            if (f41062f) {
+            if (f44738f) {
                 Log.i("FloatButtonGuideManager", jSONObject.toString());
             }
-            this.f41064a = activity;
+            this.f44740a = activity;
             String optString = jSONObject.optString("name");
-            this.f41068e = optString;
+            this.f44744e = optString;
             if (q0.F(activity, optString)) {
                 string = activity.getString(h.aiapps_tip_open_app);
             } else {
                 string = activity.getString(h.swan_app_hover_button_download);
             }
-            this.f41066c = string;
-            this.f41067d = jSONObject.optJSONObject("style");
+            this.f44742c = string;
+            this.f44743d = jSONObject.optJSONObject("style");
         }
     }
 
     public void i(String str) {
-        this.f41068e = str;
+        this.f44744e = str;
     }
 
     public void j(FloatButton floatButton) {
-        this.f41065b = floatButton;
+        this.f44741b = floatButton;
     }
 }

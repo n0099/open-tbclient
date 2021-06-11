@@ -11,10 +11,10 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 public class m extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f54505d = null;
+    public static a f58194d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f54506e = "tb_private_msg_";
+    public static String f58195e = "tb_private_msg_";
 
     public m() {
         super("tb_private_msg_", PersonalChatMessage.class);
@@ -23,10 +23,10 @@ public class m extends a {
     public static synchronized m t() {
         m mVar;
         synchronized (m.class) {
-            if (f54505d == null) {
-                f54505d = new m();
+            if (f58194d == null) {
+                f58194d = new m();
             }
-            mVar = (m) f54505d;
+            mVar = (m) f58194d;
         }
         return mVar;
     }
@@ -41,7 +41,7 @@ public class m extends a {
         }
         try {
             try {
-                cursor = h.e().h("select * from " + (f54506e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i2)});
+                cursor = h.e().h("select * from " + (f58195e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i2)});
                 try {
                     CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
                     if (cursor != null && cursor.moveToNext()) {

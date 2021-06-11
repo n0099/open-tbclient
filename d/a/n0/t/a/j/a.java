@@ -13,22 +13,22 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f60825a = 0;
+    public static long f64516a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60826b = "1";
+    public static String f64517b = "1";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f60827c = "5";
+    public static String f64518c = "5";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f60828d = "6";
+    public static String f64519d = "6";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f60829e = "7";
+    public static String f64520e = "7";
 
     public static void a() {
-        File file = new File(d.a.n0.t.a.i.a.f60818b);
+        File file = new File(d.a.n0.t.a.i.a.f64509b);
         if (file.exists()) {
             FileHelper.deleteFileOrDir(file);
         }
@@ -36,7 +36,7 @@ public class a {
 
     public static void b(File file) {
         File[] listFiles;
-        File file2 = new File(d.a.n0.t.a.i.a.f60818b);
+        File file2 = new File(d.a.n0.t.a.i.a.f64509b);
         if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
             return;
         }
@@ -64,9 +64,9 @@ public class a {
 
     public static boolean f() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - f60825a;
+        long j = currentTimeMillis - f64516a;
         if (0 >= j || j >= 500) {
-            f60825a = currentTimeMillis;
+            f64516a = currentTimeMillis;
             return false;
         }
         return true;

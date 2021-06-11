@@ -12,17 +12,17 @@ public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int F() {
+    public int J() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String I() {
+    public String M() {
         return "c/u/feed/atme";
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int J() {
+    public int N() {
         return 0;
     }
 

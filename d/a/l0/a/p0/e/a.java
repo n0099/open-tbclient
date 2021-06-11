@@ -5,29 +5,29 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import d.a.l0.a.e0.d;
 import d.a.l0.a.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44017a = k.f43199a;
+    public static final boolean f47691a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f44018b;
+    public static volatile a f47692b;
 
     /* renamed from: d.a.l0.a.p0.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0793a implements d.a.l0.a.v2.e1.b<Exception> {
+    /* loaded from: classes3.dex */
+    public class C0849a implements d.a.l0.a.v2.e1.b<Exception> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f44019e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f47693e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44020f;
+        public final /* synthetic */ int f47694f;
 
         /* renamed from: d.a.l0.a.p0.e.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0794a implements d.a.l0.a.v2.e1.b<Exception> {
-            public C0794a() {
+        /* loaded from: classes3.dex */
+        public class C0850a implements d.a.l0.a.v2.e1.b<Exception> {
+            public C0850a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -35,16 +35,16 @@ public class a {
             /* renamed from: a */
             public void onCallback(Exception exc) {
                 d.i("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
-                d.a.l0.a.v2.e1.b bVar = C0793a.this.f44019e;
+                d.a.l0.a.v2.e1.b bVar = C0849a.this.f47693e;
                 if (bVar != null) {
                     bVar.onCallback(exc);
                 }
             }
         }
 
-        public C0793a(a aVar, d.a.l0.a.v2.e1.b bVar, int i2) {
-            this.f44019e = bVar;
-            this.f44020f = i2;
+        public C0849a(a aVar, d.a.l0.a.v2.e1.b bVar, int i2) {
+            this.f47693e = bVar;
+            this.f47694f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,7 +53,7 @@ public class a {
         public void onCallback(Exception exc) {
             if (exc == null) {
                 d.h("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
-                d.a.l0.a.v2.e1.b bVar = this.f44019e;
+                d.a.l0.a.v2.e1.b bVar = this.f47693e;
                 if (bVar != null) {
                     bVar.onCallback(null);
                     return;
@@ -61,30 +61,30 @@ public class a {
                 return;
             }
             d.h("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-            d.a.l0.a.m2.b.o(this.f44020f, new C0794a());
+            d.a.l0.a.m2.b.o(this.f47694f, new C0850a());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements d.a.l0.a.v2.e1.b<Exception> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f44022e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f47696e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44023f;
+        public final /* synthetic */ int f47697f;
 
         /* renamed from: d.a.l0.a.p0.e.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0795a implements d.a.l0.a.v2.e1.b<Exception> {
-            public C0795a() {
+        /* loaded from: classes3.dex */
+        public class C0851a implements d.a.l0.a.v2.e1.b<Exception> {
+            public C0851a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.a.l0.a.v2.e1.b
             /* renamed from: a */
             public void onCallback(Exception exc) {
-                d.a.l0.a.v2.e1.b bVar = b.this.f44022e;
+                d.a.l0.a.v2.e1.b bVar = b.this.f47696e;
                 if (bVar != null) {
                     bVar.onCallback(exc);
                 }
@@ -92,8 +92,8 @@ public class a {
         }
 
         public b(a aVar, d.a.l0.a.v2.e1.b bVar, int i2) {
-            this.f44022e = bVar;
-            this.f44023f = i2;
+            this.f47696e = bVar;
+            this.f47697f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,18 +101,18 @@ public class a {
         /* renamed from: a */
         public void onCallback(Exception exc) {
             if (exc != null) {
-                d.a.l0.a.v2.e1.b bVar = this.f44022e;
+                d.a.l0.a.v2.e1.b bVar = this.f47696e;
                 if (bVar != null) {
                     bVar.onCallback(exc);
                     return;
                 }
                 return;
             }
-            d.a.l0.a.p0.b.h(this.f44023f, new C0795a());
+            d.a.l0.a.p0.b.h(this.f47697f, new C0851a());
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -124,14 +124,14 @@ public class a {
     }
 
     public static a d() {
-        if (f44018b == null) {
+        if (f47692b == null) {
             synchronized (a.class) {
-                if (f44018b == null) {
-                    f44018b = new a();
+                if (f47692b == null) {
+                    f47692b = new a();
                 }
             }
         }
-        return f44018b;
+        return f47692b;
     }
 
     public final void b() {
@@ -143,11 +143,11 @@ public class a {
 
     public void c(@Nullable d.a.l0.a.v2.e1.b<Exception> bVar, int i2) {
         d.h("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i2);
-        g(new C0793a(this, bVar, i2), i2);
+        g(new C0849a(this, bVar, i2), i2);
     }
 
     public void e(int i2, int i3) {
-        if (f44017a) {
+        if (f47691a) {
             Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i2 + " ,newVersion: " + i3);
         }
         d.a.l0.a.m2.b.l(i2, i3);

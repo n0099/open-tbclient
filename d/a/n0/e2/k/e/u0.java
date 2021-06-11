@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 public abstract class u0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f53516a;
+    public BaseFragmentActivity f57205a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f53517b;
+    public View f57206b;
 
     public u0(BaseFragmentActivity baseFragmentActivity, View view) {
-        this.f53516a = baseFragmentActivity;
-        this.f53517b = view;
+        this.f57205a = baseFragmentActivity;
+        this.f57206b = view;
     }
 
     public void a() {
@@ -21,7 +21,7 @@ public abstract class u0 {
     }
 
     public void b(g gVar) {
-        if (this.f53516a == null || this.f53517b == null) {
+        if (this.f57205a == null || this.f57206b == null) {
             return;
         }
         c(gVar);

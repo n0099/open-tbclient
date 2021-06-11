@@ -181,10 +181,10 @@ public class AddLinkActivity extends BaseActivity {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f21952e;
+        public final /* synthetic */ String f22055e;
 
         public i(String str) {
-            this.f21952e = str;
+            this.f22055e = str;
         }
 
         @Override // java.lang.Runnable
@@ -195,7 +195,7 @@ public class AddLinkActivity extends BaseActivity {
             }
             WriteTipBubbleController writeTipBubbleController = AddLinkActivity.this.mFindNewLinkBubbleController;
             EditText editText = AddLinkActivity.this.mLinkEditView;
-            writeTipBubbleController.d(editText, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + this.f21952e, this.f21952e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+            writeTipBubbleController.d(editText, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + this.f22055e, this.f22055e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
         }
     }
 

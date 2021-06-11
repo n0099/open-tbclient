@@ -17,7 +17,7 @@ public class e implements CustomMessageTask.CustomRunnable<Object> {
         LinkedList linkedList = new LinkedList();
         if (list != null) {
             for (l.b<String> bVar : list) {
-                String str = bVar.f38541a;
+                String str = bVar.f42194a;
                 if (!TextUtils.isEmpty(str)) {
                     linkedList.add(str);
                 }

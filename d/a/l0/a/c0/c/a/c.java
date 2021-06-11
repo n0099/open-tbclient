@@ -31,7 +31,7 @@ public final class c extends d.a.l0.a.c0.a.d.b {
 
     @Override // d.a.l0.a.c0.b.b, d.a.l0.a.l1.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f40846g) || TextUtils.isEmpty(this.f40845f)) ? false : true;
+        return (TextUtils.isEmpty(this.f44522g) || TextUtils.isEmpty(this.f44521f)) ? false : true;
     }
 
     public boolean j() {

@@ -104,7 +104,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         public int addTransition(int i2, int i3, @NonNull Drawable drawable, boolean z) {
             int addChild = super.addChild(drawable);
             long generateTransitionKey = generateTransitionKey(i2, i3);
-            long j = z ? REVERSIBLE_FLAG_BIT : 0L;
+            long j = z ? 8589934592L : 0L;
             long j2 = addChild;
             this.mTransitions.append(generateTransitionKey, Long.valueOf(j2 | j));
             if (z) {
@@ -146,7 +146,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         }
 
         public boolean transitionHasReversibleFlag(int i2, int i3) {
-            return (this.mTransitions.get(generateTransitionKey(i2, i3), -1L).longValue() & REVERSIBLE_FLAG_BIT) != 0;
+            return (this.mTransitions.get(generateTransitionKey(i2, i3), -1L).longValue() & 8589934592L) != 0;
         }
 
         @Override // androidx.appcompat.graphics.drawable.StateListDrawable.StateListState, android.graphics.drawable.Drawable.ConstantState

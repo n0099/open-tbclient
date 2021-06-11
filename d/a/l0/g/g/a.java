@@ -52,7 +52,7 @@ public final class a extends d.a.l0.g.f.a {
             return null;
         }
         if (SchemeRouter.invokeScheme(b2, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-            callback.b(null);
+            callback.a(null);
         } else {
             callback.onFail(202, "params may be error");
         }

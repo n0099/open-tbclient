@@ -26,19 +26,19 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     public View l;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f20689e = null;
+    public h f20766e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public SquareModel f20690f = null;
+    public SquareModel f20767f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f20691g = false;
+    public boolean f20768g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f20692h = false;
+    public boolean f20769h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f20693i = -1;
+    public long f20770i = -1;
     public final SquareModel.a m = new b();
     public final NoNetworkView.b n = new c();
     public final View.OnKeyListener o = new d();
@@ -62,47 +62,47 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
         public void a(boolean z, String str, d.a.n0.b3.j.f fVar) {
-            SquareActivity.this.f20689e.g(true, "");
+            SquareActivity.this.f20766e.g(true, "");
             SquareActivity squareActivity = SquareActivity.this;
-            squareActivity.hideLoadingView(squareActivity.f20689e.h());
+            squareActivity.hideLoadingView(squareActivity.f20766e.h());
             if (z && fVar != null && !fVar.g()) {
-                SquareActivity.this.f20689e.l(SquareActivity.this.f20690f.B());
-                SquareActivity.this.f20691g = true;
-                SquareActivity.this.f20689e.j();
+                SquareActivity.this.f20766e.l(SquareActivity.this.f20767f.F());
+                SquareActivity.this.f20768g = true;
+                SquareActivity.this.f20766e.i();
                 SquareActivity.this.v();
             }
-            if (SquareActivity.this.f20692h) {
-                SquareActivity.this.f20692h = false;
+            if (SquareActivity.this.f20769h) {
+                SquareActivity.this.f20769h = false;
                 SquareActivity.this.w(true);
-                if (!SquareActivity.this.f20691g) {
-                    SquareActivity.this.f20689e.j();
+                if (!SquareActivity.this.f20768g) {
+                    SquareActivity.this.f20766e.i();
                     SquareActivity squareActivity2 = SquareActivity.this;
-                    squareActivity2.showLoadingView(squareActivity2.f20689e.h());
+                    squareActivity2.showLoadingView(squareActivity2.f20766e.h());
                 }
             } else {
-                if (SquareActivity.this.f20693i > -1) {
+                if (SquareActivity.this.f20770i > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareActivity.this.f20693i, SquareActivity.this.f20690f.D() - SquareActivity.this.f20693i, SquareActivity.this.f20690f.F(), SquareActivity.this.f20690f.E(), currentTimeMillis - SquareActivity.this.f20690f.C());
-                    SquareActivity.this.f20693i = -1L;
+                    TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - SquareActivity.this.f20770i, SquareActivity.this.f20767f.H() - SquareActivity.this.f20770i, SquareActivity.this.f20767f.J(), SquareActivity.this.f20767f.I(), currentTimeMillis - SquareActivity.this.f20767f.G());
+                    SquareActivity.this.f20770i = -1L;
                 }
-                if (!SquareActivity.this.f20691g) {
+                if (!SquareActivity.this.f20768g) {
                     if (j.z()) {
-                        SquareActivity.this.f20689e.o(R.string.no_data_text);
+                        SquareActivity.this.f20766e.o(R.string.no_data_text);
                     } else {
-                        SquareActivity.this.f20689e.o(R.string.game_index_no_network_text);
+                        SquareActivity.this.f20766e.o(R.string.game_index_no_network_text);
                     }
                 }
             }
             if (!j.z()) {
-                SquareActivity.this.f20689e.f();
-                if (SquareActivity.this.f20691g) {
+                SquareActivity.this.f20766e.f();
+                if (SquareActivity.this.f20768g) {
                     return;
                 }
                 SquareActivity.this.r();
                 return;
             }
             SquareActivity.this.k.showToast(str);
-            SquareActivity.this.f20689e.k();
+            SquareActivity.this.f20766e.k();
         }
     }
 
@@ -183,7 +183,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        h hVar = this.f20689e;
+        h hVar = this.f20766e;
         if (hVar != null) {
             hVar.onChangeSkinType(i2);
             this.j.onChangeSkinType(getPageContext(), i2);
@@ -194,7 +194,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.k = getPageContext();
-        this.f20693i = System.currentTimeMillis();
+        this.f20770i = System.currentTimeMillis();
         this.l = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.square_view, (ViewGroup) null);
         getPageContext().getPageActivity().setContentView(this.l);
         u();
@@ -217,11 +217,11 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     }
 
     public final void r() {
-        this.f20689e.d(this.n);
+        this.f20766e.d(this.n);
     }
 
     public final void s() {
-        SquareModel squareModel = this.f20690f;
+        SquareModel squareModel = this.f20767f;
         if (squareModel != null) {
             squareModel.cancelLoadData();
         }
@@ -229,15 +229,15 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
 
     public final void t() {
         SquareModel squareModel = new SquareModel(getPageContext());
-        this.f20690f = squareModel;
-        squareModel.J(this.m);
-        this.f20692h = true;
+        this.f20767f = squareModel;
+        squareModel.N(this.m);
+        this.f20769h = true;
         w(true);
     }
 
     public final void u() {
         h hVar = new h(getPageContext(), this.l, this.o);
-        this.f20689e = hVar;
+        this.f20766e = hVar;
         hVar.n(this.p);
         NavigationBar navigationBar = (NavigationBar) this.k.getPageActivity().findViewById(R.id.view_navigation_bar);
         this.j = navigationBar;
@@ -246,23 +246,23 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     }
 
     public final void v() {
-        this.f20689e.m(this.n);
+        this.f20766e.m(this.n);
     }
 
     public final void w(boolean z) {
-        SquareModel squareModel = this.f20690f;
+        SquareModel squareModel = this.f20767f;
         if (squareModel == null) {
             return;
         }
         boolean z2 = false;
-        boolean z3 = squareModel.B() == null || this.f20690f.B().g();
+        boolean z3 = squareModel.F() == null || this.f20767f.F().g();
         boolean z4 = z;
         if (!j.z()) {
-            this.f20692h = false;
+            this.f20769h = false;
             z4 = false;
             z3 = true;
         }
-        if (this.f20692h) {
+        if (this.f20769h) {
             z3 = true;
         } else {
             z2 = z4;
@@ -270,9 +270,9 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         if (z3 || z2) {
             s();
             if (z2) {
-                this.f20690f.I();
+                this.f20767f.M();
             } else {
-                this.f20690f.H();
+                this.f20767f.L();
             }
         }
     }

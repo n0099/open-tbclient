@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.chosen.cache;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import d.a.n0.e2.g.c.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ReadChosenPbCacheResponse extends CustomResponsedMessage<a> {
     public a chosenData;
 

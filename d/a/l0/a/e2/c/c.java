@@ -14,22 +14,22 @@ import org.json.JSONObject;
 public abstract class c<ResultDataT> {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f41674f = k.f43199a;
+    public static final boolean f45350f = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final i<ResultDataT> f41675a = new i<>();
+    public final i<ResultDataT> f45351a = new i<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<d.a.l0.a.v2.e1.b<i<ResultDataT>>> f41676b = new HashSet();
+    public final Set<d.a.l0.a.v2.e1.b<i<ResultDataT>>> f45352b = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<e> f41677c = new LinkedList<>();
+    public final LinkedList<e> f45353c = new LinkedList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41678d = false;
+    public boolean f45354d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41679e = false;
+    public boolean f45355e = false;
 
     /* loaded from: classes3.dex */
     public class a extends e {
@@ -57,7 +57,7 @@ public abstract class c<ResultDataT> {
                 return true;
             }
             d.j("finalPrepare failed", Boolean.TRUE);
-            if (c.f41674f) {
+            if (c.f45350f) {
                 throw new OAuthException(10001);
             }
             return true;
@@ -66,20 +66,20 @@ public abstract class c<ResultDataT> {
 
     /* renamed from: d.a.l0.a.e2.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0618c implements Runnable {
+    public class RunnableC0674c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f41682e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f45358e;
 
-        public RunnableC0618c(d.a.l0.a.v2.e1.b bVar) {
-            this.f41682e = bVar;
+        public RunnableC0674c(d.a.l0.a.v2.e1.b bVar) {
+            this.f45358e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.a.v2.e1.b bVar = this.f41682e;
+            d.a.l0.a.v2.e1.b bVar = this.f45358e;
             if (bVar != null) {
-                bVar.onCallback(c.this.f41675a);
+                bVar.onCallback(c.this.f45351a);
             }
         }
     }
@@ -101,7 +101,7 @@ public abstract class c<ResultDataT> {
         b bVar = new b();
         bVar.h(this);
         bVar.g();
-        this.f41679e = true;
+        this.f45355e = true;
     }
 
     public void d() {
@@ -110,40 +110,40 @@ public abstract class c<ResultDataT> {
 
     public void e(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.f41675a.f41738c = (OAuthException) exc;
+            this.f45351a.f45414c = (OAuthException) exc;
         } else if (exc != null) {
             d.s("OAuthTask#finish", exc.getMessage());
-            this.f41675a.f41738c = new OAuthException(exc, 10001);
+            this.f45351a.f45414c = new OAuthException(exc, 10001);
         }
-        if (!this.f41675a.c() && f41674f && exc != null) {
+        if (!this.f45351a.c() && f45350f && exc != null) {
             exc.printStackTrace();
         }
         t(TaskState.FINISHED);
         d.j(toString(), Boolean.FALSE);
         h();
-        this.f41676b.clear();
+        this.f45352b.clear();
     }
 
     public TaskState f() {
-        return this.f41675a.f41737b;
+        return this.f45351a.f45413b;
     }
 
     public final void g() {
         a aVar = new a();
         aVar.h(this);
         aVar.g();
-        this.f41678d = true;
+        this.f45354d = true;
     }
 
     public final void h() {
-        for (d.a.l0.a.v2.e1.b<i<ResultDataT>> bVar : this.f41676b) {
-            d.k(new RunnableC0618c(bVar));
+        for (d.a.l0.a.v2.e1.b<i<ResultDataT>> bVar : this.f45352b) {
+            d.k(new RunnableC0674c(bVar));
         }
     }
 
     public c i(@NonNull e eVar) {
         eVar.h(this);
-        this.f41677c.offer(eVar);
+        this.f45353c.offer(eVar);
         return this;
     }
 
@@ -167,14 +167,14 @@ public abstract class c<ResultDataT> {
 
     public final void o() {
         if (!TaskState.CALLING.equals(f())) {
-            if (f41674f) {
+            if (f45350f) {
                 d.j("IllegalState on prepare", Boolean.FALSE);
             }
-        } else if (!this.f41678d) {
+        } else if (!this.f45354d) {
             g();
-        } else if (!this.f41677c.isEmpty()) {
-            this.f41677c.poll().g();
-        } else if (!this.f41679e) {
+        } else if (!this.f45353c.isEmpty()) {
+            this.f45353c.poll().g();
+        } else if (!this.f45355e) {
             c();
         } else {
             b();
@@ -182,16 +182,16 @@ public abstract class c<ResultDataT> {
     }
 
     public c<ResultDataT> p(d.a.l0.a.v2.e1.b<i<ResultDataT>> bVar) {
-        if (this.f41675a.f41737b.isCallbackAvailable()) {
-            this.f41676b.add(bVar);
+        if (this.f45351a.f45413b.isCallbackAvailable()) {
+            this.f45352b.add(bVar);
         }
         return this;
     }
 
     public void q() {
-        this.f41675a.f41737b = TaskState.INIT;
-        this.f41678d = false;
-        this.f41679e = false;
+        this.f45351a.f45413b = TaskState.INIT;
+        this.f45354d = false;
+        this.f45355e = false;
     }
 
     public c<ResultDataT> r(String str) {
@@ -199,10 +199,10 @@ public abstract class c<ResultDataT> {
     }
 
     public void s(ResultDataT resultdatat) {
-        this.f41675a.f41736a = resultdatat;
+        this.f45351a.f45412a = resultdatat;
     }
 
     public final void t(TaskState taskState) {
-        this.f41675a.f41737b = taskState;
+        this.f45351a.f45413b = taskState;
     }
 }

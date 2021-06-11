@@ -16,19 +16,19 @@ public class c extends a {
     }
 
     @Override // d.a.l0.v.i.a.c.a, d.a.l0.a.y0.k.g.a
-    public void D() {
+    public void C() {
     }
 
     @Override // d.a.l0.v.i.a.c.a
-    public void F0(int i2, int i3, String str) {
+    public void C0(int i2, int i3, String str) {
         try {
-            JSONObject M0 = M0();
-            JSONObject N0 = N0();
-            N0.put("errorNo", i2);
-            N0.put("sub_errorNo", i3);
-            N0.put("errorInfo", str);
-            M0.put("ext", N0.toString());
-            e.m(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, M0);
+            JSONObject J0 = J0();
+            JSONObject K0 = K0();
+            K0.put("errorNo", i2);
+            K0.put("sub_errorNo", i3);
+            K0.put("errorInfo", str);
+            J0.put("ext", K0.toString());
+            e.m("36", J0);
         } catch (Exception e2) {
             if (a.x) {
                 e2.printStackTrace();
@@ -37,12 +37,12 @@ public class c extends a {
     }
 
     @Override // d.a.l0.v.i.a.c.a
-    public void G0() {
+    public void D0() {
         try {
-            JSONObject M0 = M0();
-            M0.put("type", "first_frame");
-            M0.put("ext", N0().toString());
-            e.m(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, M0);
+            JSONObject J0 = J0();
+            J0.put("type", "first_frame");
+            J0.put("ext", K0().toString());
+            e.m(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, J0);
         } catch (Exception e2) {
             if (a.x) {
                 e2.printStackTrace();
@@ -51,11 +51,11 @@ public class c extends a {
     }
 
     @Override // d.a.l0.v.i.a.c.a, d.a.l0.a.y0.k.g.a
-    public void K() {
+    public void H() {
     }
 
     @NonNull
-    public final JSONObject M0() {
+    public final JSONObject J0() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", "video");
@@ -69,13 +69,13 @@ public class c extends a {
     }
 
     @NonNull
-    public final JSONObject N0() {
+    public final JSONObject K0() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("ext_from", "aiapp");
             jSONObject.put("appid", d.a.l0.a.a2.e.V());
-            jSONObject.put("url", this.f48518b);
-            jSONObject.put(TiebaStatic.Params.VID, this.f48518b);
+            jSONObject.put("url", this.f52192b);
+            jSONObject.put(TiebaStatic.Params.VID, this.f52192b);
             jSONObject.put("isInline", true);
             String str = "";
             d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
@@ -96,19 +96,19 @@ public class c extends a {
     }
 
     @Override // d.a.l0.a.y0.k.g.a
-    public void Q(ZeusPluginFactory.Invoker invoker) {
+    public void N(ZeusPluginFactory.Invoker invoker) {
     }
 
     @Override // d.a.l0.a.y0.k.g.a
-    public void Y() {
+    public void V() {
     }
 
     @Override // d.a.l0.a.y0.k.g.a
-    public ZeusPluginFactory.Invoker j0() {
+    public ZeusPluginFactory.Invoker g0() {
         return null;
     }
 
     @Override // d.a.l0.v.i.a.c.a, d.a.l0.a.y0.k.g.a
-    public void q0() {
+    public void n0() {
     }
 }

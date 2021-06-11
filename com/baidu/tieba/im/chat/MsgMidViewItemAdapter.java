@@ -23,25 +23,25 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        h0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        i0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View h0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<d> msgViewHolder) {
-        super.W(i2, view, viewGroup, chatMessage, msgViewHolder);
-        msgViewHolder.b().j(chatMessage);
+    public View i0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<d> msgViewHolder) {
+        super.X(i2, view, viewGroup, chatMessage, msgViewHolder);
+        msgViewHolder.b().k(chatMessage);
         this.m.getLayoutMode().k(false);
         this.m.getLayoutMode().j(view);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: q0 */
-    public MsgCommonItemAdapter.MsgViewHolder<d> P(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<d> Q(ViewGroup viewGroup) {
         d dVar = new d(this.m);
         return new a(this, dVar.e(), dVar);
     }

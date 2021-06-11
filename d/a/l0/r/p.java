@@ -14,11 +14,11 @@ public class p {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final p f48455a = new p();
+        public static final p f52129a = new p();
     }
 
     public static p b() {
-        return b.f48455a;
+        return b.f52129a;
     }
 
     public Flow a(String str, String str2, int i2) {

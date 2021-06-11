@@ -21,7 +21,7 @@ public class h {
         if (adAdSense != null && !adAdSense.g()) {
             y.a(advertAppInfo);
         } else {
-            i.l().g(advertAppInfo.X3, advertAppInfo.getDownloadId(), true);
+            i.l().g(advertAppInfo.a4, advertAppInfo.getDownloadId(), true);
         }
     }
 
@@ -31,7 +31,7 @@ public class h {
             if (context == null || advertAppInfo == null) {
                 return false;
             }
-            String str = advertAppInfo.T3;
+            String str = advertAppInfo.W3;
             if (StringUtils.isNull(str)) {
                 str = "";
             }
@@ -45,8 +45,8 @@ public class h {
             return false;
         }
         d.a.m0.u.a.k().h(advertAppInfo);
-        String str2 = advertAppInfo.T3;
-        i.l().x(advertAppInfo.getDownloadId(), advertAppInfo.X3, StringUtils.isNull(str2) ? str : str2, i2, i.m(advertAppInfo.Y3).intValue(), null, true, false, true, advertAppInfo.U3, downloadStaticsData, advertAppInfo.T3);
+        String str2 = advertAppInfo.W3;
+        i.l().x(advertAppInfo.getDownloadId(), advertAppInfo.a4, StringUtils.isNull(str2) ? str : str2, i2, i.m(advertAppInfo.b4).intValue(), null, true, false, true, advertAppInfo.X3, downloadStaticsData, advertAppInfo.W3);
         return true;
     }
 

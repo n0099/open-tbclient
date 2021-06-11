@@ -32,19 +32,19 @@ import d.a.l0.a.v2.x0;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public abstract class c extends m {
-    public static final boolean u = k.f43199a;
+    public static final boolean u = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SwanAppActivity f44717f;
+    public final SwanAppActivity f48391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f44718g;
+    public g f48392g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.c f44719h;
+    public a.c f48393h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.a.l0.a.n2.h.d f44720i;
+    public final d.a.l0.a.n2.h.d f48394i;
     public FrameLayout j;
     public d.a.l0.a.j2.a k;
     public d.a.l0.a.t0.d l;
@@ -61,14 +61,14 @@ public abstract class c extends m {
     public class a implements d.a.l0.a.v2.e1.b<i.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f44721e;
+        public final /* synthetic */ boolean f48395e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f44722f;
+        public final /* synthetic */ boolean f48396f;
 
         public a(boolean z, boolean z2) {
-            this.f44721e = z;
-            this.f44722f = z2;
+            this.f48395e = z;
+            this.f48396f = z2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,7 +77,7 @@ public abstract class c extends m {
         public void onCallback(i.a aVar) {
             if (d.a.l0.a.a2.d.g().C()) {
                 c.this.s.f("event_first_action_launched");
-                c.this.w0(this.f44721e, this.f44722f);
+                c.this.w0(this.f48395e, this.f48396f);
                 c.this.D0();
             }
         }
@@ -96,8 +96,8 @@ public abstract class c extends m {
 
     /* renamed from: d.a.l0.a.t0.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0822c implements Runnable {
-        public RunnableC0822c() {
+    public class RunnableC0878c implements Runnable {
+        public RunnableC0878c() {
         }
 
         @Override // java.lang.Runnable
@@ -106,14 +106,14 @@ public abstract class c extends m {
             if (c.u) {
                 Log.e("SwanActivityFrame", "try update on computation thread");
             }
-            if (c.this.f44717f != null && d.a.l0.a.a2.e.i() != null) {
+            if (c.this.f48391f != null && d.a.l0.a.a2.e.i() != null) {
                 d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
                 d.a.l0.a.n0.l.c l = d.a.l0.a.n0.l.c.l();
                 l.n(10);
                 d.a.l0.a.w0.c.c(i2, l.k());
             }
             if (d.a.l0.a.r1.l.e.l()) {
-                p.i(c.this.f44717f);
+                p.i(c.this.f48391f);
             }
         }
     }
@@ -125,18 +125,18 @@ public abstract class c extends m {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f44727e;
+            public final /* synthetic */ Bitmap f48401e;
 
             public a(Bitmap bitmap) {
-                this.f44727e = bitmap;
+                this.f48401e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f44717f == null || d.a.l0.a.a2.e.Q() == null) {
+                if (c.this.f48391f == null || d.a.l0.a.a2.e.Q() == null) {
                     return;
                 }
-                c.this.G(this.f44727e);
+                c.this.G(this.f48401e);
             }
         }
 
@@ -153,25 +153,25 @@ public abstract class c extends m {
     public static /* synthetic */ class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f44729a;
+        public static final /* synthetic */ int[] f48403a;
 
         static {
             int[] iArr = new int[FrameLifeState.values().length];
-            f44729a = iArr;
+            f48403a = iArr;
             try {
                 iArr[FrameLifeState.JUST_CREATED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f44729a[FrameLifeState.JUST_STARTED.ordinal()] = 2;
+                f48403a[FrameLifeState.JUST_STARTED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f44729a[FrameLifeState.JUST_RESUMED.ordinal()] = 3;
+                f48403a[FrameLifeState.JUST_RESUMED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f44729a[FrameLifeState.INACTIVATED.ordinal()] = 4;
+                f48403a[FrameLifeState.INACTIVATED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -179,15 +179,15 @@ public abstract class c extends m {
 
     public c(SwanAppActivity swanAppActivity, String str) {
         super(d.a.l0.a.a2.d.g());
-        this.f44719h = null;
-        this.f44720i = new d.a.l0.a.n2.h.d();
+        this.f48393h = null;
+        this.f48394i = new d.a.l0.a.n2.h.d();
         this.o = FrameLifeState.INACTIVATED;
         this.p = null;
         this.q = false;
         this.r = false;
         this.s = new d.a.l0.a.a2.b();
         this.t = true;
-        this.f44717f = swanAppActivity;
+        this.f48391f = swanAppActivity;
         this.n = str;
         this.l = new d.a.l0.a.t0.d();
         v(this.s);
@@ -207,13 +207,13 @@ public abstract class c extends m {
     }
 
     public void C0() {
-        FrameLayout frameLayout = (FrameLayout) this.f44717f.findViewById(f.ai_apps_activity_root);
+        FrameLayout frameLayout = (FrameLayout) this.f48391f.findViewById(f.ai_apps_activity_root);
         this.j = frameLayout;
-        d.a.l0.a.z1.b.d.a.e(this.f44717f, frameLayout);
+        d.a.l0.a.z1.b.d.a.e(this.f48391f, frameLayout);
     }
 
     public boolean D() {
-        if (this.m || !d.a.l0.a.v0.c.c().a(new WeakReference<>(this.f44717f))) {
+        if (this.m || !d.a.l0.a.v0.c.c().a(new WeakReference<>(this.f48391f))) {
             return false;
         }
         this.m = true;
@@ -227,7 +227,7 @@ public abstract class c extends m {
             FrameLifeState j = j(this.p);
             Y("syncLifeState: pendingTarget=" + this.p + " fixedTarget=" + j);
             this.p = null;
-            int i2 = e.f44729a[j.ordinal()];
+            int i2 = e.f48403a[j.ordinal()];
             if (i2 == 1) {
                 M();
                 H();
@@ -249,14 +249,14 @@ public abstract class c extends m {
     }
 
     public final void E() {
-        this.f44718g = new g(this.f44717f);
+        this.f48392g = new g(this.f48391f);
         f0();
     }
 
     public final void E0() {
         d.a.l0.a.p.d.b a2 = y().a().a();
         if (a2 != null) {
-            a2.a(this.f44717f);
+            a2.a(this.f48391f);
         }
     }
 
@@ -265,15 +265,15 @@ public abstract class c extends m {
             return;
         }
         b.a O = O();
-        fVar.f43185a = d.a.l0.a.j2.k.m(l());
-        fVar.f43190f = O.H();
-        fVar.f43187c = O.T();
+        fVar.f46861a = d.a.l0.a.j2.k.m(l());
+        fVar.f46866f = O.H();
+        fVar.f46863c = O.T();
         fVar.b(d.a.l0.a.j2.k.k(O.W()));
-        if (TextUtils.isEmpty(fVar.f43186b)) {
-            fVar.f43186b = PrefetchEvent.STATE_CLICK;
+        if (TextUtils.isEmpty(fVar.f46862b)) {
+            fVar.f46862b = PrefetchEvent.STATE_CLICK;
         }
         fVar.d(O.r0().getString(UBCCloudControlProcessor.UBC_KEY));
-        if (TextUtils.equals(fVar.f43186b, PrefetchEvent.STATE_CLICK)) {
+        if (TextUtils.equals(fVar.f46862b, PrefetchEvent.STATE_CLICK)) {
             d.a.l0.a.j2.d.b(fVar);
         } else {
             d.a.l0.a.j2.k.onEvent(fVar);
@@ -290,7 +290,7 @@ public abstract class c extends m {
 
     public final void G(Bitmap bitmap) {
         if (r().e()) {
-            B0(this.f44717f, O().K(), bitmap, (int) O().b0());
+            B0(this.f48391f, O().K(), bitmap, (int) O().b0());
         }
     }
 
@@ -331,7 +331,7 @@ public abstract class c extends m {
 
     public void I0() {
         z().S();
-        this.f44719h = null;
+        this.f48393h = null;
     }
 
     public final synchronized void J() {
@@ -354,7 +354,7 @@ public abstract class c extends m {
     }
 
     public final synchronized void K0(FrameLifeState frameLifeState, boolean z) {
-        if (!this.f44717f.isDestroyed()) {
+        if (!this.f48391f.isDestroyed()) {
             boolean z2 = false;
             boolean z3 = z | (!this.o.hasCreated());
             if (this.o.hasCreated() && z3) {
@@ -413,23 +413,23 @@ public abstract class c extends m {
     public abstract a.c Q();
 
     public g R() {
-        if (this.f44718g == null) {
+        if (this.f48392g == null) {
             E();
         }
-        return this.f44718g;
+        return this.f48392g;
     }
 
     @NonNull
     public d.a.l0.a.n2.h.d S() {
-        return this.f44720i;
+        return this.f48394i;
     }
 
     public boolean T() {
-        if (this.f44718g.k() != 1) {
+        if (this.f48392g.k() != 1) {
             return false;
         }
-        this.f44717f.moveTaskToBack(true);
-        this.f44717f.handleSwanAppExit(2);
+        this.f48391f.moveTaskToBack(true);
+        this.f48391f.handleSwanAppExit(2);
         x0.b().e(1);
         return true;
     }
@@ -488,7 +488,7 @@ public abstract class c extends m {
             UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("onCreateEnd");
             ubcFlowEvent3.a(true);
             p.C(ubcFlowEvent3);
-            d.a.l0.a.v2.e slideHelper = this.f44717f.getSlideHelper();
+            d.a.l0.a.v2.e slideHelper = this.f48391f.getSlideHelper();
             if (slideHelper != null) {
                 slideHelper.q();
             }
@@ -508,7 +508,7 @@ public abstract class c extends m {
         dVar.r(O());
         d.a.l0.a.j2.k.L(dVar);
         h.k(aVar);
-        d.a.l0.a.v2.f.j(this.f44717f);
+        d.a.l0.a.v2.f.j(this.f48391f);
     }
 
     public abstract void d0();
@@ -552,10 +552,10 @@ public abstract class c extends m {
     public abstract void j0();
 
     public void k() {
-        if (this.f44719h == null) {
-            this.f44719h = Q();
+        if (this.f48393h == null) {
+            this.f48393h = Q();
         }
-        z().i(null, this.f44719h);
+        z().i(null, this.f48393h);
     }
 
     public final synchronized void k0() {
@@ -567,9 +567,9 @@ public abstract class c extends m {
         if (this.k != null && C()) {
             d.a.l0.a.j2.p.a aVar = new d.a.l0.a.j2.p.a();
             b.a O = O();
-            aVar.f43185a = d.a.l0.a.j2.k.m(l());
-            aVar.f43190f = O.H();
-            aVar.f43187c = O.T();
+            aVar.f46861a = d.a.l0.a.j2.k.m(l());
+            aVar.f46866f = O.H();
+            aVar.f46863c = O.T();
             aVar.i(O);
             aVar.d(O.r0().getString(UBCCloudControlProcessor.UBC_KEY));
             aVar.b(d.a.l0.a.j2.k.k(O.W()));
@@ -601,9 +601,9 @@ public abstract class c extends m {
         this.k = d.a.l0.a.j2.k.c("607");
         L0();
         if (C()) {
-            r().o0(this.f44717f);
+            r().o0(this.f48391f);
         }
-        d.a.l0.a.r1.k.i.b.e().f(new RunnableC0822c(), "tryUpdateAndInsertHistory");
+        d.a.l0.a.r1.k.i.b.e().f(new RunnableC0878c(), "tryUpdateAndInsertHistory");
         HybridUbcFlow p2 = h.p("startup");
         UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_page_show");
         ubcFlowEvent2.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
@@ -665,7 +665,7 @@ public abstract class c extends m {
                 d.a.l0.a.e0.f.e.e.g(O.g0());
             }
         }
-        d.a.l0.a.g1.f.V().l(this.f44717f);
+        d.a.l0.a.g1.f.V().l(this.f48391f);
         UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("onUpdateStart");
         ubcFlowEvent2.a(true);
         p.C(ubcFlowEvent2);
@@ -685,7 +685,7 @@ public abstract class c extends m {
     }
 
     public final void z0() {
-        d.a.l0.a.c2.f.p0.c.f41151b = null;
-        h.f44442e = null;
+        d.a.l0.a.c2.f.p0.c.f44827b = null;
+        h.f48116e = null;
     }
 }

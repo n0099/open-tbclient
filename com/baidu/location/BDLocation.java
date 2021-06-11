@@ -90,31 +90,31 @@ public final class BDLocation implements Parcelable {
     public boolean W;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6394a;
+    public int f6437a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6395b;
+    public String f6438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f6396c;
+    public double f6439c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f6397d;
+    public double f6440d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6398e;
+    public boolean f6441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f6399f;
+    public double f6442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6400g;
+    public boolean f6443g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f6401h;
+    public float f6444h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6402i;
+    public boolean f6445i;
     public float j;
     public boolean k;
     public int l;
@@ -134,15 +134,15 @@ public final class BDLocation implements Parcelable {
     public int z;
 
     public BDLocation() {
-        this.f6394a = 0;
-        this.f6395b = null;
-        this.f6396c = Double.MIN_VALUE;
-        this.f6397d = Double.MIN_VALUE;
-        this.f6398e = false;
-        this.f6399f = Double.MIN_VALUE;
-        this.f6400g = false;
-        this.f6401h = 0.0f;
-        this.f6402i = false;
+        this.f6437a = 0;
+        this.f6438b = null;
+        this.f6439c = Double.MIN_VALUE;
+        this.f6440d = Double.MIN_VALUE;
+        this.f6441e = false;
+        this.f6442f = Double.MIN_VALUE;
+        this.f6443g = false;
+        this.f6444h = 0.0f;
+        this.f6445i = false;
         this.j = 0.0f;
         this.k = false;
         this.l = -1;
@@ -185,15 +185,15 @@ public final class BDLocation implements Parcelable {
     }
 
     public BDLocation(Parcel parcel) {
-        this.f6394a = 0;
-        this.f6395b = null;
-        this.f6396c = Double.MIN_VALUE;
-        this.f6397d = Double.MIN_VALUE;
-        this.f6398e = false;
-        this.f6399f = Double.MIN_VALUE;
-        this.f6400g = false;
-        this.f6401h = 0.0f;
-        this.f6402i = false;
+        this.f6437a = 0;
+        this.f6438b = null;
+        this.f6439c = Double.MIN_VALUE;
+        this.f6440d = Double.MIN_VALUE;
+        this.f6441e = false;
+        this.f6442f = Double.MIN_VALUE;
+        this.f6443g = false;
+        this.f6444h = 0.0f;
+        this.f6445i = false;
         this.j = 0.0f;
         this.k = false;
         this.l = -1;
@@ -233,12 +233,12 @@ public final class BDLocation implements Parcelable {
         this.U = Double.MIN_VALUE;
         this.V = Double.MIN_VALUE;
         this.W = false;
-        this.f6394a = parcel.readInt();
-        this.f6395b = parcel.readString();
-        this.f6396c = parcel.readDouble();
-        this.f6397d = parcel.readDouble();
-        this.f6399f = parcel.readDouble();
-        this.f6401h = parcel.readFloat();
+        this.f6437a = parcel.readInt();
+        this.f6438b = parcel.readString();
+        this.f6439c = parcel.readDouble();
+        this.f6440d = parcel.readDouble();
+        this.f6442f = parcel.readDouble();
+        this.f6444h = parcel.readFloat();
         this.j = parcel.readFloat();
         this.l = parcel.readInt();
         this.m = parcel.readFloat();
@@ -282,9 +282,9 @@ public final class BDLocation implements Parcelable {
         this.V = parcel.readDouble();
         try {
             parcel.readBooleanArray(zArr);
-            this.f6398e = zArr[0];
-            this.f6400g = zArr[1];
-            this.f6402i = zArr[2];
+            this.f6441e = zArr[0];
+            this.f6443g = zArr[1];
+            this.f6445i = zArr[2];
             this.k = zArr[3];
             this.o = zArr[4];
             this.t = zArr[5];
@@ -312,16 +312,16 @@ public final class BDLocation implements Parcelable {
     }
 
     public BDLocation(BDLocation bDLocation) {
-        this.f6394a = 0;
+        this.f6437a = 0;
         ArrayList arrayList = null;
-        this.f6395b = null;
-        this.f6396c = Double.MIN_VALUE;
-        this.f6397d = Double.MIN_VALUE;
-        this.f6398e = false;
-        this.f6399f = Double.MIN_VALUE;
-        this.f6400g = false;
-        this.f6401h = 0.0f;
-        this.f6402i = false;
+        this.f6438b = null;
+        this.f6439c = Double.MIN_VALUE;
+        this.f6440d = Double.MIN_VALUE;
+        this.f6441e = false;
+        this.f6442f = Double.MIN_VALUE;
+        this.f6443g = false;
+        this.f6444h = 0.0f;
+        this.f6445i = false;
         this.j = 0.0f;
         this.k = false;
         this.l = -1;
@@ -361,15 +361,15 @@ public final class BDLocation implements Parcelable {
         this.U = Double.MIN_VALUE;
         this.V = Double.MIN_VALUE;
         this.W = false;
-        this.f6394a = bDLocation.f6394a;
-        this.f6395b = bDLocation.f6395b;
-        this.f6396c = bDLocation.f6396c;
-        this.f6397d = bDLocation.f6397d;
-        this.f6398e = bDLocation.f6398e;
-        this.f6399f = bDLocation.f6399f;
-        this.f6400g = bDLocation.f6400g;
-        this.f6401h = bDLocation.f6401h;
-        this.f6402i = bDLocation.f6402i;
+        this.f6437a = bDLocation.f6437a;
+        this.f6438b = bDLocation.f6438b;
+        this.f6439c = bDLocation.f6439c;
+        this.f6440d = bDLocation.f6440d;
+        this.f6441e = bDLocation.f6441e;
+        this.f6442f = bDLocation.f6442f;
+        this.f6443g = bDLocation.f6443g;
+        this.f6444h = bDLocation.f6444h;
+        this.f6445i = bDLocation.f6445i;
         this.j = bDLocation.j;
         this.k = bDLocation.k;
         this.l = bDLocation.l;
@@ -475,15 +475,15 @@ public final class BDLocation implements Parcelable {
         String str22;
         String str23;
         String string;
-        this.f6394a = 0;
-        this.f6395b = null;
-        this.f6396c = Double.MIN_VALUE;
-        this.f6397d = Double.MIN_VALUE;
-        this.f6398e = false;
-        this.f6399f = Double.MIN_VALUE;
-        this.f6400g = false;
-        this.f6401h = 0.0f;
-        this.f6402i = false;
+        this.f6437a = 0;
+        this.f6438b = null;
+        this.f6439c = Double.MIN_VALUE;
+        this.f6440d = Double.MIN_VALUE;
+        this.f6441e = false;
+        this.f6442f = Double.MIN_VALUE;
+        this.f6443g = false;
+        this.f6444h = 0.0f;
+        this.f6445i = false;
         this.j = 0.0f;
         this.k = false;
         this.l = -1;
@@ -533,7 +533,7 @@ public final class BDLocation implements Parcelable {
                 } catch (Error e2) {
                     e2.printStackTrace();
                     r2 = 0;
-                    this.f6394a = r2;
+                    this.f6437a = r2;
                     this.o = r2;
                 }
             } catch (Exception e3) {
@@ -1264,7 +1264,7 @@ public final class BDLocation implements Parcelable {
                 z = false;
                 exc.printStackTrace();
                 r2 = z;
-                this.f6394a = r2;
+                this.f6437a = r2;
                 this.o = r2;
             }
         }
@@ -1292,7 +1292,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public double getAltitude() {
-        return this.f6399f;
+        return this.f6442f;
     }
 
     public String getBuildingID() {
@@ -1393,11 +1393,11 @@ public final class BDLocation implements Parcelable {
     }
 
     public double getLatitude() {
-        return this.f6396c;
+        return this.f6439c;
     }
 
     public int getLocType() {
-        return this.f6394a;
+        return this.f6437a;
     }
 
     public String getLocTypeDescription() {
@@ -1417,7 +1417,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public double getLongitude() {
-        return this.f6397d;
+        return this.f6440d;
     }
 
     public String getNetworkLocationType() {
@@ -1471,7 +1471,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public float getSpeed() {
-        return this.f6401h;
+        return this.f6444h;
     }
 
     public String getStreet() {
@@ -1483,7 +1483,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public String getTime() {
-        return this.f6395b;
+        return this.f6438b;
     }
 
     public int getUserIndoorState() {
@@ -1503,11 +1503,11 @@ public final class BDLocation implements Parcelable {
     }
 
     public boolean hasAltitude() {
-        return this.f6398e;
+        return this.f6441e;
     }
 
     public boolean hasRadius() {
-        return this.f6402i;
+        return this.f6445i;
     }
 
     public boolean hasSateNumber() {
@@ -1515,7 +1515,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public boolean hasSpeed() {
-        return this.f6400g;
+        return this.f6443g;
     }
 
     public boolean isCellChangeFlag() {
@@ -1552,8 +1552,8 @@ public final class BDLocation implements Parcelable {
 
     public void setAltitude(double d2) {
         if (d2 < 9999.0d) {
-            this.f6399f = d2;
-            this.f6398e = true;
+            this.f6442f = d2;
+            this.f6441e = true;
         }
     }
 
@@ -1624,12 +1624,12 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setLatitude(double d2) {
-        this.f6396c = d2;
+        this.f6439c = d2;
     }
 
     public void setLocType(int i2) {
         String str;
-        this.f6394a = i2;
+        this.f6437a = i2;
         if (i2 != 66) {
             if (i2 != 67) {
                 if (i2 == 161) {
@@ -1681,7 +1681,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setLongitude(double d2) {
-        this.f6397d = d2;
+        this.f6440d = d2;
     }
 
     public void setNetworkLocationType(String str) {
@@ -1706,7 +1706,7 @@ public final class BDLocation implements Parcelable {
 
     public void setRadius(float f2) {
         this.j = f2;
-        this.f6402i = true;
+        this.f6445i = true;
     }
 
     public void setRetFields(String str, String str2) {
@@ -1730,12 +1730,12 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setSpeed(float f2) {
-        this.f6401h = f2;
-        this.f6400g = true;
+        this.f6444h = f2;
+        this.f6443g = true;
     }
 
     public void setTime(String str) {
-        this.f6395b = str;
+        this.f6438b = str;
         setLocationID(k.a(str));
     }
 
@@ -1752,12 +1752,12 @@ public final class BDLocation implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f6394a);
-        parcel.writeString(this.f6395b);
-        parcel.writeDouble(this.f6396c);
-        parcel.writeDouble(this.f6397d);
-        parcel.writeDouble(this.f6399f);
-        parcel.writeFloat(this.f6401h);
+        parcel.writeInt(this.f6437a);
+        parcel.writeString(this.f6438b);
+        parcel.writeDouble(this.f6439c);
+        parcel.writeDouble(this.f6440d);
+        parcel.writeDouble(this.f6442f);
+        parcel.writeFloat(this.f6444h);
         parcel.writeFloat(this.j);
         parcel.writeInt(this.l);
         parcel.writeFloat(this.m);
@@ -1798,7 +1798,7 @@ public final class BDLocation implements Parcelable {
         parcel.writeLong(this.S);
         parcel.writeDouble(this.U);
         parcel.writeDouble(this.V);
-        parcel.writeBooleanArray(new boolean[]{this.f6398e, this.f6400g, this.f6402i, this.k, this.o, this.t, this.y, this.W});
+        parcel.writeBooleanArray(new boolean[]{this.f6441e, this.f6443g, this.f6445i, this.k, this.o, this.t, this.y, this.W});
         parcel.writeList(this.L);
         parcel.writeBundle(this.P);
     }

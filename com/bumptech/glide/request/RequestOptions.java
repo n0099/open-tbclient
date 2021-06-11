@@ -36,7 +36,7 @@ import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RequestOptions implements Cloneable {
     public static final int DISK_CACHE_STRATEGY = 4;
     public static final int ERROR_ID = 32;

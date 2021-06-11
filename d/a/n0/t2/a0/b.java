@@ -9,52 +9,52 @@ import java.util.HashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, d> f60896a;
+    public final HashMap<String, d> f64588a;
 
     /* renamed from: d.a.n0.t2.a0.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1614b {
+    public static class C1670b {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f60897a;
+        public boolean f64589a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60898b;
+        public String f64590b;
 
         /* renamed from: c  reason: collision with root package name */
-        public HashMap<String, String> f60899c;
+        public HashMap<String, String> f64591c;
 
-        public C1614b(String str) {
-            this.f60897a = false;
+        public C1670b(String str) {
+            this.f64589a = false;
             Uri parse = Uri.parse(str);
             boolean z = !TextUtils.isEmpty(parse.getScheme());
-            this.f60897a = z;
+            this.f64589a = z;
             if (z) {
-                this.f60898b = parse.getAuthority() + parse.getPath();
-                this.f60899c = new HashMap<>();
+                this.f64590b = parse.getAuthority() + parse.getPath();
+                this.f64591c = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.f60899c.put(str2, parse.getQueryParameter(str2));
+                    this.f64591c.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
-            this.f60898b = "";
-            this.f60899c = new HashMap<>();
+            this.f64590b = "";
+            this.f64591c = new HashMap<>();
         }
 
-        public static C1614b a(String str) {
-            return new C1614b(str);
+        public static C1670b a(String str) {
+            return new C1670b(str);
         }
 
         public String b() {
-            return this.f60898b;
+            return this.f64590b;
         }
 
         public HashMap<String, String> c() {
-            return this.f60899c;
+            return this.f64591c;
         }
 
         public boolean d() {
-            return this.f60897a;
+            return this.f64589a;
         }
     }
 
@@ -62,11 +62,11 @@ public class b {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f60900a = new b();
+        public static b f64592a = new b();
     }
 
     public static b a() {
-        return c.f60900a;
+        return c.f64592a;
     }
 
     public void b(d.a.m0.c.a aVar) {
@@ -74,15 +74,15 @@ public class b {
     }
 
     public void c(String str, d dVar) {
-        this.f60896a.put(str, dVar);
+        this.f64588a.put(str, dVar);
     }
 
     public void d(Object obj, String str, HashMap<String, String> hashMap, e eVar) {
         if (str == null) {
             return;
         }
-        C1614b a2 = C1614b.a(str);
-        d dVar = this.f60896a.get(a2.b());
+        C1670b a2 = C1670b.a(str);
+        d dVar = this.f64588a.get(a2.b());
         if (dVar == null || !a2.d()) {
             return;
         }
@@ -93,6 +93,6 @@ public class b {
     }
 
     public b() {
-        this.f60896a = new HashMap<>();
+        this.f64588a = new HashMap<>();
     }
 }

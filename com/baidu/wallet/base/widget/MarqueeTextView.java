@@ -8,115 +8,115 @@ import android.widget.TextView;
 public class MarqueeTextView extends TextView implements Runnable {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f23460i = 2000;
+    public static final int f23563i = 2000;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23461a;
+    public int f23564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23462b;
+    public boolean f23565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23463c;
+    public int f23566c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23464d;
+    public int f23567d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23465e;
+    public int f23568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23466f;
+    public int f23569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23467g;
+    public int f23570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f23468h;
+    public boolean f23571h;
 
     public MarqueeTextView(Context context) {
         super(context);
-        this.f23462b = true;
-        this.f23465e = 0;
-        this.f23466f = 2;
-        this.f23467g = 10;
-        this.f23468h = false;
+        this.f23565b = true;
+        this.f23568e = 0;
+        this.f23569f = 2;
+        this.f23570g = 10;
+        this.f23571h = false;
     }
 
     private int getTextWidth() {
         int measureText = (int) getPaint().measureText(getText().toString());
-        this.f23463c = measureText;
+        this.f23566c = measureText;
         return measureText;
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f23468h) {
+        if (this.f23571h) {
             int width = getWidth();
-            this.f23464d = width;
+            this.f23567d = width;
             if (width > getTextWidth()) {
-                this.f23462b = true;
+                this.f23565b = true;
                 return;
             }
             int scrollX = getScrollX();
-            this.f23465e = scrollX;
-            this.f23461a = scrollX;
-            this.f23468h = false;
+            this.f23568e = scrollX;
+            this.f23564a = scrollX;
+            this.f23571h = false;
         }
     }
 
     @Override // android.widget.TextView
     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-        this.f23462b = true;
+        this.f23565b = true;
         removeCallbacks(this);
-        int i5 = this.f23465e;
-        this.f23461a = i5;
+        int i5 = this.f23568e;
+        this.f23564a = i5;
         scrollTo(i5, 0);
         super.onTextChanged(charSequence, i2, i3, i4);
-        this.f23468h = true;
-        this.f23462b = false;
+        this.f23571h = true;
+        this.f23565b = false;
         postDelayed(this, 2000L);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int i2 = this.f23461a + this.f23466f;
-        this.f23461a = i2;
+        int i2 = this.f23564a + this.f23569f;
+        this.f23564a = i2;
         scrollTo(i2, 0);
-        if (this.f23462b) {
+        if (this.f23565b) {
             return;
         }
-        if (getScrollX() >= this.f23463c - this.f23464d) {
-            scrollTo(this.f23465e, 0);
-            this.f23461a = this.f23465e;
+        if (getScrollX() >= this.f23566c - this.f23567d) {
+            scrollTo(this.f23568e, 0);
+            this.f23564a = this.f23568e;
             postDelayed(this, 2000L);
-        } else if (getScrollX() >= (this.f23463c - this.f23464d) - this.f23466f) {
+        } else if (getScrollX() >= (this.f23566c - this.f23567d) - this.f23569f) {
             postDelayed(this, 2000L);
         } else {
-            postDelayed(this, this.f23467g);
+            postDelayed(this, this.f23570g);
         }
     }
 
     public void stop() {
-        this.f23462b = true;
+        this.f23565b = true;
     }
 
     public MarqueeTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23462b = true;
-        this.f23465e = 0;
-        this.f23466f = 2;
-        this.f23467g = 10;
-        this.f23468h = false;
+        this.f23565b = true;
+        this.f23568e = 0;
+        this.f23569f = 2;
+        this.f23570g = 10;
+        this.f23571h = false;
     }
 
     public MarqueeTextView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f23462b = true;
-        this.f23465e = 0;
-        this.f23466f = 2;
-        this.f23467g = 10;
-        this.f23468h = false;
+        this.f23565b = true;
+        this.f23568e = 0;
+        this.f23569f = 2;
+        this.f23570g = 10;
+        this.f23571h = false;
     }
 }

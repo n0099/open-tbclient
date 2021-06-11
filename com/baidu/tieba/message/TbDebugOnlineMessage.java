@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.DebugCommitMsg.DataReq;
 import protobuf.DebugCommitMsg.DebugCommitMsgReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbDebugOnlineMessage extends TbSocketMessage {
     public boolean bSender;
     public String content;

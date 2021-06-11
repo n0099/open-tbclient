@@ -46,7 +46,7 @@ public class l extends a0 {
                     return false;
                 }
                 U.g().putString(C, B);
-                d.a.l0.a.q2.d.f44235h.b();
+                d.a.l0.a.q2.d.f47909h.b();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }

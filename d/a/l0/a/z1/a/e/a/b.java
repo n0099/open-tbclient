@@ -3,25 +3,25 @@ package d.a.l0.a.z1.a.e.a;
 public class b implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f46028a;
+    public int f49702a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46029b;
+    public int f49703b;
 
     public b(int i2, int i3) {
-        this.f46028a = i2;
-        this.f46029b = i3;
+        this.f49702a = i2;
+        this.f49703b = i3;
     }
 
     @Override // d.a.l0.a.z1.a.e.a.c
     public int a() {
-        return (this.f46029b - this.f46028a) + 1;
+        return (this.f49703b - this.f49702a) + 1;
     }
 
     @Override // d.a.l0.a.z1.a.e.a.c
     public Object getItem(int i2) {
         if (i2 >= 0 && i2 < a()) {
-            return Integer.valueOf(this.f46028a + i2);
+            return Integer.valueOf(this.f49702a + i2);
         }
         return 0;
     }

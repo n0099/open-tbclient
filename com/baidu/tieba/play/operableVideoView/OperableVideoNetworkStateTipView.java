@@ -23,16 +23,16 @@ import d.a.n0.r3.f;
 public class OperableVideoNetworkStateTipView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f19963e;
+    public TBSpecificationBtn f20040e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f19964f;
+    public TBSpecificationBtn f20041f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f19965g;
+    public View.OnClickListener f20042g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19966h;
+    public String f20043h;
 
     public OperableVideoNetworkStateTipView(Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     }
 
     public void a(boolean z, boolean z2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f19964f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20041f.getLayoutParams();
         if (z && !z2) {
             setOrientation(1);
             layoutParams.leftMargin = 0;
@@ -50,7 +50,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             layoutParams.leftMargin = (int) getResources().getDimension(R.dimen.tbds52);
             layoutParams.topMargin = 0;
         }
-        this.f19964f.setLayoutParams(layoutParams);
+        this.f20041f.setLayoutParams(layoutParams);
     }
 
     public boolean b() {
@@ -59,21 +59,21 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
 
     public final void c() {
         LinearLayout.inflate(getContext(), getLayoutR(), this);
-        this.f19963e = (TBSpecificationBtn) findViewById(R.id.play);
-        this.f19964f = (TBSpecificationBtn) findViewById(R.id.free_flow);
+        this.f20040e = (TBSpecificationBtn) findViewById(R.id.play);
+        this.f20041f = (TBSpecificationBtn) findViewById(R.id.free_flow);
         c cVar = new c();
         cVar.r();
         cVar.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
         cVar.g(l.g(getContext(), R.dimen.tbds32));
-        this.f19963e.setText(getResources().getString(R.string.video_flow_play));
-        this.f19963e.setTextSize(R.dimen.tbds36);
-        this.f19963e.setConfig(cVar);
+        this.f20040e.setText(getResources().getString(R.string.video_flow_play));
+        this.f20040e.setTextSize(R.dimen.tbds36);
+        this.f20040e.setConfig(cVar);
         a aVar = new a();
-        this.f19964f.setText(getResources().getString(R.string.video_open_free_data));
-        this.f19964f.setTextSize(R.dimen.tbds36);
-        this.f19964f.setConfig(aVar);
-        this.f19963e.setOnClickListener(this);
-        this.f19964f.setOnClickListener(this);
+        this.f20041f.setText(getResources().getString(R.string.video_open_free_data));
+        this.f20041f.setTextSize(R.dimen.tbds36);
+        this.f20041f.setConfig(aVar);
+        this.f20040e.setOnClickListener(this);
+        this.f20041f.setOnClickListener(this);
         setOnClickListener(this);
     }
 
@@ -93,11 +93,11 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             d.a.m0.l.a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() == R.id.play) {
             setHasAgreeToPlay(true);
-            View.OnClickListener onClickListener = this.f19965g;
+            View.OnClickListener onClickListener = this.f20042g;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.f19966h));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.f20043h));
         }
     }
 
@@ -106,11 +106,11 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.f19965g = onClickListener;
+        this.f20042g = onClickListener;
     }
 
     public void setTid(String str) {
-        this.f19966h = str;
+        this.f20043h = str;
     }
 
     public void setVideoDuration(int i2) {
@@ -120,7 +120,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         if (j <= 0) {
             return;
         }
-        this.f19963e.setText(String.format(getResources().getString(R.string.video_data), StringHelper.getFormatSize(j)));
+        this.f20040e.setText(String.format(getResources().getString(R.string.video_data), StringHelper.getFormatSize(j)));
     }
 
     public OperableVideoNetworkStateTipView(Context context, AttributeSet attributeSet) {

@@ -106,7 +106,7 @@ public class RemoteCommonUtils {
             }
             create.append("net", CommonUtils.getNetworkType(context));
             create.append(IAdRequestParam.BDR, Build.VERSION.SDK_INT);
-            create.append(IAdRequestParam.MAC, "");
+            create.append("mac", "");
             create.append("url", str2);
             create.sendWithVd();
         } catch (Exception e2) {
@@ -187,7 +187,7 @@ public class RemoteCommonUtils {
             }
             create.append("net", CommonUtils.getNetworkType(context));
             create.append(IAdRequestParam.BDR, Build.VERSION.SDK_INT);
-            create.append(IAdRequestParam.MAC, "");
+            create.append("mac", "");
             create.append("url", str2);
             create.sendWithVd();
         } catch (Exception e2) {

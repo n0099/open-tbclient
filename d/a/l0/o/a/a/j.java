@@ -17,10 +17,10 @@ import java.util.List;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k<?> f48223a;
+    public final k<?> f51897a;
 
     public j(k<?> kVar) {
-        this.f48223a = kVar;
+        this.f51897a = kVar;
     }
 
     public static final j b(k<?> kVar) {
@@ -28,135 +28,135 @@ public class j {
     }
 
     public void A() {
-        this.f48223a.f48227d.V();
+        this.f51897a.f51901d.V();
     }
 
     public View B(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.f48223a.f48227d.onCreateView(view, str, context, attributeSet);
+        return this.f51897a.f51901d.onCreateView(view, str, context, attributeSet);
     }
 
     public void C() {
-        this.f48223a.v();
+        this.f51897a.v();
     }
 
     public void D(Parcelable parcelable, List<Fragment> list) {
-        this.f48223a.f48227d.b0(parcelable, list);
+        this.f51897a.f51901d.b0(parcelable, list);
     }
 
     public void E(d.a.l0.o.a.c.f<String, p> fVar) {
-        this.f48223a.w(fVar);
+        this.f51897a.w(fVar);
     }
 
     public d.a.l0.o.a.c.f<String, p> F() {
-        return this.f48223a.x();
+        return this.f51897a.x();
     }
 
     public List<Fragment> G() {
-        return this.f48223a.f48227d.c0();
+        return this.f51897a.f51901d.c0();
     }
 
     public Parcelable H() {
-        return this.f48223a.f48227d.e0();
+        return this.f51897a.f51901d.e0();
     }
 
     public void a(Fragment fragment) {
-        k<?> kVar = this.f48223a;
-        kVar.f48227d.j(kVar, kVar, fragment);
+        k<?> kVar = this.f51897a;
+        kVar.f51901d.j(kVar, kVar, fragment);
     }
 
     public void c() {
-        this.f48223a.f48227d.n();
+        this.f51897a.f51901d.n();
     }
 
     public void d(Configuration configuration) {
-        this.f48223a.f48227d.o(configuration);
+        this.f51897a.f51901d.o(configuration);
     }
 
     public boolean e(MenuItem menuItem) {
-        return this.f48223a.f48227d.p(menuItem);
+        return this.f51897a.f51901d.p(menuItem);
     }
 
     public void f() {
-        this.f48223a.f48227d.q();
+        this.f51897a.f51901d.q();
     }
 
     public boolean g(Menu menu, MenuInflater menuInflater) {
-        return this.f48223a.f48227d.r(menu, menuInflater);
+        return this.f51897a.f51901d.r(menu, menuInflater);
     }
 
     public void h() {
-        this.f48223a.f48227d.s();
+        this.f51897a.f51901d.s();
     }
 
     public void i() {
-        this.f48223a.f48227d.u();
+        this.f51897a.f51901d.u();
     }
 
     public boolean j(MenuItem menuItem) {
-        return this.f48223a.f48227d.v(menuItem);
+        return this.f51897a.f51901d.v(menuItem);
     }
 
     public void k(Menu menu) {
-        this.f48223a.f48227d.w(menu);
+        this.f51897a.f51901d.w(menu);
     }
 
     public void l() {
-        this.f48223a.f48227d.x();
+        this.f51897a.f51901d.x();
     }
 
     public boolean m(Menu menu) {
-        return this.f48223a.f48227d.y(menu);
+        return this.f51897a.f51901d.y(menu);
     }
 
     public void n() {
-        this.f48223a.f48227d.z();
+        this.f51897a.f51901d.z();
     }
 
     public void o() {
-        this.f48223a.f48227d.A();
+        this.f51897a.f51901d.A();
     }
 
     public void p() {
-        this.f48223a.f48227d.B();
+        this.f51897a.f51901d.B();
     }
 
     public void q() {
-        this.f48223a.f48227d.C();
+        this.f51897a.f51901d.C();
     }
 
     public void r() {
-        this.f48223a.c();
+        this.f51897a.c();
     }
 
     public void s() {
-        this.f48223a.d();
+        this.f51897a.d();
     }
 
     public void t(boolean z) {
-        this.f48223a.e(z);
+        this.f51897a.e(z);
     }
 
     public void u(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.f48223a.f(str, fileDescriptor, printWriter, strArr);
+        this.f51897a.f(str, fileDescriptor, printWriter, strArr);
     }
 
     public boolean v() {
-        return this.f48223a.f48227d.E();
+        return this.f51897a.f51901d.E();
     }
 
     public List<Fragment> w(List<Fragment> list) {
-        if (this.f48223a.f48227d.f48235d == null) {
+        if (this.f51897a.f51901d.f51909d == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(x());
         }
-        list.addAll(this.f48223a.f48227d.f48235d);
+        list.addAll(this.f51897a.f51901d.f51909d);
         return list;
     }
 
     public int x() {
-        ArrayList<Fragment> arrayList = this.f48223a.f48227d.f48235d;
+        ArrayList<Fragment> arrayList = this.f51897a.f51901d.f51909d;
         if (arrayList == null) {
             return 0;
         }
@@ -164,10 +164,10 @@ public class j {
     }
 
     public l y() {
-        return this.f48223a.i();
+        return this.f51897a.i();
     }
 
     public p z() {
-        return this.f48223a.l();
+        return this.f51897a.l();
     }
 }

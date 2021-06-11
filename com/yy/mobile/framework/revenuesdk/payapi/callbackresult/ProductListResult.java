@@ -1,25 +1,25 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
 import androidx.annotation.Keep;
-import d.r.b.a.a.i.c.g;
-import d.r.b.a.a.i.c.h;
-import d.r.b.a.a.i.c.j;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.List;
 @Keep
 /* loaded from: classes7.dex */
 public class ProductListResult {
     public String currencyName;
     public int currencyType;
-    public List<g> payWayInfoList;
-    public h paysSettingInfo;
-    public List<j> productInfoList;
+    public List<PayWayInfo> payWayInfoList;
+    public PaysSettingInfo paysSettingInfo;
+    public List<ProductInfo> productInfoList;
 
-    public ProductListResult(int i2, String str, h hVar, List<j> list, List<g> list2) {
+    public ProductListResult(int i2, String str, PaysSettingInfo paysSettingInfo, List<ProductInfo> list, List<PayWayInfo> list2) {
         this.currencyType = i2;
         this.productInfoList = list;
         this.payWayInfoList = list2;
         this.currencyName = str;
-        this.paysSettingInfo = hVar;
+        this.paysSettingInfo = paysSettingInfo;
     }
 
     public String getCurrencyName() {
@@ -30,15 +30,15 @@ public class ProductListResult {
         return this.currencyType;
     }
 
-    public List<g> getPayWayInfoList() {
+    public List<PayWayInfo> getPayWayInfoList() {
         return this.payWayInfoList;
     }
 
-    public h getPaysSettingInfo() {
+    public PaysSettingInfo getPaysSettingInfo() {
         return this.paysSettingInfo;
     }
 
-    public List<j> getProductInfoList() {
+    public List<ProductInfo> getProductInfoList() {
         return this.productInfoList;
     }
 

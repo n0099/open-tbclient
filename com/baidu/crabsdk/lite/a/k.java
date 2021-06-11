@@ -8,30 +8,30 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4658a;
+    public static Context f4677a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f4659b;
+    public static ActivityManager f4678b;
 
     public static void a(Context context) {
-        if (f4658a == null) {
-            f4658a = context;
-            f4659b = (ActivityManager) context.getSystemService("activity");
+        if (f4677a == null) {
+            f4677a = context;
+            f4678b = (ActivityManager) context.getSystemService("activity");
         }
     }
 
     public static String b() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (f4659b == null) {
+        if (f4678b == null) {
             return sb.toString();
         }
         ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-        f4659b.getMemoryInfo(memoryInfo2);
+        f4678b.getMemoryInfo(memoryInfo2);
         sb.append("isLowMem: ");
         sb.append(memoryInfo2.lowMemory ? "yes" : "no");
         sb.append("\navailMem: ");
@@ -39,7 +39,7 @@ public final class k {
         sb.append("\nthreshold: ");
         sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo2.threshold));
         sb.append("\n");
-        if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4659b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+        if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4678b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
             sb.append("totalPrivateDirty: ");
             sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalPrivateDirty() * 1024));
             sb.append("\ntotalPss: ");

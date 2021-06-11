@@ -8,13 +8,13 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 public final class Dot extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f6824a;
+    public LatLng f6867a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6825b;
+    public int f6868b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6826c;
+    public int f6869c;
 
     public Dot() {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.dot;
@@ -23,42 +23,42 @@ public final class Dot extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f6824a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f6867a);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("radius", this.f6826c);
-        Overlay.a(this.f6825b, bundle);
+        bundle.putInt("radius", this.f6869c);
+        Overlay.a(this.f6868b, bundle);
         return bundle;
     }
 
     public LatLng getCenter() {
-        return this.f6824a;
+        return this.f6867a;
     }
 
     public int getColor() {
-        return this.f6825b;
+        return this.f6868b;
     }
 
     public int getRadius() {
-        return this.f6826c;
+        return this.f6869c;
     }
 
     public void setCenter(LatLng latLng) {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: dot center can not be null");
         }
-        this.f6824a = latLng;
+        this.f6867a = latLng;
         this.listener.b(this);
     }
 
     public void setColor(int i2) {
-        this.f6825b = i2;
+        this.f6868b = i2;
         this.listener.b(this);
     }
 
     public void setRadius(int i2) {
         if (i2 > 0) {
-            this.f6826c = i2;
+            this.f6869c = i2;
             this.listener.b(this);
         }
     }

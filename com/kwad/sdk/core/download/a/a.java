@@ -11,60 +11,60 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes6.dex */
-public class a extends com.kwad.sdk.core.view.a {
+public class a extends com.kwad.sdk.core.view.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Dialog f32122a;
+    public final Dialog f34160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f32123b;
+    public AdBaseFrameLayout f34161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f32124c;
+    public d f34162c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Presenter f32125d;
+    public Presenter f34163d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f32126e;
+    public AdTemplate f34164e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f32127f;
+    public AdInfo f34165f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f32128g;
+    public final int f34166g;
 
     public a(Context context, @NonNull b bVar, @NonNull AdTemplate adTemplate, int i2) {
         super(context);
-        this.f32128g = i2;
-        this.f32122a = bVar;
+        this.f34166g = i2;
+        this.f34160a = bVar;
         a(context);
         a(adTemplate);
     }
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_download_dialog_layout, this);
-        this.f32123b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
+        this.f34161b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
     }
 
     private d d() {
         d dVar = new d();
-        dVar.f32138d = this.f32123b;
-        dVar.f32139e = this.f32126e;
-        dVar.f32135a = this.f32128g;
-        if (com.kwad.sdk.core.response.b.a.v(this.f32127f)) {
-            dVar.f32140f = new com.kwad.sdk.core.download.b.b(this.f32126e);
+        dVar.f34176d = this.f34161b;
+        dVar.f34177e = this.f34164e;
+        dVar.f34173a = this.f34166g;
+        if (com.kwad.sdk.core.response.b.a.y(this.f34165f)) {
+            dVar.f34178f = new com.kwad.sdk.core.download.b.b(this.f34164e);
         }
-        dVar.f32136b = new e() { // from class: com.kwad.sdk.core.download.a.a.1
+        dVar.f34174b = new e() { // from class: com.kwad.sdk.core.download.a.a.1
             @Override // com.kwad.sdk.core.download.a.e
             public void a() {
                 com.kwad.sdk.core.d.a.a("DownloadDialogView", "onClose()");
-                com.kwad.sdk.core.report.b.m(a.this.f32126e);
-                if (a.this.f32122a == null || !a.this.f32122a.isShowing()) {
+                com.kwad.sdk.core.report.b.o(a.this.f34164e);
+                if (a.this.f34160a == null || !a.this.f34160a.isShowing()) {
                     return;
                 }
-                a.this.f32122a.dismiss();
+                a.this.f34160a.dismiss();
             }
         };
         return dVar;
@@ -76,29 +76,29 @@ public class a extends com.kwad.sdk.core.view.a {
         return presenter;
     }
 
-    @Override // com.kwad.sdk.core.view.a
+    @Override // com.kwad.sdk.core.view.b
     public void a() {
-        this.f32124c = d();
+        this.f34162c = d();
         Presenter e2 = e();
-        this.f32125d = e2;
-        e2.a((View) this.f32123b);
-        this.f32125d.a(this.f32124c);
+        this.f34163d = e2;
+        e2.a((View) this.f34161b);
+        this.f34163d.a(this.f34162c);
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f32126e = adTemplate;
-        this.f32127f = com.kwad.sdk.core.response.b.c.g(adTemplate);
+        this.f34164e = adTemplate;
+        this.f34165f = com.kwad.sdk.core.response.b.c.j(adTemplate);
     }
 
-    @Override // com.kwad.sdk.core.view.a
+    @Override // com.kwad.sdk.core.view.b
     public void b() {
-        d dVar = this.f32124c;
+        d dVar = this.f34162c;
         if (dVar != null) {
             dVar.a();
         }
-        Presenter presenter = this.f32125d;
+        Presenter presenter = this.f34163d;
         if (presenter != null) {
-            presenter.g();
+            presenter.j();
         }
     }
 

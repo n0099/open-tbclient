@@ -13,32 +13,32 @@ import java.io.File;
 public final class b extends FileObserver {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f43818d = k.f43199a;
+    public static final boolean f47494d = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f43819a;
+    public final String f47495a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f43820b;
+    public int f47496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43821c;
+    public int f47497c;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43822e;
+        public final /* synthetic */ String f47498e;
 
         public a(String str) {
-            this.f43822e = str;
+            this.f47498e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c.b bVar = new c.b(10019);
-            bVar.l(String.valueOf(b.this.f43821c));
-            bVar.j(this.f43822e);
+            bVar.l(String.valueOf(b.this.f47497c));
+            bVar.j(this.f47498e);
             bVar.h(d.g().getAppId());
             bVar.m();
         }
@@ -46,28 +46,28 @@ public final class b extends FileObserver {
 
     public b(@NonNull String str) {
         super(str, 1792);
-        this.f43821c = 0;
-        this.f43820b = 0;
-        this.f43819a = str;
+        this.f47497c = 0;
+        this.f47496b = 0;
+        this.f47495a = str;
     }
 
     public void b(@Nullable String str) {
-        q.e().execute(new a(this.f43819a + File.separator + str));
+        q.e().execute(new a(this.f47495a + File.separator + str));
     }
 
     @Override // android.os.FileObserver
     public void onEvent(int i2, @Nullable String str) {
         if ((i2 & 256) == 256) {
-            this.f43820b++;
-            if (f43818d) {
-                Log.i("SwanPkgFileObserver", "onEvent: create " + this.f43820b + " " + str);
+            this.f47496b++;
+            if (f47494d) {
+                Log.i("SwanPkgFileObserver", "onEvent: create " + this.f47496b + " " + str);
                 return;
             }
             return;
         }
-        this.f43821c++;
-        if (f43818d) {
-            Log.i("SwanPkgFileObserver", "onEvent: delete " + this.f43820b + " " + str);
+        this.f47497c++;
+        if (f47494d) {
+            Log.i("SwanPkgFileObserver", "onEvent: delete " + this.f47496b + " " + str);
         }
         b(str);
     }

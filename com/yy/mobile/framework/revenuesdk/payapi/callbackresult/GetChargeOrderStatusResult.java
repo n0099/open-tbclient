@@ -71,6 +71,10 @@ public class GetChargeOrderStatusResult {
         this.status = i2;
     }
 
+    public String toString() {
+        return "GetChargeOrderStatusResult{status=" + this.status + ", hasGotSalePromotion=" + this.hasGotSalePromotion + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", finish=" + this.finish + '}';
+    }
+
     public GetChargeOrderStatusResult(String str, int i2, int i3, int i4, long j, long j2, boolean z) {
         this.expand = str;
         this.status = i2;

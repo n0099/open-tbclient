@@ -17,19 +17,19 @@ import java.util.List;
 public abstract class CacheModel<T extends d.a.m0.g0.b.c, ActivityType> extends BdBaseModel<ActivityType> {
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageListener<CustomResponsedMessage<?>> f12873e;
+    public MessageListener<CustomResponsedMessage<?>> f12938e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MessageListener<CustomResponsedMessage<?>> f12874f;
+    public MessageListener<CustomResponsedMessage<?>> f12939f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c<T> f12875g;
+    public c<T> f12940g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12876h;
+    public boolean f12941h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12877i;
+    public boolean f12942i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -53,8 +53,8 @@ public abstract class CacheModel<T extends d.a.m0.g0.b.c, ActivityType> extends 
             if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                 readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
             }
-            if (CacheModel.this.f12875g != null) {
-                CacheModel.this.f12875g.onCacheDataGet(readCacheRespMsg, readCacheMessage);
+            if (CacheModel.this.f12940g != null) {
+                CacheModel.this.f12940g.onCacheDataGet(readCacheRespMsg, readCacheMessage);
             }
         }
     }
@@ -77,8 +77,8 @@ public abstract class CacheModel<T extends d.a.m0.g0.b.c, ActivityType> extends 
             if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
                 writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
             }
-            if (CacheModel.this.f12875g != null) {
-                CacheModel.this.f12875g.onCacheDataWrite(writeCacheRespMsg, writeCacheMessage);
+            if (CacheModel.this.f12940g != null) {
+                CacheModel.this.f12940g.onCacheDataWrite(writeCacheRespMsg, writeCacheMessage);
             }
         }
     }
@@ -92,69 +92,91 @@ public abstract class CacheModel<T extends d.a.m0.g0.b.c, ActivityType> extends 
 
     public CacheModel(TbPageContext<ActivityType> tbPageContext) {
         super(tbPageContext);
-        this.f12876h = false;
-        this.f12877i = false;
+        this.f12941h = false;
+        this.f12942i = false;
         this.j = false;
         this.k = false;
     }
 
-    public final void A() {
-        if (this.f12877i || MessageManager.getInstance().findTask(F()) != null) {
-            return;
-        }
-        MessageManager.getInstance().registerTask(new d.a.m0.v0.a(F(), new d(F(), r(), D())));
-        this.f12877i = true;
+    public final void A(T t) {
+        z(t);
     }
 
     public final void B() {
-        z();
-        C();
+        if (this.j) {
+            return;
+        }
+        if (this.f12938e == null) {
+            a aVar = new a(I());
+            this.f12938e = aVar;
+            aVar.setSelfListener(true);
+            this.f12938e.setTag(this.unique_id);
+        }
+        registerListener(this.f12938e);
+        this.j = true;
     }
 
     public final void C() {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(F());
+        if (this.f12941h || MessageManager.getInstance().findTask(I()) != null) {
+            return;
+        }
+        MessageManager.getInstance().registerTask(new d.a.m0.v0.a(I(), new d.a.m0.g0.e.c(I(), v(), H())));
+        this.f12941h = true;
+    }
+
+    public final void D() {
+        if (this.k) {
+            return;
+        }
+        if (this.f12939f == null) {
+            b bVar = new b(J());
+            this.f12939f = bVar;
+            bVar.setSelfListener(true);
+            this.f12939f.setTag(this.unique_id);
+        }
+        registerListener(this.f12939f);
+        this.k = true;
+    }
+
+    public final void E() {
+        if (this.f12942i || MessageManager.getInstance().findTask(J()) != null) {
+            return;
+        }
+        MessageManager.getInstance().registerTask(new d.a.m0.v0.a(J(), new d(J(), v(), H())));
+        this.f12942i = true;
+    }
+
+    public final void F() {
+        D();
+        G();
+    }
+
+    public final void G() {
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(J());
         writeCacheMessage.setClear(true);
         writeCacheMessage.setTag(getUniqueId());
-        A();
+        E();
         sendMessage(writeCacheMessage);
     }
 
-    public abstract Class<T> D();
+    public abstract Class<T> H();
 
-    public abstract int E();
+    public abstract int I();
 
-    public abstract int F();
+    public abstract int J();
 
-    public boolean G() {
+    public boolean K() {
         return true;
     }
 
-    public final void H() {
-        x();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(E());
+    public final void L() {
+        B();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(I());
         readCacheMessage.setTag(getUniqueId());
-        readCacheMessage.setNeedUid(G());
-        J(readCacheMessage);
-        y();
+        readCacheMessage.setNeedUid(K());
+        N(readCacheMessage);
+        C();
         sendMessage(readCacheMessage);
-    }
-
-    public final void I(d.a.m0.g0.b.d dVar) {
-        x();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(E());
-        readCacheMessage.setTag(getUniqueId());
-        readCacheMessage.setRequestData(dVar);
-        readCacheMessage.setNeedUid(G());
-        J(readCacheMessage);
-        y();
-        sendMessage(readCacheMessage);
-    }
-
-    public void J(ReadCacheMessage<T> readCacheMessage) {
-    }
-
-    public void K(c<T> cVar) {
-        this.f12875g = cVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -163,59 +185,37 @@ public abstract class CacheModel<T extends d.a.m0.g0.b.c, ActivityType> extends 
         return true;
     }
 
+    public final void M(d.a.m0.g0.b.d dVar) {
+        B();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(I());
+        readCacheMessage.setTag(getUniqueId());
+        readCacheMessage.setRequestData(dVar);
+        readCacheMessage.setNeedUid(K());
+        N(readCacheMessage);
+        C();
+        sendMessage(readCacheMessage);
+    }
+
+    public void N(ReadCacheMessage<T> readCacheMessage) {
+    }
+
+    public void O(c<T> cVar) {
+        this.f12940g = cVar;
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         MessageManager.getInstance().removeCustomMessage(getUniqueId());
         return true;
     }
 
-    public abstract String r();
+    public abstract String v();
 
-    public final void v(T t) {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(F());
+    public final void z(T t) {
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(J());
         writeCacheMessage.setTag(getUniqueId());
         writeCacheMessage.setData(t);
-        A();
+        E();
         sendMessage(writeCacheMessage);
-    }
-
-    public final void w(T t) {
-        v(t);
-    }
-
-    public final void x() {
-        if (this.j) {
-            return;
-        }
-        if (this.f12873e == null) {
-            a aVar = new a(E());
-            this.f12873e = aVar;
-            aVar.setSelfListener(true);
-            this.f12873e.setTag(this.unique_id);
-        }
-        registerListener(this.f12873e);
-        this.j = true;
-    }
-
-    public final void y() {
-        if (this.f12876h || MessageManager.getInstance().findTask(E()) != null) {
-            return;
-        }
-        MessageManager.getInstance().registerTask(new d.a.m0.v0.a(E(), new d.a.m0.g0.e.c(E(), r(), D())));
-        this.f12876h = true;
-    }
-
-    public final void z() {
-        if (this.k) {
-            return;
-        }
-        if (this.f12874f == null) {
-            b bVar = new b(F());
-            this.f12874f = bVar;
-            bVar.setSelfListener(true);
-            this.f12874f.setTag(this.unique_id);
-        }
-        registerListener(this.f12874f);
-        this.k = true;
     }
 }

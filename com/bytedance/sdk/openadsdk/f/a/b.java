@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 public abstract class b<P, R> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29051a;
+    public String f29154a;
 
     public String a() {
-        return this.f29051a;
+        return this.f29154a;
     }
 
     @NonNull
@@ -17,6 +17,6 @@ public abstract class b<P, R> {
     }
 
     public void a(String str) {
-        this.f29051a = str;
+        this.f29154a = str;
     }
 }

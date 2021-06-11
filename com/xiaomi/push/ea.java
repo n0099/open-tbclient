@@ -9,7 +9,7 @@ import java.util.HashMap;
 public final class ea {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ea f37512a;
+    public static volatile ea f41191a;
 
     /* renamed from: a  reason: collision with other field name */
     public int f308a;
@@ -27,7 +27,7 @@ public final class ea {
     public HashMap<ec, ed> f312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37513b;
+    public String f41192b;
 
     public ea(Context context) {
         HashMap<ec, ed> hashMap = new HashMap<>();
@@ -40,14 +40,14 @@ public final class ea {
     }
 
     public static ea a(Context context) {
-        if (f37512a == null) {
+        if (f41191a == null) {
             synchronized (ea.class) {
-                if (f37512a == null) {
-                    f37512a = new ea(context);
+                if (f41191a == null) {
+                    f41191a = new ea(context);
                 }
             }
         }
-        return f37512a;
+        return f41191a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -56,8 +56,8 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m269a(Context context) {
-        return com.xiaomi.push.service.ac.m561a(context, context.getPackageName());
+    public static boolean m268a(Context context) {
+        return com.xiaomi.push.service.ac.m560a(context, context.getPackageName());
     }
 
     public int a() {
@@ -65,12 +65,12 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ee m270a() {
+    public ee m269a() {
         return this.f310a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m271a() {
+    public String m270a() {
         return this.f311a;
     }
 
@@ -111,10 +111,10 @@ public final class ea {
     }
 
     public String b() {
-        return this.f37513b;
+        return this.f41192b;
     }
 
     public void b(String str) {
-        this.f37513b = str;
+        this.f41192b = str;
     }
 }

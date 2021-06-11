@@ -7,93 +7,93 @@ import d.o.a.e.b.l.f;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SQLiteDatabase f67162a;
+    public final SQLiteDatabase f70948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f67163b;
+    public final String f70949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String[] f67164c;
+    public final String[] f70950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String[] f67165d;
+    public final String[] f70951d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SQLiteStatement f67166e;
+    public SQLiteStatement f70952e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SQLiteStatement f67167f;
+    public SQLiteStatement f70953f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SQLiteStatement f67168g;
+    public SQLiteStatement f70954g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SQLiteStatement f67169h;
+    public SQLiteStatement f70955h;
 
     public c(SQLiteDatabase sQLiteDatabase, String str, String[] strArr, String[] strArr2) {
-        this.f67162a = sQLiteDatabase;
-        this.f67163b = str;
-        this.f67164c = strArr;
-        this.f67165d = strArr2;
+        this.f70948a = sQLiteDatabase;
+        this.f70949b = str;
+        this.f70950c = strArr;
+        this.f70951d = strArr2;
     }
 
     public SQLiteStatement a() {
-        if (this.f67166e == null) {
-            SQLiteStatement compileStatement = this.f67162a.compileStatement(f.a("INSERT INTO ", this.f67163b, this.f67164c));
+        if (this.f70952e == null) {
+            SQLiteStatement compileStatement = this.f70948a.compileStatement(f.a("INSERT INTO ", this.f70949b, this.f70950c));
             synchronized (this) {
-                if (this.f67166e == null) {
-                    this.f67166e = compileStatement;
+                if (this.f70952e == null) {
+                    this.f70952e = compileStatement;
                 }
             }
-            if (this.f67166e != compileStatement) {
+            if (this.f70952e != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.f67166e;
+        return this.f70952e;
     }
 
     public SQLiteStatement b() {
-        if (this.f67168g == null) {
-            SQLiteStatement compileStatement = this.f67162a.compileStatement(f.b(this.f67163b, this.f67165d));
+        if (this.f70954g == null) {
+            SQLiteStatement compileStatement = this.f70948a.compileStatement(f.b(this.f70949b, this.f70951d));
             synchronized (this) {
-                if (this.f67168g == null) {
-                    this.f67168g = compileStatement;
+                if (this.f70954g == null) {
+                    this.f70954g = compileStatement;
                 }
             }
-            if (this.f67168g != compileStatement) {
+            if (this.f70954g != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.f67168g;
+        return this.f70954g;
     }
 
     public SQLiteStatement c() {
-        if (this.f67167f == null) {
-            SQLiteStatement compileStatement = this.f67162a.compileStatement(f.c(this.f67163b, this.f67164c, this.f67165d));
+        if (this.f70953f == null) {
+            SQLiteStatement compileStatement = this.f70948a.compileStatement(f.c(this.f70949b, this.f70950c, this.f70951d));
             synchronized (this) {
-                if (this.f67167f == null) {
-                    this.f67167f = compileStatement;
+                if (this.f70953f == null) {
+                    this.f70953f = compileStatement;
                 }
             }
-            if (this.f67167f != compileStatement) {
+            if (this.f70953f != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.f67167f;
+        return this.f70953f;
     }
 
     public SQLiteStatement d() {
-        if (this.f67169h == null) {
-            SQLiteStatement compileStatement = this.f67162a.compileStatement(f.i(this.f67163b, this.f67164c, this.f67165d));
+        if (this.f70955h == null) {
+            SQLiteStatement compileStatement = this.f70948a.compileStatement(f.i(this.f70949b, this.f70950c, this.f70951d));
             synchronized (this) {
-                if (this.f67169h == null) {
-                    this.f67169h = compileStatement;
+                if (this.f70955h == null) {
+                    this.f70955h = compileStatement;
                 }
             }
-            if (this.f67169h != compileStatement) {
+            if (this.f70955h != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.f67169h;
+        return this.f70955h;
     }
 }

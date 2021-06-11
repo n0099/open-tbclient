@@ -20,16 +20,16 @@ import tbclient.User;
 public class a extends BaseCardInfo {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f55120e;
+    public BdUniqueId f58809e;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55122g;
+    public String f58811g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f55123h;
+    public long f58812h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f55124i;
+    public String f58813i;
     public String j;
     public OriginalThreadInfo k;
     public String l;
@@ -50,15 +50,15 @@ public class a extends BaseCardInfo {
     public static final BdUniqueId B = BdUniqueId.gen();
 
     /* renamed from: f  reason: collision with root package name */
-    public MetaData f55121f = new MetaData();
+    public MetaData f58810f = new MetaData();
     public boolean u = false;
 
     public long A() {
-        return this.f55123h;
+        return this.f58812h;
     }
 
     public String B() {
-        return this.f55124i;
+        return this.f58813i;
     }
 
     public boolean C() {
@@ -78,17 +78,17 @@ public class a extends BaseCardInfo {
         if (feedData == null) {
             return;
         }
-        this.f55121f = feedData.getReplyer();
-        this.f55123h = feedData.getTime();
+        this.f58810f = feedData.getReplyer();
+        this.f58812h = feedData.getTime();
         this.p = feedData.getPost_id();
         if (!feedData.isHideForumName()) {
             this.l = feedData.getFname();
         }
         this.o = feedData.getThread_id();
         this.n = feedData.getThread_Type();
-        this.f55124i = feedData.getContent();
+        this.f58813i = feedData.getContent();
         this.r = feedData.getIsFloor();
-        this.f55122g = feedData.getPostFrom();
+        this.f58811g = feedData.getPostFrom();
         this.s = feedData.getQuote_pid();
         this.t = feedData.isNew();
         this.m = feedData.getThreadAuthor();
@@ -96,9 +96,9 @@ public class a extends BaseCardInfo {
         this.v = feedData.getBaijiahaoData();
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
         this.k = originalThreadInfo;
-        originalThreadInfo.f12038f = this.o;
+        originalThreadInfo.f12100f = this.o;
         originalThreadInfo.k = this.n;
-        originalThreadInfo.f12035c = feedData.getThreadImgUrl();
+        originalThreadInfo.f12097c = feedData.getThreadImgUrl();
         OriginalThreadInfo originalThreadInfo2 = this.k;
         originalThreadInfo2.o = this.u;
         originalThreadInfo2.p = this.v;
@@ -112,24 +112,24 @@ public class a extends BaseCardInfo {
             } else {
                 str = feedData.getQuote_user().getName_show();
             }
-            this.k.f12039g = TbadkCoreApplication.getInst().getString(R.string.reply_me_original, new Object[]{str, feedData.getQuote_content()});
-            if (TextUtils.isGraphic(this.k.f12039g)) {
+            this.k.f12101g = TbadkCoreApplication.getInst().getString(R.string.reply_me_original, new Object[]{str, feedData.getQuote_content()});
+            if (TextUtils.isGraphic(this.k.f12101g)) {
                 OriginalThreadInfo originalThreadInfo3 = this.k;
-                originalThreadInfo3.f12039g = originalThreadInfo3.f12039g.replace("\n", " ");
+                originalThreadInfo3.f12101g = originalThreadInfo3.f12101g.replace("\n", " ");
             }
             if (feedData.getIsFloor()) {
-                this.f55120e = z;
+                this.f58809e = z;
             } else {
-                this.f55120e = A;
+                this.f58809e = A;
             }
         } else {
             this.k.n = "0";
             if (feedData.isShareThread() && feedData.getOriginalThreadInfo() != null) {
-                this.k.f12039g = TbadkCoreApplication.getInst().getString(R.string.share_replyme_original, new Object[]{feedData.getOriginalThreadInfo().f12034b});
+                this.k.f12101g = TbadkCoreApplication.getInst().getString(R.string.share_replyme_original, new Object[]{feedData.getOriginalThreadInfo().f12096b});
             } else {
-                this.k.f12039g = feedData.getTitle();
+                this.k.f12101g = feedData.getTitle();
             }
-            this.f55120e = B;
+            this.f58809e = B;
         }
         this.k.n();
     }
@@ -141,9 +141,9 @@ public class a extends BaseCardInfo {
         }
         this.q = agreeList.id.longValue();
         MetaData metaData = new MetaData();
-        this.f55121f = metaData;
+        this.f58810f = metaData;
         metaData.parserProtobuf(agreeList.agreeer);
-        this.f55123h = agreeList.time.intValue() * 1000;
+        this.f58812h = agreeList.time.intValue() * 1000;
         Post post = agreeList.post_info;
         if (post != null) {
             this.p = String.valueOf(post.id);
@@ -157,67 +157,67 @@ public class a extends BaseCardInfo {
             this.s = agreeList.post_info.quote_id;
         }
         a2 a2Var = new a2();
-        a2Var.U2(agreeList.thread_info);
+        a2Var.V2(agreeList.thread_info);
         this.k = OriginalThreadInfo.i(a2Var);
         this.m = a2Var.T();
         this.l = a2Var.i0();
         this.o = a2Var.o0();
         this.n = a2Var.Z;
-        this.u = a2Var.B2();
+        this.u = a2Var.C2();
         this.v = a2Var.V();
         this.w = "c12927";
         if (agreeList.type.intValue() == 3) {
-            this.f55120e = x;
-            this.f55124i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
+            this.f58809e = x;
+            this.f58813i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
             if (this.u) {
-                this.f55124i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_dynamic);
+                this.f58813i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_dynamic);
                 return;
             }
             return;
         }
-        this.f55120e = y;
-        this.f55124i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
+        this.f58809e = y;
+        this.f58813i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
     }
 
     public void H(boolean z2) {
         this.t = z2;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
-    public BdUniqueId getType() {
-        return this.f55120e;
-    }
-
-    public BaijiahaoData h() {
+    public BaijiahaoData c() {
         return this.v;
     }
 
-    public String l() {
+    public String g() {
         return this.l;
     }
 
-    public long m() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
+    public BdUniqueId getType() {
+        return this.f58809e;
+    }
+
+    public long i() {
         return this.q;
     }
 
-    public OriginalThreadInfo p() {
+    public OriginalThreadInfo k() {
         return this.k;
     }
 
-    public String s() {
-        return this.f55122g;
+    public String o() {
+        return this.f58811g;
     }
 
-    public String t() {
+    public String p() {
         return this.p;
     }
 
-    public String u() {
+    public String q() {
         return this.s;
     }
 
-    public MetaData v() {
-        return this.f55121f;
+    public MetaData t() {
+        return this.f58810f;
     }
 
     public String w() {

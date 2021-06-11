@@ -11,13 +11,13 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41350a = k.f43199a;
+    public static final boolean f45026a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, d.a.l0.a.p.e.a> f41351b = new HashMap(2);
+    public static final Map<String, d.a.l0.a.p.e.a> f45027b = new HashMap(2);
 
     public static d.a.l0.a.p.e.a a() {
-        if (f41350a) {
+        if (f45026a) {
             Log.d("ConsoleCache", "create new sConsole");
         }
         d.k(true);
@@ -37,25 +37,25 @@ public class c {
             if (Q != null && !TextUtils.isEmpty(Q.getAppId())) {
                 str = Q.getAppId();
                 String a2 = d.a.l0.a.v.a.a(str);
-                aVar = f41351b.get(a2);
+                aVar = f45027b.get(a2);
                 if (aVar == null) {
                     e();
                     aVar = a();
-                    f41351b.put(a2, aVar);
-                    if (f41350a) {
+                    f45027b.put(a2, aVar);
+                    if (f45026a) {
                         Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
                     }
                 }
-                if (f41350a) {
+                if (f45026a) {
                     Log.d("ConsoleCache", "get sconsole for appId - " + str);
                 }
             }
             str = "_no_id_";
             String a22 = d.a.l0.a.v.a.a(str);
-            aVar = f41351b.get(a22);
+            aVar = f45027b.get(a22);
             if (aVar == null) {
             }
-            if (f41350a) {
+            if (f45026a) {
             }
         }
         return aVar;
@@ -63,10 +63,10 @@ public class c {
 
     public static boolean c() {
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
-        if (Q != null && !TextUtils.isEmpty(Q.f40749f)) {
-            return b.b(d.a.l0.a.v.a.a(Q.f40749f));
+        if (Q != null && !TextUtils.isEmpty(Q.f44425f)) {
+            return b.b(d.a.l0.a.v.a.a(Q.f44425f));
         }
-        if (f41350a) {
+        if (f45026a) {
             Log.w("ConsoleCache", "swanApp is null or appId is empty");
             return false;
         }
@@ -81,14 +81,14 @@ public class c {
 
     public static synchronized void e() {
         synchronized (c.class) {
-            if (f41351b.size() > 0) {
-                for (String str : f41351b.keySet()) {
-                    d.a.l0.a.p.e.a aVar = f41351b.get(str);
+            if (f45027b.size() > 0) {
+                for (String str : f45027b.keySet()) {
+                    d.a.l0.a.p.e.a aVar = f45027b.get(str);
                     if (aVar != null) {
                         aVar.E();
                     }
                 }
-                f41351b.clear();
+                f45027b.clear();
             }
         }
     }

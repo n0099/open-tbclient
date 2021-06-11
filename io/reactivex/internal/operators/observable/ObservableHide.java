@@ -12,7 +12,7 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f69005d;
+        public Disposable f72314d;
 
         public HideDisposable(Observer<? super T> observer) {
             this.actual = observer;
@@ -20,12 +20,12 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f69005d.dispose();
+            this.f72314d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f69005d.isDisposed();
+            return this.f72314d.isDisposed();
         }
 
         @Override // io.reactivex.Observer
@@ -45,8 +45,8 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f69005d, disposable)) {
-                this.f69005d = disposable;
+            if (DisposableHelper.validate(this.f72314d, disposable)) {
+                this.f72314d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

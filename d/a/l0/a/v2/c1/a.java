@@ -26,41 +26,41 @@ import java.util.concurrent.TimeUnit;
 public class a {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f45374i = k.f43199a;
+    public static final boolean f49048i = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f45376b;
+    public ExecutorService f49050b;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.l0.a.v2.e1.b<String> f45380f;
+    public d.a.l0.a.v2.e1.b<String> f49054f;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<d.a.l0.a.v2.e1.b<Pipe.SourceChannel>> f45375a = new HashSet();
+    public final Set<d.a.l0.a.v2.e1.b<Pipe.SourceChannel>> f49049a = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45377c = 8192;
+    public int f49051c = 8192;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f45378d = -1;
+    public long f49052d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public TimeUnit f45379e = TimeUnit.NANOSECONDS;
+    public TimeUnit f49053e = TimeUnit.NANOSECONDS;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a f45381g = new c.a();
+    public final c.a f49055g = new c.a();
 
     /* renamed from: h  reason: collision with root package name */
-    public float f45382h = 0.0f;
+    public float f49056h = 0.0f;
 
     /* renamed from: d.a.l0.a.v2.c1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0884a implements d.a.l0.a.v2.e1.b<d.a.l0.a.v2.e1.b<Pipe.SourceChannel>> {
+    public class C0940a implements d.a.l0.a.v2.e1.b<d.a.l0.a.v2.e1.b<Pipe.SourceChannel>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f45383e;
+        public final /* synthetic */ List f49057e;
 
-        public C0884a(List list) {
-            this.f45383e = list;
+        public C0940a(List list) {
+            this.f49057e = list;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,9 +68,9 @@ public class a {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.v2.e1.b<Pipe.SourceChannel> bVar) {
             try {
-                this.f45383e.add(new e(a.this, bVar));
+                this.f49057e.add(new e(a.this, bVar));
             } catch (IOException e2) {
-                if (a.f45374i) {
+                if (a.f49048i) {
                     e2.printStackTrace();
                 }
             }
@@ -81,22 +81,22 @@ public class a {
     public class b implements d.a.l0.a.v2.e1.b<e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f45385e;
+        public final /* synthetic */ CountDownLatch f49059e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ExecutorService f45386f;
+        public final /* synthetic */ ExecutorService f49060f;
 
         public b(a aVar, CountDownLatch countDownLatch, ExecutorService executorService) {
-            this.f45385e = countDownLatch;
-            this.f45386f = executorService;
+            this.f49059e = countDownLatch;
+            this.f49060f = executorService;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            eVar.f(this.f45385e);
-            this.f45386f.submit(eVar);
+            eVar.f(this.f49059e);
+            this.f49060f.submit(eVar);
         }
     }
 
@@ -104,10 +104,10 @@ public class a {
     public class c implements d.a.l0.a.v2.e1.b<e> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ByteBuffer f45387e;
+        public final /* synthetic */ ByteBuffer f49061e;
 
         public c(a aVar, ByteBuffer byteBuffer) {
-            this.f45387e = byteBuffer;
+            this.f49061e = byteBuffer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,12 +115,12 @@ public class a {
         /* renamed from: a */
         public void onCallback(e eVar) {
             try {
-                if (eVar.f45391h.isOpen() && eVar.f45390g.isOpen()) {
-                    this.f45387e.rewind();
-                    eVar.f45391h.write(this.f45387e);
+                if (eVar.f49065h.isOpen() && eVar.f49064g.isOpen()) {
+                    this.f49061e.rewind();
+                    eVar.f49065h.write(this.f49061e);
                 }
             } catch (IOException e2) {
-                if (a.f45374i) {
+                if (a.f49048i) {
                     a.m("connect e:" + e2 + " line: " + eVar);
                     e2.printStackTrace();
                 }
@@ -137,7 +137,7 @@ public class a {
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(e eVar) {
-            Pipe.SinkChannel sinkChannel = eVar.f45391h;
+            Pipe.SinkChannel sinkChannel = eVar.f49065h;
             a.f(sinkChannel, eVar.toString() + " by[PumpingFinish]");
         }
     }
@@ -146,63 +146,63 @@ public class a {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.a.l0.a.v2.e1.b<Pipe.SourceChannel> f45388e;
+        public final d.a.l0.a.v2.e1.b<Pipe.SourceChannel> f49062e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Pipe f45389f;
+        public final Pipe f49063f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Pipe.SourceChannel f45390g;
+        public final Pipe.SourceChannel f49064g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Pipe.SinkChannel f45391h;
+        public final Pipe.SinkChannel f49065h;
 
         /* renamed from: i  reason: collision with root package name */
-        public CountDownLatch f45392i;
+        public CountDownLatch f49066i;
         public String j;
 
         public e(a aVar, d.a.l0.a.v2.e1.b<Pipe.SourceChannel> bVar) throws IOException {
-            this.f45388e = bVar;
+            this.f49062e = bVar;
             Pipe open = Pipe.open();
-            this.f45389f = open;
-            this.f45391h = open.sink();
-            this.f45390g = this.f45389f.source();
+            this.f49063f = open;
+            this.f49065h = open.sink();
+            this.f49064g = this.f49063f.source();
         }
 
         public final void d() {
-            Pipe.SinkChannel sinkChannel = this.f45391h;
+            Pipe.SinkChannel sinkChannel = this.f49065h;
             a.f(sinkChannel, "sink for " + toString());
-            Pipe.SourceChannel sourceChannel = this.f45390g;
+            Pipe.SourceChannel sourceChannel = this.f49064g;
             a.f(sourceChannel, "source for " + toString());
         }
 
         public final void e() {
-            CountDownLatch countDownLatch = this.f45392i;
+            CountDownLatch countDownLatch = this.f49066i;
             if (countDownLatch != null) {
                 countDownLatch.countDown();
             }
         }
 
         public final void f(CountDownLatch countDownLatch) {
-            this.f45392i = countDownLatch;
+            this.f49066i = countDownLatch;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             this.j = Thread.currentThread().toString();
-            if (a.f45374i) {
+            if (a.f49048i) {
                 a.m(" >> run on " + toString());
             }
             try {
                 try {
-                    this.f45388e.onCallback(this.f45390g);
+                    this.f49062e.onCallback(this.f49064g);
                 } catch (Exception e2) {
-                    if (a.f45374i) {
+                    if (a.f49048i) {
                         e2.printStackTrace();
                         a.m("catch Exception on " + toString() + " :\n  " + e2.toString());
                     }
                 }
-                if (a.f45374i) {
+                if (a.f49048i) {
                     a.m("countdown by end -> " + toString());
                 }
                 e();
@@ -212,7 +212,7 @@ public class a {
         }
 
         public String toString() {
-            return "PipeLine: " + this.j + " consumer=" + this.f45388e.toString();
+            return "PipeLine: " + this.j + " consumer=" + this.f49062e.toString();
         }
     }
 
@@ -224,26 +224,26 @@ public class a {
     }
 
     public static void m(String str) {
-        if (f45374i) {
+        if (f49048i) {
             Log.i("PipeHub", str);
         }
     }
 
     @NonNull
     public a d(@NonNull d.a.l0.a.v2.e1.b<Pipe.SourceChannel>... bVarArr) {
-        this.f45375a.addAll(Arrays.asList(bVarArr));
+        this.f49049a.addAll(Arrays.asList(bVarArr));
         return this;
     }
 
     public final void e(String str) {
-        d.a.l0.a.v2.e1.b<String> bVar = this.f45380f;
+        d.a.l0.a.v2.e1.b<String> bVar = this.f49054f;
         if (bVar != null) {
             bVar.onCallback(str);
         }
     }
 
     public a g(Bundle bundle) {
-        this.f45381g.D(bundle);
+        this.f49055g.D(bundle);
         return this;
     }
 
@@ -255,34 +255,34 @@ public class a {
         ExecutorService l = l(i2, countDownLatch);
         n(readableByteChannel, i2);
         e("pump_finish");
-        if (f45374i) {
+        if (f49048i) {
             m("pumping: cost=" + (System.currentTimeMillis() - currentTimeMillis));
         }
         try {
-            if (f45374i) {
-                m("main await for timeout: " + this.f45379e.toMillis(this.f45378d));
+            if (f49048i) {
+                m("main await for timeout: " + this.f49053e.toMillis(this.f49052d));
             }
             boolean z = false;
-            if (this.f45378d < 0) {
+            if (this.f49052d < 0) {
                 countDownLatch.await();
             } else {
-                z = !countDownLatch.await(this.f45378d, this.f45379e);
+                z = !countDownLatch.await(this.f49052d, this.f49053e);
             }
-            if (f45374i) {
+            if (f49048i) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("main await finish by ");
                 sb.append(z ? "time's up" : "count down");
                 m(sb.toString());
             }
-            if (f45374i) {
+            if (f49048i) {
                 m("all done: " + (System.currentTimeMillis() - currentTimeMillis));
             }
         } catch (InterruptedException e2) {
-            if (f45374i) {
+            if (f49048i) {
                 m("main await finish by InterruptedException " + e2);
                 e2.printStackTrace();
             }
-            if (f45374i) {
+            if (f49048i) {
                 m("all done: " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
@@ -292,16 +292,16 @@ public class a {
 
     public final List<e> i() {
         ArrayList arrayList = new ArrayList();
-        d.a.l0.a.v2.e1.a.c(new C0884a(arrayList), this.f45375a);
+        d.a.l0.a.v2.e1.a.c(new C0940a(arrayList), this.f49049a);
         return arrayList;
     }
 
     public float j() {
-        return this.f45382h;
+        return this.f49056h;
     }
 
     public final float k() {
-        float h2 = this.f45381g.h("progress_granularity", 0.01f);
+        float h2 = this.f49055g.h("progress_granularity", 0.01f);
         if (h2 < 0.0f) {
             h2 = 0.0f;
         }
@@ -313,11 +313,11 @@ public class a {
 
     @NonNull
     public final ExecutorService l(@NonNull List<e> list, @NonNull CountDownLatch countDownLatch) {
-        ExecutorService executorService = this.f45376b;
-        if (executorService == null || executorService.isShutdown() || this.f45376b.isTerminated()) {
-            this.f45376b = null;
+        ExecutorService executorService = this.f49050b;
+        if (executorService == null || executorService.isShutdown() || this.f49050b.isTerminated()) {
+            this.f49050b = null;
         }
-        ExecutorService executorService2 = this.f45376b;
+        ExecutorService executorService2 = this.f49050b;
         if (executorService2 == null) {
             executorService2 = Executors.newCachedThreadPool();
         }
@@ -334,8 +334,8 @@ public class a {
         float f2 = 0.0f;
         s(0.0f);
         float k = k();
-        long k2 = this.f45381g.k(CloudStabilityUBCUtils.KEY_LENGTH);
-        ByteBuffer allocate = ByteBuffer.allocate(this.f45377c);
+        long k2 = this.f49055g.k(CloudStabilityUBCUtils.KEY_LENGTH);
+        ByteBuffer allocate = ByteBuffer.allocate(this.f49051c);
         long j2 = 0;
         int i3 = 0;
         while (true) {
@@ -358,7 +358,7 @@ public class a {
                             if (f3 > 1.0f) {
                                 f3 = 1.0f;
                             }
-                            float f4 = f3 - this.f45382h;
+                            float f4 = f3 - this.f49056h;
                             int round = Math.round(100.0f * f3);
                             i2 = i4;
                             StringBuilder sb = new StringBuilder();
@@ -367,14 +367,14 @@ public class a {
                                 sb.append(i5 > round ? "=" : "#");
                                 i5++;
                             }
-                            if (f45374i) {
+                            if (f49048i) {
                                 j = k2;
                                 m(String.format("pumping: %4s [%s] read/at:[%7d/%-7d]", NumberFormat.getPercentInstance().format(f3), sb, Long.valueOf(read), Long.valueOf(j2)));
                             } else {
                                 j = k2;
                             }
                             if (f4 > k) {
-                                if (f45374i) {
+                                if (f49048i) {
                                     NumberFormat percentInstance = NumberFormat.getPercentInstance();
                                     m("pumping: updateProgress granularity:" + percentInstance.format(k) + " step:" + percentInstance.format(f4));
                                 }
@@ -394,7 +394,7 @@ public class a {
                         e = e2;
                         readableByteChannel2 = readableByteChannel;
                         list2 = list;
-                        if (f45374i) {
+                        if (f49048i) {
                             e.printStackTrace();
                         }
                         f(readableByteChannel2, "connected source");
@@ -417,7 +417,7 @@ public class a {
             }
         }
         long j3 = k2;
-        if (f45374i) {
+        if (f49048i) {
             m("pumping done: writeCount=" + i3 + " length: " + j3);
         }
         f(readableByteChannel, "connected source");
@@ -432,12 +432,12 @@ public class a {
         if (i2 < 1) {
             i2 = 8192;
         }
-        this.f45377c = i2;
+        this.f49051c = i2;
         return this;
     }
 
     public a p(d.a.l0.a.v2.e1.b<String> bVar) {
-        this.f45380f = bVar;
+        this.f49054f = bVar;
         return this;
     }
 
@@ -446,23 +446,23 @@ public class a {
         if (j < 0) {
             j = -1;
         }
-        this.f45378d = j;
-        this.f45379e = timeUnit;
+        this.f49052d = j;
+        this.f49053e = timeUnit;
         return this;
     }
 
     public final void r(@NonNull ExecutorService executorService) {
-        if (executorService != this.f45376b && !executorService.isShutdown()) {
+        if (executorService != this.f49050b && !executorService.isShutdown()) {
             executorService.shutdown();
         }
-        this.f45376b = null;
+        this.f49050b = null;
     }
 
     public final void s(float f2) {
-        if (f45374i) {
+        if (f49048i) {
             m("updateProgress: progress=" + f2);
         }
-        this.f45382h = f2;
+        this.f49056h = f2;
         e("on_progress");
     }
 }

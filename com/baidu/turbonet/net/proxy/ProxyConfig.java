@@ -5,10 +5,10 @@ import com.baidu.searchbox.logsystem.basic.upload.Constant;
 public class ProxyConfig {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ProxyConfig f22450b = new ProxyConfig();
+    public static final ProxyConfig f22553b = new ProxyConfig();
 
     /* renamed from: a  reason: collision with root package name */
-    public LibType f22451a = LibType.TURBONET;
+    public LibType f22554a = LibType.TURBONET;
 
     /* loaded from: classes5.dex */
     public enum LibType {
@@ -17,14 +17,14 @@ public class ProxyConfig {
     }
 
     public boolean a() {
-        return this.f22451a == LibType.NATIVE;
+        return this.f22554a == LibType.NATIVE;
     }
 
     public void b(LibType libType) {
-        this.f22451a = libType;
+        this.f22554a = libType;
     }
 
     public String toString() {
-        return this.f22451a == LibType.NATIVE ? Constant.TYPE_NATIVE : "TURBONET";
+        return this.f22554a == LibType.NATIVE ? Constant.TYPE_NATIVE : "TURBONET";
     }
 }

@@ -10,6 +10,7 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.common.PassSdkModel;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareResult;
@@ -41,16 +42,10 @@ public class ShareActivity extends BaseActivity {
     public String y;
     public String z;
 
-    private void i() {
-        Map<String, String> c2 = c();
-        c2.put("error_code", "" + this.u.getResultCode());
-        StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_FAIL, c2);
-    }
-
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
-        g();
+        e();
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -58,24 +53,35 @@ public class ShareActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(f.layout_sapi_sdk_webview_with_title_bar);
-            if (b() && a()) {
-                init();
-                setupViews();
-                Map<String, String> c2 = c();
-                c2.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
-                StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_INVOKED, c2);
+            if (!PassSdkModel.getInstance().checkPassSdkInit()) {
+                Log.e(B, "pass sdk没有初始化");
+                this.u.setResultCode(ShareResult.ERROR_CODE_REASON_SDK_NOT_INIT);
+                b();
+                return;
             }
+            String callingPackage = getCallingPackage();
+            if (!PassSdkModel.getInstance().checkPkgSign(this, callingPackage)) {
+                Log.d(B, callingPackage + "不是已经授权的百度系app");
+                this.u.setResultCode(ShareResult.ERROR_CODE_REASON_SIGN_ERROR);
+                b();
+                return;
+            }
+            init();
+            setupViews();
+            Map<String, String> a2 = a();
+            a2.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
+            StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_INVOKED, a2);
         } catch (Throwable th) {
             reportWebviewError(th);
             this.u.setResultCode(ShareResult.ERROR_CODE_SYS_ERROR);
-            d();
+            b();
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        g();
+        e();
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
@@ -84,7 +90,7 @@ public class ShareActivity extends BaseActivity {
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.ShareActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                ShareActivity.this.g();
+                ShareActivity.this.e();
                 return false;
             }
         });
@@ -124,16 +130,16 @@ public class ShareActivity extends BaseActivity {
         SapiJsCallBacks.ShareV2LoginParams shareV2LoginParams = new SapiJsCallBacks.ShareV2LoginParams() { // from class: com.baidu.sapi2.activity.ShareActivity.2
             @Override // com.baidu.sapi2.SapiJsCallBacks.ShareV2LoginParams
             public void onError() {
-                StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_EXPIRED, ShareActivity.this.c());
+                StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_EXPIRED, ShareActivity.this.a());
                 if (!ShareActivity.this.t.equals("1")) {
                     ShareActivity.this.t = "2";
                 }
-                ShareActivity.this.f();
+                ShareActivity.this.d();
             }
 
             @Override // com.baidu.sapi2.SapiJsCallBacks.ShareV2LoginParams
             public void onSuccess() {
-                ShareActivity.this.e();
+                ShareActivity.this.c();
             }
         };
         shareV2LoginParams.pageParams = jSONObject;
@@ -141,52 +147,24 @@ public class ShareActivity extends BaseActivity {
         this.sapiWebView.loadShareV2Login();
     }
 
-    private boolean b() {
-        if (SapiAccountManager.getInstance().getConfignation() == null) {
-            SapiAccountManager.getGlobalCallback().onNeedInitPassSdk();
-        }
-        if (SapiAccountManager.getInstance().getConfignation() == null) {
-            Log.e("pass sdk have not been initialized", new Object[0]);
-            this.u.setResultCode(ShareResult.ERROR_CODE_REASON_SDK_NOT_INIT);
-            d();
-            return false;
-        }
-        return true;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        g();
+        f();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, String> c() {
-        HashMap hashMap = new HashMap();
-        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-        if (sapiConfiguration != null) {
-            hashMap.put("cur_tpl", sapiConfiguration.tpl);
-        } else {
-            hashMap.put("cur_tpl", "unknown");
-        }
-        hashMap.put("from_tpl", this.y);
-        hashMap.put(ShareCallPacking.StatModel.KEY_CALL_TYPE, this.A);
-        hashMap.put("share_ver", this.z);
-        return hashMap;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        i();
-        h();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void c() {
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount == null) {
             this.u.setResultCode(ShareResult.ERROR_CODE_RESULT_NULL);
-            d();
+            b();
             return;
         }
         currentAccount.app = SapiUtils.getAppName(this);
-        Map<String, String> c2 = c();
-        c2.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
-        StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_SUCCESS, c2);
+        Map<String, String> a2 = a();
+        a2.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
+        StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_SUCCESS, a2);
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putParcelable("share_account", currentAccount);
@@ -202,7 +180,7 @@ public class ShareActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
+    public void d() {
         final boolean z = SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
         WebLoginDTO webLoginDTO = new WebLoginDTO();
         webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
@@ -220,20 +198,20 @@ public class ShareActivity extends BaseActivity {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(WebAuthResult webAuthResult) {
-                Map c2 = ShareActivity.this.c();
-                c2.put("code", "" + webAuthResult.getResultCode());
-                StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_FAIL, c2);
+                Map a2 = ShareActivity.this.a();
+                a2.put("code", "" + webAuthResult.getResultCode());
+                StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_FAIL, a2);
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
                 ShareActivity.this.u.setResultCode(ShareResult.ERROR_CODE_EXPIRED_LOGIN_FAIL);
                 ShareActivity.this.u.setResultMsg(String.format(ShareResult.ERROR_MSG_EXPIRED_LOGIN_FAIL, ShareActivity.this.w));
-                ShareActivity.this.d();
+                ShareActivity.this.b();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(WebAuthResult webAuthResult) {
-                StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_SUCCESS, ShareActivity.this.c());
+                StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_SUCCESS, ShareActivity.this.a());
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
                 SapiWebView sapiWebView = ShareActivity.this.sapiWebView;
@@ -247,7 +225,7 @@ public class ShareActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
+    public void e() {
         SapiWebView sapiWebView = this.sapiWebView;
         if (sapiWebView != null && sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
@@ -255,10 +233,10 @@ public class ShareActivity extends BaseActivity {
         }
         this.u.setResultCode(ShareResult.ERROR_CODE_REASON_CANCLE);
         this.u.setResultMsg(String.format(ShareResult.ERROR_MSG_REASON_CANCLE, this.w));
-        d();
+        b();
     }
 
-    private void h() {
+    private void f() {
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putString("share_fail_code", "" + this.u.getResultCode());
@@ -269,13 +247,24 @@ public class ShareActivity extends BaseActivity {
         finish();
     }
 
-    private boolean a() {
-        String callingPackage = getCallingPackage();
-        if (TextUtils.isEmpty(callingPackage) || !new ShareCallPacking().checkPkgSign(this, callingPackage)) {
-            this.u.setResultCode(ShareResult.ERROR_CODE_REASON_SIGN_ERROR);
-            d();
-            return false;
+    private void g() {
+        Map<String, String> a2 = a();
+        a2.put("error_code", "" + this.u.getResultCode());
+        StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_FAIL, a2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Map<String, String> a() {
+        HashMap hashMap = new HashMap();
+        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+        if (sapiConfiguration != null) {
+            hashMap.put("cur_tpl", sapiConfiguration.tpl);
+        } else {
+            hashMap.put("cur_tpl", "unknown");
         }
-        return true;
+        hashMap.put("from_tpl", this.y);
+        hashMap.put(ShareCallPacking.StatModel.KEY_CALL_TYPE, this.A);
+        hashMap.put("share_ver", this.z);
+        return hashMap;
     }
 }

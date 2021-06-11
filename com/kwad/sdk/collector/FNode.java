@@ -2,6 +2,7 @@ package com.kwad.sdk.collector;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.kwad.sdk.utils.AppStatusHelper;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.List;
 public class FNode implements Serializable, Comparable<FNode> {
     public static final String TAG = "FNode";
     public static HashSet<String> specialPath = new HashSet<>();
-    public AppRunningInfo appRunningInfo;
+    public AppStatusHelper.AppRunningInfo appRunningInfo;
     public NodeFilter externalFilter;
     public FNode parent;
     public File realFile;
@@ -111,8 +112,8 @@ public class FNode implements Serializable, Comparable<FNode> {
     }
 
     @Nullable
-    public AppRunningInfo getAppRunningInfo() {
-        AppRunningInfo appRunningInfo = this.appRunningInfo;
+    public AppStatusHelper.AppRunningInfo getAppRunningInfo() {
+        AppStatusHelper.AppRunningInfo appRunningInfo = this.appRunningInfo;
         if (appRunningInfo != null) {
             return appRunningInfo;
         }
@@ -218,7 +219,7 @@ public class FNode implements Serializable, Comparable<FNode> {
         this.nodeInfo = fChildNodeInfo;
     }
 
-    public void setAppRunningInfo(AppRunningInfo appRunningInfo) {
+    public void setAppRunningInfo(AppStatusHelper.AppRunningInfo appRunningInfo) {
         this.appRunningInfo = appRunningInfo;
     }
 

@@ -12,26 +12,26 @@ import com.baidu.tieba.R;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f60711a;
+    public View f64402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f60712b;
+    public TextView f64403b;
 
     public View a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.tail_tool_edit_item, (ViewGroup) null);
-        this.f60711a = inflate;
-        this.f60712b = (TextView) inflate.findViewById(R.id.tail_tool_edit_item_btn);
-        this.f60711a.setTag(this);
-        return this.f60711a;
+        this.f64402a = inflate;
+        this.f64403b = (TextView) inflate.findViewById(R.id.tail_tool_edit_item_btn);
+        this.f64402a.setTag(this);
+        return this.f64402a;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void b() {
-        SkinManager.setBackgroundResource(this.f60712b, R.drawable.tail_tool_add_button_bg);
-        SkinManager.setViewTextColor(this.f60712b, R.color.CAM_X0302, 1);
+        SkinManager.setBackgroundResource(this.f64403b, R.drawable.tail_tool_add_button_bg);
+        SkinManager.setViewTextColor(this.f64403b, R.color.CAM_X0302, 1);
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.f60711a.setOnClickListener(onClickListener);
+        this.f64402a.setOnClickListener(onClickListener);
     }
 }

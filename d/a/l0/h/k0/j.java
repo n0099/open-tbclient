@@ -8,53 +8,53 @@ import kotlin.jvm.internal.Intrinsics;
 public final class j {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final j f47436c = new j();
+    public static final j f51110c = new j();
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<g> f47434a = new ArrayList<>();
+    public static ArrayList<g> f51108a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<Integer> f47435b = new ArrayList<>();
+    public static ArrayList<Integer> f51109b = new ArrayList<>();
 
     public final void a(int i2) {
-        if (f47435b.contains(Integer.valueOf(i2))) {
+        if (f51109b.contains(Integer.valueOf(i2))) {
             return;
         }
-        f47435b.add(Integer.valueOf(i2));
+        f51109b.add(Integer.valueOf(i2));
     }
 
     public final g b(JSRuntime jsRuntime) {
         Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
         g gVar = new g(jsRuntime);
-        f47434a.add(gVar);
+        f51108a.add(gVar);
         return gVar;
     }
 
     public final boolean c(g socket) {
         Intrinsics.checkNotNullParameter(socket, "socket");
-        return !f47434a.contains(socket);
+        return !f51108a.contains(socket);
     }
 
     public final boolean d(int i2) {
-        return f47435b.contains(Integer.valueOf(i2));
+        return f51109b.contains(Integer.valueOf(i2));
     }
 
     public final void e(g socket) {
         Intrinsics.checkNotNullParameter(socket, "socket");
-        if (f47434a.contains(socket)) {
+        if (f51108a.contains(socket)) {
             g(socket.C());
-            f47434a.remove(socket);
+            f51108a.remove(socket);
         }
     }
 
     public final void f() {
-        Iterator<g> it = f47434a.iterator();
+        Iterator<g> it = f51108a.iterator();
         while (it.hasNext()) {
             it.next().close();
         }
     }
 
     public final void g(int i2) {
-        f47435b.remove(Integer.valueOf(i2));
+        f51109b.remove(Integer.valueOf(i2));
     }
 }

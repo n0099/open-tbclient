@@ -3,7 +3,7 @@ package org.webrtc;
 import android.os.Build;
 import java.nio.ByteBuffer;
 import org.webrtc.VideoFrame;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NV21Buffer implements VideoFrame.Buffer {
     public final byte[] data;
     public final int height;

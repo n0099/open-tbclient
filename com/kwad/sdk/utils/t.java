@@ -1,197 +1,71 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import androidx.core.content.ContextCompat;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
-/* loaded from: classes6.dex */
+import androidx.annotation.NonNull;
+import java.security.MessageDigest;
+/* loaded from: classes7.dex */
 public class t {
-    public static boolean a(Context context) {
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final char[] f37550a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    @NonNull
+    public static String a(String str) {
+        return a(str.getBytes());
+    }
+
+    public static String a(byte[] bArr) {
         try {
-            if (!(ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) || (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
-                return false;
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            StringBuilder sb = new StringBuilder();
+            int length = digest.length;
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = digest[i2];
+                if (i3 < 0) {
+                    i3 += 256;
+                }
+                if (i3 < 16) {
+                    sb.append("0");
+                }
+                sb.append(Integer.toHexString(i3));
             }
-            return activeNetworkInfo.isConnected();
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return false;
+            return sb.toString();
+        } catch (Exception unused) {
+            return "";
         }
     }
 
-    public static boolean b(Context context) {
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
-        try {
-            if ((ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) && (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
-                return 1 == activeNetworkInfo.getType();
+    public static String a(byte[] bArr, int i2, int i3) {
+        if (bArr != null) {
+            if (i2 < 0 || i2 + i3 > bArr.length) {
+                throw new IndexOutOfBoundsException();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            int i4 = i3 * 2;
+            char[] cArr = new char[i4];
+            int i5 = 0;
+            for (int i6 = 0; i6 < i3; i6++) {
+                int i7 = bArr[i6 + i2] & 255;
+                int i8 = i5 + 1;
+                char[] cArr2 = f37550a;
+                cArr[i5] = cArr2[i7 >> 4];
+                i5 = i8 + 1;
+                cArr[i8] = cArr2[i7 & 15];
+            }
+            return new String(cArr, 0, i4);
         }
-        return false;
+        throw new NullPointerException("bytes is null");
     }
 
-    public static int c(Context context) {
-        return e(context);
-    }
-
-    public static int d(Context context) {
-        TelephonyManager telephonyManager;
-        int i2 = 0;
-        if (context == null) {
-            return 0;
-        }
+    public static String b(String str) {
         try {
-            telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update(str.getBytes());
+            byte[] digest = messageDigest.digest();
+            return a(digest, 0, digest.length);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
+            return "";
         }
-        if (telephonyManager == null) {
-            return 0;
-        }
-        if (Build.VERSION.SDK_INT >= 22) {
-            String simOperator = telephonyManager.getSimOperator();
-            char c2 = 65535;
-            int hashCode = simOperator.hashCode();
-            if (hashCode != 49679502) {
-                switch (hashCode) {
-                    case 49679470:
-                        if (simOperator.equals("46000")) {
-                            c2 = 0;
-                            break;
-                        }
-                        break;
-                    case 49679471:
-                        if (simOperator.equals("46001")) {
-                            c2 = 4;
-                            break;
-                        }
-                        break;
-                    case 49679472:
-                        if (simOperator.equals("46002")) {
-                            c2 = 1;
-                            break;
-                        }
-                        break;
-                    case 49679473:
-                        if (simOperator.equals("46003")) {
-                            c2 = 7;
-                            break;
-                        }
-                        break;
-                    default:
-                        switch (hashCode) {
-                            case 49679475:
-                                if (simOperator.equals("46005")) {
-                                    c2 = '\b';
-                                    break;
-                                }
-                                break;
-                            case 49679476:
-                                if (simOperator.equals("46006")) {
-                                    c2 = 5;
-                                    break;
-                                }
-                                break;
-                            case 49679477:
-                                if (simOperator.equals("46007")) {
-                                    c2 = 2;
-                                    break;
-                                }
-                                break;
-                            case 49679478:
-                                if (simOperator.equals("46008")) {
-                                    c2 = 3;
-                                    break;
-                                }
-                                break;
-                            case 49679479:
-                                if (simOperator.equals("46009")) {
-                                    c2 = 6;
-                                    break;
-                                }
-                                break;
-                        }
-                }
-            } else if (simOperator.equals("46011")) {
-                c2 = '\t';
-            }
-            switch (c2) {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    i2 = 1;
-                    break;
-                case 4:
-                case 5:
-                case 6:
-                    i2 = 3;
-                    break;
-                case 7:
-                case '\b':
-                case '\t':
-                    i2 = 2;
-                    break;
-            }
-        }
-        if (i2 == 0 && ContextCompat.checkSelfPermission(context, "android.permission.READ_PHONE_STATE") == 0) {
-            String subscriberId = telephonyManager.getSubscriberId();
-            if (TextUtils.isEmpty(subscriberId)) {
-                return i2;
-            }
-            if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
-                if (subscriberId.startsWith("46001")) {
-                    return 3;
-                }
-                if (subscriberId.startsWith("46003")) {
-                    return 2;
-                }
-            }
-            return 1;
-        }
-        return i2;
-    }
-
-    public static byte e(Context context) {
-        if (context != null && a(context)) {
-            if (b(context)) {
-                return (byte) 100;
-            }
-            TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone");
-            if (telephonyManager != null) {
-                switch (telephonyManager.getNetworkType()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                    case 16:
-                        return (byte) 2;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        return (byte) 3;
-                    case 13:
-                        return (byte) 4;
-                    default:
-                        return (byte) 0;
-                }
-            }
-            return (byte) 0;
-        }
-        return (byte) 0;
     }
 }

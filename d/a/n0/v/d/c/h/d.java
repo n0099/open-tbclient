@@ -91,7 +91,7 @@ public class d extends d.a.n0.z.b<i> {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            d.this.t();
+            d.this.u();
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -103,10 +103,10 @@ public class d extends d.a.n0.z.b<i> {
     public class b implements d.a.m0.d.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaPersonCenterActivityConfig f61636a;
+        public final /* synthetic */ AlaPersonCenterActivityConfig f65350a;
 
         public b(d dVar, AlaPersonCenterActivityConfig alaPersonCenterActivityConfig) {
-            this.f61636a = alaPersonCenterActivityConfig;
+            this.f65350a = alaPersonCenterActivityConfig;
         }
 
         @Override // d.a.m0.d.f
@@ -123,7 +123,7 @@ public class d extends d.a.n0.z.b<i> {
                 }
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f61636a));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f65350a));
         }
     }
 
@@ -140,20 +140,20 @@ public class d extends d.a.n0.z.b<i> {
 
     /* renamed from: d.a.n0.v.d.c.h.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1650d implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+    public class C1707d implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f61637a;
+        public final /* synthetic */ TbPageContext f65351a;
 
-        public C1650d(d dVar, TbPageContext tbPageContext) {
-            this.f61637a = tbPageContext;
+        public C1707d(d dVar, TbPageContext tbPageContext) {
+            this.f65351a = tbPageContext;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
             d.a.c.e.i.a.l().h(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f61637a.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f65351a.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
         }
     }
 
@@ -161,10 +161,29 @@ public class d extends d.a.n0.z.b<i> {
         super(tbPageContext);
         this.I = -1;
         this.J = new ArrayList();
-        u();
+        v();
     }
 
     public final void A() {
+        this.p.setVisibility(8);
+        this.E.setVisibility(0);
+        this.F.setVisibility(0);
+        this.o.setVisibility(0);
+        this.E.clearAnimation();
+        RotateAnimation rotateAnimation = this.G;
+        if (rotateAnimation != null) {
+            this.E.startAnimation(rotateAnimation);
+        }
+        ObjectAnimator objectAnimator = this.H;
+        if (objectAnimator != null) {
+            if (objectAnimator.isRunning()) {
+                this.H.cancel();
+            }
+            this.H.start();
+        }
+    }
+
+    public final void B() {
         this.E.setVisibility(8);
         this.F.setVisibility(8);
         this.o.setVisibility(8);
@@ -176,12 +195,12 @@ public class d extends d.a.n0.z.b<i> {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.tab_live_super_enreances_item_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         SkinManager.setBackgroundColor(this.m, R.color.CAM_X0202);
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0107);
         SkinManager.setViewTextColor(this.t, R.color.CAM_X0107);
@@ -203,7 +222,7 @@ public class d extends d.a.n0.z.b<i> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.n) {
-            if (ViewHelper.checkUpIsLogin(this.f63442g)) {
+            if (ViewHelper.checkUpIsLogin(this.f67160g)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(k().getPageActivity())));
             }
             StatisticItem statisticItem = new StatisticItem("c13552");
@@ -213,7 +232,7 @@ public class d extends d.a.n0.z.b<i> {
             if (StringUtils.isNull(this.K)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(this.f63441f, new String[]{this.K});
+            UrlManager.getInstance().dealOneLink(this.f67159f, new String[]{this.K});
             StatisticItem statisticItem2 = new StatisticItem("c13553");
             TiebaStaticHelper.addYYParam(statisticItem2);
             TiebaStatic.log(statisticItem2);
@@ -228,24 +247,24 @@ public class d extends d.a.n0.z.b<i> {
             } else if (!str.contains("&default_tab_id=")) {
                 str = str + "&default_tab_id=1&call_from=15";
             }
-            UrlManager.getInstance().dealOneLink(this.f63441f, new String[]{str}, true);
+            UrlManager.getInstance().dealOneLink(this.f67159f, new String[]{str}, true);
             StatisticItem statisticItem3 = new StatisticItem("c13554");
             TiebaStaticHelper.addYYParam(statisticItem3);
             TiebaStatic.log(statisticItem3);
         } else if (view == this.x) {
-            if (ViewHelper.checkUpIsLogin(this.f63442g)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new b(this, new AlaPersonCenterActivityConfig(this.f63441f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true))));
+            if (ViewHelper.checkUpIsLogin(this.f67160g)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new b(this, new AlaPersonCenterActivityConfig(this.f67159f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true))));
             }
             StatisticItem statisticItem4 = new StatisticItem("c13555");
             TiebaStaticHelper.addYYParam(statisticItem4);
             TiebaStatic.log(statisticItem4);
         } else if (view == this.A) {
-            y();
+            z();
             TiebaStatic.log("c13617");
         }
     }
 
-    public final void t() {
+    public final void u() {
         if (this.o == null || ListUtils.isEmpty(this.J)) {
             return;
         }
@@ -253,17 +272,17 @@ public class d extends d.a.n0.z.b<i> {
         int size = this.J.size();
         int i2 = this.I;
         if (size > i2) {
-            this.o.V(this.J.get(i2).f61512a, 12, false);
+            this.o.U(this.J.get(i2).f65225a, 12, false);
         } else if (this.J.size() > 0) {
             this.I = 0;
-            this.o.V(this.J.get(0).f61512a, 12, false);
+            this.o.U(this.J.get(0).f65225a, 12, false);
         }
     }
 
-    public final void u() {
-        View l = l();
-        this.m = l;
-        this.n = (LinearLayout) l.findViewById(R.id.entrance_follow);
+    public final void v() {
+        View m = m();
+        this.m = m;
+        this.n = (LinearLayout) m.findViewById(R.id.entrance_follow);
         this.r = (LinearLayout) this.m.findViewById(R.id.entrance_ranklist);
         this.u = (LinearLayout) this.m.findViewById(R.id.entrance_discuss);
         this.x = (LinearLayout) this.m.findViewById(R.id.entrance_person_center);
@@ -306,10 +325,10 @@ public class d extends d.a.n0.z.b<i> {
         this.H.setRepeatMode(1);
         this.H.setDuration(2000L);
         this.H.addListener(new a());
-        n(this.f63441f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f67159f, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void v(boolean z) {
+    public void w(boolean z) {
         ImageView imageView = this.D;
         if (imageView == null) {
             return;
@@ -328,12 +347,12 @@ public class d extends d.a.n0.z.b<i> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: w */
-    public void m(i iVar) {
+    /* renamed from: x */
+    public void n(i iVar) {
         this.x.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
         this.A.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
         this.A.setVisibility(TbSingleton.getInstance().isAuditPackageSwitchOn() ? 0 : 8);
-        if (iVar != null && iVar.f61514e != null) {
+        if (iVar != null && iVar.f65227e != null) {
             if (TbSingleton.getInstance().isShowStartLiveEntry()) {
                 StatisticItem statisticItem = new StatisticItem("c13550");
                 TiebaStaticHelper.addYYParam(statisticItem);
@@ -348,25 +367,25 @@ public class d extends d.a.n0.z.b<i> {
             StatisticItem statisticItem4 = new StatisticItem("c13546");
             TiebaStaticHelper.addYYParam(statisticItem4);
             TiebaStatic.log(statisticItem4);
-            h hVar = iVar.f61514e;
-            this.K = hVar.f61511c;
-            if (hVar.f61509a && !ListUtils.isEmpty(hVar.f61510b)) {
-                ArrayList<h.a> arrayList = iVar.f61514e.f61510b;
+            h hVar = iVar.f65227e;
+            this.K = hVar.f65224c;
+            if (hVar.f65222a && !ListUtils.isEmpty(hVar.f65223b)) {
+                ArrayList<h.a> arrayList = iVar.f65227e.f65223b;
                 this.J = arrayList;
                 if (ListUtils.isEmpty(arrayList)) {
                     return;
                 }
-                z();
-                t();
+                A();
+                u();
                 return;
             }
-            A();
+            B();
             return;
         }
-        A();
+        B();
     }
 
-    public final void x(TbPageContext tbPageContext) {
+    public final void y(TbPageContext tbPageContext) {
         if (tbPageContext == null) {
             return;
         }
@@ -375,11 +394,11 @@ public class d extends d.a.n0.z.b<i> {
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        permissionJudgePolicy.setOnPermissionsGrantedListener(new C1650d(this, tbPageContext));
+        permissionJudgePolicy.setOnPermissionsGrantedListener(new C1707d(this, tbPageContext));
         permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
     }
 
-    public final void y() {
+    public final void z() {
         Plugin plugin2;
         if (Build.VERSION.SDK_INT < 21) {
             d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(k().getPageActivity());
@@ -403,26 +422,7 @@ public class d extends d.a.n0.z.b<i> {
             }
             d.a.m0.r.d0.b.j().t(d.a.m0.r.d0.b.n("square_live_publish_live_has_showed"), true);
             this.D.setVisibility(8);
-            x(k());
-        }
-    }
-
-    public final void z() {
-        this.p.setVisibility(8);
-        this.E.setVisibility(0);
-        this.F.setVisibility(0);
-        this.o.setVisibility(0);
-        this.E.clearAnimation();
-        RotateAnimation rotateAnimation = this.G;
-        if (rotateAnimation != null) {
-            this.E.startAnimation(rotateAnimation);
-        }
-        ObjectAnimator objectAnimator = this.H;
-        if (objectAnimator != null) {
-            if (objectAnimator.isRunning()) {
-                this.H.cancel();
-            }
-            this.H.start();
+            y(k());
         }
     }
 }

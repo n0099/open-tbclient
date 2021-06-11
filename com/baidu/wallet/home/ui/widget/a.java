@@ -31,14 +31,14 @@ public class a {
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0236a {
+    public static class C0238a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f24241a = new a();
+        public static a f24344a = new a();
     }
 
     public static a a() {
-        return C0236a.f24241a;
+        return C0238a.f24344a;
     }
 
     public a() {
@@ -66,16 +66,16 @@ public class a {
         if (configData.group_layout.equals("8")) {
             return new HomeRecommendView(context);
         }
-        if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9)) {
+        if (configData.group_layout.equals("9")) {
             return new HomeInformationLayout(context);
         }
         if (configData.group_layout.equals("201")) {
             return new NHAssetGroup(context);
         }
-        if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202)) {
+        if (configData.group_layout.equals("202")) {
             return new NHToolGroup(context);
         }
-        if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE203)) {
+        if (configData.group_layout.equals("203")) {
             return new NHBannerGroup(context);
         }
         if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE204)) {

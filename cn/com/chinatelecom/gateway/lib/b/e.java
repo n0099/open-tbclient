@@ -13,25 +13,25 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1535a = "e";
+    public static final String f1548a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f1536b;
+    public static int f1549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, b> f1537c = new HashMap();
+    public static Map<String, b> f1550c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f1538d = new ArrayList();
+    public static List<String> f1551d = new ArrayList();
 
     public static synchronized b a(String str) {
         b bVar;
         synchronized (e.class) {
             try {
-                bVar = f1537c.containsKey(str) ? f1537c.get(str) : null;
+                bVar = f1550c.containsKey(str) ? f1550c.get(str) : null;
                 if (bVar == null) {
                     bVar = new b(str);
-                    f1537c.put(str, bVar);
+                    f1550c.put(str, bVar);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -44,12 +44,12 @@ public class e {
     public static void a(final Context context, String str) {
         try {
             synchronized (e.class) {
-                if (f1537c.containsKey(str)) {
-                    f1538d.add(f1537c.get(str).toString());
-                    f1537c.remove(str);
+                if (f1550c.containsKey(str)) {
+                    f1551d.add(f1550c.get(str).toString());
+                    f1550c.remove(str);
                 }
-                if (f1536b != 1 && !f1538d.isEmpty()) {
-                    f1536b = 1;
+                if (f1549b != 1 && !f1551d.isEmpty()) {
+                    f1549b = 1;
                     new Timer().schedule(new TimerTask() { // from class: cn.com.chinatelecom.gateway.lib.b.e.1
                         @Override // java.util.TimerTask, java.lang.Runnable
                         public void run() {
@@ -90,9 +90,9 @@ public class e {
         try {
             ArrayList arrayList = new ArrayList();
             synchronized (e.class) {
-                arrayList.addAll(f1538d);
-                f1536b = 0;
-                f1538d.clear();
+                arrayList.addAll(f1551d);
+                f1549b = 0;
+                f1551d.clear();
             }
             if (arrayList.isEmpty()) {
                 return;

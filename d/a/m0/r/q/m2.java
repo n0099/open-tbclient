@@ -1,23 +1,24 @@
 package d.a.m0.r.q;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.yy.gslbsdk.db.ResultTB;
 import org.json.JSONObject;
 import tbclient.YulePostActivity;
 /* loaded from: classes3.dex */
 public class m2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50082a;
+    public String f53758a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50083b;
+    public String f53759b;
 
     public String a() {
-        return this.f50082a;
+        return this.f53758a;
     }
 
     public String b() {
-        return this.f50083b;
+        return this.f53759b;
     }
 
     public void c(JSONObject jSONObject) {
@@ -26,11 +27,11 @@ public class m2 {
         }
         try {
             jSONObject.optLong("start_time");
-            jSONObject.optLong("end_time");
-            this.f50082a = jSONObject.optString("activity_banner");
+            jSONObject.optLong(ResultTB.ENDTIME);
+            this.f53758a = jSONObject.optString("activity_banner");
             jSONObject.optString("activity_url");
             jSONObject.optString("activity_desc");
-            this.f50083b = jSONObject.optString("activity_button");
+            this.f53759b = jSONObject.optString("activity_button");
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -48,9 +49,9 @@ public class m2 {
         if (l2 != null) {
             l2.longValue();
         }
-        this.f50082a = yulePostActivity.activity_banner;
+        this.f53758a = yulePostActivity.activity_banner;
         String str = yulePostActivity.activity_url;
         String str2 = yulePostActivity.activity_desc;
-        this.f50083b = yulePostActivity.activity_button;
+        this.f53759b = yulePostActivity.activity_button;
     }
 }

@@ -17,11 +17,11 @@ public class g {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f51023a = new g();
+        public static g f54700a = new g();
     }
 
     public static g c() {
-        return b.f51023a;
+        return b.f54700a;
     }
 
     public String a() {

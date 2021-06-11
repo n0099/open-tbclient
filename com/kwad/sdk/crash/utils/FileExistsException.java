@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.utils;
 
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FileExistsException extends IOException {
     public static final long serialVersionUID = 1;
 

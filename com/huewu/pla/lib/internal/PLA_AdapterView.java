@@ -53,10 +53,10 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public static class b implements ContextMenu.ContextMenuInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f31572a;
+        public View f31663a;
 
         public b(View view, int i2, long j) {
-            this.f31572a = view;
+            this.f31663a = view;
         }
     }
 
@@ -64,7 +64,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public class c extends DataSetObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f31573a = null;
+        public Parcelable f31664a = null;
 
         public c() {
         }
@@ -77,11 +77,11 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             pLA_AdapterView.mDataChanged = true;
             pLA_AdapterView.mOldItemCount = pLA_AdapterView.mItemCount;
             pLA_AdapterView.mItemCount = pLA_AdapterView.getAdapter().getCount();
-            if (PLA_AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f31573a) != null) {
+            if (PLA_AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f31664a) != null) {
                 PLA_AdapterView pLA_AdapterView2 = PLA_AdapterView.this;
                 if (pLA_AdapterView2.mOldItemCount == 0 && pLA_AdapterView2.mItemCount > 0) {
                     pLA_AdapterView2.onRestoreInstanceState(parcelable);
-                    this.f31573a = null;
+                    this.f31664a = null;
                     PLA_AdapterView.this.requestLayout();
                 }
             }
@@ -95,7 +95,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             PLA_AdapterView pLA_AdapterView = PLA_AdapterView.this;
             pLA_AdapterView.mDataChanged = true;
             if (pLA_AdapterView.getAdapter().hasStableIds()) {
-                this.f31573a = PLA_AdapterView.this.onSaveInstanceState();
+                this.f31664a = PLA_AdapterView.this.onSaveInstanceState();
             }
             PLA_AdapterView pLA_AdapterView2 = PLA_AdapterView.this;
             pLA_AdapterView2.mOldItemCount = pLA_AdapterView2.mItemCount;

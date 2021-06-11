@@ -44,8 +44,8 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.f54158a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.f54159b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.f57847a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.f57848b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                             cVar2 = cVar;
                         } catch (Exception e3) {
                             e2 = e3;

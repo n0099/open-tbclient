@@ -15,25 +15,25 @@ import java.util.concurrent.TimeUnit;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f58208a;
+    public c f61899a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdDownloadData f58209b;
+    public AdDownloadData f61900b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.q.d.c f58210c;
+    public d.a.n0.q.d.c f61901c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f58211d;
+    public boolean f61902d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58212e;
+    public int f61903e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f58213f;
+    public long f61904f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f58214g;
+    public e f61905g;
 
     /* loaded from: classes4.dex */
     public class a implements e {
@@ -42,10 +42,10 @@ public class f {
 
         @Override // d.a.n0.q.d.f.e
         public void a() {
-            if (f.this.f58209b == null || !f.this.h()) {
+            if (f.this.f61900b == null || !f.this.h()) {
                 return;
             }
-            f.this.j(BdBaseApplication.getInst().getApp().getApplicationContext(), f.this.f58209b);
+            f.this.j(BdBaseApplication.getInst().getApp().getApplicationContext(), f.this.f61900b);
         }
     }
 
@@ -53,26 +53,26 @@ public class f {
     public class b implements h.n.b<Long> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdDownloadData f58216e;
+        public final /* synthetic */ AdDownloadData f61907e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f58217f;
+        public final /* synthetic */ Context f61908f;
 
         public b(AdDownloadData adDownloadData, Context context) {
-            this.f58216e = adDownloadData;
-            this.f58217f = context;
+            this.f61907e = adDownloadData;
+            this.f61908f = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(Long l) {
-            if (f.this.f58208a.a()) {
-                f.this.i(this.f58217f, this.f58216e);
+            if (f.this.f61899a.a()) {
+                f.this.i(this.f61908f, this.f61907e);
                 return;
             }
-            f.this.f58209b = this.f58216e;
-            f.this.f58213f = System.currentTimeMillis();
+            f.this.f61900b = this.f61907e;
+            f.this.f61904f = System.currentTimeMillis();
         }
     }
 
@@ -80,7 +80,7 @@ public class f {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f58222a = new f(null);
+        public static final f f61913a = new f(null);
     }
 
     /* loaded from: classes4.dex */
@@ -93,11 +93,11 @@ public class f {
     }
 
     public static f g() {
-        return d.f58222a;
+        return d.f61913a;
     }
 
     public final boolean h() {
-        return (this.f58212e == 0 || d.a.n0.t2.d.e(System.currentTimeMillis(), this.f58213f, this.f58212e)) ? false : true;
+        return (this.f61903e == 0 || d.a.n0.t2.d.e(System.currentTimeMillis(), this.f61904f, this.f61903e)) ? false : true;
     }
 
     public final void i(Context context, AdDownloadData adDownloadData) {
@@ -108,58 +108,58 @@ public class f {
             y.x(adDownloadData.getPkgName());
             i2 = -1;
         }
-        this.f58210c.a(i2, adDownloadData.pkgName(), adDownloadData.getExtInfo());
-        this.f58209b = null;
+        this.f61901c.a(i2, adDownloadData.pkgName(), adDownloadData.getExtInfo());
+        this.f61900b = null;
     }
 
     public void j(Context context, AdDownloadData adDownloadData) {
-        if (context == null || adDownloadData == null || !this.f58211d) {
+        if (context == null || adDownloadData == null || !this.f61902d) {
             return;
         }
         h.d.G(1000L, TimeUnit.MILLISECONDS).o(h.l.b.a.b()).B(new b(adDownloadData, context));
     }
 
     public void k() {
-        if (this.f58211d) {
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.f58208a);
-            this.f58208a.b(this.f58214g);
+        if (this.f61902d) {
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.f61899a);
+            this.f61899a.b(this.f61905g);
         }
     }
 
     public f() {
-        this.f58208a = new c(null);
-        this.f58209b = null;
-        this.f58210c = new d.a.n0.q.d.c();
-        this.f58211d = d.a.n0.a.h().s();
-        this.f58212e = d.a.n0.a.h().i();
-        this.f58214g = new a();
+        this.f61899a = new c(null);
+        this.f61900b = null;
+        this.f61901c = new d.a.n0.q.d.c();
+        this.f61902d = d.a.n0.a.h().s();
+        this.f61903e = d.a.n0.a.h().i();
+        this.f61905g = new a();
     }
 
     /* loaded from: classes4.dex */
     public static class c implements Application.ActivityLifecycleCallbacks {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Activity> f58219e;
+        public WeakReference<Activity> f61910e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e f58220f;
+        public e f61911f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f58221g;
+        public boolean f61912g;
 
         public c() {
-            this.f58219e = null;
-            this.f58220f = null;
-            this.f58221g = true;
+            this.f61910e = null;
+            this.f61911f = null;
+            this.f61912g = true;
         }
 
         public boolean a() {
-            WeakReference<Activity> weakReference = this.f58219e;
-            return (weakReference == null || weakReference.get() == null || !this.f58221g) ? false : true;
+            WeakReference<Activity> weakReference = this.f61910e;
+            return (weakReference == null || weakReference.get() == null || !this.f61912g) ? false : true;
         }
 
         public void b(e eVar) {
-            this.f58220f = eVar;
+            this.f61911f = eVar;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -168,11 +168,11 @@ public class f {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            WeakReference<Activity> weakReference = this.f58219e;
+            WeakReference<Activity> weakReference = this.f61910e;
             if (weakReference == null || weakReference.get() != activity) {
                 return;
             }
-            this.f58219e = null;
+            this.f61910e = null;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -182,11 +182,11 @@ public class f {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityResumed(Activity activity) {
             e eVar;
-            this.f58219e = new WeakReference<>(activity);
-            if (!this.f58221g && (eVar = this.f58220f) != null) {
+            this.f61910e = new WeakReference<>(activity);
+            if (!this.f61912g && (eVar = this.f61911f) != null) {
                 eVar.a();
             }
-            this.f58221g = true;
+            this.f61912g = true;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -199,11 +199,11 @@ public class f {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStopped(Activity activity) {
-            WeakReference<Activity> weakReference = this.f58219e;
+            WeakReference<Activity> weakReference = this.f61910e;
             if (weakReference == null || weakReference.get() != activity) {
                 return;
             }
-            this.f58221g = false;
+            this.f61912g = false;
         }
 
         public /* synthetic */ c(a aVar) {

@@ -8,7 +8,7 @@ import java.io.Serializable;
 public abstract class HashCode {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f31343e = "0123456789abcdef".toCharArray();
+    public static final char[] f31434e = "0123456789abcdef".toCharArray();
 
     /* loaded from: classes6.dex */
     public static final class BytesHashCode extends HashCode implements Serializable {
@@ -253,8 +253,8 @@ public abstract class HashCode {
         byte[] bytesInternal = getBytesInternal();
         StringBuilder sb = new StringBuilder(bytesInternal.length * 2);
         for (byte b2 : bytesInternal) {
-            sb.append(f31343e[(b2 >> 4) & 15]);
-            sb.append(f31343e[b2 & 15]);
+            sb.append(f31434e[(b2 >> 4) & 15]);
+            sb.append(f31434e[b2 & 15]);
         }
         return sb.toString();
     }

@@ -7,31 +7,31 @@ import java.io.RandomAccessFile;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f6685c;
+    public static c f6728c;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6686a = "firll.dat";
+    public String f6729a = "firll.dat";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6687b = 3164;
+    public int f6730b = 3164;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6688d = 0;
+    public int f6731d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6689e = 20;
+    public int f6732e = 20;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6690f = 40;
+    public int f6733f = 40;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6691g = 60;
+    public int f6734g = 60;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6692h = 80;
+    public int f6735h = 80;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f6693i = 100;
+    public int f6736i = 100;
 
     private long a(int i2) {
         RandomAccessFile randomAccessFile;
@@ -44,7 +44,7 @@ public class c {
         RandomAccessFile randomAccessFile2 = null;
         try {
             try {
-                randomAccessFile = new RandomAccessFile(j + File.separator + this.f6686a, "rw");
+                randomAccessFile = new RandomAccessFile(j + File.separator + this.f6729a, "rw");
             } catch (IOException unused) {
             }
             try {
@@ -84,10 +84,10 @@ public class c {
     }
 
     public static c a() {
-        if (f6685c == null) {
-            f6685c = new c();
+        if (f6728c == null) {
+            f6728c = new c();
         }
-        return f6685c;
+        return f6728c;
     }
 
     private void a(int i2, long j) {
@@ -96,21 +96,21 @@ public class c {
             return;
         }
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.f6686a, "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.f6729a, "rw");
             randomAccessFile.seek(i2);
-            randomAccessFile.writeInt(this.f6687b);
+            randomAccessFile.writeInt(this.f6730b);
             randomAccessFile.writeLong(j);
-            randomAccessFile.writeInt(this.f6687b);
+            randomAccessFile.writeInt(this.f6730b);
             randomAccessFile.close();
         } catch (Exception unused) {
         }
     }
 
     public void a(long j) {
-        a(this.f6688d, j);
+        a(this.f6731d, j);
     }
 
     public long b() {
-        return a(this.f6688d);
+        return a(this.f6731d);
     }
 }

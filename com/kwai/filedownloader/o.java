@@ -7,11 +7,11 @@ import com.kwai.filedownloader.c.a;
 import com.kwai.filedownloader.c.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.services.FileDownloadServiceProxy;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownloader.c.b> {
 
-    /* loaded from: classes6.dex */
-    public static class a extends a.AbstractBinderC0393a {
+    /* loaded from: classes7.dex */
+    public static class a extends a.AbstractBinderC0443a {
         @Override // com.kwai.filedownloader.c.a
         public void a(MessageSnapshot messageSnapshot) {
             com.kwai.filedownloader.message.e.a().a(messageSnapshot);

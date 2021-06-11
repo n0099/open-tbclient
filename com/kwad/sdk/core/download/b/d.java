@@ -13,7 +13,7 @@ public class d {
         if (adTemplate == null || context == null) {
             return 0;
         }
-        int a2 = a(context, com.kwad.sdk.core.response.b.c.g(adTemplate).adConversionInfo.deeplinkUrl);
+        int a2 = a(context, com.kwad.sdk.core.response.b.c.j(adTemplate).adConversionInfo.deeplinkUrl);
         if (a2 == 1) {
             com.kwad.sdk.core.report.b.a(adTemplate, i2);
         } else if (a2 == -1) {

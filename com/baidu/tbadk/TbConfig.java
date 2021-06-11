@@ -8,6 +8,7 @@ import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 import d.a.m0.a0.c;
@@ -82,6 +83,7 @@ public class TbConfig {
     public static final String CMD_GET_BOTTLE_FORUM_LIST = "c/f/recommend/recommendForumListForBottle";
     public static final String CMD_GET_CATEGORY_CARTOON = "c/e/cartoon/getCartoonCategoryList";
     public static final String CMD_GET_REPOST_FORUM_LIST = "c/f/recommend/getRepostRecommendForum";
+    public static final String CMD_HMEPAGE_CHANNEL_LIST = "c/f/forum/channel";
     public static final String CMD_SCREEN_LOCK_MESSAGE_MORE = "c/f/msg/getMoreMsg";
     public static final String CMD_VIDEO_SET_TOP = "c/c/video/setTop";
     public static final String COMMIT_GOOD_ADDRESS = "c/c/bawu/commitgood";
@@ -657,6 +659,7 @@ public class TbConfig {
     public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds25);
     public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds25);
     public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds25);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_XLONG = getDimens(R.dimen.tbds17);
     public static final int VALUE_POST_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds21);
     public static final int VALUE_POST_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds21);
     public static final int VALUE_POST_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds21);
@@ -790,6 +793,9 @@ public class TbConfig {
     }
 
     public static int getContentLineSpace() {
+        if (TbDimenManager.getInstance().needAdapt()) {
+            return VALUE_COMMON_FONT_LINE_SPACE_XLONG;
+        }
         int fontSize = TbadkCoreApplication.getInst().getFontSize();
         if (fontSize != 0) {
             if (fontSize != 1) {

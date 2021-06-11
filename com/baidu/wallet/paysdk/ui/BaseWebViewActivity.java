@@ -40,17 +40,17 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
     public static final String WEBVIEW_TITLE_STRING = "webview_title_string";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25541a = BaseWebViewActivity.class.getSimpleName();
+    public static final String f25644a = BaseWebViewActivity.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public SafeWebView f25542b;
+    public SafeWebView f25645b;
     public boolean mIsSuccessFlag = false;
 
     /* loaded from: classes5.dex */
     public class a extends SafeWebView.SafeChromeClient {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f25545b;
+        public boolean f25648b;
 
         public a() {
         }
@@ -58,12 +58,12 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i2) {
             if (i2 <= 25) {
-                this.f25545b = false;
-            } else if (!this.f25545b) {
-                BaseWebViewActivity.this.f25542b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
-                this.f25545b = true;
+                this.f25648b = false;
+            } else if (!this.f25648b) {
+                BaseWebViewActivity.this.f25645b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                this.f25648b = true;
                 if (BeanConstants.DEBUG) {
-                    String str = BaseWebViewActivity.f25541a;
+                    String str = BaseWebViewActivity.f25644a;
                     LogUtil.d(str, " inject js interface completely on progress " + i2);
                 }
             }
@@ -72,15 +72,15 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
-            if (!this.f25545b) {
+            if (!this.f25648b) {
                 if (BeanConstants.DEBUG) {
-                    String str2 = BaseWebViewActivity.f25541a;
+                    String str2 = BaseWebViewActivity.f25644a;
                     LogUtil.i(str2, "onReceivedTitle: " + str);
                 }
-                BaseWebViewActivity.this.f25542b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                BaseWebViewActivity.this.f25645b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
             }
             super.onReceivedTitle(webView, str);
-            this.f25545b = true;
+            this.f25648b = true;
             BaseWebViewActivity baseWebViewActivity = BaseWebViewActivity.this;
             if (TextUtils.isEmpty(str)) {
                 str = ResUtils.getString(BaseWebViewActivity.this.getActivity(), "ebpay_bd_my_wallet");
@@ -93,59 +93,59 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
     public class b extends SafeWebView.SafeWebViewClient {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f25547b;
+        public boolean f25650b;
 
         public b() {
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-            if (!this.f25547b) {
+            if (!this.f25650b) {
                 if (BeanConstants.DEBUG) {
-                    String str2 = BaseWebViewActivity.f25541a;
+                    String str2 = BaseWebViewActivity.f25644a;
                     LogUtil.i(str2, "doUpdateVisitedHistory: " + str);
                 }
-                BaseWebViewActivity.this.f25542b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                BaseWebViewActivity.this.f25645b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
             }
             super.doUpdateVisitedHistory(webView, str, z);
-            this.f25547b = true;
+            this.f25650b = true;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onLoadResource(WebView webView, String str) {
-            if (!this.f25547b && BeanConstants.DEBUG) {
-                String str2 = BaseWebViewActivity.f25541a;
+            if (!this.f25650b && BeanConstants.DEBUG) {
+                String str2 = BaseWebViewActivity.f25644a;
                 LogUtil.i(str2, "onLoadResource: " + str);
             }
             super.onLoadResource(webView, str);
-            this.f25547b = true;
+            this.f25650b = true;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            if (!this.f25547b) {
+            if (!this.f25650b) {
                 if (BeanConstants.DEBUG) {
-                    String str2 = BaseWebViewActivity.f25541a;
+                    String str2 = BaseWebViewActivity.f25644a;
                     LogUtil.i(str2, "onPageFinished: " + str);
                 }
-                BaseWebViewActivity.this.f25542b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                BaseWebViewActivity.this.f25645b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
             }
             super.onPageFinished(webView, str);
             WalletGlobalUtils.safeDismissDialog(BaseWebViewActivity.this, -1);
-            this.f25547b = false;
+            this.f25650b = false;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            if (!this.f25547b) {
+            if (!this.f25650b) {
                 if (BeanConstants.DEBUG) {
-                    String str2 = BaseWebViewActivity.f25541a;
+                    String str2 = BaseWebViewActivity.f25644a;
                     LogUtil.i(str2, "onPageStarted: " + str);
                 }
-                BaseWebViewActivity.this.f25542b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                BaseWebViewActivity.this.f25645b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
             }
             super.onPageStarted(webView, str, bitmap);
-            this.f25547b = true;
+            this.f25650b = true;
         }
 
         @Override // android.webkit.WebViewClient
@@ -186,9 +186,9 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        SafeWebView safeWebView = this.f25542b;
+        SafeWebView safeWebView = this.f25645b;
         if (safeWebView != null && safeWebView.canGoBack()) {
-            this.f25542b.goBack();
+            this.f25645b.goBack();
             return;
         }
         notifyResultMsg();
@@ -235,29 +235,29 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
         }
         WalletGlobalUtils.safeShowDialog(this, -1, "");
         SafeWebView safeWebView = (SafeWebView) findViewById(ResUtils.id(getActivity(), "cust_webview"));
-        this.f25542b = safeWebView;
+        this.f25645b = safeWebView;
         safeWebView.setWebViewClient(new b());
         if (TextUtils.isEmpty(str2)) {
-            this.f25542b.setWebChromeClient(new a());
+            this.f25645b.setWebChromeClient(new a());
         }
-        this.f25542b.getSettings().setJavaScriptEnabled(true);
+        this.f25645b.getSettings().setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT <= 18) {
-            this.f25542b.getSettings().setSavePassword(false);
+            this.f25645b.getSettings().setSavePassword(false);
         }
-        this.f25542b.setScrollBarStyle(0);
-        this.f25542b.clearCache(false);
-        this.f25542b.resumeTimers();
+        this.f25645b.setScrollBarStyle(0);
+        this.f25645b.clearCache(false);
+        this.f25645b.resumeTimers();
         if (Build.VERSION.SDK_INT >= 11) {
-            this.f25542b.removeJavascriptInterface("searchBoxJavaBridge_");
-            this.f25542b.removeJavascriptInterface("accessibility");
-            this.f25542b.removeJavascriptInterface("accessibilityTraversal");
+            this.f25645b.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.f25645b.removeJavascriptInterface("accessibility");
+            this.f25645b.removeJavascriptInterface("accessibilityTraversal");
         }
         if (TextUtils.isEmpty(str)) {
             finish();
             return;
         }
         try {
-            this.f25542b.loadUrl(str.trim());
+            this.f25645b.loadUrl(str.trim());
         } catch (Exception unused) {
             LogUtil.d("Url error");
             finish();

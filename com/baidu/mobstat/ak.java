@@ -13,20 +13,20 @@ import com.baidu.mobstat.al;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8494a = true;
+    public static volatile boolean f8556a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f8495b;
+    public a f8557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f8496c;
+    public Activity f8558c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f8497d = new Handler(Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
+    public Handler f8559d = new Handler(Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == 100 && ak.this.f8495b != null) {
-                ak.this.f8495b.a();
+            if (message.what == 100 && ak.this.f8557b != null) {
+                ak.this.f8557b.a();
             }
         }
     };
@@ -37,7 +37,7 @@ public class ak {
     }
 
     public ak(a aVar) {
-        this.f8495b = aVar;
+        this.f8557b = aVar;
     }
 
     private void c(Activity activity) {
@@ -65,16 +65,16 @@ public class ak {
                 int actionMasked = motionEvent.getActionMasked();
                 if (actionMasked != 5) {
                     if (actionMasked == 6 && motionEvent.getEventTime() - motionEvent.getDownTime() < TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
-                        ak.this.f8497d.removeMessages(100);
+                        ak.this.f8559d.removeMessages(100);
                         return;
                     }
                     return;
                 }
                 int pointerCount = motionEvent.getPointerCount();
                 if (pointerCount == 3 && motionEvent.getEventTime() - motionEvent.getDownTime() <= 50) {
-                    ak.this.f8497d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                    ak.this.f8559d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                 } else if (pointerCount > 3) {
-                    ak.this.f8497d.removeMessages(100);
+                    ak.this.f8559d.removeMessages(100);
                 }
             }
         }));
@@ -84,16 +84,16 @@ public class ak {
         if (z) {
             an.a();
         }
-        f8494a = z;
+        f8556a = z;
     }
 
     public void b() {
-        c(this.f8496c);
-        this.f8496c = null;
+        c(this.f8558c);
+        this.f8558c = null;
     }
 
     public static boolean a() {
-        return f8494a;
+        return f8556a;
     }
 
     private void b(Activity activity) {
@@ -102,7 +102,7 @@ public class ak {
 
     public void a(Activity activity) {
         if (activity != null) {
-            this.f8496c = activity;
+            this.f8558c = activity;
             b(activity);
         }
     }

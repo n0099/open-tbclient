@@ -12,18 +12,18 @@ import java.util.Map;
 public final class aa implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ EditText f22622a;
+    public final /* synthetic */ EditText f22725a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f22623b;
+    public final /* synthetic */ String f22726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f22624c;
+    public final /* synthetic */ FeedbackEditActivity f22727c;
 
     public aa(FeedbackEditActivity feedbackEditActivity, EditText editText, String str) {
-        this.f22624c = feedbackEditActivity;
-        this.f22622a = editText;
-        this.f22623b = str;
+        this.f22727c = feedbackEditActivity;
+        this.f22725a = editText;
+        this.f22726b = str;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:9:0x004b */
@@ -43,30 +43,30 @@ public final class aa implements TextWatcher {
         EditText editText;
         Button button2;
         List list4;
-        this.f22624c.ad = this.f22622a.getText().toString();
-        str = this.f22624c.ad;
+        this.f22727c.ad = this.f22725a.getText().toString();
+        str = this.f22727c.ad;
         Log.d("editcontent", str);
-        FeedbackEditActivity feedbackEditActivity = this.f22624c;
-        Map map = feedbackEditActivity.f22560a;
-        String str5 = this.f22623b;
+        FeedbackEditActivity feedbackEditActivity = this.f22727c;
+        Map map = feedbackEditActivity.f22663a;
+        String str5 = this.f22726b;
         str2 = feedbackEditActivity.ad;
         map.put(str5, str2);
-        str3 = this.f22624c.ad;
+        str3 = this.f22727c.ad;
         if (str3 != null) {
-            str4 = this.f22624c.ad;
+            str4 = this.f22727c.ad;
             if (str4.trim().length() != 0) {
                 for (int i2 = 0; i2 < list.size(); i2++) {
-                    list2 = this.f22624c.z;
+                    list2 = this.f22727c.z;
                     if (list2.get(i2) != null) {
-                        list4 = this.f22624c.z;
+                        list4 = this.f22727c.z;
                         if (((TextView) list4.get(i2)).getText().toString().trim().length() == 0) {
                         }
                     }
-                    list3 = this.f22624c.z;
+                    list3 = this.f22727c.z;
                     if (i2 == list3.size() - 1) {
-                        editText = this.f22624c.m;
+                        editText = this.f22727c.m;
                         if (editText.getText().toString().trim().length() >= 4) {
-                            button2 = this.f22624c.V;
+                            button2 = this.f22727c.V;
                             int i3 = com.baidu.ufosdk.b.v;
                             int i4 = com.baidu.ufosdk.b.y;
                             int i5 = com.baidu.ufosdk.b.v;
@@ -77,7 +77,7 @@ public final class aa implements TextWatcher {
                 return;
             }
         }
-        button = this.f22624c.V;
+        button = this.f22727c.V;
         button.setTextColor(com.baidu.ufosdk.b.y);
     }
 

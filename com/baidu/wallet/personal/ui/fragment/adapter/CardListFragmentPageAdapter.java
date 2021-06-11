@@ -9,20 +9,20 @@ import java.util.List;
 public class CardListFragmentPageAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<CardListBaseFragment> f26320a;
+    public List<CardListBaseFragment> f26423a;
 
     public CardListFragmentPageAdapter(FragmentManager fragmentManager, List<CardListBaseFragment> list) {
         super(fragmentManager);
-        this.f26320a = list;
+        this.f26423a = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.f26320a.size();
+        return this.f26423a.size();
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i2) {
-        return this.f26320a.get(i2);
+        return this.f26423a.get(i2);
     }
 }

@@ -1,5 +1,5 @@
 package org.apache.commons.codec.binary4util;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CharSequenceUtils {
     public static boolean regionMatches(CharSequence charSequence, boolean z, int i2, CharSequence charSequence2, int i3, int i4) {
         if ((charSequence instanceof String) && (charSequence2 instanceof String)) {

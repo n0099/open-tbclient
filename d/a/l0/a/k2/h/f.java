@@ -12,17 +12,17 @@ import java.util.Map;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43291a = k.f43199a;
+    public static final boolean f46967a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, e> f43292b = new ArrayMap();
+    public static final Map<String, e> f46968b = new ArrayMap();
 
     @Nullable
     public static AshmemFileDescriptor a(@NonNull String str, int i2) {
         try {
             if (ProcessUtils.isMainProcess()) {
-                synchronized (f43292b) {
-                    e eVar = f43292b.get(str);
+                synchronized (f46968b) {
+                    e eVar = f46968b.get(str);
                     if (eVar != null && eVar.a() != null) {
                         return eVar.a();
                     }
@@ -37,7 +37,7 @@ public class f {
             }
             return a.a(str, i2);
         } catch (Throwable th) {
-            if (f43291a) {
+            if (f46967a) {
                 th.printStackTrace();
                 return null;
             }
@@ -50,7 +50,7 @@ public class f {
             if (ProcessUtils.isMainProcess()) {
                 return;
             }
-            e eVar = f43292b.get(ashmemFileDescriptor.b());
+            e eVar = f46968b.get(ashmemFileDescriptor.b());
             if (eVar != null && eVar.a() != null && eVar.a().a() != ashmemFileDescriptor.a()) {
                 SwanKV b2 = eVar.b();
                 eVar.c(new SwanKV(ashmemFileDescriptor));

@@ -26,21 +26,21 @@ import java.util.List;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f50827b;
+    public static b f54504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static DownloadData f50828c;
+    public static DownloadData f54505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<DownloadData> f50829d = new LinkedList();
+    public static List<DownloadData> f54506d = new LinkedList();
 
     /* renamed from: a  reason: collision with root package name */
-    public C1166b f50830a = null;
+    public C1222b f54507a = null;
 
     /* renamed from: d.a.m0.v.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1166b extends BdAsyncTask<DownloadData, DownloadData, DownloadData> {
-        public C1166b() {
+    public class C1222b extends BdAsyncTask<DownloadData, DownloadData, DownloadData> {
+        public C1222b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +79,7 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.f50830a = null;
+            b.this.f54507a = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.o(downloadData);
@@ -99,11 +99,11 @@ public class b {
                         b.this.p(downloadData);
                     }
                 }
-                DownloadData unused = b.f50828c = null;
-                if (b.f50829d.isEmpty()) {
+                DownloadData unused = b.f54505c = null;
+                if (b.f54506d.isEmpty()) {
                     return;
                 }
-                b.f50829d.remove(0);
+                b.f54506d.remove(0);
                 b.this.u();
             }
         }
@@ -113,10 +113,10 @@ public class b {
     public class c extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<AdvertAppInfo> f50832a;
+        public ArrayList<AdvertAppInfo> f54509a;
 
         public c() {
-            this.f50832a = null;
+            this.f54509a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,12 +128,12 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.f50832a = arrayList;
+            this.f54509a = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
                 String downloadId = next.getDownloadId();
-                if (FileHelper.GetFile(b.this.i(next.X3)) != null) {
+                if (FileHelper.GetFile(b.this.i(next.a4)) != null) {
                     DownloadData downloadData = new DownloadData(downloadId);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -151,7 +151,7 @@ public class b {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : d.j().i()) {
-                Iterator<AdvertAppInfo> it = this.f50832a.iterator();
+                Iterator<AdvertAppInfo> it = this.f54509a.iterator();
                 while (it.hasNext()) {
                     if (TextUtils.equals(it.next().getDownloadId(), downloadData.getId())) {
                         list.add(downloadData);
@@ -159,17 +159,17 @@ public class b {
                 }
             }
             b.this.n(list);
-            this.f50832a = null;
+            this.f54509a = null;
         }
     }
 
     public static b l() {
         synchronized (b.class) {
-            if (f50827b == null) {
-                f50827b = new b();
+            if (f54504b == null) {
+                f54504b = new b();
             }
         }
-        return f50827b;
+        return f54504b;
     }
 
     public final PendingIntent g(String str) {
@@ -262,7 +262,7 @@ public class b {
             UtilHelper.showToast(TbadkCoreApplication.getInst(), R.string.download_fail_over_max);
             return;
         }
-        f50829d.add(downloadData);
+        f54506d.add(downloadData);
         u();
     }
 
@@ -290,14 +290,14 @@ public class b {
     }
 
     public final void u() {
-        if (f50828c == null) {
-            DownloadData downloadData = (DownloadData) ListUtils.getItem(f50829d, 0);
-            f50828c = downloadData;
+        if (f54505c == null) {
+            DownloadData downloadData = (DownloadData) ListUtils.getItem(f54506d, 0);
+            f54505c = downloadData;
             if (downloadData != null) {
-                C1166b c1166b = new C1166b();
-                this.f50830a = c1166b;
-                c1166b.setPriority(3);
-                this.f50830a.execute(f50828c);
+                C1222b c1222b = new C1222b();
+                this.f54507a = c1222b;
+                c1222b.setPriority(3);
+                this.f54507a.execute(f54505c);
             }
         }
     }

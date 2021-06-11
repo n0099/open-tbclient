@@ -16,48 +16,48 @@ public class a {
     public static a m;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38591a = 10000;
+    public long f42244a = 10000;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f38592b = 0;
+    public long f42245b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f38593c = 300000;
+    public long f42246c = 300000;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38594d = false;
+    public boolean f42247d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38595e = false;
+    public boolean f42248e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f38596f = false;
+    public boolean f42249f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38597g = 4;
+    public int f42250g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public Address f38598h = null;
+    public Address f42251h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<SoftReference<c>> f38599i = null;
+    public ArrayList<SoftReference<c>> f42252i = null;
     public ArrayList<d.a.c.e.i.b> j = new ArrayList<>();
     public Handler k = null;
-    public d l = new C0484a();
+    public d l = new C0540a();
 
     /* renamed from: d.a.c.e.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0484a implements d {
-        public C0484a() {
+    public class C0540a implements d {
+        public C0540a() {
         }
 
         @Override // d.a.c.e.i.a.d
         public void a(int i2, String str, Address address, long j, boolean z) {
             a aVar = a.this;
-            aVar.f38592b = j;
-            aVar.f38598h = address;
-            a.this.f38594d = z;
-            a.this.f38597g = i2;
+            aVar.f42245b = j;
+            aVar.f42251h = address;
+            a.this.f42247d = z;
+            a.this.f42250g = i2;
             a.this.s();
             if (i2 != 1) {
                 if (i2 != 2) {
@@ -90,7 +90,7 @@ public class a {
                 return false;
             }
             a.this.s();
-            int i2 = a.this.f38597g;
+            int i2 = a.this.f42250g;
             if (i2 == 1) {
                 string = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
             } else if (i2 == 2) {
@@ -103,7 +103,7 @@ public class a {
                 string = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
             }
             a aVar = a.this;
-            aVar.g(aVar.f38597g, string, null);
+            aVar.g(aVar.f42250g, string, null);
             return false;
         }
     }
@@ -134,16 +134,16 @@ public class a {
         if (this.k.hasMessages(0)) {
             this.k.removeMessages(0);
         }
-        ArrayList<SoftReference<c>> arrayList = this.f38599i;
+        ArrayList<SoftReference<c>> arrayList = this.f42252i;
         if (arrayList != null) {
             synchronized (arrayList) {
-                for (int i3 = 0; i3 < this.f38599i.size(); i3++) {
-                    SoftReference<c> softReference = this.f38599i.get(i3);
+                for (int i3 = 0; i3 < this.f42252i.size(); i3++) {
+                    SoftReference<c> softReference = this.f42252i.get(i3);
                     if (softReference != null && (cVar = softReference.get()) != null) {
                         cVar.onLocationGeted(i2, str, address);
                     }
                 }
-                this.f38599i.clear();
+                this.f42252i.clear();
             }
         }
     }
@@ -157,19 +157,19 @@ public class a {
     }
 
     public Address j(boolean z, boolean z2) {
-        if (System.currentTimeMillis() - this.f38592b > this.f38593c) {
-            this.f38598h = null;
+        if (System.currentTimeMillis() - this.f42245b > this.f42246c) {
+            this.f42251h = null;
         }
-        if (this.f38598h != null && !z && ((z2 && this.f38594d) || !z2)) {
-            return this.f38598h;
+        if (this.f42251h != null && !z && ((z2 && this.f42247d) || !z2)) {
+            return this.f42251h;
         }
-        this.f38598h = null;
-        boolean z3 = this.f38596f;
+        this.f42251h = null;
+        boolean z3 = this.f42249f;
         if (!z3) {
             r(z2);
             return null;
         }
-        if (z3 && z2 && !this.f38595e) {
+        if (z3 && z2 && !this.f42248e) {
             s();
             r(z2);
         }
@@ -179,24 +179,24 @@ public class a {
     public Address k(boolean z, boolean z2, c cVar) {
         boolean z3;
         c cVar2;
-        if (System.currentTimeMillis() - this.f38592b > this.f38593c) {
-            this.f38598h = null;
+        if (System.currentTimeMillis() - this.f42245b > this.f42246c) {
+            this.f42251h = null;
         }
-        if (this.f38598h != null && !z && ((z2 && this.f38594d) || !z2)) {
+        if (this.f42251h != null && !z && ((z2 && this.f42247d) || !z2)) {
             if (cVar != null) {
-                cVar.onLocationGeted(0, "", this.f38598h);
+                cVar.onLocationGeted(0, "", this.f42251h);
             }
-            return this.f38598h;
+            return this.f42251h;
         }
         if (cVar != null) {
-            synchronized (this.f38599i) {
+            synchronized (this.f42252i) {
                 int i2 = 0;
                 while (true) {
-                    if (i2 >= this.f38599i.size()) {
+                    if (i2 >= this.f42252i.size()) {
                         z3 = false;
                         break;
                     }
-                    SoftReference<c> softReference = this.f38599i.get(i2);
+                    SoftReference<c> softReference = this.f42252i.get(i2);
                     if (softReference != null && (cVar2 = softReference.get()) != null && cVar2.equals(cVar)) {
                         z3 = true;
                         break;
@@ -204,17 +204,17 @@ public class a {
                     i2++;
                 }
                 if (!z3) {
-                    if (this.f38599i.size() >= 100) {
-                        this.f38599i.remove(0);
+                    if (this.f42252i.size() >= 100) {
+                        this.f42252i.remove(0);
                     }
-                    this.f38599i.add(new SoftReference<>(cVar));
+                    this.f42252i.add(new SoftReference<>(cVar));
                 }
             }
-            boolean z4 = this.f38596f;
+            boolean z4 = this.f42249f;
             if (!z4) {
                 r(z2);
                 return null;
-            } else if (z4 && z2 && !this.f38595e) {
+            } else if (z4 && z2 && !this.f42248e) {
                 s();
                 r(z2);
                 return null;
@@ -224,7 +224,7 @@ public class a {
     }
 
     public long m() {
-        return this.f38591a;
+        return this.f42244a;
     }
 
     public final void n() {
@@ -232,7 +232,7 @@ public class a {
     }
 
     public void o() {
-        this.f38599i = new ArrayList<>();
+        this.f42252i = new ArrayList<>();
         n();
     }
 
@@ -249,13 +249,13 @@ public class a {
 
     public void q(c cVar) {
         c cVar2;
-        synchronized (this.f38599i) {
+        synchronized (this.f42252i) {
             int i2 = 0;
             while (true) {
-                if (i2 < this.f38599i.size()) {
-                    SoftReference<c> softReference = this.f38599i.get(i2);
+                if (i2 < this.f42252i.size()) {
+                    SoftReference<c> softReference = this.f42252i.get(i2);
                     if (softReference != null && (cVar2 = softReference.get()) != null && cVar2.equals(cVar)) {
-                        this.f38599i.remove(softReference);
+                        this.f42252i.remove(softReference);
                         break;
                     }
                     i2++;
@@ -270,9 +270,9 @@ public class a {
         if (this.k.hasMessages(0)) {
             this.k.removeMessages(0);
         }
-        this.f38597g = 4;
-        this.f38595e = z;
-        this.f38596f = true;
+        this.f42250g = 4;
+        this.f42248e = z;
+        this.f42249f = true;
         ArrayList<d.a.c.e.i.b> arrayList = this.j;
         if (arrayList != null && !arrayList.isEmpty()) {
             Iterator<d.a.c.e.i.b> it = this.j.iterator();
@@ -287,10 +287,10 @@ public class a {
                 }
             }
             Handler handler = this.k;
-            handler.sendMessageDelayed(handler.obtainMessage(0), this.f38591a);
+            handler.sendMessageDelayed(handler.obtainMessage(0), this.f42244a);
             return;
         }
-        this.f38597g = 6;
+        this.f42250g = 6;
         Handler handler2 = this.k;
         handler2.sendMessage(handler2.obtainMessage(0));
     }
@@ -299,7 +299,7 @@ public class a {
         if (this.k.hasMessages(0)) {
             this.k.removeMessages(0);
         }
-        this.f38596f = false;
+        this.f42249f = false;
         Iterator<d.a.c.e.i.b> it = this.j.iterator();
         while (it.hasNext()) {
             d.a.c.e.i.b next = it.next();

@@ -23,25 +23,25 @@ public class b extends d.a.n0.z.b<c> {
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        View l = l();
-        this.m = (TbImageView) l.findViewById(R.id.ad_portrait);
-        this.n = (TextView) l.findViewById(R.id.ad_title);
-        this.o = (TextView) l.findViewById(R.id.ad_desc);
-        this.r = (ConstrainImageGroup) l.findViewById(R.id.ad_img_layout);
-        this.p = l.findViewById(R.id.item_divider);
-        this.q = (RelativeLayout) l.findViewById(R.id.frs_ad_list_item_view);
-        l.setOnClickListener(this);
+        View m = m();
+        this.m = (TbImageView) m.findViewById(R.id.ad_portrait);
+        this.n = (TextView) m.findViewById(R.id.ad_title);
+        this.o = (TextView) m.findViewById(R.id.ad_desc);
+        this.r = (ConstrainImageGroup) m.findViewById(R.id.ad_img_layout);
+        this.p = m.findViewById(R.id.item_divider);
+        this.q = (RelativeLayout) m.findViewById(R.id.frs_ad_list_item_view);
+        m.setOnClickListener(this);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.frs_ad_list_item_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
-            this.f63440e = i2;
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
+            this.f67158e = i2;
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
             SkinManager.setBackgroundResource(this.q, R.drawable.ad_list_item_bg);
@@ -55,13 +55,13 @@ public class b extends d.a.n0.z.b<c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(c cVar) {
+    /* renamed from: t */
+    public void n(c cVar) {
         if (cVar == null) {
             return;
         }
         this.m.setPlaceHolder(1);
-        this.m.V(cVar.m(), 10, false);
+        this.m.U(cVar.i(), 10, false);
         this.m.setRadius(l.g(b(), R.dimen.tbds26));
         this.m.setDrawerType(1);
         this.m.setDrawBorder(true);
@@ -69,20 +69,20 @@ public class b extends d.a.n0.z.b<c> {
         this.m.setBorderWidth(l.g(b(), R.dimen.tbds1));
         this.m.setDefaultResource(R.drawable.transparent_bg);
         this.m.setDefaultBgResource(R.drawable.transparent_bg);
-        this.n.setText(cVar.l());
-        this.o.setText(cVar.h());
+        this.n.setText(cVar.g());
+        this.o.setText(cVar.c());
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
         SkinManager.setBackgroundResource(this.q, R.drawable.ad_list_item_bg);
-        if (ListUtils.getCount(cVar.t()) > 0) {
+        if (ListUtils.getCount(cVar.p()) > 0) {
             d.a.m0.b1.j.f fVar = new d.a.m0.b1.j.f(3);
             fVar.d(1.0d);
             this.r.setVisibility(0);
             this.r.setFromCDN(true);
             this.r.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
             this.r.setImageProcessor(fVar);
-            this.r.setImageMediaList(cVar.t());
-            if (!cVar.s()) {
+            this.r.setImageMediaList(cVar.p());
+            if (!cVar.o()) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.g(b(), R.dimen.tbds16));
                 layoutParams.addRule(12);
                 this.p.setLayoutParams(layoutParams);
@@ -94,7 +94,7 @@ public class b extends d.a.n0.z.b<c> {
             return;
         }
         this.r.setVisibility(8);
-        if (!cVar.s()) {
+        if (!cVar.o()) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, l.g(b(), R.dimen.tbds1));
             layoutParams2.addRule(12);
             this.p.setLayoutParams(layoutParams2);
@@ -105,21 +105,21 @@ public class b extends d.a.n0.z.b<c> {
         this.p.setVisibility(8);
     }
 
-    public void t(d.a.c.e.k.b<TbImageView> bVar) {
+    public void u(d.a.c.e.k.b<TbImageView> bVar) {
         ConstrainImageGroup constrainImageGroup = this.r;
         if (constrainImageGroup != null) {
             constrainImageGroup.setImageViewPool(bVar);
         }
     }
 
-    public void u(d.a.c.e.k.b<ConstrainImageLayout> bVar) {
+    public void v(d.a.c.e.k.b<ConstrainImageLayout> bVar) {
         ConstrainImageGroup constrainImageGroup = this.r;
         if (constrainImageGroup != null) {
             constrainImageGroup.setConstrainLayoutPool(bVar);
         }
     }
 
-    public void v(double d2) {
+    public void w(double d2) {
         ConstrainImageGroup constrainImageGroup = this.r;
         if (constrainImageGroup != null) {
             constrainImageGroup.setSingleImageRatio(d2);

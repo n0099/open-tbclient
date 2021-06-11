@@ -14,27 +14,27 @@ public abstract class b implements o<Character> {
 
     /* renamed from: d.g.c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1848b extends a {
+    public static final class C1907b extends a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final char f66226e;
+        public final char f69957e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final char f66227f;
+        public final char f69958f;
 
-        public C1848b(char c2, char c3) {
+        public C1907b(char c2, char c3) {
             n.d(c3 >= c2);
-            this.f66226e = c2;
-            this.f66227f = c3;
+            this.f69957e = c2;
+            this.f69958f = c3;
         }
 
         @Override // d.g.c.a.b
         public boolean f(char c2) {
-            return this.f66226e <= c2 && c2 <= this.f66227f;
+            return this.f69957e <= c2 && c2 <= this.f69958f;
         }
 
         public String toString() {
-            return "CharMatcher.inRange('" + b.g(this.f66226e) + "', '" + b.g(this.f66227f) + "')";
+            return "CharMatcher.inRange('" + b.g(this.f69957e) + "', '" + b.g(this.f69958f) + "')";
         }
     }
 
@@ -42,24 +42,24 @@ public abstract class b implements o<Character> {
     public static final class c extends a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final char f66228e;
+        public final char f69959e;
 
         public c(char c2) {
-            this.f66228e = c2;
+            this.f69959e = c2;
         }
 
         @Override // d.g.c.a.b
         public boolean f(char c2) {
-            return c2 == this.f66228e;
+            return c2 == this.f69959e;
         }
 
         public String toString() {
-            return "CharMatcher.is('" + b.g(this.f66228e) + "')";
+            return "CharMatcher.is('" + b.g(this.f69959e) + "')";
         }
     }
 
     public static b c(char c2, char c3) {
-        return new C1848b(c2, c3);
+        return new C1907b(c2, c3);
     }
 
     public static b e(char c2) {

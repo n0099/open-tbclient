@@ -1,6 +1,5 @@
 package d.a.b.a.a.e;
 
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
@@ -13,7 +12,7 @@ public class a {
                         throw new IllegalArgumentException("fluteDateString should not be null or empty ");
                     }
                     if (Pattern.compile("[0-9]*").matcher(str).matches()) {
-                        String str2 = HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE202 + str.substring(0, 1);
+                        String str2 = "202" + str.substring(0, 1);
                         String substring = str.substring(1, 4);
                         String substring2 = str.substring(4, 6);
                         Calendar calendar = Calendar.getInstance();

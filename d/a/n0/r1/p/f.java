@@ -16,16 +16,16 @@ import java.util.List;
 public class f extends d implements LivePlayer {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Integer f59912i = 0;
+    public static final Integer f63603i = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<LivePlayer.OnProgressChangeListener> f59913f;
+    public List<LivePlayer.OnProgressChangeListener> f63604f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IVideoUpdateStrategy f59914g;
+    public IVideoUpdateStrategy f63605g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59915h;
+    public boolean f63606h;
 
     /* loaded from: classes3.dex */
     public class a extends d.a.n0.r1.p.j.a.a {
@@ -42,15 +42,15 @@ public class f extends d implements LivePlayer {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f59916e;
+        public final /* synthetic */ int f63607e;
 
         public b(int i2) {
-            this.f59916e = i2;
+            this.f63607e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int i2 = this.f59916e;
+            int i2 = this.f63607e;
             if (i2 == -2) {
                 if (f.this.isPlaying()) {
                     f.this.pauseInternal(2);
@@ -71,8 +71,8 @@ public class f extends d implements LivePlayer {
 
     public f(String str) {
         super(null, str);
-        this.f59913f = new ArrayList();
-        this.f59915h = false;
+        this.f63604f = new ArrayList();
+        this.f63606h = false;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
@@ -81,14 +81,14 @@ public class f extends d implements LivePlayer {
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
     public void addProgressListener(@NonNull LivePlayer.OnProgressChangeListener onProgressChangeListener) {
-        this.f59913f.add(onProgressChangeListener);
+        this.f63604f.add(onProgressChangeListener);
     }
 
     public final IVideoUpdateStrategy c() {
-        if (this.f59914g == null) {
-            this.f59914g = new a(this);
+        if (this.f63605g == null) {
+            this.f63605g = new a(this);
         }
-        return this.f59914g;
+        return this.f63605g;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
@@ -104,7 +104,7 @@ public class f extends d implements LivePlayer {
     }
 
     public final void e(boolean z) {
-        this.f59915h = z;
+        this.f63606h = z;
         this.mVideoSession.getControlEventTrigger().pause(z);
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer != null) {
@@ -135,7 +135,7 @@ public class f extends d implements LivePlayer {
     @Override // d.a.n0.r1.p.d, com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
     public void release() {
         super.release();
-        this.f59913f.clear();
+        this.f63604f.clear();
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
@@ -144,7 +144,7 @@ public class f extends d implements LivePlayer {
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
     public void removeProgressListener(@NonNull LivePlayer.OnProgressChangeListener onProgressChangeListener) {
-        this.f59913f.remove(onProgressChangeListener);
+        this.f63604f.remove(onProgressChangeListener);
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
@@ -157,7 +157,7 @@ public class f extends d implements LivePlayer {
         if (isPause()) {
             if (z) {
                 super.resume();
-            } else if (this.f59915h) {
+            } else if (this.f63606h) {
             } else {
                 resume();
             }
@@ -185,7 +185,7 @@ public class f extends d implements LivePlayer {
         if (hashMap == null) {
             return;
         }
-        String str = hashMap.get(f59912i);
+        String str = hashMap.get(f63603i);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -235,7 +235,7 @@ public class f extends d implements LivePlayer {
 
     public f(@Nullable Context context, String str) {
         super(context, str);
-        this.f59913f = new ArrayList();
-        this.f59915h = false;
+        this.f63604f = new ArrayList();
+        this.f63606h = false;
     }
 }

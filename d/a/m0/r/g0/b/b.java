@@ -23,27 +23,27 @@ public class b {
     public static a c(String str) {
         a aVar = new a();
         if (str == null) {
-            aVar.f49822c = 6;
-            aVar.f49823d = a.a(6);
+            aVar.f53497c = 6;
+            aVar.f53498d = a.a(6);
             return aVar;
         }
         if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-            aVar.f49822c = 7;
-            aVar.f49823d = a.a(7);
+            aVar.f53497c = 7;
+            aVar.f53498d = a.a(7);
             return aVar;
         }
         String b2 = q.b(FileHelper.GetStreamFromTmpFile(str));
         if (b2 == null) {
-            aVar.f49822c = 5;
-            aVar.f49823d = a.a(5);
+            aVar.f53497c = 5;
+            aVar.f53498d = a.a(5);
         } else {
             String filePath = FileHelper.getFilePath(b2, 1, true);
             if (FileHelper.renameTo(str, filePath)) {
-                aVar.f49821b = filePath;
-                aVar.f49820a = b2;
+                aVar.f53496b = filePath;
+                aVar.f53495a = b2;
             } else {
-                aVar.f49822c = 1;
-                aVar.f49823d = a.a(1);
+                aVar.f53497c = 1;
+                aVar.f53498d = a.a(1);
             }
         }
         return aVar;

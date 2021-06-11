@@ -12,28 +12,28 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import d.a.l0.a.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f43046b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+    public static final String f46722b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f43047c = Uri.parse("content://" + f43046b);
+    public static final Uri f46723c = Uri.parse("content://" + f46722b);
 
     /* renamed from: a  reason: collision with root package name */
-    public UriMatcher f43048a;
+    public UriMatcher f46724a;
 
     public b() {
         UriMatcher uriMatcher = new UriMatcher(-1);
-        this.f43048a = uriMatcher;
-        uriMatcher.addURI(f43046b, "favorite", 0);
-        this.f43048a.addURI(f43046b, "favorite_and_aps", 1);
-        this.f43048a.addURI(f43046b, "history", 2);
-        this.f43048a.addURI(f43046b, "history_with_app", 3);
-        this.f43048a.addURI(f43046b, "favorite_with_aps_pms", 4);
-        this.f43048a.addURI(f43046b, "history_with_aps_pms", 5);
-        this.f43048a.addURI(f43046b, "user_behavior", 6);
+        this.f46724a = uriMatcher;
+        uriMatcher.addURI(f46722b, "favorite", 0);
+        this.f46724a.addURI(f46722b, "favorite_and_aps", 1);
+        this.f46724a.addURI(f46722b, "history", 2);
+        this.f46724a.addURI(f46722b, "history_with_app", 3);
+        this.f46724a.addURI(f46722b, "favorite_with_aps_pms", 4);
+        this.f46724a.addURI(f46722b, "history_with_aps_pms", 5);
+        this.f46724a.addURI(f46722b, "user_behavior", 6);
     }
 
     public static void e() {
@@ -44,7 +44,7 @@ public class b {
 
     public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         SQLiteDatabase e2;
-        int match = this.f43048a.match(uri);
+        int match = this.f46724a.match(uri);
         if (match != 0) {
             if (match != 2) {
                 if (match == 6 && (e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {
@@ -64,7 +64,7 @@ public class b {
     @NonNull
     public final String b(int i2) {
         if (i2 != 6) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 throw new NullPointerException("tableName must not Null");
             }
             return "";
@@ -80,13 +80,13 @@ public class b {
     @Nullable
     public Uri d(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         SQLiteDatabase e2;
-        int match = this.f43048a.match(uri);
+        int match = this.f46724a.match(uri);
         if (match == 0) {
             long i2 = SwanAppDbControl.f(AppRuntime.getAppContext()).i(contentValues);
             if (i2 < 0) {
                 return null;
             }
-            return ContentUris.withAppendedId(f43047c.buildUpon().build(), i2);
+            return ContentUris.withAppendedId(f46723c.buildUpon().build(), i2);
         } else if (match != 2) {
             if (match == 6 && (e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {
                 e2.insertWithOnConflict(b(match), null, contentValues, 5);
@@ -99,13 +99,13 @@ public class b {
                 return null;
             }
             e();
-            return ContentUris.withAppendedId(f43047c.buildUpon().build(), j);
+            return ContentUris.withAppendedId(f46723c.buildUpon().build(), j);
         }
     }
 
     @Nullable
     public Cursor f(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        int match = this.f43048a.match(uri);
+        int match = this.f46724a.match(uri);
         switch (match) {
             case 0:
                 Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(strArr, str, strArr2, str2);
@@ -132,7 +132,7 @@ public class b {
                 try {
                     i2 = Integer.valueOf(uri.getQueryParameter("query_limit")).intValue();
                 } catch (Exception e2) {
-                    if (k.f43199a) {
+                    if (k.f46875a) {
                         e2.printStackTrace();
                     }
                 }
@@ -156,7 +156,7 @@ public class b {
 
     public int g(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         SQLiteDatabase e2;
-        int match = this.f43048a.match(uri);
+        int match = this.f46724a.match(uri);
         if (match != 0) {
             if (match != 2) {
                 if (match == 6 && (e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {

@@ -21,7 +21,7 @@ import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.bumptech.glide.manager.RequestManagerRetriever;
 import com.bumptech.glide.request.RequestOptions;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class GlideBuilder {
     public GlideExecutor animationExecutor;
     public ArrayPool arrayPool;

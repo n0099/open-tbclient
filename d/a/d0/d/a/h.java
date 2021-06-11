@@ -11,15 +11,15 @@ public class h {
     public static class a implements k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.d0.a.b.a f39700a;
+        public final /* synthetic */ d.a.d0.a.b.a f43381a;
 
         public a(d.a.d0.a.b.a aVar) {
-            this.f39700a = aVar;
+            this.f43381a = aVar;
         }
 
         @Override // d.a.d0.d.a.k
         public void a(Throwable th) {
-            if (this.f39700a.s()) {
+            if (this.f43381a.s()) {
                 Log.e("ParallelCharge", "als on error response", th);
             }
         }
@@ -33,7 +33,7 @@ public class h {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        d.a.d0.a.b.a aVar = d.a.d0.a.b.a.f39590a.get();
+        d.a.d0.a.b.a aVar = d.a.d0.a.b.a.f43271a.get();
         Request.c cVar = new Request.c(aVar.o(), str);
         cVar.k("User-Agent", aVar.h());
         cVar.l().d(new a(aVar));

@@ -32,15 +32,15 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     public class a extends GridLayoutManager.SpanSizeLookup {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f16500a;
+        public final /* synthetic */ List f16569a;
 
         public a(List list) {
-            this.f16500a = list;
+            this.f16569a = list;
         }
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
         public int getSpanSize(int i2) {
-            return i2 == this.f16500a.size() ? 2 : 1;
+            return i2 == this.f16569a.size() ? 2 : 1;
         }
     }
 

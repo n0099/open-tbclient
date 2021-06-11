@@ -9,15 +9,15 @@ import org.json.JSONObject;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f39053a = false;
+    public boolean f42706a = false;
 
     public abstract String a();
 
     public void b(int i2) {
-        if (this.f39053a) {
+        if (this.f42706a) {
             return;
         }
-        this.f39053a = true;
+        this.f42706a = true;
         if (TextUtils.isEmpty(a())) {
             return;
         }

@@ -8,10 +8,10 @@ import tbclient.AppCode;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50038a;
+    public String f53714a;
 
     public String a() {
-        return this.f50038a;
+        return this.f53714a;
     }
 
     public void b(JSONObject jSONObject) {
@@ -20,7 +20,7 @@ public class h {
         }
         try {
             jSONObject.optString("game_icon");
-            this.f50038a = jSONObject.optString("post_url");
+            this.f53714a = jSONObject.optString("post_url");
             jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
@@ -32,7 +32,7 @@ public class h {
             return;
         }
         String str = appCode.game_icon;
-        this.f50038a = appCode.post_url;
+        this.f53714a = appCode.post_url;
         String str2 = appCode.button_text;
     }
 }

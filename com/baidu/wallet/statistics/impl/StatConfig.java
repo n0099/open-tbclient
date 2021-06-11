@@ -20,26 +20,26 @@ import org.json.JSONObject;
 public class StatConfig implements NoProguard, d.d.a.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public StatConfigEntity f26484a;
+    public StatConfigEntity f26587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f26485b;
+    public Context f26588b;
 
     /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatConfig f26486a = new StatConfig();
+        public static StatConfig f26589a = new StatConfig();
     }
 
     public static StatConfig getInstance(Context context) {
-        a.f26486a.setContext(context);
-        return a.f26486a;
+        a.f26589a.setContext(context);
+        return a.f26589a;
     }
 
     @Override // d.d.a.a.b.b
     public int get3GSendingInterval() {
-        StatConfigEntity statConfigEntity = this.f26484a;
+        StatConfigEntity statConfigEntity = this.f26587a;
         if (statConfigEntity == null) {
             return 5;
         }
@@ -48,12 +48,12 @@ public class StatConfig implements NoProguard, d.d.a.a.b.a {
 
     @Override // d.d.a.a.b.a
     public String getAppVersionCode() {
-        return String.valueOf(PhoneUtils.getAppVersionCode(this.f26485b));
+        return String.valueOf(PhoneUtils.getAppVersionCode(this.f26588b));
     }
 
     @Override // d.d.a.a.b.a
     public String getAppVersionName() {
-        return PhoneUtils.getAppVersionName(this.f26485b);
+        return PhoneUtils.getAppVersionName(this.f26588b);
     }
 
     @Override // d.d.a.a.b.a
@@ -71,7 +71,7 @@ public class StatConfig implements NoProguard, d.d.a.a.b.a {
         if (isLogin() && !TextUtils.isEmpty(WalletLoginHelper.getInstance().getUnionId())) {
             return SafePay.getInstance().encryptProxy(WalletLoginHelper.getInstance().getUnionId());
         }
-        return SafePay.getInstance().encryptProxy(com.baidu.wallet.statistics.impl.a.a().b(this.f26485b));
+        return SafePay.getInstance().encryptProxy(com.baidu.wallet.statistics.impl.a.a().b(this.f26588b));
     }
 
     @Override // d.d.a.a.b.a
@@ -83,12 +83,12 @@ public class StatConfig implements NoProguard, d.d.a.a.b.a {
     public String getHeader() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.f26485b != null) {
+            if (this.f26588b != null) {
                 com.baidu.wallet.statistics.impl.a a2 = com.baidu.wallet.statistics.impl.a.a();
-                jSONObject.putOpt("ua", a2.c(this.f26485b));
-                jSONObject.putOpt("cu", a2.a(this.f26485b));
-                jSONObject.putOpt("op", a2.d(this.f26485b));
-                jSONObject.put("cu2", a2.b(this.f26485b));
+                jSONObject.putOpt("ua", a2.c(this.f26588b));
+                jSONObject.putOpt("cu", a2.a(this.f26588b));
+                jSONObject.putOpt("op", a2.d(this.f26588b));
+                jSONObject.put("cu2", a2.b(this.f26588b));
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -113,7 +113,7 @@ public class StatConfig implements NoProguard, d.d.a.a.b.a {
 
     @Override // d.d.a.a.b.b
     public int getWifiSendingInterval() {
-        StatConfigEntity statConfigEntity = this.f26484a;
+        StatConfigEntity statConfigEntity = this.f26587a;
         if (statConfigEntity == null) {
             return 3;
         }
@@ -151,14 +151,14 @@ public class StatConfig implements NoProguard, d.d.a.a.b.a {
 
     @Override // d.d.a.a.b.a
     public void loadStrategy() {
-        Context context = this.f26485b;
+        Context context = this.f26588b;
         if (context != null) {
             String statisticsStrategy = BasicStoreToolsWrapper.getStatisticsStrategy(context);
             if (TextUtils.isEmpty(statisticsStrategy)) {
                 return;
             }
             try {
-                this.f26484a = (StatConfigEntity) JsonUtils.fromJson(new JSONObject(statisticsStrategy).optString("data"), StatConfigEntity.class);
+                this.f26587a = (StatConfigEntity) JsonUtils.fromJson(new JSONObject(statisticsStrategy).optString("data"), StatConfigEntity.class);
             } catch (Exception e2) {
                 LogUtil.errord("Sensor Config", e2.getMessage());
             }
@@ -166,10 +166,10 @@ public class StatConfig implements NoProguard, d.d.a.a.b.a {
     }
 
     public void setContext(Context context) {
-        if (this.f26485b != null || context == null) {
+        if (this.f26588b != null || context == null) {
             return;
         }
-        this.f26485b = context.getApplicationContext();
+        this.f26588b = context.getApplicationContext();
     }
 
     public StatConfig() {

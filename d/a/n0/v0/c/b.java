@@ -28,20 +28,20 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a.C1683a> f62250f;
+    public List<a.C1740a> f65965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MyGiftListActivity f62251g;
+    public MyGiftListActivity f65966g;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoDataView f62253i;
+    public NoDataView f65968i;
     public boolean j;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62249e = 1;
+    public int f65964e = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62252h = false;
+    public boolean f65967h = false;
     public int k = -1;
     public View.OnClickListener l = new a();
 
@@ -53,75 +53,75 @@ public class b extends BaseAdapter {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.z()) {
-                b.this.f62251g.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view.getTag(R.id.tag_first)), (String) view.getTag(R.id.tag_second))));
+                b.this.f65966g.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view.getTag(R.id.tag_first)), (String) view.getTag(R.id.tag_second))));
                 return;
             }
-            b.this.f62251g.showToast(R.string.neterror);
+            b.this.f65966g.showToast(R.string.neterror);
         }
     }
 
     /* renamed from: d.a.n0.v0.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1684b {
+    public static class C1741b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f62255a;
+        public TbImageView f65970a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f62256b;
+        public TextView f65971b;
 
         /* renamed from: c  reason: collision with root package name */
-        public HeadImageView f62257c;
+        public HeadImageView f65972c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f62258d;
+        public TextView f65973d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f62259e;
+        public TextView f65974e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f62260f;
+        public TextView f65975f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f62261g;
+        public TextView f65976g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f62262h;
+        public TextView f65977h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f62263i;
+        public TextView f65978i;
         public TextView j;
         public TextView k;
 
-        public C1684b() {
+        public C1741b() {
         }
 
-        public /* synthetic */ C1684b(a aVar) {
+        public /* synthetic */ C1741b(a aVar) {
             this();
         }
     }
 
     public b(MyGiftListActivity myGiftListActivity, boolean z) {
-        this.f62251g = myGiftListActivity;
+        this.f65966g = myGiftListActivity;
         this.j = z;
     }
 
     public final void b(View view) {
-        this.f62251g.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        this.f62251g.getLayoutMode().j(view);
+        this.f65966g.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+        this.f65966g.getLayoutMode().j(view);
     }
 
     public final View c() {
         NoDataViewFactory.c cVar = null;
-        View inflate = LayoutInflater.from(this.f62251g.getPageContext().getPageActivity()).inflate(R.layout.buy_no_face_item, (ViewGroup) null);
-        NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f62251g.getResources().getString(R.string.send_gift), this.f62251g.getSendGiftClickListener()));
-        this.f62251g.getResources().getDimension(R.dimen.tbds200);
-        this.f62251g.getResources().getDimension(R.dimen.ds140);
-        String userSex = this.f62251g.getUserSex();
-        this.f62251g.getPageContext().getString(R.string.no_gift);
-        String string = this.f62251g.getPageContext().getString(R.string.come_on);
-        String format = String.format(this.f62251g.getPageContext().getString(R.string.send_him_gift_note), userSex);
-        Activity pageActivity = this.f62251g.getPageContext().getPageActivity();
+        View inflate = LayoutInflater.from(this.f65966g.getPageContext().getPageActivity()).inflate(R.layout.buy_no_face_item, (ViewGroup) null);
+        NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f65966g.getResources().getString(R.string.send_gift), this.f65966g.getSendGiftClickListener()));
+        this.f65966g.getResources().getDimension(R.dimen.tbds200);
+        this.f65966g.getResources().getDimension(R.dimen.ds140);
+        String userSex = this.f65966g.getUserSex();
+        this.f65966g.getPageContext().getString(R.string.no_gift);
+        String string = this.f65966g.getPageContext().getString(R.string.come_on);
+        String format = String.format(this.f65966g.getPageContext().getString(R.string.send_him_gift_note), userSex);
+        Activity pageActivity = this.f65966g.getPageContext().getPageActivity();
         NoDataViewFactory.d a3 = NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA);
         if (!this.j) {
             string = format;
@@ -130,51 +130,51 @@ public class b extends BaseAdapter {
         if (!this.j && TbadkApplication.getInst().isGiftSwitchOn()) {
             cVar = a2;
         }
-        this.f62253i = NoDataViewFactory.a(pageActivity, inflate, a3, d2, cVar);
+        this.f65968i = NoDataViewFactory.a(pageActivity, inflate, a3, d2, cVar);
         int skinType = TbadkApplication.getInst().getSkinType();
-        this.f62251g.getLayoutMode().k(skinType == 1);
-        this.f62251g.getLayoutMode().j(inflate);
-        this.f62253i.f(this.f62251g.getPageContext(), skinType);
-        this.f62253i.setVisibility(0);
+        this.f65966g.getLayoutMode().k(skinType == 1);
+        this.f65966g.getLayoutMode().j(inflate);
+        this.f65968i.f(this.f65966g.getPageContext(), skinType);
+        this.f65968i.setVisibility(0);
         return inflate;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: d */
-    public a.C1683a getItem(int i2) {
-        if (this.f62252h) {
+    public a.C1740a getItem(int i2) {
+        if (this.f65967h) {
             return null;
         }
         int itemId = (int) getItemId(i2);
-        List<a.C1683a> list = this.f62250f;
-        if (list == null || list.size() == 0 || itemId < 0 || itemId >= this.f62250f.size()) {
+        List<a.C1740a> list = this.f65965f;
+        if (list == null || list.size() == 0 || itemId < 0 || itemId >= this.f65965f.size()) {
             return null;
         }
-        return this.f62250f.get(itemId);
+        return this.f65965f.get(itemId);
     }
 
-    public void e(List<a.C1683a> list, int i2) {
+    public void e(List<a.C1740a> list, int i2) {
         if (list != null && list.size() > 0) {
-            this.f62252h = false;
+            this.f65967h = false;
         } else {
-            this.f62252h = true;
+            this.f65967h = true;
         }
-        this.f62250f = list;
+        this.f65965f = list;
         this.k = i2;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f62252h) {
+        if (this.f65967h) {
             return 1;
         }
-        List<a.C1683a> list = this.f62250f;
+        List<a.C1740a> list = this.f65965f;
         if (list == null || list.size() == 0) {
             return 0;
         }
-        return this.f62250f.size();
+        return this.f65965f.size();
     }
 
     @Override // android.widget.Adapter
@@ -184,105 +184,105 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        C1684b c1684b;
-        if (this.f62252h) {
+        C1741b c1741b;
+        if (this.f65967h) {
             return c();
         }
         if (view != null && view.getTag(R.id.tag_first) != null) {
-            c1684b = (C1684b) view.getTag(R.id.tag_first);
+            c1741b = (C1741b) view.getTag(R.id.tag_first);
         } else {
-            view = LayoutInflater.from(this.f62251g.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_item, viewGroup, false);
-            c1684b = new C1684b(null);
+            view = LayoutInflater.from(this.f65966g.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_item, viewGroup, false);
+            c1741b = new C1741b(null);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.item_rank_image);
-            c1684b.f62255a = tbImageView;
-            tbImageView.setRadius(l.e(this.f62251g.getBaseContext(), 25.0f));
-            c1684b.f62256b = (TextView) view.findViewById(R.id.item_rank_text);
+            c1741b.f65970a = tbImageView;
+            tbImageView.setRadius(l.e(this.f65966g.getBaseContext(), 25.0f));
+            c1741b.f65971b = (TextView) view.findViewById(R.id.item_rank_text);
             HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.item_portrait);
-            c1684b.f62257c = headImageView;
-            headImageView.setRadius(l.e(this.f62251g.getBaseContext(), 50.0f));
-            c1684b.f62257c.setOnClickListener(this.l);
-            c1684b.f62257c.setPlaceHolder(1);
-            c1684b.f62258d = (TextView) view.findViewById(R.id.user_name);
-            c1684b.f62262h = (TextView) view.findViewById(R.id.gift_num);
-            c1684b.f62261g = (TextView) view.findViewById(R.id.gift_value_text);
-            c1684b.f62260f = (TextView) view.findViewById(R.id.gift_name);
-            c1684b.f62259e = (TextView) view.findViewById(R.id.time);
-            c1684b.f62263i = (TextView) view.findViewById(R.id.paly_icon);
-            c1684b.j = (TextView) view.findViewById(R.id.reward_prefix);
-            c1684b.k = (TextView) view.findViewById(R.id.reward_num);
-            view.setTag(R.id.tag_first, c1684b);
+            c1741b.f65972c = headImageView;
+            headImageView.setRadius(l.e(this.f65966g.getBaseContext(), 50.0f));
+            c1741b.f65972c.setOnClickListener(this.l);
+            c1741b.f65972c.setPlaceHolder(1);
+            c1741b.f65973d = (TextView) view.findViewById(R.id.user_name);
+            c1741b.f65977h = (TextView) view.findViewById(R.id.gift_num);
+            c1741b.f65976g = (TextView) view.findViewById(R.id.gift_value_text);
+            c1741b.f65975f = (TextView) view.findViewById(R.id.gift_name);
+            c1741b.f65974e = (TextView) view.findViewById(R.id.time);
+            c1741b.f65978i = (TextView) view.findViewById(R.id.paly_icon);
+            c1741b.j = (TextView) view.findViewById(R.id.reward_prefix);
+            c1741b.k = (TextView) view.findViewById(R.id.reward_num);
+            view.setTag(R.id.tag_first, c1741b);
         }
         if (!this.j) {
-            c1684b.f62259e.setVisibility(8);
-            c1684b.f62263i.setVisibility(8);
+            c1741b.f65974e.setVisibility(8);
+            c1741b.f65978i.setVisibility(8);
         } else {
-            c1684b.f62263i.setVisibility(0);
+            c1741b.f65978i.setVisibility(0);
         }
-        a.C1683a item = getItem(i2);
+        a.C1740a item = getItem(i2);
         if (item != null) {
-            if (this.f62251g.userType == 1) {
-                c1684b.f62257c.V(item.f62237c, 12, false);
+            if (this.f65966g.userType == 1) {
+                c1741b.f65972c.U(item.f65952c, 12, false);
                 int i3 = item.j;
                 if (i3 == 1) {
-                    c1684b.f62255a.setVisibility(0);
-                    c1684b.f62255a.setImageResource(R.drawable.icon_frs_no1);
-                    c1684b.f62256b.setVisibility(8);
+                    c1741b.f65970a.setVisibility(0);
+                    c1741b.f65970a.setImageResource(R.drawable.icon_frs_no1);
+                    c1741b.f65971b.setVisibility(8);
                 } else if (i3 == 2) {
-                    c1684b.f62255a.setVisibility(0);
-                    c1684b.f62255a.setImageResource(R.drawable.icon_frs_no2);
-                    c1684b.f62256b.setVisibility(8);
+                    c1741b.f65970a.setVisibility(0);
+                    c1741b.f65970a.setImageResource(R.drawable.icon_frs_no2);
+                    c1741b.f65971b.setVisibility(8);
                 } else if (i3 == 3) {
-                    c1684b.f62255a.setVisibility(0);
-                    c1684b.f62255a.setImageResource(R.drawable.icon_frs_no3);
-                    c1684b.f62256b.setVisibility(8);
+                    c1741b.f65970a.setVisibility(0);
+                    c1741b.f65970a.setImageResource(R.drawable.icon_frs_no3);
+                    c1741b.f65971b.setVisibility(8);
                 } else {
-                    c1684b.f62255a.setVisibility(8);
-                    c1684b.f62256b.setVisibility(0);
-                    TextView textView = c1684b.f62256b;
+                    c1741b.f65970a.setVisibility(8);
+                    c1741b.f65971b.setVisibility(0);
+                    TextView textView = c1741b.f65971b;
                     textView.setText(item.j + "");
                 }
             } else {
-                c1684b.f62257c.V(item.f62238d, 10, false);
-                c1684b.f62255a.setVisibility(8);
-                c1684b.f62256b.setVisibility(8);
+                c1741b.f65972c.U(item.f65953d, 10, false);
+                c1741b.f65970a.setVisibility(8);
+                c1741b.f65971b.setVisibility(8);
             }
-            c1684b.f62257c.setDrawBorder(false);
-            c1684b.f62258d.setText(TextUtils.isEmpty(item.k) ? item.f62236b : item.k);
-            c1684b.f62257c.setTag(R.id.tag_first, Long.valueOf(item.f62235a));
-            c1684b.f62257c.setTag(R.id.tag_second, item.f62236b);
-            c1684b.f62260f.setText(this.f62251g.getPageContext().getString(R.string.send_to_you));
-            TextView textView2 = c1684b.f62261g;
-            textView2.setText(this.f62251g.getPageContext().getString(R.string.gift_value) + item.f62241g);
-            if (item.f62240f < 1) {
-                c1684b.f62262h.setVisibility(8);
+            c1741b.f65972c.setDrawBorder(false);
+            c1741b.f65973d.setText(TextUtils.isEmpty(item.k) ? item.f65951b : item.k);
+            c1741b.f65972c.setTag(R.id.tag_first, Long.valueOf(item.f65950a));
+            c1741b.f65972c.setTag(R.id.tag_second, item.f65951b);
+            c1741b.f65975f.setText(this.f65966g.getPageContext().getString(R.string.send_to_you));
+            TextView textView2 = c1741b.f65976g;
+            textView2.setText(this.f65966g.getPageContext().getString(R.string.gift_value) + item.f65956g);
+            if (item.f65955f < 1) {
+                c1741b.f65977h.setVisibility(8);
             } else {
-                TextView textView3 = c1684b.f62262h;
-                textView3.setText(this.f62251g.getPageContext().getString(R.string.mutil_sign) + item.f62240f);
-                c1684b.f62262h.setVisibility(0);
+                TextView textView3 = c1741b.f65977h;
+                textView3.setText(this.f65966g.getPageContext().getString(R.string.mutil_sign) + item.f65955f);
+                c1741b.f65977h.setVisibility(0);
             }
-            String formatTime = StringHelper.getFormatTime(item.f62239e * 1000);
-            c1684b.f62259e.setText(formatTime);
+            String formatTime = StringHelper.getFormatTime(item.f65954e * 1000);
+            c1741b.f65974e.setText(formatTime);
             if (CurrencySwitchUtil.isYyIsConvert(this.k)) {
-                c1684b.f62259e.setVisibility(8);
-                c1684b.f62261g.setText(formatTime);
-                SkinManager.setViewTextColor(c1684b.f62261g, R.color.CAM_X0109, 1);
+                c1741b.f65974e.setVisibility(8);
+                c1741b.f65976g.setText(formatTime);
+                SkinManager.setViewTextColor(c1741b.f65976g, R.color.CAM_X0109, 1);
             } else {
-                SkinManager.setViewTextColor(c1684b.f62261g, R.color.CAM_X0301, 1);
+                SkinManager.setViewTextColor(c1741b.f65976g, R.color.CAM_X0301, 1);
             }
-            c1684b.j.setVisibility(0);
-            c1684b.k.setVisibility(0);
-            if (item.f62242h > 0) {
-                if (Integer.parseInt(item.f62243i) == 1) {
-                    c1684b.k.setText(g.a(item.f62242h, 1, this.k));
-                } else if (Integer.parseInt(item.f62243i) == 2) {
-                    c1684b.k.setText(g.a(item.f62242h, 2, this.k));
+            c1741b.j.setVisibility(0);
+            c1741b.k.setVisibility(0);
+            if (item.f65957h > 0) {
+                if (Integer.parseInt(item.f65958i) == 1) {
+                    c1741b.k.setText(g.a(item.f65957h, 1, this.k));
+                } else if (Integer.parseInt(item.f65958i) == 2) {
+                    c1741b.k.setText(g.a(item.f65957h, 2, this.k));
                 } else {
-                    c1684b.j.setVisibility(8);
-                    c1684b.k.setVisibility(8);
+                    c1741b.j.setVisibility(8);
+                    c1741b.k.setVisibility(8);
                 }
             } else {
-                c1684b.j.setVisibility(8);
-                c1684b.k.setVisibility(8);
+                c1741b.j.setVisibility(8);
+                c1741b.k.setVisibility(8);
             }
         }
         b(view);
@@ -291,6 +291,6 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return this.f62249e;
+        return this.f65964e;
     }
 }

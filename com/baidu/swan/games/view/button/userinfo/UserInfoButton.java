@@ -16,7 +16,7 @@ public class UserInfoButton extends ApiButton {
 
         @Override // d.a.l0.h.o0.d.b.c.b
         public void a(JSONObject jSONObject) {
-            UserInfoButton.this.u(jSONObject);
+            UserInfoButton.this.v(jSONObject);
         }
     }
 
@@ -29,10 +29,10 @@ public class UserInfoButton extends ApiButton {
         new c().a(new a());
     }
 
-    public void u(JSONObject jSONObject) {
+    public void v(JSONObject jSONObject) {
         d.a.l0.h.o0.d.b.a aVar = new d.a.l0.h.o0.d.b.a();
         aVar.data = jSONObject;
-        k(aVar);
+        l(aVar);
     }
 
     public UserInfoButton(Context context, EventTargetImpl eventTargetImpl) {

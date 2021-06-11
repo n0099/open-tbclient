@@ -17,10 +17,10 @@ public final class b extends d.a.l0.a.v1.a.a.a {
         String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
         String string4 = params.getString("hostName");
         if (ProcessUtils.isMainProcess()) {
-            if (string != null && (b3 = c.f45762c.b()) != null) {
+            if (string != null && (b3 = c.f49436c.b()) != null) {
                 b3.a(string, string3, string4);
             }
-            if (string2 == null || (b2 = c.f45762c.b()) == null) {
+            if (string2 == null || (b2 = c.f49436c.b()) == null) {
                 return;
             }
             b2.b(string2, string3, string4);

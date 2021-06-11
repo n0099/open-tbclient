@@ -3,7 +3,7 @@ package d.j.a.a;
 import android.content.Context;
 import android.os.Environment;
 import com.meizu.cloud.pushsdk.base.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static void a(String str, String str2) {
         h.b().a(str, str2);

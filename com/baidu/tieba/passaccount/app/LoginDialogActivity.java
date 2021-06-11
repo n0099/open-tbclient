@@ -26,7 +26,7 @@ import d.a.c.e.m.h;
 import d.a.m0.b.d;
 import d.a.m0.r.l.a;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.a {
     public ViewGroup contentView;
     public d.a.n0.c2.c.a dialogControl;
@@ -34,37 +34,37 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
     public String locate;
     public ILoginListener loginListener;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
-    public final a.InterfaceC1141a mReLoginCallback = new a();
+    public final a.InterfaceC1197a mReLoginCallback = new a();
     public String operator;
     public String phoneNum;
     public String searchUrl;
     public String shareModelJSONStr;
     public String sign;
 
-    /* loaded from: classes4.dex */
-    public class a implements a.InterfaceC1141a {
+    /* loaded from: classes5.dex */
+    public class a implements a.InterfaceC1197a {
         public a() {
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void a(String str, int i2, String str2) {
             LoginDialogActivity.this.closeLoadingDialog();
             LoginDialogActivity.this.showToast(str2);
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void b(String str) {
             LoginDialogActivity.this.showLoading();
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void c(AccountData accountData) {
             LoginDialogActivity.this.closeLoadingDialog();
             LoginDialogActivity.this.onLoginSuccess(accountData);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -78,19 +78,19 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f18752e;
+        public final /* synthetic */ AccountData f18829e;
 
         public c(AccountData accountData) {
-            this.f18752e = accountData;
+            this.f18829e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.m0.r.l.c.g(this.f18752e);
+            d.a.m0.r.l.c.g(this.f18829e);
             d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }
@@ -120,7 +120,7 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
         TbadkCoreApplication.getInst().onUserChanged(getIntent());
         finishForResult(-1);
         if (d.f()) {
-            d.a.m0.a.c.y().r();
+            d.a.m0.a.d.y().r();
         }
         continueDoSearchProcess();
     }
@@ -244,10 +244,15 @@ public class LoginDialogActivity extends SuspendedActivity implements d.a.m0.t0.
     }
 
     public void showLoading() {
+        if (getPageContext() == null) {
+            return;
+        }
         if (getLoadingDialog() == null || !getLoadingDialog().c()) {
             showLoadingDialog(getPageContext().getString(R.string.sapi_logining));
-            getLoadingDialog().f(false);
-            getLoadingDialog().g(false);
+            if (getLoadingDialog() != null) {
+                getLoadingDialog().f(false);
+                getLoadingDialog().g(false);
+            }
         }
     }
 }

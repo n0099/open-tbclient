@@ -22,10 +22,10 @@ public class THReceiver extends BroadcastReceiver {
                         new StringBuilder().append(intent.toString());
                         b.a();
                         System.currentTimeMillis();
-                        if (r.f7672a.equals(intent.getStringExtra("t"))) {
+                        if (r.f7715a.equals(intent.getStringExtra("t"))) {
                             String stringExtra = intent.getStringExtra("c");
                             Intent intent2 = new Intent();
-                            intent2.putExtra("t", r.f7672a);
+                            intent2.putExtra("t", r.f7715a);
                             intent2.putExtra("c", stringExtra);
                             a.a(context, intent2);
                         }

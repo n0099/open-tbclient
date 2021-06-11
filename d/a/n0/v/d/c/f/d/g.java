@@ -22,31 +22,31 @@ import d.a.m0.r.q.a2;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f61576a;
+    public TbPageContext<?> f65289a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f61577b;
+    public View f65290b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HeadImageView f61578c;
+    public HeadImageView f65291c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f61579d;
+    public TextView f65292d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f61580e;
+    public TextView f65293e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f61581f;
+    public LinearLayout f65294f;
 
     /* renamed from: g  reason: collision with root package name */
-    public i f61582g;
+    public i f65295g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.v.d.a.c f61583h;
+    public d.a.n0.v.d.a.c f65296h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f61584i = new a();
+    public View.OnClickListener f65297i = new a();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -56,77 +56,77 @@ public class g {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.z()) {
-                if (g.this.f61583h == null || g.this.f61583h.f61417h == null || view != g.this.f61577b || g.this.f61582g == null) {
+                if (g.this.f65296h == null || g.this.f65296h.f65130h == null || view != g.this.f65290b || g.this.f65295g == null) {
                     return;
                 }
-                g.this.f61582g.a(g.this.f61583h);
+                g.this.f65295g.a(g.this.f65296h);
                 return;
             }
-            l.J(g.this.f61576a.getPageActivity(), g.this.f61576a.getPageActivity().getString(R.string.no_network_guide));
+            l.J(g.this.f65289a.getPageActivity(), g.this.f65289a.getPageActivity().getString(R.string.no_network_guide));
         }
     }
 
     public g(TbPageContext<?> tbPageContext) {
-        this.f61576a = tbPageContext;
+        this.f65289a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.tab_sub_recommend_item_view, (ViewGroup) null);
-        this.f61577b = inflate;
-        this.f61581f = (LinearLayout) inflate.findViewById(R.id.tab_sub_wrapper);
-        this.f61578c = (HeadImageView) this.f61577b.findViewById(R.id.iv_anchor_avatar);
-        this.f61579d = (TextView) this.f61577b.findViewById(R.id.tv_anchor_name);
-        this.f61580e = (TextView) this.f61577b.findViewById(R.id.tv_live_aud_num);
-        this.f61577b.setOnClickListener(this.f61584i);
-        this.f61578c.setBorderWidth(l.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.f61578c.setIsRound(true);
-        this.f61578c.setPlaceHolder(1);
-        this.f61578c.setAutoChangeStyle(true);
-        this.f61578c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f61581f.setLayoutParams(new LinearLayout.LayoutParams((l.k(this.f61576a.getPageActivity()) - (this.f61576a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) / 3, this.f61576a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds366)));
+        this.f65290b = inflate;
+        this.f65294f = (LinearLayout) inflate.findViewById(R.id.tab_sub_wrapper);
+        this.f65291c = (HeadImageView) this.f65290b.findViewById(R.id.iv_anchor_avatar);
+        this.f65292d = (TextView) this.f65290b.findViewById(R.id.tv_anchor_name);
+        this.f65293e = (TextView) this.f65290b.findViewById(R.id.tv_live_aud_num);
+        this.f65290b.setOnClickListener(this.f65297i);
+        this.f65291c.setBorderWidth(l.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.f65291c.setIsRound(true);
+        this.f65291c.setPlaceHolder(1);
+        this.f65291c.setAutoChangeStyle(true);
+        this.f65291c.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f65294f.setLayoutParams(new LinearLayout.LayoutParams((l.k(this.f65289a.getPageActivity()) - (this.f65289a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) / 3, this.f65289a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds366)));
         g(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View e() {
-        return this.f61577b;
+        return this.f65290b;
     }
 
     public void f(d.a.n0.v.d.a.c cVar) {
         a2 a2Var;
-        if (cVar != null && (a2Var = cVar.f61417h) != null && a2Var.T() != null) {
+        if (cVar != null && (a2Var = cVar.f65130h) != null && a2Var.T() != null) {
             e().setVisibility(0);
-            this.f61583h = cVar;
+            this.f65296h = cVar;
             boolean z = cVar.j;
-            cVar.f61417h.T().getUserId();
-            this.f61578c.W(cVar.f61417h.T().getPortrait(), 25, false, false);
-            String name_show = cVar.f61417h.T().getName_show();
+            cVar.f65130h.T().getUserId();
+            this.f65291c.V(cVar.f65130h.T().getPortrait(), 25, false, false);
+            String name_show = cVar.f65130h.T().getName_show();
             if (!StringUtils.isNull(name_show)) {
                 if (k.byteLength(name_show) > 16) {
                     name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, 16, StringHelper.STRING_MORE);
                 }
-                this.f61579d.setText(name_show);
+                this.f65292d.setText(name_show);
             }
-            if (cVar.f61417h.r1() != null) {
-                this.f61580e.setText(String.format(this.f61576a.getPageActivity().getResources().getString(R.string.live_tab_audience_watch_label), StringHelper.numberUniformFormatExtraWithRound(cVar.f61417h.r1().audience_count)));
+            if (cVar.f65130h.s1() != null) {
+                this.f65293e.setText(String.format(this.f65289a.getPageActivity().getResources().getString(R.string.live_tab_audience_watch_label), StringHelper.numberUniformFormatExtraWithRound(cVar.f65130h.s1().audience_count)));
             }
-            g(this.f61576a, TbadkCoreApplication.getInst().getSkinType());
+            g(this.f65289a, TbadkCoreApplication.getInst().getSkinType());
             return;
         }
         e().setVisibility(4);
     }
 
     public void g(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setViewTextColor(this.f61579d, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f61580e, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f65292d, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f65293e, R.color.CAM_X0109);
         if (i2 == 1) {
-            this.f61578c.setBorderColor(this.f61576a.getResources().getColor(R.color.CAM_X0903_1));
+            this.f65291c.setBorderColor(this.f65289a.getResources().getColor(R.color.CAM_X0903_1));
         } else {
-            this.f61578c.setBorderColor(this.f61576a.getResources().getColor(R.color.CAM_X0903));
+            this.f65291c.setBorderColor(this.f65289a.getResources().getColor(R.color.CAM_X0903));
         }
-        Drawable drawable = SkinManager.getDrawable(this.f61576a.getResources(), R.drawable.tab_icon_living_seeding);
-        drawable.setBounds(0, 0, this.f61576a.getResources().getDimensionPixelOffset(R.dimen.tbds18), this.f61576a.getResources().getDimensionPixelOffset(R.dimen.tbds18));
-        this.f61580e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.f61580e.setCompoundDrawablePadding(this.f61576a.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+        Drawable drawable = SkinManager.getDrawable(this.f65289a.getResources(), R.drawable.tab_icon_living_seeding);
+        drawable.setBounds(0, 0, this.f65289a.getResources().getDimensionPixelOffset(R.dimen.tbds18), this.f65289a.getResources().getDimensionPixelOffset(R.dimen.tbds18));
+        this.f65293e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.f65293e.setCompoundDrawablePadding(this.f65289a.getResources().getDimensionPixelOffset(R.dimen.tbds8));
     }
 
     public void h(i iVar) {
-        this.f61582g = iVar;
+        this.f65295g = iVar;
     }
 }

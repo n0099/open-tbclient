@@ -13,10 +13,10 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class ConstrastLoadingView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f6009a;
+    public ImageView f6052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f6010b;
+    public ImageView f6053b;
 
     public ConstrastLoadingView(Context context) {
         super(context);
@@ -25,13 +25,13 @@ public class ConstrastLoadingView extends LinearLayout {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
-        this.f6009a = (ImageView) findViewById(R.id.iv_recog_circle);
-        this.f6010b = (ImageView) findViewById(R.id.iv_recog_logo);
+        this.f6052a = (ImageView) findViewById(R.id.iv_recog_circle);
+        this.f6053b = (ImageView) findViewById(R.id.iv_recog_logo);
         a();
     }
 
     public void clearAnim() {
-        this.f6009a.clearAnimation();
+        this.f6052a.clearAnimation();
         clearAnimation();
         setVisibility(4);
     }
@@ -62,6 +62,6 @@ public class ConstrastLoadingView extends LinearLayout {
     }
 
     private void a() {
-        this.f6009a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
+        this.f6052a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
     }
 }

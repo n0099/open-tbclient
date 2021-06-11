@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.a.b;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PushManager {
     public static final String KEY_PUSH_ID = "pushId";
     public static final String PUSH_ID_PREFERENCE_NAME = "com.meizu.flyme.push";

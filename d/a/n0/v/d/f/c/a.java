@@ -9,40 +9,40 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61711a;
+    public String f65425a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61712b;
+    public String f65426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<a2> f61713c;
+    public List<a2> f65427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61714d;
+    public int f65428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61715e;
+    public int f65429e;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f61711a = jSONObject.optString("head_pic");
+        this.f65425a = jSONObject.optString("head_pic");
         jSONObject.optString("url_type");
-        this.f61712b = jSONObject.optString("url");
-        this.f61714d = jSONObject.optInt("head_type", 0);
-        this.f61715e = jSONObject.optInt("is_set", -1);
+        this.f65426b = jSONObject.optString("url");
+        this.f65428d = jSONObject.optInt("head_type", 0);
+        this.f65429e = jSONObject.optInt("is_set", -1);
         JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f61713c = new ArrayList(optJSONArray.length());
+        this.f65427c = new ArrayList(optJSONArray.length());
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
             if (jSONObject2 != null) {
                 a2 a2Var = new a2();
-                a2Var.T2(jSONObject2);
-                this.f61713c.add(a2Var);
+                a2Var.U2(jSONObject2);
+                this.f65427c.add(a2Var);
             }
         }
     }

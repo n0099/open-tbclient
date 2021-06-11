@@ -13,7 +13,7 @@ public abstract class a {
     }
 
     @WorkerThread
-    public void c(@NonNull a.C1078a c1078a) {
+    public void c(@NonNull a.C1134a c1134a) {
     }
 
     public abstract void d();

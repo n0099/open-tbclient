@@ -44,17 +44,20 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f40071e;
+        public final /* synthetic */ ViewGroup.LayoutParams f43752e;
 
         public a(ViewGroup.LayoutParams layoutParams) {
-            this.f40071e = layoutParams;
+            this.f43752e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f40071e.width = t0.this.j.getWidth();
-            this.f40071e.height = (t0.this.j.getWidth() / 16) * 9;
-            t0.this.m.setLayoutParams(this.f40071e);
+            d.a.m0.r.q.a aVar = t0.this.l;
+            if (aVar != null && aVar.i().x1().is_vertical.intValue() != 1) {
+                this.f43752e.width = t0.this.j.getWidth();
+                this.f43752e.height = (t0.this.j.getWidth() / 16) * 9;
+            }
+            t0.this.m.setLayoutParams(this.f43752e);
         }
     }
 
@@ -68,19 +71,19 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
             t0 t0Var;
             d.a.m0.r.q.a aVar;
             if (d.a.m0.b.d.K() && (aVar = (t0Var = t0.this).l) != null) {
-                d.a.m0.z0.t.a(false, t0Var.f40008f, aVar.m(), t0.this.o);
+                d.a.m0.z0.t.a(false, t0Var.f43689f, aVar.i(), t0.this.o);
             } else if (d.a.m0.b.d.M()) {
                 d.a.m0.r.q.a aVar2 = t0.this.l;
-                if (aVar2 == null || aVar2.m() == null) {
+                if (aVar2 == null || aVar2.i() == null) {
                     return;
                 }
                 t0 t0Var2 = t0.this;
-                d.a.m0.z0.t.f(false, t0Var2.f40008f, t0Var2.l.m(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", t0.this.o, t0.this.o);
+                d.a.m0.z0.t.f(false, t0Var2.f43689f, t0Var2.l.i(), 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", t0.this.o, t0.this.o);
             } else {
                 t0 t0Var3 = t0.this;
-                a.InterfaceC0542a interfaceC0542a = t0Var3.f40011i;
-                if (interfaceC0542a != null) {
-                    interfaceC0542a.a(t0Var3.l);
+                a.InterfaceC0598a interfaceC0598a = t0Var3.f43692i;
+                if (interfaceC0598a != null) {
+                    interfaceC0598a.a(t0Var3.l);
                 }
             }
         }
@@ -94,9 +97,9 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             t0 t0Var = t0.this;
-            a.InterfaceC0542a interfaceC0542a = t0Var.f40011i;
-            if (interfaceC0542a != null) {
-                interfaceC0542a.a(t0Var.l);
+            a.InterfaceC0598a interfaceC0598a = t0Var.f43692i;
+            if (interfaceC0598a != null) {
+                interfaceC0598a.a(t0Var.l);
             }
         }
     }
@@ -120,40 +123,40 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0544a c0544a) {
-            if (c0544a.b() == 1) {
+        public boolean a(a.C0600a c0600a) {
+            if (c0600a.b() == 1) {
                 t0 t0Var = t0.this;
-                d.a.n0.z.m.l(t0Var.k, t0Var.l.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.n0.z.m.l(t0Var.k, t0Var.l.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
-            } else if (c0544a.b() == 2) {
+            } else if (c0600a.b() == 2) {
                 d.a.n0.k2.q.a aVar = t0.this.n;
                 if (aVar != null) {
-                    aVar.l0();
+                    aVar.o0();
                     return false;
                 }
                 return false;
-            } else if (c0544a.b() == 3) {
+            } else if (c0600a.b() == 3) {
                 d.a.n0.k2.q.a aVar2 = t0.this.n;
                 if (aVar2 != null) {
-                    aVar2.c0();
+                    aVar2.f0();
                     return false;
                 }
                 return false;
-            } else if (c0544a.b() == 6) {
+            } else if (c0600a.b() == 6) {
                 d.a.n0.k2.q.a aVar3 = t0.this.n;
                 if (aVar3 != null) {
                     return aVar3.D();
                 }
                 return false;
-            } else if (c0544a.b() == 7) {
+            } else if (c0600a.b() == 7) {
                 RoundCornerFrameLayout roundCornerFrameLayout = t0.this.m;
                 if (roundCornerFrameLayout != null) {
-                    roundCornerFrameLayout.d(((Boolean) c0544a.c()).booleanValue());
+                    roundCornerFrameLayout.d(((Boolean) c0600a.c()).booleanValue());
                     return false;
                 }
                 return false;
-            } else if (c0544a.b() == 8 && t0.this.n != null && (c0544a.c() instanceof Boolean)) {
-                return t0.this.n.o0(((Boolean) c0544a.c()).booleanValue());
+            } else if (c0600a.b() == 8 && t0.this.n != null && (c0600a.c() instanceof Boolean)) {
+                return t0.this.n.r0(((Boolean) c0600a.c()).booleanValue());
             } else {
                 return false;
             }
@@ -191,7 +194,7 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
     @Override // d.a.i.a
     public View g() {
         if (this.j == null) {
-            View inflate = LayoutInflater.from(this.f40008f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f43689f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
             this.j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
             this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
@@ -213,10 +216,10 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
     @Override // d.a.n0.k2.e
     public String getPlayUrl() {
         d.a.m0.r.q.a aVar = this.l;
-        if (aVar == null || aVar.m() == null) {
+        if (aVar == null || aVar.i() == null) {
             return null;
         }
-        return this.l.m().getVideoUrl();
+        return this.l.i().getVideoUrl();
     }
 
     @Override // d.a.n0.k2.e
@@ -247,10 +250,10 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         d.a.m0.r.q.a aVar = this.l;
-        if (aVar == null || aVar.m() == null) {
+        if (aVar == null || aVar.i() == null) {
             return;
         }
-        d.a.n0.z.m.l(this.k, this.l.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        d.a.n0.z.m.l(this.k, this.l.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.c(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }
@@ -292,19 +295,19 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
             this.r = k;
         }
         this.l = aVar;
-        if (aVar == null || aVar.m() == null || this.l.m().w1() == null) {
+        if (aVar == null || aVar.i() == null || this.l.i().x1() == null) {
             return;
         }
-        this.n.setData(aVar.m());
+        this.n.setData(aVar.i());
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
         int i3 = layoutParams.width;
         int i4 = layoutParams.height;
         boolean z3 = false;
-        if (this.l.m().w1().is_vertical.intValue() == 1) {
+        if (this.l.i().x1().is_vertical.intValue() == 1) {
             int i5 = (A / 9) * 16;
             int i6 = B;
-            int intValue = this.l.m().w1().video_width.intValue();
-            int intValue2 = this.l.m().w1().video_height.intValue();
+            int intValue = this.l.i().x1().video_width.intValue();
+            int intValue2 = this.l.i().x1().video_height.intValue();
             int i7 = A;
             layoutParams.width = i7;
             boolean z4 = i3 != i7;
@@ -327,23 +330,23 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
             z2 = (i4 == i10 && i3 == i9) ? false : true;
         }
         if (z2) {
-            if (this.l.m().w1().is_vertical.intValue() == 1) {
+            if (this.l.i().x1().is_vertical.intValue() == 1) {
                 this.m.setLayoutParams(layoutParams);
             } else {
                 this.m.post(new a(layoutParams));
             }
         }
-        if (this.l.m().S1()) {
+        if (this.l.i().T1()) {
             this.k.setMaxLines(5);
-            ThreadCardUtils.setTitle(this.k, this.l.m(), z, this.s);
+            ThreadCardUtils.setTitle(this.k, this.l.i(), z, this.s);
         } else {
             this.k.setMaxLines(2);
-            ThreadCardUtils.setTitle(this.k, this.l.m(), z, 2, this.s);
+            ThreadCardUtils.setTitle(this.k, this.l.i(), z, 2, this.s);
         }
         TextView textView = this.k;
         ThreadCardUtils.dealMainViewTopMargin(this.m, (textView == null || textView.getVisibility() != 0) ? true : true, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-        if (this.f40011i != null) {
-            this.n.r0(this.u);
+        if (this.f43692i != null) {
+            this.n.u0(this.u);
         }
         if (d() != null) {
             this.n.setAfterClickListener(this.v);
@@ -362,7 +365,7 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
 
     @Override // d.a.n0.k2.e
     public void startPlay() {
-        Context context = this.f40008f;
+        Context context = this.f43689f;
         if ((context instanceof IVideoNeedPreload) && ((IVideoNeedPreload) context).videoNeedPreload()) {
             this.n.startPlay();
         }
@@ -384,8 +387,8 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
         }
     }
 
-    public void v(a.InterfaceC0542a interfaceC0542a) {
-        this.f40011i = interfaceC0542a;
+    public void v(a.InterfaceC0598a interfaceC0598a) {
+        this.f43692i = interfaceC0598a;
     }
 
     public void w(boolean z2) {
@@ -407,7 +410,7 @@ public abstract class t0 extends d.a.i.a<d.a.m0.r.q.a> implements d.a.n0.k2.e {
     public void z(d.a.n0.k2.o oVar) {
         d.a.n0.k2.q.a aVar = this.n;
         if (aVar != null) {
-            aVar.k0(oVar);
+            aVar.n0(oVar);
         }
     }
 }

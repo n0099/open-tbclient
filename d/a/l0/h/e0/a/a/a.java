@@ -14,24 +14,24 @@ import d.a.l0.a.h0.g.g;
 public abstract class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f47312c;
+    public final String f50986c;
 
     public a(e eVar, String str, String str2) {
         super(eVar, str);
-        this.f47312c = str2;
+        this.f50986c = str2;
     }
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
         g W = f.V().W();
         if (W == null) {
-            d.b(this.f47312c, "fragment manager is null");
+            d.b(this.f50986c, "fragment manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         d.a.l0.h.e0.a.b.b bVar = (d.a.l0.h.e0.a.b.b) W.n(d.a.l0.h.n.a.class);
         if (bVar == null) {
-            d.b(this.f47312c, "fragment is null");
+            d.b(this.f50986c, "fragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }

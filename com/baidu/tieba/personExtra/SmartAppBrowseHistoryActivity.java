@@ -58,7 +58,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             } else if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
                 SmartAppBrowseHistoryActivity.this.dealNoDataView(ListUtils.isEmpty(aVar.a()));
                 SmartAppBrowseHistoryActivity.this.dealNoMoreDataView(ListUtils.getCount(aVar.a()));
-                SmartAppBrowseHistoryActivity.this.mAdapter.h(aVar.a());
+                SmartAppBrowseHistoryActivity.this.mAdapter.l(aVar.a());
                 SmartAppBrowseHistoryActivity.this.mAdapter.notifyDataSetChanged();
             }
         }
@@ -72,7 +72,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         @Override // d.a.n0.i2.i.b
         public void a(String str) {
             if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
-                SmartAppBrowseHistoryActivity.this.mAdapter.g(str);
+                SmartAppBrowseHistoryActivity.this.mAdapter.k(str);
                 if (SmartAppBrowseHistoryActivity.this.mAdapter.getItemCount() == 0) {
                     SmartAppBrowseHistoryActivity.this.dealNoDataView(true);
                 }
@@ -106,7 +106,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                 statisticItem.param("obj_param1", smartApp.is_game.intValue());
                 TiebaStatic.log(statisticItem);
                 if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
-                    SmartAppBrowseHistoryActivity.this.mAdapter.d(smartApp);
+                    SmartAppBrowseHistoryActivity.this.mAdapter.h(smartApp);
                 }
             }
         }
@@ -226,8 +226,8 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         SmartAppBrowseHistoryAdapter smartAppBrowseHistoryAdapter = new SmartAppBrowseHistoryAdapter(getActivity());
         this.mAdapter = smartAppBrowseHistoryAdapter;
-        smartAppBrowseHistoryAdapter.i(this.mOnItemClickListener);
-        this.mAdapter.j(this.mOnLongClickListener);
+        smartAppBrowseHistoryAdapter.m(this.mOnItemClickListener);
+        this.mAdapter.n(this.mOnLongClickListener);
         this.mRecyclerView.setAdapter(this.mAdapter);
         this.mNoMoreDataView = new TextView(getActivity());
         this.mNoMoreDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, d.a.c.e.p.l.g(getActivity(), R.dimen.tbds182)));

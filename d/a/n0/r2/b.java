@@ -46,28 +46,28 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f59939f;
+    public static b f63630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f59940g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
+    public static final String f63631g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f59941h = 0;
+    public static int f63632h = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59943b;
+    public String f63634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f59944c;
+    public Map<String, String> f63635c;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f59942a = false;
+    public boolean f63633a = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f59945d = new a(2001371);
+    public CustomMessageListener f63636d = new a(2001371);
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.c.c.g.a f59946e = new C1566b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
+    public d.a.c.c.g.a f63637e = new C1622b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -78,10 +78,10 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || b.this.f59942a) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || b.this.f63633a) {
                 return;
             }
-            b.this.f59942a = true;
+            b.this.f63633a = true;
             if (QuickWebViewSwitch.getInOn()) {
                 if (!TbSingleton.getInstance().isUploadOffPack() && !TbSingleton.getInstance().isClearOffPack()) {
                     f fVar = new f();
@@ -98,8 +98,8 @@ public class b {
 
     /* renamed from: d.a.n0.r2.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1566b extends d.a.c.c.g.a {
-        public C1566b(b bVar, int i2, int i3) {
+    public class C1622b extends d.a.c.c.g.a {
+        public C1622b(b bVar, int i2, int i3) {
             super(i2, i3);
         }
 
@@ -149,10 +149,10 @@ public class b {
     public class c extends BdAsyncTask<Void, Void, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f59948a;
+        public NetWork f63639a;
 
         public c() {
-            this.f59948a = null;
+            this.f63639a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -165,12 +165,12 @@ public class b {
                 return null;
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
-            this.f59948a = netWork;
+            this.f63639a = netWork;
             netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-            this.f59948a.addPostData("mod_name", modName);
-            this.f59948a.addPostData("status", A.f59957a ? "1" : "2");
-            this.f59948a.addPostData("fail_reason", A.f59957a ? "" : A.f59958b);
-            this.f59948a.postNetData();
+            this.f63639a.addPostData("mod_name", modName);
+            this.f63639a.addPostData("status", A.f63648a ? "1" : "2");
+            this.f63639a.addPostData("fail_reason", A.f63648a ? "" : A.f63649b);
+            this.f63639a.postNetData();
             return null;
         }
 
@@ -191,38 +191,38 @@ public class b {
     public static class d extends BdAsyncTask<Void, Void, h> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f59950a;
+        public final String f63641a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d.a.n0.r2.e.a f59951b;
+        public final d.a.n0.r2.e.a f63642b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f59952c;
+        public final String f63643c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f59953d;
+        public final String f63644d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f59954e;
+        public final String f63645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f59955f;
+        public final boolean f63646f;
 
         /* renamed from: g  reason: collision with root package name */
-        public NetWork f59956g;
+        public NetWork f63647g;
 
         public d(String str, d.a.n0.r2.e.a aVar, boolean z) {
-            this.f59950a = str;
-            this.f59951b = aVar;
-            this.f59953d = aVar.c();
-            this.f59952c = this.f59951b.a();
-            this.f59954e = this.f59951b.b();
-            this.f59955f = z;
+            this.f63641a = str;
+            this.f63642b = aVar;
+            this.f63644d = aVar.c();
+            this.f63643c = this.f63642b.a();
+            this.f63645e = this.f63642b.b();
+            this.f63646f = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:29:0x015c  */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x01b2  */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x01b3  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         /*
@@ -234,30 +234,30 @@ public class b {
             InputStream inputStream;
             FileInputStream fileInputStream;
             String str;
-            b.m(this.f59950a);
-            b.q().k(this.f59950a);
-            if (this.f59955f) {
-                if (!TextUtils.isEmpty(b.q().s(this.f59950a))) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.f59950a).param("obj_id", this.f59953d));
+            b.m(this.f63641a);
+            b.q().k(this.f63641a);
+            if (this.f63646f) {
+                if (!TextUtils.isEmpty(b.q().s(this.f63641a))) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.f63641a).param("obj_id", this.f63644d));
                 }
                 return null;
             }
             NetWork netWork = new NetWork();
-            this.f59956g = netWork;
-            netWork.setUrl(this.f59952c);
-            new File(b.f59940g + "bdtbWCacheTemp/" + this.f59950a + "/").mkdirs();
-            String str2 = b.f59940g + "bdtbWCacheTemp/" + this.f59950a + "/bdtbNWCache.zip";
-            if (this.f59956g.downloadFile(str2, null, 0, 3, 0, true)) {
+            this.f63647g = netWork;
+            netWork.setUrl(this.f63643c);
+            new File(b.f63631g + "bdtbWCacheTemp/" + this.f63641a + "/").mkdirs();
+            String str2 = b.f63631g + "bdtbWCacheTemp/" + this.f63641a + "/bdtbNWCache.zip";
+            if (this.f63647g.downloadFile(str2, null, 0, 3, 0, true)) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "1"));
                 try {
                     try {
                         fileInputStream = new FileInputStream(str2);
                         try {
                             String b2 = q.b(fileInputStream);
-                            if (StringUtils.isNull(b2) || !b2.toLowerCase().equals(this.f59954e.toLowerCase())) {
-                                b.f59941h = 2;
-                                d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f59950a, "hybridResult", "md5 error");
-                                b.m(this.f59950a);
+                            if (StringUtils.isNull(b2) || !b2.toLowerCase().equals(this.f63645e.toLowerCase())) {
+                                b.f63632h = 2;
+                                d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f63641a, "hybridResult", "md5 error");
+                                b.m(this.f63641a);
                                 m.e(fileInputStream);
                                 return null;
                             }
@@ -265,17 +265,17 @@ public class b {
                             e = e2;
                             e.printStackTrace();
                             m.e(fileInputStream);
-                            str = b.f59940g + "bdtbWCacheTemp/" + this.f59950a + "/" + this.f59953d + "/";
+                            str = b.f63631g + "bdtbWCacheTemp/" + this.f63641a + "/" + this.f63644d + "/";
                             new File(str).mkdirs();
                             if (!r.b(str2, str)) {
                             }
-                            b.m(this.f59950a);
-                            r = b.r(this.f59950a, this.f59953d);
+                            b.m(this.f63641a);
+                            r = b.r(this.f63641a, this.f63644d);
                             if (r == null) {
                             }
-                            b.f59941h = 5;
-                            d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f59950a, "hybridResult", "bundle incomplete");
-                            b.q().k(this.f59950a);
+                            b.f63632h = 5;
+                            d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f63641a, "hybridResult", "bundle incomplete");
+                            b.q().k(this.f63641a);
                             return null;
                         }
                     } catch (Throwable th) {
@@ -294,33 +294,33 @@ public class b {
                     throw th;
                 }
                 m.e(fileInputStream);
-                str = b.f59940g + "bdtbWCacheTemp/" + this.f59950a + "/" + this.f59953d + "/";
+                str = b.f63631g + "bdtbWCacheTemp/" + this.f63641a + "/" + this.f63644d + "/";
                 new File(str).mkdirs();
                 if (!r.b(str2, str)) {
-                    String str3 = b.f59940g + "bdtbNWCache/" + this.f59950a + "/" + this.f59953d + "/";
+                    String str3 = b.f63631g + "bdtbNWCache/" + this.f63641a + "/" + this.f63644d + "/";
                     new File(str3).mkdirs();
                     if (!FileHelper.CopyDir(str, str3, true)) {
-                        b.f59941h = 4;
-                        d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f59950a, "hybridResult", "write error");
+                        b.f63632h = 4;
+                        d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f63641a, "hybridResult", "write error");
                     }
                 } else {
-                    b.f59941h = 3;
-                    d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f59950a, "hybridResult", "unzip error");
+                    b.f63632h = 3;
+                    d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f63641a, "hybridResult", "unzip error");
                 }
             } else {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
-                b.f59941h = 1;
-                d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f59950a, "hybridResult", "download error");
+                b.f63632h = 1;
+                d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f63641a, "hybridResult", "download error");
             }
-            b.m(this.f59950a);
-            r = b.r(this.f59950a, this.f59953d);
-            if (r == null && !TextUtils.isEmpty(r.f59962a) && (hashMap = r.f59963b) != null && hashMap.size() != 0) {
-                b.l(r.f59964c, this.f59950a);
+            b.m(this.f63641a);
+            r = b.r(this.f63641a, this.f63644d);
+            if (r == null && !TextUtils.isEmpty(r.f63653a) && (hashMap = r.f63654b) != null && hashMap.size() != 0) {
+                b.l(r.f63655c, this.f63641a);
                 return r;
             }
-            b.f59941h = 5;
-            d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f59950a, "hybridResult", "bundle incomplete");
-            b.q().k(this.f59950a);
+            b.f63632h = 5;
+            d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f63641a, "hybridResult", "bundle incomplete");
+            b.q().k(this.f63641a);
             return null;
         }
 
@@ -330,16 +330,16 @@ public class b {
         public void onPostExecute(h hVar) {
             super.onPostExecute(hVar);
             if (hVar != null) {
-                b.q().z(this.f59950a, hVar.f59964c);
+                b.q().z(this.f63641a, hVar.f63655c);
                 b.q().y();
-                d.a.n0.r2.c.a().h(this.f59950a, hVar.f59963b);
-                d.a.n0.r2.c.a().f(true, this.f59950a);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.f59950a).param("obj_id", hVar.f59964c));
+                d.a.n0.r2.c.a().h(this.f63641a, hVar.f63654b);
+                d.a.n0.r2.c.a().f(true, this.f63641a);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.f63641a).param("obj_id", hVar.f63655c));
                 return;
             }
-            b.q().j(this.f59950a);
+            b.q().j(this.f63641a);
             b.q().y();
-            d.a.n0.r2.c.a().d(this.f59950a);
+            d.a.n0.r2.c.a().d(this.f63641a);
         }
     }
 
@@ -347,10 +347,10 @@ public class b {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f59957a;
+        public boolean f63648a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59958b;
+        public String f63649b;
     }
 
     /* loaded from: classes5.dex */
@@ -366,18 +366,18 @@ public class b {
             g gVar = new g(null);
             for (String str : b.q().t()) {
                 h r = b.r(str, b.q().s(str));
-                if (r != null && !TextUtils.isEmpty(r.f59962a) && (hashMap = r.f59963b) != null && hashMap.size() != 0) {
-                    if (gVar.f59960a == null) {
-                        gVar.f59960a = new HashMap();
+                if (r != null && !TextUtils.isEmpty(r.f63653a) && (hashMap = r.f63654b) != null && hashMap.size() != 0) {
+                    if (gVar.f63651a == null) {
+                        gVar.f63651a = new HashMap();
                     }
-                    gVar.f59960a.put(str, r);
-                    if (gVar.f59961b == null) {
-                        gVar.f59961b = new HashMap<>();
+                    gVar.f63651a.put(str, r);
+                    if (gVar.f63652b == null) {
+                        gVar.f63652b = new HashMap<>();
                     }
-                    gVar.f59961b.putAll(r.f59963b);
-                    b.l(r.f59964c, str);
+                    gVar.f63652b.putAll(r.f63654b);
+                    b.l(r.f63655c, str);
                 } else {
-                    b.f59941h = 5;
+                    b.f63632h = 5;
                     d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", str, "hybridResult", "bundle incomplete");
                     b.this.k(str);
                 }
@@ -392,7 +392,7 @@ public class b {
             if (gVar == null) {
                 d.a.m0.r.z.a.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
             } else {
-                d.a.n0.r2.c.a().g(gVar.f59961b);
+                d.a.n0.r2.c.a().g(gVar.f63652b);
             }
             MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
         }
@@ -402,10 +402,10 @@ public class b {
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, h> f59960a;
+        public Map<String, h> f63651a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, d.a.n0.r2.d.a> f59961b;
+        public HashMap<String, d.a.n0.r2.d.a> f63652b;
 
         public g() {
         }
@@ -419,13 +419,13 @@ public class b {
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f59962a;
+        public String f63653a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, d.a.n0.r2.d.a> f59963b;
+        public HashMap<String, d.a.n0.r2.d.a> f63654b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f59964c;
+        public String f63655c;
 
         public h() {
         }
@@ -444,7 +444,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        String str3 = f59940g + "bdtbNWCache/" + str2;
+        String str3 = f63631g + "bdtbNWCache/" + str2;
         File file = new File(str3);
         if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
             return;
@@ -460,7 +460,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        FileHelper.deleteFileOrDir(new File(f59940g + "bdtbWCacheTemp/" + str));
+        FileHelper.deleteFileOrDir(new File(f63631g + "bdtbWCacheTemp/" + str));
     }
 
     public static void o(String str, d.a.n0.r2.e.a aVar) {
@@ -484,25 +484,25 @@ public class b {
     }
 
     public static b q() {
-        if (f59939f == null) {
+        if (f63630f == null) {
             synchronized (b.class) {
-                if (f59939f == null) {
-                    f59939f = new b();
+                if (f63630f == null) {
+                    f63630f = new b();
                 }
             }
         }
-        return f59939f;
+        return f63630f;
     }
 
     public static h r(String str, String str2) {
         FileInputStream fileInputStream;
-        File file = new File(f59940g + "bdtbNWCache");
+        File file = new File(f63631g + "bdtbNWCache");
         FileInputStream fileInputStream2 = null;
         if (file.exists() && !TextUtils.isEmpty(str2)) {
             h hVar = new h(null);
             File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
-            hVar.f59962a = file.getAbsolutePath();
-            hVar.f59964c = str2;
+            hVar.f63653a = file.getAbsolutePath();
+            hVar.f63655c = str2;
             File file3 = new File(file2, "router.json");
             if (file3.exists()) {
                 try {
@@ -515,7 +515,7 @@ public class b {
                     th = th;
                 }
                 try {
-                    hVar.f59963b = x(fileInputStream);
+                    hVar.f63654b = x(fileInputStream);
                     m.e(fileInputStream);
                 } catch (FileNotFoundException e3) {
                     e = e3;
@@ -655,10 +655,10 @@ public class b {
                         }
                     }
                     d.a.n0.r2.d.a aVar = new d.a.n0.r2.d.a();
-                    aVar.f59967a = arrayList;
-                    aVar.f59968b = optString;
-                    aVar.f59969c = optString2;
-                    aVar.f59970d = arrayList2;
+                    aVar.f63658a = arrayList;
+                    aVar.f63659b = optString;
+                    aVar.f63660c = optString2;
+                    aVar.f63661d = arrayList2;
                     hashMap.put(next, aVar);
                     optJSONObject = jSONObject2;
                 }
@@ -677,23 +677,23 @@ public class b {
     public final e A(String str) {
         e eVar = new e();
         if (TextUtils.isEmpty(str)) {
-            eVar.f59958b = "module not exit";
+            eVar.f63649b = "module not exit";
             return eVar;
         }
-        File file = new File(f59940g + "bdtbNWCache", str);
+        File file = new File(f63631g + "bdtbNWCache", str);
         String s = q().s(str);
         if (TbSingleton.getInstance().isUploadOffPack()) {
-            eVar.f59957a = false;
+            eVar.f63648a = false;
             if (!file.exists()) {
-                eVar.f59958b = "bundle not exist";
+                eVar.f63649b = "bundle not exist";
                 return eVar;
             } else if (TextUtils.isEmpty(s)) {
-                eVar.f59958b = "the local has no valid version name";
+                eVar.f63649b = "the local has no valid version name";
                 return eVar;
             } else {
                 String str2 = file.getAbsolutePath() + "/" + s + "/";
                 if (!new File(str2).exists()) {
-                    eVar.f59958b = "bundle not exist";
+                    eVar.f63649b = "bundle not exist";
                     return eVar;
                 }
                 String str3 = file.getAbsolutePath() + "/" + s + ".zip";
@@ -708,16 +708,16 @@ public class b {
                     netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
                     netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
                     v(netWork.uploadFile("offline_pack_file_stream", str3), eVar);
-                    if (!eVar.f59957a) {
+                    if (!eVar.f63648a) {
                         return eVar;
                     }
                 } else {
-                    eVar.f59958b = "zip bundle error";
+                    eVar.f63649b = "zip bundle error";
                     return eVar;
                 }
             }
         } else {
-            eVar.f59957a = true;
+            eVar.f63648a = true;
         }
         if (TbSingleton.getInstance().isClearOffPack()) {
             k(str);
@@ -727,33 +727,33 @@ public class b {
             if (!file.exists() || StringUtils.isNull(s) || !new File(file.getAbsolutePath(), s).exists()) {
                 return eVar;
             }
-            eVar.f59958b = "delete fail";
-            eVar.f59957a = false;
+            eVar.f63649b = "delete fail";
+            eVar.f63648a = false;
         }
         return eVar;
     }
 
     public JSONObject B() {
-        Map<String, String> map = this.f59944c;
+        Map<String, String> map = this.f63635c;
         if (map == null || map.isEmpty()) {
             return null;
         }
-        return new JSONObject(this.f59944c);
+        return new JSONObject(this.f63635c);
     }
 
     public String C() {
-        Map<String, String> map = this.f59944c;
+        Map<String, String> map = this.f63635c;
         if (map == null || map.isEmpty()) {
             return null;
         }
-        return new JSONObject(this.f59944c).toString();
+        return new JSONObject(this.f63635c).toString();
     }
 
     public void i() {
         String[] list;
         n();
         d.a.m0.r.d0.b.j().x("pref_key_quick_webview_versions", "");
-        String str = f59940g + "bdtbNWCache";
+        String str = f63631g + "bdtbNWCache";
         File file = new File(str);
         if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
             return;
@@ -767,7 +767,7 @@ public class b {
 
     public void j(String str) {
         Map<String, String> map;
-        if (TextUtils.isEmpty(str) || (map = this.f59944c) == null) {
+        if (TextUtils.isEmpty(str) || (map = this.f63635c) == null) {
             return;
         }
         map.remove(str);
@@ -779,56 +779,56 @@ public class b {
         }
         j(str);
         d.a.m0.r.d0.b.j().x("pref_key_quick_webview_versions", C());
-        File file = new File(f59940g + "bdtbNWCache/" + str);
+        File file = new File(f63631g + "bdtbNWCache/" + str);
         if (file.exists() && file.isDirectory()) {
             FileHelper.deleteFileOrDir(file);
         }
     }
 
     public void n() {
-        if (this.f59944c == null) {
-            this.f59944c = new ConcurrentHashMap();
+        if (this.f63635c == null) {
+            this.f63635c = new ConcurrentHashMap();
         }
-        this.f59944c.clear();
+        this.f63635c.clear();
     }
 
     public String p() {
-        return this.f59943b;
+        return this.f63634b;
     }
 
     public String s(String str) {
-        if (this.f59944c == null || TextUtils.isEmpty(str)) {
+        if (this.f63635c == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.f59944c.get(str);
+        return this.f63635c.get(str);
     }
 
     public Set<String> t() {
-        if (this.f59944c == null) {
-            this.f59944c = new ConcurrentHashMap();
+        if (this.f63635c == null) {
+            this.f63635c = new ConcurrentHashMap();
         }
-        return this.f59944c.keySet();
+        return this.f63635c.keySet();
     }
 
     public void u() {
         System.currentTimeMillis();
-        MessageManager.getInstance().registerListener(this.f59946e);
-        MessageManager.getInstance().registerListener(this.f59945d);
-        this.f59943b = new File(f59940g + "bdtbNWCache").getAbsolutePath();
+        MessageManager.getInstance().registerListener(this.f63637e);
+        MessageManager.getInstance().registerListener(this.f63636d);
+        this.f63634b = new File(f63631g + "bdtbNWCache").getAbsolutePath();
         w(d.a.m0.r.d0.b.j().p("pref_key_quick_webview_versions", ""));
     }
 
     public final e v(String str, e eVar) {
         if (StringUtils.isNull(str)) {
-            eVar.f59958b = "serve return is null";
+            eVar.f63649b = "serve return is null";
             return eVar;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            eVar.f59957a = jSONObject.optInt("error_code") == 0;
-            eVar.f59958b = jSONObject.optString("error_msg");
+            eVar.f63648a = jSONObject.optInt("error_code") == 0;
+            eVar.f63649b = jSONObject.optString("error_msg");
         } catch (JSONException e2) {
-            eVar.f59958b = "parse json exception";
+            eVar.f63649b = "parse json exception";
             BdLog.e(e2);
         }
         return eVar;
@@ -848,10 +848,10 @@ public class b {
                 String next = keys.next();
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
-                    if (this.f59944c == null) {
-                        this.f59944c = new ConcurrentHashMap();
+                    if (this.f63635c == null) {
+                        this.f63635c = new ConcurrentHashMap();
                     }
-                    this.f59944c.put(next, optString);
+                    this.f63635c.put(next, optString);
                 }
             }
         } catch (JSONException e2) {
@@ -871,9 +871,9 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.f59944c == null) {
-            this.f59944c = new ConcurrentHashMap();
+        if (this.f63635c == null) {
+            this.f63635c = new ConcurrentHashMap();
         }
-        this.f59944c.put(str, str2);
+        this.f63635c.put(str, str2);
     }
 }

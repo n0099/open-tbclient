@@ -1,5 +1,6 @@
 package d.a.n0.s1.f;
 
+import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -8,36 +9,36 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public g f60537a = new g();
+    public g f64228a = new g();
 
     /* renamed from: b  reason: collision with root package name */
-    public b f60538b = new b();
+    public b f64229b = new b();
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d> f60539a = new ArrayList();
+        public List<d> f64230a = new ArrayList();
 
         /* renamed from: b  reason: collision with root package name */
-        public List<C1595f> f60540b = new ArrayList();
+        public List<C1651f> f64231b = new ArrayList();
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60541c;
+        public String f64232c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f60542d;
+        public String f64233d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f60543e;
+        public String f64234e;
 
         public void a(JSONObject jSONObject) throws Exception {
             if (jSONObject == null) {
                 return;
             }
-            this.f60541c = jSONObject.optString("content");
-            this.f60542d = jSONObject.optString("tip_text");
-            this.f60543e = jSONObject.optString("img");
+            this.f64232c = jSONObject.optString("content");
+            this.f64233d = jSONObject.optString("tip_text");
+            this.f64234e = jSONObject.optString("img");
             JSONArray optJSONArray = jSONObject.optJSONArray("money_info");
             if (optJSONArray == null) {
                 return;
@@ -52,7 +53,7 @@ public class f {
                 } else {
                     dVar.m = false;
                 }
-                this.f60539a.add(dVar);
+                this.f64230a.add(dVar);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("right");
             if (optJSONArray2 == null) {
@@ -60,9 +61,9 @@ public class f {
             }
             int length2 = optJSONArray2.length();
             for (int i3 = 0; i3 < length2; i3++) {
-                C1595f c1595f = new C1595f();
-                c1595f.a(optJSONArray2.optJSONObject(i3));
-                this.f60540b.add(c1595f);
+                C1651f c1651f = new C1651f();
+                c1651f.a(optJSONArray2.optJSONObject(i3));
+                this.f64231b.add(c1651f);
             }
         }
     }
@@ -71,17 +72,17 @@ public class f {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public c f60544a = new c();
+        public c f64235a = new c();
 
         /* renamed from: b  reason: collision with root package name */
-        public a f60545b = new a();
+        public a f64236b = new a();
 
         public void a(JSONObject jSONObject) throws Exception {
             if (jSONObject == null) {
                 return;
             }
-            this.f60544a.a(jSONObject.optJSONObject("member"));
-            this.f60545b.a(jSONObject.optJSONObject("adv_member"));
+            this.f64235a.a(jSONObject.optJSONObject("member"));
+            this.f64236b.a(jSONObject.optJSONObject("adv_member"));
         }
     }
 
@@ -89,27 +90,27 @@ public class f {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d> f60546a = new ArrayList();
+        public List<d> f64237a = new ArrayList();
 
         /* renamed from: b  reason: collision with root package name */
-        public List<C1595f> f60547b = new ArrayList();
+        public List<C1651f> f64238b = new ArrayList();
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60548c;
+        public String f64239c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f60549d;
+        public String f64240d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f60550e;
+        public String f64241e;
 
         public void a(JSONObject jSONObject) throws Exception {
             if (jSONObject == null) {
                 return;
             }
-            this.f60548c = jSONObject.optString("content");
-            this.f60549d = jSONObject.optString("tip_text");
-            this.f60550e = jSONObject.optString("img");
+            this.f64239c = jSONObject.optString("content");
+            this.f64240d = jSONObject.optString("tip_text");
+            this.f64241e = jSONObject.optString("img");
             JSONArray optJSONArray = jSONObject.optJSONArray("money_info");
             if (optJSONArray == null) {
                 return;
@@ -124,7 +125,7 @@ public class f {
                 } else {
                     dVar.m = false;
                 }
-                this.f60546a.add(dVar);
+                this.f64237a.add(dVar);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("right");
             if (optJSONArray2 == null) {
@@ -133,9 +134,9 @@ public class f {
             int length2 = optJSONArray2.length();
             for (int i3 = 0; i3 < length2; i3++) {
                 JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
-                C1595f c1595f = new C1595f();
-                c1595f.a(jSONObject3);
-                this.f60547b.add(c1595f);
+                C1651f c1651f = new C1651f();
+                c1651f.a(jSONObject3);
+                this.f64238b.add(c1651f);
             }
         }
     }
@@ -144,31 +145,31 @@ public class f {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f60551a;
+        public String f64242a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60552b;
+        public String f64243b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60553c;
+        public String f64244c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f60554d;
+        public String f64245d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f60555e;
+        public String f64246e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f60556f;
+        public String f64247f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f60557g;
+        public String f64248g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f60558h;
+        public String f64249h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f60559i;
+        public long f64250i;
         public long j;
         public long k;
         public long l;
@@ -180,21 +181,21 @@ public class f {
             if (jSONObject == null) {
                 return;
             }
-            this.f60551a = jSONObject.optString("productId");
-            this.f60552b = jSONObject.optString("title");
+            this.f64242a = jSONObject.optString("productId");
+            this.f64243b = jSONObject.optString("title");
             jSONObject.optString("desc");
-            this.f60553c = jSONObject.optString("discount");
-            this.f60554d = jSONObject.optString("original_cost");
-            this.f60555e = jSONObject.optString("icon");
-            this.f60559i = jSONObject.optLong("props_id");
+            this.f64244c = jSONObject.optString("discount");
+            this.f64245d = jSONObject.optString("original_cost");
+            this.f64246e = jSONObject.optString("icon");
+            this.f64250i = jSONObject.optLong("props_id");
             this.j = jSONObject.optLong("money");
             this.l = jSONObject.optLong("months");
             this.k = jSONObject.optLong("default");
-            this.f60556f = jSONObject.optString("packet_text");
+            this.f64247f = jSONObject.optString("packet_text");
             this.n = jSONObject.optInt("is_autopay");
             this.o = false;
-            this.f60557g = jSONObject.optString("payment_pos_key");
-            this.f60558h = jSONObject.optString("tag_name");
+            this.f64248g = jSONObject.optString("payment_pos_key");
+            this.f64249h = jSONObject.optString("tag_name");
         }
     }
 
@@ -202,25 +203,25 @@ public class f {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f60560a;
+        public long f64251a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60561b;
+        public String f64252b;
 
         public void a(JSONObject jSONObject) throws Exception {
             if (jSONObject == null) {
                 return;
             }
-            this.f60560a = jSONObject.optLong("props_id");
-            jSONObject.optLong("end_time");
-            this.f60561b = jSONObject.optString("pic_url");
+            this.f64251a = jSONObject.optLong("props_id");
+            jSONObject.optLong(ResultTB.ENDTIME);
+            this.f64252b = jSONObject.optString("pic_url");
             jSONObject.optLong("upgrade_month");
         }
     }
 
     /* renamed from: d.a.n0.s1.f.f$f  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1595f {
+    public static class C1651f {
         public void a(JSONObject jSONObject) throws Exception {
             if (jSONObject == null) {
                 return;
@@ -234,13 +235,13 @@ public class f {
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f60562a;
+        public String f64253a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60563b;
+        public String f64254b;
 
         /* renamed from: c  reason: collision with root package name */
-        public e f60564c = new e();
+        public e f64255c = new e();
 
         public void a(JSONObject jSONObject) throws Exception {
             if (jSONObject == null) {
@@ -248,11 +249,11 @@ public class f {
             }
             jSONObject.optLong("id");
             jSONObject.optString("name");
-            this.f60562a = jSONObject.optString("name_show");
-            this.f60563b = jSONObject.optString("portrait");
+            this.f64253a = jSONObject.optString("name_show");
+            this.f64254b = jSONObject.optString("portrait");
             jSONObject.optLong("user_type");
             jSONObject.optLong("is_verify");
-            this.f60564c.a(jSONObject.optJSONObject("pay_member_info"));
+            this.f64255c.a(jSONObject.optJSONObject("pay_member_info"));
         }
     }
 
@@ -261,8 +262,8 @@ public class f {
             return;
         }
         jSONObject.optInt("have_autopay", 0);
-        this.f60537a.a(jSONObject.optJSONObject("user"));
-        this.f60538b.a(jSONObject.optJSONObject("goods_info"));
+        this.f64228a.a(jSONObject.optJSONObject("user"));
+        this.f64229b.a(jSONObject.optJSONObject("goods_info"));
         jSONObject.optString("equal_cost");
     }
 }

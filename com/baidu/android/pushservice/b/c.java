@@ -10,47 +10,47 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2735a;
+    public String f2754a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2736b;
+    public String f2755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2737c;
+    public int f2756c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<e> f2738d;
+    public ArrayList<e> f2757d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<f> f2739e;
+    public ArrayList<f> f2758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2740f;
+    public String f2759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2741g;
+    public String f2760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f2742h;
+    public a f2761h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2743i = 0;
+    public int f2762i = 0;
 
     /* loaded from: classes.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2744a;
+        public int f2763a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2745b;
+        public int f2764b;
 
         public a() {
         }
     }
 
     public c(Context context, String str) {
-        this.f2735a = str;
+        this.f2754a = str;
         a(context, str);
     }
 
@@ -177,73 +177,73 @@ public class c {
     }
 
     public a a() {
-        return this.f2742h;
+        return this.f2761h;
     }
 
     public void a(int i2) {
-        this.f2737c = i2;
+        this.f2756c = i2;
     }
 
     public void a(int i2, int i3) {
         a aVar = new a();
-        this.f2742h = aVar;
-        aVar.f2744a = i2;
-        aVar.f2745b = i3;
+        this.f2761h = aVar;
+        aVar.f2763a = i2;
+        aVar.f2764b = i3;
     }
 
     public void a(String str) {
-        this.f2736b = str;
+        this.f2755b = str;
     }
 
     public void a(ArrayList<e> arrayList) {
-        this.f2738d = arrayList;
+        this.f2757d = arrayList;
     }
 
     public String b() {
-        return this.f2736b;
+        return this.f2755b;
     }
 
     public void b(int i2) {
-        this.f2743i = i2;
+        this.f2762i = i2;
     }
 
     public void b(String str) {
-        this.f2740f = str;
+        this.f2759f = str;
     }
 
     public void b(ArrayList<f> arrayList) {
-        this.f2739e = arrayList;
+        this.f2758e = arrayList;
     }
 
     public int c() {
-        return this.f2737c;
+        return this.f2756c;
     }
 
     public void c(String str) {
-        this.f2741g = str;
+        this.f2760g = str;
     }
 
     public ArrayList<e> d() {
-        return this.f2738d;
+        return this.f2757d;
     }
 
     public ArrayList<f> e() {
-        return this.f2739e;
+        return this.f2758e;
     }
 
     public String f() {
-        return this.f2740f;
+        return this.f2759f;
     }
 
     public String g() {
-        return this.f2741g;
+        return this.f2760g;
     }
 
     public int h() {
-        return this.f2743i;
+        return this.f2762i;
     }
 
     public String toString() {
-        return this.f2735a;
+        return this.f2754a;
     }
 }

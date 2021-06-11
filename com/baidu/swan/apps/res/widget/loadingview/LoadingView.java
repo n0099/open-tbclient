@@ -17,13 +17,13 @@ import d.a.l0.a.z1.b.d.b;
 public class LoadingView extends FrameLayout implements b<LoadingView> {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f11241e;
+    public View f11303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SmoothProgressBar f11242f;
+    public SmoothProgressBar f11304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f11243g;
+    public TextView f11305g;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.g2.a {
@@ -38,9 +38,9 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
 
     public void a() {
         LayoutInflater.from(getContext()).inflate(g.aiapps_loading_layout, (ViewGroup) this, true);
-        this.f11241e = findViewById(f.root_container);
-        this.f11242f = (SmoothProgressBar) findViewById(f.loading_bar);
-        this.f11243g = (TextView) findViewById(f.message);
+        this.f11303e = findViewById(f.root_container);
+        this.f11304f = (SmoothProgressBar) findViewById(f.loading_bar);
+        this.f11305g = (TextView) findViewById(f.message);
         setPageResources();
     }
 
@@ -63,26 +63,26 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     }
 
     public void setMsg(int i2) {
-        this.f11243g.setText(i2);
+        this.f11305g.setText(i2);
     }
 
     public void setPageResources() {
-        View view = this.f11241e;
+        View view = this.f11303e;
         if (view != null) {
             view.setBackground(view.getResources().getDrawable(e.aiapps_loading_bg));
         }
-        SmoothProgressBar smoothProgressBar = this.f11242f;
+        SmoothProgressBar smoothProgressBar = this.f11304f;
         if (smoothProgressBar != null) {
             smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(e.aiapps_loading_progress_animation));
         }
-        TextView textView = this.f11243g;
+        TextView textView = this.f11305g;
         if (textView != null) {
             textView.setTextColor(textView.getResources().getColor(c.aiapps_loading_text_color));
         }
     }
 
     public void setMsg(String str) {
-        this.f11243g.setText(str);
+        this.f11305g.setText(str);
     }
 
     public LoadingView(Context context, AttributeSet attributeSet) {

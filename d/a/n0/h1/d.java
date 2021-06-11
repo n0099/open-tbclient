@@ -52,28 +52,28 @@ public class d {
     public int Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f55398a;
+    public ArrayList<String> f59087a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, ImageUrlData> f55400c;
+    public Map<String, ImageUrlData> f59089c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<AlaInfoData> f55401d;
+    public ArrayList<AlaInfoData> f59090d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55402e;
+    public String f59091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55403f;
+    public String f59092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55404g;
+    public String f59093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f55405h;
+    public String f59094h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f55406i;
+    public String f59095i;
     public String j;
     public String k;
     public boolean l;
@@ -85,7 +85,7 @@ public class d {
     public boolean z;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f55399b = new HashMap<>();
+    public HashMap<String, String> f59088b = new HashMap<>();
     public boolean m = true;
     public a n = null;
     public int o = 0;
@@ -100,41 +100,41 @@ public class d {
     public class a extends BdAsyncTask<Object, Integer, g> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f55407a = null;
+        public NetWork f59096a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f55408b;
+        public String f59097b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f55409c;
+        public String f59098c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f55410d;
+        public int f59099d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f55411e;
+        public int f59100e;
 
         public a(String str, String str2, int i2, int i3) {
-            this.f55408b = null;
-            this.f55409c = null;
-            this.f55410d = 0;
-            this.f55411e = 0;
-            this.f55409c = str2;
-            this.f55408b = str;
-            this.f55410d = i2;
-            this.f55411e = i3;
+            this.f59097b = null;
+            this.f59098c = null;
+            this.f59099d = 0;
+            this.f59100e = 0;
+            this.f59098c = str2;
+            this.f59097b = str;
+            this.f59099d = i2;
+            this.f59100e = i3;
         }
 
         public final void b() {
-            this.f55407a.addPostData("forum_id", d.this.f55405h);
-            this.f55407a.addPostData("user_id", d.this.t == null ? "0" : d.this.t);
-            this.f55407a.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
-            this.f55407a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
-            this.f55407a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-            this.f55407a.addPostData("q_type", String.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
-            this.f55407a.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-            this.f55407a.addPostData("page_name", "PB");
-            this.f55407a.addPostData("pic_index", String.valueOf(d.this.f55398a.size()));
+            this.f59096a.addPostData("forum_id", d.this.f59094h);
+            this.f59096a.addPostData("user_id", d.this.t == null ? "0" : d.this.t);
+            this.f59096a.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+            this.f59096a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
+            this.f59096a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
+            this.f59096a.addPostData("q_type", String.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
+            this.f59096a.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
+            this.f59096a.addPostData("page_name", "PB");
+            this.f59096a.addPostData("pic_index", String.valueOf(d.this.f59087a.size()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -142,45 +142,45 @@ public class d {
         /* renamed from: c */
         public g doInBackground(Object... objArr) {
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.IMAGE_PB_ADDRESS);
-            this.f55407a = netWork;
-            netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, d.this.f55406i);
-            this.f55407a.addPostData("tid", this.f55408b);
-            String str = this.f55409c;
+            this.f59096a = netWork;
+            netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, d.this.f59095i);
+            this.f59096a.addPostData("tid", this.f59097b);
+            String str = this.f59098c;
             if (str != null) {
-                this.f55407a.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, str);
+                this.f59096a.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, str);
             }
-            if (!TextUtils.isEmpty(d.this.f55402e) && !"0".equals(d.this.f55402e)) {
-                this.f55407a.addPostData("post_id", d.this.f55402e);
+            if (!TextUtils.isEmpty(d.this.f59091e) && !"0".equals(d.this.f59091e)) {
+                this.f59096a.addPostData("post_id", d.this.f59091e);
             }
-            this.f55407a.addPostData("source", String.valueOf(d.this.q ? 1 : 2));
+            this.f59096a.addPostData("source", String.valueOf(d.this.q ? 1 : 2));
             d.this.q = false;
-            this.f55407a.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.f55410d));
-            this.f55407a.addPostData("prev", String.valueOf(this.f55411e));
-            this.f55407a.addPostData("not_see_lz", String.valueOf(!d.this.p ? 1 : 0));
-            this.f55407a.addPostData("is_top_agree", String.valueOf(d.this.B ? 1 : 2));
+            this.f59096a.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.f59099d));
+            this.f59096a.addPostData("prev", String.valueOf(this.f59100e));
+            this.f59096a.addPostData("not_see_lz", String.valueOf(!d.this.p ? 1 : 0));
+            this.f59096a.addPostData("is_top_agree", String.valueOf(d.this.B ? 1 : 2));
             if (!d.this.m) {
-                this.f55407a.addPostData(r.f7672a, String.valueOf(1));
+                this.f59096a.addPostData(r.f7715a, String.valueOf(1));
             }
             if (!StringUtils.isNull(d.this.u, true)) {
-                this.f55407a.addPostData("obj_type", d.this.u);
+                this.f59096a.addPostData("obj_type", d.this.u);
             } else {
-                this.f55407a.addPostData("obj_type", "other");
+                this.f59096a.addPostData("obj_type", "other");
             }
             if (TextUtils.isEmpty(d.this.x)) {
                 if (System.currentTimeMillis() - d.a.m0.r.d0.b.j().l("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
                     d.this.x = d.a.m0.r.d0.b.j().p("applist_intalled_apk_ids", "");
                 }
             }
-            this.f55407a.addPostData("applist", d.this.x);
+            this.f59096a.addPostData("applist", d.this.x);
             String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
             if (!TextUtils.isEmpty(lastCachedOid)) {
-                this.f55407a.addPostData("oaid", lastCachedOid);
+                this.f59096a.addPostData("oaid", lastCachedOid);
             }
-            this.f55407a.addPostData("ad_ext_params", AdExtParam.a.b().a());
+            this.f59096a.addPostData("ad_ext_params", AdExtParam.a.b().a());
             b();
-            this.f55407a.getNetContext().getRequest().mNeedBackgroundLogin = false;
-            String postNetData = this.f55407a.postNetData();
-            if (this.f55407a.getNetContext().getResponse().isRequestSuccess()) {
+            this.f59096a.getNetContext().getRequest().mNeedBackgroundLogin = false;
+            String postNetData = this.f59096a.postNetData();
+            if (this.f59096a.getNetContext().getResponse().isRequestSuccess()) {
                 g gVar = new g();
                 gVar.l(postNetData, true);
                 return gVar;
@@ -190,7 +190,7 @@ public class d {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f55407a;
+            NetWork netWork = this.f59096a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -199,7 +199,7 @@ public class d {
         }
 
         public String d() {
-            return this.f55409c;
+            return this.f59098c;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -217,18 +217,18 @@ public class d {
             String str;
             int i3;
             super.onPostExecute(gVar);
-            if (d.this.f55400c == null) {
+            if (d.this.f59089c == null) {
                 return;
             }
             String str2 = null;
             d.this.n = null;
             if (gVar == null) {
                 if (d.this.r != null) {
-                    NetWork netWork = this.f55407a;
+                    NetWork netWork = this.f59096a;
                     if (netWork != null) {
                         i3 = netWork.getServerErrorCode();
-                        if (this.f55409c == null) {
-                            str2 = this.f55407a.getErrorString();
+                        if (this.f59098c == null) {
+                            str2 = this.f59096a.getErrorString();
                         }
                     } else {
                         i3 = -1;
@@ -240,9 +240,9 @@ public class d {
             }
             boolean isEmpty = ListUtils.isEmpty(gVar.g());
             if (d.this.z && !isEmpty) {
-                d.this.f55398a.clear();
-                d.this.f55400c.clear();
-                d.this.f55399b.clear();
+                d.this.f59087a.clear();
+                d.this.f59089c.clear();
+                d.this.f59088b.clear();
             }
             if (gVar.h() != 0) {
                 d.this.o = gVar.h();
@@ -250,15 +250,15 @@ public class d {
             d.this.s = gVar.a();
             d.this.Q = gVar.m;
             d dVar = d.this;
-            dVar.K = gVar.f55430i;
+            dVar.K = gVar.f59119i;
             dVar.L = gVar.i();
             d dVar2 = d.this;
             dVar2.M = gVar.k;
             dVar2.N = gVar.j;
             dVar2.O = gVar.l == 1;
-            if (this.f55409c == null) {
-                d.this.f55398a.clear();
-                d.this.f55399b.clear();
+            if (this.f59098c == null) {
+                d.this.f59087a.clear();
+                d.this.f59088b.clear();
             }
             LinkedList<e> g2 = gVar.g();
             int size = g2.size();
@@ -283,10 +283,10 @@ public class d {
                     imageUrlData2.originalUrl = eVar.i();
                     boolean z3 = isEmpty;
                     imageUrlData2.originalSize = eVar.j();
-                    imageUrlData2.forumId = d.this.f55405h;
-                    imageUrlData2.forumName = d.this.f55406i;
-                    imageUrlData2.threadId = d.a.c.e.m.b.f(this.f55408b, -1L);
-                    imageUrlData2.nid = d.this.f55404g;
+                    imageUrlData2.forumId = d.this.f59094h;
+                    imageUrlData2.forumName = d.this.f59095i;
+                    imageUrlData2.threadId = d.a.c.e.m.b.f(this.f59097b, -1L);
+                    imageUrlData2.nid = d.this.f59093g;
                     imageUrlData2.postId = d.a.c.e.m.b.f(eVar.c(), -1L);
                     imageUrlData2.userId = eVar.o();
                     imageUrlData2.userNameShow = StringUtils.isNull(eVar.q()) ? eVar.p() : eVar.q();
@@ -309,7 +309,7 @@ public class d {
                         imageUrlData2.agreeData = a2;
                         a2.isFromImageViewer = true;
                         a2.mImageViewerFromPage = d.this.u;
-                        imageUrlData2.agreeData.forumId = d.this.f55405h;
+                        imageUrlData2.agreeData.forumId = d.this.f59094h;
                         imageUrlData2.agreeData.threadId = String.valueOf(imageUrlData2.threadId);
                         AgreeData agreeData2 = imageUrlData2.agreeData;
                         agreeData2.nid = imageUrlData2.nid;
@@ -333,11 +333,11 @@ public class d {
                         imageUrlData2.agreeData.recomExtra = d.this.J;
                         imageUrlData2.agreeData.recomWeight = d.this.I;
                     }
-                    if (d.this.f55399b.containsKey(imageUrlData2.id)) {
-                        String str4 = (String) d.this.f55399b.get(imageUrlData2.id);
-                        ImageUrlData imageUrlData3 = (ImageUrlData) d.this.f55400c.get(str4);
+                    if (d.this.f59088b.containsKey(imageUrlData2.id)) {
+                        String str4 = (String) d.this.f59088b.get(imageUrlData2.id);
+                        ImageUrlData imageUrlData3 = (ImageUrlData) d.this.f59089c.get(str4);
                         if (imageUrlData3 == null) {
-                            d.this.f55400c.put(str4, imageUrlData2);
+                            d.this.f59089c.put(str4, imageUrlData2);
                         } else {
                             imageUrlData3.imageUrl = imageUrlData2.imageUrl;
                             imageUrlData3.overAllIndex = imageUrlData2.overAllIndex;
@@ -349,8 +349,8 @@ public class d {
                             imageUrlData3.isFirstPost = imageUrlData2.isFirstPost;
                             imageUrlData3.userId = imageUrlData2.userId;
                             imageUrlData3.userNameShow = imageUrlData2.userNameShow;
-                            imageUrlData3.forumId = d.this.f55405h;
-                            imageUrlData3.forumName = d.this.f55406i;
+                            imageUrlData3.forumId = d.this.f59094h;
+                            imageUrlData3.forumName = d.this.f59095i;
                             if (StringHelper.equals(imageUrlData2.id, d.this.A)) {
                                 imageUrlData3.setSourceImageRectInScreen(d.this.y);
                             }
@@ -358,16 +358,16 @@ public class d {
                         str = null;
                     } else if (!d.this.C) {
                         str = null;
-                        d.this.f55400c.put(str3, imageUrlData2);
+                        d.this.f59089c.put(str3, imageUrlData2);
                         if (d.this.w) {
-                            d.this.f55398a.add(i4, str3);
+                            d.this.f59087a.add(i4, str3);
                         } else {
-                            d.this.f55398a.add(str3);
+                            d.this.f59087a.add(str3);
                         }
-                        d.this.f55399b.put(imageUrlData2.id, str3);
+                        d.this.f59088b.put(imageUrlData2.id, str3);
                     } else {
                         d dVar3 = d.this;
-                        dVar3.o = dVar3.f55400c.size();
+                        dVar3.o = dVar3.f59089c.size();
                         str = null;
                         d.this.s = null;
                     }
@@ -390,19 +390,19 @@ public class d {
                     imageUrlData = str5;
                 }
             }
-            for (ImageUrlData imageUrlData4 : d.this.f55400c.values()) {
+            for (ImageUrlData imageUrlData4 : d.this.f59089c.values()) {
                 if (imageUrlData4.agreeData == null) {
                     long j = imageUrlData4.postId;
                     if (imageUrlData == null) {
-                        for (ImageUrlData imageUrlData5 : d.this.f55400c.values()) {
+                        for (ImageUrlData imageUrlData5 : d.this.f59089c.values()) {
                             if (imageUrlData5.postId == j && (agreeData = imageUrlData5.agreeData) != null) {
                                 imageUrlData4.agreeData = agreeData;
                                 imageUrlData4.richTextArray = imageUrlData5.richTextArray;
                                 imageUrlData4.commentNum = imageUrlData5.commentNum;
                                 imageUrlData4.userId = imageUrlData5.userId;
                                 imageUrlData4.userNameShow = imageUrlData5.userNameShow;
-                                imageUrlData4.forumId = d.this.f55405h;
-                                imageUrlData4.forumName = d.this.f55406i;
+                                imageUrlData4.forumId = d.this.f59094h;
+                                imageUrlData4.forumName = d.this.f59095i;
                                 imageUrlData = imageUrlData5;
                             }
                         }
@@ -412,31 +412,31 @@ public class d {
                         imageUrlData4.commentNum = imageUrlData.commentNum;
                         imageUrlData4.userId = imageUrlData.userId;
                         imageUrlData4.userNameShow = imageUrlData.userNameShow;
-                        imageUrlData4.forumId = d.this.f55405h;
-                        imageUrlData4.forumName = d.this.f55406i;
+                        imageUrlData4.forumId = d.this.f59094h;
+                        imageUrlData4.forumName = d.this.f59095i;
                     }
                 }
             }
-            if (this.f55409c == null) {
-                d.this.f55403f = this.f55408b;
+            if (this.f59098c == null) {
+                d.this.f59092f = this.f59097b;
                 i2 = 0;
                 z2 = true;
             } else {
                 i2 = -1;
                 z2 = false;
             }
-            int position = d.this.w ? ListUtils.getPosition(d.this.f55398a, (String) d.this.f55399b.get(this.f55409c)) - 1 : i2;
+            int position = d.this.w ? ListUtils.getPosition(d.this.f59087a, (String) d.this.f59088b.get(this.f59098c)) - 1 : i2;
             d.this.D = gVar.e();
             d.this.E = gVar.j();
             d.this.P = gVar.f();
-            if (d.this.f55401d == null) {
-                d.this.f55401d = new ArrayList();
+            if (d.this.f59090d == null) {
+                d.this.f59090d = new ArrayList();
                 if (gVar.d() != null && gVar.g().size() > 0) {
-                    d.this.f55401d.addAll(gVar.d());
+                    d.this.f59090d.addAll(gVar.d());
                 }
             }
             if (d.this.r != null) {
-                d.this.r.a(d.this.f55398a, position, d.this.o, false, null, z2, d.this.s, z);
+                d.this.r.a(d.this.f59087a, position, d.this.o, false, null, z2, d.this.s, z);
             }
             d.this.z = false;
         }
@@ -451,20 +451,20 @@ public class d {
 
     public d(ArrayList<String> arrayList, Map<String, ImageUrlData> map, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i2, boolean z, int i3, String str8, String str9, String str10, String str11) {
         this.l = false;
-        this.f55398a = arrayList;
-        this.f55400c = map;
+        this.f59087a = arrayList;
+        this.f59089c = map;
         if (arrayList == null) {
-            this.f55398a = new ArrayList<>();
+            this.f59087a = new ArrayList<>();
         }
-        Iterator<String> it = this.f55398a.iterator();
+        Iterator<String> it = this.f59087a.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            this.f55399b.put(d.a.n0.h1.b.a(next), next);
+            this.f59088b.put(d.a.n0.h1.b.a(next), next);
         }
-        this.f55403f = str3;
-        this.f55404g = str4;
-        this.f55406i = str2;
-        this.f55405h = str;
+        this.f59092f = str3;
+        this.f59093g = str4;
+        this.f59095i = str2;
+        this.f59094h = str;
         this.k = str5;
         this.v = i2;
         this.l = str5 == null;
@@ -504,7 +504,7 @@ public class d {
     }
 
     public ArrayList<AlaInfoData> T() {
-        return this.f55401d;
+        return this.f59090d;
     }
 
     public String U() {
@@ -516,16 +516,16 @@ public class d {
         if (this.l) {
             return;
         }
-        i0(this.f55403f, this.k, 10, 0);
+        i0(this.f59092f, this.k, 10, 0);
     }
 
     public void W() {
         this.w = true;
-        String str = this.f55398a.get(0);
+        String str = this.f59087a.get(0);
         if (StringUtils.isNull(this.j)) {
             this.j = d.a.n0.h1.b.a(str);
         }
-        i0(this.f55403f, this.j, 0, 10);
+        i0(this.f59092f, this.j, 0, 10);
     }
 
     public String X() {
@@ -557,7 +557,7 @@ public class d {
     }
 
     public void e0(String str) {
-        this.f55402e = str;
+        this.f59091e = str;
     }
 
     public void f0(boolean z) {

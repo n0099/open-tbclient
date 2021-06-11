@@ -1,72 +1,73 @@
 package com.kwad.sdk.contentalliance.detail.a.a;
 
-import android.os.SystemClock;
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.widget.TextView;
+import com.kwad.sdk.R;
+import com.kwad.sdk.core.download.b.a;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.core.view.AdBaseFrameLayout;
+import com.kwad.sdk.utils.ag;
 /* loaded from: classes6.dex */
-public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f31920a;
+public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31921b;
+    public AdBaseFrameLayout f32488b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C0358a f31922c = new C0358a();
+    public TextView f32489c;
 
-    /* renamed from: com.kwad.sdk.contentalliance.detail.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0358a {
+    /* renamed from: d  reason: collision with root package name */
+    public AdTemplate f32490d;
 
-        /* renamed from: a  reason: collision with root package name */
-        public long f31923a = 0;
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.core.download.b.b f32491e;
 
-        /* renamed from: b  reason: collision with root package name */
-        public int f31924b = 0;
-
-        public int a() {
-            return this.f31924b;
-        }
-
-        public void a(long j) {
-            this.f31923a += j;
-            this.f31924b++;
-        }
-
-        public long b() {
-            return this.f31923a;
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        com.kwad.sdk.core.report.b.a(this.f32490d, 24, this.f32488b.getTouchCoords());
     }
 
+    @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
-        if (this.f31920a) {
-            return;
+        TextView textView;
+        int i2;
+        super.a();
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32692a;
+        AdTemplate adTemplate = cVar.j;
+        this.f32490d = adTemplate;
+        this.f32491e = cVar.o;
+        String u = com.kwad.sdk.core.response.b.c.u(adTemplate);
+        if (ag.a(u) && com.kwad.sdk.core.response.b.c.c(this.f32490d)) {
+            u = o().getString(R.string.ksad_ad_default_username);
         }
-        this.f31920a = true;
-        this.f31921b = SystemClock.elapsedRealtime();
-    }
-
-    public void b() {
-        if (this.f31920a) {
-            this.f31922c.a(SystemClock.elapsedRealtime() - this.f31921b);
-            this.f31920a = false;
+        if (ag.a(u)) {
+            textView = this.f32489c;
+            i2 = 8;
+        } else {
+            this.f32489c.setText(u);
+            this.f32489c.setOnClickListener(this);
+            textView = this.f32489c;
+            i2 = 0;
         }
+        textView.setVisibility(i2);
     }
 
-    public boolean c() {
-        return this.f31920a;
+    @Override // com.kwad.sdk.mvp.Presenter
+    public void c() {
+        super.c();
+        this.f32488b = (AdBaseFrameLayout) b(R.id.ksad_root_container);
+        this.f32489c = (TextView) b(R.id.ksad_bottom_author_name);
     }
 
-    @NonNull
-    public C0358a d() {
-        if (this.f31920a) {
-            this.f31922c.a(SystemClock.elapsedRealtime() - this.f31921b);
-            this.f31920a = false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (com.kwad.sdk.core.response.b.c.c(this.f32490d)) {
+            com.kwad.sdk.core.download.b.a.a(this.f32489c.getContext(), this.f32490d, new a.InterfaceC0379a() { // from class: com.kwad.sdk.contentalliance.detail.a.a.a.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
+                public void a() {
+                    a.this.e();
+                }
+            }, this.f32491e);
         }
-        return this.f31922c;
-    }
-
-    public long e() {
-        return this.f31921b;
     }
 }

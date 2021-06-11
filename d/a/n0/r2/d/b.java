@@ -3,35 +3,35 @@ package d.a.n0.r2.d;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59972a;
+    public String f63663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59973b = false;
+    public boolean f63664b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59974c = false;
+    public boolean f63665c = false;
 
     public String a() {
-        return this.f59972a;
+        return this.f63663a;
     }
 
     public boolean b() {
-        return this.f59974c;
+        return this.f63665c;
     }
 
     public boolean c() {
-        return this.f59973b;
+        return this.f63664b;
     }
 
     public void d(boolean z) {
-        this.f59974c = z;
+        this.f63665c = z;
     }
 
     public void e(String str) {
-        this.f59972a = str;
+        this.f63663a = str;
     }
 
     public void f(boolean z) {
-        this.f59973b = z;
+        this.f63664b = z;
     }
 }

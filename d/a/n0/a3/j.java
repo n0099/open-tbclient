@@ -30,31 +30,31 @@ public class j extends d.a.c.a.d<SignAllForumActivity> {
     public static int o;
 
     /* renamed from: a  reason: collision with root package name */
-    public SignAllForumActivity f51241a;
+    public SignAllForumActivity f54918a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f51242b;
+    public NavigationBar f54919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f51243c;
+    public RelativeLayout f54920c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SignAllForumProgressView f51244d;
+    public SignAllForumProgressView f54921d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ProgressBar f51245e;
+    public ProgressBar f54922e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdListView f51246f;
+    public BdListView f54923f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.m0.r.f0.g f51247g;
+    public d.a.m0.r.f0.g f54924g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f51248h;
+    public g f54925h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f51249i;
+    public c f54926i;
     public RelativeLayout j;
     public TextView k;
     public TextView l;
@@ -68,158 +68,158 @@ public class j extends d.a.c.a.d<SignAllForumActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            j.this.f51241a.finish();
+            j.this.f54918a.finish();
         }
     }
 
     public j(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.f51247g = null;
-        this.f51241a = signAllForumActivity;
+        this.f54924g = null;
+        this.f54918a = signAllForumActivity;
         signAllForumActivity.setContentView(R.layout.signallforum_view);
-        this.f51243c = (RelativeLayout) this.f51241a.findViewById(R.id.sign_all_forum_parent);
-        NavigationBar navigationBar = (NavigationBar) this.f51241a.findViewById(R.id.view_navigation_bar);
-        this.f51242b = navigationBar;
-        navigationBar.setCenterTextTitle(this.f51241a.getPageContext().getString(R.string.signallforum));
-        this.f51242b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
-        this.f51242b.showBottomLine();
-        BdListView bdListView = (BdListView) this.f51241a.findViewById(R.id.signallforum_list);
-        this.f51246f = bdListView;
+        this.f54920c = (RelativeLayout) this.f54918a.findViewById(R.id.sign_all_forum_parent);
+        NavigationBar navigationBar = (NavigationBar) this.f54918a.findViewById(R.id.view_navigation_bar);
+        this.f54919b = navigationBar;
+        navigationBar.setCenterTextTitle(this.f54918a.getPageContext().getString(R.string.signallforum));
+        this.f54919b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
+        this.f54919b.showBottomLine();
+        BdListView bdListView = (BdListView) this.f54918a.findViewById(R.id.signallforum_list);
+        this.f54923f = bdListView;
         bdListView.setOnItemClickListener(signAllForumActivity);
         d.a.m0.r.f0.g gVar = new d.a.m0.r.f0.g(signAllForumActivity.getPageContext());
-        this.f51247g = gVar;
-        this.f51246f.setPullRefresh(gVar);
-        TextView textView = (TextView) LayoutInflater.from(this.f51241a.getPageContext().getPageActivity()).inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
+        this.f54924g = gVar;
+        this.f54923f.setPullRefresh(gVar);
+        TextView textView = (TextView) LayoutInflater.from(this.f54918a.getPageContext().getPageActivity()).inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
         this.n = textView;
-        this.f51246f.addFooterView(textView);
-        SignAllForumProgressView signAllForumProgressView = new SignAllForumProgressView(this.f51241a.getPageContext().getPageActivity());
-        this.f51244d = signAllForumProgressView;
+        this.f54923f.addFooterView(textView);
+        SignAllForumProgressView signAllForumProgressView = new SignAllForumProgressView(this.f54918a.getPageContext().getPageActivity());
+        this.f54921d = signAllForumProgressView;
         ProgressBar progressBar = signAllForumProgressView.getProgressBar();
-        this.f51245e = progressBar;
-        progressBar.setOnClickListener(this.f51241a);
-        this.f51246f.addHeaderView(this.f51244d);
-        this.f51244d.setVisibility(8);
-        this.j = (RelativeLayout) this.f51244d.findViewById(R.id.guidecontainer);
-        this.m = (LinearLayout) this.f51244d.findViewById(R.id.guideopenbtn);
-        this.k = (TextView) this.f51244d.findViewById(R.id.guidetip);
-        this.l = (TextView) this.f51244d.findViewById(R.id.guideopen);
-        this.m.setOnClickListener(this.f51241a);
-        g gVar2 = new g(this.f51241a, null);
-        this.f51248h = gVar2;
-        this.f51246f.setAdapter((ListAdapter) gVar2);
-        this.f51246f.setOnScrollListener(this.f51248h);
+        this.f54922e = progressBar;
+        progressBar.setOnClickListener(this.f54918a);
+        this.f54923f.addHeaderView(this.f54921d);
+        this.f54921d.setVisibility(8);
+        this.j = (RelativeLayout) this.f54921d.findViewById(R.id.guidecontainer);
+        this.m = (LinearLayout) this.f54921d.findViewById(R.id.guideopenbtn);
+        this.k = (TextView) this.f54921d.findViewById(R.id.guidetip);
+        this.l = (TextView) this.f54921d.findViewById(R.id.guideopen);
+        this.m.setOnClickListener(this.f54918a);
+        g gVar2 = new g(this.f54918a, null);
+        this.f54925h = gVar2;
+        this.f54923f.setAdapter((ListAdapter) gVar2);
+        this.f54923f.setOnScrollListener(this.f54925h);
     }
 
     public void e() {
-        this.f51246f.A(0L);
+        this.f54923f.A(0L);
     }
 
     public final void f() {
-        c cVar = this.f51249i;
+        c cVar = this.f54926i;
         if (cVar == null) {
             return;
         }
-        this.f51244d.setHasPrivilege(cVar.B());
-        this.f51244d.setmCurrentStatus(this.f51249i.q());
-        TextView message1 = this.f51244d.getMessage1();
-        SpannableString spannableString = new SpannableString(this.f51249i.v() + this.f51249i.t() + this.f51249i.u());
+        this.f54921d.setHasPrivilege(cVar.B());
+        this.f54921d.setmCurrentStatus(this.f54926i.q());
+        TextView message1 = this.f54921d.getMessage1();
+        SpannableString spannableString = new SpannableString(this.f54926i.v() + this.f54926i.t() + this.f54926i.u());
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(TbadkApplication.getInst().getResources().getColor(R.color.common_color_10191));
-        int length = this.f51249i.v().length();
-        spannableString.setSpan(foregroundColorSpan, length, this.f51249i.t().length() + length, 33);
+        int length = this.f54926i.v().length();
+        spannableString.setSpan(foregroundColorSpan, length, this.f54926i.t().length() + length, 33);
         message1.setText(spannableString);
-        this.f51244d.getMessage2().setText(this.f51249i.w());
-        this.k.setText(this.f51249i.h());
-        if (TextUtils.isEmpty(this.f51249i.g())) {
+        this.f54921d.getMessage2().setText(this.f54926i.w());
+        this.k.setText(this.f54926i.h());
+        if (TextUtils.isEmpty(this.f54926i.g())) {
             this.l.setText(R.string.member_buy_open);
         } else {
-            this.l.setText(this.f51249i.g());
+            this.l.setText(this.f54926i.g());
         }
-        this.f51244d.setVisibility(0);
-        if (!this.f51249i.B() && TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) != null) {
+        this.f54921d.setVisibility(0);
+        if (!this.f54926i.B() && TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) != null) {
             this.j.setVisibility(0);
         } else {
             this.j.setVisibility(8);
         }
     }
 
-    public g g() {
-        return this.f51248h;
+    public g h() {
+        return this.f54925h;
     }
 
-    public c h() {
-        return this.f51249i;
+    public c i() {
+        return this.f54926i;
     }
 
-    public LinearLayout j() {
+    public LinearLayout k() {
         return this.m;
     }
 
-    public BdListView k() {
-        return this.f51246f;
+    public BdListView l() {
+        return this.f54923f;
     }
 
-    public ProgressBar l() {
-        return this.f51245e;
+    public ProgressBar m() {
+        return this.f54922e;
     }
 
-    public SignAllForumProgressView m() {
-        return this.f51244d;
+    public SignAllForumProgressView n() {
+        return this.f54921d;
     }
 
-    public RelativeLayout n() {
-        return this.f51243c;
+    public RelativeLayout o() {
+        return this.f54920c;
     }
 
-    public void o(c cVar, boolean z) {
+    public void onChangeSkinType(int i2) {
+        this.f54918a.getLayoutMode().k(i2 == 1);
+        this.f54918a.getLayoutMode().j(this.f54920c);
+        this.f54918a.getLayoutMode().j(this.n);
+        this.f54918a.getLayoutMode().j(this.f54921d);
+        SkinManager.setBackgroundColor(this.f54920c, R.color.CAM_X0201);
+        this.f54919b.onChangeSkinType(getPageContext(), i2);
+        SignAllForumProgressView signAllForumProgressView = this.f54921d;
+        if (signAllForumProgressView != null) {
+            signAllForumProgressView.k();
+        }
+        this.f54924g.I(i2);
+        this.f54925h.notifyDataSetChanged();
+    }
+
+    public void p(c cVar, boolean z) {
         if (cVar == null) {
             return;
         }
-        this.f51249i = cVar;
+        this.f54926i = cVar;
         f();
         ArrayList<d> k = cVar.k();
-        this.f51248h.h(this.f51249i);
+        this.f54925h.h(this.f54926i);
         if (k.size() == o) {
             this.n.setVisibility(0);
             this.n.setText(cVar.m());
         } else {
             this.n.setVisibility(8);
         }
-        String y = this.f51249i.y();
+        String y = this.f54926i.y();
         if (!StringUtils.isNull(y)) {
-            this.f51244d.l(this.f51241a, y, this.f51249i.z());
+            this.f54921d.l(this.f54918a, y, this.f54926i.z());
             return;
         }
-        this.f51244d.i();
+        this.f54921d.i();
     }
 
-    public void onChangeSkinType(int i2) {
-        this.f51241a.getLayoutMode().k(i2 == 1);
-        this.f51241a.getLayoutMode().j(this.f51243c);
-        this.f51241a.getLayoutMode().j(this.n);
-        this.f51241a.getLayoutMode().j(this.f51244d);
-        SkinManager.setBackgroundColor(this.f51243c, R.color.CAM_X0201);
-        this.f51242b.onChangeSkinType(getPageContext(), i2);
-        SignAllForumProgressView signAllForumProgressView = this.f51244d;
-        if (signAllForumProgressView != null) {
-            signAllForumProgressView.k();
-        }
-        this.f51247g.I(i2);
-        this.f51248h.notifyDataSetChanged();
+    public void q(f.g gVar) {
+        this.f54924g.a(gVar);
     }
 
-    public void p(f.g gVar) {
-        this.f51247g.a(gVar);
+    public void r(int i2) {
+        this.f54923f.setSelection(i2);
     }
 
-    public void q(int i2) {
-        this.f51246f.setSelection(i2);
+    public void s(AdapterView.OnItemClickListener onItemClickListener) {
+        this.f54923f.setOnItemClickListener(onItemClickListener);
     }
 
-    public void r(AdapterView.OnItemClickListener onItemClickListener) {
-        this.f51246f.setOnItemClickListener(onItemClickListener);
-    }
-
-    public void s() {
-        this.f51246f.F();
+    public void t() {
+        this.f54923f.F();
     }
 }

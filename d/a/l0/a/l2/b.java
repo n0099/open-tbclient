@@ -24,28 +24,28 @@ import java.util.TreeSet;
 public final class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f43389g;
+    public static volatile b f47065g;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, ArrayList<d.a.l0.a.l2.a>> f43391a = new LinkedHashMap(32, 0.75f, true);
+    public final Map<String, ArrayList<d.a.l0.a.l2.a>> f47067a = new LinkedHashMap(32, 0.75f, true);
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.l0.a.l2.e.a f43392b;
+    public final d.a.l0.a.l2.e.a f47068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile Boolean f43393c;
+    public volatile Boolean f47069c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile Boolean f43394d;
+    public volatile Boolean f47070d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f43395e;
+    public final boolean f47071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f43388f = k.f43199a;
+    public static final boolean f47064f = k.f46875a;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final a.C0733a f43390h = new a.C0733a();
+    public static final a.C0789a f47066h = new a.C0789a();
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -54,60 +54,60 @@ public final class b {
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.f43392b.l();
+            b.this.f47068b.l();
             b.this.q().a(b.this);
         }
     }
 
     /* renamed from: d.a.l0.a.l2.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0734b {
+    public static class C0790b {
         public void a(@NonNull b bVar) {
         }
     }
 
     public b() {
         d.a.l0.a.c1.a.Z().getSwitch("swan_cookie_enable", false);
-        this.f43395e = false;
-        this.f43392b = new d.a.l0.a.l2.e.a(this);
+        this.f47071e = false;
+        this.f47068b = new d.a.l0.a.l2.e.a(this);
     }
 
     public static synchronized b l() {
         b bVar;
         synchronized (b.class) {
-            if (f43389g == null) {
-                f43389g = new b();
+            if (f47065g == null) {
+                f47065g = new b();
             }
-            bVar = f43389g;
+            bVar = f47065g;
         }
         return bVar;
     }
 
     public static synchronized void u(boolean z) {
         synchronized (b.class) {
-            if (f43389g != null) {
-                f43389g.r(z);
+            if (f47065g != null) {
+                f47065g.r(z);
             }
-            f43389g = null;
+            f47065g = null;
         }
     }
 
     public synchronized boolean a() {
-        if (this.f43393c != null) {
-            d.h("SwanCookieManager", "acceptCookie =" + this.f43393c);
-            return this.f43393c.booleanValue();
+        if (this.f47069c != null) {
+            d.h("SwanCookieManager", "acceptCookie =" + this.f47069c);
+            return this.f47069c.booleanValue();
         }
         h();
         boolean z = false;
-        if (this.f43394d == null) {
+        if (this.f47070d == null) {
             return false;
         }
-        if (this.f43394d.booleanValue() && this.f43395e) {
+        if (this.f47070d.booleanValue() && this.f47071e) {
             z = true;
         }
-        this.f43393c = Boolean.valueOf(z);
-        d.h("SwanCookieManager", "mEnableStore =" + this.f43394d + "; mCookieABSwitch=" + this.f43395e);
-        return this.f43393c.booleanValue();
+        this.f47069c = Boolean.valueOf(z);
+        d.h("SwanCookieManager", "mEnableStore =" + this.f47070d + "; mCookieABSwitch=" + this.f47071e);
+        return this.f47069c.booleanValue();
     }
 
     public final synchronized void d(ArrayList<d.a.l0.a.l2.a> arrayList, d.a.l0.a.l2.a aVar) {
@@ -115,22 +115,22 @@ public final class b {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (aVar.f43383e < 0 || aVar.f43383e > currentTimeMillis) {
+        if (aVar.f47059e < 0 || aVar.f47059e > currentTimeMillis) {
             if (arrayList.size() >= 50) {
                 d.a.l0.a.l2.a aVar2 = new d.a.l0.a.l2.a();
-                aVar2.f43385g = currentTimeMillis;
+                aVar2.f47061g = currentTimeMillis;
                 Iterator<d.a.l0.a.l2.a> it = arrayList.iterator();
                 while (it.hasNext()) {
                     d.a.l0.a.l2.a next = it.next();
-                    if (next != null && next.f43385g < aVar2.f43385g && next.f43387i != 2) {
+                    if (next != null && next.f47061g < aVar2.f47061g && next.f47063i != 2) {
                         aVar2 = next;
                     }
                 }
-                aVar2.f43387i = 2;
+                aVar2.f47063i = 2;
             }
-            aVar.f43385g = currentTimeMillis;
-            aVar.f43386h = currentTimeMillis;
-            aVar.f43387i = 0;
+            aVar.f47061g = currentTimeMillis;
+            aVar.f47062h = currentTimeMillis;
+            aVar.f47063i = 0;
             arrayList.add(aVar);
         }
     }
@@ -141,10 +141,10 @@ public final class b {
             if (d2 == null) {
                 return;
             }
-            ArrayList<d.a.l0.a.l2.a> arrayList2 = this.f43391a.get(d2);
+            ArrayList<d.a.l0.a.l2.a> arrayList2 = this.f47067a.get(d2);
             if (arrayList2 == null) {
-                arrayList2 = this.f43392b.k(d2);
-                this.f43391a.put(d2, arrayList2);
+                arrayList2 = this.f47068b.k(d2);
+                this.f47067a.put(d2, arrayList2);
             }
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -157,14 +157,14 @@ public final class b {
     }
 
     public String f(String str, @Nullable String str2) {
-        if (f43388f) {
+        if (f47064f) {
             Log.d("SwanCookieManager", "getCookie url: " + str + "; defaultCookie=" + str2);
         }
         if (d.a.l0.a.a2.d.g().C() && a() && c.a(str)) {
             try {
                 return i(new WebAddress(str), str2);
             } catch (Exception unused) {
-                if (f43388f) {
+                if (f47064f) {
                     Log.e("SwanCookieManager", "Bad address: " + str);
                 }
                 return str2;
@@ -177,16 +177,16 @@ public final class b {
         if (aVar == null) {
             return;
         }
-        if (aVar.f43387i == 2) {
-            String d2 = c.d(aVar.f43379a);
+        if (aVar.f47063i == 2) {
+            String d2 = c.d(aVar.f47055a);
             if (d2 == null) {
                 return;
             }
-            ArrayList<d.a.l0.a.l2.a> arrayList = this.f43391a.get(d2);
+            ArrayList<d.a.l0.a.l2.a> arrayList = this.f47067a.get(d2);
             if (arrayList != null) {
                 arrayList.remove(aVar);
                 if (arrayList.isEmpty()) {
-                    this.f43391a.remove(d2);
+                    this.f47067a.remove(d2);
                 }
             }
         }
@@ -195,11 +195,11 @@ public final class b {
     public void h() {
         SwanAppConfigData F;
         SwanAppConfigData.c cVar;
-        if (this.f43394d != null || (F = d.a.l0.a.a2.d.g().r().F()) == null || (cVar = F.q) == null) {
+        if (this.f47070d != null || (F = d.a.l0.a.a2.d.g().r().F()) == null || (cVar = F.q) == null) {
             return;
         }
-        this.f43394d = Boolean.valueOf(cVar.f11256a);
-        d.h("SwanCookieManager", "enableStore =" + this.f43394d);
+        this.f47070d = Boolean.valueOf(cVar.f11318a);
+        d.h("SwanCookieManager", "enableStore =" + this.f47070d);
     }
 
     public final synchronized String i(WebAddress webAddress, String str) {
@@ -211,15 +211,15 @@ public final class b {
         if (d2 == null) {
             return str;
         }
-        ArrayList<d.a.l0.a.l2.a> arrayList = this.f43391a.get(d2);
+        ArrayList<d.a.l0.a.l2.a> arrayList = this.f47067a.get(d2);
         if (arrayList == null) {
-            arrayList = this.f43392b.k(d2);
-            this.f43391a.put(d2, arrayList);
+            arrayList = this.f47068b.k(d2);
+            this.f47067a.put(d2, arrayList);
         }
         SortedSet<d.a.l0.a.l2.a> m = m(arrayList, webAddress.getScheme(), e2);
         if (m != null && !m.isEmpty()) {
             String b2 = c.b(m, str);
-            if (f43388f) {
+            if (f47064f) {
                 Log.d("SwanCookieManager", "getCookie result:" + b2 + ";defaultCookie=" + str);
             }
             return b2;
@@ -247,14 +247,14 @@ public final class b {
         if (arrayList != null) {
             if (!arrayList.isEmpty() && strArr != null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                TreeSet treeSet = new TreeSet(f43390h);
+                TreeSet treeSet = new TreeSet(f47066h);
                 Iterator<d.a.l0.a.l2.a> it = arrayList.iterator();
                 while (it.hasNext()) {
                     d.a.l0.a.l2.a next = it.next();
-                    if (next != null && next.a(strArr[0]) && next.c(strArr[1]) && (next.f43383e < 0 || next.f43383e > currentTimeMillis)) {
-                        if (!next.f43384f || "https".equals(str)) {
-                            if (next.f43387i != 2) {
-                                next.f43385g = currentTimeMillis;
+                    if (next != null && next.a(strArr[0]) && next.c(strArr[1]) && (next.f47059e < 0 || next.f47059e > currentTimeMillis)) {
+                        if (!next.f47060f || "https".equals(str)) {
+                            if (next.f47063i != 2) {
+                                next.f47061g = currentTimeMillis;
                                 treeSet.add(next);
                             }
                         }
@@ -269,12 +269,12 @@ public final class b {
     public synchronized ArrayList<d.a.l0.a.l2.a> n() {
         ArrayList<d.a.l0.a.l2.a> arrayList;
         arrayList = new ArrayList<>();
-        for (ArrayList<d.a.l0.a.l2.a> arrayList2 : this.f43391a.values()) {
+        for (ArrayList<d.a.l0.a.l2.a> arrayList2 : this.f47067a.values()) {
             if (arrayList2 != null) {
                 Iterator<d.a.l0.a.l2.a> it = arrayList2.iterator();
                 while (it.hasNext()) {
                     d.a.l0.a.l2.a next = it.next();
-                    if (next != null && next.f43387i != 1) {
+                    if (next != null && next.f47063i != 1) {
                         arrayList.add(next);
                     }
                 }
@@ -284,7 +284,7 @@ public final class b {
     }
 
     public boolean o() {
-        return this.f43395e;
+        return this.f47071e;
     }
 
     public final synchronized boolean p(ArrayList<d.a.l0.a.l2.a> arrayList, d.a.l0.a.l2.a aVar, String str) {
@@ -296,18 +296,18 @@ public final class b {
         while (it.hasNext()) {
             d.a.l0.a.l2.a next = it.next();
             if (aVar.b(next)) {
-                if (aVar.f43383e >= 0 && aVar.f43383e <= currentTimeMillis) {
-                    next.f43386h = currentTimeMillis;
-                    next.f43387i = 2;
+                if (aVar.f47059e >= 0 && aVar.f47059e <= currentTimeMillis) {
+                    next.f47062h = currentTimeMillis;
+                    next.f47063i = 2;
                     return true;
                 }
-                if (!next.f43384f || "https".equals(str)) {
-                    next.f43382d = aVar.f43382d;
-                    next.f43383e = aVar.f43383e;
-                    next.f43384f = aVar.f43384f;
-                    next.f43385g = currentTimeMillis;
-                    next.f43386h = currentTimeMillis;
-                    next.f43387i = 3;
+                if (!next.f47060f || "https".equals(str)) {
+                    next.f47058d = aVar.f47058d;
+                    next.f47059e = aVar.f47059e;
+                    next.f47060f = aVar.f47060f;
+                    next.f47061g = currentTimeMillis;
+                    next.f47062h = currentTimeMillis;
+                    next.f47063i = 3;
                 }
                 return true;
             }
@@ -316,15 +316,15 @@ public final class b {
     }
 
     @Inject(force = false)
-    public final synchronized C0734b q() {
-        return new C0734b();
+    public final synchronized C0790b q() {
+        return new C0790b();
     }
 
     public final synchronized void r(boolean z) {
         if (z) {
-            this.f43392b.c();
+            this.f47068b.c();
         }
-        this.f43392b.e();
+        this.f47068b.e();
         d.h("SwanCookieManager", "onRelease");
     }
 
@@ -343,7 +343,7 @@ public final class b {
         try {
             return c.g(strArr[0], strArr[1], str);
         } catch (Exception unused) {
-            if (f43388f) {
+            if (f47064f) {
                 Log.e("SwanCookieManager", "parse cookie failed: " + str);
                 return null;
             }
@@ -369,7 +369,7 @@ public final class b {
                     return;
                 }
                 e(webAddress.getScheme(), e2[0], s(e2, str));
-                this.f43392b.g();
+                this.f47068b.g();
             }
         }
     }
@@ -379,7 +379,7 @@ public final class b {
             try {
                 v(new WebAddress(str), str2);
             } catch (Exception unused) {
-                if (f43388f) {
+                if (f47064f) {
                     Log.e("SwanCookieManager", "setCookie with bad address: " + str);
                 }
             }
@@ -394,7 +394,7 @@ public final class b {
             d.l("SwanCookieManager", "setCookie values is too large");
             return;
         }
-        if (f43388f) {
+        if (f47064f) {
             Log.d("SwanCookieManager", "setCookie: url=" + str + "; values=" + collection);
         }
         for (String str2 : collection) {
@@ -403,6 +403,6 @@ public final class b {
     }
 
     public synchronized void y(d.a.l0.a.l2.a aVar) {
-        aVar.f43387i = 1;
+        aVar.f47063i = 1;
     }
 }

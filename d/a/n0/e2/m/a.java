@@ -68,7 +68,7 @@ public class a {
             }
         }
         int i4 = 2;
-        if (eVar.L().d2()) {
+        if (eVar.L().e2()) {
             statisticItem.param(TiebaStatic.Params.GUA_TYPE, 1);
         } else if (postData.F() != null) {
             statisticItem.param(TiebaStatic.Params.GUA_TYPE, 2);
@@ -79,7 +79,7 @@ public class a {
             statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().r);
         }
         if (!eVar.a0()) {
-            int i5 = eVar.f52925g;
+            int i5 = eVar.f56614g;
             if (i5 == 2) {
                 i4 = 1;
             } else if (i5 == 1) {
@@ -88,7 +88,7 @@ public class a {
             statisticItem.param(TiebaStatic.Params.LIST_ORDER, i4);
         }
         if (eVar.L() != null) {
-            statisticItem.param(TiebaStatic.Params.IS_ZP, eVar.L().G2() ? 1 : 0);
+            statisticItem.param(TiebaStatic.Params.IS_ZP, eVar.L().H2() ? 1 : 0);
         }
         return statisticItem;
     }
@@ -114,31 +114,31 @@ public class a {
     }
 
     public static void i(d.a.m0.r.q.a aVar, int i2) {
-        if (aVar == null || aVar.m() == null) {
+        if (aVar == null || aVar.i() == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13992");
-        if (aVar.m().h0() != null) {
-            statisticItem.param("obj_type", h(aVar.m().h0().j));
+        if (aVar.i().h0() != null) {
+            statisticItem.param("obj_type", h(aVar.i().h0().j));
         }
-        statisticItem.param("obj_locate", aVar.m().C2);
-        statisticItem.param("tid", aVar.m().y1());
-        statisticItem.param("fid", aVar.m().c0());
+        statisticItem.param("obj_locate", aVar.i().E2);
+        statisticItem.param("tid", aVar.i().z1());
+        statisticItem.param("fid", aVar.i().c0());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_source", i2);
         TiebaStatic.log(statisticItem);
     }
 
     public static void j(d.a.m0.r.q.a aVar) {
-        if (aVar == null || aVar.m() == null) {
+        if (aVar == null || aVar.i() == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c14020");
-        if (aVar.m().h0() != null) {
-            statisticItem.param("obj_type", h(aVar.m().h0().j));
+        if (aVar.i().h0() != null) {
+            statisticItem.param("obj_type", h(aVar.i().h0().j));
         }
-        statisticItem.param("tid", aVar.m().y1());
-        statisticItem.param("fid", aVar.m().c0());
+        statisticItem.param("tid", aVar.i().z1());
+        statisticItem.param("fid", aVar.i().c0());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         TiebaStatic.log(statisticItem);
     }

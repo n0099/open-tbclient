@@ -16,24 +16,24 @@ import d.a.n0.i2.b;
 public class PersonBarModel extends BdBaseModel {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f19744i;
+    public static final String f19821i;
     public static TbHttpMessageTask j;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f19745e;
+    public b f19822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19746f;
+    public boolean f19823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19747g;
+    public String f19824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19748h;
+    public int f19825h;
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-        f19744i = str;
+        f19821i = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, str);
         j = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonBarResponseMessage.class);
@@ -42,54 +42,12 @@ public class PersonBarModel extends BdBaseModel {
 
     public PersonBarModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.f19745e = new b();
-        this.f19746f = z;
+        this.f19822e = new b();
+        this.f19823f = z;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public String getId() {
-        return this.f19747g;
-    }
-
-    public b s() {
-        return this.f19745e;
-    }
-
-    public void setSex(int i2) {
-    }
-
-    public boolean t() {
-        return this.f19746f;
-    }
-
-    public void u() {
-        super.sendMessage(new PersonBarByUidLocalMessage());
-    }
-
-    public void v(boolean z, String str, int i2, int i3) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
-        httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!t()) {
-            httpMessage.addParam(TiebaStatic.Params.FRIEND_UID, str);
-            httpMessage.addParam("is_guest", String.valueOf(1));
-            httpMessage.setExtra(str);
-        }
-        httpMessage.addParam("page_size", i3);
-        httpMessage.addParam("page_no", i2);
-        super.sendMessage(httpMessage);
-    }
-
-    public void w(String str) {
-        if (this.f19748h == 1 && this.f19746f) {
+    public void A(String str) {
+        if (this.f19825h == 1 && this.f19823f) {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
@@ -104,11 +62,53 @@ public class PersonBarModel extends BdBaseModel {
         }
     }
 
-    public void x(int i2) {
-        this.f19748h = i2;
+    public void B(int i2) {
+        this.f19825h = i2;
     }
 
-    public void y(String str) {
-        this.f19747g = str;
+    public void C(String str) {
+        this.f19824g = str;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public String getId() {
+        return this.f19824g;
+    }
+
+    public void setSex(int i2) {
+    }
+
+    public b w() {
+        return this.f19822e;
+    }
+
+    public boolean x() {
+        return this.f19823f;
+    }
+
+    public void y() {
+        super.sendMessage(new PersonBarByUidLocalMessage());
+    }
+
+    public void z(boolean z, String str, int i2, int i3) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
+        httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+        if (!x()) {
+            httpMessage.addParam(TiebaStatic.Params.FRIEND_UID, str);
+            httpMessage.addParam("is_guest", String.valueOf(1));
+            httpMessage.setExtra(str);
+        }
+        httpMessage.addParam("page_size", i3);
+        httpMessage.addParam("page_no", i2);
+        super.sendMessage(httpMessage);
     }
 }

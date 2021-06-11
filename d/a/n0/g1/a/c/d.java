@@ -35,19 +35,19 @@ import java.util.List;
 public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public final InviteFriendListActivity f54963e;
+    public final InviteFriendListActivity f58652e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f54964f;
+    public NavigationBar f58653f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f54965g;
+    public View f58654g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdListView f54966h;
+    public BdListView f58655h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.g1.a.c.c f54967i;
+    public d.a.n0.g1.a.c.c f58656i;
     public NoDataView j;
     public ProgressBar k;
     public View l;
@@ -72,7 +72,7 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchFriendActivityConfig(d.this.f54963e.getPageContext().getPageActivity())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchFriendActivityConfig(d.this.f58652e.getPageContext().getPageActivity())));
         }
     }
 
@@ -87,7 +87,7 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
                 if (obj instanceof TbCheckBox.c) {
                     ((TbCheckBox.c) obj).setChecked(false);
                 }
-                View findViewWithTag = d.this.f54966h.findViewWithTag(obj);
+                View findViewWithTag = d.this.f58655h.findViewWithTag(obj);
                 if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
                     ((TbCheckBox) findViewWithTag).setChecked(false);
                 } else if (obj instanceof d.a.m0.s.f.a) {
@@ -108,15 +108,15 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
                 d.this.A();
                 return;
             }
-            l.x(d.this.f54963e.getPageContext().getPageActivity(), d.this.v);
-            d.this.f54963e.finish();
+            l.x(d.this.f58652e.getPageContext().getPageActivity(), d.this.v);
+            d.this.f58652e.finish();
         }
     }
 
     /* renamed from: d.a.n0.g1.a.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1342d implements View.OnClickListener {
-        public View$OnClickListenerC1342d() {
+    public class View$OnClickListenerC1398d implements View.OnClickListener {
+        public View$OnClickListenerC1398d() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -125,7 +125,7 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
             d.this.u.setVisibility(8);
             d.this.t.setVisibility(0);
             d.this.v.requestFocus();
-            l.K(d.this.f54963e.getPageContext().getPageActivity(), d.this.v);
+            l.K(d.this.f58652e.getPageContext().getPageActivity(), d.this.v);
         }
     }
 
@@ -193,7 +193,7 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
             }
             if (z) {
                 if (d.this.u() <= d.this.m.getItemLength()) {
-                    d.this.f54963e.showToast(String.format(d.this.f54963e.getPageContext().getString(R.string.invite_friend_exceed_max_count), Integer.valueOf(d.this.q)));
+                    d.this.f58652e.showToast(String.format(d.this.f58652e.getPageContext().getString(R.string.invite_friend_exceed_max_count), Integer.valueOf(d.this.q)));
                     tbCheckBox.setChecked(false);
                     ((d.a.m0.s.f.a) obj).setChecked(false);
                     return;
@@ -208,13 +208,13 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     public d(InviteFriendListActivity inviteFriendListActivity, boolean z) {
         super(inviteFriendListActivity.getPageContext());
         this.q = 0;
-        this.f54963e = inviteFriendListActivity;
+        this.f58652e = inviteFriendListActivity;
         this.r = z;
         F();
     }
 
     public void A() {
-        l.x(this.f54963e.getPageContext().getPageActivity(), this.v);
+        l.x(this.f58652e.getPageContext().getPageActivity(), this.v);
         this.t.setVisibility(8);
         this.s.setVisibility(0);
         this.u.setVisibility(0);
@@ -222,18 +222,18 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     }
 
     public final void B() {
-        NavigationBar navigationBar = (NavigationBar) this.f54965g.findViewById(R.id.view_navigation_bar);
-        this.f54964f = navigationBar;
+        NavigationBar navigationBar = (NavigationBar) this.f58654g.findViewById(R.id.view_navigation_bar);
+        this.f58653f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c());
         if (this.r) {
-            this.s = this.f54964f.setTitleText(R.string.invite_contact_title);
+            this.s = this.f58653f.setTitleText(R.string.invite_contact_title);
         } else {
-            this.s = this.f54964f.setTitleText(R.string.invite_friend);
+            this.s = this.f58653f.setTitleText(R.string.invite_friend);
         }
-        View addCustomView = this.f54964f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, new View$OnClickListenerC1342d());
+        View addCustomView = this.f58653f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, new View$OnClickListenerC1398d());
         this.u = addCustomView;
         this.y = (ImageView) addCustomView.findViewById(R.id.new_friend_search);
-        View addCustomView2 = this.f54964f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.navigationbar_search_edit, (View.OnClickListener) null);
+        View addCustomView2 = this.f58653f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.navigationbar_search_edit, (View.OnClickListener) null);
         this.t = addCustomView2;
         addCustomView2.setVisibility(8);
         EditText editText = (EditText) this.t.findViewById(R.id.search_bar_edit);
@@ -251,33 +251,33 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     }
 
     public final void F() {
-        this.f54963e.setContentView(R.layout.invite_friend_list);
-        this.f54965g = this.f54963e.findViewById(R.id.root_view);
+        this.f58652e.setContentView(R.layout.invite_friend_list);
+        this.f58654g = this.f58652e.findViewById(R.id.root_view);
         B();
-        BdListView bdListView = (BdListView) this.f54965g.findViewById(R.id.friend_list);
-        this.f54966h = bdListView;
-        bdListView.setOnItemClickListener(this.f54963e);
+        BdListView bdListView = (BdListView) this.f58654g.findViewById(R.id.friend_list);
+        this.f58655h = bdListView;
+        bdListView.setOnItemClickListener(this.f58652e);
         if (this.r) {
-            this.j = NoDataViewFactory.a(this.f54963e.getPageContext().getPageActivity(), this.f54965g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.f12948a), NoDataViewFactory.e.b(R.string.no_friends, R.string.no_friends_tip), null);
+            this.j = NoDataViewFactory.a(this.f58652e.getPageContext().getPageActivity(), this.f58654g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.f13013a), NoDataViewFactory.e.b(R.string.no_friends, R.string.no_friends_tip), null);
         } else {
-            this.j = NoDataViewFactory.a(this.f54963e.getPageContext().getPageActivity(), this.f54965g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, BdListViewHelper.f12948a), NoDataViewFactory.e.b(R.string.no_chat_friends, R.string.no_chat_friends_tip), NoDataViewFactory.c.a(new NoDataViewFactory.b(TbadkCoreApplication.getInst().getResources().getString(R.string.find_new_friend), new a())));
+            this.j = NoDataViewFactory.a(this.f58652e.getPageContext().getPageActivity(), this.f58654g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, BdListViewHelper.f13013a), NoDataViewFactory.e.b(R.string.no_chat_friends, R.string.no_chat_friends_tip), NoDataViewFactory.c.a(new NoDataViewFactory.b(TbadkCoreApplication.getInst().getResources().getString(R.string.find_new_friend), new a())));
         }
-        this.k = (ProgressBar) this.f54965g.findViewById(R.id.progress);
-        InviteFriendCandidateList inviteFriendCandidateList = (InviteFriendCandidateList) this.f54965g.findViewById(R.id.candidate_list);
+        this.k = (ProgressBar) this.f58654g.findViewById(R.id.progress);
+        InviteFriendCandidateList inviteFriendCandidateList = (InviteFriendCandidateList) this.f58654g.findViewById(R.id.candidate_list);
         this.m = inviteFriendCandidateList;
         inviteFriendCandidateList.n(new b());
-        this.n = (LinearLayout) this.f54965g.findViewById(R.id.invite_candidate);
-        this.l = this.f54965g.findViewById(R.id.invite_candidate_border);
+        this.n = (LinearLayout) this.f58654g.findViewById(R.id.invite_candidate);
+        this.l = this.f58654g.findViewById(R.id.invite_candidate_border);
         if (this.r) {
             this.n.setVisibility(8);
             this.l.setVisibility(8);
         }
         r();
-        Button button = (Button) this.f54965g.findViewById(R.id.button_send);
+        Button button = (Button) this.f58654g.findViewById(R.id.button_send);
         this.o = button;
-        button.setOnClickListener(this.f54963e);
+        button.setOnClickListener(this.f58652e);
         s();
-        N();
+        M();
         K(0);
     }
 
@@ -291,16 +291,16 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     }
 
     public void I(List<d.a.m0.s.f.a> list, boolean z) {
-        if (this.f54967i == null) {
-            d.a.n0.g1.a.c.c cVar = new d.a.n0.g1.a.c.c(this.f54963e, this.r);
-            this.f54967i = cVar;
+        if (this.f58656i == null) {
+            d.a.n0.g1.a.c.c cVar = new d.a.n0.g1.a.c.c(this.f58652e, this.r);
+            this.f58656i = cVar;
             cVar.f(this);
-            this.f54967i.d(new h());
-            this.f54966h.setAdapter((ListAdapter) this.f54967i);
+            this.f58656i.d(new h());
+            this.f58655h.setAdapter((ListAdapter) this.f58656i);
         }
         if (!z && list.isEmpty()) {
             this.j.setVisibility(0);
-            this.f54966h.setVisibility(8);
+            this.f58655h.setVisibility(8);
             if (this.r) {
                 return;
             }
@@ -308,9 +308,9 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
             return;
         }
         this.j.setVisibility(8);
-        this.f54966h.setVisibility(0);
-        this.f54967i.e(list);
-        this.f54967i.notifyDataSetChanged();
+        this.f58655h.setVisibility(0);
+        this.f58656i.e(list);
+        this.f58656i.notifyDataSetChanged();
         if (this.r) {
             return;
         }
@@ -326,7 +326,7 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     }
 
     public final void K(int i2) {
-        this.o.setText(String.format(this.f54963e.getPageContext().getString(R.string.invite_friend_candidate_send), Integer.valueOf(i2)));
+        this.o.setText(String.format(this.f58652e.getPageContext().getString(R.string.invite_friend_candidate_send), Integer.valueOf(i2)));
     }
 
     public void L(int i2) {
@@ -334,8 +334,8 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
         this.m.setMaxCount(i2);
     }
 
-    public void N() {
-        this.f54966h.setOnTouchListener(new g());
+    public void M() {
+        this.f58655h.setOnTouchListener(new g());
     }
 
     public final void O() {
@@ -357,7 +357,7 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     public void d() {
         NoDataView noDataView = this.j;
         if (noDataView != null) {
-            noDataView.d(this.f54963e.getPageContext());
+            noDataView.d(this.f58652e.getPageContext());
         }
     }
 
@@ -377,21 +377,21 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     }
 
     public final void r() {
-        int dimensionPixelSize = this.f54963e.getResources().getDimensionPixelSize(R.dimen.ds80) + this.f54963e.getResources().getDimensionPixelSize(R.dimen.ds16) + this.f54963e.getResources().getDimensionPixelSize(R.dimen.ds16);
-        View view = new View(this.f54963e.getPageContext().getPageActivity());
+        int dimensionPixelSize = this.f58652e.getResources().getDimensionPixelSize(R.dimen.ds80) + this.f58652e.getResources().getDimensionPixelSize(R.dimen.ds16) + this.f58652e.getResources().getDimensionPixelSize(R.dimen.ds16);
+        View view = new View(this.f58652e.getPageContext().getPageActivity());
         this.p = view;
         view.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
         this.p.setEnabled(false);
-        this.f54966h.addFooterView(this.p);
+        this.f58655h.addFooterView(this.p);
     }
 
     public void s() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.f54963e.getLayoutMode().k(skinType == 1);
-        this.f54963e.getLayoutMode().j(this.f54965g);
+        this.f58652e.getLayoutMode().k(skinType == 1);
+        this.f58652e.getLayoutMode().j(this.f58654g);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.y, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, null);
-        this.f54964f.onChangeSkinType(this.f54963e.getPageContext(), skinType);
-        this.j.f(this.f54963e.getPageContext(), skinType);
+        this.f58653f.onChangeSkinType(this.f58652e.getPageContext(), skinType);
+        this.j.f(this.f58652e.getPageContext(), skinType);
         SkinManager.setBackgroundResource(this.p, R.drawable.invite_friend_list_item_bg_color);
         this.p.setEnabled(false);
     }
@@ -409,7 +409,7 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     }
 
     public View w() {
-        return this.f54965g;
+        return this.f58654g;
     }
 
     public String x() {
@@ -418,13 +418,13 @@ public class d extends d.a.c.a.d<InviteFriendListActivity> implements c.b {
     }
 
     public final void y() {
-        InviteFriendListActivity inviteFriendListActivity = this.f54963e;
+        InviteFriendListActivity inviteFriendListActivity = this.f58652e;
         if (inviteFriendListActivity != null) {
             inviteFriendListActivity.refreshWithCurrentData();
         }
     }
 
     public void z() {
-        l.x(this.f54963e.getPageContext().getPageActivity(), this.v);
+        l.x(this.f58652e.getPageContext().getPageActivity(), this.v);
     }
 }

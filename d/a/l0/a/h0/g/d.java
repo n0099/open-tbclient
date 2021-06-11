@@ -46,7 +46,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public abstract class d extends Fragment implements SlideInterceptor {
-    public static final boolean w0 = d.a.l0.a.k.f43199a;
+    public static final boolean w0 = d.a.l0.a.k.f46875a;
     public Activity f0;
     public d.a.l0.a.l1.c g0;
     public View h0;
@@ -61,7 +61,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
     public l s0;
     public m t0;
     public d.a.l0.a.h0.g.l.c v0;
-    public boolean o0 = d.a.l0.a.w2.d.b.f45658i;
+    public boolean o0 = d.a.l0.a.w2.d.b.f49332i;
     public int q0 = 1;
     public int r0 = 1;
     public boolean u0 = false;
@@ -127,7 +127,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
 
     /* renamed from: d.a.l0.a.h0.g.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class View$OnClickListenerC0659d implements View.OnClickListener {
+    public class View$OnClickListenerC0715d implements View.OnClickListener {
 
         /* renamed from: d.a.l0.a.h0.g.d$d$a */
         /* loaded from: classes2.dex */
@@ -145,7 +145,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             }
         }
 
-        public View$OnClickListenerC0659d() {
+        public View$OnClickListenerC0715d() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -167,9 +167,9 @@ public abstract class d extends Fragment implements SlideInterceptor {
         public void onClick(View view) {
             d.this.e2();
             d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-            fVar.f43189e = SupportMenuInflater.XML_MENU;
+            fVar.f46865e = SupportMenuInflater.XML_MENU;
             if (d.a.l0.a.a2.e.Q() != null && d.a.l0.a.a2.e.Q().J().d("key_unread_counts_message", 0).intValue() > 0) {
-                fVar.f43191g = String.valueOf(1);
+                fVar.f46867g = String.valueOf(1);
             }
             d.this.y1(fVar);
             if (d.this.s0 != null) {
@@ -265,10 +265,10 @@ public abstract class d extends Fragment implements SlideInterceptor {
     public class j implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f42044e;
+        public final /* synthetic */ boolean f45720e;
 
         public j(boolean z) {
-            this.f42044e = z;
+            this.f45720e = z;
         }
 
         @Override // java.lang.Runnable
@@ -278,7 +278,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
             if (dVar.f0 == null || (swanAppActionBar = dVar.i0) == null) {
                 return;
             }
-            if (this.f42044e) {
+            if (this.f45720e) {
                 if (dVar.m0 == null) {
                     dVar.m0 = new TextView(d.this.f0);
                 }
@@ -315,37 +315,37 @@ public abstract class d extends Fragment implements SlideInterceptor {
     public class l {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42047a = 0;
+        public int f45723a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f42048b = 0;
+        public long f45724b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public Runnable f42049c;
+        public Runnable f45725c;
 
         public l(Runnable runnable) {
-            this.f42049c = runnable;
+            this.f45725c = runnable;
         }
 
         public void a() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f42048b > 1333) {
-                this.f42048b = currentTimeMillis;
-                this.f42047a = 1;
+            if (currentTimeMillis - this.f45724b > 1333) {
+                this.f45724b = currentTimeMillis;
+                this.f45723a = 1;
                 return;
             }
-            int i2 = this.f42047a + 1;
-            this.f42047a = i2;
+            int i2 = this.f45723a + 1;
+            this.f45723a = i2;
             if (i2 == 3) {
-                Runnable runnable = this.f42049c;
+                Runnable runnable = this.f45725c;
                 if (runnable != null) {
                     runnable.run();
                 }
-                this.f42047a = 0;
-                this.f42048b = 0L;
+                this.f45723a = 0;
+                this.f45724b = 0L;
                 return;
             }
-            this.f42048b = currentTimeMillis;
+            this.f45724b = currentTimeMillis;
         }
     }
 
@@ -376,9 +376,9 @@ public abstract class d extends Fragment implements SlideInterceptor {
             i2.g();
             i2.a();
             d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-            eVar.f43189e = com.alipay.sdk.widget.j.j;
-            eVar.f43191g = V1() ? "1" : "0";
-            eVar.f43186b = "gesture";
+            eVar.f46865e = com.alipay.sdk.widget.j.j;
+            eVar.f46867g = V1() ? "1" : "0";
+            eVar.f46862b = "gesture";
             d.a.l0.a.j2.d.a(eVar, d.a.l0.a.a2.d.g().r().L());
             d.a.l0.a.j2.d.c(eVar);
             return;
@@ -397,7 +397,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         frameLayout.setBackgroundColor(i2);
         d.a.l0.a.a2.n.g D1 = D1();
         if (D1 != null) {
-            D1.f40796e = i2;
+            D1.f44472e = i2;
             return true;
         }
         return true;
@@ -471,7 +471,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
     }
 
     public final Resources G1() {
-        if (n0()) {
+        if (l0()) {
             return z();
         }
         return AppRuntime.getAppContext().getResources();
@@ -506,8 +506,8 @@ public abstract class d extends Fragment implements SlideInterceptor {
     public void L1() {
         d.a.l0.a.c2.f.p0.a.f("backtohome", SupportMenuInflater.XML_MENU, d.a.l0.a.g1.f.V().f());
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43189e = "gohome";
-        fVar.f43187c = SupportMenuInflater.XML_MENU;
+        fVar.f46865e = "gohome";
+        fVar.f46863c = SupportMenuInflater.XML_MENU;
         y1(fVar);
     }
 
@@ -566,17 +566,17 @@ public abstract class d extends Fragment implements SlideInterceptor {
         }
         d.a.l0.a.l1.c cVar = this.g0;
         if (cVar == null) {
-            e2 = s.f11249e;
+            e2 = s.f11311e;
         } else {
             e2 = d.a.l0.a.g1.f.V().e(d.a.l0.a.c2.f.p0.j.c(cVar.g(), s));
         }
-        l2(e2.f40792a);
-        this.i0.setTitle(e2.f40793b);
+        l2(e2.f44468a);
+        this.i0.setTitle(e2.f44469b);
         this.s0 = new l(new c());
         if (!(this instanceof SwanAppAdLandingFragment)) {
-            t2(SwanAppConfigData.s(e2.f40794c));
+            t2(SwanAppConfigData.s(e2.f44470c));
         }
-        String str = e2.f40794c;
+        String str = e2.f44470c;
     }
 
     public void R1(View view) {
@@ -587,9 +587,9 @@ public abstract class d extends Fragment implements SlideInterceptor {
         this.h0 = view.findViewById(d.a.l0.a.f.ai_apps_title_bar_root);
         this.l0 = view.findViewById(d.a.l0.a.f.title_shadow);
         this.i0.setLeftBackViewMinWidth(n0.f(this.f0, 38.0f));
-        View$OnClickListenerC0659d view$OnClickListenerC0659d = new View$OnClickListenerC0659d();
-        this.i0.setLeftBackViewClickListener(view$OnClickListenerC0659d);
-        this.i0.setLeftFloatBackViewClickListener(view$OnClickListenerC0659d);
+        View$OnClickListenerC0715d view$OnClickListenerC0715d = new View$OnClickListenerC0715d();
+        this.i0.setLeftBackViewClickListener(view$OnClickListenerC0715d);
+        this.i0.setLeftFloatBackViewClickListener(view$OnClickListenerC0715d);
         this.i0.setRightMenuOnClickListener(new e());
         this.i0.setRightExitOnClickListener(new f());
     }
@@ -704,7 +704,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         d.a.l0.a.g1.f.V().v(new d.a.l0.a.o0.d.c(hashMap));
         d.a.l0.a.e0.d.g("SwanAppBaseFragment", "onClose");
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43189e = IntentConfig.CLOSE;
+        fVar.f46865e = IntentConfig.CLOSE;
         y1(fVar);
     }
 
@@ -792,7 +792,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         swanAppActionBar.setBackgroundColor(i2);
         d.a.l0.a.a2.n.g D1 = D1();
         if (D1 != null) {
-            D1.f40792a = i2;
+            D1.f44468a = i2;
             D1.g(z);
         }
         if (P1()) {
@@ -819,7 +819,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         swanAppActionBar.setTitle(str);
         d.a.l0.a.a2.n.g D1 = D1();
         if (D1 != null) {
-            D1.f40793b = str;
+            D1.f44469b = str;
             D1.g(z);
         }
         d.a.l0.a.e0.d.g("SwanAppBaseFragment", "page title: " + str);
@@ -849,7 +849,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         if (w0) {
             Log.d("SwanAppBaseFragment", MissionEvent.MESSAGE_RESUME);
         }
-        if (W()) {
+        if (V()) {
             i2();
         }
         G2();
@@ -918,7 +918,7 @@ public abstract class d extends Fragment implements SlideInterceptor {
         d.a.l0.a.a2.n.g D1 = D1();
         if (D1 != null) {
             if (!TextUtils.isEmpty(str)) {
-                D1.f40794c = str;
+                D1.f44470c = str;
             }
             D1.g(z);
         }

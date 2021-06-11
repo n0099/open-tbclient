@@ -8,31 +8,31 @@ import d.a.l0.a.y0.i.d.e;
 public final class a extends d.a.l0.a.y0.b<c> {
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.f f45842h;
+    public final c.f f49516h;
 
     /* renamed from: d.a.l0.a.y0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0915a implements c.f {
-        public C0915a() {
+    public class C0971a implements c.f {
+        public C0971a() {
         }
 
         @Override // d.a.l0.a.y0.i.c.f
         public void a() {
-            if (a.this.f45774b != null) {
-                a.this.f45774b.onCallback(a.this, "onConfirmBtnClick", null);
+            if (a.this.f49448b != null) {
+                a.this.f49448b.onCallback(a.this, "onConfirmBtnClick", null);
             }
         }
     }
 
     public a(@NonNull c cVar) {
         super(cVar);
-        C0915a c0915a = new C0915a();
-        this.f45842h = c0915a;
-        cVar.H0(c0915a);
-        this.f45773a.a(new d());
-        this.f45773a.a(new d.a.l0.a.y0.i.d.c());
-        this.f45773a.a(new e());
-        this.f45773a.a(new d.a.l0.a.y0.i.d.a());
-        this.f45773a.a(new d.a.l0.a.y0.i.d.b());
+        C0971a c0971a = new C0971a();
+        this.f49516h = c0971a;
+        cVar.E0(c0971a);
+        this.f49447a.a(new d());
+        this.f49447a.a(new d.a.l0.a.y0.i.d.c());
+        this.f49447a.a(new e());
+        this.f49447a.a(new d.a.l0.a.y0.i.d.a());
+        this.f49447a.a(new d.a.l0.a.y0.i.d.b());
     }
 }

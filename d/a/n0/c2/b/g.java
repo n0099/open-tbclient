@@ -10,7 +10,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.google.gson.Gson;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class g extends b {
     public ViewStub o;
     public View p;
@@ -54,11 +54,11 @@ public class g extends b {
     @Override // d.a.n0.c2.b.b
     public void c(c cVar) {
         ShareStorage.StorageModel storageModel;
-        if (cVar == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f52373d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
+        if (cVar == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f56062d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
             return;
         }
-        this.q.V(storageModel.url, 10, false);
+        this.q.U(storageModel.url, 10, false);
         this.r.setText(storageModel.displayname);
-        this.s.setText(this.f52361a.getResources().getString(R.string.share_login_dialog_subtitle, storageModel.app));
+        this.s.setText(this.f56050a.getResources().getString(R.string.share_login_dialog_subtitle, storageModel.app));
     }
 }

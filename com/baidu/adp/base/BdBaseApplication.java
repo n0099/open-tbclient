@@ -9,7 +9,8 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.nps.NPSHookManager;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
+import com.baidu.titan.sdk.initer.TitanIniter;
+import com.baidu.titan.sdk.loader.LoaderManager;
 import d.a.c.a.b;
 import d.a.c.a.h;
 import d.a.c.e.p.d;
@@ -79,6 +80,8 @@ public class BdBaseApplication extends Application {
         super.attachBaseContext(context);
         NPSHookManager.init(this);
         c.d().h(this);
+        TitanIniter.init(this);
+        LoaderManager.getInstance().load();
     }
 
     public boolean checkInLater30Min() {
@@ -169,7 +172,7 @@ public class BdBaseApplication extends Application {
     public void onAppMemoryLow() {
         b.f().p();
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.lastGcTime > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+        if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
             System.gc();
         }

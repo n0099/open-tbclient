@@ -3,13 +3,13 @@ package com.baidu.mobads.cid.cesium.c.b;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f8157a = new b(32);
+    public b f8219a = new b(32);
 
     public byte[] a(byte[] bArr) {
-        return this.f8157a.a(bArr);
+        return this.f8219a.a(bArr);
     }
 
     public byte[] b(byte[] bArr) {
-        return this.f8157a.b(bArr);
+        return this.f8219a.b(bArr);
     }
 }

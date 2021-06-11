@@ -16,17 +16,17 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.a.n2.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0776a implements c {
+    public class C0832a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43839a;
+        public final /* synthetic */ CallbackHandler f47515a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f43840b;
+        public final /* synthetic */ String f47516b;
 
-        public C0776a(a aVar, CallbackHandler callbackHandler, String str) {
-            this.f43839a = callbackHandler;
-            this.f43840b = str;
+        public C0832a(a aVar, CallbackHandler callbackHandler, String str) {
+            this.f47515a = callbackHandler;
+            this.f47516b = str;
         }
 
         @Override // d.a.l0.a.n2.h.c
@@ -39,7 +39,7 @@ public class a extends a0 {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                this.f43839a.handleSchemeDispatchCallback(this.f43840b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                this.f47515a.handleSchemeDispatchCallback(this.f47516b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             }
         }
     }
@@ -75,7 +75,7 @@ public class a extends a0 {
     public void j(Context context, CallbackHandler callbackHandler, String str) {
         d.a.l0.a.n2.h.d trimMemoryDispatcher;
         if ((context instanceof d.a.l0.a.n2.h.e) && (trimMemoryDispatcher = ((d.a.l0.a.n2.h.e) context).getTrimMemoryDispatcher()) != null) {
-            trimMemoryDispatcher.b(new C0776a(this, callbackHandler, str));
+            trimMemoryDispatcher.b(new C0832a(this, callbackHandler, str));
         }
     }
 }

@@ -8,7 +8,9 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public class LibsInfoDef {
     public static final String CYBER_CODEC_MONITOR_NAME = "cyber-monitor";
-    public static final String CYBER_CODEC_MONITOR_VERSION = "1.0.0.5";
+    public static final String CYBER_CODEC_MONITOR_VERSION = "1.0.0.8";
+    public static final String CYBER_PLAY_SCORE_STORAGE_NAME = "cyber-play-score";
+    public static final String CYBER_PLAY_SCORE_STORAGE_VERSION = "1.0.0.1";
     public static final String CYBER_VIDEO_SR_MODEL_NAME = "video-sr";
     public static final String CYBER_VIDEO_SR_MODEL_VERSION = "1.2";
     public static final int LIB_ID_CRASHPAD_CLIENT = 1;
@@ -18,31 +20,35 @@ public class LibsInfoDef {
     public static final int LIB_ID_CYBER_PCDN = 64;
     public static final int LIB_ID_CYBER_PLAYER = 16;
     public static final int LIB_ID_CYBER_SDL = 8;
+    public static final int LIB_ID_DECODE_MODE = 8192;
     public static final int LIB_ID_MML_FRAMEWORK = 512;
+    public static final int LIB_ID_MML_GBDT = 4096;
     public static final int LIB_ID_OPENCV_JAVA3 = 256;
     public static final int LIB_ID_PADDLE_LITE = 128;
     public static final int LIB_ID_THIRD_PARTY_RTC = 2048;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Integer, d> f7985a;
+    public static final Map<Integer, d> f8030a;
 
     static {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-        f7985a = concurrentHashMap;
-        concurrentHashMap.put(4, new d(4, "cyber-ffmpeg", "4.1.2.39"));
-        f7985a.put(16, new d(16, "cyber-player", SDKVersion.VERSION));
-        f7985a.put(8, new d(8, "cyber-sdl", SDKVersion.VERSION));
-        f7985a.put(32, new d(32, "cyber-ffmpeg-extend", "4.1.2.13"));
-        f7985a.put(64, new d(64, "cyber-pcdn", "2.0.1.1327"));
-        f7985a.put(128, new d(128, "paddle-mobile-cl", "0.5.0.3"));
-        f7985a.put(256, new d(256, "opencv_java3", "0.3.2.0"));
-        f7985a.put(512, new d(512, "mml_framework", "0.5.0.3"));
-        f7985a.put(1, new d(1, "crashpad_client", "1.0.0.3"));
-        f7985a.put(2, new d(2, "crashpad_handler", "1.0.0.3"));
-        f7985a.put(2048, new d(2048, "cybermedia-ext-rtc", "5.4.13.0", d.a.LIB_TYPE_JAR));
+        f8030a = concurrentHashMap;
+        concurrentHashMap.put(4, new d(4, "cyber-ffmpeg", "4.1.2.64"));
+        f8030a.put(16, new d(16, "cyber-player", SDKVersion.VERSION));
+        f8030a.put(8, new d(8, "cyber-sdl", SDKVersion.VERSION));
+        f8030a.put(32, new d(32, "cyber-ffmpeg-extend", "4.1.2.15"));
+        f8030a.put(64, new d(64, "cyber-pcdn", "2.0.1.1631"));
+        f8030a.put(128, new d(128, "paddle-mobile-cl", "0.5.0.3"));
+        f8030a.put(256, new d(256, "opencv_java3", "0.3.2.0"));
+        f8030a.put(512, new d(512, "mml_framework", "0.5.0.3"));
+        f8030a.put(1, new d(1, "crashpad_client", "1.0.0.3"));
+        f8030a.put(2, new d(2, "crashpad_handler", "1.0.0.3"));
+        f8030a.put(2048, new d(2048, "cybermedia-ext-rtc", "5.4.14.0", d.a.LIB_TYPE_JAR));
+        f8030a.put(4096, new d(4096, "mml_gbdt", "1.0.0.2"));
+        f8030a.put(8192, new d(8192, "decode_mode", CYBER_PLAY_SCORE_STORAGE_VERSION));
     }
 
     public static final Map<Integer, d> getAllGroupMap() {
-        return f7985a;
+        return f8030a;
     }
 }

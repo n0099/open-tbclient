@@ -11,25 +11,25 @@ import java.util.HashSet;
 public abstract class f implements IBinder, IBinder.DeathRecipient {
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile IBinder f39711e;
+    public volatile IBinder f43392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashSet<IBinder.DeathRecipient> f39712f = new HashSet<>();
+    public HashSet<IBinder.DeathRecipient> f43393f = new HashSet<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f39713g = new Object();
+    public Object f43394g = new Object();
 
     public static void b(String str, Exception exc) {
     }
 
     public final IBinder a() throws RemoteException {
-        synchronized (this.f39713g) {
-            IBinder iBinder = this.f39711e;
+        synchronized (this.f43394g) {
+            IBinder iBinder = this.f43392e;
             if (iBinder != null) {
                 return iBinder;
             }
             IBinder c2 = c();
-            this.f39711e = c2;
+            this.f43392e = c2;
             if (c2 != null) {
                 c2.linkToDeath(this, 0);
                 return c2;
@@ -40,15 +40,15 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
 
     @Override // android.os.IBinder.DeathRecipient
     public void binderDied() {
-        synchronized (this.f39713g) {
-            IBinder iBinder = this.f39711e;
+        synchronized (this.f43394g) {
+            IBinder iBinder = this.f43392e;
             if (iBinder != null) {
                 iBinder.unlinkToDeath(this, 0);
-                this.f39711e = null;
+                this.f43392e = null;
             }
             ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
-            synchronized (this.f39712f) {
-                arrayList.addAll(this.f39712f);
+            synchronized (this.f43393f) {
+                arrayList.addAll(this.f43393f);
             }
             for (IBinder.DeathRecipient deathRecipient : arrayList) {
                 deathRecipient.binderDied();
@@ -85,8 +85,8 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
 
     @Override // android.os.IBinder
     public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i2) throws RemoteException {
-        synchronized (this.f39712f) {
-            this.f39712f.add(deathRecipient);
+        synchronized (this.f43393f) {
+            this.f43393f.add(deathRecipient);
         }
     }
 
@@ -117,9 +117,9 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
 
     @Override // android.os.IBinder
     public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i2) {
-        synchronized (this.f39712f) {
-            this.f39712f.remove(deathRecipient);
+        synchronized (this.f43393f) {
+            this.f43393f.remove(deathRecipient);
         }
-        return this.f39711e != null;
+        return this.f43392e != null;
     }
 }

@@ -1,136 +1,129 @@
 package com.kwad.sdk.utils;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
-public class s {
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.kwad.sdk.KsAdSDKImpl;
+/* loaded from: classes7.dex */
+public final class s {
 
-    /* renamed from: a  reason: collision with root package name */
-    public static Method f34085a;
+    /* loaded from: classes7.dex */
+    public static class a {
 
-    /* renamed from: b  reason: collision with root package name */
-    public static Method f34086b;
+        /* renamed from: a  reason: collision with root package name */
+        public int f37544a;
 
-    /* renamed from: c  reason: collision with root package name */
-    public static Field f34087c;
+        /* renamed from: b  reason: collision with root package name */
+        public int f37545b;
 
-    /* renamed from: d  reason: collision with root package name */
-    public static int f34088d;
+        /* renamed from: c  reason: collision with root package name */
+        public int f37546c;
 
-    static {
-        try {
-            f34085a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
-        } catch (NoSuchMethodException e2) {
-            e2.printStackTrace();
+        /* renamed from: d  reason: collision with root package name */
+        public int f37547d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f37548e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f37549f;
+
+        public a() {
+            this.f37544a = -1;
+            this.f37545b = -1;
+            this.f37546c = -1;
+            this.f37547d = -1;
+            this.f37548e = -1;
+            this.f37549f = -1;
         }
-        try {
-            f34086b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
-        } catch (NoSuchMethodException e3) {
-            e3.printStackTrace();
-        }
-        try {
-            f34087c = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException e4) {
-            e4.printStackTrace();
-        }
-        try {
-            f34088d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException e5) {
-            e5.printStackTrace();
-        } catch (NoSuchFieldException e6) {
-            e6.printStackTrace();
-        }
-    }
 
-    public static void a(Activity activity, boolean z) {
-        a(activity, z, true);
-    }
+        public a(int i2, int i3) {
+            this.f37544a = -1;
+            this.f37545b = -1;
+            this.f37546c = -1;
+            this.f37547d = -1;
+            this.f37548e = -1;
+            this.f37549f = -1;
+            this.f37544a = i2;
+            this.f37545b = i3;
+        }
 
-    public static void a(Activity activity, boolean z, boolean z2) {
-        Method method = f34086b;
-        if (method == null) {
-            if (z2) {
-                a(activity.getWindow(), z);
-                return;
-            }
-            return;
+        public int a() {
+            return this.f37544a;
         }
-        try {
-            method.invoke(activity, Boolean.valueOf(z));
-        } catch (IllegalAccessException e2) {
-            e2.printStackTrace();
-        } catch (InvocationTargetException e3) {
-            e3.printStackTrace();
-        }
-    }
 
-    public static void a(View view, boolean z) {
-        int systemUiVisibility = view.getSystemUiVisibility();
-        int i2 = z ? f34088d | systemUiVisibility : (~f34088d) & systemUiVisibility;
-        if (i2 != systemUiVisibility) {
-            view.setSystemUiVisibility(i2);
+        public void a(float f2, float f3) {
+            this.f37546c = (int) f2;
+            this.f37547d = (int) f3;
         }
-    }
 
-    public static void a(Window window, int i2) {
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        Field field = f34087c;
-        if (field != null) {
-            try {
-                if (field.getInt(attributes) != i2) {
-                    f34087c.set(attributes, Integer.valueOf(i2));
-                    window.setAttributes(attributes);
-                }
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-            }
+        public void a(int i2, int i3) {
+            this.f37544a = i2;
+            this.f37545b = i3;
         }
-    }
 
-    public static void a(Window window, boolean z) {
-        if (Build.VERSION.SDK_INT < 23) {
-            a(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
-            return;
+        public int b() {
+            return this.f37545b;
         }
-        View decorView = window.getDecorView();
-        if (decorView != null) {
-            a(decorView, z);
-            a(window, 0);
+
+        public void b(float f2, float f3) {
+            this.f37548e = (int) f2;
+            this.f37549f = (int) f3;
+        }
+
+        public int c() {
+            return this.f37546c;
+        }
+
+        public int d() {
+            return this.f37547d;
+        }
+
+        public int e() {
+            return this.f37548e;
+        }
+
+        public int f() {
+            return this.f37549f;
+        }
+
+        @NonNull
+        public String toString() {
+            return "[" + this.f37544a + "," + this.f37545b + "," + this.f37546c + "," + this.f37547d + "," + this.f37548e + "," + this.f37549f + "]";
         }
     }
 
-    public static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
-        try {
-            Field declaredField = layoutParams.getClass().getDeclaredField(str);
-            declaredField.setAccessible(true);
-            int i2 = declaredField.getInt(layoutParams);
-            Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
-            declaredField2.setAccessible(true);
-            int i3 = declaredField2.getInt(layoutParams);
-            int i4 = z ? i2 | i3 : (~i2) & i3;
-            if (i3 != i4) {
-                declaredField2.setInt(layoutParams, i4);
-                return true;
-            }
-            return false;
-        } catch (IllegalAccessException e2) {
-            e2.printStackTrace();
-            return false;
-        } catch (IllegalArgumentException e3) {
-            e3.printStackTrace();
-            return false;
-        } catch (NoSuchFieldException e4) {
-            e4.printStackTrace();
-            return false;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return false;
+    public static String a(int i2) {
+        return i2 > -1 ? String.valueOf(i2) : "-999";
+    }
+
+    @WorkerThread
+    public static String a(String str, a aVar) {
+        if (TextUtils.isEmpty(str)) {
+            return str;
         }
+        String b2 = b(str, aVar);
+        String k = ah.k(KsAdSDKImpl.get().getContext());
+        if (!TextUtils.isEmpty(k)) {
+            b2 = b2.replace("__MAC__", k).replace("__MAC2__", t.a(k)).replace("__MAC3__", t.a(k.replace(":", "")));
+        }
+        String d2 = ah.d(KsAdSDKImpl.get().getContext());
+        if (!TextUtils.isEmpty(d2)) {
+            b2 = b2.replace("__IMEI__", d2).replace("__IMEI2__", t.a(d2)).replace("__IMEI3__", t.b(d2));
+        }
+        String a2 = com.kwad.sdk.core.f.a.a();
+        if (!TextUtils.isEmpty(a2)) {
+            b2 = b2.replace("__OAID__", a2).replace("__OAID2__", t.a(a2));
+        }
+        String i2 = ah.i(KsAdSDKImpl.get().getContext());
+        if (!TextUtils.isEmpty(i2)) {
+            b2 = b2.replace("__ANDROIDID2__", t.a(i2)).replace("__ANDROIDID3__", t.b(i2)).replace("__ANDROIDID__", i2);
+        }
+        return b2.replace("__TS__", String.valueOf(System.currentTimeMillis()));
+    }
+
+    @WorkerThread
+    public static String b(String str, a aVar) {
+        return (TextUtils.isEmpty(str) || aVar == null) ? str : str.replace("__WIDTH__", a(aVar.a())).replace("__HEIGHT__", a(aVar.b())).replace("__DOWN_X__", a(aVar.c())).replace("__DOWN_Y__", a(aVar.d())).replace("__UP_X__", a(aVar.e())).replace("__UP_Y__", a(aVar.f()));
     }
 }

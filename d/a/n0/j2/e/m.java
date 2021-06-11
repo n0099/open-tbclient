@@ -7,16 +7,16 @@ import java.util.List;
 public class m extends BaseCardInfo {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f56432g = BdUniqueId.gen();
+    public static final BdUniqueId f60121g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f56433e;
+    public long f60122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.a.c.j.e.n> f56434f;
+    public List<d.a.c.k.e.n> f60123f;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f56432g;
+        return f60121g;
     }
 }

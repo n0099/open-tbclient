@@ -8,61 +8,61 @@ import android.view.ViewConfiguration;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f49200a;
+    public View f52874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f49201b;
+    public b f52875b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VelocityTracker f49202c;
+    public VelocityTracker f52876c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f49203d;
+    public float f52877d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f49204e;
+    public float f52878e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f49205f;
+    public long f52879f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f49206g;
+    public long f52880g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f49207h;
+    public boolean f52881h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f49208i;
+    public boolean f52882i;
     public int j;
     public int k;
     public int l;
 
     /* renamed from: d.a.m0.b1.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1115a implements Runnable {
-        public RunnableC1115a() {
+    public class RunnableC1171a implements Runnable {
+        public RunnableC1171a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f49208i || !a.this.f49207h || a.this.f49201b == null) {
+            if (a.this.f52882i || !a.this.f52881h || a.this.f52875b == null) {
                 return;
             }
-            a.this.f49201b.l();
+            a.this.f52875b.m();
         }
     }
 
     /* loaded from: classes3.dex */
     public interface b {
-        void N(float f2, float f3);
+        void O(float f2, float f3);
 
-        void j();
+        void k();
 
-        void l();
+        void m();
     }
 
     public a(View view) {
-        this.f49200a = view;
+        this.f52874a = view;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view.getContext());
         if (viewConfiguration != null) {
             this.l = viewConfiguration.getScaledPagingTouchSlop();
@@ -73,41 +73,41 @@ public class a {
 
     public boolean d(MotionEvent motionEvent) {
         b bVar;
-        if (this.f49202c == null) {
-            this.f49202c = VelocityTracker.obtain();
+        if (this.f52876c == null) {
+            this.f52876c = VelocityTracker.obtain();
         }
-        this.f49202c.addMovement(motionEvent);
+        this.f52876c.addMovement(motionEvent);
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f49203d = motionEvent.getX();
-            this.f49204e = motionEvent.getY();
-            this.f49205f = System.currentTimeMillis();
-            this.f49207h = true;
+            this.f52877d = motionEvent.getX();
+            this.f52878e = motionEvent.getY();
+            this.f52879f = System.currentTimeMillis();
+            this.f52881h = true;
         } else if (action == 1) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f49205f < 100 && currentTimeMillis - this.f49206g < 500) {
-                this.f49208i = true;
+            if (currentTimeMillis - this.f52879f < 100 && currentTimeMillis - this.f52880g < 500) {
+                this.f52882i = true;
             } else {
-                this.f49208i = false;
+                this.f52882i = false;
             }
-            VelocityTracker velocityTracker = this.f49202c;
+            VelocityTracker velocityTracker = this.f52876c;
             velocityTracker.computeCurrentVelocity(1000, this.k);
-            if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.f49204e - motionEvent.getY()) > 50.0f) {
-                this.f49208i = false;
-                this.f49207h = false;
+            if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.f52878e - motionEvent.getY()) > 50.0f) {
+                this.f52882i = false;
+                this.f52881h = false;
             }
-            if (this.f49208i) {
-                b bVar2 = this.f49201b;
+            if (this.f52882i) {
+                b bVar2 = this.f52875b;
                 if (bVar2 != null) {
-                    bVar2.N(motionEvent.getRawX(), motionEvent.getRawY());
+                    bVar2.O(motionEvent.getRawX(), motionEvent.getRawY());
                 }
-            } else if (Math.abs(this.f49203d - motionEvent.getX()) > this.l && (this.f49203d - motionEvent.getX()) - 50.0f > Math.abs(this.f49204e - motionEvent.getY()) && (bVar = this.f49201b) != null) {
-                bVar.j();
+            } else if (Math.abs(this.f52877d - motionEvent.getX()) > this.l && (this.f52877d - motionEvent.getX()) - 50.0f > Math.abs(this.f52878e - motionEvent.getY()) && (bVar = this.f52875b) != null) {
+                bVar.k();
             }
-            if (!this.f49208i && this.f49207h && Math.abs(this.f49203d - motionEvent.getX()) < 30.0f && Math.abs(this.f49204e - motionEvent.getY()) < 30.0f) {
-                this.f49200a.postDelayed(new RunnableC1115a(), 300L);
+            if (!this.f52882i && this.f52881h && Math.abs(this.f52877d - motionEvent.getX()) < 30.0f && Math.abs(this.f52878e - motionEvent.getY()) < 30.0f) {
+                this.f52874a.postDelayed(new RunnableC1171a(), 300L);
             }
-            this.f49206g = currentTimeMillis;
+            this.f52880g = currentTimeMillis;
             e();
         } else if (action == 3) {
             e();
@@ -116,15 +116,15 @@ public class a {
     }
 
     public final void e() {
-        VelocityTracker velocityTracker = this.f49202c;
+        VelocityTracker velocityTracker = this.f52876c;
         if (velocityTracker != null) {
             velocityTracker.clear();
-            this.f49202c.recycle();
-            this.f49202c = null;
+            this.f52876c.recycle();
+            this.f52876c = null;
         }
     }
 
     public void f(b bVar) {
-        this.f49201b = bVar;
+        this.f52875b = bVar;
     }
 }

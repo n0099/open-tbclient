@@ -63,7 +63,7 @@ public final class a {
     public static JSONObject a(APPStatus aPPStatus) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (aPPStatus != null) {
-            jSONObject.putOpt(com.alipay.sdk.sys.a.f1920i, aPPStatus.getAPPName());
+            jSONObject.putOpt(com.alipay.sdk.sys.a.f1933i, aPPStatus.getAPPName());
             jSONObject.putOpt("appkey", aPPStatus.getAPPID());
             jSONObject.putOpt("appv", aPPStatus.getAPPVersion());
             jSONObject.putOpt("appn", aPPStatus.getAPPRealName());

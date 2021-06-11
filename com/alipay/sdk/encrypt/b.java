@@ -1,5 +1,6 @@
 package com.alipay.sdk.encrypt;
 
+import com.yy.hiidostatis.inner.util.cipher.Coder;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes.dex */
@@ -15,8 +16,8 @@ public class b {
     public static String a(int i2, String str, String str2) {
         byte[] bytes;
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
-            Cipher cipher = Cipher.getInstance("DES");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), Coder.KEY_DES);
+            Cipher cipher = Cipher.getInstance(Coder.KEY_DES);
             cipher.init(i2, secretKeySpec);
             if (i2 == 2) {
                 bytes = a.a(str);

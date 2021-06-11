@@ -29,31 +29,31 @@ import d.a.l0.a.v2.q0;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
-    public static final boolean n = k.f43199a;
+    public static final boolean n = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile d.a.l0.a.y.b.a f11693b;
+    public volatile d.a.l0.a.y.b.a f11755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile DesktopGuideType f11694c;
+    public volatile DesktopGuideType f11756c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PopupWindow f11695d;
+    public PopupWindow f11757d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f11696e;
+    public Runnable f11758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f11697f = new AtomicBoolean(false);
+    public AtomicBoolean f11759f = new AtomicBoolean(false);
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.l0.h.o0.a f11698g;
+    public d.a.l0.h.o0.a f11760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f11699h;
+    public volatile long f11761h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f11700i;
+    public volatile long f11762i;
     public volatile long j;
     public long k;
     public long l;
@@ -112,22 +112,22 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC0836a {
+    public class a implements a.InterfaceC0892a {
         public a() {
         }
 
-        @Override // d.a.l0.a.u.e.d.a.InterfaceC0836a
+        @Override // d.a.l0.a.u.e.d.a.InterfaceC0892a
         public void a() {
-            if (DesktopGuideApi.this.f11695d == null || !DesktopGuideApi.this.f11695d.x()) {
+            if (DesktopGuideApi.this.f11757d == null || !DesktopGuideApi.this.f11757d.x()) {
                 return;
             }
             DesktopGuideApi.this.p();
             DesktopGuideApi.this.o(DesktopApiStatus.USER_CANCEL);
         }
 
-        @Override // d.a.l0.a.u.e.d.a.InterfaceC0836a
+        @Override // d.a.l0.a.u.e.d.a.InterfaceC0892a
         public void b(int i2) {
-            if (i2 == 0 && DesktopGuideApi.this.f11695d != null && DesktopGuideApi.this.f11695d.x()) {
+            if (i2 == 0 && DesktopGuideApi.this.f11757d != null && DesktopGuideApi.this.f11757d.x()) {
                 DesktopGuideApi.this.p();
                 DesktopGuideApi.this.o(DesktopApiStatus.USER_CANCEL);
             }
@@ -150,28 +150,28 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f11703e;
+        public final /* synthetic */ SwanAppActivity f11765e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f11704f;
+        public final /* synthetic */ d.a.l0.a.a2.e f11766f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f11705g;
+        public final /* synthetic */ String f11767g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f11706h;
+        public final /* synthetic */ Bitmap f11768h;
 
         public c(SwanAppActivity swanAppActivity, d.a.l0.a.a2.e eVar, String str, Bitmap bitmap) {
-            this.f11703e = swanAppActivity;
-            this.f11704f = eVar;
-            this.f11705g = str;
-            this.f11706h = bitmap;
+            this.f11765e = swanAppActivity;
+            this.f11766f = eVar;
+            this.f11767g = str;
+            this.f11768h = bitmap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             DesktopGuideApi desktopGuideApi = DesktopGuideApi.this;
-            desktopGuideApi.w(this.f11703e, this.f11704f, desktopGuideApi.f11694c, this.f11705g, this.f11706h);
+            desktopGuideApi.w(this.f11765e, this.f11766f, desktopGuideApi.f11756c, this.f11767g, this.f11768h);
         }
     }
 
@@ -179,17 +179,17 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideType f11708e;
+        public final /* synthetic */ DesktopGuideType f11770e;
 
         public d(DesktopGuideType desktopGuideType) {
-            this.f11708e = desktopGuideType;
+            this.f11770e = desktopGuideType;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             DesktopGuideApi.this.p();
             DesktopGuideApi.this.o(DesktopApiStatus.USER_CANCEL);
-            d.a.l0.a.j2.k.f(this.f11708e.ubcType, "flow_close_close", PrefetchEvent.STATE_CLICK);
+            d.a.l0.a.j2.k.f(this.f11770e.ubcType, "flow_close_close", PrefetchEvent.STATE_CLICK);
         }
     }
 
@@ -197,25 +197,25 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f11710e;
+        public final /* synthetic */ Activity f11772e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f11711f;
+        public final /* synthetic */ d.a.l0.a.a2.e f11773f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideType f11712g;
+        public final /* synthetic */ DesktopGuideType f11774g;
 
         public e(Activity activity, d.a.l0.a.a2.e eVar, DesktopGuideType desktopGuideType) {
-            this.f11710e = activity;
-            this.f11711f = eVar;
-            this.f11712g = desktopGuideType;
+            this.f11772e = activity;
+            this.f11773f = eVar;
+            this.f11774g = desktopGuideType;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             DesktopGuideApi.this.p();
-            DesktopGuideApi.this.m(this.f11710e, this.f11711f);
-            d.a.l0.a.j2.k.f(this.f11712g.ubcType, "desk_flow".equals(this.f11712g.ubcType) ? "flow_close_add" : "flow_add", PrefetchEvent.STATE_CLICK);
+            DesktopGuideApi.this.m(this.f11772e, this.f11773f);
+            d.a.l0.a.j2.k.f(this.f11774g.ubcType, "desk_flow".equals(this.f11774g.ubcType) ? "flow_close_add" : "flow_add", PrefetchEvent.STATE_CLICK);
         }
     }
 
@@ -226,7 +226,7 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
 
         @Override // com.baidu.swan.menu.PopupWindow.b
         public void onDismiss() {
-            DesktopGuideApi.this.f11697f.set(false);
+            DesktopGuideApi.this.f11759f.set(false);
         }
     }
 
@@ -237,9 +237,9 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (DesktopGuideApi.this.f11695d != null) {
-                DesktopGuideApi.this.f11695d.r();
-                DesktopGuideApi.this.f11695d = null;
+            if (DesktopGuideApi.this.f11757d != null) {
+                DesktopGuideApi.this.f11757d.r();
+                DesktopGuideApi.this.f11757d = null;
             }
         }
     }
@@ -248,10 +248,10 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
     public class h implements a.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f11716a;
+        public final /* synthetic */ d.a.l0.a.a2.e f11778a;
 
         public h(d.a.l0.a.a2.e eVar) {
-            this.f11716a = eVar;
+            this.f11778a = eVar;
         }
 
         @Override // d.a.l0.a.f2.a.f
@@ -265,7 +265,7 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
                 desktopApiStatus = DesktopApiStatus.ADD_FAIL;
                 if (DesktopGuideApi.this.j + 1 < 3) {
                     DesktopGuideApi desktopGuideApi = DesktopGuideApi.this;
-                    desktopGuideApi.u(this.f11716a, desktopGuideApi.f11699h, DesktopGuideApi.this.f11700i, DesktopGuideApi.this.j + 1);
+                    desktopGuideApi.u(this.f11778a, desktopGuideApi.f11761h, DesktopGuideApi.this.f11762i, DesktopGuideApi.this.j + 1);
                 }
                 str = "desk_fail";
             } else {
@@ -273,7 +273,7 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
                 str = "desk_success";
             }
             DesktopGuideApi.this.o(desktopApiStatus);
-            d.a.l0.a.j2.k.f(DesktopGuideApi.this.f11694c.ubcType, str, PrefetchEvent.STATE_CLICK);
+            d.a.l0.a.j2.k.f(DesktopGuideApi.this.f11756c.ubcType, str, PrefetchEvent.STATE_CLICK);
         }
     }
 
@@ -306,14 +306,14 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
 
     @AnyThread
     public final void o(DesktopApiStatus desktopApiStatus) {
-        if (this.f11693b != null) {
-            d.a.l0.h.m0.c.a(this.f11693b, desktopApiStatus.success, new d.a.l0.h.o0.e.a(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
+        if (this.f11755b != null) {
+            d.a.l0.h.m0.c.a(this.f11755b, desktopApiStatus.success, new d.a.l0.h.o0.e.a(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
         }
     }
 
     @AnyThread
     public final void p() {
-        Runnable runnable = this.f11696e;
+        Runnable runnable = this.f11758e;
         if (runnable != null) {
             q0.a0(runnable);
         }
@@ -321,30 +321,30 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
     }
 
     public final void q() {
-        this.f11696e = new b();
+        this.f11758e = new b();
     }
 
     public final void r() {
-        if (this.f11698g != null) {
+        if (this.f11760g != null) {
             return;
         }
         d.a.l0.h.o0.a d2 = d.a.l0.h.o0.a.d();
-        this.f11698g = d2;
+        this.f11760g = d2;
         if (d2 != null) {
             d2.b(new a());
         }
     }
 
     public final boolean s(@NonNull Context context, @NonNull d.a.l0.a.a2.e eVar) {
-        return d.a.l0.a.f2.a.s(context, eVar.O(), eVar.f40749f) == 1;
+        return d.a.l0.a.f2.a.s(context, eVar.O(), eVar.f44425f) == 1;
     }
 
     public final void t(@NonNull String str) {
         String string = d.a.l0.a.k2.g.h.a().getString(str, "");
         String[] split = string.split("#");
         if (split.length == 3 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1]) && TextUtils.isDigitsOnly(split[2])) {
-            this.f11699h = Long.parseLong(split[0]);
-            this.f11700i = Long.parseLong(split[1]);
+            this.f11761h = Long.parseLong(split[0]);
+            this.f11762i = Long.parseLong(split[1]);
             this.j = Long.parseLong(split[2]);
         }
         if (n) {
@@ -354,7 +354,7 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
 
     public final void u(@NonNull d.a.l0.a.a2.e eVar, long j, long j2, long j3) {
         d.a.l0.a.k2.g.b a2 = d.a.l0.a.k2.g.h.a();
-        a2.putString("desktop_guide_count_" + eVar.f40749f, j + "#" + j2 + "#" + j3);
+        a2.putString("desktop_guide_count_" + eVar.f44425f, j + "#" + j2 + "#" + j3);
     }
 
     public void v(JsObject jsObject) {
@@ -362,7 +362,7 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
         if (G == null) {
             G = new d.a.l0.a.y.b.a();
         }
-        this.f11693b = G;
+        this.f11755b = G;
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
         if (i2 == null) {
             o(DesktopApiStatus.EXEC_FAILURE);
@@ -373,24 +373,24 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
             o(DesktopApiStatus.EXEC_FAILURE);
             return;
         }
-        this.f11694c = DesktopGuideType.parse(G.C("type"));
+        this.f11756c = DesktopGuideType.parse(G.C("type"));
         String C = G.C("content");
         if (TextUtils.isEmpty(C)) {
-            C = x.getString(this.f11694c.defaultText);
+            C = x.getString(this.f11756c.defaultText);
         }
         if (s(x, i2)) {
             o(DesktopApiStatus.ALREADY_IN_DESKTOP);
             return;
         }
-        t("desktop_guide_count_" + i2.f40749f);
+        t("desktop_guide_count_" + i2.f44425f);
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.f11699h < this.m && currentTimeMillis - this.f11700i > this.l * 86400000) {
-            if (this.f11697f.get()) {
+        if (this.f11761h < this.m && currentTimeMillis - this.f11762i > this.l * 86400000) {
+            if (this.f11759f.get()) {
                 o(DesktopApiStatus.REACH_MAX_TIMES);
                 return;
             }
-            this.f11697f.set(true);
-            u(i2, 1 + this.f11699h, currentTimeMillis, 0L);
+            this.f11759f.set(true);
+            u(i2, 1 + this.f11761h, currentTimeMillis, 0L);
             q0.b0(new c(x, i2, C, q0.i(i2.N(), "ShowAddToDesktopGuide", false)));
             return;
         }
@@ -401,7 +401,7 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
     public final void w(@NonNull Activity activity, @NonNull d.a.l0.a.a2.e eVar, @NonNull DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
         Runnable runnable;
         r();
-        d.a.l0.h.o0.a aVar = this.f11698g;
+        d.a.l0.h.o0.a aVar = this.f11760g;
         if (aVar != null) {
             aVar.c(1);
         }
@@ -428,15 +428,15 @@ public class DesktopGuideApi implements d.a.l0.h.o0.e.b {
         button.setText(d.a.l0.f.g.aiapps_game_desktop_guide_add);
         button.setOnClickListener(new e(activity, eVar, desktopGuideType));
         PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
-        this.f11695d = popupWindow;
+        this.f11757d = popupWindow;
         popupWindow.N(16);
-        this.f11695d.Q(activity.getWindow().getDecorView(), 81, 0, n0.g(50.0f));
-        this.f11695d.L(new f());
-        if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE && (runnable = this.f11696e) != null) {
+        this.f11757d.Q(activity.getWindow().getDecorView(), 81, 0, n0.g(50.0f));
+        this.f11757d.L(new f());
+        if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE && (runnable = this.f11758e) != null) {
             q0.a0(runnable);
-            q0.Y(this.f11696e, this.k * 1000);
+            q0.Y(this.f11758e, this.k * 1000);
         }
-        d.a.l0.a.j2.k.f(desktopGuideType.ubcType, d.a.l0.h.o0.e.b.f47557a, "show");
+        d.a.l0.a.j2.k.f(desktopGuideType.ubcType, d.a.l0.h.o0.e.b.f51231a, "show");
     }
 
     public final void x() {

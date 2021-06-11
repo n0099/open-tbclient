@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class b extends d.a.c.j.e.a<g, CardViewHolder<VideoMiddlePageLightCardView>> {
+public final class b extends d.a.c.k.e.a<g, CardViewHolder<VideoMiddlePageLightCardView>> {
     public final List<VideoMiddlePageLightCardView> m;
     public final TbPageContext<?> n;
     public final VideoMiddlePageViewModel o;
@@ -34,23 +34,23 @@ public final class b extends d.a.c.j.e.a<g, CardViewHolder<VideoMiddlePageLightC
 
     public final void e0(g gVar, int i2) {
         StatisticItem statisticItem = new StatisticItem("c12590");
-        statisticItem.param("tid", gVar != null ? gVar.f58690f : null);
-        statisticItem.param("nid", gVar != null ? gVar.f58691g : null);
+        statisticItem.param("tid", gVar != null ? gVar.f62381f : null);
+        statisticItem.param("nid", gVar != null ? gVar.f62382g : null);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_locate", i2);
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
         if (gVar == null) {
             Intrinsics.throwNpe();
         }
-        statisticItem.param("fid", gVar.f58689e);
+        statisticItem.param("fid", gVar.f62380e);
         statisticItem.param("obj_param1", k.isEmpty(gVar.r) ? "0" : gVar.r);
         statisticItem.param("extra", k.isEmpty(gVar.s) ? "0" : gVar.s);
         statisticItem.param("obj_id", this.o.e());
         statisticItem.param("ab_tag", k.isEmpty(gVar.t) ? "0" : gVar.t);
         statisticItem.param("obj_type", this.o.d());
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, gVar.p());
+        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, gVar.k());
         statisticItem.param("obj_source", k.isEmpty(gVar.q) ? "0" : gVar.q);
-        statisticItem.param(TiebaStatic.Params.IS_VERTICAL, gVar.s() ? 1 : 0);
+        statisticItem.param(TiebaStatic.Params.IS_VERTICAL, gVar.o() ? 1 : 0);
         BaijiahaoData baijiahaoData = gVar.A;
         if (baijiahaoData != null) {
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData != null ? baijiahaoData.oriUgcNid : null);
@@ -60,36 +60,36 @@ public final class b extends d.a.c.j.e.a<g, CardViewHolder<VideoMiddlePageLightC
         TiebaStatic.log(statisticItem);
     }
 
-    public final void f0(g gVar, a2 a2Var, int i2) {
+    public final void g0(g gVar, a2 a2Var, int i2) {
         if (gVar == null) {
             Intrinsics.throwNpe();
         }
-        c.g().d(this.n.getUniqueId(), d.a.n0.d3.a.c(gVar.f58690f, "", "", gVar.A), d.a.n0.d3.a.f(a2Var, "a023", "common_exp", i2 + 1, false, null, null));
+        c.g().d(this.n.getUniqueId(), d.a.n0.d3.a.c(gVar.f62381f, "", "", gVar.A), d.a.n0.d3.a.f(a2Var, "a023", "common_exp", i2 + 1, false, null, null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public CardViewHolder<VideoMiddlePageLightCardView> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public CardViewHolder<VideoMiddlePageLightCardView> Q(ViewGroup viewGroup) {
         VideoMiddlePageLightCardView videoMiddlePageLightCardView = new VideoMiddlePageLightCardView(this.n, this.o);
         this.m.add(videoMiddlePageLightCardView);
         return new CardViewHolder<>(videoMiddlePageLightCardView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, g gVar, CardViewHolder<VideoMiddlePageLightCardView> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, g gVar, CardViewHolder<VideoMiddlePageLightCardView> cardViewHolder) {
         VideoMiddlePageLightCardView b2;
-        AgreeData l;
-        a2 h2 = g.h(gVar);
-        if (gVar != null && (l = gVar.l()) != null) {
-            l.keyFromHomePage = this.o.d();
+        AgreeData g2;
+        a2 c2 = g.c(gVar);
+        if (gVar != null && (g2 = gVar.g()) != null) {
+            g2.keyFromHomePage = this.o.d();
         }
         if (cardViewHolder != null && (b2 = cardViewHolder.b()) != null) {
-            b2.X(gVar, i2);
+            b2.Y(gVar, i2);
         }
-        f0(gVar, h2, i2);
+        g0(gVar, c2, i2);
         e0(gVar, i2);
         if (cardViewHolder != null) {
             return cardViewHolder.a();

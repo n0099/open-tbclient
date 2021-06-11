@@ -1,10 +1,10 @@
 package org.webrtc;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CryptoOptions {
     public final SFrame sframe;
     public final Srtp srtp;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public boolean enableAes128Sha1_32CryptoCipher;
         public boolean enableEncryptedRtpHeaderExtensions;
@@ -39,7 +39,7 @@ public final class CryptoOptions {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class SFrame {
         public final boolean requireFrameEncryption;
 
@@ -53,7 +53,7 @@ public final class CryptoOptions {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class Srtp {
         public final boolean enableAes128Sha1_32CryptoCipher;
         public final boolean enableEncryptedRtpHeaderExtensions;

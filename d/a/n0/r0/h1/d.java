@@ -125,23 +125,23 @@ public class d extends k<c, CardViewHolder<d.a.n0.r0.h1.b>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: t0 */
-    public CardViewHolder<d.a.n0.r0.h1.b> P(ViewGroup viewGroup) {
+    public CardViewHolder<d.a.n0.r0.h1.b> Q(ViewGroup viewGroup) {
         d.a.n0.r0.h1.b bVar = new d.a.n0.r0.h1.b(this.w);
         this.x = bVar;
-        bVar.v(0.75d);
-        this.x.u(this.y);
-        this.x.t(this.z);
+        bVar.w(0.75d);
+        this.x.v(this.y);
+        this.x.u(this.z);
         return new CardViewHolder<>(this.x);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: u0 */
-    public View W(int i2, View view, ViewGroup viewGroup, c cVar, CardViewHolder<d.a.n0.r0.h1.b> cardViewHolder) {
-        super.W(i2, view, viewGroup, cVar, cardViewHolder);
-        cardViewHolder.b().m(cVar);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: v0 */
+    public View X(int i2, View view, ViewGroup viewGroup, c cVar, CardViewHolder<d.a.n0.r0.h1.b> cardViewHolder) {
+        super.X(i2, view, viewGroup, cVar, cardViewHolder);
+        cardViewHolder.b().n(cVar);
         return cardViewHolder.a();
     }
 }

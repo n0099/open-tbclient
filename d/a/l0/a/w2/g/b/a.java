@@ -15,43 +15,43 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f45700f = k.f43199a;
+    public static final boolean f49374f = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45701a;
+    public String f49375a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f45702b;
+    public long f49376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f45703c;
+    public List<b> f49377c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<b> f45704d;
+    public List<b> f49378d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f45705e;
+    public int[] f49379e;
 
     /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f45706a;
+        public int f49380a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f45707b;
+        public float f49381b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f45708c;
+        public float f49382c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f45709d;
+        public float f49383d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f45710e;
+        public float f49384e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f45711f;
+        public float f49385f;
 
         public b() {
         }
@@ -59,14 +59,14 @@ public class a {
         public JSONObject i() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("x", n0.L(this.f45707b));
-                jSONObject.put("y", n0.L(this.f45708c));
-                jSONObject.put("clientX", n0.L(this.f45709d - a.this.f45705e[0]));
-                jSONObject.put("clientY", n0.L(this.f45710e - a.this.f45705e[1]));
-                jSONObject.put("identifier", this.f45706a);
-                jSONObject.put("force", this.f45711f);
+                jSONObject.put("x", n0.L(this.f49381b));
+                jSONObject.put("y", n0.L(this.f49382c));
+                jSONObject.put("clientX", n0.L(this.f49383d - a.this.f49379e[0]));
+                jSONObject.put("clientY", n0.L(this.f49384e - a.this.f49379e[1]));
+                jSONObject.put("identifier", this.f49380a);
+                jSONObject.put("force", this.f49385f);
             } catch (JSONException e2) {
-                if (a.f45700f) {
+                if (a.f49374f) {
                     e2.printStackTrace();
                 }
             }
@@ -75,11 +75,11 @@ public class a {
     }
 
     public a(MotionEvent motionEvent) {
-        this.f45701a = "error";
-        this.f45702b = 0L;
-        this.f45703c = new ArrayList();
-        this.f45704d = new ArrayList();
-        this.f45705e = new int[2];
+        this.f49375a = "error";
+        this.f49376b = 0L;
+        this.f49377c = new ArrayList();
+        this.f49378d = new ArrayList();
+        this.f49379e = new int[2];
         h(motionEvent, "");
     }
 
@@ -87,26 +87,26 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!this.f45703c.isEmpty()) {
-                for (b bVar : this.f45703c) {
+            if (!this.f49377c.isEmpty()) {
+                for (b bVar : this.f49377c) {
                     if (bVar != null) {
                         jSONArray.put(bVar.i());
                     }
                 }
             }
             JSONArray jSONArray2 = new JSONArray();
-            if (!this.f45704d.isEmpty()) {
-                for (b bVar2 : this.f45704d) {
+            if (!this.f49378d.isEmpty()) {
+                for (b bVar2 : this.f49378d) {
                     if (bVar2 != null) {
                         jSONArray2.put(bVar2.i());
                     }
                 }
             }
-            jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, this.f45702b);
+            jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, this.f49376b);
             jSONObject.put("touches", jSONArray);
             jSONObject.put("changedTouches", jSONArray2);
         } catch (JSONException e2) {
-            if (f45700f) {
+            if (f49374f) {
                 e2.printStackTrace();
             }
         }
@@ -116,49 +116,49 @@ public class a {
     public b d(MotionEvent motionEvent, int i2) {
         int pointerId = motionEvent.getPointerId(i2);
         b bVar = new b();
-        bVar.f45706a = pointerId;
-        bVar.f45707b = motionEvent.getX(i2);
-        bVar.f45708c = motionEvent.getY(i2);
-        bVar.f45709d = (motionEvent.getRawX() + bVar.f45707b) - motionEvent.getX();
-        bVar.f45710e = (motionEvent.getRawY() + bVar.f45708c) - motionEvent.getY();
-        bVar.f45711f = motionEvent.getPressure(i2);
+        bVar.f49380a = pointerId;
+        bVar.f49381b = motionEvent.getX(i2);
+        bVar.f49382c = motionEvent.getY(i2);
+        bVar.f49383d = (motionEvent.getRawX() + bVar.f49381b) - motionEvent.getX();
+        bVar.f49384e = (motionEvent.getRawY() + bVar.f49382c) - motionEvent.getY();
+        bVar.f49385f = motionEvent.getPressure(i2);
         return bVar;
     }
 
     public String e() {
-        return this.f45701a;
+        return this.f49375a;
     }
 
     public final void f(MotionEvent motionEvent) {
         try {
             if (!(motionEvent.getActionMasked() == 2)) {
-                this.f45704d.add(d(motionEvent, motionEvent.getActionIndex()));
+                this.f49378d.add(d(motionEvent, motionEvent.getActionIndex()));
                 return;
             }
             int pointerCount = motionEvent.getPointerCount();
             for (int i2 = 0; i2 < pointerCount; i2++) {
-                this.f45704d.add(d(motionEvent, i2));
+                this.f49378d.add(d(motionEvent, i2));
             }
         } catch (Exception e2) {
-            if (f45700f) {
+            if (f49374f) {
                 e2.printStackTrace();
             }
         }
     }
 
     public final void g(MotionEvent motionEvent) {
-        if (TextUtils.equals(this.f45701a, "touchend") || TextUtils.equals(this.f45701a, "touchcancel")) {
+        if (TextUtils.equals(this.f49375a, "touchend") || TextUtils.equals(this.f49375a, "touchcancel")) {
             return;
         }
         try {
             int pointerCount = motionEvent.getPointerCount();
             for (int i2 = 0; i2 < pointerCount; i2++) {
                 if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i2) {
-                    this.f45703c.add(d(motionEvent, i2));
+                    this.f49377c.add(d(motionEvent, i2));
                 }
             }
         } catch (Exception e2) {
-            if (f45700f) {
+            if (f49374f) {
                 e2.printStackTrace();
             }
         }
@@ -167,52 +167,52 @@ public class a {
     public final void h(MotionEvent motionEvent, String str) {
         int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0) {
-            this.f45701a = "touchstart";
+            this.f49375a = "touchstart";
             f(motionEvent);
         } else if (actionMasked == 1) {
-            this.f45701a = "touchend";
+            this.f49375a = "touchend";
             f(motionEvent);
         } else if (actionMasked == 2) {
-            this.f45701a = "touchmove";
+            this.f49375a = "touchmove";
             f(motionEvent);
         } else if (actionMasked == 3) {
-            this.f45701a = "touchcancel";
+            this.f49375a = "touchcancel";
             f(motionEvent);
         } else if (actionMasked == 5) {
-            this.f45701a = "touchpointerdown";
+            this.f49375a = "touchpointerdown";
             f(motionEvent);
         } else if (actionMasked != 6) {
-            this.f45701a = "error";
+            this.f49375a = "error";
         } else {
-            this.f45701a = "touchpointerup";
+            this.f49375a = "touchpointerup";
             f(motionEvent);
         }
-        this.f45702b = motionEvent.getEventTime();
+        this.f49376b = motionEvent.getEventTime();
         if (!TextUtils.isEmpty(str)) {
-            this.f45701a = str;
+            this.f49375a = str;
         }
         g(motionEvent);
-        if (TextUtils.equals(this.f45701a, "touchpointerdown")) {
-            this.f45701a = "touchstart";
+        if (TextUtils.equals(this.f49375a, "touchpointerdown")) {
+            this.f49375a = "touchstart";
         }
-        if (TextUtils.equals(this.f45701a, "touchpointerup")) {
-            this.f45701a = "touchend";
+        if (TextUtils.equals(this.f49375a, "touchpointerup")) {
+            this.f49375a = "touchend";
         }
     }
 
     public void i(int[] iArr) {
-        this.f45705e = iArr;
-        if (f45700f) {
+        this.f49379e = iArr;
+        if (f49374f) {
             Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
         }
     }
 
     public a(MotionEvent motionEvent, String str) {
-        this.f45701a = "error";
-        this.f45702b = 0L;
-        this.f45703c = new ArrayList();
-        this.f45704d = new ArrayList();
-        this.f45705e = new int[2];
+        this.f49375a = "error";
+        this.f49376b = 0L;
+        this.f49377c = new ArrayList();
+        this.f49378d = new ArrayList();
+        this.f49379e = new int[2];
         h(motionEvent, str);
     }
 }

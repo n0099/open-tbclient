@@ -20,25 +20,25 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44564a;
+    public static final boolean f48238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<Pair<String, Pair<String, String>>> f44565b;
+    public static List<Pair<String, Pair<String, String>>> f48239b;
 
     static {
-        boolean z = k.f43199a;
-        f44564a = z;
+        boolean z = k.f46875a;
+        f48238a = z;
         if (z) {
             ArrayList arrayList = new ArrayList();
-            f44565b = arrayList;
+            f48239b = arrayList;
             arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            f44565b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            f44565b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            f44565b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            f44565b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            f44565b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            f44565b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            f44565b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            f48239b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            f48239b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            f48239b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            f48239b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            f48239b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            f48239b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            f48239b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
@@ -49,7 +49,7 @@ public class a {
         d.a.l0.a.j2.a c2 = d.a.l0.a.j2.k.c("770");
         for (UbcFlowEvent ubcFlowEvent : list) {
             if (ubcFlowEvent != null) {
-                b.e(c2, ubcFlowEvent.f10989a, ubcFlowEvent.j(), ubcFlowEvent.g());
+                b.e(c2, ubcFlowEvent.f11051a, ubcFlowEvent.j(), ubcFlowEvent.g());
             }
         }
         JSONObject jSONObject = new JSONObject();
@@ -70,12 +70,12 @@ public class a {
         }
         b.f(c2, jSONObject.toString());
         b.c(c2);
-        b(str, list, f44565b);
+        b(str, list, f48239b);
     }
 
     @SuppressLint({"SwanDebugLog", "LogConditional"})
     public static void b(String str, List<UbcFlowEvent> list, List<Pair<String, Pair<String, String>>> list2) {
-        if (!f44564a || list == null || list2 == null) {
+        if (!f48238a || list == null || list2 == null) {
             return;
         }
         HashMap hashMap = new HashMap();
@@ -92,8 +92,8 @@ public class a {
                 sb.append("\n");
                 sb.append(ubcFlowEvent.g());
                 sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-                sb.append(ubcFlowEvent.f10989a);
-                hashMap.put(ubcFlowEvent.f10989a, Long.valueOf(ubcFlowEvent.g()));
+                sb.append(ubcFlowEvent.f11051a);
+                hashMap.put(ubcFlowEvent.f11051a, Long.valueOf(ubcFlowEvent.g()));
             }
         }
         sb.append("\n");

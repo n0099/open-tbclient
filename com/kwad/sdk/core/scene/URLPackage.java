@@ -1,14 +1,15 @@
 package com.kwad.sdk.core.scene;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.kwad.sdk.core.b;
+import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serializable {
+/* loaded from: classes7.dex */
+public class URLPackage implements b, Serializable {
     public static final String KEY_AUTHOR_ID = "authorId";
     public static final String KEY_TREND_ID = "trendId";
     public static final String KEY_TUBE_ID = "tubeId";
@@ -16,6 +17,7 @@ public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serial
     public String identity;
     public transient JSONObject mJsonObjectParams;
     public int page;
+    public String params;
 
     public URLPackage() {
     }
@@ -25,29 +27,20 @@ public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serial
         this.identity = str;
     }
 
-    @Override // com.kwad.sdk.core.response.a.a
-    public void afterParseJson(@Nullable JSONObject jSONObject) {
-        super.afterParseJson(jSONObject);
+    public void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
+        this.page = jSONObject.optInt("page");
+        this.identity = jSONObject.optString("identity");
         String optString = jSONObject.optString("params");
-        if (TextUtils.isEmpty(optString)) {
-            return;
-        }
+        this.params = optString;
         try {
-            this.mJsonObjectParams = new JSONObject(optString);
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-        }
-    }
-
-    @Override // com.kwad.sdk.core.response.a.a
-    public void afterToJson(JSONObject jSONObject) {
-        super.afterToJson(jSONObject);
-        JSONObject jSONObject2 = this.mJsonObjectParams;
-        if (jSONObject2 != null) {
-            o.a(jSONObject, "params", jSONObject2.toString());
+            if (ag.a(optString)) {
+                return;
+            }
+            this.mJsonObjectParams = new JSONObject(this.params);
+        } catch (JSONException unused) {
         }
     }
 
@@ -56,5 +49,17 @@ public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serial
             this.mJsonObjectParams = new JSONObject();
         }
         o.a(this.mJsonObjectParams, str, j);
+    }
+
+    @Override // com.kwad.sdk.core.b
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        o.a(jSONObject, "page", this.page);
+        o.a(jSONObject, "identity", this.identity);
+        JSONObject jSONObject2 = this.mJsonObjectParams;
+        if (jSONObject2 != null) {
+            o.a(jSONObject, "params", jSONObject2.toString());
+        }
+        return jSONObject;
     }
 }

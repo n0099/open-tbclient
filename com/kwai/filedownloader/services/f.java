@@ -1,7 +1,7 @@
 package com.kwai.filedownloader.services;
 
 import android.content.Intent;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static void a(com.kwai.filedownloader.d.c cVar) {
         if (cVar == null) {

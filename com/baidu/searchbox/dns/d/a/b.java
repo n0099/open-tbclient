@@ -5,6 +5,7 @@ import com.baidu.searchbox.dns.d.c;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
+import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -34,7 +35,7 @@ public class b {
             JSONObject jSONObject2 = new JSONObject(str);
             String optString = jSONObject2.optString("msg", "error");
             String optString2 = jSONObject2.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-            int optInt = jSONObject2.optInt("ttl", 60) * 1000;
+            int optInt = jSONObject2.optInt(ResultTB.TTL, 60) * 1000;
             JSONObject optJSONObject = jSONObject2.optJSONObject("data");
             JSONObject optJSONObject2 = jSONObject2.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
             this.X = jSONObject2.optString("version");

@@ -14,16 +14,16 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f57768a;
+    public TbPageContext f61457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f57769b;
+    public BdUniqueId f61458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f57770c;
+    public b f61459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f57771d;
+    public HttpMessageListener f61460d;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -37,9 +37,9 @@ public class c {
             if (httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == c.this.f57769b;
-            if (c.this.f57770c != null) {
-                c.this.f57770c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
+            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == c.this.f61458b;
+            if (c.this.f61459c != null) {
+                c.this.f61459c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
             }
         }
     }
@@ -51,11 +51,11 @@ public class c {
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         a aVar = new a(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
-        this.f57771d = aVar;
-        this.f57768a = tbPageContext;
-        this.f57769b = bdUniqueId;
+        this.f61460d = aVar;
+        this.f61457a = tbPageContext;
+        this.f61458b = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        this.f57768a.registerListener(this.f57771d);
+        this.f61457a.registerListener(this.f61460d);
         c();
     }
 
@@ -70,11 +70,11 @@ public class c {
 
     public void d() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
-        httpMessage.setTag(this.f57769b);
+        httpMessage.setTag(this.f61458b);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void e(b bVar) {
-        this.f57770c = bVar;
+        this.f61459c = bVar;
     }
 }

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import androidx.room.RoomMasterTable;
+import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.swan.apps.so.SoUtils;
 import com.tencent.connect.common.Constants;
@@ -20,22 +21,22 @@ import org.json.JSONObject;
 public class d extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public e f40406c;
+    public e f44085c;
 
     public d(Context context, Handler handler) {
         super(context, handler);
-        this.f40393b = context;
-        this.f40406c = e.a(context);
+        this.f44072b = context;
+        this.f44085c = e.a(context);
     }
 
     public String b() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("0", d.a.j0.l.d.l(this.f40393b));
-            jSONObject.put("1", d.a.j0.l.c.h(this.f40393b));
-            jSONObject.put("2", d.a.j0.g.b.a(this.f40393b));
-            jSONObject.put("3", d.a.j0.g.a.c(this.f40393b));
-            return c("q/1/qr", d.a.j0.l.c.c(this.f40393b, e(j(), jSONObject), "1077101"));
+            jSONObject.put("0", d.a.j0.l.d.j(this.f44072b));
+            jSONObject.put("1", d.a.j0.l.c.h(this.f44072b));
+            jSONObject.put("2", d.a.j0.g.b.a(this.f44072b, true, false));
+            jSONObject.put("3", d.a.j0.g.a.c(this.f44072b));
+            return c("q/1/qr", d.a.j0.l.c.c(this.f44072b, e(f(true, false), jSONObject), "1077101"));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
             return "";
@@ -45,11 +46,11 @@ public class d extends a {
     public String c(String str, JSONObject jSONObject) {
         try {
             byte[] f2 = d.a.j0.l.c.f();
-            String b2 = this.f40406c.b(str, URLEncoder.encode(Base64.encodeToString(d.a.j0.l.e.h(f2, g.b(d.a.j0.l.d.e(this.f40393b)).getBytes()), 0)));
+            String b2 = this.f44085c.b(str, URLEncoder.encode(Base64.encodeToString(d.a.j0.l.e.h(f2, g.b(d.a.j0.l.d.f(this.f44072b)).getBytes()), 0)));
             if (TextUtils.isEmpty(b2)) {
                 return "";
             }
-            String a2 = a(b2, this.f40406c.e(f2, jSONObject.toString()));
+            String a2 = a(b2, this.f44085c.e(f2, jSONObject.toString()));
             if (TextUtils.isEmpty(a2)) {
                 return "";
             }
@@ -57,7 +58,7 @@ public class d extends a {
             jSONObject2.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             String optString = jSONObject2.optString("skey");
             String optString2 = jSONObject2.optString("data");
-            return new String(d.a.j0.l.e.e(Base64.decode(optString2.getBytes(), 0), d.a.j0.l.e.g(Base64.decode(optString.getBytes(), 0), g.b(d.a.j0.l.d.e(this.f40393b)).getBytes())));
+            return new String(d.a.j0.l.e.e(Base64.decode(optString2.getBytes(), 0), d.a.j0.l.e.g(Base64.decode(optString.getBytes(), 0), g.b(d.a.j0.l.d.f(this.f44072b)).getBytes())));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
             return "";
@@ -66,7 +67,7 @@ public class d extends a {
 
     public String d(JSONObject jSONObject, long j) {
         try {
-            return c("q/1/qmini", d.a.j0.l.c.c(this.f40393b, e(j(), jSONObject), "1077102"));
+            return c("q/1/qmini", d.a.j0.l.c.c(this.f44072b, e(f(true, false), jSONObject), "1077102"));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
             return "";
@@ -95,7 +96,23 @@ public class d extends a {
         return jSONObject;
     }
 
-    public final void f(JSONObject jSONObject, String str, String str2) {
+    public final JSONObject f(boolean z, boolean z2) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            g(jSONObject, Constants.VIA_REPORT_TYPE_QQFAVORITES, d.a.j0.g.b.a(this.f44072b, z, z2));
+            g(jSONObject, Constants.VIA_REPORT_TYPE_DATALINE, d.a.j0.l.d.b(this.f44072b, z, z2));
+            g(jSONObject, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, d.a.j0.g.b.c(this.f44072b, z, z2));
+            g(jSONObject, SoUtils.SO_EVENT_ID_DEFAULT, d.a.j0.g.b.b(this.f44072b, z, z2));
+            g(jSONObject, "40", d.a.j0.g.a.d(this.f44072b, z, z2));
+            g(jSONObject, "41", d.a.j0.g.a.a(this.f44072b));
+            g(jSONObject, RoomMasterTable.DEFAULT_ID, d.a.j0.g.a.b(this.f44072b, z, z2));
+        } catch (Throwable th) {
+            d.a.j0.l.c.d(th);
+        }
+        return jSONObject;
+    }
+
+    public final void g(JSONObject jSONObject, String str, String str2) {
         if (jSONObject == null || TextUtils.isEmpty(str)) {
             return;
         }
@@ -110,68 +127,52 @@ public class d extends a {
         }
     }
 
-    public boolean g(JSONObject jSONObject) {
-        JSONObject j;
+    public boolean h(JSONObject jSONObject) {
+        JSONObject f2;
         try {
-            j = j();
-            j.put("27", Build.MANUFACTURER);
-            j.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, Build.MODEL);
-            Pair<Integer, String[]> c2 = k.c(this.f40393b);
-            if (c2 != null) {
-                j.put("20", c2.first);
-                Object[] objArr = (String[]) c2.second;
-                if (objArr.length == 4) {
-                    String str = "";
-                    j.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, TextUtils.isEmpty(objArr[0]) ? "" : objArr[0]);
-                    j.put("18", TextUtils.isEmpty(objArr[1]) ? "" : objArr[1]);
-                    j.put(Constants.VIA_REPORT_TYPE_WPA_STATE, TextUtils.isEmpty(objArr[2]) ? "" : objArr[2]);
-                    if (!TextUtils.isEmpty(objArr[3])) {
-                        str = objArr[3];
-                    }
-                    j.put(Constants.VIA_ACT_TYPE_NINETEEN, str);
+            f2 = f(false, true);
+            f2.put("27", Build.MANUFACTURER);
+            f2.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, Build.MODEL);
+            f2.put(BaseUtils.METHOD_SENDMESSAGE, String.valueOf(Build.VERSION.SDK_INT));
+            f2.put("56", Build.VERSION.RELEASE);
+            f2.put("50", k.a(this.f44072b));
+            f2.put("60", k.f(this.f44072b));
+            Pair<Integer, String[]> e2 = k.e(this.f44072b);
+            if (e2 != null) {
+                f2.put("20", e2.first);
+                String[] strArr = (String[]) e2.second;
+                if (strArr.length == 4) {
+                    f2.put("14", strArr[0]);
+                    f2.put("18", strArr[1]);
+                    f2.put(Constants.VIA_REPORT_TYPE_WPA_STATE, strArr[2]);
+                    f2.put(Constants.VIA_ACT_TYPE_NINETEEN, strArr[3]);
                 }
             }
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
         }
-        return new JSONObject(c("q/1/qpre", d.a.j0.l.c.c(this.f40393b, e(j, jSONObject), "1077104"))).optInt("0", 0) == 0;
+        return new JSONObject(c("q/1/qpre", d.a.j0.l.c.c(this.f44072b, e(f2, jSONObject), "1077104"))).optInt("0", 0) == 0;
     }
 
-    public String h() {
+    public String i() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("0", this.f40393b.getPackageName());
-            jSONObject.put("6", d.a.j0.l.c.l(this.f40393b));
-            jSONObject.put("7", j.a(this.f40393b));
-            return c("q/1/qc", d.a.j0.l.c.c(this.f40393b, jSONObject, ""));
+            jSONObject.put("0", this.f44072b.getPackageName());
+            jSONObject.put("6", d.a.j0.l.c.l(this.f44072b));
+            jSONObject.put("7", j.a(this.f44072b));
+            return c("q/1/qc", d.a.j0.l.c.c(this.f44072b, jSONObject, ""));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
             return "";
         }
     }
 
-    public String i(JSONObject jSONObject, long j) {
+    public String j(JSONObject jSONObject, long j) {
         try {
-            return c("q/1/qv", d.a.j0.l.c.c(this.f40393b, e(j(), jSONObject), ""));
+            return c("q/1/qv", d.a.j0.l.c.c(this.f44072b, e(f(true, false), jSONObject), ""));
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
             return "";
         }
-    }
-
-    public final JSONObject j() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            f(jSONObject, Constants.VIA_REPORT_TYPE_QQFAVORITES, d.a.j0.g.b.a(this.f40393b));
-            f(jSONObject, Constants.VIA_REPORT_TYPE_DATALINE, d.a.j0.l.d.i(this.f40393b));
-            f(jSONObject, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, d.a.j0.g.b.c(this.f40393b));
-            f(jSONObject, SoUtils.SO_EVENT_ID_DEFAULT, d.a.j0.g.b.b(this.f40393b));
-            f(jSONObject, "40", d.a.j0.g.a.d(this.f40393b));
-            f(jSONObject, "41", d.a.j0.g.a.a(this.f40393b));
-            f(jSONObject, RoomMasterTable.DEFAULT_ID, d.a.j0.g.a.b(this.f40393b));
-        } catch (Throwable th) {
-            d.a.j0.l.c.d(th);
-        }
-        return jSONObject;
     }
 }

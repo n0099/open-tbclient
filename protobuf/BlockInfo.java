@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BlockInfo extends Message {
     public static final String DEFAULT_BLOCKCANCEL = "";
     public static final String DEFAULT_BLOCKCONFIRM = "";
@@ -20,7 +20,7 @@ public final class BlockInfo extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer blockErrno;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<BlockInfo> {
         public String blockCancel;
         public String blockConfirm;

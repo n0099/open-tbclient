@@ -63,17 +63,17 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public void a(d.a.n0.j0.i.c.c cVar) {
             HotUserRankActivity hotUserRankActivity = HotUserRankActivity.this;
             hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-            if (cVar == null || cVar.f55973a == null) {
+            if (cVar == null || cVar.f59662a == null) {
                 return;
             }
-            HotUserRankActivity.this.mRuleUrl = cVar.f55976d;
+            HotUserRankActivity.this.mRuleUrl = cVar.f59665d;
             if (HotUserRankActivity.this.mForumId > 0) {
                 e.a().post(HotUserRankActivity.this.mLoadDataRunnable);
                 return;
             }
-            TiebaFieldsInfo tiebaFieldsInfo = cVar.f55973a.f55964f;
+            TiebaFieldsInfo tiebaFieldsInfo = cVar.f59662a.f59653f;
             if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                List<String> list = cVar.f55973a.f55964f.tieba_fields;
+                List<String> list = cVar.f59662a.f59653f.tieba_fields;
                 HotUserRankActivity.this.mTabDataList.clear();
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     String str = list.get(i2);
@@ -81,8 +81,8 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                         HotUserRankActivity.this.mJumpPosition = i2;
                     }
                     d dVar = new d();
-                    dVar.f55981b = str;
-                    dVar.f55980a = str;
+                    dVar.f59670b = str;
+                    dVar.f59669a = str;
                     HotUserRankActivity.this.mTabDataList.add(dVar);
                 }
                 e.a().post(HotUserRankActivity.this.mLoadDataRunnable);

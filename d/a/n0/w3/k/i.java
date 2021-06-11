@@ -29,13 +29,13 @@ import java.util.List;
 public class i extends BaseAdapter {
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseFragmentActivity f62839f;
+    public BaseFragmentActivity f66554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LayoutInflater f62840g;
+    public LayoutInflater f66555g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.w3.k.c f62841h;
+    public d.a.n0.w3.k.c f66556h;
     public View.OnClickListener k;
     public d.a.n0.w3.k.g l;
     public d.a.n0.w3.k.h m;
@@ -45,10 +45,10 @@ public class i extends BaseAdapter {
     public e q;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<MediaFileInfo> f62838e = new ArrayList();
+    public final List<MediaFileInfo> f66553e = new ArrayList();
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f62842i = false;
+    public boolean f66557i = false;
     public boolean j = true;
 
     /* loaded from: classes5.dex */
@@ -58,7 +58,7 @@ public class i extends BaseAdapter {
 
         @Override // java.lang.Runnable
         public void run() {
-            i.this.q.f62849d.playAnimation();
+            i.this.q.f66564d.playAnimation();
         }
     }
 
@@ -83,8 +83,8 @@ public class i extends BaseAdapter {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            i.this.q.f62849d.cancelAnimation();
-            i.this.q.f62849d.setFrame(0);
+            i.this.q.f66564d.cancelAnimation();
+            i.this.q.f66564d.setFrame(0);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -111,16 +111,16 @@ public class i extends BaseAdapter {
     public class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f62846a;
+        public View f66561a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f62847b;
+        public View f66562b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbCameraView f62848c;
+        public TbCameraView f66563c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TBLottieAnimationView f62849d;
+        public TBLottieAnimationView f66564d;
 
         public e(i iVar) {
         }
@@ -134,31 +134,31 @@ public class i extends BaseAdapter {
     public class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public MediaFileInfo f62850e;
+        public MediaFileInfo f66565e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f62851f;
+        public int f66566f;
 
         public f(MediaFileInfo mediaFileInfo, int i2) {
-            this.f62850e = mediaFileInfo;
-            this.f62851f = i2;
+            this.f66565e = mediaFileInfo;
+            this.f66566f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.pic) {
-                if (i.this.l == null || this.f62850e == null) {
+                if (i.this.l == null || this.f66565e == null) {
                     return;
                 }
-                i.this.l.a(this.f62851f, this.f62850e);
+                i.this.l.a(this.f66566f, this.f66565e);
             } else if (view.getId() == R.id.lay_select) {
-                if (this.f62850e == null || i.this.m == null) {
+                if (this.f66565e == null || i.this.m == null) {
                     return;
                 }
-                i.this.m.a(this.f62851f, this.f62850e);
-            } else if (view.getId() != R.id.video_thumb || i.this.m == null || this.f62850e == null) {
+                i.this.m.a(this.f66566f, this.f66565e);
+            } else if (view.getId() != R.id.video_thumb || i.this.m == null || this.f66565e == null) {
             } else {
-                i.this.m.a(this.f62851f, this.f62850e);
+                i.this.m.a(this.f66566f, this.f66565e);
             }
         }
     }
@@ -167,13 +167,13 @@ public class i extends BaseAdapter {
     public class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f62853a;
+        public View f66568a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f62854b;
+        public TbImageView f66569b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f62855c;
+        public TextView f66570c;
 
         public g(i iVar) {
         }
@@ -187,16 +187,16 @@ public class i extends BaseAdapter {
     public class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f62856a;
+        public View f66571a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f62857b;
+        public TbImageView f66572b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f62858c;
+        public ImageView f66573c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RelativeLayout f62859d;
+        public RelativeLayout f66574d;
 
         public h(i iVar) {
         }
@@ -207,16 +207,16 @@ public class i extends BaseAdapter {
     }
 
     public i(BaseFragmentActivity baseFragmentActivity, d.a.n0.w3.k.c cVar) {
-        this.f62839f = baseFragmentActivity;
-        this.f62841h = cVar;
-        this.f62840g = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.f66554f = baseFragmentActivity;
+        this.f66556h = cVar;
+        this.f66555g = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: e */
     public MediaFileInfo getItem(int i2) {
-        return (MediaFileInfo) ListUtils.getItem(this.f62838e, i2);
+        return (MediaFileInfo) ListUtils.getItem(this.f66553e, i2);
     }
 
     public final View f(int i2, View view, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
@@ -224,34 +224,34 @@ public class i extends BaseAdapter {
             return view;
         }
         e eVar = this.q;
-        if (eVar == null || eVar.f62848c == null) {
+        if (eVar == null || eVar.f66563c == null) {
             this.q = new e(this, null);
-            View inflate = this.f62840g.inflate(R.layout.album_make_picture_view, viewGroup, false);
+            View inflate = this.f66555g.inflate(R.layout.album_make_picture_view, viewGroup, false);
             e eVar2 = this.q;
-            eVar2.f62846a = inflate;
-            eVar2.f62848c = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
-            this.q.f62849d = (TBLottieAnimationView) inflate.findViewById(R.id.anim_make_photo);
-            this.q.f62847b = inflate.findViewById(R.id.icon_placer_holder);
-            this.q.f62849d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.q.f62849d.setFrame(0);
-            this.q.f62849d.setRenderMode(RenderMode.HARDWARE);
-            SkinManager.setLottieAnimation(this.q.f62849d, R.raw.lottie_photo);
+            eVar2.f66561a = inflate;
+            eVar2.f66563c = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
+            this.q.f66564d = (TBLottieAnimationView) inflate.findViewById(R.id.anim_make_photo);
+            this.q.f66562b = inflate.findViewById(R.id.icon_placer_holder);
+            this.q.f66564d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.q.f66564d.setFrame(0);
+            this.q.f66564d.setRenderMode(RenderMode.HARDWARE);
+            SkinManager.setLottieAnimation(this.q.f66564d, R.raw.lottie_photo);
             inflate.setTag(this.q);
             if (!d.a.m0.r.d0.b.j().g("write_camera_animaton_key", false)) {
                 d.a.m0.r.d0.b.j().t("write_camera_animaton_key", true);
-                this.q.f62849d.postDelayed(new a(), 2000L);
+                this.q.f66564d.postDelayed(new a(), 2000L);
             }
-            w(this.q.f62847b);
+            w(this.q.f66562b);
         }
-        SkinManager.setBackgroundColor(this.q.f62846a, R.color.black_alpha90);
-        this.q.f62848c.setOnRequestPermissionListener(this.n);
-        this.q.f62848c.setOnOpenCameraFailedListener(this.o);
-        this.q.f62849d.setOnClickListener(this.k);
-        this.q.f62848c.setOnClickListener(this.k);
-        this.q.f62846a.setOnClickListener(this.k);
-        this.q.f62849d.addAnimatorUpdateListener(new b(this));
-        this.q.f62849d.addAnimatorListener(new c());
-        return this.q.f62846a;
+        SkinManager.setBackgroundColor(this.q.f66561a, R.color.black_alpha90);
+        this.q.f66563c.setOnRequestPermissionListener(this.n);
+        this.q.f66563c.setOnOpenCameraFailedListener(this.o);
+        this.q.f66564d.setOnClickListener(this.k);
+        this.q.f66563c.setOnClickListener(this.k);
+        this.q.f66561a.setOnClickListener(this.k);
+        this.q.f66564d.addAnimatorUpdateListener(new b(this));
+        this.q.f66564d.addAnimatorListener(new c());
+        return this.q.f66561a;
     }
 
     public final View g(int i2, View view, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
@@ -262,37 +262,37 @@ public class i extends BaseAdapter {
                 hVar = (h) view.getTag();
             } else {
                 h hVar2 = new h(this, null);
-                View inflate = this.f62840g.inflate(R.layout.album_image_item_view, viewGroup, false);
-                hVar2.f62856a = inflate;
+                View inflate = this.f66555g.inflate(R.layout.album_image_item_view, viewGroup, false);
+                hVar2.f66571a = inflate;
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.pic);
-                hVar2.f62857b = tbImageView;
+                hVar2.f66572b = tbImageView;
                 tbImageView.setDefaultResource(0);
-                hVar2.f62857b.setTagPaddingDis(8, 8);
-                hVar2.f62857b.setGifIconSupport(true);
-                hVar2.f62857b.setLongIconSupport(true);
-                hVar2.f62858c = (ImageView) inflate.findViewById(R.id.select_icon);
-                hVar2.f62859d = (RelativeLayout) inflate.findViewById(R.id.lay_select);
-                d.a.n0.w3.k.c cVar = this.f62841h;
-                if (cVar != null && cVar.m() != null && this.f62841h.m().isFromQRCode()) {
-                    hVar2.f62859d.setVisibility(8);
+                hVar2.f66572b.setTagPaddingDis(8, 8);
+                hVar2.f66572b.setGifIconSupport(true);
+                hVar2.f66572b.setLongIconSupport(true);
+                hVar2.f66573c = (ImageView) inflate.findViewById(R.id.select_icon);
+                hVar2.f66574d = (RelativeLayout) inflate.findViewById(R.id.lay_select);
+                d.a.n0.w3.k.c cVar = this.f66556h;
+                if (cVar != null && cVar.m() != null && this.f66556h.m().isFromQRCode()) {
+                    hVar2.f66574d.setVisibility(8);
                 }
                 inflate.setTag(hVar2);
                 hVar = hVar2;
                 view = inflate;
             }
-            hVar.f62857b.setIsLongPic(imageFileInfo.isLong());
-            hVar.f62857b.V(imageFileInfo.getFilePath(), 35, false);
-            s(hVar.f62858c, mediaFileInfo);
+            hVar.f66572b.setIsLongPic(imageFileInfo.isLong());
+            hVar.f66572b.U(imageFileInfo.getFilePath(), 35, false);
+            s(hVar.f66573c, mediaFileInfo);
             f fVar = new f(mediaFileInfo, i2);
-            hVar.f62857b.setOnClickListener(fVar);
-            hVar.f62859d.setOnClickListener(fVar);
+            hVar.f66572b.setOnClickListener(fVar);
+            hVar.f66574d.setOnClickListener(fVar);
         }
         return view;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.f62838e);
+        return ListUtils.getCount(this.f66553e);
     }
 
     @Override // android.widget.Adapter
@@ -302,7 +302,7 @@ public class i extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
-        MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(this.f62838e, i2);
+        MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(this.f66553e, i2);
         if (mediaFileInfo != null) {
             return mediaFileInfo.getType();
         }
@@ -337,33 +337,33 @@ public class i extends BaseAdapter {
                 gVar = (g) view.getTag();
             } else {
                 g gVar2 = new g(this, null);
-                View inflate = this.f62840g.inflate(R.layout.album_video_item_view, viewGroup, false);
-                gVar2.f62853a = inflate;
+                View inflate = this.f66555g.inflate(R.layout.album_video_item_view, viewGroup, false);
+                gVar2.f66568a = inflate;
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.video_thumb);
-                gVar2.f62854b = tbImageView;
+                gVar2.f66569b = tbImageView;
                 tbImageView.setDefaultResource(0);
-                gVar2.f62854b.setTagPaddingDis(8, 8);
-                gVar2.f62854b.setGifIconSupport(false);
-                gVar2.f62854b.setLongIconSupport(false);
-                gVar2.f62855c = (TextView) inflate.findViewById(R.id.video_play_time);
+                gVar2.f66569b.setTagPaddingDis(8, 8);
+                gVar2.f66569b.setGifIconSupport(false);
+                gVar2.f66569b.setLongIconSupport(false);
+                gVar2.f66570c = (TextView) inflate.findViewById(R.id.video_play_time);
                 inflate.setTag(gVar2);
                 gVar = gVar2;
                 view = inflate;
             }
-            gVar.f62854b.V(videoFileInfo.videoPath, 37, false);
-            gVar.f62855c.setText(StringHelper.stringForVideoTime(videoFileInfo.videoDuration));
-            gVar.f62854b.setOnClickListener(new f(mediaFileInfo, i2));
+            gVar.f66569b.U(videoFileInfo.videoPath, 37, false);
+            gVar.f66570c.setText(StringHelper.stringForVideoTime(videoFileInfo.videoDuration));
+            gVar.f66569b.setOnClickListener(new f(mediaFileInfo, i2));
         }
         return view;
     }
 
     public int i(ImageFileInfo imageFileInfo) {
         List<MediaFileInfo> list;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && (list = this.f62838e) != null && list.size() != 0) {
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && (list = this.f66553e) != null && list.size() != 0) {
             String filePath = imageFileInfo.getFilePath();
-            int size = this.f62838e.size();
+            int size = this.f66553e.size();
             for (int i2 = 0; i2 < size; i2++) {
-                MediaFileInfo mediaFileInfo = this.f62838e.get(i2);
+                MediaFileInfo mediaFileInfo = this.f66553e.get(i2);
                 if (mediaFileInfo instanceof ImageFileInfo) {
                     ImageFileInfo imageFileInfo2 = (ImageFileInfo) mediaFileInfo;
                     if (imageFileInfo2.getFilePath() != null && imageFileInfo2.getFilePath().equals(filePath)) {
@@ -378,13 +378,13 @@ public class i extends BaseAdapter {
     public TbCameraView j() {
         e eVar = this.q;
         if (eVar != null) {
-            return eVar.f62848c;
+            return eVar.f66563c;
         }
         return null;
     }
 
     public boolean k() {
-        return this.f62842i;
+        return this.f66557i;
     }
 
     public final MediaFileInfo l() {
@@ -392,12 +392,12 @@ public class i extends BaseAdapter {
     }
 
     public void m(List<MediaFileInfo> list) {
-        this.f62838e.clear();
+        this.f66553e.clear();
         if (this.j) {
-            this.f62838e.add(l());
+            this.f66553e.add(l());
         }
         if (!ListUtils.isEmpty(list)) {
-            this.f62838e.addAll(list);
+            this.f66553e.addAll(list);
         }
         notifyDataSetChanged();
     }
@@ -419,16 +419,16 @@ public class i extends BaseAdapter {
     }
 
     public void r(boolean z) {
-        this.f62842i = z;
+        this.f66557i = z;
     }
 
     public final void s(ImageView imageView, MediaFileInfo mediaFileInfo) {
         boolean q;
-        d.a.n0.w3.k.c cVar = this.f62841h;
+        d.a.n0.w3.k.c cVar = this.f66556h;
         if (cVar != null && (mediaFileInfo instanceof ImageFileInfo)) {
             q = cVar.n((ImageFileInfo) mediaFileInfo);
         } else {
-            d.a.n0.w3.k.c cVar2 = this.f62841h;
+            d.a.n0.w3.k.c cVar2 = this.f66556h;
             q = (cVar2 == null || !(mediaFileInfo instanceof VideoFileInfo)) ? false : cVar2.q((VideoFileInfo) mediaFileInfo);
         }
         t(imageView, q);
@@ -437,11 +437,11 @@ public class i extends BaseAdapter {
     public void t(ImageView imageView, boolean z) {
         if (imageView != null) {
             if (z) {
-                imageView.setContentDescription(this.f62839f.getResources().getString(R.string.check_box_checked));
+                imageView.setContentDescription(this.f66554f.getResources().getString(R.string.check_box_checked));
                 imageView.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_set_list_ok_selection26, WebPManager.ResourceStateType.NORMAL));
                 return;
             }
-            imageView.setContentDescription(this.f62839f.getResources().getString(R.string.check_box_not_checked));
+            imageView.setContentDescription(this.f66554f.getResources().getString(R.string.check_box_not_checked));
             imageView.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_set_list_ok26, WebPManager.ResourceStateType.NORMAL));
         }
     }
@@ -459,7 +459,7 @@ public class i extends BaseAdapter {
 
     public void w(View view) {
         if (this.p == null && view != null) {
-            d.a.n0.d0.e eVar = new d.a.n0.d0.e(this.f62839f.getPageContext(), view);
+            d.a.n0.d0.e eVar = new d.a.n0.d0.e(this.f66554f.getPageContext(), view);
             this.p = eVar;
             eVar.g0(R.drawable.bg_tip_blue_up_left);
             this.p.M(new d());
@@ -468,7 +468,7 @@ public class i extends BaseAdapter {
         }
         if (this.p != null) {
             String n = d.a.m0.r.d0.b.n("key_show_take_photo_tip");
-            this.p.m0(this.f62839f.getString(R.string.album_take_photo_tip), n);
+            this.p.m0(this.f66554f.getString(R.string.album_take_photo_tip), n);
         }
     }
 }

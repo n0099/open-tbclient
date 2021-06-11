@@ -9,23 +9,23 @@ import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.DislikeInfo;
 /* loaded from: classes5.dex */
-public class y implements d.a.c.j.e.n {
+public class y implements d.a.c.k.e.n {
     public static final BdUniqueId t = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53541e;
+    public String f57230e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53542f;
+    public int f57231f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53543g;
+    public String f57232g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53544h;
+    public String f57233h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f53545i;
+    public int f57234i;
     public long j;
     public MetaData k;
     public HashMap<String, MetaData> l;
@@ -37,17 +37,17 @@ public class y implements d.a.c.j.e.n {
     public boolean r = false;
     public d.a.m0.r.q.v0 s;
 
-    public void c(AlaLiveInfo alaLiveInfo) {
+    public void b(AlaLiveInfo alaLiveInfo) {
         HashMap<String, MetaData> hashMap;
         MetaData metaData;
         if (alaLiveInfo == null || alaLiveInfo.user_info == null || alaLiveInfo.live_status.intValue() != 1 || alaLiveInfo.pb_display_type.intValue() != 1) {
             return;
         }
-        this.f53541e = alaLiveInfo.user_info.user_name;
-        this.f53543g = alaLiveInfo.description;
-        this.f53544h = alaLiveInfo.cover;
-        this.f53542f = alaLiveInfo.audience_count.intValue();
-        this.f53545i = alaLiveInfo.live_status.intValue();
+        this.f57230e = alaLiveInfo.user_info.user_name;
+        this.f57232g = alaLiveInfo.description;
+        this.f57233h = alaLiveInfo.cover;
+        this.f57231f = alaLiveInfo.audience_count.intValue();
+        this.f57234i = alaLiveInfo.live_status.intValue();
         this.j = alaLiveInfo.live_id.longValue();
         this.m = alaLiveInfo.live_from.intValue() == 1;
         this.n = alaLiveInfo.third_live_type;
@@ -71,19 +71,19 @@ public class y implements d.a.c.j.e.n {
             d.a.m0.r.q.v0 v0Var = new d.a.m0.r.q.v0();
             this.s = v0Var;
             v0Var.j(sparseArray);
-            this.s.f50147g = sparseArray2;
+            this.s.f53823g = sparseArray2;
         } else {
             this.s = null;
         }
         this.p = true;
     }
 
-    public void e() {
-        this.f53541e = null;
-        this.f53542f = 0;
-        this.f53543g = null;
-        this.f53544h = null;
-        this.f53545i = 0;
+    public void c() {
+        this.f57230e = null;
+        this.f57231f = 0;
+        this.f57232g = null;
+        this.f57233h = null;
+        this.f57234i = 0;
         this.j = 0L;
         this.k = null;
         this.l = null;
@@ -94,11 +94,11 @@ public class y implements d.a.c.j.e.n {
         this.p = false;
     }
 
-    public void f(HashMap<String, MetaData> hashMap) {
+    public void e(HashMap<String, MetaData> hashMap) {
         this.l = hashMap;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return t;
     }

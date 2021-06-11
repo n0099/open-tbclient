@@ -1,0 +1,7 @@
+package com.kwad.sdk.emotion;
+/* loaded from: classes7.dex */
+public interface b {
+    void a();
+
+    void a(Throwable th);
+}

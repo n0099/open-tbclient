@@ -9,17 +9,17 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h f48144a;
+    public static volatile h f51818a;
 
     public static h a() {
-        if (f48144a == null) {
+        if (f51818a == null) {
             synchronized (h.class) {
-                if (f48144a == null) {
-                    f48144a = new h();
+                if (f51818a == null) {
+                    f51818a = new h();
                 }
             }
         }
-        return f48144a;
+        return f51818a;
     }
 
     public void b(JSONObject jSONObject) {
@@ -27,7 +27,7 @@ public class h {
         if (jSONObject == null) {
             return;
         }
-        if (d.a.l0.n.c.f47984a) {
+        if (d.a.l0.n.c.f51658a) {
             Log.d("OnlineDescriptionControlManager", WebGLImageLoader.DATA_URL + jSONObject);
         }
         String optString = jSONObject.optString("version");

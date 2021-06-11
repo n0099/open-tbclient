@@ -3,27 +3,27 @@ package d.a.c.e.n;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38756a;
+    public static boolean f42409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38757b;
+    public static String f42410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38758c;
+    public static String f42411c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f38759d;
+    public static String f42412d;
 
     public static String a() {
-        return f38758c;
+        return f42411c;
     }
 
     public static String b() {
-        return f38757b;
+        return f42410b;
     }
 
     public static String c() {
-        return f38759d;
+        return f42412d;
     }
 
     public static boolean d(d.a.c.e.n.h.a aVar) {
@@ -31,22 +31,22 @@ public class f {
     }
 
     public static boolean e() {
-        return f38756a;
+        return f42409a;
     }
 
     public static void f(String str) {
-        f38758c = str;
+        f42411c = str;
     }
 
     public static void g(String str) {
-        f38757b = str;
+        f42410b = str;
     }
 
     public static void h(boolean z) {
-        f38756a = z;
+        f42409a = z;
     }
 
     public static void i(String str) {
-        f38759d = str;
+        f42412d = str;
     }
 }

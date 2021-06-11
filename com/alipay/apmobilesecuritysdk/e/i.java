@@ -7,28 +7,28 @@ import java.util.Map;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1701a = "";
+    public static String f1714a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1702b = "";
+    public static String f1715b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f1703c = "";
+    public static String f1716c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f1704d = "";
+    public static String f1717d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f1705e = "";
+    public static String f1718e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, String> f1706f = new HashMap();
+    public static Map<String, String> f1719f = new HashMap();
 
     public static synchronized String a(String str) {
         synchronized (i.class) {
             String str2 = "apdidTokenCache" + str;
-            if (f1706f.containsKey(str2)) {
-                String str3 = f1706f.get(str2);
+            if (f1719f.containsKey(str2)) {
+                String str3 = f1719f.get(str2);
                 if (com.alipay.security.mobile.module.a.a.b(str3)) {
                     return str3;
                 }
@@ -45,9 +45,9 @@ public final class i {
     public static synchronized void a(b bVar) {
         synchronized (i.class) {
             if (bVar != null) {
-                f1701a = bVar.f1687a;
-                f1702b = bVar.f1688b;
-                f1703c = bVar.f1689c;
+                f1714a = bVar.f1700a;
+                f1715b = bVar.f1701b;
+                f1716c = bVar.f1702c;
             }
         }
     }
@@ -55,11 +55,11 @@ public final class i {
     public static synchronized void a(c cVar) {
         synchronized (i.class) {
             if (cVar != null) {
-                f1701a = cVar.f1690a;
-                f1702b = cVar.f1691b;
-                f1704d = cVar.f1693d;
-                f1705e = cVar.f1694e;
-                f1703c = cVar.f1692c;
+                f1714a = cVar.f1703a;
+                f1715b = cVar.f1704b;
+                f1717d = cVar.f1706d;
+                f1718e = cVar.f1707e;
+                f1716c = cVar.f1705c;
             }
         }
     }
@@ -67,10 +67,10 @@ public final class i {
     public static synchronized void a(String str, String str2) {
         synchronized (i.class) {
             String str3 = "apdidTokenCache" + str;
-            if (f1706f.containsKey(str3)) {
-                f1706f.remove(str3);
+            if (f1719f.containsKey(str3)) {
+                f1719f.remove(str3);
             }
-            f1706f.put(str3, str2);
+            f1719f.put(str3, str2);
         }
     }
 
@@ -98,77 +98,77 @@ public final class i {
     public static synchronized String b() {
         String str;
         synchronized (i.class) {
-            str = f1701a;
+            str = f1714a;
         }
         return str;
     }
 
     public static void b(String str) {
-        f1701a = str;
+        f1714a = str;
     }
 
     public static synchronized String c() {
         String str;
         synchronized (i.class) {
-            str = f1702b;
+            str = f1715b;
         }
         return str;
     }
 
     public static void c(String str) {
-        f1702b = str;
+        f1715b = str;
     }
 
     public static synchronized String d() {
         String str;
         synchronized (i.class) {
-            str = f1704d;
+            str = f1717d;
         }
         return str;
     }
 
     public static void d(String str) {
-        f1703c = str;
+        f1716c = str;
     }
 
     public static synchronized String e() {
         String str;
         synchronized (i.class) {
-            str = f1705e;
+            str = f1718e;
         }
         return str;
     }
 
     public static void e(String str) {
-        f1704d = str;
+        f1717d = str;
     }
 
     public static synchronized String f() {
         String str;
         synchronized (i.class) {
-            str = f1703c;
+            str = f1716c;
         }
         return str;
     }
 
     public static void f(String str) {
-        f1705e = str;
+        f1718e = str;
     }
 
     public static synchronized c g() {
         c cVar;
         synchronized (i.class) {
-            cVar = new c(f1701a, f1702b, f1703c, f1704d, f1705e);
+            cVar = new c(f1714a, f1715b, f1716c, f1717d, f1718e);
         }
         return cVar;
     }
 
     public static void h() {
-        f1706f.clear();
-        f1701a = "";
-        f1702b = "";
-        f1704d = "";
-        f1705e = "";
-        f1703c = "";
+        f1719f.clear();
+        f1714a = "";
+        f1715b = "";
+        f1717d = "";
+        f1718e = "";
+        f1716c = "";
     }
 }

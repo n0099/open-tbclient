@@ -4,26 +4,23 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes7.dex */
 public class PurchaseInfo implements Parcelable {
-    public static final Parcelable.Creator<PurchaseInfo> CREATOR = new a();
-    public final String data;
-    public final String signature;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Parcelable.Creator<PurchaseInfo> {
+    public static final Parcelable.Creator<PurchaseInfo> CREATOR = new Parcelable.Creator<PurchaseInfo>() { // from class: com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
         public PurchaseInfo createFromParcel(Parcel parcel) {
             return new PurchaseInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
         public PurchaseInfo[] newArray(int i2) {
             return new PurchaseInfo[i2];
         }
-    }
+    };
+    public final String data;
+    public final String signature;
 
     public PurchaseInfo() {
         this("", "");

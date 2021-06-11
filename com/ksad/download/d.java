@@ -15,58 +15,45 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public c f31592c;
+    public c f31683c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, DownloadTask> f31590a = new ConcurrentHashMap();
+    public final Map<Integer, DownloadTask> f31681a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f31591b = new ConcurrentHashMap();
+    public final Map<String, Integer> f31682b = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31593d = false;
+    public boolean f31684d = false;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f31594a = new d();
+        public static final d f31685a = new d();
     }
 
     public static d a() {
-        return a.f31594a;
+        return a.f31685a;
     }
 
     private void a(int i2, DownloadTask.DownloadRequest downloadRequest) {
-        DownloadTask downloadTask = this.f31590a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
         if (downloadTask != null) {
             downloadTask.resume(downloadRequest);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:9:0x002a  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void a(@NonNull Context context, @NonNull File file, @Nullable f fVar) {
         h.a aVar;
         b.a(context);
         b.a(file);
         e.a().a(fVar);
         c.a a2 = new c.a().a(Integer.MAX_VALUE);
-        h.a aVar2 = null;
         try {
             aVar = new h.a(false);
-            try {
-                aVar.a("");
-            } catch (Throwable unused) {
-                aVar2 = aVar;
-                aVar = aVar2;
-                if (aVar != null) {
-                }
-                q.a(context, a2);
-            }
-        } catch (Throwable unused2) {
+        } catch (Throwable unused) {
+            aVar = null;
         }
         if (aVar != null) {
             a2.a(aVar);
@@ -78,28 +65,28 @@ public class d {
         DownloadTask downloadTask = new DownloadTask(downloadRequest);
         if (downloadRequest.getDownloadUrl().contains("downali.game.uc.cn")) {
             b();
-        } else if (this.f31593d) {
+        } else if (this.f31684d) {
             c();
         }
-        if (this.f31590a.get(Integer.valueOf(downloadTask.getId())) != null) {
+        if (this.f31681a.get(Integer.valueOf(downloadTask.getId())) != null) {
             a(downloadTask.getId(), downloadRequest);
             b(downloadTask.getId());
-            a(downloadTask.getId(), cVar, this.f31592c);
+            a(downloadTask.getId(), cVar, this.f31683c);
         } else {
-            this.f31590a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
-            this.f31591b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
+            this.f31681a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
+            this.f31682b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
             downloadTask.submit();
-            a(downloadTask.getId(), cVar, this.f31592c);
+            a(downloadTask.getId(), cVar, this.f31683c);
         }
         return downloadTask.getId();
     }
 
     public DownloadTask a(int i2) {
-        return this.f31590a.get(Integer.valueOf(i2));
+        return this.f31681a.get(Integer.valueOf(i2));
     }
 
     public void a(int i2, c... cVarArr) {
-        DownloadTask downloadTask = this.f31590a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
         if (downloadTask == null || cVarArr == null) {
             return;
         }
@@ -112,12 +99,12 @@ public class d {
     }
 
     public void a(@NonNull DownloadTask downloadTask) {
-        this.f31590a.remove(Integer.valueOf(downloadTask.getId()));
-        this.f31591b.remove(downloadTask.getUrl());
+        this.f31681a.remove(Integer.valueOf(downloadTask.getId()));
+        this.f31682b.remove(downloadTask.getUrl());
     }
 
     public void a(c cVar) {
-        this.f31592c = cVar;
+        this.f31683c = cVar;
     }
 
     public void b() {
@@ -130,12 +117,12 @@ public class d {
         }
         if (aVar != null) {
             com.kwai.filedownloader.download.b.a().b(new c.a().a(Integer.MAX_VALUE).a(aVar));
-            this.f31593d = true;
+            this.f31684d = true;
         }
     }
 
     public void b(int i2) {
-        DownloadTask downloadTask = this.f31590a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
         if (downloadTask != null) {
             downloadTask.clearListener();
         }
@@ -155,7 +142,7 @@ public class d {
     }
 
     public void c(int i2) {
-        DownloadTask downloadTask = this.f31590a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
         if (downloadTask != null) {
             downloadTask.cancel();
             a(downloadTask);
@@ -163,7 +150,7 @@ public class d {
     }
 
     public void d(int i2) {
-        DownloadTask downloadTask = this.f31590a.get(Integer.valueOf(i2));
+        DownloadTask downloadTask = this.f31681a.get(Integer.valueOf(i2));
         if (downloadTask != null) {
             downloadTask.userPause();
         }
@@ -172,7 +159,7 @@ public class d {
     public boolean d() {
         while (true) {
             boolean z = false;
-            for (Map.Entry<Integer, DownloadTask> entry : this.f31590a.entrySet()) {
+            for (Map.Entry<Integer, DownloadTask> entry : this.f31681a.entrySet()) {
                 DownloadTask value = entry.getValue();
                 if (value != null) {
                     int status = value.getStatus();

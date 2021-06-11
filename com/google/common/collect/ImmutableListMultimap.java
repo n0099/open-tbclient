@@ -143,8 +143,8 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
                 }
             }
             try {
-                ImmutableMultimap.d.f31042a.b(this, builder.a());
-                ImmutableMultimap.d.f31043b.a(this, i2);
+                ImmutableMultimap.d.f31133a.b(this, builder.a());
+                ImmutableMultimap.d.f31134b.a(this, i2);
                 return;
             } catch (IllegalArgumentException e2) {
                 throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));

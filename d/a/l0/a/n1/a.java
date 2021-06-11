@@ -20,14 +20,14 @@ import org.json.JSONObject;
 public class a extends a0 {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f43686d = Sets.newHashSet("REFERER", "USER-AGENT");
+    public static final Set<String> f47362d = Sets.newHashSet("REFERER", "USER-AGENT");
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f43687c;
+    public ConcurrentHashMap<String, Long> f47363c;
 
     public a(d.a.l0.a.c2.e eVar, String str) {
         super(eVar, str);
-        this.f43687c = new ConcurrentHashMap<>();
+        this.f47363c = new ConcurrentHashMap<>();
     }
 
     public static HashMap<String, String> l(@Nullable JSONObject jSONObject) {
@@ -38,7 +38,7 @@ public class a extends a0 {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !f43686d.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !f47362d.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (TextUtils.isEmpty(optString)) {
                     optString = "";
@@ -128,7 +128,7 @@ public class a extends a0 {
                 jSONObject.put("cancelTag", str);
             }
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
         }
@@ -144,17 +144,17 @@ public class a extends a0 {
             return 0L;
         }
         try {
-            return this.f43687c.get(str).longValue();
+            return this.f47363c.get(str).longValue();
         } catch (Exception unused) {
             return 0L;
         }
     }
 
     public final void q(String str) {
-        if (this.f43687c == null || TextUtils.isEmpty(str)) {
+        if (this.f47363c == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f43687c.remove(str);
+        this.f47363c.remove(str);
     }
 
     public void r(String str, Headers headers) {
@@ -171,7 +171,7 @@ public class a extends a0 {
                 d.a.l0.a.g1.f.V().v(new d.a.l0.a.o0.d.b(str, hashMap));
             }
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
         }

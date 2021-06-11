@@ -12,10 +12,10 @@ import java.util.Set;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f48323a;
+    public Set<String> f51997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.q.e.a<List<d.a.l0.q.a>> f48324b;
+    public d.a.l0.q.e.a<List<d.a.l0.q.a>> f51998b;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -25,7 +25,7 @@ public class d {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f48325a = new d(null);
+        public static final d f51999a = new d(null);
     }
 
     static {
@@ -38,26 +38,26 @@ public class d {
     }
 
     public static d b() {
-        return b.f48325a;
+        return b.f51999a;
     }
 
     public void a(View view) {
     }
 
     public d.a.l0.q.e.a<List<d.a.l0.q.a>> c() {
-        return this.f48324b;
+        return this.f51998b;
     }
 
     public Set<String> d() {
-        Set<String> set = this.f48323a;
+        Set<String> set = this.f51997a;
         if (set != null) {
             return set;
         }
         HashSet hashSet = new HashSet();
-        this.f48323a = hashSet;
+        this.f51997a = hashSet;
         hashSet.add("V8JavaScriptContext");
-        this.f48323a.add(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
-        return this.f48323a;
+        this.f51997a.add(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
+        return this.f51997a;
     }
 
     @SuppressLint({"NewApi"})

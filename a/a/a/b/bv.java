@@ -10,35 +10,35 @@ import java.util.Arrays;
 public class bv implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f1401a;
+    public final /* synthetic */ a f1414a;
 
     public bv(a aVar) {
-        this.f1401a = aVar;
+        this.f1414a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        a aVar = this.f1401a;
-        while (aVar.f40521g && aVar.f40516b != null && !Thread.interrupted()) {
-            if (aVar.f40517c) {
-                AudioRecord audioRecord = aVar.f40516b;
-                byte[] bArr = aVar.f40515a;
+        a aVar = this.f1414a;
+        while (aVar.f44197g && aVar.f44192b != null && !Thread.interrupted()) {
+            if (aVar.f44193c) {
+                AudioRecord audioRecord = aVar.f44192b;
+                byte[] bArr = aVar.f44191a;
                 int read = audioRecord.read(bArr, 0, bArr.length);
-                if (read <= 0 || (aVar.f40520f && read != aVar.f40515a.length)) {
+                if (read <= 0 || (aVar.f44196f && read != aVar.f44191a.length)) {
                     Log.w("AudioCaptureDevice", "[AudioRecord] warning, no data to read or wrong data size.");
                 } else {
-                    if (aVar.f40518d) {
-                        Arrays.fill(aVar.f40515a, (byte) 0);
+                    if (aVar.f44194d) {
+                        Arrays.fill(aVar.f44191a, (byte) 0);
                     }
-                    if (aVar.f40522h != null) {
+                    if (aVar.f44198h != null) {
                         MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
                         bufferInfo.size = read;
                         bufferInfo.offset = 0;
-                        bufferInfo.presentationTimeUs = (System.nanoTime() - aVar.f40519e) / 1000;
+                        bufferInfo.presentationTimeUs = (System.nanoTime() - aVar.f44195e) / 1000;
                         ByteBuffer allocate = ByteBuffer.allocate(read);
-                        allocate.put(aVar.f40515a, 0, read);
+                        allocate.put(aVar.f44191a, 0, read);
                         allocate.flip();
-                        aVar.f40522h.a(allocate, bufferInfo);
+                        aVar.f44198h.a(allocate, bufferInfo);
                     }
                 }
             } else {

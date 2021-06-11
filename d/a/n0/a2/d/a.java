@@ -10,12 +10,12 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final C1180a f51171a = new C1180a(null);
+    public static final C1236a f54848a = new C1236a(null);
 
     /* renamed from: d.a.n0.a2.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1180a {
-        public C1180a() {
+    public static final class C1236a {
+        public C1236a() {
         }
 
         @JvmStatic
@@ -49,18 +49,18 @@ public final class a {
             TiebaStatic.log(statisticItem);
         }
 
-        public /* synthetic */ C1180a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1236a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
 
     @JvmStatic
     public static final void a(int i2, int i3, int i4) {
-        f51171a.a(i2, i3, i4);
+        f54848a.a(i2, i3, i4);
     }
 
     @JvmStatic
     public static final void b(int i2, int i3) {
-        f51171a.b(i2, i3);
+        f54848a.b(i2, i3);
     }
 }

@@ -10,15 +10,15 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f3894a;
+    public static c f3913a;
 
     public static synchronized c a() {
         c cVar;
         synchronized (c.class) {
-            if (f3894a == null) {
-                f3894a = new c();
+            if (f3913a == null) {
+                f3913a = new c();
             }
-            cVar = f3894a;
+            cVar = f3913a;
         }
         return cVar;
     }

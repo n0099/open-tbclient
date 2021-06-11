@@ -8,55 +8,55 @@ import java.util.concurrent.Executors;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Timer f63196a;
+    public static Timer f66911a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f63197b;
+    public static int f66912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f63198c;
+    public static ExecutorService f66913c;
 
     /* loaded from: classes4.dex */
     public static class a extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f63199e;
+        public final /* synthetic */ Runnable f66914e;
 
         public a(Runnable runnable) {
-            this.f63199e = runnable;
+            this.f66914e = runnable;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            this.f63199e.run();
+            this.f66914e.run();
         }
     }
 
     static {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f63197b = availableProcessors;
-        f63198c = Executors.newFixedThreadPool(availableProcessors);
+        f66912b = availableProcessors;
+        f66913c = Executors.newFixedThreadPool(availableProcessors);
     }
 
     public static void a() {
-        Timer timer = f63196a;
+        Timer timer = f66911a;
         if (timer != null) {
             timer.cancel();
-            f63196a = null;
+            f66911a = null;
         }
     }
 
     public static Timer b(Runnable runnable) {
-        Timer timer = f63196a;
+        Timer timer = f66911a;
         if (timer != null) {
             return timer;
         }
-        f63196a = new Timer();
-        f63196a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
-        return f63196a;
+        f66911a = new Timer();
+        f66911a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
+        return f66911a;
     }
 
     public static void c(Runnable runnable) {
-        f63198c.execute(runnable);
+        f66913c.execute(runnable);
     }
 }

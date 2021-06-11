@@ -2,7 +2,6 @@ package com.baidu.mobstat;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -16,7 +15,7 @@ public final class bm {
         public static byte[] a(int i2, byte[] bArr) throws Exception {
             int i3 = i2 - 1;
             if (i3 >= 0) {
-                String[] strArr = br.f8725a;
+                String[] strArr = br.f8787a;
                 if (strArr.length > i3) {
                     SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
                     Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -30,7 +29,7 @@ public final class bm {
         public static byte[] b(int i2, byte[] bArr) throws Exception {
             int i3 = i2 - 1;
             if (i3 >= 0) {
-                String[] strArr = br.f8725a;
+                String[] strArr = br.f8787a;
                 if (strArr.length > i3) {
                     SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
                     Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -54,7 +53,7 @@ public final class bm {
             if (TextUtils.isEmpty(c2)) {
                 return "";
             }
-            return c2 + FieldBuilder.SE + i2;
+            return c2 + "|" + i2;
         }
     }
 
@@ -78,7 +77,7 @@ public final class bm {
         public static String b(byte[] bArr, byte[] bArr2, byte[] bArr3) {
             try {
                 byte[] a2 = a(bArr, bArr2, bs.a(bArr3));
-                return bp.b(a2) + FieldBuilder.SE + bv.a(bArr) + FieldBuilder.SE + bv.a(bArr2);
+                return bp.b(a2) + "|" + bv.a(bArr) + "|" + bv.a(bArr2);
             } catch (Exception unused) {
                 return "";
             }

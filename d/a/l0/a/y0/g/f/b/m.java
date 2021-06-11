@@ -16,7 +16,7 @@ public class m extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.g.h.b bVar) {
         Object obj = command.obj;
         if (obj instanceof Long) {
-            bVar.H(((Long) obj).longValue());
+            bVar.F(((Long) obj).longValue());
         }
         d(bVar, command.what, null, true);
     }

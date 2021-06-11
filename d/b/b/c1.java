@@ -9,7 +9,7 @@ import d.b.b.g1;
 public final class c1 implements g1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public t0<Boolean> f64985a = new a(this);
+    public t0<Boolean> f68716a = new a(this);
 
     /* loaded from: classes6.dex */
     public class a extends t0<Boolean> {
@@ -36,7 +36,7 @@ public final class c1 implements g1 {
         if (context == null) {
             return false;
         }
-        return this.f64985a.b(context).booleanValue();
+        return this.f68716a.b(context).booleanValue();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -50,7 +50,7 @@ public final class c1 implements g1 {
             }
             try {
                 g1.a aVar = new g1.a();
-                aVar.f65023a = a(cursor);
+                aVar.f68754a = a(cursor);
                 if (cursor != null) {
                     cursor.close();
                 }

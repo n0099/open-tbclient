@@ -27,7 +27,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.tencent.connect.common.Constants;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
 import d.a.m0.b0.f;
@@ -46,42 +46,42 @@ public class a {
     public static final String m = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
 
     /* renamed from: b  reason: collision with root package name */
-    public ErrorData f54053b;
+    public ErrorData f57742b;
 
     /* renamed from: d  reason: collision with root package name */
-    public AntiData f54055d;
+    public AntiData f57744d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f54056e;
+    public f f57745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.e3.o0.a f54057f;
+    public d.a.n0.e3.o0.a f57746f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f54058g;
+    public c f57747g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f54059h;
+    public g f57748h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SpanGroupManager f54060i;
+    public SpanGroupManager f57749i;
     public String j;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetWork f54052a = null;
+    public NetWork f57741a = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54054c = false;
+    public boolean f57743c = false;
 
     /* renamed from: d.a.n0.e3.i0.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1296a implements f.b {
+    public class C1352a implements f.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteData f54061a;
+        public final /* synthetic */ WriteData f57750a;
 
-        public C1296a(a aVar, WriteData writeData) {
-            this.f54061a = writeData;
+        public C1352a(a aVar, WriteData writeData) {
+            this.f57750a = writeData;
         }
 
         @Override // d.a.m0.b0.f.b
@@ -92,7 +92,7 @@ public class a {
             if (f2 > 1.0f) {
                 f2 = 1.0f;
             }
-            i1.g(this.f54061a, (int) (((f2 + i2) - 1.0f) * i4)).e(true);
+            i1.g(this.f57750a, (int) (((f2 + i2) - 1.0f) * i4)).e(true);
         }
     }
 
@@ -100,22 +100,22 @@ public class a {
     public class b implements e {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f54062a = 0;
+        public int f57751a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WriteData f54063b;
+        public final /* synthetic */ WriteData f57752b;
 
         public b(WriteData writeData) {
-            this.f54063b = writeData;
+            this.f57752b = writeData;
         }
 
         @Override // d.a.n0.e3.o0.d.e
         public void onProgressUpdate(float f2) {
             d.a.n0.e3.q0.b.a("发帖：开始上传视频 percent = " + f2);
             int i2 = (int) (f2 * 90.0f);
-            i1.g(this.f54063b, i2).e(true);
-            if (i2 != this.f54062a) {
-                this.f54062a = i2;
+            i1.g(this.f57752b, i2).e(true);
+            if (i2 != this.f57751a) {
+                this.f57751a = i2;
                 a.this.f(i2);
             }
         }
@@ -127,36 +127,36 @@ public class a {
     }
 
     public a() {
-        this.f54053b = null;
-        this.f54053b = new ErrorData();
+        this.f57742b = null;
+        this.f57742b = new ErrorData();
     }
 
     public void b() {
-        this.f54054c = true;
-        NetWork netWork = this.f54052a;
+        this.f57743c = true;
+        NetWork netWork = this.f57741a;
         if (netWork != null) {
             netWork.cancelNetConnect();
         }
-        f fVar = this.f54056e;
+        f fVar = this.f57745e;
         if (fVar != null) {
             fVar.a();
         }
-        d.a.n0.e3.o0.a aVar = this.f54057f;
+        d.a.n0.e3.o0.a aVar = this.f57746f;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public AntiData c() {
-        return this.f54055d;
+        return this.f57744d;
     }
 
     public ErrorData d() {
-        return this.f54053b;
+        return this.f57742b;
     }
 
     public boolean e() {
-        NetWork netWork = this.f54052a;
+        NetWork netWork = this.f57741a;
         if (netWork == null) {
             return false;
         }
@@ -164,7 +164,7 @@ public class a {
     }
 
     public final void f(int i2) {
-        c cVar = this.f54058g;
+        c cVar = this.f57747g;
         if (cVar != null) {
             cVar.a(i2);
         }
@@ -174,10 +174,10 @@ public class a {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.f54056e == null) {
-            this.f54056e = new f("HTTPWriteService.postImageData");
+        if (this.f57745e == null) {
+            this.f57745e = new f("HTTPWriteService.postImageData");
         }
-        return this.f54056e.g(imageFileInfo, z);
+        return this.f57745e.g(imageFileInfo, z);
     }
 
     public String h(WriteData writeData, boolean z) {
@@ -199,15 +199,15 @@ public class a {
         }
         d.a.n0.e3.q0.b.a("发帖：postWriteData 开始");
         NetWork netWork = new NetWork();
-        this.f54052a = netWork;
+        this.f57741a = netWork;
         netWork.getNetContext().getRequest().mIsNeedTbs = true;
-        this.f54052a.setNeedSig(true);
-        this.f54052a.addPostData("authsid", writeData.getAuthSid());
+        this.f57741a.setNeedSig(true);
+        this.f57741a.addPostData("authsid", writeData.getAuthSid());
         if (!TextUtils.isEmpty(this.j)) {
             content = this.j;
             writeData.setSpanGroupString(content);
         } else {
-            SpanGroupManager spanGroupManager = this.f54060i;
+            SpanGroupManager spanGroupManager = this.f57749i;
             if (spanGroupManager != null) {
                 content = spanGroupManager.t();
                 writeData.setSpanGroupString(content);
@@ -228,64 +228,64 @@ public class a {
         if (writeData.getType() == 3) {
             d.a.n0.e3.q0.b.a("发帖：SHARE_SDK：设置数据");
             if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
-                this.f54052a.addPostData("vcode", writeData.getVcode());
+                this.f57741a.addPostData("vcode", writeData.getVcode());
             }
             if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
-                this.f54052a.addPostData("tag", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+                this.f57741a.addPostData("tag", "11");
             }
-            this.f54052a.addPostData("newVcode", "1");
-            this.f54052a.addPostData("content", str9);
-            this.f54052a.setUrl(m);
-            this.f54052a.addPostData("fname", writeData.getForumName());
+            this.f57741a.addPostData("newVcode", "1");
+            this.f57741a.addPostData("content", str9);
+            this.f57741a.setUrl(m);
+            this.f57741a.addPostData("fname", writeData.getForumName());
             if (!TextUtils.isEmpty(writeData.getTitle())) {
-                this.f54052a.addPostData("title", writeData.getTitle());
+                this.f57741a.addPostData("title", writeData.getTitle());
             }
             if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                this.f54052a.addPostData("post_prefix", writeData.getPostPrefix());
+                this.f57741a.addPostData("post_prefix", writeData.getPostPrefix());
             }
-            this.f54052a.addPostData("apiKey", writeData.getShareApiKey());
-            this.f54052a.addPostData("appName", writeData.getShareAppName());
-            this.f54052a.addPostData("signKey", writeData.getShareSignKey());
-            this.f54052a.addPostData("summary_title", writeData.getShareSummaryTitle());
-            this.f54052a.addPostData("summary_content", writeData.getShareSummaryContent());
-            this.f54052a.addPostData("summary_img", writeData.getShareSummaryImg());
-            this.f54052a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(writeData.getShareSummaryImgWidth()));
-            this.f54052a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(writeData.getShareSummaryImgHeight()));
-            this.f54052a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, writeData.getShareSummaryImgType());
-            this.f54052a.addPostData("referUrl", writeData.getShareReferUrl());
+            this.f57741a.addPostData("apiKey", writeData.getShareApiKey());
+            this.f57741a.addPostData("appName", writeData.getShareAppName());
+            this.f57741a.addPostData("signKey", writeData.getShareSignKey());
+            this.f57741a.addPostData("summary_title", writeData.getShareSummaryTitle());
+            this.f57741a.addPostData("summary_content", writeData.getShareSummaryContent());
+            this.f57741a.addPostData("summary_img", writeData.getShareSummaryImg());
+            this.f57741a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(writeData.getShareSummaryImgWidth()));
+            this.f57741a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(writeData.getShareSummaryImgHeight()));
+            this.f57741a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, writeData.getShareSummaryImgType());
+            this.f57741a.addPostData("referUrl", writeData.getShareReferUrl());
             str5 = str9;
         } else {
             d.a.n0.e3.q0.b.a("发帖：开始分段数据发送");
             if (z && writeData.isHasImages()) {
                 d.a.n0.e3.q0.b.a("发帖：发送图片 开始");
-                if (this.f54056e == null) {
+                if (this.f57745e == null) {
                     f fVar = new f("HTTPWriteService.postWriteData");
-                    this.f54056e = fVar;
-                    fVar.d(new C1296a(this, writeData), writeData);
+                    this.f57745e = fVar;
+                    fVar.d(new C1352a(this, writeData), writeData);
                 }
                 if (writeData.getType() == 6) {
                     d.a.n0.e3.q0.b.a("发帖：发送图片 上传图片 开始 1");
-                    if (this.f54056e.n(writeData.getWriteImagesInfo(), true) != null) {
-                        this.f54053b.setError_code(-53);
-                        this.f54053b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
+                    if (this.f57745e.n(writeData.getWriteImagesInfo(), true) != null) {
+                        this.f57742b.setError_code(-53);
+                        this.f57742b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
                         d.a.n0.e3.q0.b.a("发帖：发送图片 上传图片 错误 1");
                         return null;
                     }
                     d.a.n0.e3.q0.b.a("发帖：发送图片 上传图片 完成 1");
                 } else {
                     d.a.n0.e3.q0.b.a("发帖：发送图片 上传图片 开始 2");
-                    this.f54056e.m = writeData.isBJHPost();
-                    ErrorData n = this.f54056e.n(writeData.getWriteImagesInfo(), true);
+                    this.f57745e.m = writeData.isBJHPost();
+                    ErrorData n = this.f57745e.n(writeData.getWriteImagesInfo(), true);
                     if (n != null) {
-                        this.f54053b.setError_code(-53);
-                        this.f54053b.setError_msg(n.getError_msg());
+                        this.f57742b.setError_code(-53);
+                        this.f57742b.setError_msg(n.getError_msg());
                         d.a.n0.e3.q0.b.a("发帖：发送图片 上传图片 错误 2");
                         return null;
                     }
                     d.a.n0.e3.q0.b.a("发帖：发送图片 上传图片 完成 2");
                 }
             }
-            if (this.f54054c) {
+            if (this.f57743c) {
                 return null;
             }
             String voice = writeData.getVoice();
@@ -319,8 +319,8 @@ public class a {
                         fieldBuilder.append("ErrCode", Integer.valueOf(d2.b()));
                         fieldBuilder.append("ErrMsg", d2.c());
                         TiebaStatic.voiceError(TbErrInfo.ERR_VOI_SEND, "audioUploadData is null", fieldBuilder.toString());
-                        this.f54053b.setError_code(d2.b());
-                        this.f54053b.setError_msg(d2.c());
+                        this.f57742b.setError_code(d2.b());
+                        this.f57742b.setError_msg(d2.c());
                         d.a.n0.e3.q0.b.a("发帖：发送声音 失败 1");
                         return null;
                     }
@@ -329,26 +329,26 @@ public class a {
                     fieldBuilder2.append("audioFile", storeFile);
                     TiebaStatic.voiceError(TbErrInfo.ERR_VOI_SEND, "uploadService.upload null or fail", fieldBuilder2.toString());
                     if (d2 != null) {
-                        this.f54053b.setError_code(d2.b());
-                        this.f54053b.setError_msg(d2.c());
+                        this.f57742b.setError_code(d2.b());
+                        this.f57742b.setError_msg(d2.c());
                     }
                     d.a.n0.e3.q0.b.a("发帖：发送声音 失败 2");
                     return null;
                 }
             }
-            if (this.f54054c) {
+            if (this.f57743c) {
                 return null;
             }
             VideoInfo videoInfo = writeData.getVideoInfo();
             if (videoInfo != null) {
                 if (videoInfo.needUploadVideo()) {
-                    this.f54057f = new d.a.n0.e3.o0.a(this.f54059h);
+                    this.f57746f = new d.a.n0.e3.o0.a(this.f57748h);
                     d.a.n0.e3.q0.b.a("发帖：开始上传视频");
                     str2 = "post_prefix";
-                    VideoFinishResult e2 = this.f54057f.e(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new b(writeData));
+                    VideoFinishResult e2 = this.f57746f.e(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new b(writeData));
                     if (e2 == null) {
-                        this.f54053b.setError_code(-53);
-                        this.f54053b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
+                        this.f57742b.setError_code(-53);
+                        this.f57742b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
                         d.a.n0.e3.q0.b.a("发帖：开始上传视频 失败 1");
                         return null;
                     } else if (e2.isSuccess()) {
@@ -356,8 +356,8 @@ public class a {
                         videoInfo.setVideoUrl(e2.getVideoUrl());
                         d.a.n0.e3.q0.b.a("发帖：开始上传视频 成功 ");
                     } else {
-                        this.f54053b.setError_code(e2.getErrorNo());
-                        this.f54053b.setError_msg(e2.getUserMessage());
+                        this.f57742b.setError_code(e2.getErrorNo());
+                        this.f57742b.setError_msg(e2.getUserMessage());
                         d.a.n0.e3.q0.b.a("发帖：开始上传视频 失败 2");
                         return null;
                     }
@@ -366,10 +366,10 @@ public class a {
                 }
                 if (videoInfo.needUploadThunmb()) {
                     d.a.n0.e3.q0.b.a("发帖：开始上传首帧图 开始 ");
-                    if (this.f54056e == null) {
-                        this.f54056e = new f("HTTPWriteService.postWriteData");
+                    if (this.f57745e == null) {
+                        this.f57745e = new f("HTTPWriteService.postWriteData");
                     }
-                    ImageUploadResult j = this.f54056e.j(videoInfo.getThumbPath(), false);
+                    ImageUploadResult j = this.f57745e.j(videoInfo.getThumbPath(), false);
                     if (j != null) {
                         videoInfo.setThumbId(j.picId);
                         ImageUploadResult.picInfo picinfo = j.picInfo;
@@ -412,54 +412,54 @@ public class a {
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
-                this.f54052a.addPostData("video_other", jSONObject.toString());
+                this.f57741a.addPostData("video_other", jSONObject.toString());
             } else {
                 str2 = "post_prefix";
             }
             d.a.n0.e3.q0.b.a("发帖：上传视频结束 完全完成 ");
-            if (this.f54054c) {
+            if (this.f57743c) {
                 return null;
             }
             d.a.n0.e3.q0.b.a("发帖：其他数据设置开始 ");
-            this.f54052a.addPostData("anonymous", "1");
-            this.f54052a.addPostData("can_no_forum", writeData.isCanNoForum() ? "1" : "0");
-            this.f54052a.addPostData("is_feedback", writeData.isUserFeedback() ? "1" : "0");
-            this.f54052a.addPostData("takephoto_num", String.valueOf(writeData.getTakePhotoNum()));
-            this.f54052a.addPostData("entrance_type", String.valueOf(writeData.getEntranceType()));
+            this.f57741a.addPostData("anonymous", "1");
+            this.f57741a.addPostData("can_no_forum", writeData.isCanNoForum() ? "1" : "0");
+            this.f57741a.addPostData("is_feedback", writeData.isUserFeedback() ? "1" : "0");
+            this.f57741a.addPostData("takephoto_num", String.valueOf(writeData.getTakePhotoNum()));
+            this.f57741a.addPostData("entrance_type", String.valueOf(writeData.getEntranceType()));
             if (str != null) {
-                this.f54052a.addPostData("voice_md5", str);
-                this.f54052a.addPostData("during_time", String.valueOf(voiceDuringTime));
+                this.f57741a.addPostData("voice_md5", str);
+                this.f57741a.addPostData("during_time", String.valueOf(voiceDuringTime));
             }
             String imagesCodeForPost = writeData.getImagesCodeForPost();
             if (writeData.getType() != 6) {
                 if (writeData.getType() == 7 && TextUtils.isEmpty(writeData.getTitle()) && TextUtils.isEmpty(str) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(str9) && writeData.getVideoInfo() == null) {
-                    this.f54053b.setError_code(-53);
-                    this.f54053b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
+                    this.f57742b.setError_code(-53);
+                    this.f57742b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
                     return null;
                 }
                 if ((!(writeData.getType() == 0 || writeData.getType() == 9) || TextUtils.isEmpty(writeData.getTitle())) && TextUtils.isEmpty(str) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(str9) && writeData.getVideoInfo() == null && writeData.getType() != 7 && !writeData.isLinkThread() && writeData.getWriteVoteData() == null) {
-                    this.f54053b.setError_code(-53);
-                    this.f54053b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
+                    this.f57742b.setError_code(-53);
+                    this.f57742b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
                     return null;
                 }
             }
             if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
-                this.f54052a.addPostData("vcode", writeData.getVcode());
+                this.f57741a.addPostData("vcode", writeData.getVcode());
             }
             if (!StringUtils.isNull(writeData.getVcodeMD5())) {
-                this.f54052a.addPostData("vcode_md5", writeData.getVcodeMD5());
+                this.f57741a.addPostData("vcode_md5", writeData.getVcodeMD5());
             }
             if (!StringUtils.isNull(writeData.getVcodeType())) {
-                this.f54052a.addPostData("vcode_type", writeData.getVcodeType());
+                this.f57741a.addPostData("vcode_type", writeData.getVcodeType());
             }
             if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
-                this.f54052a.addPostData("vcode_tag", Constants.VIA_REPORT_TYPE_SET_AVATAR);
+                this.f57741a.addPostData("vcode_tag", "12");
             }
             Address h2 = d.a.c.e.i.a.l().h(false);
             if (!TextUtils.isEmpty(writeData.getTopicId())) {
-                this.f54052a.addPostData("topic_id", writeData.getTopicId());
+                this.f57741a.addPostData("topic_id", writeData.getTopicId());
             }
-            this.f54052a.addPostData("new_vcode", "1");
+            this.f57741a.addPostData("new_vcode", "1");
             if (writeData.getVideoInfo() != null && writeData.getVideoInfo().hasUpload()) {
                 String buildContent = writeData.getVideoInfo().buildContent();
                 title = writeData.getTitle();
@@ -480,19 +480,19 @@ public class a {
             if (!TextUtils.isEmpty(str3)) {
                 str3 = d.a.n0.l0.a.b(str3);
             }
-            this.f54052a.addPostData("content", b3);
-            this.f54052a.addPostData("reply_uid", writeData.getReplyId());
+            this.f57741a.addPostData("content", b3);
+            this.f57741a.addPostData("reply_uid", writeData.getReplyId());
             if (!TextUtils.isEmpty(writeData.getMemeText())) {
-                this.f54052a.addPostData("meme_text", writeData.getMemeText());
+                this.f57741a.addPostData("meme_text", writeData.getMemeText());
             }
             if (!TextUtils.isEmpty(writeData.getMemeContSign())) {
-                this.f54052a.addPostData("meme_cont_sign", writeData.getMemeContSign());
+                this.f57741a.addPostData("meme_cont_sign", writeData.getMemeContSign());
             }
             if (!TextUtils.isEmpty(writeData.getItem_id())) {
-                this.f54052a.addPostData(LegoListActivityConfig.ITEM_ID, writeData.getItem_id());
+                this.f57741a.addPostData(LegoListActivityConfig.ITEM_ID, writeData.getItem_id());
             }
             if (!TextUtils.isEmpty(writeData.getComment_head())) {
-                this.f54052a.addPostData("comment_head", writeData.getComment_head());
+                this.f57741a.addPostData("comment_head", writeData.getComment_head());
             }
             d.a.n0.e3.q0.b.a("设置数据");
             int type = writeData.getType();
@@ -501,112 +501,112 @@ public class a {
                 str7 = str3;
                 str6 = title;
                 if (type == 1) {
-                    this.f54052a.setUrl(l);
-                    this.f54052a.addPostData("fid", writeData.getForumId());
-                    this.f54052a.addPostData("from_fourm_id", writeData.getFromForumId());
-                    this.f54052a.addPostData("v_fid", writeData.getVForumId());
-                    this.f54052a.addPostData("v_fname", writeData.getVForumName());
-                    this.f54052a.addPostData("tid", writeData.getThreadId());
-                    this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-                    this.f54052a.addPostData("is_ad", writeData.getIsAd() ? "1" : "0");
-                    this.f54052a.addPostData("is_barrage", writeData.isBarrage() ? "1" : "0");
-                    this.f54052a.addPostData("barrage_time", String.valueOf(writeData.getBarrageTime()));
+                    this.f57741a.setUrl(l);
+                    this.f57741a.addPostData("fid", writeData.getForumId());
+                    this.f57741a.addPostData("from_fourm_id", writeData.getFromForumId());
+                    this.f57741a.addPostData("v_fid", writeData.getVForumId());
+                    this.f57741a.addPostData("v_fname", writeData.getVForumName());
+                    this.f57741a.addPostData("tid", writeData.getThreadId());
+                    this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                    this.f57741a.addPostData("is_ad", writeData.getIsAd() ? "1" : "0");
+                    this.f57741a.addPostData("is_barrage", writeData.isBarrage() ? "1" : "0");
+                    this.f57741a.addPostData("barrage_time", String.valueOf(writeData.getBarrageTime()));
                     if (writeData.isFrsReply()) {
-                        this.f54052a.addPostData("st_param", "frs");
+                        this.f57741a.addPostData("st_param", "frs");
                     }
                     if (d.a.m0.w.w.a.a().b() == 1) {
-                        this.f54052a.addPostData("ptype", "4");
+                        this.f57741a.addPostData("ptype", "4");
                     }
                     if (!StringUtils.isNull(writeData.sourceFrom)) {
-                        this.f54052a.addPostData("post_from", writeData.sourceFrom);
+                        this.f57741a.addPostData("post_from", writeData.sourceFrom);
                     }
                     if (writeData.getBaijiahaoData() != null) {
-                        this.f54052a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
-                        this.f54052a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
-                        this.f54052a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
-                        this.f54052a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
+                        this.f57741a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
+                        this.f57741a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
+                        this.f57741a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
+                        this.f57741a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
                     }
-                    d.a.n0.e3.q0.g.a(this.f54052a, writeData);
+                    d.a.n0.e3.q0.g.a(this.f57741a, writeData);
                 } else if (type == 2) {
-                    this.f54052a.setUrl(l);
-                    this.f54052a.addPostData("fid", writeData.getForumId());
-                    this.f54052a.addPostData("from_fourm_id", writeData.getFromForumId());
-                    this.f54052a.addPostData("v_fid", writeData.getVForumId());
-                    this.f54052a.addPostData("v_fname", writeData.getVForumName());
-                    this.f54052a.addPostData("tid", writeData.getThreadId());
-                    this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-                    this.f54052a.addPostData("quote_id", String.valueOf(writeData.getFloor()));
-                    this.f54052a.addPostData("is_twzhibo_thread", String.valueOf(0));
-                    this.f54052a.addPostData("floor_num", String.valueOf(writeData.getFloorNum()));
+                    this.f57741a.setUrl(l);
+                    this.f57741a.addPostData("fid", writeData.getForumId());
+                    this.f57741a.addPostData("from_fourm_id", writeData.getFromForumId());
+                    this.f57741a.addPostData("v_fid", writeData.getVForumId());
+                    this.f57741a.addPostData("v_fname", writeData.getVForumName());
+                    this.f57741a.addPostData("tid", writeData.getThreadId());
+                    this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                    this.f57741a.addPostData("quote_id", String.valueOf(writeData.getFloor()));
+                    this.f57741a.addPostData("is_twzhibo_thread", String.valueOf(0));
+                    this.f57741a.addPostData("floor_num", String.valueOf(writeData.getFloorNum()));
                     if (writeData.getRepostId() != null) {
-                        this.f54052a.addPostData("repostid", writeData.getRepostId());
+                        this.f57741a.addPostData("repostid", writeData.getRepostId());
                     }
-                    this.f54052a.addPostData("is_ad", writeData.getIsAd() ? "1" : "0");
-                    this.f54052a.addPostData("is_addition", writeData.isAddition() ? "1" : "0");
-                    this.f54052a.addPostData("is_giftpost", writeData.isGiftPost() ? "1" : "0");
-                    this.f54052a.addPostData("is_giftpost", writeData.isGiftPost() ? "1" : "0");
+                    this.f57741a.addPostData("is_ad", writeData.getIsAd() ? "1" : "0");
+                    this.f57741a.addPostData("is_addition", writeData.isAddition() ? "1" : "0");
+                    this.f57741a.addPostData("is_giftpost", writeData.isGiftPost() ? "1" : "0");
+                    this.f57741a.addPostData("is_giftpost", writeData.isGiftPost() ? "1" : "0");
                     if (writeData.isAddition()) {
-                        this.f54052a.addPostData("st_type", "conadd");
+                        this.f57741a.addPostData("st_type", "conadd");
                     }
                     if (!StringUtils.isNull(writeData.sourceFrom)) {
-                        this.f54052a.addPostData("post_from", writeData.sourceFrom);
+                        this.f57741a.addPostData("post_from", writeData.sourceFrom);
                     }
                     if (writeData.getBaijiahaoData() != null) {
-                        this.f54052a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
-                        this.f54052a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
-                        this.f54052a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
-                        this.f54052a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
+                        this.f57741a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
+                        this.f57741a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
+                        this.f57741a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
+                        this.f57741a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
                     }
                 } else if (type == 4) {
                     String str14 = str2;
-                    this.f54052a.setUrl(k);
-                    this.f54052a.addPostData("fid", writeData.getForumId());
-                    this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                    this.f57741a.setUrl(k);
+                    this.f57741a.addPostData("fid", writeData.getForumId());
+                    this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
                     if (!TextUtils.isEmpty(writeData.getTitle())) {
-                        this.f54052a.addPostData("title", writeData.getTitle());
+                        this.f57741a.addPostData("title", writeData.getTitle());
                     }
                     if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                        this.f54052a.addPostData(str14, writeData.getPostPrefix());
+                        this.f57741a.addPostData(str14, writeData.getPostPrefix());
                     }
-                    this.f54052a.addPostData("thread_type", "33");
-                    d.a.n0.e3.q0.g.a(this.f54052a, writeData);
+                    this.f57741a.addPostData("thread_type", EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL);
+                    d.a.n0.e3.q0.g.a(this.f57741a, writeData);
                 } else if (type == 5) {
-                    this.f54052a.setUrl(l);
-                    this.f54052a.addPostData("fid", writeData.getForumId());
-                    this.f54052a.addPostData("tid", writeData.getThreadId());
-                    this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-                    this.f54052a.addPostData("is_twzhibo_thread", String.valueOf(1));
+                    this.f57741a.setUrl(l);
+                    this.f57741a.addPostData("fid", writeData.getForumId());
+                    this.f57741a.addPostData("tid", writeData.getThreadId());
+                    this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                    this.f57741a.addPostData("is_twzhibo_thread", String.valueOf(1));
                     if (writeData.getBaijiahaoData() != null) {
-                        this.f54052a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
-                        this.f54052a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
-                        this.f54052a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
-                        this.f54052a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
+                        this.f57741a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
+                        this.f57741a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
+                        this.f57741a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
+                        this.f57741a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
                     }
-                    d.a.n0.e3.q0.g.a(this.f54052a, writeData);
+                    d.a.n0.e3.q0.g.a(this.f57741a, writeData);
                 } else if (type == 6) {
-                    this.f54052a.setUrl(k);
-                    this.f54052a.addPostData("fid", writeData.getForumId());
-                    this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-                    this.f54052a.addPostData("thread_type", String.valueOf(36));
+                    this.f57741a.setUrl(k);
+                    this.f57741a.addPostData("fid", writeData.getForumId());
+                    this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                    this.f57741a.addPostData("thread_type", String.valueOf(36));
                     if (!TextUtils.isEmpty(writeData.getTitle())) {
-                        this.f54052a.addPostData("title", writeData.getTitle());
+                        this.f57741a.addPostData("title", writeData.getTitle());
                     }
                     if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                        this.f54052a.addPostData(str2, writeData.getPostPrefix());
+                        this.f57741a.addPostData(str2, writeData.getPostPrefix());
                     }
-                    this.f54052a.addPostData("is_ntitle", writeData.isNoTitle() ? "1" : "0");
+                    this.f57741a.addPostData("is_ntitle", writeData.isNoTitle() ? "1" : "0");
                     if (writeData.isNoTitle()) {
-                        this.f54052a.addPostData("st_type", "notitle");
+                        this.f57741a.addPostData("st_type", "notitle");
                     }
-                    d.a.n0.e3.q0.g.a(this.f54052a, writeData);
+                    d.a.n0.e3.q0.g.a(this.f57741a, writeData);
                 } else if (type != 7 && type != 9) {
                     if (writeData.isCanNoForum()) {
-                        this.f54052a.addPostData("fid", "0");
-                        this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, "");
-                        this.f54052a.addPostData("transform_forums", writeData.getTransmitForumData());
+                        this.f57741a.addPostData("fid", "0");
+                        this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, "");
+                        this.f57741a.addPostData("transform_forums", writeData.getTransmitForumData());
                     } else {
-                        this.f54052a.addPostData("fid", writeData.getForumId());
-                        this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                        this.f57741a.addPostData("fid", writeData.getForumId());
+                        this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
                     }
                 }
                 str8 = imagesCodeForPost;
@@ -615,125 +615,125 @@ public class a {
                 str7 = str3;
             }
             String str15 = str2;
-            this.f54052a.setUrl(k);
+            this.f57741a.setUrl(k);
             if (writeData.isCanNoForum()) {
-                this.f54052a.addPostData("fid", "0");
-                this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, "");
-                this.f54052a.addPostData("transform_forums", writeData.getTransmitForumData());
+                this.f57741a.addPostData("fid", "0");
+                this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, "");
+                this.f57741a.addPostData("transform_forums", writeData.getTransmitForumData());
             } else {
-                this.f54052a.addPostData("fid", writeData.getForumId());
-                this.f54052a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                this.f57741a.addPostData("fid", writeData.getForumId());
+                this.f57741a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
             }
-            this.f54052a.addPostData("is_hide", writeData.isPrivacy() ? "1" : "0");
-            this.f54052a.addPostData("is_repost_to_dynamic", writeData.isToDynamic() ? "1" : "0");
+            this.f57741a.addPostData("is_hide", writeData.isPrivacy() ? "1" : "0");
+            this.f57741a.addPostData("is_repost_to_dynamic", writeData.isToDynamic() ? "1" : "0");
             if (writeData.getVideoId() != null) {
-                this.f54052a.addPostData("video_id", writeData.getVideoId());
+                this.f57741a.addPostData("video_id", writeData.getVideoId());
                 if (writeData.getOriginalVideoCover() != null) {
-                    this.f54052a.addPostData("origin_video_cover", writeData.getOriginalVideoCover());
+                    this.f57741a.addPostData("origin_video_cover", writeData.getOriginalVideoCover());
                 }
                 if (writeData.getOriginalVideoTitle() != null) {
-                    this.f54052a.addPostData("origin_video_title", writeData.getOriginalVideoTitle());
+                    this.f57741a.addPostData("origin_video_title", writeData.getOriginalVideoTitle());
                 }
             }
             if (writeData.isShareThread()) {
-                this.f54052a.addPostData("is_share", "1");
-                this.f54052a.addPostData("from_tid", writeData.getOriginalThreadId());
+                this.f57741a.addPostData("is_share", "1");
+                this.f57741a.addPostData("from_tid", writeData.getOriginalThreadId());
             }
             if (writeData.getProZone() >= 0) {
-                this.f54052a.addPostData(EditVideoActivityConfig.KEY_PRO_ZONE, String.valueOf(writeData.getProZone()));
+                this.f57741a.addPostData(EditVideoActivityConfig.KEY_PRO_ZONE, String.valueOf(writeData.getProZone()));
             }
-            this.f54052a.addPostData(IntentConfig.CALL_FROM, writeData.getStatisticFrom() + "");
+            this.f57741a.addPostData(IntentConfig.CALL_FROM, writeData.getStatisticFrom() + "");
             if (!TextUtils.isEmpty(str6)) {
-                this.f54052a.addPostData("title", str6);
+                this.f57741a.addPostData("title", str6);
             }
             if (!TextUtils.isEmpty(str7)) {
-                this.f54052a.addPostData("video_abstract", str7);
+                this.f57741a.addPostData("video_abstract", str7);
             }
             if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                this.f54052a.addPostData(str15, writeData.getPostPrefix());
+                this.f57741a.addPostData(str15, writeData.getPostPrefix());
             }
-            this.f54052a.addPostData("is_ntitle", writeData.isNoTitle() ? "1" : "0");
+            this.f57741a.addPostData("is_ntitle", writeData.isNoTitle() ? "1" : "0");
             if (writeData.isNoTitle()) {
-                this.f54052a.addPostData("st_type", "notitle");
+                this.f57741a.addPostData("st_type", "notitle");
             }
             if (h2 != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(writeData.getForumId())) {
-                this.f54052a.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
+                this.f57741a.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
             }
-            d.a.n0.e3.q0.g.a(this.f54052a, writeData);
+            d.a.n0.e3.q0.g.a(this.f57741a, writeData);
             if (writeData.getCategoryFrom() >= 0) {
-                this.f54052a.addPostData("fromCategoryId", String.valueOf(writeData.getCategoryFrom()));
+                this.f57741a.addPostData("fromCategoryId", String.valueOf(writeData.getCategoryFrom()));
             }
             if (writeData.getCategoryTo() >= 0) {
-                this.f54052a.addPostData("toCategoryId", String.valueOf(writeData.getCategoryTo()));
+                this.f57741a.addPostData("toCategoryId", String.valueOf(writeData.getCategoryTo()));
             }
             if (writeData.getType() == 7) {
-                this.f54052a.addPostData("is_bottle", String.valueOf(1));
+                this.f57741a.addPostData("is_bottle", String.valueOf(1));
             }
             if (writeData.getRecommendExt() != null) {
-                this.f54052a.addPostData("recommend_ext", writeData.getRecommendExt());
+                this.f57741a.addPostData("recommend_ext", writeData.getRecommendExt());
             }
             if (writeData.isLinkThread()) {
-                this.f54052a.addPostData("link_url", writeData.getLinkUrl());
-                this.f54052a.addPostData("link_url_code", writeData.getLinkUrlCode() == null ? "" : writeData.getLinkUrlCode());
+                this.f57741a.addPostData("link_url", writeData.getLinkUrl());
+                this.f57741a.addPostData("link_url_code", writeData.getLinkUrlCode() == null ? "" : writeData.getLinkUrlCode());
             }
-            this.f54052a.addPostData("is_link_thread", writeData.isLinkThread() ? "1" : "0");
+            this.f57741a.addPostData("is_link_thread", writeData.isLinkThread() ? "1" : "0");
             if (writeData.isShareThread()) {
                 if (writeData.getOriBaijiahaoData() != null) {
-                    this.f54052a.addPostData("ori_ugc_nid", writeData.getOriBaijiahaoData().oriUgcNid);
-                    this.f54052a.addPostData("ori_ugc_vid", writeData.getOriBaijiahaoData().oriUgcVid);
-                    this.f54052a.addPostData("ori_ugc_tid", writeData.getOriBaijiahaoData().oriUgcTid);
-                    this.f54052a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getOriBaijiahaoData().oriUgcType));
+                    this.f57741a.addPostData("ori_ugc_nid", writeData.getOriBaijiahaoData().oriUgcNid);
+                    this.f57741a.addPostData("ori_ugc_vid", writeData.getOriBaijiahaoData().oriUgcVid);
+                    this.f57741a.addPostData("ori_ugc_tid", writeData.getOriBaijiahaoData().oriUgcTid);
+                    this.f57741a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getOriBaijiahaoData().oriUgcType));
                 }
             } else if (writeData.getBaijiahaoData() != null) {
-                this.f54052a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
-                this.f54052a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
-                this.f54052a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
-                this.f54052a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
+                this.f57741a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
+                this.f57741a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
+                this.f57741a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
+                this.f57741a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
             }
             if (writeData.getTabId() > 0) {
-                this.f54052a.addPostData("tab_name", writeData.getTabName());
-                this.f54052a.addPostData("tab_id", String.valueOf(writeData.getTabId()));
-                this.f54052a.addPostData("is_general_tab", String.valueOf(writeData.getIsGeneralTab()));
+                this.f57741a.addPostData("tab_name", writeData.getTabName());
+                this.f57741a.addPostData("tab_id", String.valueOf(writeData.getTabId()));
+                this.f57741a.addPostData("is_general_tab", String.valueOf(writeData.getIsGeneralTab()));
             }
-            this.f54052a.addPostData("is_forum_business_account", writeData.isForumBusinessAccount ? "1" : "0");
+            this.f57741a.addPostData("is_forum_business_account", writeData.isForumBusinessAccount ? "1" : "0");
             str8 = imagesCodeForPost;
         }
         if (writeData.isPostLatLng()) {
             String lat = writeData.getLat() == null ? "" : writeData.getLat();
             String lng = writeData.getLng() != null ? writeData.getLng() : "";
-            this.f54052a.addPostData("real_lat", lat);
-            this.f54052a.addPostData("real_lng", lng);
+            this.f57741a.addPostData("real_lat", lat);
+            this.f57741a.addPostData("real_lng", lng);
         }
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-            this.f54052a.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+            this.f57741a.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
         }
         d.a.n0.e3.q0.b.a("发帖：其他数据设置开始 发送");
         i1.g(writeData, 93).e(true);
-        String postNetData = this.f54052a.postNetData();
+        String postNetData = this.f57741a.postNetData();
         d.a.n0.e3.q0.b.a("发帖：其他数据设置开始 结束 进度到 95");
         i1.g(writeData, 95).e(true);
         f(95);
-        if (this.f54052a.getNetContext().getResponse().isRequestSuccess()) {
-            this.f54053b.parserJson(postNetData);
+        if (this.f57741a.getNetContext().getResponse().isRequestSuccess()) {
+            this.f57742b.parserJson(postNetData);
         } else {
-            this.f54053b.setError_code(this.f54052a.isNetSuccess() ? this.f54052a.getServerErrorCode() : this.f54052a.getNetErrorCode());
-            this.f54053b.setError_msg(this.f54052a.getErrorString());
+            this.f57742b.setError_code(this.f57741a.isNetSuccess() ? this.f57741a.getServerErrorCode() : this.f57741a.getNetErrorCode());
+            this.f57742b.setError_msg(this.f57741a.getErrorString());
         }
-        if (this.f54053b.error_code != 0 && !j.z()) {
-            this.f54053b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
-        } else if (this.f54053b.error_code != 0 && writeData.isHasImages()) {
+        if (this.f57742b.error_code != 0 && !j.z()) {
+            this.f57742b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
+        } else if (this.f57742b.error_code != 0 && writeData.isHasImages()) {
             if (k.isEmpty(str5 + str8)) {
-                this.f54053b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.img_upload_error));
+                this.f57742b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.img_upload_error));
             }
         }
         try {
             AntiData antiData = new AntiData();
-            this.f54055d = antiData;
+            this.f57744d = antiData;
             antiData.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
         } catch (Exception unused) {
         }
-        if (this.f54055d.getBlock_stat() == 0 && this.f54053b.error_code == 0 && this.f54052a.getNetContext() != null && this.f54052a.getNetContext().getRequest() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921344, this.f54052a.getNetContext().getRequest().getNetWorkParam()));
+        if (this.f57744d.getBlock_stat() == 0 && this.f57742b.error_code == 0 && this.f57741a.getNetContext() != null && this.f57741a.getNetContext().getRequest() != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921344, this.f57741a.getNetContext().getRequest().getNetWorkParam()));
         }
         f(100);
         d.a.n0.e3.q0.b.a("发帖：处理整个 发帖过程 结束数据 完成 进度到 100");
@@ -741,11 +741,11 @@ public class a {
     }
 
     public void i(c cVar) {
-        this.f54058g = cVar;
+        this.f57747g = cVar;
     }
 
     public void j(SpanGroupManager spanGroupManager) {
-        this.f54060i = spanGroupManager;
+        this.f57749i = spanGroupManager;
     }
 
     public void k(String str) {
@@ -753,6 +753,6 @@ public class a {
     }
 
     public void l(g gVar) {
-        this.f54059h = gVar;
+        this.f57748h = gVar;
     }
 }

@@ -62,11 +62,11 @@ public abstract class SDKManager {
     }
 
     public static void setDebug(boolean z) {
-        f.f35662b = z;
+        f.f39341b = z;
     }
 
     public static void setDebugHead(boolean z) {
-        f.f35664d = z;
+        f.f39343d = z;
     }
 
     public static void setIsStrong(boolean z) {

@@ -9,22 +9,22 @@ import android.widget.FrameLayout;
 public class e {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final FrameLayout.LayoutParams f42149f = new FrameLayout.LayoutParams(-1, -1);
+    public static final FrameLayout.LayoutParams f45825f = new FrameLayout.LayoutParams(-1, -1);
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42150a;
+    public Context f45826a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f42151b;
+    public View f45827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f42152c;
+    public FrameLayout f45828c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42153d;
+    public int f45829d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f42154e;
+    public a f45830e;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -45,22 +45,22 @@ public class e {
     }
 
     public e(Context context) {
-        this.f42150a = context;
+        this.f45826a = context;
     }
 
     public void a() {
-        if (this.f42151b == null) {
+        if (this.f45827b == null) {
             return;
         }
-        Context context = this.f42150a;
+        Context context = this.f45826a;
         Activity activity = context instanceof Activity ? (Activity) context : null;
         if (activity != null) {
             b(activity, false);
-            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.f42152c);
-            this.f42152c = null;
-            this.f42151b = null;
-            this.f42154e.onCustomViewHidden();
-            activity.setRequestedOrientation(this.f42153d);
+            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.f45828c);
+            this.f45828c = null;
+            this.f45827b = null;
+            this.f45830e.onCustomViewHidden();
+            activity.setRequestedOrientation(this.f45829d);
         }
     }
 
@@ -69,21 +69,21 @@ public class e {
     }
 
     public void c(View view, int i2, a aVar) {
-        Context context = this.f42150a;
+        Context context = this.f45826a;
         Activity activity = context instanceof Activity ? (Activity) context : null;
         if (activity != null) {
-            if (this.f42151b != null) {
+            if (this.f45827b != null) {
                 aVar.onCustomViewHidden();
                 return;
             }
-            this.f42153d = activity.getRequestedOrientation();
+            this.f45829d = activity.getRequestedOrientation();
             b bVar = new b(activity);
-            this.f42152c = bVar;
-            bVar.addView(view, f42149f);
-            ((FrameLayout) activity.getWindow().getDecorView()).addView(this.f42152c, f42149f);
-            this.f42151b = view;
+            this.f45828c = bVar;
+            bVar.addView(view, f45825f);
+            ((FrameLayout) activity.getWindow().getDecorView()).addView(this.f45828c, f45825f);
+            this.f45827b = view;
             b(activity, true);
-            this.f42154e = aVar;
+            this.f45830e = aVar;
             activity.setRequestedOrientation(i2);
         }
     }

@@ -7,13 +7,13 @@ import java.util.List;
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BasePendingOperation> f45219a = new ArrayList();
+    public List<BasePendingOperation> f48893a = new ArrayList();
 
     public void b(BasePendingOperation basePendingOperation) {
-        this.f45219a.add(basePendingOperation);
+        this.f48893a.add(basePendingOperation);
     }
 
     public void c() {
-        this.f45219a.clear();
+        this.f48893a.clear();
     }
 }

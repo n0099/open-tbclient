@@ -21,38 +21,38 @@ import com.kwad.sdk.mvp.Presenter;
 import java.io.File;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends Presenter implements com.kwad.sdk.core.i.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.c f33933a;
+    public com.kwad.sdk.splashscreen.c f37364a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f33934b;
+    public AdInfo f37365b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f33936d;
+    public ImageView f37367d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f33937e;
+    public ImageView f37368e;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f33935c = false;
+    public boolean f37366c = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f33938f = new Handler(Looper.getMainLooper());
+    public Handler f37369f = new Handler(Looper.getMainLooper());
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f33939g = false;
+    public boolean f37370g = false;
 
     private void a(String str, int i2) {
         ImageView imageView;
         AdTemplate adTemplate;
         ImageLoadingListener imageLoadingListener;
         if (i2 == 0) {
-            this.f33936d.setVisibility(0);
-            imageView = this.f33936d;
-            adTemplate = this.f33933a.f33987c;
+            this.f37367d.setVisibility(0);
+            imageView = this.f37367d;
+            adTemplate = this.f37364a.f37415c;
             imageLoadingListener = new ImageLoadingListener() { // from class: com.kwad.sdk.splashscreen.a.c.2
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public boolean onDecode(String str2, InputStream inputStream, DecodedResult decodedResult) {
@@ -65,28 +65,28 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public void onLoadingComplete(String str2, View view, DecodedResult decodedResult) {
-                    KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = c.this.f33933a.f33985a;
+                    KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = c.this.f37364a.f37413a;
                     if (splashScreenAdInteractionListener != null) {
                         splashScreenAdInteractionListener.onAdShowStart();
                     }
                     Bitmap bitmap = decodedResult.mBitmap;
-                    if (bitmap == null || c.this.l() == null) {
+                    if (bitmap == null || c.this.o() == null) {
                         return;
                     }
                     Bitmap copy = bitmap.copy(bitmap.getConfig(), true);
                     if (Build.VERSION.SDK_INT >= 17) {
-                        c.this.f33937e.setVisibility(0);
-                        c.this.f33937e.setImageDrawable(new BitmapDrawable(c.this.l().getResources(), KSImageLoader.blur(c.this.l(), copy, 20)));
+                        c.this.f37368e.setVisibility(0);
+                        c.this.f37368e.setImageDrawable(new BitmapDrawable(c.this.o().getResources(), KSImageLoader.blur(c.this.o(), copy, 20)));
                     }
                 }
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public void onLoadingFailed(String str2, View view, FailReason failReason) {
                     c cVar = c.this;
-                    if (cVar.f33933a.f33985a == null || cVar.f33939g) {
+                    if (cVar.f37364a.f37413a == null || cVar.f37370g) {
                         return;
                     }
-                    c.this.f33933a.f33985a.onAdShowError(0, "load image error");
+                    c.this.f37364a.f37413a.onAdShowError(0, "load image error");
                 }
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
@@ -94,9 +94,9 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
                 }
             };
         } else {
-            this.f33937e.setVisibility(0);
-            imageView = this.f33937e;
-            adTemplate = this.f33933a.f33987c;
+            this.f37368e.setVisibility(0);
+            imageView = this.f37368e;
+            adTemplate = this.f37364a.f37415c;
             imageLoadingListener = new ImageLoadingListener() { // from class: com.kwad.sdk.splashscreen.a.c.3
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public boolean onDecode(String str2, InputStream inputStream, DecodedResult decodedResult) {
@@ -109,7 +109,7 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public void onLoadingComplete(String str2, View view, DecodedResult decodedResult) {
-                    KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = c.this.f33933a.f33985a;
+                    KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = c.this.f37364a.f37413a;
                     if (splashScreenAdInteractionListener != null) {
                         splashScreenAdInteractionListener.onAdShowStart();
                     }
@@ -118,10 +118,10 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
                 public void onLoadingFailed(String str2, View view, FailReason failReason) {
                     c cVar = c.this;
-                    if (cVar.f33933a.f33985a == null || !cVar.f33939g) {
+                    if (cVar.f37364a.f37413a == null || !cVar.f37370g) {
                         return;
                     }
-                    c.this.f33933a.f33985a.onAdShowError(0, "load image error");
+                    c.this.f37364a.f37413a.onAdShowError(0, "load image error");
                 }
 
                 @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
@@ -135,37 +135,33 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.splashscreen.c cVar = (com.kwad.sdk.splashscreen.c) k();
-        this.f33933a = cVar;
-        this.f33937e = (ImageView) cVar.f33988d.findViewById(R.id.ksad_splash_background);
-        this.f33936d = (ImageView) this.f33933a.f33988d.findViewById(R.id.ksad_splash_foreground);
-        AdInfo g2 = com.kwad.sdk.core.response.b.c.g(this.f33933a.f33987c);
-        this.f33934b = g2;
-        String str = com.kwad.sdk.core.response.b.a.B(g2).materialUrl;
-        this.f33937e.setVisibility(0);
-        this.f33933a.f33992h.a(this);
-        AdInfo adInfo = this.f33934b;
+        com.kwad.sdk.splashscreen.c cVar = (com.kwad.sdk.splashscreen.c) n();
+        this.f37364a = cVar;
+        this.f37368e = (ImageView) cVar.f37416d.findViewById(R.id.ksad_splash_background);
+        this.f37367d = (ImageView) this.f37364a.f37416d.findViewById(R.id.ksad_splash_foreground);
+        AdInfo j = com.kwad.sdk.core.response.b.c.j(this.f37364a.f37415c);
+        this.f37365b = j;
+        String str = com.kwad.sdk.core.response.b.a.D(j).materialUrl;
+        this.f37368e.setVisibility(0);
+        this.f37364a.f37420h.a(this);
+        AdInfo adInfo = this.f37365b;
         int i2 = adInfo.adSplashInfo.imageDisplaySecond;
-        int i3 = com.kwad.sdk.core.response.b.a.B(adInfo).source;
-        if (l() != null) {
-            File a2 = SplashPreloadManager.b().a(this.f33934b.adPreloadInfo.preloadId);
+        int i3 = com.kwad.sdk.core.response.b.a.D(adInfo).source;
+        if (o() != null) {
+            File a2 = SplashPreloadManager.b().a(this.f37365b.adPreloadInfo.preloadId);
             if (a2 != null && a2.exists() && a2.length() > 0) {
                 str = Uri.fromFile(a2).toString();
             }
             a(str, i3);
         }
-        com.kwad.sdk.core.i.b bVar = this.f33933a.f33992h;
+        com.kwad.sdk.core.i.b bVar = this.f37364a.f37420h;
         if (bVar != null) {
             bVar.a(this);
         }
-        this.f33938f.postDelayed(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.c.1
+        this.f37369f.postDelayed(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (com.kwad.sdk.core.download.a.b.a()) {
-                    c.this.f33938f.postDelayed(this, 1000L);
-                    return;
-                }
-                KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = c.this.f33933a.f33985a;
+                KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = c.this.f37364a.f37413a;
                 if (splashScreenAdInteractionListener != null) {
                     splashScreenAdInteractionListener.onAdShowEnd();
                 }
@@ -174,31 +170,31 @@ public class c extends Presenter implements com.kwad.sdk.core.i.c {
     }
 
     @Override // com.kwad.sdk.core.i.c
-    public void a_() {
-        if (this.f33935c) {
-            return;
-        }
-        this.f33935c = true;
-        com.kwad.sdk.core.report.b.a(this.f33933a.f33987c, (JSONObject) null);
+    public void b() {
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void c() {
-        super.c();
-        com.kwad.sdk.core.i.b bVar = this.f33933a.f33992h;
+    public void b_() {
+        super.b_();
+        com.kwad.sdk.core.i.b bVar = this.f37364a.f37420h;
         if (bVar != null) {
             bVar.b(this);
         }
     }
 
+    @Override // com.kwad.sdk.core.i.c
+    public void c_() {
+        if (this.f37366c) {
+            return;
+        }
+        this.f37366c = true;
+        com.kwad.sdk.core.report.b.a(this.f37364a.f37415c, (JSONObject) null);
+    }
+
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        this.f33939g = true;
-        this.f33938f.removeCallbacksAndMessages(null);
-    }
-
-    @Override // com.kwad.sdk.core.i.c
-    public void e() {
+        this.f37370g = true;
+        this.f37369f.removeCallbacksAndMessages(null);
     }
 }

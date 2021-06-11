@@ -25,28 +25,28 @@ import java.util.LinkedList;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f62964e;
+    public Context f66679e;
     public BaseActivity j;
     public GridView l;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.m0.b0.b f62965f = new d.a.m0.b0.b();
+    public d.a.m0.b0.b f66680f = new d.a.m0.b0.b();
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorTools f62966g = null;
+    public EditorTools f66681g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f62967h = 13;
+    public int f66682h = 13;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f62968i = 6;
+    public int f66683i = 6;
     public LinkedList<ImageFileInfo> k = null;
-    public e m = new C1721a();
+    public e m = new C1778a();
 
     /* renamed from: d.a.n0.w3.t.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1721a implements e {
-        public C1721a() {
+    public class C1778a implements e {
+        public C1778a() {
         }
 
         @Override // d.a.n0.w3.t.b.a.e
@@ -61,15 +61,15 @@ public class a extends BaseAdapter {
                 }
             }
             int size = a.this.k.size();
-            if (a.this.f62966g != null) {
-                a.this.f62966g.A(new d.a.m0.w.a(a.this.f62967h, -1, null));
+            if (a.this.f66681g != null) {
+                a.this.f66681g.A(new d.a.m0.w.a(a.this.f66682h, -1, null));
                 if (size > 0) {
-                    a.this.f62966g.A(new d.a.m0.w.a(2, 10, String.valueOf(size)));
+                    a.this.f66681g.A(new d.a.m0.w.a(2, 10, String.valueOf(size)));
                 } else {
-                    a.this.f62966g.A(new d.a.m0.w.a(2, 10, null));
+                    a.this.f66681g.A(new d.a.m0.w.a(2, 10, null));
                 }
                 if (a.this.k.size() == 1 && size == 0) {
-                    a.this.f62966g.A(new d.a.m0.w.a(1, 2, null));
+                    a.this.f66681g.A(new d.a.m0.w.a(1, 2, null));
                 }
             }
             a.this.k();
@@ -84,16 +84,16 @@ public class a extends BaseAdapter {
     public class b implements d.a.m0.a0.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f62970e;
+        public final /* synthetic */ ViewGroup f66685e;
 
         public b(a aVar, ViewGroup viewGroup) {
-            this.f62970e = viewGroup;
+            this.f66685e = viewGroup;
         }
 
         @Override // d.a.m0.a0.b
-        public void a(d.a.c.j.d.a aVar, String str, boolean z) {
+        public void a(d.a.c.k.d.a aVar, String str, boolean z) {
             TbImageView tbImageView;
-            ViewGroup viewGroup = this.f62970e;
+            ViewGroup viewGroup = this.f66685e;
             if (viewGroup == null || (tbImageView = (TbImageView) viewGroup.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
@@ -105,14 +105,14 @@ public class a extends BaseAdapter {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f62971e;
+        public final /* synthetic */ ViewGroup f66686e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f62972f;
+        public final /* synthetic */ boolean f66687f;
 
         public c(ViewGroup viewGroup, boolean z) {
-            this.f62971e = viewGroup;
-            this.f62972f = z;
+            this.f66686e = viewGroup;
+            this.f66687f = z;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0081, code lost:
@@ -123,10 +123,10 @@ public class a extends BaseAdapter {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onClick(View view) {
-            int indexOfChild = this.f62971e.indexOfChild(view);
+            int indexOfChild = this.f66686e.indexOfChild(view);
             if (indexOfChild >= 0) {
                 boolean z = true;
-                if (this.f62972f && (a.this.j instanceof WriteActivity)) {
+                if (this.f66687f && (a.this.j instanceof WriteActivity)) {
                     if (a.this.k != null && a.this.k.size() > 0) {
                         a.this.k.remove(a.this.k.size() - 1);
                     }
@@ -142,13 +142,13 @@ public class a extends BaseAdapter {
                 }
                 z = false;
                 if (!z) {
-                    l.I(a.this.f62964e, R.string.editor_mutiiamge_image_error);
-                } else if (a.this.f62966g != null) {
+                    l.I(a.this.f66679e, R.string.editor_mutiiamge_image_error);
+                } else if (a.this.f66681g != null) {
                     if (a.this.j()) {
                         a.this.k();
                     }
                     ((WriteActivity) a.this.j).updateChoseFile(a.this.k);
-                    a.this.f62966g.A(new d.a.m0.w.a(15, 0, Integer.valueOf(indexOfChild)));
+                    a.this.f66681g.A(new d.a.m0.w.a(15, 0, Integer.valueOf(indexOfChild)));
                 }
             }
         }
@@ -158,16 +158,16 @@ public class a extends BaseAdapter {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f62974e;
+        public final /* synthetic */ int f66689e;
 
         public d(int i2) {
-            this.f62974e = i2;
+            this.f66689e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.m != null) {
-                a.this.m.a(this.f62974e);
+                a.this.m.a(this.f66689e);
             }
         }
     }
@@ -178,11 +178,11 @@ public class a extends BaseAdapter {
     }
 
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
-        this.f62964e = null;
+        this.f66679e = null;
         this.j = null;
         this.l = null;
         this.j = baseActivity;
-        this.f62964e = baseActivity.getActivity();
+        this.f66679e = baseActivity.getActivity();
         this.l = gridView;
     }
 
@@ -216,9 +216,9 @@ public class a extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         d.a.m0.b0.b bVar;
         boolean z = false;
-        View inflate = LayoutInflater.from(this.f62964e).inflate(R.layout.photo_live_grid_item, viewGroup, false);
+        View inflate = LayoutInflater.from(this.f66679e).inflate(R.layout.photo_live_grid_item, viewGroup, false);
         LinkedList<ImageFileInfo> linkedList = this.k;
-        d.a.c.j.d.a aVar = null;
+        d.a.c.k.d.a aVar = null;
         ImageFileInfo imageFileInfo = (linkedList == null || linkedList.size() - 1 < i2) ? null : this.k.get(i2);
         View findViewById = inflate.findViewById(R.id.item_root_photo_live);
         FrameLayout frameLayout = (FrameLayout) findViewById.findViewById(R.id.shadow_container_photo_live);
@@ -236,7 +236,7 @@ public class a extends BaseAdapter {
             SkinManager.setImageResource(imageView, R.drawable.icon_live_close_n);
         }
         frameLayout.setForeground(SkinManager.getDrawable(R.drawable.bg_add_photo_foregroundselector));
-        int dimensionPixelSize = this.f62964e.getResources().getDimensionPixelSize(R.dimen.ds206);
+        int dimensionPixelSize = this.f66679e.getResources().getDimensionPixelSize(R.dimen.ds206);
         ImageOperation g2 = d.a.m0.b0.g.d.g(dimensionPixelSize, dimensionPixelSize);
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
@@ -244,7 +244,7 @@ public class a extends BaseAdapter {
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
         }
         b bVar2 = new b(this, viewGroup);
-        if (imageFileInfo != null && (bVar = this.f62965f) != null) {
+        if (imageFileInfo != null && (bVar = this.f66680f) != null) {
             aVar = bVar.d(imageFileInfo, bVar2, true);
         }
         if (aVar != null) {
@@ -258,7 +258,7 @@ public class a extends BaseAdapter {
     public void h() {
         LinkedList<ImageFileInfo> linkedList = this.k;
         if (linkedList != null && linkedList.size() != 0) {
-            if (this.k.size() >= this.f62968i) {
+            if (this.k.size() >= this.f66683i) {
                 return;
             }
             if (this.k.size() > 0) {
@@ -275,7 +275,7 @@ public class a extends BaseAdapter {
 
     public final void i() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
-        imageFileInfo.setFilePath("android.resource://" + this.f62964e.getPackageName() + "/" + R.drawable.btn_addpic_n);
+        imageFileInfo.setFilePath("android.resource://" + this.f66679e.getPackageName() + "/" + R.drawable.btn_addpic_n);
         imageFileInfo.setTempFile(true);
         if (this.k == null) {
             this.k = new LinkedList<>();
@@ -322,10 +322,10 @@ public class a extends BaseAdapter {
     }
 
     public void m(EditorTools editorTools) {
-        this.f62966g = editorTools;
+        this.f66681g = editorTools;
     }
 
     public void n(int i2) {
-        this.f62968i = i2;
+        this.f66683i = i2;
     }
 }

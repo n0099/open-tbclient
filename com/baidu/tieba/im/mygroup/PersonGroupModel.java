@@ -11,17 +11,17 @@ import d.a.c.e.p.l;
 public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public RequestUserPermissionMessage f17318e;
+    public RequestUserPermissionMessage f17394e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17319f;
+    public boolean f17395f;
     public long friendUid;
     public int mImageHeight;
     public int mImageWidth;
 
     public PersonGroupModel(PersonGroupActivity personGroupActivity) {
         super(personGroupActivity.getPageContext());
-        this.f17319f = false;
+        this.f17395f = false;
         this.mImageWidth = l.e(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = l.e(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
@@ -40,28 +40,28 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.f17318e = null;
+        this.f17394e = null;
     }
 
-    public final RequestUserPermissionMessage s(long j) {
+    public final RequestUserPermissionMessage w(long j) {
         RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
         requestUserPermissionMessage.setForumId(j);
         return requestUserPermissionMessage;
     }
 
-    public void t(long j) {
-        RequestUserPermissionMessage s = s(j);
-        this.f17318e = s;
-        super.sendMessage(s);
+    public void x(long j) {
+        RequestUserPermissionMessage w = w(j);
+        this.f17394e = w;
+        super.sendMessage(w);
     }
 
-    public void u() {
+    public void y() {
         if (this.friendUid == 0) {
-            if (this.f17319f) {
+            if (this.f17395f) {
                 super.sendMessage(new GroupsByUidMessage(this.mImageWidth, this.mImageHeight));
                 return;
             }
-            this.f17319f = true;
+            this.f17395f = true;
             super.sendMessage(new GroupsByUidLocalMessage());
             return;
         }
@@ -70,7 +70,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
 
     public PersonGroupModel(PersonGroupActivity personGroupActivity, long j) {
         super(personGroupActivity.getPageContext());
-        this.f17319f = false;
+        this.f17395f = false;
         this.mImageWidth = l.e(TbadkApplication.getInst().getContext(), 70.0f);
         this.mImageHeight = l.e(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;

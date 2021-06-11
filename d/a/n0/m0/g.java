@@ -22,10 +22,10 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f57246a = new g();
+    public static g f60935a = new g();
 
     public static g k() {
-        return f57246a;
+        return f60935a;
     }
 
     public boolean a(CollectEmotionData collectEmotionData) {

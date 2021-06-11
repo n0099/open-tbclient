@@ -1,10 +1,11 @@
 package com.yy.mobile.framework.revenuesdk.payservice;
 
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod;
+import com.yy.mobile.framework.revenuesdk.payapi.payservice.H5PayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
-import d.r.b.a.a.f.d.d;
-import d.r.b.a.a.i.e.b;
-import d.r.b.a.a.i.e.c;
+import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
 /* loaded from: classes7.dex */
 public enum PayMethodFactory {
     GOOGLE_PLAY("com.yy.mobile.framework.revenue.gppay.PayMethodImpl"),
@@ -15,30 +16,37 @@ public enum PayMethodFactory {
     public final String clazz;
     public IPayMethod method;
 
+    /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PayMethodFactory$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f38235a;
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
 
         static {
             int[] iArr = new int[PayType.values().length];
-            f38235a = iArr;
+            $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType = iArr;
             try {
                 iArr[PayType.WECHAT_PAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f38235a[PayType.ALI_PAY.ordinal()] = 2;
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.ALI_PAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f38235a[PayType.DXM_PAY.ordinal()] = 3;
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.DXM_PAY.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f38235a[PayType.PAYTM_PAY.ordinal()] = 4;
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.MOCK_TEST_PAY.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.DXM_PAY_KJ.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.PAYTM_PAY.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
             }
         }
     }
@@ -60,30 +68,30 @@ public enum PayMethodFactory {
         try {
             this.method = (IPayMethod) Class.forName(this.clazz).newInstance();
         } catch (Exception e2) {
-            this.method = new d.r.b.a.a.i.e.a();
-            d.d("AppPayServiceImpl", "init PayMethod error.clazz = " + this.clazz, e2);
+            this.method = new DefaultPayMethod();
+            RLog.error("AppPayServiceImpl", "init PayMethod error.clazz = " + this.clazz, e2);
         }
     }
 
     public static IPayMethod valueOf(PayType payType) {
-        IPayMethod b2 = c.d().b(payType);
-        if (b2 != null) {
-            d.b("AppPayServiceImpl", "use proxyPayMethod channel:" + payType.getChannel());
-            return b2;
+        IPayMethod findProxyPayMethod = PayMethodProxyFactory.instance().findProxyPayMethod(payType);
+        if (findProxyPayMethod != null) {
+            RLog.info("AppPayServiceImpl", "use proxyPayMethod channel:" + payType.getChannel());
+            return findProxyPayMethod;
         }
-        int i2 = a.f38235a[payType.ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    if (i2 != 4) {
-                        return new d.r.b.a.a.i.e.a();
-                    }
-                    return new b();
-                }
+        switch (AnonymousClass1.$SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[payType.ordinal()]) {
+            case 1:
+                return WECHAT_PAY.getPayMethodImpl();
+            case 2:
+                return ALIPAY_PAY.getPayMethodImpl();
+            case 3:
                 return DXM_PAY.getPayMethodImpl();
-            }
-            return ALIPAY_PAY.getPayMethodImpl();
+            case 4:
+            case 5:
+            case 6:
+                return new H5PayMethod();
+            default:
+                return new DefaultPayMethod();
         }
-        return WECHAT_PAY.getPayMethodImpl();
     }
 }

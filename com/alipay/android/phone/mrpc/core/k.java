@@ -7,27 +7,27 @@ import java.util.regex.Pattern;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1627a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+    public static final Pattern f1640a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f1628b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+    public static final Pattern f1641b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1629a;
+        public int f1642a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1630b;
+        public int f1643b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1631c;
+        public int f1644c;
 
         public a(int i2, int i3, int i4) {
-            this.f1629a = i2;
-            this.f1630b = i3;
-            this.f1631c = i4;
+            this.f1642a = i2;
+            this.f1643b = i3;
+            this.f1644c = i4;
         }
     }
 
@@ -39,14 +39,14 @@ public final class k {
         int i3;
         int i4;
         int i5;
-        Matcher matcher = f1627a.matcher(str);
+        Matcher matcher = f1640a.matcher(str);
         if (matcher.find()) {
             i2 = b(matcher.group(1));
             c2 = c(matcher.group(2));
             d2 = d(matcher.group(3));
             aVar = e(matcher.group(4));
         } else {
-            Matcher matcher2 = f1628b.matcher(str);
+            Matcher matcher2 = f1641b.matcher(str);
             if (!matcher2.find()) {
                 throw new IllegalArgumentException();
             }
@@ -67,7 +67,7 @@ public final class k {
             i5 = d2;
         }
         Time time = new Time("UTC");
-        time.set(aVar.f1631c, aVar.f1630b, aVar.f1629a, i3, i4, i5);
+        time.set(aVar.f1644c, aVar.f1643b, aVar.f1642a, i3, i4, i5);
         return time.toMillis(false);
     }
 

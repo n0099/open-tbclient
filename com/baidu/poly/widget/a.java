@@ -18,19 +18,19 @@ import d.a.c0.k.d.b;
 public class a extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9314e;
+    public ImageView f9371e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9315f;
+    public TextView f9372f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9316g;
+    public TextView f9373g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f9317h;
+    public ImageView f9374h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0119a f9318i;
+    public InterfaceC0119a f9375i;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -48,51 +48,51 @@ public class a extends RelativeLayout implements View.OnClickListener {
         String icon = oVar.getIcon();
         int P = oVar.P();
         int N = oVar.N();
-        b.c().b(this.f9314e, icon);
-        this.f9315f.setText(displayName);
+        b.c().b(this.f9371e, icon);
+        this.f9372f.setText(displayName);
         if (P == 1) {
-            this.f9317h.setImageResource(e.channel_checked);
+            this.f9374h.setImageResource(e.channel_checked);
         } else {
-            this.f9317h.setImageResource(e.unchecked);
+            this.f9374h.setImageResource(e.unchecked);
         }
         if (1 == N) {
-            this.f9318i = interfaceC0119a;
+            this.f9375i = interfaceC0119a;
         } else {
-            this.f9314e.setAlpha(0.4f);
-            this.f9315f.setAlpha(0.4f);
-            this.f9316g.setAlpha(0.4f);
-            this.f9317h.setVisibility(8);
+            this.f9371e.setAlpha(0.4f);
+            this.f9372f.setAlpha(0.4f);
+            this.f9373g.setAlpha(0.4f);
+            this.f9374h.setVisibility(8);
         }
         if (!TextUtils.isEmpty(S)) {
             String M = oVar.M();
             if (!TextUtils.isEmpty(M)) {
                 try {
-                    this.f9316g.setTextColor(Color.parseColor(M));
+                    this.f9373g.setTextColor(Color.parseColor(M));
                 } catch (Exception unused) {
                 }
             }
-            this.f9316g.setText(S);
+            this.f9373g.setText(S);
             return;
         }
-        this.f9316g.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9315f.getLayoutParams();
+        this.f9373g.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9372f.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.f9315f.setLayoutParams(layoutParams);
+        this.f9372f.setLayoutParams(layoutParams);
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(g.view_channel_list_item, (ViewGroup) this, true);
-        this.f9314e = (ImageView) findViewById(f.channel_icon_view);
-        this.f9315f = (TextView) findViewById(f.channel_name_view);
-        this.f9316g = (TextView) findViewById(f.channel_desc_view);
-        this.f9317h = (ImageView) findViewById(f.channel_select_view);
+        this.f9371e = (ImageView) findViewById(f.channel_icon_view);
+        this.f9372f = (TextView) findViewById(f.channel_name_view);
+        this.f9373g = (TextView) findViewById(f.channel_desc_view);
+        this.f9374h = (ImageView) findViewById(f.channel_select_view);
         setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC0119a interfaceC0119a = this.f9318i;
+        InterfaceC0119a interfaceC0119a = this.f9375i;
         if (interfaceC0119a != null) {
             interfaceC0119a.a();
         }

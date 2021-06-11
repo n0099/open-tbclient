@@ -21,84 +21,84 @@ import d.a.n0.f3.d.a;
 public class a implements d.a.m0.w0.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f54865a;
+    public Context f58554a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.n0.f3.d.a f54866b;
+    public final d.a.n0.f3.d.a f58555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.m0.w0.b f54867c;
+    public d.a.m0.w0.b f58556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.a.n0.f3.c.a f54868d;
+    public final d.a.n0.f3.c.a f58557d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f54869e = new Handler();
+    public final Handler f58558e = new Handler();
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54870f = true;
+    public boolean f58559f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.c f54871g = new C1334a();
+    public a.c f58560g = new C1390a();
 
     /* renamed from: h  reason: collision with root package name */
-    public a.d f54872h = new b();
+    public a.d f58561h = new b();
 
     /* renamed from: d.a.n0.f3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1334a implements a.c {
+    public class C1390a implements a.c {
 
         /* renamed from: d.a.n0.f3.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC1335a implements Runnable {
-            public RunnableC1335a() {
+        public class RunnableC1391a implements Runnable {
+            public RunnableC1391a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 if (j.z() && j.H()) {
-                    a.this.f54868d.g();
+                    a.this.f58557d.g();
                 }
             }
         }
 
-        public C1334a() {
+        public C1390a() {
         }
 
         @Override // d.a.n0.f3.c.a.c
         public void a() {
-            if (a.this.f54870f && a.this.f54867c != null) {
-                a.this.f54867c.a();
+            if (a.this.f58559f && a.this.f58556c != null) {
+                a.this.f58556c.a();
             }
         }
 
         @Override // d.a.n0.f3.c.a.c
         public void b(d.a.n0.f3.b.a aVar) {
             if (j.z()) {
-                a.this.f54868d.e();
-            } else if (a.this.f54867c != null) {
-                a.this.f54867c.a();
+                a.this.f58557d.e();
+            } else if (a.this.f58556c != null) {
+                a.this.f58556c.a();
             }
-            if (a.this.f54870f) {
-                a.this.f54869e.postDelayed(new RunnableC1335a(), 800L);
+            if (a.this.f58559f) {
+                a.this.f58558e.postDelayed(new RunnableC1391a(), 800L);
             } else if (j.z() && j.H()) {
-                a.this.f54868d.g();
+                a.this.f58557d.g();
             }
         }
 
         @Override // d.a.n0.f3.c.a.c
         public void c(Object obj) {
             d.a.n0.f3.b.b c2;
-            if (!a.this.f54870f || (c2 = a.this.f54868d.c()) == null) {
+            if (!a.this.f58559f || (c2 = a.this.f58557d.c()) == null) {
                 return;
             }
             StatisticItem h2 = d.a.n0.d3.a.h("a064", "common_fill", true, 1);
-            if (d.a.c.a.j.a(a.this.f54865a) != null) {
-                c.g().c(d.a.c.a.j.a(a.this.f54865a).getUniqueId(), h2);
+            if (d.a.c.a.j.a(a.this.f58554a) != null) {
+                c.g().c(d.a.c.a.j.a(a.this.f58554a).getUniqueId(), h2);
             }
-            a.this.f54866b.f(obj, ((int) c2.f54881c) / 1000);
-            if (a.this.f54867c != null) {
-                a.this.f54867c.c(String.valueOf(c2.f54879a), c2.c(), c2.a());
+            a.this.f58555b.f(obj, ((int) c2.f58570c) / 1000);
+            if (a.this.f58556c != null) {
+                a.this.f58556c.c(String.valueOf(c2.f58568a), c2.c(), c2.a());
             }
         }
     }
@@ -108,18 +108,18 @@ public class a implements d.a.m0.w0.a {
 
         /* renamed from: d.a.n0.f3.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC1336a implements Runnable {
+        public class RunnableC1392a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f54876e;
+            public final /* synthetic */ String f58565e;
 
-            public RunnableC1336a(b bVar, String str) {
-                this.f54876e = str;
+            public RunnableC1392a(b bVar, String str) {
+                this.f58565e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                UrlManager.getInstance().dealOneLink((TbPageContext) d.a.c.a.j.a(d.a.c.a.b.f().b()), new String[]{this.f54876e}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext) d.a.c.a.j.a(d.a.c.a.b.f().b()), new String[]{this.f58565e}, true);
             }
         }
 
@@ -128,18 +128,18 @@ public class a implements d.a.m0.w0.a {
 
         @Override // d.a.n0.f3.d.a.d
         public void a() {
-            d.a.n0.f3.b.b c2 = a.this.f54868d.c();
+            d.a.n0.f3.b.b c2 = a.this.f58557d.c();
             if (c2 != null) {
-                if (a.this.f54867c != null) {
-                    a.this.f54867c.b(String.valueOf(c2.f54879a), c2.c());
+                if (a.this.f58556c != null) {
+                    a.this.f58556c.b(String.valueOf(c2.f58568a), c2.c());
                 }
-                if (TextUtils.isEmpty(c2.f54884f)) {
+                if (TextUtils.isEmpty(c2.f58573f)) {
                     return;
                 }
-                if (!a.this.j(c2.f54884f)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) d.a.c.a.j.a(a.this.f54865a), new String[]{c2.f54884f}, true);
+                if (!a.this.j(c2.f58573f)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) d.a.c.a.j.a(a.this.f58554a), new String[]{c2.f58573f}, true);
                 } else {
-                    e.a().postDelayed(new RunnableC1336a(this, c2.f54884f), 500L);
+                    e.a().postDelayed(new RunnableC1392a(this, c2.f58573f), 500L);
                 }
             }
         }
@@ -153,33 +153,33 @@ public class a implements d.a.m0.w0.a {
                 }
             }
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_SPLASH_SKIP).param("obj_source", 2).param("obj_type", z ? 2 : 1));
-            if (a.this.f54867c != null) {
-                a.this.f54867c.onAdDismiss();
+            if (a.this.f58556c != null) {
+                a.this.f58556c.onAdDismiss();
             }
         }
     }
 
     public a(Context context) {
-        this.f54865a = context;
+        this.f58554a = context;
         d.a.n0.f3.c.a aVar = new d.a.n0.f3.c.a();
-        this.f54868d = aVar;
-        aVar.h(this.f54871g);
-        this.f54866b = new d.a.n0.f3.d.a(context, this.f54872h);
+        this.f58557d = aVar;
+        aVar.h(this.f58560g);
+        this.f58555b = new d.a.n0.f3.d.a(context, this.f58561h);
     }
 
     @Override // d.a.m0.w0.a
     public void a() {
-        this.f54868d.d();
+        this.f58557d.d();
     }
 
     @Override // d.a.m0.w0.a
     public void b(d.a.m0.w0.b bVar) {
-        this.f54867c = bVar;
+        this.f58556c = bVar;
     }
 
     @Override // d.a.m0.w0.a
     public View getView() {
-        return this.f54866b.b();
+        return this.f58555b.b();
     }
 
     public final boolean j(String str) {
@@ -194,7 +194,7 @@ public class a implements d.a.m0.w0.a {
 
     @Override // d.a.m0.w0.a
     public void release() {
-        this.f54870f = false;
-        this.f54869e.removeCallbacksAndMessages(null);
+        this.f58559f = false;
+        this.f58558e.removeCallbacksAndMessages(null);
     }
 }

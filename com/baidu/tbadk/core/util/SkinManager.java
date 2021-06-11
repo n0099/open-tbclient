@@ -793,6 +793,13 @@ public class SkinManager {
         }
     }
 
+    public static void setDarkLottieAnimation(TBLottieAnimationView tBLottieAnimationView, int i2) {
+        int darkResourceId = getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i2);
+        if (darkResourceId > 0) {
+            tBLottieAnimationView.setAnimation(darkResourceId);
+        }
+    }
+
     public static void setDayOrDarkSkinTypeWithSystemMode(boolean z, boolean z2) {
         boolean isCurrentSystemDarkMode = isCurrentSystemDarkMode();
         Activity b2 = b.f().b();

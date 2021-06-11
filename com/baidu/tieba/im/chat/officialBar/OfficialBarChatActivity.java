@@ -72,17 +72,17 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     public class b extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserData f17038a;
+        public final /* synthetic */ UserData f17114a;
 
         public b(UserData userData) {
-            this.f17038a = userData;
+            this.f17114a = userData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.a.n0.f1.t.d.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.f17038a);
+            d.a.n0.f1.t.d.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.f17114a);
             return null;
         }
     }
@@ -91,17 +91,17 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     public class c extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserData f17040a;
+        public final /* synthetic */ UserData f17116a;
 
         public c(UserData userData) {
-            this.f17040a = userData;
+            this.f17116a = userData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.a.n0.f1.t.d.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17040a.getUserId())));
+            return Boolean.valueOf(d.a.n0.f1.t.d.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17116a.getUserId())));
         }
     }
 
@@ -259,9 +259,9 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             if (n.isShown() && !getViewRangerInWindow(n).contains(rawX, rawY)) {
                 for (int i2 = 0; i2 < 3; i2++) {
                     OfficialBarMsglistView.d dVar = this.mCurrentMsgListView.m()[i2];
-                    if (dVar.f17086a) {
+                    if (dVar.f17162a) {
                         this.mCurrentMsgListView.n().g();
-                        dVar.f17086a = false;
+                        dVar.f17162a = false;
                         this.mCurrentMsgListView.u(i2, false);
                     }
                 }
@@ -320,7 +320,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             this.mCurrentMsgListView.o();
         }
         this.mListView.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
-        long longValue = d.a.n0.f1.s.a.f54696i.longValue();
+        long longValue = d.a.n0.f1.s.a.f58385i.longValue();
         MsglistModel msglistModel = this.mListModel;
         if ((msglistModel instanceof OfficialBarMsglistModel) && (user = ((OfficialBarMsglistModel) msglistModel).getUser()) != null) {
             String userName = !TextUtils.isEmpty(user.getUserName()) ? user.getUserName() : "";
@@ -350,14 +350,14 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(getPageContext().getPageActivity(), user.getUserIdLong() + "", ForumDetailActivityConfig.FromType.BAR)));
             }
-        } else if (view == this.mCurrentMsgListView.m()[0].f17087b || view == this.mCurrentMsgListView.m()[1].f17087b || view == this.mCurrentMsgListView.m()[2].f17087b) {
+        } else if (view == this.mCurrentMsgListView.m()[0].f17163b || view == this.mCurrentMsgListView.m()[1].f17163b || view == this.mCurrentMsgListView.m()[2].f17163b) {
             TiebaStatic.log("service_bt_ck");
             int l = this.mCurrentMsgListView.l(view);
             for (int i2 = 0; i2 < 3; i2++) {
                 OfficialBarMsglistView.d dVar = this.mCurrentMsgListView.m()[i2];
-                if (dVar.f17086a && i2 != l) {
+                if (dVar.f17162a && i2 != l) {
                     this.mCurrentMsgListView.n().h();
-                    dVar.f17086a = false;
+                    dVar.f17162a = false;
                     this.mCurrentMsgListView.u(i2, false);
                 }
             }
@@ -368,14 +368,14 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             if (bVar.a() == 0) {
                 OfficialBarMsglistView.d dVar2 = this.mCurrentMsgListView.m()[l];
                 OfficialSecondMenuPopupWindow n = this.mCurrentMsgListView.n();
-                if (dVar2.f17086a) {
+                if (dVar2.f17162a) {
                     n.g();
                 } else {
                     n.setData(3, l, bVar.e());
                     n.i(view);
                 }
-                boolean z = !dVar2.f17086a;
-                dVar2.f17086a = z;
+                boolean z = !dVar2.f17162a;
+                dVar2.f17162a = z;
                 this.mCurrentMsgListView.u(l, z);
                 return;
             }
@@ -415,7 +415,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         }
         handleMenuAction(bVar);
         this.mCurrentMsgListView.n().g();
-        this.mCurrentMsgListView.m()[i2].f17086a = false;
+        this.mCurrentMsgListView.m()[i2].f17162a = false;
         this.mCurrentMsgListView.u(i2, false);
     }
 

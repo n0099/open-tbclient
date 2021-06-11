@@ -52,7 +52,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public int positiveStatus = 0;
     public int negativeStatus = 0;
     public View.OnClickListener onClickListener = new a();
-    public d.a.c.e.l.c<d.a.c.j.d.a> mCallBack = new b();
+    public d.a.c.e.l.c<d.a.c.k.d.a> mCallBack = new b();
     public d.a.c.c.g.a mNetMessageListener = new c(CmdConfigHttp.CMD_COMMIT_CARD_INFO, 309643);
     public HttpMessageListener mHttpMessageListener = new d(CmdConfigHttp.CMD_CHECK_CARD_INFO);
 
@@ -83,13 +83,13 @@ public class IdentityReviewActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class b extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((b) aVar, str, i2);
             if (str != null && aVar != null) {
                 if (str.equals(IdentityReviewActivity.this.positiveImgePath)) {

@@ -69,7 +69,7 @@ public class v {
                     for (int i5 = 0; i5 < viewCount; i5++) {
                         ICardInfo viewItem = iCardInfo.getViewItem(i5, i2);
                         if (viewItem != null) {
-                            viewItem.setBdUniqueId(d.a.n0.k1.o.e.f56639b.get(viewItem.getCardType()));
+                            viewItem.setBdUniqueId(d.a.n0.k1.o.e.f60328b.get(viewItem.getCardType()));
                             arrayList.add(viewItem);
                         }
                     }
@@ -100,7 +100,7 @@ public class v {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void f(List<d.a.c.j.e.n> list, int i2) {
+    public static void f(List<d.a.c.k.e.n> list, int i2) {
         int i3;
         boolean z;
         if (list == null || list.size() == 0) {
@@ -112,16 +112,16 @@ public class v {
             if (list.get(i4) instanceof n0) {
                 if (z2) {
                     if (!((n0) list.get(i4)).isValid()) {
-                        ((n0) list.get(i4)).l();
+                        ((n0) list.get(i4)).g();
                     }
                     if (((n0) list.get(i4)).isValid()) {
-                        ICardInfo h2 = ((n0) list.get(i4)).h();
-                        int viewCount = h2.getViewCount();
+                        ICardInfo c2 = ((n0) list.get(i4)).c();
+                        int viewCount = c2.getViewCount();
                         ArrayList arrayList = new ArrayList();
                         for (int i5 = 0; i5 < viewCount; i5++) {
-                            ICardInfo viewItem = h2.getViewItem(i5, i2);
+                            ICardInfo viewItem = c2.getViewItem(i5, i2);
                             if (viewItem != null) {
-                                viewItem.setBdUniqueId(d.a.n0.k1.o.e.f56639b.get(viewItem.getCardType()));
+                                viewItem.setBdUniqueId(d.a.n0.k1.o.e.f60328b.get(viewItem.getCardType()));
                                 arrayList.add(viewItem);
                             }
                         }
@@ -149,10 +149,10 @@ public class v {
     }
 
     public static ArrayList<BdUniqueId> g() {
-        int size = d.a.n0.k1.o.e.f56639b.size();
+        int size = d.a.n0.k1.o.e.f60328b.size();
         ArrayList<BdUniqueId> arrayList = new ArrayList<>();
         for (int i2 = 0; i2 < size; i2++) {
-            arrayList.add(d.a.n0.k1.o.e.f56639b.valueAt(i2));
+            arrayList.add(d.a.n0.k1.o.e.f60328b.valueAt(i2));
         }
         return arrayList;
     }

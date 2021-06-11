@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17474e;
+    public TextView f17550e;
 
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -19,7 +19,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     public final void a() {
         LinearLayout.inflate(getContext(), R.layout.p2ptalk_setting_black_man_view, this);
         setOrientation(1);
-        this.f17474e = (TextView) findViewById(R.id.black_man_text);
+        this.f17550e = (TextView) findViewById(R.id.black_man_text);
     }
 
     public void setSex(int i2) {
@@ -31,7 +31,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
         } else {
             string = getResources().getString(R.string.she);
         }
-        this.f17474e.setText(getResources().getString(R.string.in_black_desc_1, string));
+        this.f17550e.setText(getResources().getString(R.string.in_black_desc_1, string));
     }
 
     public PersonaltalkSettingViewBlackManView(Context context) {

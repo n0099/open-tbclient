@@ -4,8 +4,8 @@ public final class R {
 
     /* loaded from: classes7.dex */
     public static final class anim {
-        public static final int slide_right_in = 0x7f010116;
-        public static final int slide_up = 0x7f010117;
+        public static final int slide_right_in = 0x7f010118;
+        public static final int slide_up = 0x7f010119;
     }
 
     /* loaded from: classes7.dex */
@@ -41,7 +41,7 @@ public final class R {
 
     /* loaded from: classes7.dex */
     public static final class string {
-        public static final int app_name = 0x7f0f02ba;
+        public static final int app_name = 0x7f0f02c0;
     }
 
     /* loaded from: classes7.dex */
@@ -53,6 +53,6 @@ public final class R {
 
     /* loaded from: classes7.dex */
     public static final class xml {
-        public static final int gdt_file_path = 0x7f130004;
+        public static final int gdt_file_path = 0x7f130003;
     }
 }

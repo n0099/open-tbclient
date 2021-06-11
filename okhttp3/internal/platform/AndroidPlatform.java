@@ -23,7 +23,7 @@ import okhttp3.Protocol;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AndroidPlatform extends Platform {
     public static final int MAX_LOG_LENGTH = 4000;
     public final CloseGuard closeGuard = CloseGuard.get();
@@ -33,7 +33,7 @@ public class AndroidPlatform extends Platform {
     public final OptionalMethod<Socket> setUseSessionTickets;
     public final Class<?> sslParametersClass;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class AndroidCertificateChainCleaner extends CertificateChainCleaner {
         public final Method checkServerTrusted;
         public final Object x509TrustManagerExtensions;
@@ -65,7 +65,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class AndroidTrustRootIndex implements TrustRootIndex {
         public final Method findByIssuerAndSignatureMethod;
         public final X509TrustManager trustManager;
@@ -106,7 +106,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class CloseGuard {
         public final Method getMethod;
         public final Method openMethod;

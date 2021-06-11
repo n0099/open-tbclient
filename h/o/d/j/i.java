@@ -1,5 +1,5 @@
 package h.o.d.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i {
     public static boolean a(int i2) {
         return (i2 & (i2 + (-1))) == 0;

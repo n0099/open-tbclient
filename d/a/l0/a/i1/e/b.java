@@ -13,45 +13,45 @@ import java.net.URLDecoder;
 public final class b {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f42896i = k.f43199a;
+    public static final boolean f46572i = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Uri f42897a;
+    public final Uri f46573a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Bitmap f42898b;
+    public final Bitmap f46574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Integer f42899c;
+    public final Integer f46575c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42900d;
+    public boolean f46576d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42901e;
+    public int f46577e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42902f;
+    public int f46578f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f42903g;
+    public Rect f46579g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42904h;
+    public boolean f46580h;
 
     public b(Bitmap bitmap, boolean z) {
-        this.f42898b = bitmap;
-        this.f42897a = null;
-        this.f42899c = null;
-        this.f42900d = false;
-        this.f42901e = bitmap.getWidth();
-        this.f42902f = bitmap.getHeight();
-        this.f42904h = z;
+        this.f46574b = bitmap;
+        this.f46573a = null;
+        this.f46575c = null;
+        this.f46576d = false;
+        this.f46577e = bitmap.getWidth();
+        this.f46578f = bitmap.getHeight();
+        this.f46580h = z;
     }
 
     public static b a(String str) {
         if (str == null) {
-            if (!f42896i) {
+            if (!f46572i) {
                 d.h("ImageSource", "asset name is null");
                 return null;
             }
@@ -62,7 +62,7 @@ public final class b {
 
     public static b b(Bitmap bitmap) {
         if (bitmap == null) {
-            if (!f42896i) {
+            if (!f46572i) {
                 d.h("ImageSource", "bitmap is null");
                 return null;
             }
@@ -77,7 +77,7 @@ public final class b {
 
     public static b o(String str) {
         if (str == null) {
-            if (!f42896i) {
+            if (!f46572i) {
                 d.h("ImageSource", "uri is null");
                 return null;
             }
@@ -93,39 +93,39 @@ public final class b {
     }
 
     public final Bitmap c() {
-        return this.f42898b;
+        return this.f46574b;
     }
 
     public final Integer d() {
-        return this.f42899c;
+        return this.f46575c;
     }
 
     public final int e() {
-        return this.f42902f;
+        return this.f46578f;
     }
 
     public final Rect f() {
-        return this.f42903g;
+        return this.f46579g;
     }
 
     public final int g() {
-        return this.f42901e;
+        return this.f46577e;
     }
 
     public final boolean h() {
-        return this.f42900d;
+        return this.f46576d;
     }
 
     public final Uri i() {
-        return this.f42897a;
+        return this.f46573a;
     }
 
     public final boolean j() {
-        return this.f42904h;
+        return this.f46580h;
     }
 
     public b l(boolean z) {
-        this.f42900d = z;
+        this.f46576d = z;
         return this;
     }
 
@@ -147,16 +147,16 @@ public final class b {
             } catch (UnsupportedEncodingException unused) {
             }
         }
-        this.f42898b = null;
-        this.f42897a = uri;
-        this.f42899c = null;
-        this.f42900d = true;
+        this.f46574b = null;
+        this.f46573a = uri;
+        this.f46575c = null;
+        this.f46576d = true;
     }
 
     public b(int i2) {
-        this.f42898b = null;
-        this.f42897a = null;
-        this.f42899c = Integer.valueOf(i2);
-        this.f42900d = true;
+        this.f46574b = null;
+        this.f46573a = null;
+        this.f46575c = Integer.valueOf(i2);
+        this.f46576d = true;
     }
 }

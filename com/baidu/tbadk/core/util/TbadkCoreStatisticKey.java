@@ -36,6 +36,7 @@ public class TbadkCoreStatisticKey {
     public static final String FUN_AD_PRIVACY_CLICK = "c14089";
     public static final String FUN_AD_REQUEST = "c14005";
     public static final String FUN_AD_SHOW = "c14006";
+    public static final String FUN_AD_SHOW_ERROR = "c14199";
     public static final String GOD_REPLY_LAYOUT_FULL_TEXT_CLICK = "c13348";
     public static final String GOD_REPLY_LAYOUT_FULL_TEXT_SHOW = "c13347";
     public static final String HOST_START = "c11894";
@@ -46,6 +47,7 @@ public class TbadkCoreStatisticKey {
     public static final String HOT_TOPIC_CLICK_PB_BOTTOM = "pb_bottom";
     public static final String HOT_TOPIC_CLICK_TOPIC = "1";
     public static final String INVOKE_AS = "c10007";
+    public static final String KEY_AGREE_SUCCESS_CLICK = "c14179";
     public static final String KEY_AIAPPS_CALL_NATIVE = "c13561";
     public static final String KEY_AIAPPS_START = "c13606";
     public static final String KEY_AIAPPS_START_FAIL = "c13607";
@@ -118,6 +120,11 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_TOPIC_DETAIL_CARD_AGREE_CLICK = "c13358";
     public static final String KEY_TRANSFER_BTN_CLICK = "c13567";
     public static final String KEY_UPDATE_OFFLINE_PACK = "c14055";
+    public static final String KEY_VIDEO_ACCOUNT_ADD_COLLECTION_CLICK = "c14182";
+    public static final String KEY_VIDEO_ACCOUNT_ATTENTION_CLICK = "c14185";
+    public static final String KEY_VIDEO_ACCOUNT_CLICK = "c14183";
+    public static final String KEY_VIDEO_ACCOUNT_PROGRESS_CLICK = "c14184";
+    public static final String KEY_VIDEO_SHARE_SUCCESS = "c14181";
     public static final String KEY_VIDEO_SPLASH_SKIP = "c12946";
     public static final String KEY_VIDEO_TIME = "c11244";
     public static final String KEY_VOTE_BUTTON = "c13441";

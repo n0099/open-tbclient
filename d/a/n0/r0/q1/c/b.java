@@ -1,7 +1,7 @@
 package d.a.n0.r0.q1.c;
 
 import com.baidu.adp.BdUniqueId;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.List;
 import tbclient.BawuRoleInfoPub;
 import tbclient.ForumInfo;
@@ -12,19 +12,19 @@ public class b implements n {
     public static BdUniqueId q = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumInfo f59413e;
+    public ForumInfo f63104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59414f;
+    public String f63105f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f59415g;
+    public String f63106g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ForumRule> f59416h;
+    public List<ForumRule> f63107h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f59417i;
+    public int f63108i;
     public String j;
     public boolean k;
     public String l;
@@ -33,62 +33,62 @@ public class b implements n {
     public d o;
     public a p;
 
-    public String c() {
+    public String b() {
         return this.j;
     }
 
-    public int e() {
-        return this.f59417i;
+    public int c() {
+        return this.f63108i;
     }
 
-    public BawuRoleInfoPub f() {
+    public BawuRoleInfoPub e() {
         return this.m;
     }
 
-    @Override // d.a.c.j.e.n
+    public String g() {
+        return this.n;
+    }
+
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return q;
     }
 
-    public String h() {
-        return this.n;
+    public ForumInfo h() {
+        return this.f63104e;
     }
 
-    public ForumInfo i() {
-        return this.f59413e;
-    }
-
-    public boolean k() {
+    public boolean i() {
         return this.k;
     }
 
-    public String l() {
-        return this.f59415g;
+    public String k() {
+        return this.f63106g;
     }
 
-    public String m() {
+    public String l() {
         return this.l;
     }
 
-    public List<ForumRule> o() {
-        return this.f59416h;
+    public List<ForumRule> n() {
+        return this.f63107h;
     }
 
-    public String p() {
-        return this.f59414f;
+    public String o() {
+        return this.f63105f;
     }
 
-    public a q() {
+    public a p() {
         return this.p;
     }
 
-    public void r(DataRes dataRes) {
+    public void q(DataRes dataRes) {
         if (dataRes != null) {
-            this.f59413e = dataRes.forum;
-            this.f59414f = dataRes.title;
-            this.f59415g = dataRes.preface;
-            this.f59416h = dataRes.rules;
-            this.f59417i = dataRes.audit_status.intValue();
+            this.f63104e = dataRes.forum;
+            this.f63105f = dataRes.title;
+            this.f63106g = dataRes.preface;
+            this.f63107h = dataRes.rules;
+            this.f63108i = dataRes.audit_status.intValue();
             this.j = dataRes.audit_opinion;
             this.k = dataRes.is_manager.intValue() == 1;
             Long l = dataRes.forum_rule_id;
@@ -97,10 +97,10 @@ public class b implements n {
             this.n = dataRes.cur_time;
             d dVar = new d();
             this.o = dVar;
-            dVar.c(dataRes);
+            dVar.b(dataRes);
             a aVar = new a();
             this.p = aVar;
-            aVar.k(dataRes);
+            aVar.i(dataRes);
         }
     }
 
@@ -109,7 +109,7 @@ public class b implements n {
     }
 
     public void t(ForumInfo forumInfo) {
-        this.f59413e = forumInfo;
+        this.f63104e = forumInfo;
     }
 
     public void u(boolean z) {
@@ -117,6 +117,6 @@ public class b implements n {
     }
 
     public void v(String str) {
-        this.f59415g = str;
+        this.f63106g = str;
     }
 }

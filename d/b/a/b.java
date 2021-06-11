@@ -2,10 +2,10 @@ package d.b.a;
 
 import android.util.Log;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface b {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements b {
         @Override // d.b.a.b
         public void a(String str, String str2, Throwable th) {

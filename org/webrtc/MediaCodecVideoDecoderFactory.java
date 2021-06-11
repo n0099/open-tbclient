@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     public static final String TAG = "MediaCodecVideoDecoderFactory";
     public final String[] prefixBlacklist;

@@ -24,7 +24,7 @@ public final class TouchHelper$mTouchSlop$2 extends Lambda implements Function0<
     }
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int, java.lang.Integer] */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Integer, int] */
     @Override // kotlin.jvm.functions.Function0
     public final Integer invoke() {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(this.this$0.getContext());

@@ -20,15 +20,15 @@ public class c {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f59140e;
+        public final /* synthetic */ r f62831e;
 
         public a(r rVar) {
-            this.f59140e = rVar;
+            this.f62831e = rVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f59140e.D0();
+            this.f62831e.D0();
         }
     }
 

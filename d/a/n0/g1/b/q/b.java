@@ -27,35 +27,35 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f55151a;
+    public ViewGroup f58840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f55152b;
+    public BdTypeRecyclerView f58841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.m0.g0.g.a f55153c;
+    public d.a.m0.g0.g.a f58842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoDataView f55154d;
+    public NoDataView f58843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBarShadowView f55155e;
+    public NavigationBarShadowView f58844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f55156f;
+    public TbPageContext f58845f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragmentActivity f55157g;
+    public BaseFragmentActivity f58846g;
 
     /* renamed from: h  reason: collision with root package name */
-    public OfficialNotificationFragment f55158h;
+    public OfficialNotificationFragment f58847h;
     public OfficialNotificationTextItemAdapter k;
     public boolean l;
     public boolean m;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<ChatMessage> f55159i = null;
-    public List<d.a.c.j.e.a> j = new ArrayList();
+    public List<ChatMessage> f58848i = null;
+    public List<d.a.c.k.e.a> j = new ArrayList();
     public RecyclerView.OnScrollListener n = new a();
 
     /* loaded from: classes4.dex */
@@ -68,32 +68,32 @@ public class b {
             super.onScrollStateChanged(recyclerView, i2);
             if (i2 != 0) {
                 if (i2 == 1 || i2 == 2) {
-                    b.this.f55155e.c();
+                    b.this.f58844e.c();
                 }
             } else if (recyclerView.canScrollVertically(-1)) {
-                b.this.f55155e.c();
+                b.this.f58844e.c();
             } else {
-                b.this.f55155e.a();
+                b.this.f58844e.a();
             }
         }
     }
 
     /* renamed from: d.a.n0.g1.b.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1352b implements BdListView.p {
-        public C1352b() {
+    public class C1408b implements BdListView.p {
+        public C1408b() {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            b.this.f55153c.d();
-            if (!b.this.f55158h.G0() || b.this.m) {
-                b.this.f55153c.g(R.string.no_more_msg);
+            b.this.f58842c.d();
+            if (!b.this.f58847h.J0() || b.this.m) {
+                b.this.f58842c.g(R.string.no_more_msg);
                 return;
             }
-            b.this.f55153c.f(R.string.loading);
-            if (b.this.f55158h != null) {
-                b.this.f55158h.K0();
+            b.this.f58842c.f(R.string.loading);
+            if (b.this.f58847h != null) {
+                b.this.f58847h.N0();
                 b.this.m = true;
             }
         }
@@ -103,48 +103,48 @@ public class b {
         if (tbPageContext == null) {
             return;
         }
-        this.f55156f = tbPageContext;
+        this.f58845f = tbPageContext;
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) tbPageContext.getPageActivity();
-        this.f55157g = baseFragmentActivity;
-        this.f55158h = officialNotificationFragment;
+        this.f58846g = baseFragmentActivity;
+        this.f58847h = officialNotificationFragment;
         ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(baseFragmentActivity).inflate(R.layout.fragment_official_notification, viewGroup, false);
-        this.f55151a = viewGroup2;
-        this.f55155e = (NavigationBarShadowView) viewGroup2.findViewById(R.id.navi_shadow_view_official_notification);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f55151a.findViewById(R.id.rv_official_notification);
-        this.f55152b = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f55157g));
-        this.f55152b.setFadingEdgeLength(0);
-        this.f55152b.setOverScrollMode(2);
-        this.f55152b.addOnScrollListener(this.n);
-        OfficialNotificationTextItemAdapter officialNotificationTextItemAdapter = new OfficialNotificationTextItemAdapter(this.f55156f, ChatMessage.TYPE_MSG_LEFT);
+        this.f58840a = viewGroup2;
+        this.f58844e = (NavigationBarShadowView) viewGroup2.findViewById(R.id.navi_shadow_view_official_notification);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f58840a.findViewById(R.id.rv_official_notification);
+        this.f58841b = bdTypeRecyclerView;
+        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f58846g));
+        this.f58841b.setFadingEdgeLength(0);
+        this.f58841b.setOverScrollMode(2);
+        this.f58841b.addOnScrollListener(this.n);
+        OfficialNotificationTextItemAdapter officialNotificationTextItemAdapter = new OfficialNotificationTextItemAdapter(this.f58845f, ChatMessage.TYPE_MSG_LEFT);
         this.k = officialNotificationTextItemAdapter;
         officialNotificationTextItemAdapter.s0(officialNotificationFragment);
         this.j.add(this.k);
-        this.f55152b.a(this.j);
-        d.a.m0.g0.g.a aVar = new d.a.m0.g0.g.a(this.f55157g, this.f55152b);
-        this.f55153c = aVar;
-        aVar.h(l.g(this.f55157g, R.dimen.tbds182));
-        this.f55153c.a();
-        this.f55152b.setNextPage(this.f55153c);
-        this.f55152b.setOnSrollToBottomListener(new C1352b());
+        this.f58841b.a(this.j);
+        d.a.m0.g0.g.a aVar = new d.a.m0.g0.g.a(this.f58846g, this.f58841b);
+        this.f58842c = aVar;
+        aVar.h(l.g(this.f58846g, R.dimen.tbds182));
+        this.f58842c.a();
+        this.f58841b.setNextPage(this.f58842c);
+        this.f58841b.setOnSrollToBottomListener(new C1408b());
         j();
     }
 
     public void f(MsgPageData msgPageData) {
-        if (this.f55152b == null || msgPageData == null) {
+        if (this.f58841b == null || msgPageData == null) {
             return;
         }
         p(msgPageData.getChatMessages());
-        this.f55152b.getAdapter().notifyDataSetChanged();
+        this.f58841b.getAdapter().notifyDataSetChanged();
     }
 
     public final boolean g(int i2) {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f55152b;
-        return (bdTypeRecyclerView == null || this.f55159i == null || bdTypeRecyclerView.getFirstVisiblePosition() != 0) ? false : true;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f58841b;
+        return (bdTypeRecyclerView == null || this.f58848i == null || bdTypeRecyclerView.getFirstVisiblePosition() != 0) ? false : true;
     }
 
     public final void h(MsgPageData msgPageData, int i2) {
-        if (this.f55152b == null) {
+        if (this.f58841b == null) {
             return;
         }
         this.m = false;
@@ -153,32 +153,32 @@ public class b {
         }
         try {
             p(msgPageData.getChatMessages());
-            this.f55152b.getAdapter().notifyDataSetChanged();
+            this.f58841b.getAdapter().notifyDataSetChanged();
             if (i2 >= 0) {
-                this.f55152b.setSelection(i2);
+                this.f58841b.setSelection(i2);
             }
         } catch (Exception unused) {
         }
     }
 
     public View i() {
-        return this.f55151a;
+        return this.f58840a;
     }
 
     public void j() {
         OfficialNotificationTextItemAdapter officialNotificationTextItemAdapter = this.k;
         if (officialNotificationTextItemAdapter != null) {
-            officialNotificationTextItemAdapter.K();
+            officialNotificationTextItemAdapter.L();
         }
-        SkinManager.setBackgroundColor(this.f55152b, R.color.CAM_X0201);
-        NoDataView noDataView = this.f55154d;
+        SkinManager.setBackgroundColor(this.f58841b, R.color.CAM_X0201);
+        NoDataView noDataView = this.f58843d;
         if (noDataView != null) {
-            noDataView.f(this.f55156f, TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundColor(this.f55154d, R.color.CAM_X0201);
+            noDataView.f(this.f58845f, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundColor(this.f58843d, R.color.CAM_X0201);
         }
-        d.a.m0.g0.g.a aVar = this.f55153c;
+        d.a.m0.g0.g.a aVar = this.f58842c;
         if (aVar != null) {
-            aVar.onChangeSkinType(this.f55156f, TbadkCoreApplication.getInst().getSkinType());
+            aVar.onChangeSkinType(this.f58845f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -233,10 +233,10 @@ public class b {
     }
 
     public void p(List<ChatMessage> list) {
-        if (this.f55152b == null) {
+        if (this.f58841b == null) {
             return;
         }
-        this.f55159i = list;
+        this.f58848i = list;
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
             arrayList.add(list.get(size));
@@ -253,28 +253,28 @@ public class b {
         }
         arrayList2.addAll(arrayList);
         if (arrayList2.isEmpty()) {
-            if (this.f55154d == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.f55157g, null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.d(null, this.f55157g.getResources().getString(R.string.official_notification_no_data)), null);
-                this.f55154d = a2;
+            if (this.f58843d == null) {
+                NoDataView a2 = NoDataViewFactory.a(this.f58846g, null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.d(null, this.f58846g.getResources().getString(R.string.official_notification_no_data)), null);
+                this.f58843d = a2;
                 a2.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                SkinManager.setBackgroundColor(this.f55154d, R.color.CAM_X0201);
-                this.f55151a.addView(this.f55154d);
+                SkinManager.setBackgroundColor(this.f58843d, R.color.CAM_X0201);
+                this.f58840a.addView(this.f58843d);
             }
             if (this.l) {
                 return;
             }
             this.l = true;
-            this.f55152b.setVisibility(8);
-            this.f55154d.setVisibility(0);
-            this.f55154d.f(this.f55156f, TbadkCoreApplication.getInst().getSkinType());
+            this.f58841b.setVisibility(8);
+            this.f58843d.setVisibility(0);
+            this.f58843d.f(this.f58845f, TbadkCoreApplication.getInst().getSkinType());
             return;
         }
-        NoDataView noDataView = this.f55154d;
+        NoDataView noDataView = this.f58843d;
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }
         this.l = false;
-        this.f55152b.setData(arrayList2);
-        this.f55152b.setVisibility(0);
+        this.f58841b.setData(arrayList2);
+        this.f58841b.setVisibility(0);
     }
 }

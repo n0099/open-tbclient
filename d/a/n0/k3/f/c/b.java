@@ -26,54 +26,54 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BubbleListActivity f57079a;
+    public BubbleListActivity f60768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57080b;
+    public View f60769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f57081c;
+    public NavigationBar f60770c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MemberRecommendView f57082d;
+    public MemberRecommendView f60771d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f57083e;
+    public BdListView f60772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f57084f;
+    public g f60773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f57085g;
+    public a f60774g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57086h;
+    public int f60775h;
 
     public b(BubbleListActivity bubbleListActivity, d.a.n0.k3.f.a.a aVar) {
-        this.f57084f = null;
-        this.f57086h = 0;
-        this.f57079a = bubbleListActivity;
-        this.f57086h = l.g(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.ds120);
-        View inflate = LayoutInflater.from(this.f57079a.getPageContext().getPageActivity()).inflate(R.layout.bubble_list, (ViewGroup) null);
-        this.f57080b = inflate;
-        this.f57079a.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.f57080b.findViewById(R.id.view_navigation_bar);
-        this.f57081c = navigationBar;
+        this.f60773f = null;
+        this.f60775h = 0;
+        this.f60768a = bubbleListActivity;
+        this.f60775h = l.g(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.ds120);
+        View inflate = LayoutInflater.from(this.f60768a.getPageContext().getPageActivity()).inflate(R.layout.bubble_list, (ViewGroup) null);
+        this.f60769b = inflate;
+        this.f60768a.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.f60769b.findViewById(R.id.view_navigation_bar);
+        this.f60770c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f57081c.setTitleText(R.string.bubble_all);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f57080b.findViewById(R.id.view_member_recommend);
-        this.f57082d = memberRecommendView;
+        this.f60770c.setTitleText(R.string.bubble_all);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f60769b.findViewById(R.id.view_member_recommend);
+        this.f60771d = memberRecommendView;
         memberRecommendView.setFromType(7);
-        this.f57083e = (BdListView) this.f57080b.findViewById(R.id.listview_bubble);
-        g gVar = new g(this.f57079a.getPageContext());
-        this.f57084f = gVar;
-        this.f57083e.setPullRefresh(gVar);
-        TextView textView = new TextView(this.f57079a.getActivity());
-        textView.setHeight(l.g(this.f57079a.getActivity(), R.dimen.ds20));
-        this.f57083e.addFooterView(textView);
-        a aVar2 = new a(this.f57079a.getPageContext(), aVar);
-        this.f57085g = aVar2;
-        this.f57083e.setAdapter((ListAdapter) aVar2);
+        this.f60772e = (BdListView) this.f60769b.findViewById(R.id.listview_bubble);
+        g gVar = new g(this.f60768a.getPageContext());
+        this.f60773f = gVar;
+        this.f60772e.setPullRefresh(gVar);
+        TextView textView = new TextView(this.f60768a.getActivity());
+        textView.setHeight(l.g(this.f60768a.getActivity(), R.dimen.ds20));
+        this.f60772e.addFooterView(textView);
+        a aVar2 = new a(this.f60768a.getPageContext(), aVar);
+        this.f60774g = aVar2;
+        this.f60772e.setAdapter((ListAdapter) aVar2);
     }
 
     public final List<List<DressItemData>> a(List<DressItemData> list) {
@@ -93,68 +93,68 @@ public class b {
     }
 
     public void b() {
-        SkinManager.setBackgroundColor(this.f57080b, R.color.CAM_X0204);
-        this.f57079a.hideNetRefreshView(this.f57080b);
-        this.f57082d.setVisibility(0);
-        this.f57083e.setVisibility(0);
-        this.f57080b.setVisibility(0);
+        SkinManager.setBackgroundColor(this.f60769b, R.color.CAM_X0204);
+        this.f60768a.hideNetRefreshView(this.f60769b);
+        this.f60771d.setVisibility(0);
+        this.f60772e.setVisibility(0);
+        this.f60769b.setVisibility(0);
     }
 
     public View c() {
-        return this.f57080b;
+        return this.f60769b;
     }
 
     public void d() {
         a aVar;
-        d.a.m0.s0.a.a(this.f57079a.getPageContext(), this.f57080b);
-        NavigationBar navigationBar = this.f57081c;
+        d.a.m0.s0.a.a(this.f60768a.getPageContext(), this.f60769b);
+        NavigationBar navigationBar = this.f60770c;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f57079a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            navigationBar.onChangeSkinType(this.f60768a.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        BdListView bdListView = this.f57083e;
-        if (bdListView != null && bdListView.getVisibility() == 0 && (aVar = this.f57085g) != null) {
+        BdListView bdListView = this.f60772e;
+        if (bdListView != null && bdListView.getVisibility() == 0 && (aVar = this.f60774g) != null) {
             aVar.notifyDataSetChanged();
         }
-        g gVar = this.f57084f;
+        g gVar = this.f60773f;
         if (gVar != null) {
             gVar.I(TbadkApplication.getInst().getSkinType());
         }
-        this.f57082d.d();
+        this.f60771d.d();
     }
 
     public final void e(List<List<DressItemData>> list) {
         if (list != null && list.size() > 0) {
-            this.f57083e.setVisibility(0);
-            this.f57085g.b(list);
-            this.f57085g.notifyDataSetChanged();
+            this.f60772e.setVisibility(0);
+            this.f60774g.b(list);
+            this.f60774g.notifyDataSetChanged();
             return;
         }
-        this.f57083e.setVisibility(8);
+        this.f60772e.setVisibility(8);
     }
 
     public final boolean f(e eVar) {
         if (eVar != null && !StringUtils.isNull(eVar.c())) {
-            this.f57082d.setVisibility(0);
-            this.f57082d.e(eVar);
+            this.f60771d.setVisibility(0);
+            this.f60771d.e(eVar);
             return true;
         }
-        this.f57082d.setVisibility(8);
+        this.f60771d.setVisibility(8);
         return false;
     }
 
     public void g(BdListView.p pVar, f.g gVar) {
-        this.f57083e.setOnSrollToBottomListener(pVar);
-        this.f57084f.a(gVar);
+        this.f60772e.setOnSrollToBottomListener(pVar);
+        this.f60773f.a(gVar);
     }
 
     public void h() {
-        this.f57082d.setVisibility(8);
-        this.f57083e.setVisibility(8);
-        this.f57080b.setVisibility(8);
-        SkinManager.setBackgroundColor(this.f57080b, R.color.CAM_X0201);
-        String string = this.f57079a.getPageContext().getResources().getString(R.string.no_data_text);
-        this.f57079a.setNetRefreshViewTopMargin(this.f57086h);
-        this.f57079a.showNetRefreshView(this.f57080b, string, false);
+        this.f60771d.setVisibility(8);
+        this.f60772e.setVisibility(8);
+        this.f60769b.setVisibility(8);
+        SkinManager.setBackgroundColor(this.f60769b, R.color.CAM_X0201);
+        String string = this.f60768a.getPageContext().getResources().getString(R.string.no_data_text);
+        this.f60768a.setNetRefreshViewTopMargin(this.f60775h);
+        this.f60768a.showNetRefreshView(this.f60769b, string, false);
     }
 
     public void i(e eVar, List<DressItemData> list, boolean z) {
@@ -168,6 +168,6 @@ public class b {
     }
 
     public void j() {
-        this.f57083e.A(0L);
+        this.f60772e.A(0L);
     }
 }

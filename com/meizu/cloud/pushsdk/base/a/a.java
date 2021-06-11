@@ -1,27 +1,27 @@
 package com.meizu.cloud.pushsdk.base.a;
 
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Class<?>> f34732a = new HashMap<>();
+    public static HashMap<String, Class<?>> f38411a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f34733b;
+    public Class<?> f38412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34734c;
+    public String f38413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f34735d;
+    public Object f38414d;
 
     public a(Object obj) {
-        this.f34735d = obj;
+        this.f38414d = obj;
     }
 
     public a(String str) {
-        this.f34734c = str;
+        this.f38413c = str;
     }
 
     public static a a(Object obj) {
@@ -41,18 +41,18 @@ public class a {
     }
 
     public Class<?> a() throws ClassNotFoundException {
-        Class<?> cls = this.f34733b;
+        Class<?> cls = this.f38412b;
         if (cls != null) {
             return cls;
         }
-        Object obj = this.f34735d;
+        Object obj = this.f38414d;
         if (obj != null) {
             return obj.getClass();
         }
-        Class<?> cls2 = f34732a.get(this.f34734c);
+        Class<?> cls2 = f38411a.get(this.f38413c);
         if (cls2 == null) {
-            Class<?> cls3 = Class.forName(this.f34734c);
-            f34732a.put(this.f34734c, cls3);
+            Class<?> cls3 = Class.forName(this.f38413c);
+            f38411a.put(this.f38413c, cls3);
             return cls3;
         }
         return cls2;

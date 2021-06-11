@@ -18,8 +18,8 @@ public class a extends d.a.n0.z.b<d.a.n0.q0.c.a> {
 
     /* renamed from: d.a.n0.q0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1479a implements a.e {
-        public C1479a(a aVar) {
+    public class C1535a implements a.e {
+        public C1535a(a aVar) {
         }
 
         @Override // d.a.m0.r.s.a.e
@@ -44,18 +44,18 @@ public class a extends d.a.n0.z.b<d.a.n0.q0.c.a> {
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.o = 3;
-        this.m = (ImageView) l().findViewById(R.id.history_delete);
-        this.n = (TextView) l().findViewById(R.id.history_title);
+        this.m = (ImageView) m().findViewById(R.id.history_delete);
+        this.n = (TextView) m().findViewById(R.id.history_title);
         this.m.setOnClickListener(this);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.forum_search_history_header;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.o == i2) {
             return;
         }
@@ -67,19 +67,19 @@ public class a extends d.a.n0.z.b<d.a.n0.q0.c.a> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.m) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f63441f.getPageActivity());
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f67159f.getPageActivity());
             aVar.setTitle(R.string.confirm_delete_all_history);
             aVar.setCanceledOnTouchOutside(true);
-            aVar.setPositiveButton(R.string.confirm, new C1479a(this));
+            aVar.setPositiveButton(R.string.confirm, new C1535a(this));
             aVar.setNegativeButton(R.string.cancel, new b(this));
-            aVar.create(this.f63441f);
+            aVar.create(this.f67159f);
             aVar.show();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.q0.c.a aVar) {
+    /* renamed from: t */
+    public void n(d.a.n0.q0.c.a aVar) {
     }
 }

@@ -70,8 +70,8 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (j.this.h() != null) {
-                j.this.h().a(view, j.this.o);
+            if (j.this.i() != null) {
+                j.this.i().a(view, j.this.o);
             }
         }
     }
@@ -86,12 +86,12 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             T t;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || (t = j.this.o) == 0 || ((d.a.n0.z.e0.j) t).f63459e == null || ((d.a.n0.z.e0.j) t).f63459e.y1() == null || j.this.z == null || !((String) customResponsedMessage.getData()).equals(((d.a.n0.z.e0.j) j.this.o).f63459e.y1())) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || (t = j.this.o) == 0 || ((d.a.n0.z.e0.j) t).f67177e == null || ((d.a.n0.z.e0.j) t).f67177e.z1() == null || j.this.z == null || !((String) customResponsedMessage.getData()).equals(((d.a.n0.z.e0.j) j.this.o).f67177e.z1())) {
                 return;
             }
             j jVar = j.this;
             TextView textView = jVar.z;
-            String o0 = ((d.a.n0.z.e0.j) jVar.o).f63459e.o0();
+            String o0 = ((d.a.n0.z.e0.j) jVar.o).f67177e.o0();
             int i2 = R.color.CAM_X0109;
             m.l(textView, o0, i2, i2);
         }
@@ -105,10 +105,10 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
         this.K = new c(2001390);
         this.m = tbPageContext;
         this.n = bdUniqueId;
-        O(l());
+        P(m());
     }
 
-    public View L() {
+    public View M() {
         CardUserInfoLayout cardUserInfoLayout = this.y;
         if (cardUserInfoLayout != null) {
             return cardUserInfoLayout.getAvatar();
@@ -116,7 +116,7 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
         return null;
     }
 
-    public View M() {
+    public View N() {
         if (this.H) {
             CardUserInfoLayout cardUserInfoLayout = this.y;
             if (cardUserInfoLayout != null) {
@@ -127,18 +127,18 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
         return this.z;
     }
 
-    public void N() {
+    public void O() {
         T t;
-        if (d.a.m0.r.k.c().g() && (t = this.o) != 0 && ((d.a.n0.z.e0.j) t).m() != null && ((d.a.n0.z.e0.j) this.o).m().r1() != null) {
+        if (d.a.m0.r.k.c().g() && (t = this.o) != 0 && ((d.a.n0.z.e0.j) t).i() != null && ((d.a.n0.z.e0.j) this.o).i().s1() != null) {
             this.B.setPlaceHolder(3);
-            this.B.V(((d.a.n0.z.e0.j) this.o).m().r1().cover, 10, false);
+            this.B.U(((d.a.n0.z.e0.j) this.o).i().s1().cover, 10, false);
             this.A.setVisibility(0);
             return;
         }
         this.A.setVisibility(8);
     }
 
-    public final void O(View view) {
+    public final void P(View view) {
         this.w = (FrameLayout) view.findViewById(R.id.layout_root);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.content_layout);
         this.x = linearLayout;
@@ -174,29 +174,29 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
         this.u = (ForumEnterLayout) view.findViewById(R.id.card_forum_enter_button);
         this.p = (ThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_op_layout);
         this.q = (ThreadCardBottomOpSegmentWeightLayout) view.findViewById(R.id.card_bottom_op_weight_layout);
-        u(this.p);
-        u(this.q);
+        v(this.p);
+        v(this.q);
         this.x.setOnClickListener(this);
         d.a.m0.b.g.b.f(view.findViewById(R.id.imageMask), R.color.transparent);
     }
 
-    public final void P(long j, long j2, String str) {
+    public final void Q(long j, long j2, String str) {
         UrlManager urlManager = UrlManager.getInstance();
-        TbPageContext<?> tbPageContext = this.f63441f;
+        TbPageContext<?> tbPageContext = this.f67159f;
         urlManager.dealOneLink(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + j2 + "&live_id=" + j + "&enterroom_type=1&from" + str});
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: Q */
-    public void m(d.a.n0.z.e0.j jVar) {
+    /* renamed from: R */
+    public void n(d.a.n0.z.e0.j jVar) {
         this.o = jVar;
-        R();
+        S();
     }
 
-    public final void R() {
+    public final void S() {
         T t = this.o;
-        if (t != 0 && ((d.a.n0.z.e0.j) t).m() != null) {
+        if (t != 0 && ((d.a.n0.z.e0.j) t).i() != null) {
             this.w.setVisibility(0);
             int k = d.a.c.e.p.l.k(this.m.getPageActivity());
             if (k != this.I) {
@@ -210,28 +210,28 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
             this.p.setShowFlag(11);
             this.p.resetShareContainer();
             this.y.setVisibility(0);
-            this.y.setData(((d.a.n0.z.e0.j) this.o).m());
+            this.y.setData(((d.a.n0.z.e0.j) this.o).i());
             this.y.setUserAfterClickListener(this.J);
-            if (((d.a.n0.z.e0.j) this.o).m().r1() != null) {
-                this.z.setText(((d.a.n0.z.e0.j) this.o).m().r1().friendRoomName);
+            if (((d.a.n0.z.e0.j) this.o).i().s1() != null) {
+                this.z.setText(((d.a.n0.z.e0.j) this.o).i().s1().friendRoomName);
             }
-            if (((d.a.n0.z.e0.j) this.o).f63459e.r1().audience_count > 0) {
+            if (((d.a.n0.z.e0.j) this.o).f67177e.s1().audience_count > 0) {
                 this.G.setVisibility(0);
                 this.D.setVisibility(0);
-                this.D.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((d.a.n0.z.e0.j) this.o).f63459e.r1().audience_count)));
+                this.D.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((d.a.n0.z.e0.j) this.o).f67177e.s1().audience_count)));
             } else {
                 this.G.setVisibility(8);
                 this.D.setVisibility(8);
             }
             this.E.setVisibility(8);
-            if (((d.a.n0.z.e0.j) this.o).f63459e.r1().openRecomReason == 1) {
-                String str = ((d.a.n0.z.e0.j) this.o).f63459e.r1().recomReason;
+            if (((d.a.n0.z.e0.j) this.o).f67177e.s1().openRecomReason == 1) {
+                String str = ((d.a.n0.z.e0.j) this.o).f67177e.s1().recomReason;
                 if (!StringUtils.isNull(str)) {
                     this.E.setVisibility(0);
                     this.E.setText(str);
                 } else {
-                    String D0 = ((d.a.n0.z.e0.j) this.o).f63459e.D0();
-                    String J0 = ((d.a.n0.z.e0.j) this.o).f63459e.J0();
+                    String D0 = ((d.a.n0.z.e0.j) this.o).f67177e.D0();
+                    String J0 = ((d.a.n0.z.e0.j) this.o).f67177e.J0();
                     if (UtilHelper.isDecimal(D0) && UtilHelper.isDecimal(J0) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
                         AppPosInfo c2 = d.a.n0.t2.g0.a.e().c();
                         String str2 = c2.latitude;
@@ -243,26 +243,26 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
                     }
                 }
             }
-            B(this.w);
-            n(this.m, TbadkCoreApplication.getInst().getSkinType());
-            if (m.k(((d.a.n0.z.e0.j) this.o).f63459e.o0())) {
+            F(this.w);
+            o(this.m, TbadkCoreApplication.getInst().getSkinType());
+            if (m.k(((d.a.n0.z.e0.j) this.o).f67177e.o0())) {
                 SkinManager.setViewTextColor(this.z, R.color.CAM_X0109, 1);
             } else {
                 SkinManager.setViewTextColor(this.z, R.color.CAM_X0105, 1);
             }
-            N();
+            O();
             this.C.playAnimation();
             return;
         }
         this.w.setVisibility(8);
     }
 
-    public void S(BdUniqueId bdUniqueId) {
+    public void T(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null || this.p == null || this.K == null) {
             return;
         }
-        p(bdUniqueId);
-        x(bdUniqueId);
+        q(bdUniqueId);
+        y(bdUniqueId);
         CardUserInfoLayout cardUserInfoLayout = this.y;
         if (cardUserInfoLayout != null) {
             cardUserInfoLayout.setPageUniqueId(bdUniqueId);
@@ -271,7 +271,7 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
         MessageManager.getInstance().registerListener(this.K);
     }
 
-    public void T(boolean z) {
+    public void U(boolean z) {
         this.H = z;
     }
 
@@ -283,14 +283,14 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_home_page_ala_live_item_new;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
-            w(tbPageContext, i2);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
+            x(tbPageContext, i2);
             d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.x);
             d2.m(R.string.J_X06);
             d2.h(R.color.CAM_X0205, R.color.CAM_X0206);
@@ -307,21 +307,21 @@ public class j extends d.a.n0.z.a<d.a.n0.z.e0.j> implements d.a.n0.o.e {
             SkinManager.setViewTextColor(this.E, R.color.CAM_X0101);
             this.y.onChangeSkinType(k(), TbadkCoreApplication.getInst().getSkinType());
             this.B.setPlaceHolder(3);
-            this.f63440e = i2;
+            this.f67158e = i2;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.x || view == this.p.getCommentContainer() || view == this.q.getCommentContainer()) {
-            P(((d.a.n0.z.e0.j) this.o).m().r1().live_id, ((d.a.n0.z.e0.j) this.o).m().r1().roomId, this.H ? AlaLiveRoomActivityConfig.FROM_TYPE_HOME_CONCERN_TAB : AlaLiveRoomActivityConfig.FROM_TYPE_HOME_REC_PLAY);
-            m.l(this.z, ((d.a.n0.z.e0.j) this.o).f63459e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-            if (((d.a.n0.z.e0.j) this.o).m() == null || ((d.a.n0.z.e0.j) this.o).m().r1() == null) {
+            Q(((d.a.n0.z.e0.j) this.o).i().s1().live_id, ((d.a.n0.z.e0.j) this.o).i().s1().roomId, this.H ? AlaLiveRoomActivityConfig.FROM_TYPE_HOME_CONCERN_TAB : AlaLiveRoomActivityConfig.FROM_TYPE_HOME_REC_PLAY);
+            m.l(this.z, ((d.a.n0.z.e0.j) this.o).f67177e.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (((d.a.n0.z.e0.j) this.o).i() == null || ((d.a.n0.z.e0.j) this.o).i().s1() == null) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_CLICK);
             statisticItem.param("obj_locate", this.H ? 2 : 1);
-            statisticItem.param("obj_param1", ((d.a.n0.z.e0.j) this.o).m().r1().live_id);
+            statisticItem.param("obj_param1", ((d.a.n0.z.e0.j) this.o).i().s1().live_id);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             TiebaStatic.log(statisticItem);
         }

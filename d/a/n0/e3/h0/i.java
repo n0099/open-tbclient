@@ -17,36 +17,36 @@ import tbclient.VideoInfo;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f54005a;
+    public boolean f57694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54006b;
+    public int f57695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<h> f54007c;
+    public ArrayList<h> f57696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<k> f54008d;
+    public ArrayList<k> f57697d;
 
     public i(TPointPost tPointPost) {
         if (tPointPost != null) {
             try {
                 String str = tPointPost.position;
                 tPointPost.template_id.longValue();
-                this.f54005a = tPointPost.is_tuiguang.intValue() != 0;
-                this.f54006b = tPointPost.template_type.intValue();
+                this.f57694a = tPointPost.is_tuiguang.intValue() != 0;
+                this.f57695b = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.f54007c = new ArrayList<>();
+                    this.f57696c = new ArrayList<>();
                     for (int i2 = 0; i2 != list.size(); i2++) {
-                        this.f54007c.add(new h(list.get(i2)));
+                        this.f57696c.add(new h(list.get(i2)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.f54008d = new ArrayList<>();
+                    this.f57697d = new ArrayList<>();
                     for (int i3 = 0; i3 != list2.size(); i3++) {
-                        this.f54008d.add(new k(list2.get(i3)));
+                        this.f57697d.add(new k(list2.get(i3)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
@@ -63,7 +63,7 @@ public class i {
     }
 
     public k a() {
-        return (k) ListUtils.getItem(this.f54008d, 0);
+        return (k) ListUtils.getItem(this.f57697d, 0);
     }
 
     public i(JSONObject jSONObject) {
@@ -74,27 +74,27 @@ public class i {
         try {
             jSONObject.optString("position");
             jSONObject.optLong("template_id");
-            this.f54005a = jSONObject.optInt("is_tuiguang") != 0;
-            this.f54006b = jSONObject.optInt(TableDefine.MessageColumns.COLUME_TEMPLATE);
+            this.f57694a = jSONObject.optInt("is_tuiguang") != 0;
+            this.f57695b = jSONObject.optInt(TableDefine.MessageColumns.COLUME_TEMPLATE);
             JSONArray optJSONArray = jSONObject.optJSONArray("act_btn");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.f54007c = new ArrayList<>();
+                this.f57696c = new ArrayList<>();
                 for (int i2 = 0; i2 != optJSONArray.length(); i2++) {
-                    this.f54007c.add(new h(optJSONArray.getJSONObject(i2)));
+                    this.f57696c.add(new h(optJSONArray.getJSONObject(i2)));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("t_imgs");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                this.f54008d = new ArrayList<>();
+                this.f57697d = new ArrayList<>();
                 for (int i3 = 0; i3 != optJSONArray2.length(); i3++) {
-                    this.f54008d.add(new k(optJSONArray2.getJSONObject(i3)));
+                    this.f57697d.add(new k(optJSONArray2.getJSONObject(i3)));
                 }
             }
             new j(jSONObject.getJSONObject("detail_info"));
             jSONObject.optString("monitor_id");
             jSONObject.optInt("hidden_day");
             jSONObject.optString("tag_name");
-            if (this.f54006b != 3 || (jSONObject2 = jSONObject.getJSONObject("t_video")) == null) {
+            if (this.f57695b != 3 || (jSONObject2 = jSONObject.getJSONObject("t_video")) == null) {
                 return;
             }
             VideoInfo.Builder builder = new VideoInfo.Builder();

@@ -9,10 +9,10 @@ import d.q.a.a.c.b.c;
 public final class b implements d.q.a.a.a.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f67598e;
+    public Context f71384e;
 
     public b(Context context) {
-        this.f67598e = context;
+        this.f71384e = context;
     }
 
     @Override // d.q.a.a.a.b.b
@@ -36,7 +36,7 @@ public final class b implements d.q.a.a.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public final String b() {
-        String g2 = d.q.a.a.a.b.i.a.b.a(this.f67598e).g();
+        String g2 = d.q.a.a.a.b.i.a.b.a(this.f71384e).g();
         return TextUtils.isEmpty(g2) ? "" : g2;
     }
 
@@ -45,7 +45,7 @@ public final class b implements d.q.a.a.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public final boolean c() {
-        return d.q.a.a.a.b.i.a.b.a(this.f67598e).f();
+        return d.q.a.a.a.b.i.a.b.a(this.f71384e).f();
     }
 
     @Override // d.q.a.a.a.b.b

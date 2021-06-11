@@ -19,20 +19,20 @@ public class b {
 
         /* renamed from: d.a.n0.f1.y.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1331a extends f0<Integer> {
+        public class C1387a extends f0<Integer> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean f54805a;
+            public final /* synthetic */ boolean f58494a;
 
-            public C1331a(a aVar, boolean z) {
-                this.f54805a = z;
+            public C1387a(a aVar, boolean z) {
+                this.f58494a = z;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // d.a.m0.z0.f0
             public Integer doInBackground() {
-                if (!this.f54805a) {
+                if (!this.f58494a) {
                     d.a.n0.f1.h.b.a().b();
                 }
                 return 0;
@@ -41,8 +41,8 @@ public class b {
 
         /* renamed from: d.a.n0.f1.y.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1332b implements n<Integer> {
-            public C1332b(a aVar) {
+        public class C1388b implements n<Integer> {
+            public C1388b(a aVar) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class b {
                 m.t().p();
                 l.t().p();
             }
-            h0.c(new C1331a(this, isNull), new C1332b(this));
+            h0.c(new C1387a(this, isNull), new C1388b(this));
         }
     }
 

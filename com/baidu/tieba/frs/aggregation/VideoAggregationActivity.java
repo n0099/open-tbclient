@@ -60,7 +60,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.mFragment = VideoAggregationFragment.H0(this.mId, this.mFrom, stringExtra, stringExtra2);
+        this.mFragment = VideoAggregationFragment.K0(this.mId, this.mFrom, stringExtra, stringExtra2);
         getSupportFragmentManager().beginTransaction().replace(R.id.container, this.mFragment).commit();
     }
 
@@ -68,7 +68,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         VideoAggregationFragment videoAggregationFragment;
         if (keyEvent != null && (videoAggregationFragment = this.mFragment) != null) {
-            if (videoAggregationFragment.L0(i2)) {
+            if (videoAggregationFragment.O0(i2)) {
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import d.a.n0.v.d.a.c;
 import d.a.n0.v.d.c.e.k;
@@ -19,41 +19,41 @@ import java.util.List;
 public class b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f61542f = 604800000;
+    public static long f65255f = 604800000;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f61543a;
+    public TbPageContext f65256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<n> f61544b = new ArrayList();
+    public List<n> f65257b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<n> f61545c = new ArrayList();
+    public List<n> f65258c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f61546d = new ArrayList();
+    public List<n> f65259d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f61547e = new ArrayList();
+    public List<n> f65260e = new ArrayList();
 
     public b(TbPageContext tbPageContext) {
-        this.f61543a = tbPageContext;
+        this.f65256a = tbPageContext;
     }
 
     public void a() {
-        List<n> list = this.f61545c;
+        List<n> list = this.f65258c;
         if (list != null) {
             list.clear();
         }
-        List<n> list2 = this.f61546d;
+        List<n> list2 = this.f65259d;
         if (list2 != null) {
             list2.clear();
         }
-        List<n> list3 = this.f61547e;
+        List<n> list3 = this.f65260e;
         if (list3 != null) {
             list3.clear();
         }
-        List<n> list4 = this.f61544b;
+        List<n> list4 = this.f65257b;
         if (list4 != null) {
             list4.clear();
         }
@@ -62,16 +62,16 @@ public class b {
     public final List<n> b(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
         ArrayList arrayList = new ArrayList();
         if (alaLiveTabMyConcernResponse != null && alaLiveTabMyConcernResponse.followStatus != 1) {
-            if (!ListUtils.isEmpty(this.f61546d) && k(alaLiveTabMyConcernResponse)) {
+            if (!ListUtils.isEmpty(this.f65259d) && k(alaLiveTabMyConcernResponse)) {
                 arrayList.add(new d.a.n0.v.d.c.f.b.a());
             }
-            if (!ListUtils.isEmpty(this.f61546d)) {
+            if (!ListUtils.isEmpty(this.f65259d)) {
                 g gVar = new g();
-                gVar.f61731f = this.f61543a.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
+                gVar.f65445f = this.f65256a.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
                 arrayList.add(gVar);
             }
-            if (!ListUtils.isEmpty(this.f61546d)) {
-                for (n nVar : this.f61546d) {
+            if (!ListUtils.isEmpty(this.f65259d)) {
+                for (n nVar : this.f65259d) {
                     arrayList.add(nVar);
                 }
             }
@@ -86,14 +86,14 @@ public class b {
         }
         if (alaLiveTabMyConcernResponse.followStatus != 1) {
             g gVar = new g();
-            gVar.f61731f = this.f61543a.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
+            gVar.f65445f = this.f65256a.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
             arrayList.add(gVar);
         }
-        if (!ListUtils.isEmpty(this.f61545c)) {
+        if (!ListUtils.isEmpty(this.f65258c)) {
             arrayList.addAll(f());
         } else if (z) {
             e eVar = new e();
-            eVar.f61724e = alaLiveTabMyConcernResponse.followStatus;
+            eVar.f65438e = alaLiveTabMyConcernResponse.followStatus;
             arrayList.add(eVar);
         }
         return arrayList;
@@ -101,11 +101,11 @@ public class b {
 
     public final List<n> d() {
         ArrayList arrayList = new ArrayList();
-        if (!ListUtils.isEmpty(this.f61547e)) {
+        if (!ListUtils.isEmpty(this.f65260e)) {
             g gVar = new g();
-            gVar.f61731f = this.f61543a.getResources().getString(R.string.live_tab_recommend_title_txt);
+            gVar.f65445f = this.f65256a.getResources().getString(R.string.live_tab_recommend_title_txt);
             arrayList.add(gVar);
-            arrayList.addAll(g(this.f61547e));
+            arrayList.addAll(g(this.f65260e));
         }
         return arrayList;
     }
@@ -115,35 +115,35 @@ public class b {
             return;
         }
         if (z) {
-            this.f61544b.clear();
+            this.f65257b.clear();
         }
         if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList)) {
-            this.f61545c.addAll(alaLiveTabMyConcernResponse.followList);
+            this.f65258c.addAll(alaLiveTabMyConcernResponse.followList);
         }
         if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList)) {
-            this.f61546d.addAll(alaLiveTabMyConcernResponse.followCloseList);
+            this.f65259d.addAll(alaLiveTabMyConcernResponse.followCloseList);
         }
         if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList)) {
-            this.f61547e.addAll(alaLiveTabMyConcernResponse.recommendList);
+            this.f65260e.addAll(alaLiveTabMyConcernResponse.recommendList);
         }
-        this.f61544b = i(alaLiveTabMyConcernResponse, z);
+        this.f65257b = i(alaLiveTabMyConcernResponse, z);
     }
 
     public final List<n> f() {
         ArrayList arrayList = new ArrayList();
-        if (!ListUtils.isEmpty(this.f61545c)) {
-            int size = this.f61545c.size();
+        if (!ListUtils.isEmpty(this.f65258c)) {
+            int size = this.f65258c.size();
             for (int i2 = 0; i2 < size; i2 += 2) {
                 k kVar = new k();
                 c cVar = new c();
-                cVar.f61417h = (a2) this.f61545c.get(i2);
+                cVar.f65130h = (a2) this.f65258c.get(i2);
                 cVar.k = true;
-                kVar.f61518e = cVar;
+                kVar.f65231e = cVar;
                 int i3 = i2 + 1;
                 if (i3 < size) {
                     c cVar2 = new c();
-                    cVar2.f61417h = (a2) this.f61545c.get(i3);
-                    kVar.f61519f = cVar2;
+                    cVar2.f65130h = (a2) this.f65258c.get(i3);
+                    kVar.f65232f = cVar2;
                     cVar2.l = true;
                 } else {
                     cVar.k = false;
@@ -151,7 +151,7 @@ public class b {
                 }
                 int i4 = size % 2;
                 if ((i4 == 0 && i2 == size - 2) || (i4 != 0 && i2 == size - 1)) {
-                    kVar.f61520g = true;
+                    kVar.f65233g = true;
                 }
                 arrayList.add(kVar);
             }
@@ -166,22 +166,22 @@ public class b {
             for (int i2 = 0; i2 < size; i2 += 3) {
                 d.a.n0.v.d.c.f.b.c cVar = new d.a.n0.v.d.c.f.b.c();
                 c cVar2 = new c();
-                cVar2.f61417h = (a2) list.get(i2);
+                cVar2.f65130h = (a2) list.get(i2);
                 cVar2.j = false;
-                cVar.f61539e = cVar2;
+                cVar.f65252e = cVar2;
                 int i3 = i2 + 1;
                 if (i3 < size) {
                     c cVar3 = new c();
-                    cVar3.f61417h = (a2) list.get(i3);
+                    cVar3.f65130h = (a2) list.get(i3);
                     cVar3.j = false;
-                    cVar.f61540f = cVar3;
+                    cVar.f65253f = cVar3;
                 }
                 int i4 = i2 + 2;
                 if (i4 < size) {
                     c cVar4 = new c();
-                    cVar4.f61417h = (a2) list.get(i4);
+                    cVar4.f65130h = (a2) list.get(i4);
                     cVar4.j = false;
-                    cVar.f61541g = cVar4;
+                    cVar.f65254g = cVar4;
                 }
                 arrayList.add(cVar);
             }
@@ -190,7 +190,7 @@ public class b {
     }
 
     public List<n> h() {
-        return this.f61544b;
+        return this.f65257b;
     }
 
     public final List<n> i(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
@@ -211,13 +211,13 @@ public class b {
     }
 
     public void j(Class<? extends BaseCardInfo> cls) {
-        if (ListUtils.isEmpty(this.f61544b)) {
+        if (ListUtils.isEmpty(this.f65257b)) {
             return;
         }
-        for (int size = this.f61544b.size() - 1; size >= 0; size--) {
-            n nVar = (n) ListUtils.getItem(this.f61544b, size);
+        for (int size = this.f65257b.size() - 1; size >= 0; size--) {
+            n nVar = (n) ListUtils.getItem(this.f65257b, size);
             if (nVar != null && nVar.getClass().equals(cls)) {
-                this.f61544b.remove(size);
+                this.f65257b.remove(size);
             }
         }
     }
@@ -226,6 +226,6 @@ public class b {
         if (alaLiveTabMyConcernResponse == null) {
             return false;
         }
-        return (alaLiveTabMyConcernResponse.followStatus == 1 || a.a(this.f61543a) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > f61542f ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == f61542f ? 0 : -1)) > 0)) ? false : true;
+        return (alaLiveTabMyConcernResponse.followStatus == 1 || a.a(this.f65256a) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > f65255f ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == f65255f ? 0 : -1)) > 0)) ? false : true;
     }
 }

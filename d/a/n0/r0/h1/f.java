@@ -27,31 +27,31 @@ import java.util.Date;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f58645a;
+    public TbPageContext f62336a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f58646b;
+    public View f62337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbImageView f58647c;
+    public TbImageView f62338c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f58648d;
+    public TextView f62339d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RoundLinearLayout f58649e;
+    public RoundLinearLayout f62340e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.m0.r.s.a f58650f;
+    public d.a.m0.r.s.a f62341f;
 
     /* renamed from: g  reason: collision with root package name */
-    public i f58651g;
+    public i f62342g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ForumData f58652h;
+    public ForumData f62343h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f58653i = new a();
+    public View.OnClickListener f62344i = new a();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -60,72 +60,72 @@ public class f {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == f.this.f58648d) {
-                if (f.this.f58650f == null || !f.this.f58650f.isShowing()) {
+            if (view == f.this.f62339d) {
+                if (f.this.f62341f == null || !f.this.f62341f.isShowing()) {
                     return;
                 }
-                f.this.f58650f.dismiss();
-            } else if (view != f.this.f58647c || f.this.f58651g == null || StringUtils.isNull(f.this.f58651g.l())) {
+                f.this.f62341f.dismiss();
+            } else if (view != f.this.f62338c || f.this.f62342g == null || StringUtils.isNull(f.this.f62342g.l())) {
             } else {
-                h.b(f.this.f58645a, f.this.f58651g.f(), f.this.f58651g.l());
+                h.b(f.this.f62336a, f.this.f62342g.f(), f.this.f62342g.l());
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                httpMessage.addParam("id", f.this.f58651g.b());
+                httpMessage.addParam("id", f.this.f62342g.b());
                 MessageManager.getInstance().sendMessage(httpMessage);
-                f.this.f58650f.dismiss();
+                f.this.f62341f.dismiss();
                 StatisticItem statisticItem = new StatisticItem("common_click");
                 statisticItem.param("page_type", "a006");
                 statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
                 int i2 = 11;
-                if (f.this.f58651g.k() != 1) {
-                    if (f.this.f58651g.k() == 2) {
+                if (f.this.f62342g.k() != 1) {
+                    if (f.this.f62342g.k() == 2) {
                         i2 = 12;
-                    } else if (f.this.f58651g.k() == 3) {
+                    } else if (f.this.f62342g.k() == 3) {
                         i2 = 13;
                     }
                 }
                 statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
-                statisticItem.param("obj_id", f.this.f58651g.b());
+                statisticItem.param("obj_id", f.this.f62342g.b());
                 statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
                 statisticItem.param("obj_locate", 3);
-                if (f.this.f58652h != null) {
-                    statisticItem.param("fid", f.this.f58652h.getId());
-                    statisticItem.param(TiebaStatic.Params.FIRST_DIR, f.this.f58652h.getFirst_class());
-                    statisticItem.param(TiebaStatic.Params.SECOND_DIR, f.this.f58652h.getSecond_class());
+                if (f.this.f62343h != null) {
+                    statisticItem.param("fid", f.this.f62343h.getId());
+                    statisticItem.param(TiebaStatic.Params.FIRST_DIR, f.this.f62343h.getFirst_class());
+                    statisticItem.param(TiebaStatic.Params.SECOND_DIR, f.this.f62343h.getSecond_class());
                 }
-                if (f.this.f58651g.k() == 1) {
-                    statisticItem.param("tid", f.this.f58651g.h());
-                    statisticItem.param("thread_type", f.this.f58651g.i());
+                if (f.this.f62342g.k() == 1) {
+                    statisticItem.param("tid", f.this.f62342g.h());
+                    statisticItem.param("thread_type", f.this.f62342g.i());
                 }
                 TiebaStatic.log(statisticItem);
-                d.a.n0.r0.l2.a.a(f.this.f58651g.g());
+                d.a.n0.r0.l2.a.a(f.this.f62342g.g());
             }
         }
     }
 
     public f(TbPageContext tbPageContext) {
-        this.f58645a = tbPageContext;
+        this.f62336a = tbPageContext;
     }
 
     public final void g() {
-        View inflate = LayoutInflater.from(this.f58645a.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
-        this.f58646b = inflate;
+        View inflate = LayoutInflater.from(this.f62336a.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
+        this.f62337b = inflate;
         RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.round_layout);
-        this.f58649e = roundLinearLayout;
+        this.f62340e = roundLinearLayout;
         roundLinearLayout.setRoundCount(8);
-        TbImageView tbImageView = (TbImageView) this.f58646b.findViewById(R.id.frs_ad_img);
-        this.f58647c = tbImageView;
-        tbImageView.setOnClickListener(this.f58653i);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f58647c.getLayoutParams();
-        int k = l.k(this.f58645a.getPageActivity()) - (this.f58645a.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+        TbImageView tbImageView = (TbImageView) this.f62337b.findViewById(R.id.frs_ad_img);
+        this.f62338c = tbImageView;
+        tbImageView.setOnClickListener(this.f62344i);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62338c.getLayoutParams();
+        int k = l.k(this.f62336a.getPageActivity()) - (this.f62336a.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         layoutParams.width = k;
         layoutParams.height = (int) (k * 1.3306452f);
-        this.f58647c.setLayoutParams(layoutParams);
-        TextView textView = (TextView) this.f58646b.findViewById(R.id.frs_ad_close);
-        this.f58648d = textView;
-        textView.setOnClickListener(this.f58653i);
-        i iVar = this.f58651g;
+        this.f62338c.setLayoutParams(layoutParams);
+        TextView textView = (TextView) this.f62337b.findViewById(R.id.frs_ad_close);
+        this.f62339d = textView;
+        textView.setOnClickListener(this.f62344i);
+        i iVar = this.f62342g;
         if (iVar != null) {
-            this.f58647c.V(iVar.d(), 10, false);
+            this.f62338c.U(iVar.d(), 10, false);
         }
     }
 
@@ -133,8 +133,8 @@ public class f {
         if (mVar == null || mVar.getForum() == null || mVar.getBusinessPromot() == null) {
             return false;
         }
-        this.f58652h = mVar.getForum();
-        this.f58651g = mVar.getBusinessPromot();
+        this.f62343h = mVar.getForum();
+        this.f62342g = mVar.getBusinessPromot();
         String str = "key_frs_dialog_ad_last_show_time" + mVar.getForum().getId();
         long l = d.a.m0.r.d0.b.j().l(str, 0L);
         if (l < 0 || !TimeHelper.isSameDay(new Date(l), new Date(System.currentTimeMillis()))) {
@@ -147,49 +147,49 @@ public class f {
 
     public final void i() {
         g();
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f58645a.getPageActivity());
-        this.f58650f = aVar;
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f62336a.getPageActivity());
+        this.f62341f = aVar;
         aVar.setCancelable(true);
-        this.f58650f.setCanceledOnTouchOutside(true);
-        this.f58650f.create(this.f58645a).show();
-        View decorView = this.f58650f.getWindow().getDecorView();
-        WindowManager.LayoutParams attributes = this.f58650f.getWindow().getAttributes();
+        this.f62341f.setCanceledOnTouchOutside(true);
+        this.f62341f.create(this.f62336a).show();
+        View decorView = this.f62341f.getWindow().getDecorView();
+        WindowManager.LayoutParams attributes = this.f62341f.getWindow().getAttributes();
         if (attributes != null) {
             attributes.width = -1;
             attributes.height = -2;
             attributes.gravity = 17;
-            this.f58650f.getWindow().setAttributes(attributes);
+            this.f62341f.getWindow().setAttributes(attributes);
         }
         if (decorView instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) decorView;
             viewGroup.removeAllViews();
-            viewGroup.addView(this.f58646b);
+            viewGroup.addView(this.f62337b);
         }
         StatisticItem statisticItem = new StatisticItem("common_exp");
         statisticItem.param("page_type", "a006");
         statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
         int i2 = 11;
-        if (this.f58651g.k() != 1) {
-            if (this.f58651g.k() == 2) {
+        if (this.f62342g.k() != 1) {
+            if (this.f62342g.k() == 2) {
                 i2 = 12;
-            } else if (this.f58651g.k() == 3) {
+            } else if (this.f62342g.k() == 3) {
                 i2 = 13;
             }
         }
         statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
         statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
-        statisticItem.param("obj_id", this.f58651g.b());
-        ForumData forumData = this.f58652h;
+        statisticItem.param("obj_id", this.f62342g.b());
+        ForumData forumData = this.f62343h;
         if (forumData != null) {
             statisticItem.param("fid", forumData.getId());
-            statisticItem.param(TiebaStatic.Params.FIRST_DIR, this.f58652h.getFirst_class());
-            statisticItem.param(TiebaStatic.Params.SECOND_DIR, this.f58652h.getSecond_class());
+            statisticItem.param(TiebaStatic.Params.FIRST_DIR, this.f62343h.getFirst_class());
+            statisticItem.param(TiebaStatic.Params.SECOND_DIR, this.f62343h.getSecond_class());
         }
-        if (this.f58651g.k() == 1) {
-            statisticItem.param("tid", this.f58651g.h());
-            statisticItem.param("thread_type", this.f58651g.i());
+        if (this.f62342g.k() == 1) {
+            statisticItem.param("tid", this.f62342g.h());
+            statisticItem.param("thread_type", this.f62342g.i());
         }
         TiebaStatic.log(statisticItem);
-        d.a.n0.r0.l2.a.b(this.f58651g.g());
+        d.a.n0.r0.l2.a.b(this.f62342g.g());
     }
 }

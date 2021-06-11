@@ -8,10 +8,10 @@ import android.text.TextUtils;
 public class c implements b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48503a;
+    public Context f52177a;
 
     public c(Context context) {
-        this.f48503a = context.getApplicationContext();
+        this.f52177a = context.getApplicationContext();
     }
 
     @Override // d.a.l0.u.c.b
@@ -23,14 +23,14 @@ public class c implements b<String> {
     @Override // d.a.l0.u.c.b
     /* renamed from: b */
     public String get() {
-        return PreferenceManager.getDefaultSharedPreferences(this.f48503a).getString("uuid_identity", null);
+        return PreferenceManager.getDefaultSharedPreferences(this.f52177a).getString("uuid_identity", null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.l0.u.c.b
     /* renamed from: c */
     public void put(String str) {
-        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f48503a).edit();
+        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f52177a).edit();
         edit.putString("uuid_identity", str);
         edit.apply();
     }

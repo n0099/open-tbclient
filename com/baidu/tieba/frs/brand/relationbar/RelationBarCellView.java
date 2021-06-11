@@ -23,39 +23,39 @@ import tbclient.OriForumInfo;
 public class RelationBarCellView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15255e;
+    public int f15317e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f15256f;
+    public TbImageView f15318f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15257g;
+    public TextView f15319g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15258h;
+    public TextView f15320h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15259i;
+    public int f15321i;
     public int j;
     public OriForumInfo k;
 
     public RelationBarCellView(Context context) {
         super(context);
-        this.f15255e = 3;
+        this.f15317e = 3;
         a(context);
     }
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
-        this.f15256f = (TbImageView) findViewById(R.id.frs_brand_bar_cell_img);
-        this.f15257g = (TextView) findViewById(R.id.frs_brand_bar_cell_name);
-        this.f15258h = (TextView) findViewById(R.id.frs_brand_bar_cell_attention);
-        this.f15256f.setDefaultResource(17170445);
-        this.f15256f.setDefaultBgResource(R.color.CAM_X0205);
-        this.f15256f.setBorderColor(0);
-        this.f15256f.setRadius(l.g(getContext(), R.dimen.tbds20));
-        this.f15256f.setConrers(5);
-        this.f15259i = l.g(context, R.dimen.tbds471);
+        this.f15318f = (TbImageView) findViewById(R.id.frs_brand_bar_cell_img);
+        this.f15319g = (TextView) findViewById(R.id.frs_brand_bar_cell_name);
+        this.f15320h = (TextView) findViewById(R.id.frs_brand_bar_cell_attention);
+        this.f15318f.setDefaultResource(17170445);
+        this.f15318f.setDefaultBgResource(R.color.CAM_X0205);
+        this.f15318f.setBorderColor(0);
+        this.f15318f.setRadius(l.g(getContext(), R.dimen.tbds20));
+        this.f15318f.setConrers(5);
+        this.f15321i = l.g(context, R.dimen.tbds471);
         this.j = l.g(context, R.dimen.tbds164);
         setOnClickListener(this);
         b();
@@ -63,13 +63,13 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
 
     public void b() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f15255e) {
+        if (skinType == this.f15317e) {
             return;
         }
-        this.f15255e = skinType;
+        this.f15317e = skinType;
         SkinManager.setBackgroundResource(this, R.drawable.cp_bg_line_d_e_selector);
-        SkinManager.setViewTextColor(this.f15257g, R.color.CAM_X0106);
-        SkinManager.setViewTextColor(this.f15258h, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f15319g, R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.f15320h, R.color.CAM_X0109);
     }
 
     @Override // android.view.View.OnClickListener
@@ -81,7 +81,7 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        setMeasuredDimension(this.f15259i, this.j);
+        setMeasuredDimension(this.f15321i, this.j);
     }
 
     public void setData(OriForumInfo oriForumInfo) {
@@ -91,20 +91,20 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
         }
         setVisibility(0);
         this.k = oriForumInfo;
-        this.f15256f.V(oriForumInfo.ori_avatar, 10, false);
-        this.f15257g.setText(oriForumInfo.ori_fname);
-        this.f15258h.setText(String.format(getContext().getString(R.string.frs_brand_relation_bar_attention), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
+        this.f15318f.U(oriForumInfo.ori_avatar, 10, false);
+        this.f15319g.setText(oriForumInfo.ori_fname);
+        this.f15320h.setText(String.format(getContext().getString(R.string.frs_brand_relation_bar_attention), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
     }
 
     public RelationBarCellView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15255e = 3;
+        this.f15317e = 3;
         a(context);
     }
 
     public RelationBarCellView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f15255e = 3;
+        this.f15317e = 3;
         a(context);
     }
 }

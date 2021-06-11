@@ -18,22 +18,22 @@ import java.util.concurrent.TimeUnit;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.a.m0.b1.i.a.b f49066a;
+    public final d.a.m0.b1.i.a.b f52740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BitmapRegionDecoder f49067b;
+    public final BitmapRegionDecoder f52741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.c.e.k.a<a.C1108a, d.a.m0.b1.i.a.a> f49068c;
+    public d.a.c.e.k.a<a.C1164a, d.a.m0.b1.i.a.a> f52742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.c.e.k.b<d.a.m0.b1.i.a.a> f49069d;
+    public d.a.c.e.k.b<d.a.m0.b1.i.a.a> f52743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ThreadPoolExecutor f49070e;
+    public final ThreadPoolExecutor f52744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdAsyncTask<Void, Void, Void> f49071f;
+    public BdAsyncTask<Void, Void, Void> f52745f;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
@@ -44,13 +44,13 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void[] voidArr) throws IOException {
             try {
-                c.this.f49070e.shutdownNow();
-                c.this.f49070e.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
+                c.this.f52744e.shutdownNow();
+                c.this.f52744e.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (c.this.f49067b != null) {
-                c.this.f49067b.recycle();
+            if (c.this.f52741b != null) {
+                c.this.f52741b.recycle();
                 return null;
             }
             return null;
@@ -69,26 +69,26 @@ public class c {
 
     /* renamed from: d.a.m0.b1.i.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1110c extends d.a.c.e.k.a<a.C1108a, d.a.m0.b1.i.a.a> {
-        public C1110c(int i2) {
+    public class C1166c extends d.a.c.e.k.a<a.C1164a, d.a.m0.b1.i.a.a> {
+        public C1166c(int i2) {
             super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.k.a
         /* renamed from: o */
-        public void b(boolean z, a.C1108a c1108a, d.a.m0.b1.i.a.a aVar, d.a.m0.b1.i.a.a aVar2) {
-            if (!z || c.this.f49069d == null || aVar == null) {
+        public void b(boolean z, a.C1164a c1164a, d.a.m0.b1.i.a.a aVar, d.a.m0.b1.i.a.a aVar2) {
+            if (!z || c.this.f52743d == null || aVar == null) {
                 return;
             }
             aVar.a();
-            c.this.f49069d.e(aVar);
+            c.this.f52743d.e(aVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.k.a
         /* renamed from: p */
-        public int m(a.C1108a c1108a, d.a.m0.b1.i.a.a aVar) {
+        public int m(a.C1164a c1164a, d.a.m0.b1.i.a.a aVar) {
             if (aVar == null) {
                 return 0;
             }
@@ -100,32 +100,32 @@ public class c {
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f49074e;
+        public int f52748e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f49075f;
+        public int f52749f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f49076g;
+        public int f52750g;
 
         /* renamed from: h  reason: collision with root package name */
-        public d.a.m0.b1.i.a.b f49077h;
+        public d.a.m0.b1.i.a.b f52751h;
 
         /* renamed from: i  reason: collision with root package name */
-        public BitmapRegionDecoder f49078i;
-        public d.a.c.e.k.a<a.C1108a, d.a.m0.b1.i.a.a> j;
+        public BitmapRegionDecoder f52752i;
+        public d.a.c.e.k.a<a.C1164a, d.a.m0.b1.i.a.a> j;
         public d.a.m0.b1.i.b.a k;
         public c l;
 
         public d(int i2, int i3, int i4) {
-            this.f49074e = i2;
-            this.f49075f = i3;
-            this.f49076g = i4;
+            this.f52748e = i2;
+            this.f52749f = i3;
+            this.f52750g = i4;
         }
 
-        public final void b(c cVar, d.a.m0.b1.i.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder, d.a.c.e.k.a<a.C1108a, d.a.m0.b1.i.a.a> aVar) {
-            this.f49077h = bVar;
-            this.f49078i = bitmapRegionDecoder;
+        public final void b(c cVar, d.a.m0.b1.i.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder, d.a.c.e.k.a<a.C1164a, d.a.m0.b1.i.a.a> aVar) {
+            this.f52751h = bVar;
+            this.f52752i = bitmapRegionDecoder;
             this.j = aVar;
             this.l = cVar;
         }
@@ -141,9 +141,9 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             d.a.m0.b1.i.a.a c2;
-            if (this.j != null && this.f49077h.b(this.f49074e, this.f49075f, this.f49076g)) {
-                Rect j = this.f49077h.j(this.f49074e, this.f49075f, this.f49076g);
-                this.f49077h.a(j);
+            if (this.j != null && this.f52751h.b(this.f52748e, this.f52749f, this.f52750g)) {
+                Rect j = this.f52751h.j(this.f52748e, this.f52749f, this.f52750g);
+                this.f52751h.a(j);
                 if (c(j)) {
                     return;
                 }
@@ -155,35 +155,35 @@ public class c {
                             c2.a();
                         }
                     } else {
-                        c2 = this.f49077h.c();
+                        c2 = this.f52751h.c();
                     }
                 } catch (Throwable unused) {
                     TbadkCoreApplication.getInst().onAppMemoryLow();
-                    d.a.c.e.k.a<a.C1108a, d.a.m0.b1.i.a.a> aVar = this.j;
+                    d.a.c.e.k.a<a.C1164a, d.a.m0.b1.i.a.a> aVar = this.j;
                     aVar.k((int) (aVar.g() * 0.8d));
                     System.gc();
                     try {
-                        c2 = this.f49077h.c();
+                        c2 = this.f52751h.c();
                     } catch (Throwable unused2) {
                         return;
                     }
                 }
                 BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = this.f49076g;
+                options.inSampleSize = this.f52750g;
                 options.inBitmap = c2.b();
                 options.inMutable = true;
                 System.currentTimeMillis();
-                Bitmap decodeRegion = this.f49078i.decodeRegion(j, options);
+                Bitmap decodeRegion = this.f52752i.decodeRegion(j, options);
                 if (decodeRegion == null) {
                     options.inBitmap = null;
-                    decodeRegion = this.f49078i.decodeRegion(j, options);
+                    decodeRegion = this.f52752i.decodeRegion(j, options);
                     if (decodeRegion == null) {
                         return;
                     }
                 }
                 decodeRegion.prepareToDraw();
                 c2.h(decodeRegion);
-                c2.j(this.f49074e, this.f49075f, this.f49076g);
+                c2.j(this.f52748e, this.f52749f, this.f52750g);
                 this.j.h(c2.d(), c2);
                 d.a.m0.b1.i.b.a aVar2 = this.k;
                 if (aVar2 != null) {
@@ -194,49 +194,49 @@ public class c {
     }
 
     public c(d.a.m0.b1.i.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder) {
-        this.f49066a = bVar;
-        this.f49067b = bitmapRegionDecoder;
+        this.f52740a = bVar;
+        this.f52741b = bitmapRegionDecoder;
         d.a.m0.a0.c.k().u((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
-        this.f49070e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
-        this.f49068c = new C1110c((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
-        d.a.c.e.k.b<d.a.m0.b1.i.a.a> p = d.a.m0.a0.c.k().p(this.f49066a.e());
-        this.f49069d = p;
+        this.f52744e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
+        this.f52742c = new C1166c((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
+        d.a.c.e.k.b<d.a.m0.b1.i.a.a> p = d.a.m0.a0.c.k().p(this.f52740a.e());
+        this.f52743d = p;
         p.f(6);
     }
 
     public void d(boolean z) {
-        this.f49070e.purge();
-        if (z && this.f49071f == null) {
+        this.f52744e.purge();
+        if (z && this.f52745f == null) {
             a aVar = new a();
-            this.f49071f = aVar;
+            this.f52745f = aVar;
             aVar.execute(new Void[0]);
         }
     }
 
-    public d.a.c.e.k.a<a.C1108a, d.a.m0.b1.i.a.a> e() {
-        return this.f49068c;
+    public d.a.c.e.k.a<a.C1164a, d.a.m0.b1.i.a.a> e() {
+        return this.f52742c;
     }
 
     public d.a.c.e.k.b<d.a.m0.b1.i.a.a> f() {
-        return this.f49069d;
+        return this.f52743d;
     }
 
     public void g() {
         d(true);
-        d.a.c.e.k.a<a.C1108a, d.a.m0.b1.i.a.a> aVar = this.f49068c;
+        d.a.c.e.k.a<a.C1164a, d.a.m0.b1.i.a.a> aVar = this.f52742c;
         if (aVar != null) {
             aVar.k(0);
-            this.f49068c.a();
-            this.f49068c = null;
+            this.f52742c.a();
+            this.f52742c = null;
         }
-        this.f49069d = null;
+        this.f52743d = null;
     }
 
     public void h(d dVar) {
-        if (dVar == null || this.f49071f != null) {
+        if (dVar == null || this.f52745f != null) {
             return;
         }
-        dVar.b(this, this.f49066a, this.f49067b, e());
-        this.f49070e.submit(dVar);
+        dVar.b(this, this.f52740a, this.f52741b, e());
+        this.f52744e.submit(dVar);
     }
 }

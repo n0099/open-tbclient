@@ -29,31 +29,31 @@ import d.a.c.e.p.l;
 public class b extends PopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbImageView f49904a;
+    public TbImageView f53580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f49905b;
+    public TextView f53581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f49906c;
+    public TextView f53582c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f49907d;
+    public Button f53583d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.m0.a.d0.a f49908e;
+    public d.a.m0.a.e0.a f53584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49909f;
+    public int f53585f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49910g;
+    public int f53586g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f49911h;
+    public RelativeLayout f53587h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f49912i;
+    public CustomMessageListener f53588i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -62,17 +62,17 @@ public class b extends PopupWindow {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.f49908e == null) {
+            if (b.this.f53584e == null) {
                 return;
             }
-            if (b.this.f49908e.f48684d == d.a.m0.a.d0.a.D) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), b.this.f49908e.l) && !k.isEmpty(b.this.f49908e.k)) {
+            if (b.this.f53584e.f52360d == d.a.m0.a.e0.a.D) {
+                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), b.this.f53584e.l) && !k.isEmpty(b.this.f53584e.k)) {
                     b bVar = b.this;
-                    bVar.e(bVar.f49908e.k);
+                    bVar.e(bVar.f53584e.k);
                 }
-            } else if (b.this.f49908e.f48684d == d.a.m0.a.d0.a.E && !k.isEmpty(b.this.f49908e.k)) {
+            } else if (b.this.f53584e.f52360d == d.a.m0.a.e0.a.E && !k.isEmpty(b.this.f53584e.k)) {
                 b bVar2 = b.this;
-                bVar2.e(bVar2.f49908e.k);
+                bVar2.e(bVar2.f53584e.k);
             }
             b.this.dismiss();
         }
@@ -80,8 +80,8 @@ public class b extends PopupWindow {
 
     /* renamed from: d.a.m0.r.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1144b implements View.OnClickListener {
-        public View$OnClickListenerC1144b() {
+    public class View$OnClickListenerC1200b implements View.OnClickListener {
+        public View$OnClickListenerC1200b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -97,7 +97,7 @@ public class b extends PopupWindow {
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            MessageManager.getInstance().unRegisterListener(b.this.f49912i);
+            MessageManager.getInstance().unRegisterListener(b.this.f53588i);
         }
     }
 
@@ -116,43 +116,43 @@ public class b extends PopupWindow {
 
     public b(Context context) {
         super(context);
-        this.f49912i = new d(2921420);
+        this.f53588i = new d(2921420);
         g(context);
-        MessageManager.getInstance().registerListener(this.f49912i);
+        MessageManager.getInstance().registerListener(this.f53588i);
     }
 
-    public void d(Context context, d.a.m0.a.d0.a aVar) {
+    public void d(Context context, d.a.m0.a.e0.a aVar) {
         if (aVar == null) {
             return;
         }
-        this.f49908e = aVar;
-        if (k.isEmpty(aVar.f48685e)) {
-            this.f49905b.setText(context.getResources().getString(R.string.task_already_finish));
+        this.f53584e = aVar;
+        if (k.isEmpty(aVar.f52361e)) {
+            this.f53581b.setText(context.getResources().getString(R.string.task_already_finish));
         } else {
-            this.f49905b.setText(aVar.f48685e);
+            this.f53581b.setText(aVar.f52361e);
         }
         if (k.isEmpty(aVar.p)) {
-            this.f49905b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
+            this.f53581b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
         } else {
-            this.f49905b.setTextColor(d.a.n0.k1.o.k.b.b(aVar.p));
+            this.f53581b.setTextColor(d.a.n0.k1.o.k.b.b(aVar.p));
         }
-        if (k.isEmpty(aVar.f48686f)) {
-            this.f49906c.setText(context.getResources().getString(R.string.back));
+        if (k.isEmpty(aVar.f52362f)) {
+            this.f53582c.setText(context.getResources().getString(R.string.back));
         } else {
-            this.f49906c.setText(aVar.f48686f);
+            this.f53582c.setText(aVar.f52362f);
         }
         if (k.isEmpty(aVar.q)) {
-            this.f49906c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
+            this.f53582c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
         } else {
-            this.f49906c.setTextColor(d.a.n0.k1.o.k.b.b(aVar.q));
+            this.f53582c.setTextColor(d.a.n0.k1.o.k.b.b(aVar.q));
         }
         if (!k.isEmpty(aVar.o)) {
-            this.f49906c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(context, R.dimen.tbds120), d.a.n0.k1.o.k.b.b(aVar.o)));
+            this.f53582c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(context, R.dimen.tbds120), d.a.n0.k1.o.k.b.b(aVar.o)));
         }
         if (!k.isEmpty(aVar.j)) {
-            this.f49904a.V(aVar.j, 10, false);
+            this.f53580a.U(aVar.j, 10, false);
         } else {
-            this.f49904a.V(String.valueOf(R.drawable.banner_size), 24, false);
+            this.f53580a.U(String.valueOf(R.drawable.banner_size), 24, false);
         }
     }
 
@@ -177,15 +177,15 @@ public class b extends PopupWindow {
     public void g(Context context) {
         View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.popupwindow_business, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.lower_hair_img);
-        this.f49904a = tbImageView;
+        this.f53580a = tbImageView;
         tbImageView.setRadius(l.g(context, R.dimen.tbds32));
-        this.f49904a.setConrers(3);
-        this.f49905b = (TextView) inflate.findViewById(R.id.lower_hair_text_1);
-        this.f49906c = (TextView) inflate.findViewById(R.id.lower_hair_text_2);
-        this.f49907d = (Button) inflate.findViewById(R.id.btn_close);
-        this.f49911h = (RelativeLayout) inflate.findViewById(R.id.lower_hair_content);
-        this.f49906c.setOnClickListener(new a());
-        this.f49907d.setOnClickListener(new View$OnClickListenerC1144b());
+        this.f53580a.setConrers(3);
+        this.f53581b = (TextView) inflate.findViewById(R.id.lower_hair_text_1);
+        this.f53582c = (TextView) inflate.findViewById(R.id.lower_hair_text_2);
+        this.f53583d = (Button) inflate.findViewById(R.id.btn_close);
+        this.f53587h = (RelativeLayout) inflate.findViewById(R.id.lower_hair_content);
+        this.f53582c.setOnClickListener(new a());
+        this.f53583d.setOnClickListener(new View$OnClickListenerC1200b());
         setContentView(inflate);
         setWidth(-1);
         setHeight(-1);
@@ -201,16 +201,16 @@ public class b extends PopupWindow {
         if (currentActivity != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             currentActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            this.f49909f = displayMetrics.widthPixels;
-            this.f49910g = displayMetrics.heightPixels;
+            this.f53585f = displayMetrics.widthPixels;
+            this.f53586g = displayMetrics.heightPixels;
         }
-        return this.f49910g > 2000 && this.f49909f > 2000;
+        return this.f53586g > 2000 && this.f53585f > 2000;
     }
 
     public void i() {
         RelativeLayout relativeLayout;
-        if (h() && (relativeLayout = this.f49911h) != null && relativeLayout.getLayoutParams() != null) {
-            this.f49911h.getLayoutParams().width = (this.f49909f * 2) / 3;
+        if (h() && (relativeLayout = this.f53587h) != null && relativeLayout.getLayoutParams() != null) {
+            this.f53587h.getLayoutParams().width = (this.f53585f * 2) / 3;
         }
         showAtLocation(getContentView(), 17, 0, 0);
     }

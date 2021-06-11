@@ -65,16 +65,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public SharedElementCallback c0;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f11850f;
+    public View f11912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11851g;
+    public int f11913g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bundle f11852h;
+    public Bundle f11914h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SparseArray<Parcelable> f11853i;
+    public SparseArray<Parcelable> f11915i;
     public String k;
     public Bundle l;
     public Fragment m;
@@ -92,7 +92,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public Fragment z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11849e = 0;
+    public int f11911e = 0;
     public int j = -1;
     public int n = -1;
     public boolean I = true;
@@ -111,7 +111,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         public static final Parcelable.Creator<SavedState> CREATOR = new a();
 
         /* renamed from: e  reason: collision with root package name */
-        public final Bundle f11854e;
+        public final Bundle f11916e;
 
         /* loaded from: classes3.dex */
         public static class a implements Parcelable.Creator<SavedState> {
@@ -132,7 +132,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             Bundle readBundle = parcel.readBundle();
-            this.f11854e = readBundle;
+            this.f11916e = readBundle;
             if (classLoader == null || readBundle == null) {
                 return;
             }
@@ -146,7 +146,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
-            parcel.writeBundle(this.f11854e);
+            parcel.writeBundle(this.f11916e);
         }
     }
 
@@ -182,7 +182,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.c0 = null;
     }
 
-    public static Fragment f0(Context context, String str) {
+    public static Fragment e0(Context context, String str) {
         return g0(context, str, null);
     }
 
@@ -208,7 +208,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public static boolean t0(Context context, String str) {
+    public static boolean s0(Context context, String str) {
         try {
             Class<?> cls = d0.get(str);
             if (cls == null) {
@@ -313,7 +313,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             mVar.V();
         }
         this.J = false;
-        u0(bundle);
+        t0(bundle);
         if (this.J) {
             m mVar2 = this.y;
             if (mVar2 != null) {
@@ -361,7 +361,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         } else if (bundle == null || (parcelable = bundle.getParcelable("android:support:fragments")) == null) {
         } else {
             if (this.y == null) {
-                m0();
+                k0();
             }
             this.y.b0(parcelable, null);
             this.y.q();
@@ -393,6 +393,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return B0(layoutInflater, viewGroup, bundle);
     }
 
+    public boolean V() {
+        return this.P;
+    }
+
     public void V0() {
         m mVar = this.y;
         if (mVar != null) {
@@ -404,10 +408,6 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             return;
         }
         throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onDestroy()");
-    }
-
-    public boolean W() {
-        return this.P;
     }
 
     public void W0() {
@@ -491,6 +491,30 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return mVar != null ? z | mVar.y(menu) : z;
     }
 
+    public void c0() {
+        this.j = -1;
+        this.k = null;
+        this.p = false;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.t = false;
+        this.u = false;
+        this.v = 0;
+        this.w = null;
+        this.y = null;
+        this.x = null;
+        this.A = 0;
+        this.B = 0;
+        this.C = null;
+        this.D = false;
+        this.E = false;
+        this.G = false;
+        this.Q = null;
+        this.R = false;
+        this.S = false;
+    }
+
     public void c1() {
         m mVar = this.y;
         if (mVar != null) {
@@ -531,30 +555,6 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             return;
         }
         throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onResume()");
-    }
-
-    public void e0() {
-        this.j = -1;
-        this.k = null;
-        this.p = false;
-        this.q = false;
-        this.r = false;
-        this.s = false;
-        this.t = false;
-        this.u = false;
-        this.v = 0;
-        this.w = null;
-        this.y = null;
-        this.x = null;
-        this.A = 0;
-        this.B = 0;
-        this.C = null;
-        this.D = false;
-        this.E = false;
-        this.G = false;
-        this.Q = null;
-        this.R = false;
-        this.S = false;
     }
 
     public void e1(Bundle bundle) {
@@ -604,7 +604,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         printWriter.println(this.C);
         printWriter.print(str);
         printWriter.print("mState=");
-        printWriter.print(this.f11849e);
+        printWriter.print(this.f11911e);
         printWriter.print(" mIndex=");
         printWriter.print(this.j);
         printWriter.print(" mWho=");
@@ -658,15 +658,15 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.print("mArguments=");
             printWriter.println(this.l);
         }
-        if (this.f11852h != null) {
+        if (this.f11914h != null) {
             printWriter.print(str);
             printWriter.print("mSavedFragmentState=");
-            printWriter.println(this.f11852h);
+            printWriter.println(this.f11914h);
         }
-        if (this.f11853i != null) {
+        if (this.f11915i != null) {
             printWriter.print(str);
             printWriter.print("mSavedViewState=");
-            printWriter.println(this.f11853i);
+            printWriter.println(this.f11915i);
         }
         if (this.m != null) {
             printWriter.print(str);
@@ -695,13 +695,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.print("mInnerView=");
             printWriter.println(this.M);
         }
-        if (this.f11850f != null) {
+        if (this.f11912f != null) {
             printWriter.print(str);
             printWriter.print("mAnimatingAway=");
-            printWriter.println(this.f11850f);
+            printWriter.println(this.f11912f);
             printWriter.print(str);
             printWriter.print("mStateAfterAnimating=");
-            printWriter.println(this.f11851g);
+            printWriter.println(this.f11913g);
         }
         if (this.Q != null) {
             printWriter.print(str);
@@ -752,10 +752,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public final void i1(Bundle bundle) {
-        SparseArray<Parcelable> sparseArray = this.f11853i;
+        SparseArray<Parcelable> sparseArray = this.f11915i;
         if (sparseArray != null) {
             this.N.restoreHierarchyState(sparseArray);
-            this.f11853i = null;
+            this.f11915i = null;
         }
         this.J = false;
         O0(bundle);
@@ -789,6 +789,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return bool.booleanValue();
     }
 
+    public void k0() {
+        m mVar = new m();
+        this.y = mVar;
+        mVar.j(this.x, new a(), this);
+    }
+
     public final void k1(int i2, Fragment fragment) {
         this.j = i2;
         if (fragment != null) {
@@ -798,19 +804,21 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.k = "android:fragment:" + this.j;
     }
 
+    public final boolean l0() {
+        return this.x != null && this.p;
+    }
+
     public void l1(Fragment fragment, int i2) {
         this.m = fragment;
         this.o = i2;
     }
 
-    public void m0() {
-        m mVar = new m();
-        this.y = mVar;
-        mVar.j(this.x, new a(), this);
+    public final boolean m0() {
+        return this.E;
     }
 
     public void m1(boolean z) {
-        if (!this.P && z && this.f11849e < 4) {
+        if (!this.P && z && this.f11911e < 4) {
             this.w.W(this);
         }
         this.P = z;
@@ -819,10 +827,6 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public final Bundle n() {
         return this.l;
-    }
-
-    public final boolean n0() {
-        return this.x != null && this.p;
     }
 
     @Override // android.content.ComponentCallbacks
@@ -886,8 +890,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public final l p() {
         if (this.y == null) {
-            m0();
-            int i2 = this.f11849e;
+            k0();
+            int i2 = this.f11911e;
             if (i2 >= 5) {
                 this.y.A();
             } else if (i2 >= 4) {
@@ -902,7 +906,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public final boolean p0() {
-        return this.E;
+        return this.D;
     }
 
     public Context q() {
@@ -914,7 +918,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public final boolean q0() {
-        return this.D;
+        return this.v > 0;
     }
 
     public Object r() {
@@ -925,8 +929,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return this.V;
     }
 
-    public final boolean s0() {
-        return this.v > 0;
+    public void t0(@Nullable Bundle bundle) {
+        this.J = true;
     }
 
     public String toString() {
@@ -950,10 +954,6 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public final l u() {
         return this.w;
-    }
-
-    public void u0(@Nullable Bundle bundle) {
-        this.J = true;
     }
 
     public LayoutInflater v(Bundle bundle) {

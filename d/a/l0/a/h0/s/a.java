@@ -20,24 +20,24 @@ import java.nio.channels.FileLock;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42554a = k.f43199a;
+    public static final boolean f46230a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f42555b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+    public static final String f46231b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f42556c;
+    public static final String f46232c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f42557d;
+    public static final String f46233d;
 
     static {
         StringBuilder sb = new StringBuilder();
         sb.append(AppRuntime.getAppContext().getFilesDir().getAbsolutePath());
         sb.append(File.separator);
         sb.append("libs");
-        f42556c = sb.toString();
-        f42557d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+        f46232c = sb.toString();
+        f46233d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:95:0x012f A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,25 +49,25 @@ public class a {
         FileLock fileLock;
         FileOutputStream fileOutputStream;
         FileChannel fileChannel;
-        if (f42554a) {
+        if (f46230a) {
             Log.d("SwanSailorHelper", "fixSoLoadCrash: start");
         }
-        File file = new File(f42555b + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        File file = new File(f46231b + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (file.exists() && file.length() > 0) {
-            File file2 = new File(f42556c);
+            File file2 = new File(f46232c);
             if (!file2.exists()) {
                 file2.mkdirs();
             }
             File file3 = new File(file2, GlobalConstants.LIB_ZEUS_V8);
             long j = h.a().getLong("zeus_v8_modified_time", -1L);
             if (file.lastModified() == j && file.length() == file3.length()) {
-                if (f42554a) {
+                if (f46230a) {
                     Log.d("SwanSailorHelper", "fixSoLoadCrash: srcModifiedTime=" + file.lastModified() + ";savedModifiedTime=" + j + ";srcFileLength=" + file.length() + ";destFileLength=" + file3.length());
                     return;
                 }
                 return;
             }
-            if (f42554a) {
+            if (f46230a) {
                 Log.d("SwanSailorHelper", "fixSoLoadCrash: start copy");
             }
             FileInputStream fileInputStream = null;
@@ -201,7 +201,7 @@ public class a {
                 fileOutputStream = null;
                 fileChannel = null;
             }
-        } else if (f42554a) {
+        } else if (f46230a) {
             Log.d("SwanSailorHelper", "fixSoLoadCrash: srcFile is not exist");
         }
     }
@@ -217,10 +217,10 @@ public class a {
         boolean z2 = true;
         if (b()) {
             a();
-            d.g(AppRuntime.getAppContext(), f42555b);
-            boolean h2 = d.h("zeusv8", f42556c, true);
-            if (new File(f42555b + File.separator + "libv8.engine.so").exists()) {
-                if (!d.h("arcore_sdk_c", f42555b, false) || !d.h("arcore_sdk_jni", f42555b, false) || !d.h("c++_shared", f42555b, false) || !d.h("v8.engine", f42555b, false)) {
+            d.g(AppRuntime.getAppContext(), f46231b);
+            boolean h2 = d.h("zeusv8", f46232c, true);
+            if (new File(f46231b + File.separator + "libv8.engine.so").exists()) {
+                if (!d.h("arcore_sdk_c", f46231b, false) || !d.h("arcore_sdk_jni", f46231b, false) || !d.h("c++_shared", f46231b, false) || !d.h("v8.engine", f46231b, false)) {
                     z2 = false;
                 }
             } else {
@@ -228,13 +228,13 @@ public class a {
             }
             return f.d(h2, z2);
         }
-        d.h("zeusv8", f42557d, true);
-        return f.c(d.h("v8.engine", f42557d, true));
+        d.h("zeusv8", f46233d, true);
+        return f.c(d.h("v8.engine", f46233d, true));
     }
 
     public static void d() {
         h.a().putLong("zeus_v8_modified_time", -1L);
-        if (f42554a) {
+        if (f46230a) {
             Log.d("SwanSailorHelper", "fixSoLoadCrash: resetZeusV8ModifiedTime");
         }
     }

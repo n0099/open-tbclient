@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a0;
 import d.a.m0.r.q.c0;
 import d.a.m0.r.q.c2;
@@ -352,7 +352,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return this.topic_special_icon_right;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return FORUM_FLOOR_TYPE;
     }

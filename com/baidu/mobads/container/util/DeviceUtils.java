@@ -13,7 +13,6 @@ import com.baidu.mobads.container.config.AppConfigImp;
 import com.baidu.mobads.container.executor.BaseTask;
 import com.baidu.mobads.container.executor.TaskScheduler;
 import com.baidu.mobads.container.service.PluginLoader;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class DeviceUtils {
@@ -147,7 +146,7 @@ public class DeviceUtils {
                             }
                             String stringBuffer = new StringBuffer(string2).reverse().toString();
                             DeviceUtils deviceUtils = DeviceUtils.this;
-                            deviceUtils.mCuid = string + FieldBuilder.SE + stringBuffer;
+                            deviceUtils.mCuid = string + "|" + stringBuffer;
                         }
                     } catch (Throwable unused) {
                         DeviceUtils.this.mCuid = "";

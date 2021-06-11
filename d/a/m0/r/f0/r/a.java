@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import d.a.c.a.i;
 import d.a.c.a.j;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewPager f49796a;
+    public ViewPager f53471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IndicatorView f49797b;
+    public IndicatorView f53472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f49798c;
+    public TextView f53473c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdBaseViewPagerAdapter f49799d;
+    public BdBaseViewPagerAdapter f53474d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f49800e;
+    public c f53475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49801f;
+    public boolean f53476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49802g;
+    public boolean f53477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49803h;
+    public int f53478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f49804i;
+    public Context f53479i;
     public List<n> j;
     public ViewPager.OnPageChangeListener k;
     public long l;
@@ -51,8 +51,8 @@ public class a {
 
     /* renamed from: d.a.m0.r.f0.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1138a implements Handler.Callback {
-        public C1138a() {
+    public class C1194a implements Handler.Callback {
+        public C1194a() {
         }
 
         @Override // android.os.Handler.Callback
@@ -78,14 +78,14 @@ public class a {
             }
             if (i2 == 1) {
                 a.this.p();
-            } else if (i2 != 0 || (count = a.this.f49799d.getCount()) < 2) {
+            } else if (i2 != 0 || (count = a.this.f53474d.getCount()) < 2) {
             } else {
-                int currentItem = a.this.f49796a.getCurrentItem();
+                int currentItem = a.this.f53471a.getCurrentItem();
                 int i3 = count - 2;
                 if (currentItem < 1) {
-                    a.this.f49796a.setCurrentItem(i3, false);
+                    a.this.f53471a.setCurrentItem(i3, false);
                 } else if (currentItem > i3) {
-                    a.this.f49796a.setCurrentItem(1, false);
+                    a.this.f53471a.setCurrentItem(1, false);
                 }
                 a.this.o();
             }
@@ -100,24 +100,24 @@ public class a {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
-            if (a.this.f49800e != null && a.this.f49800e.a(i2) == i2) {
-                if (a.this.f49797b != null) {
-                    a.this.f49797b.setPosition(a.this.f49800e.c(i2));
+            if (a.this.f53475e != null && a.this.f53475e.a(i2) == i2) {
+                if (a.this.f53472b != null) {
+                    a.this.f53472b.setPosition(a.this.f53475e.c(i2));
                 }
                 if (a.this.k != null) {
-                    a.this.k.onPageSelected(a.this.f49800e.c(i2));
+                    a.this.k.onPageSelected(a.this.f53475e.c(i2));
                 }
             }
         }
     }
 
     public a(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
-        this.f49801f = false;
-        this.f49802g = true;
-        this.f49803h = 2;
+        this.f53476f = false;
+        this.f53477g = true;
+        this.f53478h = 2;
         this.j = new ArrayList();
         this.l = 5000L;
-        this.m = new C1138a();
+        this.m = new C1194a();
         this.n = new Handler(this.m);
         this.o = new b();
         h(context, viewPager, indicatorView, textView);
@@ -125,41 +125,41 @@ public class a {
 
     public final void g() {
         int count;
-        if (this.f49796a == null || this.f49799d == null) {
+        if (this.f53471a == null || this.f53474d == null) {
             return;
         }
-        i c2 = j.c(this.f49804i);
-        if ((c2 == null || !c2.isScroll()) && (count = this.f49799d.getCount()) >= 2) {
-            int currentItem = this.f49796a.getCurrentItem();
+        i c2 = j.c(this.f53479i);
+        if ((c2 == null || !c2.isScroll()) && (count = this.f53474d.getCount()) >= 2) {
+            int currentItem = this.f53471a.getCurrentItem();
             int i2 = count - 2;
             if (currentItem < 1) {
-                this.f49796a.setCurrentItem(i2, false);
+                this.f53471a.setCurrentItem(i2, false);
             } else if (currentItem > i2) {
-                this.f49796a.setCurrentItem(1, false);
+                this.f53471a.setCurrentItem(1, false);
             } else {
-                this.f49796a.setCurrentItem(currentItem + 1);
+                this.f53471a.setCurrentItem(currentItem + 1);
             }
         }
     }
 
     public final void h(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
-        this.f49796a = viewPager;
-        this.f49797b = indicatorView;
-        this.f49798c = textView;
-        this.f49804i = context;
+        this.f53471a = viewPager;
+        this.f53472b = indicatorView;
+        this.f53473c = textView;
+        this.f53479i = context;
         BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
-        this.f49799d = bdBaseViewPagerAdapter;
-        ViewPager viewPager2 = this.f49796a;
+        this.f53474d = bdBaseViewPagerAdapter;
+        ViewPager viewPager2 = this.f53471a;
         if (viewPager2 != null) {
             viewPager2.setAdapter(bdBaseViewPagerAdapter);
-            this.f49796a.setOnPageChangeListener(this.o);
+            this.f53471a.setOnPageChangeListener(this.o);
         }
     }
 
     public void i(Context context, d.a.m0.r.f0.r.b<?, ?> bVar) {
-        BdBaseViewPagerAdapter bdBaseViewPagerAdapter = this.f49799d;
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter = this.f53474d;
         if (bdBaseViewPagerAdapter != null) {
-            bdBaseViewPagerAdapter.g(context, bVar);
+            bdBaseViewPagerAdapter.k(context, bVar);
         }
     }
 
@@ -175,61 +175,61 @@ public class a {
             return;
         }
         this.j = list;
-        c cVar = new c(list, this.f49801f, this.f49803h);
-        this.f49800e = cVar;
+        c cVar = new c(list, this.f53476f, this.f53478h);
+        this.f53475e = cVar;
         cVar.i(2);
-        this.f49800e.g(1);
-        this.f49799d.h(this.f49800e.e());
-        this.f49799d.notifyDataSetChanged();
-        this.f49796a.setCurrentItem(this.f49800e.d(), false);
-        if (this.f49800e.b() <= 0) {
+        this.f53475e.g(1);
+        this.f53474d.l(this.f53475e.e());
+        this.f53474d.notifyDataSetChanged();
+        this.f53471a.setCurrentItem(this.f53475e.d(), false);
+        if (this.f53475e.b() <= 0) {
             return;
         }
-        if (this.f49800e.b() > this.f49803h) {
-            TextView textView = this.f49798c;
+        if (this.f53475e.b() > this.f53478h) {
+            TextView textView = this.f53473c;
             if (textView != null) {
                 textView.setVisibility(0);
-                this.f49798c.setOnClickListener(null);
-                IndicatorView indicatorView = this.f49797b;
+                this.f53473c.setOnClickListener(null);
+                IndicatorView indicatorView = this.f53472b;
                 if (indicatorView != null) {
                     indicatorView.setVisibility(8);
                 }
             } else {
-                IndicatorView indicatorView2 = this.f49797b;
-                if (indicatorView2 != null && !this.f49801f) {
+                IndicatorView indicatorView2 = this.f53472b;
+                if (indicatorView2 != null && !this.f53476f) {
                     indicatorView2.setVisibility(8);
                 }
             }
-            IndicatorView indicatorView3 = this.f49797b;
+            IndicatorView indicatorView3 = this.f53472b;
             if (indicatorView3 != null && indicatorView3.getVisibility() == 0) {
-                int count = this.f49797b.getCount();
-                int i2 = this.f49803h;
+                int count = this.f53472b.getCount();
+                int i2 = this.f53478h;
                 if (count != i2) {
-                    this.f49797b.setCount(i2);
+                    this.f53472b.setCount(i2);
                 }
             }
             o();
         }
-        if (this.f49800e.b() >= 2 && this.f49800e.b() <= this.f49803h) {
-            TextView textView2 = this.f49798c;
+        if (this.f53475e.b() >= 2 && this.f53475e.b() <= this.f53478h) {
+            TextView textView2 = this.f53473c;
             if (textView2 != null) {
                 textView2.setVisibility(8);
             }
-            IndicatorView indicatorView4 = this.f49797b;
+            IndicatorView indicatorView4 = this.f53472b;
             if (indicatorView4 != null) {
                 indicatorView4.setVisibility(0);
-                if (this.f49797b.getCount() != this.f49800e.b()) {
-                    this.f49797b.setCount(this.f49800e.b());
+                if (this.f53472b.getCount() != this.f53475e.b()) {
+                    this.f53472b.setCount(this.f53475e.b());
                 }
             }
             o();
         }
-        if (this.f49800e.b() < 2) {
-            TextView textView3 = this.f49798c;
+        if (this.f53475e.b() < 2) {
+            TextView textView3 = this.f53473c;
             if (textView3 != null) {
                 textView3.setVisibility(8);
             }
-            IndicatorView indicatorView5 = this.f49797b;
+            IndicatorView indicatorView5 = this.f53472b;
             if (indicatorView5 != null) {
                 indicatorView5.setVisibility(8);
             }
@@ -238,23 +238,23 @@ public class a {
     }
 
     public void l(boolean z) {
-        this.f49802g = z;
+        this.f53477g = z;
     }
 
     public void m(boolean z) {
-        this.f49801f = z;
+        this.f53476f = z;
     }
 
     public void n(int i2) {
-        this.f49803h = i2;
-        c cVar = this.f49800e;
+        this.f53478h = i2;
+        c cVar = this.f53475e;
         if (cVar != null) {
             cVar.h(i2);
         }
     }
 
     public void o() {
-        if (this.f49802g) {
+        if (this.f53477g) {
             this.n.removeMessages(1);
             this.n.sendEmptyMessageDelayed(1, this.l);
             return;
@@ -267,16 +267,16 @@ public class a {
     }
 
     public a(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView, int i2, boolean z, boolean z2) {
-        this.f49801f = false;
-        this.f49802g = true;
-        this.f49803h = 2;
+        this.f53476f = false;
+        this.f53477g = true;
+        this.f53478h = 2;
         this.j = new ArrayList();
         this.l = 5000L;
-        this.m = new C1138a();
+        this.m = new C1194a();
         this.n = new Handler(this.m);
         this.o = new b();
-        this.f49801f = z;
-        this.f49802g = z2;
+        this.f53476f = z;
+        this.f53477g = z2;
         n(i2);
         h(context, viewPager, indicatorView, textView);
     }

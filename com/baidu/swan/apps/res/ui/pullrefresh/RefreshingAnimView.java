@@ -28,19 +28,19 @@ public class RefreshingAnimView extends View {
     public int F;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f11207e;
+    public float f11269e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f11208f;
+    public float f11270f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f11209g;
+    public float f11271g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f11210h;
+    public float f11272h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f11211i;
+    public float f11273i;
     public float j;
     public float k;
     public float l;
@@ -136,11 +136,11 @@ public class RefreshingAnimView extends View {
 
     public RefreshingAnimView(Context context) {
         super(context);
-        this.f11207e = 0.0f;
-        this.f11208f = 0.0f;
-        this.f11209g = 0.0f;
-        this.f11210h = 0.0f;
-        this.f11211i = 0.0f;
+        this.f11269e = 0.0f;
+        this.f11270f = 0.0f;
+        this.f11271g = 0.0f;
+        this.f11272h = 0.0f;
+        this.f11273i = 0.0f;
         this.j = 0.0f;
         this.k = 0.0f;
         this.l = 0.0f;
@@ -168,20 +168,20 @@ public class RefreshingAnimView extends View {
     }
 
     public final void h() {
-        float f2 = this.f11207e;
-        this.f11208f = f2;
+        float f2 = this.f11269e;
+        this.f11270f = f2;
         if (f2 < 0.5f) {
-            this.f11209g = 0.0f;
-            this.f11211i = 0.0f;
+            this.f11271g = 0.0f;
+            this.f11273i = 0.0f;
             return;
         }
-        this.f11211i = ((f2 - 0.5f) / 0.5f) * this.j;
+        this.f11273i = ((f2 - 0.5f) / 0.5f) * this.j;
         if (f2 < 0.625f) {
-            this.f11209g = 0.0f;
+            this.f11271g = 0.0f;
             return;
         }
         float f3 = (f2 - 0.625f) / 0.375f;
-        this.f11209g = f3;
+        this.f11271g = f3;
         PointF pointF = this.r;
         float f4 = pointF.x;
         float f5 = this.t;
@@ -239,14 +239,14 @@ public class RefreshingAnimView extends View {
         RectF rectF = this.q;
         PointF pointF = this.m;
         float f2 = pointF.x;
-        float f3 = this.f11210h;
+        float f3 = this.f11272h;
         float f4 = pointF.y;
         rectF.set(f2 - f3, f4 - f3, f2 + f3, f4 + f3);
-        this.B.drawArc(this.q, -90.0f, this.f11208f * (-360.0f), true, this.n);
+        this.B.drawArc(this.q, -90.0f, this.f11270f * (-360.0f), true, this.n);
         Canvas canvas2 = this.B;
         PointF pointF2 = this.m;
-        canvas2.drawCircle(pointF2.x, pointF2.y, this.f11211i, this.o);
-        if (this.f11209g > 0.0f) {
+        canvas2.drawCircle(pointF2.x, pointF2.y, this.f11273i, this.o);
+        if (this.f11271g > 0.0f) {
             Canvas canvas3 = this.B;
             PointF pointF3 = this.s;
             canvas3.drawCircle(pointF3.x, pointF3.y, 0.75f, this.n);
@@ -273,7 +273,7 @@ public class RefreshingAnimView extends View {
         float f2 = this.r.x + ((float) (this.t / G));
         Canvas canvas2 = this.B;
         PointF pointF = this.m;
-        canvas2.drawCircle(pointF.x, pointF.y, this.f11210h, this.n);
+        canvas2.drawCircle(pointF.x, pointF.y, this.f11272h, this.n);
         Canvas canvas3 = this.B;
         PointF pointF2 = this.m;
         canvas3.drawCircle(pointF2.x, pointF2.y, this.j, this.o);
@@ -356,13 +356,13 @@ public class RefreshingAnimView extends View {
         } else {
             this.l = getMeasuredWidth();
         }
-        this.f11210h = n0.f(getContext(), 8.0f);
+        this.f11272h = n0.f(getContext(), 8.0f);
         this.j = n0.f(getContext(), 6.5f);
         this.t = n0.f(getContext(), 5.0f);
         this.k = n0.f(getContext(), 7.5f);
         float f2 = this.l / 2.0f;
         this.m.set(f2, f2);
-        float f3 = f2 + ((float) (this.f11210h / G));
+        float f3 = f2 + ((float) (this.f11272h / G));
         this.r.set(f3, f3);
     }
 
@@ -449,7 +449,7 @@ public class RefreshingAnimView extends View {
         if (f2 > 1.0f) {
             f2 = 1.0f;
         }
-        this.f11207e = f2;
+        this.f11269e = f2;
         h();
         postInvalidate();
     }
@@ -465,7 +465,7 @@ public class RefreshingAnimView extends View {
     public void t() {
         p();
         clearAnimation();
-        this.f11207e = 0.0f;
+        this.f11269e = 0.0f;
         this.v = 1;
         i(1);
         postInvalidate();
@@ -473,11 +473,11 @@ public class RefreshingAnimView extends View {
 
     public RefreshingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11207e = 0.0f;
-        this.f11208f = 0.0f;
-        this.f11209g = 0.0f;
-        this.f11210h = 0.0f;
-        this.f11211i = 0.0f;
+        this.f11269e = 0.0f;
+        this.f11270f = 0.0f;
+        this.f11271g = 0.0f;
+        this.f11272h = 0.0f;
+        this.f11273i = 0.0f;
         this.j = 0.0f;
         this.k = 0.0f;
         this.l = 0.0f;
@@ -500,11 +500,11 @@ public class RefreshingAnimView extends View {
 
     public RefreshingAnimView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11207e = 0.0f;
-        this.f11208f = 0.0f;
-        this.f11209g = 0.0f;
-        this.f11210h = 0.0f;
-        this.f11211i = 0.0f;
+        this.f11269e = 0.0f;
+        this.f11270f = 0.0f;
+        this.f11271g = 0.0f;
+        this.f11272h = 0.0f;
+        this.f11273i = 0.0f;
         this.j = 0.0f;
         this.k = 0.0f;
         this.l = 0.0f;

@@ -1,15 +1,15 @@
 package d.a.n0.m0.z.b;
 
 import com.baidu.adp.BdUniqueId;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 /* loaded from: classes4.dex */
 public class a implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f57435e = BdUniqueId.gen();
+    public static final BdUniqueId f61124e = BdUniqueId.gen();
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f57435e;
+        return f61124e;
     }
 }

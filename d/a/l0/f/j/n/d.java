@@ -8,7 +8,7 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile HashMap<String, List<d.a.l0.f.j.p.a>> f46908a = new HashMap<>();
+    public volatile HashMap<String, List<d.a.l0.f.j.p.a>> f50582a = new HashMap<>();
 
     public synchronized void a(String str, d.a.l0.f.j.p.a aVar) {
         if (e(str, aVar)) {
@@ -18,8 +18,8 @@ public class d {
         if (!c2.contains(aVar)) {
             c2.add(aVar);
         }
-        if (!this.f46908a.containsKey(str)) {
-            this.f46908a.put(str, c2);
+        if (!this.f50582a.containsKey(str)) {
+            this.f50582a.put(str, c2);
         }
     }
 
@@ -35,7 +35,7 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return new ArrayList();
         }
-        List<d.a.l0.f.j.p.a> list = this.f46908a.get(str);
+        List<d.a.l0.f.j.p.a> list = this.f50582a.get(str);
         return list == null ? new ArrayList() : list;
     }
 
@@ -44,7 +44,7 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        List<d.a.l0.f.j.p.a> list = this.f46908a.get(str);
+        List<d.a.l0.f.j.p.a> list = this.f50582a.get(str);
         if (list != null) {
             if (!list.isEmpty()) {
                 z = true;
@@ -66,14 +66,14 @@ public class d {
             return;
         }
         if (aVar == null) {
-            this.f46908a.remove(str);
+            this.f50582a.remove(str);
             return;
         }
         List<d.a.l0.f.j.p.a> c2 = c(str);
         if (c2.contains(aVar)) {
             c2.remove(aVar);
             if (c2.isEmpty()) {
-                this.f46908a.remove(str);
+                this.f50582a.remove(str);
             }
         }
     }

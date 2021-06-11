@@ -22,22 +22,22 @@ import java.util.List;
 public class f {
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f57237f = new f();
+    public static f f60926f = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    public c f57238a;
+    public c f60927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f57239b;
+    public List<String> f60928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57240c = 5;
+    public int f60929c = 5;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f57241d = new a(2001140);
+    public CustomMessageListener f60930d = new a(2001140);
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f57242e = new b(2001119);
+    public CustomMessageListener f60931e = new b(2001119);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -64,9 +64,9 @@ public class f {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                f.this.f57239b = ((QueryDownloadMessage) customResponsedMessage).getData();
+                f.this.f60928b = ((QueryDownloadMessage) customResponsedMessage).getData();
                 f fVar = f.this;
-                fVar.g(fVar.f57239b);
+                fVar.g(fVar.f60928b);
             }
         }
     }
@@ -104,7 +104,7 @@ public class f {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : d.a.m0.v.d.j().i()) {
-                for (String str : f.this.f57239b) {
+                for (String str : f.this.f60928b) {
                     if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                         list.add(downloadData);
                     }
@@ -115,12 +115,12 @@ public class f {
     }
 
     public f() {
-        MessageManager.getInstance().registerListener(this.f57242e);
-        MessageManager.getInstance().registerListener(this.f57241d);
+        MessageManager.getInstance().registerListener(this.f60931e);
+        MessageManager.getInstance().registerListener(this.f60930d);
     }
 
     public static f f() {
-        return f57237f;
+        return f60926f;
     }
 
     public void d() {
@@ -133,7 +133,7 @@ public class f {
 
     public final void g(List<String> list) {
         c cVar = new c();
-        this.f57238a = cVar;
+        this.f60927a = cVar;
         cVar.execute(list);
     }
 
@@ -191,6 +191,6 @@ public class f {
         sb.append(str);
         downloadData.setPath(sb.toString());
         BdLog.d("download:path:" + downloadData.getPath());
-        d.a.m0.v.d.j().l(downloadData, this.f57240c);
+        d.a.m0.v.d.j().l(downloadData, this.f60929c);
     }
 }

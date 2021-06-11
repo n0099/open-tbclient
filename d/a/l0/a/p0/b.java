@@ -6,11 +6,11 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import d.a.l0.a.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44010a = k.f43199a;
+    public static final boolean f47684a = k.f46875a;
 
     public static void a() {
         f(0).f().c();
@@ -53,7 +53,7 @@ public class b {
     public static d.a.l0.a.p0.d.b f(int i2) {
         if (i2 == 1) {
             d.a.l0.a.p0.d.b u = d.a.l0.a.c1.b.i().u();
-            if (u == null && k.f43199a) {
+            if (u == null && k.f46875a) {
                 Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
             }
             return u;
@@ -62,7 +62,7 @@ public class b {
     }
 
     public static void g(int i2, int i3) {
-        if (f44010a) {
+        if (f47684a) {
             Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i2 + " ,newVersion: " + i3);
         }
         if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i2 != i3) {

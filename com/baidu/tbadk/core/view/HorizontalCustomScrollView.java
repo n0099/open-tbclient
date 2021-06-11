@@ -8,7 +8,7 @@ import android.widget.HorizontalScrollView;
 public class HorizontalCustomScrollView extends HorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f12216e;
+    public a f12278e;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -30,14 +30,14 @@ public class HorizontalCustomScrollView extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         super.onLayout(z, i2, i3, i4, i5);
-        a aVar = this.f12216e;
+        a aVar = this.f12278e;
         if (aVar != null) {
             aVar.a(getMeasuredWidth(), getMeasuredHeight());
         }
     }
 
     public void setOnSizeChangeListener(a aVar) {
-        this.f12216e = aVar;
+        this.f12278e = aVar;
     }
 
     public HorizontalCustomScrollView(Context context, AttributeSet attributeSet) {

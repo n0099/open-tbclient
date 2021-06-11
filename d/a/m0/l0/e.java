@@ -7,23 +7,23 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f49500a;
+    public BdUniqueId f53174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49501b;
+    public int f53175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49502c;
+    public String f53176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f49503d;
+    public Activity f53177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f49504e;
+    public Map<String, String> f53178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f49505f;
+    public Map<String, String> f53179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49506g;
+    public boolean f53180g;
 }

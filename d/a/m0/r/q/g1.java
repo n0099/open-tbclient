@@ -10,39 +10,39 @@ import org.json.JSONObject;
 public class g1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<UserData> f50025a = new ArrayList<>();
+    public ArrayList<UserData> f53701a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<UserData> f50026b = new ArrayList<>();
+    public ArrayList<UserData> f53702b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public z0 f50027c = new z0();
+    public z0 f53703c = new z0();
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50028d;
+    public int f53704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50029e;
+    public int f53705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50030f;
+    public boolean f53706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50031g;
+    public String f53707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50032h;
+    public int f53708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f50033i;
+    public String f53709i;
     public int j;
 
     public ArrayList<UserData> a() {
-        return this.f50026b;
+        return this.f53702b;
     }
 
     public ArrayList<UserData> b() {
-        return this.f50025a;
+        return this.f53701a;
     }
 
     public void c(JSONObject jSONObject) {
@@ -58,7 +58,7 @@ public class g1 {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i2));
-                        this.f50025a.add(userData);
+                        this.f53701a.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -66,17 +66,17 @@ public class g1 {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i3));
                         userData2.mAttentionType = 1;
-                        this.f50026b.add(userData2);
+                        this.f53702b.add(userData2);
                     }
                 }
-                this.f50027c.i(jSONObject.optJSONObject("page"));
-                if (this.f50027c != null) {
-                    this.f50028d = this.f50027c.a();
-                    this.f50029e = this.f50027c.f();
-                    if (this.f50027c.b() != 1) {
+                this.f53703c.i(jSONObject.optJSONObject("page"));
+                if (this.f53703c != null) {
+                    this.f53704d = this.f53703c.a();
+                    this.f53705e = this.f53703c.f();
+                    if (this.f53703c.b() != 1) {
                         z = false;
                     }
-                    this.f50030f = z;
+                    this.f53706f = z;
                 }
                 jSONObject.optInt("tafriendnum", 0);
                 jSONObject.optInt("commonfriendnum", 0);
@@ -87,7 +87,7 @@ public class g1 {
                     for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                         UserData userData3 = new UserData();
                         userData3.parserJson(optJSONArray3.getJSONObject(i4));
-                        this.f50025a.add(userData3);
+                        this.f53701a.add(userData3);
                     }
                 }
                 if (optJSONArray4 != null) {
@@ -96,20 +96,20 @@ public class g1 {
                         userData4.parserJson(optJSONArray4.getJSONObject(i5));
                         userData4.mAttentionType = 1;
                         userData4.setHave_attention(1);
-                        this.f50026b.add(userData4);
+                        this.f53702b.add(userData4);
                     }
                 }
-                this.f50028d = jSONObject.optInt(Config.PACKAGE_NAME);
-                this.f50029e = jSONObject.optInt("total_follow_num", 0);
+                this.f53704d = jSONObject.optInt(Config.PACKAGE_NAME);
+                this.f53705e = jSONObject.optInt("total_follow_num", 0);
                 if (jSONObject.optInt("has_more", 0) != 1) {
                     z = false;
                 }
-                this.f50030f = z;
+                this.f53706f = z;
                 this.j = jSONObject.optInt("follow_list_switch", 0);
             }
-            this.f50033i = jSONObject.optString("tips_text");
-            this.f50032h = jSONObject.optInt("type", 0);
-            this.f50031g = jSONObject.optString("block_text");
+            this.f53709i = jSONObject.optString("tips_text");
+            this.f53708h = jSONObject.optInt("type", 0);
+            this.f53707g = jSONObject.optString("block_text");
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

@@ -20,32 +20,32 @@ import d.a.m0.r.f0.c;
 public class a implements d.a.n0.m3.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f53576a;
+    public Context f57265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f53577b;
+    public BdUniqueId f57266b;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.m0.r.f0.a f53579d;
+    public d.a.m0.r.f0.a f57268d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f53580e;
+    public c f57269e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f53581f = new b(CmdConfigHttp.CMD_UEG_REPORT);
+    public HttpMessageListener f57270f = new b(CmdConfigHttp.CMD_UEG_REPORT);
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.e2.k.f.b f53578c = new d.a.n0.e2.k.f.b();
+    public d.a.n0.e2.k.f.b f57267c = new d.a.n0.e2.k.f.b();
 
     /* renamed from: d.a.n0.e2.k.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class DialogInterface$OnCancelListenerC1274a implements DialogInterface.OnCancelListener {
-        public DialogInterface$OnCancelListenerC1274a() {
+    public class DialogInterface$OnCancelListenerC1330a implements DialogInterface.OnCancelListener {
+        public DialogInterface$OnCancelListenerC1330a() {
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            MessageManager.getInstance().removeMessage(a.this.f53577b);
+            MessageManager.getInstance().removeMessage(a.this.f57266b);
         }
     }
 
@@ -59,8 +59,8 @@ public class a implements d.a.n0.m3.a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof UEGReportResponsedMessage) {
-                if (a.this.f53579d != null) {
-                    a.this.f53579d.h(false);
+                if (a.this.f57268d != null) {
+                    a.this.f57268d.h(false);
                 }
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
@@ -70,55 +70,55 @@ public class a implements d.a.n0.m3.a {
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
-                    errorString = a.this.f53576a.getString(R.string.neterror);
+                    errorString = a.this.f57265a.getString(R.string.neterror);
                 }
-                a.this.f53580e.b(errorString);
+                a.this.f57269e.b(errorString);
             }
         }
     }
 
     public a(Context context) {
-        this.f53576a = context;
+        this.f57265a = context;
         c cVar = new c();
-        this.f53580e = cVar;
-        cVar.f49709a = 1000L;
+        this.f57269e = cVar;
+        cVar.f53384a = 1000L;
     }
 
     @Override // d.a.n0.m3.a
     public void a(BdUniqueId bdUniqueId) {
-        this.f53577b = bdUniqueId;
-        this.f53578c.c(bdUniqueId);
-        this.f53581f.setTag(bdUniqueId);
-        this.f53581f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f53581f);
+        this.f57266b = bdUniqueId;
+        this.f57267c.c(bdUniqueId);
+        this.f57270f.setTag(bdUniqueId);
+        this.f57270f.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f57270f);
     }
 
     @Override // d.a.n0.m3.a
     public void b(String str) {
         j();
-        this.f53578c.b(str);
+        this.f57267c.b(str);
     }
 
     public final void h(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f53576a, this.f53576a.getString(R.string.pb_web_view_report_title), str, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f57265a, this.f57265a.getString(R.string.pb_web_view_report_title), str, true)));
     }
 
     public void i(String str) {
         j();
-        this.f53578c.a(str);
+        this.f57267c.a(str);
     }
 
     public final void j() {
-        if (this.f53579d == null) {
-            f<?> a2 = j.a(this.f53576a);
+        if (this.f57268d == null) {
+            f<?> a2 = j.a(this.f57265a);
             TbPageContext tbPageContext = a2 instanceof TbPageContext ? (TbPageContext) a2 : null;
             if (tbPageContext == null) {
                 return;
             }
             d.a.m0.r.f0.a aVar = new d.a.m0.r.f0.a(tbPageContext);
-            this.f53579d = aVar;
-            aVar.e(new DialogInterface$OnCancelListenerC1274a());
+            this.f57268d = aVar;
+            aVar.e(new DialogInterface$OnCancelListenerC1330a());
         }
-        this.f53579d.h(true);
+        this.f57268d.h(true);
     }
 }

@@ -23,7 +23,7 @@ public abstract class a {
 
     /* renamed from: d.a.n0.f1.f.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1311a {
+    public interface InterfaceC1367a {
         boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
     }
 
@@ -93,12 +93,12 @@ public abstract class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC1311a interfaceC1311a) {
+    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC1367a interfaceC1367a) {
         ImMessageCenterPojo imMessageCenterPojo2;
         boolean z2;
         String str;
         boolean z3;
-        InterfaceC1311a interfaceC1311a2 = interfaceC1311a;
+        InterfaceC1367a interfaceC1367a2 = interfaceC1367a;
         String valueOf = String.valueOf(groupMsgData.getGroupInfo().getGroupId());
         int customType = groupMsgData.getGroupInfo().getCustomType();
         int userType = groupMsgData.getGroupInfo().getUserType();
@@ -123,7 +123,7 @@ public abstract class a {
             if (pulled_msgId < chatMessage.getMsgId()) {
                 pulled_msgId = chatMessage.getMsgId();
             }
-            if (interfaceC1311a2 == null || !interfaceC1311a2.a(chatMessage, imMessageCenterPojo2)) {
+            if (interfaceC1367a2 == null || !interfaceC1367a2.a(chatMessage, imMessageCenterPojo2)) {
                 chatMessage.setLocalData(new MsgLocalData());
                 chatMessage.getLocalData().setStatus((short) 3);
                 CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(chatMessage);
@@ -140,7 +140,7 @@ public abstract class a {
                 if (commonMsgPojo == null || commonMsgPojo.getRid() < commonMsgPojo2.getRid()) {
                     commonMsgPojo = commonMsgPojo2;
                 }
-                interfaceC1311a2 = interfaceC1311a;
+                interfaceC1367a2 = interfaceC1367a;
             }
         }
         if (commonMsgPojo != null) {

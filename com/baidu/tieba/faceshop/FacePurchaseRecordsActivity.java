@@ -16,19 +16,19 @@ import d.a.n0.m0.l;
 public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurchaseRecordsActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public l f14704e;
+    public l f14761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FacePurchaseRecordsModel f14705f;
+    public FacePurchaseRecordsModel f14762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14706g;
+    public String f14763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f14707h = new b();
+    public e f14764h = new b();
 
     /* renamed from: i  reason: collision with root package name */
-    public NoNetworkView.b f14708i = new c();
+    public NoNetworkView.b f14765i = new c();
 
     /* loaded from: classes4.dex */
     public class a implements f.g {
@@ -50,10 +50,10 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
         public void c(Object obj) {
             FacePurchaseRecordsActivity.this.hideProgressBar();
             if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
-                if (FacePurchaseRecordsActivity.this.f14704e != null) {
+                if (FacePurchaseRecordsActivity.this.f14761e != null) {
                     FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
                     if (facePurchaseRecordsData.errno == 0) {
-                        FacePurchaseRecordsActivity.this.f14704e.f(facePurchaseRecordsData);
+                        FacePurchaseRecordsActivity.this.f14761e.f(facePurchaseRecordsData);
                         return;
                     }
                     String str = facePurchaseRecordsData.usermsg;
@@ -79,30 +79,30 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
             if (z) {
                 FacePurchaseRecordsActivity.this.k(true);
             }
-            FacePurchaseRecordsActivity.this.f14704e.b(z);
+            FacePurchaseRecordsActivity.this.f14761e.b(z);
         }
     }
 
     public final void h() {
-        this.f14704e.a(this.f14708i);
+        this.f14761e.a(this.f14765i);
     }
 
     public final void i(Bundle bundle) {
-        this.f14705f = new FacePurchaseRecordsModel(getActivity());
+        this.f14762f = new FacePurchaseRecordsModel(getActivity());
         if (bundle != null) {
-            this.f14706g = bundle.getString("st_type");
+            this.f14763g = bundle.getString("st_type");
         } else {
-            this.f14706g = getIntent().getStringExtra("st_type");
+            this.f14763g = getIntent().getStringExtra("st_type");
         }
-        this.f14705f.setStType(this.f14706g);
-        this.f14705f.setLoadDataCallBack(this.f14707h);
+        this.f14762f.setStType(this.f14763g);
+        this.f14762f.setLoadDataCallBack(this.f14764h);
     }
 
     public final void j() {
         l lVar = new l(getPageContext());
-        this.f14704e = lVar;
+        this.f14761e = lVar;
         lVar.i(new a());
-        this.f14704e.h(this);
+        this.f14761e.h(this);
         h();
     }
 
@@ -111,19 +111,19 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
             if (z) {
                 showProgressBar();
             }
-            this.f14705f.y();
+            this.f14762f.C();
             return;
         }
-        this.f14704e.c();
+        this.f14761e.c();
     }
 
     public final void l() {
-        this.f14704e.g(this.f14708i);
+        this.f14761e.g(this.f14765i);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i2) {
-        l lVar = this.f14704e;
+        l lVar = this.f14761e;
         if (lVar != null) {
             lVar.e(i2);
         }
@@ -139,7 +139,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
-        FacePurchaseRecordsModel facePurchaseRecordsModel = this.f14705f;
+        FacePurchaseRecordsModel facePurchaseRecordsModel = this.f14762f;
         if (facePurchaseRecordsModel != null) {
             facePurchaseRecordsModel.cancelLoadData();
         }
@@ -150,8 +150,8 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
         FacePurchasePackageData facePurchasePackageData;
-        l lVar = this.f14704e;
-        if (lVar == null || lVar.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.f14704e.d().getItem(i2)) == null) {
+        l lVar = this.f14761e;
+        if (lVar == null || lVar.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.f14761e.d().getItem(i2)) == null) {
             return;
         }
         sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(getPageContext().getPageActivity(), String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
@@ -165,7 +165,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putString("st_type", this.f14706g);
+        bundle.putString("st_type", this.f14763g);
         super.onSaveInstanceState(bundle);
     }
 }

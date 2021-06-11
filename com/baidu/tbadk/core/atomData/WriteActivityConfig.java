@@ -88,7 +88,7 @@ public class WriteActivityConfig extends IntentConfig {
     }
 
     public void send() {
-        c.f54217g = new Intent(getIntent());
+        c.f57906g = new Intent(getIntent());
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
     }
 

@@ -11,40 +11,40 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a {
-    public static final boolean k = d.a.l0.a.k.f43199a;
+    public static final boolean k = d.a.l0.a.k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.h0.l.a f42241a;
+    public d.a.l0.a.h0.l.a f45917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<j> f42242b = new ArrayList();
+    public final List<j> f45918b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile PMSAppInfo f42243c;
+    public volatile PMSAppInfo f45919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile PrefetchEvent.c f42244d;
+    public volatile PrefetchEvent.c f45920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile i f42245e;
+    public volatile i f45921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f42246f;
+    public final boolean f45922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f42247g;
+    public volatile boolean f45923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f42248h;
+    public long f45924h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f42249i;
+    public long f45925i;
     public final boolean j;
 
     /* renamed from: d.a.l0.a.h0.l.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0670a extends d.a.l0.a.h0.b {
-        public C0670a() {
+    public class C0726a extends d.a.l0.a.h0.b {
+        public C0726a() {
         }
 
         @Override // d.a.l0.a.h0.b
@@ -53,8 +53,8 @@ public abstract class a {
             if (a.k) {
                 Log.d("BasePreloadMasterManager", "prepareMaster finish. url: " + str);
             }
-            a.this.f42247g = true;
-            a.this.f42249i = System.currentTimeMillis();
+            a.this.f45923g = true;
+            a.this.f45925i = System.currentTimeMillis();
             a.this.o();
             if (a.k) {
                 Log.d("BasePreloadMasterManager", "createBlankOne cost - " + a.this.f() + "ms");
@@ -66,14 +66,14 @@ public abstract class a {
     public class b implements j {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PMSAppInfo f42251a;
+        public final /* synthetic */ PMSAppInfo f45927a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent.c f42252b;
+        public final /* synthetic */ PrefetchEvent.c f45928b;
 
         public b(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
-            this.f42251a = pMSAppInfo;
-            this.f42252b = cVar;
+            this.f45927a = pMSAppInfo;
+            this.f45928b = cVar;
         }
 
         @Override // d.a.l0.a.h0.l.g.j
@@ -82,15 +82,15 @@ public abstract class a {
             if (i2 == null || i2.g() == null || i2.g().isDestroyed()) {
                 return;
             }
-            a.this.q(this.f42251a);
-            d.a.l0.a.o0.a.a(i2.g(), this.f42252b);
-            d.a.l0.a.e0.d.l(PrefetchEvent.MODULE, "prefetch master finish - " + this.f42252b.toString());
+            a.this.q(this.f45927a);
+            d.a.l0.a.o0.a.a(i2.g(), this.f45928b);
+            d.a.l0.a.e0.d.l(PrefetchEvent.MODULE, "prefetch master finish - " + this.f45928b.toString());
         }
     }
 
     public a(boolean z, boolean z2) {
         this.j = z2;
-        this.f42246f = z;
+        this.f45922f = z;
         e();
     }
 
@@ -98,30 +98,30 @@ public abstract class a {
         if (jVar == null) {
             return;
         }
-        if (this.f42247g) {
+        if (this.f45923g) {
             if (k) {
                 Log.d("BasePreloadMasterManager", "is Ready , call back immediately");
             }
             jVar.onReady();
             return;
         }
-        if (!this.f42242b.contains(jVar)) {
-            this.f42242b.add(jVar);
+        if (!this.f45918b.contains(jVar)) {
+            this.f45918b.add(jVar);
         }
     }
 
     public void d(PMSAppInfo pMSAppInfo) {
-        this.f42243c = pMSAppInfo;
+        this.f45919c = pMSAppInfo;
         h.b().c(this);
     }
 
     public final void e() {
         if (k) {
-            Log.d("BasePreloadMasterManager", "start create a blank preload master manager, is default - " + this.f42246f + ",is v8 - " + this.j);
+            Log.d("BasePreloadMasterManager", "start create a blank preload master manager, is default - " + this.f45922f + ",is v8 - " + this.j);
         }
-        this.f42248h = System.currentTimeMillis();
+        this.f45924h = System.currentTimeMillis();
         long currentTimeMillis = k ? System.currentTimeMillis() : 0L;
-        this.f42241a = d.a.l0.a.h0.u.g.N().t0(this.j, new C0670a());
+        this.f45917a = d.a.l0.a.h0.u.g.N().t0(this.j, new C0726a());
         if (k) {
             long currentTimeMillis2 = System.currentTimeMillis();
             Log.i("BasePreloadMasterManager", "create a new master cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
@@ -129,26 +129,26 @@ public abstract class a {
     }
 
     public long f() {
-        return this.f42249i - this.f42248h;
+        return this.f45925i - this.f45924h;
     }
 
     public PMSAppInfo g() {
-        return this.f42243c;
+        return this.f45919c;
     }
 
     public String h() {
-        if (this.f42243c != null) {
-            return this.f42243c.appId;
+        if (this.f45919c != null) {
+            return this.f45919c.appId;
         }
         return null;
     }
 
     public d.a.l0.a.h0.l.a i() {
-        return this.f42241a;
+        return this.f45917a;
     }
 
     public boolean j() {
-        return this.f42245e != null;
+        return this.f45921e != null;
     }
 
     public boolean k(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
@@ -156,7 +156,7 @@ public abstract class a {
     }
 
     public boolean l() {
-        return this.f42246f;
+        return this.f45922f;
     }
 
     public boolean m(PrefetchEvent.c cVar, PrefetchEvent.c cVar2) {
@@ -178,25 +178,25 @@ public abstract class a {
     }
 
     public boolean n() {
-        return this.f42247g;
+        return this.f45923g;
     }
 
     public final synchronized void o() {
         if (k) {
-            Log.d("BasePreloadMasterManager", "notifyAllReady, callback size " + this.f42242b.size());
+            Log.d("BasePreloadMasterManager", "notifyAllReady, callback size " + this.f45918b.size());
         }
-        for (j jVar : this.f42242b) {
+        for (j jVar : this.f45918b) {
             if (jVar != null) {
                 jVar.onReady();
             }
         }
-        this.f42242b.clear();
+        this.f45918b.clear();
     }
 
     public void p(PMSAppInfo pMSAppInfo) {
         d(pMSAppInfo);
-        this.f42245e = null;
-        this.f42244d = null;
+        this.f45921e = null;
+        this.f45920d = null;
     }
 
     public void q(PMSAppInfo pMSAppInfo) {
@@ -210,11 +210,11 @@ public abstract class a {
                 Log.e("BasePreloadMasterManager", "prefetch event is null");
             }
         } else if (pMSAppInfo != null && !TextUtils.isEmpty(pMSAppInfo.appId)) {
-            if (this.f42241a == null) {
+            if (this.f45917a == null) {
                 if (k) {
                     Log.i("BasePreloadMasterManager", "mMasterManager not create yet, can not prefetch");
                 }
-            } else if (l() && this.f42243c == null) {
+            } else if (l() && this.f45919c == null) {
                 if (k) {
                     Log.i("BasePreloadMasterManager", "default blank master can not use to prefetch");
                 }
@@ -231,18 +231,18 @@ public abstract class a {
     }
 
     public void s(PrefetchEvent.c cVar) {
-        this.f42244d = cVar;
+        this.f45920d = cVar;
         if (k) {
-            Log.d("BasePreloadMasterManager", "fire prefetch event name - " + cVar.f43905a);
+            Log.d("BasePreloadMasterManager", "fire prefetch event name - " + cVar.f47581a);
         }
     }
 
     public final void t(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         if (cVar.i()) {
-            this.f42245e = new i();
-            this.f42245e.f42263a = pMSAppInfo.appId;
-            this.f42245e.f42264b = pMSAppInfo;
-            this.f42245e.f42265c = cVar;
+            this.f45921e = new i();
+            this.f45921e.f45939a = pMSAppInfo.appId;
+            this.f45921e.f45940b = pMSAppInfo;
+            this.f45921e.f45941c = cVar;
         }
     }
 
@@ -254,7 +254,7 @@ public abstract class a {
     }
 
     public void v(PMSAppInfo pMSAppInfo) {
-        d.a.l0.a.h0.l.a aVar = this.f42241a;
+        d.a.l0.a.h0.l.a aVar = this.f45917a;
         if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || aVar == null) {
             return;
         }
@@ -262,7 +262,7 @@ public abstract class a {
             Log.d("BasePreloadMasterManager", "set code cache setting before preload/prefetch");
         }
         d.a.l0.a.h0.f.a g2 = aVar.g();
-        String str = e.C0561e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)).getPath() + File.separator;
+        String str = e.C0617e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode)).getPath() + File.separator;
         if (g2 instanceof d.a.l0.a.l0.a) {
             ((d.a.l0.a.l0.a) g2).C0(d.a.l0.a.h0.d.a.a("appjs", str));
         } else if (g2 instanceof NgWebView) {

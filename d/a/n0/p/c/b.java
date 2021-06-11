@@ -12,59 +12,59 @@ import tbclient.SimpleUser;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final View.OnClickListener f57931a;
+    public final View.OnClickListener f61622a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f57932b;
+    public BaseActivity f61623b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f57933c;
+    public LinearLayout f61624c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f57934d;
+    public LinearLayout f61625d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbSettingTextTipView f57935e;
+    public TbSettingTextTipView f61626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbSettingTextTipView f57936f;
+    public TbSettingTextTipView f61627f;
 
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.f57932b = baseActivity;
-        this.f57931a = onClickListener;
+        this.f61623b = baseActivity;
+        this.f61622a = onClickListener;
         b();
     }
 
     public View a() {
-        return this.f57933c;
+        return this.f61624c;
     }
 
     public final void b() {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f57932b).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.f57933c = linearLayout;
-        this.f57934d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
-        this.f57935e = (TbSettingTextTipView) this.f57933c.findViewById(R.id.bar_record);
-        this.f57936f = (TbSettingTextTipView) this.f57933c.findViewById(R.id.account_status);
-        this.f57935e.a();
-        this.f57936f.a();
-        this.f57935e.setOnClickListener(this.f57931a);
-        this.f57936f.setOnClickListener(this.f57931a);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f61623b).inflate(R.layout.account_safe_activity, (ViewGroup) null);
+        this.f61624c = linearLayout;
+        this.f61625d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
+        this.f61626e = (TbSettingTextTipView) this.f61624c.findViewById(R.id.bar_record);
+        this.f61627f = (TbSettingTextTipView) this.f61624c.findViewById(R.id.account_status);
+        this.f61626e.a();
+        this.f61627f.a();
+        this.f61626e.setOnClickListener(this.f61622a);
+        this.f61627f.setOnClickListener(this.f61622a);
     }
 
     public void c() {
-        this.f57933c.removeAllViews();
-        this.f57932b = null;
+        this.f61624c.removeAllViews();
+        this.f61623b = null;
     }
 
     public void d(SimpleUser simpleUser) {
         if (simpleUser == null) {
             return;
         }
-        this.f57936f.setTip(simpleUser.block_msg);
+        this.f61627f.setTip(simpleUser.block_msg);
     }
 
     public void e(int i2) {
-        this.f57932b.getLayoutMode().k(i2 == 1);
-        this.f57932b.getLayoutMode().j(this.f57933c);
+        this.f61623b.getLayoutMode().k(i2 == 1);
+        this.f61623b.getLayoutMode().j(this.f61624c);
     }
 }

@@ -12,21 +12,21 @@ import d.a.l0.a.k;
 import d.a.l0.a.p0.f.c;
 import d.a.l0.a.v1.b.f;
 import d.a.l0.a.v2.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends d.a.l0.a.p0.d.b<d.a.l0.a.p0.h.c.a, d.a.l0.a.p0.i.b.a> {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f44007d = k.f43199a;
+    public static final boolean f47681d = k.f46875a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f44008e;
+    public static volatile a f47682e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f44009f;
+    public static boolean f47683f;
 
     /* renamed from: d.a.l0.a.p0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0791a extends ProviderDelegation {
+    /* loaded from: classes3.dex */
+    public static class C0847a extends ProviderDelegation {
         public final ExtensionCore a() {
             if (b() == null) {
                 return null;
@@ -55,12 +55,12 @@ public class a extends d.a.l0.a.p0.d.b<d.a.l0.a.p0.h.c.a, d.a.l0.a.p0.i.b.a> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();
-            bundle2.putBoolean("swan_preset_extension", a.f44009f);
+            bundle2.putBoolean("swan_preset_extension", a.f47683f);
             d.h("ExtCore-AppsManager", "is extension file exists : " + a.n());
             return bundle2;
         }
@@ -68,7 +68,7 @@ public class a extends d.a.l0.a.p0.d.b<d.a.l0.a.p0.h.c.a, d.a.l0.a.p0.i.b.a> {
 
     static {
         d.a.l0.a.c1.a.Z().getSwitch("swan_preset_extension", true);
-        f44009f = true;
+        f47683f = true;
     }
 
     public a() {
@@ -77,12 +77,12 @@ public class a extends d.a.l0.a.p0.d.b<d.a.l0.a.p0.h.c.a, d.a.l0.a.p0.i.b.a> {
 
     public static boolean k() {
         if (ProcessUtils.isMainProcess()) {
-            d.h("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f44009f);
-            return f44009f;
+            d.h("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f47683f);
+            return f47683f;
         }
         f b2 = d.a.l0.a.v1.b.d.b(b.class, null);
         boolean z = true;
-        if (b2.a() && !b2.f45297a.getBoolean("swan_preset_extension", true)) {
+        if (b2.a() && !b2.f48971a.getBoolean("swan_preset_extension", true)) {
             z = false;
         }
         d.h("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
@@ -90,14 +90,14 @@ public class a extends d.a.l0.a.p0.d.b<d.a.l0.a.p0.h.c.a, d.a.l0.a.p0.i.b.a> {
     }
 
     public static a l() {
-        if (f44008e == null) {
+        if (f47682e == null) {
             synchronized (a.class) {
-                if (f44008e == null) {
-                    f44008e = new a();
+                if (f47682e == null) {
+                    f47682e = new a();
                 }
             }
         }
-        return f44008e;
+        return f47682e;
     }
 
     public static d.a.l0.a.p0.h.c.a m() {
@@ -126,10 +126,10 @@ public class a extends d.a.l0.a.p0.d.b<d.a.l0.a.p0.h.c.a, d.a.l0.a.p0.i.b.a> {
         if (ProcessUtils.isMainProcess()) {
             extensionCore = d();
         } else {
-            Bundle bundle = d.a.l0.a.v1.b.d.b(C0791a.class, null).f45297a;
+            Bundle bundle = d.a.l0.a.v1.b.d.b(C0847a.class, null).f48971a;
             bundle.setClassLoader(ExtensionCore.class.getClassLoader());
             extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (f44007d) {
+            if (f47681d) {
                 Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
             }
         }

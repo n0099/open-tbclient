@@ -10,7 +10,7 @@ import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
 public class RequestGetTopicRelateThreadMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16826common;
+    public CommonReq f16902common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -32,7 +32,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f69424common = getCommon();
+            builder.f72735common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.rn = getRn();
@@ -57,7 +57,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f16826common;
+        return this.f16902common;
     }
 
     public Long getLastId() {
@@ -109,7 +109,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f16826common = commonReq;
+        this.f16902common = commonReq;
     }
 
     public void setLastId(Long l) {

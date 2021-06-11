@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.Set;
 import org.apache.http.HttpResponse;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpOptions extends HttpRequestBase {
     public static final String METHOD_NAME = "OPTIONS";
 

@@ -3,7 +3,7 @@ package com.kwad.sdk.feed;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public enum FeedType {
     FEED_TYPE_UNKNOWN(0),
     FEED_TYPE_TEXT_IMMERSE(1),
@@ -21,13 +21,13 @@ public enum FeedType {
     }
 
     public static boolean checkTypeValid(@NonNull AdTemplate adTemplate) {
-        int H = com.kwad.sdk.core.response.b.a.H(c.g(adTemplate));
+        int L = com.kwad.sdk.core.response.b.a.L(c.j(adTemplate));
         int i2 = adTemplate.type;
         if (i2 > FEED_TYPE_TEXT_ABOVE_GROUP.type) {
             return true;
         }
         FeedType fromInt = fromInt(i2);
-        return H != 1 ? H != 2 ? H == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
+        return L != 1 ? L != 2 ? L == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
     }
 
     @NonNull

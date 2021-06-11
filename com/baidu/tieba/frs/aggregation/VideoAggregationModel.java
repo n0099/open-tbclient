@@ -24,19 +24,19 @@ import org.json.JSONObject;
 public class VideoAggregationModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15230e;
+    public int f15292e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15231f;
+    public String f15293f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15232g;
+    public String f15294g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15233h;
+    public String f15295h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f15234i;
+    public String f15296i;
     public boolean j;
     public c k;
     public final HttpMessageListener l;
@@ -65,7 +65,7 @@ public class VideoAggregationModel extends BdBaseModel {
                 JSONArray jSONArray = new JSONArray(optString);
                 for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     g gVar = new g();
-                    gVar.t(jSONArray.optString(i3));
+                    gVar.p(jSONArray.optString(i3));
                     if (gVar.z != null) {
                         this.mDataList.add(gVar);
                     }
@@ -90,10 +90,10 @@ public class VideoAggregationModel extends BdBaseModel {
             VideoAggregationModel.this.j = false;
             if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                 VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f15230e == 1, videoAggregationResponseMessage.mHasMore);
+                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f15292e == 1, videoAggregationResponseMessage.mHasMore);
                 return;
             }
-            VideoAggregationModel.v(VideoAggregationModel.this);
+            VideoAggregationModel.z(VideoAggregationModel.this);
             String errorString = httpResponsedMessage.getErrorString();
             if (TextUtils.isEmpty(errorString)) {
                 errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
@@ -118,10 +118,10 @@ public class VideoAggregationModel extends BdBaseModel {
             VideoAggregationModel.this.j = false;
             if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                 VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f15230e == 1, videoAggregationResponseMessage.mHasMore);
+                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f15292e == 1, videoAggregationResponseMessage.mHasMore);
                 return;
             }
-            VideoAggregationModel.v(VideoAggregationModel.this);
+            VideoAggregationModel.z(VideoAggregationModel.this);
             String errorString = httpResponsedMessage.getErrorString();
             if (TextUtils.isEmpty(errorString)) {
                 errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
@@ -151,30 +151,47 @@ public class VideoAggregationModel extends BdBaseModel {
         registerListener(this.m);
     }
 
-    public static /* synthetic */ int v(VideoAggregationModel videoAggregationModel) {
-        int i2 = videoAggregationModel.f15230e;
-        videoAggregationModel.f15230e = i2 - 1;
+    public static /* synthetic */ int z(VideoAggregationModel videoAggregationModel) {
+        int i2 = videoAggregationModel.f15292e;
+        videoAggregationModel.f15292e = i2 - 1;
         return i2;
+    }
+
+    public void A() {
+        this.f15292e = 0;
+        LoadData();
+    }
+
+    public void B(String str) {
+        this.f15293f = str;
+    }
+
+    public void C(String str) {
+        this.f15296i = str;
+    }
+
+    public void D(String str) {
+        this.f15295h = str;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         HttpMessage httpMessage;
-        if (TextUtils.isEmpty(this.f15231f) || this.j) {
+        if (TextUtils.isEmpty(this.f15293f) || this.j) {
             return false;
         }
         this.j = true;
-        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f15232g)) {
+        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f15294g)) {
             httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_AGGREGATION);
-            httpMessage.addParam("fid", this.f15231f);
+            httpMessage.addParam("fid", this.f15293f);
         } else {
             httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-            httpMessage.addParam("tid", this.f15231f);
-            httpMessage.addParam("st_type", this.f15233h);
-            httpMessage.addParam("yuelaou_locate", this.f15234i);
+            httpMessage.addParam("tid", this.f15293f);
+            httpMessage.addParam("st_type", this.f15295h);
+            httpMessage.addParam("yuelaou_locate", this.f15296i);
         }
-        int i2 = this.f15230e + 1;
-        this.f15230e = i2;
+        int i2 = this.f15292e + 1;
+        this.f15292e = i2;
         httpMessage.addParam(Config.PACKAGE_NAME, i2);
         sendMessage(httpMessage);
         return true;
@@ -197,23 +214,6 @@ public class VideoAggregationModel extends BdBaseModel {
     }
 
     public void setFrom(String str) {
-        this.f15232g = str;
-    }
-
-    public void w() {
-        this.f15230e = 0;
-        LoadData();
-    }
-
-    public void x(String str) {
-        this.f15231f = str;
-    }
-
-    public void y(String str) {
-        this.f15234i = str;
-    }
-
-    public void z(String str) {
-        this.f15233h = str;
+        this.f15294g = str;
     }
 }

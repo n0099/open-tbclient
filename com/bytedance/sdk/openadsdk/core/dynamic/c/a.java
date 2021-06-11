@@ -19,24 +19,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f28013e;
+    public static String f28116e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28014a;
+    public Context f28117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSWebView f28015b;
+    public SSWebView f28118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28016c;
+    public String f28119c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f28017d;
+    public c f28120d;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0292a {
-        public C0292a() {
+    public class C0294a {
+        public C0294a() {
         }
 
         @JavascriptInterface
@@ -95,8 +95,8 @@ public class a {
         public String jsCoreGlobal() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("width", al.b(p.a(), al.c(a.this.f28014a)));
-                jSONObject.put("height", al.b(p.a(), al.d(a.this.f28014a)));
+                jSONObject.put("width", al.b(p.a(), al.c(a.this.f28117a)));
+                jSONObject.put("height", al.b(p.a(), al.d(a.this.f28117a)));
                 jSONObject.put(IAdRequestParam.OS, "Android");
             } catch (Exception unused) {
             }
@@ -110,33 +110,33 @@ public class a {
     }
 
     public a(@NonNull Context context) {
-        this.f28014a = context;
-        SSWebView sSWebView = new SSWebView(this.f28014a);
-        this.f28015b = sSWebView;
+        this.f28117a = context;
+        SSWebView sSWebView = new SSWebView(this.f28117a);
+        this.f28118b = sSWebView;
         if (Build.VERSION.SDK_INT >= 19) {
-            sSWebView.addJavascriptInterface(new C0292a(), "JS_DYNAMIC_LAYOUT_OBJ");
+            sSWebView.addJavascriptInterface(new C0294a(), "JS_DYNAMIC_LAYOUT_OBJ");
         }
-        this.f28015b.loadUrl("about:blank");
+        this.f28118b.loadUrl("about:blank");
         a();
     }
 
     public static String c() {
-        if (TextUtils.isEmpty(f28013e)) {
+        if (TextUtils.isEmpty(f28116e)) {
             return null;
         }
-        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f28013e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
+        return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + al.b(p.a(), al.c(p.a())) + ",height:" + al.b(p.a(), al.d(p.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f28116e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
     }
 
     private void d() {
-        aa.a(this.f28014a, this.f28015b);
-        aa.a(this.f28015b);
-        this.f28015b = null;
+        aa.a(this.f28117a, this.f28118b);
+        aa.a(this.f28118b);
+        this.f28118b = null;
     }
 
     public void b(String str) {
         c cVar;
-        this.f28016c = str;
-        if (TextUtils.isEmpty(f28013e) && (cVar = this.f28017d) != null) {
+        this.f28119c = str;
+        if (TextUtils.isEmpty(f28116e) && (cVar = this.f28120d) != null) {
             cVar.a(null);
             d();
         }
@@ -144,7 +144,7 @@ public class a {
     }
 
     public static void a(String str) {
-        f28013e = str;
+        f28116e = str;
     }
 
     private void a() {
@@ -152,15 +152,15 @@ public class a {
         if (TextUtils.isEmpty(c2)) {
             return;
         }
-        t.a(this.f28015b, c2);
+        t.a(this.f28118b, c2);
     }
 
     private void b() {
-        t.a(this.f28015b, "javascript:var res = getLayoutInfo(" + this.f28016c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+        t.a(this.f28118b, "javascript:var res = getLayoutInfo(" + this.f28119c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
     }
 
     public void a(c cVar) {
-        this.f28017d = cVar;
+        this.f28120d = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -171,7 +171,7 @@ public class a {
         } catch (Exception unused) {
             fVar = null;
         }
-        c cVar = this.f28017d;
+        c cVar = this.f28120d;
         if (cVar != null) {
             cVar.a(fVar);
         }

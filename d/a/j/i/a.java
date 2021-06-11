@@ -1,22 +1,22 @@
 package d.a.j.i;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40224a;
+    public String f43905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40225b;
+    public boolean f43906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40226c;
+    public boolean f43907c;
 
     public a(String str, boolean z, boolean z2) {
-        this.f40224a = str;
-        this.f40225b = z;
-        this.f40226c = z2;
+        this.f43905a = str;
+        this.f43906b = z;
+        this.f43907c = z2;
     }
 
     public static int a(int i2) {
@@ -66,14 +66,14 @@ public class a {
                 if (i7 >= i2) {
                     break;
                 }
-                char charAt = this.f40224a.charAt(iArr[i7]);
-                if (this.f40226c) {
+                char charAt = this.f43905a.charAt(iArr[i7]);
+                if (this.f43907c) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
                 i7++;
             }
-            if (this.f40225b) {
+            if (this.f43906b) {
                 while (i2 < 8) {
                     byteArrayOutputStream.write(61);
                     i2++;

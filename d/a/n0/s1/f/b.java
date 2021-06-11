@@ -35,34 +35,34 @@ public class b {
     public int B;
     public Boolean C;
     public AdapterView.d D = new a();
-    public View.OnClickListener E = new View$OnClickListenerC1594b();
+    public View.OnClickListener E = new View$OnClickListenerC1650b();
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f60508a;
+    public TbPageContext f64199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f60509b;
+    public View f64200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f60510c;
+    public RelativeLayout f64201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HListView f60511d;
+    public HListView f64202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f60512e;
+    public ImageView f64203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f60513f;
+    public TextView f64204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f60514g;
+    public TextView f64205g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GridView f60515h;
+    public GridView f64206h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f60516i;
+    public LinearLayout f64207i;
     public TextView j;
     public NoNetworkView k;
     public TextView l;
@@ -101,8 +101,8 @@ public class b {
 
     /* renamed from: d.a.n0.s1.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1594b implements View.OnClickListener {
-        public View$OnClickListenerC1594b() {
+    public class View$OnClickListenerC1650b implements View.OnClickListener {
+        public View$OnClickListenerC1650b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -129,12 +129,12 @@ public class b {
                     }
                 }
                 TiebaStatic.log(new StatisticItem("c13200").param("obj_type", i3).param("obj_locate", i2));
-            } else if (view != b.this.f60512e) {
-                if (view == b.this.f60514g) {
-                    UrlManager.getInstance().dealOneLink(b.this.f60508a, new String[]{b.F});
+            } else if (view != b.this.f64203e) {
+                if (view == b.this.f64205g) {
+                    UrlManager.getInstance().dealOneLink(b.this.f64199a, new String[]{b.F});
                 }
             } else {
-                UrlManager.getInstance().dealOneLink(b.this.f60508a, new String[]{b.G});
+                UrlManager.getInstance().dealOneLink(b.this.f64199a, new String[]{b.G});
             }
         }
     }
@@ -142,8 +142,8 @@ public class b {
     public b(TbPageContext tbPageContext, View view, int i2, String str, String str2, boolean z, int i3) {
         this.x = 2;
         this.C = Boolean.FALSE;
-        this.f60509b = view;
-        this.f60508a = tbPageContext;
+        this.f64200b = view;
+        this.f64199a = tbPageContext;
         this.x = i2;
         this.C = Boolean.valueOf(z);
         this.z = str;
@@ -155,11 +155,11 @@ public class b {
     public final void l() {
         f.d b2 = this.m.b();
         if (b2 == null) {
-            l.L(this.f60508a.getPageActivity(), R.string.tb_member_select_money_tip);
+            l.L(this.f64199a.getPageActivity(), R.string.tb_member_select_money_tip);
         } else if (b2.n == 1 && b2.o) {
-            l.L(this.f60508a.getPageActivity(), R.string.tips_auto_pay_succ);
+            l.L(this.f64199a.getPageActivity(), R.string.tips_auto_pay_succ);
         } else {
-            t(b2.f60559i, b2.j / 100, b2.l, b2.n);
+            t(b2.f64250i, b2.j / 100, b2.l, b2.n);
             if (this.B == 26) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.MEMBER_PAY_PAGE_SHOW_PAY_CLICK).param("obj_source", 1));
             }
@@ -172,23 +172,23 @@ public class b {
         if (fVar == null) {
             return;
         }
-        f.b bVar = fVar.f60538b;
+        f.b bVar = fVar.f64229b;
         this.q = bVar;
-        f.g gVar = fVar.f60537a;
+        f.g gVar = fVar.f64228a;
         this.p = gVar;
-        if (bVar == null || gVar == null || (eVar = gVar.f60564c) == null) {
+        if (bVar == null || gVar == null || (eVar = gVar.f64255c) == null) {
             return;
         }
-        this.y = eVar.f60560a;
-        f.a aVar = bVar.f60545b;
+        this.y = eVar.f64251a;
+        f.a aVar = bVar.f64236b;
         this.s = aVar;
         if (aVar != null) {
-            this.t = aVar.f60541c;
+            this.t = aVar.f64232c;
         }
-        f.c cVar = this.q.f60544a;
+        f.c cVar = this.q.f64235a;
         this.r = cVar;
         if (cVar != null) {
-            this.u = cVar.f60548c;
+            this.u = cVar.f64239c;
         }
     }
 
@@ -197,64 +197,64 @@ public class b {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         int i2 = this.x;
         if (i2 == 1) {
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_update_name), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_nickname24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_special_identity), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_member24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_patch_card), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_remedy24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_write_pop), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_qipao24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_tail), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_tail24_1x));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_update_name), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_nickname24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_special_identity), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_member24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_patch_card), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_remedy24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_write_pop), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_qipao24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_tail), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_tail24_1x));
         } else if (i2 == 2) {
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_update_name), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_nickname24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_special_identity), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_member24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_forbid_adv), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_advertising24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_experience_acc), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_accelerate24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_one_key_sign), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_checkin24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_special_bg), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_bg24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_patch_card), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_remedy24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_write_pop), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_qipao24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_forbid_speak), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_notalk24_svg));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_tail), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_tail24_1x));
-            linkedHashMap.put(this.f60508a.getPageActivity().getResources().getString(R.string.member_privilege_more_link), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_morelink26_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_update_name), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_nickname24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_special_identity), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_member24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_forbid_adv), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_advertising24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_experience_acc), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_accelerate24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_one_key_sign), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_checkin24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_special_bg), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_bg24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_patch_card), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_remedy24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_write_pop), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_qipao24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_forbid_speak), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_notalk24_svg));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_tail), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_tail24_1x));
+            linkedHashMap.put(this.f64199a.getPageActivity().getResources().getString(R.string.member_privilege_more_link), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_morelink26_svg));
         }
         for (Map.Entry entry : linkedHashMap.entrySet()) {
             d dVar = new d();
-            dVar.f60532b = (String) entry.getKey();
-            dVar.f60531a = ((Integer) entry.getValue()).intValue();
+            dVar.f64223b = (String) entry.getKey();
+            dVar.f64222a = ((Integer) entry.getValue()).intValue();
             arrayList.add(dVar);
         }
         return arrayList;
     }
 
     public final void o() {
-        this.f60510c = (RelativeLayout) this.f60509b.findViewById(R.id.root);
-        this.f60511d = (HListView) this.f60509b.findViewById(R.id.price_listview);
-        this.f60516i = (LinearLayout) this.f60509b.findViewById(R.id.renew_layout);
-        this.f60512e = (ImageView) this.f60509b.findViewById(R.id.renew_tip_img);
-        this.f60513f = (TextView) this.f60509b.findViewById(R.id.privilege_title);
-        this.f60514g = (TextView) this.f60509b.findViewById(R.id.privilege_rule);
-        this.f60515h = (GridView) this.f60509b.findViewById(R.id.privilege_container);
-        this.k = (NoNetworkView) this.f60509b.findViewById(R.id.view_no_network);
-        this.j = (TextView) this.f60509b.findViewById(R.id.member_pay_button);
-        this.l = (TextView) this.f60509b.findViewById(R.id.tv_member_auto_pay_cancel_tip);
-        this.f60511d.setBackgroundResource(R.drawable.transparent_bg);
-        this.f60511d.setOnItemClickListener(this.D);
-        this.f60511d.setSelector(this.f60508a.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
-        this.f60515h.setVerticalSpacing(this.f60508a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
-        this.f60515h.setHorizontalSpacing(this.f60508a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds108));
+        this.f64201c = (RelativeLayout) this.f64200b.findViewById(R.id.root);
+        this.f64202d = (HListView) this.f64200b.findViewById(R.id.price_listview);
+        this.f64207i = (LinearLayout) this.f64200b.findViewById(R.id.renew_layout);
+        this.f64203e = (ImageView) this.f64200b.findViewById(R.id.renew_tip_img);
+        this.f64204f = (TextView) this.f64200b.findViewById(R.id.privilege_title);
+        this.f64205g = (TextView) this.f64200b.findViewById(R.id.privilege_rule);
+        this.f64206h = (GridView) this.f64200b.findViewById(R.id.privilege_container);
+        this.k = (NoNetworkView) this.f64200b.findViewById(R.id.view_no_network);
+        this.j = (TextView) this.f64200b.findViewById(R.id.member_pay_button);
+        this.l = (TextView) this.f64200b.findViewById(R.id.tv_member_auto_pay_cancel_tip);
+        this.f64202d.setBackgroundResource(R.drawable.transparent_bg);
+        this.f64202d.setOnItemClickListener(this.D);
+        this.f64202d.setSelector(this.f64199a.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
+        this.f64206h.setVerticalSpacing(this.f64199a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
+        this.f64206h.setHorizontalSpacing(this.f64199a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds108));
         this.j.setOnClickListener(this.E);
-        this.f60512e.setOnClickListener(this.E);
-        this.f60514g.setOnClickListener(this.E);
+        this.f64203e.setOnClickListener(this.E);
+        this.f64205g.setOnClickListener(this.E);
     }
 
     public void p(int i2) {
-        this.k.c(this.f60508a, i2);
-        SkinManager.setBackgroundColor(this.f60510c, R.color.CAM_X0201);
+        this.k.c(this.f64199a, i2);
+        SkinManager.setBackgroundColor(this.f64201c, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0107);
-        SkinManager.setViewTextColor(this.f60513f, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f60514g, R.color.CAM_X0107);
-        this.f60514g.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_tbvip_arrow_right), (Drawable) null);
+        SkinManager.setViewTextColor(this.f64204f, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f64205g, R.color.CAM_X0107);
+        this.f64205g.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_tbvip_arrow_right), (Drawable) null);
         SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
         SkinManager.setBackgroundResource(this.j, R.drawable.member_price_btn_bg);
-        SkinManager.setImageResource(this.f60512e, R.drawable.icon_tbvip_attention);
+        SkinManager.setImageResource(this.f64203e, R.drawable.icon_tbvip_attention);
     }
 
     public void q(boolean z) {
@@ -265,7 +265,7 @@ public class b {
             return;
         }
         List<f.d> list2 = null;
-        if (2 != this.x ? !((cVar = this.r) == null || (list = cVar.f60546a) == null) : !((aVar = this.s) == null || (list = aVar.f60539a) == null)) {
+        if (2 != this.x ? !((cVar = this.r) == null || (list = cVar.f64237a) == null) : !((aVar = this.s) == null || (list = aVar.f64230a) == null)) {
             list2 = list;
         }
         if (ListUtils.isEmpty(list2)) {
@@ -284,28 +284,28 @@ public class b {
         f.g gVar;
         f.a aVar;
         if (this.o == null) {
-            this.f60510c.setVisibility(8);
+            this.f64201c.setVisibility(8);
         } else if (this.q != null && (gVar = this.p) != null) {
-            if (gVar.f60564c == null) {
-                this.f60510c.setVisibility(8);
+            if (gVar.f64255c == null) {
+                this.f64201c.setVisibility(8);
             } else if (this.s == null && this.r == null) {
-                this.f60510c.setVisibility(8);
-            } else if (this.x == 2 && ((aVar = this.s) == null || ListUtils.isEmpty(aVar.f60539a))) {
-                this.f60510c.setVisibility(8);
+                this.f64201c.setVisibility(8);
+            } else if (this.x == 2 && ((aVar = this.s) == null || ListUtils.isEmpty(aVar.f64230a))) {
+                this.f64201c.setVisibility(8);
             } else {
-                this.f60510c.setVisibility(0);
+                this.f64201c.setVisibility(0);
                 v();
                 w();
                 y();
             }
         } else {
-            this.f60510c.setVisibility(8);
+            this.f64201c.setVisibility(8);
         }
     }
 
     public void s(f fVar) {
         if (fVar == null) {
-            this.f60510c.setVisibility(8);
+            this.f64201c.setVisibility(8);
             return;
         }
         this.o = fVar;
@@ -316,19 +316,19 @@ public class b {
     public final void t(long j, long j2, long j3, int i2) {
         PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.C.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.z, this.A);
         payConfig.setTitle(this.v);
-        payConfig.setOrderName(this.w + this.f60508a.getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j3)}));
+        payConfig.setOrderName(this.w + this.f64199a.getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j3)}));
         payConfig.setAutoPay(i2);
         if (this.B == 23) {
-            payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_MANGA;
+            payConfig.paymentPosKey = "37";
         }
-        d.a.m0.l0.d.c().a(payConfig, this.f60508a.getPageActivity());
+        d.a.m0.l0.d.c().a(payConfig, this.f64199a.getPageActivity());
     }
 
     public final void u(int i2) {
         if (i2 == 1) {
-            this.f60516i.setVisibility(0);
+            this.f64207i.setVisibility(0);
         } else {
-            this.f60516i.setVisibility(8);
+            this.f64207i.setVisibility(8);
         }
     }
 
@@ -336,7 +336,7 @@ public class b {
         f.c cVar;
         List<f.d> list;
         f.a aVar;
-        if (2 != this.x ? (cVar = this.r) == null || (list = cVar.f60546a) == null : (aVar = this.s) == null || (list = aVar.f60539a) == null) {
+        if (2 != this.x ? (cVar = this.r) == null || (list = cVar.f64237a) == null : (aVar = this.s) == null || (list = aVar.f64230a) == null) {
             list = null;
         }
         if (ListUtils.isEmpty(list)) {
@@ -349,10 +349,10 @@ public class b {
             }
         }
         if (this.m == null) {
-            c cVar2 = new c(this.f60508a);
+            c cVar2 = new c(this.f64199a);
             this.m = cVar2;
             cVar2.d(list);
-            this.f60511d.setAdapter((ListAdapter) this.m);
+            this.f64202d.setAdapter((ListAdapter) this.m);
         }
         this.m.d(list);
         this.m.notifyDataSetChanged();
@@ -361,15 +361,15 @@ public class b {
     public final void w() {
         if (this.n == null) {
             ArrayList<d> n = n();
-            e eVar = new e(this.f60508a.getPageActivity());
+            e eVar = new e(this.f64199a.getPageActivity());
             this.n = eVar;
             eVar.c(n);
-            this.f60515h.setAdapter((ListAdapter) this.n);
+            this.f64206h.setAdapter((ListAdapter) this.n);
         }
     }
 
     public final void x(long j) {
-        this.j.setText(this.f60508a.getPageActivity().getResources().getString(R.string.tb_member_need_pay_money, "" + (j / 100)));
+        this.j.setText(this.f64199a.getPageActivity().getResources().getString(R.string.tb_member_need_pay_money, "" + (j / 100)));
     }
 
     public final void y() {
@@ -377,21 +377,21 @@ public class b {
         int i2 = this.x;
         if (2 == i2) {
             if (this.y == 2) {
-                string = this.f60508a.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.t});
+                string = this.f64199a.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.t});
             } else {
-                string = this.f60508a.getPageActivity().getString(R.string.dredge, new Object[]{this.t});
+                string = this.f64199a.getPageActivity().getString(R.string.dredge, new Object[]{this.t});
             }
             this.w = this.t;
         } else if (1 == i2) {
             long j = this.y;
             if (j == 1) {
-                string = this.f60508a.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.u});
+                string = this.f64199a.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.u});
             } else {
-                string = j == 0 ? this.f60508a.getPageActivity().getString(R.string.dredge, new Object[]{this.u}) : null;
+                string = j == 0 ? this.f64199a.getPageActivity().getString(R.string.dredge, new Object[]{this.u}) : null;
             }
             this.w = this.u;
         } else {
-            string = this.f60508a.getPageActivity().getString(R.string.dredge, new Object[]{this.u});
+            string = this.f64199a.getPageActivity().getString(R.string.dredge, new Object[]{this.u});
             this.w = this.u;
         }
         this.v = string;

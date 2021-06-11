@@ -19,12 +19,12 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
-        this.mEvaluationView.h(i2, i3, intent);
+        this.mEvaluationView.i(i2, i3, intent);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
-        this.mEvaluationView.i();
+        this.mEvaluationView.j();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -49,14 +49,14 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.mEvaluationView.j();
+        this.mEvaluationView.k();
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         if (i2 == 4) {
-            this.mEvaluationView.l();
+            this.mEvaluationView.m();
             return true;
         }
         return super.onKeyDown(i2, keyEvent);

@@ -4,21 +4,21 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f63285a = 0;
+    public int f67000a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63286b = null;
+    public String f67001b = null;
 
     public int a() {
-        return this.f63285a;
+        return this.f67000a;
     }
 
     public String b() {
-        return this.f63286b;
+        return this.f67001b;
     }
 
     public void c(String str) {
@@ -34,8 +34,8 @@ public class c {
 
     public void d(JSONObject jSONObject) {
         try {
-            this.f63285a = jSONObject.optInt("errno");
-            this.f63286b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.f67000a = jSONObject.optInt("errno");
+            this.f67001b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

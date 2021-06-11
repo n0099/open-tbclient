@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f49420a = null;
+    public static b f53094a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f49421b = null;
+    public static a f53095b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f49422c = false;
+    public static boolean f53096c = false;
 
     static {
         new ArrayList(5);
@@ -21,39 +21,39 @@ public class a {
 
     public static a a(BaseFragmentActivity baseFragmentActivity) {
         b bVar;
-        if (f49421b == null) {
+        if (f53095b == null) {
             synchronized (a.class) {
-                if (f49421b == null) {
-                    f49421b = new a();
-                    f49420a = b.a(baseFragmentActivity);
+                if (f53095b == null) {
+                    f53095b = new a();
+                    f53094a = b.a(baseFragmentActivity);
                 }
             }
         } else {
-            b bVar2 = f49420a;
+            b bVar2 = f53094a;
             if (bVar2 != null) {
                 bVar2.j(baseFragmentActivity.getPageContext());
             }
         }
-        if (f49422c && (bVar = f49420a) != null) {
+        if (f53096c && (bVar = f53094a) != null) {
             bVar.d();
-            f49420a.c();
-            f49422c = false;
+            f53094a.c();
+            f53096c = false;
         }
-        return f49421b;
+        return f53095b;
     }
 
     public static void h() {
         try {
-            if (f49420a != null) {
-                if (f49421b != null) {
-                    f49421b.j();
+            if (f53094a != null) {
+                if (f53095b != null) {
+                    f53095b.j();
                 }
-                f49420a.e();
-                f49420a.i();
-                f49420a = null;
+                f53094a.e();
+                f53094a.i();
+                f53094a = null;
             }
-            if (f49421b != null) {
-                f49421b = null;
+            if (f53095b != null) {
+                f53095b = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -61,25 +61,25 @@ public class a {
     }
 
     public final void b() {
-        if (f49420a == null) {
+        if (f53094a == null) {
         }
     }
 
     public void c() {
         b();
-        b bVar = f49420a;
+        b bVar = f53094a;
         if (bVar != null) {
             bVar.d();
-            f49422c = false;
+            f53096c = false;
         }
     }
 
     public void d() {
         b();
-        b bVar = f49420a;
+        b bVar = f53094a;
         if (bVar != null) {
             bVar.c();
-            f49422c = false;
+            f53096c = false;
         }
     }
 
@@ -97,29 +97,29 @@ public class a {
 
     public void f(b.a aVar) {
         b();
-        b bVar = f49420a;
+        b bVar = f53094a;
         if (bVar != null) {
             if (bVar.b()) {
-                f49420a.k(aVar);
+                f53094a.k(aVar);
             }
-            f49420a.f();
+            f53094a.f();
         }
     }
 
     public void g(int i2, b.a aVar) {
         b();
-        b bVar = f49420a;
+        b bVar = f53094a;
         if (bVar != null) {
             if (bVar.b()) {
-                f49420a.k(aVar);
+                f53094a.k(aVar);
             }
-            f49420a.g(i2);
+            f53094a.g(i2);
         }
     }
 
     public void i() {
         b();
-        b bVar = f49420a;
+        b bVar = f53094a;
         if (bVar != null) {
             bVar.h();
         }
@@ -133,7 +133,7 @@ public class a {
 
     public void k(b.a aVar) {
         b();
-        b bVar = f49420a;
+        b bVar = f53094a;
         if (bVar != null) {
             bVar.k(aVar);
         }
@@ -141,7 +141,7 @@ public class a {
 
     public void l(boolean z) {
         b();
-        b bVar = f49420a;
+        b bVar = f53094a;
         if (bVar != null) {
             bVar.l(z);
         }
@@ -149,10 +149,10 @@ public class a {
 
     public void m() {
         b();
-        b bVar = f49420a;
+        b bVar = f53094a;
         if (bVar != null) {
             bVar.m();
-            f49422c = true;
+            f53096c = true;
         }
     }
 }

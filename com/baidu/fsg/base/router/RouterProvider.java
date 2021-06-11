@@ -5,25 +5,25 @@ import java.util.HashMap;
 public abstract class RouterProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f5180a = true;
+    public boolean f5223a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, RouterAction> f5181b = new HashMap<>();
+    public HashMap<String, RouterAction> f5224b = new HashMap<>();
 
     public RouterProvider() {
         registerActions();
     }
 
     public RouterAction findAction(String str) {
-        return this.f5181b.get(str);
+        return this.f5224b.get(str);
     }
 
     public boolean isValid() {
-        return this.f5180a;
+        return this.f5223a;
     }
 
     public void registerAction(String str, RouterAction routerAction) {
-        this.f5181b.put(str, routerAction);
+        this.f5224b.put(str, routerAction);
     }
 
     public abstract void registerActions();

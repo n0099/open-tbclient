@@ -5,26 +5,26 @@ import android.graphics.drawable.Drawable;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f55563a = false;
+    public boolean f59252a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55564b;
+    public String f59253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55565c;
+    public String f59254c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55566d;
+    public String f59255d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f55567e;
+    public Drawable f59256e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f55568f;
+    public Drawable f59257f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f55569g;
+    public Drawable f59258g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55570h;
+    public boolean f59259h;
 }

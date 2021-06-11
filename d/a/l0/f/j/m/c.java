@@ -3,5 +3,5 @@ package d.a.l0.f.j.m;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f46874a = "com.baidu.gamenow";
+    public static String f50548a = "com.baidu.gamenow";
 }

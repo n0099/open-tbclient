@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
 /* loaded from: classes5.dex */
-public class b extends d.a.c.j.e.a<d.a.n0.j2.e.c, CardViewHolder<d.a.n0.j2.j.a>> {
+public class b extends d.a.c.k.e.a<d.a.n0.j2.e.c, CardViewHolder<d.a.n0.j2.j.a>> {
     public TbPageContext<?> m;
     public d.a.c.e.k.b<PersonCommonForumItemView> n;
 
@@ -51,7 +51,7 @@ public class b extends d.a.c.j.e.a<d.a.n0.j2.e.c, CardViewHolder<d.a.n0.j2.j.a>>
         @Override // d.a.c.e.k.c
         /* renamed from: g */
         public PersonCommonForumItemView d() {
-            return new PersonCommonForumItemView(b.this.f39228e);
+            return new PersonCommonForumItemView(b.this.f42909e);
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -60,26 +60,26 @@ public class b extends d.a.c.j.e.a<d.a.n0.j2.e.c, CardViewHolder<d.a.n0.j2.j.a>>
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.a.n0.j2.e.c.f56393f);
+        super(tbPageContext.getPageActivity(), d.a.n0.j2.e.c.f60082f);
         this.n = new d.a.c.e.k.b<>(new a(), 12, 0);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public CardViewHolder<d.a.n0.j2.j.a> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public CardViewHolder<d.a.n0.j2.j.a> Q(ViewGroup viewGroup) {
         d.a.n0.j2.j.a aVar = new d.a.n0.j2.j.a(this.m);
-        aVar.z(this.n);
+        aVar.A(this.n);
         return new CardViewHolder<>(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.j2.e.c cVar, CardViewHolder<d.a.n0.j2.j.a> cardViewHolder) {
-        cardViewHolder.b().n(this.m, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.b().m(cVar);
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.j2.e.c cVar, CardViewHolder<d.a.n0.j2.j.a> cardViewHolder) {
+        cardViewHolder.b().o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.b().n(cVar);
         return cardViewHolder.a();
     }
 }

@@ -19,7 +19,7 @@ import d.a.l0.a.v2.q0;
 import d.a.l0.o.a.a.n;
 /* loaded from: classes2.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final int INVALID_ANIM = 0;
     public static final String KEY_ERROR_FORBIDDEN_INFO = "swan_error_forbidden_info";
     public static final String KEY_ERROR_MENU_NOTICE_COUNT = "swan_error_menu_notice_count";

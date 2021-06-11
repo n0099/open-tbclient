@@ -28,7 +28,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

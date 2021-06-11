@@ -1,0 +1,24 @@
+package com.kwad.sdk.glide.load.b;
+
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.bumptech.glide.load.model.ByteBufferEncoder;
+import java.io.File;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+/* loaded from: classes7.dex */
+public class c implements com.kwad.sdk.glide.load.a<ByteBuffer> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.glide.load.a
+    public boolean a(@NonNull ByteBuffer byteBuffer, @NonNull File file, @NonNull com.kwad.sdk.glide.load.e eVar) {
+        try {
+            com.kwad.sdk.glide.g.a.a(byteBuffer, file);
+            return true;
+        } catch (IOException e2) {
+            if (Log.isLoggable(ByteBufferEncoder.TAG, 3)) {
+                Log.d(ByteBufferEncoder.TAG, "Failed to write data", e2);
+            }
+            return false;
+        }
+    }
+}

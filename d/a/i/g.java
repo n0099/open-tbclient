@@ -12,7 +12,7 @@ public class g extends t0 {
 
     @Override // d.a.i.t0
     public d.a.n0.k2.q.a q() {
-        return new d.a.n0.k2.q.b(this.f40008f, this.m, this.C);
+        return new d.a.n0.k2.q.b(this.f43689f, this.m, this.C);
     }
 
     public g(Context context, boolean z) {

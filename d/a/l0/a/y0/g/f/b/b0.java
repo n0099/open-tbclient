@@ -20,7 +20,7 @@ public class b0 extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
         if (obj instanceof Long) {
             long longValue = ((Long) obj).longValue();
             if (d.a.l0.a.y0.g.g.a.a(longValue)) {
-                bVar.o0(longValue);
+                bVar.l0(longValue);
             }
         }
     }

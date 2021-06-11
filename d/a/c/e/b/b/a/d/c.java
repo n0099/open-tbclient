@@ -5,10 +5,10 @@ import android.os.Bundle;
 public class c implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f38480a;
+    public Bundle f42133a;
 
     public c(Bundle bundle) {
-        this.f38480a = bundle;
+        this.f42133a = bundle;
     }
 
     @Override // d.a.c.e.b.b.a.d.h

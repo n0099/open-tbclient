@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b {
@@ -27,6 +27,6 @@ public class b {
     }
 
     public static boolean b(FrsRequestData frsRequestData) {
-        return frsRequestData != null && frsRequestData.w() == 1;
+        return frsRequestData != null && frsRequestData.A() == 1;
     }
 }

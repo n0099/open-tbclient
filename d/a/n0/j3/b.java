@@ -7,13 +7,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f56575c;
+    public static b f60264c;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56577b = false;
+    public boolean f60266b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f56576a = c();
+    public a f60265a = c();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -21,14 +21,14 @@ public class b {
     }
 
     public static b b() {
-        if (f56575c == null) {
+        if (f60264c == null) {
             synchronized (b.class) {
-                if (f56575c == null) {
-                    f56575c = new b();
+                if (f60264c == null) {
+                    f60264c = new b();
                 }
             }
         }
-        return f56575c;
+        return f60264c;
     }
 
     public final boolean a() {
@@ -45,10 +45,10 @@ public class b {
 
     public void d(Application application) {
         a aVar;
-        if (this.f56577b || (aVar = this.f56576a) == null) {
+        if (this.f60266b || (aVar = this.f60265a) == null) {
             return;
         }
         aVar.a(application);
-        this.f56577b = true;
+        this.f60266b = true;
     }
 }

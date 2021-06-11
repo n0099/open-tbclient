@@ -15,22 +15,22 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final FrsFragment f58465a;
+    public final FrsFragment f62156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FrsLoadMoreModel f58466b;
+    public final FrsLoadMoreModel f62157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final FrsSmartLoadMoreModel f58467c;
+    public final FrsSmartLoadMoreModel f62158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final FrsModelController f58468d;
+    public final FrsModelController f62159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final r f58469e;
+    public final r f62160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b f58470f = new a();
+    public final b f62161f = new a();
 
     /* loaded from: classes4.dex */
     public class a implements b {
@@ -39,14 +39,14 @@ public class c {
 
         @Override // d.a.n0.r0.e2.c.b
         public void removeItem(int i2) {
-            if (c.this.f58469e == null || c.this.f58469e.Z() == null) {
+            if (c.this.f62160e == null || c.this.f62160e.Z() == null) {
                 return;
             }
-            List<d.a.c.j.e.n> data = c.this.f58469e.Z().getData();
-            if (ListUtils.isEmpty(data) || c.this.f58469e.Z().getAdapter() == null || ((d.a.c.j.e.n) ListUtils.remove(data, i2)) == null) {
+            List<d.a.c.k.e.n> data = c.this.f62160e.Z().getData();
+            if (ListUtils.isEmpty(data) || c.this.f62160e.Z().getAdapter() == null || ((d.a.c.k.e.n) ListUtils.remove(data, i2)) == null) {
                 return;
             }
-            c.this.f58469e.Z().getAdapter().notifyItemRemoved(i2);
+            c.this.f62160e.Z().getAdapter().notifyItemRemoved(i2);
         }
     }
 
@@ -57,165 +57,165 @@ public class c {
 
     public c(FrsFragment frsFragment, k kVar) {
         if (frsFragment != null) {
-            this.f58465a = frsFragment;
-            this.f58466b = new FrsLoadMoreModel(frsFragment, kVar);
+            this.f62156a = frsFragment;
+            this.f62157b = new FrsLoadMoreModel(frsFragment, kVar);
             FrsSmartLoadMoreModel frsSmartLoadMoreModel = new FrsSmartLoadMoreModel(frsFragment, kVar);
-            this.f58467c = frsSmartLoadMoreModel;
-            frsSmartLoadMoreModel.I(this.f58470f);
-            this.f58466b.N(this.f58470f);
-            this.f58469e = frsFragment.y0();
-            FrsModelController b0 = frsFragment.b0();
-            this.f58468d = b0;
-            this.f58467c.setSortType(b0.W());
-            this.f58466b.setSortType(this.f58468d.W());
+            this.f62158c = frsSmartLoadMoreModel;
+            frsSmartLoadMoreModel.M(this.f62161f);
+            this.f62157b.R(this.f62161f);
+            this.f62160e = frsFragment.B0();
+            FrsModelController e0 = frsFragment.e0();
+            this.f62159d = e0;
+            this.f62158c.setSortType(e0.a0());
+            this.f62157b.setSortType(this.f62159d.a0());
             return;
         }
         throw new NullPointerException("FrsFragment is NullPointerException");
     }
 
     public boolean b(List<Long> list) {
-        FrsModelController frsModelController = this.f58468d;
-        if (frsModelController == null || frsModelController.q0()) {
+        FrsModelController frsModelController = this.f62159d;
+        if (frsModelController == null || frsModelController.u0()) {
             return false;
         }
-        return this.f58466b.w(list);
+        return this.f62157b.A(list);
     }
 
-    public ArrayList<d.a.c.j.e.n> c(boolean z, boolean z2, ArrayList<d.a.c.j.e.n> arrayList, d.a.n0.e3.h0.f fVar, boolean z3) {
+    public ArrayList<d.a.c.k.e.n> c(boolean z, boolean z2, ArrayList<d.a.c.k.e.n> arrayList, d.a.n0.e3.h0.f fVar, boolean z3) {
         return d(z, z2, arrayList, fVar, false, z3);
     }
 
-    public ArrayList<d.a.c.j.e.n> d(boolean z, boolean z2, ArrayList<d.a.c.j.e.n> arrayList, d.a.n0.e3.h0.f fVar, boolean z3, boolean z4) {
-        if (this.f58468d == null) {
+    public ArrayList<d.a.c.k.e.n> d(boolean z, boolean z2, ArrayList<d.a.c.k.e.n> arrayList, d.a.n0.e3.h0.f fVar, boolean z3, boolean z4) {
+        if (this.f62159d == null) {
             return arrayList;
         }
-        boolean p0 = this.f58465a.b0().p0();
-        if (this.f58468d.q0()) {
-            return this.f58467c.u(z, p0, arrayList, z3, z4);
+        boolean t0 = this.f62156a.e0().t0();
+        if (this.f62159d.u0()) {
+            return this.f62158c.y(z, t0, arrayList, z3, z4);
         }
-        return this.f58466b.y(z, p0, z2, arrayList, fVar);
+        return this.f62157b.C(z, t0, z2, arrayList, fVar);
     }
 
-    public ArrayList<d.a.c.j.e.n> e() {
-        if (this.f58468d.q0()) {
-            return this.f58467c.v();
+    public ArrayList<d.a.c.k.e.n> e() {
+        if (this.f62159d.u0()) {
+            return this.f62158c.z();
         }
-        return this.f58468d.S();
+        return this.f62159d.W();
     }
 
     public FrsSmartLoadMoreModel f() {
-        return this.f58467c;
+        return this.f62158c;
     }
 
     public int g() {
-        FrsModelController frsModelController = this.f58468d;
+        FrsModelController frsModelController = this.f62159d;
         if (frsModelController == null) {
             return 1;
         }
-        if (frsModelController.q0()) {
-            return this.f58467c.getPn();
+        if (frsModelController.u0()) {
+            return this.f62158c.getPn();
         }
-        return this.f58466b.getPn();
+        return this.f62157b.getPn();
     }
 
     public int h() {
-        FrsModelController frsModelController = this.f58468d;
+        FrsModelController frsModelController = this.f62159d;
         if (frsModelController == null) {
             return -1;
         }
-        if (frsModelController.q0()) {
-            return this.f58467c.w();
+        if (frsModelController.u0()) {
+            return this.f62158c.A();
         }
-        return this.f58466b.A();
+        return this.f62157b.E();
     }
 
     public void i(String str, String str2, FrsViewData frsViewData) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
-        if (this.f58468d == null || this.f58469e == null || frsViewData == null) {
+        if (this.f62159d == null || this.f62160e == null || frsViewData == null) {
             return;
         }
-        this.f58465a.M = System.currentTimeMillis();
-        if (this.f58468d.q0()) {
-            if (this.f58467c.w() != 1 || this.f58468d.o0()) {
+        this.f62156a.M = System.currentTimeMillis();
+        if (this.f62159d.u0()) {
+            if (this.f62158c.A() != 1 || this.f62159d.s0()) {
                 return;
             }
-            this.f58467c.setSortType(this.f58468d.W());
-            this.f58467c.t();
-            int pn = this.f58467c.getPn();
-            this.f58467c.setPn(pn);
-            this.f58468d.t0(pn + 1);
-        } else if (this.f58468d.X() == 1) {
-            if (this.f58466b.isLoading || this.f58468d.o0()) {
+            this.f62158c.setSortType(this.f62159d.a0());
+            this.f62158c.x();
+            int pn = this.f62158c.getPn();
+            this.f62158c.setPn(pn);
+            this.f62159d.x0(pn + 1);
+        } else if (this.f62159d.b0() == 1) {
+            if (this.f62157b.isLoading || this.f62159d.s0()) {
                 return;
             }
-            int pn2 = this.f58466b.getPn();
-            if (this.f58466b.w(frsViewData.getThreadListIds())) {
-                this.f58466b.x();
-                this.f58466b.setSortType(this.f58468d.W());
-                this.f58466b.I(d.a.c.e.m.b.f(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum, this.f58468d.Z() != null ? d.a.n0.t2.a.e(this.f58468d.Z().getThreadList(), false) : "");
-            } else if (this.f58466b.A() == 1) {
-                this.f58466b.x();
-                this.f58466b.setPn(pn2);
-                this.f58468d.t0(pn2 + 1);
-                FrsLoadMoreModel frsLoadMoreModel = this.f58466b;
+            int pn2 = this.f62157b.getPn();
+            if (this.f62157b.A(frsViewData.getThreadListIds())) {
+                this.f62157b.B();
+                this.f62157b.setSortType(this.f62159d.a0());
+                this.f62157b.M(d.a.c.e.m.b.f(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum, this.f62159d.d0() != null ? d.a.n0.t2.a.e(this.f62159d.d0().getThreadList(), false) : "");
+            } else if (this.f62157b.E() == 1) {
+                this.f62157b.B();
+                this.f62157b.setPn(pn2);
+                this.f62159d.x0(pn2 + 1);
+                FrsLoadMoreModel frsLoadMoreModel = this.f62157b;
                 frsLoadMoreModel.loadingDone = false;
                 frsLoadMoreModel.loadIndex = 0;
             }
-        } else if (this.f58468d.r0()) {
+        } else if (this.f62159d.v0()) {
         } else {
-            this.f58468d.s0();
+            this.f62159d.w0();
         }
     }
 
-    public void j(d.a.c.j.e.n nVar) {
+    public void j(d.a.c.k.e.n nVar) {
         if (nVar == null) {
             return;
         }
-        if (this.f58468d.q0()) {
-            this.f58467c.C(nVar);
+        if (this.f62159d.u0()) {
+            this.f62158c.G(nVar);
         } else {
-            this.f58466b.G(nVar);
+            this.f62157b.K(nVar);
         }
     }
 
     public void k() {
-        FrsModelController frsModelController = this.f58468d;
+        FrsModelController frsModelController = this.f62159d;
         if (frsModelController == null) {
             return;
         }
-        if (frsModelController.q0()) {
-            this.f58467c.D();
+        if (frsModelController.u0()) {
+            this.f62158c.H();
         } else {
-            this.f58466b.J();
+            this.f62157b.N();
         }
     }
 
     public void l(d.a.n0.t0.a aVar) {
-        this.f58466b.K(aVar);
-        this.f58467c.G(aVar);
+        this.f62157b.O(aVar);
+        this.f62158c.K(aVar);
     }
 
     public void m(int i2) {
-        FrsModelController frsModelController = this.f58468d;
+        FrsModelController frsModelController = this.f62159d;
         if (frsModelController == null) {
             return;
         }
-        if (frsModelController.q0()) {
-            this.f58467c.H(i2);
+        if (frsModelController.u0()) {
+            this.f62158c.L(i2);
         } else {
-            this.f58466b.M(i2);
+            this.f62157b.Q(i2);
         }
     }
 
     public void n(int i2) {
-        FrsModelController frsModelController = this.f58468d;
+        FrsModelController frsModelController = this.f62159d;
         if (frsModelController == null) {
             return;
         }
-        if (frsModelController.q0()) {
-            this.f58467c.setPn(i2);
+        if (frsModelController.u0()) {
+            this.f62158c.setPn(i2);
         } else {
-            this.f58466b.setPn(i2);
+            this.f62157b.setPn(i2);
         }
     }
 }

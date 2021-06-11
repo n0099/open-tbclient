@@ -5,7 +5,7 @@ import com.baidu.clientupdate.appinfo.AppInfo;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class h {
     /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: com.baidu.clientupdate.appinfo.ClientUpdateInfo */
     /* JADX WARN: Multi-variable type inference failed */

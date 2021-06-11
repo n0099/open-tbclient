@@ -29,10 +29,7 @@ import com.baidu.sofire.g.l;
 import com.baidu.sofire.g.n;
 import com.baidu.sofire.g.p;
 import com.baidu.sofire.jni.Asc;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.webkit.internal.ABTestConstants;
-import com.baidu.webkit.sdk.VideoCloudSetting;
-import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -149,19 +146,19 @@ public class U extends Thread {
             }
             if (!sMonitorNetworkWhenUpgradeNoNet) {
                 IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                MyReceiver myReceiver = d.f10214g;
+                MyReceiver myReceiver = d.f10276g;
                 if (myReceiver == null) {
-                    d.f10214g = new MyReceiver().a();
+                    d.f10276g = new MyReceiver().a();
                 } else {
                     myReceiver.a();
                 }
-                d.a(this.context, d.f10214g, intentFilter);
+                d.a(this.context, d.f10276g, intentFilter);
                 sMonitorNetworkWhenUpgradeNoNet = true;
             }
         }
         long currentTimeMillis = System.currentTimeMillis();
         e eVar = this.preference;
-        long j = eVar.f10189a.getLong("pu_ap_fd", 0L);
+        long j = eVar.f10251a.getLong("pu_ap_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
             eVar.d();
@@ -214,15 +211,15 @@ public class U extends Thread {
                 }
                 Asc asc = new Asc();
                 byte[] bytes = apkInfo.signMD5.substring(0, apkInfo.signMD5.length() / 2).getBytes("utf-8");
-                d.e(Constants.VIA_REPORT_TYPE_SET_AVATAR);
+                d.e("12");
                 if (com.baidu.sofire.g.a.a(file, file2, bytes) != 0) {
                     com.baidu.sofire.b.a();
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    d.e(Constants.VIA_REPORT_TYPE_JOININ_GROUP);
+                    d.e("13");
                     if (asc.df(file.getAbsolutePath(), file2.getAbsolutePath(), bytes) != 0) {
-                        d.e(Constants.VIA_REPORT_TYPE_MAKE_FRIEND);
+                        d.e("14");
                         com.baidu.sofire.b.a();
                         if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
                             this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(i2, 7));
@@ -457,12 +454,12 @@ public class U extends Thread {
                         return;
                     }
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (d.f10214g == null) {
-                        d.f10214g = new MyReceiver().a();
+                    if (d.f10276g == null) {
+                        d.f10276g = new MyReceiver().a();
                     } else {
-                        d.f10214g.a();
+                        d.f10276g.a();
                     }
-                    d.a(this.context, d.f10214g, intentFilter);
+                    d.a(this.context, d.f10276g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             } catch (Throwable unused3) {
@@ -512,14 +509,14 @@ public class U extends Thread {
                 hashMap.put("8", jSONObject);
             }
             Map<Integer, String> b2 = this.loadedPluginDB.b();
-            hashMap.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, b2.keySet());
+            hashMap.put("9", b2.keySet());
             hashMap.put("10", b2.values());
-            hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Integer.valueOf(this.mEndReason));
+            hashMap.put("11", Integer.valueOf(this.mEndReason));
             if (!TextUtils.isEmpty(str)) {
-                hashMap.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, str.replace("\n", "").replace(TrackUI.SEPERATOR, "").replace("\r", ""));
+                hashMap.put("12", str.replace("\n", "").replace(TrackUI.SEPERATOR, "").replace("\r", ""));
             }
-            hashMap.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, Integer.valueOf(this.mStartNetwork));
-            hashMap.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, Integer.valueOf(d.l(this.context)));
+            hashMap.put("13", Integer.valueOf(this.mStartNetwork));
+            hashMap.put("14", Integer.valueOf(d.l(this.context)));
             d.a(this.context, "1003129", (Map<String, Object>) hashMap, false);
         } catch (Throwable unused2) {
             d.a();
@@ -534,7 +531,7 @@ public class U extends Thread {
         try {
             try {
                 try {
-                    long j = this.preference.f10189a.getLong("slruct", 0L);
+                    long j = this.preference.f10251a.getLong("slruct", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                     if (i2 > 0 && currentTimeMillis - j > 86400000) {
@@ -718,7 +715,7 @@ public class U extends Thread {
             Context context = this.context;
             try {
                 e eVar = new e(context);
-                long s = eVar.s() * VideoCloudSetting.HOUR_MILLISECOND;
+                long s = eVar.s() * 3600000;
                 new StringBuilder("sjh-alarm gap ").append(eVar.s());
                 com.baidu.sofire.b.a();
                 AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
@@ -733,8 +730,8 @@ public class U extends Thread {
                 intent.putExtra("from", 6);
                 PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
                 long currentTimeMillis = ((System.currentTimeMillis() + s) - 600000) + ((long) (1200000.0d * Math.random()));
-                eVar.f10191c.putLong("npuct", currentTimeMillis);
-                eVar.f10191c.commit();
+                eVar.f10253c.putLong("npuct", currentTimeMillis);
+                eVar.f10253c.commit();
                 StringBuilder sb = new StringBuilder("b=false,");
                 sb.append(currentTimeMillis);
                 sb.append(",");
@@ -760,15 +757,15 @@ public class U extends Thread {
             boolean z3 = "com.baidu.input_huawei".equals(this.context.getPackageName()) ? !new e(this.context).y() : false;
             if (d.g(this.context) && !z3) {
                 sLastCheckTime = System.currentTimeMillis();
-                if (d.f10214g != null && (sMonitorNetworkWhenUpgradeNoNet || d.f10208a)) {
+                if (d.f10276g != null && (sMonitorNetworkWhenUpgradeNoNet || d.f10270a)) {
                     try {
-                        this.context.getApplicationContext().unregisterReceiver(d.f10214g);
+                        this.context.getApplicationContext().unregisterReceiver(d.f10276g);
                     } catch (Throwable unused2) {
                         d.a();
                     }
                 }
                 sMonitorNetworkWhenUpgradeNoNet = false;
-                d.f10208a = false;
+                d.f10270a = false;
                 if (this.mFrom != 1) {
                     this.mWholeJson = d.p(this.context);
                 }
@@ -779,16 +776,16 @@ public class U extends Thread {
                         sRetryPingTimesCount++;
                     }
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (d.f10214g == null) {
-                        d.f10214g = new MyReceiver().a();
+                    if (d.f10276g == null) {
+                        d.f10276g = new MyReceiver().a();
                     } else {
-                        d.f10214g.a();
+                        d.f10276g.a();
                     }
-                    d.a(this.context, d.f10214g, intentFilter);
+                    d.a(this.context, d.f10276g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                     if (this.mEndReason == 0) {
-                        if (d.f10211d != 0) {
-                            this.mEndReason = d.f10211d;
+                        if (d.f10273d != 0) {
+                            this.mEndReason = d.f10273d;
                         } else {
                             this.mEndReason = 4;
                         }
@@ -800,16 +797,16 @@ public class U extends Thread {
                 this.loadedPluginDB.d();
                 if (!sPidRegister) {
                     e eVar2 = this.preference;
-                    eVar2.f10191c.putInt("pdcg", this.preference.f10189a.getInt("pdcg", 0) + 1);
-                    eVar2.f10191c.commit();
+                    eVar2.f10253c.putInt("pdcg", this.preference.f10251a.getInt("pdcg", 0) + 1);
+                    eVar2.f10253c.commit();
                     e eVar3 = this.preference;
                     long currentTimeMillis2 = System.currentTimeMillis();
                     try {
                         if (currentTimeMillis2 == 0) {
-                            eVar3.f10191c.putString("pdcgts", "");
-                            eVar3.f10191c.commit();
+                            eVar3.f10253c.putString("pdcgts", "");
+                            eVar3.f10253c.commit();
                         } else {
-                            String string = eVar3.f10189a.getString("pdcgts", "");
+                            String string = eVar3.f10251a.getString("pdcgts", "");
                             if (TextUtils.isEmpty(string)) {
                                 str3 = String.valueOf(currentTimeMillis2);
                             } else if (string.split("_").length < 20) {
@@ -817,8 +814,8 @@ public class U extends Thread {
                             }
                             new StringBuilder().append(str3);
                             com.baidu.sofire.b.a();
-                            eVar3.f10191c.putString("pdcgts", str3);
-                            eVar3.f10191c.commit();
+                            eVar3.f10253c.putString("pdcgts", str3);
+                            eVar3.f10253c.commit();
                         }
                     } catch (Throwable unused3) {
                         d.a();
@@ -826,8 +823,8 @@ public class U extends Thread {
                     sPidRegister = true;
                 }
                 e eVar4 = this.preference;
-                eVar4.f10191c.putInt("rtqe", this.preference.f10189a.getInt("rtqe", 0) + 1);
-                eVar4.f10191c.commit();
+                eVar4.f10253c.putInt("rtqe", this.preference.f10251a.getInt("rtqe", 0) + 1);
+                eVar4.f10253c.commit();
                 List<ApkInfo> a2 = this.loadedPluginDB.a();
                 new StringBuilder("a=").append(a2);
                 com.baidu.sofire.b.a();
@@ -870,16 +867,16 @@ public class U extends Thread {
                         boolean z4 = optJSONObject4.optInt(Config.OS) == 1;
                         JSONObject jSONObject = optJSONObject3;
                         boolean z5 = optJSONObject4.optInt("d") == 1;
-                        int optInt2 = optJSONObject4.optInt(r.f7672a);
+                        int optInt2 = optJSONObject4.optInt(r.f7715a);
                         if (z4) {
                             it = keys;
                             e eVar5 = this.preference;
                             arrayList = arrayList6;
                             arrayList2 = arrayList7;
                             str = optString4;
-                            if (optInt2 > eVar5.f10189a.getInt("opi", 0)) {
-                                eVar5.f10191c.putInt("opi", optInt2);
-                                eVar5.f10191c.commit();
+                            if (optInt2 > eVar5.f10251a.getInt("opi", 0)) {
+                                eVar5.f10253c.putInt("opi", optInt2);
+                                eVar5.f10253c.commit();
                             }
                         } else {
                             arrayList = arrayList6;
@@ -1072,7 +1069,7 @@ public class U extends Thread {
                             }
                             if (indexOf < 0) {
                                 ApkInfo apkInfo3 = a2.get(indexOf);
-                                if (d.b(apkInfo.versionName, apkInfo3.versionName) && (c.f10118d == null || ((c.f10118d != null && !c.f10118d.contains(Integer.valueOf(apkInfo.key))) || z2))) {
+                                if (d.b(apkInfo.versionName, apkInfo3.versionName) && (c.f10180d == null || ((c.f10180d != null && !c.f10180d.contains(Integer.valueOf(apkInfo.key))) || z2))) {
                                     if (apkInfo3.priority != apkInfo.priority) {
                                         this.loadedPluginDB.c(apkInfo.key, apkInfo.priority);
                                     }
@@ -1124,8 +1121,8 @@ public class U extends Thread {
                 ArrayList arrayList10 = arrayList7;
                 ArrayList arrayList11 = arrayList8;
                 ArrayList arrayList12 = arrayList6;
-                if (c.f10118d != null) {
-                    c.f10118d.clear();
+                if (c.f10180d != null) {
+                    c.f10180d.clear();
                 }
                 new StringBuilder().append(a2);
                 com.baidu.sofire.b.a();
@@ -1236,10 +1233,10 @@ public class U extends Thread {
                 com.baidu.sofire.b.a();
                 sMonitorNetworkWhenUpgradeNoNet = true;
                 IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                if (d.f10214g == null) {
-                    d.f10214g = new MyReceiver().a();
+                if (d.f10276g == null) {
+                    d.f10276g = new MyReceiver().a();
                 }
-                d.a(this.context, d.f10214g, intentFilter2);
+                d.a(this.context, d.f10276g, intentFilter2);
             }
             if (this.mEndReason == 0) {
                 this.mEndReason = 3;

@@ -8,24 +8,24 @@ import tbclient.RecommendForumInfo;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<RecommendForumInfo> f52125a;
+    public List<RecommendForumInfo> f55814a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f52126b;
+    public List<String> f55815b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Page f52127c;
+    public Page f55816c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52128d;
+    public String f55817d;
 
     public void a(DataRes dataRes) {
         if (dataRes == null) {
             return;
         }
-        this.f52128d = dataRes.class_name;
-        this.f52127c = dataRes.page;
-        this.f52126b = dataRes.page_structure;
-        this.f52125a = dataRes.forum_info;
+        this.f55817d = dataRes.class_name;
+        this.f55816c = dataRes.page;
+        this.f55815b = dataRes.page_structure;
+        this.f55814a = dataRes.forum_info;
     }
 }

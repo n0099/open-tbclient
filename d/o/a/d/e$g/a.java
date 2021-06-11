@@ -6,16 +6,16 @@ import java.lang.reflect.Method;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f66670a = null;
+    public static Method f70456a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f66671b = null;
+    public static Object f70457b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f66672c = false;
+    public static boolean f70458c = false;
 
     public static void a() {
-        if (f66672c) {
+        if (f70458c) {
             return;
         }
         if (e()) {
@@ -25,19 +25,19 @@ public class a {
                 th.printStackTrace();
             }
         }
-        f66672c = true;
+        f70458c = true;
     }
 
     public static void b(String... strArr) throws Throwable {
-        f66670a.invoke(f66671b, strArr);
+        f70456a.invoke(f70457b, strArr);
     }
 
     public static void c() {
         try {
             Method declaredMethod = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
             Class cls = (Class) Class.class.getDeclaredMethod("forName", String.class).invoke(null, "dalvik.system.VMRuntime");
-            f66670a = (Method) declaredMethod.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
-            f66671b = ((Method) declaredMethod.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
+            f70456a = (Method) declaredMethod.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
+            f70457b = ((Method) declaredMethod.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
             b("Landroid/", "Lcom/android/", "Ljava/lang/", "Ldalvik/system/", "Llibcore/io/", "Lsun/misc/");
         } catch (Throwable unused) {
         }

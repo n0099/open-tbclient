@@ -11,24 +11,24 @@ import java.util.List;
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public PraiseListActivity f54843e;
+    public PraiseListActivity f58532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a> f54844f = null;
+    public List<a> f58533f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f54845g;
+    public volatile boolean f58534g;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.f54843e = null;
-        this.f54843e = praiseListActivity;
+        this.f58532e = null;
+        this.f58532e = praiseListActivity;
     }
 
     public final View a(int i2, View view, ViewGroup viewGroup) {
-        b b2 = b.b(this.f54843e.getPageContext().getPageActivity(), view);
+        b b2 = b.b(this.f58532e.getPageContext().getPageActivity(), view);
         a item = getItem(i2);
-        b2.c(StringUtils.isNull(item.b()) ? item.d() : item.b(), item.a(), item.e(), this.f54845g);
-        this.f54843e.changSkinType(b2.a());
+        b2.c(StringUtils.isNull(item.b()) ? item.d() : item.b(), item.a(), item.e(), this.f58534g);
+        this.f58532e.changSkinType(b2.a());
         return b2.a();
     }
 
@@ -36,7 +36,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     @Override // android.widget.Adapter
     /* renamed from: b */
     public a getItem(int i2) {
-        List<a> list = this.f54844f;
+        List<a> list = this.f58533f;
         if (list != null) {
             return list.get(i2);
         }
@@ -44,12 +44,12 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     public void c(List<a> list) {
-        this.f54844f = list;
+        this.f58533f = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<a> list = this.f54844f;
+        List<a> list = this.f58533f;
         if (list == null) {
             return 0;
         }
@@ -73,10 +73,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i2) {
         if (i2 == 0) {
-            this.f54845g = false;
+            this.f58534g = false;
             notifyDataSetChanged();
             return;
         }
-        this.f54845g = true;
+        this.f58534g = true;
     }
 }

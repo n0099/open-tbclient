@@ -11,14 +11,14 @@ import com.baidu.tieba.im.pushNotify.ChatSetting;
 public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.f1.t.a f54768e;
+    public d.a.n0.f1.t.a f58457e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54769f;
+    public int f58458f;
 
     public a(d.a.n0.f1.t.a aVar, int i2) {
-        this.f54768e = aVar;
-        this.f54769f = i2;
+        this.f58457e = aVar;
+        this.f58458f = i2;
     }
 
     public final LoadDraftResponsedMessage a(int i2) {
@@ -29,26 +29,26 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
-        LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.f54769f);
+        LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.f58458f);
         if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
             LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             LoadDraftMessage.a data = loadDraftMessage.getData();
-            ChatSetting a2 = this.f54768e.a(id, data.f17274a);
+            ChatSetting a2 = this.f58457e.a(id, data.f17350a);
             if (a2 == null) {
                 return a(loadDraftMessage.getCmd());
             }
             String draft = a2.getDraft();
             LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
-            aVar.f17275a = draft;
-            String str = data.f17274a;
+            aVar.f17351a = draft;
+            String str = data.f17350a;
             try {
-                loadDraftResponsedMessage.decodeInBackGround(this.f54769f, aVar);
+                loadDraftResponsedMessage.decodeInBackGround(this.f58458f, aVar);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             return loadDraftResponsedMessage;
         }
-        return a(this.f54769f);
+        return a(this.f58458f);
     }
 }

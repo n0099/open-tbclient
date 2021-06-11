@@ -1,6 +1,7 @@
 package d.a.m0.r.l;
 
 import android.text.TextUtils;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -62,7 +63,7 @@ public class d {
     }
 
     public final byte[] c(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(1, key);
         return cipher.doFinal(bArr);
     }

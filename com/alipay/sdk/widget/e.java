@@ -10,10 +10,10 @@ import android.text.TextUtils;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2010a;
+    public static boolean f2023a;
 
     static {
-        f2010a = Build.VERSION.SDK_INT >= 11;
+        f2023a = Build.VERSION.SDK_INT >= 11;
     }
 
     public static Dialog a(Context context, String str, String str2, String str3, DialogInterface.OnClickListener onClickListener, String str4, DialogInterface.OnClickListener onClickListener2) {
@@ -26,14 +26,14 @@ public class e {
         try {
             create.show();
         } catch (Throwable th) {
-            com.alipay.sdk.util.c.a(com.alipay.sdk.net.a.f1877a, th);
+            com.alipay.sdk.util.c.a(com.alipay.sdk.net.a.f1890a, th);
         }
         return create;
     }
 
     public static AlertDialog.Builder a(Context context, String str, String str2, DialogInterface.OnClickListener onClickListener, String str3, DialogInterface.OnClickListener onClickListener2) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        if (f2010a) {
+        if (f2023a) {
             if (!TextUtils.isEmpty(str3) && onClickListener2 != null) {
                 builder.setPositiveButton(str3, onClickListener2);
             }

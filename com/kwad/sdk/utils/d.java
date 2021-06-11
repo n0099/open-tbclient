@@ -7,7 +7,7 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static void a(@NonNull Activity activity, int i2, boolean z) {
         a(activity, i2, z, true);
@@ -19,12 +19,16 @@ public class d {
             if (z2) {
                 return;
             }
-            activity.findViewById(16908290).setPadding(0, an.a((Context) activity), 0, 0);
+            activity.findViewById(16908290).setPadding(0, ao.a((Context) activity), 0, 0);
         }
     }
 
     public static boolean a() {
         return Build.VERSION.SDK_INT >= 23;
+    }
+
+    public static boolean a(@NonNull Activity activity) {
+        return a() && (activity.getWindow().getDecorView().getSystemUiVisibility() & 1280) == 1280 && !ao.a(activity);
     }
 
     public static boolean a(@NonNull Activity activity, boolean z) {
@@ -63,7 +67,7 @@ public class d {
             if (ac.a()) {
                 a(activity, true);
             } else if (ac.b()) {
-                s.a(activity, true);
+                u.a(activity, true);
             }
         }
         window.getDecorView().setSystemUiVisibility(i4);

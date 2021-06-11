@@ -3,19 +3,19 @@ package d.a.m0.b1.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49022a;
+    public int f52696a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49023b;
+    public String f52697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49024c;
+    public String f52698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f49025d;
+    public long f52699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49026e;
+    public boolean f52700e;
 
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -23,12 +23,12 @@ public class a {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return aVar.f49025d == this.f49025d && aVar.f49024c.equals(this.f49024c) && aVar.f49023b.equals(this.f49023b) && aVar.f49026e == this.f49026e && aVar.f49022a == this.f49022a;
+            return aVar.f52699d == this.f52699d && aVar.f52698c.equals(this.f52698c) && aVar.f52697b.equals(this.f52697b) && aVar.f52700e == this.f52700e && aVar.f52696a == this.f52696a;
         }
         return false;
     }
 
     public String toString() {
-        return "[HotForumInfoData:rank=" + this.f49022a + ",forumAvatar=" + this.f49023b + ",forumName=" + this.f49024c + ",forumId=" + this.f49025d + ",isLiked=" + this.f49026e + ",]";
+        return "[HotForumInfoData:rank=" + this.f52696a + ",forumAvatar=" + this.f52697b + ",forumName=" + this.f52698c + ",forumId=" + this.f52699d + ",isLiked=" + this.f52700e + ",]";
     }
 }

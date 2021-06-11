@@ -20,8 +20,8 @@ public class EmotionView extends TbImageView {
     public boolean C0;
     public boolean D0;
     public float E0;
-    public float K0;
-    public float L0;
+    public float F0;
+    public float G0;
     public float M0;
     public View.OnClickListener N0;
     public float O0;
@@ -33,13 +33,13 @@ public class EmotionView extends TbImageView {
     public int z0;
 
     /* loaded from: classes4.dex */
-    public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             if (aVar != null) {
                 EmotionView.this.L = aVar.t();
                 View findViewWithTag = EmotionView.this.findViewWithTag(str);
@@ -64,11 +64,11 @@ public class EmotionView extends TbImageView {
             if (action == 0) {
                 EmotionView.this.C0 = true;
                 EmotionView.this.E0 = motionEvent.getRawX();
-                EmotionView.this.K0 = motionEvent.getRawY();
+                EmotionView.this.F0 = motionEvent.getRawY();
                 EmotionView emotionView = EmotionView.this;
-                emotionView.L0 = emotionView.E0;
+                emotionView.G0 = emotionView.E0;
                 EmotionView emotionView2 = EmotionView.this;
-                emotionView2.M0 = emotionView2.K0;
+                emotionView2.M0 = emotionView2.F0;
                 EmotionView.this.B0 = System.currentTimeMillis();
                 if (EmotionView.this.z0()) {
                     EmotionView emotionView3 = EmotionView.this;
@@ -104,15 +104,15 @@ public class EmotionView extends TbImageView {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f14591e;
+        public long f14648e;
 
         public d(long j) {
-            this.f14591e = j;
+            this.f14648e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (EmotionView.this.C0 && this.f14591e == EmotionView.this.B0 && EmotionView.this.B0()) {
+            if (EmotionView.this.C0 && this.f14648e == EmotionView.this.B0 && EmotionView.this.B0()) {
                 EmotionView.this.E0();
             }
         }
@@ -129,8 +129,8 @@ public class EmotionView extends TbImageView {
     }
 
     public final boolean B0() {
-        float abs = Math.abs(this.L0 - this.E0);
-        float abs2 = Math.abs(this.M0 - this.K0);
+        float abs = Math.abs(this.G0 - this.E0);
+        float abs2 = Math.abs(this.M0 - this.F0);
         float f2 = this.O0;
         return abs < f2 && abs2 < f2;
     }
@@ -144,13 +144,13 @@ public class EmotionView extends TbImageView {
         if (this.P0 == 20) {
             D0(this.w0);
         } else {
-            V(this.w0.getThumbUrl(), this.P0, false);
+            U(this.w0.getThumbUrl(), this.P0, false);
         }
     }
 
     public final void D0(EmotionImageData emotionImageData) {
         Object k = d.a.c.e.l.d.h().k(emotionImageData.getThumbUrl(), 20, new a(), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-        d.a.c.j.d.a aVar = (k == null || !(k instanceof d.a.c.j.d.a)) ? null : (d.a.c.j.d.a) k;
+        d.a.c.k.d.a aVar = (k == null || !(k instanceof d.a.c.k.d.a)) ? null : (d.a.c.k.d.a) k;
         if (aVar != null) {
             aVar.h(this);
             setTag(null);

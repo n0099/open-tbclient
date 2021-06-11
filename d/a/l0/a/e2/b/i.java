@@ -16,24 +16,24 @@ public class i extends a0 {
     public class a implements a.j {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.a f41670a;
+        public final /* synthetic */ d.a.l0.a.e2.a f45346a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41671b;
+        public final /* synthetic */ CallbackHandler f45347b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f41672c;
+        public final /* synthetic */ String f45348c;
 
         public a(i iVar, d.a.l0.a.e2.a aVar, CallbackHandler callbackHandler, String str) {
-            this.f41670a = aVar;
-            this.f41671b = callbackHandler;
-            this.f41672c = str;
+            this.f45346a = aVar;
+            this.f45347b = callbackHandler;
+            this.f45348c = str;
         }
 
         @Override // d.a.l0.a.e2.a.j
         public void a() {
-            this.f41670a.F(this);
-            d.a.l0.a.u.e.l.b.F(this.f41671b, this.f41672c);
+            this.f45346a.F(this);
+            d.a.l0.a.u.e.l.b.F(this.f45347b, this.f45348c);
         }
     }
 
@@ -47,7 +47,7 @@ public class i extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         } else if (eVar.d0()) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");

@@ -24,12 +24,12 @@ import org.json.JSONObject;
 public class a extends d.a.l0.a.u.c.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f43534d;
+    public static String f47210d;
 
     /* renamed from: d.a.l0.a.n.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0751a implements Runnable {
-        public RunnableC0751a() {
+    public class RunnableC0807a implements Runnable {
+        public RunnableC0807a() {
         }
 
         @Override // java.lang.Runnable
@@ -45,15 +45,15 @@ public class a extends d.a.l0.a.u.c.d {
     public class b extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f43536a;
+        public final /* synthetic */ boolean f47212a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.h0.j.b f43537b;
+        public final /* synthetic */ d.a.l0.a.h0.j.b f47213b;
 
         /* renamed from: d.a.l0.a.n.b.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0752a implements Runnable {
-            public RunnableC0752a(b bVar) {
+        public class RunnableC0808a implements Runnable {
+            public RunnableC0808a(b bVar) {
             }
 
             @Override // java.lang.Runnable
@@ -64,8 +64,8 @@ public class a extends d.a.l0.a.u.c.d {
 
         /* renamed from: d.a.l0.a.n.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0753b implements Runnable {
-            public RunnableC0753b(b bVar) {
+        public class RunnableC0809b implements Runnable {
+            public RunnableC0809b(b bVar) {
             }
 
             @Override // java.lang.Runnable
@@ -86,34 +86,34 @@ public class a extends d.a.l0.a.u.c.d {
         }
 
         public b(boolean z, d.a.l0.a.h0.j.b bVar) {
-            this.f43536a = z;
-            this.f43537b = bVar;
+            this.f47212a = z;
+            this.f47213b = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
-            if (this.f43536a) {
-                q0.b0(new RunnableC0752a(this));
+            if (this.f47212a) {
+                q0.b0(new RunnableC0808a(this));
             }
             if (jSONObject == null) {
-                a.this.H(this.f43537b, 1001, "server response fail", this.f43536a);
+                a.this.H(this.f47213b, 1001, "server response fail", this.f47212a);
                 return;
             }
             int optInt = jSONObject.optInt("errno", -1);
             if (optInt != 0) {
-                if (this.f43536a) {
-                    q0.b0(new RunnableC0753b(this));
+                if (this.f47212a) {
+                    q0.b0(new RunnableC0809b(this));
                 }
-                a.this.H(this.f43537b, optInt, jSONObject.optString("errmsg"), false);
+                a.this.H(this.f47213b, optInt, jSONObject.optString("errmsg"), false);
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                a.this.H(this.f43537b, 0, jSONObject.optString("errmsg"), this.f43536a);
+                a.this.H(this.f47213b, 0, jSONObject.optString("errmsg"), this.f47212a);
             } else {
-                a.this.I(this.f43537b, optJSONObject, this.f43536a);
+                a.this.I(this.f47213b, optJSONObject, this.f47212a);
             }
         }
 
@@ -129,12 +129,12 @@ public class a extends d.a.l0.a.u.c.d {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (this.f43536a) {
+            if (this.f47212a) {
                 q0.b0(new c(this));
             }
             a aVar = a.this;
-            d.a.l0.a.h0.j.b bVar = this.f43537b;
-            aVar.H(bVar, 1001, "operation fail, msg = " + exc.getMessage(), this.f43536a);
+            d.a.l0.a.h0.j.b bVar = this.f47213b;
+            aVar.H(bVar, 1001, "operation fail, msg = " + exc.getMessage(), this.f47212a);
         }
     }
 
@@ -142,15 +142,15 @@ public class a extends d.a.l0.a.u.c.d {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43539e;
+        public final /* synthetic */ String f47215e;
 
         public c(a aVar, String str) {
-            this.f43539e = str;
+            this.f47215e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.a.z1.b.f.e.g(d.a.l0.a.c1.a.b(), this.f43539e).F();
+            d.a.l0.a.z1.b.f.e.g(d.a.l0.a.c1.a.b(), this.f47215e).F();
         }
     }
 
@@ -180,18 +180,18 @@ public class a extends d.a.l0.a.u.c.d {
     public class f implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f43542e;
+        public final /* synthetic */ JSONArray f47218e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43543f;
+        public final /* synthetic */ String f47219f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f43544g;
+        public final /* synthetic */ String f47220g;
 
         /* renamed from: d.a.l0.a.n.b.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0754a implements d.a.l0.a.h0.j.b<d.a.l0.a.u.h.b> {
-            public C0754a() {
+        public class C0810a implements d.a.l0.a.h0.j.b<d.a.l0.a.u.h.b> {
+            public C0810a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -199,7 +199,7 @@ public class a extends d.a.l0.a.u.c.d {
             /* renamed from: b */
             public void a(d.a.l0.a.u.h.b bVar) {
                 f fVar = f.this;
-                a.this.d(fVar.f43544g, bVar);
+                a.this.d(fVar.f47220g, bVar);
             }
         }
 
@@ -215,9 +215,9 @@ public class a extends d.a.l0.a.u.c.d {
         }
 
         public f(JSONArray jSONArray, String str, String str2) {
-            this.f43542e = jSONArray;
-            this.f43543f = str;
-            this.f43544g = str2;
+            this.f47218e = jSONArray;
+            this.f47219f = str;
+            this.f47220g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -230,14 +230,14 @@ public class a extends d.a.l0.a.u.c.d {
                 String D = d.a.l0.a.a2.d.g().r().D();
                 HashMap hashMap = new HashMap();
                 hashMap.put("appKey", D);
-                hashMap.put("contentIds", this.f43542e);
-                hashMap.put("category", this.f43543f);
+                hashMap.put("contentIds", this.f47218e);
+                hashMap.put("category", this.f47219f);
                 hashMap.put("pkg_type", Integer.valueOf(t1));
                 hashMap.put("version_code", u1);
-                a.this.Q("INSERT", hashMap, new C0754a());
+                a.this.Q("INSERT", hashMap, new C0810a());
                 return;
             }
-            a.this.d(this.f43544g, new d.a.l0.a.u.h.b(iVar.b(), d.a.l0.a.e2.c.d.f(iVar.b())));
+            a.this.d(this.f47220g, new d.a.l0.a.u.h.b(iVar.b(), d.a.l0.a.e2.c.d.f(iVar.b())));
             q0.b0(new b());
         }
     }
@@ -246,18 +246,18 @@ public class a extends d.a.l0.a.u.c.d {
     public class g implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f43548e;
+        public final /* synthetic */ JSONArray f47224e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43549f;
+        public final /* synthetic */ String f47225f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f43550g;
+        public final /* synthetic */ String f47226g;
 
         /* renamed from: d.a.l0.a.n.b.a$g$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0755a implements d.a.l0.a.h0.j.b<d.a.l0.a.u.h.b> {
-            public C0755a() {
+        public class C0811a implements d.a.l0.a.h0.j.b<d.a.l0.a.u.h.b> {
+            public C0811a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -265,7 +265,7 @@ public class a extends d.a.l0.a.u.c.d {
             /* renamed from: b */
             public void a(d.a.l0.a.u.h.b bVar) {
                 g gVar = g.this;
-                a.this.d(gVar.f43550g, bVar);
+                a.this.d(gVar.f47226g, bVar);
             }
         }
 
@@ -281,9 +281,9 @@ public class a extends d.a.l0.a.u.c.d {
         }
 
         public g(JSONArray jSONArray, String str, String str2) {
-            this.f43548e = jSONArray;
-            this.f43549f = str;
-            this.f43550g = str2;
+            this.f47224e = jSONArray;
+            this.f47225f = str;
+            this.f47226g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -296,14 +296,14 @@ public class a extends d.a.l0.a.u.c.d {
                 String D = d.a.l0.a.a2.d.g().r().D();
                 HashMap hashMap = new HashMap();
                 hashMap.put("appKey", D);
-                hashMap.put("contentIds", this.f43548e);
-                hashMap.put("category", this.f43549f);
+                hashMap.put("contentIds", this.f47224e);
+                hashMap.put("category", this.f47225f);
                 hashMap.put("pkg_type", Integer.valueOf(t1));
                 hashMap.put("version_code", u1);
-                a.this.Q(HttpDelete.METHOD_NAME, hashMap, new C0755a());
+                a.this.Q(HttpDelete.METHOD_NAME, hashMap, new C0811a());
                 return;
             }
-            a.this.d(this.f43550g, new d.a.l0.a.u.h.b(iVar.b(), d.a.l0.a.e2.c.d.f(iVar.b())));
+            a.this.d(this.f47226g, new d.a.l0.a.u.h.b(iVar.b(), d.a.l0.a.e2.c.d.f(iVar.b())));
             q0.b0(new b());
         }
     }
@@ -312,17 +312,17 @@ public class a extends d.a.l0.a.u.c.d {
     public class h implements d.a.l0.a.h0.j.b<d.a.l0.a.u.h.b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43554a;
+        public final /* synthetic */ String f47230a;
 
         public h(String str) {
-            this.f43554a = str;
+            this.f47230a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.h0.j.b
         /* renamed from: b */
         public void a(d.a.l0.a.u.h.b bVar) {
-            a.this.d(this.f43554a, bVar);
+            a.this.d(this.f47230a, bVar);
         }
     }
 
@@ -330,17 +330,17 @@ public class a extends d.a.l0.a.u.c.d {
     public class i implements d.a.l0.a.h0.j.b<d.a.l0.a.u.h.b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43556a;
+        public final /* synthetic */ String f47232a;
 
         public i(String str) {
-            this.f43556a = str;
+            this.f47232a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.h0.j.b
         /* renamed from: b */
         public void a(d.a.l0.a.u.h.b bVar) {
-            a.this.d(this.f43556a, bVar);
+            a.this.d(this.f47232a, bVar);
         }
     }
 
@@ -348,29 +348,29 @@ public class a extends d.a.l0.a.u.c.d {
     public class j implements d.a.l0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f43558e;
+        public final /* synthetic */ boolean f47234e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43559f;
+        public final /* synthetic */ String f47235f;
 
         public j(boolean z, String str) {
-            this.f43558e = z;
-            this.f43559f = str;
+            this.f47234e = z;
+            this.f47235f = str;
         }
 
         @Override // d.a.l0.a.m.a
         public void onResult(int i2) {
             if (i2 != 0) {
-                if (!this.f43558e) {
-                    d.a.l0.a.j2.k.M("fail", 10, RetrieveTaskManager.KEY);
+                if (!this.f47234e) {
+                    d.a.l0.a.j2.k.M(com.baidu.pass.biometrics.face.liveness.b.b.g0, 10, RetrieveTaskManager.KEY);
                 }
-                a.this.d(this.f43559f, new d.a.l0.a.u.h.b(1001, "user is not login"));
+                a.this.d(this.f47235f, new d.a.l0.a.u.h.b(1001, "user is not login"));
                 return;
             }
-            if (!this.f43558e) {
+            if (!this.f47234e) {
                 d.a.l0.a.j2.k.M("success", 10, RetrieveTaskManager.KEY);
             }
-            a.this.M(this.f43559f);
+            a.this.M(this.f47235f);
         }
     }
 
@@ -378,10 +378,10 @@ public class a extends d.a.l0.a.u.c.d {
     public class k implements CallbackHandler {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43561e;
+        public final /* synthetic */ String f47237e;
 
         public k(String str) {
-            this.f43561e = str;
+            this.f47237e = str;
         }
 
         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
@@ -391,7 +391,7 @@ public class a extends d.a.l0.a.u.c.d {
 
         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
         public void handleSchemeDispatchCallback(String str, String str2) {
-            a.this.K(str2, this.f43561e);
+            a.this.K(str2, this.f47237e);
         }
     }
 
@@ -399,21 +399,21 @@ public class a extends d.a.l0.a.u.c.d {
     public class l implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43563e;
+        public final /* synthetic */ String f47239e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f43564f;
+        public final /* synthetic */ String f47240f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f43565g;
+        public final /* synthetic */ String f47241g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f43566h;
+        public final /* synthetic */ String f47242h;
 
         /* renamed from: d.a.l0.a.n.b.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class DialogInterface$OnClickListenerC0756a implements DialogInterface.OnClickListener {
-            public DialogInterface$OnClickListenerC0756a(l lVar) {
+        public class DialogInterface$OnClickListenerC0812a implements DialogInterface.OnClickListener {
+            public DialogInterface$OnClickListenerC0812a(l lVar) {
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -433,22 +433,22 @@ public class a extends d.a.l0.a.u.c.d {
         }
 
         public l(String str, String str2, String str3, String str4) {
-            this.f43563e = str;
-            this.f43564f = str2;
-            this.f43565g = str3;
-            this.f43566h = str4;
+            this.f47239e = str;
+            this.f47240f = str2;
+            this.f47241g = str3;
+            this.f47242h = str4;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             h.a aVar = new h.a(a.this.i());
-            aVar.V(this.f43563e);
-            aVar.x(this.f43564f);
+            aVar.V(this.f47239e);
+            aVar.x(this.f47240f);
             aVar.y();
             aVar.n(new d.a.l0.a.w2.h.a());
             aVar.m(false);
-            aVar.P(this.f43565g, new b(this));
-            aVar.C(this.f43566h, new DialogInterface$OnClickListenerC0756a(this));
+            aVar.P(this.f47241g, new b(this));
+            aVar.C(this.f47242h, new DialogInterface$OnClickListenerC0812a(this));
             aVar.X();
         }
     }
@@ -469,7 +469,7 @@ public class a extends d.a.l0.a.u.c.d {
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
         JSONObject jSONObject = (JSONObject) b2.second;
-        if (!bVar.a() || jSONObject == null) {
+        if (!bVar.isSuccess() || jSONObject == null) {
             return bVar;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("contentIds");
@@ -573,13 +573,13 @@ public class a extends d.a.l0.a.u.c.d {
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
         JSONObject jSONObject = (JSONObject) b2.second;
-        if (!bVar.a() || jSONObject == null) {
+        if (!bVar.isSuccess() || jSONObject == null) {
             return bVar;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("contentIds");
         if (optJSONArray != null && optJSONArray.length() != 0) {
             String optString = jSONObject.optString("category");
-            f43534d = optString;
+            f47210d = optString;
             if (TextUtils.isEmpty(optString)) {
                 return new d.a.l0.a.u.h.b(201, "category is invalid");
             }
@@ -594,7 +594,7 @@ public class a extends d.a.l0.a.u.c.d {
                 G();
                 return new d.a.l0.a.u.h.b(10003, d.a.l0.a.e2.c.d.f(10003));
             } else {
-                D(optJSONArray, f43534d, optString2);
+                D(optJSONArray, f47210d, optString2);
                 return new d.a.l0.a.u.h.b(0);
             }
         }
@@ -609,7 +609,7 @@ public class a extends d.a.l0.a.u.c.d {
         try {
             i2 = new JSONObject(str).optInt("status", 1001);
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
         }
@@ -623,7 +623,7 @@ public class a extends d.a.l0.a.u.c.d {
     public final boolean L() {
         d.a.l0.a.e2.c.f fVar = d.a.l0.a.n1.q.c.a.g(true).get("scope_insert_bookshelf");
         if (fVar != null) {
-            return fVar.j < 0 && !fVar.f41697d;
+            return fVar.j < 0 && !fVar.f45373d;
         }
         return true;
     }
@@ -641,10 +641,10 @@ public class a extends d.a.l0.a.u.c.d {
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
         JSONObject jSONObject = (JSONObject) b2.second;
-        if (!bVar.a() || jSONObject == null) {
+        if (!bVar.isSuccess() || jSONObject == null) {
             return bVar;
         }
-        f43534d = jSONObject.optString("category");
+        f47210d = jSONObject.optString("category");
         String optString = jSONObject.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             return new d.a.l0.a.u.h.b(202, "cb is invalid");
@@ -662,7 +662,7 @@ public class a extends d.a.l0.a.u.c.d {
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
         JSONObject jSONObject = (JSONObject) b2.second;
-        if (!bVar.a() || jSONObject == null) {
+        if (!bVar.isSuccess() || jSONObject == null) {
             return bVar;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("contentIds");
@@ -699,24 +699,24 @@ public class a extends d.a.l0.a.u.c.d {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
         }
-        RequestBody create = RequestBody.create(d.a.l0.a.n1.f.f43693a, jSONObject.toString());
+        RequestBody create = RequestBody.create(d.a.l0.a.n1.f.f47369a, jSONObject.toString());
         String F = F(str);
         if (TextUtils.isEmpty(F)) {
             H(bVar, 1001, "operation fail, msg = url is null", equals);
             return;
         }
         if (equals) {
-            q0.b0(new RunnableC0751a());
+            q0.b0(new RunnableC0807a());
         }
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(F, create, new b(equals, bVar));
         if (d.a.l0.m.e.a.g().c()) {
-            aVar.f47974f = true;
+            aVar.f51648f = true;
         }
-        aVar.f47975g = true;
+        aVar.f51649g = true;
         d.a.l0.m.e.a.g().e(aVar);
     }
 
@@ -724,7 +724,7 @@ public class a extends d.a.l0.a.u.c.d {
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
         JSONObject jSONObject = (JSONObject) b2.second;
-        if (!bVar.a() || jSONObject == null) {
+        if (!bVar.isSuccess() || jSONObject == null) {
             return bVar;
         }
         String optString = jSONObject.optString("contentId");

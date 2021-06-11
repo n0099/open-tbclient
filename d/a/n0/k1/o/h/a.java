@@ -11,22 +11,22 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f56640a;
+    public String f60329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f56641b;
+    public Rect f60330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56642c;
+    public String f60331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f56643d;
+    public Rect f60332d;
 
     public a() {
-        this.f56640a = "";
-        this.f56641b = new Rect(0, 0, 0, 0);
-        this.f56642c = "";
-        this.f56643d = new Rect(0, 0, 0, 0);
+        this.f60329a = "";
+        this.f60330b = new Rect(0, 0, 0, 0);
+        this.f60331c = "";
+        this.f60332d = new Rect(0, 0, 0, 0);
     }
 
     public static a a(String str) {
@@ -42,11 +42,11 @@ public class a {
     }
 
     public boolean b() {
-        return (TextUtils.isEmpty(this.f56642c) || this.f56643d.isEmpty()) ? false : true;
+        return (TextUtils.isEmpty(this.f60331c) || this.f60332d.isEmpty()) ? false : true;
     }
 
     public boolean c() {
-        return (TextUtils.isEmpty(this.f56640a) || this.f56641b.isEmpty()) ? false : true;
+        return (TextUtils.isEmpty(this.f60329a) || this.f60330b.isEmpty()) ? false : true;
     }
 
     public void d(String str) {
@@ -63,8 +63,8 @@ public class a {
                 if (jSONObject == null) {
                     return;
                 }
-                this.f56642c = jSONObject.optString("pic_url");
-                this.f56643d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                this.f60331c = jSONObject.optString("pic_url");
+                this.f60332d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -77,11 +77,11 @@ public class a {
         if (c()) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("pic_url", this.f56640a);
-                jSONObject.put("rect_left", this.f56641b.left);
-                jSONObject.put("rect_top", this.f56641b.top);
-                jSONObject.put("rect_right", this.f56641b.right);
-                jSONObject.put("rect_bottom", this.f56641b.bottom);
+                jSONObject.put("pic_url", this.f60329a);
+                jSONObject.put("rect_left", this.f60330b.left);
+                jSONObject.put("rect_top", this.f60330b.top);
+                jSONObject.put("rect_right", this.f60330b.right);
+                jSONObject.put("rect_bottom", this.f60330b.bottom);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -91,7 +91,7 @@ public class a {
     }
 
     public a(JSONObject jSONObject) {
-        this.f56640a = jSONObject.optString("pic_url");
-        this.f56641b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
+        this.f60329a = jSONObject.optString("pic_url");
+        this.f60330b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
     }
 }

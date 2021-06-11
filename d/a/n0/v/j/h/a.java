@@ -19,16 +19,16 @@ public class a extends d.a.n0.z.b<d.a.n0.v.j.d.b> {
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        t(l());
+        u(m());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.ala_person_center_list_normal_item;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (i2 == 1) {
             this.s.setAlpha(0.7f);
         } else {
@@ -43,7 +43,7 @@ public class a extends d.a.n0.z.b<d.a.n0.v.j.d.b> {
     public void onClick(View view) {
     }
 
-    public TextView s() {
+    public TextView t() {
         TextView textView = this.o;
         if (textView != null) {
             return textView;
@@ -51,7 +51,7 @@ public class a extends d.a.n0.z.b<d.a.n0.v.j.d.b> {
         return null;
     }
 
-    public final void t(View view) {
+    public final void u(View view) {
         this.m = view.findViewById(R.id.ala_person_center_list_item_sep);
         this.n = (TextView) view.findViewById(R.id.ala_person_center_list_item_title_txt);
         this.o = (TextView) view.findViewById(R.id.ala_person_center_list_item_desc_txt);
@@ -63,32 +63,32 @@ public class a extends d.a.n0.z.b<d.a.n0.v.j.d.b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: u */
-    public void m(d.a.n0.v.j.d.b bVar) {
+    /* renamed from: v */
+    public void n(d.a.n0.v.j.d.b bVar) {
     }
 
-    public void v(String str) {
+    public void w(String str) {
         TextView textView = this.o;
         if (textView != null) {
             textView.setText(str);
         }
     }
 
-    public void w(int i2) {
+    public void x(int i2) {
         ImageView imageView = this.s;
         if (imageView != null) {
             imageView.setVisibility(i2);
         }
     }
 
-    public void x(int i2) {
+    public void y(int i2) {
         View view = this.m;
         if (view != null) {
             view.setVisibility(i2);
         }
     }
 
-    public void y(String str) {
+    public void z(String str) {
         TextView textView = this.n;
         if (textView != null) {
             textView.setText(str);

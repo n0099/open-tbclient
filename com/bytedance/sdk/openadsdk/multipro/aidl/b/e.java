@@ -9,28 +9,28 @@ import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
 public class e extends ITTAppDownloadListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile TTAppDownloadListener f29624a;
+    public volatile TTAppDownloadListener f29727a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f29625b = new Handler(Looper.getMainLooper());
+    public Handler f29728b = new Handler(Looper.getMainLooper());
 
     public e(TTAppDownloadListener tTAppDownloadListener) {
-        this.f29624a = tTAppDownloadListener;
+        this.f29727a = tTAppDownloadListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        return this.f29624a != null;
+        return this.f29727a != null;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onDownloadActive(final long j, final long j2, final String str, final String str2) throws RemoteException {
-        if (this.f29624a != null) {
+        if (this.f29727a != null) {
             b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (e.this.c()) {
-                        e.this.f29624a.onDownloadActive(j, j2, str, str2);
+                        e.this.f29727a.onDownloadActive(j, j2, str, str2);
                     }
                 }
             });
@@ -39,12 +39,12 @@ public class e extends ITTAppDownloadListener.Stub {
 
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onDownloadFailed(final long j, final long j2, final String str, final String str2) throws RemoteException {
-        if (this.f29624a != null) {
+        if (this.f29727a != null) {
             b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.4
                 @Override // java.lang.Runnable
                 public void run() {
                     if (e.this.c()) {
-                        e.this.f29624a.onDownloadFailed(j, j2, str, str2);
+                        e.this.f29727a.onDownloadFailed(j, j2, str, str2);
                     }
                 }
             });
@@ -53,12 +53,12 @@ public class e extends ITTAppDownloadListener.Stub {
 
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onDownloadFinished(final long j, final String str, final String str2) throws RemoteException {
-        if (this.f29624a != null) {
+        if (this.f29727a != null) {
             b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.5
                 @Override // java.lang.Runnable
                 public void run() {
                     if (e.this.c()) {
-                        e.this.f29624a.onDownloadFinished(j, str, str2);
+                        e.this.f29727a.onDownloadFinished(j, str, str2);
                     }
                 }
             });
@@ -67,12 +67,12 @@ public class e extends ITTAppDownloadListener.Stub {
 
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onDownloadPaused(final long j, final long j2, final String str, final String str2) throws RemoteException {
-        if (this.f29624a != null) {
+        if (this.f29727a != null) {
             b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (e.this.c()) {
-                        e.this.f29624a.onDownloadPaused(j, j2, str, str2);
+                        e.this.f29727a.onDownloadPaused(j, j2, str, str2);
                     }
                 }
             });
@@ -81,12 +81,12 @@ public class e extends ITTAppDownloadListener.Stub {
 
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onIdle() throws RemoteException {
-        if (this.f29624a != null) {
+        if (this.f29727a != null) {
             b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (e.this.c()) {
-                        e.this.f29624a.onIdle();
+                        e.this.f29727a.onIdle();
                     }
                 }
             });
@@ -95,12 +95,12 @@ public class e extends ITTAppDownloadListener.Stub {
 
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onInstalled(final String str, final String str2) throws RemoteException {
-        if (this.f29624a != null) {
+        if (this.f29727a != null) {
             b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.6
                 @Override // java.lang.Runnable
                 public void run() {
                     if (e.this.c()) {
-                        e.this.f29624a.onInstalled(str, str2);
+                        e.this.f29727a.onInstalled(str, str2);
                     }
                 }
             });
@@ -108,17 +108,17 @@ public class e extends ITTAppDownloadListener.Stub {
     }
 
     private Handler b() {
-        Handler handler = this.f29625b;
+        Handler handler = this.f29728b;
         if (handler == null) {
             Handler handler2 = new Handler(Looper.getMainLooper());
-            this.f29625b = handler2;
+            this.f29728b = handler2;
             return handler2;
         }
         return handler;
     }
 
     public void a() {
-        this.f29624a = null;
-        this.f29625b = null;
+        this.f29727a = null;
+        this.f29728b = null;
     }
 }

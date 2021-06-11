@@ -5,25 +5,25 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabEmptyView;
 /* loaded from: classes4.dex */
-public class a extends d.a.c.j.e.a<d.a.n0.v.d.f.c.e, ConcernTabEmptyView.ViewHolder> {
+public class a extends d.a.c.k.e.a<d.a.n0.v.d.f.c.e, ConcernTabEmptyView.ViewHolder> {
     public TbPageContext m;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.a.n0.v.d.f.c.e.f61723f);
+        super(tbPageContext.getPageActivity(), d.a.n0.v.d.f.c.e.f65437f);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public ConcernTabEmptyView.ViewHolder P(ViewGroup viewGroup) {
-        return new ConcernTabEmptyView.ViewHolder(new ConcernTabEmptyView(this.m, viewGroup).l());
+    public ConcernTabEmptyView.ViewHolder Q(ViewGroup viewGroup) {
+        return new ConcernTabEmptyView.ViewHolder(new ConcernTabEmptyView(this.m, viewGroup).m());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.v.d.f.c.e eVar, ConcernTabEmptyView.ViewHolder viewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.v.d.f.c.e eVar, ConcernTabEmptyView.ViewHolder viewHolder) {
         if (viewHolder == null) {
             return null;
         }

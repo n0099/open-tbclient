@@ -8,16 +8,16 @@ import d.a.l0.a.v2.q0;
 public class c extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45220b = k.f43199a;
+    public static final boolean f48894b = k.f46875a;
 
     @Override // d.a.l0.a.u.f.b.b
     public void a() {
-        for (BasePendingOperation basePendingOperation : this.f45219a) {
-            if (f45220b) {
+        for (BasePendingOperation basePendingOperation : this.f48893a) {
+            if (f48894b) {
                 Log.d("MainThreadOperation", "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
             }
             q0.b0(basePendingOperation);
         }
-        this.f45219a.clear();
+        this.f48893a.clear();
     }
 }

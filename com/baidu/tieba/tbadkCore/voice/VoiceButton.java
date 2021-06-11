@@ -13,14 +13,14 @@ import d.a.n0.e3.p0.a;
 public class VoiceButton extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public f f20876e;
+    public f f20953e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20877f;
+    public boolean f20954f;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20877f = false;
+        this.f20954f = false;
     }
 
     public a getRecorderManager() {
@@ -50,14 +50,14 @@ public class VoiceButton extends ImageView {
             if (recorderManager == null || !recorderManager.f()) {
                 return false;
             }
-            this.f20877f = recorderManager.b(this.f20876e, -1);
+            this.f20954f = recorderManager.b(this.f20953e, -1);
             setPressed(true);
         } else if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
             if (!isPressed()) {
                 setPressed(true);
             }
         } else {
-            if (this.f20877f && recorderManager != null) {
+            if (this.f20954f && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             setPressed(false);
@@ -66,7 +66,7 @@ public class VoiceButton extends ImageView {
     }
 
     public void setRecorderView(f fVar) {
-        this.f20876e = fVar;
+        this.f20953e = fVar;
         a recorderManager = getRecorderManager();
         if (recorderManager != null) {
             recorderManager.e(fVar);

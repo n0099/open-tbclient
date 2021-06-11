@@ -7,23 +7,23 @@ import java.util.ArrayList;
 public final class ad extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f36528a;
+    public ArrayList<String> f40207a;
 
     public ad(boolean z, String str, String str2, ArrayList<String> arrayList) {
         super(z ? 2004 : 2005, str, str2);
-        this.f36528a = arrayList;
+        this.f40207a = arrayList;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a(CommandMessage.TYPE_TAGS, (Serializable) this.f36528a);
+        aVar.a(CommandMessage.TYPE_TAGS, (Serializable) this.f40207a);
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f36528a = aVar.b(CommandMessage.TYPE_TAGS);
+        this.f40207a = aVar.b(CommandMessage.TYPE_TAGS);
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y

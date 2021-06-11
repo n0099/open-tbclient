@@ -44,7 +44,7 @@ public class FH {
         f a2;
         List<ApkInfo> b2;
         try {
-            if (c.f10116b != null && s.a(c.f10116b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
+            if (c.f10178b != null && s.a(c.f10178b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
                 for (ApkInfo apkInfo : b2) {
                     if (apkInfo.key == i2) {
                         return apkInfo.versionName == null ? "" : apkInfo.versionName;
@@ -95,8 +95,8 @@ public class FH {
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
                     if (optString.equals("callSync")) {
-                        if (c.f10116b == null && context != null) {
-                            c.f10116b = context.getApplicationContext();
+                        if (c.f10178b == null && context != null) {
+                            c.f10178b = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -165,7 +165,7 @@ public class FH {
     }
 
     public static boolean isInitSuc(int i2) {
-        Context context = c.f10116b;
+        Context context = c.f10178b;
         if (context != null && s.a(context)) {
             return com.baidu.sofire.g.d.a(i2);
         }
@@ -267,8 +267,8 @@ public class FH {
                         if (cls.equals(Context.class)) {
                             if (context != null) {
                                 objArr[i4] = context;
-                            } else if (c.f10116b != null) {
-                                objArr[i4] = c.f10116b;
+                            } else if (c.f10178b != null) {
+                                objArr[i4] = c.f10178b;
                             } else {
                                 throw new IllegalArgumentException("method request context");
                             }

@@ -18,11 +18,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.a.m0.a.f;
+import d.a.m0.a.g;
 import d.a.m0.r.q.z0;
 import d.a.n0.d1.b.b;
 import d.a.n0.d1.c.d;
 import d.a.n0.d1.c.e;
+import d.a.n0.d1.c.f;
 import d.a.n0.d1.c.i;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -47,14 +48,14 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public String mFrom = "";
 
     /* loaded from: classes4.dex */
-    public class a implements f.b {
+    public class a implements g.b {
         public a() {
         }
 
-        @Override // d.a.m0.a.f.b
+        @Override // d.a.m0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
-            if (hashMap != null && (hashMap.get(f.u) instanceof String)) {
-                String str = (String) hashMap.get(f.u);
+            if (hashMap != null && (hashMap.get(g.u) instanceof String)) {
+                String str = (String) hashMap.get(g.u);
                 if (StringUtils.isNull(str)) {
                     return;
                 }
@@ -98,8 +99,8 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null) {
             Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
             String uri2 = uri.toString();
-            if (f.c(uri)) {
-                f.b().g(uri, new a());
+            if (g.c(uri)) {
+                g.b().g(uri, new a());
             } else if (!StringUtils.isNull(uri2) && uri2.startsWith("tbtopicdetail://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (StringUtils.isNull(decode)) {
@@ -128,16 +129,16 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     private void loadMoreCallback(int i2, d dVar, boolean z) {
         int k = this.mView.k();
         if (dVar != null) {
-            k = dVar.J3;
+            k = dVar.M3;
         }
         this.mView.r(k);
-        if (i2 == 0 && dVar != null && !ListUtils.isEmpty(dVar.K3)) {
+        if (i2 == 0 && dVar != null && !ListUtils.isEmpty(dVar.N3)) {
             d.a.n0.y1.b bVar = this.mView;
-            if (!z && bVar.o(k).H3 != null) {
+            if (!z && bVar.o(k).K3 != null) {
                 r1 = false;
             }
             bVar.s(dVar, r1, k);
-        } else if (this.mView.o(k).H3 == null) {
+        } else if (this.mView.o(k).K3 == null) {
             this.mView.i(i2 != 0, k);
         }
     }
@@ -148,7 +149,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
         this.topicId = str;
         this.topicName = str2;
-        this.mModel.D(d.a.c.e.m.b.f(str, 0L), str2);
+        this.mModel.H(d.a.c.e.m.b.f(str, 0L), str2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -187,11 +188,11 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
 
     public void loadMoreFeedData(int i2) {
         d o = this.mView.o(i2);
-        z0 z0Var = o.H3;
+        z0 z0Var = o.K3;
         if (z0Var == null) {
             refreshFeedData(i2);
         } else if (z0Var.b() != 0) {
-            this.mModel.u(i2, o.H3, o.I3);
+            this.mModel.y(i2, o.K3, o.L3);
         }
     }
 
@@ -205,7 +206,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         this.mView.l();
         if (i2 == 0 && eVar != null) {
             if (eVar.h() != null) {
-                resetTopicId(eVar.h().f52573e, eVar.h().f52574f);
+                resetTopicId(eVar.h().f56262e, eVar.h().f56263f);
             }
             this.mView.m(eVar);
             this.mView.q();
@@ -236,7 +237,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public void onActivityResult(int i2, int i3, Intent intent) {
         super.onActivityResult(i2, i3, intent);
         if (i3 == -1 && i2 == 110435) {
-            this.mModel.A();
+            this.mModel.E();
         }
     }
 
@@ -303,9 +304,9 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     }
 
     public void refreshFeedData(int i2) {
-        boolean t = this.mModel.t(i2);
-        if (this.mView.o(i2).H3 == null) {
-            if (t) {
+        boolean x = this.mModel.x(i2);
+        if (this.mView.o(i2).K3 == null) {
+            if (x) {
                 this.mView.j(i2);
                 this.mView.b(i2);
                 return;
@@ -317,13 +318,13 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
 
     @Override // d.a.n0.y1.a
     public void refreshFullData(int i2) {
-        boolean s = this.mModel.s(i2);
+        boolean w = this.mModel.w(i2);
         if (this.mView.g() != null) {
-            if (s) {
+            if (w) {
                 return;
             }
             this.mView.l();
-        } else if (s) {
+        } else if (w) {
             this.mView.h();
             this.mView.d();
         } else {
@@ -333,16 +334,16 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     }
 
     public boolean sendBlessData(d.a.n0.d1.c.a aVar) {
-        return this.mModel.B(aVar);
+        return this.mModel.F(aVar);
     }
 
     public boolean sendPkData(i iVar, int i2) {
-        return this.mModel.C(iVar, i2);
+        return this.mModel.G(iVar, i2);
     }
 
     @Override // d.a.n0.y1.a
     public void shareTopic(e eVar) {
-        d.a.n0.d1.c.f h2;
+        f h2;
         if (eVar == null || (h2 = eVar.h()) == null) {
             return;
         }
@@ -350,6 +351,6 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (!TextUtils.isEmpty(this.topicName)) {
             str = str + "&topic_name=" + URLEncoder.encode(this.topicName);
         }
-        this.hotTopicShareModel.e(h2.f52573e, h2.f52574f, str, h2.k, h2.j, true);
+        this.hotTopicShareModel.e(h2.f56262e, h2.f56263f, str, h2.k, h2.j, true);
     }
 }

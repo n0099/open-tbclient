@@ -13,45 +13,40 @@ public class g extends BaseCardInfo {
     public static final BdUniqueId l = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56409e;
+    public boolean f60098e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56410f;
+    public boolean f60099f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56411g;
+    public String f60100g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f56412h;
+    public String f60101h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f56413i;
+    public String f60102i;
     public int j;
-    public List<d.a.c.j.e.n> k;
+    public List<d.a.c.k.e.n> k;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
-    public BdUniqueId getType() {
-        return l;
-    }
-
-    public void h(User user) {
+    public void c(User user) {
         if (user == null || ListUtils.isEmpty(user.gift_list)) {
             return;
         }
-        this.f56411g = String.valueOf(user.id);
-        this.f56412h = user.name;
-        this.f56413i = user.name_show;
+        this.f60100g = String.valueOf(user.id);
+        this.f60101h = user.name;
+        this.f60102i = user.name_show;
         this.j = user.sex.intValue();
-        String str = this.f56411g;
+        String str = this.f60100g;
         if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.f56409e = true;
+            this.f60098e = true;
         } else {
-            this.f56409e = false;
+            this.f60098e = false;
         }
         if (user.sex.intValue() == 2) {
-            this.f56410f = false;
+            this.f60099f = false;
         } else {
-            this.f56410f = true;
+            this.f60099f = true;
         }
         Integer num = user.gift_num;
         if (num != null) {
@@ -61,10 +56,15 @@ public class g extends BaseCardInfo {
         for (GiftInfo giftInfo : user.gift_list) {
             if (giftInfo != null) {
                 o oVar = new o();
-                oVar.h(giftInfo);
+                oVar.c(giftInfo);
                 this.k.add(oVar);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
+    public BdUniqueId getType() {
+        return l;
     }
 
     public boolean isValid() {

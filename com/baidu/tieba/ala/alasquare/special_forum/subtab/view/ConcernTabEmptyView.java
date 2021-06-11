@@ -18,37 +18,37 @@ public class ConcernTabEmptyView extends b<e> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f13873a;
+        public View f13930a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f13874b;
+        public TextView f13931b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f13875c;
+        public View f13932c;
 
         public ViewHolder(View view) {
             super(view);
-            this.f13873a = view;
-            this.f13874b = (TextView) view.findViewById(R.id.tv_empty);
-            this.f13875c = this.f13873a.findViewById(R.id.devider_line);
+            this.f13930a = view;
+            this.f13931b = (TextView) view.findViewById(R.id.tv_empty);
+            this.f13932c = this.f13930a.findViewById(R.id.devider_line);
         }
     }
 
     public ConcernTabEmptyView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.m = new ViewHolder(l());
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.m = new ViewHolder(m());
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.special_bar_concern_empty;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setViewTextColor(this.m.f13874b, R.color.CAM_X0109);
-        SkinManager.setBackgroundColor(this.m.f13875c, R.color.CAM_X0204);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        SkinManager.setViewTextColor(this.m.f13931b, R.color.CAM_X0109);
+        SkinManager.setBackgroundColor(this.m.f13932c, R.color.CAM_X0204);
     }
 
     @Override // android.view.View.OnClickListener
@@ -57,7 +57,7 @@ public class ConcernTabEmptyView extends b<e> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(e eVar) {
+    /* renamed from: t */
+    public void n(e eVar) {
     }
 }

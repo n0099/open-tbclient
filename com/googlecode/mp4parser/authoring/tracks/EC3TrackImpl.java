@@ -54,16 +54,16 @@ public class EC3TrackImpl extends AbstractTrack {
     public class a implements Sample {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f31472b;
+        public final /* synthetic */ int f31563b;
 
         public a(int i2) {
-            this.f31472b = i2;
+            this.f31563b = i2;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return EC3TrackImpl.this.dataSource.map(this.f31472b, EC3TrackImpl.this.frameSize);
+                return EC3TrackImpl.this.dataSource.map(this.f31563b, EC3TrackImpl.this.frameSize);
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -76,7 +76,7 @@ public class EC3TrackImpl extends AbstractTrack {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            EC3TrackImpl.this.dataSource.transferTo(this.f31472b, EC3TrackImpl.this.frameSize, writableByteChannel);
+            EC3TrackImpl.this.dataSource.transferTo(this.f31563b, EC3TrackImpl.this.frameSize, writableByteChannel);
         }
     }
 

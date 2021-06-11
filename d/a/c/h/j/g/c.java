@@ -24,44 +24,44 @@ import plugin.writeSettings.WriteSettingsReqIdl;
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f39155e = BdUniqueId.gen();
+    public static final BdUniqueId f42808e = BdUniqueId.gen();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdAsyncTaskParallel f39156f = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f39155e);
+    public static final BdAsyncTaskParallel f42809f = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f42808e);
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f39157g;
+    public static c f42810g;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f39158a;
+    public a f42811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PluginSettings f39159b = new PluginSettings();
+    public PluginSettings f42812b = new PluginSettings();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39160c;
+    public boolean f42813c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f39161d;
+    public f f42814d;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public PluginSettings f39162a;
+        public PluginSettings f42815a;
 
         /* renamed from: b  reason: collision with root package name */
-        public e f39163b;
+        public e f42816b;
 
         public a(PluginSettings pluginSettings, e eVar) {
-            this.f39162a = pluginSettings;
-            this.f39163b = eVar;
+            this.f42815a = pluginSettings;
+            this.f42816b = eVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            e eVar = this.f39163b;
+            e eVar = this.f42816b;
             if (eVar != null) {
                 eVar.a();
             }
@@ -70,11 +70,11 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            PluginSettings pluginSettings = this.f39162a;
+            PluginSettings pluginSettings = this.f42815a;
             if (pluginSettings != null && pluginSettings.getPlugins() != null) {
                 ReqData.Builder builder = new ReqData.Builder();
                 ArrayList arrayList = new ArrayList();
-                for (Map.Entry<String, PluginSetting> entry : this.f39162a.getPlugins().entrySet()) {
+                for (Map.Entry<String, PluginSetting> entry : this.f42815a.getPlugins().entrySet()) {
                     PluginSetting value = entry.getValue();
                     if (value != null) {
                         Plugin_setting.Builder builder2 = new Plugin_setting.Builder();
@@ -116,8 +116,8 @@ public class c {
                     }
                 }
                 builder.plugin_settings_list = arrayList;
-                builder.container_version = this.f39162a.getContainerVersion();
-                builder.forbidden_feature = this.f39162a.getForbiddenFeatures();
+                builder.container_version = this.f42815a.getContainerVersion();
+                builder.forbidden_feature = this.f42815a.getForbiddenFeatures();
                 WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
                 try {
                     builder3.data = builder.build(false);
@@ -135,25 +135,25 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            if (this.f39163b != null) {
+            if (this.f42816b != null) {
                 if (bool != null && bool.booleanValue()) {
-                    this.f39163b.b();
+                    this.f42816b.b();
                 } else {
-                    this.f39163b.a();
+                    this.f42816b.a();
                 }
             }
         }
     }
 
     public static c b() {
-        if (f39157g == null) {
+        if (f42810g == null) {
             synchronized (c.class) {
-                if (f39157g == null) {
-                    f39157g = new c();
+                if (f42810g == null) {
+                    f42810g = new c();
                 }
             }
         }
-        return f39157g;
+        return f42810g;
     }
 
     public String c() {
@@ -164,7 +164,7 @@ public class c {
     }
 
     public PluginSettings d() {
-        return this.f39159b;
+        return this.f42812b;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:56:0x0141, code lost:
@@ -330,10 +330,10 @@ public class c {
         boolean z;
         PluginSettings e2;
         f fVar2;
-        if (this.f39160c) {
+        if (this.f42813c) {
             return;
         }
-        this.f39161d = fVar;
+        this.f42814d = fVar;
         try {
         } catch (Exception e3) {
             e = e3;
@@ -344,26 +344,26 @@ public class c {
             e = e4;
             d.a.c.h.h.b.e("PluginSettingIOManager_readSettings", "path_" + ((String) null) + "-exception_" + e.getMessage());
             z = true;
-            this.f39160c = true;
+            this.f42813c = true;
             e2 = e();
-            this.f39160c = false;
+            this.f42813c = false;
             if (e2 == null) {
             }
-            fVar2 = this.f39161d;
+            fVar2 = this.f42814d;
             if (fVar2 == null) {
             }
         }
-        this.f39160c = true;
+        this.f42813c = true;
         e2 = e();
-        this.f39160c = false;
+        this.f42813c = false;
         if (e2 == null) {
-            this.f39159b = e2;
+            this.f42812b = e2;
         } else {
-            this.f39160c = true;
+            this.f42813c = true;
             e2 = e();
-            this.f39160c = false;
+            this.f42813c = false;
             if (e2 != null) {
-                this.f39159b = e2;
+                this.f42812b = e2;
             } else {
                 d.a.c.h.h.b.e("PluginSettingIOManager_readSettings", "isExist_" + z + "-PluginSettings_is_null");
                 if (z) {
@@ -372,10 +372,10 @@ public class c {
                 }
             }
         }
-        fVar2 = this.f39161d;
+        fVar2 = this.f42814d;
         if (fVar2 == null) {
             fVar2.a(e2);
-            this.f39161d = null;
+            this.f42814d = null;
         }
     }
 
@@ -384,24 +384,24 @@ public class c {
         if (pluginSettings == null) {
             return;
         }
-        this.f39159b = pluginSettings;
-        if (this.f39160c && (fVar = this.f39161d) != null) {
+        this.f42812b = pluginSettings;
+        if (this.f42813c && (fVar = this.f42814d) != null) {
             fVar.a(pluginSettings);
-            this.f39161d = null;
-            this.f39160c = false;
+            this.f42814d = null;
+            this.f42813c = false;
         }
-        a aVar = this.f39158a;
+        a aVar = this.f42811a;
         if (aVar != null) {
             aVar.cancel();
-            this.f39158a = null;
+            this.f42811a = null;
         }
         if (TextUtils.isEmpty(pluginSettings.getContainerVersion())) {
             pluginSettings.setContainerSetting("");
         }
         a aVar2 = new a(pluginSettings, eVar);
-        this.f39158a = aVar2;
-        aVar2.setParallel(f39156f);
-        this.f39158a.execute(new String[0]);
+        this.f42811a = aVar2;
+        aVar2.setParallel(f42809f);
+        this.f42811a.execute(new String[0]);
     }
 
     public final boolean i(String str, byte[] bArr) {

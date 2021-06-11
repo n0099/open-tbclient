@@ -10,6 +10,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -177,7 +178,7 @@ public final class FileUtils {
         if (j < 1048576) {
             valueOf = Float.valueOf(((float) j) / 1024.0f);
             str = "KB";
-        } else if (j < 1073741824) {
+        } else if (j < KsMediaMeta.AV_CH_STEREO_RIGHT) {
             valueOf = Float.valueOf(((float) j) / 1048576.0f);
             str = "MB";
         } else {

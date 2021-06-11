@@ -12,24 +12,24 @@ import org.json.JSONObject;
 public class j extends d.a.l0.a.u.c.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45170d;
+    public int f48844d;
 
     /* loaded from: classes2.dex */
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45171e;
+        public final /* synthetic */ String f48845e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45172f;
+        public final /* synthetic */ String f48846f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45173g;
+        public final /* synthetic */ String f48847g;
 
         public a(String str, String str2, String str3) {
-            this.f45171e = str;
-            this.f45172f = str2;
-            this.f45173g = str3;
+            this.f48845e = str;
+            this.f48846f = str2;
+            this.f48847g = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,11 +38,11 @@ public class j extends d.a.l0.a.u.c.d {
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
                 int b2 = iVar.b();
-                j.this.d(this.f45171e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
+                j.this.d(this.f48845e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
                 return;
             }
-            j.this.t(this.f45172f, this.f45173g);
-            j.this.d(this.f45171e, new d.a.l0.a.u.h.b(0));
+            j.this.t(this.f48846f, this.f48847g);
+            j.this.d(this.f48845e, new d.a.l0.a.u.h.b(0));
         }
     }
 
@@ -52,8 +52,8 @@ public class j extends d.a.l0.a.u.c.d {
 
     public final void r() {
         d.a.l0.a.j2.p.f fVar = new d.a.l0.a.j2.p.f();
-        fVar.f43186b = "sms_panel";
-        fVar.f43189e = String.valueOf(this.f45170d);
+        fVar.f46862b = "sms_panel";
+        fVar.f46865e = String.valueOf(this.f48844d);
         fVar.a("appid", d.a.l0.a.a2.d.g().getAppId());
         d.a.l0.a.j2.k.u("1639", fVar);
     }
@@ -63,14 +63,14 @@ public class j extends d.a.l0.a.u.c.d {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        this.f45170d = jSONArray.length();
-        for (int i2 = 0; i2 < this.f45170d; i2++) {
+        this.f48844d = jSONArray.length();
+        for (int i2 = 0; i2 < this.f48844d; i2++) {
             String optString = jSONArray.optString(i2);
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
             sb.append(optString);
-            if (i2 != this.f45170d - 1) {
+            if (i2 != this.f48844d - 1) {
                 sb.append(";");
             }
         }
@@ -89,7 +89,7 @@ public class j extends d.a.l0.a.u.c.d {
     public d.a.l0.a.u.h.b u(String str) {
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-ShowSMSPanel", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
+        if (!bVar.isSuccess()) {
             d.a.l0.a.e0.d.b("Api-ShowSMSPanel", "parse fail");
             return bVar;
         }

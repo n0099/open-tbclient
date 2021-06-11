@@ -7,25 +7,25 @@ import java.util.Map;
 public class c<ContenT> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, c<ContenT>.a> f46622a = new HashMap();
+    public final Map<String, c<ContenT>.a> f50296a = new HashMap();
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f46623e;
+        public final String f50297e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ContenT f46624f;
+        public final ContenT f50298f;
 
         public a(String str, ContenT content) {
-            this.f46623e = str;
-            this.f46624f = content;
+            this.f50297e = str;
+            this.f50298f = content;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.d(this.f46623e);
+            c.this.d(this.f50297e);
         }
     }
 
@@ -35,7 +35,7 @@ public class c<ContenT> {
             return null;
         }
         c<ContenT>.a aVar = new a(str, content);
-        this.f46622a.put(str, aVar);
+        this.f50296a.put(str, aVar);
         if (j > 0) {
             d.i().postDelayed(aVar, j);
         }
@@ -43,27 +43,27 @@ public class c<ContenT> {
     }
 
     public synchronized void b() {
-        for (c<ContenT>.a aVar : this.f46622a.values()) {
+        for (c<ContenT>.a aVar : this.f50296a.values()) {
             if (aVar != null) {
                 d.i().removeCallbacks(aVar);
             }
         }
-        this.f46622a.clear();
+        this.f50296a.clear();
     }
 
     public ContenT c(String str) {
-        c<ContenT>.a aVar = this.f46622a.get(str);
+        c<ContenT>.a aVar = this.f50296a.get(str);
         if (aVar == null) {
             return null;
         }
-        return aVar.f46624f;
+        return aVar.f50298f;
     }
 
     public synchronized ContenT d(String str) {
-        c<ContenT>.a remove = this.f46622a.remove(str);
+        c<ContenT>.a remove = this.f50296a.remove(str);
         if (remove != null) {
             d.i().removeCallbacks(remove);
-            return remove.f46624f;
+            return remove.f50298f;
         }
         return null;
     }

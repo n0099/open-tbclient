@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class b extends d.a.n0.b3.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<d> f52182c = new ArrayList<>();
+    public ArrayList<d> f55871c = new ArrayList<>();
 
     @Override // d.a.n0.b3.f.a
     public void d(JSONObject jSONObject) throws Exception {
@@ -24,11 +24,11 @@ public class b extends d.a.n0.b3.f.a {
     }
 
     public ArrayList<d> h() {
-        return this.f52182c;
+        return this.f55871c;
     }
 
     public void i(ArrayList<d> arrayList) {
-        this.f52182c = arrayList;
+        this.f55871c = arrayList;
         g(null);
     }
 }

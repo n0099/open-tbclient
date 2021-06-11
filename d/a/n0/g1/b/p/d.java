@@ -2,9 +2,9 @@ package d.a.n0.g1.b.p;
 
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import d.a.c.j.e.n;
-import d.a.c.j.e.w;
-import d.a.c.j.e.x;
+import d.a.c.k.e.n;
+import d.a.c.k.e.w;
+import d.a.c.k.e.x;
 import d.a.n0.z.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,91 +13,91 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeRecyclerView f55126a;
+    public BdTypeRecyclerView f58815a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<n> f55127b;
+    public ArrayList<n> f58816b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d.a.c.j.e.a> f55128c = new LinkedList();
+    public List<d.a.c.k.e.a> f58817c = new LinkedList();
 
     /* renamed from: d  reason: collision with root package name */
-    public b f55129d;
+    public b f58818d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f55130e;
+    public b f58819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f55131f;
+    public b f58820f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f55132g;
+    public b f58821g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f55133h;
+    public b f58822h;
 
     public d(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext == null || bdTypeRecyclerView == null) {
             return;
         }
-        this.f55126a = bdTypeRecyclerView;
+        this.f58815a = bdTypeRecyclerView;
         b(tbPageContext);
     }
 
     public void a(int i2) {
-        BdTypeRecyclerView bdTypeRecyclerView = this.f55126a;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f58815a;
         if (bdTypeRecyclerView != null) {
             bdTypeRecyclerView.D(i2);
         }
     }
 
     public final void b(TbPageContext tbPageContext) {
-        this.f55129d = new b(tbPageContext, a.x);
-        this.f55130e = new b(tbPageContext, a.y);
-        this.f55131f = new b(tbPageContext, a.B);
-        this.f55132g = new b(tbPageContext, a.A);
-        this.f55133h = new b(tbPageContext, a.z);
-        this.f55128c.add(this.f55129d);
-        this.f55128c.add(this.f55130e);
-        this.f55128c.add(this.f55131f);
-        this.f55128c.add(this.f55132g);
-        this.f55128c.add(this.f55133h);
-        this.f55126a.a(this.f55128c);
+        this.f58818d = new b(tbPageContext, a.x);
+        this.f58819e = new b(tbPageContext, a.y);
+        this.f58820f = new b(tbPageContext, a.B);
+        this.f58821g = new b(tbPageContext, a.A);
+        this.f58822h = new b(tbPageContext, a.z);
+        this.f58817c.add(this.f58818d);
+        this.f58817c.add(this.f58819e);
+        this.f58817c.add(this.f58820f);
+        this.f58817c.add(this.f58821g);
+        this.f58817c.add(this.f58822h);
+        this.f58815a.a(this.f58817c);
     }
 
     public void c() {
-        this.f55126a.getAdapter().notifyDataSetChanged();
+        this.f58815a.getAdapter().notifyDataSetChanged();
     }
 
     public void d() {
-        for (d.a.c.j.e.a aVar : this.f55128c) {
+        for (d.a.c.k.e.a aVar : this.f58817c) {
         }
     }
 
     public void e(w wVar) {
-        for (d.a.c.j.e.a aVar : this.f55128c) {
+        for (d.a.c.k.e.a aVar : this.f58817c) {
             if (aVar != null) {
-                aVar.Z(wVar);
+                aVar.a0(wVar);
             }
         }
     }
 
     public void f(ArrayList<n> arrayList) {
-        this.f55126a.setData(arrayList);
-        this.f55127b = arrayList;
+        this.f58815a.setData(arrayList);
+        this.f58816b = arrayList;
     }
 
     public void g(x xVar) {
-        for (d.a.c.j.e.a aVar : this.f55128c) {
+        for (d.a.c.k.e.a aVar : this.f58817c) {
             if (aVar != null) {
-                aVar.a0(xVar);
+                aVar.b0(xVar);
             }
         }
     }
 
     public void h(b0 b0Var) {
-        this.f55133h.g0(b0Var);
-        this.f55132g.g0(b0Var);
-        this.f55131f.g0(b0Var);
+        this.f58822h.h0(b0Var);
+        this.f58821g.h0(b0Var);
+        this.f58820f.h0(b0Var);
     }
 }

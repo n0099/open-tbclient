@@ -9,20 +9,20 @@ import kotlin.text.StringsKt__StringsJVMKt;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.a.l0.a.m.a f44579a;
+    public static d.a.l0.a.m.a f48253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.a.l0.a.m.c f44580b;
+    public static d.a.l0.a.m.c f48254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f44581c;
+    public static boolean f48255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final f f44582d;
+    public static final f f48256d;
 
     static {
         f fVar = new f();
-        f44582d = fVar;
+        f48256d = fVar;
         Intrinsics.checkNotNullExpressionValue(fVar.getClass().getSimpleName(), "SwanAppAllianceLoginHelper.javaClass.simpleName");
     }
 
@@ -30,8 +30,8 @@ public final class f {
         Intrinsics.checkNotNullParameter(value, "value");
         Intrinsics.checkNotNullParameter(ceresId, "ceresId");
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = g.h();
-        eVar.f43189e = value;
+        eVar.f46862b = g.h();
+        eVar.f46865e = value;
         d.a.l0.a.a2.d g2 = d.a.l0.a.a2.d.g();
         Intrinsics.checkNotNullExpressionValue(g2, "Swan.get()");
         eVar.a("appkey", g2.getAppId());
@@ -39,21 +39,21 @@ public final class f {
     }
 
     public final void b() {
-        d.f44577a.b();
-        h.f44593b.d();
+        d.f48251a.b();
+        h.f48267b.d();
         j(false);
     }
 
     public final boolean c() {
-        return f44581c;
+        return f48255c;
     }
 
     public final d.a.l0.a.m.a d() {
-        return f44579a;
+        return f48253a;
     }
 
     public final d.a.l0.a.m.c e() {
-        return f44580b;
+        return f48254b;
     }
 
     public final boolean f() {
@@ -70,9 +70,9 @@ public final class f {
             k();
         }
         if (!Intrinsics.areEqual(g.i(), Boolean.FALSE)) {
-            String a2 = d.f44577a.a();
+            String a2 = d.f48251a.a();
             if (!(a2 == null || StringsKt__StringsJVMKt.isBlank(a2))) {
-                String a3 = h.f44593b.a();
+                String a3 = h.f48267b.a();
                 if (!(a3 == null || StringsKt__StringsJVMKt.isBlank(a3))) {
                     return true;
                 }
@@ -110,8 +110,8 @@ public final class f {
         Intrinsics.checkNotNullExpressionValue(m2, "SwanAppRuntime.getConfig()");
         String a4 = d.a.l0.t.i.a(a3, "appKey", m2.b());
         d.a.l0.a.h0.g.k.Q2("allianceLogin", d.a.l0.a.l1.b.e(a4, a4));
-        f44579a = listener;
-        f44581c = false;
+        f48253a = listener;
+        f48255c = false;
         a(g.e(), g.b());
     }
 
@@ -133,10 +133,10 @@ public final class f {
     }
 
     public final void l(boolean z) {
-        f44581c = z;
+        f48255c = z;
     }
 
     public final void m(d.a.l0.a.m.c cVar) {
-        f44580b = cVar;
+        f48254b = cVar;
     }
 }

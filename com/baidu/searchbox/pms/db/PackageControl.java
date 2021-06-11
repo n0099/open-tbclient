@@ -30,7 +30,7 @@ public class PackageControl {
             contentValues.put("name", packageInfo.name);
         }
         contentValues.put("version", Long.valueOf(packageInfo.version));
-        contentValues.put(PackageTable.UPDATE_VERSION, Long.valueOf(packageInfo.updateVersion));
+        contentValues.put("update_version", Long.valueOf(packageInfo.updateVersion));
         if (!TextUtils.isEmpty(packageInfo.downloadUrl)) {
             contentValues.put("download_url", packageInfo.downloadUrl);
         }
@@ -141,7 +141,7 @@ public class PackageControl {
             return arrayList2;
         }
         int columnIndex = cursor2.getColumnIndex("package_name");
-        int columnIndex2 = cursor2.getColumnIndex(PackageTable.UPDATE_VERSION);
+        int columnIndex2 = cursor2.getColumnIndex("update_version");
         int columnIndex3 = cursor2.getColumnIndex("download_url");
         int columnIndex4 = cursor2.getColumnIndex("version");
         int columnIndex5 = cursor2.getColumnIndex("name");
@@ -312,7 +312,7 @@ public class PackageControl {
             arrayList.add(new Pair<>("package_name", str2));
         }
         if (!TextUtils.isEmpty(str3)) {
-            arrayList.add(new Pair<>(PackageTable.UPDATE_VERSION, str3));
+            arrayList.add(new Pair<>("update_version", str3));
         }
         arrayList.add(new Pair<>("type", "10"));
         return deleteItemByKeValues(arrayList, true);
@@ -456,7 +456,7 @@ public class PackageControl {
         List<PackageInfo> list = null;
         try {
             try {
-                cursor = getPackageFileCursorByGroup(arrayList, true, PackageTable.UPDATE_VERSION, str4, null);
+                cursor = getPackageFileCursorByGroup(arrayList, true, "update_version", str4, null);
                 try {
                     list = safeLoadPackageFile(cursor);
                     cursor2 = cursor;
@@ -509,7 +509,7 @@ public class PackageControl {
             str2 = str3 + SmallTailInfo.EMOTION_SUFFIX;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put(PackageTable.UPDATE_VERSION, "-1");
+        contentValues.put("update_version", "-1");
         return PmsContentProviderImpl.updateExt(this.mContext, PmsContentProviderImpl.CONTENT_URI_PACKAGE_INFO, contentValues, str2, strArr);
     }
 
@@ -545,7 +545,7 @@ public class PackageControl {
         List<PackageInfo> list2 = null;
         try {
             try {
-                cursor = getPackageFileCursor(arrayList, arrayList2, PackageTable.UPDATE_VERSION, "DESC");
+                cursor = getPackageFileCursor(arrayList, arrayList2, "update_version", "DESC");
                 try {
                     list2 = safeLoadPackageFile(cursor);
                     arrayList2 = cursor;

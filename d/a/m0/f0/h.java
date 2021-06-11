@@ -22,28 +22,28 @@ import java.util.Map;
 public class h {
 
     /* renamed from: h  reason: collision with root package name */
-    public static h f49375h;
+    public static h f53049h;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f49380e;
+    public d f53054e;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49376a = false;
+    public boolean f53050a = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f49379d = new Handler(Looper.getMainLooper());
+    public final Handler f53053d = new Handler(Looper.getMainLooper());
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.m0.f0.c f49381f = new a();
+    public final d.a.m0.f0.c f53055f = new a();
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.m0.m.g f49382g = new c();
+    public final d.a.m0.m.g f53056g = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Class<? extends d.a.m0.f0.a>, d.a.m0.f0.b> f49377b = new HashMap();
+    public final Map<Class<? extends d.a.m0.f0.a>, d.a.m0.f0.b> f53051b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Class<? extends d.a.m0.f0.a>, LinkedList<i>> f49378c = new HashMap();
+    public final Map<Class<? extends d.a.m0.f0.a>, LinkedList<i>> f53052c = new HashMap();
 
     /* loaded from: classes3.dex */
     public class a implements d.a.m0.f0.c {
@@ -60,15 +60,15 @@ public class h {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.f0.a f49384e;
+        public final /* synthetic */ d.a.m0.f0.a f53058e;
 
         public b(d.a.m0.f0.a aVar) {
-            this.f49384e = aVar;
+            this.f53058e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            h.this.c(this.f49384e);
+            h.this.c(this.f53058e);
         }
     }
 
@@ -86,14 +86,14 @@ public class h {
     }
 
     public static h f() {
-        if (f49375h == null) {
+        if (f53049h == null) {
             synchronized (h.class) {
-                if (f49375h == null) {
-                    f49375h = new h();
+                if (f53049h == null) {
+                    f53049h = new h();
                 }
             }
         }
-        return f49375h;
+        return f53049h;
     }
 
     public static void i(@NonNull d.a.m0.f0.a aVar) {
@@ -106,7 +106,7 @@ public class h {
         }
         Class<?> cls = aVar.getClass();
         try {
-            d.a.m0.f0.b bVar = this.f49377b.get(cls);
+            d.a.m0.f0.b bVar = this.f53051b.get(cls);
             if (bVar != null) {
                 bVar.onEvent(aVar);
             }
@@ -114,7 +114,7 @@ public class h {
             BdLog.detailException(cls.getName(), e2);
         }
         try {
-            LinkedList<i> linkedList = this.f49378c.get(cls);
+            LinkedList<i> linkedList = this.f53052c.get(cls);
             if (ListUtils.isEmpty(linkedList)) {
                 return;
             }
@@ -137,7 +137,7 @@ public class h {
         if (l.C()) {
             c(aVar);
         } else {
-            this.f49379d.post(new b(aVar));
+            this.f53053d.post(new b(aVar));
         }
     }
 
@@ -155,15 +155,15 @@ public class h {
     }
 
     public void g(@NonNull Application application) {
-        if (this.f49376a) {
+        if (this.f53050a) {
             return;
         }
         k(application);
         e eVar = new e(application);
-        this.f49380e = eVar;
-        eVar.c(this.f49381f);
-        this.f49380e.a();
-        this.f49376a = true;
+        this.f53054e = eVar;
+        eVar.c(this.f53055f);
+        this.f53054e.a();
+        this.f53050a = true;
     }
 
     public void h(@NonNull d.a.m0.f0.a aVar) {
@@ -177,7 +177,7 @@ public class h {
     }
 
     public final void j(d.a.m0.f0.a aVar) {
-        d dVar = this.f49380e;
+        d dVar = this.f53054e;
         if (dVar != null) {
             dVar.b(aVar);
         }
@@ -185,25 +185,25 @@ public class h {
 
     public final void k(Application application) {
         try {
-            application.registerActivityLifecycleCallbacks(this.f49382g);
+            application.registerActivityLifecycleCallbacks(this.f53056g);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     public void l(@NonNull Class<? extends d.a.m0.f0.a> cls, @NonNull d.a.m0.f0.b bVar) {
-        if (this.f49377b.containsKey(cls)) {
+        if (this.f53051b.containsKey(cls)) {
             BdLog.e(cls + " has existed, Please unRegister old listener first！");
             return;
         }
-        this.f49377b.put(cls, bVar);
+        this.f53051b.put(cls, bVar);
     }
 
     public void m(@NonNull Class<? extends d.a.m0.f0.a> cls, @NonNull i iVar, BdUniqueId bdUniqueId) {
-        LinkedList<i> linkedList = this.f49378c.get(cls);
+        LinkedList<i> linkedList = this.f53052c.get(cls);
         if (linkedList == null) {
             linkedList = new LinkedList<>();
-            this.f49378c.put(cls, linkedList);
+            this.f53052c.put(cls, linkedList);
         }
         if (linkedList.contains(iVar)) {
             BdLog.e("listener has existed, Please unRegister old listener first！");
@@ -218,7 +218,7 @@ public class h {
         if (bdUniqueId == null) {
             return;
         }
-        for (Map.Entry<Class<? extends d.a.m0.f0.a>, LinkedList<i>> entry : this.f49378c.entrySet()) {
+        for (Map.Entry<Class<? extends d.a.m0.f0.a>, LinkedList<i>> entry : this.f53052c.entrySet()) {
             LinkedList<i> value = entry.getValue();
             if (!ListUtils.isEmpty(value)) {
                 Iterator<i> it = value.iterator();

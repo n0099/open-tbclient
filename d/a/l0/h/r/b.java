@@ -13,16 +13,16 @@ import d.a.l0.h.s.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public FullScreenFloatView f47667a;
+    public FullScreenFloatView f51341a;
 
     /* loaded from: classes3.dex */
     public class a implements FullScreenFloatView.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f47668a;
+        public final /* synthetic */ Activity f51342a;
 
         public a(Activity activity) {
-            this.f47668a = activity;
+            this.f51342a = activity;
         }
 
         @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
@@ -31,26 +31,26 @@ public class b {
 
         @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
         public void onClick() {
-            b.this.d(this.f47668a);
+            b.this.d(this.f51342a);
         }
     }
 
     public final void b(Activity activity) {
         FullScreenFloatView a2 = d.a.l0.a.z1.a.a.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-        this.f47667a = a2;
+        this.f51341a = a2;
         a2.setFloatButtonText(activity.getString(g.aiapps_game_inspector_info_button));
-        this.f47667a.setFloatImageBackground(e.aiapps_float_view_button_shape);
-        this.f47667a.setAutoAttachEnable(false);
-        this.f47667a.setDragImageListener(new a(activity));
-        this.f47667a.setVisibility(0);
+        this.f51341a.setFloatImageBackground(e.aiapps_float_view_button_shape);
+        this.f51341a.setAutoAttachEnable(false);
+        this.f51341a.setDragImageListener(new a(activity));
+        this.f51341a.setVisibility(0);
     }
 
     public void c(a.c cVar, Activity activity) {
         d.a.l0.h.c0.a.a aVar;
-        if (activity == null || this.f47667a != null) {
+        if (activity == null || this.f51341a != null) {
             return;
         }
-        if (d.a.l0.h.r.a.f((cVar == null || (aVar = cVar.f47676c) == null) ? null : aVar.f47261f).b()) {
+        if (d.a.l0.h.r.a.f((cVar == null || (aVar = cVar.f51350c) == null) ? null : aVar.f50935f).b()) {
             b(activity);
         }
     }

@@ -29,14 +29,14 @@ public class a extends d.a.l0.h.o0.g.b.a {
 
     /* renamed from: d.a.l0.h.o0.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1044a implements View.OnClickListener {
-        public View$OnClickListenerC1044a() {
+    public class View$OnClickListenerC1100a implements View.OnClickListener {
+        public View$OnClickListenerC1100a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f47590g != null) {
-                a.this.f47590g.b();
+            if (a.this.f51264g != null) {
+                a.this.f51264g.b();
             }
             a.this.B();
         }
@@ -49,8 +49,8 @@ public class a extends d.a.l0.h.o0.g.b.a {
 
         @Override // com.baidu.swan.games.view.recommend.listmode.ListRecommendAdapter.a
         public void a(int i2) {
-            if (a.this.f47590g != null) {
-                a.this.f47590g.v(i2);
+            if (a.this.f51264g != null) {
+                a.this.f51264g.v(i2);
             }
             a.this.y();
         }
@@ -63,8 +63,8 @@ public class a extends d.a.l0.h.o0.g.b.a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f47589f != null && a.this.f47590g != null) {
-                a.this.f47590g.p();
+            if (a.this.f51263f != null && a.this.f51264g != null) {
+                a.this.f51264g.p();
             }
             a.this.y();
         }
@@ -102,7 +102,7 @@ public class a extends d.a.l0.h.o0.g.b.a {
     }
 
     public final void A(View view) {
-        view.setOnClickListener(new View$OnClickListenerC1044a());
+        view.setOnClickListener(new View$OnClickListenerC1100a());
         this.t.e(new b());
         this.o.findViewById(d.a.l0.f.e.swangame_recommend_dialog_game_center).setOnClickListener(new c());
         this.q.setOnClickListener(new d());
@@ -128,7 +128,7 @@ public class a extends d.a.l0.h.o0.g.b.a {
     public final void D() {
         SwanAppActivity activity = f.V().getActivity();
         float min = Math.min(activity != null && activity.isLandScape() ? 2.5f : 5.0f, this.s.getAdapter().getItemCount());
-        Resources resources = this.f47588e.getResources();
+        Resources resources = this.f51262e.getResources();
         float dimension = resources.getDimension(d.a.l0.f.c.swangame_recommend_dialog_list_divider_height);
         float dimension2 = resources.getDimension(d.a.l0.f.c.swangame_recommend_dialog_list_default_padding);
         float dimension3 = resources.getDimension(d.a.l0.f.c.swangame_recommend_dialog_width);
@@ -149,7 +149,7 @@ public class a extends d.a.l0.h.o0.g.b.a {
     @SuppressLint({"InflateParams"})
     public View i() {
         View i2 = super.i();
-        View inflate = LayoutInflater.from(this.f47588e).inflate(d.a.l0.f.f.swangame_recommend_dialog, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f51262e).inflate(d.a.l0.f.f.swangame_recommend_dialog, (ViewGroup) null);
         this.o = inflate;
         this.p = inflate.findViewById(d.a.l0.f.e.swangame_recommend_dialog_content);
         this.r = this.o.findViewById(d.a.l0.f.e.swangame_recommend_dialog_night_mask);
@@ -158,9 +158,9 @@ public class a extends d.a.l0.h.o0.g.b.a {
         RecyclerView recyclerView = (RecyclerView) this.o.findViewById(d.a.l0.f.e.swangame_recommend_dialog_list);
         this.s = recyclerView;
         recyclerView.setItemAnimator(null);
-        this.s.setLayoutManager(new LinearLayoutManager(this.f47588e));
-        this.s.addItemDecoration(new ListRecommendDivider(this.f47588e));
-        ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.f47588e);
+        this.s.setLayoutManager(new LinearLayoutManager(this.f51262e));
+        this.s.addItemDecoration(new ListRecommendDivider(this.f51262e));
+        ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.f51262e);
         this.t = listRecommendAdapter;
         this.s.setAdapter(listRecommendAdapter);
         A(i2);
@@ -175,7 +175,7 @@ public class a extends d.a.l0.h.o0.g.b.a {
     }
 
     public final void z() {
-        h.a aVar = new h.a(this.f47588e);
+        h.a aVar = new h.a(this.f51262e);
         aVar.m(true);
         aVar.f(true);
         aVar.k(false);

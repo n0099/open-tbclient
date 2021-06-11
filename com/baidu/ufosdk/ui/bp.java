@@ -3,14 +3,14 @@ package com.baidu.ufosdk.ui;
 public final class bp implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bm f22671a;
+    public final /* synthetic */ bm f22774a;
 
     public bp(bm bmVar) {
-        this.f22671a = bmVar;
+        this.f22774a = bmVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        FeedbackInputActivity.j(this.f22671a.f22667b);
+        FeedbackInputActivity.j(this.f22774a.f22770b);
     }
 }

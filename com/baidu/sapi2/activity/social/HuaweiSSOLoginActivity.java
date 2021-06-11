@@ -22,15 +22,15 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public HuaweiIdAuthParams o;
 
     private void a(int i2, String str) {
-        if (((BaseSSOLoginActivity) this).f9728g == 2001) {
+        if (((BaseSSOLoginActivity) this).f9790g == 2001) {
             Intent intent = new Intent();
             intent.putExtra("result_code", i2);
             intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
             setResult(1002, intent);
         } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-            ((BaseSSOLoginActivity) this).f9729h.setResultCode(i2);
-            ((BaseSSOLoginActivity) this).f9729h.setResultMsg(str);
-            CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f9729h);
+            ((BaseSSOLoginActivity) this).f9791h.setResultCode(i2);
+            ((BaseSSOLoginActivity) this).f9791h.setResultMsg(str);
+            CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f9791h);
             CoreViewRouter.getInstance().release();
         }
         finish();

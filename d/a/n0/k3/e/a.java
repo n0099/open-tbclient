@@ -14,46 +14,46 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Object> f56983e;
+    public List<Object> f60672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f56984f;
+    public TbPageContext<?> f60673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f56985g;
+    public d f60674g;
 
     /* renamed from: d.a.n0.k3.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1423a {
+    public static class C1479a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f56986a;
+        public TextView f60675a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BackgroundItemView f56987b;
+        public BackgroundItemView f60676b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BackgroundItemView f56988c;
+        public BackgroundItemView f60677c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BackgroundItemView f56989d;
+        public BackgroundItemView f60678d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f56990e;
+        public View f60679e;
     }
 
     public a(TbPageContext<?> tbPageContext, d dVar) {
-        this.f56984f = tbPageContext;
-        this.f56985g = dVar;
+        this.f60673f = tbPageContext;
+        this.f60674g = dVar;
     }
 
     public void a(List<Object> list) {
-        this.f56983e = list;
+        this.f60672e = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<Object> list = this.f56983e;
+        List<Object> list = this.f60672e;
         if (list != null) {
             return list.size();
         }
@@ -62,11 +62,11 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        List<Object> list = this.f56983e;
-        if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f56983e.size()) {
+        List<Object> list = this.f60672e;
+        if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f60672e.size()) {
             return null;
         }
-        return this.f56983e.get(i2);
+        return this.f60672e.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -84,52 +84,52 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        C1423a c1423a;
+        C1479a c1479a;
         Object item = getItem(i2);
         if (view != null) {
-            c1423a = (C1423a) view.getTag();
+            c1479a = (C1479a) view.getTag();
         } else if (getItemViewType(i2) == 0) {
-            view = LayoutInflater.from(this.f56984f.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
-            c1423a = new C1423a();
-            c1423a.f56986a = (TextView) view.findViewById(R.id.group_name);
-            view.setTag(c1423a);
+            view = LayoutInflater.from(this.f60673f.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
+            c1479a = new C1479a();
+            c1479a.f60675a = (TextView) view.findViewById(R.id.group_name);
+            view.setTag(c1479a);
         } else {
-            view = LayoutInflater.from(this.f56984f.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
-            c1423a = new C1423a();
-            c1423a.f56987b = (BackgroundItemView) view.findViewById(R.id.bg_view1);
-            c1423a.f56988c = (BackgroundItemView) view.findViewById(R.id.bg_view2);
-            c1423a.f56989d = (BackgroundItemView) view.findViewById(R.id.bg_view3);
-            c1423a.f56990e = view.findViewById(R.id.divider_line);
-            view.setTag(c1423a);
+            view = LayoutInflater.from(this.f60673f.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
+            c1479a = new C1479a();
+            c1479a.f60676b = (BackgroundItemView) view.findViewById(R.id.bg_view1);
+            c1479a.f60677c = (BackgroundItemView) view.findViewById(R.id.bg_view2);
+            c1479a.f60678d = (BackgroundItemView) view.findViewById(R.id.bg_view3);
+            c1479a.f60679e = view.findViewById(R.id.divider_line);
+            view.setTag(c1479a);
         }
         if (item != null) {
             if (getItemViewType(i2) == 0) {
-                c1423a.f56986a.setText(item.toString());
+                c1479a.f60675a.setText(item.toString());
             } else {
                 List list = (List) item;
-                c1423a.f56987b.e((DressItemData) list.get(0));
-                c1423a.f56987b.setController(this.f56985g);
+                c1479a.f60676b.e((DressItemData) list.get(0));
+                c1479a.f60676b.setController(this.f60674g);
                 if (list.size() > 2) {
-                    c1423a.f56988c.e((DressItemData) list.get(1));
-                    c1423a.f56989d.e((DressItemData) list.get(2));
-                    c1423a.f56988c.setController(this.f56985g);
-                    c1423a.f56989d.setController(this.f56985g);
+                    c1479a.f60677c.e((DressItemData) list.get(1));
+                    c1479a.f60678d.e((DressItemData) list.get(2));
+                    c1479a.f60677c.setController(this.f60674g);
+                    c1479a.f60678d.setController(this.f60674g);
                 } else if (list.size() > 1) {
-                    c1423a.f56988c.e((DressItemData) list.get(1));
-                    c1423a.f56988c.setController(this.f56985g);
-                    c1423a.f56989d.f();
+                    c1479a.f60677c.e((DressItemData) list.get(1));
+                    c1479a.f60677c.setController(this.f60674g);
+                    c1479a.f60678d.f();
                 } else {
-                    c1423a.f56988c.f();
-                    c1423a.f56989d.f();
+                    c1479a.f60677c.f();
+                    c1479a.f60678d.f();
                 }
                 if (getItem(i2 + 1) instanceof List) {
-                    c1423a.f56990e.setVisibility(8);
+                    c1479a.f60679e.setVisibility(8);
                 } else {
-                    c1423a.f56990e.setVisibility(0);
+                    c1479a.f60679e.setVisibility(0);
                 }
             }
         }
-        this.f56984f.getLayoutMode().j(view);
+        this.f60673f.getLayoutMode().j(view);
         return view;
     }
 

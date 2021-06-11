@@ -17,10 +17,10 @@ import org.json.JSONObject;
 public class d implements ShareService {
 
     /* renamed from: a  reason: collision with root package name */
-    public ShareService.IOnSocialListener f59926a = null;
+    public ShareService.IOnSocialListener f63617a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f59927b = new a(2921550);
+    public CustomMessageListener f63618b = new a(2921550);
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -35,17 +35,17 @@ public class d implements ShareService {
                 return;
             }
             Integer num = (Integer) customResponsedMessage.getData();
-            if (d.this.f59926a != null) {
+            if (d.this.f63617a != null) {
                 if (num.intValue() == 1) {
-                    d.this.f59926a.onComplete("");
+                    d.this.f63617a.onComplete("");
                 } else if (num.intValue() == 2) {
-                    d.this.f59926a.onError("");
+                    d.this.f63617a.onError("");
                 } else if (num.intValue() == 3) {
-                    d.this.f59926a.onCancel("");
+                    d.this.f63617a.onCancel("");
                 }
-                d.this.f59926a = null;
+                d.this.f63617a = null;
             }
-            MessageManager.getInstance().unRegisterListener(d.this.f59927b);
+            MessageManager.getInstance().unRegisterListener(d.this.f63618b);
         }
     }
 
@@ -86,8 +86,8 @@ public class d implements ShareService {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.f59926a = iOnSocialListener;
-        MessageManager.getInstance().registerListener(this.f59927b);
+        this.f63617a = iOnSocialListener;
+        MessageManager.getInstance().registerListener(this.f63618b);
         if (context == null) {
             context = TbadkCoreApplication.getInst();
         }

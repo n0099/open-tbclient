@@ -7,31 +7,31 @@ import tbclient.FrsPage.BusinessPromot;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54043a;
+    public String f57732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54044b;
+    public String f57733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54045c;
+    public String f57734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54046d;
+    public int f57735d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54047e;
+    public String f57736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54048f;
+    public String f57737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54049g;
+    public String f57738g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54050h;
+    public int f57739h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f54051i;
+    public long f57740i;
     public List<j> j;
     public int k;
     public List<String> l;
@@ -41,23 +41,23 @@ public class i {
     }
 
     public long b() {
-        return this.f54051i;
+        return this.f57740i;
     }
 
     public String c() {
-        return this.f54044b;
+        return this.f57733b;
     }
 
     public String d() {
-        return this.f54045c;
+        return this.f57734c;
     }
 
     public int e() {
-        return this.f54050h;
+        return this.f57739h;
     }
 
     public String f() {
-        return this.f54049g;
+        return this.f57738g;
     }
 
     public List<String> g() {
@@ -65,7 +65,7 @@ public class i {
     }
 
     public String h() {
-        return this.f54047e;
+        return this.f57736e;
     }
 
     public int i() {
@@ -73,30 +73,30 @@ public class i {
     }
 
     public String j() {
-        return this.f54043a;
+        return this.f57732a;
     }
 
     public int k() {
-        return this.f54046d;
+        return this.f57735d;
     }
 
     public String l() {
-        return this.f54048f;
+        return this.f57737f;
     }
 
     public void m(BusinessPromot businessPromot) {
         if (businessPromot == null) {
             return;
         }
-        this.f54043a = businessPromot.title;
-        this.f54044b = businessPromot.img;
-        this.f54045c = businessPromot.img_popup;
-        this.f54046d = businessPromot.type.intValue();
-        this.f54047e = businessPromot.thread_id;
-        this.f54048f = businessPromot.url;
-        this.f54049g = businessPromot.schema;
-        this.f54050h = businessPromot.join_num.intValue();
-        this.f54051i = businessPromot.id.longValue();
+        this.f57732a = businessPromot.title;
+        this.f57733b = businessPromot.img;
+        this.f57734c = businessPromot.img_popup;
+        this.f57735d = businessPromot.type.intValue();
+        this.f57736e = businessPromot.thread_id;
+        this.f57737f = businessPromot.url;
+        this.f57738g = businessPromot.schema;
+        this.f57739h = businessPromot.join_num.intValue();
+        this.f57740i = businessPromot.id.longValue();
         if (businessPromot.comment_list != null) {
             this.j = new LinkedList();
             for (int i2 = 0; i2 < businessPromot.comment_list.size(); i2++) {

@@ -5,31 +5,31 @@ import GetSugTopic.TopicList;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52788a;
+    public String f56477a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Integer f52789b;
+    public Integer f56478b;
 
     public Integer a() {
-        return this.f52789b;
+        return this.f56478b;
     }
 
     public String b() {
-        return this.f52788a;
+        return this.f56477a;
     }
 
     public void c(TopicList topicList) {
         if (topicList != null) {
             Long l = topicList.topic_id;
-            this.f52788a = topicList.topic_name;
+            this.f56477a = topicList.topic_name;
             String str = topicList.topic_pic;
             String str2 = topicList.topic_desc;
             Long l2 = topicList.discuss_num;
-            this.f52789b = topicList.tag;
+            this.f56478b = topicList.tag;
         }
     }
 
     public void d(String str) {
-        this.f52788a = str;
+        this.f56477a = str;
     }
 }

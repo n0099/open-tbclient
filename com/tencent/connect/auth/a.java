@@ -33,7 +33,6 @@ import android.widget.Toast;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.wallet.core.beans.BeanConstants;
 import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.auth.b;
@@ -55,31 +54,31 @@ import org.json.JSONObject;
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36208a;
+    public String f39887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f36209b;
+    public b f39888b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IUiListener f36210c;
+    public IUiListener f39889c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f36211d;
+    public Handler f39890d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f36212e;
+    public FrameLayout f39891e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f36213f;
+    public LinearLayout f39892f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f36214g;
+    public FrameLayout f39893g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f36215h;
+    public ProgressBar f39894h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f36216i;
+    public String f39895i;
     public com.tencent.open.c.c j;
     public Context k;
     public com.tencent.open.web.security.b l;
@@ -93,38 +92,38 @@ public class a extends Dialog {
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0458a extends WebViewClient {
-        public C0458a() {
+    public class C0509a extends WebViewClient {
+        public C0509a() {
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             f.a("openSDK_LOG.AuthDialog", "-->onPageFinished, url: " + str);
-            a.this.f36214g.setVisibility(8);
+            a.this.f39893g.setVisibility(8);
             if (a.this.j != null) {
                 a.this.j.setVisibility(0);
             }
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            a.this.f36211d.removeCallbacks((Runnable) a.this.s.remove(str));
+            a.this.f39890d.removeCallbacks((Runnable) a.this.s.remove(str));
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             f.a("openSDK_LOG.AuthDialog", "-->onPageStarted, url: " + str);
             super.onPageStarted(webView, str, bitmap);
-            a.this.f36214g.setVisibility(0);
+            a.this.f39893g.setVisibility(0);
             a.this.q = SystemClock.elapsedRealtime();
             if (!TextUtils.isEmpty(a.this.o)) {
-                a.this.f36211d.removeCallbacks((Runnable) a.this.s.remove(a.this.o));
+                a.this.f39890d.removeCallbacks((Runnable) a.this.s.remove(a.this.o));
             }
             a.this.o = str;
             a aVar = a.this;
             d dVar = new d(aVar.o);
             a.this.s.put(str, dVar);
-            a.this.f36211d.postDelayed(dVar, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+            a.this.f39890d.postDelayed(dVar, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
         }
 
         @Override // android.webkit.WebViewClient
@@ -132,7 +131,7 @@ public class a extends Dialog {
             super.onReceivedError(webView, i2, str, str2);
             f.c("openSDK_LOG.AuthDialog", "-->onReceivedError, errorCode: " + i2 + " | description: " + str);
             if (!j.b(a.this.k)) {
-                a.this.f36209b.onError(new UiError(UIMsg.m_AppUI.MSG_CLICK_ITEM, "当前网络不可用，请稍后重试！", str2));
+                a.this.f39888b.onError(new UiError(UIMsg.m_AppUI.MSG_CLICK_ITEM, "当前网络不可用，请稍后重试！", str2));
                 a.this.dismiss();
             } else if (!a.this.o.startsWith("http://qzs.qq.com/open/mobile/login/qzsjump.html?")) {
                 long elapsedRealtime = SystemClock.elapsedRealtime() - a.this.q;
@@ -141,14 +140,14 @@ public class a extends Dialog {
                     return;
                 }
                 a.m(a.this);
-                a.this.f36211d.postDelayed(new Runnable() { // from class: com.tencent.connect.auth.a.a.1
+                a.this.f39890d.postDelayed(new Runnable() { // from class: com.tencent.connect.auth.a.a.1
                     @Override // java.lang.Runnable
                     public void run() {
                         a.this.j.loadUrl(a.this.o);
                     }
                 }, 500L);
             } else {
-                a.this.f36209b.onError(new UiError(i2, str, str2));
+                a.this.f39888b.onError(new UiError(i2, str, str2));
                 a.this.dismiss();
             }
         }
@@ -201,9 +200,9 @@ public class a extends Dialog {
                         a.this.a(c2.optString("fail_cb"), "");
                     } else if (c2.optInt("fall_to_wv") == 1) {
                         a aVar2 = a.this;
-                        a.a(aVar2, (Object) (aVar2.f36208a.indexOf("?") > -1 ? "&" : "?"));
+                        a.a(aVar2, (Object) (aVar2.f39887a.indexOf("?") > -1 ? "&" : "?"));
                         a.a(a.this, (Object) "browser_error=1");
-                        a.this.j.loadUrl(a.this.f36208a);
+                        a.this.j.loadUrl(a.this.f39887a);
                     } else {
                         String optString = c2.optString("redir", null);
                         if (optString != null) {
@@ -213,11 +212,11 @@ public class a extends Dialog {
                 }
                 return true;
             } else if (str.startsWith("auth://tauth.qq.com/")) {
-                a.this.f36209b.onComplete(j.c(str));
+                a.this.f39888b.onComplete(j.c(str));
                 a.this.dismiss();
                 return true;
             } else if (str.startsWith(Constants.CANCEL_URI)) {
-                a.this.f36209b.onCancel();
+                a.this.f39888b.onCancel();
                 a.this.dismiss();
                 return true;
             } else if (str.startsWith(Constants.CLOSE_URI)) {
@@ -234,10 +233,10 @@ public class a extends Dialog {
                     }
                     int intValue = Integer.valueOf(pathSegments.get(0)).intValue();
                     if (intValue == 0) {
-                        a.this.f36214g.setVisibility(8);
+                        a.this.f39893g.setVisibility(8);
                         a.this.j.setVisibility(0);
                     } else if (intValue == 1) {
-                        a.this.f36214g.setVisibility(0);
+                        a.this.f39893g.setVisibility(0);
                     }
                     return true;
                 } else if (!str.startsWith("auth://onLoginSubmit")) {
@@ -278,30 +277,30 @@ public class a extends Dialog {
     public class b implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f36226a;
+        public String f39905a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36227b;
+        public String f39906b;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f36229d;
+        public String f39908d;
 
         /* renamed from: e  reason: collision with root package name */
-        public IUiListener f36230e;
+        public IUiListener f39909e;
 
         public b(String str, String str2, String str3, IUiListener iUiListener) {
-            this.f36229d = str;
-            this.f36226a = str2;
-            this.f36227b = str3;
-            this.f36230e = iUiListener;
+            this.f39908d = str;
+            this.f39905a = str2;
+            this.f39906b = str3;
+            this.f39909e = iUiListener;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
-            IUiListener iUiListener = this.f36230e;
+            IUiListener iUiListener = this.f39909e;
             if (iUiListener != null) {
                 iUiListener.onCancel();
-                this.f36230e = null;
+                this.f39909e = null;
             }
         }
 
@@ -309,11 +308,11 @@ public class a extends Dialog {
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
             g a2 = g.a();
-            a2.a(this.f36229d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f36226a, false);
-            IUiListener iUiListener = this.f36230e;
+            a2.a(this.f39908d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f39905a, false);
+            IUiListener iUiListener = this.f39909e;
             if (iUiListener != null) {
                 iUiListener.onComplete(jSONObject);
-                this.f36230e = null;
+                this.f39909e = null;
             }
         }
 
@@ -321,16 +320,16 @@ public class a extends Dialog {
         public void onError(UiError uiError) {
             String str;
             if (uiError.errorMessage != null) {
-                str = uiError.errorMessage + this.f36226a;
+                str = uiError.errorMessage + this.f39905a;
             } else {
-                str = this.f36226a;
+                str = this.f39905a;
             }
-            g.a().a(this.f36229d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, str, false);
+            g.a().a(this.f39908d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, str, false);
             a.this.a(str);
-            IUiListener iUiListener = this.f36230e;
+            IUiListener iUiListener = this.f39909e;
             if (iUiListener != null) {
                 iUiListener.onError(uiError);
-                this.f36230e = null;
+                this.f39909e = null;
             }
         }
 
@@ -349,20 +348,20 @@ public class a extends Dialog {
     public class c extends Handler {
 
         /* renamed from: b  reason: collision with root package name */
-        public b f36232b;
+        public b f39911b;
 
         public c(b bVar, Looper looper) {
             super(looper);
-            this.f36232b = bVar;
+            this.f39911b = bVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             int i2 = message.what;
             if (i2 == 1) {
-                this.f36232b.a((String) message.obj);
+                this.f39911b.a((String) message.obj);
             } else if (i2 == 2) {
-                this.f36232b.onCancel();
+                this.f39911b.onCancel();
             } else if (i2 != 3) {
             } else {
                 a.b(a.this.k, (String) message.obj);
@@ -374,18 +373,18 @@ public class a extends Dialog {
     public class d implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f36233a;
+        public String f39912a;
 
         public d(String str) {
-            this.f36233a = "";
-            this.f36233a = str;
+            this.f39912a = "";
+            this.f39912a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            f.a("openSDK_LOG.AuthDialog", "-->timeoutUrl: " + this.f36233a + " | mRetryUrl: " + a.this.o);
-            if (this.f36233a.equals(a.this.o)) {
-                a.this.f36209b.onError(new UiError(9002, "请求页面超时，请稍后重试！", a.this.o));
+            f.a("openSDK_LOG.AuthDialog", "-->timeoutUrl: " + this.f39912a + " | mRetryUrl: " + a.this.o);
+            if (this.f39912a.equals(a.this.o)) {
+                a.this.f39888b.onError(new UiError(9002, "请求页面超时，请稍后重试！", a.this.o));
                 a.this.dismiss();
             }
         }
@@ -395,13 +394,13 @@ public class a extends Dialog {
         super(context, 16973840);
         this.m = false;
         this.q = 0L;
-        this.r = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
+        this.r = 30000L;
         this.k = context;
-        this.f36208a = str2;
-        this.f36209b = new b(str, str2, qQToken.getAppId(), iUiListener);
-        this.f36211d = new c(this.f36209b, context.getMainLooper());
-        this.f36210c = iUiListener;
-        this.f36216i = str;
+        this.f39887a = str2;
+        this.f39888b = new b(str, str2, qQToken.getAppId(), iUiListener);
+        this.f39890d = new c(this.f39888b, context.getMainLooper());
+        this.f39889c = iUiListener;
+        this.f39895i = str;
         this.l = new com.tencent.open.web.security.b();
         getWindow().setSoftInputMode(32);
     }
@@ -415,7 +414,7 @@ public class a extends Dialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         this.s.clear();
-        this.f36211d.removeCallbacksAndMessages(null);
+        this.f39890d.removeCallbacksAndMessages(null);
         if (isShowing()) {
             super.dismiss();
         }
@@ -429,7 +428,7 @@ public class a extends Dialog {
     @Override // android.app.Dialog
     public void onBackPressed() {
         if (!this.m) {
-            this.f36209b.onCancel();
+            this.f39888b.onCancel();
         }
         super.onBackPressed();
     }
@@ -452,7 +451,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0458a());
+        this.j.setWebViewClient(new C0509a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();
@@ -485,8 +484,8 @@ public class a extends Dialog {
         settings.setDatabaseEnabled(true);
         settings.setDatabasePath(this.k.getDir("databases", 0).getPath());
         settings.setDomStorageEnabled(true);
-        f.a("openSDK_LOG.AuthDialog", "-->mUrl : " + this.f36208a);
-        String str = this.f36208a;
+        f.a("openSDK_LOG.AuthDialog", "-->mUrl : " + this.f39887a);
+        String str = this.f39887a;
         this.o = str;
         this.j.loadUrl(str);
         this.j.setVisibility(4);
@@ -509,24 +508,24 @@ public class a extends Dialog {
         com.tencent.connect.auth.b a2 = com.tencent.connect.auth.b.a();
         String c2 = a2.c();
         b.a aVar = new b.a();
-        aVar.f36240a = this.f36210c;
-        aVar.f36241b = this;
-        aVar.f36242c = c2;
+        aVar.f39919a = this.f39889c;
+        aVar.f39920b = this;
+        aVar.f39921c = c2;
         String a3 = a2.a(aVar);
-        String str = this.f36208a;
+        String str = this.f39887a;
         String substring = str.substring(0, str.indexOf("?"));
-        Bundle b2 = j.b(this.f36208a);
+        Bundle b2 = j.b(this.f39887a);
         b2.putString("token_key", c2);
         b2.putString("serial", a3);
         b2.putString(BeanConstants.CHANNEL_ID_BROWSER, "1");
         String str2 = substring + "?" + HttpUtils.encodeUrl(b2);
-        this.f36208a = str2;
+        this.f39887a = str2;
         return j.a(this.k, str2);
     }
 
     public static /* synthetic */ String a(a aVar, Object obj) {
-        String str = aVar.f36208a + obj;
-        aVar.f36208a = str;
+        String str = aVar.f39887a + obj;
+        aVar.f39887a = str;
         return str;
     }
 
@@ -540,20 +539,20 @@ public class a extends Dialog {
         }
         this.j.setLayoutParams(layoutParams);
         FrameLayout frameLayout = new FrameLayout(this.k);
-        this.f36212e = frameLayout;
+        this.f39891e = frameLayout;
         layoutParams.gravity = 17;
         frameLayout.setLayoutParams(layoutParams);
-        this.f36212e.addView(this.j);
-        this.f36212e.addView(this.f36214g);
-        setContentView(this.f36212e);
+        this.f39891e.addView(this.j);
+        this.f39891e.addView(this.f39893g);
+        setContentView(this.f39891e);
     }
 
     private void c() {
         TextView textView;
-        this.f36215h = new ProgressBar(this.k);
-        this.f36215h.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.f36213f = new LinearLayout(this.k);
-        if (this.f36216i.equals("action_login")) {
+        this.f39894h = new ProgressBar(this.k);
+        this.f39894h.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        this.f39892f = new LinearLayout(this.k);
+        if (this.f39895i.equals("action_login")) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 16;
             layoutParams.leftMargin = 5;
@@ -571,21 +570,21 @@ public class a extends Dialog {
         }
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 17;
-        this.f36213f.setLayoutParams(layoutParams2);
-        this.f36213f.addView(this.f36215h);
+        this.f39892f.setLayoutParams(layoutParams2);
+        this.f39892f.addView(this.f39894h);
         if (textView != null) {
-            this.f36213f.addView(textView);
+            this.f39892f.addView(textView);
         }
-        this.f36214g = new FrameLayout(this.k);
+        this.f39893g = new FrameLayout(this.k);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -2);
         layoutParams3.leftMargin = 80;
         layoutParams3.rightMargin = 80;
         layoutParams3.topMargin = 40;
         layoutParams3.bottomMargin = 40;
         layoutParams3.gravity = 17;
-        this.f36214g.setLayoutParams(layoutParams3);
-        this.f36214g.setBackgroundResource(17301504);
-        this.f36214g.addView(this.f36213f);
+        this.f39893g.setLayoutParams(layoutParams3);
+        this.f39893g.setBackgroundResource(17301504);
+        this.f39893g.addView(this.f39892f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -602,7 +601,7 @@ public class a extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a() {
-        String str = this.f36208a;
+        String str = this.f39887a;
         String str2 = "http://qzs.qq.com/open/mobile/login/qzsjump.html?" + str.substring(str.indexOf("?") + 1);
         f.c("openSDK_LOG.AuthDialog", "-->generateDownloadUrl, url: http://qzs.qq.com/open/mobile/login/qzsjump.html?");
         return str2;

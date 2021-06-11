@@ -4,40 +4,40 @@ import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f34622a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
+    public static final Pattern f38301a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f34623b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
+    public static final Pattern f38302b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f34624c;
+    public final String f38303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f34625d;
+    public final String f38304d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f34626e;
+    public final String f38305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f34627f;
+    public final String f38306f;
 
     public g(String str, String str2, String str3, String str4) {
-        this.f34624c = str;
-        this.f34625d = str2;
-        this.f34626e = str3;
-        this.f34627f = str4;
+        this.f38303c = str;
+        this.f38304d = str2;
+        this.f38305e = str3;
+        this.f38306f = str4;
     }
 
     public static g a(String str) {
-        Matcher matcher = f34622a.matcher(str);
+        Matcher matcher = f38301a.matcher(str);
         if (matcher.lookingAt()) {
             String lowerCase = matcher.group(1).toLowerCase(Locale.US);
             String lowerCase2 = matcher.group(2).toLowerCase(Locale.US);
-            Matcher matcher2 = f34623b.matcher(str);
+            Matcher matcher2 = f38302b.matcher(str);
             String str2 = null;
             for (int end = matcher.end(); end < str.length(); end = matcher2.end()) {
                 matcher2.region(end, str.length());
@@ -59,11 +59,11 @@ public class g {
     }
 
     public String a() {
-        return this.f34625d;
+        return this.f38304d;
     }
 
     public Charset b() {
-        String str = this.f34627f;
+        String str = this.f38306f;
         if (str != null) {
             return Charset.forName(str);
         }
@@ -71,14 +71,14 @@ public class g {
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof g) && ((g) obj).f34624c.equals(this.f34624c);
+        return (obj instanceof g) && ((g) obj).f38303c.equals(this.f38303c);
     }
 
     public int hashCode() {
-        return this.f34624c.hashCode();
+        return this.f38303c.hashCode();
     }
 
     public String toString() {
-        return this.f34624c;
+        return this.f38303c;
     }
 }

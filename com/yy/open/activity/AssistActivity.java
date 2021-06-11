@@ -104,7 +104,7 @@ public final class AssistActivity extends Activity {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (str.startsWith(d.r.c.f.d.g(false))) {
+            if (str.startsWith(d.r.b.f.d.g(false))) {
                 try {
                     Intent intent = new Intent();
                     String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -147,7 +147,7 @@ public final class AssistActivity extends Activity {
                     e2.printStackTrace();
                     return true;
                 }
-            } else if (str.startsWith(d.r.c.f.d.g(true))) {
+            } else if (str.startsWith(d.r.b.f.d.g(true))) {
                 try {
                     Intent intent2 = new Intent();
                     String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");
@@ -240,18 +240,18 @@ public final class AssistActivity extends Activity {
     public class f extends View {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f38249e;
+        public int f41902e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f38250f;
+        public Paint f41903f;
 
         public f(Context context) {
             super(context);
             Paint paint = new Paint();
-            this.f38250f = paint;
+            this.f41903f = paint;
             paint.setColor(-731575);
-            this.f38250f.setAntiAlias(true);
-            this.f38250f.setStyle(Paint.Style.FILL);
+            this.f41903f.setAntiAlias(true);
+            this.f41903f.setStyle(Paint.Style.FILL);
         }
 
         public void a(int i2) {
@@ -260,14 +260,14 @@ public final class AssistActivity extends Activity {
             } else if (i2 < 0) {
                 i2 = 0;
             }
-            this.f38249e = i2;
+            this.f41902e = i2;
             invalidate();
         }
 
         @Override // android.view.View
         public void onDraw(Canvas canvas) {
             canvas.drawColor(-5657689);
-            canvas.drawRect(0.0f, 0.0f, (this.f38249e / 100.0f) * getWidth(), getHeight(), this.f38250f);
+            canvas.drawRect(0.0f, 0.0f, (this.f41902e / 100.0f) * getWidth(), getHeight(), this.f41903f);
             super.onDraw(canvas);
         }
 
@@ -316,7 +316,7 @@ public final class AssistActivity extends Activity {
         this.mFrameLayout.addView(this.mProgressView);
         this.mFrameLayout.addView(this.mTextView);
         ImageView imageView = new ImageView(this);
-        imageView.setImageResource(d.r.c.c.ic_back);
+        imageView.setImageResource(d.r.b.c.ic_back);
         imageView.setOnClickListener(new b());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(convertDipToPixels(5.0f), convertDipToPixels(5.0f), 0, 0);

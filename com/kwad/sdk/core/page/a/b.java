@@ -12,24 +12,24 @@ import com.kwad.sdk.core.webview.jshandler.f;
 import com.kwad.sdk.core.webview.jshandler.j;
 import com.kwad.sdk.core.webview.jshandler.k;
 import com.kwad.sdk.mvp.Presenter;
-import com.kwad.sdk.utils.aq;
-/* loaded from: classes6.dex */
+import com.kwad.sdk.utils.ar;
+/* loaded from: classes4.dex */
 public class b extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public g f32443a;
+    public g f34535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f32444b;
+    public com.kwad.sdk.core.webview.a f34536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NestedScrollWebView f32445c;
+    public NestedScrollWebView f34537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f32446d;
+    public AdTemplate f34538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k.b f32447e = new k.b() { // from class: com.kwad.sdk.core.page.a.b.1
+    public k.b f34539e = new k.b() { // from class: com.kwad.sdk.core.page.a.b.1
         @Override // com.kwad.sdk.core.webview.jshandler.k.b
         public void a(int i2) {
         }
@@ -37,56 +37,56 @@ public class b extends Presenter {
 
     private void a(g gVar) {
         gVar.a(new d());
-        gVar.a(new e(this.f32444b));
-        gVar.a(new f(this.f32444b));
-        gVar.a(new k(this.f32447e));
-        gVar.a(new j(this.f32444b));
+        gVar.a(new e(this.f34536b));
+        gVar.a(new f(this.f34536b));
+        gVar.a(new k(this.f34539e));
+        gVar.a(new j(this.f34536b));
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void e() {
-        m();
-        aq.a(this.f32445c);
-        g gVar = new g(this.f32445c);
-        this.f32443a = gVar;
+        f();
+        ar.a(this.f34537c);
+        g gVar = new g(this.f34537c);
+        this.f34535a = gVar;
         a(gVar);
-        this.f32445c.addJavascriptInterface(this.f32443a, "KwaiAd");
+        this.f34537c.addJavascriptInterface(this.f34535a, "KwaiAd");
     }
 
-    private void m() {
-        g gVar = this.f32443a;
+    private void f() {
+        g gVar = this.f34535a;
         if (gVar != null) {
             gVar.a();
-            this.f32443a = null;
+            this.f34535a = null;
         }
     }
 
-    private void n() {
+    private void g() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f32444b = aVar;
-        aVar.f32796b = this.f32446d;
-        aVar.f32795a = 0;
-        aVar.f32800f = this.f32445c;
+        this.f34536b = aVar;
+        aVar.f34929b = this.f34538d;
+        aVar.f34928a = 0;
+        aVar.f34933f = this.f34537c;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32446d = ((com.kwad.sdk.core.page.recycle.e) k()).f32481c;
-        NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) i().findViewById(R.id.ksad_video_webView);
-        this.f32445c = nestedScrollWebView;
-        nestedScrollWebView.setTemplateData(this.f32446d);
-        this.f32445c.setNestedScrollingEnabled(true);
-        n();
+        this.f34538d = ((com.kwad.sdk.core.page.recycle.e) n()).f34573c;
+        NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) l().findViewById(R.id.ksad_video_webView);
+        this.f34537c = nestedScrollWebView;
+        nestedScrollWebView.setTemplateData(this.f34538d);
+        this.f34537c.setNestedScrollingEnabled(true);
+        g();
         e();
-        this.f32445c.loadUrl(com.kwad.sdk.core.response.b.a.y(c.g(this.f32446d)));
-        this.f32445c.a();
+        this.f34537c.loadUrl(com.kwad.sdk.core.response.b.a.B(c.j(this.f34538d)));
+        this.f34537c.d();
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        m();
-        this.f32445c.b();
+        f();
+        this.f34537c.e();
     }
 }

@@ -5,17 +5,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f63647a;
+    public AtomicBoolean f67365a;
 
     public a(Boolean bool) {
-        this.f63647a = new AtomicBoolean(bool.booleanValue());
+        this.f67365a = new AtomicBoolean(bool.booleanValue());
     }
 
     public boolean a() {
-        return this.f63647a.get();
+        return this.f67365a.get();
     }
 
     public void b(boolean z) {
-        this.f63647a.set(z);
+        this.f67365a.set(z);
     }
 }

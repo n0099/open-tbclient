@@ -56,22 +56,22 @@ public class b extends d.a.n0.r0.o1.a {
             if (motionEvent == null || motionEvent.getAction() != 2) {
                 return false;
             }
-            l.x(b.this.f59170e, view);
+            l.x(b.this.f62861e, view);
             return false;
         }
     }
 
     /* renamed from: d.a.n0.r0.o1.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1524b implements c.b {
-        public C1524b() {
+    public class C1580b implements c.b {
+        public C1580b() {
         }
 
         @Override // d.a.n0.r0.o1.c.b
         public void a(InputMethodManager inputMethodManager) {
             if (inputMethodManager != null) {
                 b bVar = b.this;
-                bVar.f59170e.HidenSoftKeyPad(inputMethodManager, bVar.v);
+                bVar.f62861e.HidenSoftKeyPad(inputMethodManager, bVar.v);
             }
         }
     }
@@ -85,12 +85,12 @@ public class b extends d.a.n0.r0.o1.a {
         public void afterTextChanged(Editable editable) {
             b.this.x = editable;
             if (b.this.x.length() > 500) {
-                b.this.w.setText(String.format(b.this.f59170e.getResources().getString(R.string.frs_item_word_conter), Integer.valueOf(500 - b.this.x.length())));
+                b.this.w.setText(String.format(b.this.f62861e.getResources().getString(R.string.frs_item_word_conter), Integer.valueOf(500 - b.this.x.length())));
                 b.this.w.setVisibility(0);
             } else {
                 b.this.w.setVisibility(8);
             }
-            b.this.s();
+            b.this.t();
         }
 
         @Override // android.text.TextWatcher
@@ -123,7 +123,7 @@ public class b extends d.a.n0.r0.o1.a {
 
     @Override // d.a.n0.r0.o1.a
     public void c() {
-        ForumWriteData forumWriteData = this.f59171f;
+        ForumWriteData forumWriteData = this.f62862f;
         if (forumWriteData == null) {
             return;
         }
@@ -132,25 +132,25 @@ public class b extends d.a.n0.r0.o1.a {
 
     @Override // d.a.n0.r0.o1.a
     public void f() {
-        View inflate = LayoutInflater.from(this.f59170e).inflate(R.layout.activity_other_evaluation, (ViewGroup) null);
-        this.f59172g = inflate;
-        this.f59173h = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
-        this.q = (TbImageView) this.f59172g.findViewById(R.id.item_icon);
-        this.r = (TextView) this.f59172g.findViewById(R.id.item_title);
-        this.s = (TextView) this.f59172g.findViewById(R.id.item_tag);
-        this.t = this.f59172g.findViewById(R.id.divider);
-        this.u = (RankStarView) this.f59172g.findViewById(R.id.item_star);
-        this.v = (EditText) this.f59172g.findViewById(R.id.other_comment);
-        this.w = (TextView) this.f59172g.findViewById(R.id.word_counter);
+        View inflate = LayoutInflater.from(this.f62861e).inflate(R.layout.activity_other_evaluation, (ViewGroup) null);
+        this.f62863g = inflate;
+        this.f62864h = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
+        this.q = (TbImageView) this.f62863g.findViewById(R.id.item_icon);
+        this.r = (TextView) this.f62863g.findViewById(R.id.item_title);
+        this.s = (TextView) this.f62863g.findViewById(R.id.item_tag);
+        this.t = this.f62863g.findViewById(R.id.divider);
+        this.u = (RankStarView) this.f62863g.findViewById(R.id.item_star);
+        this.v = (EditText) this.f62863g.findViewById(R.id.other_comment);
+        this.w = (TextView) this.f62863g.findViewById(R.id.word_counter);
         this.q.setPlaceHolder(2);
         this.q.setConrers(15);
-        this.q.setRadius(l.g(this.f59170e, R.dimen.tbds10));
-        this.u.setStarSpacing(l.g(this.f59170e, R.dimen.tbds24));
+        this.q.setRadius(l.g(this.f62861e, R.dimen.tbds10));
+        this.u.setStarSpacing(l.g(this.f62861e, R.dimen.tbds24));
         this.u.setClickable(true);
-        this.v.setLineSpacing(l.g(this.f59170e, R.dimen.tbds16), 1.0f);
+        this.v.setLineSpacing(l.g(this.f62861e, R.dimen.tbds16), 1.0f);
         SerializableItemInfo serializableItemInfo = this.l;
         if (serializableItemInfo != null) {
-            u(serializableItemInfo.getTags());
+            v(serializableItemInfo.getTags());
             this.r.setText(this.l.getName());
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.q.getLayoutParams();
             if (this.l.getIconSize() == 1.0d) {
@@ -164,25 +164,25 @@ public class b extends d.a.n0.r0.o1.a {
                 layoutParams.height = D;
             }
             this.q.setLayoutParams(layoutParams);
-            this.q.V(this.l.icon_url, 10, false);
+            this.q.U(this.l.icon_url, 10, false);
             if (this.l.getScore() != null && this.l.getScore().isCommented == 1) {
                 this.u.setStarCount(this.l.getScore().getCommentStar());
             }
         }
-        this.f59172g.findViewById(R.id.scroll_view).setOnTouchListener(new a());
-        this.m.h(new C1524b());
+        this.f62863g.findViewById(R.id.scroll_view).setOnTouchListener(new a());
+        this.m.h(new C1580b());
     }
 
     @Override // d.a.n0.r0.o1.a
-    public void g() {
+    public void h() {
         this.j.setOnClickListener(this);
         this.k.setOnClickListener(this);
         this.v.addTextChangedListener(new c());
     }
 
     @Override // d.a.n0.r0.o1.a
-    public void i() {
-        super.i();
+    public void j() {
+        super.j();
         SkinManager.setBackgroundColor(this.t, R.color.CAM_X0204);
         SkinManager.setViewTextColor(this.r, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
@@ -198,35 +198,35 @@ public class b extends d.a.n0.r0.o1.a {
     }
 
     @Override // d.a.n0.r0.o1.a
-    public void k() {
-        if (this.f59171f == null) {
+    public void l() {
+        if (this.f62862f == null) {
             return;
         }
         WriteData writeData = new WriteData();
         writeData.setOtherGrade(this.u.getStarCount());
         writeData.setOtherComment(this.v.getText().toString());
-        y.s(String.valueOf(this.f59171f.forumId), writeData);
+        y.s(String.valueOf(this.f62862f.forumId), writeData);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.j) {
-            l();
+            m();
         } else if (view == this.k) {
             if (!TextUtils.isEmpty(this.x) && this.x.length() >= 20) {
                 if (this.x.length() > 500) {
-                    l.L(this.f59170e, R.string.other_comment_size_long_tip);
+                    l.L(this.f62861e, R.string.other_comment_size_long_tip);
                     return;
                 } else {
-                    this.m.g(this.x.toString(), t(), this.f59171f);
+                    this.m.g(this.x.toString(), u(), this.f62862f);
                     return;
                 }
             }
-            l.L(this.f59170e, R.string.other_comment_size_short_tip);
+            l.L(this.f62861e, R.string.other_comment_size_short_tip);
         }
     }
 
-    public final void s() {
+    public final void t() {
         if (!TextUtils.isEmpty(this.x) && this.x.length() >= 20 && this.x.length() <= 500) {
             this.k.setAlpha(1.0f);
         } else {
@@ -234,13 +234,13 @@ public class b extends d.a.n0.r0.o1.a {
         }
     }
 
-    public final String t() {
+    public final String u() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new HeadItem("", String.valueOf(this.u.getStarCount()), 2));
         return this.n.toJson(arrayList);
     }
 
-    public final void u(List<String> list) {
+    public final void v(List<String> list) {
         if (list != null && !list.isEmpty()) {
             this.s.setVisibility(0);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();

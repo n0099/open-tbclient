@@ -21,44 +21,44 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public TailData f60629c;
+    public TailData f64320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TailData f60630d;
+    public TailData f64321d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f60631e;
+    public TbPageContext<?> f64322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.s1.h.f.a<Integer> f60632f;
+    public d.a.n0.s1.h.f.a<Integer> f64323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.s1.h.f.a<Integer> f60633g;
+    public d.a.n0.s1.h.f.a<Integer> f64324g;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60627a = false;
+    public boolean f64318a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60628b = false;
+    public boolean f64319b = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.c.g.a f60634h = new C1598a(CmdConfigHttp.CMD_TAIL_ADD, 305101);
+    public d.a.c.c.g.a f64325h = new C1654a(CmdConfigHttp.CMD_TAIL_ADD, 305101);
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.g.a f60635i = new b(CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
+    public d.a.c.c.g.a f64326i = new b(CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
 
     /* renamed from: d.a.n0.s1.h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1598a extends d.a.c.c.g.a {
-        public C1598a(int i2, int i3) {
+    public class C1654a extends d.a.c.c.g.a {
+        public C1654a(int i2, int i3) {
             super(i2, i3);
         }
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             d.a.n0.s1.h.a.b resultData;
-            a.this.f60627a = false;
-            if (a.this.f60632f != null) {
+            a.this.f64318a = false;
+            if (a.this.f64323f != null) {
                 Integer num = null;
                 if (responsedMessage instanceof AddTailHttpResponseMessage) {
                     resultData = ((AddTailHttpResponseMessage) responsedMessage).getResultData();
@@ -67,11 +67,11 @@ public class a {
                 }
                 if (resultData != null) {
                     num = Integer.valueOf(resultData.a());
-                    if (a.this.f60628b) {
+                    if (a.this.f64319b) {
                         a.this.p(num.intValue());
                     }
                 }
-                a.this.f60632f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
+                a.this.f64323f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
             }
         }
     }
@@ -85,23 +85,23 @@ public class a {
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             g resultData;
-            a.this.f60627a = false;
-            if (a.this.f60633g != null) {
+            a.this.f64318a = false;
+            if (a.this.f64324g != null) {
                 if (responsedMessage instanceof UpdateTailHttpResponseMessage) {
                     resultData = ((UpdateTailHttpResponseMessage) responsedMessage).getResultData();
                 } else {
                     resultData = responsedMessage instanceof UpdateTailSocketResponseMessage ? ((UpdateTailSocketResponseMessage) responsedMessage).getResultData() : null;
                 }
-                a.this.f60633g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
+                a.this.f64324g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
             }
         }
     }
 
     public a(TbPageContext<?> tbPageContext) {
-        this.f60631e = tbPageContext;
-        tbPageContext.registerListener(this.f60634h);
-        this.f60631e.registerListener(this.f60635i);
-        this.f60630d = new TailData();
+        this.f64322e = tbPageContext;
+        tbPageContext.registerListener(this.f64325h);
+        this.f64322e.registerListener(this.f64326i);
+        this.f64321d = new TailData();
     }
 
     public int e(String str) {
@@ -113,7 +113,7 @@ public class a {
     }
 
     public String g() {
-        return this.f60630d.getFontColor();
+        return this.f64321d.getFontColor();
     }
 
     public String h(String str) {
@@ -124,37 +124,37 @@ public class a {
     }
 
     public TailData i() {
-        return this.f60630d;
+        return this.f64321d;
     }
 
     public void j(int i2, String str, String str2, boolean z) {
         TailData tailData = new TailData();
-        this.f60630d = tailData;
+        this.f64321d = tailData;
         if (i2 != 0) {
             TailData tailData2 = new TailData();
-            this.f60629c = tailData2;
+            this.f64320c = tailData2;
             tailData2.setId(i2);
-            this.f60629c.setContent(str);
-            this.f60629c.setFontColor(str2);
-            this.f60630d.setId(i2);
-            this.f60630d.setContent(str);
-            this.f60630d.setFontColor(str2);
+            this.f64320c.setContent(str);
+            this.f64320c.setFontColor(str2);
+            this.f64321d.setId(i2);
+            this.f64321d.setContent(str);
+            this.f64321d.setFontColor(str2);
             return;
         }
         tailData.setContent("");
-        this.f60630d.setFontColor("7a7c80");
-        this.f60628b = z;
+        this.f64321d.setFontColor("7a7c80");
+        this.f64319b = z;
     }
 
     public boolean k() {
-        TailData tailData = this.f60630d;
+        TailData tailData = this.f64321d;
         if (tailData != null && tailData.getFontColor() != null) {
-            TailData tailData2 = this.f60629c;
+            TailData tailData2 = this.f64320c;
             if (tailData2 == null) {
-                if (!StringUtils.isNull(this.f60630d.getContent()) || !this.f60630d.getFontColor().equals("7a7c80")) {
+                if (!StringUtils.isNull(this.f64321d.getContent()) || !this.f64321d.getFontColor().equals("7a7c80")) {
                     return true;
                 }
-            } else if (tailData2.getContent() != null && this.f60629c.getFontColor() != null && (!this.f60629c.getContent().equals(this.f60630d.getContent()) || !this.f60629c.getFontColor().equals(this.f60630d.getFontColor()))) {
+            } else if (tailData2.getContent() != null && this.f64320c.getFontColor() != null && (!this.f64320c.getContent().equals(this.f64321d.getContent()) || !this.f64320c.getFontColor().equals(this.f64321d.getFontColor()))) {
                 return true;
             }
         }
@@ -170,11 +170,11 @@ public class a {
     }
 
     public void n(d.a.n0.s1.h.f.a<Integer> aVar) {
-        this.f60632f = aVar;
+        this.f64323f = aVar;
     }
 
     public void o(String str) {
-        this.f60630d.setFontColor(str);
+        this.f64321d.setFontColor(str);
     }
 
     public void p(int i2) {
@@ -182,30 +182,30 @@ public class a {
     }
 
     public void q(d.a.n0.s1.h.f.a<Integer> aVar) {
-        this.f60633g = aVar;
+        this.f64324g = aVar;
     }
 
     public void r(String str) {
-        if (this.f60627a) {
+        if (this.f64318a) {
             return;
         }
         String f2 = d.f(str);
         if (!StringUtils.isNull(f2)) {
-            this.f60631e.showToast(f2);
+            this.f64322e.showToast(f2);
             return;
         }
         String b2 = d.b(str);
-        this.f60630d.setContent(b2);
-        this.f60627a = true;
-        TailData tailData = this.f60629c;
+        this.f64321d.setContent(b2);
+        this.f64318a = true;
+        TailData tailData = this.f64320c;
         if (tailData != null && tailData.getId() > 0) {
-            this.f60631e.sendMessage(new UpdateTailNetMessage(this.f60629c.getId(), b2, this.f60630d.getFontColor(), this.f60631e.getString(R.string.tail_default_font)));
+            this.f64322e.sendMessage(new UpdateTailNetMessage(this.f64320c.getId(), b2, this.f64321d.getFontColor(), this.f64322e.getString(R.string.tail_default_font)));
         } else {
-            this.f60631e.sendMessage(new AddTailNetMessage(b2, this.f60630d.getFontColor(), this.f60631e.getString(R.string.tail_default_font)));
+            this.f64322e.sendMessage(new AddTailNetMessage(b2, this.f64321d.getFontColor(), this.f64322e.getString(R.string.tail_default_font)));
         }
     }
 
     public boolean s() {
-        return !StringUtils.isNull(this.f60630d.getContent()) && k() && StringUtils.isNull(d.f(this.f60630d.getContent()));
+        return !StringUtils.isNull(this.f64321d.getContent()) && k() && StringUtils.isNull(d.f(this.f64321d.getContent()));
     }
 }

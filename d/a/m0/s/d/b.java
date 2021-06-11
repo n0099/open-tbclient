@@ -46,32 +46,32 @@ public class b {
     public String n;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50552b = 0;
+    public int f54229b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50553c = 0;
+    public int f54230c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50554d = 0;
+    public int f54231d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50555e = 0;
+    public int f54232e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50556f = 0;
+    public int f54233f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50557g = 0;
+    public int f54234g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50558h = 0;
+    public int f54235h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.s.e.f f50559i = new d.a.m0.s.e.f();
+    public d.a.m0.s.e.f f54236i = new d.a.m0.s.e.f();
     public boolean k = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f50551a = TbadkCoreApplication.getInst().getApp();
+    public final Context f54228a = TbadkCoreApplication.getInst().getApp();
 
     /* loaded from: classes3.dex */
     public static class a extends Handler {
@@ -128,7 +128,7 @@ public class b {
     }
 
     public int A() {
-        return this.f50553c;
+        return this.f54230c;
     }
 
     public d.a.m0.s.e.f B() {
@@ -171,11 +171,11 @@ public class b {
     }
 
     public int E() {
-        return this.f50552b + this.f50553c + this.f50554d + this.f50555e + this.f50557g + this.f50558h;
+        return this.f54229b + this.f54230c + this.f54231d + this.f54232e + this.f54234g + this.f54235h;
     }
 
     public d.a.m0.s.e.f F() {
-        return this.f50559i;
+        return this.f54236i;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x002f  */
@@ -186,26 +186,26 @@ public class b {
     public Intent G(int i2, boolean z) {
         String str;
         if (z) {
-            Set<String> keySet = this.f50559i.h().keySet();
+            Set<String> keySet = this.f54236i.h().keySet();
             if (keySet.iterator().hasNext()) {
                 str = keySet.iterator().next();
                 Intent intent = new Intent();
                 if (!UtilHelper.isFlyMeOs()) {
-                    intent.setClass(this.f50551a, DealIntentActivity.class);
+                    intent.setClass(this.f54228a, DealIntentActivity.class);
                 } else {
-                    intent.setClass(this.f50551a, DealIntentService.class);
+                    intent.setClass(this.f54228a, DealIntentService.class);
                 }
                 intent.putExtra(DealIntentService.KEY_CLASS, 5);
                 intent.putExtra("KeyOfNotiId", i2);
-                intent.putExtra("agree_me", this.f50552b);
-                intent.putExtra("at_me", this.f50554d);
-                intent.putExtra("reply_me", this.f50553c);
-                intent.putExtra("fans", this.f50557g);
+                intent.putExtra("agree_me", this.f54229b);
+                intent.putExtra("at_me", this.f54231d);
+                intent.putExtra("reply_me", this.f54230c);
+                intent.putExtra("fans", this.f54234g);
                 intent.putExtra("chat", x());
-                intent.putExtra("group_msg", this.f50559i.j() - this.f50559i.l());
-                intent.putExtra("group_msg_validate", this.f50559i.q());
-                intent.putExtra("group_msg_updates", this.f50559i.n());
-                intent.putExtra("officialbar_msg", this.f50559i.u());
+                intent.putExtra("group_msg", this.f54236i.j() - this.f54236i.l());
+                intent.putExtra("group_msg_validate", this.f54236i.q());
+                intent.putExtra("group_msg_updates", this.f54236i.n());
+                intent.putExtra("officialbar_msg", this.f54236i.u());
                 intent.putExtra("privateGid", str);
                 return intent;
             }
@@ -216,15 +216,15 @@ public class b {
         }
         intent2.putExtra(DealIntentService.KEY_CLASS, 5);
         intent2.putExtra("KeyOfNotiId", i2);
-        intent2.putExtra("agree_me", this.f50552b);
-        intent2.putExtra("at_me", this.f50554d);
-        intent2.putExtra("reply_me", this.f50553c);
-        intent2.putExtra("fans", this.f50557g);
+        intent2.putExtra("agree_me", this.f54229b);
+        intent2.putExtra("at_me", this.f54231d);
+        intent2.putExtra("reply_me", this.f54230c);
+        intent2.putExtra("fans", this.f54234g);
         intent2.putExtra("chat", x());
-        intent2.putExtra("group_msg", this.f50559i.j() - this.f50559i.l());
-        intent2.putExtra("group_msg_validate", this.f50559i.q());
-        intent2.putExtra("group_msg_updates", this.f50559i.n());
-        intent2.putExtra("officialbar_msg", this.f50559i.u());
+        intent2.putExtra("group_msg", this.f54236i.j() - this.f54236i.l());
+        intent2.putExtra("group_msg_validate", this.f54236i.q());
+        intent2.putExtra("group_msg_updates", this.f54236i.n());
+        intent2.putExtra("officialbar_msg", this.f54236i.u());
         intent2.putExtra("privateGid", str);
         return intent2;
     }
@@ -235,9 +235,9 @@ public class b {
         }
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f50551a, DealIntentActivity.class);
+            intent.setClass(this.f54228a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f50551a, DealIntentService.class);
+            intent.setClass(this.f54228a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 36);
         intent.putExtra("tab_id", 1);
@@ -247,13 +247,13 @@ public class b {
     public Intent I(int i2) {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f50551a, DealIntentActivity.class);
+            intent.setClass(this.f54228a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f50551a, DealIntentService.class);
+            intent.setClass(this.f54228a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 24);
         intent.putExtra("KeyOfNotiId", i2);
-        intent.putExtra("gift_num", this.f50558h);
+        intent.putExtra("gift_num", this.f54235h);
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (!TextUtils.isEmpty(currentAccount) && !TextUtils.isEmpty(currentAccountName)) {
@@ -269,23 +269,23 @@ public class b {
         }
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f50551a, DealIntentActivity.class);
+            intent.setClass(this.f54228a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f50551a, DealIntentService.class);
+            intent.setClass(this.f54228a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 27);
-        intent.putExtra("uid", aVar.f50638a);
-        intent.putExtra("uname", aVar.f50642e);
-        intent.putExtra("user_type", aVar.f50643f);
+        intent.putExtra("uid", aVar.f54315a);
+        intent.putExtra("uname", aVar.f54319e);
+        intent.putExtra("user_type", aVar.f54320f);
         return intent;
     }
 
     public Intent K(int i2) {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f50551a, DealIntentActivity.class);
+            intent.setClass(this.f54228a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f50551a, DealIntentService.class);
+            intent.setClass(this.f54228a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 35);
         intent.putExtra("KeyOfNotiId", i2);
@@ -301,12 +301,12 @@ public class b {
     public Intent L() {
         Intent intent = new Intent();
         if (UtilHelper.isFlyMeOs()) {
-            intent.setClass(this.f50551a, DealIntentActivity.class);
+            intent.setClass(this.f54228a, DealIntentActivity.class);
         } else {
-            intent.setClass(this.f50551a, DealIntentService.class);
+            intent.setClass(this.f54228a, DealIntentService.class);
         }
         intent.putExtra(DealIntentService.KEY_CLASS, 14);
-        intent.putExtra("group_msg_updates", this.f50559i.o());
+        intent.putExtra("group_msg_updates", this.f54236i.o());
         return intent;
     }
 
@@ -319,7 +319,7 @@ public class b {
         Intent S = S(aVar);
         if (S != null && S.getDataString() != null && S.getDataString().contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
             S.setFlags(276824064);
-            NotificationHelper.showNotification(this.f50551a, i2, aVar.f50639b, aVar.f50640c, aVar.f50641d, PendingIntent.getActivity(this.f50551a, i2, S, 134217728), false);
+            NotificationHelper.showNotification(this.f54228a, i2, aVar.f54316b, aVar.f54317c, aVar.f54318d, PendingIntent.getActivity(this.f54228a, i2, S, 134217728), false);
             return;
         }
         if (S == null) {
@@ -332,12 +332,12 @@ public class b {
             return;
         }
         if (UtilHelper.isFlyMeOs()) {
-            service = PendingIntent.getActivity(this.f50551a, i2, S, 134217728);
+            service = PendingIntent.getActivity(this.f54228a, i2, S, 134217728);
         } else {
-            service = PendingIntent.getService(this.f50551a, i2, S, 134217728);
+            service = PendingIntent.getService(this.f54228a, i2, S, 134217728);
         }
         j(C(i2), i2);
-        NotificationHelper.showNotification(this.f50551a, i2, aVar.f50639b, aVar.f50640c, aVar.f50641d, service, false);
+        NotificationHelper.showNotification(this.f54228a, i2, aVar.f54316b, aVar.f54317c, aVar.f54318d, service, false);
     }
 
     public final void P(int i2, String str, String str2, String str3) {
@@ -348,9 +348,9 @@ public class b {
         Intent G;
         PendingIntent service;
         if (this.k) {
-            if (i2 == 23 && this.f50558h > 0) {
+            if (i2 == 23 && this.f54235h > 0) {
                 G = I(i2);
-            } else if (i2 == 26 && this.f50557g > 0) {
+            } else if (i2 == 26 && this.f54234g > 0) {
                 G = K(i2);
             } else if (i2 == 18) {
                 G = L();
@@ -368,18 +368,18 @@ public class b {
             }
             G.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             if (UtilHelper.isFlyMeOs()) {
-                service = PendingIntent.getActivity(this.f50551a, i2, G, 134217728);
+                service = PendingIntent.getActivity(this.f54228a, i2, G, 134217728);
             } else {
-                service = PendingIntent.getService(this.f50551a, i2, G, 134217728);
+                service = PendingIntent.getService(this.f54228a, i2, G, 134217728);
             }
             j(C(i2), i2);
-            NotificationHelper.showNotification(this.f50551a, i2, str, str2, str3, service, false);
+            NotificationHelper.showNotification(this.f54228a, i2, str, str2, str3, service, false);
         }
     }
 
     public Intent S(f.a aVar) {
         ImMessageCenterPojo i2;
-        if (aVar != null && (i2 = d.a.n0.f1.k.b.o().i(aVar.f50638a, aVar.f50643f)) != null && i2.getLast_content() != null) {
+        if (aVar != null && (i2 = d.a.n0.f1.k.b.o().i(aVar.f54315a, aVar.f54320f)) != null && i2.getLast_content() != null) {
             try {
                 String lastTaskId = i2.getLastTaskId();
                 String lastServiceId = i2.getLastServiceId();
@@ -397,15 +397,15 @@ public class b {
                     if (!StringUtils.isNull(group)) {
                         Intent intent = new Intent();
                         if (UtilHelper.isFlyMeOs()) {
-                            intent.setClass(this.f50551a, DealIntentActivity.class);
+                            intent.setClass(this.f54228a, DealIntentActivity.class);
                         } else {
-                            intent.setClass(this.f50551a, DealIntentService.class);
+                            intent.setClass(this.f54228a, DealIntentService.class);
                         }
                         intent.putExtra(DealIntentService.KEY_CLASS, 1);
                         intent.putExtra("id", group);
                         intent.putExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, true);
                         intent.putExtra("key_start_from", 7);
-                        intent.putExtra("gid", aVar.f50638a);
+                        intent.putExtra("gid", aVar.f54315a);
                         intent.putExtra("task_id", lastTaskId);
                         intent.putExtra("service_id", lastServiceId);
                         return intent;
@@ -415,9 +415,9 @@ public class b {
                         if (optString.contains("open_wb_view=1")) {
                             Intent intent2 = new Intent();
                             if (UtilHelper.isFlyMeOs()) {
-                                intent2.setClass(this.f50551a, DealIntentActivity.class);
+                                intent2.setClass(this.f54228a, DealIntentActivity.class);
                             } else {
-                                intent2.setClass(this.f50551a, DealIntentService.class);
+                                intent2.setClass(this.f54228a, DealIntentService.class);
                             }
                             intent2.putExtra(DealIntentService.KEY_CLASS, 0);
                             intent2.putExtra("url", optString.trim());
@@ -430,9 +430,9 @@ public class b {
                             if (optString.contains(UrlSchemaHelper.SCHEMA_TYPE_SUB_PB)) {
                                 Intent intent3 = new Intent();
                                 if (UtilHelper.isFlyMeOs()) {
-                                    intent3.setClass(this.f50551a, DealIntentActivity.class);
+                                    intent3.setClass(this.f54228a, DealIntentActivity.class);
                                 } else {
-                                    intent3.setClass(this.f50551a, DealIntentService.class);
+                                    intent3.setClass(this.f54228a, DealIntentService.class);
                                 }
                                 intent3.putExtra(DealIntentService.KEY_CLASS, 39);
                                 String paramStr = UrlManager.getParamStr(optString);
@@ -453,9 +453,9 @@ public class b {
                     }
                     Intent intent4 = new Intent();
                     if (UtilHelper.isFlyMeOs()) {
-                        intent4.setClass(this.f50551a, DealIntentActivity.class);
+                        intent4.setClass(this.f54228a, DealIntentActivity.class);
                     } else {
-                        intent4.setClass(this.f50551a, DealIntentService.class);
+                        intent4.setClass(this.f54228a, DealIntentService.class);
                     }
                     intent4.putExtra(DealIntentService.KEY_CLASS, 30);
                     intent4.putExtra("jump_url", optString);
@@ -479,37 +479,37 @@ public class b {
         int i11;
         int i12;
         int i13;
-        if (i2 == this.f50552b && i3 == this.f50553c && i4 == this.f50554d && i5 == this.f50555e && i6 == this.f50557g && i7 == this.f50556f && i8 == this.f50558h) {
+        if (i2 == this.f54229b && i3 == this.f54230c && i4 == this.f54231d && i5 == this.f54232e && i6 == this.f54234g && i7 == this.f54233f && i8 == this.f54235h) {
             return;
         }
-        int i14 = this.f50552b;
+        int i14 = this.f54229b;
         int i15 = 2;
-        int i16 = (i2 > i14 || i3 > (i12 = this.f50553c) || i4 > (i13 = this.f50554d) || i5 > this.f50555e || i6 > this.f50557g || i7 > this.f50556f || i8 > this.f50558h) ? 1 : (i2 < i14 || i3 < i12 || i4 < i13) ? 2 : 0;
-        if (i2 <= this.f50552b || !d.d().w()) {
-            i9 = i2 < this.f50552b ? 2 : 0;
+        int i16 = (i2 > i14 || i3 > (i12 = this.f54230c) || i4 > (i13 = this.f54231d) || i5 > this.f54232e || i6 > this.f54234g || i7 > this.f54233f || i8 > this.f54235h) ? 1 : (i2 < i14 || i3 < i12 || i4 < i13) ? 2 : 0;
+        if (i2 <= this.f54229b || !d.d().w()) {
+            i9 = i2 < this.f54229b ? 2 : 0;
         } else {
             i9 = 1;
         }
-        if (i3 <= this.f50553c || !d.d().t()) {
-            i10 = i3 < this.f50553c ? 2 : 0;
+        if (i3 <= this.f54230c || !d.d().t()) {
+            i10 = i3 < this.f54230c ? 2 : 0;
         } else {
             i10 = 1;
         }
-        if (i4 <= this.f50554d || !d.d().o()) {
-            i11 = i4 < this.f50554d ? 2 : 0;
+        if (i4 <= this.f54231d || !d.d().o()) {
+            i11 = i4 < this.f54231d ? 2 : 0;
         } else {
             i11 = 1;
         }
-        int i17 = i5 > this.f50555e ? 1 : 0;
-        int i18 = i6 > this.f50557g ? 1 : 0;
-        int i19 = i8 > this.f50558h ? 1 : 0;
-        this.f50552b = i2;
-        this.f50553c = i3;
-        this.f50554d = i4;
-        this.f50555e = i5;
-        this.f50557g = i6;
-        this.f50556f = i7;
-        this.f50558h = i8;
+        int i17 = i5 > this.f54232e ? 1 : 0;
+        int i18 = i6 > this.f54234g ? 1 : 0;
+        int i19 = i8 > this.f54235h ? 1 : 0;
+        this.f54229b = i2;
+        this.f54230c = i3;
+        this.f54231d = i4;
+        this.f54232e = i5;
+        this.f54234g = i6;
+        this.f54233f = i7;
+        this.f54235h = i8;
         if (E() <= 0) {
             i16 = 2;
             i18 = 2;
@@ -537,8 +537,8 @@ public class b {
         if (fVar == null) {
             return;
         }
-        this.f50559i = fVar;
-        this.f50555e = (fVar.j() - fVar.l()) + fVar.w() + fVar.t() + fVar.s();
+        this.f54236i = fVar;
+        this.f54232e = (fVar.j() - fVar.l()) + fVar.w() + fVar.t() + fVar.s();
         b(fVar);
         int i2 = 0;
         if (fVar.z()) {
@@ -570,15 +570,15 @@ public class b {
     }
 
     public void W(int i2, int i3, int i4, int i5, int i6, int i7) {
-        if (i2 == this.f50552b && i3 == this.f50553c && i4 == this.f50554d && i5 == this.f50555e && i6 == this.f50557g && this.f50558h == i7) {
+        if (i2 == this.f54229b && i3 == this.f54230c && i4 == this.f54231d && i5 == this.f54232e && i6 == this.f54234g && this.f54235h == i7) {
             return;
         }
-        this.f50552b = i2;
-        this.f50553c = i3;
-        this.f50554d = i4;
-        this.f50555e = i5;
-        this.f50557g = i6;
-        this.f50558h = i7;
+        this.f54229b = i2;
+        this.f54230c = i3;
+        this.f54231d = i4;
+        this.f54232e = i5;
+        this.f54234g = i6;
+        this.f54235h = i7;
         a();
         if (E() <= 0) {
             h0(2, 16);
@@ -591,23 +591,23 @@ public class b {
             U(0, 0, 0, 0, 0, 0, 0);
             return;
         }
-        this.f50552b = 0;
-        this.f50553c = 0;
-        this.f50554d = 0;
-        this.f50555e = 0;
-        this.f50557g = 0;
-        this.f50556f = 0;
+        this.f54229b = 0;
+        this.f54230c = 0;
+        this.f54231d = 0;
+        this.f54232e = 0;
+        this.f54234g = 0;
+        this.f54233f = 0;
     }
 
     public void Y(int i2) {
         if (i2 >= 0) {
-            U(i2, this.f50553c, this.f50554d, this.f50555e, this.f50557g, this.f50556f, this.f50558h);
+            U(i2, this.f54230c, this.f54231d, this.f54232e, this.f54234g, this.f54233f, this.f54235h);
         }
     }
 
     public void Z(int i2) {
         if (i2 >= 0) {
-            U(this.f50552b, this.f50553c, i2, this.f50555e, this.f50557g, this.f50556f, this.f50558h);
+            U(this.f54229b, this.f54230c, i2, this.f54232e, this.f54234g, this.f54233f, this.f54235h);
         }
     }
 
@@ -620,16 +620,16 @@ public class b {
         newsNotifyMessage.setMsgFans(y());
         newsNotifyMessage.setMsgReplyme(A());
         newsNotifyMessage.setMsgGiftNum(z());
-        newsNotifyMessage.setMsgPrivateChat(this.f50559i.w());
-        newsNotifyMessage.setMsgStrangerChat(this.f50559i.y());
-        newsNotifyMessage.setMsgOfficialMerge(this.f50559i.t());
+        newsNotifyMessage.setMsgPrivateChat(this.f54236i.w());
+        newsNotifyMessage.setMsgStrangerChat(this.f54236i.y());
+        newsNotifyMessage.setMsgOfficialMerge(this.f54236i.t());
         T(newsNotifyMessage);
         MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
     }
 
     public void a0(int i2) {
         if (i2 >= 0) {
-            U(this.f50552b, this.f50553c, this.f50554d, this.f50555e, this.f50557g, i2, this.f50558h);
+            U(this.f54229b, this.f54230c, this.f54231d, this.f54232e, this.f54234g, i2, this.f54235h);
         }
     }
 
@@ -654,17 +654,17 @@ public class b {
 
     public void b0(int i2) {
         if (i2 >= 0) {
-            U(this.f50552b, this.f50553c, this.f50554d, i2, this.f50557g, this.f50556f, this.f50558h);
+            U(this.f54229b, this.f54230c, this.f54231d, i2, this.f54234g, this.f54233f, this.f54235h);
         }
     }
 
     public void c() {
-        NotificationHelper.cancelNotification(this.f50551a, 16);
+        NotificationHelper.cancelNotification(this.f54228a, 16);
     }
 
     public void c0(int i2) {
         if (i2 >= 0) {
-            U(this.f50552b, this.f50553c, this.f50554d, this.f50555e, i2, this.f50556f, this.f50558h);
+            U(this.f54229b, this.f54230c, this.f54231d, this.f54232e, i2, this.f54233f, this.f54235h);
         }
     }
 
@@ -691,17 +691,17 @@ public class b {
 
     public void d0(int i2) {
         if (i2 >= 0) {
-            this.f50558h = i2;
+            this.f54235h = i2;
         }
     }
 
     public void e() {
-        NotificationHelper.cancelNotification(this.f50551a, 17);
+        NotificationHelper.cancelNotification(this.f54228a, 17);
     }
 
     public void e0(int i2) {
         if (i2 >= 0) {
-            U(this.f50552b, i2, this.f50554d, this.f50555e, this.f50557g, this.f50556f, this.f50558h);
+            U(this.f54229b, i2, this.f54231d, this.f54232e, this.f54234g, this.f54233f, this.f54235h);
         }
     }
 
@@ -720,81 +720,81 @@ public class b {
     }
 
     public void f0(d.a.m0.s.e.f fVar) {
-        this.f50559i = fVar;
+        this.f54236i = fVar;
     }
 
     public void g() {
-        NotificationHelper.cancelNotification(this.f50551a, 18);
+        NotificationHelper.cancelNotification(this.f54228a, 18);
     }
 
     public void h() {
-        NotificationHelper.cancelNotification(this.f50551a, 23);
-        NotificationHelper.cancelNotification(this.f50551a, 24);
-        NotificationHelper.cancelNotification(this.f50551a, 25);
-        NotificationHelper.cancelNotification(this.f50551a, 29);
-        NotificationHelper.cancelNotification(this.f50551a, 26);
-        NotificationHelper.cancelNotification(this.f50551a, 17);
-        NotificationHelper.cancelNotification(this.f50551a, 15);
-        NotificationHelper.cancelNotification(this.f50551a, 13);
-        NotificationHelper.cancelNotification(this.f50551a, 12);
+        NotificationHelper.cancelNotification(this.f54228a, 23);
+        NotificationHelper.cancelNotification(this.f54228a, 24);
+        NotificationHelper.cancelNotification(this.f54228a, 25);
+        NotificationHelper.cancelNotification(this.f54228a, 29);
+        NotificationHelper.cancelNotification(this.f54228a, 26);
+        NotificationHelper.cancelNotification(this.f54228a, 17);
+        NotificationHelper.cancelNotification(this.f54228a, 15);
+        NotificationHelper.cancelNotification(this.f54228a, 13);
+        NotificationHelper.cancelNotification(this.f54228a, 12);
     }
 
     public final void h0(int i2, int i3) {
         try {
             if (i2 != 1) {
                 if (i2 == 2) {
-                    NotificationHelper.cancelNotification(this.f50551a, 16);
-                    NotificationHelper.cancelNotification(this.f50551a, 17);
+                    NotificationHelper.cancelNotification(this.f54228a, 16);
+                    NotificationHelper.cancelNotification(this.f54228a, 17);
                 }
             } else if (i3 == 23) {
-                if (this.f50558h > 0) {
-                    String format = String.format(this.f50551a.getString(R.string.notify_gift), String.valueOf(this.f50558h));
+                if (this.f54235h > 0) {
+                    String format = String.format(this.f54228a.getString(R.string.notify_gift), String.valueOf(this.f54235h));
                     P(23, null, format, format);
                 }
             } else if (i3 == 29) {
-                if (this.f50552b > 0) {
+                if (this.f54229b > 0) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(String.format(this.f50551a.getString(R.string.notify_agree), Integer.valueOf(this.f50552b)));
+                    sb.append(String.format(this.f54228a.getString(R.string.notify_agree), Integer.valueOf(this.f54229b)));
                     P(29, null, sb.toString(), sb.toString());
                 }
             } else if (i3 == 24) {
-                if (this.f50553c > 0) {
+                if (this.f54230c > 0) {
                     StringBuilder sb2 = new StringBuilder();
-                    if (this.f50553c > 1) {
+                    if (this.f54230c > 1) {
                         sb2.append("[");
-                        sb2.append(String.valueOf(this.f50553c));
-                        sb2.append(this.f50551a.getString(R.string.notify_unit));
+                        sb2.append(String.valueOf(this.f54230c));
+                        sb2.append(this.f54228a.getString(R.string.notify_unit));
                         sb2.append("]");
                     }
                     if (this.m != null) {
                         sb2.append(this.m);
                     } else {
-                        sb2.append(this.f50551a.getString(R.string.notify_reply));
+                        sb2.append(this.f54228a.getString(R.string.notify_reply));
                     }
                     P(24, null, sb2.toString(), sb2.toString());
                 }
             } else if (i3 != 25) {
                 if (i3 == 26) {
-                    if (this.f50557g > 0) {
+                    if (this.f54234g > 0) {
                         StringBuilder sb3 = new StringBuilder();
-                        sb3.append(String.format(this.f50551a.getString(R.string.notify_fans), Integer.valueOf(this.f50557g)));
+                        sb3.append(String.format(this.f54228a.getString(R.string.notify_fans), Integer.valueOf(this.f54234g)));
                         P(26, null, sb3.toString(), sb3.toString());
                     }
                 } else if (i3 != 16 && d.d().n()) {
                     d.d().e();
                 }
-            } else if (this.f50554d > 0) {
+            } else if (this.f54231d > 0) {
                 StringBuilder sb4 = new StringBuilder();
-                if (this.f50554d > 1) {
+                if (this.f54231d > 1) {
                     sb4.append("[");
-                    sb4.append(String.valueOf(this.f50554d));
-                    sb4.append(this.f50551a.getString(R.string.notify_unit));
+                    sb4.append(String.valueOf(this.f54231d));
+                    sb4.append(this.f54228a.getString(R.string.notify_unit));
                     sb4.append("]");
                 }
                 if (this.n != null) {
                     sb4.append(this.n);
                 } else {
-                    sb4.append(this.f50551a.getString(R.string.notify_at));
+                    sb4.append(this.f54228a.getString(R.string.notify_at));
                 }
                 P(25, null, sb4.toString(), sb4.toString());
             }
@@ -804,7 +804,7 @@ public class b {
     }
 
     public void i() {
-        NotificationHelper.cancelNotification(this.f50551a, 29);
+        NotificationHelper.cancelNotification(this.f54228a, 29);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:136:0x02e8 A[Catch: Exception -> 0x034a, TryCatch #0 {Exception -> 0x034a, blocks: (B:6:0x000a, B:8:0x0015, B:10:0x0019, B:14:0x003c, B:16:0x0040, B:18:0x0049, B:19:0x0063, B:21:0x0067, B:23:0x0078, B:22:0x006d, B:26:0x0089, B:28:0x008d, B:30:0x0096, B:31:0x00b0, B:33:0x00b4, B:35:0x00c5, B:34:0x00ba, B:38:0x00d6, B:40:0x00da, B:42:0x00e3, B:43:0x00fd, B:45:0x0101, B:47:0x0112, B:46:0x0107, B:50:0x0123, B:52:0x0127, B:54:0x0130, B:55:0x0149, B:58:0x0165, B:60:0x016f, B:62:0x0179, B:64:0x0184, B:66:0x018e, B:68:0x0198, B:74:0x01a6, B:76:0x01ae, B:78:0x01d8, B:80:0x01e2, B:83:0x020c, B:85:0x0212, B:87:0x0230, B:91:0x0239, B:82:0x0202, B:95:0x0246, B:97:0x024c, B:100:0x0253, B:101:0x0257, B:103:0x025d, B:105:0x0265, B:107:0x026d, B:110:0x0276, B:112:0x027c, B:114:0x0280, B:116:0x0285, B:118:0x028f, B:120:0x0299, B:122:0x02a4, B:124:0x02aa, B:126:0x02b0, B:128:0x02be, B:134:0x02e2, B:136:0x02e8, B:139:0x02f0, B:143:0x032b, B:145:0x0338, B:140:0x030c, B:129:0x02d7, B:150:0x034f), top: B:154:0x0008 }] */
@@ -828,73 +828,73 @@ public class b {
         try {
             if (i2 != 1) {
                 if (i2 == 2) {
-                    NotificationHelper.cancelNotification(this.f50551a, 16);
-                    NotificationHelper.cancelNotification(this.f50551a, 17);
+                    NotificationHelper.cancelNotification(this.f54228a, 16);
+                    NotificationHelper.cancelNotification(this.f54228a, 17);
                     return;
                 }
                 return;
             }
             StringBuffer stringBuffer = new StringBuffer();
             if (i3 == 23) {
-                if (this.f50558h > 0) {
-                    String format = String.format(this.f50551a.getString(R.string.notify_gift), String.valueOf(this.f50558h));
+                if (this.f54235h > 0) {
+                    String format = String.format(this.f54228a.getString(R.string.notify_gift), String.valueOf(this.f54235h));
                     P(23, null, format, format);
                 }
             } else if (i3 == 29) {
-                if (this.f50552b > 0) {
+                if (this.f54229b > 0) {
                     StringBuilder sb = new StringBuilder();
-                    if (this.f50552b > 1) {
+                    if (this.f54229b > 1) {
                         sb.append("[");
-                        sb.append(String.valueOf(this.f50552b));
-                        sb.append(this.f50551a.getString(R.string.notify_unit));
+                        sb.append(String.valueOf(this.f54229b));
+                        sb.append(this.f54228a.getString(R.string.notify_unit));
                         sb.append("]");
                     }
                     if (this.l != null) {
                         sb.append(this.l);
                     } else {
-                        sb.append(this.f50551a.getString(R.string.notify_agree));
+                        sb.append(this.f54228a.getString(R.string.notify_agree));
                     }
                     P(29, null, sb.toString(), sb.toString());
                 }
             } else if (i3 == 24) {
-                if (this.f50553c > 0) {
+                if (this.f54230c > 0) {
                     StringBuilder sb2 = new StringBuilder();
-                    if (this.f50553c > 1) {
+                    if (this.f54230c > 1) {
                         sb2.append("[");
-                        sb2.append(String.valueOf(this.f50553c));
-                        sb2.append(this.f50551a.getString(R.string.notify_unit));
+                        sb2.append(String.valueOf(this.f54230c));
+                        sb2.append(this.f54228a.getString(R.string.notify_unit));
                         sb2.append("]");
                     }
                     if (this.m != null) {
                         sb2.append(this.m);
                     } else {
-                        sb2.append(this.f50551a.getString(R.string.notify_reply));
+                        sb2.append(this.f54228a.getString(R.string.notify_reply));
                     }
                     P(24, null, sb2.toString(), sb2.toString());
                 }
             } else if (i3 == 25) {
-                if (this.f50554d > 0) {
+                if (this.f54231d > 0) {
                     StringBuilder sb3 = new StringBuilder();
-                    if (this.f50554d > 1) {
+                    if (this.f54231d > 1) {
                         sb3.append("[");
-                        sb3.append(String.valueOf(this.f50554d));
-                        sb3.append(this.f50551a.getString(R.string.notify_unit));
+                        sb3.append(String.valueOf(this.f54231d));
+                        sb3.append(this.f54228a.getString(R.string.notify_unit));
                         sb3.append("]");
                     }
                     if (this.n != null) {
                         sb3.append(this.n);
                     } else {
-                        sb3.append(this.f50551a.getString(R.string.notify_at));
+                        sb3.append(this.f54228a.getString(R.string.notify_at));
                     }
                     P(25, null, sb3.toString(), sb3.toString());
                 }
             } else if (i3 == 26) {
-                if (this.f50557g > 0) {
+                if (this.f54234g > 0) {
                     StringBuilder sb4 = new StringBuilder();
-                    if (this.f50557g > 1) {
-                        sb4.append(String.format(this.f50551a.getString(R.string.notify_fans_unit), Integer.valueOf(this.f50557g)));
+                    if (this.f54234g > 1) {
+                        sb4.append(String.format(this.f54228a.getString(R.string.notify_fans_unit), Integer.valueOf(this.f54234g)));
                     }
-                    sb4.append(this.f50551a.getString(R.string.notify_fans));
+                    sb4.append(this.f54228a.getString(R.string.notify_fans));
                     P(26, null, sb4.toString(), sb4.toString());
                 }
             } else if (i3 == 16) {
@@ -904,7 +904,7 @@ public class b {
                 long j2 = j + w;
                 int i4 = (j2 > 1L ? 1 : (j2 == 1L ? 0 : -1));
                 if (i4 > 0) {
-                    stringBuffer.append(String.format(this.f50551a.getString(R.string.notify_chat), Long.valueOf(j2)));
+                    stringBuffer.append(String.format(this.f54228a.getString(R.string.notify_chat), Long.valueOf(j2)));
                     Q(16, null, stringBuffer.toString(), stringBuffer.toString(), z4);
                 } else if (i4 == 0) {
                     fVar.i();
@@ -923,7 +923,7 @@ public class b {
                         str2 = e2;
                     }
                     if (TextUtils.isEmpty(e2)) {
-                        stringBuffer.append(String.format(this.f50551a.getString(R.string.notify_chat), Long.valueOf(j2)));
+                        stringBuffer.append(String.format(this.f54228a.getString(R.string.notify_chat), Long.valueOf(j2)));
                         str3 = stringBuffer.toString();
                     } else {
                         str3 = e2;
@@ -934,7 +934,7 @@ public class b {
                 List<f.a> g2 = fVar.g();
                 if (g2 != null && g2.size() != 0) {
                     for (f.a aVar : g2) {
-                        if (aVar != null && !StringUtils.isNull(aVar.f50640c) && !k.isEmpty(aVar.f50638a) && aVar.f50644g > aVar.f50645h && aVar.f50646i == null) {
+                        if (aVar != null && !StringUtils.isNull(aVar.f54317c) && !k.isEmpty(aVar.f54315a) && aVar.f54321g > aVar.f54322h && aVar.f54323i == null) {
                             O(aVar, 19);
                         }
                     }
@@ -955,15 +955,15 @@ public class b {
                             }
                         }
                     } else {
-                        stringBuffer.append(String.format(this.f50551a.getString(R.string.notify_updates), Long.valueOf(n)));
+                        stringBuffer.append(String.format(this.f54228a.getString(R.string.notify_updates), Long.valueOf(n)));
                         z = true;
                         z2 = false;
                         if (fVar.q() > 0 || l0()) {
                             z3 = z;
                         } else if (!z) {
-                            stringBuffer.append(String.format(this.f50551a.getString(R.string.notify_validate), Integer.valueOf(fVar.q())));
+                            stringBuffer.append(String.format(this.f54228a.getString(R.string.notify_validate), Integer.valueOf(fVar.q())));
                         } else {
-                            stringBuffer.append(String.format(this.f50551a.getString(R.string.notify_validate_1), Integer.valueOf(fVar.q())));
+                            stringBuffer.append(String.format(this.f54228a.getString(R.string.notify_validate_1), Integer.valueOf(fVar.q())));
                         }
                         if (z3) {
                             P(17, null, stringBuffer.toString(), stringBuffer.toString());
@@ -992,22 +992,22 @@ public class b {
 
     public void j(long j, int i2) {
         if (1 == j) {
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 16, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 17, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 16, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 17, i2);
         } else if (2 == j) {
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 12, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 13, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 15, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 18, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 19, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 28, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 2000, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 12, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 13, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 15, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 18, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 19, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 28, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 2000, i2);
         } else if (3 == j) {
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 29, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 23, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 24, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 25, i2);
-            NotificationHelper.cancelNotificationExceptSpecific(this.f50551a, 26, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 29, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 23, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 24, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 25, i2);
+            NotificationHelper.cancelNotificationExceptSpecific(this.f54228a, 26, i2);
         }
     }
 
@@ -1035,7 +1035,7 @@ public class b {
     }
 
     public void k() {
-        NotificationHelper.cancelNotification(this.f50551a, 25);
+        NotificationHelper.cancelNotification(this.f54228a, 25);
     }
 
     public final boolean k0() {
@@ -1043,11 +1043,11 @@ public class b {
     }
 
     public void l() {
-        NotificationHelper.cancelNotification(this.f50551a, 17);
-        NotificationHelper.cancelNotification(this.f50551a, 19);
-        NotificationHelper.cancelNotification(this.f50551a, 16);
-        NotificationHelper.cancelNotification(this.f50551a, 18);
-        NotificationHelper.cancelNotification(this.f50551a, 30);
+        NotificationHelper.cancelNotification(this.f54228a, 17);
+        NotificationHelper.cancelNotification(this.f54228a, 19);
+        NotificationHelper.cancelNotification(this.f54228a, 16);
+        NotificationHelper.cancelNotification(this.f54228a, 18);
+        NotificationHelper.cancelNotification(this.f54228a, 30);
     }
 
     public final boolean l0() {
@@ -1055,33 +1055,33 @@ public class b {
     }
 
     public void m() {
-        NotificationHelper.cancelNotification(this.f50551a, 26);
+        NotificationHelper.cancelNotification(this.f54228a, 26);
     }
 
     public void n() {
-        NotificationHelper.cancelNotification(this.f50551a, 23);
+        NotificationHelper.cancelNotification(this.f54228a, 23);
     }
 
     public void o() {
-        NotificationHelper.cancelNotification(this.f50551a, 26);
-        NotificationHelper.cancelNotification(this.f50551a, 25);
-        NotificationHelper.cancelNotification(this.f50551a, 24);
-        NotificationHelper.cancelNotification(this.f50551a, 23);
-        NotificationHelper.cancelNotification(this.f50551a, 16);
-        NotificationHelper.cancelNotification(this.f50551a, 17);
-        NotificationHelper.cancelNotification(this.f50551a, 29);
+        NotificationHelper.cancelNotification(this.f54228a, 26);
+        NotificationHelper.cancelNotification(this.f54228a, 25);
+        NotificationHelper.cancelNotification(this.f54228a, 24);
+        NotificationHelper.cancelNotification(this.f54228a, 23);
+        NotificationHelper.cancelNotification(this.f54228a, 16);
+        NotificationHelper.cancelNotification(this.f54228a, 17);
+        NotificationHelper.cancelNotification(this.f54228a, 29);
     }
 
     public void p() {
-        NotificationHelper.cancelNotification(this.f50551a, 24);
+        NotificationHelper.cancelNotification(this.f54228a, 24);
     }
 
     public void q() {
-        NotificationHelper.cancelNotification(this.f50551a, 19);
+        NotificationHelper.cancelNotification(this.f54228a, 19);
     }
 
     public void r(int i2) {
-        NotificationHelper.cancelNotification(this.f50551a, i2);
+        NotificationHelper.cancelNotification(this.f54228a, i2);
     }
 
     public void s(String str) {
@@ -1106,30 +1106,30 @@ public class b {
     }
 
     public int t() {
-        return ((((this.f50559i.w() + this.f50559i.j()) + this.f50559i.y()) + this.f50559i.t()) + this.f50559i.s()) - this.f50559i.l();
+        return ((((this.f54236i.w() + this.f54236i.j()) + this.f54236i.y()) + this.f54236i.t()) + this.f54236i.s()) - this.f54236i.l();
     }
 
     public int u() {
-        return this.f50552b;
+        return this.f54229b;
     }
 
     public int v() {
-        return this.f50554d;
+        return this.f54231d;
     }
 
     public int w() {
-        return this.f50556f;
+        return this.f54233f;
     }
 
     public int x() {
-        return this.f50555e;
+        return this.f54232e;
     }
 
     public int y() {
-        return this.f50557g;
+        return this.f54234g;
     }
 
     public int z() {
-        return this.f50558h;
+        return this.f54235h;
     }
 }

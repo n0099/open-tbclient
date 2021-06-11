@@ -9,7 +9,7 @@ import com.baidu.tbadk.widget.TbViewPager;
 public class BaseViewPager extends TbViewPager implements GestureDetector.OnGestureListener {
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f12182i;
+    public GestureDetector f12244i;
     public a j;
     public a k;
     public boolean l;
@@ -21,15 +21,15 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     public BaseViewPager(Context context) {
         super(context);
-        this.f12182i = null;
+        this.f12244i = null;
         this.j = null;
         this.k = null;
         this.l = false;
-        b();
+        c();
     }
 
-    private void b() {
-        this.f12182i = new GestureDetector(this);
+    private void c() {
+        this.f12244i = new GestureDetector(this);
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
@@ -86,8 +86,8 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f12182i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
-            this.f12182i.onTouchEvent(motionEvent);
+        if (this.f12244i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
+            this.f12244i.onTouchEvent(motionEvent);
             return super.onTouchEvent(motionEvent);
         }
         return super.onTouchEvent(motionEvent);
@@ -103,10 +103,10 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12182i = null;
+        this.f12244i = null;
         this.j = null;
         this.k = null;
         this.l = false;
-        b();
+        c();
     }
 }

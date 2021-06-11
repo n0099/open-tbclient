@@ -10,17 +10,17 @@ import java.util.Map;
 public class y0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static y0 f53546a;
+    public static y0 f57235a;
 
     public static y0 a() {
-        if (f53546a == null) {
+        if (f57235a == null) {
             synchronized (y0.class) {
-                if (f53546a == null) {
-                    f53546a = new y0();
+                if (f57235a == null) {
+                    f57235a = new y0();
                 }
             }
         }
-        return f53546a;
+        return f57235a;
     }
 
     public static boolean c(String str) {

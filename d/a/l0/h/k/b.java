@@ -24,7 +24,7 @@ public class b extends d.a.l0.a.l0.a {
 
     public b(@NonNull String str, @NonNull d.a.l0.a.l0.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         super(str, bVar, v8ThreadDelegatePolicy);
-        V8Engine v8Engine = this.f43293e;
+        V8Engine v8Engine = this.f46969e;
         if (v8Engine == null) {
             return;
         }

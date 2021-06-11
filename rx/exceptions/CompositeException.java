@@ -10,14 +10,14 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CompositeException extends RuntimeException {
     public static final long serialVersionUID = 3026362227162912146L;
     public Throwable cause;
     public final List<Throwable> exceptions;
     public final String message;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class CompositeExceptionCausalChain extends RuntimeException {
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
         public static final long serialVersionUID = 3875212506787802066L;
@@ -28,52 +28,52 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a {
         public abstract Object a();
 
         public abstract void b(Object obj);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintStream f69056a;
+        public final PrintStream f72365a;
 
         public b(PrintStream printStream) {
-            this.f69056a = printStream;
+            this.f72365a = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
-            return this.f69056a;
+            return this.f72365a;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
-            this.f69056a.println(obj);
+            this.f72365a.println(obj);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class c extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f69057a;
+        public final PrintWriter f72366a;
 
         public c(PrintWriter printWriter) {
-            this.f69057a = printWriter;
+            this.f72366a = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
-            return this.f69057a;
+            return this.f72366a;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
-            this.f69057a.println(obj);
+            this.f72366a.println(obj);
         }
     }
 

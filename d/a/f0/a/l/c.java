@@ -7,38 +7,38 @@ import java.util.concurrent.TimeUnit;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f39859c;
+    public static volatile c f43540c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f39860a;
+    public ThreadPoolExecutor f43541a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScheduledThreadPoolExecutor f39861b;
+    public ScheduledThreadPoolExecutor f43542b;
 
     public c() {
         b();
     }
 
     public static c a() {
-        if (f39859c == null) {
+        if (f43540c == null) {
             synchronized (c.class) {
-                if (f39859c == null) {
-                    f39859c = new c();
+                if (f43540c == null) {
+                    f43540c = new c();
                 }
             }
         }
-        return f39859c;
+        return f43540c;
     }
 
     public final void b() {
-        this.f39860a = d.g(5, 15);
-        this.f39861b = d.f(3);
+        this.f43541a = d.g(5, 15);
+        this.f43542b = d.f(3);
     }
 
     public void c(Runnable runnable) {
         if (runnable != null) {
             try {
-                this.f39860a.submit(runnable);
+                this.f43541a.submit(runnable);
             } catch (Throwable unused) {
             }
         }
@@ -46,12 +46,12 @@ public class c {
 
     public void d(b bVar, long j, long j2, TimeUnit timeUnit) {
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
-        if (bVar == null || (scheduledThreadPoolExecutor = this.f39861b) == null || scheduledThreadPoolExecutor.isShutdown()) {
+        if (bVar == null || (scheduledThreadPoolExecutor = this.f43542b) == null || scheduledThreadPoolExecutor.isShutdown()) {
             return;
         }
         try {
             bVar.i(System.currentTimeMillis());
-            bVar.h(this.f39861b.scheduleAtFixedRate(bVar, j, j2, timeUnit));
+            bVar.h(this.f43542b.scheduleAtFixedRate(bVar, j, j2, timeUnit));
         } catch (Throwable unused) {
         }
     }

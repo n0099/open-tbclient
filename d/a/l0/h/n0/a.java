@@ -16,31 +16,31 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47504a = k.f43199a;
+    public static final boolean f51178a = k.f46875a;
 
     /* renamed from: d.a.l0.h.n0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1035a implements d.a.l0.a.v2.e1.b<f> {
+    public static class C1091a implements d.a.l0.a.v2.e1.b<f> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47505e;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51179e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47506f;
+        public final /* synthetic */ String f51180f;
 
-        public C1035a(d.a.l0.a.y.b.a aVar, String str) {
-            this.f47505e = aVar;
-            this.f47506f = str;
+        public C1091a(d.a.l0.a.y.b.a aVar, String str) {
+            this.f51179e = aVar;
+            this.f51180f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(f fVar) {
-            if (fVar == null || fVar.f41697d || fVar.j != 1) {
-                a.c(this.f47505e, "system deny");
+            if (fVar == null || fVar.f45373d || fVar.j != 1) {
+                a.c(this.f51179e, "system deny");
             } else {
-                a.e(this.f47505e, this.f47506f);
+                a.e(this.f51179e, this.f51180f);
             }
         }
     }
@@ -62,10 +62,10 @@ public class a {
             return;
         }
         String D = G.D("domain", "baidu.com");
-        if (f47504a) {
+        if (f51178a) {
             Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + D);
         }
-        Q.T().e("mapp_uuap_info", new C1035a(G, D));
+        Q.T().e("mapp_uuap_info", new C1091a(G, D));
     }
 
     public static void e(d.a.l0.a.y.b.a aVar, String str) {

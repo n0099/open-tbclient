@@ -13,19 +13,19 @@ import d.a.m0.e0.c;
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsGameRecommendFragment f59663a;
+    public FrsGameRecommendFragment f63354a;
 
     public a(String str, String str2) {
-        this.f59663a = FrsGameRecommendFragment.H0(str, str2);
-        getFragmentTabStructure().f49334a = this.f59663a;
+        this.f63354a = FrsGameRecommendFragment.K0(str, str2);
+        getFragmentTabStructure().f53008a = this.f63354a;
     }
 
     @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49338e = 11;
-        cVar.f49335b = R.string.frs_game_recommend_tab_title;
-        cVar.f49342i = c.k;
+        cVar.f53012e = 11;
+        cVar.f53009b = R.string.frs_game_recommend_tab_title;
+        cVar.f53016i = c.k;
         return cVar;
     }
 

@@ -16,19 +16,19 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f63886b = AppConfig.isDebug();
+    public static final boolean f67604b = AppConfig.isDebug();
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f63887a;
+    public Context f67605a;
 
     public b(Context context) {
-        this.f63887a = context;
+        this.f67605a = context;
     }
 
     public final boolean a(i0 i0Var) {
         File[] listFiles;
         Throwable th;
-        File file = new File(this.f63887a.getFilesDir() + File.separator + "ubcdir", "proc");
+        File file = new File(this.f67605a.getFilesDir() + File.separator + "ubcdir", "proc");
         if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
             return false;
         }
@@ -59,7 +59,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            if (f63886b) {
+                            if (f67604b) {
                                 Log.d("UBCFileData", jSONObject.toString());
                             }
                             i0Var.a(jSONObject);
@@ -88,7 +88,7 @@ public class b {
                         }
                     }
                     i0Var.p(j, j2);
-                    if (f63886b) {
+                    if (f67604b) {
                         Log.d("UBCFileData", "line num " + i2 + " delete file ");
                     }
                     try {
@@ -107,7 +107,7 @@ public class b {
     }
 
     public final File b(String str, boolean z) {
-        File file = new File(this.f63887a.getFilesDir(), "ubcdir");
+        File file = new File(this.f67605a.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -123,7 +123,7 @@ public class b {
 
     public void c(boolean z) {
         File[] listFiles;
-        File file = new File(this.f63887a.getFilesDir(), "ubcdir");
+        File file = new File(this.f67605a.getFilesDir(), "ubcdir");
         if (file.exists()) {
             File file2 = new File(file, z ? "filereal" : "filedata");
             if (file2.exists()) {
@@ -164,11 +164,11 @@ public class b {
             }
             jSONObject.put(Constant.ID_TYPE, g.m().r(oVar.g()));
         } catch (JSONException e2) {
-            if (f63886b) {
+            if (f67604b) {
                 Log.d("UBCFileData", e2.getMessage());
             }
         }
-        if (f63886b) {
+        if (f67604b) {
             Log.d("UBCFileData", "saveEvent:" + jSONObject.toString());
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -226,7 +226,7 @@ public class b {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean e(i0 i0Var) {
-        File file = new File(this.f63887a.getFilesDir(), "ubcdir");
+        File file = new File(this.f67605a.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -263,14 +263,14 @@ public class b {
                         } catch (Exception e2) {
                             e = e2;
                             bufferedReader = bufferedReader2;
-                            if (f63886b) {
+                            if (f67604b) {
                                 Log.d("UBCFileData", "getExceptionList read fail:", e);
                             }
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
                                 } catch (Exception e3) {
-                                    if (f63886b) {
+                                    if (f67604b) {
                                         Log.d("UBCFileData", "getExceptionList close fail:", e3);
                                     }
                                 }
@@ -286,7 +286,7 @@ public class b {
                                 try {
                                     bufferedReader.close();
                                 } catch (Exception e4) {
-                                    if (f63886b) {
+                                    if (f67604b) {
                                         Log.d("UBCFileData", "getExceptionList close fail:", e4);
                                     }
                                 }
@@ -301,7 +301,7 @@ public class b {
                     try {
                         bufferedReader2.close();
                     } catch (Exception e5) {
-                        if (f63886b) {
+                        if (f67604b) {
                             Log.d("UBCFileData", "getExceptionList close fail:", e5);
                         }
                     }
@@ -319,13 +319,13 @@ public class b {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:30:0x0074, code lost:
-        if (d.a.p0.b.f63886b == false) goto L65;
+        if (d.a.p0.b.f67604b == false) goto L65;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x0076, code lost:
         android.util.Log.d("UBCFileData", "getExceptionList close fail:", r14);
      */
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0095, code lost:
-        if (d.a.p0.b.f63886b == false) goto L65;
+        if (d.a.p0.b.f67604b == false) goto L65;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -364,7 +364,7 @@ public class b {
                         } catch (Exception e2) {
                             e = e2;
                             bufferedReader = bufferedReader2;
-                            if (f63886b) {
+                            if (f67604b) {
                                 Log.d("UBCFileData", "getExceptionList read fail:", e);
                             }
                             if (bufferedReader != null) {
@@ -382,7 +382,7 @@ public class b {
                                 try {
                                     bufferedReader.close();
                                 } catch (Exception e4) {
-                                    if (f63886b) {
+                                    if (f67604b) {
                                         Log.d("UBCFileData", "getExceptionList close fail:", e4);
                                     }
                                 }
@@ -415,7 +415,7 @@ public class b {
     }
 
     public void i(o oVar) {
-        File file = new File(this.f63887a.getFilesDir(), "ubcdir");
+        File file = new File(this.f67605a.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdirs();
         }

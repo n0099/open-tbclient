@@ -21,7 +21,7 @@ import d.a.n0.t2.t;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
-public class b extends d.a.c.j.e.a<d.a.m0.r.q.a, FunAdNativeViewHolder> implements t, p {
+public class b extends d.a.c.k.e.a<d.a.m0.r.q.a, FunAdNativeViewHolder> implements t, p {
     public final BaseFragmentActivity m;
     public String n;
     public Set<String> o;
@@ -32,21 +32,21 @@ public class b extends d.a.c.j.e.a<d.a.m0.r.q.a, FunAdNativeViewHolder> implemen
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f60868e;
+        public final /* synthetic */ n f64560e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdNativeViewHolder f60869f;
+        public final /* synthetic */ FunAdNativeViewHolder f64561f;
 
         public a(n nVar, FunAdNativeViewHolder funAdNativeViewHolder) {
-            this.f60868e = nVar;
-            this.f60869f = funAdNativeViewHolder;
+            this.f64560e = nVar;
+            this.f64561f = funAdNativeViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f60868e.m(true);
-            b.this.K();
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f60869f.e().getPageType()).param("obj_locate", 0));
+            this.f64560e.m(true);
+            b.this.L();
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f64561f.e().getPageType()).param("obj_locate", 0));
         }
     }
 
@@ -57,28 +57,28 @@ public class b extends d.a.c.j.e.a<d.a.m0.r.q.a, FunAdNativeViewHolder> implemen
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public FunAdNativeViewHolder P(ViewGroup viewGroup) {
-        FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(this.f39231h == AdvertAppInfo.l4 ? new FunAdNativeFrsView(this.m) : new FunAdNativePbView(this.m), this.m, this.f39231h);
+    public FunAdNativeViewHolder Q(ViewGroup viewGroup) {
+        FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(this.f42912h == AdvertAppInfo.o4 ? new FunAdNativeFrsView(this.m) : new FunAdNativePbView(this.m), this.m, this.f42912h);
         funAdNativeViewHolder.j(this.n);
         funAdNativeViewHolder.i(this.q);
         return funAdNativeViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.m0.r.q.a aVar, FunAdNativeViewHolder funAdNativeViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.m0.r.q.a aVar, FunAdNativeViewHolder funAdNativeViewHolder) {
         n nVar;
         long j;
         if (aVar instanceof z1) {
             a2 a2Var = ((z1) aVar).w;
-            nVar = a2Var.D2;
+            nVar = a2Var.F2;
             j = a2Var.c0();
         } else if (aVar instanceof a2) {
             a2 a2Var2 = (a2) aVar;
-            nVar = a2Var2.D2;
+            nVar = a2Var2.F2;
             j = a2Var2.c0();
         } else {
             nVar = null;
@@ -91,11 +91,11 @@ public class b extends d.a.c.j.e.a<d.a.m0.r.q.a, FunAdNativeViewHolder> implemen
         if (!"personalize".equals(this.p)) {
             this.n = c.e().d(this.q);
         }
-        if (this.f39231h == AdvertAppInfo.l4) {
+        if (this.f42912h == AdvertAppInfo.o4) {
             if ("frs".equals(this.p)) {
-                d.a.n0.s0.a.h().q(this.m, this.n, d.a.n0.s0.a.a(this.p, d.m() ? "1" : "0"), String.valueOf(j));
+                d.a.n0.s0.a.h().r(this.m, this.n, d.a.n0.s0.a.a(this.p, d.m() ? "1" : "0"), String.valueOf(j));
             } else if ("personalize".equals(this.p)) {
-                d.a.n0.s0.a.h().p(this.m, this.n, d.a.n0.s0.a.a(this.p, d.C() ? "1" : "0"));
+                d.a.n0.s0.a.h().q(this.m, this.n, d.a.n0.s0.a.a(this.p, d.C() ? "1" : "0"));
             }
         }
         funAdNativeViewHolder.g(new a(nVar, funAdNativeViewHolder));
@@ -107,20 +107,20 @@ public class b extends d.a.c.j.e.a<d.a.m0.r.q.a, FunAdNativeViewHolder> implemen
         return funAdNativeViewHolder.a();
     }
 
-    public void g0(String str) {
+    public void h0(String str) {
         this.p = str;
     }
 
-    public void h0(String str) {
+    public void i0(String str) {
         this.q = str;
     }
 
-    public void i0(String str) {
+    public void j0(String str) {
         this.n = str;
     }
 
     @Override // d.a.n0.t2.t
-    public void j(boolean z) {
+    public void k(boolean z) {
     }
 
     @Override // d.a.n0.t2.p

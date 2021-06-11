@@ -27,22 +27,22 @@ import d.a.m0.r.s.o;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f49241a;
+    public static boolean f52915a;
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49242a;
+        public final /* synthetic */ AlertDialog f52916a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f49243b;
+        public final /* synthetic */ Activity f52917b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2, AlertDialog alertDialog, Activity activity) {
             super(i2);
-            this.f49242a = alertDialog;
-            this.f49243b = activity;
+            this.f52916a = alertDialog;
+            this.f52917b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,11 +50,11 @@ public class d {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
-                this.f49242a.dismiss();
-                BdTopToast bdTopToast = new BdTopToast(this.f49243b, 2000);
+                this.f52916a.dismiss();
+                BdTopToast bdTopToast = new BdTopToast(this.f52917b, 2000);
                 bdTopToast.i(true);
-                bdTopToast.h(this.f49243b.getString(R.string.youngster_close_title));
-                bdTopToast.j((ViewGroup) this.f49243b.findViewById(16908290));
+                bdTopToast.h(this.f52917b.getString(R.string.youngster_close_title));
+                bdTopToast.j((ViewGroup) this.f52917b.findViewById(16908290));
             }
         }
     }
@@ -63,16 +63,16 @@ public class d {
     public static class b extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49244a;
+        public final /* synthetic */ AlertDialog f52918a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f49245b;
+        public final /* synthetic */ Activity f52919b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2, AlertDialog alertDialog, Activity activity) {
             super(i2);
-            this.f49244a = alertDialog;
-            this.f49245b = activity;
+            this.f52918a = alertDialog;
+            this.f52919b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,11 +80,11 @@ public class d {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
-                this.f49244a.dismiss();
-                BdTopToast bdTopToast = new BdTopToast(this.f49245b, 2000);
+                this.f52918a.dismiss();
+                BdTopToast bdTopToast = new BdTopToast(this.f52919b, 2000);
                 bdTopToast.i(true);
-                bdTopToast.h(this.f49245b.getString(R.string.youngster_close_title));
-                bdTopToast.j((ViewGroup) this.f49245b.findViewById(16908290));
+                bdTopToast.h(this.f52919b.getString(R.string.youngster_close_title));
+                bdTopToast.j((ViewGroup) this.f52919b.findViewById(16908290));
             }
         }
     }
@@ -93,24 +93,24 @@ public class d {
     public static class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49246e;
+        public final /* synthetic */ AlertDialog f52920e;
 
         public c(AlertDialog alertDialog) {
-            this.f49246e = alertDialog;
+            this.f52920e = alertDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f49246e.dismiss();
+            this.f52920e.dismiss();
         }
     }
 
     /* renamed from: d.a.m0.c1.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class DialogInterface$OnDismissListenerC1119d implements DialogInterface.OnDismissListener {
+    public static class DialogInterface$OnDismissListenerC1175d implements DialogInterface.OnDismissListener {
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
-            d.f49241a = false;
+            d.f52915a = false;
         }
     }
 
@@ -118,15 +118,15 @@ public class d {
     public static class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f49247e;
+        public final /* synthetic */ Activity f52921e;
 
         public e(Activity activity) {
-            this.f49247e = activity;
+            this.f52921e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MainTabActivityConfig.toExitApp(this.f49247e);
+            MainTabActivityConfig.toExitApp(this.f52921e);
         }
     }
 
@@ -134,15 +134,15 @@ public class d {
     public static class f implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f49248e;
+        public final /* synthetic */ Activity f52922e;
 
         public f(Activity activity) {
-            this.f49248e = activity;
+            this.f52922e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f49248e);
+            YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f52922e);
             youngsterPasswordActivityConfig.setYoungsterPasswordPageType(6);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
         }
@@ -152,17 +152,17 @@ public class d {
     public static class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f49249e;
+        public final /* synthetic */ Activity f52923e;
 
         public g(Activity activity) {
-            this.f49249e = activity;
+            this.f52923e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f49249e);
+            YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f52923e);
             youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
-            if (this.f49249e.getComponentName().getClassName().contains("MainTabActivity")) {
+            if (this.f52923e.getComponentName().getClassName().contains("MainTabActivity")) {
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
             } else {
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(1);
@@ -175,16 +175,16 @@ public class d {
     public static class h extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49250a;
+        public final /* synthetic */ AlertDialog f52924a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f49251b;
+        public final /* synthetic */ Activity f52925b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(int i2, AlertDialog alertDialog, Activity activity) {
             super(i2);
-            this.f49250a = alertDialog;
-            this.f49251b = activity;
+            this.f52924a = alertDialog;
+            this.f52925b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -192,11 +192,11 @@ public class d {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
-                this.f49250a.dismiss();
-                BdTopToast bdTopToast = new BdTopToast(this.f49251b, 2000);
+                this.f52924a.dismiss();
+                BdTopToast bdTopToast = new BdTopToast(this.f52925b, 2000);
                 bdTopToast.i(true);
-                bdTopToast.h(this.f49251b.getString(R.string.youngster_close_title));
-                bdTopToast.j((ViewGroup) this.f49251b.findViewById(16908290));
+                bdTopToast.h(this.f52925b.getString(R.string.youngster_close_title));
+                bdTopToast.j((ViewGroup) this.f52925b.findViewById(16908290));
             }
         }
     }
@@ -205,16 +205,16 @@ public class d {
     public static class i extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49252a;
+        public final /* synthetic */ AlertDialog f52926a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f49253b;
+        public final /* synthetic */ Activity f52927b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(int i2, AlertDialog alertDialog, Activity activity) {
             super(i2);
-            this.f49252a = alertDialog;
-            this.f49253b = activity;
+            this.f52926a = alertDialog;
+            this.f52927b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -224,16 +224,16 @@ public class d {
             int intValue = data instanceof Integer ? ((Integer) data).intValue() : 0;
             if (intValue != 6) {
                 if (intValue == 7) {
-                    this.f49252a.dismiss();
+                    this.f52926a.dismiss();
                     return;
                 }
                 return;
             }
-            this.f49252a.dismiss();
-            BdTopToast bdTopToast = new BdTopToast(this.f49253b, 2000);
+            this.f52926a.dismiss();
+            BdTopToast bdTopToast = new BdTopToast(this.f52927b, 2000);
             bdTopToast.i(true);
-            bdTopToast.h(this.f49253b.getString(R.string.youngster_dialog_close_time_success_message));
-            bdTopToast.j((ViewGroup) this.f49253b.findViewById(16908290));
+            bdTopToast.h(this.f52927b.getString(R.string.youngster_dialog_close_time_success_message));
+            bdTopToast.j((ViewGroup) this.f52927b.findViewById(16908290));
         }
     }
 
@@ -241,16 +241,16 @@ public class d {
     public static class j extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49254a;
+        public final /* synthetic */ AlertDialog f52928a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f49255b;
+        public final /* synthetic */ Activity f52929b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(int i2, AlertDialog alertDialog, Activity activity) {
             super(i2);
-            this.f49254a = alertDialog;
-            this.f49255b = activity;
+            this.f52928a = alertDialog;
+            this.f52929b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -258,11 +258,11 @@ public class d {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
-                this.f49254a.dismiss();
-                BdTopToast bdTopToast = new BdTopToast(this.f49255b, 2000);
+                this.f52928a.dismiss();
+                BdTopToast bdTopToast = new BdTopToast(this.f52929b, 2000);
                 bdTopToast.i(true);
-                bdTopToast.h(this.f49255b.getString(R.string.youngster_close_title));
-                bdTopToast.j((ViewGroup) this.f49255b.findViewById(16908290));
+                bdTopToast.h(this.f52929b.getString(R.string.youngster_close_title));
+                bdTopToast.j((ViewGroup) this.f52929b.findViewById(16908290));
             }
         }
     }
@@ -271,15 +271,15 @@ public class d {
     public static class k implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f49256e;
+        public final /* synthetic */ Activity f52930e;
 
         public k(Activity activity) {
-            this.f49256e = activity;
+            this.f52930e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MainTabActivityConfig.toExitApp(this.f49256e);
+            MainTabActivityConfig.toExitApp(this.f52930e);
         }
     }
 
@@ -287,17 +287,17 @@ public class d {
     public static class l implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f49257e;
+        public final /* synthetic */ Activity f52931e;
 
         public l(Activity activity) {
-            this.f49257e = activity;
+            this.f52931e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f49257e);
+            YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f52931e);
             youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
-            if (this.f49257e.getComponentName().getClassName().contains("MainTabActivity")) {
+            if (this.f52931e.getComponentName().getClassName().contains("MainTabActivity")) {
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
             } else {
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(1);
@@ -392,13 +392,13 @@ public class d {
 
     public static boolean f() {
         if (d.a.m0.c1.b.e.d()) {
-            if (f49241a) {
-                if (d.a.m0.c1.b.e.f49258a) {
+            if (f52915a) {
+                if (d.a.m0.c1.b.e.f52932a) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921561, 7));
                     return e();
                 }
                 return true;
-            } else if (d.a.m0.c1.b.e.f49258a) {
+            } else if (d.a.m0.c1.b.e.f52932a) {
                 return e();
             } else {
                 Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
@@ -425,7 +425,7 @@ public class d {
                 oVar.h(relativeLayout);
                 oVar.k(new TBAlertConfig.a(R.string.youngster_dialog_close_quit_message, TBAlertConfig.OperateBtnStyle.MAIN, new e(currentActivity)), new TBAlertConfig.a(R.string.youngster_settings_input_password_time, TBAlertConfig.OperateBtnStyle.MAIN, new f(currentActivity)), new TBAlertConfig.a(R.string.youngster_settings_close_title, TBAlertConfig.OperateBtnStyle.MAIN, new g(currentActivity)));
                 oVar.f(false);
-                oVar.j(new DialogInterface$OnDismissListenerC1119d());
+                oVar.j(new DialogInterface$OnDismissListenerC1175d());
                 AlertDialog n = oVar.n();
                 h hVar = new h(2921484, n, currentActivity);
                 i iVar = new i(2921561, n, currentActivity);
@@ -445,7 +445,7 @@ public class d {
                 MessageManager.getInstance().registerListener(iVar);
                 MessageManager.getInstance().registerListener(jVar);
                 a();
-                f49241a = true;
+                f52915a = true;
                 return true;
             }
         }

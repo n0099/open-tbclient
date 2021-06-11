@@ -1,5 +1,5 @@
 package d.a.l.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class d {
     public String a() {
         return null;

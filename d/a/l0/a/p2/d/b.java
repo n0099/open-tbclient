@@ -22,15 +22,15 @@ public class b extends a0 {
     public class a implements a.h {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44130a;
+        public final /* synthetic */ CallbackHandler f47804a;
 
         public a(CallbackHandler callbackHandler) {
-            this.f44130a = callbackHandler;
+            this.f47804a = callbackHandler;
         }
 
         @Override // d.a.l0.a.c0.c.g.a.h
         public void a(String str, String str2, JSONObject jSONObject) {
-            b.this.k(str, str2, this.f44130a, 0, jSONObject);
+            b.this.k(str, str2, this.f47804a, 0, jSONObject);
         }
     }
 
@@ -40,7 +40,7 @@ public class b extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("OpenTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -76,7 +76,7 @@ public class b extends a0 {
         }
         d.a.l0.a.c0.b.c w = new d.a.l0.a.c0.c.g.a(context, bVar, activity, o, new a(callbackHandler)).w();
         if (!w.a()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f40850b);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f44526b);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

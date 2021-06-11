@@ -14,40 +14,40 @@ import java.util.Arrays;
 public final class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f22520c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+    public static String f22623c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f22521d = null;
+    public static f f22624d = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f22523b = "ufo";
+    public final String f22626b = "ufo";
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f22522a = 1209600000;
+    public final int f22625a = 1209600000;
 
     public static Bitmap a(String str) {
         Bitmap decodeFile;
         String b2 = b(str);
         if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
-            new File(f22520c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
+            new File(f22623c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
             return decodeFile;
         }
         return null;
     }
 
     public static f a() {
-        if (f22521d == null) {
-            f22521d = new f();
+        if (f22624d == null) {
+            f22624d = new f();
         }
-        return f22521d;
+        return f22624d;
     }
 
     public static String b(String str) {
-        return f22520c + "/cache/image/" + str;
+        return f22623c + "/cache/image/" + str;
     }
 
     public static void b() {
-        String str = f22520c + "/cache/image/";
+        String str = f22623c + "/cache/image/";
         File[] listFiles = new File(str).listFiles();
         if (listFiles == null) {
             return;
@@ -95,11 +95,11 @@ public final class f {
                     c.c("ufo ->Low free space onsd, do not cache");
                     return;
                 }
-                c(f22520c + "/cache/image/");
+                c(f22623c + "/cache/image/");
                 if (equals) {
-                    File file2 = new File(f22520c);
-                    File file3 = new File(f22520c + "/cache");
-                    File file4 = new File(f22520c + "/cache/image");
+                    File file2 = new File(f22623c);
+                    File file3 = new File(f22623c + "/cache");
+                    File file4 = new File(f22623c + "/cache/image");
                     if (!file2.exists()) {
                         file2.mkdir();
                     }

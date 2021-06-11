@@ -6,16 +6,16 @@ import android.widget.TextView;
 public final class be implements TextView.OnEditorActionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22658a;
+    public final /* synthetic */ FeedbackInputActivity f22761a;
 
     public be(FeedbackInputActivity feedbackInputActivity) {
-        this.f22658a = feedbackInputActivity;
+        this.f22761a = feedbackInputActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
     public final boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
         if (i2 == 4) {
-            FeedbackInputActivity.a(this.f22658a);
+            FeedbackInputActivity.a(this.f22761a);
             return false;
         }
         return false;

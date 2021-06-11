@@ -6,7 +6,6 @@ import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.bumptech.glide.load.resource.bitmap.Downsampler;
 import java.util.HashMap;
@@ -16,22 +15,22 @@ import java.util.regex.Pattern;
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45472a = d.a.l0.a.k.f43199a;
+    public static final boolean f49146a = d.a.l0.a.k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f45473b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    public static final Pattern f49147b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, Integer> f45474c = new HashMap<>();
+    public static HashMap<String, Integer> f49148c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f45475d = new HashMap<>();
+    public static HashMap<String, Integer> f49149d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static HashMap<String, String> f45476e = new HashMap<>();
+    public static HashMap<String, String> f49150e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public static HashMap<String, String> f45477f = new HashMap<>();
+    public static HashMap<String, String> f49151f = new HashMap<>();
 
     static {
         a("application/andrew-inset", "ez", 5);
@@ -186,7 +185,7 @@ public final class s {
         a("application/x-troff", "roff", 5);
         a("application/x-troff-man", "man", 5);
         a("application/x-ustar", "ustar", 5);
-        a("application/x-wais-source", UserAccountActionItem.KEY_SRC, 5);
+        a("application/x-wais-source", "src", 5);
         a("application/x-wingz", "wz", 5);
         a("application/x-webarchive", "webarchive", 5);
         a("application/x-webarchive-xml", "webarchivexml", 5);
@@ -356,13 +355,13 @@ public final class s {
     }
 
     public static void a(String str, String str2, int i2) {
-        f45474c.put(str2, Integer.valueOf(i2));
-        f45475d.put(str, Integer.valueOf(i2));
-        f45476e.put(str2, str);
-        if (f45477f.containsKey(str)) {
+        f49148c.put(str2, Integer.valueOf(i2));
+        f49149d.put(str, Integer.valueOf(i2));
+        f49150e.put(str2, str);
+        if (f49151f.containsKey(str)) {
             return;
         }
-        f45477f.put(str, str2);
+        f49151f.put(str, str2);
     }
 
     public static String b(String str) {
@@ -375,25 +374,25 @@ public final class s {
         if (str == null) {
             return null;
         }
-        return f45477f.get(str);
+        return f49151f.get(str);
     }
 
     public static String d(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return f45476e.get(str);
+        return f49150e.get(str);
     }
 
     public static String e(String str) {
         try {
-            Matcher matcher = f45473b.matcher(str);
+            Matcher matcher = f49147b.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }
             return null;
         } catch (IllegalStateException e2) {
-            if (f45472a) {
+            if (f49146a) {
                 e2.printStackTrace();
                 return null;
             }

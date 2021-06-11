@@ -109,14 +109,14 @@ public class g extends f {
         MessageManager.getInstance().registerListener(this.I);
     }
 
-    @Override // d.a.m0.r.f0.f, d.a.c.j.e.c
+    @Override // d.a.m0.r.f0.f, d.a.c.k.e.c
     public void o(boolean z) {
         this.m.setBackgroundDrawable(null);
         super.o(z);
         this.F = true;
     }
 
-    @Override // d.a.m0.r.f0.f, d.a.c.j.e.c
+    @Override // d.a.m0.r.f0.f, d.a.c.k.e.c
     public void x(boolean z) {
         super.x(z);
         this.F = false;
@@ -131,7 +131,7 @@ public class g extends f {
         I(skinType);
     }
 
-    @Override // d.a.m0.r.f0.f, d.a.c.j.e.c
+    @Override // d.a.m0.r.f0.f, d.a.c.k.e.c
     public void y() {
         super.y();
         this.F = false;

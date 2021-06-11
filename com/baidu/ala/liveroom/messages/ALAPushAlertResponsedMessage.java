@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Wire;
 import d.a.c.e.l.d;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import d.a.m0.a0.c;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -92,7 +92,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // d.a.c.e.l.c
                                 public void onLoaded(a aVar, String str5, int i3) {
-                                    super.onLoaded((C00221) aVar, str5, i3);
+                                    super.onLoaded((C00231) aVar, str5, i3);
                                     if (aVar != null && aVar.p() != null) {
                                         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                         int hashCode = Long.valueOf(optLong).hashCode();

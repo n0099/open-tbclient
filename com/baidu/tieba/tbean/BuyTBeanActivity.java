@@ -41,18 +41,18 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
 
         @Override // d.a.m0.l0.a
         public void a() {
-            d.a.m0.l0.d.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.a.m0.l0.c.f49498a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
+            d.a.m0.l0.d.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.a.m0.l0.c.f53172a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
             BuyTBeanActivity.this.finish();
         }
 
         @Override // d.a.m0.l0.a
         public void b() {
-            BuyTBeanActivity.this.mModel.F();
+            BuyTBeanActivity.this.mModel.J();
         }
 
         @Override // d.a.m0.l0.a
         public void onError(String str) {
-            BuyTBeanActivity.this.mModel.F();
+            BuyTBeanActivity.this.mModel.J();
         }
     }
 
@@ -211,13 +211,13 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         this.mTBeanView.x();
         BuyTBeanModel buyTBeanModel = new BuyTBeanModel(this, this);
         this.mModel = buyTBeanModel;
-        buyTBeanModel.E();
-        this.mModel.D();
-        this.mModel.C();
-        this.mModel.B();
+        buyTBeanModel.I();
+        this.mModel.H();
+        this.mModel.G();
+        this.mModel.F();
         PayConfigModel payConfigModel = new PayConfigModel(this, new a());
         this.mPayConfigModel = payConfigModel;
-        payConfigModel.x();
+        payConfigModel.B();
         registerListener(this.roomClosedListener);
         TiebaStatic.log("c10295");
     }
@@ -288,7 +288,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         if (aVar != null) {
             aVar.J();
             this.mTBeanView.w();
-            this.mTBeanView.G(this.mModel.x(), this.mModel.z(), this.mModel.y(), this.mModel.A());
+            this.mTBeanView.G(this.mModel.B(), this.mModel.D(), this.mModel.C(), this.mModel.E());
         }
     }
 
@@ -298,6 +298,6 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
         showLoadingDialog(getPageContext().getString(R.string.flist_loading));
         this.mTBeanView.x();
-        this.mModel.F();
+        this.mModel.J();
     }
 }

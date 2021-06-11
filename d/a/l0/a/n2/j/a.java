@@ -8,6 +8,7 @@ import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import d.a.l0.a.c2.e;
 import d.a.l0.a.c2.f.a0;
 import d.a.l0.a.k;
@@ -22,7 +23,7 @@ import org.json.JSONObject;
 public class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43855c = k.f43199a;
+    public static final boolean f47531c = k.f46875a;
 
     public a(e eVar) {
         super(eVar, "/swanAPI/getSystemRiskInfo");
@@ -56,13 +57,13 @@ public class a extends a0 {
             str = a0.i(context);
         }
         jSONObject.put("cuid", str);
-        if (f43855c) {
+        if (f47531c) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }
         String b2 = d.a.l0.u.d.b.b(UUID.randomUUID().toString().getBytes(), false);
         String a2 = o.a(b2, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
-        String d2 = o.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b2, "RSA/ECB/PKCS1Padding");
-        if (f43855c) {
+        String d2 = o.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b2, RsaCipher.RSA_PADDING);
+        if (f47531c) {
             Log.d("GetSystemRiskInfoAction", "aesKey=" + b2 + ", aesValue=" + a2 + ", rsaKey=" + d2);
         }
         JSONObject jSONObject2 = new JSONObject();

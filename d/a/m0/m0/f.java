@@ -8,28 +8,28 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class f extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public long f49528b;
+    public long f53203b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f49529c;
+    public long f53204c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f49530d;
+    public long f53205d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49531e;
+    public int f53206e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f49532f;
+    public long f53207f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49533g;
+    public int f53208g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f49534h = null;
+    public b f53209h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Handler f49535i = new a(Looper.getMainLooper());
+    public final Handler f53210i = new a(Looper.getMainLooper());
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -39,9 +39,9 @@ public class f extends g {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f.this.f49534h = new b();
-            f.this.f49534h.setSelfExecute(true);
-            f.this.f49534h.execute(new String[0]);
+            f.this.f53209h = new b();
+            f.this.f53209h.setSelfExecute(true);
+            f.this.f53209h.execute(new String[0]);
         }
     }
 
@@ -58,20 +58,20 @@ public class f extends g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.f49533g = k.d().a();
+            f.this.f53208g = k.d().a();
             f.this.e();
             return Boolean.TRUE;
         }
     }
 
     public final void e() {
-        i iVar = (i) k.d().e(this.f49538a);
+        i iVar = (i) k.d().e(this.f53213a);
         if (iVar != null) {
             iVar.c(this);
         }
     }
 
     public void f() {
-        this.f49535i.sendEmptyMessage(0);
+        this.f53210i.sendEmptyMessage(0);
     }
 }

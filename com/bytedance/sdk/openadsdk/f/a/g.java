@@ -20,78 +20,78 @@ import org.json.JSONException;
 public class g implements v.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f29060a;
+    public final h f29163a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final t f29061b;
+    public final t f29164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, b> f29062c = new HashMap();
+    public final Map<String, b> f29165c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, d.b> f29063d = new HashMap();
+    public final Map<String, d.b> f29166d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<p> f29064e = new ArrayList();
+    public final List<p> f29167e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<d> f29065f = new HashSet();
+    public final Set<d> f29168f = new HashSet();
 
     /* renamed from: g  reason: collision with root package name */
-    public final m f29066g;
+    public final m f29169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f29067h;
+    public final boolean f29170h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f29068i;
+    public final boolean f29171i;
     public final com.bytedance.sdk.openadsdk.f.a.a j;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f29074a;
+        public boolean f29177a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f29075b;
+        public String f29178b;
 
         public a(boolean z, @NonNull String str) {
-            this.f29074a = z;
-            this.f29075b = str;
+            this.f29177a = z;
+            this.f29178b = str;
         }
     }
 
     public g(@NonNull j jVar, @NonNull com.bytedance.sdk.openadsdk.f.a.a aVar, @Nullable u uVar) {
         this.j = aVar;
-        this.f29060a = jVar.f29081d;
+        this.f29163a = jVar.f29184d;
         t tVar = new t(uVar, jVar.l, jVar.m);
-        this.f29061b = tVar;
+        this.f29164b = tVar;
         tVar.a(this);
-        this.f29061b.a(jVar.p);
-        this.f29066g = jVar.f29086i;
-        this.f29067h = jVar.f29085h;
-        this.f29068i = jVar.o;
+        this.f29164b.a(jVar.p);
+        this.f29169g = jVar.f29189i;
+        this.f29170h = jVar.f29188h;
+        this.f29171i = jVar.o;
     }
 
     private w b(String str, b bVar) {
-        if (this.f29068i) {
+        if (this.f29171i) {
             return w.PRIVATE;
         }
-        return this.f29061b.a(this.f29067h, str, bVar);
+        return this.f29164b.a(this.f29170h, str, bVar);
     }
 
     @Nullable
     @MainThread
     public a a(@NonNull p pVar, @NonNull f fVar) throws Exception {
-        b bVar = this.f29062c.get(pVar.f29090d);
+        b bVar = this.f29165c.get(pVar.f29193d);
         if (bVar != null) {
             try {
-                w b2 = b(fVar.f29057b, bVar);
-                fVar.f29059d = b2;
+                w b2 = b(fVar.f29160b, bVar);
+                fVar.f29162d = b2;
                 if (b2 == null) {
-                    if (this.f29066g != null) {
-                        this.f29066g.a(fVar.f29057b, pVar.f29090d, 1);
+                    if (this.f29169g != null) {
+                        this.f29169g.a(fVar.f29160b, pVar.f29193d, 1);
                     }
                     i.a("Permission denied, call: " + pVar);
                     throw new r(-1);
@@ -104,16 +104,16 @@ public class g implements v.a {
                 }
             } catch (u.a e2) {
                 i.a("No remote permission config fetched, call pending: " + pVar, e2);
-                this.f29064e.add(pVar);
+                this.f29167e.add(pVar);
                 return new a(false, x.a());
             }
         }
-        d.b bVar2 = this.f29063d.get(pVar.f29090d);
+        d.b bVar2 = this.f29166d.get(pVar.f29193d);
         if (bVar2 != null) {
             d a2 = bVar2.a();
-            a2.a(pVar.f29090d);
-            w b3 = b(fVar.f29057b, a2);
-            fVar.f29059d = b3;
+            a2.a(pVar.f29193d);
+            w b3 = b(fVar.f29160b, a2);
+            fVar.f29162d = b3;
             if (b3 != null) {
                 i.a("Processing stateful call: " + pVar);
                 return a(pVar, a2, fVar);
@@ -122,9 +122,9 @@ public class g implements v.a {
             a2.d();
             throw new r(-1);
         }
-        m mVar = this.f29066g;
+        m mVar = this.f29169g;
         if (mVar != null) {
-            mVar.a(fVar.f29057b, pVar.f29090d, 2);
+            mVar.a(fVar.f29160b, pVar.f29193d, 2);
         }
         i.b("Received call: " + pVar + ", but not registered.");
         return null;
@@ -132,33 +132,33 @@ public class g implements v.a {
 
     public void a(String str, @NonNull e<?, ?> eVar) {
         eVar.a(str);
-        this.f29062c.put(str, eVar);
+        this.f29165c.put(str, eVar);
         i.a("JsBridge stateless method registered: " + str);
     }
 
     public void a(String str, @NonNull d.b bVar) {
-        this.f29063d.put(str, bVar);
+        this.f29166d.put(str, bVar);
         i.a("JsBridge stateful method registered: " + str);
     }
 
     @NonNull
     @MainThread
     private a a(@NonNull p pVar, @NonNull e eVar, @NonNull f fVar) throws Exception {
-        return new a(true, x.a(this.f29060a.a((h) eVar.a(a(pVar.f29091e, (b) eVar), fVar))));
+        return new a(true, x.a(this.f29163a.a((h) eVar.a(a(pVar.f29194e, (b) eVar), fVar))));
     }
 
     @NonNull
     @MainThread
     private a a(@NonNull final p pVar, @NonNull final d dVar, @NonNull f fVar) throws Exception {
-        this.f29065f.add(dVar);
-        dVar.a(a(pVar.f29091e, dVar), fVar, new d.a() { // from class: com.bytedance.sdk.openadsdk.f.a.g.1
+        this.f29168f.add(dVar);
+        dVar.a(a(pVar.f29194e, dVar), fVar, new d.a() { // from class: com.bytedance.sdk.openadsdk.f.a.g.1
             @Override // com.bytedance.sdk.openadsdk.f.a.d.a
             public void a(@Nullable Object obj) {
                 if (g.this.j == null) {
                     return;
                 }
-                g.this.j.b(x.a(g.this.f29060a.a((h) obj)), pVar);
-                g.this.f29065f.remove(dVar);
+                g.this.j.b(x.a(g.this.f29163a.a((h) obj)), pVar);
+                g.this.f29168f.remove(dVar);
             }
 
             @Override // com.bytedance.sdk.openadsdk.f.a.d.a
@@ -167,7 +167,7 @@ public class g implements v.a {
                     return;
                 }
                 g.this.j.b(x.a(th), pVar);
-                g.this.f29065f.remove(dVar);
+                g.this.f29168f.remove(dVar);
             }
         });
         return new a(false, x.a());
@@ -176,13 +176,13 @@ public class g implements v.a {
     @NonNull
     @MainThread
     private a a(final p pVar, c cVar, w wVar) throws Exception {
-        cVar.a(pVar, new s(pVar.f29090d, wVar, new s.a() { // from class: com.bytedance.sdk.openadsdk.f.a.g.2
+        cVar.a(pVar, new s(pVar.f29193d, wVar, new s.a() { // from class: com.bytedance.sdk.openadsdk.f.a.g.2
         }));
         return new a(false, x.a());
     }
 
     private Object a(String str, b bVar) throws JSONException {
-        return this.f29060a.a(str, a(bVar)[0]);
+        return this.f29163a.a(str, a(bVar)[0]);
     }
 
     @NonNull

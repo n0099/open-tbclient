@@ -17,22 +17,22 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.a.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0800a implements Runnable {
+    public class RunnableC0856a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f44132e;
+        public final /* synthetic */ UnitedSchemeEntity f47806e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.l1.b f44133f;
+        public final /* synthetic */ d.a.l0.a.l1.b f47807f;
 
-        public RunnableC0800a(UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.l1.b bVar) {
-            this.f44132e = unitedSchemeEntity;
-            this.f44133f = bVar;
+        public RunnableC0856a(UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.l1.b bVar) {
+            this.f47806e = unitedSchemeEntity;
+            this.f47807f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.k(this.f44132e, this.f44133f);
+            a.this.k(this.f47806e, this.f47807f);
         }
     }
 
@@ -42,7 +42,7 @@ public class a extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("AdLandingAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         String o = d.a.l0.a.c2.f.p0.a.o(unitedSchemeEntity, "params");
@@ -57,7 +57,7 @@ public class a extends a0 {
             return false;
         } else {
             d.a.l0.a.l1.b e2 = d.a.l0.a.l1.b.e(o, o);
-            e2.f43358f = n;
+            e2.f47034f = n;
             if (k.e().g()) {
                 l(unitedSchemeEntity, e2);
             } else {
@@ -78,6 +78,6 @@ public class a extends a0 {
 
     public final void l(UnitedSchemeEntity unitedSchemeEntity, d.a.l0.a.l1.b bVar) {
         k.e().h();
-        q0.Y(new RunnableC0800a(unitedSchemeEntity, bVar), 200L);
+        q0.Y(new RunnableC0856a(unitedSchemeEntity, bVar), 200L);
     }
 }

@@ -10,24 +10,24 @@ import java.util.Set;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<Integer> f45419a = new HashSet();
+    public static final Set<Integer> f49093a = new HashSet();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<Integer> f45420b = new HashSet();
+    public static final Set<Integer> f49094b = new HashSet();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<Integer> f45421c = new HashSet();
+    public static final Set<Integer> f49095c = new HashSet();
 
     static {
-        f45419a.add(2);
-        f45419a.add(3);
-        f45419a.add(4);
-        f45419a.add(5);
-        f45419a.add(6);
-        f45420b.add(7);
-        f45420b.add(1);
-        f45421c.addAll(f45419a);
-        f45421c.addAll(f45420b);
+        f49093a.add(2);
+        f49093a.add(3);
+        f49093a.add(4);
+        f49093a.add(5);
+        f49093a.add(6);
+        f49094b.add(7);
+        f49094b.add(1);
+        f49095c.addAll(f49093a);
+        f49095c.addAll(f49094b);
     }
 
     public static Date a() {
@@ -107,7 +107,7 @@ public final class k {
         try {
             return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
         } catch (NumberFormatException e2) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e2.printStackTrace();
                 return "";
             }

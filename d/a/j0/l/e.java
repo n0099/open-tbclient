@@ -2,6 +2,7 @@ package d.a.j0.l;
 
 import android.content.Context;
 import android.util.Base64;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.security.KeyFactory;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
@@ -40,7 +41,7 @@ public class e {
             if (d2 == null) {
                 return "";
             }
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
             cipher.init(1, d2);
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Throwable th) {

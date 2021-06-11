@@ -6,11 +6,11 @@ import java.io.IOException;
 public abstract class f implements p {
 
     /* renamed from: e  reason: collision with root package name */
-    public final p f65164e;
+    public final p f68895e;
 
     public f(p pVar) {
         if (pVar != null) {
-            this.f65164e = pVar;
+            this.f68895e = pVar;
             return;
         }
         throw new IllegalArgumentException("delegate == null");
@@ -18,25 +18,25 @@ public abstract class f implements p {
 
     @Override // d.b.c.a.a.p
     public r a() {
-        return this.f65164e.a();
+        return this.f68895e.a();
     }
 
     @Override // d.b.c.a.a.p
     public void b(c cVar, long j) throws IOException {
-        this.f65164e.b(cVar, j);
+        this.f68895e.b(cVar, j);
     }
 
     @Override // d.b.c.a.a.p, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f65164e.close();
+        this.f68895e.close();
     }
 
     @Override // d.b.c.a.a.p, java.io.Flushable
     public void flush() throws IOException {
-        this.f65164e.flush();
+        this.f68895e.flush();
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "(" + this.f65164e.toString() + SmallTailInfo.EMOTION_SUFFIX;
+        return getClass().getSimpleName() + "(" + this.f68895e.toString() + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

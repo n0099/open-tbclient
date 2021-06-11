@@ -10,17 +10,17 @@ import org.json.JSONObject;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f54803a;
+    public int f58492a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f54804b;
+    public T f58493b;
 
     public T a() {
-        return this.f54804b;
+        return this.f58493b;
     }
 
     public int b() {
-        return this.f54803a;
+        return this.f58492a;
     }
 
     /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
@@ -34,9 +34,9 @@ public class a<T> {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() == 3) {
                 jSONArray.optString(0);
-                this.f54803a = jSONArray.optInt(1);
+                this.f58492a = jSONArray.optInt(1);
                 JSONObject optJSONObject = jSONArray.optJSONObject(2);
-                if (1 == this.f54803a) {
+                if (1 == this.f58492a) {
                     String optString = optJSONObject.optString("button");
                     String optString2 = optJSONObject.optString("shareSourceIcon");
                     String optString3 = optJSONObject.optString("shareSource");
@@ -52,7 +52,7 @@ public class a<T> {
                         r4.setTitle(optJSONObject.optString("themeTitle"));
                         r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
                         r4.setThreadType(optJSONObject.optInt("threadType"));
-                        this.f54804b = r4;
+                        this.f58493b = r4;
                         return 0;
                     }
                     ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -67,15 +67,15 @@ public class a<T> {
                     r1.setShareSourceIcon(optString2);
                     r1.setShareSourceUrl(optString5);
                     r1.setShareUrl(optString4);
-                    this.f54804b = r1;
+                    this.f58493b = r1;
                     return 1;
-                } else if (4 == this.f54803a) {
+                } else if (4 == this.f58492a) {
                     ?? r12 = (T) new ShareFromFrsMsgData();
                     r12.setName(optJSONObject.optString("forumName"));
                     r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
                     r12.setMemberNum(optJSONObject.optInt("memberNum"));
                     r12.setPostNum(optJSONObject.optInt("postNum"));
-                    this.f54804b = r12;
+                    this.f58493b = r12;
                     return 2;
                 } else {
                     return -1;

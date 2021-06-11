@@ -15,39 +15,39 @@ import kotlin.jvm.functions.Function1;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class e implements d.a.l0.n.j.c<JSONArray> {
-    public static final boolean k = k.f43199a;
+    public static final boolean k = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f43657a;
+    public final f f47333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f43658b;
+    public final String f47334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f43659c = null;
+    public i f47335c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f43660d = null;
+    public i f47336d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.a.q2.a f43661e = null;
+    public d.a.l0.a.q2.a f47337e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43662f = false;
+    public boolean f47338f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43663g = false;
+    public boolean f47339g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Collection<d.a.l0.a.v2.e1.b<e>> f43664h = new HashSet();
+    public final Collection<d.a.l0.a.v2.e1.b<e>> f47340h = new HashSet();
 
     /* renamed from: i  reason: collision with root package name */
-    public final Collection<d.a.l0.a.v2.e1.b<e>> f43665i = new HashSet();
+    public final Collection<d.a.l0.a.v2.e1.b<e>> f47341i = new HashSet();
     public d.b j = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Function1<d.a.l0.a.q2.a, Unit> {
         public a() {
         }
@@ -60,19 +60,19 @@ public final class e implements d.a.l0.n.j.c<JSONArray> {
                 Log.i("SoUpdating", "install: " + e.this.k() + " onCallback");
             }
             e.this.i(aVar);
-            e.this.f43662f = false;
+            e.this.f47338f = false;
             return null;
         }
     }
 
     public e(@NonNull f fVar, String str) {
-        this.f43657a = fVar;
-        this.f43658b = str;
+        this.f47333a = fVar;
+        this.f47334b = str;
     }
 
     public final synchronized void e() {
-        this.f43664h.clear();
-        this.f43665i.clear();
+        this.f47340h.clear();
+        this.f47341i.clear();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +81,7 @@ public final class e implements d.a.l0.n.j.c<JSONArray> {
     public void a(@NonNull JSONArray jSONArray) {
         i l = l();
         if (k) {
-            Log.i("SoUpdating", "decorateParams libName=" + this.f43658b + " localSo=" + l);
+            Log.i("SoUpdating", "decorateParams libName=" + this.f47334b + " localSo=" + l);
         }
         try {
             Iterator<AbiType> it = AbiType.currentAbi().getCompatible().iterator();
@@ -91,21 +91,21 @@ public final class e implements d.a.l0.n.j.c<JSONArray> {
                     Log.i("SoUpdating", "decorateParams loop abi=" + next);
                 }
                 if (next != null) {
-                    d.a.l0.n.l.a d2 = d.a.l0.n.l.a.d(this.f43658b, next);
+                    d.a.l0.n.l.a d2 = d.a.l0.n.l.a.d(this.f47334b, next);
                     if (k) {
                         Log.i("SoUpdating", "decorateParams loop bundleId=" + d2);
                     }
                     if (d2 != null) {
                         JSONObject jSONObject = new JSONObject();
                         boolean z = l != null && next == l.q;
-                        long j = (l == null || !z) ? 0L : l.f48014i;
+                        long j = (l == null || !z) ? 0L : l.f51688i;
                         String str = "0";
                         String str2 = (l == null || !z) ? "0" : l.j;
                         if (!TextUtils.isEmpty(str2)) {
                             str = str2;
                         }
                         jSONObject.put("type", "so");
-                        jSONObject.put("bundle_id", d2.f48184b);
+                        jSONObject.put("bundle_id", d2.f51858b);
                         jSONObject.put("version_code", j);
                         jSONObject.put("version_name", str);
                         if (k) {
@@ -123,46 +123,46 @@ public final class e implements d.a.l0.n.j.c<JSONArray> {
     }
 
     public synchronized e g(d.a.l0.a.v2.e1.b<e> bVar) {
-        this.f43664h.remove(bVar);
+        this.f47340h.remove(bVar);
         return this;
     }
 
     public synchronized e h(d.a.l0.a.v2.e1.b<e> bVar) {
-        this.f43665i.remove(bVar);
+        this.f47341i.remove(bVar);
         return this;
     }
 
     public final synchronized e i(d.a.l0.a.q2.a aVar) {
         if (k) {
-            Log.i("SoUpdating", "finish: " + k() + " finished=" + this.f43663g + " error=" + aVar);
+            Log.i("SoUpdating", "finish: " + k() + " finished=" + this.f47339g + " error=" + aVar);
         }
-        if (this.f43663g) {
+        if (this.f47339g) {
             return this;
         }
-        this.f43663g = true;
-        this.f43661e = aVar;
+        this.f47339g = true;
+        this.f47337e = aVar;
         if (aVar == null) {
-            c.f43645d.v(k(), System.currentTimeMillis());
+            c.f47321d.v(k(), System.currentTimeMillis());
         }
-        c.f43645d.f(k());
+        c.f47321d.f(k());
         t();
         e();
         return this;
     }
 
     public i j() {
-        return this.f43660d;
+        return this.f47336d;
     }
 
     public String k() {
-        return this.f43658b;
+        return this.f47334b;
     }
 
     public i l() {
-        if (this.f43659c == null && !TextUtils.isEmpty(this.f43658b)) {
-            this.f43659c = d.a.l0.n.g.a.h().r(this.f43658b);
+        if (this.f47335c == null && !TextUtils.isEmpty(this.f47334b)) {
+            this.f47335c = d.a.l0.n.g.a.h().r(this.f47334b);
         }
-        return this.f43659c;
+        return this.f47335c;
     }
 
     public d.b m() {
@@ -170,45 +170,45 @@ public final class e implements d.a.l0.n.j.c<JSONArray> {
     }
 
     public boolean n() {
-        return this.f43663g;
+        return this.f47339g;
     }
 
     public boolean o() {
-        return n() && (this.f43661e == null || c.f43645d.k(k()));
+        return n() && (this.f47337e == null || c.f47321d.k(k()));
     }
 
     public boolean p() {
-        i iVar = this.f43660d;
-        return (iVar == null || iVar == this.f43659c) ? false : true;
+        i iVar = this.f47336d;
+        return (iVar == null || iVar == this.f47335c) ? false : true;
     }
 
     public synchronized void q() {
         if (k) {
-            Log.i("SoUpdating", "install: " + k() + " finished=" + this.f43663g + " installing=" + this.f43662f);
+            Log.i("SoUpdating", "install: " + k() + " finished=" + this.f47339g + " installing=" + this.f47338f);
         }
-        if (!this.f43663g && !this.f43662f) {
-            this.f43662f = true;
+        if (!this.f47339g && !this.f47338f) {
+            this.f47338f = true;
             if (k) {
                 Log.i("SoUpdating", "install: " + k());
             }
-            c.f43645d.x(k(), new a());
+            c.f47321d.x(k(), new a());
         }
     }
 
     public boolean r(f fVar) {
-        return fVar != null && fVar == this.f43657a;
+        return fVar != null && fVar == this.f47333a;
     }
 
     public boolean s() {
-        return !n() && this.f43662f;
+        return !n() && this.f47338f;
     }
 
     public final synchronized void t() {
         if (k) {
-            Log.i("SoUpdating", "notifyFinish: " + k() + " mCallbacks=" + this.f43664h.size());
+            Log.i("SoUpdating", "notifyFinish: " + k() + " mCallbacks=" + this.f47340h.size());
         }
-        this.f43663g = true;
-        for (d.a.l0.a.v2.e1.b<e> bVar : this.f43664h) {
+        this.f47339g = true;
+        for (d.a.l0.a.v2.e1.b<e> bVar : this.f47340h) {
             if (bVar != null) {
                 bVar.onCallback(this);
             }
@@ -216,26 +216,26 @@ public final class e implements d.a.l0.n.j.c<JSONArray> {
     }
 
     public synchronized e u(d.a.l0.a.v2.e1.b<e> bVar) {
-        this.f43664h.add(bVar);
+        this.f47340h.add(bVar);
         return this;
     }
 
     public synchronized e v(d.a.l0.a.v2.e1.b<e> bVar) {
-        this.f43665i.add(bVar);
+        this.f47341i.add(bVar);
         return this;
     }
 
     public e w(f fVar, i iVar) {
         if (r(fVar)) {
-            this.f43660d = iVar;
+            this.f47336d = iVar;
         }
         return this;
     }
 
     public synchronized void x(d.b bVar) {
-        if (!this.f43663g && bVar != null && 0 != bVar.f43656b) {
+        if (!this.f47339g && bVar != null && 0 != bVar.f47332b) {
             this.j = bVar;
-            for (d.a.l0.a.v2.e1.b<e> bVar2 : this.f43665i) {
+            for (d.a.l0.a.v2.e1.b<e> bVar2 : this.f47341i) {
                 if (bVar2 != null) {
                     bVar2.onCallback(this);
                 }

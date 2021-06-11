@@ -51,8 +51,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
                 FrsRequestData frsRequestData = (FrsRequestData) mvcNetMessage.getRequestData();
                 this.updateType = frsRequestData.getUpdateType();
                 this.needCache = frsRequestData.isNeedCache();
-                this.mCategoryId = frsRequestData.t();
-                this.mIsGood = frsRequestData.u();
+                this.mCategoryId = frsRequestData.x();
+                this.mIsGood = frsRequestData.y();
             }
         }
     }

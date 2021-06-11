@@ -7,29 +7,29 @@ import java.lang.Thread;
 public class a implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f43824f;
+    public static volatile a f47500f;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Thread.UncaughtExceptionHandler f43825e = Thread.getDefaultUncaughtExceptionHandler();
+    public final Thread.UncaughtExceptionHandler f47501e = Thread.getDefaultUncaughtExceptionHandler();
 
     @UiThread
     public static void a() {
-        if (f43824f != null) {
+        if (f47500f != null) {
             return;
         }
-        f43824f = new a();
-        Thread.setDefaultUncaughtExceptionHandler(f43824f);
+        f47500f = new a();
+        Thread.setDefaultUncaughtExceptionHandler(f47500f);
     }
 
     public static void c() {
-        if (f43824f == null) {
+        if (f47500f == null) {
             return;
         }
         Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
-        a aVar = f43824f;
+        a aVar = f47500f;
         if (defaultUncaughtExceptionHandler == aVar) {
-            Thread.setDefaultUncaughtExceptionHandler(aVar.f43825e);
-            f43824f = null;
+            Thread.setDefaultUncaughtExceptionHandler(aVar.f47501e);
+            f47500f = null;
         }
     }
 
@@ -45,7 +45,7 @@ public class a implements Thread.UncaughtExceptionHandler {
             } catch (Throwable unused) {
             }
         }
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f43825e;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f47501e;
         if (uncaughtExceptionHandler != null) {
             uncaughtExceptionHandler.uncaughtException(thread, th);
         }

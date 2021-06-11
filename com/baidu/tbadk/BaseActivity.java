@@ -63,9 +63,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
 import d.a.c.e.p.l;
-import d.a.c.j.e.q;
-import d.a.m0.a.p;
-import d.a.m0.a.s;
+import d.a.m0.a.q;
+import d.a.m0.a.t;
 import d.a.m0.d0.g;
 import d.a.m0.d0.h;
 import d.a.m0.f0.i;
@@ -82,7 +81,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport, a, IVideoNeedPreload, p, Object {
+public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport, a, IVideoNeedPreload, q, Object {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
     public static final byte KEYBOARD_STATE_SHOW = -3;
@@ -516,7 +515,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        s.a(motionEvent, getPageId(), getMissionTid());
+        t.a(motionEvent, getPageId(), getMissionTid());
         d.a.n0.j3.a.getInstance().behaviorRecordEvent(motionEvent, this);
         try {
             if (this.mProgressBar == null || !this.mProgressBar.isShown()) {
@@ -879,7 +878,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                 this.mLastScreenWidth = configuration.screenWidthDp;
                 this.mLastScreenHeight = configuration.screenHeightDp;
-                l.f38876a = false;
+                l.f42529a = false;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
             }
         } else {
@@ -996,10 +995,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onKeyboardVisibilityChanged(boolean z) {
     }
 
-    @Override // d.a.m0.a.p
+    @Override // d.a.m0.a.q
     public boolean onMissionCompleted(CompleteTaskToastData completeTaskToastData) {
         hideClickableTextToast();
-        this.mClickableTextToast = s.i(completeTaskToastData);
+        this.mClickableTextToast = t.i(completeTaskToastData);
         return true;
     }
 
@@ -1031,7 +1030,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, d.a.c.a.i
-    public void onPreLoad(q qVar) {
+    public void onPreLoad(d.a.c.k.e.q qVar) {
         super.onPreLoad(qVar);
         PreLoadImageHelper.load(qVar, getUniqueId());
         PreLoadVideoHelper.load(qVar, getUniqueId(), this);
@@ -1164,7 +1163,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void setCurrentActivityTid() {
-        s.h(getPageId(), getMissionTid());
+        t.h(getPageId(), getMissionTid());
     }
 
     public void setCurrentPermissionJudgePolicy(PermissionJudgePolicy permissionJudgePolicy) {

@@ -7,43 +7,43 @@ import java.util.concurrent.locks.ReentrantLock;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ReentrantLock f47441c = new ReentrantLock();
+    public static final ReentrantLock f51115c = new ReentrantLock();
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f47442d;
+    public static volatile a f51116d;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c> f47443a = new ArrayList(3);
+    public List<c> f51117a = new ArrayList(3);
 
     /* renamed from: b  reason: collision with root package name */
-    public d f47444b;
+    public d f51118b;
 
     public static a a() {
-        if (f47442d == null) {
+        if (f51116d == null) {
             synchronized (a.class) {
-                if (f47442d == null) {
-                    f47442d = new a();
+                if (f51116d == null) {
+                    f51116d = new a();
                 }
             }
         }
-        return f47442d;
+        return f51116d;
     }
 
     public void b() {
-        this.f47444b = null;
-        this.f47443a.clear();
+        this.f51118b = null;
+        this.f51117a.clear();
     }
 
     public final void c(c cVar) {
-        f47441c.lock();
+        f51115c.lock();
         try {
-            if (this.f47444b != null) {
-                this.f47444b.a(cVar);
+            if (this.f51118b != null) {
+                this.f51118b.a(cVar);
             } else {
-                this.f47443a.add(cVar);
+                this.f51117a.add(cVar);
             }
         } finally {
-            f47441c.unlock();
+            f51115c.unlock();
         }
     }
 
@@ -55,22 +55,22 @@ public class a {
     }
 
     public final void e() {
-        if (this.f47443a.isEmpty() || this.f47444b == null) {
+        if (this.f51117a.isEmpty() || this.f51118b == null) {
             return;
         }
-        f47441c.lock();
+        f51115c.lock();
         try {
-            for (c cVar : this.f47443a) {
-                this.f47444b.a(cVar);
+            for (c cVar : this.f51117a) {
+                this.f51118b.a(cVar);
             }
-            this.f47443a.clear();
+            this.f51117a.clear();
         } finally {
-            f47441c.unlock();
+            f51115c.unlock();
         }
     }
 
     public void f(d dVar) {
-        this.f47444b = dVar;
+        this.f51118b = dVar;
         e();
     }
 }

@@ -32,7 +32,7 @@ public class BannerListData implements Serializable {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(AdvertAppInfo advertAppInfo, AdvertAppInfo advertAppInfo2) {
-            return (advertAppInfo != null ? b.d(advertAppInfo.M3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.M3, 0) : 0);
+            return (advertAppInfo != null ? b.d(advertAppInfo.P3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.P3, 0) : 0);
         }
     }
 
@@ -52,8 +52,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i2).G3)) {
-                sb.append(this.advertAppList.get(i2).G3);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i2).J3)) {
+                sb.append(this.advertAppList.get(i2).J3);
                 if (i2 != size - 1) {
                     sb.append(",");
                 }
@@ -87,7 +87,7 @@ public class BannerListData implements Serializable {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 if (list.get(i2) != null) {
                     AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                    advertAppInfo.J4(list.get(i2));
+                    advertAppInfo.K4(list.get(i2));
                     this.advertAppList.add(advertAppInfo);
                     if (j != null) {
                         j.add(advertAppInfo);

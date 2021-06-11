@@ -8,6 +8,6 @@ public class c {
     }
 
     public static String b(boolean z) {
-        return z ? "success" : "fail";
+        return z ? "success" : com.baidu.pass.biometrics.face.liveness.b.b.g0;
     }
 }

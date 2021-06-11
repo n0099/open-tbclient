@@ -12,19 +12,19 @@ import com.baidu.tieba.R;
 public class TaskItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18248e;
+    public Context f18324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18249f;
+    public View f18325f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18250g;
+    public TbImageView f18326g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18251h;
+    public TextView f18327h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18252i;
+    public TextView f18328i;
     public TextView j;
     public View k;
     public View l;
@@ -32,22 +32,22 @@ public class TaskItemView extends LinearLayout {
 
     public TaskItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18248e = context;
+        this.f18324e = context;
         a();
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(this.f18248e).inflate(R.layout.index_task_item, this);
-        this.f18249f = inflate;
+        View inflate = LayoutInflater.from(this.f18324e).inflate(R.layout.index_task_item, this);
+        this.f18325f = inflate;
         this.l = inflate.findViewById(R.id.ly_desc);
-        this.f18250g = (TbImageView) this.f18249f.findViewById(R.id.task_icon);
-        this.f18251h = (TextView) this.f18249f.findViewById(R.id.txt_title);
-        this.f18252i = (TextView) this.f18249f.findViewById(R.id.txt_desc);
-        TextView textView = (TextView) this.f18249f.findViewById(R.id.txt_status);
+        this.f18326g = (TbImageView) this.f18325f.findViewById(R.id.task_icon);
+        this.f18327h = (TextView) this.f18325f.findViewById(R.id.txt_title);
+        this.f18328i = (TextView) this.f18325f.findViewById(R.id.txt_desc);
+        TextView textView = (TextView) this.f18325f.findViewById(R.id.txt_status);
         this.j = textView;
         textView.setOnClickListener(this.m);
         this.l.setOnClickListener(this.m);
-        this.k = this.f18249f.findViewById(R.id.divider_line);
+        this.k = this.f18325f.findViewById(R.id.divider_line);
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
@@ -58,7 +58,7 @@ public class TaskItemView extends LinearLayout {
 
     public TaskItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
-        this.f18248e = context;
+        this.f18324e = context;
         a();
     }
 }

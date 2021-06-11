@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 import d.a.m0.z0.b0;
 import d.a.n0.r0.o0;
 import java.util.ArrayList;
@@ -27,19 +27,19 @@ import tbclient.Personalized.DataRes;
 public class PersonalizeFragment extends BaseFragment implements o0, VoiceManager.j {
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonalizePageView f16368e;
+    public PersonalizePageView f16436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VoiceManager f16369f;
+    public VoiceManager f16437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.b1.c.b f16370g;
+    public d.a.n0.b1.d.b f16438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16371h = false;
+    public boolean f16439h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f16372i = new a(2921029);
+    public CustomMessageListener f16440i = new a(2921029);
     public final CustomMessageListener j = new b(2921313);
     public final CustomMessageListener k = new c(2001371);
     public final CustomMessageListener l = new d(2921391);
@@ -54,7 +54,7 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (PersonalizeFragment.this.isPrimary()) {
-                PersonalizeFragment.this.M0();
+                PersonalizeFragment.this.P0();
             }
         }
     }
@@ -69,10 +69,10 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Long l;
-            if (customResponsedMessage == null || (l = (Long) customResponsedMessage.getData()) == null || PersonalizeFragment.this.f16368e == null) {
+            if (customResponsedMessage == null || (l = (Long) customResponsedMessage.getData()) == null || PersonalizeFragment.this.f16436e == null) {
                 return;
             }
-            PersonalizeFragment.this.f16368e.V(l);
+            PersonalizeFragment.this.f16436e.V(l);
         }
     }
 
@@ -88,7 +88,7 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
             if (customResponsedMessage == null) {
                 return;
             }
-            PersonalizeFragment.this.f16368e.s0();
+            PersonalizeFragment.this.f16436e.s0();
         }
     }
 
@@ -102,7 +102,7 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (PersonalizeFragment.this.isResumed()) {
-                PersonalizeFragment.this.N0();
+                PersonalizeFragment.this.Q0();
             }
         }
     }
@@ -111,67 +111,67 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
     }
 
     @Override // d.a.n0.r0.o0
-    public void G() {
+    public void H() {
     }
 
-    public final void G0() {
+    @Override // d.a.n0.r0.o0
+    public void I() {
+        changeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void J0() {
         PersonalizePageView personalizePageView;
-        if (!d.a.n0.b1.g.c.a(getBaseFragmentActivity()) || (personalizePageView = this.f16368e) == null) {
+        if (!d.a.n0.b1.h.c.a(getBaseFragmentActivity()) || (personalizePageView = this.f16436e) == null) {
             return;
         }
         personalizePageView.r0();
     }
 
-    @Override // d.a.n0.r0.o0
-    public void H() {
-        changeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    public void K0() {
+        this.f16436e.U();
     }
 
-    public void H0() {
-        this.f16368e.U();
+    public void L0() {
+        this.f16436e.W();
     }
 
-    public void I0() {
-        this.f16368e.W();
+    public void M0() {
+        this.f16436e.h0();
     }
 
-    public void J0() {
-        this.f16368e.h0();
+    public void N0(d.a.n0.b1.d.b bVar) {
+        this.f16438g = bVar;
+        this.f16436e.setCallback(bVar);
     }
 
-    public void K0(d.a.n0.b1.c.b bVar) {
-        this.f16370g = bVar;
-        this.f16368e.setCallback(bVar);
-    }
-
-    public void L0(ScrollFragmentTabHost scrollFragmentTabHost) {
-        PersonalizePageView personalizePageView = this.f16368e;
+    public void O0(ScrollFragmentTabHost scrollFragmentTabHost) {
+        PersonalizePageView personalizePageView = this.f16436e;
         if (personalizePageView != null) {
             personalizePageView.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
-    public final void M0() {
+    public final void P0() {
         if (!TbadkCoreApplication.getInst().isFirstTimeMotivate() || d.a.m0.r.d0.b.j().g("show_recommend_label", false)) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LabelRecommendActivityConfig(getPageContext().getPageActivity(), 1)));
     }
 
-    public final void N0() {
-        d.a.m0.a.c.y().N(d.a.m0.a.b.Y);
+    public final void Q0() {
+        d.a.m0.a.d.y().N(d.a.m0.a.c.Y);
     }
 
-    public void O0() {
-        this.f16368e.x0();
+    public void R0() {
+        this.f16436e.x0();
     }
 
-    public void P0(DataRes dataRes, boolean z, boolean z2) {
-        this.f16368e.y0(dataRes, z, z2);
+    public void S0(DataRes dataRes, boolean z, boolean z2) {
+        this.f16436e.y0(dataRes, z, z2);
     }
 
-    public void Q0(String str, int i2) {
-        this.f16368e.z0(str, i2);
+    public void T0(String str, int i2) {
+        this.f16436e.z0(str, i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, d.a.m0.k0.a
@@ -209,22 +209,22 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public VoiceManager getVoiceManager() {
-        if (this.f16369f == null) {
-            this.f16369f = VoiceManager.instance();
+        if (this.f16437f == null) {
+            this.f16437f = VoiceManager.instance();
         }
-        return this.f16369f;
+        return this.f16437f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         VoiceManager voiceManager = getVoiceManager();
-        this.f16369f = voiceManager;
+        this.f16437f = voiceManager;
         if (voiceManager != null) {
             voiceManager.onCreate(getPageContext());
         }
-        this.f16372i.setTag(getUniqueId());
-        registerListener(this.f16372i);
+        this.f16440i.setTag(getUniqueId());
+        registerListener(this.f16440i);
         registerListener(this.j);
         registerListener(this.l);
     }
@@ -232,7 +232,7 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        this.f16368e.j0(i2);
+        this.f16436e.j0(i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -243,35 +243,35 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.f16368e.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.f16368e.getParent()).removeView(this.f16368e);
-            d.a.n0.b1.c.b bVar = this.f16370g;
+        if (this.f16436e.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.f16436e.getParent()).removeView(this.f16436e);
+            d.a.n0.b1.d.b bVar = this.f16438g;
             if (bVar != null) {
-                this.f16368e.setCallback(bVar);
+                this.f16436e.setCallback(bVar);
             }
         }
-        this.f16368e.setPageUniqueId(getUniqueId());
-        if (this.f16371h) {
-            this.f16368e.b0();
-            this.f16371h = false;
+        this.f16436e.setPageUniqueId(getUniqueId());
+        if (this.f16439h) {
+            this.f16436e.b0();
+            this.f16439h = false;
         }
-        return this.f16368e;
+        return this.f16436e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        VoiceManager voiceManager = this.f16369f;
+        VoiceManager voiceManager = this.f16437f;
         if (voiceManager != null) {
             voiceManager.onDestory(getPageContext());
         }
         d.a.n0.d3.c.g().k(getUniqueId());
-        MessageManager.getInstance().unRegisterListener(this.f16372i);
+        MessageManager.getInstance().unRegisterListener(this.f16440i);
         MessageManager.getInstance().unRegisterListener(this.j);
         MessageManager.getInstance().unRegisterListener(this.l);
-        this.f16369f = null;
-        this.f16368e.k0();
-        this.f16371h = true;
+        this.f16437f = null;
+        this.f16436e.k0();
+        this.f16439h = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -282,18 +282,18 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        PersonalizePageView personalizePageView = this.f16368e;
+        PersonalizePageView personalizePageView = this.f16436e;
         if (personalizePageView != null) {
             personalizePageView.o0();
-            this.f16368e.l0();
-            this.f16368e.setTabInForeBackgroundState(true);
+            this.f16436e.l0();
+            this.f16436e.setTabInForeBackgroundState(true);
         }
         MessageManager.getInstance().unRegisterListener(this.k);
-        VoiceManager voiceManager = this.f16369f;
+        VoiceManager voiceManager = this.f16437f;
         if (voiceManager != null) {
             voiceManager.onPause(getPageContext());
         }
-        d.a.m0.a.c.y().E();
+        d.a.m0.a.d.y().E();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, d.a.c.a.i
@@ -308,13 +308,13 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.f16368e.setViewForeground();
-            G0();
-            M0();
+            this.f16436e.setViewForeground();
+            J0();
+            P0();
             d.a.n0.o.d.c().e("page_recommend");
             return;
         }
-        this.f16368e.o0();
+        this.f16436e.o0();
         d.a.n0.o.d.c().d("page_recommend");
     }
 
@@ -322,20 +322,20 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
     public void onResume() {
         super.onResume();
         d.a.m0.r.n.b.i().n(true);
-        VoiceManager voiceManager = this.f16369f;
+        VoiceManager voiceManager = this.f16437f;
         if (voiceManager != null) {
             voiceManager.onResume(getPageContext());
         }
-        this.f16368e.m0();
-        this.f16368e.setTabInForeBackgroundState(false);
+        this.f16436e.m0();
+        this.f16436e.setTabInForeBackgroundState(false);
         MessageManager.getInstance().registerListener(this.k);
-        N0();
+        Q0();
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        VoiceManager voiceManager = this.f16369f;
+        VoiceManager voiceManager = this.f16437f;
         if (voiceManager != null) {
             voiceManager.onStart(getPageContext());
         }
@@ -345,36 +345,36 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
     public void onStop() {
         super.onStop();
         d.a.n0.d3.c.g().h(getUniqueId(), false);
-        VoiceManager voiceManager = this.f16369f;
+        VoiceManager voiceManager = this.f16437f;
         if (voiceManager != null) {
             voiceManager.onStop(getPageContext());
         }
     }
 
     @Override // d.a.n0.r0.o0
-    public void p() {
-        this.f16368e.q0();
+    public void r() {
+        this.f16436e.q0();
     }
 
     @Override // d.a.n0.r0.o0
-    public void s() {
-        PersonalizePageView personalizePageView = this.f16368e;
+    public void t() {
+        PersonalizePageView personalizePageView = this.f16436e;
         if (personalizePageView != null) {
             personalizePageView.t0();
         }
     }
 
-    public void t() {
-        this.f16368e.setViewForeground(true);
-    }
-
-    @Override // d.a.n0.r0.o0
     public void u() {
+        this.f16436e.setViewForeground(true);
     }
 
     @Override // d.a.n0.r0.o0
-    public void y(b0 b0Var) {
-        PersonalizePageView personalizePageView = this.f16368e;
+    public void v() {
+    }
+
+    @Override // d.a.n0.r0.o0
+    public void z(b0 b0Var) {
+        PersonalizePageView personalizePageView = this.f16436e;
         if (personalizePageView != null) {
             personalizePageView.setRecommendFrsNavigationAnimDispatcher(b0Var);
         }
@@ -383,7 +383,7 @@ public class PersonalizeFragment extends BaseFragment implements o0, VoiceManage
     @SuppressLint({"ValidFragment"})
     public PersonalizeFragment(Context context) {
         PersonalizePageView personalizePageView = new PersonalizePageView(context);
-        this.f16368e = personalizePageView;
+        this.f16436e = personalizePageView;
         personalizePageView.b0();
     }
 }

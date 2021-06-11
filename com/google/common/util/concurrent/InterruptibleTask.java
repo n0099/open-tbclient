@@ -7,13 +7,13 @@ import java.util.concurrent.locks.LockSupport;
 public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Runnable f31441e = new b();
+    public static final Runnable f31532e = new b();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Runnable f31442f = new b();
+    public static final Runnable f31533f = new b();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Runnable f31443g = new b();
+    public static final Runnable f31534g = new b();
 
     /* loaded from: classes6.dex */
     public static final class b implements Runnable {
@@ -29,11 +29,11 @@ public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> imp
 
     public final void interruptTask() {
         Runnable runnable = get();
-        if ((runnable instanceof Thread) && compareAndSet(runnable, f31442f)) {
+        if ((runnable instanceof Thread) && compareAndSet(runnable, f31533f)) {
             try {
                 ((Thread) runnable).interrupt();
             } finally {
-                if (getAndSet(f31441e) == f31443g) {
+                if (getAndSet(f31532e) == f31534g) {
                     LockSupport.unpark((Thread) runnable);
                 }
             }
@@ -52,18 +52,18 @@ public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> imp
                 try {
                     runInterruptibly = runInterruptibly();
                 } catch (Throwable th) {
-                    if (!compareAndSet(currentThread, f31441e)) {
+                    if (!compareAndSet(currentThread, f31532e)) {
                         Runnable runnable = get();
                         boolean z2 = false;
                         int i2 = 0;
                         while (true) {
-                            if (runnable != f31442f && runnable != f31443g) {
+                            if (runnable != f31533f && runnable != f31534g) {
                                 break;
                             }
                             i2++;
                             if (i2 > 1000) {
-                                Runnable runnable2 = f31443g;
-                                if (runnable == runnable2 || compareAndSet(f31442f, runnable2)) {
+                                Runnable runnable2 = f31534g;
+                                if (runnable == runnable2 || compareAndSet(f31533f, runnable2)) {
                                     z2 = Thread.interrupted() || z2;
                                     LockSupport.park(this);
                                 }
@@ -85,18 +85,18 @@ public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> imp
             } else {
                 runInterruptibly = null;
             }
-            if (!compareAndSet(currentThread, f31441e)) {
+            if (!compareAndSet(currentThread, f31532e)) {
                 Runnable runnable3 = get();
                 boolean z3 = false;
                 int i3 = 0;
                 while (true) {
-                    if (runnable3 != f31442f && runnable3 != f31443g) {
+                    if (runnable3 != f31533f && runnable3 != f31534g) {
                         break;
                     }
                     i3++;
                     if (i3 > 1000) {
-                        Runnable runnable4 = f31443g;
-                        if (runnable3 == runnable4 || compareAndSet(f31442f, runnable4)) {
+                        Runnable runnable4 = f31534g;
+                        if (runnable3 == runnable4 || compareAndSet(f31533f, runnable4)) {
                             z3 = Thread.interrupted() || z3;
                             LockSupport.park(this);
                         }
@@ -123,9 +123,9 @@ public abstract class InterruptibleTask<T> extends AtomicReference<Runnable> imp
     public final String toString() {
         String str;
         Runnable runnable = get();
-        if (runnable == f31441e) {
+        if (runnable == f31532e) {
             str = "running=[DONE]";
-        } else if (runnable == f31442f) {
+        } else if (runnable == f31533f) {
             str = "running=[INTERRUPTED]";
         } else if (runnable instanceof Thread) {
             str = "running=[RUNNING ON " + ((Thread) runnable).getName() + "]";

@@ -25,43 +25,43 @@ import tbclient.GoodsInfo;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumData f55422a;
+    public ForumData f59111a;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<e> f55424c;
+    public LinkedList<e> f59113c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55426e;
+    public String f59115e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55427f;
+    public String f59116f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55429h;
+    public int f59118h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f55430i;
+    public String f59119i;
     public String j;
     public MetaData k;
     public int l;
     public int m;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55423b = 0;
+    public int f59112b = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdvertAppInfo f55425d = null;
+    public AdvertAppInfo f59114d = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<AlaInfoData> f55428g = new LinkedList<>();
+    public LinkedList<AlaInfoData> f59117g = new LinkedList<>();
 
     public g() {
-        this.f55424c = null;
-        this.f55424c = new LinkedList<>();
+        this.f59113c = null;
+        this.f59113c = new LinkedList<>();
     }
 
     public AdvertAppInfo a() {
-        return this.f55425d;
+        return this.f59114d;
     }
 
     public final void b(JSONObject jSONObject) {
@@ -110,14 +110,14 @@ public class g {
         }
         builder.loc_code = optJSONObject.optString("loc_code");
         App build = builder.build(true);
-        this.f55425d = new AdvertAppInfo();
+        this.f59114d = new AdvertAppInfo();
         App c3 = x.p().c(build, Cmatch.PIC_PAGE);
         if (c3 != null) {
-            this.f55425d.L3 = true;
+            this.f59114d.O3 = true;
             build = c3;
         }
-        this.f55425d.J4(build);
-        this.f55425d.M3 = "c0111";
+        this.f59114d.K4(build);
+        this.f59114d.P3 = "c0111";
     }
 
     public final GoodsInfo c(JSONObject jSONObject) {
@@ -150,31 +150,31 @@ public class g {
     }
 
     public LinkedList<AlaInfoData> d() {
-        return this.f55428g;
+        return this.f59117g;
     }
 
     public String e() {
-        return this.f55426e;
+        return this.f59115e;
     }
 
     public ForumData f() {
-        return this.f55422a;
+        return this.f59111a;
     }
 
     public LinkedList<e> g() {
-        return this.f55424c;
+        return this.f59113c;
     }
 
     public int h() {
-        return this.f55423b;
+        return this.f59112b;
     }
 
     public int i() {
-        return this.f55429h;
+        return this.f59118h;
     }
 
     public String j() {
-        return this.f55427f;
+        return this.f59116f;
     }
 
     public final void k(JSONObject jSONObject, boolean z) {
@@ -186,14 +186,14 @@ public class g {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 AlaInfoData alaInfoData = new AlaInfoData();
                 alaInfoData.parserJson(optJSONArray.optJSONObject(i2));
-                this.f55428g.addLast(alaInfoData);
+                this.f59117g.addLast(alaInfoData);
             }
             return;
         }
         for (int length = optJSONArray.length() - 1; length >= 0; length--) {
             AlaInfoData alaInfoData2 = new AlaInfoData();
             alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-            this.f55428g.addFirst(alaInfoData2);
+            this.f59117g.addFirst(alaInfoData2);
         }
     }
 
@@ -213,11 +213,11 @@ public class g {
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
             if (optJSONObject != null) {
                 ForumData forumData = new ForumData();
-                this.f55422a = forumData;
+                this.f59111a = forumData;
                 forumData.parserJson(optJSONObject);
                 optJSONObject.optString("id");
-                this.f55426e = optJSONObject.optString("frist_class");
-                this.f55427f = optJSONObject.optString("second_class");
+                this.f59115e = optJSONObject.optString("frist_class");
+                this.f59116f = optJSONObject.optString("second_class");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
             if (optJSONObject2 != null) {
@@ -234,11 +234,11 @@ public class g {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             if (optJSONObject4 != null) {
-                this.f55429h = optJSONObject4.optInt("reply_private_flag");
-                this.f55430i = optJSONObject4.optString("voice_message");
+                this.f59118h = optJSONObject4.optInt("reply_private_flag");
+                this.f59119i = optJSONObject4.optString("voice_message");
             }
             this.m = jSONObject.optInt("show_adsense", 0);
-            this.f55423b = jSONObject.optInt("pic_amount", 0);
+            this.f59112b = jSONObject.optInt("pic_amount", 0);
             JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
             if (optJSONArray != null) {
                 if (bool.booleanValue()) {
@@ -246,8 +246,8 @@ public class g {
                         e eVar = new e();
                         eVar.w(optJSONArray.optJSONObject(i2));
                         int h2 = eVar.h();
-                        if (h2 >= 1 && h2 <= this.f55423b) {
-                            this.f55424c.addLast(eVar);
+                        if (h2 >= 1 && h2 <= this.f59112b) {
+                            this.f59113c.addLast(eVar);
                         }
                     }
                 } else {
@@ -255,8 +255,8 @@ public class g {
                         e eVar2 = new e();
                         eVar2.w(optJSONArray.getJSONObject(length));
                         int h3 = eVar2.h();
-                        if (h3 >= 1 && h3 <= this.f55423b) {
-                            this.f55424c.addFirst(eVar2);
+                        if (h3 >= 1 && h3 <= this.f59112b) {
+                            this.f59113c.addFirst(eVar2);
                         }
                     }
                 }

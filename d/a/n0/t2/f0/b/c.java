@@ -8,27 +8,27 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f61065a;
+    public boolean f64757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f61066b;
+    public double f64758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f61067c;
+    public List<String> f64759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61068d;
+    public int f64760d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61069e;
+    public int f64761e;
 
     public static c a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         c cVar = new c();
-        cVar.f61065a = jSONObject.optInt("label_measure") == 2;
-        cVar.f61066b = jSONObject.optDouble("show_width_scale", 1.0d);
+        cVar.f64757a = jSONObject.optInt("label_measure") == 2;
+        cVar.f64758b = jSONObject.optDouble("show_width_scale", 1.0d);
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
         if (optJSONArray != null) {
@@ -40,9 +40,9 @@ public class c {
                 }
             }
         }
-        cVar.f61067c = arrayList;
-        cVar.f61068d = jSONObject.optInt("width");
-        cVar.f61069e = jSONObject.optInt("height");
+        cVar.f64759c = arrayList;
+        cVar.f64760d = jSONObject.optInt("width");
+        cVar.f64761e = jSONObject.optInt("height");
         return cVar;
     }
 }

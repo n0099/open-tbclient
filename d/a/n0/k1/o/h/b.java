@@ -11,16 +11,16 @@ public interface b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f56644a;
+        public String f60333a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56645b;
+        public String f60334b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f56646c = new ArrayList<>();
+        public ArrayList<String> f60335c = new ArrayList<>();
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<String> f56647d = new ArrayList<>();
+        public ArrayList<String> f60336d = new ArrayList<>();
 
         public void a(JSONObject jSONObject) {
             JSONArray optJSONArray;
@@ -32,11 +32,11 @@ public interface b {
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("show_url");
                     if (!TextUtils.isEmpty(optString)) {
-                        this.f56646c.add(optString);
+                        this.f60335c.add(optString);
                     }
                     String optString2 = optJSONObject.optString("click_url");
                     if (!TextUtils.isEmpty(optString2)) {
-                        this.f56647d.add(optString2);
+                        this.f60336d.add(optString2);
                     }
                 }
             }

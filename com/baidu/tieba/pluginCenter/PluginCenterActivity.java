@@ -63,19 +63,19 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginConfigWrapper f19980e;
+        public final /* synthetic */ PluginConfigWrapper f20057e;
 
         public b(PluginConfigWrapper pluginConfigWrapper) {
-            this.f19980e = pluginConfigWrapper;
+            this.f20057e = pluginConfigWrapper;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             if (l.D()) {
-                PluginPackageManager.O().x0(this.f19980e, PluginCenterActivity.this.mDownLoadAndInstallCallback);
-                this.f19980e.setDownLoadPercent(0);
-                this.f19980e.setDownLoadStatus(3);
-                PluginCenterActivity.this.mPluginCenterAdapter.n(this.f19980e);
+                PluginPackageManager.O().x0(this.f20057e, PluginCenterActivity.this.mDownLoadAndInstallCallback);
+                this.f20057e.setDownLoadPercent(0);
+                this.f20057e.setDownLoadStatus(3);
+                PluginCenterActivity.this.mPluginCenterAdapter.n(this.f20057e);
             } else {
                 PluginCenterActivity.this.showToast(R.string.neterror);
             }

@@ -9,31 +9,31 @@ import org.json.JSONArray;
 public class n extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40644a;
+    public String f44320a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40645b;
+    public int f44321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40646c;
+    public int f44322c;
 
     @Override // d.a.l0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
-        if (TextUtils.isEmpty(this.f40644a)) {
+        if (TextUtils.isEmpty(this.f44320a)) {
             return;
         }
-        TextPaint textPaint = bVar.f40590i;
+        TextPaint textPaint = bVar.f44266i;
         int i2 = bVar.o;
         Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
         float f2 = fontMetrics.top;
-        int i3 = this.f40646c;
+        int i3 = this.f44322c;
         float f3 = i3 + f2;
         float f4 = fontMetrics.ascent + i3;
         float f5 = fontMetrics.bottom;
         float f6 = i2 != 1 ? i2 != 2 ? i2 != 3 ? i3 : i3 - (f4 - f3) : (i3 + ((f5 - f2) / 2.0f)) - f5 : i3 + (((i3 + f5) - f3) / 2.0f) + (f4 - f3);
         int alpha = textPaint.getAlpha();
         bVar.d(textPaint);
-        canvas.drawText(this.f40644a, this.f40645b, f6, textPaint);
+        canvas.drawText(this.f44320a, this.f44321b, f6, textPaint);
         textPaint.setAlpha(alpha);
     }
 
@@ -41,12 +41,12 @@ public class n extends a {
     public void b(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 2) {
-                this.f40644a = jSONArray.optString(0);
-                this.f40645b = d.a.l0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                this.f40646c = d.a.l0.a.v2.n0.g((float) jSONArray.optDouble(2));
+                this.f44320a = jSONArray.optString(0);
+                this.f44321b = d.a.l0.a.v2.n0.g((float) jSONArray.optDouble(1));
+                this.f44322c = d.a.l0.a.v2.n0.g((float) jSONArray.optDouble(2));
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e2.printStackTrace();
             }
         }

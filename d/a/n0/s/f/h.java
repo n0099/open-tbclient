@@ -9,11 +9,11 @@ import d.a.c.e.p.m;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SQLiteDatabase f60375a;
+    public static volatile SQLiteDatabase f64064a;
 
     public static synchronized void a() {
         synchronized (h.class) {
-            m.b(f60375a);
+            m.b(f64064a);
         }
     }
 
@@ -26,11 +26,11 @@ public class h {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 return null;
             }
-            if (f60375a != null && f60375a.isOpen()) {
-                return f60375a;
+            if (f64064a != null && f64064a.isOpen()) {
+                return f64064a;
             }
-            f60375a = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-            return f60375a;
+            f64064a = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+            return f64064a;
         }
     }
 }

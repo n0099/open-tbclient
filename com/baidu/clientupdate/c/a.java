@@ -28,27 +28,27 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f4581a;
+    public static a f4600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4582b;
+    public static Context f4601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4583c;
+    public static String f4602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4584d;
+    public static String f4603d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f4585f;
+    public static String f4604f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f4586g;
+    public static String f4605g;
     public static String l;
     public static String m;
     public static String n;
@@ -57,10 +57,10 @@ public final class a {
     public d B;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4587e;
+    public String f4606e;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f4588h;
+    public String f4607h;
     public String j;
     public String o;
     public String p;
@@ -73,13 +73,13 @@ public final class a {
     public String y;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f4589i = false;
+    public boolean f4608i = false;
     public Map k = new HashMap();
     public Boolean z = Boolean.FALSE;
 
     public a(Context context) {
         Context applicationContext = context.getApplicationContext();
-        f4582b = applicationContext;
+        f4601b = applicationContext;
         this.B = d.a(applicationContext);
         d();
     }
@@ -87,10 +87,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f4581a == null) {
-                f4581a = new a(context);
+            if (f4600a == null) {
+                f4600a = new a(context);
             }
-            aVar = f4581a;
+            aVar = f4600a;
         }
         return aVar;
     }
@@ -108,7 +108,7 @@ public final class a {
         stringBuffer.append("_");
         stringBuffer.append(str);
         stringBuffer.append("_");
-        stringBuffer.append(f4583c);
+        stringBuffer.append(f4602c);
         stringBuffer.append("_");
         stringBuffer.append(i4);
         String stringBuffer2 = stringBuffer.toString();
@@ -125,7 +125,7 @@ public final class a {
             return "WF";
         }
         int subtype = activeNetworkInfo.getSubtype();
-        return (subtype == 7 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 10 || subtype == 9 || subtype == 3 || subtype == 14 || subtype == 12 || subtype == 15) ? g.f3966b : subtype == 13 ? "4G" : "2G";
+        return (subtype == 7 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 10 || subtype == 9 || subtype == 3 || subtype == 14 || subtype == 12 || subtype == 15) ? g.f3985b : subtype == 13 ? "4G" : "2G";
     }
 
     public static boolean c(String str) {
@@ -133,20 +133,20 @@ public final class a {
     }
 
     private void d() {
-        this.f4587e = f4582b.getPackageName();
-        this.s = (ActivityManager) f4582b.getSystemService("activity");
+        this.f4606e = f4601b.getPackageName();
+        this.s = (ActivityManager) f4601b.getSystemService("activity");
         try {
-            PackageInfo packageInfo = f4582b.getPackageManager().getPackageInfo(this.f4587e, 64);
-            f4583c = packageInfo.versionName;
-            f4584d = String.valueOf(packageInfo.versionCode);
+            PackageInfo packageInfo = f4601b.getPackageManager().getPackageInfo(this.f4606e, 64);
+            f4602c = packageInfo.versionName;
+            f4603d = String.valueOf(packageInfo.versionCode);
             x = new File(packageInfo.applicationInfo.publicSourceDir).length() + "";
         } catch (PackageManager.NameNotFoundException e2) {
             e2.printStackTrace();
         }
-        w = j.a(f4582b, this.f4587e);
-        f4585f = g();
-        this.f4588h = f();
-        f4586g = b(f4582b);
+        w = j.a(f4601b, this.f4606e);
+        f4604f = g();
+        this.f4607h = f();
+        f4605g = b(f4601b);
     }
 
     private void e() {
@@ -211,9 +211,9 @@ public final class a {
 
     private String g() {
         String str;
-        if (TextUtils.isEmpty(f4585f)) {
+        if (TextUtils.isEmpty(f4604f)) {
             try {
-                str = CommonParam.getCUID(f4582b);
+                str = CommonParam.getCUID(f4601b);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str = System.currentTimeMillis() + "";
@@ -221,7 +221,7 @@ public final class a {
             LogUtil.logD("BaiduParamManager", "new generated uid " + str);
             return str;
         }
-        return f4585f;
+        return f4604f;
     }
 
     private String h() {
@@ -245,7 +245,7 @@ public final class a {
     private String j() {
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) f4582b.getSystemService("activity")).getMemoryInfo(memoryInfo);
+            ((ActivityManager) f4601b.getSystemService("activity")).getMemoryInfo(memoryInfo);
             return Long.toHexString(memoryInfo.totalMem);
         }
         try {
@@ -288,7 +288,7 @@ public final class a {
 
     public void a(String str) {
         this.v = str;
-        f4586g = b(f4582b);
+        f4605g = b(f4601b);
     }
 
     public void a(String str, String str2) {
@@ -302,25 +302,25 @@ public final class a {
     public String b() {
         StringBuilder sb = new StringBuilder();
         A = sb;
-        sb.append("{\"cid\":\"" + f4585f + "\",");
+        sb.append("{\"cid\":\"" + f4604f + "\",");
         StringBuilder sb2 = A;
         sb2.append("\"pl\":\"" + l + "\",");
         StringBuilder sb3 = A;
-        sb3.append("\"os\":\"" + f4586g + "\",");
+        sb3.append("\"os\":\"" + f4605g + "\",");
         StringBuilder sb4 = A;
         sb4.append("\"ot\":\"" + m + "\",");
         StringBuilder sb5 = A;
         sb5.append("\"cl\":\"" + n + "\",");
         StringBuilder sb6 = A;
-        sb6.append("\"cvn\":\"" + f4583c + "\",");
+        sb6.append("\"cvn\":\"" + f4602c + "\",");
         StringBuilder sb7 = A;
-        sb7.append("\"cvc\":\"" + f4584d + "\",");
+        sb7.append("\"cvc\":\"" + f4603d + "\",");
         StringBuilder sb8 = A;
         sb8.append("\"csz\":\"" + x + "\",");
         StringBuilder sb9 = A;
         sb9.append("\"cmd5\":\"" + w + "\",");
-        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f4582b).a();
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4582b).b();
+        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f4601b).a();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4601b).b();
         if (a2 == null || b2 == null) {
             A.append("\"ug\":\"\",");
             A.append("\"vn\":\"\",");
@@ -346,14 +346,14 @@ public final class a {
     public String b(String str) {
         try {
             b bVar = new b(a() + str);
-            bVar.a("versioncode", f4584d);
-            bVar.a("versionname", f4583c);
-            bVar.a("pkgname", this.f4587e);
-            bVar.a("cuid", f4585f);
-            bVar.a("ua", f4586g);
-            bVar.a("ut", this.f4588h);
-            bVar.a(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, String.valueOf(this.f4589i));
-            String c2 = c(f4582b);
+            bVar.a("versioncode", f4603d);
+            bVar.a("versionname", f4602c);
+            bVar.a("pkgname", this.f4606e);
+            bVar.a("cuid", f4604f);
+            bVar.a("ua", f4605g);
+            bVar.a("ut", this.f4607h);
+            bVar.a(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, String.valueOf(this.f4608i));
+            String c2 = c(f4601b);
             this.j = c2;
             bVar.a("network", c2);
             String h2 = h();
@@ -374,7 +374,7 @@ public final class a {
             if (!TextUtils.isEmpty(w)) {
                 bVar.a("usermd5", w);
             }
-            String a2 = j.a(f4582b, "com.baidu.appsearch");
+            String a2 = j.a(f4601b, "com.baidu.appsearch");
             this.y = a2;
             if (!TextUtils.isEmpty(a2)) {
                 bVar.a("appsearchmd5", this.y);
@@ -395,20 +395,20 @@ public final class a {
     }
 
     public void b(boolean z) {
-        this.f4589i = z;
+        this.f4608i = z;
     }
 
     public String c() {
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4582b).b();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4601b).b();
         return b2 != null ? b2.mUpgradeid : "-1";
     }
 
     public void d(String str) {
-        f4583c = str;
+        f4602c = str;
     }
 
     public void e(String str) {
-        f4584d = str;
+        f4603d = str;
     }
 
     public void f(String str) {

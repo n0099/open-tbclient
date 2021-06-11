@@ -9,11 +9,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.WindowManager;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.router.RouterCallback;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.win.opensdk.core.Info;
 import java.io.ByteArrayOutputStream;
@@ -89,7 +91,7 @@ public class z {
         }
         hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
         hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
-        hashMap.put("User-Agent", Collections.singletonList(x1.f37176a));
+        hashMap.put("User-Agent", Collections.singletonList(x1.f40855a));
         return hashMap;
     }
 
@@ -177,7 +179,7 @@ public class z {
         sb4.append("o7my");
         d1 d1Var = new d1(sb3, sb4.toString());
         Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
-        cipher.init(2, d1Var.f37027b, d1Var.f37026a);
+        cipher.init(2, d1Var.f40706b, d1Var.f40705a);
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
         for (int i2 = 0; i2 < length; i2++) {
@@ -214,6 +216,17 @@ public class z {
         }
     }
 
+    public static int c(Context context) {
+        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        if (Build.VERSION.SDK_INT >= 17) {
+            defaultDisplay.getRealMetrics(displayMetrics);
+        } else {
+            defaultDisplay.getMetrics(displayMetrics);
+        }
+        return displayMetrics.heightPixels;
+    }
+
     public static String c(String str) {
         byte b2;
         try {
@@ -234,29 +247,6 @@ public class z {
         } catch (Exception unused) {
             return "";
         }
-    }
-
-    public static void c(Context context) {
-        long currentTimeMillis = System.currentTimeMillis() - s1.a(context);
-        if (currentTimeMillis < 0) {
-            s1.r(context);
-        }
-        if (currentTimeMillis > context.getSharedPreferences("_prefs", 0).getLong("bdtsi", 24L) * VideoCloudSetting.HOUR_MILLISECOND) {
-            u1.a(new u0(context));
-        }
-    }
-
-    public static boolean d(Context context) {
-        NetworkInfo[] allNetworkInfo;
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager != null && (allNetworkInfo = connectivityManager.getAllNetworkInfo()) != null) {
-            for (NetworkInfo networkInfo : allNetworkInfo) {
-                if (networkInfo.isConnectedOrConnecting()) {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     public static byte[] d(String str) {
@@ -327,6 +317,19 @@ public class z {
         return str;
     }
 
+    public static boolean e(Context context) {
+        NetworkInfo[] allNetworkInfo;
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        if (connectivityManager != null && (allNetworkInfo = connectivityManager.getAllNetworkInfo()) != null) {
+            for (NetworkInfo networkInfo : allNetworkInfo) {
+                if (networkInfo.isConnectedOrConnecting()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static boolean f(String str) {
         return str == null || str.length() == 0;
     }
@@ -393,6 +396,16 @@ public class z {
         return "KL_" + str2;
     }
 
+    public static void d(Context context) {
+        long currentTimeMillis = System.currentTimeMillis() - s1.a(context);
+        if (currentTimeMillis < 0) {
+            s1.r(context);
+        }
+        if (currentTimeMillis > context.getSharedPreferences("_prefs", 0).getLong("bdtsi", 24L) * 3600000) {
+            u1.a(new u0(context));
+        }
+    }
+
     public static void b(Info info, Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             return;
@@ -402,7 +415,7 @@ public class z {
             if (a2.getFlags() > 0) {
                 w0 a3 = x0.a(context);
                 try {
-                    a3.f37158b = x0.a("wist", new y0(info));
+                    a3.f40837b = x0.a("wist", new y0(info));
                     a3.a("msg", x0.a(str));
                 } catch (JSONException unused) {
                 }
@@ -425,7 +438,7 @@ public class z {
             if (a3 == 200) {
                 r0Var.a(r0);
             } else {
-                r0Var.a(a3, r0.f36929b);
+                r0Var.a(a3, r0.f40608b);
             }
         } catch (JSONException e2) {
             message = e2.getMessage();
@@ -471,7 +484,7 @@ public class z {
             if (info != null) {
                 w0 a2 = x0.a(context);
                 try {
-                    a2.f37158b = x0.a("wiin", new y0(info));
+                    a2.f40837b = x0.a("wiin", new y0(info));
                     a2.a("msg", x0.a(str));
                 } catch (JSONException unused) {
                 }
@@ -520,11 +533,11 @@ public class z {
     }
 
     public static int a(t0 t0Var, R0 r0) {
-        byte[] bArr = t0Var.f37123b;
-        int i2 = t0Var.f37122a;
+        byte[] bArr = t0Var.f40802b;
+        int i2 = t0Var.f40801a;
         if (i2 == 200) {
             r0.a(new String(bArr, "UTF-8"));
-            return r0.f36928a;
+            return r0.f40607a;
         }
         return i2;
     }

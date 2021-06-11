@@ -18,38 +18,38 @@ public final class SafePay {
     public static final int SIG_RSA_SHA512 = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3579a = false;
+    public static final boolean f3598a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3580b = "SafePay";
+    public static final String f3599b = "SafePay";
 
     /* renamed from: c  reason: collision with root package name */
-    public static SafePay f3581c = null;
+    public static SafePay f3600c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3582d = true;
+    public static boolean f3601d = true;
 
     static {
         try {
             System.loadLibrary("bd_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f3582d = false;
-            Log.e(f3580b, "load library failed, " + e2.getMessage());
+            f3601d = false;
+            Log.e(f3599b, "load library failed, " + e2.getMessage());
         }
     }
 
     public static synchronized SafePay getInstance() {
         SafePay safePay;
         synchronized (SafePay.class) {
-            if (f3581c == null) {
+            if (f3600c == null) {
                 SafePay safePay2 = new SafePay();
-                f3581c = safePay2;
+                f3600c = safePay2;
                 try {
                     safePay2.init();
                 } catch (Throwable unused) {
                 }
             }
-            safePay = f3581c;
+            safePay = f3600c;
         }
         return safePay;
     }
@@ -151,7 +151,7 @@ public final class SafePay {
     public native String mapScancode(String str);
 
     public boolean prepareCompleted() {
-        return f3582d;
+        return f3601d;
     }
 
     public native String rsaDecrypt(String str);

@@ -16,24 +16,24 @@ public abstract class b<T, R> extends d.g.c.h.a implements GenericDeclaration {
     public static class a<T> extends b<T, T> {
 
         /* renamed from: g  reason: collision with root package name */
-        public final Constructor<?> f66333g;
+        public final Constructor<?> f70064g;
 
         public a(Constructor<?> constructor) {
             super(constructor);
-            this.f66333g = constructor;
+            this.f70064g = constructor;
         }
 
         public Type[] b() {
-            Type[] genericParameterTypes = this.f66333g.getGenericParameterTypes();
+            Type[] genericParameterTypes = this.f70064g.getGenericParameterTypes();
             if (genericParameterTypes.length <= 0 || !c()) {
                 return genericParameterTypes;
             }
-            Class<?>[] parameterTypes = this.f66333g.getParameterTypes();
+            Class<?>[] parameterTypes = this.f70064g.getParameterTypes();
             return (genericParameterTypes.length == parameterTypes.length && parameterTypes[0] == getDeclaringClass().getEnclosingClass()) ? (Type[]) Arrays.copyOfRange(genericParameterTypes, 1, genericParameterTypes.length) : genericParameterTypes;
         }
 
         public final boolean c() {
-            Class<?> declaringClass = this.f66333g.getDeclaringClass();
+            Class<?> declaringClass = this.f70064g.getDeclaringClass();
             if (declaringClass.getEnclosingConstructor() != null) {
                 return true;
             }
@@ -47,7 +47,7 @@ public abstract class b<T, R> extends d.g.c.h.a implements GenericDeclaration {
         @Override // java.lang.reflect.GenericDeclaration
         public final TypeVariable<?>[] getTypeParameters() {
             TypeVariable<Class<? super T>>[] typeParameters = getDeclaringClass().getTypeParameters();
-            TypeVariable<Constructor<?>>[] typeParameters2 = this.f66333g.getTypeParameters();
+            TypeVariable<Constructor<?>>[] typeParameters2 = this.f70064g.getTypeParameters();
             TypeVariable<?>[] typeVariableArr = new TypeVariable[typeParameters.length + typeParameters2.length];
             System.arraycopy(typeParameters, 0, typeVariableArr, 0, typeParameters.length);
             System.arraycopy(typeParameters2, 0, typeVariableArr, typeParameters.length, typeParameters2.length);
@@ -57,19 +57,19 @@ public abstract class b<T, R> extends d.g.c.h.a implements GenericDeclaration {
 
     /* renamed from: d.g.c.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1852b<T> extends b<T, Object> {
+    public static class C1911b<T> extends b<T, Object> {
 
         /* renamed from: g  reason: collision with root package name */
-        public final Method f66334g;
+        public final Method f70065g;
 
-        public C1852b(Method method) {
+        public C1911b(Method method) {
             super(method);
-            this.f66334g = method;
+            this.f70065g = method;
         }
 
         @Override // java.lang.reflect.GenericDeclaration
         public final TypeVariable<?>[] getTypeParameters() {
-            return this.f66334g.getTypeParameters();
+            return this.f70065g.getTypeParameters();
         }
     }
 

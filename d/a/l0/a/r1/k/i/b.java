@@ -9,16 +9,16 @@ import java.util.concurrent.ConcurrentHashMap;
 public class b implements d.a.l0.a.f1.f.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f44501e = e.i();
+    public static final int f48175e = e.i();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44502b;
+    public boolean f48176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Runnable, String> f44503c;
+    public Map<Runnable, String> f48177c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.l0.a.r1.r.c.a f44504d;
+    public d.a.l0.a.r1.r.c.a f48178d;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.r1.r.c.a {
@@ -31,17 +31,17 @@ public class b implements d.a.l0.a.f1.f.a {
 
         @Override // d.a.l0.a.r1.r.c.a
         public void b() {
-            b.this.f44502b = false;
+            b.this.f48176b = false;
             b.this.d();
         }
 
         @Override // d.a.l0.a.r1.r.c.a
         public void c(boolean z) {
-            b.this.f44502b = false;
+            b.this.f48176b = false;
             long currentTimeMillis = System.currentTimeMillis();
-            int size = b.this.f44503c.size();
+            int size = b.this.f48177c.size();
             b.this.d();
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 Log.d("SwanPerformance", "thread dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + size);
             }
@@ -49,7 +49,7 @@ public class b implements d.a.l0.a.f1.f.a {
 
         @Override // d.a.l0.a.r1.r.c.a
         public void d(String str) {
-            b.this.f44502b = true;
+            b.this.f48176b = true;
         }
 
         @Override // d.a.l0.a.r1.r.c.a
@@ -60,10 +60,10 @@ public class b implements d.a.l0.a.f1.f.a {
 
     /* renamed from: d.a.l0.a.r1.k.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0809b {
+    public static class C0865b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f44506a = new b(null);
+        public static final b f48180a = new b(null);
     }
 
     public /* synthetic */ b(a aVar) {
@@ -71,27 +71,27 @@ public class b implements d.a.l0.a.f1.f.a {
     }
 
     public static b e() {
-        return C0809b.f44506a;
+        return C0865b.f48180a;
     }
 
     public final void d() {
-        if (this.f44503c.isEmpty()) {
+        if (this.f48177c.isEmpty()) {
             return;
         }
-        for (Map.Entry<Runnable, String> entry : this.f44503c.entrySet()) {
+        for (Map.Entry<Runnable, String> entry : this.f48177c.entrySet()) {
             if (entry != null) {
                 q.k(entry.getKey(), entry.getValue());
             }
         }
-        this.f44503c.clear();
+        this.f48177c.clear();
     }
 
     public boolean f(Runnable runnable, String str) {
         if (runnable == null) {
             return false;
         }
-        if (f44501e > 0 && this.f44502b) {
-            this.f44503c.put(runnable, str);
+        if (f48175e > 0 && this.f48176b) {
+            this.f48177c.put(runnable, str);
             return true;
         }
         q.k(runnable, str);
@@ -100,19 +100,19 @@ public class b implements d.a.l0.a.f1.f.a {
 
     public void g() {
         c.f().g();
-        if (f44501e <= 0) {
-            if (d.a.l0.a.f1.f.a.f41852a) {
+        if (f48175e <= 0) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.e("SwanPerformance", "launch thread dispatch can't register. ab is closed");
                 return;
             }
             return;
         }
-        d.a.l0.a.r1.r.a.f().h(this.f44504d, f44501e);
+        d.a.l0.a.r1.r.a.f().h(this.f48178d, f48175e);
     }
 
     public b() {
-        this.f44502b = false;
-        this.f44503c = new ConcurrentHashMap();
-        this.f44504d = new a();
+        this.f48176b = false;
+        this.f48177c = new ConcurrentHashMap();
+        this.f48178d = new a();
     }
 }

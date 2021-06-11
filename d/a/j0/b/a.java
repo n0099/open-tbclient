@@ -10,317 +10,335 @@ import java.util.UUID;
 public class a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f40262e;
+    public static volatile a f43943e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40263a;
+    public String f43944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f40264b;
+    public SharedPreferences f43945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences.Editor f40265c;
+    public SharedPreferences.Editor f43946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f40266d;
+    public Context f43947d;
 
     public a(Context context) {
-        this.f40264b = context.getSharedPreferences("once_login_config", 0);
+        this.f43945b = context.getSharedPreferences("once_login_config", 0);
         context.getSharedPreferences("leroadcfg", 0);
-        this.f40265c = this.f40264b.edit();
-        this.f40266d = context;
+        this.f43946c = this.f43945b.edit();
+        this.f43947d = context;
     }
 
-    public static a g(Context context) {
-        if (f40262e == null) {
+    public static a h(Context context) {
+        if (f43943e == null) {
             synchronized (a.class) {
-                if (f40262e == null) {
-                    f40262e = new a(context);
+                if (f43943e == null) {
+                    f43943e = new a(context);
                 }
             }
         }
-        return f40262e;
+        return f43943e;
     }
 
-    public void A(String str, String str2) {
-        K("k_sdk_a_s", str + "_" + str2);
+    public void A(long j) {
+        u("ky_llt", j);
     }
 
-    public void B(boolean z) {
-        v("k_sdk_cu_s", z);
+    public void B(String str) {
+        v("ky_dxc", str);
     }
 
-    public long C() {
-        return f("ky_cfo_t", d.a.j0.l.c.f40472f);
+    public void C(String str, String str2) {
+        M("k_sdk_a_s", str + "_" + str2);
     }
 
-    public final String D(String str, String str2) {
-        return this.f40264b.getString(str, str2);
+    public void D(boolean z) {
+        w("k_sdk_cu_s", z);
     }
 
-    public void E(long j) {
-        t("rp_last_off_ti", j);
+    public long E() {
+        return g("ky_cfo_t", d.a.j0.l.c.f44151f);
     }
 
-    public void F(String str) {
-        K("last_al_rp_d", str);
+    public final String F(String str, String str2) {
+        return this.f43945b.getString(str, str2);
     }
 
-    public void G(boolean z) {
-        v("k_is_ig_env", z);
+    public void G(long j) {
+        u("rp_last_off_ti", j);
     }
 
-    public String H() {
-        if (!TextUtils.isEmpty(this.f40263a)) {
-            return this.f40263a;
+    public void H(String str) {
+        M("last_al_rp_d", str);
+    }
+
+    public void I(boolean z) {
+        w("k_is_ig_env", z);
+    }
+
+    public String J() {
+        if (!TextUtils.isEmpty(this.f43944a)) {
+            return this.f43944a;
         }
-        String D = D("xyus", "");
-        this.f40263a = D;
-        if (TextUtils.isEmpty(D)) {
+        String F = F("xyus", "");
+        this.f43944a = F;
+        if (TextUtils.isEmpty(F)) {
             String b2 = g.b(UUID.randomUUID().toString());
-            this.f40263a = b2;
-            K("xyus", b2);
+            this.f43944a = b2;
+            M("xyus", b2);
         }
-        return this.f40263a;
+        return this.f43944a;
     }
 
-    public void I(long j) {
-        t("ky_lvt", j);
+    public void K(long j) {
+        u("ky_lvt", j);
     }
 
-    public void J(String str) {
-        K("last_Rp_d", str);
+    public void L(String str) {
+        M("last_Rp_d", str);
     }
 
-    public final void K(String str, String str2) {
-        this.f40265c.putString(str, str2);
-        this.f40265c.commit();
+    public final void M(String str, String str2) {
+        this.f43946c.putString(str, str2);
+        this.f43946c.commit();
     }
 
-    public void L(boolean z) {
-        v("k_sdk_s", z);
+    public void N(boolean z) {
+        w("k_sdk_s", z);
     }
 
-    public String M() {
-        return h("k_cd_2", "");
+    public String O() {
+        return i("k_cd_2", "");
     }
 
-    public void N(long j) {
-        t("ky_cfs_t", j);
+    public void P(long j) {
+        u("ky_cfs_t", j);
     }
 
-    public void O(String str) {
-        u("ky_ltc", str);
+    public void Q(String str) {
+        v("ky_ltc", str);
     }
 
-    public void P(boolean z) {
-        v("k_u_a_pr", z);
+    public void R(boolean z) {
+        w("k_u_a_pr", z);
     }
 
-    public String Q() {
-        return h("ky_dxc", "");
+    public String S() {
+        return i("ky_dxc", "");
     }
 
-    public void R(long j) {
-        t("t_con_3g", j);
-    }
-
-    public void S(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        K("k_sdk_ra_k", str);
-    }
-
-    public long T() {
-        return f("k_last_a_ts", 0L);
+    public void T(long j) {
+        u("t_con_3g", j);
     }
 
     public void U(String str) {
-        K("ky_sg", str);
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        M("k_sdk_ra_k", str);
     }
 
-    public String V() {
-        return D("last_al_rp_d", "");
+    public long V() {
+        return g("k_last_a_ts", 0L);
     }
 
     public void W(String str) {
-        u("ky_ydc", str);
+        M("ky_sg", str);
     }
 
-    public int X() {
-        return e("ky_lls", -1);
+    public String X() {
+        return F("last_al_rp_d", "");
     }
 
-    public long Y() {
-        return f("ky_llt", 0L);
+    public void Y(String str) {
+        v("ky_ydc", str);
     }
 
-    public String Z() {
-        return D("last_Rp_d", "");
+    public int Z() {
+        return f("ky_lls", -1);
     }
 
     public boolean a() {
-        return n("k_sdk_cu_s", true);
+        return o("k_sdk_ct_s", true);
     }
 
     public long a0() {
-        return f("rp_last_off_ti", 0L);
+        return g("ky_llt", 0L);
     }
 
     public boolean b() {
-        return n("k_is_ig_env", true);
+        return o("k_sdk_cu_s", true);
     }
 
-    public int b0() {
-        return e("ky_lvs", -1);
+    public String b0() {
+        return F("last_Rp_d", "");
     }
 
     public boolean c() {
-        return n("k_sdk_s", true);
+        return o("k_is_ig_env", true);
     }
 
     public long c0() {
-        return f("ky_lvt", 0L);
+        return g("rp_last_off_ti", 0L);
     }
 
     public boolean d() {
-        return n("k_u_a_pr", false);
+        return o("k_sdk_s", true);
     }
 
-    public String d0() {
-        return h("ky_ltc", "");
+    public int d0() {
+        return f("ky_lvs", -1);
     }
 
-    public final int e(String str, int i2) {
-        return this.f40264b.getInt(str, i2);
+    public boolean e() {
+        return o("k_u_a_pr", false);
     }
 
-    public int e0() {
-        return e("one_d_3g_con", 50);
+    public long e0() {
+        return g("ky_lvt", 0L);
     }
 
-    public final long f(String str, long j) {
-        return this.f40264b.getLong(str, j);
+    public final int f(String str, int i2) {
+        return this.f43945b.getInt(str, i2);
     }
 
-    public long f0() {
-        return f("ky_cfs_t", 0L);
+    public String f0() {
+        return i("ky_ltc", "");
+    }
+
+    public final long g(String str, long j) {
+        return this.f43945b.getLong(str, j);
     }
 
     public int g0() {
-        return e("rp_off_gap", 3);
+        int f2 = f("k_mask_num", 4);
+        if (f2 <= 4) {
+            return 4;
+        }
+        if (f2 >= 8) {
+            return 8;
+        }
+        return f2;
     }
 
-    public String h(String str, String str2) {
-        String string = this.f40264b.getString(str, str2);
-        return !TextUtils.isEmpty(string) ? e.a(this.f40266d, string) : "";
+    public int h0() {
+        return f("one_d_3g_con", 50);
     }
 
-    public String h0() {
-        return D("k_sdk_ra_k", "");
+    public String i(String str, String str2) {
+        String string = this.f43945b.getString(str, str2);
+        return !TextUtils.isEmpty(string) ? e.a(this.f43947d, string) : "";
     }
 
-    public void i() {
-        K("k_sdk_a_s", "");
+    public long i0() {
+        return g("ky_cfs_t", 0L);
     }
 
-    public String i0() {
-        return D("k_sdk_a_s", "");
+    public void j() {
+        M("k_sdk_a_s", "");
     }
 
-    public void j(int i2) {
-        s("ky_lls", i2);
+    public int j0() {
+        return f("rp_off_gap", 3);
     }
 
-    public String j0() {
-        return D("ky_sg", "");
+    public void k(int i2) {
+        t("ky_lls", i2);
     }
 
-    public void k(long j) {
-        t("ky_cfo_t", j);
+    public String k0() {
+        return F("k_sdk_ra_k", "");
     }
 
-    public long k0() {
-        return f("t_con_3g", 0L);
-    }
-
-    public void l(String str) {
-        u("k_cd_2", str);
+    public void l(long j) {
+        u("ky_cfo_t", j);
     }
 
     public String l0() {
-        return h("ky_ydc", "");
+        return F("k_sdk_a_s", "");
     }
 
-    public void m(boolean z) {
-        v("k_sdk_cm_s", z);
+    public void m(String str) {
+        v("k_cd_2", str);
     }
 
-    public boolean m0() {
-        return n("k_sdk_cm_s", true);
+    public String m0() {
+        return F("ky_sg", "");
     }
 
-    public final boolean n(String str, boolean z) {
-        return this.f40264b.getBoolean(str, z);
+    public void n(boolean z) {
+        w("k_sdk_cm_s", z);
     }
 
-    public boolean n0() {
-        return n("k_sdk_ct_s", true);
+    public long n0() {
+        return g("t_con_3g", 0L);
     }
 
-    public String o() {
-        return D("ky_aid", "");
+    public final boolean o(String str, boolean z) {
+        return this.f43945b.getBoolean(str, z);
     }
 
-    public void p(int i2) {
-        s("ky_lvs", i2);
+    public String o0() {
+        return i("ky_ydc", "");
     }
 
-    public void q(long j) {
-        t("k_last_a_ts", j);
+    public String p() {
+        return F("ky_aid", "");
     }
 
-    public void r(String str) {
-        K("ky_aid", str);
+    public boolean p0() {
+        return o("k_sdk_cm_s", true);
     }
 
-    public final void s(String str, int i2) {
-        this.f40265c.putInt(str, i2);
-        this.f40265c.commit();
+    public void q(int i2) {
+        t("ky_lvs", i2);
     }
 
-    public final void t(String str, long j) {
-        this.f40265c.putLong(str, j);
-        this.f40265c.commit();
+    public void r(long j) {
+        u("k_last_a_ts", j);
     }
 
-    public void u(String str, String str2) {
+    public void s(String str) {
+        M("ky_aid", str);
+    }
+
+    public final void t(String str, int i2) {
+        this.f43946c.putInt(str, i2);
+        this.f43946c.commit();
+    }
+
+    public final void u(String str, long j) {
+        this.f43946c.putLong(str, j);
+        this.f43946c.commit();
+    }
+
+    public void v(String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f40265c.putString(str, e.b(this.f40266d, str2.getBytes()));
-        this.f40265c.commit();
+        this.f43946c.putString(str, e.b(this.f43947d, str2.getBytes()));
+        this.f43946c.commit();
     }
 
-    public final void v(String str, boolean z) {
-        this.f40265c.putBoolean(str, z);
-        this.f40265c.commit();
+    public final void w(String str, boolean z) {
+        this.f43946c.putBoolean(str, z);
+        this.f43946c.commit();
     }
 
-    public void w(boolean z) {
-        v("k_sdk_ct_s", z);
+    public void x(boolean z) {
+        w("k_sdk_ct_s", z);
     }
 
-    public long x() {
-        return f("k_a_itl", d.a.j0.l.b.f40466b * 24);
+    public long y() {
+        return g("k_a_itl", d.a.j0.l.b.f44145b * 24);
     }
 
-    public void y(long j) {
-        t("ky_llt", j);
-    }
-
-    public void z(String str) {
-        u("ky_dxc", str);
+    public void z(int i2) {
+        if (i2 <= 4) {
+            return;
+        }
+        t("k_mask_num", i2);
     }
 }

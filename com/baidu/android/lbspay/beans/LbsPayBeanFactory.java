@@ -14,11 +14,11 @@ public final class LbsPayBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LbsPayBeanFactory f2634a = new LbsPayBeanFactory();
+        public static LbsPayBeanFactory f2653a = new LbsPayBeanFactory();
     }
 
     public static LbsPayBeanFactory getInstance() {
-        return a.f2634a;
+        return a.f2653a;
     }
 
     public LbsPayBeanFactory() {

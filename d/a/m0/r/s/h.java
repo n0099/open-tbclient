@@ -16,31 +16,31 @@ public class h implements k {
     public static final int r = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds231);
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50251a;
+    public int f53927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f50252b;
+    public l f53928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f50253c;
+    public View f53929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EMTextView f50254d;
+    public EMTextView f53930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f50255e;
+    public View f53931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f50256f;
+    public ImageView f53932f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f50257g;
+    public Drawable f53933g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50258h;
+    public String f53934h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50259i;
+    public int f53935i;
     public int j;
     public int k;
     public l.d l;
@@ -59,10 +59,10 @@ public class h implements k {
             if (h.this.l != null) {
                 h.this.l.onClick();
             }
-            if (h.this.f50252b == null || h.this.f50252b.e() == null) {
+            if (h.this.f53928b == null || h.this.f53928b.e() == null) {
                 return;
             }
-            h.this.f50252b.e().onItemClick(h.this.f50252b, h.this.f50251a, h.this.f50254d);
+            h.this.f53928b.e().onItemClick(h.this.f53928b, h.this.f53927a, h.this.f53930d);
         }
     }
 
@@ -72,10 +72,10 @@ public class h implements k {
 
     @Override // d.a.m0.r.s.k
     public void a() {
-        SkinManager.setBackgroundResource(this.f50254d, this.j);
-        SkinManager.setViewTextColorSelector(this.f50254d, this.f50259i);
-        SkinManager.setBackgroundColor(this.f50255e, R.color.CAM_X0204);
-        MaskView.b(this.f50254d, this.n);
+        SkinManager.setBackgroundResource(this.f53930d, this.j);
+        SkinManager.setViewTextColorSelector(this.f53930d, this.f53935i);
+        SkinManager.setBackgroundColor(this.f53931e, R.color.CAM_X0204);
+        MaskView.b(this.f53930d, this.n);
     }
 
     public void e() {
@@ -83,62 +83,62 @@ public class h implements k {
     }
 
     public int f() {
-        return this.f50251a;
+        return this.f53927a;
     }
 
     public String g() {
-        return this.f50258h;
+        return this.f53934h;
     }
 
     @Override // d.a.m0.r.s.k
     public View getView() {
-        return this.f50253c;
+        return this.f53929c;
     }
 
     public final void h() {
-        l lVar = this.f50252b;
+        l lVar = this.f53928b;
         if (lVar == null || lVar.d() == null) {
             return;
         }
-        View inflate = LayoutInflater.from(this.f50252b.d()).inflate(R.layout.popup_dialog_view_horizal_item, this.f50252b.g(), false);
-        this.f50253c = inflate;
+        View inflate = LayoutInflater.from(this.f53928b.d()).inflate(R.layout.popup_dialog_view_horizal_item, this.f53928b.g(), false);
+        this.f53929c = inflate;
         inflate.getLayoutParams().width = this.o ? r : q;
-        Object tag = this.f50254d.getTag();
-        EMTextView eMTextView = (EMTextView) this.f50253c.findViewById(R.id.item_view);
-        this.f50254d = eMTextView;
-        eMTextView.setText(this.f50258h);
-        this.f50254d.setGravity(this.k);
-        this.f50254d.setTag(tag);
-        View findViewById = this.f50253c.findViewById(R.id.divider_line);
-        this.f50255e = findViewById;
+        Object tag = this.f53930d.getTag();
+        EMTextView eMTextView = (EMTextView) this.f53929c.findViewById(R.id.item_view);
+        this.f53930d = eMTextView;
+        eMTextView.setText(this.f53934h);
+        this.f53930d.setGravity(this.k);
+        this.f53930d.setTag(tag);
+        View findViewById = this.f53929c.findViewById(R.id.divider_line);
+        this.f53931e = findViewById;
         findViewById.setVisibility(8);
-        ImageView imageView = (ImageView) this.f50253c.findViewById(R.id.item_image);
-        this.f50256f = imageView;
-        imageView.setImageDrawable(this.f50257g);
+        ImageView imageView = (ImageView) this.f53929c.findViewById(R.id.item_image);
+        this.f53932f = imageView;
+        imageView.setImageDrawable(this.f53933g);
         a();
-        this.f50253c.setOnClickListener(this.p);
+        this.f53929c.setOnClickListener(this.p);
     }
 
     public final void i() {
-        EMTextView eMTextView = this.f50254d;
+        EMTextView eMTextView = this.f53930d;
         if (eMTextView != null) {
             eMTextView.setOnClickListener(this.p);
         }
     }
 
     public final void j() {
-        l lVar = this.f50252b;
+        l lVar = this.f53928b;
         if (lVar == null || lVar.d() == null) {
             return;
         }
-        View inflate = LayoutInflater.from(this.f50252b.d()).inflate(R.layout.popup_dialog_view_item, this.f50252b.g(), false);
-        this.f50253c = inflate;
+        View inflate = LayoutInflater.from(this.f53928b.d()).inflate(R.layout.popup_dialog_view_item, this.f53928b.g(), false);
+        this.f53929c = inflate;
         EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.item_view);
-        this.f50254d = eMTextView;
-        eMTextView.setText(this.f50258h);
-        this.f50254d.setGravity(this.k);
-        View findViewById = this.f50253c.findViewById(R.id.divider_line);
-        this.f50255e = findViewById;
+        this.f53930d = eMTextView;
+        eMTextView.setText(this.f53934h);
+        this.f53930d.setGravity(this.k);
+        View findViewById = this.f53929c.findViewById(R.id.divider_line);
+        this.f53931e = findViewById;
         if (this.m) {
             findViewById.setVisibility(0);
         } else {
@@ -152,7 +152,7 @@ public class h implements k {
     }
 
     public void l(Drawable drawable) {
-        this.f50257g = drawable;
+        this.f53933g = drawable;
     }
 
     public void m(l.d dVar) {
@@ -161,46 +161,46 @@ public class h implements k {
     }
 
     public void n(String str) {
-        this.f50258h = str;
-        this.f50254d.setText(str);
+        this.f53934h = str;
+        this.f53930d.setText(str);
     }
 
     public void o(int i2) {
-        this.f50259i = i2;
-        SkinManager.setViewTextColor(this.f50254d, i2);
+        this.f53935i = i2;
+        SkinManager.setViewTextColor(this.f53930d, i2);
     }
 
     public void p(boolean z) {
         this.n = z;
-        MaskView.b(this.f50254d, z);
+        MaskView.b(this.f53930d, z);
     }
 
     public h(String str, l lVar) {
-        this.f50259i = R.color.CAM_X0105;
+        this.f53935i = R.color.CAM_X0105;
         this.j = R.color.CAM_X0204;
         this.k = 17;
         this.m = false;
         this.n = false;
         this.o = false;
         this.p = new a();
-        this.f50258h = str;
-        this.f50252b = lVar;
-        this.f50251a = hashCode();
+        this.f53934h = str;
+        this.f53928b = lVar;
+        this.f53927a = hashCode();
         j();
         i();
     }
 
     public h(int i2, String str, l lVar) {
-        this.f50259i = R.color.CAM_X0105;
+        this.f53935i = R.color.CAM_X0105;
         this.j = R.color.CAM_X0204;
         this.k = 17;
         this.m = false;
         this.n = false;
         this.o = false;
         this.p = new a();
-        this.f50251a = i2;
-        this.f50258h = str;
-        this.f50252b = lVar;
+        this.f53927a = i2;
+        this.f53934h = str;
+        this.f53928b = lVar;
         j();
         i();
     }

@@ -10,7 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends f {
-    public static final boolean E = k.f43199a;
+    public static final boolean E = k.f46875a;
     public String A;
     public String B;
     public long C;
@@ -31,36 +31,36 @@ public class c extends f {
 
     @Override // d.a.l0.a.j2.p.f, d.a.l0.a.j2.p.e
     public JSONObject f() {
-        if (this.f43192h == null) {
-            this.f43192h = new JSONObject();
+        if (this.f46868h == null) {
+            this.f46868h = new JSONObject();
         }
         try {
             if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
-                this.f43192h.put("errorno", this.v);
+                this.f46868h.put("errorno", this.v);
             }
             String a2 = j.a(this.w);
             this.w = a2;
-            this.f43192h.put("url", a2);
-            this.f43192h.put("netStatus", this.y);
+            this.f46868h.put("url", a2);
+            this.f46868h.put("netStatus", this.y);
             if (!TextUtils.isEmpty(this.x)) {
-                this.f43192h.put("msg", this.x);
+                this.f46868h.put("msg", this.x);
             }
             if (!TextUtils.isEmpty(this.z)) {
-                this.f43192h.put("pagetype", this.z);
+                this.f46868h.put("pagetype", this.z);
             }
             if (!TextUtils.isEmpty(this.A)) {
-                this.f43192h.put("curpage", this.A);
+                this.f46868h.put("curpage", this.A);
             }
             if (!TextUtils.isEmpty(this.B)) {
-                this.f43192h.put("requesttype", this.B);
+                this.f46868h.put("requesttype", this.B);
             }
             if (this.D - this.C > 0) {
-                this.f43192h.put("startTime", this.C);
-                this.f43192h.put("endTime", this.D);
+                this.f46868h.put("startTime", this.C);
+                this.f46868h.put("endTime", this.D);
             }
             ExtensionCore M = d.a.l0.a.h0.u.g.N().M();
             if (M != null) {
-                this.f43192h.put("extension_ver", M.extensionCoreVersionName);
+                this.f46868h.put("extension_ver", M.extensionCoreVersionName);
             }
         } catch (JSONException e2) {
             if (E) {

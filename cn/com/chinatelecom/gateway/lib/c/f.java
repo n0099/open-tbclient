@@ -83,7 +83,7 @@ public class f {
 
     public static String e(Context context) {
         int h2 = h(context);
-        return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f3966b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+        return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f3985b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
     }
 
     public static String f(Context context) {
@@ -97,17 +97,17 @@ public class f {
             if (f2.equals("2G")) {
                 return "10";
             }
-            if (f2.equals(com.baidu.apollon.statistics.g.f3966b)) {
-                return Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
+            if (f2.equals(com.baidu.apollon.statistics.g.f3985b)) {
+                return "11";
             }
             if (f2.equals("4G")) {
-                return Constants.VIA_REPORT_TYPE_SET_AVATAR;
+                return "12";
             }
             if (f2.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
-                return Constants.VIA_REPORT_TYPE_JOININ_GROUP;
+                return "13";
             }
             if (f2.equals("BOTH")) {
-                return Constants.VIA_REPORT_TYPE_MAKE_FRIEND;
+                return "14";
             }
         }
         return Constants.VIA_REPORT_TYPE_WPA_STATE;

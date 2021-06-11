@@ -18,7 +18,7 @@ public class w extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
         d(bVar, str, "" + command.obj, true);
         Object obj = command.obj;
         if (obj instanceof Integer) {
-            bVar.M(((Integer) obj).intValue());
+            bVar.J(((Integer) obj).intValue());
         }
     }
 }

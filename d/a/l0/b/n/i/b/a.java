@@ -21,105 +21,105 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46421a;
+    public String f50095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0960a f46422b;
+    public C1016a f50096b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f46423c;
+    public c f50097c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f46424d;
+    public b f50098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f46425e;
+    public JSONObject f50099e;
 
     /* renamed from: d.a.l0.b.n.i.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0960a {
+    public static class C1016a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f46426a;
+        public String f50100a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f46427b;
+        public String f50101b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f46428c;
+        public int f50102c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f46429d;
+        public int f50103d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f46430e;
+        public String f50104e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f46431f;
+        public String f50105f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f46432g;
+        public int f50106g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f46433h;
+        public int f50107h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f46434i;
+        public String f50108i;
     }
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f46435a;
+        public int f50109a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46436b;
+        public int f50110b;
     }
 
     /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f46437a;
+        public int f50111a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f46438b;
+        public double f50112b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f46439c;
+        public double f50113c;
     }
 
     public a(@NonNull Context context, @NonNull JSONObject jSONObject) {
-        C0960a c0960a = new C0960a();
+        C1016a c1016a = new C1016a();
         c cVar = new c();
         b bVar = new b();
         String V = e.V();
         String str = "";
-        this.f46421a = TextUtils.isEmpty(V) ? "" : V;
-        this.f46422b = c0960a;
-        this.f46423c = cVar;
-        this.f46424d = bVar;
-        this.f46425e = jSONObject;
+        this.f50095a = TextUtils.isEmpty(V) ? "" : V;
+        this.f50096b = c1016a;
+        this.f50097c = cVar;
+        this.f50098d = bVar;
+        this.f50099e = jSONObject;
         String r = q0.r();
-        c0960a.f46426a = "0".equals(r) ? "" : r;
+        c1016a.f50100a = "0".equals(r) ? "" : r;
         String a2 = a();
-        c0960a.f46427b = "0".equals(a2) ? "" : a2;
-        c0960a.f46428c = 2;
-        c0960a.f46429d = d.a.l0.b.n.i.c.a.e(context) ? 3 : 2;
+        c1016a.f50101b = "0".equals(a2) ? "" : a2;
+        c1016a.f50102c = 2;
+        c1016a.f50103d = d.a.l0.b.n.i.c.a.e(context) ? 3 : 2;
         String i2 = d.a.l0.a.d0.c.i();
-        c0960a.f46430e = "NUL".equals(i2) ? "" : i2;
+        c1016a.f50104e = "NUL".equals(i2) ? "" : i2;
         String g2 = d.a.l0.a.d0.c.g();
-        c0960a.f46431f = "NUL".equals(g2) ? "" : g2;
-        c0960a.f46432g = n0.n(context);
-        c0960a.f46433h = n0.o(context);
+        c1016a.f50105f = "NUL".equals(g2) ? "" : g2;
+        c1016a.f50106g = n0.n(context);
+        c1016a.f50107h = n0.o(context);
         String b2 = b();
         if (!TextUtils.isEmpty(b2) && !Config.DEF_MAC_ID.equals(b2)) {
             str = b2;
         }
-        c0960a.f46434i = str;
-        bVar.f46435a = d.a.l0.b.n.i.c.a.c();
-        bVar.f46436b = d.a.l0.b.n.i.c.a.d(context);
+        c1016a.f50108i = str;
+        bVar.f50109a = d.a.l0.b.n.i.c.a.c();
+        bVar.f50110b = d.a.l0.b.n.i.c.a.d(context);
     }
 
     public String a() {
@@ -144,25 +144,25 @@ public class a {
         JSONObject jSONObject3 = new JSONObject();
         JSONObject jSONObject4 = new JSONObject();
         try {
-            jSONObject.put(Constants.APP_ID, this.f46421a);
-            jSONObject2.put(DeviceUtils.KEY_OLD_NAME_STRING, this.f46422b.f46426a);
-            jSONObject2.put("androidid", this.f46422b.f46427b);
-            jSONObject2.put(SearchJsBridge.COOKIE_OS_TYPE, this.f46422b.f46428c);
-            jSONObject2.put("device_type", this.f46422b.f46429d);
-            jSONObject2.put("device_vendor", this.f46422b.f46430e);
-            jSONObject2.put("device_model", this.f46422b.f46431f);
-            jSONObject2.put("screen_height", this.f46422b.f46432g);
-            jSONObject2.put("screen_width", this.f46422b.f46433h);
-            jSONObject2.put(IAdRequestParam.MAC, this.f46422b.f46434i);
+            jSONObject.put(Constants.APP_ID, this.f50095a);
+            jSONObject2.put(DeviceUtils.KEY_OLD_NAME_STRING, this.f50096b.f50100a);
+            jSONObject2.put("androidid", this.f50096b.f50101b);
+            jSONObject2.put(SearchJsBridge.COOKIE_OS_TYPE, this.f50096b.f50102c);
+            jSONObject2.put("device_type", this.f50096b.f50103d);
+            jSONObject2.put("device_vendor", this.f50096b.f50104e);
+            jSONObject2.put("device_model", this.f50096b.f50105f);
+            jSONObject2.put("screen_height", this.f50096b.f50106g);
+            jSONObject2.put("screen_width", this.f50096b.f50107h);
+            jSONObject2.put("mac", this.f50096b.f50108i);
             jSONObject.put("device", jSONObject2);
-            jSONObject3.put("coord_type", this.f46423c.f46437a);
-            jSONObject3.put("latitude", this.f46423c.f46438b);
-            jSONObject3.put("longitude", this.f46423c.f46439c);
+            jSONObject3.put("coord_type", this.f50097c.f50111a);
+            jSONObject3.put("latitude", this.f50097c.f50112b);
+            jSONObject3.put("longitude", this.f50097c.f50113c);
             jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
-            jSONObject4.put("network", this.f46424d.f46435a);
-            jSONObject4.put("operator", this.f46424d.f46436b);
+            jSONObject4.put("network", this.f50098d.f50109a);
+            jSONObject4.put("operator", this.f50098d.f50110b);
             jSONObject.put("network", jSONObject4);
-            jSONObject.put("data", this.f46425e);
+            jSONObject.put("data", this.f50099e);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

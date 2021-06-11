@@ -9,7 +9,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static String a(String str) {
         MimeTypeMap singleton = MimeTypeMap.getSingleton();

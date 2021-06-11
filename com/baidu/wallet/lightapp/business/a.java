@@ -15,41 +15,41 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static C0242a f24725a = new C0242a();
+    public static C0244a f24828a = new C0244a();
 
     /* renamed from: com.baidu.wallet.lightapp.business.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0242a {
+    public static class C0244a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f24732a;
+        public String f24835a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap f24733b;
+        public HashMap f24836b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String[] f24734c;
+        public String[] f24837c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f24735d;
+        public String[] f24838d;
 
         public String toString() {
-            return "hookUrl=" + this.f24732a + "\n\ttoAddKeyVauleMap=" + this.f24733b.toString() + "\n\ttoAddJsFilesName=" + Arrays.toString(this.f24734c) + "\n\ttoAddJsFilesContent=" + Arrays.toString(this.f24735d);
+            return "hookUrl=" + this.f24835a + "\n\ttoAddKeyVauleMap=" + this.f24836b.toString() + "\n\ttoAddJsFilesName=" + Arrays.toString(this.f24837c) + "\n\ttoAddJsFilesContent=" + Arrays.toString(this.f24838d);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str, HashMap hashMap, String[] strArr, String[] strArr2) {
-            this.f24732a = str;
-            this.f24733b = hashMap;
-            this.f24734c = strArr;
-            this.f24735d = strArr2;
+            this.f24835a = str;
+            this.f24836b = hashMap;
+            this.f24837c = strArr;
+            this.f24838d = strArr2;
             LogUtil.d("WebViewCacheManager", "updateImpact\n" + toString());
         }
     }
 
     public static void a(final Context context, final String str, String[] strArr, final String[] strArr2) {
         LogUtil.d("WebViewCacheManager", "findConfigImpactJsFiles hookUrl=" + str + "; targetConfig=" + Arrays.toString(strArr) + " ; targetKeys=" + Arrays.toString(strArr2));
-        if (!TextUtils.isEmpty(str) && !str.equals(f24725a.f24732a)) {
+        if (!TextUtils.isEmpty(str) && !str.equals(f24828a.f24835a)) {
             if (strArr == null || strArr.length <= 0 || strArr2 == null || strArr2.length <= 0) {
                 return;
             }
@@ -102,9 +102,9 @@ public class a {
                                         return;
                                     }
                                     LogUtil.d("WebViewCacheManager", "成功获取到js文件");
-                                    C0242a c0242a = a.f24725a;
+                                    C0244a c0244a = a.f24828a;
                                     AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                                    c0242a.a(str, hashMap, strArr6, strArr7);
+                                    c0244a.a(str, hashMap, strArr6, strArr7);
                                 }
                             });
                         }
@@ -117,17 +117,17 @@ public class a {
     }
 
     public static String[] b(String str) {
-        if (TextUtils.isEmpty(str) || f24725a.f24733b == null || f24725a.f24733b.size() <= 0) {
+        if (TextUtils.isEmpty(str) || f24828a.f24836b == null || f24828a.f24836b.size() <= 0) {
             return null;
         }
-        return (String[]) f24725a.f24733b.get(str);
+        return (String[]) f24828a.f24836b.get(str);
     }
 
     public static String a(String str) {
-        if (!TextUtils.isEmpty(str) && f24725a.f24734c != null && f24725a.f24735d != null && f24725a.f24734c.length == f24725a.f24735d.length && f24725a.f24734c != null && f24725a.f24734c.length > 0) {
-            for (int i2 = 0; i2 < f24725a.f24734c.length; i2++) {
-                if (str.equals(f24725a.f24734c[i2])) {
-                    return f24725a.f24735d[i2];
+        if (!TextUtils.isEmpty(str) && f24828a.f24837c != null && f24828a.f24838d != null && f24828a.f24837c.length == f24828a.f24838d.length && f24828a.f24837c != null && f24828a.f24837c.length > 0) {
+            for (int i2 = 0; i2 < f24828a.f24837c.length; i2++) {
+                if (str.equals(f24828a.f24837c[i2])) {
+                    return f24828a.f24838d[i2];
                 }
             }
         }

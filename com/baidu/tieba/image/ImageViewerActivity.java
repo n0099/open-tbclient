@@ -28,9 +28,7 @@ import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.AlaInfoData;
@@ -324,17 +322,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 return;
             }
             if (alaInfo.isChushou) {
-                ImageViewerActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(d.a.m0.a.f.f48709a + "://" + d.a.m0.a.f.f48710b + d.a.m0.a.f.k + "?" + d.a.m0.a.f.E + "=" + alaInfo.thirdLiveType + "&" + d.a.m0.a.f.F + "=" + alaInfo.thirdRoomId)));
-            } else if (alaInfo.live_id > 0) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData.liveID = alaInfo.live_id;
-                Intent intent = new Intent(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_BROADCAST);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_DATA_CORE, alaLiveInfoCoreData);
-                bundle.putString(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_DATA_FROM, AlaLiveRoomActivityConfig.FROM_TYPE_PHOTO_BROWSE_TOP);
-                bundle.putBoolean(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_DATA_HOST, false);
-                intent.putExtra(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_DATA, bundle);
-                TbadkCoreApplication.getInst().sendBroadcast(intent);
+                ImageViewerActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(d.a.m0.a.g.f52385a + "://" + d.a.m0.a.g.f52386b + d.a.m0.a.g.k + "?" + d.a.m0.a.g.E + "=" + alaInfo.thirdLiveType + "&" + d.a.m0.a.g.F + "=" + alaInfo.thirdRoomId)));
             }
             StatisticItem param = new StatisticItem("c13711").param("fid", ImageViewerActivity.this.mFid).param("fname", ImageViewerActivity.this.mFname).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", ImageViewerActivity.this.mTid);
             String str = "";
@@ -360,7 +348,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17630e;
+        public final /* synthetic */ String f17706e;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -374,7 +362,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
 
         public i(String str) {
-            this.f17630e = str;
+            this.f17706e = str;
         }
 
         @Override // java.lang.Runnable
@@ -384,7 +372,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     ImageViewerActivity.this.dismissAlaTip();
                     return;
                 }
-                ImageViewerActivity.this.mAlaTipController.l0(this.f17630e);
+                ImageViewerActivity.this.mAlaTipController.l0(this.f17706e);
                 ImageViewerActivity.this.cacheAlaTag = null;
                 return;
             }
@@ -398,10 +386,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             ImageViewerActivity.this.mAlaTipController.N(3000);
             ImageViewerActivity.this.mAlaTipController.M(new a());
             if (ImageViewerActivity.this.alaUserPhotoLayout == null || ImageViewerActivity.this.alaUserPhotoLayout.getVisibility() == 0) {
-                ImageViewerActivity.this.mAlaTipController.l0(this.f17630e);
+                ImageViewerActivity.this.mAlaTipController.l0(this.f17706e);
                 return;
             }
-            ImageViewerActivity.this.cacheAlaTag = this.f17630e;
+            ImageViewerActivity.this.cacheAlaTag = this.f17706e;
         }
     }
 
@@ -449,7 +437,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
             AgreeData agreeData2;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.n0.e3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.a.n0.e3.h0.e) customResponsedMessage.getData()).f53997b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.n0.e3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.a.n0.e3.h0.e) customResponsedMessage.getData()).f57686b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
                 return;
             }
             for (ImageUrlData imageUrlData : ImageViewerActivity.this.assistUrls.values()) {
@@ -479,7 +467,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
             AgreeData agreeData2;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.n0.e3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.a.n0.e3.h0.e) customResponsedMessage.getData()).f53997b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.n0.e3.h0.e) || ImageViewerActivity.this.assistUrls == null || (agreeData = ((d.a.n0.e3.h0.e) customResponsedMessage.getData()).f57686b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
                 return;
             }
             for (ImageUrlData imageUrlData : ImageViewerActivity.this.assistUrls.values()) {
@@ -508,14 +496,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             d.a.m0.t.m mVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.m0.t.m) || (mVar = (d.a.m0.t.m) customResponsedMessage.getData()) == null || StringUtils.isNull(mVar.f50797a)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.m0.t.m) || (mVar = (d.a.m0.t.m) customResponsedMessage.getData()) == null || StringUtils.isNull(mVar.f54474a)) {
                 return;
             }
             d.a.m0.p0.b.i(mVar);
-            if (StringUtils.isNull(mVar.f50799c)) {
-                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{mVar.f50797a});
+            if (StringUtils.isNull(mVar.f54476c)) {
+                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{mVar.f54474a});
             } else {
-                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{mVar.f50797a, mVar.f50799c});
+                UrlManager.getInstance().dealOneLink(ImageViewerActivity.this.getPageContext(), new String[]{mVar.f54474a, mVar.f54476c});
             }
         }
     }
@@ -611,9 +599,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 if (ImageViewerActivity.this.mProfessionController == null) {
                     ImageViewerActivity imageViewerActivity = ImageViewerActivity.this;
                     imageViewerActivity.mProfessionController = new d.a.n0.r0.f2.a.c(imageViewerActivity.getPageContext());
-                    ImageViewerActivity.this.mProfessionController.j(new a());
+                    ImageViewerActivity.this.mProfessionController.i(new a());
                 }
-                ImageViewerActivity.this.mProfessionController.k(((ImageViewerActivity.this.mViewpager == null || ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView() == null || ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData() == null) ? 1 : ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData().isFirstPost) ^ 1);
+                ImageViewerActivity.this.mProfessionController.j(((ImageViewerActivity.this.mViewpager == null || ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView() == null || ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData() == null) ? 1 : ImageViewerActivity.this.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData().isFirstPost) ^ 1);
                 ImageViewerActivity.this.mProfessionController.g(ImageViewerActivity.this.mFid, d.a.c.e.m.b.f(ImageViewerActivity.this.mTid, 0L));
             }
         }
@@ -672,12 +660,12 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     ImageViewerActivity.this.mFunAdPageProvider.s(Y, i3, ImageViewerActivity.this.mIndex, ImageViewerActivity.this.mTid, ImageViewerActivity.this.mFid);
                 }
             } else if (advertAppInfo != null && arrayList != null && ImageViewerActivity.this.mApPageProvier != null) {
-                AdvertAppInfo.Z3.set(true);
-                int H4 = advertAppInfo.H4();
-                if (H4 == 0) {
+                AdvertAppInfo.c4.set(true);
+                int I4 = advertAppInfo.I4();
+                if (I4 == 0) {
                     ImageViewerActivity.this.mApPageProvier.h(advertAppInfo, arrayList.size());
                 } else {
-                    ImageViewerActivity.this.reportAdDiscardLog(advertAppInfo, H4);
+                    ImageViewerActivity.this.reportAdDiscardLog(advertAppInfo, I4);
                 }
             }
             ImageViewerActivity.this.mViewpager.setNextTitle(str);
@@ -735,9 +723,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
         public final void c(ArrayList<String> arrayList, AdvertAppInfo advertAppInfo) {
             if (ImageViewerActivity.this.mApPageProvier != null && advertAppInfo != null && arrayList != null) {
-                int H4 = advertAppInfo.H4();
-                if (H4 != 0) {
-                    ImageViewerActivity.this.reportAdDiscardLog(advertAppInfo, H4);
+                int I4 = advertAppInfo.I4();
+                if (I4 != 0) {
+                    ImageViewerActivity.this.reportAdDiscardLog(advertAppInfo, I4);
                     return;
                 }
                 ImageViewerActivity.this.mApPageProvier.h(advertAppInfo, arrayList.size());
@@ -1258,9 +1246,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             str = " ";
         }
         if (str.toLowerCase().startsWith("http")) {
-            tbImageView.V(str, 10, false);
+            tbImageView.U(str, 10, false);
         } else {
-            tbImageView.V(str, 12, false);
+            tbImageView.U(str, 12, false);
         }
     }
 
@@ -1280,7 +1268,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     /* JADX INFO: Access modifiers changed from: private */
     public void triggerBannerAd(int i2) {
         if (this.mAdBannerProxy == null) {
-            AdvertAppInfo.Z3.set(true);
+            AdvertAppInfo.c4.set(true);
             this.mAdBannerProxy = new d.a.n0.h1.k.a((ViewStub) findViewById(R.id.ad_banner_view_stub), getPageContext());
         }
         this.mAdBannerProxy.c(this.mViewpager, this.mIsSeeHost, i2, checkIsAdvertPage(), i2 < this.mImageUrls.size() ? this.mImageUrls.get(i2) : "", this.mCount, this.mFid, this.mFname, this.mTid);
@@ -1585,7 +1573,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         BdUniqueId uniqueId = getUniqueId();
         long f2 = d.a.c.e.m.b.f(this.mTid, 0L);
         if (uniqueId != null && f2 > 0) {
-            d.a.m0.a.s.f(uniqueId.getId(), f2);
+            d.a.m0.a.t.f(uniqueId.getId(), f2);
         }
         VoiceManager voiceManager = this.mVoiceManager;
         if (voiceManager != null) {
@@ -1602,7 +1590,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         BdUniqueId uniqueId = getUniqueId();
         long f2 = d.a.c.e.m.b.f(this.mTid, 0L);
         if (uniqueId != null && f2 > 0) {
-            d.a.m0.a.s.j(d.a.m0.a.b.a0, uniqueId.getId(), f2);
+            d.a.m0.a.t.j(d.a.m0.a.c.a0, uniqueId.getId(), f2);
         }
         VoiceManager voiceManager = this.mVoiceManager;
         if (voiceManager != null) {

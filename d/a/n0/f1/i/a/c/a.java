@@ -40,28 +40,28 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<?> f54528a;
+    public final TbPageContext<?> f58217a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.n0.f1.i.a.a f54529b;
+    public final d.a.n0.f1.i.a.a f58218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f54530c;
+    public View f58219c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f54531d;
+    public NavigationBar f58220d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdRecyclerView f54532e;
+    public BdRecyclerView f58221e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbListView f54533f;
+    public PbListView f58222f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54534g;
+    public boolean f58223g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FroumBroadMajorHistoryAdapter f54535h;
+    public FroumBroadMajorHistoryAdapter f58224h;
     public ImageView j;
     public LinearLayout k;
     public TextView l;
@@ -74,8 +74,8 @@ public class a {
     public ScreenTopToast s;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<d.a.n0.f1.i.a.b.b> f54536i = new ArrayList();
-    public BdListView.p t = new C1313a();
+    public List<d.a.n0.f1.i.a.b.b> f58225i = new ArrayList();
+    public BdListView.p t = new C1369a();
     public d.a.m0.m.f<d.a.n0.f1.i.a.b.b> u = new b();
     public View.OnClickListener v = new d();
     public View.OnClickListener w = new e();
@@ -84,14 +84,14 @@ public class a {
 
     /* renamed from: d.a.n0.f1.i.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1313a implements BdListView.p {
-        public C1313a() {
+    public class C1369a implements BdListView.p {
+        public C1369a() {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (a.this.f54532e != null) {
-                a.this.f54532e.stopScroll();
+            if (a.this.f58221e != null) {
+                a.this.f58221e.stopScroll();
             }
             a.this.p();
         }
@@ -125,7 +125,7 @@ public class a {
                     a.this.q();
                     return;
                 }
-                ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(a.this.f54528a.getPageActivity());
+                ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(a.this.f58217a.getPageActivity());
                 String str2 = bVar.b() + "";
                 String str3 = a.this.o;
                 String str4 = a.this.n;
@@ -135,14 +135,14 @@ public class a {
                 forumBroadcastHelper.jumpFlutterEditRelease(str2, str3, str4, str, bVar.k(), bVar.c(), bVar.f(), ForumBroadcastHelper.VALUE_PARMARS_BCAST_FROM_EDIT, "2");
                 forumBroadcastHelper.start();
             } else if (bVar.j() != null && bVar.j().is_deleted.intValue() != 1) {
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(a.this.f54528a.getPageActivity());
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(a.this.f58217a.getPageActivity());
                 pbActivityConfig.createNormalCfg(bVar.j().tid + "", null, null);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
             } else {
-                BdTopToast bdTopToast = new BdTopToast(a.this.f54528a.getPageActivity());
+                BdTopToast bdTopToast = new BdTopToast(a.this.f58217a.getPageActivity());
                 bdTopToast.i(false);
-                bdTopToast.h(a.this.f54528a.getPageActivity().getString(R.string.forum_broadcast_major_history_pb_deleted));
-                bdTopToast.j((ViewGroup) a.this.f54530c.findViewById(R.id.forum_major_history));
+                bdTopToast.h(a.this.f58217a.getPageActivity().getString(R.string.forum_broadcast_major_history_pb_deleted));
+                bdTopToast.j((ViewGroup) a.this.f58219c.findViewById(R.id.forum_major_history));
             }
         }
     }
@@ -156,7 +156,7 @@ public class a {
         public void onClick(View view) {
             HashMap hashMap = new HashMap();
             hashMap.put("_forumId", a.this.n);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(a.this.f54528a.getPageActivity(), "ForumGradePage", hashMap)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(a.this.f58217a.getPageActivity(), "ForumGradePage", hashMap)));
         }
     }
 
@@ -182,7 +182,7 @@ public class a {
             if (l.a()) {
                 return;
             }
-            ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(a.this.f54528a.getPageActivity());
+            ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(a.this.f58217a.getPageActivity());
             forumBroadcastHelper.jumpFlutterEditGenear(a.this.n, a.this.o, "2");
             forumBroadcastHelper.start();
             TiebaStatic.log(new StatisticItem("c13874").param("uid", TbadkCoreApplication.getCurrentAccountId()));
@@ -211,17 +211,17 @@ public class a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f54532e != null) {
-                a.this.f54532e.stopScroll();
+            if (a.this.f58221e != null) {
+                a.this.f58221e.stopScroll();
             }
-            if (a.this.f54533f == null || a.this.f54529b == null || !j.z()) {
+            if (a.this.f58222f == null || a.this.f58218b == null || !j.z()) {
                 return;
             }
-            a.this.f54533f.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            a.this.f54533f.z(null);
-            if (a.this.f54534g) {
-                a.this.f54533f.L();
-                a.this.f54529b.loadMore();
+            a.this.f58222f.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            a.this.f58222f.z(null);
+            if (a.this.f58223g) {
+                a.this.f58222f.L();
+                a.this.f58218b.loadMore();
             }
         }
     }
@@ -233,11 +233,11 @@ public class a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!j.A() || a.this.f54529b == null) {
+            if (!j.A() || a.this.f58218b == null) {
                 return;
             }
             a.this.k();
-            a.this.f54529b.refresh();
+            a.this.f58218b.refresh();
         }
     }
 
@@ -245,15 +245,15 @@ public class a {
     public class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f54545e;
+        public final /* synthetic */ d.a.m0.r.s.a f58234e;
 
         public i(a aVar, d.a.m0.r.s.a aVar2) {
-            this.f54545e = aVar2;
+            this.f58234e = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.m0.r.s.a aVar = this.f54545e;
+            d.a.m0.r.s.a aVar = this.f58234e;
             if (aVar != null) {
                 aVar.dismiss();
             }
@@ -261,8 +261,8 @@ public class a {
     }
 
     public a(TbPageContext<?> tbPageContext, d.a.n0.f1.i.a.a aVar, View view, String str, String str2, String str3, Bundle bundle) {
-        this.f54528a = tbPageContext;
-        this.f54529b = aVar;
+        this.f58217a = tbPageContext;
+        this.f58218b = aVar;
         this.n = str;
         this.o = str2;
         l(view, str3);
@@ -278,12 +278,12 @@ public class a {
     }
 
     public final void l(View view, String str) {
-        this.f54530c = view;
-        this.f54531d = (NavigationBar) view.findViewById(R.id.navi_forum_major_history_title);
+        this.f58219c = view;
+        this.f58220d = (NavigationBar) view.findViewById(R.id.navi_forum_major_history_title);
         this.q = (RelativeLayout) view.findViewById(R.id.forum_major_contain);
-        this.f54531d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.j = (ImageView) this.f54531d.getCenterImgBox();
-        LinearLayout linearLayout = (LinearLayout) this.f54531d.getCenterImgBoxLayout();
+        this.f58220d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.j = (ImageView) this.f58220d.getCenterImgBox();
+        LinearLayout linearLayout = (LinearLayout) this.f58220d.getCenterImgBoxLayout();
         this.k = linearLayout;
         linearLayout.setGravity(16);
         int g2 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
@@ -291,8 +291,8 @@ public class a {
         ImageView imageView = this.j;
         int i2 = R.drawable.ic_icon_creation_question16_svg;
         SkinManager.setNavbarIconSrc(imageView, i2, i2);
-        this.f54531d.showBottomLine();
-        this.m = this.f54531d.setCenterTextTitle(this.f54528a.getResources().getString(R.string.subscribe_bar_title));
+        this.f58220d.showBottomLine();
+        this.m = this.f58220d.setCenterTextTitle(this.f58217a.getResources().getString(R.string.subscribe_bar_title));
         this.j.setPadding(g2, g2, g2, g2);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
@@ -306,26 +306,26 @@ public class a {
         this.j.setVisibility(0);
         this.j.setOnClickListener(this.v);
         BdRecyclerView bdRecyclerView = (BdRecyclerView) view.findViewById(R.id.broadcast_history_recycler_view);
-        this.f54532e = bdRecyclerView;
-        bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.f54528a.getPageActivity()));
-        this.f54532e.setOverScrollMode(2);
-        this.f54532e.setOnSrollToBottomListener(this.t);
-        SkinManager.setBackgroundColor(this.f54532e, R.color.CAM_X0204);
-        FroumBroadMajorHistoryAdapter froumBroadMajorHistoryAdapter = new FroumBroadMajorHistoryAdapter(this.f54528a.getPageActivity());
-        this.f54535h = froumBroadMajorHistoryAdapter;
+        this.f58221e = bdRecyclerView;
+        bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.f58217a.getPageActivity()));
+        this.f58221e.setOverScrollMode(2);
+        this.f58221e.setOnSrollToBottomListener(this.t);
+        SkinManager.setBackgroundColor(this.f58221e, R.color.CAM_X0204);
+        FroumBroadMajorHistoryAdapter froumBroadMajorHistoryAdapter = new FroumBroadMajorHistoryAdapter(this.f58217a.getPageActivity());
+        this.f58224h = froumBroadMajorHistoryAdapter;
         froumBroadMajorHistoryAdapter.g(this.u);
-        this.f54532e.setAdapter(this.f54535h);
-        PbListView pbListView = new PbListView(this.f54528a.getPageActivity());
-        this.f54533f = pbListView;
+        this.f58221e.setAdapter(this.f58224h);
+        PbListView pbListView = new PbListView(this.f58217a.getPageActivity());
+        this.f58222f = pbListView;
         pbListView.b();
-        this.f54533f.o(R.color.CAM_X0204);
-        this.f54533f.r(d.a.c.e.p.l.g(this.f54528a.getPageActivity(), R.dimen.tbds182));
-        this.f54533f.v();
-        this.f54533f.E(R.dimen.tbfontsize33);
-        this.f54533f.C(SkinManager.getColor(R.color.CAM_X0107));
-        this.f54533f.y(R.color.CAM_X0110);
-        this.f54533f.q();
-        this.f54533f.z(this.y);
+        this.f58222f.o(R.color.CAM_X0204);
+        this.f58222f.r(d.a.c.e.p.l.g(this.f58217a.getPageActivity(), R.dimen.tbds182));
+        this.f58222f.v();
+        this.f58222f.E(R.dimen.tbfontsize33);
+        this.f58222f.C(SkinManager.getColor(R.color.CAM_X0107));
+        this.f58222f.y(R.color.CAM_X0110);
+        this.f58222f.q();
+        this.f58222f.z(this.y);
         if (ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(str)) {
             s();
             int g4 = d.a.c.a.b.f().g();
@@ -339,14 +339,14 @@ public class a {
     }
 
     public void m(int i2) {
-        this.f54531d.onChangeSkinType(this.f54528a, i2);
-        SkinManager.setBackgroundColor(this.f54532e, R.color.CAM_X0204);
-        this.f54533f.d(i2);
-        this.f54535h.notifyDataSetChanged();
+        this.f58220d.onChangeSkinType(this.f58217a, i2);
+        SkinManager.setBackgroundColor(this.f58221e, R.color.CAM_X0204);
+        this.f58222f.d(i2);
+        this.f58224h.notifyDataSetChanged();
     }
 
     public void n() {
-        this.f54536i = null;
+        this.f58225i = null;
         this.s = null;
     }
 
@@ -361,51 +361,51 @@ public class a {
                 this.n = bVar.e().forum_id + "";
             }
         }
-        this.f54534g = aVar.a();
+        this.f58223g = aVar.a();
         if (aVar.c()) {
             if (!ListUtils.isEmpty(aVar.b())) {
-                this.f54536i.clear();
-                this.f54536i.addAll(aVar.b());
+                this.f58225i.clear();
+                this.f58225i.addAll(aVar.b());
             }
         } else if (!ListUtils.isEmpty(aVar.b())) {
-            this.f54536i.addAll(aVar.b());
+            this.f58225i.addAll(aVar.b());
         }
-        this.f54535h.h(this.f54536i);
-        if (!aVar.c() || (bdRecyclerView = this.f54532e) == null || bdRecyclerView.getChildCount() <= 0) {
+        this.f58224h.h(this.f58225i);
+        if (!aVar.c() || (bdRecyclerView = this.f58221e) == null || bdRecyclerView.getChildCount() <= 0) {
             return;
         }
-        this.f54532e.scrollToPosition(0);
+        this.f58221e.scrollToPosition(0);
     }
 
     public void p() {
-        if (this.f54533f == null || this.f54529b == null) {
+        if (this.f58222f == null || this.f58218b == null) {
             return;
         }
         if (j.z()) {
-            this.f54532e.setNextPage(this.f54533f);
-            this.f54533f.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f54533f.z(null);
-            if (this.f54534g) {
-                this.f54533f.L();
-                this.f54529b.loadMore();
+            this.f58221e.setNextPage(this.f58222f);
+            this.f58222f.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f58222f.z(null);
+            if (this.f58223g) {
+                this.f58222f.L();
+                this.f58218b.loadMore();
                 return;
             }
-            this.f54533f.A(this.f54528a.getResources().getString(R.string.list_has_no_more));
-            this.f54533f.f();
+            this.f58222f.A(this.f58217a.getResources().getString(R.string.list_has_no_more));
+            this.f58222f.f();
             return;
         }
-        this.f54532e.setNextPage(null);
+        this.f58221e.setNextPage(null);
     }
 
     public void q() {
         ScreenTopToast screenTopToast = this.s;
         if (screenTopToast == null || !screenTopToast.g()) {
-            ScreenTopToast screenTopToast2 = new ScreenTopToast(this.f54528a.getPageActivity());
-            screenTopToast2.m(this.f54528a.getPageActivity().getString(R.string.forum_broadcast_major_residue_none_hint));
-            screenTopToast2.k(this.f54528a.getPageActivity().getString(R.string.frs_recommend_fail_tip_btn));
+            ScreenTopToast screenTopToast2 = new ScreenTopToast(this.f58217a.getPageActivity());
+            screenTopToast2.m(this.f58217a.getPageActivity().getString(R.string.forum_broadcast_major_residue_none_hint));
+            screenTopToast2.k(this.f58217a.getPageActivity().getString(R.string.frs_recommend_fail_tip_btn));
             screenTopToast2.j(new c());
             this.s = screenTopToast2;
-            screenTopToast2.n((ViewGroup) this.f54530c.findViewById(R.id.forum_major_history));
+            screenTopToast2.n((ViewGroup) this.f58219c.findViewById(R.id.forum_major_history));
         }
     }
 
@@ -413,32 +413,32 @@ public class a {
         d.a.m0.d0.h hVar = this.p;
         if (hVar == null || !hVar.isViewAttached()) {
             if (this.p == null) {
-                this.p = new d.a.m0.d0.h(this.f54528a.getPageActivity(), new h());
+                this.p = new d.a.m0.d0.h(this.f58217a.getPageActivity(), new h());
             }
             this.p.l(null);
-            this.p.j(this.f54528a.getResources().getDimensionPixelSize(R.dimen.ds272));
+            this.p.j(this.f58217a.getResources().getDimensionPixelSize(R.dimen.ds272));
             this.p.attachView(this.q, false);
             this.p.o();
         }
     }
 
     public void s() {
-        if (this.f54530c != null) {
-            BdTopToast bdTopToast = new BdTopToast(this.f54528a.getPageActivity());
+        if (this.f58219c != null) {
+            BdTopToast bdTopToast = new BdTopToast(this.f58217a.getPageActivity());
             bdTopToast.i(true);
-            bdTopToast.h(this.f54528a.getPageActivity().getString(R.string.frs_forum_bcast_publish_success_tip));
-            bdTopToast.j((ViewGroup) this.f54530c.findViewById(R.id.forum_major_history));
+            bdTopToast.h(this.f58217a.getPageActivity().getString(R.string.frs_forum_bcast_publish_success_tip));
+            bdTopToast.j((ViewGroup) this.f58219c.findViewById(R.id.forum_major_history));
         }
     }
 
     public final void t() {
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f54528a.getPageActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f58217a.getPageActivity());
         aVar.setContentViewSize(2);
         aVar.setCanceledOnTouchOutside(false);
-        ForumBroadcastMajorQuestionDialogView forumBroadcastMajorQuestionDialogView = new ForumBroadcastMajorQuestionDialogView(this.f54528a.getPageActivity());
+        ForumBroadcastMajorQuestionDialogView forumBroadcastMajorQuestionDialogView = new ForumBroadcastMajorQuestionDialogView(this.f58217a.getPageActivity());
         forumBroadcastMajorQuestionDialogView.setConfirmButtonListener(new i(this, aVar));
         aVar.setContentView(forumBroadcastMajorQuestionDialogView);
-        aVar.create(this.f54528a).show();
+        aVar.create(this.f58217a).show();
     }
 
     public void u(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
@@ -446,17 +446,17 @@ public class a {
             return;
         }
         if (forumBroadcastMajorResidueData == null) {
-            TextView addTextButton = this.f54531d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f54528a.getString(R.string.dynamic_publish), this.w);
+            TextView addTextButton = this.f58220d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f58217a.getString(R.string.dynamic_publish), this.w);
             this.l = addTextButton;
             SkinManager.setViewTextColorSelector(addTextButton, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
-        } else if (forumBroadcastMajorResidueData.t() >= forumBroadcastMajorResidueData.s()) {
+        } else if (forumBroadcastMajorResidueData.x() >= forumBroadcastMajorResidueData.w()) {
             this.r = true;
-            TextView addTextButton2 = this.f54531d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f54528a.getString(R.string.dynamic_publish), this.x);
+            TextView addTextButton2 = this.f58220d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f58217a.getString(R.string.dynamic_publish), this.x);
             this.l = addTextButton2;
             SkinManager.setViewTextColorSelector(addTextButton2, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
             this.l.setAlpha(0.33f);
         } else {
-            TextView addTextButton3 = this.f54531d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f54528a.getString(R.string.dynamic_publish), this.w);
+            TextView addTextButton3 = this.f58220d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f58217a.getString(R.string.dynamic_publish), this.w);
             this.l = addTextButton3;
             SkinManager.setViewTextColorSelector(addTextButton3, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
         }

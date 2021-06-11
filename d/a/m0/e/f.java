@@ -25,25 +25,25 @@ import java.util.List;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public c f49321b;
+    public c f52995b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f49322c;
+    public final Context f52996c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f49320a = TbConfig.getTempDirName();
+    public final String f52994a = TbConfig.getTempDirName();
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49323d = 0;
+    public int f52997d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f49324e = {"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+    public String[] f52998e = {"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f49325f = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+    public String[] f52999f = {"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, d.a.m0.e.a> f49326g = new HashMap<>();
+    public HashMap<String, d.a.m0.e.a> f53000g = new HashMap<>();
 
     /* loaded from: classes3.dex */
     public class a implements Comparator<MediaFileInfo> {
@@ -71,10 +71,10 @@ public class f {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(d.a.m0.e.a aVar, d.a.m0.e.a aVar2) {
-            if (f.this.f49320a.equals(aVar.g())) {
+            if (f.this.f52994a.equals(aVar.g())) {
                 return -1;
             }
-            if (f.this.f49320a.equals(aVar2.g())) {
+            if (f.this.f52994a.equals(aVar2.g())) {
                 return 1;
             }
             int i2 = ((aVar2.e().getSortTime() - aVar.e().getSortTime()) > 0L ? 1 : ((aVar2.e().getSortTime() - aVar.e().getSortTime()) == 0L ? 0 : -1));
@@ -89,10 +89,10 @@ public class f {
     public class c extends BdAsyncTask<Object, Integer, g> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final e f49328a;
+        public final e f53002a;
 
         public c(e eVar) {
-            this.f49328a = eVar;
+            this.f53002a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,7 +107,7 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            e eVar = this.f49328a;
+            e eVar = this.f53002a;
             if (eVar != null) {
                 eVar.a(gVar);
             }
@@ -116,7 +116,7 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            e eVar = this.f49328a;
+            e eVar = this.f53002a;
             if (eVar != null) {
                 eVar.onPreLoad();
             }
@@ -124,22 +124,22 @@ public class f {
     }
 
     public f(Context context) {
-        this.f49322c = context;
+        this.f52996c = context;
     }
 
     public void c() {
-        c cVar = this.f49321b;
+        c cVar = this.f52995b;
         if (cVar != null) {
             cVar.cancel();
-            this.f49321b = null;
+            this.f52995b = null;
         }
     }
 
     public final g d() {
-        this.f49326g.clear();
+        this.f53000g.clear();
         g gVar = new g();
         List<ImageFileInfo> e2 = e();
-        List<VideoFileInfo> g2 = this.f49323d != 2 ? g() : null;
+        List<VideoFileInfo> g2 = this.f52997d != 2 ? g() : null;
         ArrayList arrayList = new ArrayList();
         if (!ListUtils.isEmpty(e2)) {
             arrayList.addAll(e2);
@@ -150,13 +150,13 @@ public class f {
         if (!ListUtils.isEmpty(arrayList)) {
             Collections.sort(arrayList, new a(this));
         }
-        ArrayList arrayList2 = new ArrayList(this.f49326g.values());
+        ArrayList arrayList2 = new ArrayList(this.f53000g.values());
         if (!ListUtils.isEmpty(arrayList2)) {
             Collections.sort(arrayList2, new b());
         }
-        gVar.f49330a = arrayList2;
-        gVar.f49332c = g2;
-        gVar.f49331b = arrayList;
+        gVar.f53004a = arrayList2;
+        gVar.f53006c = g2;
+        gVar.f53005b = arrayList;
         return gVar;
     }
 
@@ -176,12 +176,12 @@ public class f {
     public final List<ImageFileInfo> f(Uri uri) {
         Cursor cursor;
         String str = null;
-        if (this.f49322c == null) {
+        if (this.f52996c == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         try {
-            Cursor query = this.f49322c.getContentResolver().query(uri, this.f49324e, "mime_type like 'image/%'", null, "date_added DESC");
+            Cursor query = this.f52996c.getContentResolver().query(uri, this.f52998e, "mime_type like 'image/%'", null, "date_added DESC");
             if (query != null) {
                 try {
                     try {
@@ -209,10 +209,10 @@ public class f {
                                         imageFileInfo.setSortTime(j);
                                         arrayList = arrayList2;
                                         arrayList.add(imageFileInfo);
-                                        d.a.m0.e.a aVar = this.f49326g.get(string);
+                                        d.a.m0.e.a aVar = this.f53000g.get(string);
                                         if (aVar == null) {
                                             aVar = new d.a.m0.e.a();
-                                            this.f49326g.put(string, aVar);
+                                            this.f53000g.put(string, aVar);
                                         }
                                         aVar.h(string);
                                         aVar.l(string2);
@@ -274,7 +274,7 @@ public class f {
         Cursor cursor;
         Cursor cursor2;
         ArrayList arrayList = new ArrayList();
-        Context context = this.f49322c;
+        Context context = this.f52996c;
         if (context == null) {
             return arrayList;
         }
@@ -282,7 +282,7 @@ public class f {
         HashSet hashSet = new HashSet();
         try {
             Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-            Cursor query = contentResolver.query(uri, this.f49325f, null, null, "date_added DESC");
+            Cursor query = contentResolver.query(uri, this.f52999f, null, null, "date_added DESC");
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
@@ -347,11 +347,11 @@ public class f {
             return false;
         }
         c();
-        this.f49323d = i2;
+        this.f52997d = i2;
         c cVar = new c(eVar);
-        this.f49321b = cVar;
+        this.f52995b = cVar;
         cVar.setPriority(3);
-        this.f49321b.execute(new Object[0]);
+        this.f52995b.execute(new Object[0]);
         return true;
     }
 }

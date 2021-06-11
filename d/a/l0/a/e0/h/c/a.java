@@ -28,43 +28,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements Runnable {
-    public static final boolean l = k.f43199a;
+    public static final boolean l = k.f46875a;
     public static int m;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f41521e;
+    public InputStream f45197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OutputStream f41522f;
+    public OutputStream f45198f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.l0.a.e0.h.d.a f41523g;
+    public d.a.l0.a.e0.h.d.a f45199g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinkedBlockingQueue<String> f41524h = new LinkedBlockingQueue<>();
+    public LinkedBlockingQueue<String> f45200h = new LinkedBlockingQueue<>();
 
     /* renamed from: i  reason: collision with root package name */
-    public InspectorNativeClient f41525i;
+    public InspectorNativeClient f45201i;
     public d.a.l0.a.l0.a j;
     public a.b k;
 
     /* renamed from: d.a.l0.a.e0.h.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0605a implements a.InterfaceC0609a {
+    public class C0661a implements a.InterfaceC0665a {
 
         /* renamed from: d.a.l0.a.e0.h.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0606a implements Runnable {
-            public RunnableC0606a() {
+        public class RunnableC0662a implements Runnable {
+            public RunnableC0662a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                String str = (String) a.this.f41524h.poll();
+                String str = (String) a.this.f45200h.poll();
                 while (str != null) {
-                    a.this.f41525i.dispatchProtocolMessage(str);
-                    C0605a.this.e(str);
-                    str = (String) a.this.f41524h.poll();
+                    a.this.f45201i.dispatchProtocolMessage(str);
+                    C0661a.this.e(str);
+                    str = (String) a.this.f45200h.poll();
                 }
             }
         }
@@ -83,22 +83,22 @@ public class a implements Runnable {
             }
         }
 
-        public C0605a() {
+        public C0661a() {
         }
 
-        @Override // d.a.l0.a.e0.h.d.a.InterfaceC0609a
+        @Override // d.a.l0.a.e0.h.d.a.InterfaceC0665a
         public void a(WebSocketFrame webSocketFrame) {
-            a.this.f41524h.offer(webSocketFrame.g());
-            a.this.j.postOnJSThread(new RunnableC0606a());
+            a.this.f45200h.offer(webSocketFrame.g());
+            a.this.j.postOnJSThread(new RunnableC0662a());
         }
 
-        @Override // d.a.l0.a.e0.h.d.a.InterfaceC0609a
+        @Override // d.a.l0.a.e0.h.d.a.InterfaceC0665a
         public void b(IOException iOException) {
             d.a.l0.a.e0.d.c("ClientHandler", "V8 inspector exception", iOException);
             a.this.l();
         }
 
-        @Override // d.a.l0.a.e0.h.d.a.InterfaceC0609a
+        @Override // d.a.l0.a.e0.h.d.a.InterfaceC0665a
         public void c() {
             d.a.l0.a.e0.d.g("ClientHandler", "V8 inspector opened");
             d.a.l0.a.h0.l.a P = g.N().P();
@@ -106,11 +106,11 @@ public class a implements Runnable {
                 a.this.j = (d.a.l0.a.l0.a) P.g();
             }
             if (a.this.j != null) {
-                if (a.this.f41525i != null) {
-                    a.this.f41525i.destroy();
+                if (a.this.f45201i != null) {
+                    a.this.f45201i.destroy();
                 }
                 a aVar = a.this;
-                aVar.f41525i = aVar.j.r0(new b());
+                aVar.f45201i = aVar.j.r0(new b());
                 int unused = a.m = 1;
                 return;
             }
@@ -137,7 +137,7 @@ public class a implements Runnable {
             }
         }
 
-        @Override // d.a.l0.a.e0.h.d.a.InterfaceC0609a
+        @Override // d.a.l0.a.e0.h.d.a.InterfaceC0665a
         public void onClose() {
             d.a.l0.a.e0.d.g("ClientHandler", "V8 inspector closed");
             a.this.l();
@@ -155,7 +155,7 @@ public class a implements Runnable {
                 Log.d("ClientHandler", "getInspectorMessage");
             }
             try {
-                return (String) a.this.f41524h.take();
+                return (String) a.this.f45200h.take();
             } catch (InterruptedException e2) {
                 if (a.l) {
                     Log.e("ClientHandler", "awaitMessage on Debugger", e2);
@@ -168,7 +168,7 @@ public class a implements Runnable {
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
         public void sendMessage(String str) {
             try {
-                a.this.f41523g.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
+                a.this.f45199g.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
             } catch (Exception unused) {
                 if (a.l) {
                     Log.d("ClientHandler", "V8 send message fail, try to check if websocket has opened");
@@ -178,8 +178,8 @@ public class a implements Runnable {
     }
 
     public a(InputStream inputStream, OutputStream outputStream) {
-        this.f41521e = inputStream;
-        this.f41522f = outputStream;
+        this.f45197e = inputStream;
+        this.f45198f = outputStream;
     }
 
     public static String n(String str) {
@@ -194,27 +194,27 @@ public class a implements Runnable {
     }
 
     public void l() {
-        LinkedBlockingQueue<String> linkedBlockingQueue = this.f41524h;
+        LinkedBlockingQueue<String> linkedBlockingQueue = this.f45200h;
         if (linkedBlockingQueue != null) {
             linkedBlockingQueue.clear();
-            this.f41524h = null;
+            this.f45200h = null;
         }
-        InspectorNativeClient inspectorNativeClient = this.f41525i;
+        InspectorNativeClient inspectorNativeClient = this.f45201i;
         if (inspectorNativeClient != null) {
             inspectorNativeClient.destroy();
-            this.f41525i = null;
+            this.f45201i = null;
         }
-        InputStream inputStream = this.f41521e;
+        InputStream inputStream = this.f45197e;
         if (inputStream != null) {
             d.a.l0.t.d.d(inputStream);
-            this.f41521e = null;
+            this.f45197e = null;
         }
-        OutputStream outputStream = this.f41522f;
+        OutputStream outputStream = this.f45198f;
         if (outputStream != null) {
             d.a.l0.t.d.d(outputStream);
-            this.f41522f = null;
+            this.f45198f = null;
         }
-        this.f41523g = null;
+        this.f45199g = null;
         this.j = null;
         m = 3;
     }
@@ -228,13 +228,13 @@ public class a implements Runnable {
             }
             StringTokenizer stringTokenizer = new StringTokenizer(readLine);
             if (stringTokenizer.hasMoreTokens()) {
-                aVar.f41548b = stringTokenizer.nextToken();
+                aVar.f45224b = stringTokenizer.nextToken();
                 if (stringTokenizer.hasMoreTokens()) {
-                    aVar.f41549c = n(stringTokenizer.nextToken());
+                    aVar.f45225c = n(stringTokenizer.nextToken());
                     if (stringTokenizer.hasMoreTokens()) {
-                        aVar.f41550d = stringTokenizer.nextToken();
+                        aVar.f45226d = stringTokenizer.nextToken();
                     } else {
-                        aVar.f41550d = "HTTP/1.1";
+                        aVar.f45226d = "HTTP/1.1";
                         if (l) {
                             Log.d("ClientHandler", "no protocol version specified, Assuming HTTP/1.1.");
                         }
@@ -246,7 +246,7 @@ public class a implements Runnable {
                         }
                         int indexOf = readLine2.indexOf(58);
                         if (indexOf >= 0) {
-                            aVar.f41547a.put(readLine2.substring(0, indexOf).trim().toLowerCase(), readLine2.substring(indexOf + 1).trim());
+                            aVar.f45223a.put(readLine2.substring(0, indexOf).trim().toLowerCase(), readLine2.substring(indexOf + 1).trim());
                         }
                         readLine2 = bufferedReader.readLine();
                     }
@@ -272,19 +272,19 @@ public class a implements Runnable {
     public void run() {
         try {
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f41521e));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f45197e));
                 c.a aVar = new c.a();
                 m(bufferedReader, aVar);
-                d.a(aVar).e(this.f41522f);
-                if (aVar.f41551e) {
+                d.a(aVar).e(this.f45198f);
+                if (aVar.f45227e) {
                     if (m != 0 && m != 3) {
                         d.a.l0.a.z1.b.f.e.f(d.a.l0.a.c1.a.b(), h.aiapps_debug_inspect_doing).F();
                         return;
                     }
                     d.a.l0.a.e0.h.d.a aVar2 = new d.a.l0.a.e0.h.d.a();
-                    this.f41523g = aVar2;
-                    aVar2.k(new C0605a());
-                    this.f41523g.h(this.f41521e, this.f41522f);
+                    this.f45199g = aVar2;
+                    aVar2.k(new C0661a());
+                    this.f45199g.h(this.f45197e, this.f45198f);
                 }
             } catch (RuntimeException e2) {
                 if (l) {
@@ -292,8 +292,8 @@ public class a implements Runnable {
                 }
             }
         } finally {
-            d.a.l0.t.d.d(this.f41521e);
-            d.a.l0.t.d.d(this.f41522f);
+            d.a.l0.t.d.d(this.f45197e);
+            d.a.l0.t.d.d(this.f45198f);
         }
     }
 }

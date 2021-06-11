@@ -30,19 +30,19 @@ public abstract class b extends d.a.m0.r.q.a implements PreLoadImageProvider {
     public static BdUniqueId[][] S;
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f63459e;
+    public a2 f67177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63460f;
+    public String f67178f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63461g;
+    public String f67179g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f63462h;
+    public int f67180h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f63463i;
+    public String f67181i;
     public String j;
     public String l;
     public String m;
@@ -99,11 +99,11 @@ public abstract class b extends d.a.m0.r.q.a implements PreLoadImageProvider {
     }
 
     public int E() {
-        return this.f63462h;
+        return this.f67180h;
     }
 
     public String F() {
-        return this.f63461g;
+        return this.f67179g;
     }
 
     public StatisticItem G(String str) {
@@ -111,11 +111,11 @@ public abstract class b extends d.a.m0.r.q.a implements PreLoadImageProvider {
     }
 
     public StatisticItem H(String str, int i2) {
-        a2 m = m();
-        if (m == null) {
+        a2 i3 = i();
+        if (i3 == null) {
             return null;
         }
-        StatisticItem param = new StatisticItem(str).param("fid", String.valueOf(m.c0())).param("tid", String.valueOf(m.y1())).param(TiebaStatic.Params.OBJ_PARAM2, 1).param("obj_param1", O()).param("obj_source", F()).param("obj_locate", E()).param("obj_name", z()).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM3, d.a.n0.z.m.e());
+        StatisticItem param = new StatisticItem(str).param("fid", String.valueOf(i3.c0())).param("tid", String.valueOf(i3.z1())).param(TiebaStatic.Params.OBJ_PARAM2, 1).param("obj_param1", O()).param("obj_source", F()).param("obj_locate", E()).param("obj_name", z()).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM3, d.a.n0.z.m.e());
         if (i2 == 0) {
             param.param("obj_type", J());
         } else {
@@ -126,44 +126,44 @@ public abstract class b extends d.a.m0.r.q.a implements PreLoadImageProvider {
     }
 
     public StatisticItem I(String str, boolean z) {
-        a2 m = m();
-        if (m == null || str.length() == 0) {
+        a2 i2 = i();
+        if (i2 == null || str.length() == 0) {
             return null;
         }
-        StatisticItem param = new StatisticItem(str).param("fid", String.valueOf(m.c0())).param("tid", String.valueOf(m.y1())).param("nid", m.M0()).param("obj_id", B()).param("obj_param1", O()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param("obj_source", F()).param("obj_locate", E()).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM3, d.a.n0.z.m.e()).param("ab_tag", z()).param(TiebaStatic.Params.IS_ZP, m.G2() ? 1 : 0);
+        StatisticItem param = new StatisticItem(str).param("fid", String.valueOf(i2.c0())).param("tid", String.valueOf(i2.z1())).param("nid", i2.M0()).param("obj_id", B()).param("obj_param1", O()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param("obj_source", F()).param("obj_locate", E()).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM3, d.a.n0.z.m.e()).param("ab_tag", z()).param(TiebaStatic.Params.IS_ZP, i2.H2() ? 1 : 0);
         if (!z) {
             param.param("obj_type", J());
         } else {
-            if (m.q1 > 0) {
+            if (i2.r1 > 0) {
                 param.param(TiebaStatic.Params.MID_PAGE_FLAG, 1);
             } else {
                 param.param(TiebaStatic.Params.MID_PAGE_FLAG, 0);
             }
             param.param(TiebaStatic.Params.IS_VERTICAL, D().intValue());
         }
-        if (m.B1() != null && m.B1().K() != null && m.B1().K().u() != null && m.B1().K().u().size() > 0) {
-            param.param(TiebaStatic.Params.OBJ_TO, m.B1().N ? 2 : 1);
+        if (i2.C1() != null && i2.C1().K() != null && i2.C1().K().y() != null && i2.C1().K().y().size() > 0) {
+            param.param(TiebaStatic.Params.OBJ_TO, i2.C1().N ? 2 : 1);
         }
         return param;
     }
 
     public final int J() {
-        a2 m = m();
-        int i2 = 0;
-        if (m == null) {
+        a2 i2 = i();
+        int i3 = 0;
+        if (i2 == null) {
             return 0;
         }
-        ArrayList<MediaData> L0 = m.L0();
+        ArrayList<MediaData> L0 = i2.L0();
         if (L0 != null) {
             Iterator<MediaData> it = L0.iterator();
             while (it.hasNext()) {
                 MediaData next = it.next();
                 if (next != null && next.getType() == 3) {
-                    i2++;
+                    i3++;
                 }
             }
         }
-        return i2;
+        return i3;
     }
 
     public StatisticItem K() {
@@ -183,7 +183,7 @@ public abstract class b extends d.a.m0.r.q.a implements PreLoadImageProvider {
     }
 
     public String O() {
-        return this.f63460f;
+        return this.f67178f;
     }
 
     public boolean P() {
@@ -195,7 +195,7 @@ public abstract class b extends d.a.m0.r.q.a implements PreLoadImageProvider {
     }
 
     public void R(String str) {
-        this.f63463i = str;
+        this.f67181i = str;
     }
 
     public void S(String str) {
@@ -207,11 +207,11 @@ public abstract class b extends d.a.m0.r.q.a implements PreLoadImageProvider {
     }
 
     public void U(int i2) {
-        this.f63462h = i2;
+        this.f67180h = i2;
     }
 
     public void V(String str) {
-        this.f63461g = str;
+        this.f67179g = str;
     }
 
     public void W(int i2) {
@@ -223,51 +223,51 @@ public abstract class b extends d.a.m0.r.q.a implements PreLoadImageProvider {
     }
 
     public void Y(String str) {
-        this.f63460f = str;
+        this.f67178f = str;
+    }
+
+    @Override // d.a.m0.r.q.a
+    public v0 c() {
+        SparseArray<String> sparseArray;
+        if (i() == null || (sparseArray = this.feedBackReasonMap) == null || sparseArray.size() <= 0) {
+            return null;
+        }
+        v0 v0Var = new v0();
+        v0Var.n(i().z1());
+        v0Var.k(i().c0());
+        v0Var.m(i().M0());
+        v0Var.j(this.feedBackReasonMap);
+        v0Var.j = this.f67178f;
+        v0Var.k = this.f67179g;
+        v0Var.l = this.m;
+        v0Var.m = i().Z;
+        return v0Var;
+    }
+
+    @Override // d.a.m0.r.q.a
+    public String g() {
+        return this.f67179g + "#" + this.f67180h + "#" + this.f67181i;
     }
 
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
-        a2 m = m();
-        if (m != null) {
-            return m.getImages();
+        a2 i2 = i();
+        if (i2 != null) {
+            return i2.getImages();
         }
         return null;
     }
 
     @Override // d.a.m0.r.q.a
-    public v0 h() {
-        SparseArray<String> sparseArray;
-        if (m() == null || (sparseArray = this.feedBackReasonMap) == null || sparseArray.size() <= 0) {
-            return null;
-        }
-        v0 v0Var = new v0();
-        v0Var.n(m().y1());
-        v0Var.k(m().c0());
-        v0Var.m(m().M0());
-        v0Var.j(this.feedBackReasonMap);
-        v0Var.j = this.f63460f;
-        v0Var.k = this.f63461g;
-        v0Var.l = this.m;
-        v0Var.m = m().Z;
-        return v0Var;
+    public a2 i() {
+        return null;
     }
 
     public boolean isValid() {
         return true;
     }
 
-    @Override // d.a.m0.r.q.a
-    public String l() {
-        return this.f63461g + "#" + this.f63462h + "#" + this.f63463i;
-    }
-
-    @Override // d.a.m0.r.q.a
-    public a2 m() {
-        return null;
-    }
-
     public String z() {
-        return this.f63463i;
+        return this.f67181i;
     }
 }

@@ -8,30 +8,30 @@ import java.util.concurrent.Future;
 public abstract class b<T> implements Runnable {
 
     /* renamed from: f  reason: collision with root package name */
-    public static HandlerC0537b f39855f;
+    public static HandlerC0593b f43536f;
 
     /* renamed from: e  reason: collision with root package name */
-    public Future<T> f39856e;
+    public Future<T> f43537e;
 
     /* loaded from: classes2.dex */
     public static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f39857a;
+        public final b f43538a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f39858b;
+        public final T f43539b;
 
         public a(b bVar, T t) {
-            this.f39857a = bVar;
-            this.f39858b = t;
+            this.f43538a = bVar;
+            this.f43539b = t;
         }
     }
 
     /* renamed from: d.a.f0.a.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class HandlerC0537b extends Handler {
-        public HandlerC0537b(Looper looper) {
+    public static class HandlerC0593b extends Handler {
+        public HandlerC0593b(Looper looper) {
             super(looper);
         }
 
@@ -40,29 +40,29 @@ public abstract class b<T> implements Runnable {
             a aVar = (a) message.obj;
             int i2 = message.what;
             if (i2 == 1) {
-                aVar.f39857a.g(aVar.f39858b);
+                aVar.f43538a.g(aVar.f43539b);
             } else if (i2 == 2) {
-                aVar.f39857a.f((Throwable) aVar.f39858b);
+                aVar.f43538a.f((Throwable) aVar.f43539b);
             } else if (i2 != 3) {
             } else {
-                aVar.f39857a.e();
+                aVar.f43538a.e();
             }
         }
     }
 
     public static Handler d() {
-        HandlerC0537b handlerC0537b;
+        HandlerC0593b handlerC0593b;
         synchronized (b.class) {
-            if (f39855f == null) {
-                f39855f = new HandlerC0537b(Looper.getMainLooper());
+            if (f43536f == null) {
+                f43536f = new HandlerC0593b(Looper.getMainLooper());
             }
-            handlerC0537b = f39855f;
+            handlerC0593b = f43536f;
         }
-        return handlerC0537b;
+        return handlerC0593b;
     }
 
     public void a(boolean z) {
-        Future<T> future = this.f39856e;
+        Future<T> future = this.f43537e;
         if (future != null) {
             future.cancel(z);
             d().obtainMessage(3, new a(this, null)).sendToTarget();
@@ -98,7 +98,7 @@ public abstract class b<T> implements Runnable {
     }
 
     public void h(Future future) {
-        this.f39856e = future;
+        this.f43537e = future;
     }
 
     public void i(long j) {

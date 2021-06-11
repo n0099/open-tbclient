@@ -2,7 +2,7 @@ package org.apache.http.cookie;
 
 import java.util.Date;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface Cookie {
     String getComment();
 

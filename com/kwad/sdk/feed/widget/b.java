@@ -13,20 +13,20 @@ import com.kwad.sdk.feed.FeedDownloadActivityProxy;
 import com.kwad.sdk.feed.widget.base.RatioFrameLayout;
 import com.kwad.sdk.widget.KsLogoView;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f33193f;
+    public TextView f35573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f33194g;
+    public ImageView f35574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f33195h;
+    public ImageView f35575h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f33196i;
+    public ImageView f35576i;
     public ImageView j;
     public KsLogoView k;
 
@@ -37,15 +37,15 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f33193f.setText(com.kwad.sdk.core.response.b.a.m(this.f33199b));
+        this.f35573f.setText(com.kwad.sdk.core.response.b.a.n(this.f35579b));
         this.k.a(adTemplate);
-        List<String> E = com.kwad.sdk.core.response.b.a.E(this.f33199b);
-        if (E.size() >= 3) {
-            KSImageLoader.loadFeeImage(this.f33194g, E.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f33198a);
-            KSImageLoader.loadFeeImage(this.f33195h, E.get(1), ((com.kwad.sdk.feed.widget.base.a) this).f33198a);
-            KSImageLoader.loadFeeImage(this.f33196i, E.get(2), ((com.kwad.sdk.feed.widget.base.a) this).f33198a);
+        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f35579b);
+        if (I.size() >= 3) {
+            KSImageLoader.loadFeeImage(this.f35574g, I.get(0), ((com.kwad.sdk.feed.widget.base.a) this).f35578a);
+            KSImageLoader.loadFeeImage(this.f35575h, I.get(1), ((com.kwad.sdk.feed.widget.base.a) this).f35578a);
+            KSImageLoader.loadFeeImage(this.f35576i, I.get(2), ((com.kwad.sdk.feed.widget.base.a) this).f35578a);
         } else {
-            com.kwad.sdk.core.d.a.e("FeedTextAboveGroupImageView", "getImageUrlList size less than three");
+            com.kwad.sdk.core.d.a.d("FeedTextAboveGroupImageView", "getImageUrlList size less than three");
         }
         this.j.setOnClickListener(this);
         setOnClickListener(this);
@@ -53,11 +53,11 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        this.f33193f = (TextView) findViewById(R.id.ksad_ad_desc);
+        this.f35573f = (TextView) findViewById(R.id.ksad_ad_desc);
         ((RatioFrameLayout) findViewById(R.id.ksad_image_container)).setRatio(0.56f);
-        this.f33194g = (ImageView) findViewById(R.id.ksad_ad_image_left);
-        this.f33195h = (ImageView) findViewById(R.id.ksad_ad_image_mid);
-        this.f33196i = (ImageView) findViewById(R.id.ksad_ad_image_right);
+        this.f35574g = (ImageView) findViewById(R.id.ksad_ad_image_left);
+        this.f35575h = (ImageView) findViewById(R.id.ksad_ad_image_mid);
+        this.f35576i = (ImageView) findViewById(R.id.ksad_ad_image_right);
         this.j = (ImageView) findViewById(R.id.ksad_ad_dislike);
         this.k = (KsLogoView) findViewById(R.id.ksad_ad_dislike_logo);
     }
@@ -71,15 +71,15 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public void onClick(View view) {
         if (view == this.j) {
             l();
-        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f33198a, 1) == 1) {
+        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f35578a, 1) == 1) {
             k();
         } else {
-            boolean v = com.kwad.sdk.core.response.b.a.v(this.f33199b);
+            boolean y = com.kwad.sdk.core.response.b.a.y(this.f35579b);
             k();
-            if (v) {
-                FeedDownloadActivityProxy.launch(this.f33201d, ((com.kwad.sdk.feed.widget.base.a) this).f33198a, this.f33200c);
+            if (y) {
+                FeedDownloadActivityProxy.launch(this.f35581d, ((com.kwad.sdk.feed.widget.base.a) this).f35578a, this.f35580c);
             } else {
-                AdWebViewActivityProxy.launch(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f33198a);
+                AdWebViewActivityProxy.launch(getContext(), ((com.kwad.sdk.feed.widget.base.a) this).f35578a);
             }
         }
     }

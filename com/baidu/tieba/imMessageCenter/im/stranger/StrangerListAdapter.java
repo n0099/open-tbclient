@@ -24,8 +24,8 @@ public class StrangerListAdapter extends c {
 
     @Override // d.a.n0.f1.f.i.c
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.f54379b.setDrawBorder(true);
-        aVar.f54379b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.f58068b.setDrawBorder(true);
+        aVar.f58068b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
         if (TextUtils.isEmpty(friendBjhAvatar)) {
             friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
@@ -33,7 +33,7 @@ public class StrangerListAdapter extends c {
         if (TextUtils.isEmpty(friendBjhAvatar)) {
             return;
         }
-        aVar.f54379b.V(friendBjhAvatar, 12, false);
+        aVar.f58068b.U(friendBjhAvatar, 12, false);
     }
 
     @Override // d.a.n0.f1.f.i.c

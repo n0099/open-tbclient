@@ -1,6 +1,7 @@
 package d.g.c.c;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.kwai.video.player.KsMediaMeta;
 import java.util.Collection;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
@@ -21,7 +22,7 @@ public final class n {
 
     public static StringBuilder c(int i2) {
         m.b(i2, "size");
-        return new StringBuilder((int) Math.min(i2 * 8, 1073741824L));
+        return new StringBuilder((int) Math.min(i2 * 8, (long) KsMediaMeta.AV_CH_STEREO_RIGHT));
     }
 
     public static boolean d(Collection<?> collection, Object obj) {

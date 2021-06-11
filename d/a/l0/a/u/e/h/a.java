@@ -18,32 +18,32 @@ import org.json.JSONObject;
 public class a extends d {
 
     /* renamed from: d  reason: collision with root package name */
-    public View f45014d;
+    public View f48688d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45015e;
+    public int f48689e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f45016f;
+    public ViewTreeObserver.OnGlobalLayoutListener f48690f;
 
     /* renamed from: d.a.l0.a.u.e.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class ViewTreeObserver$OnGlobalLayoutListenerC0850a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public ViewTreeObserver$OnGlobalLayoutListenerC0850a() {
+    public class ViewTreeObserver$OnGlobalLayoutListenerC0906a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public ViewTreeObserver$OnGlobalLayoutListenerC0906a() {
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
-            a.this.f45014d.getWindowVisibleDisplayFrame(rect);
+            a.this.f48688d.getWindowVisibleDisplayFrame(rect);
             int height = rect.height();
-            if (a.this.f45015e == height) {
+            if (a.this.f48689e == height) {
                 return;
             }
-            if (a.this.f45015e - height <= 180) {
-                if (height - a.this.f45015e > 180) {
-                    if (d.f44812c) {
-                        Log.d("Api-GetKeyboardHeight", "onKeyBoardHide: mRootViewVisibleHeight " + a.this.f45015e + " visibleHeight " + height);
+            if (a.this.f48689e - height <= 180) {
+                if (height - a.this.f48689e > 180) {
+                    if (d.f48486c) {
+                        Log.d("Api-GetKeyboardHeight", "onKeyBoardHide: mRootViewVisibleHeight " + a.this.f48689e + " visibleHeight " + height);
                     }
                     HashMap hashMap = new HashMap();
                     JSONObject jSONObject = new JSONObject();
@@ -54,24 +54,24 @@ public class a extends d {
                     }
                     hashMap.put("data", jSONObject.toString());
                     f.V().v(new b("keyboardHeightChange", hashMap));
-                    a.this.f45015e = height;
+                    a.this.f48689e = height;
                     return;
                 }
                 return;
             }
-            if (d.f44812c) {
-                Log.d("Api-GetKeyboardHeight", "onKeyBoardShow: mRootViewVisibleHeight " + a.this.f45015e + " visibleHeight " + height);
+            if (d.f48486c) {
+                Log.d("Api-GetKeyboardHeight", "onKeyBoardShow: mRootViewVisibleHeight " + a.this.f48689e + " visibleHeight " + height);
             }
             HashMap hashMap2 = new HashMap();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("height", n0.K(a.this.f45015e - height));
+                jSONObject2.put("height", n0.K(a.this.f48689e - height));
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
             hashMap2.put("data", jSONObject2.toString());
             f.V().v(new b("keyboardHeightChange", hashMap2));
-            a.this.f45015e = height;
+            a.this.f48689e = height;
         }
     }
 
@@ -85,26 +85,26 @@ public class a extends d {
             d.a.l0.a.e0.d.b("Api-GetKeyboardHeight", "activity is null");
             return;
         }
-        this.f45014d = activity.getWindow().getDecorView();
+        this.f48688d = activity.getWindow().getDecorView();
         Rect rect = new Rect();
-        this.f45014d.getWindowVisibleDisplayFrame(rect);
-        this.f45015e = rect.height();
-        if (this.f45016f == null) {
-            this.f45016f = new ViewTreeObserver$OnGlobalLayoutListenerC0850a();
-            this.f45014d.getViewTreeObserver().addOnGlobalLayoutListener(this.f45016f);
+        this.f48688d.getWindowVisibleDisplayFrame(rect);
+        this.f48689e = rect.height();
+        if (this.f48690f == null) {
+            this.f48690f = new ViewTreeObserver$OnGlobalLayoutListenerC0906a();
+            this.f48688d.getViewTreeObserver().addOnGlobalLayoutListener(this.f48690f);
         }
     }
 
     public void v() {
-        if (this.f45016f != null) {
-            this.f45014d.getViewTreeObserver().removeOnGlobalLayoutListener(this.f45016f);
+        if (this.f48690f != null) {
+            this.f48688d.getViewTreeObserver().removeOnGlobalLayoutListener(this.f48690f);
         }
-        this.f45016f = null;
-        this.f45015e = 0;
+        this.f48690f = null;
+        this.f48689e = 0;
     }
 
     public d.a.l0.a.u.h.b w() {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-GetKeyboardHeight", "handle: ");
         }
         if (e.Q() == null) {
@@ -115,7 +115,7 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b x() {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-GetKeyboardHeight", "handle");
         }
         if (e.Q() == null) {

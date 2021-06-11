@@ -67,7 +67,7 @@ public class AlaUserInfoData extends OrmObject {
         }
     }
 
-    public void s(AlaUserInfo alaUserInfo) {
+    public void w(AlaUserInfo alaUserInfo) {
         if (alaUserInfo == null) {
             return;
         }

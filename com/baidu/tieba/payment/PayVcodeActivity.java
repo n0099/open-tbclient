@@ -31,7 +31,7 @@ import d.a.n0.e3.l0.a;
 import d.a.n0.e3.l0.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public static final String JS_CANCEL_VCODE = "jsCancelVcode";
     public static final String JS_CHANGE_VCODE = "jsChangeVcode";
@@ -61,7 +61,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            PayVcodeActivity.this.mView.l(false);
+            PayVcodeActivity.this.mView.m(false);
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponsePayNewVcodeInfoMessage)) {
                 return;
             }
@@ -88,8 +88,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void changeVcode() {
-        this.mView.l(true);
-        this.mModel.t();
+        this.mView.m(true);
+        this.mModel.x();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -97,8 +97,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         if (StringUtils.isNull(this.mVcodeChangeCallBack)) {
             return;
         }
-        BaseWebView h2 = this.mView.h();
-        h2.loadUrl("javascript:" + this.mVcodeChangeCallBack + "()");
+        BaseWebView i2 = this.mView.i();
+        i2.loadUrl("javascript:" + this.mVcodeChangeCallBack + "()");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,8 +111,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         if (StringUtils.isNull(this.mVcodeInputCallback) || !this.mVcodeLoadSuccess) {
             return;
         }
-        BaseWebView h2 = this.mView.h();
-        h2.loadUrl("javascript:" + this.mVcodeInputCallback + "()");
+        BaseWebView i2 = this.mView.i();
+        i2.loadUrl("javascript:" + this.mVcodeInputCallback + "()");
     }
 
     private void initData(Bundle bundle) {
@@ -152,20 +152,20 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 if (PayVcodeActivity.this.mVcodeLoadSuccess) {
                     return;
                 }
-                PayVcodeActivity.this.mView.l(true);
-                PayVcodeActivity.this.mView.h().stopLoading();
-                PayVcodeActivity.this.mView.h().loadUrl(PayVcodeActivity.this.mUrl);
+                PayVcodeActivity.this.mView.m(true);
+                PayVcodeActivity.this.mView.i().stopLoading();
+                PayVcodeActivity.this.mView.i().loadUrl(PayVcodeActivity.this.mUrl);
             }
         });
         b bVar = new b(this);
         bVar.a(this.jsCallback);
-        this.mView.h().setWebChromeClient(bVar);
-        this.mView.h().setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
+        this.mView.i().setWebChromeClient(bVar);
+        this.mView.i().setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
-                PayVcodeActivity.this.mView.l(false);
-                PayVcodeActivity.this.mView.k(!PayVcodeActivity.this.mVcodeLoadSuccess);
+                PayVcodeActivity.this.mView.m(false);
+                PayVcodeActivity.this.mView.l(!PayVcodeActivity.this.mVcodeLoadSuccess);
             }
         });
         this.mView.d().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.7
@@ -178,12 +178,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadWebView() {
-        this.mView.l(true);
-        this.mView.h().loadUrl(this.mUrl);
+        this.mView.m(true);
+        this.mView.i().loadUrl(this.mUrl);
     }
 
     private void register() {
-        this.mModel.s();
+        this.mModel.w();
         registerListener(this.mNewVcodeInfoListener);
     }
 
@@ -222,7 +222,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             public void onAnimationStart(Animation animation) {
             }
         });
-        this.mView.g().startAnimation(loadAnimation);
+        this.mView.h().startAnimation(loadAnimation);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -305,7 +305,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             @Override // d.a.n0.e3.l0.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                 if (PayVcodeActivity.this.jsBridge != null) {
-                    return PayVcodeActivity.this.jsBridge.b(PayVcodeActivity.this.mView.h(), str, jsPromptResult);
+                    return PayVcodeActivity.this.jsBridge.b(PayVcodeActivity.this.mView.i(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -373,7 +373,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             public void onAnimationStart(Animation animation) {
             }
         });
-        this.mView.g().startAnimation(loadAnimation);
+        this.mView.h().startAnimation(loadAnimation);
         this.mHasShowAnim = true;
     }
 }

@@ -1,112 +1,112 @@
 package d.a.c.j;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.style.DynamicDrawableSpan;
-import java.io.InputStream;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.titan.TitanDownloadService;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.pms.bean.CheckData;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.callback.IDataInterceptor;
+import com.baidu.searchbox.pms.callback.PackageCallback;
+import com.baidu.searchbox.pms.download.DownloadOptions;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.searchbox.pms.init.response.ParseUtils;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g extends DynamicDrawableSpan {
-
-    /* renamed from: e  reason: collision with root package name */
-    public Drawable f39327e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Uri f39328f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f39329g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Context f39330h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public a f39331i;
-    public Rect j;
+public class g extends RequestParams.Channel {
 
     /* loaded from: classes.dex */
-    public interface a {
-        Drawable a(g gVar);
-    }
-
-    public g(a aVar, int i2, int i3) {
-        super(i3);
-        this.j = new Rect();
-        this.f39329g = i2;
-        this.f39331i = aVar;
-    }
-
-    public void a(Drawable drawable) {
-        this.f39327e = drawable;
-    }
-
-    public void b(int i2, int i3, int i4, int i5) {
-        this.j.set(i2, i3, i4, i5);
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
-        Drawable drawable = getDrawable();
-        if (drawable == null) {
-            return;
+    public static class b implements IDataInterceptor {
+        public b() {
         }
-        canvas.save();
-        int i7 = drawable.getBounds().bottom;
-        if (((DynamicDrawableSpan) this).mVerticalAlignment == 0) {
-            i5 = i6;
-        }
-        canvas.translate(f2, i5 - (drawable.getBounds().bottom - 4));
-        drawable.draw(canvas);
-        canvas.restore();
-    }
 
-    @Override // android.text.style.DynamicDrawableSpan
-    public Drawable getDrawable() {
-        Drawable drawable = this.f39327e;
-        if (drawable == null) {
-            a aVar = this.f39331i;
-            drawable = aVar != null ? aVar.a(this) : null;
+        @Override // com.baidu.searchbox.pms.callback.IDataInterceptor
+        public JSONObject getUploadData() {
+            h d2 = h.d();
+            d2.g();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("com.baidu.titan.patch", String.valueOf(d2.b()));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            Log.d(TitanDownloadService.TAG, "get upload data");
+            return jSONObject;
         }
-        if (drawable != null) {
-            return drawable;
-        }
-        try {
-            if (this.f39328f != null) {
-                InputStream openInputStream = this.f39330h.getContentResolver().openInputStream(this.f39328f);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(this.f39330h.getResources(), BitmapFactory.decodeStream(openInputStream));
-                try {
-                    bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-                    openInputStream.close();
-                    return bitmapDrawable;
-                } catch (Exception unused) {
-                    drawable = bitmapDrawable;
+
+        @Override // com.baidu.searchbox.pms.callback.IDataInterceptor
+        public CheckData onReceiveData(JSONObject jSONObject, int i2, int i3, String str) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject2 = jSONObject.getJSONObject("com.baidu.titan.patch");
+                PackageInfo parsePkgItem = ParseUtils.parsePkgItem("126", "com.baidu.titan.patch", jSONObject2);
+                CheckData checkData = new CheckData();
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("product", "126/com.baidu.titan.patch");
+                if (parsePkgItem != null && parsePkgItem.updateVersion > 0) {
+                    DownloadOptions downloadOptions = new DownloadOptions();
+                    downloadOptions.saveToDb = false;
+                    PmsManager.getInstance().download(parsePkgItem, downloadOptions, new c());
+                    if (!TextUtils.isEmpty(parsePkgItem.downloadUrl)) {
+                        jSONObject3.put("valid", 1);
+                    } else {
+                        jSONObject3.put("valid", 0);
+                    }
+                    jSONObject3.put("version", parsePkgItem.updateVersion);
                 }
-            } else {
-                drawable = this.f39330h.getResources().getDrawable(this.f39329g);
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                ArrayList arrayList = new ArrayList();
+                checkData.items = arrayList;
+                arrayList.add(jSONObject2);
+                checkData.totalCount = 1;
+                checkData.successCount = 1;
+                return checkData;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
             }
-        } catch (Exception unused2) {
         }
-        return drawable;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.f39327e == null && this.f39331i != null) {
-            if (fontMetricsInt != null) {
-                int i4 = -this.j.bottom;
-                fontMetricsInt.ascent = i4;
-                fontMetricsInt.descent = 0;
-                fontMetricsInt.top = i4;
-                fontMetricsInt.bottom = 0;
+    /* loaded from: classes.dex */
+    public static class c extends DefaultDownloadCallback {
+
+        /* loaded from: classes.dex */
+        public class a implements f {
+            public a(c cVar) {
             }
-            return this.j.right;
+
+            @Override // d.a.c.j.f
+            public void a(String str, int i2, String str2) {
+                if (d.a.c.j.a.f42853a) {
+                    Log.d(TitanDownloadService.TAG, "install " + str + " result: " + i2);
+                }
+            }
         }
-        return super.getSize(paint, charSequence, i2, i3, fontMetricsInt);
+
+        public c() {
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+        public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+            super.onDownloadError(packageInfo, errorInfo);
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+        public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+            super.onDownloadSuccess(packageInfo, errorInfo);
+            j.b(AppRuntime.getAppContext(), new a(this), packageInfo, false);
+        }
+    }
+
+    public g() {
+        super("126", "com.baidu.titan.patch", (PackageCallback) null);
+        setDataInterceptor(new b());
     }
 }

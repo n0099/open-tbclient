@@ -1,7 +1,7 @@
 package org.apache.http.entity.mime;
 
 import org.apache.http.entity.mime.content.ContentBody;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FormBodyPart {
     public final ContentBody body;
     public final Header header;

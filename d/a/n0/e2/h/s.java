@@ -9,14 +9,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
 import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
 import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f52975a;
+    public TbPageContext f56664a;
 
     public s(TbPageContext tbPageContext) {
-        this.f52975a = tbPageContext;
+        this.f56664a = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
         socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
@@ -29,7 +29,7 @@ public class s {
         ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
         threadPublishReqMessage.tid = j;
         threadPublishReqMessage.fid = j2;
-        threadPublishReqMessage.setTag(this.f52975a.getUniqueId());
+        threadPublishReqMessage.setTag(this.f56664a.getUniqueId());
         MessageManager.getInstance().sendMessage(threadPublishReqMessage);
     }
 }

@@ -8,17 +8,17 @@ import java.util.Iterator;
 public class b implements a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashSet<LoadingLayout> f49092e = new HashSet<>();
+    public final HashSet<LoadingLayout> f52766e = new HashSet<>();
 
     public void a(LoadingLayout loadingLayout) {
         if (loadingLayout != null) {
-            this.f49092e.add(loadingLayout);
+            this.f52766e.add(loadingLayout);
         }
     }
 
     @Override // d.a.m0.b1.l.a.a
     public void setLastUpdatedLabel(CharSequence charSequence) {
-        Iterator<LoadingLayout> it = this.f49092e.iterator();
+        Iterator<LoadingLayout> it = this.f52766e.iterator();
         while (it.hasNext()) {
             it.next().setLastUpdatedLabel(charSequence);
         }
@@ -26,7 +26,7 @@ public class b implements a {
 
     @Override // d.a.m0.b1.l.a.a
     public void setLoadingDrawable(Drawable drawable) {
-        Iterator<LoadingLayout> it = this.f49092e.iterator();
+        Iterator<LoadingLayout> it = this.f52766e.iterator();
         while (it.hasNext()) {
             it.next().setLoadingDrawable(drawable);
         }
@@ -34,7 +34,7 @@ public class b implements a {
 
     @Override // d.a.m0.b1.l.a.a
     public void setPullLabel(CharSequence charSequence) {
-        Iterator<LoadingLayout> it = this.f49092e.iterator();
+        Iterator<LoadingLayout> it = this.f52766e.iterator();
         while (it.hasNext()) {
             it.next().setPullLabel(charSequence);
         }
@@ -42,7 +42,7 @@ public class b implements a {
 
     @Override // d.a.m0.b1.l.a.a
     public void setRefreshingLabel(CharSequence charSequence) {
-        Iterator<LoadingLayout> it = this.f49092e.iterator();
+        Iterator<LoadingLayout> it = this.f52766e.iterator();
         while (it.hasNext()) {
             it.next().setRefreshingLabel(charSequence);
         }
@@ -50,7 +50,7 @@ public class b implements a {
 
     @Override // d.a.m0.b1.l.a.a
     public void setReleaseLabel(CharSequence charSequence) {
-        Iterator<LoadingLayout> it = this.f49092e.iterator();
+        Iterator<LoadingLayout> it = this.f52766e.iterator();
         while (it.hasNext()) {
             it.next().setReleaseLabel(charSequence);
         }

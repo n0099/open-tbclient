@@ -11,7 +11,7 @@ public class a {
 
     /* renamed from: d.a.n0.r0.l2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1507a extends BdAsyncTask<String, Integer, Integer> {
+    public static class C1563a extends BdAsyncTask<String, Integer, Integer> {
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x0026 */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0036 */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0004 */
@@ -83,6 +83,6 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        new C1507a().execute(str + "&TIME=" + System.currentTimeMillis());
+        new C1563a().execute(str + "&TIME=" + System.currentTimeMillis());
     }
 }

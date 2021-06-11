@@ -1,26 +1,26 @@
 package d.a.n0.e2;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f52811a;
+    public int f56500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f52812b;
+    public T f56501b;
 
     public T a() {
-        return this.f52812b;
+        return this.f56501b;
     }
 
     public int b() {
-        return this.f52811a;
+        return this.f56500a;
     }
 
     public void c(T t) {
-        this.f52812b = t;
+        this.f56501b = t;
     }
 
     public void d(int i2) {
-        this.f52811a = i2;
+        this.f56500a = i2;
     }
 }

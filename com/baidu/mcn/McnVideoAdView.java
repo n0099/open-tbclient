@@ -25,19 +25,19 @@ public class McnVideoAdView extends FrameLayout {
     public static final int t = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112);
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f7954e;
+    public Context f7997e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f7955f;
+    public TbImageView f7998f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f7956g;
+    public TextView f7999g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f7957h;
+    public TextView f8000h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f7958i;
+    public Animation f8001i;
     public Animation j;
     public float k;
     public float l;
@@ -93,7 +93,7 @@ public class McnVideoAdView extends FrameLayout {
         super(context);
         this.m = false;
         this.p = new Handler();
-        this.f7954e = context;
+        this.f7997e = context;
         h();
     }
 
@@ -102,14 +102,14 @@ public class McnVideoAdView extends FrameLayout {
             return;
         }
         this.n = aVar;
-        this.f7955f.V(aVar.f64842a, 10, false);
-        if (!StringUtils.isNull(aVar.f64843b)) {
-            this.f7956g.setText(aVar.f64843b);
+        this.f7998f.U(aVar.f68560a, 10, false);
+        if (!StringUtils.isNull(aVar.f68561b)) {
+            this.f7999g.setText(aVar.f68561b);
         }
-        if (StringUtils.isNull(aVar.f64844c)) {
+        if (StringUtils.isNull(aVar.f68562c)) {
             return;
         }
-        this.f7957h.setText(aVar.f64844c);
+        this.f8000h.setText(aVar.f68562c);
     }
 
     public final void d() {
@@ -119,8 +119,8 @@ public class McnVideoAdView extends FrameLayout {
     public final void e() {
         d.a.x.a aVar;
         String str;
-        Context context = this.f7954e;
-        if (context == null || (aVar = this.n) == null || (str = aVar.f64845d) == null) {
+        Context context = this.f7997e;
+        if (context == null || (aVar = this.n) == null || (str = aVar.f68563d) == null) {
             return;
         }
         y.d(context, str, null, null);
@@ -142,16 +142,16 @@ public class McnVideoAdView extends FrameLayout {
     }
 
     public final void h() {
-        LayoutInflater.from(this.f7954e).inflate(R.layout.mcn_video_ad_layout, this);
-        this.f7955f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
-        this.f7956g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
-        this.f7957h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
-        this.f7955f.setConrers(5);
-        this.f7955f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
-        this.f7955f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-        this.f7955f.setRadius(l.g(this.f7954e, R.dimen.tbds20));
-        this.f7958i = AnimationUtils.loadAnimation(this.f7954e, R.anim.mcn_video_ad_open_anim);
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f7954e, R.anim.mcn_video_ad_close_anim);
+        LayoutInflater.from(this.f7997e).inflate(R.layout.mcn_video_ad_layout, this);
+        this.f7998f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
+        this.f7999g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
+        this.f8000h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
+        this.f7998f.setConrers(5);
+        this.f7998f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
+        this.f7998f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
+        this.f7998f.setRadius(l.g(this.f7997e, R.dimen.tbds20));
+        this.f8001i = AnimationUtils.loadAnimation(this.f7997e, R.anim.mcn_video_ad_open_anim);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f7997e, R.anim.mcn_video_ad_close_anim);
         this.j = loadAnimation;
         loadAnimation.setAnimationListener(new a());
     }
@@ -176,9 +176,9 @@ public class McnVideoAdView extends FrameLayout {
 
     public void l(d.a.x.a aVar, ViewGroup viewGroup) {
         m(aVar, viewGroup);
-        if (this.f7958i != null) {
+        if (this.f8001i != null) {
             clearAnimation();
-            startAnimation(this.f7958i);
+            startAnimation(this.f8001i);
         }
     }
 
@@ -243,7 +243,7 @@ public class McnVideoAdView extends FrameLayout {
         super(context, attributeSet);
         this.m = false;
         this.p = new Handler();
-        this.f7954e = context;
+        this.f7997e = context;
         h();
     }
 
@@ -251,7 +251,7 @@ public class McnVideoAdView extends FrameLayout {
         super(context, attributeSet, i2);
         this.m = false;
         this.p = new Handler();
-        this.f7954e = context;
+        this.f7997e = context;
         h();
     }
 }

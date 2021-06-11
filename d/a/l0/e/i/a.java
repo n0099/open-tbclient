@@ -7,7 +7,7 @@ import com.baidu.pyramid.annotation.Inject;
 public class a {
     @Inject(force = false)
     public static b a() {
-        return d.a.n0.u.b.i.d.a();
+        return d.a.n0.u.b.i.f.a();
     }
 
     @Inject(force = false)

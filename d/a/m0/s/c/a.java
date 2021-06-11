@@ -5,10 +5,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f50407a = false;
+    public boolean f54083a = false;
 
     public boolean a() {
-        return this.f50407a;
+        return this.f54083a;
     }
 
     public void b(JSONObject jSONObject) {
@@ -26,7 +26,7 @@ public class a {
 
     public final void c(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f50407a = true;
+            this.f54083a = true;
         }
     }
 

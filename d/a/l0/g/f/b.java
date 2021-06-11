@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class b implements f1 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47078b = k.f43199a;
+    public static final boolean f50752b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, a> f47079a = new HashMap<>();
+    public HashMap<String, a> f50753a = new HashMap<>();
 
     public b() {
         c();
@@ -29,14 +29,14 @@ public class b implements f1 {
     }
 
     public final d.a.l0.a.u.h.b b(String str, JSONObject jSONObject, d.a.l0.a.u0.b bVar) {
-        a aVar = this.f47079a.get(str);
+        a aVar = this.f50753a.get(str);
         if (aVar != null) {
-            if (f47078b) {
+            if (f50752b) {
                 Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
             }
             return aVar.a(jSONObject, bVar);
         }
-        if (f47078b) {
+        if (f50752b) {
             Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
         }
         return new d.a.l0.a.u.h.b(10002, "no such api.");
@@ -64,12 +64,12 @@ public class b implements f1 {
     }
 
     public void d(a aVar) {
-        if (f47078b && TextUtils.isEmpty(aVar.f47077a)) {
+        if (f50752b && TextUtils.isEmpty(aVar.f50751a)) {
             throw new IllegalArgumentException("action name is null");
         }
-        if (f47078b && this.f47079a.containsKey(aVar.f47077a)) {
+        if (f50752b && this.f50753a.containsKey(aVar.f50751a)) {
             throw new IllegalArgumentException("duplicate action: " + aVar);
         }
-        this.f47079a.put(aVar.f47077a, aVar);
+        this.f50753a.put(aVar.f50751a, aVar);
     }
 }

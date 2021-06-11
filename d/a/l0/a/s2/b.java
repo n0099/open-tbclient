@@ -13,46 +13,46 @@ import d.a.l0.a.l;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44691a = k.f43199a;
+    public static final boolean f48365a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f44692b;
+    public static String f48366b;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: f  reason: collision with root package name */
-        public static String f44693f = "%s/%s";
+        public static String f48367f = "%s/%s";
 
         /* renamed from: g  reason: collision with root package name */
-        public static String f44694g = "%s-%s/%s";
+        public static String f48368g = "%s-%s/%s";
 
         /* renamed from: h  reason: collision with root package name */
-        public static String f44695h = "(Baidu; P1 %s)";
+        public static String f48369h = "(Baidu; P1 %s)";
 
         /* renamed from: i  reason: collision with root package name */
-        public static String f44696i = "%s/%s";
+        public static String f48370i = "%s/%s";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44697a;
+        public String f48371a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44698b;
+        public String f48372b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44699c;
+        public String f48373c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44700d;
+        public String f48374d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f44701e;
+        public String f48375e;
 
         public String a() {
-            String format = String.format(f44693f, this.f44697a, this.f44698b);
-            String format2 = String.format(f44694g, this.f44697a, this.f44699c, this.f44700d);
-            String format3 = String.format(f44696i, this.f44699c, this.f44700d);
-            String format4 = String.format(f44695h, this.f44701e);
+            String format = String.format(f48367f, this.f48371a, this.f48372b);
+            String format2 = String.format(f48368g, this.f48371a, this.f48373c, this.f48374d);
+            String format3 = String.format(f48370i, this.f48373c, this.f48374d);
+            String format4 = String.format(f48369h, this.f48375e);
             if (e()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
@@ -60,31 +60,31 @@ public class b {
         }
 
         public a b(String str) {
-            this.f44697a = str;
+            this.f48371a = str;
             return this;
         }
 
         public a c(String str) {
-            this.f44699c = str;
+            this.f48373c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f44700d = str;
+            this.f48374d = str;
             return this;
         }
 
         public final boolean e() {
-            return TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, this.f44699c);
+            return TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, this.f48373c);
         }
 
         public a f(String str) {
-            this.f44701e = str;
+            this.f48375e = str;
             return this;
         }
 
         public a g(String str) {
-            this.f44698b = str;
+            this.f48372b = str;
             return this;
         }
     }
@@ -118,15 +118,15 @@ public class b {
     }
 
     public static String f() {
-        if (!TextUtils.isEmpty(f44692b)) {
-            return f44692b;
+        if (!TextUtils.isEmpty(f48366b)) {
+            return f48366b;
         }
         try {
             String str = a().getPackageManager().getPackageInfo(a().getPackageName(), 0).versionName;
-            f44692b = str;
+            f48366b = str;
             return str;
         } catch (PackageManager.NameNotFoundException e2) {
-            if (f44691a) {
+            if (f48365a) {
                 e2.printStackTrace();
                 return "0.8";
             }

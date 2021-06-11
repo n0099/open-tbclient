@@ -8,25 +8,25 @@ import d.a.l0.n.j.i.m;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f44520c;
+    public static final int f48194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f44521d;
+    public static boolean f48195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44522e;
+    public static final boolean f48196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f44523f;
+    public static final boolean f48197f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f44524g;
+    public static final int f48198g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f44525h;
+    public static final int f48199h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f44526i;
+    public static final int f48200i;
     public static final int j;
     public static final boolean k;
     public static final int l;
@@ -35,12 +35,12 @@ public class b {
     public static final int q;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44518a = k.f43199a;
+    public static final boolean f48192a = k.f46875a;
     public static int m = -1;
     public static int n = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f44519b = p("swan_get_swan_id_cache");
+    public static boolean f48193b = p("swan_get_swan_id_cache");
 
     static {
         p("swan_pms_use_outback");
@@ -48,18 +48,18 @@ public class b {
         p("swan_outback_use_independent_pool");
         p("swan_outback_support_quic");
         d.a.l0.a.c1.a.Z().getSwitch("swan_preload_game_strategy", 0);
-        f44520c = 0;
+        f48194c = 0;
         boolean p2 = p("swan_mbd_request_use_http2");
-        f44521d = p2;
-        l.f48154a = p2;
-        f44522e = p("swan_memorywarning_alert_switch");
-        f44523f = p("swan_memorywarning_not_show_dialog");
+        f48195d = p2;
+        l.f51828a = p2;
+        f48196e = p("swan_memorywarning_alert_switch");
+        f48197f = p("swan_memorywarning_not_show_dialog");
         d.a.l0.a.c1.a.Z().getSwitch("swan_memorywarning_memory_ratio", 80);
-        f44524g = 80;
+        f48198g = 80;
         d.a.l0.a.c1.a.Z().getSwitch("swan_memorywarning_interval", 30);
-        f44525h = 30;
+        f48199h = 30;
         d.a.l0.a.c1.a.Z().getSwitch("swan_memorywarning_alert_interval", 300);
-        f44526i = 300;
+        f48200i = 300;
         d.a.l0.a.c1.a.Z().getSwitch("swan_memorywarning_release_interval", 5);
         j = 5;
         k = p("swan_watchdog_switch");
@@ -71,7 +71,7 @@ public class b {
         p = 0;
         o = p("swan_670_append_request_info");
         d.a.l0.a.c1.a.Z().getSwitch("swan_description_online_control", 0);
-        m.f48157a = 0;
+        m.f51831a = 0;
     }
 
     public static int a() {
@@ -95,19 +95,19 @@ public class b {
     }
 
     public static int e() {
-        return f44526i;
+        return f48200i;
     }
 
     public static int f() {
-        return f44525h;
+        return f48199h;
     }
 
     public static int g() {
-        return f44524g;
+        return f48198g;
     }
 
     public static int h() {
-        return f44520c;
+        return f48194c;
     }
 
     public static int i() {
@@ -115,7 +115,7 @@ public class b {
     }
 
     public static boolean j() {
-        return f44519b;
+        return f48193b;
     }
 
     public static boolean k() {
@@ -131,20 +131,20 @@ public class b {
     }
 
     public static boolean m() {
-        return f44521d;
+        return f48195d;
     }
 
     public static boolean n() {
-        return f44523f;
+        return f48197f;
     }
 
     public static boolean o() {
-        return f44522e;
+        return f48196e;
     }
 
     public static boolean p(String str) {
         d.a.l0.a.c1.a.Z().getSwitch(str, 0);
-        if (f44518a) {
+        if (f48192a) {
             Log.d("SwanApiCostOpt", str + " value : 0");
         }
         return false;

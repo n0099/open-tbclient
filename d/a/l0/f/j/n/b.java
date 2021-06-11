@@ -10,7 +10,7 @@ import java.util.Collection;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadManager f46889a;
+    public DownloadManager f50563a;
 
     /* loaded from: classes3.dex */
     public class a implements DownloadManager.DownloadItemFilter {
@@ -25,23 +25,23 @@ public class b {
 
     /* renamed from: d.a.l0.f.j.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0991b implements DownloadManager.DownloadItemFilter {
+    public class C1047b implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46890a;
+        public final /* synthetic */ String f50564a;
 
-        public C0991b(b bVar, String str) {
-            this.f46890a = str;
+        public C1047b(b bVar, String str) {
+            this.f50564a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return download != null && TextUtils.equals(download.getKeyByUser(), this.f46890a);
+            return download != null && TextUtils.equals(download.getKeyByUser(), this.f50564a);
         }
     }
 
     public b(DownloadManager downloadManager) {
-        this.f46889a = downloadManager;
+        this.f50563a = downloadManager;
     }
 
     public static boolean c(Download download) {
@@ -58,7 +58,7 @@ public class b {
     }
 
     public synchronized void a() {
-        Collection<Download> downloadListByFilter = this.f46889a.getDownloadListByFilter(new a(this));
+        Collection<Download> downloadListByFilter = this.f50563a.getDownloadListByFilter(new a(this));
         if (downloadListByFilter == null) {
             return;
         }
@@ -72,7 +72,7 @@ public class b {
                 return;
             }
             if (download != null) {
-                this.f46889a.cancel(download.getId().longValue());
+                this.f50563a.cancel(download.getId().longValue());
             }
             i2++;
         }
@@ -83,12 +83,12 @@ public class b {
         if (TextUtils.isEmpty(str) || (d2 = d(str)) == null) {
             return;
         }
-        this.f46889a.cancel(d2.getId().longValue());
+        this.f50563a.cancel(d2.getId().longValue());
     }
 
     public Download d(String str) {
         Collection<Download> downloadListByFilter;
-        if (TextUtils.isEmpty(str) || (downloadListByFilter = this.f46889a.getDownloadListByFilter(new C0991b(this, str))) == null) {
+        if (TextUtils.isEmpty(str) || (downloadListByFilter = this.f50563a.getDownloadListByFilter(new C1047b(this, str))) == null) {
             return null;
         }
         for (Download download : downloadListByFilter) {

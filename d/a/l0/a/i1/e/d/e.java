@@ -13,7 +13,7 @@ import java.util.List;
 public class e implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42906a = k.f43199a;
+    public static final boolean f46582a = k.f46875a;
 
     @Override // d.a.l0.a.i1.e.d.c
     public Bitmap decode(Context context, Uri uri) throws Exception {
@@ -67,7 +67,7 @@ public class e implements c {
             }
         }
         if (bitmap == null) {
-            if (!f42906a) {
+            if (!f46582a) {
                 d.a.l0.a.e0.d.h("SkiaImageDecoder", "bitmap is null");
             } else {
                 throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");

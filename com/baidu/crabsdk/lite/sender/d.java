@@ -17,7 +17,7 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class d {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x003b */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0060 */
@@ -167,7 +167,7 @@ public final class d {
         synchronized (d.class) {
             com.baidu.crabsdk.lite.b.a.f(str, "writeFile: " + str2);
             c.i(str, str2);
-            if (com.baidu.crabsdk.lite.a.f4647i) {
+            if (com.baidu.crabsdk.lite.a.f4666i) {
                 try {
                     String b2 = com.baidu.crabsdk.lite.b.d.b(UUID.randomUUID().toString(), UUID.randomUUID().toString());
                     str3 = com.baidu.crabsdk.lite.b.d.d(str3, b2);

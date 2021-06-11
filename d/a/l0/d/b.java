@@ -9,14 +9,14 @@ public class b extends j {
 
     /* renamed from: d.a.l0.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C0963b {
+    public static final class C1019b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f46518a = new b();
+        public static final b f50192a = new b();
     }
 
     public static b g() {
-        return C0963b.f46518a;
+        return C1019b.f50192a;
     }
 
     public b() {

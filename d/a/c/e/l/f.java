@@ -3,31 +3,31 @@ package d.a.c.e.l;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38710a;
+    public int f42363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38711b;
+    public int f42364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f38712c;
+    public long f42365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38713d;
+    public int f42366d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38714e;
+    public int f42367e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f38715f;
+    public long f42368f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38716g;
+    public int f42369g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38717h;
+    public int f42370h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f38718i;
+    public long f42371i;
     public int j;
     public long k;
     public int l;
@@ -47,15 +47,15 @@ public class f {
     public long z;
 
     public void a() {
-        this.f38710a = 0;
-        this.f38711b = 0;
-        this.f38712c = 0L;
-        this.f38713d = 0;
-        this.f38714e = 0;
-        this.f38715f = 0L;
-        this.f38716g = 0;
-        this.f38717h = 0;
-        this.f38718i = 0L;
+        this.f42363a = 0;
+        this.f42364b = 0;
+        this.f42365c = 0L;
+        this.f42366d = 0;
+        this.f42367e = 0;
+        this.f42368f = 0L;
+        this.f42369g = 0;
+        this.f42370h = 0;
+        this.f42371i = 0L;
         this.j = 0;
         this.k = 0L;
         this.l = 0;

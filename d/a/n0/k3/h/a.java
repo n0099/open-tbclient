@@ -5,26 +5,26 @@ import tbclient.GetThemeList.ThemeCarousel;
 public class a implements d.a.m0.r.w.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f57117a;
+    public String f60806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57118b;
+    public String f60807b;
 
     @Override // d.a.m0.r.w.b.a
     public String a() {
-        return this.f57117a;
+        return this.f60806a;
     }
 
     @Override // d.a.m0.r.w.b.a
     public String b() {
-        return this.f57118b;
+        return this.f60807b;
     }
 
     public void c(ThemeCarousel themeCarousel) {
         if (themeCarousel == null) {
             return;
         }
-        this.f57117a = themeCarousel.pic_url;
-        this.f57118b = themeCarousel.active_url;
+        this.f60806a = themeCarousel.pic_url;
+        this.f60807b = themeCarousel.active_url;
     }
 }

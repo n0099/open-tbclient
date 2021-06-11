@@ -99,12 +99,12 @@ public final class ExpandedProductResultParser extends ResultParser {
                 c2 = 65535;
             } else if (hashCode != 1567) {
                 if (hashCode == 1568) {
-                    if (findAIvalue.equals(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE)) {
+                    if (findAIvalue.equals("11")) {
                         c2 = 3;
                     }
                     c2 = 65535;
                 } else if (hashCode == 1570) {
-                    if (findAIvalue.equals(Constants.VIA_REPORT_TYPE_JOININ_GROUP)) {
+                    if (findAIvalue.equals("13")) {
                         c2 = 4;
                     }
                     c2 = 65535;

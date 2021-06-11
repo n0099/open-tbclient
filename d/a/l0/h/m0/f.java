@@ -13,31 +13,31 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47476a = k.f43199a;
+    public static final boolean f51150a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f47477b = "bbaspg_guide_";
+    public static String f51151b = "bbaspg_guide_";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f47478c = "custom_guide_list";
+    public static String f51152c = "custom_guide_list";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f47479d = "appid";
+    public static String f51153d = "appid";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f47480e = "shown_count";
+    public static String f51154e = "shown_count";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f47481f = "image_index";
+    public static String f51155f = "image_index";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f47482g = "last_time";
+    public static String f51156g = "last_time";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f47483h = "reset";
+    public static String f51157h = "reset";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f47484i = "duration_permission_list";
+    public static String f51158i = "duration_permission_list";
 
     /* loaded from: classes3.dex */
     public static class a extends StringResponseCallback {
@@ -46,14 +46,14 @@ public class f {
         /* renamed from: a */
         public void onSuccess(String str, int i2) {
             if (200 != i2 || TextUtils.isEmpty(str)) {
-                if (f.f47476a) {
+                if (f.f51150a) {
                     Log.e("SwanGameRevisitUtils", "回访引导配置信息下发异常");
                     return;
                 }
                 return;
             }
             try {
-                if (f.f47476a) {
+                if (f.f51150a) {
                     Log.d("SwanGameRevisitUtils", "回访引导配置信息 = " + str);
                 }
                 JSONObject jSONObject = new JSONObject(str);
@@ -65,9 +65,9 @@ public class f {
                 if (optJSONObject == null || optJSONObject.length() == 0) {
                     return;
                 }
-                JSONArray optJSONArray = optJSONObject.optJSONArray(f.f47484i);
+                JSONArray optJSONArray = optJSONObject.optJSONArray(f.f51158i);
                 if (optJSONArray != null) {
-                    h.a().putString(f.f47484i, optJSONArray.toString());
+                    h.a().putString(f.f51158i, optJSONArray.toString());
                 }
                 if (i3 == null) {
                     f.k(optJSONObject.toString());
@@ -84,7 +84,7 @@ public class f {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (f.f47476a) {
+            if (f.f51150a) {
                 Log.e("SwanGameRevisitUtils", "请求配置信息失败，err = " + exc.getMessage());
             }
         }
@@ -94,15 +94,15 @@ public class f {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47485e;
+        public final /* synthetic */ String f51159e;
 
         public b(String str) {
-            this.f47485e = str;
+            this.f51159e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            h.a().putString("swan_game_guide_toast", this.f47485e);
+            h.a().putString("swan_game_guide_toast", this.f51159e);
         }
     }
 
@@ -111,16 +111,16 @@ public class f {
             return;
         }
         try {
-            if (!TextUtils.equals(jSONObject.optString(f47477b + f47483h, "0"), jSONObject2.optString(f47477b + f47483h, "-1"))) {
-                jSONObject.put(f47477b + f47480e, "0");
-                jSONObject.put(f47477b + f47482g, "0");
-                jSONObject.put(f47477b + f47481f, "0");
+            if (!TextUtils.equals(jSONObject.optString(f51151b + f51157h, "0"), jSONObject2.optString(f51151b + f51157h, "-1"))) {
+                jSONObject.put(f51151b + f51154e, "0");
+                jSONObject.put(f51151b + f51156g, "0");
+                jSONObject.put(f51151b + f51155f, "0");
             } else {
-                jSONObject.put(f47477b + f47480e, jSONObject2.optString(f47477b + f47480e, "0"));
-                jSONObject.put(f47477b + f47482g, jSONObject2.optString(f47477b + f47482g, "0"));
+                jSONObject.put(f51151b + f51154e, jSONObject2.optString(f51151b + f51154e, "0"));
+                jSONObject.put(f51151b + f51156g, jSONObject2.optString(f51151b + f51156g, "0"));
             }
         } catch (JSONException e2) {
-            if (f47476a) {
+            if (f51150a) {
                 e2.printStackTrace();
             }
         }
@@ -129,34 +129,34 @@ public class f {
     public static void h(JSONObject jSONObject, JSONObject jSONObject2) {
         JSONArray optJSONArray;
         JSONArray optJSONArray2;
-        if (jSONObject == null || jSONObject2 == null || (optJSONArray = jSONObject2.optJSONArray(f47478c)) == null || optJSONArray.length() <= 0 || (optJSONArray2 = jSONObject.optJSONArray(f47478c)) == null || optJSONArray2.length() <= 0) {
+        if (jSONObject == null || jSONObject2 == null || (optJSONArray = jSONObject2.optJSONArray(f51152c)) == null || optJSONArray.length() <= 0 || (optJSONArray2 = jSONObject.optJSONArray(f51152c)) == null || optJSONArray2.length() <= 0) {
             return;
         }
         int length = optJSONArray2.length();
         for (int i2 = 0; i2 < length; i2++) {
             JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
-            String optString = optJSONObject.optString(f47479d, "");
-            String optString2 = optJSONObject.optString(f47483h, "0");
+            String optString = optJSONObject.optString(f51153d, "");
+            String optString2 = optJSONObject.optString(f51157h, "0");
             int length2 = optJSONArray.length();
             int i3 = 0;
             while (true) {
                 if (i3 < length2) {
                     JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
-                    String optString3 = optJSONObject2.optString(f47479d, "-1");
-                    String optString4 = optJSONObject2.optString(f47483h, "0");
+                    String optString3 = optJSONObject2.optString(f51153d, "-1");
+                    String optString4 = optJSONObject2.optString(f51157h, "0");
                     if (TextUtils.equals(optString3, optString)) {
                         try {
                             if (!TextUtils.equals(optString4, optString2)) {
-                                optJSONObject.put(f47480e, "0");
-                                optJSONObject.put(f47482g, "0");
-                                optJSONObject.put(f47481f, "0");
+                                optJSONObject.put(f51154e, "0");
+                                optJSONObject.put(f51156g, "0");
+                                optJSONObject.put(f51155f, "0");
                             } else {
-                                optJSONObject.put(f47480e, jSONObject2.optString(f47480e, "0"));
-                                optJSONObject.put(f47482g, jSONObject2.optString(f47482g, "0"));
-                                optJSONObject.put(f47481f, jSONObject2.optString(f47481f, "0"));
+                                optJSONObject.put(f51154e, jSONObject2.optString(f51154e, "0"));
+                                optJSONObject.put(f51156g, jSONObject2.optString(f51156g, "0"));
+                                optJSONObject.put(f51155f, jSONObject2.optString(f51155f, "0"));
                             }
                         } catch (JSONException e2) {
-                            if (f47476a) {
+                            if (f51150a) {
                                 e2.printStackTrace();
                             }
                         }
@@ -176,7 +176,7 @@ public class f {
         try {
             return new JSONObject(string);
         } catch (JSONException e2) {
-            if (f47476a) {
+            if (f51150a) {
                 e2.printStackTrace();
             }
             return null;
@@ -196,7 +196,7 @@ public class f {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (f47476a) {
+        if (f51150a) {
             Log.d("SwanGameRevisitUtils", "回访引导配置信息存入 = " + str);
         }
         q.j(new b(str), "swanGameGuideUpdateRunnable");

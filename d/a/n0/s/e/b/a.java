@@ -19,49 +19,49 @@ import d.a.c.e.p.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public EditText f60360a;
+    public EditText f64049a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f60361b;
+    public TextView f64050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f60362c;
+    public ImageView f64051c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextWatcher f60363d;
+    public TextWatcher f64052d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f60364e;
+    public c f64053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f60365f;
+    public Context f64054f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f60366g;
+    public TbPageContext<?> f64055g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f60367h = new View$OnClickListenerC1588a();
+    public View.OnClickListener f64056h = new View$OnClickListenerC1644a();
 
     /* renamed from: d.a.n0.s.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1588a implements View.OnClickListener {
-        public View$OnClickListenerC1588a() {
+    public class View$OnClickListenerC1644a implements View.OnClickListener {
+        public View$OnClickListenerC1644a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.f60361b) {
-                String charSequence2String = k.charSequence2String(a.this.f60360a.getText(), null);
+            if (view == a.this.f64050b) {
+                String charSequence2String = k.charSequence2String(a.this.f64049a.getText(), null);
                 if (StringUtils.isNULL(charSequence2String)) {
                     return;
                 }
                 if (charSequence2String.trim().length() != 0) {
                     a.this.i(charSequence2String.trim());
-                    a.this.f60361b.setClickable(false);
+                    a.this.f64050b.setClickable(false);
                 } else if (charSequence2String.length() > 0) {
-                    a.this.f60366g.showToast(R.string.input_content);
+                    a.this.f64055g.showToast(R.string.input_content);
                 }
-            } else if (view == a.this.f60362c) {
+            } else if (view == a.this.f64051c) {
                 a.this.k("");
             }
         }
@@ -75,9 +75,9 @@ public class a {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             if (TextUtils.isEmpty(editable)) {
-                a.this.f60362c.setVisibility(8);
+                a.this.f64051c.setVisibility(8);
             } else {
-                a.this.f60362c.setVisibility(0);
+                a.this.f64051c.setVisibility(0);
             }
         }
 
@@ -96,49 +96,49 @@ public class a {
     }
 
     public a(TbPageContext<?> tbPageContext, View view) {
-        this.f60366g = tbPageContext;
-        this.f60365f = tbPageContext.getPageActivity();
-        this.f60360a = (EditText) view.findViewById(R.id.new_search_friend_input);
-        this.f60361b = (TextView) view.findViewById(R.id.new_search_friend_search);
-        this.f60362c = (ImageView) view.findViewById(R.id.new_search_friend_del);
-        this.f60361b.setOnClickListener(this.f60367h);
-        this.f60362c.setOnClickListener(this.f60367h);
+        this.f64055g = tbPageContext;
+        this.f64054f = tbPageContext.getPageActivity();
+        this.f64049a = (EditText) view.findViewById(R.id.new_search_friend_input);
+        this.f64050b = (TextView) view.findViewById(R.id.new_search_friend_search);
+        this.f64051c = (ImageView) view.findViewById(R.id.new_search_friend_del);
+        this.f64050b.setOnClickListener(this.f64056h);
+        this.f64051c.setOnClickListener(this.f64056h);
         b bVar = new b();
-        this.f60363d = bVar;
-        this.f60360a.addTextChangedListener(bVar);
+        this.f64052d = bVar;
+        this.f64049a.addTextChangedListener(bVar);
         f(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void f(int i2) {
-        SkinManager.setViewTextColor(this.f60361b, R.color.CAM_X0111, 1);
-        this.f60360a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        SkinManager.setImageResource(this.f60362c, R.drawable.icon_search_close);
+        SkinManager.setViewTextColor(this.f64050b, R.color.CAM_X0111, 1);
+        this.f64049a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        SkinManager.setImageResource(this.f64051c, R.drawable.icon_search_close);
     }
 
     public void g() {
-        l.x(this.f60365f, this.f60360a);
+        l.x(this.f64054f, this.f64049a);
     }
 
     public void h() {
-        this.f60360a.removeTextChangedListener(this.f60363d);
+        this.f64049a.removeTextChangedListener(this.f64052d);
     }
 
     public final void i(String str) {
-        c cVar = this.f60364e;
+        c cVar = this.f64053e;
         if (cVar != null) {
             cVar.a(str);
         }
     }
 
     public void j(boolean z) {
-        this.f60361b.setClickable(z);
+        this.f64050b.setClickable(z);
     }
 
     public void k(String str) {
-        this.f60360a.setText(str);
+        this.f64049a.setText(str);
     }
 
     public void l(c cVar) {
-        this.f60364e = cVar;
+        this.f64053e = cVar;
     }
 }

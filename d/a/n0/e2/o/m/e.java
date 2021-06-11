@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
-import d.a.c.j.e.w;
+import d.a.c.k.e.n;
+import d.a.c.k.e.w;
 import d.a.i.l0;
 import d.a.i.s;
 import d.a.m0.r.q.a2;
@@ -22,7 +22,7 @@ import d.a.m0.r.q.z1;
 import d.a.n0.e3.h0.m;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class e extends d.a.c.j.e.a<z1, ThreadCardViewHolder<a2>> {
+public class e extends d.a.c.k.e.a<z1, ThreadCardViewHolder<a2>> {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public BdTypeRecyclerView o;
@@ -32,7 +32,7 @@ public class e extends d.a.c.j.e.a<z1, ThreadCardViewHolder<a2>> {
         public a(e eVar) {
         }
 
-        @Override // d.a.c.j.e.w
+        @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             z1 z1Var;
             a2 a2Var;
@@ -53,9 +53,9 @@ public class e extends d.a.c.j.e.a<z1, ThreadCardViewHolder<a2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public ThreadCardViewHolder<a2> P(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<a2> Q(ViewGroup viewGroup) {
         l0.b bVar = new l0.b(this.n.getPageActivity(), false);
         bVar.l().e(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds36));
         s sVar = new s(this.n.getPageActivity());
@@ -64,27 +64,27 @@ public class e extends d.a.c.j.e.a<z1, ThreadCardViewHolder<a2>> {
         l0 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.o);
         k.r(2);
         ThreadCardViewHolder<a2> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-        threadCardViewHolder.j(this.m);
-        Z(new a(this));
+        threadCardViewHolder.k(this.m);
+        a0(new a(this));
         return threadCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder<a2> threadCardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder<a2> threadCardViewHolder) {
         a2 a2Var;
         if (z1Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || (a2Var = z1Var.w) == null) {
             return null;
         }
-        a2Var.N1 = B(i2) + 1;
+        a2Var.O1 = F(i2) + 1;
         threadCardViewHolder.b().q(i2);
         threadCardViewHolder.f(z1Var.w);
         threadCardViewHolder.b().onChangeSkinType(this.n, TbadkCoreApplication.getInst().getSkinType());
         return threadCardViewHolder.a();
     }
 
-    public void g0(BdTypeRecyclerView bdTypeRecyclerView) {
+    public void h0(BdTypeRecyclerView bdTypeRecyclerView) {
         this.o = bdTypeRecyclerView;
     }
 }

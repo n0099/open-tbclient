@@ -11,7 +11,7 @@ import d.a.l0.a.y0.d;
 public abstract class a<W extends d> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45771a = k.f43199a;
+    public static final boolean f49445a = k.f46875a;
 
     public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
 
@@ -22,8 +22,8 @@ public abstract class a<W extends d> {
     }
 
     public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
-        if (f45771a) {
-            String str3 = ("【" + w.n0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
+        if (f49445a) {
+            String str3 = ("【" + w.k0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
             if (!TextUtils.isEmpty(str2)) {
                 str3 = str3 + "\t【" + str2 + "】";
             }

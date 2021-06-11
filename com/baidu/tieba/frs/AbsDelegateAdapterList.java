@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 
-import d.a.c.j.e.a;
+import d.a.c.k.e.a;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class AbsDelegateAdapterList extends LinkedList<a<?, ?>> {

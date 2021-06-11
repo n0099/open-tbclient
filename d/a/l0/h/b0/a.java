@@ -21,37 +21,37 @@ import d.a.l0.f.g;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f47156b = k.f43199a;
+    public static final boolean f50830b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f47157a;
+    public h f50831a;
 
     /* renamed from: d.a.l0.h.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1011a implements Runnable {
+    public class RunnableC1067a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f47158e;
+        public final /* synthetic */ SwanAppActivity f50832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f47159f;
+        public final /* synthetic */ String f50833f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47160g;
+        public final /* synthetic */ d.a.l0.a.y.b.a f50834g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f47161h;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f50835h;
 
-        public RunnableC1011a(SwanAppActivity swanAppActivity, String str, d.a.l0.a.y.b.a aVar, d.a.l0.a.f1.e.b bVar) {
-            this.f47158e = swanAppActivity;
-            this.f47159f = str;
-            this.f47160g = aVar;
-            this.f47161h = bVar;
+        public RunnableC1067a(SwanAppActivity swanAppActivity, String str, d.a.l0.a.y.b.a aVar, d.a.l0.a.f1.e.b bVar) {
+            this.f50832e = swanAppActivity;
+            this.f50833f = str;
+            this.f50834g = aVar;
+            this.f50835h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f(this.f47158e, this.f47159f, this.f47160g, this.f47161h);
+            a.this.f(this.f50832e, this.f50833f, this.f50834g, this.f50835h);
         }
     }
 
@@ -59,15 +59,15 @@ public class a {
     public class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47163e;
+        public final /* synthetic */ d.a.l0.a.y.b.a f50837e;
 
         public b(a aVar, d.a.l0.a.y.b.a aVar2) {
-            this.f47163e = aVar2;
+            this.f50837e = aVar2;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            d.a.l0.h.m0.c.a(this.f47163e, true, new d.a.l0.h.b0.c(false));
+            d.a.l0.h.m0.c.a(this.f50837e, true, new d.a.l0.h.b0.c(false));
         }
     }
 
@@ -75,20 +75,20 @@ public class a {
     public class c implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47164e;
+        public final /* synthetic */ d.a.l0.a.y.b.a f50838e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.f1.e.b f47165f;
+        public final /* synthetic */ d.a.l0.a.f1.e.b f50839f;
 
         public c(d.a.l0.a.y.b.a aVar, d.a.l0.a.f1.e.b bVar) {
-            this.f47164e = aVar;
-            this.f47165f = bVar;
+            this.f50838e = aVar;
+            this.f50839f = bVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            d.a.l0.h.m0.c.a(this.f47164e, true, new d.a.l0.h.b0.c(true));
-            a.this.e(this.f47165f);
+            d.a.l0.h.m0.c.a(this.f50838e, true, new d.a.l0.h.b0.c(true));
+            a.this.e(this.f50839f);
         }
     }
 
@@ -119,7 +119,7 @@ public class a {
         if (TextUtils.isEmpty(C)) {
             C = x.getString(g.aiapps_game_reload_dialog_content);
         }
-        q0.b0(new RunnableC1011a(x, C, aVar, L));
+        q0.b0(new RunnableC1067a(x, C, aVar, L));
     }
 
     public final void e(@NonNull d.a.l0.a.f1.e.b bVar) {
@@ -129,14 +129,14 @@ public class a {
         bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, H);
         bundle.putString("scheme", e1);
         bundle.putInt("target", SwanAppProcessInfo.current().index);
-        if (f47156b) {
+        if (f50830b) {
             Log.d("SwanGameReloadApi", "reload-appid:" + bVar.H());
         }
         d.a.l0.a.v1.c.e.a.E().K(bundle, d.a.l0.h.b0.b.class);
     }
 
     public final void f(@NonNull Activity activity, @NonNull String str, @NonNull d.a.l0.a.y.b.a aVar, @NonNull d.a.l0.a.f1.e.b bVar) {
-        h hVar = this.f47157a;
+        h hVar = this.f50831a;
         if (hVar != null && hVar.isShowing()) {
             c(aVar, "reload failed, the reload dialog has been displayed.");
             return;
@@ -149,6 +149,6 @@ public class a {
         aVar2.m(false);
         aVar2.B(g.aiapps_cancel, new b(this, aVar));
         aVar2.O(g.aiapps_ok, new c(aVar, bVar));
-        this.f47157a = aVar2.X();
+        this.f50831a = aVar2.X();
     }
 }

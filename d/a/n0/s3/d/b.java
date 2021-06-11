@@ -18,35 +18,35 @@ import d.a.c.e.p.l;
 public class b implements d.a.n0.s3.d.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.n0.s3.c.a f60756a;
+    public d.a.n0.s3.c.a f64447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.s3.b f60757b;
+    public d.a.n0.s3.b f64448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext<?> f60758c;
+    public TbPageContext<?> f64449c;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f60759e;
+        public final /* synthetic */ ShareItem f64450e;
 
         public a(ShareItem shareItem) {
-            this.f60759e = shareItem;
+            this.f64450e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.p.a.a(this.f60759e.t);
-            l.M(b.this.f60758c.getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+            d.a.c.e.p.a.a(this.f64450e.t);
+            l.M(b.this.f64449c.getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
     /* renamed from: d.a.n0.s3.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class DialogInterface$OnDismissListenerC1604b implements DialogInterface.OnDismissListener {
-        public DialogInterface$OnDismissListenerC1604b() {
+    public class DialogInterface$OnDismissListenerC1660b implements DialogInterface.OnDismissListener {
+        public DialogInterface$OnDismissListenerC1660b() {
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
@@ -56,17 +56,17 @@ public class b implements d.a.n0.s3.d.a {
     }
 
     public b(TbPageContext<?> tbPageContext, d.a.n0.s3.b bVar, Intent intent) {
-        this.f60758c = tbPageContext;
-        this.f60757b = bVar;
+        this.f64449c = tbPageContext;
+        this.f64448b = bVar;
         d.a.n0.s3.c.b bVar2 = new d.a.n0.s3.c.b();
-        this.f60756a = bVar2;
+        this.f64447a = bVar2;
         bVar2.b(intent);
-        this.f60756a.e(tbPageContext.getUniqueId());
+        this.f64447a.e(tbPageContext.getUniqueId());
     }
 
     @Override // d.a.n0.s3.d.a
     public void a() {
-        d.a.n0.s3.b bVar = this.f60757b;
+        d.a.n0.s3.b bVar = this.f64448b;
         if (bVar != null) {
             bVar.showErrorView();
         }
@@ -74,7 +74,7 @@ public class b implements d.a.n0.s3.d.a {
 
     @Override // d.a.n0.s3.d.a
     public void b() {
-        d.a.n0.s3.c.a aVar = this.f60756a;
+        d.a.n0.s3.c.a aVar = this.f64447a;
         if (aVar != null) {
             d.a.m0.r.d0.b.j().t(d.a.m0.r.d0.b.n(aVar.c()), false);
         }
@@ -82,63 +82,63 @@ public class b implements d.a.n0.s3.d.a {
 
     @Override // d.a.n0.s3.d.a
     public void c() {
-        d.a.n0.s3.c.a aVar = this.f60756a;
-        if (aVar == null || this.f60757b == null) {
+        d.a.n0.s3.c.a aVar = this.f64447a;
+        if (aVar == null || this.f64448b == null) {
             return;
         }
-        this.f60757b.rePlayVideo(aVar.getVideoUrl());
+        this.f64448b.rePlayVideo(aVar.getVideoUrl());
     }
 
     @Override // d.a.n0.s3.d.a
     public void d() {
         d.a.n0.s3.c.a aVar;
-        d.a.n0.s3.b bVar = this.f60757b;
-        if (bVar == null || (aVar = this.f60756a) == null) {
+        d.a.n0.s3.b bVar = this.f64448b;
+        if (bVar == null || (aVar = this.f64447a) == null) {
             return;
         }
-        bVar.showDialog(aVar.a(), this.f60756a.g());
+        bVar.showDialog(aVar.a(), this.f64447a.g());
     }
 
     @Override // d.a.n0.s3.d.a
     public void e() {
-        if (this.f60758c == null) {
+        if (this.f64449c == null) {
             return;
         }
-        if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.f60758c.getPageActivity())) {
+        if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.f64449c.getPageActivity())) {
             i();
         }
     }
 
     public final void h() {
-        d.a.n0.s3.c.a aVar = this.f60756a;
-        if (aVar == null || this.f60757b == null) {
+        d.a.n0.s3.c.a aVar = this.f64447a;
+        if (aVar == null || this.f64448b == null) {
             return;
         }
-        this.f60757b.startPlayVideo(aVar.getVideoUrl());
+        this.f64448b.startPlayVideo(aVar.getVideoUrl());
     }
 
     public final void i() {
-        if (this.f60756a == null || this.f60758c == null) {
+        if (this.f64447a == null || this.f64449c == null) {
             return;
         }
         ShareItem shareItem = new ShareItem();
-        shareItem.r = this.f60756a.d();
-        shareItem.s = this.f60756a.i();
-        shareItem.t = this.f60756a.f();
-        shareItem.u = this.f60756a.f();
-        if (!k.isEmpty(this.f60756a.h())) {
-            shareItem.v = Uri.parse(this.f60756a.h());
+        shareItem.r = this.f64447a.d();
+        shareItem.s = this.f64447a.i();
+        shareItem.t = this.f64447a.f();
+        shareItem.u = this.f64447a.f();
+        if (!k.isEmpty(this.f64447a.h())) {
+            shareItem.v = Uri.parse(this.f64447a.h());
         }
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.f60758c.getPageActivity(), shareItem, true, true);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.f64449c.getPageActivity(), shareItem, true, true);
         shareDialogConfig.setIsCopyLink(true);
         shareDialogConfig.setCopyLinkListener(new a(shareItem));
-        shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC1604b());
-        this.f60758c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC1660b());
+        this.f64449c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
     @Override // d.a.n0.s3.d.a
     public void onClose() {
-        d.a.n0.s3.b bVar = this.f60757b;
+        d.a.n0.s3.b bVar = this.f64448b;
         if (bVar != null) {
             bVar.finishActivity();
         }

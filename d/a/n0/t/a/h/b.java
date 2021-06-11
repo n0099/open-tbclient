@@ -6,10 +6,10 @@ import d.a.m0.k.d;
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f60817a;
+    public static final boolean f64508a;
 
     static {
-        f60817a = d.a.d0.a.b.a.f39590a.get() != null && d.a.d0.a.b.a.f39590a.get().s();
+        f64508a = d.a.d0.a.b.a.f43271a.get() != null && d.a.d0.a.b.a.f43271a.get().s();
     }
 
     AdLoadState a();

@@ -13,28 +13,28 @@ import java.util.TreeMap;
 public final class l {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Comparator<String> f65562b = new a();
+    public static final Comparator<String> f69293b = new a();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, l> f65563c = new TreeMap(f65562b);
+    public static final Map<String, l> f69294c = new TreeMap(f69293b);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final l f65564d;
+    public static final l f69295d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final l f65565e;
+    public static final l f69296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final l f65566f;
+    public static final l f69297f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final l f65567g;
+    public static final l f69298g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final l f65568h;
+    public static final l f69299h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final l f65569i;
+    public static final l f69300i;
     public static final l j;
     public static final l k;
     public static final l l;
@@ -46,7 +46,7 @@ public final class l {
     public static final l r;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65570a;
+    public final String f69301a;
 
     /* loaded from: classes6.dex */
     public static class a implements Comparator<String> {
@@ -79,7 +79,7 @@ public final class l {
         b("SSL_RSA_WITH_RC4_128_SHA", 5);
         b("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
         b("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f65564d = b("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        f69295d = b("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
         b("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         b("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         b("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
@@ -101,11 +101,11 @@ public final class l {
         b("TLS_KRB5_EXPORT_WITH_RC4_40_SHA", 40);
         b("TLS_KRB5_EXPORT_WITH_DES_CBC_40_MD5", 41);
         b("TLS_KRB5_EXPORT_WITH_RC4_40_MD5", 43);
-        f65565e = b("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
+        f69296e = b("TLS_RSA_WITH_AES_128_CBC_SHA", 47);
         b("TLS_DHE_DSS_WITH_AES_128_CBC_SHA", 50);
         b("TLS_DHE_RSA_WITH_AES_128_CBC_SHA", 51);
         b("TLS_DH_anon_WITH_AES_128_CBC_SHA", 52);
-        f65566f = b("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
+        f69297f = b("TLS_RSA_WITH_AES_256_CBC_SHA", 53);
         b("TLS_DHE_DSS_WITH_AES_256_CBC_SHA", 56);
         b("TLS_DHE_RSA_WITH_AES_256_CBC_SHA", 57);
         b("TLS_DH_anon_WITH_AES_256_CBC_SHA", 58);
@@ -129,8 +129,8 @@ public final class l {
         b("TLS_PSK_WITH_AES_128_CBC_SHA", PbFullScreenEditorActivity.REPLY_MAX_SIZE);
         b("TLS_PSK_WITH_AES_256_CBC_SHA", 141);
         b("TLS_RSA_WITH_SEED_CBC_SHA", 150);
-        f65567g = b("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
-        f65568h = b("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
+        f69298g = b("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);
+        f69299h = b("TLS_RSA_WITH_AES_256_GCM_SHA384", 157);
         b("TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", 158);
         b("TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", Opcodes.IF_ICMPEQ);
         b("TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", 162);
@@ -147,7 +147,7 @@ public final class l {
         b("TLS_ECDHE_ECDSA_WITH_NULL_SHA", WalletHomeBeanFactory.BEAN_ID_HOMETAB);
         b("TLS_ECDHE_ECDSA_WITH_RC4_128_SHA", 49159);
         b("TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA", 49160);
-        f65569i = b("TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA", 49161);
+        f69300i = b("TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA", 49161);
         j = b("TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA", 49162);
         b("TLS_ECDH_RSA_WITH_NULL_SHA", 49163);
         b("TLS_ECDH_RSA_WITH_RC4_128_SHA", 49164);
@@ -188,7 +188,7 @@ public final class l {
 
     public l(String str) {
         if (str != null) {
-            this.f65570a = str;
+            this.f69301a = str;
             return;
         }
         throw null;
@@ -197,10 +197,10 @@ public final class l {
     public static synchronized l a(String str) {
         l lVar;
         synchronized (l.class) {
-            lVar = f65563c.get(str);
+            lVar = f69294c.get(str);
             if (lVar == null) {
                 lVar = new l(str);
-                f65563c.put(str, lVar);
+                f69294c.put(str, lVar);
             }
         }
         return lVar;
@@ -219,6 +219,6 @@ public final class l {
     }
 
     public String toString() {
-        return this.f65570a;
+        return this.f69301a;
     }
 }

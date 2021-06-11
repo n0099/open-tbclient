@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import d.a.l0.a.g1.k.d;
 import d.a.l0.a.j0.b.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
     public volatile b mProvider;
 

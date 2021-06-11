@@ -9,17 +9,17 @@ import d.a.l0.a.e;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f45727a = null;
+    public RelativeLayout f49401a = null;
 
     public final void a(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof RelativeLayout)) {
-            if (this.f45727a == null) {
+            if (this.f49401a == null) {
                 RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
-                this.f45727a = relativeLayout;
+                this.f49401a = relativeLayout;
                 relativeLayout.setBackgroundResource(e.aiapps_night_black_background_bg);
             }
-            viewGroup.removeView(this.f45727a);
-            viewGroup.addView(this.f45727a, new ViewGroup.LayoutParams(-1, -1));
+            viewGroup.removeView(this.f49401a);
+            viewGroup.addView(this.f49401a, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
@@ -36,10 +36,10 @@ public class c {
 
     public final void c(ViewGroup viewGroup) {
         RelativeLayout relativeLayout;
-        if (viewGroup == null || (relativeLayout = this.f45727a) == null) {
+        if (viewGroup == null || (relativeLayout = this.f49401a) == null) {
             return;
         }
         viewGroup.removeView(relativeLayout);
-        this.f45727a = null;
+        this.f49401a = null;
     }
 }

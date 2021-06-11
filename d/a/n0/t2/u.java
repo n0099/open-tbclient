@@ -3,11 +3,11 @@ package d.a.n0.t2;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes5.dex */
 public interface u {
-    String F();
+    String G();
 
-    void O();
+    void P();
 
-    TbPageContext<?> o();
+    TbPageContext<?> p();
 
-    int t0();
+    int w0();
 }

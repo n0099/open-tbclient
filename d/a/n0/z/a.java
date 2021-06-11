@@ -37,7 +37,14 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         this.v = false;
     }
 
-    public void A(int i2) {
+    public void A(NEGFeedBackView.b bVar) {
+        NEGFeedBackView nEGFeedBackView = this.r;
+        if (nEGFeedBackView != null) {
+            nEGFeedBackView.setEventCallback(bVar);
+        }
+    }
+
+    public void B(int i2) {
         this.l = i2;
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.p;
         if (threadCommentAndPraiseInfoLayout != null) {
@@ -49,39 +56,39 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         }
     }
 
-    public void B(ViewGroup viewGroup) {
-        H(viewGroup, I(viewGroup));
-        J(viewGroup);
+    public void F(ViewGroup viewGroup) {
+        I(viewGroup, J(viewGroup));
+        K(viewGroup);
+        H();
         G();
-        F();
-        s();
+        t();
     }
 
-    public void F() {
+    public void G() {
         T t = this.o;
-        if (t == null || t.m() == null) {
+        if (t == null || t.i() == null) {
             return;
         }
-        a2 m = this.o.m();
+        a2 i2 = this.o.i();
         this.p.setVisibility(8);
-        this.q.setData(m);
+        this.q.setData(i2);
     }
 
-    public final void G() {
+    public final void H() {
         T t = this.o;
-        if (t == null || t.m() == null || this.u == null) {
+        if (t == null || t.i() == null || this.u == null) {
             return;
         }
-        if (this.o.u()) {
-            this.u.setData(this.o.m());
+        if (this.o.q()) {
+            this.u.setData(this.o.i());
         } else if (this.v) {
-            this.u.setData(this.o.m());
+            this.u.setData(this.o.i());
         }
     }
 
-    public final void H(ViewGroup viewGroup, boolean z) {
+    public final void I(ViewGroup viewGroup, boolean z) {
         T t = this.o;
-        if (t == null || t.m() == null) {
+        if (t == null || t.i() == null) {
             return;
         }
         if (this.t == null) {
@@ -89,26 +96,26 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
             this.t = followUserDecorView;
             viewGroup.addView(followUserDecorView);
         }
-        if (v()) {
+        if (w()) {
             this.t.setPageUniqueId(this.n);
             this.t.setSvgIconResId(0);
-            int t2 = t(R.dimen.tbds166);
-            int t3 = t(R.dimen.tbds78);
-            int t4 = t(z ? R.dimen.tbds104 : R.dimen.tbds44);
-            int t5 = t(R.dimen.tbds50);
+            int u = u(R.dimen.tbds166);
+            int u2 = u(R.dimen.tbds78);
+            int u3 = u(z ? R.dimen.tbds104 : R.dimen.tbds44);
+            int u4 = u(R.dimen.tbds50);
             if (d.a.m0.b.d.V()) {
-                t2 = t(R.dimen.tbds177);
-                t3 = t(R.dimen.tbds76);
-                t4 = t(z ? R.dimen.tbds126 : R.dimen.tbds44);
-                t5 = t(R.dimen.tbds52);
+                u = u(R.dimen.tbds177);
+                u2 = u(R.dimen.tbds76);
+                u3 = u(z ? R.dimen.tbds126 : R.dimen.tbds44);
+                u4 = u(R.dimen.tbds52);
                 this.t.setUseNewStyle(true);
             }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(t2, t3);
-            layoutParams.topMargin = t5;
-            layoutParams.rightMargin = t4;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(u, u2);
+            layoutParams.topMargin = u4;
+            layoutParams.rightMargin = u3;
             layoutParams.gravity = 53;
             this.t.setLayoutParams(layoutParams);
-            this.t.setData(this.o.m());
+            this.t.setData(this.o.i());
             return;
         }
         FollowUserDecorView followUserDecorView2 = this.t;
@@ -117,13 +124,13 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         }
     }
 
-    public final boolean I(ViewGroup viewGroup) {
+    public final boolean J(ViewGroup viewGroup) {
         SparseArray<String> sparseArray;
         T t = this.o;
-        if (t == null || t.m() == null) {
+        if (t == null || t.i() == null) {
             return false;
         }
-        if (this.o.m() != null && (sparseArray = this.o.feedBackReasonMap) != null && sparseArray.size() > 0) {
+        if (this.o.i() != null && (sparseArray = this.o.feedBackReasonMap) != null && sparseArray.size() > 0) {
             if (this.r == null) {
                 NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(k());
                 this.r = nEGFeedBackView;
@@ -141,9 +148,9 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
             this.r.setPadding(g3, g3, g3, g3);
             this.r.setLayoutParams(layoutParams);
             v0 v0Var = new v0();
-            v0Var.n(this.o.m().y1());
-            v0Var.k(this.o.m().c0());
-            v0Var.m(this.o.m().M0());
+            v0Var.n(this.o.i().z1());
+            v0Var.k(this.o.i().c0());
+            v0Var.m(this.o.i().M0());
             v0Var.j(this.o.feedBackReasonMap);
             this.r.setVisibility(0);
             this.r.setData(v0Var);
@@ -158,9 +165,9 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         return false;
     }
 
-    public final void J(ViewGroup viewGroup) {
+    public final void K(ViewGroup viewGroup) {
         T t = this.o;
-        if (t == null || t.m() == null) {
+        if (t == null || t.i() == null) {
             return;
         }
         if (this.s == null) {
@@ -168,7 +175,7 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
             this.s = unfollowedDecorView;
             viewGroup.addView(unfollowedDecorView);
         }
-        if (this.o.m().V1 && !ThreadCardUtils.isSelf(this.o.m())) {
+        if (this.o.i().W1 && !ThreadCardUtils.isSelf(this.o.i())) {
             this.s.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
             int g2 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
             int g3 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
@@ -181,7 +188,7 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
             this.s.setPadding(g3, g3, g3, g3);
             this.s.setLayoutParams(layoutParams);
             this.s.setVisibility(0);
-            this.s.a(this.o.m());
+            this.s.a(this.o.i());
             return;
         }
         UnfollowedDecorView unfollowedDecorView2 = this.s;
@@ -190,22 +197,22 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         }
     }
 
-    public final void s() {
+    public final void t() {
         ForumEnterLayout forumEnterLayout = this.u;
         if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !d.a.m0.b.d.V()) {
-            y(this.p, t(R.dimen.tbds20));
-            y(this.q, t(R.dimen.tbds20));
+            z(this.p, u(R.dimen.tbds20));
+            z(this.q, u(R.dimen.tbds20));
             return;
         }
-        y(this.p, 0);
-        y(this.q, 0);
+        z(this.p, 0);
+        z(this.q, 0);
     }
 
-    public int t(int i2) {
+    public int u(int i2) {
         return d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), i2);
     }
 
-    public void u(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
+    public void v(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
         if (threadCommentAndPraiseInfoLayout == null) {
             return;
         }
@@ -223,25 +230,33 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         threadCommentAndPraiseInfoLayout.setShareReportFrom(3);
         threadCommentAndPraiseInfoLayout.hideDisagree();
         d.a.m0.r.q.e eVar = new d.a.m0.r.q.e();
-        eVar.f49994b = 7;
-        eVar.f50000h = 1;
+        eVar.f53670b = 7;
+        eVar.f53676h = 1;
         threadCommentAndPraiseInfoLayout.setAgreeStatisticData(eVar);
     }
 
-    public final boolean v() {
+    public final boolean w() {
         T t = this.o;
-        if (t == null || t.m() == null || this.o.m().T() == null) {
+        if (t == null || t.i() == null || this.o.i().T() == null) {
             return false;
         }
-        a2 m = this.o.m();
-        if (ThreadCardUtils.isSelf(m)) {
+        a2 i2 = this.o.i();
+        if (ThreadCardUtils.isSelf(i2)) {
             return false;
         }
-        boolean z = m.V1() || m.Q1() || m.T1();
-        return (z && m.U1) || (z && m.W1 && !m.T().hadConcerned()) || (m.r1() != null && d.a.n0.z.e0.j.i0(m) && m.U1);
+        boolean z = i2.W1() || i2.R1() || i2.U1();
+        if ((!z || !i2.V1) && (!z || !i2.X1 || i2.T().hadConcerned())) {
+            if (i2.s1() == null || !d.a.n0.z.e0.j.i0(i2)) {
+                return false;
+            }
+            if (!i2.V1 && !i2.Y1) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    public void w(TbPageContext<?> tbPageContext, int i2) {
+    public void x(TbPageContext<?> tbPageContext, int i2) {
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.p;
         if (threadCommentAndPraiseInfoLayout != null) {
             threadCommentAndPraiseInfoLayout.onChangeSkinType();
@@ -256,11 +271,11 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         }
         UnfollowedDecorView unfollowedDecorView = this.s;
         if (unfollowedDecorView != null) {
-            unfollowedDecorView.i();
+            unfollowedDecorView.l();
         }
         ForumEnterLayout forumEnterLayout = this.u;
         if (forumEnterLayout != null) {
-            forumEnterLayout.m(tbPageContext, i2);
+            forumEnterLayout.n(tbPageContext, i2);
         }
         FollowUserDecorView followUserDecorView = this.t;
         if (followUserDecorView != null) {
@@ -268,11 +283,11 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         }
     }
 
-    public void x(BdUniqueId bdUniqueId) {
+    public void y(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null) {
             return;
         }
-        p(bdUniqueId);
+        q(bdUniqueId);
         NEGFeedBackView nEGFeedBackView = this.r;
         if (nEGFeedBackView != null) {
             nEGFeedBackView.setUniqueId(bdUniqueId);
@@ -283,7 +298,7 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         }
     }
 
-    public void y(View view, int i2) {
+    public void z(View view, int i2) {
         if (view == null || !(view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             return;
         }
@@ -291,13 +306,6 @@ public abstract class a<T extends d.a.m0.r.q.a> extends b<T> {
         if (marginLayoutParams.topMargin != i2) {
             marginLayoutParams.topMargin = i2;
             view.setLayoutParams(marginLayoutParams);
-        }
-    }
-
-    public void z(NEGFeedBackView.b bVar) {
-        NEGFeedBackView nEGFeedBackView = this.r;
-        if (nEGFeedBackView != null) {
-            nEGFeedBackView.setEventCallback(bVar);
         }
     }
 }

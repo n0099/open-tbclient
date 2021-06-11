@@ -5,8 +5,8 @@ import java.util.HashMap;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f49454a;
+    public HashMap<String, String> f53128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49455b;
+    public String f53129b;
 }

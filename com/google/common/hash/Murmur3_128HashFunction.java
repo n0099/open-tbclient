@@ -13,26 +13,26 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
     public static final long serialVersionUID = 0;
     public final int seed;
     public static final e MURMUR3_128 = new Murmur3_128HashFunction(0);
-    public static final e GOOD_FAST_HASH_128 = new Murmur3_128HashFunction(Hashing.f31344a);
+    public static final e GOOD_FAST_HASH_128 = new Murmur3_128HashFunction(Hashing.f31435a);
 
     /* loaded from: classes6.dex */
     public static final class a extends d {
 
         /* renamed from: d  reason: collision with root package name */
-        public long f31349d;
+        public long f31440d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f31350e;
+        public long f31441e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31351f;
+        public int f31442f;
 
         public a(int i2) {
             super(16);
             long j = i2;
-            this.f31349d = j;
-            this.f31350e = j;
-            this.f31351f = 0;
+            this.f31440d = j;
+            this.f31441e = j;
+            this.f31442f = 0;
         }
 
         public static long s(long j) {
@@ -51,28 +51,28 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
 
         @Override // d.g.c.d.d
         public HashCode l() {
-            long j = this.f31349d;
-            int i2 = this.f31351f;
+            long j = this.f31440d;
+            int i2 = this.f31442f;
             long j2 = j ^ i2;
-            this.f31349d = j2;
-            long j3 = this.f31350e ^ i2;
-            this.f31350e = j3;
+            this.f31440d = j2;
+            long j3 = this.f31441e ^ i2;
+            this.f31441e = j3;
             long j4 = j2 + j3;
-            this.f31349d = j4;
-            this.f31350e = j3 + j4;
-            this.f31349d = s(j4);
-            long s = s(this.f31350e);
-            this.f31350e = s;
-            long j5 = this.f31349d + s;
-            this.f31349d = j5;
-            this.f31350e = s + j5;
-            return HashCode.fromBytesNoCopy(ByteBuffer.wrap(new byte[16]).order(ByteOrder.LITTLE_ENDIAN).putLong(this.f31349d).putLong(this.f31350e).array());
+            this.f31440d = j4;
+            this.f31441e = j3 + j4;
+            this.f31440d = s(j4);
+            long s = s(this.f31441e);
+            this.f31441e = s;
+            long j5 = this.f31440d + s;
+            this.f31440d = j5;
+            this.f31441e = s + j5;
+            return HashCode.fromBytesNoCopy(ByteBuffer.wrap(new byte[16]).order(ByteOrder.LITTLE_ENDIAN).putLong(this.f31440d).putLong(this.f31441e).array());
         }
 
         @Override // d.g.c.d.d
         public void o(ByteBuffer byteBuffer) {
             r(byteBuffer.getLong(), byteBuffer.getLong());
-            this.f31351f += 16;
+            this.f31442f += 16;
         }
 
         @Override // d.g.c.d.d
@@ -91,29 +91,29 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
             long j11;
             long j12;
             long j13;
-            this.f31351f += byteBuffer.remaining();
+            this.f31442f += byteBuffer.remaining();
             long j14 = 0;
             switch (byteBuffer.remaining()) {
                 case 1:
                     j = 0;
                     c2 = d.g.c.g.b.c(byteBuffer.get(0)) ^ j;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 2:
                     j2 = 0;
                     j = j2 ^ (d.g.c.g.b.c(byteBuffer.get(1)) << 8);
                     c2 = d.g.c.g.b.c(byteBuffer.get(0)) ^ j;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 3:
                     j3 = 0;
                     j2 = j3 ^ (d.g.c.g.b.c(byteBuffer.get(2)) << 16);
                     j = j2 ^ (d.g.c.g.b.c(byteBuffer.get(1)) << 8);
                     c2 = d.g.c.g.b.c(byteBuffer.get(0)) ^ j;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 4:
                     j4 = 0;
@@ -121,8 +121,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j2 = j3 ^ (d.g.c.g.b.c(byteBuffer.get(2)) << 16);
                     j = j2 ^ (d.g.c.g.b.c(byteBuffer.get(1)) << 8);
                     c2 = d.g.c.g.b.c(byteBuffer.get(0)) ^ j;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 5:
                     j5 = 0;
@@ -131,8 +131,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j2 = j3 ^ (d.g.c.g.b.c(byteBuffer.get(2)) << 16);
                     j = j2 ^ (d.g.c.g.b.c(byteBuffer.get(1)) << 8);
                     c2 = d.g.c.g.b.c(byteBuffer.get(0)) ^ j;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 6:
                     j6 = 0;
@@ -142,8 +142,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j2 = j3 ^ (d.g.c.g.b.c(byteBuffer.get(2)) << 16);
                     j = j2 ^ (d.g.c.g.b.c(byteBuffer.get(1)) << 8);
                     c2 = d.g.c.g.b.c(byteBuffer.get(0)) ^ j;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 7:
                     j6 = (d.g.c.g.b.c(byteBuffer.get(6)) << 48) ^ 0;
@@ -153,23 +153,23 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j2 = j3 ^ (d.g.c.g.b.c(byteBuffer.get(2)) << 16);
                     j = j2 ^ (d.g.c.g.b.c(byteBuffer.get(1)) << 8);
                     c2 = d.g.c.g.b.c(byteBuffer.get(0)) ^ j;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 8:
                     j7 = 0;
                     c2 = byteBuffer.getLong() ^ 0;
                     j14 = j7;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 9:
                     j8 = 0;
                     j7 = j8 ^ d.g.c.g.b.c(byteBuffer.get(8));
                     c2 = byteBuffer.getLong() ^ 0;
                     j14 = j7;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 10:
                     j9 = 0;
@@ -177,8 +177,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j7 = j8 ^ d.g.c.g.b.c(byteBuffer.get(8));
                     c2 = byteBuffer.getLong() ^ 0;
                     j14 = j7;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 11:
                     j10 = 0;
@@ -187,8 +187,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j7 = j8 ^ d.g.c.g.b.c(byteBuffer.get(8));
                     c2 = byteBuffer.getLong() ^ 0;
                     j14 = j7;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 12:
                     j11 = 0;
@@ -198,8 +198,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j7 = j8 ^ d.g.c.g.b.c(byteBuffer.get(8));
                     c2 = byteBuffer.getLong() ^ 0;
                     j14 = j7;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 13:
                     j12 = 0;
@@ -210,8 +210,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j7 = j8 ^ d.g.c.g.b.c(byteBuffer.get(8));
                     c2 = byteBuffer.getLong() ^ 0;
                     j14 = j7;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 14:
                     j13 = 0;
@@ -223,8 +223,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j7 = j8 ^ d.g.c.g.b.c(byteBuffer.get(8));
                     c2 = byteBuffer.getLong() ^ 0;
                     j14 = j7;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 case 15:
                     j13 = (d.g.c.g.b.c(byteBuffer.get(14)) << 48) ^ 0;
@@ -236,8 +236,8 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
                     j7 = j8 ^ d.g.c.g.b.c(byteBuffer.get(8));
                     c2 = byteBuffer.getLong() ^ 0;
                     j14 = j7;
-                    this.f31349d ^= t(c2);
-                    this.f31350e ^= u(j14);
+                    this.f31440d ^= t(c2);
+                    this.f31441e ^= u(j14);
                     return;
                 default:
                     throw new AssertionError("Should never get here.");
@@ -245,21 +245,21 @@ public final class Murmur3_128HashFunction extends b implements Serializable {
         }
 
         public final void r(long j, long j2) {
-            long t = t(j) ^ this.f31349d;
-            this.f31349d = t;
+            long t = t(j) ^ this.f31440d;
+            this.f31440d = t;
             long rotateLeft = Long.rotateLeft(t, 27);
-            this.f31349d = rotateLeft;
-            long j3 = this.f31350e;
+            this.f31440d = rotateLeft;
+            long j3 = this.f31441e;
             long j4 = rotateLeft + j3;
-            this.f31349d = j4;
-            this.f31349d = (j4 * 5) + 1390208809;
+            this.f31440d = j4;
+            this.f31440d = (j4 * 5) + 1390208809;
             long u = u(j2) ^ j3;
-            this.f31350e = u;
+            this.f31441e = u;
             long rotateLeft2 = Long.rotateLeft(u, 31);
-            this.f31350e = rotateLeft2;
-            long j5 = rotateLeft2 + this.f31349d;
-            this.f31350e = j5;
-            this.f31350e = (j5 * 5) + 944331445;
+            this.f31441e = rotateLeft2;
+            long j5 = rotateLeft2 + this.f31440d;
+            this.f31441e = j5;
+            this.f31441e = (j5 * 5) + 944331445;
         }
     }
 

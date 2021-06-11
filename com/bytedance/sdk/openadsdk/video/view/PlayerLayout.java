@@ -12,40 +12,39 @@ import com.bytedance.sdk.openadsdk.video.d.d;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Timer;
 import java.util.TimerTask;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
-public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
+public class PlayerLayout extends FrameLayout implements a.InterfaceC0325a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static AudioManager.OnAudioFocusChangeListener f30277b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.bytedance.sdk.openadsdk.video.view.PlayerLayout.1
+    public static AudioManager.OnAudioFocusChangeListener f30380b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.bytedance.sdk.openadsdk.video.view.PlayerLayout.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i2) {
         }
     };
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f30278d = -1;
+    public static int f30381d = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30279a;
+    public int f30382a;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30280c;
+    public int f30383c;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.video.c.a f30281e;
+    public com.bytedance.sdk.openadsdk.video.c.a f30384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Class f30282f;
+    public Class f30385f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextureView f30283g;
+    public TextureView f30386g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SurfaceView f30284h;
+    public SurfaceView f30387h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f30285i;
+    public boolean f30388i;
     public Timer j;
     public AudioManager k;
     public a l;
@@ -60,7 +59,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            int i2 = PlayerLayout.this.f30280c;
+            int i2 = PlayerLayout.this.f30383c;
             if (i2 == 5 || i2 == 6 || i2 == 3) {
                 PlayerLayout.this.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.video.view.PlayerLayout.a.1
                     @Override // java.lang.Runnable
@@ -76,13 +75,13 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
 
     public void a() {
         try {
-            com.bytedance.sdk.openadsdk.video.c.a aVar = (com.bytedance.sdk.openadsdk.video.c.a) this.f30282f.getConstructor(new Class[0]).newInstance(new Object[0]);
-            this.f30281e = aVar;
+            com.bytedance.sdk.openadsdk.video.c.a aVar = (com.bytedance.sdk.openadsdk.video.c.a) this.f30385f.getConstructor(new Class[0]).newInstance(new Object[0]);
+            this.f30384e = aVar;
             aVar.a(getContext());
-            this.f30281e.b(this.f30285i);
-            this.f30281e.a(this.o);
-            this.f30281e.a(this);
-            this.f30281e.a(this.n);
+            this.f30384e.b(this.f30388i);
+            this.f30384e.a(this.o);
+            this.f30384e.a(this);
+            this.f30384e.a(this.n);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
         } catch (InstantiationException e3) {
@@ -97,18 +96,18 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
         } else {
             k();
         }
-        AudioManager audioManager = (AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
         this.k = audioManager;
-        audioManager.requestAudioFocus(f30277b, 3, 2);
+        audioManager.requestAudioFocus(f30380b, 3, 2);
         d.a(getContext()).getWindow().addFlags(128);
         c();
     }
 
     public void b() {
         com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStateNormal ", Integer.valueOf(hashCode()));
-        this.f30280c = 0;
+        this.f30383c = 0;
         m();
-        com.bytedance.sdk.openadsdk.video.c.a aVar = this.f30281e;
+        com.bytedance.sdk.openadsdk.video.c.a aVar = this.f30384e;
         if (aVar != null) {
             aVar.b();
         }
@@ -116,48 +115,48 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
 
     public void c() {
         com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStatePreparing ", Integer.valueOf(hashCode()));
-        this.f30280c = 1;
+        this.f30383c = 1;
         n();
     }
 
     public void d() {
         com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStatePreparingPlaying ", Integer.valueOf(hashCode()));
-        this.f30280c = 3;
+        this.f30383c = 3;
     }
 
     public void e() {
         com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStatePreparingChangeUrl ", Integer.valueOf(hashCode()));
-        this.f30280c = 2;
+        this.f30383c = 2;
         a();
     }
 
     public void f() {
-        com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStatePlaying seekToInAdvance=", Integer.valueOf(this.f30279a), Integer.valueOf(hashCode()));
-        if (this.f30280c == 4) {
-            int i2 = this.f30279a;
+        com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStatePlaying seekToInAdvance=", Integer.valueOf(this.f30382a), Integer.valueOf(hashCode()));
+        if (this.f30383c == 4) {
+            int i2 = this.f30382a;
             if (i2 != 0) {
-                this.f30281e.a(i2);
+                this.f30384e.a(i2);
                 com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStatePlaying seekTo");
-                this.f30279a = 0;
+                this.f30382a = 0;
             } else {
-                this.f30281e.a(0);
+                this.f30384e.a(0);
             }
         }
-        this.f30280c = 5;
+        this.f30383c = 5;
         l();
     }
 
     public void g() {
         com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStatePause ", Integer.valueOf(hashCode()));
-        this.f30280c = 6;
+        this.f30383c = 6;
         m();
     }
 
     public long getCurrentPositionWhenPlaying() {
-        int i2 = this.f30280c;
+        int i2 = this.f30383c;
         if (i2 == 5 || i2 == 6 || i2 == 3) {
             try {
-                return this.f30281e.c();
+                return this.f30384e.c();
             } catch (IllegalStateException e2) {
                 e2.printStackTrace();
                 return 0L;
@@ -168,7 +167,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
 
     public long getDuration() {
         try {
-            return this.f30281e.d();
+            return this.f30384e.d();
         } catch (IllegalStateException e2) {
             e2.printStackTrace();
             return 0L;
@@ -177,13 +176,13 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
 
     public void h() {
         com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStateError ", Integer.valueOf(hashCode()));
-        this.f30280c = 8;
+        this.f30383c = 8;
         m();
     }
 
     public void i() {
         com.bytedance.sdk.openadsdk.video.d.a.b("PlayerLayout", "video_new onStateAutoComplete ", Integer.valueOf(hashCode()));
-        this.f30280c = 7;
+        this.f30383c = 7;
         m();
     }
 
@@ -191,14 +190,14 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
         com.bytedance.sdk.openadsdk.video.d.a.a("PlayerLayout", "video_new addTextureView ", Integer.valueOf(hashCode()));
         removeAllViews();
         TextureView textureView = new TextureView(getContext().getApplicationContext());
-        this.f30283g = textureView;
+        this.f30386g = textureView;
         textureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() { // from class: com.bytedance.sdk.openadsdk.video.view.PlayerLayout.2
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-                com.bytedance.sdk.openadsdk.video.c.a aVar = PlayerLayout.this.f30281e;
+                com.bytedance.sdk.openadsdk.video.c.a aVar = PlayerLayout.this.f30384e;
                 if (aVar != null) {
                     aVar.a(new Surface(surfaceTexture));
-                    PlayerLayout.this.f30281e.a();
+                    PlayerLayout.this.f30384e.a();
                 }
             }
 
@@ -216,14 +215,14 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
             public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
             }
         });
-        addView(this.f30283g, new FrameLayout.LayoutParams(-1, -1, 17));
+        addView(this.f30386g, new FrameLayout.LayoutParams(-1, -1, 17));
     }
 
     public void k() {
         com.bytedance.sdk.openadsdk.video.d.a.a("PlayerLayout", "video_new addSurfaceView ", Integer.valueOf(hashCode()));
         removeAllViews();
         SurfaceView surfaceView = new SurfaceView(getContext().getApplicationContext());
-        this.f30284h = surfaceView;
+        this.f30387h = surfaceView;
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() { // from class: com.bytedance.sdk.openadsdk.video.view.PlayerLayout.3
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
@@ -231,10 +230,10 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
 
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
-                if (PlayerLayout.this.f30281e != null) {
+                if (PlayerLayout.this.f30384e != null) {
                     surfaceHolder.setType(3);
-                    PlayerLayout.this.f30281e.a(surfaceHolder);
-                    PlayerLayout.this.f30281e.a();
+                    PlayerLayout.this.f30384e.a(surfaceHolder);
+                    PlayerLayout.this.f30384e.a();
                 }
             }
 
@@ -242,17 +241,17 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
             public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
                 com.bytedance.sdk.openadsdk.video.d.a.a("PlayerLayout", "video_new surfaceDestroyed ", Integer.valueOf(hashCode()));
                 PlayerLayout playerLayout = PlayerLayout.this;
-                com.bytedance.sdk.openadsdk.video.c.a aVar = playerLayout.f30281e;
+                com.bytedance.sdk.openadsdk.video.c.a aVar = playerLayout.f30384e;
                 if (aVar != null) {
-                    playerLayout.f30279a = aVar.c();
-                    PlayerLayout.this.f30281e.b();
-                    com.bytedance.sdk.openadsdk.video.d.a.a("PlayerLayout", "video_new  ", Integer.valueOf(PlayerLayout.this.f30279a));
+                    playerLayout.f30382a = aVar.c();
+                    PlayerLayout.this.f30384e.b();
+                    com.bytedance.sdk.openadsdk.video.d.a.a("PlayerLayout", "video_new  ", Integer.valueOf(PlayerLayout.this.f30382a));
                 }
             }
         });
-        this.f30284h.setZOrderOnTop(true);
-        this.f30284h.setZOrderMediaOverlay(true);
-        addView(this.f30284h, new FrameLayout.LayoutParams(-1, -1, 17));
+        this.f30387h.setZOrderOnTop(true);
+        this.f30387h.setZOrderMediaOverlay(true);
+        addView(this.f30387h, new FrameLayout.LayoutParams(-1, -1, 17));
     }
 
     public void l() {
@@ -284,9 +283,9 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
         m();
         b();
         removeAllViews();
-        ((AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).abandonAudioFocus(f30277b);
+        ((AudioManager) getContext().getSystemService("audio")).abandonAudioFocus(f30380b);
         d.a(getContext()).getWindow().clearFlags(128);
-        com.bytedance.sdk.openadsdk.video.c.a aVar = this.f30281e;
+        com.bytedance.sdk.openadsdk.video.c.a aVar = this.f30384e;
         if (aVar != null) {
             aVar.b();
         }
@@ -294,7 +293,7 @@ public class PlayerLayout extends FrameLayout implements a.InterfaceC0323a {
 
     public void setMediaInterface(Class cls) {
         o();
-        this.f30282f = cls;
+        this.f30385f = cls;
     }
 
     public void setState(int i2) {

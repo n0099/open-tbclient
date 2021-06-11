@@ -19,27 +19,27 @@ import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.tieba.video.record.VideoEffectButtonLayout;
 import com.baidu.tieba.video.record.VideoEffectLayout;
 import d.a.c.e.p.l;
-import d.a.n0.r3.m.i;
-import d.a.n0.r3.m.m;
+import d.a.n0.r3.l.i;
+import d.a.n0.r3.l.m;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class VideoControllerLayout extends RelativeLayout implements View.OnClickListener, View.OnTouchListener, VideoEffectButtonLayout.a, d.a.n0.r3.j.b {
+public class VideoControllerLayout extends RelativeLayout implements View.OnClickListener, View.OnTouchListener, VideoEffectButtonLayout.a, d.a.n0.r3.i.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21362e;
+    public ImageView f21440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f21363f;
+    public RelativeLayout f21441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public VideoRecordButton f21364g;
+    public VideoRecordButton f21442g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f21365h;
+    public ImageView f21443h;
 
     /* renamed from: i  reason: collision with root package name */
-    public i f21366i;
+    public i f21444i;
     public long j;
     public boolean k;
     public AnimatorSet l;
@@ -47,10 +47,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public List<ObjectAnimator> n;
     public f o;
     public boolean p;
-    public List<d.a.n0.r3.m.e> q;
-    public List<d.a.n0.r3.m.e> r;
+    public List<d.a.n0.r3.l.e> q;
+    public List<d.a.n0.r3.l.e> r;
     public List<StickerItem> s;
-    public List<d.a.n0.r3.m.e> t;
+    public List<d.a.n0.r3.l.e> t;
     public VideoEffectLayout u;
     public Handler v;
     public int w;
@@ -59,16 +59,16 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public class a extends m {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f21367f;
+        public final /* synthetic */ boolean f21445f;
 
         public a(boolean z) {
-            this.f21367f = z;
+            this.f21445f = z;
         }
 
-        @Override // d.a.n0.r3.m.m, android.animation.Animator.AnimatorListener
+        @Override // d.a.n0.r3.l.m, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (VideoControllerLayout.this.f21366i.f() == 6 || VideoControllerLayout.this.f21366i.j()) {
-                VideoControllerLayout.this.z(this.f21367f);
+            if (VideoControllerLayout.this.f21444i.f() == 6 || VideoControllerLayout.this.f21444i.j()) {
+                VideoControllerLayout.this.z(this.f21445f);
             }
         }
     }
@@ -78,13 +78,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         public b() {
         }
 
-        @Override // d.a.n0.r3.m.m, android.animation.Animator.AnimatorListener
+        @Override // d.a.n0.r3.l.m, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (this.f60321e) {
+            if (this.f64010e) {
                 return;
             }
-            VideoControllerLayout.this.f21362e.setVisibility(8);
-            VideoControllerLayout.this.f21365h.setVisibility(8);
+            VideoControllerLayout.this.f21440e.setVisibility(8);
+            VideoControllerLayout.this.f21443h.setVisibility(8);
         }
     }
 
@@ -92,15 +92,15 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f21370e;
+        public final /* synthetic */ long f21448e;
 
         public c(long j) {
-            this.f21370e = j;
+            this.f21448e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (VideoControllerLayout.this.k && VideoControllerLayout.this.j == this.f21370e) {
+            if (VideoControllerLayout.this.k && VideoControllerLayout.this.j == this.f21448e) {
                 TiebaStatic.log("c12297");
                 VideoControllerLayout.this.y(true);
             }
@@ -112,7 +112,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         public d() {
         }
 
-        @Override // d.a.n0.r3.m.m, android.animation.Animator.AnimatorListener
+        @Override // d.a.n0.r3.l.m, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             if (VideoControllerLayout.this.o != null) {
                 VideoControllerLayout.this.o.onShowEffectLayout();
@@ -124,22 +124,22 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public class e extends m {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f21373f;
+        public final /* synthetic */ m f21451f;
 
         public e(m mVar) {
-            this.f21373f = mVar;
+            this.f21451f = mVar;
         }
 
-        @Override // d.a.n0.r3.m.m, android.animation.Animator.AnimatorListener
+        @Override // d.a.n0.r3.l.m, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (this.f60321e) {
+            if (this.f64010e) {
                 return;
             }
             VideoControllerLayout.this.u.setVisibility(8);
             if (VideoControllerLayout.this.o != null) {
                 VideoControllerLayout.this.o.onHideEffectLayout();
             }
-            m mVar = this.f21373f;
+            m mVar = this.f21451f;
             if (mVar != null) {
                 mVar.onAnimationEnd(animator);
             }
@@ -183,11 +183,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     public void A() {
         B();
-        int f2 = this.f21366i.f();
-        i iVar = this.f21366i;
+        int f2 = this.f21444i.f();
+        i iVar = this.f21444i;
         if (iVar != null) {
-            if (!iVar.h() && this.f21366i.j()) {
-                this.f21366i.o();
+            if (!iVar.h() && this.f21444i.j()) {
+                this.f21444i.o();
             }
             F();
         }
@@ -201,8 +201,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     public void B() {
-        i iVar = this.f21366i;
-        if (iVar == null || iVar.j() || this.f21366i.f() == 6) {
+        i iVar = this.f21444i;
+        if (iVar == null || iVar.j() || this.f21444i.f() == 6) {
             AnimatorSet animatorSet = this.l;
             if (animatorSet != null && animatorSet.isRunning()) {
                 this.l.cancel();
@@ -210,42 +210,42 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             if (this.m == null) {
                 AnimatorSet animatorSet2 = new AnimatorSet();
                 this.m = animatorSet2;
-                animatorSet2.playTogether(ObjectAnimator.ofFloat(this.f21362e, "alpha", 0.0f, 1.0f), ObjectAnimator.ofFloat(this.f21365h, "alpha", 0.0f, 1.0f));
+                animatorSet2.playTogether(ObjectAnimator.ofFloat(this.f21440e, "alpha", 0.0f, 1.0f), ObjectAnimator.ofFloat(this.f21443h, "alpha", 0.0f, 1.0f));
                 this.m.setDuration(300L);
             }
-            this.f21362e.setVisibility(0);
-            this.f21365h.setVisibility(0);
+            this.f21440e.setVisibility(0);
+            this.f21443h.setVisibility(0);
             this.m.start();
-            if (this.f21366i.f() != 7 && this.f21366i.f() != 6) {
-                this.f21364g.d();
+            if (this.f21444i.f() != 7 && this.f21444i.f() != 6) {
+                this.f21442g.d();
                 return;
             }
-            this.f21364g.getTvTip().setVisibility(8);
+            this.f21442g.getTvTip().setVisibility(8);
             if (this.w == 2) {
-                this.f21364g.getLayer1().setVisibility(0);
+                this.f21442g.getLayer1().setVisibility(0);
             }
         }
     }
 
     public void F() {
-        i iVar = this.f21366i;
+        i iVar = this.f21444i;
         if (iVar == null) {
             return;
         }
         if (iVar.g() >= 3000.0f) {
             j(4);
-        } else if (this.f21366i.g() > 0) {
+        } else if (this.f21444i.g() > 0) {
             j(3);
         } else {
             j(1);
         }
     }
 
-    public List<d.a.n0.r3.m.e> getChoosedBeautyList() {
+    public List<d.a.n0.r3.l.e> getChoosedBeautyList() {
         return this.q;
     }
 
-    public List<d.a.n0.r3.m.e> getChoosedFilterList() {
+    public List<d.a.n0.r3.l.e> getChoosedFilterList() {
         return this.r;
     }
 
@@ -254,27 +254,27 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     public void j(int i2) {
-        this.f21366i.m(i2);
+        this.f21444i.m(i2);
         f fVar = this.o;
         if (fVar != null) {
             fVar.onStatusChange();
         }
         if (i2 == 1) {
-            this.f21362e.setVisibility(8);
-            this.f21365h.setVisibility(8);
+            this.f21440e.setVisibility(8);
+            this.f21443h.setVisibility(8);
         } else if (i2 == 3) {
-            this.f21362e.setImageResource(R.drawable.video_back_selector);
-            this.f21365h.setImageResource(R.drawable.icon_video_confirm_d);
+            this.f21440e.setImageResource(R.drawable.video_back_selector);
+            this.f21443h.setImageResource(R.drawable.icon_video_confirm_d);
         } else if (i2 == 4) {
-            this.f21362e.setImageResource(R.drawable.video_back_selector);
-            this.f21365h.setImageResource(R.drawable.video_confirm_selector);
+            this.f21440e.setImageResource(R.drawable.video_back_selector);
+            this.f21443h.setImageResource(R.drawable.video_confirm_selector);
         } else if (i2 == 5) {
-            this.f21362e.setImageResource(R.drawable.video_delete_selector);
-            i iVar = this.f21366i;
+            this.f21440e.setImageResource(R.drawable.video_delete_selector);
+            i iVar = this.f21444i;
             if (iVar != null && iVar.g() >= 3000.0f) {
-                this.f21365h.setImageResource(R.drawable.video_confirm_selector);
+                this.f21443h.setImageResource(R.drawable.video_confirm_selector);
             } else {
-                this.f21365h.setImageResource(R.drawable.icon_video_confirm_d);
+                this.f21443h.setImageResource(R.drawable.icon_video_confirm_d);
             }
         }
     }
@@ -285,23 +285,23 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             if (action != 1) {
                 return;
             }
-            this.f21364g.e();
-        } else if (this.f21366i.f() == 6) {
-            this.f21366i.m(1);
+            this.f21442g.e();
+        } else if (this.f21444i.f() == 6) {
+            this.f21444i.m(1);
             f fVar = this.o;
             if (fVar != null) {
                 fVar.onCancelCountDowning();
                 this.o.onStopRecord();
             }
-            this.f21364g.getTvTip().setText("");
-            this.f21364g.getTvTip().setVisibility(8);
+            this.f21442g.getTvTip().setText("");
+            this.f21442g.getTvTip().setVisibility(8);
         } else if (this.u.getVisibility() == 0) {
             m(null);
         } else {
             f fVar2 = this.o;
             if (fVar2 != null) {
                 fVar2.onTakePhoto();
-                this.f21364g.c();
+                this.f21442g.c();
             }
         }
     }
@@ -315,8 +315,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                     return;
                 }
                 this.k = false;
-                if (!this.f21366i.j() && this.f21366i.f() != 6) {
-                    if (this.f21366i.f() != 8) {
+                if (!this.f21444i.j() && this.f21444i.f() != 6) {
+                    if (this.f21444i.f() != 8) {
                         y(false);
                         return;
                     }
@@ -332,10 +332,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         if (fVar != null) {
             fVar.hideMinVideoTips();
         }
-        if (this.f21366i.f() == 7 || this.f21366i.f() == 6) {
+        if (this.f21444i.f() == 7 || this.f21444i.f() == 6) {
             return;
         }
-        i iVar = this.f21366i;
+        i iVar = this.f21444i;
         if (iVar != null && iVar.i()) {
             this.p = true;
             CustomToast.newInstance().showToast(R.string.music_is_downloading);
@@ -352,13 +352,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             return;
         }
         o();
-        this.f21365h.setEnabled(true);
-        this.f21362e.setEnabled(true);
-        if (this.f21366i.f() != 6 && !this.f21366i.j()) {
-            j(this.f21366i.f());
+        this.f21443h.setEnabled(true);
+        this.f21440e.setEnabled(true);
+        if (this.f21444i.f() != 6 && !this.f21444i.j()) {
+            j(this.f21444i.f());
         } else {
-            this.f21362e.setVisibility(8);
-            this.f21365h.setVisibility(8);
+            this.f21440e.setVisibility(8);
+            this.f21443h.setVisibility(8);
         }
         for (int i2 = 0; i2 < this.n.size(); i2++) {
             ObjectAnimator objectAnimator = this.n.get(i2);
@@ -377,18 +377,18 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public final void n() {
         LayoutInflater.from(getContext()).inflate(R.layout.record_controller_layout, this);
         this.u = (VideoEffectLayout) findViewById(R.id.layout_effect);
-        this.f21363f = (RelativeLayout) findViewById(R.id.layout_record);
+        this.f21441f = (RelativeLayout) findViewById(R.id.layout_record);
         ImageView imageView = (ImageView) findViewById(R.id.delete_video);
-        this.f21362e = imageView;
+        this.f21440e = imageView;
         imageView.setOnClickListener(this);
         VideoRecordButton videoRecordButton = (VideoRecordButton) findViewById(R.id.layout_record_button);
-        this.f21364g = videoRecordButton;
+        this.f21442g = videoRecordButton;
         videoRecordButton.setOnTouchListener(this);
         ImageView imageView2 = (ImageView) findViewById(R.id.confirm_video);
-        this.f21365h = imageView2;
+        this.f21443h = imageView2;
         imageView2.setOnClickListener(this);
-        this.t.add(0, new d.a.n0.r3.m.e(3, getResources().getString(R.string.music_normal), new MusicData("-100", 1, getResources().getString(R.string.music_normal)), R.drawable.icon_video_mute));
-        this.t.add(1, new d.a.n0.r3.m.e(3, getResources().getString(R.string.music_cloud), new MusicData("-200", 2, getResources().getString(R.string.music_cloud)), R.drawable.icon_video_cloudmusic));
+        this.t.add(0, new d.a.n0.r3.l.e(3, getResources().getString(R.string.music_normal), new MusicData("-100", 1, getResources().getString(R.string.music_normal)), R.drawable.icon_video_mute));
+        this.t.add(1, new d.a.n0.r3.l.e(3, getResources().getString(R.string.music_cloud), new MusicData("-200", 2, getResources().getString(R.string.music_cloud)), R.drawable.icon_video_cloudmusic));
     }
 
     public final void o() {
@@ -396,55 +396,55 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             ArrayList arrayList = new ArrayList();
             this.n = arrayList;
             arrayList.add(ObjectAnimator.ofFloat(this.u, "translationY", 1000.0f, 0.0f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21363f, "translationY", 0.0f, l.g(getContext(), R.dimen.ds100)));
-            this.n.add(ObjectAnimator.ofFloat(this.f21364g.getLayer3(), "scaleX", 0.766f, 0.585f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21364g.getLayer3(), "scaleY", 0.766f, 0.585f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21364g.getLayer2(), "scaleX", 1.0f, 0.82f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21364g.getLayer2(), "scaleY", 1.0f, 0.82f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21365h, "scaleX", 1.0f, 0.7f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21365h, "scaleY", 1.0f, 0.7f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21362e, "scaleX", 1.0f, 0.7f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21362e, "scaleY", 1.0f, 0.7f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21365h, "alpha", 1.0f, 0.0f));
-            this.n.add(ObjectAnimator.ofFloat(this.f21362e, "alpha", 1.0f, 0.0f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21441f, "translationY", 0.0f, l.g(getContext(), R.dimen.ds100)));
+            this.n.add(ObjectAnimator.ofFloat(this.f21442g.getLayer3(), "scaleX", 0.766f, 0.585f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21442g.getLayer3(), "scaleY", 0.766f, 0.585f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21442g.getLayer2(), "scaleX", 1.0f, 0.82f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21442g.getLayer2(), "scaleY", 1.0f, 0.82f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21443h, "scaleX", 1.0f, 0.7f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21443h, "scaleY", 1.0f, 0.7f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21440e, "scaleX", 1.0f, 0.7f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21440e, "scaleY", 1.0f, 0.7f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21443h, "alpha", 1.0f, 0.0f));
+            this.n.add(ObjectAnimator.ofFloat(this.f21440e, "alpha", 1.0f, 0.0f));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f21362e) {
+        if (view == this.f21440e) {
             f fVar = this.o;
             if (fVar != null) {
                 fVar.hideMinVideoTips();
             }
-            int f2 = this.f21366i.f();
-            i iVar = this.f21366i;
+            int f2 = this.f21444i.f();
+            i iVar = this.f21444i;
             if (iVar == null || iVar.g() <= 0 || f2 <= 2) {
                 return;
             }
             if (f2 == 5) {
                 TiebaStatic.log("c12299");
-                this.f21366i.d();
+                this.f21444i.d();
                 t(this.q);
                 t(this.r);
                 t(this.s);
-                if (this.f21366i.g() >= 3000.0f) {
+                if (this.f21444i.g() >= 3000.0f) {
                     j(4);
                     return;
                 } else {
-                    j(this.f21366i.g() > 0 ? 3 : 1);
+                    j(this.f21444i.g() > 0 ? 3 : 1);
                     return;
                 }
             }
-            this.f21366i.l();
+            this.f21444i.l();
             j(5);
-        } else if (view == this.f21365h) {
+        } else if (view == this.f21443h) {
             TiebaStatic.log("c12300");
-            i iVar2 = this.f21366i;
+            i iVar2 = this.f21444i;
             if (iVar2 == null || iVar2.f() <= 2 || this.o == null) {
                 return;
             }
-            if (this.f21366i.g() >= 3000.0f) {
+            if (this.f21444i.g() >= 3000.0f) {
                 this.o.onRecordDone();
             } else {
                 this.o.onRecordShort();
@@ -500,7 +500,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         this.u.onClickSticker();
     }
 
-    @Override // d.a.n0.r3.j.b
+    @Override // d.a.n0.r3.i.b
     public void onSaveMusicVideo(String str, int i2, String str2) {
     }
 
@@ -532,9 +532,9 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             m(null);
         }
         z(false);
-        this.f21364g.getLayer1().setVisibility(8);
-        this.f21364g.getTvTip().setText(getResources().getText(R.string.video_record_button_cancel));
-        this.f21364g.getTvTip().setVisibility(0);
+        this.f21442g.getLayer1().setVisibility(8);
+        this.f21442g.getTvTip().setText(getResources().getText(R.string.video_record_button_cancel));
+        this.f21442g.getTvTip().setVisibility(0);
         f fVar = this.o;
         if (fVar != null) {
             fVar.onStartRecord();
@@ -542,21 +542,21 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     public void s() {
-        if (this.f21366i.f() == 6) {
+        if (this.f21444i.f() == 6) {
             if (this.w == 2) {
                 j(7);
-                this.f21364g.setAlpha(1.0f);
-                this.f21362e.setVisibility(8);
-                this.f21365h.setVisibility(8);
-                this.f21364g.getTvTip().setText(getResources().getString(R.string.video_record_button_pasue));
-                i iVar = this.f21366i;
+                this.f21442g.setAlpha(1.0f);
+                this.f21440e.setVisibility(8);
+                this.f21443h.setVisibility(8);
+                this.f21442g.getTvTip().setText(getResources().getString(R.string.video_record_button_pasue));
+                i iVar = this.f21444i;
                 if (iVar != null) {
                     iVar.n();
                     return;
                 }
                 return;
             }
-            this.f21364g.getTvTip().setVisibility(8);
+            this.f21442g.getTvTip().setVisibility(8);
             f fVar = this.o;
             if (fVar != null) {
                 fVar.onTakePhoto();
@@ -567,16 +567,16 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void setCurrentTab(int i2) {
         this.w = i2;
         if (i2 == 1) {
-            this.f21362e.setVisibility(4);
-            this.f21365h.setVisibility(4);
-            this.f21364g.getLayer1().setVisibility(8);
+            this.f21440e.setVisibility(4);
+            this.f21443h.setVisibility(4);
+            this.f21442g.getLayer1().setVisibility(8);
         } else if (i2 != 2) {
         } else {
-            if (this.f21366i.f() != 1) {
-                this.f21362e.setVisibility(0);
-                this.f21365h.setVisibility(0);
+            if (this.f21444i.f() != 1) {
+                this.f21440e.setVisibility(0);
+                this.f21443h.setVisibility(0);
             }
-            this.f21364g.getLayer1().setVisibility(0);
+            this.f21442g.getLayer1().setVisibility(0);
         }
     }
 
@@ -597,11 +597,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void setHasLocalVideo(boolean z) {
     }
 
-    @Override // d.a.n0.r3.j.b
+    @Override // d.a.n0.r3.i.b
     public void setMusicData(List<MusicData> list) {
         if (list != null && list.size() > 0) {
             for (MusicData musicData : list) {
-                this.t.add(new d.a.n0.r3.m.e(3, musicData.name, musicData, -1));
+                this.t.add(new d.a.n0.r3.l.e(3, musicData.name, musicData, -1));
             }
         }
         VideoEffectLayout videoEffectLayout = this.u;
@@ -615,7 +615,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     public void setRecordController(i iVar) {
-        this.f21366i = iVar;
+        this.f21444i = iVar;
         j(1);
     }
 
@@ -660,8 +660,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
         this.u.setVisibility(0);
         o();
-        this.f21365h.setEnabled(false);
-        this.f21362e.setEnabled(false);
+        this.f21443h.setEnabled(false);
+        this.f21440e.setEnabled(false);
         for (int i2 = 0; i2 < this.n.size(); i2++) {
             ObjectAnimator objectAnimator = this.n.get(i2);
             if (objectAnimator != null) {
@@ -677,7 +677,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     public final void y(boolean z) {
-        if (this.f21366i.e() >= 100) {
+        if (this.f21444i.e() >= 100) {
             f fVar = this.o;
             if (fVar != null) {
                 fVar.onRecordDone();
@@ -700,7 +700,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         } else {
             z(z);
         }
-        i iVar = this.f21366i;
+        i iVar = this.f21444i;
         if (iVar != null) {
             iVar.n();
         }
@@ -718,13 +718,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         if (this.l == null) {
             AnimatorSet animatorSet2 = new AnimatorSet();
             this.l = animatorSet2;
-            animatorSet2.playTogether(ObjectAnimator.ofFloat(this.f21362e, "alpha", 1.0f, 0.0f), ObjectAnimator.ofFloat(this.f21365h, "alpha", 1.0f, 0.0f));
+            animatorSet2.playTogether(ObjectAnimator.ofFloat(this.f21440e, "alpha", 1.0f, 0.0f), ObjectAnimator.ofFloat(this.f21443h, "alpha", 1.0f, 0.0f));
             this.l.addListener(new b());
             this.l.setDuration(300L);
         }
         this.l.start();
-        if (this.f21366i.f() != 6) {
-            this.f21364g.b(z);
+        if (this.f21444i.f() != 6) {
+            this.f21442g.b(z);
         }
     }
 

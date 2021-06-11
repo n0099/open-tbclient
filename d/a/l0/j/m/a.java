@@ -49,8 +49,8 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
     public String C0;
     public ImageView D0;
     public TextView E0;
-    public TextView K0;
-    public GeoCoder L0;
+    public TextView F0;
+    public GeoCoder G0;
     public PopupWindow M0;
     public OpenLocationBottomMenu N0;
     public View O0;
@@ -65,8 +65,8 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
 
     /* renamed from: d.a.l0.j.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1068a implements View.OnClickListener {
-        public View$OnClickListenerC1068a() {
+    public class View$OnClickListenerC1124a implements View.OnClickListener {
+        public View$OnClickListenerC1124a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -90,14 +90,14 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
                 a.this.E0.setText(g.unknown_location_info);
                 return;
             }
-            if (a.this.K0 != null && TextUtils.isEmpty(a.this.C0)) {
+            if (a.this.F0 != null && TextUtils.isEmpty(a.this.C0)) {
                 String address = reverseGeoCodeResult.getAddress();
                 a aVar = a.this;
                 if (address == null) {
                     address = aVar.z().getString(g.unknown_location_info);
                 }
                 aVar.C0 = address;
-                a.this.K0.setText(a.this.C0);
+                a.this.F0.setText(a.this.C0);
             }
             if (a.this.E0 != null && TextUtils.isEmpty(a.this.B0)) {
                 String sematicDescription = reverseGeoCodeResult.getSematicDescription();
@@ -161,7 +161,7 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static a c3(Bundle bundle) {
@@ -236,9 +236,9 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         this.O0 = view;
         ImageView imageView = (ImageView) view.findViewById(d.a.l0.j.e.location_icon_path);
         this.D0 = imageView;
-        imageView.setOnClickListener(new View$OnClickListenerC1068a());
+        imageView.setOnClickListener(new View$OnClickListenerC1124a());
         this.E0 = (TextView) view.findViewById(d.a.l0.j.e.location_text_position);
-        this.K0 = (TextView) view.findViewById(d.a.l0.j.e.location_text_address);
+        this.F0 = (TextView) view.findViewById(d.a.l0.j.e.location_text_address);
     }
 
     public final void Y2(View view) {
@@ -271,9 +271,9 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
     }
 
     public final void b3(LatLng latLng) {
-        this.L0 = GeoCoder.newInstance();
-        this.L0.setOnGetGeoCodeResultListener(new b());
-        this.L0.reverseGeoCode(new ReverseGeoCodeOption().location(latLng));
+        this.G0 = GeoCoder.newInstance();
+        this.G0.setOnGetGeoCodeResultListener(new b());
+        this.G0.reverseGeoCode(new ReverseGeoCodeOption().location(latLng));
     }
 
     public final void d3() {
@@ -298,7 +298,7 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         if (!TextUtils.isEmpty(this.B0) && (textView2 = this.E0) != null) {
             textView2.setText(this.B0);
         }
-        if (!TextUtils.isEmpty(this.C0) && (textView = this.K0) != null) {
+        if (!TextUtils.isEmpty(this.C0) && (textView = this.F0) != null) {
             textView.setText(this.C0);
         }
         this.T0 = n.getStringArrayList("ignoredApps");
@@ -355,7 +355,7 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         d.a.l0.a.h0.g.g W = d.a.l0.a.g1.f.V().W();
         if (W != null) {
             g.b i2 = W.i("navigateTo");
-            i2.n(d.a.l0.a.h0.g.g.f42076g, d.a.l0.a.h0.g.g.f42078i);
+            i2.n(d.a.l0.a.h0.g.g.f45752g, d.a.l0.a.h0.g.g.f45754i);
             i2.j(this);
             i2.b();
         }
@@ -376,7 +376,7 @@ public class a extends d.a.l0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        GeoCoder geoCoder = this.L0;
+        GeoCoder geoCoder = this.G0;
         if (geoCoder != null) {
             geoCoder.destroy();
         }

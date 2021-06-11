@@ -38,16 +38,16 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     public JSONObject L;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39788a;
+    public Context f43469a;
 
     /* renamed from: e  reason: collision with root package name */
-    public AbsCountDownView f39792e;
+    public AbsCountDownView f43473e;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f39795h;
+    public boolean f43476h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.f0.a.c.b f39796i;
+    public d.a.f0.a.c.b f43477i;
     public JSONObject j;
     public JSONObject k;
     public AdView l;
@@ -60,16 +60,16 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     public String x;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39789b = 0;
+    public int f43470b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f39790c = null;
+    public ImageView f43471c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f39791d = null;
+    public ImageView f43472d = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f39794g = false;
+    public boolean f43475g = false;
     public int q = 4;
     public String r = "";
     public String s = "image";
@@ -85,12 +85,12 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     public int G = 16;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.f0.a.k.b f39793f = d.a.f0.a.k.b.i();
+    public final d.a.f0.a.k.b f43474f = d.a.f0.a.k.b.i();
 
     /* renamed from: d.a.f0.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class View$OnClickListenerC0528a implements View.OnClickListener {
-        public View$OnClickListenerC0528a() {
+    public class View$OnClickListenerC0584a implements View.OnClickListener {
+        public View$OnClickListenerC0584a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -141,27 +141,27 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     public class e implements d.a.f0.a.e.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageView f39801a;
+        public final /* synthetic */ ImageView f43482a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f39802b;
+        public final /* synthetic */ String f43483b;
 
         /* renamed from: d.a.f0.a.d.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0529a implements Runnable {
-            public RunnableC0529a() {
+        public class RunnableC0585a implements Runnable {
+            public RunnableC0585a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 e eVar = e.this;
-                a.this.A(eVar.f39801a, eVar.f39802b);
+                a.this.A(eVar.f43482a, eVar.f43483b);
             }
         }
 
         public e(ImageView imageView, String str) {
-            this.f39801a = imageView;
-            this.f39802b = str;
+            this.f43482a = imageView;
+            this.f43483b = str;
         }
 
         @Override // d.a.f0.a.e.a
@@ -172,9 +172,9 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
         @Override // d.a.f0.a.e.a
         public void onLoadingComplete(String str, View view, Bitmap bitmap) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                a.this.A(this.f39801a, this.f39802b);
+                a.this.A(this.f43482a, this.f43483b);
             } else {
-                d.a.f0.a.k.a.a(new RunnableC0529a());
+                d.a.f0.a.k.a.a(new RunnableC0585a());
             }
         }
 
@@ -190,10 +190,10 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f39794g) {
+            if (a.this.f43475g) {
                 return;
             }
-            a.this.f39794g = true;
+            a.this.f43475g = true;
             a.this.F();
         }
     }
@@ -205,10 +205,10 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f39794g) {
+            if (a.this.f43475g) {
                 return;
             }
-            a.this.f39794g = true;
+            a.this.f43475g = true;
             a.this.F();
         }
     }
@@ -232,7 +232,7 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
 
         @Override // com.baidu.sdk.container.widget.AbsCountDownView.b
         public void onEnd() {
-            if (a.this.f39795h) {
+            if (a.this.f43476h) {
                 a.this.u("time_end");
             }
         }
@@ -246,18 +246,18 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     public class j implements b.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f39809a;
+        public final /* synthetic */ LottieAnimationView f43490a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f39810b;
+        public final /* synthetic */ int f43491b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f39811c;
+        public final /* synthetic */ int f43492c;
 
         /* renamed from: d.a.f0.a.d.a$j$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class View$OnClickListenerC0530a implements View.OnClickListener {
-            public View$OnClickListenerC0530a() {
+        public class View$OnClickListenerC0586a implements View.OnClickListener {
+            public View$OnClickListenerC0586a() {
             }
 
             @Override // android.view.View.OnClickListener
@@ -267,22 +267,22 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
         }
 
         public j(LottieAnimationView lottieAnimationView, int i2, int i3) {
-            this.f39809a = lottieAnimationView;
-            this.f39810b = i2;
-            this.f39811c = i3;
+            this.f43490a = lottieAnimationView;
+            this.f43491b = i2;
+            this.f43492c = i3;
         }
 
         @Override // d.a.d0.a.c.b.f
         public void a() {
             a aVar = a.this;
-            aVar.m(this.f39809a, this.f39810b, this.f39811c, "click_float_lottie", aVar.L);
-            this.f39809a.setOnClickListener(new View$OnClickListenerC0530a());
+            aVar.m(this.f43490a, this.f43491b, this.f43492c, "click_float_lottie", aVar.L);
+            this.f43490a.setOnClickListener(new View$OnClickListenerC0586a());
         }
 
         @Override // d.a.d0.a.c.b.f
         public void b() {
             a aVar = a.this;
-            if (aVar.f39789b == 2 || aVar.f39788a == null) {
+            if (aVar.f43470b == 2 || aVar.f43469a == null) {
                 return;
             }
             try {
@@ -295,44 +295,44 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     }
 
     public a(Context context, JSONObject jSONObject) {
-        this.f39788a = context.getApplicationContext();
+        this.f43469a = context.getApplicationContext();
         this.j = jSONObject;
-        AdView adView = new AdView(this.f39788a);
+        AdView adView = new AdView(this.f43469a);
         this.l = adView;
         adView.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.l.setListener(this);
-        this.f39796i = new d.a.f0.a.c.b(this.f39788a);
-        this.m = new d.a.f0.a.j.a(this.f39788a);
+        this.f43477i = new d.a.f0.a.c.b(this.f43469a);
+        this.m = new d.a.f0.a.j.a(this.f43469a);
         L();
     }
 
     public final void A(ImageView imageView, String str) {
-        if (this.l == null || this.f39788a == null) {
+        if (this.l == null || this.f43469a == null) {
             return;
         }
         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         imageView.setId(XBaseAdContainer.Baidu_Ad_IMG_ID);
         if (str.equals("https://cpro.baidustatic.com/cpro/logo/sdk/new-bg-logo.png")) {
             imageView.setTag("BAIDU_LOGO");
-            l(imageView, d.a.f0.a.k.h.a(this.f39788a, 13.0f), d.a.f0.a.k.h.a(this.f39788a, 13.0f), "bd_logo");
+            l(imageView, d.a.f0.a.k.h.a(this.f43469a, 13.0f), d.a.f0.a.k.h.a(this.f43469a, 13.0f), "bd_logo");
         } else if (str.equals("https://cpro.baidustatic.com/cpro/logo/sdk/mob-adIcon_2x.png")) {
             imageView.setTag("AD_LOGO");
-            l(imageView, d.a.f0.a.k.h.a(this.f39788a, 25.0f), d.a.f0.a.k.h.a(this.f39788a, 13.0f), "ad_logo");
+            l(imageView, d.a.f0.a.k.h.a(this.f43469a, 25.0f), d.a.f0.a.k.h.a(this.f43469a, 13.0f), "ad_logo");
         }
-        this.f39790c = (ImageView) this.l.findViewWithTag("BAIDU_LOGO");
+        this.f43471c = (ImageView) this.l.findViewWithTag("BAIDU_LOGO");
         ImageView imageView2 = (ImageView) this.l.findViewWithTag("AD_LOGO");
-        this.f39791d = imageView2;
-        this.f39794g = false;
-        if (this.f39790c == null || imageView2 == null) {
+        this.f43472d = imageView2;
+        this.f43475g = false;
+        if (this.f43471c == null || imageView2 == null) {
             return;
         }
         imageView2.setOnClickListener(new f());
-        this.f39790c.setOnClickListener(new g());
+        this.f43471c.setOnClickListener(new g());
     }
 
     public void B(String str) {
-        ImageView imageView = new ImageView(this.f39788a);
-        MaterialLoader.k(this.f39788a).q(imageView, str, new e(imageView, str));
+        ImageView imageView = new ImageView(this.f43469a);
+        MaterialLoader.k(this.f43469a).q(imageView, str, new e(imageView, str));
     }
 
     public void C() {
@@ -404,7 +404,7 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
             this.u = this.j.optString("material_url");
             this.k = this.j.optJSONObject("style");
             this.L = this.j.optJSONObject("inner_style");
-            this.f39795h = this.j.optBoolean("countDownNew", true);
+            this.f43476h = this.j.optBoolean("countDownNew", true);
             this.A = this.j.optBoolean("Display_Down_Info");
             this.v = this.j.optBoolean("popDialogIfDl", false);
             this.w = this.j.optString("publisher");
@@ -425,19 +425,19 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     }
 
     public void M() {
-        this.f39793f.b(M, IntentConfig.START);
+        this.f43474f.b(M, IntentConfig.START);
         d.a.f0.a.k.a.a(new b());
     }
 
     public void N() {
-        this.f39789b = 2;
+        this.f43470b = 2;
         d.a.f0.a.k.a.a(new c());
     }
 
     @Override // d.a.f0.a.g.b
     public void a() {
-        this.f39793f.b(M, "load");
-        this.f39789b = 1;
+        this.f43474f.b(M, "load");
+        this.f43470b = 1;
     }
 
     @Override // d.a.f0.a.g.b
@@ -458,14 +458,14 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     public final void i(String str) {
         int optInt = this.j.optInt("ad_label_width", 25);
         int optInt2 = this.j.optInt("ad_label_height", 13);
-        TextView textView = new TextView(this.f39788a);
+        TextView textView = new TextView(this.f43469a);
         textView.setText(str);
         textView.setBackgroundColor(Color.parseColor("#33000000"));
         textView.setTextSize(10.0f);
         textView.setIncludeFontPadding(false);
         textView.setTextColor(-1);
         textView.setGravity(17);
-        l(textView, d.a.f0.a.k.h.a(this.f39788a, optInt), d.a.f0.a.k.h.a(this.f39788a, optInt2), NotificationCompatJellybean.KEY_LABEL);
+        l(textView, d.a.f0.a.k.h.a(this.f43469a, optInt), d.a.f0.a.k.h.a(this.f43469a, optInt2), NotificationCompatJellybean.KEY_LABEL);
     }
 
     public void j(View view, RelativeLayout.LayoutParams layoutParams) {
@@ -482,8 +482,8 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
         if (!this.A || this.v || TextUtils.isEmpty(this.x) || TextUtils.isEmpty(this.w)) {
             return;
         }
-        RelativeLayout relativeLayout = new RelativeLayout(this.f39788a);
-        DisplayInfoView.c cVar = new DisplayInfoView.c(this.f39788a);
+        RelativeLayout relativeLayout = new RelativeLayout(this.f43469a);
+        DisplayInfoView.c cVar = new DisplayInfoView.c(this.f43469a);
         cVar.a(this.x, this.w);
         cVar.c(-10066330);
         cVar.b(new d());
@@ -511,22 +511,22 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
         if (TextUtils.isEmpty(this.H)) {
             return;
         }
-        int optInt = this.j.optInt("bottom_logo_height", d.a.f0.a.j.b.f39845a);
-        if (optInt != d.a.f0.a.j.b.f39845a) {
-            d.a.f0.a.j.b.f39845a = optInt;
+        int optInt = this.j.optInt("bottom_logo_height", d.a.f0.a.j.b.f43526a);
+        if (optInt != d.a.f0.a.j.b.f43526a) {
+            d.a.f0.a.j.b.f43526a = optInt;
         }
         try {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f39788a);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, d.a.f0.a.k.h.a(this.f39788a, optInt));
+            RelativeLayout relativeLayout = new RelativeLayout(this.f43469a);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, d.a.f0.a.k.h.a(this.f43469a, optInt));
             layoutParams.addRule(12);
             relativeLayout.setId(15);
-            ImageView imageView = new ImageView(this.f39788a);
+            ImageView imageView = new ImageView(this.f43469a);
             imageView.setImageResource(Integer.parseInt(this.H));
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             relativeLayout.addView(imageView);
             this.l.addView(relativeLayout, layoutParams);
         } catch (Throwable th) {
-            this.f39793f.f(M, th);
+            this.f43474f.f(M, th);
         }
     }
 
@@ -539,12 +539,12 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
             int optInt = this.j.optInt("small_logo_width", -2);
             int optInt2 = this.j.optInt("small_logo_height", -2);
             try {
-                ImageView imageView = new ImageView(this.f39788a);
+                ImageView imageView = new ImageView(this.f43469a);
                 imageView.setImageResource(Integer.parseInt(optString));
                 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                l(imageView, d.a.f0.a.k.h.a(this.f39788a, optInt), d.a.f0.a.k.h.a(this.f39788a, optInt2), "logo");
+                l(imageView, d.a.f0.a.k.h.a(this.f43469a, optInt), d.a.f0.a.k.h.a(this.f43469a, optInt2), "logo");
             } catch (Throwable th) {
-                this.f39793f.f(M, th);
+                this.f43474f.f(M, th);
             }
         }
     }
@@ -565,7 +565,7 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
 
     @Override // d.a.f0.a.g.b
     public void pause() {
-        AbsCountDownView absCountDownView = this.f39792e;
+        AbsCountDownView absCountDownView = this.f43473e;
         if (absCountDownView != null) {
             absCountDownView.c();
         }
@@ -582,11 +582,11 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
         if (TextUtils.isEmpty(this.I) || !this.J) {
             return;
         }
-        LottieAnimationView lottieAnimationView = new LottieAnimationView(this.f39788a);
+        LottieAnimationView lottieAnimationView = new LottieAnimationView(this.f43469a);
         JSONObject optJSONObject = this.L.optJSONObject("click_float_lottie");
         double optDouble = optJSONObject != null ? optJSONObject.optDouble("floatW_screenW_ratio", 0.69d) : 0.69d;
         double optDouble2 = optJSONObject != null ? optJSONObject.optDouble("floatH_floatW_ratio", 0.419d) : 0.419d;
-        int screenWidth = (int) (ScreenUtils.getScreenWidth(this.f39788a) * optDouble);
+        int screenWidth = (int) (ScreenUtils.getScreenWidth(this.f43469a) * optDouble);
         d.a.d0.a.c.b.c().b(this.I, lottieAnimationView, null, new j(lottieAnimationView, screenWidth, (int) (screenWidth * optDouble2)));
     }
 
@@ -598,14 +598,14 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
             aVar.l(optString);
             aVar.m(optInt);
             aVar.o(this.D);
-            aVar.n(new View$OnClickListenerC0528a());
-            aVar.k(this.f39788a).a(this.l);
+            aVar.n(new View$OnClickListenerC0584a());
+            aVar.k(this.f43469a).a(this.l);
         }
     }
 
     @Override // d.a.f0.a.g.b
     public void resume() {
-        AbsCountDownView absCountDownView = this.f39792e;
+        AbsCountDownView absCountDownView = this.f43473e;
         if (absCountDownView != null) {
             absCountDownView.b();
         }
@@ -614,25 +614,25 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     public final void s() {
         try {
             if (this.F == 1) {
-                this.f39792e = new RectangleCountDownView(this.f39788a);
+                this.f43473e = new RectangleCountDownView(this.f43469a);
             } else {
-                this.f39792e = new CircleTextProgressbar(this.f39788a);
+                this.f43473e = new CircleTextProgressbar(this.f43469a);
             }
-            this.f39792e.setVisibility(4);
-            this.f39792e.setOnClickListener(new h());
-            this.f39792e.setCountdownProgressListener(new i());
-            l(this.f39792e, d.a.f0.a.k.h.a(this.f39788a, this.j.optInt("skip_btn_width", 40)), d.a.f0.a.k.h.a(this.f39788a, this.j.optInt("skip_btn_height", 40)), FreeSpaceBox.TYPE);
+            this.f43473e.setVisibility(4);
+            this.f43473e.setOnClickListener(new h());
+            this.f43473e.setCountdownProgressListener(new i());
+            l(this.f43473e, d.a.f0.a.k.h.a(this.f43469a, this.j.optInt("skip_btn_width", 40)), d.a.f0.a.k.h.a(this.f43469a, this.j.optInt("skip_btn_height", 40)), FreeSpaceBox.TYPE);
         } catch (Exception unused) {
         }
     }
 
     public void t() {
         if (this.z) {
-            TextView textView = new TextView(this.f39788a);
+            TextView textView = new TextView(this.f43469a);
             this.n = textView;
             textView.setText("已于Wi-Fi环境预加载");
             this.n.setTextColor(Color.parseColor("#999999"));
-            this.n.setTextSize(0, d.a.f0.a.k.h.c(this.f39788a, 11));
+            this.n.setTextSize(0, d.a.f0.a.k.h.c(this.f43469a, 11));
             l(this.n, -2, -2, "wifi_tip");
         }
     }
@@ -644,13 +644,13 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
     public abstract void v();
 
     public void w() {
-        if (!d.a.f0.a.k.e.f39850b || this.f39788a == null) {
+        if (!d.a.f0.a.k.e.f43531b || this.f43469a == null) {
             return;
         }
-        TextView textView = new TextView(this.f39788a);
+        TextView textView = new TextView(this.f43469a);
         textView.setTextColor(-16776961);
         textView.setTextSize(15.0f);
-        textView.setText("P : " + d.a.f0.a.k.e.f39849a);
+        textView.setText("P : " + d.a.f0.a.k.e.f43530a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.bottomMargin = 10;
         layoutParams.addRule(13);
@@ -661,14 +661,14 @@ public abstract class a implements d.a.f0.a.g.b, AdView.a {
         if (this.y) {
             s();
             if (!"video".equals(this.s)) {
-                this.f39792e.setTimeMillis(this.t);
-                this.f39792e.b();
+                this.f43473e.setTimeMillis(this.t);
+                this.f43473e.b();
             }
             int i2 = this.q;
             if (i2 == 5) {
-                this.f39792e.setVisibility(0);
+                this.f43473e.setVisibility(0);
             } else if (i2 == 1) {
-                this.f39792e.setVisibility(0);
+                this.f43473e.setVisibility(0);
             }
         }
     }

@@ -7,32 +7,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import d.a.n0.j0.k.c.e;
 /* loaded from: classes4.dex */
-public class d extends d.a.c.j.e.a<e, CardViewHolder<d.a.n0.j0.k.d.d>> {
+public class d extends d.a.c.k.e.a<e, CardViewHolder<d.a.n0.j0.k.d.d>> {
     public TbPageContext<?> m;
 
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.f56019f);
+        super(tbPageContext.getPageActivity(), e.f59708f);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public CardViewHolder<d.a.n0.j0.k.d.d> P(ViewGroup viewGroup) {
+    public CardViewHolder<d.a.n0.j0.k.d.d> Q(ViewGroup viewGroup) {
         d.a.n0.j0.k.d.d dVar = new d.a.n0.j0.k.d.d(this.m);
-        dVar.p(this.f39232i);
+        dVar.q(this.f42913i);
         return new CardViewHolder<>(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, e eVar, CardViewHolder<d.a.n0.j0.k.d.d> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, e eVar, CardViewHolder<d.a.n0.j0.k.d.d> cardViewHolder) {
         if (eVar == null || cardViewHolder == null || cardViewHolder.b() == null) {
             return null;
         }
-        cardViewHolder.b().m(eVar);
-        cardViewHolder.b().n(this.m, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.b().n(eVar);
+        cardViewHolder.b().o(this.m, TbadkCoreApplication.getInst().getSkinType());
         return cardViewHolder.a();
     }
 }

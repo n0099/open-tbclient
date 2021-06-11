@@ -12,19 +12,19 @@ import com.baidu.tieba.R;
 public class d1 {
 
     /* renamed from: c  reason: collision with root package name */
-    public ValueAnimator f58437c;
+    public ValueAnimator f62128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TranslateAnimation f58438d;
+    public TranslateAnimation f62129d;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f58435a = null;
+    public View f62126a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58436b = 2000;
+    public int f62127b = 2000;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f58439e = new a();
+    public Runnable f62130e = new a();
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -44,10 +44,10 @@ public class d1 {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            if (d1.this.f58435a == null || valueAnimator == null) {
+            if (d1.this.f62126a == null || valueAnimator == null) {
                 return;
             }
-            d1.this.f58435a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            d1.this.f62126a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -62,9 +62,9 @@ public class d1 {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (d1.this.f58435a != null) {
+            if (d1.this.f62126a != null) {
                 d1.this.f();
-                d1.this.f58435a.setAlpha(1.0f);
+                d1.this.f62126a.setAlpha(1.0f);
             }
         }
 
@@ -84,7 +84,7 @@ public class d1 {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            d.a.c.e.m.e.a().postDelayed(d1.this.f58439e, d1.this.f58436b);
+            d.a.c.e.m.e.a().postDelayed(d1.this.f62130e, d1.this.f62127b);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -98,24 +98,24 @@ public class d1 {
 
     public d1() {
         ValueAnimator valueAnimator = new ValueAnimator();
-        this.f58437c = valueAnimator;
+        this.f62128c = valueAnimator;
         valueAnimator.setFloatValues(1.0f, 0.0f);
-        this.f58437c.setDuration(400L);
-        this.f58437c.addUpdateListener(new b());
-        this.f58437c.addListener(new c());
+        this.f62128c.setDuration(400L);
+        this.f62128c.addUpdateListener(new b());
+        this.f62128c.addListener(new c());
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f58438d = translateAnimation;
+        this.f62129d = translateAnimation;
         translateAnimation.setDuration(400L);
-        this.f58438d.setAnimationListener(new d());
+        this.f62129d.setAnimationListener(new d());
     }
 
     public void d() {
-        d.a.c.e.m.e.a().removeCallbacks(this.f58439e);
-        View view = this.f58435a;
-        if (view == null || view.getParent() == null || this.f58435a.getVisibility() != 0 || this.f58437c.isRunning()) {
+        d.a.c.e.m.e.a().removeCallbacks(this.f62130e);
+        View view = this.f62126a;
+        if (view == null || view.getParent() == null || this.f62126a.getVisibility() != 0 || this.f62128c.isRunning()) {
             return;
         }
-        this.f58437c.start();
+        this.f62128c.start();
     }
 
     public void e() {
@@ -123,17 +123,17 @@ public class d1 {
     }
 
     public void f() {
-        d.a.c.e.m.e.a().removeCallbacks(this.f58439e);
-        if (this.f58435a != null) {
-            ValueAnimator valueAnimator = this.f58437c;
+        d.a.c.e.m.e.a().removeCallbacks(this.f62130e);
+        if (this.f62126a != null) {
+            ValueAnimator valueAnimator = this.f62128c;
             if (valueAnimator != null && valueAnimator.isRunning()) {
-                this.f58437c.cancel();
+                this.f62128c.cancel();
             }
-            this.f58435a.clearAnimation();
-            if (this.f58435a.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f58435a.getParent()).removeView(this.f58435a);
+            this.f62126a.clearAnimation();
+            if (this.f62126a.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f62126a.getParent()).removeView(this.f62126a);
             }
-            this.f58435a.setVisibility(8);
+            this.f62126a.setVisibility(8);
         }
     }
 
@@ -141,22 +141,22 @@ public class d1 {
         if (viewGroup == null || view == null) {
             return;
         }
-        this.f58435a = view;
+        this.f62126a = view;
         f();
-        viewGroup.addView(this.f58435a, layoutParams);
-        this.f58435a.setVisibility(0);
+        viewGroup.addView(this.f62126a, layoutParams);
+        this.f62126a.setVisibility(0);
     }
 
     public void h(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i2) {
         if (viewGroup == null || view == null) {
             return;
         }
-        this.f58435a = view;
+        this.f62126a = view;
         f();
-        viewGroup.addView(this.f58435a, layoutParams);
-        this.f58435a.setVisibility(0);
-        this.f58436b = i2;
-        d.a.c.e.m.e.a().removeCallbacks(this.f58439e);
-        d.a.c.e.m.e.a().postDelayed(this.f58439e, this.f58436b);
+        viewGroup.addView(this.f62126a, layoutParams);
+        this.f62126a.setVisibility(0);
+        this.f62127b = i2;
+        d.a.c.e.m.e.a().removeCallbacks(this.f62130e);
+        d.a.c.e.m.e.a().postDelayed(this.f62130e, this.f62127b);
     }
 }

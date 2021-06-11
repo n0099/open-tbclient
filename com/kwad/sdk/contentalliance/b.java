@@ -1,62 +1,66 @@
 package com.kwad.sdk.contentalliance;
 
-import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes6.dex */
-public abstract class b<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
+public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public Presenter f31917a;
+    public Presenter f32431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f31918b;
+    public T f32432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f31919c;
-
-    public b(Context context) {
-        super(context);
-        this.f31919c = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
-    }
+    public ViewGroup f32433c;
 
     public void a() {
-        Presenter presenter = this.f31917a;
+        Presenter presenter = this.f32431a;
         if (presenter != null) {
-            presenter.g();
+            presenter.j();
         }
-        this.f31919c = null;
+        this.f32433c = null;
     }
 
-    public abstract T b();
+    public abstract int b();
+
+    public abstract T c();
 
     @NonNull
-    public abstract Presenter c();
+    public abstract Presenter d();
 
-    @LayoutRes
-    public abstract int getLayoutId();
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        this.f31918b = b();
-        if (this.f31917a == null) {
-            Presenter c2 = c();
-            this.f31917a = c2;
-            c2.a((View) this.f31919c);
+    @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public void onActivityCreated(@Nullable Bundle bundle) {
+        super.onActivityCreated(bundle);
+        this.f32432b = c();
+        if (this.f32431a == null) {
+            Presenter d2 = d();
+            this.f32431a = d2;
+            d2.a((View) this.f32433c);
         }
-        this.f31917a.a(this.f31918b);
+        this.f32431a.a(this.f32432b);
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        T t = this.f31918b;
+    @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    @Nullable
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        if (this.f32433c == null) {
+            this.f32433c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
+        }
+        return this.f32433c;
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public void onDestroyView() {
+        super.onDestroyView();
+        T t = this.f32432b;
         if (t != null) {
             t.a();
         }

@@ -13,7 +13,7 @@ import java.util.Map;
 public class ek {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f37521a;
+    public static a f41200a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, hp> f317a;
@@ -104,7 +104,7 @@ public class ek {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hp m272a(String str) {
+    public static hp m271a(String str) {
         hp[] values;
         if (f317a == null) {
             synchronized (hp.class) {
@@ -121,12 +121,12 @@ public class ek {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m273a(int i2) {
+    public static String m272a(int i2) {
         return i2 == 1000 ? "E100000" : i2 == 3000 ? "E100002" : i2 == 2000 ? "E100001" : i2 == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m274a(Context context) {
+    public static void m273a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -135,11 +135,11 @@ public class ek {
     }
 
     public static void a(Context context, hj hjVar) {
-        if (m275a(context.getApplicationContext())) {
+        if (m274a(context.getApplicationContext())) {
             com.xiaomi.push.service.bn.a(context.getApplicationContext(), hjVar);
             return;
         }
-        a aVar = f37521a;
+        a aVar = f41200a;
         if (aVar != null) {
             aVar.uploader(context, hjVar);
         }
@@ -162,11 +162,11 @@ public class ek {
     }
 
     public static void a(a aVar) {
-        f37521a = aVar;
+        f41200a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m275a(Context context) {
+    public static boolean m274a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

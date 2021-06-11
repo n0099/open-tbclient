@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24535a = "a";
+    public static final String f24638a = "a";
 
     public static ConcurrentHashMap<String, ContractInfo> a(Context context) {
         return ContactManager.getIContactsImpl().loadPhoneContracts(context);

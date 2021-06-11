@@ -1,7 +1,6 @@
 package d.a.l0.a.c2.f.r0;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.webkit.sdk.WebView;
 import d.a.l0.a.k;
@@ -19,7 +18,7 @@ public final class d extends d.a.l0.a.c0.b.b {
     public List<String> r;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public d() {
@@ -48,7 +47,7 @@ public final class d extends d.a.l0.a.c0.b.b {
             return;
         }
         super.a(jSONObject);
-        this.n = jSONObject.optString(UserAccountActionItem.KEY_SRC);
+        this.n = jSONObject.optString("src");
         this.o = jSONObject.optString("userAgent");
         this.p = jSONObject.optString("type");
         JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
@@ -64,6 +63,6 @@ public final class d extends d.a.l0.a.c0.b.b {
 
     @Override // d.a.l0.a.c0.b.b, d.a.l0.a.l1.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.f40846g);
+        return !TextUtils.isEmpty(this.f44522g);
     }
 }

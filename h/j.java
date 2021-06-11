@@ -1,5 +1,5 @@
 package h;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class j<T> implements e<T>, k {
     public static final long NOT_SET = Long.MIN_VALUE;
     public f producer;

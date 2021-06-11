@@ -8,38 +8,38 @@ import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import d.a.l0.a.f1.e.c;
 import d.a.l0.a.j2.p.f;
 import d.a.l0.a.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43611a = k.f43199a;
+    public static final boolean f47287a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f43612b;
+    public static long f47288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f43613c;
+    public static String f47289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f43614d;
+    public static String f47290d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Bundle f43615e;
+        public final /* synthetic */ Bundle f47291e;
 
         public a(Bundle bundle) {
-            this.f43615e = bundle;
+            this.f47291e = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.a aVar = (c.a) new c.a().r(this.f43615e);
+            c.a aVar = (c.a) new c.a().r(this.f47291e);
             f fVar = new f();
-            fVar.f43185a = d.a.l0.a.j2.k.m(0);
-            fVar.f43186b = "launch";
-            fVar.f43189e = "repeatlaunch";
+            fVar.f46861a = d.a.l0.a.j2.k.m(0);
+            fVar.f46862b = "launch";
+            fVar.f46865e = "repeatlaunch";
             fVar.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
             fVar.j(aVar);
             fVar.d(aVar.r0().getString(UBCCloudControlProcessor.UBC_KEY));
@@ -49,20 +49,20 @@ public class b {
     }
 
     public static long a() {
-        return System.currentTimeMillis() - f43612b;
+        return System.currentTimeMillis() - f47288b;
     }
 
     public static boolean b(String str, String str2) {
-        long currentTimeMillis = System.currentTimeMillis() - f43612b;
-        boolean z = currentTimeMillis < 800 && TextUtils.equals(f43613c, str) && TextUtils.equals(f43614d, str2);
-        if (f43611a && z) {
+        long currentTimeMillis = System.currentTimeMillis() - f47288b;
+        boolean z = currentTimeMillis < 800 && TextUtils.equals(f47289c, str) && TextUtils.equals(f47290d, str2);
+        if (f47287a && z) {
             Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
         }
         return z;
     }
 
     public static void c() {
-        f43612b = System.currentTimeMillis();
+        f47288b = System.currentTimeMillis();
     }
 
     public static void d(Bundle bundle) {
@@ -70,7 +70,7 @@ public class b {
     }
 
     public static void e(String str, String str2) {
-        f43613c = str;
-        f43614d = str2;
+        f47289c = str;
+        f47290d = str2;
     }
 }

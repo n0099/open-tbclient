@@ -9,31 +9,31 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3954a = "en";
+    public static final String f3973a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3955b = "et";
+    public static final String f3974b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3956c = "ev";
+    public static final String f3975c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3957d = "eg";
+    public static final String f3976d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3958e = "lk";
+    public static final String f3977e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3959f = "nu";
+    public static final String f3978f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3960g = "at";
+    public static final String f3979g = "at";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3961h;
+    public String f3980h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f3962i;
+    public long f3981i;
     public String j;
     public String k;
     public String l;
@@ -43,8 +43,8 @@ public class e {
     public JSONObject a() throws NullPointerException {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("en", this.f3961h);
-            jSONObject.put("et", this.f3962i);
+            jSONObject.put("en", this.f3980h);
+            jSONObject.put("et", this.f3981i);
             jSONObject.put("nu", this.m);
             if (!TextUtils.isEmpty(this.k)) {
                 jSONObject.put("eg", this.k);
@@ -67,8 +67,8 @@ public class e {
 
     public static e a(String str, long j, String str2, long j2, String str3, Collection<String> collection, String str4) {
         e eVar = new e();
-        eVar.f3961h = str;
-        eVar.f3962i = j;
+        eVar.f3980h = str;
+        eVar.f3981i = j;
         eVar.k = str2;
         eVar.m = j2;
         eVar.l = str3;

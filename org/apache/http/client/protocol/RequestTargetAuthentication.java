@@ -6,7 +6,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestTargetAuthentication implements HttpRequestInterceptor {
     public RequestTargetAuthentication() {
         throw new RuntimeException("Stub!");

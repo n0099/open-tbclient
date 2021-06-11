@@ -12,85 +12,85 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f27989a;
+    public static final Map<String, Integer> f28092a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27990b;
+    public String f28093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27991c;
+    public String f28094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f27992d;
+    public d f28095d;
 
     static {
         HashMap hashMap = new HashMap();
-        f27989a = hashMap;
+        f28092a = hashMap;
         hashMap.put("title", 0);
-        f27989a.put("subtitle", 0);
-        f27989a.put("source", 0);
-        f27989a.put("score-count", 0);
-        f27989a.put("text_star", 0);
-        f27989a.put("image", 1);
-        f27989a.put("image-wide", 1);
-        f27989a.put("image-square", 1);
-        f27989a.put("image-long", 1);
-        f27989a.put("image-splash", 1);
-        f27989a.put("image-cover", 1);
-        f27989a.put("app-icon", 1);
-        f27989a.put("icon-download", 1);
-        f27989a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
-        f27989a.put("logoad", 4);
-        f27989a.put("logounion", 5);
-        f27989a.put("logo-union", 6);
-        f27989a.put("dislike", 3);
-        f27989a.put(IntentConfig.CLOSE, 3);
-        f27989a.put("close-fill", 3);
-        f27989a.put("text", 2);
-        f27989a.put("button", 2);
-        f27989a.put("downloadWithIcon", 2);
-        f27989a.put("downloadButton", 2);
-        f27989a.put("fillButton", 2);
-        f27989a.put("laceButton", 2);
-        f27989a.put("cardButton", 2);
-        f27989a.put("colourMixtureButton", 2);
-        f27989a.put("arrowButton", 2);
-        f27989a.put("vessel", 6);
-        f27989a.put("video-hd", 7);
-        f27989a.put("video-vd", 7);
+        f28092a.put("subtitle", 0);
+        f28092a.put("source", 0);
+        f28092a.put("score-count", 0);
+        f28092a.put("text_star", 0);
+        f28092a.put("image", 1);
+        f28092a.put("image-wide", 1);
+        f28092a.put("image-square", 1);
+        f28092a.put("image-long", 1);
+        f28092a.put("image-splash", 1);
+        f28092a.put("image-cover", 1);
+        f28092a.put("app-icon", 1);
+        f28092a.put("icon-download", 1);
+        f28092a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
+        f28092a.put("logoad", 4);
+        f28092a.put("logounion", 5);
+        f28092a.put("logo-union", 6);
+        f28092a.put("dislike", 3);
+        f28092a.put(IntentConfig.CLOSE, 3);
+        f28092a.put("close-fill", 3);
+        f28092a.put("text", 2);
+        f28092a.put("button", 2);
+        f28092a.put("downloadWithIcon", 2);
+        f28092a.put("downloadButton", 2);
+        f28092a.put("fillButton", 2);
+        f28092a.put("laceButton", 2);
+        f28092a.put("cardButton", 2);
+        f28092a.put("colourMixtureButton", 2);
+        f28092a.put("arrowButton", 2);
+        f28092a.put("vessel", 6);
+        f28092a.put("video-hd", 7);
+        f28092a.put("video-vd", 7);
     }
 
     public int a() {
-        if (TextUtils.isEmpty(this.f27990b)) {
+        if (TextUtils.isEmpty(this.f28093b)) {
             return 0;
         }
-        if (this.f27990b.equals("logo")) {
-            this.f27990b += this.f27991c;
+        if (this.f28093b.equals("logo")) {
+            this.f28093b += this.f28094c;
         }
-        if (f27989a.get(this.f27990b) != null) {
-            return f27989a.get(this.f27990b).intValue();
+        if (f28092a.get(this.f28093b) != null) {
+            return f28092a.get(this.f28093b).intValue();
         }
         return 0;
     }
 
     public String b() {
-        return this.f27991c;
+        return this.f28094c;
     }
 
     public d c() {
-        return this.f27992d;
+        return this.f28095d;
     }
 
     public void b(String str) {
-        this.f27991c = str;
+        this.f28094c = str;
     }
 
     public void a(String str) {
-        this.f27990b = str;
+        this.f28093b = str;
     }
 
     public void a(d dVar) {
-        this.f27992d = dVar;
+        this.f28095d = dVar;
     }
 
     public static void a(JSONObject jSONObject, c cVar) {

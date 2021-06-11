@@ -19,10 +19,10 @@ import java.net.URLEncoder;
 public class b implements AccountManagerService {
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountManagerService.AccountStatusChangedListener f59880a;
+    public AccountManagerService.AccountStatusChangedListener f63571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountManagerService.LoginResultListener f59881b;
+    public AccountManagerService.LoginResultListener f63572b;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -36,11 +36,11 @@ public class b implements AccountManagerService {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
                 return;
             }
-            if (b.this.f59881b != null) {
-                b.this.f59881b.onResult(b.this.isLogin(2) ? 0 : -2);
+            if (b.this.f63572b != null) {
+                b.this.f63572b.onResult(b.this.isLogin(2) ? 0 : -2);
             }
-            if (b.this.f59880a != null) {
-                b.this.f59880a.onAccountStatusChanged(false);
+            if (b.this.f63571a != null) {
+                b.this.f63571a.onAccountStatusChanged(false);
             }
         }
     }
@@ -51,7 +51,7 @@ public class b implements AccountManagerService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
     public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        this.f59880a = accountStatusChangedListener;
+        this.f63571a = accountStatusChangedListener;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
@@ -110,12 +110,12 @@ public class b implements AccountManagerService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
     public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
-        this.f59881b = loginResultListener;
+        this.f63572b = loginResultListener;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
     public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        this.f59880a = null;
+        this.f63571a = null;
     }
 }

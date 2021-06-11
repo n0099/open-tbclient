@@ -5,7 +5,7 @@ import android.app.Activity;
 public interface d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f44684a = new a();
+    public static final d f48358a = new a();
 
     /* loaded from: classes3.dex */
     public static class a implements d {

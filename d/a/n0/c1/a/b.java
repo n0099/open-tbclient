@@ -9,10 +9,10 @@ public class b {
     public static abstract class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f52312a;
+        public View f56001a;
 
         public a(View view) {
-            this.f52312a = view;
+            this.f56001a = view;
         }
 
         public abstract boolean a();
@@ -24,8 +24,8 @@ public class b {
 
     /* renamed from: d.a.n0.c1.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1230b extends a {
-        public C1230b(View view) {
+    public static class C1286b extends a {
+        public C1286b(View view) {
             super(view);
         }
 
@@ -36,12 +36,12 @@ public class b {
 
         @Override // d.a.n0.c1.a.b.a
         public void b(Runnable runnable) {
-            this.f52312a.post(runnable);
+            this.f56001a.post(runnable);
         }
 
         @Override // d.a.n0.c1.a.b.a
         public void c(int i2) {
-            View view = this.f52312a;
+            View view = this.f56001a;
             view.scrollTo(i2, view.getScrollY());
         }
     }
@@ -50,6 +50,6 @@ public class b {
         if (Build.VERSION.SDK_INT >= 14) {
             return new d.a.n0.c1.a.d.a(view);
         }
-        return new C1230b(view);
+        return new C1286b(view);
     }
 }

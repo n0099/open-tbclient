@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.m0.z0.w;
 import tbclient.AddPollPost.AddPollPostReqIdl;
 import tbclient.AddPollPost.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AddPollPostRequestNetMessage extends NetMessage {
     public long forumId;
     public String options;

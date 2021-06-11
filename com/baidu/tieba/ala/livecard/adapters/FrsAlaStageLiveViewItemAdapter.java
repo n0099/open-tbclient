@@ -15,85 +15,85 @@ import java.util.List;
 public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f13994a;
+    public TbPageContext<?> f14051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f13995b = new ArrayList<>();
+    public ArrayList<a> f14052b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<a2> f13996c = new ArrayList();
+    public List<a2> f14053c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13997d;
+    public String f14054d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f13998e;
+    public BdUniqueId f14055e;
 
     public FrsAlaStageLiveViewItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.f13994a = tbPageContext;
-        this.f13998e = bdUniqueId;
+        this.f14051a = tbPageContext;
+        this.f14055e = bdUniqueId;
     }
 
-    public final a b() {
-        return new a(this.f13994a, this.f13998e);
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
+        viewGroup.removeView(this.f14052b.get(i2).c());
     }
 
-    public void c(List<a2> list, c cVar) {
+    public final a e() {
+        return new a(this.f14051a, this.f14055e);
+    }
+
+    public void f(List<a2> list, c cVar) {
         a aVar;
         if (list == null || list.isEmpty()) {
             return;
         }
-        this.f13996c.clear();
-        this.f13996c.addAll(list);
-        int size = this.f13995b.size();
-        int size2 = this.f13996c.size();
+        this.f14053c.clear();
+        this.f14053c.addAll(list);
+        int size = this.f14052b.size();
+        int size2 = this.f14053c.size();
         if (size > size2) {
             ArrayList arrayList = new ArrayList();
             for (int i2 = size2; i2 < size; i2++) {
-                arrayList.add(this.f13995b.get(i2));
+                arrayList.add(this.f14052b.get(i2));
             }
             for (int i3 = 0; i3 < arrayList.size(); i3++) {
                 a aVar2 = (a) arrayList.get(i3);
                 if (aVar2.c() != null && aVar2.c().getParent() != null) {
                     ((ViewGroup) aVar2.c().getParent()).removeView(aVar2.c());
                 }
-                this.f13995b.remove(aVar2);
+                this.f14052b.remove(aVar2);
             }
             arrayList.clear();
         }
         for (int i4 = 0; i4 < size2; i4++) {
             if (i4 >= size) {
-                aVar = b();
-                aVar.g(this.f13994a.getUniqueId());
+                aVar = e();
+                aVar.g(this.f14051a.getUniqueId());
                 aVar.h(cVar);
-                this.f13995b.add(aVar);
+                this.f14052b.add(aVar);
             } else {
-                aVar = this.f13995b.get(i4);
+                aVar = this.f14052b.get(i4);
             }
-            if (this.f13996c.get(i4) != null && aVar != null) {
-                aVar.f(this.f13996c.get(i4), this.f13997d);
+            if (this.f14053c.get(i4) != null && aVar != null) {
+                aVar.f(this.f14053c.get(i4), this.f14054d);
             }
         }
         notifyDataSetChanged();
     }
 
-    public void d(String str) {
-        this.f13997d = str;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
-        viewGroup.removeView(this.f13995b.get(i2).c());
+    public void g(String str) {
+        this.f14054d = str;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return ListUtils.getCount(this.f13995b);
+        return ListUtils.getCount(this.f14052b);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
-        ArrayList<a> arrayList = this.f13995b;
+        ArrayList<a> arrayList = this.f14052b;
         if (arrayList == null) {
             return super.instantiateItem(viewGroup, i2);
         }

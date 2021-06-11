@@ -35,22 +35,22 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44240a = k.f43199a;
+    public static final boolean f47914a = k.f46875a;
 
     /* renamed from: d.a.l0.a.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0803a extends ResponseCallback {
+    public static class C0859a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f44241a;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f47915a;
 
-        public C0803a(d.a.l0.a.v2.e1.b bVar) {
-            this.f44241a = bVar;
+        public C0859a(d.a.l0.a.v2.e1.b bVar) {
+            this.f47915a = bVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f44241a.onCallback(null);
+            this.f47915a.onCallback(null);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -59,7 +59,7 @@ public class a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) throws Exception {
-            a.i(response, this.f44241a);
+            a.i(response, this.f47915a);
             return response;
         }
     }
@@ -68,15 +68,15 @@ public class a {
     public static class b extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f44242a;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f47916a;
 
         public b(d.a.l0.a.v2.e1.b bVar) {
-            this.f44242a = bVar;
+            this.f47916a = bVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            this.f44242a.onCallback(null);
+            this.f47916a.onCallback(null);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -85,7 +85,7 @@ public class a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) throws Exception {
-            a.g(response, this.f44242a);
+            a.g(response, this.f47916a);
             return response;
         }
     }
@@ -172,7 +172,7 @@ public class a {
                 bVar.onCallback(null);
                 return;
             } else {
-                p(c2.url().toString(), c2.body(), new C0803a(bVar));
+                p(c2.url().toString(), c2.body(), new C0859a(bVar));
                 return;
             }
         }
@@ -207,12 +207,12 @@ public class a {
             try {
                 jSONObject = new JSONObject(response.body().string());
             } catch (IOException e2) {
-                if (f44240a) {
+                if (f47914a) {
                     e2.printStackTrace();
                 }
                 bVar.onCallback(null);
             } catch (JSONException e3) {
-                if (f44240a) {
+                if (f47914a) {
                     e3.printStackTrace();
                 }
                 bVar.onCallback(null);
@@ -258,7 +258,7 @@ public class a {
         try {
             return Integer.parseInt(str);
         } catch (NumberFormatException e2) {
-            if (f44240a) {
+            if (f47914a) {
                 e2.printStackTrace();
             }
             return 1001;
@@ -284,7 +284,7 @@ public class a {
             jSONObject.put("service", "cloud");
             jSONObject.put("stringMap", jSONObject2);
         } catch (JSONException e2) {
-            if (f44240a) {
+            if (f47914a) {
                 e2.printStackTrace();
             }
         }
@@ -295,12 +295,12 @@ public class a {
         try {
             return new JSONObject(response.body() != null ? response.body().string() : null);
         } catch (IOException e2) {
-            if (f44240a) {
+            if (f47914a) {
                 e2.printStackTrace();
             }
             return null;
         } catch (JSONException e3) {
-            if (f44240a) {
+            if (f47914a) {
                 e3.printStackTrace();
             }
             return null;
@@ -319,7 +319,7 @@ public class a {
                 jSONObject.put("tempFilePath", str2);
             }
         } catch (JSONException e2) {
-            if (f44240a) {
+            if (f47914a) {
                 e2.printStackTrace();
             }
         }
@@ -332,9 +332,9 @@ public class a {
 
     public static void p(String str, RequestBody requestBody, ResponseCallback responseCallback) {
         d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(str, requestBody, responseCallback);
-        aVar.f47974f = true;
-        aVar.f47975g = true;
-        aVar.f47976h = true;
+        aVar.f51648f = true;
+        aVar.f51649g = true;
+        aVar.f51650h = true;
         d.a.l0.m.e.a.g().e(aVar);
     }
 

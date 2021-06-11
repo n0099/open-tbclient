@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class c extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f46996c = k.f43199a;
+    public static final boolean f50670c = k.f46875a;
 
     public c() {
         super("checkAppInstalled");
@@ -20,7 +20,7 @@ public class c extends d.a.l0.g.f.a {
 
     @Override // d.a.l0.g.f.a
     public d.a.l0.a.u.h.b a(@NonNull JSONObject jSONObject, @NonNull d.a.l0.a.u0.b bVar) {
-        if (f46996c) {
+        if (f50670c) {
             Log.d("checkAppInstalled", "handle: " + jSONObject);
         }
         String optString = jSONObject.optString("packageName");
@@ -30,7 +30,7 @@ public class c extends d.a.l0.g.f.a {
         }
         try {
             PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-            if (f46996c) {
+            if (f50670c) {
                 Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
             }
             if (packageInfo != null) {
@@ -39,7 +39,7 @@ public class c extends d.a.l0.g.f.a {
                 jSONObject3.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
                 jSONObject3.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
                 jSONObject2.put("data", jSONObject3);
-                bVar.b(jSONObject2);
+                bVar.a(jSONObject2);
             } else {
                 bVar.onFail(31016, "no package info");
             }

@@ -15,10 +15,10 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f39707a;
+    public static volatile String f43388a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile int f39708b;
+    public static volatile int f43389b;
 
     public static int a() {
         Context a2 = e.a();
@@ -36,17 +36,17 @@ public class a {
     }
 
     public static String b() {
-        String str = f39707a;
+        String str = f43388a;
         if (str == null) {
             synchronized (a.class) {
-                str = f39707a;
+                str = f43388a;
                 if (str == null) {
                     Context a2 = e.a();
                     String d2 = d();
                     if (d2 == null && (d2 = c(a2)) == null) {
                         d2 = a2.getPackageName();
                     }
-                    f39707a = d2;
+                    f43388a = d2;
                     str = d2;
                 }
             }
@@ -134,12 +134,12 @@ public class a {
     }
 
     public static int e() {
-        int i2 = f39708b;
+        int i2 = f43389b;
         if (i2 == 0) {
             String b2 = b();
             String packageName = e.a().getPackageName();
             i2 = (TextUtils.equals(b2, packageName) || (b2.startsWith(packageName) && !b2.contains(":"))) ? i2 | 1 | 2 : i2 | 4;
-            f39708b = i2;
+            f43389b = i2;
         }
         return i2;
     }

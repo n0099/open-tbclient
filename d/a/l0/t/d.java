@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -44,16 +45,16 @@ import java.util.zip.ZipOutputStream;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f48490a = m();
+    public static String f52164a = m();
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f48491b = -1;
+    public static int f52165b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f48492c = 1;
+    public static int f52166c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f48493d;
+    public static int f52167d;
 
     public static boolean A(String str, String str2) {
         try {
@@ -983,7 +984,7 @@ public final class d {
         if (j < 1048576) {
             valueOf = Float.valueOf(((float) j) / 1024.0f);
             str = "KB";
-        } else if (j < 1073741824) {
+        } else if (j < KsMediaMeta.AV_CH_STEREO_RIGHT) {
             valueOf = Float.valueOf(((float) j) / 1048576.0f);
             str = "MB";
         } else {
@@ -995,10 +996,10 @@ public final class d {
     }
 
     public static String m() {
-        if (TextUtils.isEmpty(f48490a)) {
-            f48490a = n(AppRuntime.getAppContext());
+        if (TextUtils.isEmpty(f52164a)) {
+            f52164a = n(AppRuntime.getAppContext());
         }
-        return f48490a;
+        return f52164a;
     }
 
     @SuppressLint({"NewApi", "ObsoleteSdkInt"})
@@ -1020,18 +1021,18 @@ public final class d {
     }
 
     public static int o() {
-        int i2 = f48493d;
+        int i2 = f52167d;
         if (i2 > 0) {
             return i2;
         }
         try {
-            f48493d = new StatFs("/data").getBlockSize();
+            f52167d = new StatFs("/data").getBlockSize();
         } catch (IllegalArgumentException unused) {
         }
-        if (f48493d <= 0) {
-            f48493d = 8192;
+        if (f52167d <= 0) {
+            f52167d = 8192;
         }
-        return f48493d;
+        return f52167d;
     }
 
     @Nullable
@@ -1050,7 +1051,7 @@ public final class d {
         }
         int lastIndexOf = str.lastIndexOf(File.separator);
         int length = str.length();
-        return (lastIndexOf == f48491b || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f48492c, length);
+        return (lastIndexOf == f52165b || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f52166c, length);
     }
 
     public static String r(String str) {
@@ -1061,7 +1062,7 @@ public final class d {
     public static String s(String str) {
         int lastIndexOf;
         String q = q(str);
-        return (TextUtils.isEmpty(q) || (lastIndexOf = q.lastIndexOf(".")) == f48491b || lastIndexOf == q.length() + (-1)) ? "" : q.substring(lastIndexOf + 1);
+        return (TextUtils.isEmpty(q) || (lastIndexOf = q.lastIndexOf(".")) == f52165b || lastIndexOf == q.length() + (-1)) ? "" : q.substring(lastIndexOf + 1);
     }
 
     public static long t(String str) {
@@ -1090,11 +1091,11 @@ public final class d {
     }
 
     public static boolean v() {
-        if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || TextUtils.isEmpty(f48490a)) {
+        if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || TextUtils.isEmpty(f52164a)) {
             return false;
         }
         try {
-            File file = new File(f48490a, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
+            File file = new File(f52164a, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
             if (!file.exists()) {
                 if (!file.createNewFile()) {
                     return false;

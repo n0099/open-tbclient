@@ -109,7 +109,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         }
 
         @Override // d.a.n0.z1.e.b
-        public void a(String str) {
+        public void onFail(String str) {
             l.M(EmotionDetailActivity.this.getPageContext().getPageActivity(), str);
         }
 
@@ -136,7 +136,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                 EmotionDetailActivity.this.mNoDataView.setVisibility(8);
                 EmotionDetailActivity emotionDetailActivity = EmotionDetailActivity.this;
                 emotionDetailActivity.showLoadingView(emotionDetailActivity.mRootView, false, l.g(EmotionDetailActivity.this, R.dimen.ds400));
-                EmotionDetailActivity.this.mEmotionDetailModel.u(EmotionDetailActivity.this.pic_id, EmotionDetailActivity.this.pck_id);
+                EmotionDetailActivity.this.mEmotionDetailModel.y(EmotionDetailActivity.this.pic_id, EmotionDetailActivity.this.pck_id);
             }
         }
     }
@@ -170,15 +170,15 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public class e implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f14846e;
+        public final /* synthetic */ View f14903e;
 
         public e(View view) {
-            this.f14846e = view;
+            this.f14903e = view;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            int top = this.f14846e.findViewById(R.id.id_pop_layout).getTop();
+            int top = this.f14903e.findViewById(R.id.id_pop_layout).getTop();
             int y = (int) motionEvent.getY();
             if (motionEvent.getAction() == 1 && y < top) {
                 EmotionDetailActivity.this.mManageEmotionPopupWindow.dismiss();
@@ -208,14 +208,14 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                 if (EmotionDetailActivity.this.mEmotionDetailData.pck_info == null || TextUtils.isEmpty(EmotionDetailActivity.this.mEmotionDetailData.pck_info.cover)) {
                     EmotionDetailActivity.this.mTopContainer.setVisibility(8);
                 } else {
-                    EmotionDetailActivity.this.mCoverImage.V(EmotionDetailActivity.this.mEmotionDetailData.pck_info.cover, 10, false);
+                    EmotionDetailActivity.this.mCoverImage.U(EmotionDetailActivity.this.mEmotionDetailData.pck_info.cover, 10, false);
                     if (EmotionDetailActivity.this.mEmotionDetailData.pck_info.forum_name != null) {
                         TextView textView = EmotionDetailActivity.this.mForumAndDownloadNum;
                         String string = EmotionDetailActivity.this.getString(R.string.forum_and_download_num);
                         textView.setText(String.format(string, EmotionDetailActivity.this.mEmotionDetailData.pck_info.forum_name + EmotionDetailActivity.this.getString(R.string.forum), StringHelper.numFormatOverWan(d.a.c.e.m.b.f(EmotionDetailActivity.this.mEmotionDetailData.pck_info.download, 0L))));
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                         spannableStringBuilder.append((CharSequence) EmotionDetailActivity.this.getString(R.string.emotion_center_single_bar_top)).append((CharSequence) " ").append((CharSequence) EmotionDetailActivity.this.mEmotionDetailData.pck_info.pck_name);
-                        spannableStringBuilder.setSpan(new d.a.c.j.b(EmotionDetailActivity.this.getPageContext().getPageActivity(), R.drawable.emotion_pic_single_bar), 0, 2, 17);
+                        spannableStringBuilder.setSpan(new d.a.c.k.b(EmotionDetailActivity.this.getPageContext().getPageActivity(), R.drawable.emotion_pic_single_bar), 0, 2, 17);
                         EmotionDetailActivity.this.mEmotionPackageName.setText(spannableStringBuilder);
                     } else {
                         EmotionDetailActivity.this.mEmotionPackageName.setText(EmotionDetailActivity.this.mEmotionDetailData.pck_info.pck_name);
@@ -255,15 +255,15 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f14849e;
+        public final /* synthetic */ ShareItem f14906e;
 
         public g(ShareItem shareItem) {
-            this.f14849e = shareItem;
+            this.f14906e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.p.a.a(this.f14849e.t);
+            d.a.c.e.p.a.a(this.f14906e.t);
             l.M(EmotionDetailActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
@@ -274,7 +274,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         }
 
         @Override // d.a.n0.z1.e.b
-        public void a(String str) {
+        public void onFail(String str) {
             l.L(EmotionDetailActivity.this.getActivity(), R.string.download_error);
             EmotionDetailActivity.this.mEmotionPackageControlTv.setEnabled(true);
         }
@@ -340,7 +340,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                     break;
                 }
                 CollectEmotionData next = it.next();
-                if (!d.a.m0.a0.d.f48816d.equals(next.sharpText) && !TextUtils.isEmpty(next.pid)) {
+                if (!d.a.m0.a0.d.f52490d.equals(next.sharpText) && !TextUtils.isEmpty(next.pid)) {
                     String str = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/.collect/" + d.a.m0.a0.d.b() + "/" + next.pid + "_s.jpg";
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.setFilePath(str);
@@ -406,8 +406,8 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             EmotionDetailData.PckInfo pckInfo = emotionDetailData.pck_info;
             int i2 = pckInfo == null ? 0 : pckInfo.pck_id;
             d.a.m0.b0.c cVar = new d.a.m0.b0.c();
-            cVar.f48913d = str;
-            cVar.f48915f = StringUtils.string(Integer.valueOf(i2));
+            cVar.f52587d = str;
+            cVar.f52589f = StringUtils.string(Integer.valueOf(i2));
             ArrayList arrayList = new ArrayList();
             arrayList.add(cVar);
             u.s().h(arrayList, true, new j());
@@ -425,7 +425,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                 this.mFaceGroupDownloadModel = new NewFaceGroupDownloadModel();
             }
             this.mEmotionPackageControlTv.setEnabled(false);
-            this.mFaceGroupDownloadModel.s(StringUtils.string(Integer.valueOf(this.pck_id)), Boolean.TRUE, new h());
+            this.mFaceGroupDownloadModel.w(StringUtils.string(Integer.valueOf(this.pck_id)), Boolean.TRUE, new h());
         }
     }
 
@@ -434,7 +434,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             this.mEmotionDetailModel = new EmotionDetailModel();
         }
         this.mEmotionDetailModel.setLoadDataCallBack(this.mLoadDataCallBack);
-        this.mEmotionDetailModel.u(this.pic_id, this.pck_id);
+        this.mEmotionDetailModel.y(this.pic_id, this.pck_id);
     }
 
     private void initPopupWindow() {

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f extends d.a.l0.j.k.a<d.a.l0.a.h1.c.e> {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static f e() {
@@ -23,9 +23,9 @@ public class f extends d.a.l0.j.k.a<d.a.l0.a.h1.c.e> {
 
     public final Bundle f(d.a.l0.a.h1.c.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.f40846g);
-        bundle.putDouble("latitude", eVar.n.f42673e);
-        bundle.putDouble("longitude", eVar.n.f42674f);
+        bundle.putString("slaveId", eVar.f44522g);
+        bundle.putDouble("latitude", eVar.n.f46349e);
+        bundle.putDouble("longitude", eVar.n.f46350f);
         bundle.putDouble("scale", eVar.o);
         bundle.putString("name", eVar.D);
         bundle.putString("address", eVar.E);

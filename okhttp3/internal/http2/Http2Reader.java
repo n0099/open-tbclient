@@ -13,7 +13,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Http2Reader implements Closeable {
     public static final Logger logger = Logger.getLogger(Http2.class.getName());
     public final boolean client;
@@ -21,7 +21,7 @@ public final class Http2Reader implements Closeable {
     public final Hpack.Reader hpackReader;
     public final BufferedSource source;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ContinuationSource implements Source {
         public byte flags;
         public int left;
@@ -86,7 +86,7 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Handler {
         void ackSettings();
 

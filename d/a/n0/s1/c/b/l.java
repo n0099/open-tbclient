@@ -7,10 +7,10 @@ import tbclient.GetVipInfo.VipInfo;
 import tbclient.GetVipInfo.VipUpgrade;
 import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes3.dex */
-public class l implements d.a.c.j.e.n {
+public class l implements d.a.c.k.e.n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f60442e = BdUniqueId.gen();
+    public static final BdUniqueId f64133e = BdUniqueId.gen();
 
     public l(DataRes dataRes) {
         VipUser vipUser;
@@ -47,8 +47,8 @@ public class l implements d.a.c.j.e.n {
         AutoPayInfo autoPayInfo = dataRes.autopay_info;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f60442e;
+        return f64133e;
     }
 }

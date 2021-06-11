@@ -28,19 +28,19 @@ import org.json.JSONArray;
 public class MyEmotionManagerModel extends NativeManageEmotionModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.z1.h.e.a.a f18631e;
+    public d.a.n0.z1.h.e.a.a f18707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f18632f;
+    public List<String> f18708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<EmotionPackageData> f18633g;
+    public List<EmotionPackageData> f18709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f18634h;
+    public TbPageContext<BaseFragmentActivity> f18710h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f18635i;
+    public CustomMessageListener f18711i;
     public final HttpMessageListener j;
 
     /* loaded from: classes4.dex */
@@ -56,7 +56,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                 return;
             }
             Pair pair = (Pair) customResponsedMessage.getData();
-            MyEmotionManagerModel.this.I(((Integer) pair.first).intValue(), ((Integer) pair.second).intValue());
+            MyEmotionManagerModel.this.M(((Integer) pair.first).intValue(), ((Integer) pair.second).intValue());
         }
     }
 
@@ -71,17 +71,17 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003385 && (httpResponsedMessage instanceof EmotionManageResponseMessage)) {
                 EmotionManageResponseMessage emotionManageResponseMessage = (EmotionManageResponseMessage) httpResponsedMessage;
-                if (MyEmotionManagerModel.this.f18631e != null) {
+                if (MyEmotionManagerModel.this.f18707e != null) {
                     if (emotionManageResponseMessage.data != null) {
-                        MyEmotionManagerModel.this.f18633g.clear();
+                        MyEmotionManagerModel.this.f18709g.clear();
                         if (emotionManageResponseMessage.data.data != null) {
-                            MyEmotionManagerModel.this.f18633g.addAll(emotionManageResponseMessage.data.data);
+                            MyEmotionManagerModel.this.f18709g.addAll(emotionManageResponseMessage.data.data);
                         }
-                        Pair A = MyEmotionManagerModel.this.A(emotionManageResponseMessage.data.data);
-                        MyEmotionManagerModel.this.f18631e.onSuccess(new Pair(A.first, A.second));
+                        Pair E = MyEmotionManagerModel.this.E(emotionManageResponseMessage.data.data);
+                        MyEmotionManagerModel.this.f18707e.onSuccess(new Pair(E.first, E.second));
                         return;
                     }
-                    MyEmotionManagerModel.this.f18631e.onFail();
+                    MyEmotionManagerModel.this.f18707e.onFail();
                 }
             }
         }
@@ -94,14 +94,14 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
 
         @Override // java.lang.Runnable
         public void run() {
-            MyEmotionManagerModel.this.K();
+            MyEmotionManagerModel.this.O();
             List<MyEmotionGroupData> f2 = d.a.n0.z1.c.i().f();
             JSONArray jSONArray = new JSONArray();
             if (f2 != null && !f2.isEmpty()) {
                 for (MyEmotionGroupData myEmotionGroupData : f2) {
                     if (myEmotionGroupData != null) {
                         jSONArray.put(myEmotionGroupData.getGroupId());
-                        MyEmotionManagerModel.this.M(myEmotionGroupData.getGroupId());
+                        MyEmotionManagerModel.this.Q(myEmotionGroupData.getGroupId());
                     }
                 }
             }
@@ -117,21 +117,21 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
 
         @Override // java.lang.Runnable
         public void run() {
-            MyEmotionManagerModel.this.K();
+            MyEmotionManagerModel.this.O();
             List<MyEmotionGroupData> f2 = d.a.n0.z1.c.i().f();
             JSONArray jSONArray = new JSONArray();
             if (f2 != null && !f2.isEmpty()) {
                 for (MyEmotionGroupData myEmotionGroupData : f2) {
                     if (myEmotionGroupData != null) {
                         jSONArray.put(myEmotionGroupData.getGroupId());
-                        MyEmotionManagerModel.this.M(myEmotionGroupData.getGroupId());
+                        MyEmotionManagerModel.this.Q(myEmotionGroupData.getGroupId());
                     }
                 }
             }
-            if (MyEmotionManagerModel.this.f18631e != null) {
+            if (MyEmotionManagerModel.this.f18707e != null) {
                 MyEmotionManagerModel myEmotionManagerModel = MyEmotionManagerModel.this;
-                Pair A = myEmotionManagerModel.A(myEmotionManagerModel.f18633g);
-                MyEmotionManagerModel.this.f18631e.onSuccess(new Pair(A.first, A.second));
+                Pair E = myEmotionManagerModel.E(myEmotionManagerModel.f18709g);
+                MyEmotionManagerModel.this.f18707e.onSuccess(new Pair(E.first, E.second));
             }
         }
     }
@@ -143,12 +143,12 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (MyEmotionManagerModel.this.f18631e != null) {
-                MyEmotionManagerModel.this.f18631e.d0();
+            if (MyEmotionManagerModel.this.f18707e != null) {
+                MyEmotionManagerModel.this.f18707e.g0();
                 if (d.a.n0.z1.h.a.b().a()) {
                     return;
                 }
-                MyEmotionManagerModel.this.H();
+                MyEmotionManagerModel.this.L();
             }
         }
     }
@@ -160,7 +160,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.n0.z1.c.i().j(MyEmotionManagerModel.this.C(), true);
+            d.a.n0.z1.c.i().j(MyEmotionManagerModel.this.G(), true);
         }
     }
 
@@ -168,25 +168,25 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<MyEmotionManagerModel> f18642e;
+        public WeakReference<MyEmotionManagerModel> f18718e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONArray f18643f;
+        public JSONArray f18719f;
 
         public g(MyEmotionManagerModel myEmotionManagerModel, MyEmotionManagerModel myEmotionManagerModel2, JSONArray jSONArray) {
-            this.f18642e = new WeakReference<>(myEmotionManagerModel2);
-            this.f18643f = jSONArray;
+            this.f18718e = new WeakReference<>(myEmotionManagerModel2);
+            this.f18719f = jSONArray;
             if (jSONArray == null) {
-                this.f18643f = new JSONArray();
+                this.f18719f = new JSONArray();
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            MyEmotionManagerModel myEmotionManagerModel = this.f18642e.get();
+            MyEmotionManagerModel myEmotionManagerModel = this.f18718e.get();
             if (myEmotionManagerModel != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_MINE_MANAGER);
-                httpMessage.addParam("ids", this.f18643f);
+                httpMessage.addParam("ids", this.f18719f);
                 myEmotionManagerModel.sendMessage(httpMessage);
             }
         }
@@ -194,19 +194,19 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
 
     public MyEmotionManagerModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.f18635i = new a(2921312);
+        this.f18711i = new a(2921312);
         this.j = new b(CmdConfigHttp.CMD_GET_EMOTION_MINE_MANAGER);
-        this.f18634h = tbPageContext;
-        this.f18632f = new ArrayList();
-        this.f18633g = new ArrayList();
+        this.f18710h = tbPageContext;
+        this.f18708f = new ArrayList();
+        this.f18709g = new ArrayList();
         registerTask();
         this.j.setTag(getUniqueId());
         this.j.setSelfListener(true);
         registerListener(this.j);
-        registerListener(this.f18635i);
+        registerListener(this.f18711i);
     }
 
-    public final Pair<List<EmotionPackageData>, Integer> A(List<EmotionPackageData> list) {
+    public final Pair<List<EmotionPackageData>, Integer> E(List<EmotionPackageData> list) {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         if (list == null) {
@@ -217,28 +217,28 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         if (id == null) {
             id = "";
         }
-        List<String> C = C();
-        for (String str : C) {
-            EmotionPackageData B = B(str, list);
-            if (B != null) {
-                B.ishasdownload = true;
-                B.typeofemotion = D(B, id);
-                arrayList.add(B);
+        List<String> G = G();
+        for (String str : G) {
+            EmotionPackageData F = F(str, list);
+            if (F != null) {
+                F.ishasdownload = true;
+                F.typeofemotion = H(F, id);
+                arrayList.add(F);
             }
         }
         int size2 = arrayList.size();
         boolean z = false;
         for (int i2 = 0; i2 < size; i2++) {
             EmotionPackageData emotionPackageData = list.get(i2);
-            if (emotionPackageData.status == 1 && !C.contains(String.valueOf(emotionPackageData.id))) {
+            if (emotionPackageData.status == 1 && !G.contains(String.valueOf(emotionPackageData.id))) {
                 if (!z) {
                     emotionPackageData.isUndownloadheader = true;
                     z = true;
                 }
                 emotionPackageData.ishasdownload = false;
-                int D = D(emotionPackageData, id);
-                emotionPackageData.typeofemotion = D;
-                if (D == 1) {
+                int H = H(emotionPackageData, id);
+                emotionPackageData.typeofemotion = H;
+                if (H == 1) {
                     arrayList2.add(emotionPackageData);
                 }
             }
@@ -247,7 +247,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         return new Pair<>(arrayList, Integer.valueOf(size2));
     }
 
-    public final synchronized EmotionPackageData B(String str, List<EmotionPackageData> list) {
+    public final synchronized EmotionPackageData F(String str, List<EmotionPackageData> list) {
         if (str != null) {
             if (list != null) {
                 try {
@@ -265,11 +265,11 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         return null;
     }
 
-    public final synchronized List<String> C() {
-        return new ArrayList(this.f18632f);
+    public final synchronized List<String> G() {
+        return new ArrayList(this.f18708f);
     }
 
-    public final synchronized int D(EmotionPackageData emotionPackageData, String str) {
+    public final synchronized int H(EmotionPackageData emotionPackageData, String str) {
         if (emotionPackageData == null) {
             return 0;
         }
@@ -279,49 +279,29 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         return emotionPackageData.forum_id > 0 ? 2 : 0;
     }
 
-    public void E() {
+    public void I() {
         LoadData();
     }
 
-    public void F() {
+    public void J() {
         d.a.n0.z1.a.b().a(new d());
     }
 
-    public void G() {
+    public void K() {
         if (this.j != null) {
             MessageManager.getInstance().unRegisterListener(this.j);
         }
-        if (this.f18635i != null) {
-            MessageManager.getInstance().unRegisterListener(this.f18635i);
+        if (this.f18711i != null) {
+            MessageManager.getInstance().unRegisterListener(this.f18711i);
         }
     }
 
-    public final void H() {
+    public final void L() {
         if (d.a.n0.z1.d.m().o()) {
-            l.L(this.f18634h.getPageActivity(), R.string.face_group_is_syncing);
+            l.L(this.f18710h.getPageActivity(), R.string.face_group_is_syncing);
         } else {
             d.a.n0.z1.a.b().a(new f());
         }
-    }
-
-    public final synchronized void I(int i2, int i3) {
-        try {
-            this.f18632f.add(i3, this.f18632f.remove(i2));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public void J() {
-        d.a.c.e.m.e.a().post(new e());
-    }
-
-    public final synchronized void K() {
-        this.f18632f.clear();
-    }
-
-    public void L(d.a.n0.z1.h.e.a.a aVar) {
-        this.f18631e = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -330,8 +310,28 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         return false;
     }
 
-    public final synchronized void M(String str) {
-        this.f18632f.add(str);
+    public final synchronized void M(int i2, int i3) {
+        try {
+            this.f18708f.add(i3, this.f18708f.remove(i2));
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public void N() {
+        d.a.c.e.m.e.a().post(new e());
+    }
+
+    public final synchronized void O() {
+        this.f18708f.clear();
+    }
+
+    public void P(d.a.n0.z1.h.e.a.a aVar) {
+        this.f18707e = aVar;
+    }
+
+    public final synchronized void Q(String str) {
+        this.f18708f.add(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

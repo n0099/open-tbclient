@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.BaseFragment;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragment f49425a;
+    public BaseFragment f53099a;
 
     public b(BaseFragment baseFragment) {
-        this.f49425a = baseFragment;
+        this.f53099a = baseFragment;
     }
 
     public BaseFragment a() {
-        return this.f49425a;
+        return this.f53099a;
     }
 }

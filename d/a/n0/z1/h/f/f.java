@@ -21,19 +21,19 @@ import java.util.List;
 public class f implements Object<List<EmotionPackageData>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f63788e;
+    public TbPageContext f67506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdListView f63789f;
+    public BdListView f67507f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.z1.h.d.b f63790g;
+    public d.a.n0.z1.h.d.b f67508g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f63791h;
+    public b f67509h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f63792i;
+    public View f67510i;
     public g j;
     public FrameLayout k;
     public NoDataView l;
@@ -41,24 +41,24 @@ public class f implements Object<List<EmotionPackageData>> {
     public NoNetworkView n;
 
     public f(TbPageContext tbPageContext) {
-        this.f63788e = tbPageContext;
+        this.f67506e = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_single_thread_emotions, (ViewGroup) null, false);
-        this.f63792i = inflate;
+        this.f67510i = inflate;
         NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
         this.n = noNetworkView;
         noNetworkView.a(this);
-        this.k = (FrameLayout) this.f63792i.findViewById(R.id.single_emotion_loading);
-        this.f63789f = (BdListView) this.f63792i.findViewById(R.id.emotion_single_thread_list);
-        this.f63791h = new b(this.f63792i.findViewById(R.id.emotion_single_thread_empty), tbPageContext.getString(R.string.emotion_empty_single_thread));
-        this.f63789f.setDivider(null);
-        this.f63789f.setOverScrollMode(2);
-        this.f63789f.setVerticalScrollBarEnabled(false);
-        this.f63790g = new d.a.n0.z1.h.d.b(tbPageContext, this.f63789f);
+        this.k = (FrameLayout) this.f67510i.findViewById(R.id.single_emotion_loading);
+        this.f67507f = (BdListView) this.f67510i.findViewById(R.id.emotion_single_thread_list);
+        this.f67509h = new b(this.f67510i.findViewById(R.id.emotion_single_thread_empty), tbPageContext.getString(R.string.emotion_empty_single_thread));
+        this.f67507f.setDivider(null);
+        this.f67507f.setOverScrollMode(2);
+        this.f67507f.setVerticalScrollBarEnabled(false);
+        this.f67508g = new d.a.n0.z1.h.d.b(tbPageContext, this.f67507f);
         h();
     }
 
     public View a() {
-        return this.f63792i;
+        return this.f67510i;
     }
 
     public void b(boolean z) {
@@ -89,21 +89,21 @@ public class f implements Object<List<EmotionPackageData>> {
     }
 
     public void e(int i2) {
-        View view = this.f63792i;
+        View view = this.f67510i;
         if (view != null) {
             SkinManager.setBackgroundColor(view, R.color.cp_bg_line_d_alpha90, i2);
         }
-        BdListView bdListView = this.f63789f;
+        BdListView bdListView = this.f67507f;
         if (bdListView != null) {
             SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0201, i2);
         }
-        b bVar = this.f63791h;
+        b bVar = this.f67509h;
         if (bVar != null) {
             bVar.b(i2);
         }
         NoNetworkView noNetworkView = this.n;
         if (noNetworkView != null) {
-            noNetworkView.c(this.f63788e, i2);
+            noNetworkView.c(this.f67506e, i2);
         }
         FrameLayout frameLayout = this.k;
         if (frameLayout != null) {
@@ -118,8 +118,8 @@ public class f implements Object<List<EmotionPackageData>> {
 
     public final void g() {
         b bVar;
-        BdListView bdListView = this.f63789f;
-        if (bdListView == null || this.m || (bVar = this.f63791h) == null) {
+        BdListView bdListView = this.f67507f;
+        if (bdListView == null || this.m || (bVar = this.f67509h) == null) {
             return;
         }
         this.m = true;
@@ -127,34 +127,34 @@ public class f implements Object<List<EmotionPackageData>> {
     }
 
     public final void h() {
-        if (this.f63788e == null || this.k == null) {
+        if (this.f67506e == null || this.k == null) {
             return;
         }
         f();
         this.k.setVisibility(0);
         if (this.j == null) {
-            this.j = new g(this.f63788e.getPageActivity());
+            this.j = new g(this.f67506e.getPageActivity());
         }
         this.j.attachView(this.k, true);
         this.j.onChangeSkinType();
     }
 
     public void i() {
-        if (this.f63788e == null || this.k == null) {
+        if (this.f67506e == null || this.k == null) {
             return;
         }
         f();
         this.k.setVisibility(0);
-        NoDataView b2 = NoDataViewFactory.b(this.f63788e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f63788e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f63788e.getString(R.string.emotion_error_net_tip)), null, true);
+        NoDataView b2 = NoDataViewFactory.b(this.f67506e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f67506e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f67506e.getString(R.string.emotion_error_net_tip)), null, true);
         this.l = b2;
         b2.setVisibility(0);
-        this.l.d(this.f63788e);
+        this.l.d(this.f67506e);
     }
 
     public void j(List<EmotionPackageData> list) {
         d.a.n0.z1.h.d.b bVar;
         g();
-        if (list == null || (bVar = this.f63790g) == null) {
+        if (list == null || (bVar = this.f67508g) == null) {
             return;
         }
         bVar.a(list);

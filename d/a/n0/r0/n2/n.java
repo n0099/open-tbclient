@@ -43,21 +43,21 @@ public class n {
     public static class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f59165a;
+        public final /* synthetic */ TbPageContext f62856a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsViewData f59166b;
+        public final /* synthetic */ FrsViewData f62857b;
 
         public b(TbPageContext tbPageContext, FrsViewData frsViewData) {
-            this.f59165a = tbPageContext;
-            this.f59166b = frsViewData;
+            this.f62856a = tbPageContext;
+            this.f62857b = frsViewData;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
             d.a.c.e.i.a.l().h(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f59165a.getPageActivity(), this.f59166b.getForum().getName(), this.f59166b.getForum().getId(), this.f59166b.getUserData().getUserId(), this.f59166b.getForum().getSpecialForumType())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f62856a.getPageActivity(), this.f62857b.getForum().getName(), this.f62857b.getForum().getId(), this.f62857b.getUserData().getUserId(), this.f62857b.getForum().getSpecialForumType())));
         }
     }
 
@@ -69,15 +69,15 @@ public class n {
         if (frsFragment == null) {
             return;
         }
-        FrsViewData g0 = frsFragment.g0();
-        FrsModelController b0 = frsFragment.b0();
-        if (g0 != null) {
-            if ((b0 != null || g0.getForum() == null) && !WriteActivityConfig.isAsyncWriting()) {
+        FrsViewData j0 = frsFragment.j0();
+        FrsModelController e0 = frsFragment.e0();
+        if (j0 != null) {
+            if ((e0 != null || j0.getForum() == null) && !WriteActivityConfig.isAsyncWriting()) {
                 int i3 = -1;
-                if (b0 != null && d0.a().b(1) != null) {
-                    i3 = b0.R();
+                if (e0 != null && d0.a().b(1) != null) {
+                    i3 = e0.V();
                 }
-                WriteActivityConfig.newInstance(frsFragment.getPageContext().getPageActivity()).setType(i2).setForumData(g0.getForum()).setAntiData(g0.getAnti()).setCategoryId(i3).send();
+                WriteActivityConfig.newInstance(frsFragment.getPageContext().getPageActivity()).setType(i2).setForumData(j0.getForum()).setAntiData(j0.getAnti()).setCategoryId(i3).send();
             }
         }
     }

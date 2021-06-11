@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47311a = k.f43199a;
+    public static final boolean f50985a = k.f46875a;
 
     @NonNull
     public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
@@ -23,11 +23,11 @@ public class c {
             codeCacheSetting.sizeLimit = 102400;
         } else {
             a a2 = b.a();
-            codeCacheSetting.maxCount = a2.f47306a;
-            codeCacheSetting.sizeLimit = a2.f47307b;
-            codeCacheSetting.diskCodeCacheSizeThreshold = a2.f47308c;
+            codeCacheSetting.maxCount = a2.f50980a;
+            codeCacheSetting.sizeLimit = a2.f50981b;
+            codeCacheSetting.diskCodeCacheSizeThreshold = a2.f50982c;
         }
-        if (f47311a) {
+        if (f50985a) {
             Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
             Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
             Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);

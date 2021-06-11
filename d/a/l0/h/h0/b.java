@@ -15,16 +15,16 @@ import d.a.l0.h.f0.h;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47392a = k.f43199a;
+    public static final boolean f51066a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a extends d.a.l0.a.v1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.h0.a f47393c;
+        public final /* synthetic */ d.a.l0.h.h0.a f51067c;
 
         public a(d.a.l0.h.h0.a aVar) {
-            this.f47393c = aVar;
+            this.f51067c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,10 +36,10 @@ public class b {
             } else {
                 i2 = -2;
             }
-            if (b.f47392a) {
+            if (b.f51066a) {
                 Log.d("StuckScreenReporter", "get NetworkQuality: " + i2);
             }
-            d.a.l0.h.h0.a aVar = this.f47393c;
+            d.a.l0.h.h0.a aVar = this.f51067c;
             aVar.m = i2;
             d.a.l0.a.j2.k.u("976", aVar);
         }
@@ -62,20 +62,20 @@ public class b {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return;
         }
-        if (f47392a) {
+        if (f51066a) {
             Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(d.a.l0.h.q.c.b.a()), TimeUtils.logTimeOfDay(a2.exceptionTime)));
         }
         if (a2.exceptionTime >= d.a.l0.h.q.c.b.a()) {
             return;
         }
         d.a.l0.h.h0.a aVar = new d.a.l0.h.h0.a();
-        aVar.f43186b = "stuck";
-        aVar.f43189e = "jserror";
-        aVar.f43190f = e.V();
+        aVar.f46862b = "stuck";
+        aVar.f46865e = "jserror";
+        aVar.f46866f = e.V();
         if (e.i() != null && e.i().N() != null) {
             b.a N = e.i().N();
-            aVar.f43187c = N.T();
-            aVar.f43185a = d.a.l0.a.j2.k.m(N.G());
+            aVar.f46863c = N.T();
+            aVar.f46861a = d.a.l0.a.j2.k.m(N.G());
         }
         aVar.l = str + ";" + str2;
         aVar.k = h.d() ? 20 : 10;

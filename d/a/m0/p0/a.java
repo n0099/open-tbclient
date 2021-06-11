@@ -5,9 +5,9 @@ import android.content.ContentProvider;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ContentProvider f49625a;
+    public static ContentProvider f53300a;
 
     public static ContentProvider a() {
-        return f49625a;
+        return f53300a;
     }
 }

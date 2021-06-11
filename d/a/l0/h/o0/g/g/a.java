@@ -8,25 +8,25 @@ import d.a.l0.h.o0.g.b.a;
 public class a implements d.a.l0.h.o0.g.b.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.h.o0.g.b.b f47618e;
+    public d.a.l0.h.o0.g.b.b f51292e;
 
     /* renamed from: d.a.l0.h.o0.g.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1046a implements Runnable {
+    public class RunnableC1102a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f47619e;
+        public final /* synthetic */ int f51293e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.o0.g.b.d f47620f;
+        public final /* synthetic */ d.a.l0.h.o0.g.b.d f51294f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a.b f47621g;
+        public final /* synthetic */ a.b f51295g;
 
-        public RunnableC1046a(int i2, d.a.l0.h.o0.g.b.d dVar, a.b bVar) {
-            this.f47619e = i2;
-            this.f47620f = dVar;
-            this.f47621g = bVar;
+        public RunnableC1102a(int i2, d.a.l0.h.o0.g.b.d dVar, a.b bVar) {
+            this.f51293e = i2;
+            this.f51294f = dVar;
+            this.f51295g = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -36,8 +36,8 @@ public class a implements d.a.l0.h.o0.g.b.b {
                 d.a.l0.a.e0.d.b("RecommendButton", "context is null.");
                 return;
             }
-            a.this.f47618e = d.a.l0.h.o0.g.b.a.c(this.f47619e, b2, this.f47620f);
-            a.this.f47618e.u(this.f47621g);
+            a.this.f51292e = d.a.l0.h.o0.g.b.a.c(this.f51293e, b2, this.f51294f);
+            a.this.f51292e.u(this.f51295g);
         }
     }
 
@@ -45,16 +45,16 @@ public class a implements d.a.l0.h.o0.g.b.b {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.o0.g.e.a f47623e;
+        public final /* synthetic */ d.a.l0.h.o0.g.e.a f51297e;
 
         public b(d.a.l0.h.o0.g.e.a aVar) {
-            this.f47623e = aVar;
+            this.f51297e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47618e != null) {
-                a.this.f47618e.d(this.f47623e);
+            if (a.this.f51292e != null) {
+                a.this.f51292e.d(this.f51297e);
             }
         }
     }
@@ -63,16 +63,16 @@ public class a implements d.a.l0.h.o0.g.b.b {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.b f47625e;
+        public final /* synthetic */ a.b f51299e;
 
         public c(a.b bVar) {
-            this.f47625e = bVar;
+            this.f51299e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47618e != null) {
-                a.this.f47618e.u(this.f47625e);
+            if (a.this.f51292e != null) {
+                a.this.f51292e.u(this.f51299e);
             }
         }
     }
@@ -81,16 +81,16 @@ public class a implements d.a.l0.h.o0.g.b.b {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f47627e;
+        public final /* synthetic */ boolean f51301e;
 
         public d(boolean z) {
-            this.f47627e = z;
+            this.f51301e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47618e != null) {
-                a.this.f47618e.m(this.f47627e);
+            if (a.this.f51292e != null) {
+                a.this.f51292e.m(this.f51301e);
             }
         }
     }
@@ -102,8 +102,8 @@ public class a implements d.a.l0.h.o0.g.b.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47618e != null) {
-                a.this.f47618e.show();
+            if (a.this.f51292e != null) {
+                a.this.f51292e.show();
             }
         }
     }
@@ -115,8 +115,8 @@ public class a implements d.a.l0.h.o0.g.b.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47618e != null) {
-                a.this.f47618e.hide();
+            if (a.this.f51292e != null) {
+                a.this.f51292e.hide();
             }
         }
     }
@@ -128,14 +128,14 @@ public class a implements d.a.l0.h.o0.g.b.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47618e != null) {
-                a.this.f47618e.destroy();
+            if (a.this.f51292e != null) {
+                a.this.f51292e.destroy();
             }
         }
     }
 
     public a(int i2, @NonNull d.a.l0.h.o0.g.b.d dVar, a.b bVar) {
-        q0.b0(new RunnableC1046a(i2, dVar, bVar));
+        q0.b0(new RunnableC1102a(i2, dVar, bVar));
     }
 
     @Override // d.a.l0.h.o0.g.b.b

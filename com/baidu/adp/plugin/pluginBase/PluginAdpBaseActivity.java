@@ -18,7 +18,7 @@ import d.a.c.a.g;
 import d.a.c.a.i;
 import d.a.c.e.l.d;
 import d.a.c.e.p.l;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 /* loaded from: classes.dex */
 public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i, Handler.Callback, g {
     public static final int PRELOAD_DELAY = 100;

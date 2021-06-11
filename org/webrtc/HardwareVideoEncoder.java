@@ -6,6 +6,7 @@ import android.media.MediaFormat;
 import android.opengl.GLES20;
 import android.os.Bundle;
 import android.view.Surface;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -19,7 +20,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HardwareVideoEncoder implements VideoEncoder {
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
     public static final String KEY_BITRATE_MODE = "bitrate-mode";
@@ -67,7 +68,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public final ThreadUtils.ThreadChecker encodeThreadChecker = new ThreadUtils.ThreadChecker();
     public final ThreadUtils.ThreadChecker outputThreadChecker = new ThreadUtils.ThreadChecker();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum YuvFormat {
         I420 { // from class: org.webrtc.HardwareVideoEncoder.YuvFormat.1
             @Override // org.webrtc.HardwareVideoEncoder.YuvFormat
@@ -188,7 +189,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
             int intValue = (this.useSurfaceMode ? this.surfaceColorFormat : this.yuvColorFormat).intValue();
             try {
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(this.codecType.mimeType(), this.width, this.height);
-                createVideoFormat.setInteger("bitrate", this.adjustedBitrate);
+                createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.adjustedBitrate);
                 createVideoFormat.setInteger(KEY_BITRATE_MODE, 2);
                 createVideoFormat.setInteger("color-format", intValue);
                 createVideoFormat.setInteger("frame-rate", this.bitrateAdjuster.getCodecConfigFramerate());

@@ -12,18 +12,18 @@ import java.util.concurrent.atomic.AtomicReference;
 public class e implements n0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<n0> f58444a = new AtomicReference<>(null);
+    public static final AtomicReference<n0> f62135a = new AtomicReference<>(null);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n0 f58445b = new e();
+    public static final n0 f62136b = new e();
 
     public static n0 e() {
-        n0 n0Var = f58444a.get();
-        return n0Var == null ? f58445b : n0Var;
+        n0 n0Var = f62135a.get();
+        return n0Var == null ? f62136b : n0Var;
     }
 
     @Override // d.a.n0.r0.n0
-    public d.a.c.j.e.a<? extends z1, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+    public d.a.c.k.e.a<? extends z1, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
@@ -35,13 +35,13 @@ public class e implements n0 {
     }
 
     @Override // d.a.n0.r0.n0
-    public d.a.c.j.e.a<? extends a2, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+    public d.a.c.k.e.a<? extends a2, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
 
     @Override // d.a.n0.r0.n0
-    public d.a.c.j.e.a<? extends a2, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    public d.a.c.k.e.a<? extends a2, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }

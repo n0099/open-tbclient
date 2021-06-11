@@ -29,7 +29,7 @@ import java.util.Map;
 public class b extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public c f47986b = new c();
+    public c f51660b = new c();
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x0029 */
     /* JADX WARN: Multi-variable type inference failed */
@@ -41,8 +41,8 @@ public class b extends a {
         ?? r0 = 0;
         try {
             try {
-                d.a.l0.n.g.c.b<T> a2 = this.f47986b.a(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f47986b.b(cls), null, str, strArr, str2);
+                d.a.l0.n.g.c.b<T> a2 = this.f51660b.a(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f51660b.b(cls), null, str, strArr, str2);
                 if (cursor != null) {
                     try {
                         List<T> e2 = a2.e(cursor);
@@ -50,7 +50,7 @@ public class b extends a {
                         return e2;
                     } catch (Exception e3) {
                         e = e3;
-                        if (d.a.l0.n.c.f47984a) {
+                        if (d.a.l0.n.c.f51658a) {
                             e.printStackTrace();
                         }
                         d.a.l0.n.o.c.a(cursor);
@@ -79,8 +79,8 @@ public class b extends a {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            d.a.l0.n.g.c.b<T> a2 = this.f47986b.a(cls);
-            cursor = AppRuntime.getAppContext().getContentResolver().query(this.f47986b.b(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
+            d.a.l0.n.g.c.b<T> a2 = this.f51660b.a(cls);
+            cursor = AppRuntime.getAppContext().getContentResolver().query(this.f51660b.b(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
             if (cursor != null) {
                 try {
                     try {
@@ -89,7 +89,7 @@ public class b extends a {
                         return d2;
                     } catch (Exception e2) {
                         e = e2;
-                        if (d.a.l0.n.c.f47984a) {
+                        if (d.a.l0.n.c.f51658a) {
                             e.printStackTrace();
                         }
                         d.a.l0.n.o.c.a(cursor);
@@ -124,8 +124,8 @@ public class b extends a {
         ?? r0 = 0;
         try {
             try {
-                d.a.l0.n.g.c.b<T> a2 = this.f47986b.a(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f47986b.b(cls), null, str, strArr, str2);
+                d.a.l0.n.g.c.b<T> a2 = this.f51660b.a(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f51660b.b(cls), null, str, strArr, str2);
                 if (cursor != null) {
                     try {
                         List<T> e2 = a2.e(cursor);
@@ -133,7 +133,7 @@ public class b extends a {
                         return e2;
                     } catch (Exception e3) {
                         e = e3;
-                        if (d.a.l0.n.c.f47984a) {
+                        if (d.a.l0.n.c.f51658a) {
                             e.printStackTrace();
                         }
                         d.a.l0.n.o.c.a(cursor);
@@ -168,32 +168,32 @@ public class b extends a {
         ContentProviderResult[] applyBatch;
         ArrayList<ContentProviderOperation> arrayList = new ArrayList<>();
         if (fVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.f47986b.b(f.class)).withValues(this.f47986b.a(f.class).c(fVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.f51660b.b(f.class)).withValues(this.f51660b.a(f.class).c(fVar)).build());
         }
         if (list != null && !list.isEmpty()) {
-            d.a.l0.n.g.c.b a2 = this.f47986b.a(g.class);
+            d.a.l0.n.g.c.b a2 = this.f51660b.a(g.class);
             for (g gVar : list) {
-                arrayList.add(ContentProviderOperation.newInsert(this.f47986b.b(g.class)).withValues(a2.c(gVar)).build());
+                arrayList.add(ContentProviderOperation.newInsert(this.f51660b.b(g.class)).withValues(a2.c(gVar)).build());
             }
         }
         if (dVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.f47986b.b(d.class)).withValues(this.f47986b.a(d.class).c(dVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.f51660b.b(d.class)).withValues(this.f51660b.a(d.class).c(dVar)).build());
         }
         if (bVar != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.f47986b.b(d.a.l0.n.h.b.class)).withValues(this.f47986b.a(d.a.l0.n.h.b.class).c(bVar)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.f51660b.b(d.a.l0.n.h.b.class)).withValues(this.f51660b.a(d.a.l0.n.h.b.class).c(bVar)).build());
         }
         if (pMSAppInfo != null) {
-            arrayList.add(ContentProviderOperation.newInsert(this.f47986b.b(PMSAppInfo.class)).withValues(this.f47986b.a(PMSAppInfo.class).c(pMSAppInfo)).build());
+            arrayList.add(ContentProviderOperation.newInsert(this.f51660b.b(PMSAppInfo.class)).withValues(this.f51660b.a(PMSAppInfo.class).c(pMSAppInfo)).build());
         }
         try {
-            for (ContentProviderResult contentProviderResult : AppRuntime.getAppContext().getContentResolver().applyBatch(d.a.l0.n.g.e.b.f47993b, arrayList)) {
+            for (ContentProviderResult contentProviderResult : AppRuntime.getAppContext().getContentResolver().applyBatch(d.a.l0.n.g.e.b.f51667b, arrayList)) {
                 if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                     return false;
                 }
             }
             return true;
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
             return false;
@@ -206,9 +206,9 @@ public class b extends a {
             return;
         }
         try {
-            AppRuntime.getAppContext().getContentResolver().delete(this.f47986b.b(g.class), "app_id=?", new String[]{str});
+            AppRuntime.getAppContext().getContentResolver().delete(this.f51660b.b(g.class), "app_id=?", new String[]{str});
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }
@@ -220,9 +220,9 @@ public class b extends a {
             return;
         }
         try {
-            AppRuntime.getAppContext().getContentResolver().delete(this.f47986b.b(g.class), "app_id=? AND version_code=?", new String[]{str, str2});
+            AppRuntime.getAppContext().getContentResolver().delete(this.f51660b.b(g.class), "app_id=? AND version_code=?", new String[]{str, str2});
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }
@@ -232,11 +232,11 @@ public class b extends a {
     public <T extends e> boolean e(Class<T> cls, String str) {
         try {
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }
-        return AppRuntime.getAppContext().getContentResolver().delete(this.f47986b.b(cls), "bundle_id =? ", new String[]{str}) > 0;
+        return AppRuntime.getAppContext().getContentResolver().delete(this.f51660b.b(cls), "bundle_id =? ", new String[]{str}) > 0;
     }
 
     @Override // d.a.l0.n.g.a
@@ -245,16 +245,16 @@ public class b extends a {
         String str;
         String[] strArr;
         try {
-            b2 = this.f47986b.b(hVar.getClass());
-            if (hVar.f48014i >= 0) {
+            b2 = this.f51660b.b(hVar.getClass());
+            if (hVar.f51688i >= 0) {
                 str = "bundle_id = ?  and version_code < ? ";
-                strArr = new String[]{hVar.f48012g, String.valueOf(hVar.f48014i)};
+                strArr = new String[]{hVar.f51686g, String.valueOf(hVar.f51688i)};
             } else {
                 str = "bundle_id = ? ";
-                strArr = new String[]{hVar.f48012g};
+                strArr = new String[]{hVar.f51686g};
             }
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }
@@ -265,11 +265,11 @@ public class b extends a {
     public boolean g(String str) {
         try {
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }
-        return AppRuntime.getAppContext().getContentResolver().delete(this.f47986b.b(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0;
+        return AppRuntime.getAppContext().getContentResolver().delete(this.f51660b.b(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0;
     }
 
     @Override // d.a.l0.n.g.a
@@ -279,12 +279,12 @@ public class b extends a {
         int i2 = -1;
         try {
             try {
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f47986b.b(g.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f51660b.b(g.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
                 if (cursor != null && cursor.moveToFirst()) {
                     i2 = cursor.getInt(0);
                 }
             } catch (Exception e2) {
-                if (d.a.l0.n.c.f47984a) {
+                if (d.a.l0.n.c.f51658a) {
                     e2.printStackTrace();
                 }
             }
@@ -315,8 +315,8 @@ public class b extends a {
             } else {
                 str2 = "app_id=? and version_code>?";
             }
-            Uri b2 = this.f47986b.b(g.class);
-            d.a.l0.n.g.c.b a2 = this.f47986b.a(g.class);
+            Uri b2 = this.f51660b.b(g.class);
+            d.a.l0.n.g.c.b a2 = this.f51660b.a(g.class);
             Cursor query = AppRuntime.getAppContext().getContentResolver().query(b2, null, str2, new String[]{str, String.valueOf(i2)}, null);
             if (query != null && a2 != null) {
                 try {
@@ -325,7 +325,7 @@ public class b extends a {
                     cursor = query;
                     e = e2;
                     try {
-                        if (d.a.l0.n.c.f47984a) {
+                        if (d.a.l0.n.c.f51658a) {
                             e.printStackTrace();
                         }
                         d.a.l0.n.o.c.a(cursor);
@@ -357,13 +357,13 @@ public class b extends a {
     @Override // d.a.l0.n.g.a
     public boolean k(PMSAppInfo pMSAppInfo) {
         try {
-            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f47986b.b(pMSAppInfo.getClass()), this.f47986b.a(pMSAppInfo.getClass()).c(pMSAppInfo));
+            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f51660b.b(pMSAppInfo.getClass()), this.f51660b.a(pMSAppInfo.getClass()).c(pMSAppInfo));
             if (insert != null) {
                 return ContentUris.parseId(insert) > 0;
             }
             return false;
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -381,14 +381,14 @@ public class b extends a {
         Cursor cursor = null;
         try {
             try {
-                Uri b2 = this.f47986b.b(g.class);
-                d.a.l0.n.g.c.b a2 = this.f47986b.a(g.class);
+                Uri b2 = this.f51660b.b(g.class);
+                d.a.l0.n.g.c.b a2 = this.f51660b.a(g.class);
                 cursor = AppRuntime.getAppContext().getContentResolver().query(b2, null, "app_id=? AND version_code=? AND sub_pkg_name=?", new String[]{str, str2, str3}, null);
                 if (cursor != null) {
                     return a2.d(cursor) != null;
                 }
             } catch (Exception e2) {
-                if (d.a.l0.n.c.f47984a) {
+                if (d.a.l0.n.c.f51658a) {
                     e2.printStackTrace();
                 }
             }
@@ -409,9 +409,9 @@ public class b extends a {
         } catch (Throwable th) {
             th = th;
         }
-        if (this.f47986b != null) {
-            d.a.l0.n.g.c.b a2 = this.f47986b.a(h.class);
-            Cursor query = AppRuntime.getAppContext().getContentResolver().query(this.f47986b.b(h.class), null, null, null, "update_time ASC limit 0," + i2);
+        if (this.f51660b != null) {
+            d.a.l0.n.g.c.b a2 = this.f51660b.a(h.class);
+            Cursor query = AppRuntime.getAppContext().getContentResolver().query(this.f51660b.b(h.class), null, null, null, "update_time ASC limit 0," + i2);
             if (query == null) {
                 d.a.l0.n.o.c.a(query);
                 return null;
@@ -424,7 +424,7 @@ public class b extends a {
                 cursor = query;
                 e = e4;
                 try {
-                    if (d.a.l0.n.c.f47984a) {
+                    if (d.a.l0.n.c.f51658a) {
                         e.printStackTrace();
                     }
                     d.a.l0.n.o.c.a(cursor);
@@ -459,7 +459,7 @@ public class b extends a {
         if (C != null && C.size() > 0) {
             for (f fVar : C) {
                 if (fVar != null) {
-                    hashMap.put(fVar.f48012g, fVar);
+                    hashMap.put(fVar.f51686g, fVar);
                 }
             }
         }
@@ -471,8 +471,8 @@ public class b extends a {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            d.a.l0.n.g.c.b a2 = this.f47986b.a(h.class);
-            cursor = AppRuntime.getAppContext().getContentResolver().query(this.f47986b.b(h.class), null, str, strArr, "update_time DESC");
+            d.a.l0.n.g.c.b a2 = this.f51660b.a(h.class);
+            cursor = AppRuntime.getAppContext().getContentResolver().query(this.f51660b.b(h.class), null, str, strArr, "update_time DESC");
             if (cursor != null) {
                 try {
                     try {
@@ -481,7 +481,7 @@ public class b extends a {
                         return e2;
                     } catch (Exception e3) {
                         e = e3;
-                        if (d.a.l0.n.c.f47984a) {
+                        if (d.a.l0.n.c.f51658a) {
                             e.printStackTrace();
                         }
                         d.a.l0.n.o.c.a(cursor);
@@ -518,8 +518,8 @@ public class b extends a {
         ?? r1 = 0;
         try {
             try {
-                d.a.l0.n.g.c.b a2 = this.f47986b.a(i.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f47986b.b(i.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
+                d.a.l0.n.g.c.b a2 = this.f51660b.a(i.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f51660b.b(i.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
                 if (cursor != null) {
                     try {
                         i iVar = (i) a2.d(cursor);
@@ -527,7 +527,7 @@ public class b extends a {
                         return iVar;
                     } catch (Exception e2) {
                         e = e2;
-                        if (d.a.l0.n.c.f47984a) {
+                        if (d.a.l0.n.c.f51658a) {
                             e.printStackTrace();
                         }
                         d.a.l0.n.o.c.a(cursor);
@@ -576,8 +576,8 @@ public class b extends a {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            d.a.l0.n.g.c.b a2 = this.f47986b.a(h.class);
-            Uri.Builder buildUpon = this.f47986b.b(h.class).buildUpon();
+            d.a.l0.n.g.c.b a2 = this.f51660b.a(h.class);
+            Uri.Builder buildUpon = this.f51660b.b(h.class).buildUpon();
             buildUpon.appendQueryParameter("rawQuery", "");
             cursor = AppRuntime.getAppContext().getContentResolver().query(buildUpon.build(), null, str, null, null);
             if (cursor != null) {
@@ -588,7 +588,7 @@ public class b extends a {
                         return e2;
                     } catch (Exception e3) {
                         e = e3;
-                        if (d.a.l0.n.c.f47984a) {
+                        if (d.a.l0.n.c.f51658a) {
                             e.printStackTrace();
                         }
                         d.a.l0.n.o.c.a(cursor);
@@ -620,18 +620,18 @@ public class b extends a {
         String str;
         String[] strArr;
         try {
-            d.a.l0.n.g.c.b a2 = this.f47986b.a(hVar.getClass());
-            b2 = this.f47986b.b(hVar.getClass());
+            d.a.l0.n.g.c.b a2 = this.f51660b.a(hVar.getClass());
+            b2 = this.f51660b.b(hVar.getClass());
             c2 = a2.c(hVar);
-            if (hVar.f48014i >= 0) {
+            if (hVar.f51688i >= 0) {
                 str = "bundle_id = ?  and version_code = ? ";
-                strArr = new String[]{hVar.f48012g, String.valueOf(hVar.f48014i)};
+                strArr = new String[]{hVar.f51686g, String.valueOf(hVar.f51688i)};
             } else {
                 str = "bundle_id = ?  and version_name = ? ";
-                strArr = new String[]{hVar.f48012g, hVar.j};
+                strArr = new String[]{hVar.f51686g, hVar.j};
             }
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }
@@ -642,11 +642,11 @@ public class b extends a {
     public boolean w(PMSAppInfo pMSAppInfo) {
         try {
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }
-        return AppRuntime.getAppContext().getContentResolver().update(this.f47986b.b(pMSAppInfo.getClass()), this.f47986b.a(pMSAppInfo.getClass()).c(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0;
+        return AppRuntime.getAppContext().getContentResolver().update(this.f51660b.b(pMSAppInfo.getClass()), this.f51660b.a(pMSAppInfo.getClass()).c(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0;
     }
 
     @Override // d.a.l0.n.g.a
@@ -657,11 +657,11 @@ public class b extends a {
             return false;
         }
         try {
-            b2 = this.f47986b.b(PMSAppInfo.class);
+            b2 = this.f51660b.b(PMSAppInfo.class);
             contentValues = new ContentValues();
             contentValues.put("pending_err_code", Integer.valueOf(i2));
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }
@@ -670,13 +670,13 @@ public class b extends a {
 
     public final <T extends e> boolean y(T t) {
         try {
-            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f47986b.b(t.getClass()), this.f47986b.a(t.getClass()).c(t));
+            Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f51660b.b(t.getClass()), this.f51660b.a(t.getClass()).c(t));
             if (insert != null) {
                 return ContentUris.parseId(insert) > 0;
             }
             return false;
         } catch (Exception e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -693,8 +693,8 @@ public class b extends a {
         Cursor cursor;
         try {
             try {
-                d.a.l0.n.g.c.b a2 = this.f47986b.a(PMSAppInfo.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f47986b.b(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
+                d.a.l0.n.g.c.b a2 = this.f51660b.a(PMSAppInfo.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f51660b.b(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
                 if (cursor != null) {
                     try {
                         PMSAppInfo pMSAppInfo = (PMSAppInfo) a2.d(cursor);
@@ -702,7 +702,7 @@ public class b extends a {
                         return pMSAppInfo;
                     } catch (Exception e2) {
                         e = e2;
-                        if (d.a.l0.n.c.f47984a) {
+                        if (d.a.l0.n.c.f51658a) {
                             e.printStackTrace();
                         }
                         d.a.l0.n.o.c.a(cursor);

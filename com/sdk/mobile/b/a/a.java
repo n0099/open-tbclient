@@ -12,33 +12,33 @@ import com.sdk.base.framework.f.g.g;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35727a = "com.sdk.mobile.b.a.a";
+    public static final String f39406a = "com.sdk.mobile.b.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f35728b = Boolean.valueOf(f.f35662b);
+    public static Boolean f39407b = Boolean.valueOf(f.f39341b);
 
     /* renamed from: c  reason: collision with root package name */
-    public d f35729c;
+    public d f39408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f35730d;
+    public Context f39409d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.sdk.base.framework.a.f f35731e;
+    public com.sdk.base.framework.a.f f39410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35732f;
+    public int f39411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CallBack<T> f35733g;
+    public CallBack<T> f39412g;
 
     public a(Context context, int i2, CallBack<T> callBack) {
-        this.f35730d = context;
-        this.f35733g = callBack;
+        this.f39409d = context;
+        this.f39412g = callBack;
         i2 = i2 <= 0 ? 30 : i2;
-        this.f35732f = i2;
+        this.f39411f = i2;
         d dVar = new d(this, i2 * 1000);
-        this.f35729c = dVar;
+        this.f39408c = dVar;
         dVar.a();
         com.sdk.base.framework.f.f.a.a();
     }
@@ -49,16 +49,16 @@ public class a<T> {
         if (com.sdk.base.framework.a.a.c.a(a2).booleanValue()) {
             a2 = com.sdk.base.framework.f.i.a.a(20);
         }
-        d dVar = this.f35729c;
+        d dVar = this.f39408c;
         if (dVar != null) {
             dVar.b();
         }
-        CallBack<T> callBack = this.f35733g;
+        CallBack<T> callBack = this.f39412g;
         if (callBack != null) {
             callBack.onFailed(i2, i3, str, a2);
-            this.f35733g = null;
+            this.f39412g = null;
         }
-        com.sdk.base.framework.f.k.a.a(this.f35730d, i3, str, a2, this.f35732f);
+        com.sdk.base.framework.f.k.a.a(this.f39409d, i3, str, a2, this.f39411f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -66,40 +66,40 @@ public class a<T> {
         if (com.sdk.base.framework.a.a.c.a(str2).booleanValue()) {
             str2 = com.sdk.base.framework.f.i.a.a(20);
         }
-        d dVar = this.f35729c;
+        d dVar = this.f39408c;
         if (dVar != null) {
             dVar.b();
         }
-        CallBack<T> callBack = this.f35733g;
+        CallBack<T> callBack = this.f39412g;
         if (callBack != null) {
             callBack.onSuccess(i2, str, i3, t, str2);
-            this.f35733g = null;
+            this.f39412g = null;
         }
-        com.sdk.base.framework.f.k.a.a(this.f35730d, i3, str, str2, this.f35732f);
+        com.sdk.base.framework.f.k.a.a(this.f39409d, i3, str, str2, this.f39411f);
     }
 
     public final void a(int i2) {
-        String a2 = com.sdk.base.framework.a.a.a.a(this.f35730d, i2, g.f35698b.a());
+        String a2 = com.sdk.base.framework.a.a.a.a(this.f39409d, i2, g.f39377b.a());
         if (com.sdk.base.framework.a.a.c.b(a2).booleanValue()) {
             a(0, "成功", 100, com.sdk.base.framework.a.a.a.a(a2), com.sdk.base.framework.a.a.a.b(a2));
-        } else if (!com.sdk.base.framework.f.i.b.a(this.f35730d)) {
+        } else if (!com.sdk.base.framework.f.i.b.a(this.f39409d)) {
             a(1, IMTrack.CrashBuilder.CRASH_TYPE_CATCH, "操作频繁请,稍后再试");
         } else {
             new com.sdk.mobile.a.a();
-            com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f35730d, new b(this, i2));
+            com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f39409d, new b(this, i2));
             DataInfo dataInfo = new DataInfo();
             dataInfo.putData(LightInvokerImpl.LIVENESS_SERVIVETYPE, Integer.valueOf(i2));
-            this.f35731e = aVar.a(aVar.f35671b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, j.f35622b);
+            this.f39410e = aVar.a(aVar.f39350b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, j.f39301b);
         }
     }
 
     public final void a(String str, String str2) {
-        com.sdk.base.framework.a.a.a.b(this.f35730d);
+        com.sdk.base.framework.a.a.a.b(this.f39409d);
         new com.sdk.mobile.a.a();
-        com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f35730d, new c(this, str2));
+        com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f39409d, new c(this, str2));
         DataInfo dataInfo = new DataInfo();
         dataInfo.putData("accessCode", str);
         dataInfo.putData("mobile", str2);
-        this.f35731e = aVar.a(aVar.f35671b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, j.f35622b);
+        this.f39410e = aVar.a(aVar.f39350b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, j.f39301b);
     }
 }

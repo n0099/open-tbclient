@@ -11,8 +11,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.swan.apps.so.SoUtils;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-import com.tencent.connect.common.Constants;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Random;
@@ -22,33 +20,33 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40467a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String f44146a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40468b = null;
+    public static String f44147b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40469c = null;
+    public static String f44148c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f40470d = 60000;
+    public static long f44149d = 60000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f40471e = 0;
+    public static long f44150e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f40472f = 0;
+    public static long f44151f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f40473g = 0;
+    public static long f44152g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f40474h = false;
+    public static boolean f44153h = false;
 
     static {
-        long j = f40470d * 60;
-        f40471e = j;
-        f40472f = j * 24;
+        long j = f44149d * 60;
+        f44150e = j;
+        f44151f = j * 24;
     }
 
     public static String a() {
@@ -65,21 +63,21 @@ public class c {
 
     public static String b(Context context) {
         try {
-            if (!TextUtils.isEmpty(f40469c)) {
-                return f40469c;
+            if (!TextUtils.isEmpty(f44148c)) {
+                return f44148c;
             }
-            String o = d.a.j0.b.a.g(context).o();
-            f40469c = o;
-            if (!TextUtils.isEmpty(o)) {
-                return f40469c;
+            String p = d.a.j0.b.a.h(context).p();
+            f44148c = p;
+            if (!TextUtils.isEmpty(p)) {
+                return f44148c;
             }
             String str = new String(f());
-            f40469c = str;
+            f44148c = str;
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            d.a.j0.b.a.g(context).r(f40469c);
-            return f40469c;
+            d.a.j0.b.a.h(context).s(f44148c);
+            return f44148c;
         } catch (Throwable th) {
             d(th);
             return "";
@@ -97,19 +95,19 @@ public class c {
             jSONObject2.put("1", e(context));
             jSONObject2.put("2", context.getPackageName());
             jSONObject2.put("3", h(context));
-            jSONObject2.put("4", d.l(context));
+            jSONObject2.put("4", d.j(context));
             jSONObject2.put("5", str);
             jSONObject2.put("6", System.currentTimeMillis());
             jSONObject2.put("7", "");
-            jSONObject2.put("8", d.a.j0.a.f40249b);
-            jSONObject2.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-            jSONObject2.put("10", "1.0.5");
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "");
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "");
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, 1);
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, j(context));
+            jSONObject2.put("8", d.a.j0.a.f43930b);
+            jSONObject2.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
+            jSONObject2.put("10", "1.0.7");
+            jSONObject2.put("11", "");
+            jSONObject2.put("12", "");
+            jSONObject2.put("13", 1);
+            jSONObject2.put("14", j(context));
             jSONObject2.put(SoUtils.SO_EVENT_ID_V8_SO, d.a.j0.g.a.a(context));
-            jSONObject2.put(SoUtils.SO_EVENT_ID_DEFAULT, d.a.j0.g.a.b(context));
+            jSONObject2.put(SoUtils.SO_EVENT_ID_DEFAULT, d.a.j0.g.a.b(context, true, false));
             jSONObject2.put("module_section", jSONArray);
             return jSONObject2;
         } catch (Throwable th) {
@@ -133,7 +131,7 @@ public class c {
     public static byte[] f() {
         char[] cArr = new char[16];
         try {
-            char[] charArray = f40467a.toCharArray();
+            char[] charArray = f44146a.toCharArray();
             for (int i2 = 0; i2 < 16; i2++) {
                 int nextInt = new Random().nextInt(62);
                 if (nextInt >= 0 && nextInt < charArray.length) {
@@ -175,7 +173,7 @@ public class c {
         String l = l(context);
         if (TextUtils.isEmpty(l)) {
             String b2 = b(context);
-            return TextUtils.isEmpty(b2) ? d.a.j0.b.a.g(context).H() : b2;
+            return TextUtils.isEmpty(b2) ? d.a.j0.b.a.h(context).J() : b2;
         }
         return l;
     }
@@ -217,23 +215,23 @@ public class c {
 
     public static String l(Context context) {
         try {
-            if (!TextUtils.isEmpty(f40468b)) {
-                return f40468b;
+            if (!TextUtils.isEmpty(f44147b)) {
+                return f44147b;
             }
-            String j0 = d.a.j0.b.a.g(context).j0();
-            f40468b = j0;
-            if (!TextUtils.isEmpty(j0)) {
-                return f40468b;
+            String m0 = d.a.j0.b.a.h(context).m0();
+            f44147b = m0;
+            if (!TextUtils.isEmpty(m0)) {
+                return f44147b;
             }
             Signature signature = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures[0];
             if (signature != null) {
                 String d2 = g.d(signature.toByteArray());
-                f40468b = d2;
+                f44147b = d2;
                 if (TextUtils.isEmpty(d2)) {
                     return "";
                 }
-                d.a.j0.b.a.g(context).U(f40468b);
-                return f40468b;
+                d.a.j0.b.a.h(context).W(f44147b);
+                return f44147b;
             }
             return "";
         } catch (Throwable th) {
@@ -248,14 +246,14 @@ public class c {
             d.a.j0.h.b.c(context).j();
             d.a.j0.h.b.c(context).e();
             long currentTimeMillis = System.currentTimeMillis();
-            long T = d.a.j0.b.a.g(context).T();
-            long x = d.a.j0.b.a.g(context).x();
-            long j = currentTimeMillis - T;
-            if (j >= x) {
-                d.a.j0.b.a.g(context).q(currentTimeMillis);
-                b.a(context, x);
+            long V = d.a.j0.b.a.h(context).V();
+            long y = d.a.j0.b.a.h(context).y();
+            long j = currentTimeMillis - V;
+            if (j >= y) {
+                d.a.j0.b.a.h(context).r(currentTimeMillis);
+                b.a(context, y);
             } else {
-                b.a(context, x - j);
+                b.a(context, y - j);
             }
         } catch (Throwable th) {
             d(th);
@@ -284,30 +282,30 @@ public class c {
 
     public static boolean o(Context context) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - f40473g < 1000) {
-            return f40474h;
+        if (currentTimeMillis - f44152g < 1000) {
+            return f44153h;
         }
         boolean z = s(context) && n(context);
-        f40474h = z;
-        f40473g = currentTimeMillis;
+        f44153h = z;
+        f44152g = currentTimeMillis;
         return z;
     }
 
     public static void p(Context context) {
         try {
-            String V = d.a.j0.b.a.g(context).V();
+            String X = d.a.j0.b.a.h(context).X();
             String a2 = a();
-            if (TextUtils.isEmpty(a2) || !TextUtils.equals(V, a2)) {
+            if (TextUtils.isEmpty(a2) || !TextUtils.equals(X, a2)) {
                 JSONArray jSONArray = new JSONArray();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("0", context.getPackageName());
                 jSONObject.put("1", h(context));
-                jSONObject.put("2", "1.0.5");
+                jSONObject.put("2", "1.0.7");
                 jSONObject.put("3", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
                 jSONObject.put("4", System.currentTimeMillis());
                 jSONArray.put(jSONObject);
                 d.a.j0.h.b.c(context).f(jSONArray.toString(), "1077103", 2);
-                d.a.j0.b.a.g(context).F(a2);
+                d.a.j0.b.a.h(context).H(a2);
             }
         } catch (Throwable th) {
             d(th);

@@ -1,15 +1,15 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
 import androidx.annotation.Keep;
-import d.r.b.a.a.i.c.m;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.UserCouponStore;
 import java.util.List;
 @Keep
 /* loaded from: classes7.dex */
 public class UserCouponStoreResult {
     public long serverCurrentTime;
-    public List<m> userCouponStoreList;
+    public List<UserCouponStore> userCouponStoreList;
 
-    public UserCouponStoreResult(long j, List<m> list) {
+    public UserCouponStoreResult(long j, List<UserCouponStore> list) {
         this.serverCurrentTime = j;
         this.userCouponStoreList = list;
     }
@@ -18,7 +18,7 @@ public class UserCouponStoreResult {
         return this.serverCurrentTime;
     }
 
-    public List<m> getUserCouponStoreList() {
+    public List<UserCouponStore> getUserCouponStoreList() {
         return this.userCouponStoreList;
     }
 

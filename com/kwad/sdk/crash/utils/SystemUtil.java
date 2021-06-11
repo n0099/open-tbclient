@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Process;
-import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.mapsdkplatform.comapi.map.r;
@@ -19,25 +18,25 @@ import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SystemUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f33004a;
+    public static volatile String f35128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f33005b;
+    public static long f35129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f33006c;
+    public static long f35130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f33007d;
+    public static int f35131d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static LEVEL f33008e;
+    public static LEVEL f35132e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum LEVEL {
         BEST(5),
         HIGH(4),
@@ -57,26 +56,26 @@ public class SystemUtil {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f33009a;
+        public long f35133a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f33010b;
+        public long f35134b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f33011c;
+        public long f35135c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f33012d;
+        public long f35136d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f33013e;
+        public long f35137e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33014f;
+        public int f35138f;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -147,7 +146,7 @@ public class SystemUtil {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x000b */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x003c */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0033, code lost:
-        com.kwad.sdk.crash.utils.SystemUtil.f33004a = r1.processName;
+        com.kwad.sdk.crash.utils.SystemUtil.f35128a = r1.processName;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v1, types: [boolean] */
@@ -165,9 +164,9 @@ public class SystemUtil {
         BufferedReader bufferedReader;
         IOException e2;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        ?? isEmpty = TextUtils.isEmpty(f33004a);
+        ?? isEmpty = TextUtils.isEmpty(f35128a);
         if (isEmpty == 0) {
-            return f33004a;
+            return f35128a;
         }
         try {
             isEmpty = Process.myPid();
@@ -187,7 +186,7 @@ public class SystemUtil {
         } catch (Exception e3) {
             com.kwad.sdk.core.d.a.b(e3);
         }
-        if (TextUtils.isEmpty(f33004a)) {
+        if (TextUtils.isEmpty(f35128a)) {
             try {
                 try {
                     bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(ProcessUtils.CMD_LINE_NAME)));
@@ -200,17 +199,17 @@ public class SystemUtil {
                             }
                             sb.append((char) read);
                         }
-                        f33004a = sb.toString();
+                        f35128a = sb.toString();
                     } catch (FileNotFoundException e4) {
                         e2 = e4;
                         com.kwad.sdk.core.d.a.b(e2);
                         b.a((Reader) bufferedReader);
-                        return f33004a;
+                        return f35128a;
                     } catch (IOException e5) {
                         e2 = e5;
                         com.kwad.sdk.core.d.a.b(e2);
                         b.a((Reader) bufferedReader);
-                        return f33004a;
+                        return f35128a;
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -231,7 +230,7 @@ public class SystemUtil {
             }
             b.a((Reader) bufferedReader);
         }
-        return f33004a;
+        return f35128a;
     }
 
     public static String a(String str, String str2) {
@@ -275,22 +274,13 @@ public class SystemUtil {
         return memoryInfo.availMem;
     }
 
-    public static int c(Context context) {
-        try {
-            return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
-            return 0;
-        }
-    }
-
     public static a c() {
         String a2;
         a aVar = new a();
         RandomAccessFile randomAccessFile = null;
         try {
             try {
-                RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", r.f7672a);
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", r.f7715a);
                 while (true) {
                     try {
                         String readLine = randomAccessFile2.readLine();
@@ -300,15 +290,15 @@ public class SystemUtil {
                             if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                 String a3 = a(readLine, "VmSize");
                                 if (a3 != null) {
-                                    aVar.f33010b = Long.valueOf(a3).longValue();
+                                    aVar.f35134b = Long.valueOf(a3).longValue();
                                 }
                             } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                 String a4 = a(readLine, "VmRSS:");
                                 if (a4 != null) {
-                                    aVar.f33011c = Long.valueOf(a4).longValue();
+                                    aVar.f35135c = Long.valueOf(a4).longValue();
                                 }
                             } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                aVar.f33014f = Integer.valueOf(a2).intValue();
+                                aVar.f35138f = Integer.valueOf(a2).intValue();
                             }
                         }
                     } catch (IOException e2) {

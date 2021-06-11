@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static void a(int i2) {
         if (TbadkCoreApplication.getInst().getFontSize() != i2) {

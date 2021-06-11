@@ -1,5 +1,7 @@
 package com.xiaomi.push;
 
+import com.kwai.video.player.PlayerPostEvent;
+import com.kwai.video.player.PlayerProps;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes7.dex */
 public enum ew {
@@ -15,11 +17,11 @@ public enum ew {
     BATCH_TCP_CONN_FAIL(1001),
     CHANNEL_STATS_COUNTER(8000),
     GSLB_REQUEST_SUCCESS(10000),
-    GSLB_TCP_NOACCESS(10101),
+    GSLB_TCP_NOACCESS(PlayerPostEvent.MEDIA_INFO_PLAY_TO_END),
     GSLB_TCP_NETUNREACH(10102),
-    GSLB_TCP_CONNREFUSED(Constants.REQUEST_QQ_SHARE),
-    GSLB_TCP_NOROUTETOHOST(Constants.REQUEST_QZONE_SHARE),
-    GSLB_TCP_TIMEOUT(Constants.REQUEST_QQ_FAVORITES),
+    GSLB_TCP_CONNREFUSED(10103),
+    GSLB_TCP_NOROUTETOHOST(10104),
+    GSLB_TCP_TIMEOUT(10105),
     GSLB_TCP_INVALARG(Constants.REQUEST_SEND_TO_MY_COMPUTER),
     GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
     GSLB_TCP_ERR_OTHER(10199),
@@ -37,9 +39,9 @@ public enum ew {
     CONN_BOSH_UNKNOWNHOST(20407),
     CONN_BOSH_ERR(20499),
     BIND_SUCCESS(30000),
-    BIND_TCP_READ_TIMEOUT_DEPRECTED(30101),
-    BIND_TCP_CONNRESET_DEPRECTED(30102),
-    BIND_TCP_BROKEN_PIPE_DEPRECTED(30103),
+    BIND_TCP_READ_TIMEOUT_DEPRECTED(PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH),
+    BIND_TCP_CONNRESET_DEPRECTED(PlayerProps.FFP_PROP_STRING_STREAM_ID),
+    BIND_TCP_BROKEN_PIPE_DEPRECTED(PlayerProps.FFP_PROP_STRING_DOMAIN),
     BIND_TCP_READ_TIMEOUT(30108),
     BIND_TCP_CONNRESET(30109),
     BIND_TCP_BROKEN_PIPE(30110),
@@ -131,15 +133,15 @@ public enum ew {
                                 return CHANNEL_TIMER_DELAYED;
                             default:
                                 switch (i2) {
-                                    case 10101:
+                                    case PlayerPostEvent.MEDIA_INFO_PLAY_TO_END /* 10101 */:
                                         return GSLB_TCP_NOACCESS;
                                     case 10102:
                                         return GSLB_TCP_NETUNREACH;
-                                    case Constants.REQUEST_QQ_SHARE /* 10103 */:
+                                    case 10103:
                                         return GSLB_TCP_CONNREFUSED;
-                                    case Constants.REQUEST_QZONE_SHARE /* 10104 */:
+                                    case 10104:
                                         return GSLB_TCP_NOROUTETOHOST;
-                                    case Constants.REQUEST_QQ_FAVORITES /* 10105 */:
+                                    case 10105:
                                         return GSLB_TCP_TIMEOUT;
                                     case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
                                         return GSLB_TCP_INVALARG;
@@ -163,11 +165,11 @@ public enum ew {
                                                 return CONN_TCP_UKNOWNHOST;
                                             default:
                                                 switch (i2) {
-                                                    case 30101:
+                                                    case PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH /* 30101 */:
                                                         return BIND_TCP_READ_TIMEOUT_DEPRECTED;
-                                                    case 30102:
+                                                    case PlayerProps.FFP_PROP_STRING_STREAM_ID /* 30102 */:
                                                         return BIND_TCP_CONNRESET_DEPRECTED;
-                                                    case 30103:
+                                                    case PlayerProps.FFP_PROP_STRING_DOMAIN /* 30103 */:
                                                         return BIND_TCP_BROKEN_PIPE_DEPRECTED;
                                                     default:
                                                         switch (i2) {

@@ -34,37 +34,45 @@ public class d extends c {
         @Override // d.a.m0.b1.j.d
         public void a(View view, int i2, boolean z) {
             d dVar = d.this;
-            if (dVar.z == null || !dVar.R()) {
+            if (dVar.z == null || !dVar.S()) {
                 return;
             }
             UrlManager urlManager = UrlManager.getInstance();
             d dVar2 = d.this;
-            urlManager.dealOneLink(dVar2.f63441f, new String[]{dVar2.z.H()});
+            urlManager.dealOneLink(dVar2.f67159f, new String[]{dVar2.z.H()});
         }
     }
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        View l = l();
-        this.O = (RelativeLayout) l.findViewById(R.id.lottery_info_layout);
-        this.P = (TextView) l.findViewById(R.id.lottery_time_tv);
-        this.Q = (TextView) l.findViewById(R.id.lottery_join_count_tv);
-        this.R = (TextView) l.findViewById(R.id.lottery_btn);
+        View m = m();
+        this.O = (RelativeLayout) m.findViewById(R.id.lottery_info_layout);
+        this.P = (TextView) m.findViewById(R.id.lottery_time_tv);
+        this.Q = (TextView) m.findViewById(R.id.lottery_join_count_tv);
+        this.R = (TextView) m.findViewById(R.id.lottery_btn);
+    }
+
+    @Override // d.a.n0.r0.n1.g.c
+    public void A(boolean z) {
+        if (this.z == null || !S()) {
+            return;
+        }
+        UrlManager.getInstance().dealOneLink(this.f67159f, new String[]{this.z.H()});
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: A */
-    public void m(a2 a2Var) {
+    /* renamed from: B */
+    public void n(a2 a2Var) {
         if (a2Var == null) {
             return;
         }
         if (ListUtils.getCount(a2Var.L0()) > 1) {
             ArrayList<MediaData> arrayList = new ArrayList<>();
             arrayList.add(a2Var.L0().get(0));
-            a2Var.Y3(arrayList);
+            a2Var.Z3(arrayList);
         }
-        super.A(a2Var);
+        super.B(a2Var);
         this.D.setImageClickListener(new a());
         d.a.m0.r.q.b bVar = (d.a.m0.r.q.b) ListUtils.getItem(a2Var.E(), 0);
         if (bVar != null) {
@@ -76,21 +84,21 @@ public class d extends c {
         }
     }
 
-    public boolean R() {
+    public boolean S() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        ViewHelper.skipToLoginActivity(this.f63441f.getPageActivity());
+        ViewHelper.skipToLoginActivity(this.f67159f.getPageActivity());
         return false;
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_frs_lottery_new_frame;
     }
 
     @Override // d.a.n0.r0.n1.g.c, d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.y != i2) {
             SkinManager.setBackgroundColor(this.O, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.P, R.color.CAM_X0106);
@@ -98,14 +106,6 @@ public class d extends c {
             SkinManager.setViewTextColor(this.R, R.color.CAM_X0302);
             SkinManager.setBackgroundResource(this.R, R.drawable.bg_card_frs_lottery_btn);
         }
-        super.n(tbPageContext, i2);
-    }
-
-    @Override // d.a.n0.r0.n1.g.c
-    public void z(boolean z) {
-        if (this.z == null || !R()) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink(this.f63441f, new String[]{this.z.H()});
+        super.o(tbPageContext, i2);
     }
 }

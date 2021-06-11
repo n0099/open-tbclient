@@ -14,25 +14,25 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public LayoutInflater f52320e;
+    public LayoutInflater f56009e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52321f;
+    public int f56010f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemViewHolder f52322g;
+    public ItemViewHolder f56011g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<c> f52323h;
+    public List<c> f56012h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ArrayList<ItemViewHolder> f52324i = new ArrayList<>();
+    public final ArrayList<ItemViewHolder> f56013i = new ArrayList<>();
     public View.OnClickListener j;
 
     public b(Context context, int i2, ItemViewHolder itemViewHolder) {
-        this.f52320e = LayoutInflater.from(context);
-        this.f52321f = i2;
-        this.f52322g = itemViewHolder;
+        this.f56009e = LayoutInflater.from(context);
+        this.f56010f = i2;
+        this.f56011g = itemViewHolder;
     }
 
     public final void a(ItemViewHolder itemViewHolder, c cVar) {
@@ -43,8 +43,8 @@ public class b extends BaseAdapter {
     }
 
     public void b(int i2) {
-        if (ListUtils.getCount(this.f52324i) > 0) {
-            Iterator<ItemViewHolder> it = this.f52324i.iterator();
+        if (ListUtils.getCount(this.f56013i) > 0) {
+            Iterator<ItemViewHolder> it = this.f56013i.iterator();
             while (it.hasNext()) {
                 it.next().d(i2);
             }
@@ -52,7 +52,7 @@ public class b extends BaseAdapter {
     }
 
     public void c(List<c> list) {
-        this.f52323h = list;
+        this.f56012h = list;
     }
 
     public void d(View.OnClickListener onClickListener) {
@@ -61,34 +61,34 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.f52323h);
+        return ListUtils.getCount(this.f56012h);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        return ListUtils.getItem(this.f52323h, i2);
+        return ListUtils.getItem(this.f56012h, i2);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i2) {
-        if (ListUtils.getItem(this.f52323h, i2) == null) {
+        if (ListUtils.getItem(this.f56012h, i2) == null) {
             return -1L;
         }
-        return ((c) ListUtils.getItem(this.f52323h, i2)).hashCode();
+        return ((c) ListUtils.getItem(this.f56012h, i2)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = this.f52320e.inflate(this.f52321f, viewGroup, false);
-            ItemViewHolder c2 = this.f52322g.c(view);
+            view = this.f56009e.inflate(this.f56010f, viewGroup, false);
+            ItemViewHolder c2 = this.f56011g.c(view);
             c2.e(this.j);
             view.setTag(c2);
-            this.f52324i.add(c2);
+            this.f56013i.add(c2);
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view.getTag();
-        if (ListUtils.getItem(this.f52323h, i2) != null) {
-            a(itemViewHolder, this.f52323h.get(i2));
+        if (ListUtils.getItem(this.f56012h, i2) != null) {
+            a(itemViewHolder, this.f56012h.get(i2));
         }
         return itemViewHolder.a();
     }

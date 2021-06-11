@@ -18,7 +18,7 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import d.a.n0.z.b0;
 import d.a.n0.z.r;
 /* loaded from: classes5.dex */
-public class i extends d.a.c.j.e.a<CardPersonDynamicThreadData, CardViewHolder<r>> {
+public class i extends d.a.c.k.e.a<CardPersonDynamicThreadData, CardViewHolder<r>> {
     public TbPageContext<?> m;
     public boolean n;
     public d.a.c.e.k.b<ConstrainImageLayout> o;
@@ -144,12 +144,12 @@ public class i extends d.a.c.j.e.a<CardPersonDynamicThreadData, CardViewHolder<r
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public CardViewHolder<r> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public CardViewHolder<r> Q(ViewGroup viewGroup) {
         r rVar = new r(this.m);
-        rVar.R(this.o);
-        rVar.Q(this.p);
+        rVar.S(this.o);
+        rVar.R(this.p);
         rVar.l = 4;
         ThreadViewAndCommentInfoLayout threadViewAndCommentInfoLayout = rVar.n;
         if (threadViewAndCommentInfoLayout != null) {
@@ -164,20 +164,20 @@ public class i extends d.a.c.j.e.a<CardPersonDynamicThreadData, CardViewHolder<r
             originalThreadCardView.setUsePlaceHolder(false);
             rVar.R.q = 4;
         }
-        rVar.o(new a());
+        rVar.p(new a());
         return new CardViewHolder<>(rVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, CardViewHolder<r> cardViewHolder) {
-        cardViewHolder.b().n(this.m, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.b().m(cardPersonDynamicThreadData);
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, CardViewHolder<r> cardViewHolder) {
+        cardViewHolder.b().o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.b().n(cardPersonDynamicThreadData);
         return cardViewHolder.a();
     }
 
-    public void i0(boolean z) {
+    public void j0(boolean z) {
         this.n = z;
     }
 }

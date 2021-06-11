@@ -7,25 +7,25 @@ import java.util.Date;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64409a = false;
+    public static boolean f68127a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a.InterfaceC1801a f64410b;
+    public static a.InterfaceC1859a f68128b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a.InterfaceC1801a f64411c;
+    public static a.InterfaceC1859a f68129c;
 
     public static synchronized void a(Context context) {
         synchronized (b.class) {
-            if (!f64409a) {
+            if (!f68127a) {
                 d.a.r0.a.f.a.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                f64410b = new c();
-                f64411c = new m();
+                f68128b = new c();
+                f68129c = new m();
                 a.a().c();
-                a.a().d(f64411c);
-                a.a().d(f64410b);
+                a.a().d(f68129c);
+                a.a().d(f68128b);
                 a.a().e(context);
-                f64409a = true;
+                f68127a = true;
                 return;
             }
             d.a.r0.a.f.a.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());

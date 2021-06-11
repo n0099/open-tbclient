@@ -18,19 +18,19 @@ import java.util.List;
 public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public BubbleGroupActivity f21104e;
+    public BubbleGroupActivity f21182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21105f;
+    public e f21183f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.a.n0.k3.f.b.b> f21106g;
+    public List<d.a.n0.k3.f.b.b> f21184g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f21107h;
+    public c f21185h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21108i;
+    public boolean f21186i;
     public d.a.c.c.g.a j;
     public final HttpMessageListener k;
 
@@ -48,23 +48,23 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             boolean z = responsedMessage instanceof BubbleGroupHttpResponseMessage;
             if (z || (responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (BubbleGroupModel.this.f21107h != null) {
-                        BubbleGroupModel.this.f21107h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21105f, BubbleGroupModel.this.f21106g);
+                    if (BubbleGroupModel.this.f21185h != null) {
+                        BubbleGroupModel.this.f21185h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21183f, BubbleGroupModel.this.f21184g);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     BubbleGroupHttpResponseMessage bubbleGroupHttpResponseMessage = (BubbleGroupHttpResponseMessage) responsedMessage;
-                    BubbleGroupModel.this.f21105f = bubbleGroupHttpResponseMessage.getRecommand();
-                    BubbleGroupModel.this.f21106g = bubbleGroupHttpResponseMessage.getGroupList();
+                    BubbleGroupModel.this.f21183f = bubbleGroupHttpResponseMessage.getRecommand();
+                    BubbleGroupModel.this.f21184g = bubbleGroupHttpResponseMessage.getGroupList();
                 } else if (responsedMessage instanceof BubbleGroupSocketResponseMessage) {
                     BubbleGroupSocketResponseMessage bubbleGroupSocketResponseMessage = (BubbleGroupSocketResponseMessage) responsedMessage;
-                    BubbleGroupModel.this.f21105f = bubbleGroupSocketResponseMessage.getRecommand();
-                    BubbleGroupModel.this.f21106g = bubbleGroupSocketResponseMessage.getGroupList();
+                    BubbleGroupModel.this.f21183f = bubbleGroupSocketResponseMessage.getRecommand();
+                    BubbleGroupModel.this.f21184g = bubbleGroupSocketResponseMessage.getGroupList();
                 }
-                if (BubbleGroupModel.this.f21107h != null) {
-                    BubbleGroupModel.this.f21107h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21105f, BubbleGroupModel.this.f21106g);
+                if (BubbleGroupModel.this.f21185h != null) {
+                    BubbleGroupModel.this.f21185h.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleGroupModel.this.f21183f, BubbleGroupModel.this.f21184g);
                 }
             }
         }
@@ -84,11 +84,11 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             }
             BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
             if (bubbleSetResponseMessage.getError() != 0) {
-                BubbleGroupModel.this.f21104e.showToast(bubbleSetResponseMessage.getErrorString());
+                BubbleGroupModel.this.f21182e.showToast(bubbleSetResponseMessage.getErrorString());
                 return;
             }
-            BubbleGroupModel.this.D(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-            BubbleGroupModel.this.f21107h.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleGroupModel.this.f21105f, BubbleGroupModel.this.f21106g);
+            BubbleGroupModel.this.H(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
+            BubbleGroupModel.this.f21185h.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleGroupModel.this.f21183f, BubbleGroupModel.this.f21184g);
         }
     }
 
@@ -101,36 +101,40 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         super(bubbleGroupActivity.getPageContext());
         this.j = new a(CmdConfigHttp.CMD_BUBBLE_CATEGORY, 309030);
         this.k = new b(CmdConfigHttp.CMD_BUBBLE_SET);
-        this.f21104e = bubbleGroupActivity;
-        this.f21108i = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
-        A();
+        this.f21182e = bubbleGroupActivity;
+        this.f21186i = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        E();
         registerListener(this.j);
-        B();
+        F();
         registerListener(this.k);
     }
 
-    public final void A() {
+    public boolean D() {
+        return this.f21186i;
+    }
+
+    public final void E() {
         d.a.n0.e3.d0.a.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
         d.a.n0.e3.d0.a.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
     }
 
-    public final void B() {
+    public final void F() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BUBBLE_SET, TbConfig.SERVER_ADDRESS + TbConfig.BUBBLE_SET);
         tbHttpMessageTask.setResponsedClass(BubbleSetResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void C(c cVar) {
-        this.f21107h = cVar;
+    public void G(c cVar) {
+        this.f21185h = cVar;
     }
 
-    public final void D(int i2) {
-        List<d.a.n0.k3.f.b.b> list = this.f21106g;
+    public final void H(int i2) {
+        List<d.a.n0.k3.f.b.b> list = this.f21184g;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (d.a.n0.k3.f.b.b bVar : this.f21106g) {
+        for (d.a.n0.k3.f.b.b bVar : this.f21184g) {
             if (bVar != null && bVar.a() != null) {
                 for (DressItemData dressItemData : bVar.a()) {
                     if (dressItemData != null) {
@@ -154,9 +158,5 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
-    }
-
-    public boolean z() {
-        return this.f21108i;
     }
 }

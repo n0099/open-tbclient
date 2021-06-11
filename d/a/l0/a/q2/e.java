@@ -15,20 +15,20 @@ public final class e implements d.a.l0.a.q2.b, d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f44237e;
+        public final /* synthetic */ Set f47911e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Set f44238f;
+        public final /* synthetic */ Set f47912f;
 
         public a(e eVar, Set set, Set set2) {
-            this.f44237e = set;
-            this.f44238f = set2;
+            this.f47911e = set;
+            this.f47912f = set2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            for (b bVar : this.f44237e) {
-                bVar.onCallback(this.f44238f);
+            for (b bVar : this.f47911e) {
+                bVar.onCallback(this.f47912f);
             }
         }
     }
@@ -41,11 +41,11 @@ public final class e implements d.a.l0.a.q2.b, d {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f44239a = new e();
+        public static final e f47913a = new e();
     }
 
     public static e a() {
-        return c.f44239a;
+        return c.f47913a;
     }
 
     public final <T> boolean b(T... tArr) {
@@ -78,7 +78,7 @@ public final class e implements d.a.l0.a.q2.b, d {
 
     public e f(d.a.l0.a.q2.a aVar) {
         String aVar2 = aVar == null ? "" : aVar.toString();
-        if (d.a.l0.a.q2.b.f44225a) {
+        if (d.a.l0.a.q2.b.f47899a) {
             Log.i("Tracer-ErrCode", aVar2);
         }
         d.a.l0.a.e0.d.b("Tracer-ErrCode", aVar2);

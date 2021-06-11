@@ -10,6 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SpecialLiveTabInfo implements Parcelable {
     public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR = new a();
+    public int objType;
     public List<String> sortTypeList;
     public int tabId;
     public String tabName;
@@ -33,6 +34,7 @@ public class SpecialLiveTabInfo implements Parcelable {
     }
 
     public SpecialLiveTabInfo() {
+        this.tabType = -1;
     }
 
     public void a(JSONObject jSONObject) throws JSONException {
@@ -42,6 +44,7 @@ public class SpecialLiveTabInfo implements Parcelable {
         this.tabId = jSONObject.optInt("tab_id");
         this.tabName = jSONObject.optString("tab_name");
         this.tabType = jSONObject.optInt("icon_type");
+        this.objType = jSONObject.optInt("obj_type");
         JSONArray optJSONArray = jSONObject.optJSONArray("live_tab_type");
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
@@ -64,12 +67,15 @@ public class SpecialLiveTabInfo implements Parcelable {
         parcel.writeString(this.tabName);
         parcel.writeInt(this.tabType);
         parcel.writeStringList(this.sortTypeList);
+        parcel.writeInt(this.objType);
     }
 
     public SpecialLiveTabInfo(Parcel parcel) {
+        this.tabType = -1;
         this.tabId = parcel.readInt();
         this.tabName = parcel.readString();
         this.tabType = parcel.readInt();
         this.sortTypeList = parcel.createStringArrayList();
+        this.objType = parcel.readInt();
     }
 }

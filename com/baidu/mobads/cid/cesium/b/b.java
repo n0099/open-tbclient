@@ -8,10 +8,10 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f8076a;
+    public a f8138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, com.baidu.mobads.cid.cesium.b.a> f8077b = new HashMap();
+    public Map<String, com.baidu.mobads.cid.cesium.b.a> f8139b = new HashMap();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -19,13 +19,13 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f8076a = aVar;
+        this.f8138a = aVar;
         for (com.baidu.mobads.cid.cesium.b.a aVar2 : aVar.a()) {
-            this.f8077b.put(aVar2.a(), aVar2);
+            this.f8139b.put(aVar2.a(), aVar2);
         }
     }
 
     public List<com.baidu.mobads.cid.cesium.b.a> a() {
-        return new ArrayList(this.f8077b.values());
+        return new ArrayList(this.f8139b.values());
     }
 }

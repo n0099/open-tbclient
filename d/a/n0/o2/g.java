@@ -9,101 +9,101 @@ import java.util.ArrayList;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public PostSearchActivity f57898a;
+    public PostSearchActivity f61589a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57899b;
+    public View f61590b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f57900c;
+    public a f61591c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f57901d;
+    public c f61592d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f57902e;
+    public f f61593e;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.f57898a = postSearchActivity;
+        this.f61589a = postSearchActivity;
     }
 
     public int a() {
-        return this.f57902e.d();
+        return this.f61593e.d();
     }
 
     public void b() {
-        this.f57901d.e();
+        this.f61592d.e();
     }
 
     public void c() {
-        this.f57901d.f();
+        this.f61592d.f();
     }
 
     public void d() {
-        this.f57900c.h();
+        this.f61591c.h();
     }
 
     public void e() {
-        this.f57898a.setContentView(R.layout.post_search_activity);
-        View findViewById = this.f57898a.findViewById(R.id.search_rootview);
-        this.f57899b = findViewById;
-        this.f57900c = new a(this.f57898a, findViewById);
-        this.f57901d = new c(this.f57898a, this.f57899b);
-        this.f57902e = new f(this.f57898a, this.f57899b);
+        this.f61589a.setContentView(R.layout.post_search_activity);
+        View findViewById = this.f61589a.findViewById(R.id.search_rootview);
+        this.f61590b = findViewById;
+        this.f61591c = new a(this.f61589a, findViewById);
+        this.f61592d = new c(this.f61589a, this.f61590b);
+        this.f61593e = new f(this.f61589a, this.f61590b);
     }
 
     public boolean f() {
-        return this.f57901d.i();
+        return this.f61592d.i();
     }
 
     public void g(int i2) {
-        this.f57900c.j(i2);
-        this.f57901d.j(i2);
-        this.f57902e.g(i2);
-        d.a.m0.s0.a.a(this.f57898a.getPageContext(), this.f57899b);
+        this.f61591c.j(i2);
+        this.f61592d.j(i2);
+        this.f61593e.g(i2);
+        d.a.m0.s0.a.a(this.f61589a.getPageContext(), this.f61590b);
     }
 
     public void h() {
-        a aVar = this.f57900c;
+        a aVar = this.f61591c;
         if (aVar != null) {
             aVar.k();
         }
     }
 
     public void i(ArrayList<String> arrayList) {
-        this.f57902e.j(false);
-        this.f57901d.k(arrayList);
+        this.f61593e.j(false);
+        this.f61592d.k(arrayList);
     }
 
     public void j(int i2, b bVar, boolean z) {
-        this.f57902e.h(i2, bVar, z);
+        this.f61593e.h(i2, bVar, z);
     }
 
     public void k(String str) {
-        this.f57900c.l(str);
+        this.f61591c.l(str);
     }
 
     public void l(ViewPager.OnPageChangeListener onPageChangeListener) {
-        f fVar = this.f57902e;
+        f fVar = this.f61593e;
         if (fVar != null) {
             fVar.i(onPageChangeListener);
         }
     }
 
     public void m() {
-        this.f57901d.m();
-        this.f57901d.g();
+        this.f61592d.m();
+        this.f61592d.g();
     }
 
     public void n() {
-        this.f57901d.p();
+        this.f61592d.p();
     }
 
     public void o(int i2) {
-        this.f57900c.g();
+        this.f61591c.g();
         d();
-        this.f57900c.f();
-        this.f57902e.j(true);
-        this.f57902e.k(i2);
+        this.f61591c.f();
+        this.f61593e.j(true);
+        this.f61593e.k(i2);
     }
 }

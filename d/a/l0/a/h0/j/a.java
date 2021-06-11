@@ -9,18 +9,18 @@ import java.util.Set;
 public class a implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42203a = k.f43199a;
+    public static final boolean f45879a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f42204b;
+    public static final Set<String> f45880b;
 
     static {
         HashSet hashSet = new HashSet();
-        f42204b = hashSet;
+        f45880b = hashSet;
         hashSet.add("https");
-        f42204b.add("http");
-        f42204b.add("sms");
-        f42204b.add("tel");
+        f45880b.add("http");
+        f45880b.add("sms");
+        f45880b.add("tel");
     }
 
     @Override // d.a.l0.a.h0.j.d
@@ -37,8 +37,8 @@ public class a implements d {
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = f42204b.contains(parse.getScheme());
-        if (f42203a) {
+        boolean contains = f45880b.contains(parse.getScheme());
+        if (f45879a) {
             StringBuilder sb = new StringBuilder();
             sb.append(contains ? "legal schemes : " : "illegal schemes : ");
             sb.append(parse.getScheme());

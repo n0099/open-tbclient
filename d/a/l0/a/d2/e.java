@@ -34,32 +34,32 @@ import java.util.List;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f41328b;
+    public static long f45004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ContentObserver f41329c;
+    public static ContentObserver f45005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ContentResolver f41330d;
+    public static ContentResolver f45006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static PackageManager f41331e;
+    public static PackageManager f45007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f41332f;
+    public static boolean f45008f;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Runnable f41335i;
+    public static Runnable f45011i;
     public static Uri k;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41327a = k.f43199a;
+    public static final boolean f45003a = k.f46875a;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f41333g = System.currentTimeMillis() - 10000;
+    public static long f45009g = System.currentTimeMillis() - 10000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static List<d.a.l0.a.d2.c> f41334h = new ArrayList();
+    public static List<d.a.l0.a.d2.c> f45010h = new ArrayList();
     public static int j = 0;
     public static String l = null;
     public static String m = null;
@@ -68,38 +68,38 @@ public class e {
     public static class a extends ContentObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Handler f41336a;
+        public final /* synthetic */ Handler f45012a;
 
         /* renamed from: d.a.l0.a.d2.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0594a implements Runnable {
+        public class RunnableC0650a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Uri f41337e;
+            public final /* synthetic */ Uri f45013e;
 
-            public RunnableC0594a(Uri uri) {
-                this.f41337e = uri;
+            public RunnableC0650a(Uri uri) {
+                this.f45013e = uri;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                e.q(a.this.f41336a, this.f41337e);
+                e.q(a.this.f45012a, this.f45013e);
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Handler handler, Handler handler2) {
             super(handler);
-            this.f41336a = handler2;
+            this.f45012a = handler2;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z, Uri uri) {
             super.onChange(z, uri);
-            if (e.f41327a) {
+            if (e.f45003a) {
                 Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
             }
-            ExecutorUtilsExt.postOnElastic(new RunnableC0594a(uri), "systemScreenShot", 1);
+            ExecutorUtilsExt.postOnElastic(new RunnableC0650a(uri), "systemScreenShot", 1);
         }
     }
 
@@ -115,39 +115,39 @@ public class e {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41339e;
+        public final /* synthetic */ String f45015e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Handler f41340f;
+        public final /* synthetic */ Handler f45016f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ C0595e f41341g;
+        public final /* synthetic */ C0651e f45017g;
 
-        public c(String str, Handler handler, C0595e c0595e) {
-            this.f41339e = str;
-            this.f41340f = handler;
-            this.f41341g = c0595e;
+        public c(String str, Handler handler, C0651e c0651e) {
+            this.f45015e = str;
+            this.f45016f = handler;
+            this.f45017g = c0651e;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             e.e();
-            if (e.f41327a) {
+            if (e.f45003a) {
                 Log.d("SYSTEM_SCREENSHOT", "mCount: " + e.j);
             }
             long j = d.a.l0.a.v2.d.a() ? 500L : 100L;
-            if (e.m(this.f41339e, e.k) || e.j > 10) {
-                if (e.m(this.f41339e, e.k) && e.l() && !e.o(this.f41339e, e.k)) {
-                    for (d.a.l0.a.d2.c cVar : e.f41334h) {
+            if (e.m(this.f45015e, e.k) || e.j > 10) {
+                if (e.m(this.f45015e, e.k) && e.l() && !e.o(this.f45015e, e.k)) {
+                    for (d.a.l0.a.d2.c cVar : e.f45010h) {
                         if (cVar != null) {
-                            cVar.a(this.f41341g);
+                            cVar.a(this.f45017g);
                         }
                     }
                     return;
                 }
                 return;
             }
-            this.f41340f.postDelayed(e.f41335i, j);
+            this.f45016f.postDelayed(e.f45011i, j);
         }
     }
 
@@ -155,10 +155,10 @@ public class e {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f41342a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+        public static String f45018a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
 
         /* renamed from: b  reason: collision with root package name */
-        public static String[] f41343b = {"_display_name", "_data", "date_added", "_id"};
+        public static String[] f45019b = {"_display_name", "_data", "date_added", "_id"};
 
         public static boolean e(String str) {
             return str != null && (str.toLowerCase().contains("screenshot") || str.contains("截屏") || str.contains("截图"));
@@ -171,22 +171,22 @@ public class e {
 
     /* renamed from: d.a.l0.a.d2.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0595e {
+    public static class C0651e {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f41344a;
+        public String f45020a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Uri f41345b;
+        public Uri f45021b;
 
-        public /* synthetic */ C0595e(String str, Long l, Uri uri, a aVar) {
+        public /* synthetic */ C0651e(String str, Long l, Uri uri, a aVar) {
             this(str, l, uri);
         }
 
-        public C0595e(String str, Long l, Uri uri) {
-            this.f41344a = str;
+        public C0651e(String str, Long l, Uri uri) {
+            this.f45020a = str;
             l.longValue();
-            this.f41345b = uri;
+            this.f45021b = uri;
         }
     }
 
@@ -198,7 +198,7 @@ public class e {
 
     public static double i(Uri uri) {
         try {
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(f41330d, uri);
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(f45006d, uri);
             if (bitmap == null) {
                 return 0.0d;
             }
@@ -232,7 +232,7 @@ public class e {
     }
 
     public static boolean l() {
-        return g.a().b() && System.currentTimeMillis() - f41328b > 2000;
+        return g.a().b() && System.currentTimeMillis() - f45004b > 2000;
     }
 
     public static boolean m(String str, Uri uri) {
@@ -248,7 +248,7 @@ public class e {
             return false;
         }
         try {
-            return MediaStore.Images.Media.getBitmap(f41330d, uri) != null;
+            return MediaStore.Images.Media.getBitmap(f45006d, uri) != null;
         } catch (Exception unused) {
             return false;
         }
@@ -283,17 +283,17 @@ public class e {
     public static void q(Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable;
-        if (uri.toString().matches(d.f41342a + ".*")) {
-            if (t() && f41332f) {
-                f41333g = System.currentTimeMillis();
+        if (uri.toString().matches(d.f45018a + ".*")) {
+            if (t() && f45008f) {
+                f45009g = System.currentTimeMillis();
                 return;
             }
             j = 0;
-            f41333g = System.currentTimeMillis();
+            f45009g = System.currentTimeMillis();
             Closeable closeable2 = null;
             try {
                 try {
-                    cursor = f41330d.query(uri, d.f41343b, null, null, "date_added DESC");
+                    cursor = f45006d.query(uri, d.f45019b, null, null, "date_added DESC");
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -304,7 +304,7 @@ public class e {
                                 if (d.a.l0.a.v2.d.a()) {
                                     k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
                                 }
-                                if (f41327a) {
+                                if (f45003a) {
                                     Log.d("SYSTEM_SCREENSHOT", "imagepath: " + string);
                                     Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + j2);
                                     Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis);
@@ -317,17 +317,17 @@ public class e {
                                 l = k.toString();
                                 m = string;
                                 if (d.e(string) && d.f(currentTimeMillis, j2)) {
-                                    f41332f = true;
-                                    c cVar = new c(string, handler, new C0595e(string, Long.valueOf(j2), k, null));
-                                    f41335i = cVar;
+                                    f45008f = true;
+                                    c cVar = new c(string, handler, new C0651e(string, Long.valueOf(j2), k, null));
+                                    f45011i = cVar;
                                     handler.post(cVar);
                                 } else {
-                                    f41332f = false;
+                                    f45008f = false;
                                 }
                             }
                         } catch (RuntimeException unused) {
-                            if (f41331e != null) {
-                                List<ProviderInfo> queryContentProviders = f41331e.queryContentProviders(null, 0, 131072);
+                            if (f45007e != null) {
+                                List<ProviderInfo> queryContentProviders = f45007e.queryContentProviders(null, 0, 131072);
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("from", "SystemScreenshot");
                                 hashMap.put("page", "SystemScreenshot");
@@ -356,29 +356,29 @@ public class e {
 
     public static void r(d.a.l0.a.d2.c cVar) {
         if (cVar != null) {
-            f41334h.add(cVar);
+            f45010h.add(cVar);
         }
     }
 
     public static void s(Context context) {
-        f41331e = context.getPackageManager();
+        f45007e = context.getPackageManager();
         Handler handler = new Handler(Looper.getMainLooper());
-        f41330d = context.getContentResolver();
-        f41329c = new a(handler, handler);
+        f45006d = context.getContentResolver();
+        f45005c = new a(handler, handler);
         if (p(context)) {
-            f41330d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, f41329c);
-        } else if (f41327a && q0.G()) {
+            f45006d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, f45005c);
+        } else if (f45003a && q0.G()) {
             q0.b0(new b());
         }
     }
 
     public static boolean t() {
-        return System.currentTimeMillis() - f41333g <= 1000;
+        return System.currentTimeMillis() - f45009g <= 1000;
     }
 
     public static void u(d.a.l0.a.d2.c cVar) {
         if (cVar != null) {
-            f41334h.remove(cVar);
+            f45010h.remove(cVar);
         }
     }
 }

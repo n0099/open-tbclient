@@ -18,18 +18,18 @@ public class c extends b {
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
         if (j(context, eVar, unitedSchemeEntity)) {
-            a.C0770a a2 = d.a.l0.a.n2.c.a.a(context);
+            a.C0826a a2 = d.a.l0.a.n2.c.a.a(context);
             if (a2 == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;
             }
-            if (a0.f40949b) {
-                Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + a2.f43792a + " ; plugged: " + a2.f43793b);
+            if (a0.f44625b) {
+                Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + a2.f47468a + " ; plugged: " + a2.f47469b);
             }
             JSONObject k = k(a2);
             if (k == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
                 }
                 return false;

@@ -1,29 +1,29 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
 import androidx.annotation.Keep;
-import d.r.b.a.a.i.c.f;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.MyBalanceInfo;
 @Keep
 /* loaded from: classes7.dex */
 public class MyBalanceResult {
-    public f myBalanceInfo;
+    public MyBalanceInfo myBalanceInfo;
 
-    public MyBalanceResult(f fVar) {
-        this.myBalanceInfo = fVar;
+    public MyBalanceResult(MyBalanceInfo myBalanceInfo) {
+        this.myBalanceInfo = myBalanceInfo;
     }
 
-    public f.b getMyAccountPeriod(int i2) {
-        f fVar = this.myBalanceInfo;
-        if (fVar == null) {
-            return new f.b();
+    public MyBalanceInfo.AccountPeriod getMyAccountPeriod(int i2) {
+        MyBalanceInfo myBalanceInfo = this.myBalanceInfo;
+        if (myBalanceInfo == null) {
+            return new MyBalanceInfo.AccountPeriod();
         }
-        return fVar.a(i2);
+        return myBalanceInfo.getMyAccountPeriod(i2);
     }
 
-    public f.a getMyBalance(int i2) {
-        f fVar = this.myBalanceInfo;
-        if (fVar == null) {
-            return new f.a();
+    public MyBalanceInfo.Account getMyBalance(int i2) {
+        MyBalanceInfo myBalanceInfo = this.myBalanceInfo;
+        if (myBalanceInfo == null) {
+            return new MyBalanceInfo.Account();
         }
-        return fVar.b(i2);
+        return myBalanceInfo.getMyBalance(i2);
     }
 }

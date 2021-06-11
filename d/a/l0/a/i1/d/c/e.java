@@ -6,32 +6,32 @@ import java.util.ArrayList;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<MediaModel> f42878a;
+    public static ArrayList<MediaModel> f46554a;
 
     public static void a() {
-        ArrayList<MediaModel> arrayList = f42878a;
+        ArrayList<MediaModel> arrayList = f46554a;
         if (arrayList != null) {
             arrayList.clear();
-            f42878a = null;
+            f46554a = null;
         }
     }
 
     public static String b() {
-        ArrayList<MediaModel> arrayList = f42878a;
-        if (arrayList == null || arrayList.size() == 0 || f42878a.get(0) == null) {
+        ArrayList<MediaModel> arrayList = f46554a;
+        if (arrayList == null || arrayList.size() == 0 || f46554a.get(0) == null) {
             return null;
         }
-        return f42878a.get(0).e();
+        return f46554a.get(0).e();
     }
 
     public static int c(MediaModel mediaModel) {
         ArrayList<MediaModel> arrayList;
-        if (mediaModel == null || (arrayList = f42878a) == null) {
+        if (mediaModel == null || (arrayList = f46554a) == null) {
             return -1;
         }
         int size = arrayList.size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (mediaModel.equals(f42878a.get(i2))) {
+            if (mediaModel.equals(f46554a.get(i2))) {
                 return i2;
             }
         }
@@ -39,7 +39,7 @@ public class e {
     }
 
     public static int d() {
-        ArrayList<MediaModel> arrayList = f42878a;
+        ArrayList<MediaModel> arrayList = f46554a;
         if (arrayList == null) {
             return 0;
         }
@@ -47,11 +47,11 @@ public class e {
     }
 
     public static ArrayList<MediaModel> e() {
-        return f42878a;
+        return f46554a;
     }
 
     public static boolean f(MediaModel mediaModel) {
-        ArrayList<MediaModel> arrayList = f42878a;
+        ArrayList<MediaModel> arrayList = f46554a;
         if (arrayList == null) {
             return false;
         }
@@ -59,15 +59,15 @@ public class e {
     }
 
     public static boolean g(MediaModel mediaModel) {
-        ArrayList<MediaModel> arrayList = f42878a;
+        ArrayList<MediaModel> arrayList = f46554a;
         if (arrayList == null || arrayList.size() == 0) {
             return false;
         }
-        return f42878a.contains(mediaModel);
+        return f46554a.contains(mediaModel);
     }
 
     public static void h(MediaModel mediaModel) {
-        ArrayList<MediaModel> arrayList = f42878a;
+        ArrayList<MediaModel> arrayList = f46554a;
         if (arrayList != null) {
             arrayList.remove(mediaModel);
         }
@@ -77,9 +77,9 @@ public class e {
         if (mediaModel == null) {
             return;
         }
-        if (f42878a == null) {
-            f42878a = new ArrayList<>();
+        if (f46554a == null) {
+            f46554a = new ArrayList<>();
         }
-        f42878a.add(mediaModel);
+        f46554a.add(mediaModel);
     }
 }

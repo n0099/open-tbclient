@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -39,7 +39,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public TextView mTransmitSubTitle;
     public TextView mTransmitTipsView;
     public TextView mTransmitTitle;
-    public List<d.a.c.j.e.a> mAdapters = new ArrayList();
+    public List<d.a.c.k.e.a> mAdapters = new ArrayList();
     public View.OnClickListener mOnClickListener = new a();
     public d.a.n0.w3.q.a mTransmitForumCallback = new b();
 
@@ -236,8 +236,8 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         }
         this.mDataList.add(new d.a.n0.w3.q.c());
         this.mForumAdapter = new TransmitForumAdapter(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-        this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.a.n0.w3.q.c.f62917e, getUniqueId(), arrayList);
-        this.mForumAdapter.h0(this.mTransmitForumCallback);
+        this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.a.n0.w3.q.c.f66632e, getUniqueId(), arrayList);
+        this.mForumAdapter.i0(this.mTransmitForumCallback);
         this.mAdapters.add(this.mForumAdapter);
         this.mAdapters.add(this.mSelectAdapter);
         this.mListView.a(this.mAdapters);

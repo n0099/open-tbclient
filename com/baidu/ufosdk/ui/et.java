@@ -6,10 +6,10 @@ import com.baidu.tieba.R;
 public final class et implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ er f22820a;
+    public final /* synthetic */ er f22923a;
 
     public et(er erVar) {
-        this.f22820a = erVar;
+        this.f22923a = erVar;
     }
 
     public /* synthetic */ et(er erVar, byte b2) {
@@ -20,12 +20,12 @@ public final class et implements View.OnClickListener {
     public final void onClick(View view) {
         switch (view.getId()) {
             case R.dimen.L_X06 /* 2131165189 */:
-                eu b2 = er.b(this.f22820a);
-                er.a(this.f22820a).getText().toString();
+                eu b2 = er.b(this.f22923a);
+                er.a(this.f22923a).getText().toString();
                 b2.a();
                 return;
             case R.dimen.M_H_X001 /* 2131165190 */:
-                er.b(this.f22820a).a(er.a(this.f22820a).getText().toString());
+                er.b(this.f22923a).a(er.a(this.f22923a).getText().toString());
                 return;
             default:
                 return;

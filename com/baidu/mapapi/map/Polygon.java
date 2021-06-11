@@ -9,13 +9,13 @@ import java.util.List;
 public final class Polygon extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    public Stroke f6964a;
+    public Stroke f7007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6965b;
+    public int f7008b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<LatLng> f6966c;
+    public List<LatLng> f7009c;
 
     public Polygon() {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.polygon;
@@ -24,34 +24,34 @@ public final class Polygon extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f6966c.get(0));
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f7009c.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        Overlay.a(this.f6966c, bundle);
-        Overlay.a(this.f6965b, bundle);
-        if (this.f6964a == null) {
+        Overlay.a(this.f7009c, bundle);
+        Overlay.a(this.f7008b, bundle);
+        if (this.f7007a == null) {
             bundle.putInt("has_stroke", 0);
         } else {
             bundle.putInt("has_stroke", 1);
-            bundle.putBundle("stroke", this.f6964a.a(new Bundle()));
+            bundle.putBundle("stroke", this.f7007a.a(new Bundle()));
         }
         return bundle;
     }
 
     public int getFillColor() {
-        return this.f6965b;
+        return this.f7008b;
     }
 
     public List<LatLng> getPoints() {
-        return this.f6966c;
+        return this.f7009c;
     }
 
     public Stroke getStroke() {
-        return this.f6964a;
+        return this.f7007a;
     }
 
     public void setFillColor(int i2) {
-        this.f6965b = i2;
+        this.f7008b = i2;
         this.listener.b(this);
     }
 
@@ -75,12 +75,12 @@ public final class Polygon extends Overlay {
             }
             i2 = i3;
         }
-        this.f6966c = list;
+        this.f7009c = list;
         this.listener.b(this);
     }
 
     public void setStroke(Stroke stroke) {
-        this.f6964a = stroke;
+        this.f7007a = stroke;
         this.listener.b(this);
     }
 }

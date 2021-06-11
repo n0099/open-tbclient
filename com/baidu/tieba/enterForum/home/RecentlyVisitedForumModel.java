@@ -24,20 +24,20 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         a.l().y();
     }
 
-    public void s(VisitedForumData visitedForumData) {
+    public void refresh() {
+        a.l().o();
+    }
+
+    public void w(VisitedForumData visitedForumData) {
         a.l().i(visitedForumData);
     }
 
-    public void t() {
+    public void x() {
         a.l().r();
         LoadData();
     }
 
-    public void u() {
-        a.l().o();
-    }
-
-    public void v(a.f fVar) {
+    public void y(a.f fVar) {
         a.l().w(fVar);
     }
 }

@@ -6,10 +6,10 @@ import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a {
         public a() {
         }
@@ -19,25 +19,25 @@ public class e {
         public abstract void a(Object obj);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f33016a;
+        public final PrintWriter f35140a;
 
         public b(PrintWriter printWriter) {
             super();
-            this.f33016a = printWriter;
+            this.f35140a = printWriter;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         public Object a() {
-            return this.f33016a;
+            return this.f35140a;
         }
 
         @Override // com.kwad.sdk.crash.utils.e.a
         public void a(Object obj) {
-            this.f33016a.println(obj);
+            this.f35140a.println(obj);
         }
     }
 

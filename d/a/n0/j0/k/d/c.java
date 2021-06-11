@@ -20,55 +20,55 @@ public class c extends d.a.n0.z.b<d.a.n0.j0.k.c.d> {
         super(tbPageContext);
         this.n = 3;
         this.m = tbPageContext;
-        s();
+        t();
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.recommend_forum_title_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         this.n = i2;
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(l(), R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(m(), R.color.CAM_X0205);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        b0<d.a.n0.j0.k.c.d> h2;
-        if (view != this.q || (h2 = h()) == null || this.r.p() >= this.r.l().size()) {
+        b0<d.a.n0.j0.k.c.d> i2;
+        if (view != this.q || (i2 = i()) == null || this.r.k() >= this.r.g().size()) {
             return;
         }
-        h2.a(view, this.r);
+        i2.a(view, this.r);
     }
 
-    public final void s() {
-        View l = l();
-        this.o = (TextView) l.findViewById(R.id.recommend_title);
-        this.p = l.findViewById(R.id.top_line);
-        TextView textView = (TextView) l.findViewById(R.id.recommend_update);
+    public final void t() {
+        View m = m();
+        this.o = (TextView) m.findViewById(R.id.recommend_title);
+        this.p = m.findViewById(R.id.top_line);
+        TextView textView = (TextView) m.findViewById(R.id.recommend_update);
         this.q = textView;
         textView.setOnClickListener(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(d.a.n0.j0.k.c.d dVar) {
+    /* renamed from: u */
+    public void n(d.a.n0.j0.k.c.d dVar) {
         if (dVar == null) {
             return;
         }
         this.r = dVar;
-        n(this.m, this.n);
-        if (StringUtils.isNull(dVar.u())) {
+        o(this.m, this.n);
+        if (StringUtils.isNull(dVar.q())) {
             return;
         }
-        this.o.setText(dVar.u());
+        this.o.setText(dVar.q());
     }
 
-    public void u(boolean z) {
+    public void v(boolean z) {
         this.p.setVisibility(z ? 0 : 8);
     }
 }

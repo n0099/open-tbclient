@@ -18,25 +18,25 @@ import d.a.l0.a.z1.b.e.b;
 public class e implements d1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.w2.j.b f46531a;
+    public d.a.l0.a.w2.j.b f50205a;
 
     /* loaded from: classes3.dex */
     public class a implements b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f46532a;
+        public final /* synthetic */ SwanAppActivity f50206a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46533b;
+        public final /* synthetic */ String f50207b;
 
         public a(e eVar, SwanAppActivity swanAppActivity, String str) {
-            this.f46532a = swanAppActivity;
-            this.f46533b = str;
+            this.f50206a = swanAppActivity;
+            this.f50207b = str;
         }
 
         @Override // d.a.l0.a.z1.b.e.b.a
         public void a(d.a.l0.a.z1.b.e.b bVar) {
-            d.a.l0.a.i1.d.e.a.d(bVar.c(), this.f46532a, this.f46533b);
+            d.a.l0.a.i1.d.e.a.d(bVar.c(), this.f50206a, this.f50207b);
         }
     }
 
@@ -44,21 +44,21 @@ public class e implements d1 {
     public class b extends d.a.l0.a.t0.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f46534a;
+        public final /* synthetic */ SwanAppActivity f50208a;
 
         public b(SwanAppActivity swanAppActivity) {
-            this.f46534a = swanAppActivity;
+            this.f50208a = swanAppActivity;
         }
 
         @Override // d.a.l0.a.t0.a, d.a.l0.a.t0.b
         public void b() {
-            e.this.f46531a.j();
-            this.f46534a.unregisterCallback(this);
+            e.this.f50205a.j();
+            this.f50208a.unregisterCallback(this);
         }
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     @Override // d.a.l0.a.p.d.d1
@@ -72,14 +72,14 @@ public class e implements d1 {
         if (x == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f46531a = new d.a.l0.a.w2.j.b(ngWebView.covertToView());
+        this.f50205a = new d.a.l0.a.w2.j.b(ngWebView.covertToView());
         int[] g2 = g(x);
         int[] h2 = h(x);
         for (int i2 = 0; i2 < g2.length; i2++) {
-            this.f46531a.e(g2[i2], h2[i2]);
+            this.f50205a.e(g2[i2], h2[i2]);
         }
-        this.f46531a.r(new a(this, x, str));
-        this.f46531a.t();
+        this.f50205a.r(new a(this, x, str));
+        this.f50205a.t();
         x.registerCallback(new b(x));
     }
 
@@ -126,12 +126,12 @@ public class e implements d1 {
 
     public void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43185a = "tool";
-        eVar.f43190f = d.a.l0.a.a2.d.g().getAppId();
-        eVar.f43187c = "miniapp";
-        eVar.f43191g = "text";
-        eVar.f43186b = str;
-        eVar.f43189e = str2;
+        eVar.f46861a = "tool";
+        eVar.f46866f = d.a.l0.a.a2.d.g().getAppId();
+        eVar.f46863c = "miniapp";
+        eVar.f46867g = "text";
+        eVar.f46862b = str;
+        eVar.f46865e = str2;
         if (!TextUtils.isEmpty(str3)) {
             eVar.a("query", str3);
         }

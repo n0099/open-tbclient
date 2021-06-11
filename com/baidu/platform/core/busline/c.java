@@ -7,26 +7,26 @@ import com.baidu.platform.base.SearchType;
 public class c extends com.baidu.platform.base.a implements IBusLineSearch {
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetBusLineSearchResultListener f9273b = null;
+    public OnGetBusLineSearchResultListener f9330b = null;
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public void a() {
-        this.f9238a.lock();
-        this.f9273b = null;
-        this.f9238a.unlock();
+        this.f9295a.lock();
+        this.f9330b = null;
+        this.f9295a.unlock();
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public void a(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
-        this.f9238a.lock();
-        this.f9273b = onGetBusLineSearchResultListener;
-        this.f9238a.unlock();
+        this.f9295a.lock();
+        this.f9330b = onGetBusLineSearchResultListener;
+        this.f9295a.unlock();
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
     public boolean a(BusLineSearchOption busLineSearchOption) {
         a aVar = new a();
         aVar.a(SearchType.BUS_LINE_DETAIL);
-        return a(new b(busLineSearchOption), this.f9273b, aVar);
+        return a(new b(busLineSearchOption), this.f9330b, aVar);
     }
 }

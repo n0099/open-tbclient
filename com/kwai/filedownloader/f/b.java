@@ -6,32 +6,32 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final AtomicInteger f34287a = new AtomicInteger(1);
+        public static final AtomicInteger f37771a = new AtomicInteger(1);
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f34288b;
+        public final String f37772b;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicInteger f34290d = new AtomicInteger(1);
+        public final AtomicInteger f37774d = new AtomicInteger(1);
 
         /* renamed from: c  reason: collision with root package name */
-        public final ThreadGroup f34289c = Thread.currentThread().getThreadGroup();
+        public final ThreadGroup f37773c = Thread.currentThread().getThreadGroup();
 
         public a(String str) {
-            this.f34288b = f.i(str);
+            this.f37772b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            ThreadGroup threadGroup = this.f34289c;
-            Thread thread = new Thread(threadGroup, runnable, this.f34288b + this.f34290d.getAndIncrement(), 0L);
+            ThreadGroup threadGroup = this.f37773c;
+            Thread thread = new Thread(threadGroup, runnable, this.f37772b + this.f37774d.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }

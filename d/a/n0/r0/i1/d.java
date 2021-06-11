@@ -7,7 +7,7 @@ public interface d {
 
     void d(List<g> list, boolean z, boolean z2);
 
-    void n();
+    void o();
 
     void onLoadFail();
 }

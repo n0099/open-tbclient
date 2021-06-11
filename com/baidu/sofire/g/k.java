@@ -7,22 +7,22 @@ import android.os.Looper;
 public final class k {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f10232c = new k();
+    public static final k f10294c = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f10233a;
+    public HandlerThread f10295a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f10234b;
+    public Handler f10296b;
 
     public k() {
         HandlerThread handlerThread = new HandlerThread("rp_th", 10);
-        this.f10233a = handlerThread;
+        this.f10295a = handlerThread;
         handlerThread.start();
-        this.f10234b = new Handler(this.f10233a.getLooper());
+        this.f10296b = new Handler(this.f10295a.getLooper());
     }
 
     public static Looper a() {
-        return f10232c.f10234b.getLooper();
+        return f10294c.f10296b.getLooper();
     }
 }

@@ -53,22 +53,22 @@ import java.util.Date;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f53110a;
+    public PbFragment f56799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.e2.i.c f53111b;
+    public d.a.n0.e2.i.c f56800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f53112c;
+    public View.OnClickListener f56801c;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.d0.e f53114e;
+    public d.a.n0.d0.e f56803e;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f53116g;
+    public ImageView f56805g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f53117h;
+    public h f56806h;
     public ThreadSkinView j;
     public ImageView m;
     public HeadPendantView n;
@@ -80,13 +80,13 @@ public class e {
     public q0 w;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnLongClickListener f53113d = null;
+    public View.OnLongClickListener f56802d = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f53115f = null;
+    public RelativeLayout f56804f = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public ColumnLayout f53118i = null;
+    public ColumnLayout f56807i = null;
     public TextView k = null;
     public TextView l = null;
     public FrameLayout r = null;
@@ -103,10 +103,10 @@ public class e {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f53119e;
+        public final /* synthetic */ int f56808e;
 
         public a(int i2) {
-            this.f53119e = i2;
+            this.f56808e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -116,7 +116,7 @@ public class e {
             int measuredWidth3 = e.this.B.getMeasuredWidth();
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds120);
             int i2 = (measuredWidth - measuredWidth2) - measuredWidth3;
-            int i3 = this.f53119e;
+            int i3 = this.f56808e;
             if (i2 < i3) {
                 e.this.A.setVisibility(8);
                 e.this.z.setVisibility(8);
@@ -138,15 +138,15 @@ public class e {
     }
 
     public e(PbFragment pbFragment, d.a.n0.e2.i.c cVar, View.OnClickListener onClickListener) {
-        this.f53112c = null;
-        this.f53110a = pbFragment;
-        this.f53111b = cVar;
-        this.f53112c = onClickListener;
+        this.f56801c = null;
+        this.f56799a = pbFragment;
+        this.f56800b = cVar;
+        this.f56801c = onClickListener;
         o();
     }
 
     public void A(PostData postData, boolean z) {
-        if (this.f53110a.isSimpleForum()) {
+        if (this.f56799a.isSimpleForum()) {
             this.C = 0;
             if (postData != null && postData.t() != null) {
                 this.C = postData.t().getLevel_id();
@@ -183,54 +183,54 @@ public class e {
             this.v.setVisibility(8);
             this.x.setVisibility(8);
         }
-        if (eVar.f52927i || 3 == eVar.g()) {
+        if (eVar.f56616i || 3 == eVar.g()) {
             this.v.setVisibility(8);
         }
     }
 
     public void g(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            bdTypeListView.addHeaderView(this.f53115f);
+            bdTypeListView.addHeaderView(this.f56804f);
         }
     }
 
     public void h(BdTypeListView bdTypeListView, int i2) {
         if (bdTypeListView != null) {
-            bdTypeListView.x(this.f53115f, i2);
+            bdTypeListView.x(this.f56804f, i2);
         }
     }
 
     public void i(d.a.n0.e2.h.e eVar, boolean z, boolean z2) {
         if (eVar != null && eVar.j) {
-            this.f53116g.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.f53116g.setVisibility(0);
+            this.f56805g.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.f56805g.setVisibility(0);
         } else if (z && z2) {
-            this.f53116g.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.f53116g.setVisibility(0);
+            this.f56805g.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.f56805g.setVisibility(0);
         } else if (z) {
-            this.f53116g.setImageResource(R.drawable.pic_pb_refined_n);
-            this.f53116g.setVisibility(0);
+            this.f56805g.setImageResource(R.drawable.pic_pb_refined_n);
+            this.f56805g.setVisibility(0);
         } else if (z2) {
-            this.f53116g.setImageResource(R.drawable.pic_pb_stick_n);
-            this.f53116g.setVisibility(0);
+            this.f56805g.setImageResource(R.drawable.pic_pb_stick_n);
+            this.f56805g.setVisibility(0);
         } else {
-            this.f53116g.setVisibility(8);
+            this.f56805g.setVisibility(8);
         }
     }
 
     public void j() {
-        d.a.n0.d0.e eVar = this.f53114e;
+        d.a.n0.d0.e eVar = this.f56803e;
         if (eVar != null) {
             eVar.I();
         }
     }
 
     public TextView k() {
-        return this.f53117h.e();
+        return this.f56806h.e();
     }
 
     public View l() {
-        return this.f53115f;
+        return this.f56804f;
     }
 
     public final SpannableStringBuilder m(String str, String str2) {
@@ -240,62 +240,62 @@ public class e {
             return spannableStringBuilder;
         }
         arrayList.add(new m.a(str));
-        return m.h(this.f53110a.getActivity(), str2, arrayList, true);
+        return m.h(this.f56799a.getActivity(), str2, arrayList, true);
     }
 
     public SparseArray<Object> n() {
-        SparseArray<Object> sparseArray = (SparseArray) this.f53118i.getTag();
+        SparseArray<Object> sparseArray = (SparseArray) this.f56807i.getTag();
         if (sparseArray == null) {
             SparseArray<Object> sparseArray2 = new SparseArray<>();
-            this.f53118i.setTag(sparseArray2);
+            this.f56807i.setTag(sparseArray2);
             return sparseArray2;
         }
         return sparseArray;
     }
 
     public final void o() {
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f53110a.getPageContext().getPageActivity()).inflate(R.layout.new_pb_header_user_item, (ViewGroup) null);
-        this.f53115f = relativeLayout;
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f56799a.getPageContext().getPageActivity()).inflate(R.layout.new_pb_header_user_item, (ViewGroup) null);
+        this.f56804f = relativeLayout;
         ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.pb_thread_type_stamp_top_part);
-        this.f53116g = imageView;
+        this.f56805g = imageView;
         imageView.getLayoutParams().height = r0.f();
-        h hVar = new h(this.f53110a.getBaseFragmentActivity(), this.f53115f);
-        this.f53117h = hVar;
+        h hVar = new h(this.f56799a.getBaseFragmentActivity(), this.f56804f);
+        this.f56806h = hVar;
         hVar.a();
-        h hVar2 = this.f53117h;
-        hVar2.d(hVar2.e(), this.f53112c);
-        this.f53118i = (ColumnLayout) this.f53115f.findViewById(R.id.pb_head_owner_root);
-        this.j = (ThreadSkinView) this.f53115f.findViewById(R.id.pb_thread_skin);
-        this.k = (TextView) this.f53118i.findViewById(R.id.pb_head_owner_info_user_name);
-        this.l = (TextView) this.f53118i.findViewById(R.id.floor_owner);
-        this.m = (ImageView) this.f53118i.findViewById(R.id.icon_forum_level);
-        this.r = (FrameLayout) this.f53118i.findViewById(R.id.pb_head_headImage_container);
-        HeadPendantView headPendantView = (HeadPendantView) this.f53118i.findViewById(R.id.pb_pendant_head_owner_photo);
+        h hVar2 = this.f56806h;
+        hVar2.d(hVar2.e(), this.f56801c);
+        this.f56807i = (ColumnLayout) this.f56804f.findViewById(R.id.pb_head_owner_root);
+        this.j = (ThreadSkinView) this.f56804f.findViewById(R.id.pb_thread_skin);
+        this.k = (TextView) this.f56807i.findViewById(R.id.pb_head_owner_info_user_name);
+        this.l = (TextView) this.f56807i.findViewById(R.id.floor_owner);
+        this.m = (ImageView) this.f56807i.findViewById(R.id.icon_forum_level);
+        this.r = (FrameLayout) this.f56807i.findViewById(R.id.pb_head_headImage_container);
+        HeadPendantView headPendantView = (HeadPendantView) this.f56807i.findViewById(R.id.pb_pendant_head_owner_photo);
         this.n = headPendantView;
         headPendantView.setHasPendantStyle();
-        this.o = (TBLottieAnimationView) this.f53118i.findViewById(R.id.pb_head_living_lottie);
-        this.f53118i.setOnLongClickListener(this.f53113d);
-        this.f53118i.setOnTouchListener(this.f53111b);
-        this.f53118i.setVisibility(8);
+        this.o = (TBLottieAnimationView) this.f56807i.findViewById(R.id.pb_head_living_lottie);
+        this.f56807i.setOnLongClickListener(this.f56802d);
+        this.f56807i.setOnTouchListener(this.f56800b);
+        this.f56807i.setVisibility(8);
         if (this.n.getHeadView() != null) {
             this.n.getHeadView().setIsRound(true);
             this.n.getHeadView().setDrawBorder(true);
             this.n.getHeadView().setPlaceHolder(1);
         }
-        this.p = (UserIconBox) this.f53118i.findViewById(R.id.show_icon_vip);
-        this.q = (UserIconBox) this.f53118i.findViewById(R.id.show_icon_yinji);
-        this.s = (LinearLayout) this.f53115f.findViewById(R.id.pb_head_owner_info_root);
-        this.t = (LinearLayout) this.f53118i.findViewById(R.id.pb_first_floor_location_container);
-        this.v = (PbFirstFloorUserLikeButton) this.f53118i.findViewById(R.id.pb_like_button);
-        this.x = (TextView) this.f53118i.findViewById(R.id.pb_views);
-        this.y = (TextView) this.f53118i.findViewById(R.id.pb_item_first_floor_reply_time);
-        this.z = (TextView) this.f53118i.findViewById(R.id.pb_item_first_floor_location_address);
-        this.A = (TextView) this.f53118i.findViewById(R.id.pb_item_first_floor_distance);
-        this.B = (TextView) this.f53118i.findViewById(R.id.pb_item_first_floor_general_desc);
+        this.p = (UserIconBox) this.f56807i.findViewById(R.id.show_icon_vip);
+        this.q = (UserIconBox) this.f56807i.findViewById(R.id.show_icon_yinji);
+        this.s = (LinearLayout) this.f56804f.findViewById(R.id.pb_head_owner_info_root);
+        this.t = (LinearLayout) this.f56807i.findViewById(R.id.pb_first_floor_location_container);
+        this.v = (PbFirstFloorUserLikeButton) this.f56807i.findViewById(R.id.pb_like_button);
+        this.x = (TextView) this.f56807i.findViewById(R.id.pb_views);
+        this.y = (TextView) this.f56807i.findViewById(R.id.pb_item_first_floor_reply_time);
+        this.z = (TextView) this.f56807i.findViewById(R.id.pb_item_first_floor_location_address);
+        this.A = (TextView) this.f56807i.findViewById(R.id.pb_item_first_floor_distance);
+        this.B = (TextView) this.f56807i.findViewById(R.id.pb_item_first_floor_general_desc);
     }
 
     public void p(int i2) {
-        SkinManager.setBackgroundColor(this.f53115f, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f56804f, R.color.CAM_X0205);
         ImageView imageView = this.m;
         if (imageView != null) {
             SkinManager.setImageResource(imageView, BitmapHelper.getGradeResourceIdInEnterForum(this.C));
@@ -331,11 +331,11 @@ public class e {
     }
 
     public void q() {
-        d.a.n0.d0.e eVar = this.f53114e;
+        d.a.n0.d0.e eVar = this.f56803e;
         if (eVar != null) {
             eVar.I();
         }
-        ColumnLayout columnLayout = this.f53118i;
+        ColumnLayout columnLayout = this.f56807i;
         if (columnLayout != null && this.u != null) {
             columnLayout.removeView(this.r);
             this.u = null;
@@ -359,21 +359,21 @@ public class e {
             a2 L = eVar.L();
             int i2 = 1;
             if (L != null) {
-                if (L.Q1()) {
+                if (L.R1()) {
                     i2 = 4;
-                } else if (L.T1()) {
+                } else if (L.U1()) {
                     i2 = 6;
-                } else if (L.S1()) {
+                } else if (L.T1()) {
                     i2 = 7;
-                } else if (L.R1()) {
+                } else if (L.S1()) {
                     i2 = 5;
-                } else if (L.D2()) {
+                } else if (L.E2()) {
                     i2 = 8;
                 }
             }
-            q0 q0Var = new q0(this.f53110a.getPageContext(), this.v, i2);
+            q0 q0Var = new q0(this.f56799a.getPageContext(), this.v, i2);
             this.w = q0Var;
-            q0Var.l(this.f53110a.getUniqueId());
+            q0Var.l(this.f56799a.getUniqueId());
             this.w.u(L);
         }
         if (postData != null && postData.t() != null) {
@@ -388,13 +388,13 @@ public class e {
 
     public void s(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            bdTypeListView.removeHeaderView(this.f53115f);
+            bdTypeListView.removeHeaderView(this.f56804f);
         }
     }
 
     public void t(View.OnLongClickListener onLongClickListener) {
-        this.f53113d = onLongClickListener;
-        this.f53118i.setOnLongClickListener(onLongClickListener);
+        this.f56802d = onLongClickListener;
+        this.f56807i.setOnLongClickListener(onLongClickListener);
     }
 
     public void u(PostData postData, d.a.n0.e2.h.e eVar) {
@@ -402,41 +402,41 @@ public class e {
             return;
         }
         if (postData.L() != null) {
-            this.j.setData(this.f53110a.getPageContext(), eVar.D().get(0).L(), d.a.n0.e3.j0.a.a("PB", "c0132", eVar.l().getId(), eVar.l().getName(), eVar.L().o0(), this.f53110a.a5() ? "FRS" : null));
-            ColumnLayout columnLayout = this.f53118i;
-            columnLayout.setPadding(columnLayout.getPaddingLeft(), (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds20), this.f53118i.getPaddingRight(), this.f53118i.getPaddingBottom());
+            this.j.setData(this.f56799a.getPageContext(), eVar.D().get(0).L(), d.a.n0.e3.j0.a.a("PB", "c0132", eVar.l().getId(), eVar.l().getName(), eVar.L().o0(), this.f56799a.d5() ? "FRS" : null));
+            ColumnLayout columnLayout = this.f56807i;
+            columnLayout.setPadding(columnLayout.getPaddingLeft(), (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds20), this.f56807i.getPaddingRight(), this.f56807i.getPaddingBottom());
             return;
         }
         this.j.setData(null, null, null);
     }
 
     public void v(boolean z) {
-        this.f53117h.g(z);
+        this.f56806h.g(z);
     }
 
     public void w(d.a.n0.e2.h.e eVar) {
         if (eVar != null && eVar.f0()) {
             int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.ds45);
-            int paddingBottom = this.f53118i.getPaddingBottom();
+            int paddingBottom = this.f56807i.getPaddingBottom();
             if (eVar.a0()) {
                 g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
                 paddingBottom = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds8);
             }
-            ColumnLayout columnLayout = this.f53118i;
-            columnLayout.setPadding(columnLayout.getPaddingLeft(), g2, this.f53118i.getPaddingRight(), paddingBottom);
+            ColumnLayout columnLayout = this.f56807i;
+            columnLayout.setPadding(columnLayout.getPaddingLeft(), g2, this.f56807i.getPaddingRight(), paddingBottom);
             return;
         }
         int g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        int paddingBottom2 = this.f53118i.getPaddingBottom();
-        if (eVar != null && !eVar.L().C2() && eVar.a0() && (!StringUtils.isNull(eVar.L().z1()) || eVar.L().m1() != null)) {
+        int paddingBottom2 = this.f56807i.getPaddingBottom();
+        if (eVar != null && !eVar.L().D2() && eVar.a0() && (!StringUtils.isNull(eVar.L().A1()) || eVar.L().n1() != null)) {
             g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.ds20);
         }
-        ColumnLayout columnLayout2 = this.f53118i;
-        columnLayout2.setPadding(columnLayout2.getPaddingLeft(), g3, this.f53118i.getPaddingRight(), paddingBottom2);
+        ColumnLayout columnLayout2 = this.f56807i;
+        columnLayout2.setPadding(columnLayout2.getPaddingLeft(), g3, this.f56807i.getPaddingRight(), paddingBottom2);
     }
 
     public void x(int i2) {
-        this.f53118i.setVisibility(i2);
+        this.f56807i.setVisibility(i2);
     }
 
     public void y(int i2, d.a.n0.e2.h.e eVar, PostData postData, View.OnClickListener onClickListener) {
@@ -456,8 +456,8 @@ public class e {
             UserIconBox userIconBox = this.q;
             if (userIconBox != null) {
                 userIconBox.setTag(R.id.tag_user_id, t.getUserId());
-                if (this.f53110a.A() != null) {
-                    this.q.setOnClickListener(this.f53110a.A().mEvent.f53196c);
+                if (this.f56799a.B() != null) {
+                    this.q.setOnClickListener(this.f56799a.B().mEvent.f56885c);
                 }
                 int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
                 this.q.g(iconInfo, 4, g2, g2, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
@@ -466,8 +466,8 @@ public class e {
                 if (tShowInfoNew != null && tShowInfoNew.size() > 0 && tShowInfoNew.get(0) != null) {
                     this.p.setTag(tShowInfoNew.get(0).getUrl());
                 }
-                if (this.f53110a.A() != null) {
-                    this.p.setOnClickListener(this.f53110a.A().mEvent.f53197d);
+                if (this.f56799a.B() != null) {
+                    this.p.setOnClickListener(this.f56799a.B().mEvent.f56886d);
                 }
                 int g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds48);
                 this.p.h(tShowInfoNew, 3, g3, g3, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
@@ -516,7 +516,7 @@ public class e {
                 if (this.t.getLayoutParams() instanceof ColumnLayout.LayoutParams) {
                     ((FrameLayout.LayoutParams) ((ColumnLayout.LayoutParams) this.t.getLayoutParams())).rightMargin = 0;
                 }
-                this.f53118i.setSpacingRight(0);
+                this.f56807i.setSpacingRight(0);
                 String str = t.getBaijiahaoInfo() != null ? t.getBaijiahaoInfo().auth_desc : null;
                 if (t.isNewGod()) {
                     this.B.setVisibility(0);
@@ -543,7 +543,7 @@ public class e {
                 if (this.t.getLayoutParams() instanceof ColumnLayout.LayoutParams) {
                     ((FrameLayout.LayoutParams) ((ColumnLayout.LayoutParams) this.t.getLayoutParams())).rightMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
                 }
-                this.f53118i.setSpacingRight(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20));
+                this.f56807i.setSpacingRight(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20));
                 d.a.m0.t.g I = postData.I();
                 if (I != null && !TextUtils.isEmpty(I.b()) && !TextUtils.isEmpty(I.b().trim())) {
                     this.z.setVisibility(0);
@@ -592,14 +592,14 @@ public class e {
             String name_show = t.getName_show();
             String userName = t.getUserName();
             if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
-                this.k.setText(d.a.n0.e2.c.b(this.f53110a.getPageContext().getPageActivity(), this.k.getText().toString()));
+                this.k.setText(d.a.n0.e2.c.b(this.f56799a.getPageContext().getPageActivity(), this.k.getText().toString()));
                 this.k.setGravity(16);
                 this.k.setTag(R.id.tag_nick_name_activity, d.a.n0.e2.c.a());
                 SkinManager.setViewTextColor(this.k, R.color.CAM_X0312, 1);
             }
         }
         if (eVar != null) {
-            this.f53117h.f(eVar.L());
+            this.f56806h.f(eVar.L());
         }
     }
 

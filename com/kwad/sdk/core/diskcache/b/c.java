@@ -5,7 +5,6 @@ import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.kwad.sdk.core.diskcache.a.a;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.network.k;
-import com.kwad.sdk.core.network.l;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -15,7 +14,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.http.protocol.HTTP;
@@ -23,23 +21,23 @@ import org.apache.http.protocol.HTTP;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f32100a = Executors.newFixedThreadPool(5);
+    public static ExecutorService f34138a = Executors.newFixedThreadPool(5);
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32104a;
+        public String f34142a;
     }
 
     public static void a(@NonNull final com.kwad.sdk.core.diskcache.a.a aVar, @NonNull final String str, @NonNull final String str2) {
-        f32100a.execute(new Runnable() { // from class: com.kwad.sdk.core.diskcache.b.c.1
+        f34138a.execute(new Runnable() { // from class: com.kwad.sdk.core.diskcache.b.c.1
             @Override // java.lang.Runnable
             public void run() {
                 OutputStream outputStream = null;
                 try {
                     try {
-                        a.C0362a a2 = com.kwad.sdk.core.diskcache.a.a.this.a(str2);
+                        a.C0377a a2 = com.kwad.sdk.core.diskcache.a.a.this.a(str2);
                         if (a2 != null) {
                             outputStream = a2.a(0);
                             if (c.b(str, outputStream, new a())) {
@@ -119,7 +117,7 @@ public class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C0362a a2 = aVar.a(str2);
+                a.C0377a a2 = aVar.a(str2);
                 if (a2 != null) {
                     outputStream = a2.a(0);
                     if (b(str, outputStream, aVar2)) {
@@ -133,7 +131,7 @@ public class c {
             } catch (IOException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 com.kwad.sdk.core.d.a.a("FileHelper", "downLoadFileSync file crash", e2);
-                aVar2.f32104a = e2.getMessage();
+                aVar2.f34142a = e2.getMessage();
             }
             return z;
         } finally {
@@ -172,93 +170,84 @@ public class c {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0072 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x009d */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r6v1 */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r6v4, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r6v6, types: [java.net.HttpURLConnection, java.net.URLConnection] */
     public static boolean b(String str, OutputStream outputStream, a aVar) {
+        HttpURLConnection httpURLConnection;
         BufferedInputStream bufferedInputStream;
         BufferedOutputStream bufferedOutputStream;
         BufferedOutputStream bufferedOutputStream2 = null;
         try {
+            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             try {
-                str = (HttpURLConnection) new URL(str).openConnection();
+                httpURLConnection.setRequestProperty("Accept-Language", "zh-CN");
+                httpURLConnection.setConnectTimeout(10000);
+                httpURLConnection.setReadTimeout(120000);
+                httpURLConnection.setUseCaches(false);
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                httpURLConnection.setRequestProperty("User-Agent", k.a());
+                bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
                 try {
-                    l.a((URLConnection) str);
-                    str.setRequestProperty("Accept-Language", "zh-CN");
-                    str.setConnectTimeout(10000);
-                    str.setReadTimeout(120000);
-                    str.setUseCaches(false);
-                    str.setDoInput(true);
-                    str.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-                    str.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                    str.setRequestProperty("User-Agent", k.a());
-                    bufferedInputStream = new BufferedInputStream(str.getInputStream());
                     try {
                         bufferedOutputStream = new BufferedOutputStream(outputStream);
                     } catch (Exception e2) {
                         e = e2;
                     }
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = bufferedInputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            bufferedOutputStream.write(bArr, 0, read);
-                        }
-                        bufferedOutputStream.flush();
-                        d.a(bufferedOutputStream);
-                        d.a(bufferedInputStream);
-                        if (str != 0) {
-                            str.disconnect();
-                        }
-                        return true;
-                    } catch (Exception e3) {
-                        e = e3;
-                        bufferedOutputStream2 = bufferedOutputStream;
-                        com.kwad.sdk.core.d.a.a(e);
-                        com.kwad.sdk.core.d.a.a("FileHelper", "downloadUrlToStream file crash", e);
-                        aVar.f32104a = e.getMessage();
-                        d.a(bufferedOutputStream2);
-                        d.a(bufferedInputStream);
-                        if (str != 0) {
-                            str.disconnect();
-                        }
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedOutputStream2 = bufferedOutputStream;
-                        d.a(bufferedOutputStream2);
-                        d.a(bufferedInputStream);
-                        if (str != 0) {
-                            str.disconnect();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    bufferedInputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedInputStream = null;
+                } catch (Throwable th) {
+                    th = th;
                 }
+            } catch (Exception e3) {
+                e = e3;
+                bufferedInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedInputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    bufferedOutputStream.write(bArr, 0, read);
+                }
+                bufferedOutputStream.flush();
+                d.a(bufferedOutputStream);
+                d.a(bufferedInputStream);
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                return true;
+            } catch (Exception e4) {
+                e = e4;
+                bufferedOutputStream2 = bufferedOutputStream;
+                com.kwad.sdk.core.d.a.a(e);
+                com.kwad.sdk.core.d.a.a("FileHelper", "downloadUrlToStream file crash", e);
+                aVar.f34142a = e.getMessage();
+                d.a(bufferedOutputStream2);
+                d.a(bufferedInputStream);
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                return false;
             } catch (Throwable th3) {
                 th = th3;
+                bufferedOutputStream2 = bufferedOutputStream;
+                d.a(bufferedOutputStream2);
+                d.a(bufferedInputStream);
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                throw th;
             }
         } catch (Exception e5) {
             e = e5;
-            str = 0;
+            httpURLConnection = null;
             bufferedInputStream = null;
         } catch (Throwable th4) {
             th = th4;
-            str = 0;
+            httpURLConnection = null;
             bufferedInputStream = null;
         }
     }

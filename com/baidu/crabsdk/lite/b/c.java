@@ -7,14 +7,14 @@ import android.os.Build;
 import com.baidu.crabsdk.lite.a.n;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f4672a;
+    public static SimpleDateFormat f4691a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4673b;
+    public static PackageManager f4692b;
 
     public static String a(long j) {
         StringBuilder sb;
@@ -41,10 +41,10 @@ public final class c {
     }
 
     public static String b(Date date) {
-        if (f4672a == null) {
-            f4672a = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (f4691a == null) {
+            f4691a = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return f4672a.format(date);
+        return f4691a.format(date);
     }
 
     public static void c(SharedPreferences.Editor editor, boolean z) {
@@ -64,10 +64,10 @@ public final class c {
     }
 
     public static boolean e(Context context, String str) {
-        if (f4673b == null) {
-            f4673b = context.getPackageManager();
+        if (f4692b == null) {
+            f4692b = context.getPackageManager();
         }
-        return f4673b.checkPermission(str, context.getPackageName()) == 0;
+        return f4692b.checkPermission(str, context.getPackageName()) == 0;
     }
 
     public static String f(Throwable th) {

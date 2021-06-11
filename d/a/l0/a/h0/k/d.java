@@ -14,7 +14,7 @@ import d.a.l0.a.v2.e0;
 import d.a.l0.a.v2.q0;
 /* loaded from: classes2.dex */
 public class d extends d.a.l0.a.l0.a {
-    public static final boolean s = k.f43199a;
+    public static final boolean s = k.f46875a;
 
     /* loaded from: classes2.dex */
     public static class a extends EventTargetImpl {
@@ -23,8 +23,8 @@ public class d extends d.a.l0.a.l0.a {
 
         /* renamed from: d.a.l0.a.h0.k.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0669a implements Runnable {
-            public RunnableC0669a(a aVar) {
+        public class RunnableC0725a implements Runnable {
+            public RunnableC0725a(a aVar) {
             }
 
             @Override // java.lang.Runnable
@@ -91,7 +91,7 @@ public class d extends d.a.l0.a.l0.a {
         @JavascriptInterface
         public void reload() {
             d.a.l0.a.e0.d.h("SwanAppV8DaemonEngine", "reload");
-            q0.X(new RunnableC0669a(this));
+            q0.X(new RunnableC0725a(this));
         }
 
         @JavascriptInterface
@@ -136,7 +136,7 @@ public class d extends d.a.l0.a.l0.a {
     @Override // d.a.l0.a.l0.a
     @NonNull
     public EventTarget w() {
-        a aVar = new a(this, this.f43294f.getInitBasePath());
+        a aVar = new a(this, this.f46970f.getInitBasePath());
         aVar.env.config = d.a.l0.a.m2.c.a.b();
         return aVar;
     }

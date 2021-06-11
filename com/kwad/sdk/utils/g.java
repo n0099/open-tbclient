@@ -6,32 +6,31 @@ import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.os.Build;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioManager f34064a;
+    public AudioManager f37528a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager.OnAudioFocusChangeListener f34065b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.g.1
+    public AudioManager.OnAudioFocusChangeListener f37529b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.g.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i2) {
-            if (g.this.f34066c == null) {
+            if (g.this.f37530c == null) {
                 return;
             }
             if (i2 < 0) {
-                g.this.f34066c.a();
+                g.this.f37530c.a();
             } else {
-                g.this.f34066c.b();
+                g.this.f37530c.b();
             }
         }
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public a f34066c;
+    public a f37530c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
@@ -39,24 +38,33 @@ public class g {
     }
 
     public g(Context context) {
-        this.f34064a = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.f37528a = (AudioManager) context.getSystemService("audio");
     }
 
     @TargetApi(26)
-    private AudioFocusRequest b() {
-        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f34065b).build();
+    private AudioFocusRequest c() {
+        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f37529b).build();
     }
 
     public void a(a aVar) {
-        this.f34066c = aVar;
+        this.f37530c = aVar;
     }
 
     public boolean a() {
         AudioManager audioManager;
-        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f34065b;
-        if (onAudioFocusChangeListener == null || (audioManager = this.f34064a) == null) {
+        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f37529b;
+        if (onAudioFocusChangeListener == null || (audioManager = this.f37528a) == null) {
             return false;
         }
-        return Build.VERSION.SDK_INT >= 26 ? 1 == audioManager.requestAudioFocus(b()) : 1 == audioManager.requestAudioFocus(onAudioFocusChangeListener, 3, 2);
+        return Build.VERSION.SDK_INT >= 26 ? 1 == audioManager.requestAudioFocus(c()) : 1 == audioManager.requestAudioFocus(onAudioFocusChangeListener, 3, 2);
+    }
+
+    public boolean b() {
+        AudioManager audioManager;
+        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f37529b;
+        if (onAudioFocusChangeListener == null || (audioManager = this.f37528a) == null) {
+            return false;
+        }
+        return Build.VERSION.SDK_INT >= 26 ? 1 == audioManager.abandonAudioFocusRequest(c()) : 1 == audioManager.abandonAudioFocus(onAudioFocusChangeListener);
     }
 }

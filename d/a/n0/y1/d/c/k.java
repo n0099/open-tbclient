@@ -10,10 +10,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.tencent.connect.common.Constants;
-import d.a.c.j.e.n;
-import d.a.c.j.e.s;
-import d.a.c.j.e.w;
+import d.a.c.k.e.n;
+import d.a.c.k.e.s;
+import d.a.c.k.e.w;
 import d.a.i.a;
 import d.a.i.l0;
 import d.a.i.t0;
@@ -41,32 +40,32 @@ public class k extends d.a.n0.y1.d.c.a<z1, AutoVideoCardViewHolder<a2>> {
         /* renamed from: d */
         public void a(View view, a2 a2Var) {
             t.b().d(true);
-            k.this.n0(view, a2Var);
+            k.this.m0(view, a2Var);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements a.InterfaceC0542a {
+    public class b implements a.InterfaceC0598a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t0 f63384a;
+        public final /* synthetic */ t0 f67099a;
 
         public b(t0 t0Var) {
-            this.f63384a = t0Var;
+            this.f67099a = t0Var;
         }
 
-        @Override // d.a.i.a.InterfaceC0542a
+        @Override // d.a.i.a.InterfaceC0598a
         public void a(d.a.m0.r.q.a aVar) {
             if (aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f63384a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f67099a.getVideoContainer());
             if (!(aVar instanceof a2)) {
-                ThreadCardUtils.jumpToPB(aVar, k.this.f39228e, 17, false, computeViewArea);
+                ThreadCardUtils.jumpToPB(aVar, k.this.f42909e, 17, false, computeViewArea);
                 return;
             }
             aVar.objType = 5;
-            ThreadCardUtils.jumpToPB(aVar, k.this.f39228e, 17, false, computeViewArea);
+            ThreadCardUtils.jumpToPB(aVar, k.this.f42909e, 17, false, computeViewArea);
         }
     }
 
@@ -75,7 +74,7 @@ public class k extends d.a.n0.y1.d.c.a<z1, AutoVideoCardViewHolder<a2>> {
         public c() {
         }
 
-        @Override // d.a.c.j.e.w
+        @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if ((nVar instanceof z1) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 AutoVideoCardViewHolder autoVideoCardViewHolder = (AutoVideoCardViewHolder) view.getTag();
@@ -85,7 +84,7 @@ public class k extends d.a.n0.y1.d.c.a<z1, AutoVideoCardViewHolder<a2>> {
                     k.this.r.a(autoVideoCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.a.m0.r.q.a) a2Var, view.getContext(), 17, false, d.a.i.e.a((s) viewGroup, view, i2));
-                autoVideoCardViewHolder.b().o(new a.C0544a(1));
+                autoVideoCardViewHolder.b().o(new a.C0600a(1));
             }
         }
     }
@@ -97,41 +96,41 @@ public class k extends d.a.n0.y1.d.c.a<z1, AutoVideoCardViewHolder<a2>> {
         this.n = bdUniqueId2;
     }
 
-    public final o m0(a2 a2Var) {
+    public final o l0(a2 a2Var) {
         if (a2Var != null) {
             o oVar = new o();
-            oVar.f56898a = "20";
-            oVar.f56900c = a2Var.A;
-            oVar.f56903f = a2Var.S0;
-            oVar.f56904g = a2Var.U0;
-            oVar.f56905h = a2Var.T0;
-            oVar.f56906i = Constants.VIA_REPORT_TYPE_MAKE_FRIEND;
-            oVar.q = String.valueOf(a2Var.N1);
-            if (a2Var.v1() != null) {
-                oVar.k = String.valueOf(a2Var.v1().f50042a);
+            oVar.f60587a = "20";
+            oVar.f60589c = a2Var.A;
+            oVar.f60592f = a2Var.T0;
+            oVar.f60593g = a2Var.V0;
+            oVar.f60594h = a2Var.U0;
+            oVar.f60595i = "14";
+            oVar.q = String.valueOf(a2Var.O1);
+            if (a2Var.w1() != null) {
+                oVar.k = String.valueOf(a2Var.w1().f53718a);
             }
-            a2Var.m();
+            a2Var.i();
             if (a2Var != null) {
-                a2Var.m();
-                oVar.f56901d = String.valueOf(a2Var.c0());
-                a2Var.m();
+                a2Var.i();
+                oVar.f60590d = String.valueOf(a2Var.c0());
+                a2Var.i();
                 oVar.v = a2Var.M0();
-                a2Var.m();
-                if (a2Var.w1() != null) {
-                    a2Var.m();
-                    oVar.m = a2Var.w1().video_md5;
-                    a2Var.m();
-                    oVar.p = String.valueOf(a2Var.w1().is_vertical);
+                a2Var.i();
+                if (a2Var.x1() != null) {
+                    a2Var.i();
+                    oVar.m = a2Var.x1().video_md5;
+                    a2Var.i();
+                    oVar.p = String.valueOf(a2Var.x1().is_vertical);
                 }
             }
-            oVar.f56902e = TbadkCoreApplication.getCurrentAccount();
-            a2Var.m();
+            oVar.f60591e = TbadkCoreApplication.getCurrentAccount();
+            a2Var.i();
             if (a2Var != null) {
-                a2Var.m();
+                a2Var.i();
                 if (a2Var.V() != null) {
-                    a2Var.m();
+                    a2Var.i();
                     oVar.t = a2Var.V().oriUgcNid;
-                    a2Var.m();
+                    a2Var.i();
                     oVar.u = a2Var.V().oriUgcVid;
                     return oVar;
                 }
@@ -142,44 +141,44 @@ public class k extends d.a.n0.y1.d.c.a<z1, AutoVideoCardViewHolder<a2>> {
         return null;
     }
 
-    public final void n0(View view, a2 a2Var) {
+    public final void m0(View view, a2 a2Var) {
         d.a.n0.y1.c.b(this, a2Var);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: p0 */
-    public AutoVideoCardViewHolder<a2> P(ViewGroup viewGroup) {
+    public AutoVideoCardViewHolder<a2> Q(ViewGroup viewGroup) {
         l0.b bVar = new l0.b(this.o.getPageActivity(), false);
         d.a.i.g gVar = new d.a.i.g(this.o.getPageActivity());
         gVar.v(new b(gVar));
         this.q = gVar;
         gVar.x(this.n);
-        this.q.u(Constants.VIA_REPORT_TYPE_MAKE_FRIEND);
+        this.q.u("14");
         this.q.y("2001");
         bVar.n(this.q);
         l0 k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.p);
         AutoVideoCardViewHolder<a2> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
-        autoVideoCardViewHolder.j(this.n);
+        autoVideoCardViewHolder.k(this.n);
         k.p(this.r);
         k.r(17);
-        Z(new c());
+        a0(new c());
         return autoVideoCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: q0 */
-    public View W(int i2, View view, ViewGroup viewGroup, z1 z1Var, AutoVideoCardViewHolder<a2> autoVideoCardViewHolder) {
+    public View X(int i2, View view, ViewGroup viewGroup, z1 z1Var, AutoVideoCardViewHolder<a2> autoVideoCardViewHolder) {
         if (z1Var == null) {
             return autoVideoCardViewHolder.a();
         }
         if (autoVideoCardViewHolder == null) {
             return null;
         }
-        z1Var.w.N1 = B(i2) + 1;
+        z1Var.w.O1 = F(i2) + 1;
         autoVideoCardViewHolder.b().q(i2);
-        autoVideoCardViewHolder.u(m0(z1Var.w));
+        autoVideoCardViewHolder.v(l0(z1Var.w));
         autoVideoCardViewHolder.f(z1Var.w);
         autoVideoCardViewHolder.b().onChangeSkinType(this.o, TbadkCoreApplication.getInst().getSkinType());
         autoVideoCardViewHolder.b().p(this.r);

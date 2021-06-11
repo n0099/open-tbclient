@@ -9,13 +9,13 @@ import d.a.m0.w.m;
 public class b extends m {
     public b(Context context) {
         super(context, null, 18, 0);
-        this.f50848b = TbadkCoreApplication.getInst().getResources().getString(R.string.member);
+        this.f54525b = TbadkCoreApplication.getInst().getResources().getString(R.string.member);
         this.k = new PrivilegeDeskView(context);
         this.m = true;
-        this.f50853g = false;
-        this.f50854h = true;
-        this.f50850d = R.drawable.icon_pure_post_vip24;
-        this.f50851e = R.drawable.icon_pure_post_vip24_selection;
+        this.f54530g = false;
+        this.f54531h = true;
+        this.f54527d = R.drawable.icon_pure_post_vip24;
+        this.f54528e = R.drawable.icon_pure_post_vip24_selection;
         this.l = 6;
         this.n = new int[]{1};
     }

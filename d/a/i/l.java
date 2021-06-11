@@ -49,7 +49,7 @@ public class l extends h {
     }
 
     public void t() {
-        int g2 = d.a.c.e.p.l.g(this.f40008f, R.dimen.M_H_X003);
+        int g2 = d.a.c.e.p.l.g(this.f43689f, R.dimen.M_H_X003);
         r(g2);
         q(0);
         w(this.m, g2, 0);
@@ -60,7 +60,7 @@ public class l extends h {
     /* renamed from: u */
     public void a(d.a.m0.r.q.a aVar) {
         this.l = aVar;
-        this.m.setSourceForPb(this.f40007e.i());
+        this.m.setSourceForPb(this.f43688e.i());
         this.m.setFrstype(this.n);
         this.m.setData(aVar);
     }

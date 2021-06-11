@@ -8,11 +8,9 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityManager;
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -22,39 +20,31 @@ import com.kwad.sdk.core.report.o;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
-import com.kwad.sdk.utils.ai;
-import com.kwad.sdk.utils.aq;
-import com.kwad.sdk.utils.r;
-import java.lang.reflect.Method;
+import com.kwad.sdk.utils.ah;
+import com.kwad.sdk.utils.t;
 /* loaded from: classes6.dex */
-public class KsAdWebView extends KSApiWebView {
+public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f32510a;
+    public boolean f34596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f32511b;
+    public c f34597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f32512c;
+    public AdTemplate f34598c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f32513d;
+    public boolean f34599d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f32514e;
+    public d f34600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f32515f;
+    public b f34601f;
 
     /* renamed from: g  reason: collision with root package name */
-    public o.a f32516g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f32517h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f32518i;
+    public o.a f34602g;
 
     /* loaded from: classes6.dex */
     public class a implements DownloadListener {
@@ -64,7 +54,7 @@ public class KsAdWebView extends KSApiWebView {
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             AdDownloadProxy proxyForDownload = KsAdSDKImpl.get().getProxyForDownload();
-            if (proxyForDownload == null || !KsAdWebView.this.f32513d) {
+            if (proxyForDownload == null || !KsAdWebView.this.f34599d) {
                 try {
                     KsAdWebView.this.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                     return;
@@ -74,8 +64,8 @@ public class KsAdWebView extends KSApiWebView {
                 }
             }
             DownloadParams downloadParams = new DownloadParams();
-            downloadParams.mDownloadid = r.a(str);
-            AdInfo.AdBaseInfo adBaseInfo = com.kwad.sdk.core.response.b.c.g(KsAdWebView.this.f32512c).adBaseInfo;
+            downloadParams.mDownloadid = t.a(str);
+            AdInfo.AdBaseInfo adBaseInfo = com.kwad.sdk.core.response.b.c.j(KsAdWebView.this.f34598c).adBaseInfo;
             downloadParams.mAppName = adBaseInfo.appName;
             downloadParams.mPkgname = adBaseInfo.appPackageName;
             downloadParams.mFileUrl = str;
@@ -109,71 +99,73 @@ public class KsAdWebView extends KSApiWebView {
 
     public KsAdWebView(Context context) {
         super(context);
-        this.f32513d = true;
-        this.f32518i = true;
-        a(context);
+        this.f34599d = true;
+        g();
     }
 
     public KsAdWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f32513d = true;
-        this.f32518i = true;
-        a(context);
+        this.f34599d = true;
+        g();
     }
 
     public KsAdWebView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f32513d = true;
-        this.f32518i = true;
-        a(context);
+        this.f34599d = true;
+        g();
     }
 
-    private void a(Context context) {
-        setAccessibilityStateDisable(context);
-        WebSettings a2 = aq.a(this);
-        a2.setUseWideViewPort(true);
-        a2.setDomStorageEnabled(true);
+    private void g() {
+        WebSettings settings = getSettings();
+        try {
+            settings.setJavaScriptEnabled(true);
+            settings.setUseWideViewPort(true);
+        } catch (Exception unused) {
+            a();
+            settings.setJavaScriptEnabled(true);
+        }
+        settings.setSavePassword(false);
+        settings.setDomStorageEnabled(true);
         setVerticalScrollBarEnabled(false);
-        setWebViewClient(new WebViewClient() { // from class: com.kwad.sdk.core.page.widget.webview.KsAdWebView.1
-            @Override // android.webkit.WebViewClient
+        settings.setAllowFileAccessFromFileURLs(false);
+        settings.setAllowUniversalAccessFromFileURLs(false);
+        settings.setAllowFileAccess(false);
+        if (Build.VERSION.SDK_INT >= 21) {
+            getSettings().setMixedContentMode(0);
+        }
+        setWebViewClient(new com.kwad.sdk.core.page.widget.webview.c() { // from class: com.kwad.sdk.core.page.widget.webview.KsAdWebView.1
+            @Override // com.kwad.sdk.core.page.widget.webview.c, android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
                 KsAdWebView ksAdWebView = KsAdWebView.this;
-                if (!ksAdWebView.f32510a) {
-                    ksAdWebView.f32510a = true;
-                    if (ksAdWebView.f32517h > 0) {
-                        if (KsAdWebView.this.f32516g == null) {
-                            KsAdWebView.this.f32516g = new o.a();
-                        }
-                        KsAdWebView.this.f32516g.q = System.currentTimeMillis() - KsAdWebView.this.f32517h;
-                        KsAdWebView.this.f32517h = -1L;
-                    }
-                    com.kwad.sdk.core.report.b.b(KsAdWebView.this.f32512c, KsAdWebView.this.f32516g);
+                if (!ksAdWebView.f34596a) {
+                    ksAdWebView.f34596a = true;
+                    com.kwad.sdk.core.report.b.b(ksAdWebView.f34598c, KsAdWebView.this.f34602g);
                 }
-                if (KsAdWebView.this.f32514e != null) {
-                    KsAdWebView.this.f32514e.b();
+                if (KsAdWebView.this.f34600e != null) {
+                    KsAdWebView.this.f34600e.b();
                 }
             }
 
-            @Override // android.webkit.WebViewClient
+            @Override // com.kwad.sdk.core.page.widget.webview.c, android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
-                if (KsAdWebView.this.f32514e != null) {
-                    KsAdWebView.this.f32514e.a();
+                if (KsAdWebView.this.f34600e != null) {
+                    KsAdWebView.this.f34600e.a();
                 }
             }
 
-            @Override // android.webkit.WebViewClient
+            @Override // com.kwad.sdk.core.page.widget.webview.c, android.webkit.WebViewClient
             public void onReceivedError(WebView webView, int i2, String str, String str2) {
                 super.onReceivedError(webView, i2, str, str2);
                 com.kwad.sdk.core.d.a.a("KsAdWebView", "onReceivedError " + i2);
-                if (KsAdWebView.this.f32514e != null) {
-                    KsAdWebView.this.f32514e.a(i2, str, str2);
+                if (KsAdWebView.this.f34600e != null) {
+                    KsAdWebView.this.f34600e.a(i2, str, str2);
                 }
-                com.kwad.sdk.core.report.b.d(KsAdWebView.this.f32512c, KsAdWebView.this.f32516g);
+                com.kwad.sdk.core.report.b.d(KsAdWebView.this.f34598c, KsAdWebView.this.f34602g);
             }
 
-            @Override // android.webkit.WebViewClient
+            @Override // com.kwad.sdk.core.page.widget.webview.c, android.webkit.WebViewClient
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 try {
                 } catch (Exception e2) {
@@ -181,23 +173,19 @@ public class KsAdWebView extends KSApiWebView {
                 }
                 if (!str.startsWith("http") && !str.startsWith("https")) {
                     if (!str.startsWith("tel:") && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                        if (KsAdWebView.this.f32518i) {
-                            int a3 = com.kwad.sdk.core.download.b.d.a(KsAdWebView.this.getContext(), str);
-                            if (a3 == 1) {
-                                if (KsAdWebView.this.f32515f != null) {
-                                    KsAdWebView.this.f32515f.a();
-                                }
-                                com.kwad.sdk.core.report.b.a(KsAdWebView.this.f32512c, 2);
-                                return true;
+                        int a2 = com.kwad.sdk.core.download.b.d.a(KsAdWebView.this.getContext(), str);
+                        if (a2 == 1) {
+                            if (KsAdWebView.this.f34601f != null) {
+                                KsAdWebView.this.f34601f.a();
                             }
-                            if (KsAdWebView.this.f32515f != null) {
-                                KsAdWebView.this.f32515f.b();
-                            }
-                            if (a3 == -1) {
-                                com.kwad.sdk.core.report.b.b(KsAdWebView.this.f32512c, 2);
-                            }
-                        } else if (KsAdWebView.this.f32515f != null) {
-                            KsAdWebView.this.f32515f.b();
+                            com.kwad.sdk.core.report.b.a(KsAdWebView.this.f34598c, 2);
+                            return true;
+                        }
+                        if (KsAdWebView.this.f34601f != null) {
+                            KsAdWebView.this.f34601f.b();
+                        }
+                        if (a2 == -1) {
+                            com.kwad.sdk.core.report.b.b(KsAdWebView.this.f34598c, 2);
                         }
                         return true;
                     }
@@ -207,41 +195,31 @@ public class KsAdWebView extends KSApiWebView {
                 return super.shouldOverrideUrlLoading(webView, str);
             }
         });
-        setDownloadListener(new a());
-        String userAgentString = a2.getUserAgentString();
-        a2.setUserAgentString(userAgentString + d());
-    }
-
-    private String d() {
-        return "KSADSDK_V3.3.8.3_" + getContext().getPackageName() + "_" + ai.n(getContext());
-    }
-
-    public static void setAccessibilityStateDisable(Context context) {
-        if (Build.VERSION.SDK_INT != 17 || context == null) {
-            return;
-        }
-        try {
-            AccessibilityManager accessibilityManager = (AccessibilityManager) context.getSystemService("accessibility");
-            if (accessibilityManager != null && accessibilityManager.isEnabled()) {
-                Method declaredMethod = accessibilityManager.getClass().getDeclaredMethod("setState", Integer.TYPE);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(accessibilityManager, 0);
+        setWebChromeClient(new com.kwad.sdk.core.page.widget.webview.a() { // from class: com.kwad.sdk.core.page.widget.webview.KsAdWebView.2
+            @Override // com.kwad.sdk.core.page.widget.webview.a, android.webkit.WebChromeClient
+            public void onProgressChanged(WebView webView, int i2) {
+                super.onProgressChanged(webView, i2);
             }
-        } catch (Throwable unused) {
-        }
+        });
+        setDownloadListener(new a());
+        String userAgentString = settings.getUserAgentString();
+        settings.setUserAgentString(userAgentString + h());
     }
 
-    public void a() {
-        com.kwad.sdk.core.report.b.a(this.f32512c, this.f32516g);
-        this.f32517h = System.currentTimeMillis();
+    private String h() {
+        return "KSADSDK_V3.3.9_" + getContext().getPackageName() + "_" + ah.l(getContext());
     }
 
-    public void b() {
-        c();
-        com.kwad.sdk.core.report.b.c(this.f32512c, this.f32516g);
+    public void d() {
+        com.kwad.sdk.core.report.b.a(this.f34598c, this.f34602g);
     }
 
-    public void c() {
+    public void e() {
+        f();
+        com.kwad.sdk.core.report.b.c(this.f34598c, this.f34602g);
+    }
+
+    public void f() {
         if (getParent() != null && (getParent() instanceof ViewGroup)) {
             ((ViewGroup) getParent()).removeAllViews();
         }
@@ -251,37 +229,33 @@ public class KsAdWebView extends KSApiWebView {
     @Override // android.webkit.WebView, android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         super.onScrollChanged(i2, i3, i4, i5);
-        c cVar = this.f32511b;
+        c cVar = this.f34597b;
         if (cVar != null) {
             cVar.a(this, i2, i3, i4, i5);
         }
     }
 
     public void setClientParams(o.a aVar) {
-        this.f32516g = aVar;
-    }
-
-    public void setDeepLinkEnabled(boolean z) {
-        this.f32518i = z;
+        this.f34602g = aVar;
     }
 
     public void setDeepLinkListener(b bVar) {
-        this.f32515f = bVar;
+        this.f34601f = bVar;
     }
 
     public void setHttpErrorListener(d dVar) {
-        this.f32514e = dVar;
+        this.f34600e = dVar;
     }
 
     public void setInsideDownloadEnable(boolean z) {
-        this.f32513d = z;
+        this.f34599d = z;
     }
 
     public void setOnWebViewScrollChangeListener(c cVar) {
-        this.f32511b = cVar;
+        this.f34597b = cVar;
     }
 
     public void setTemplateData(@Nullable AdTemplate adTemplate) {
-        this.f32512c = adTemplate;
+        this.f34598c = adTemplate;
     }
 }

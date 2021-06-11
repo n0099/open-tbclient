@@ -13,18 +13,18 @@ public class i0 extends PostData {
 
     public boolean C0() {
         c1 c1Var = this.x0;
-        if (c1Var == null || StringUtils.isNull(c1Var.f49966b)) {
+        if (c1Var == null || StringUtils.isNull(c1Var.f53642b)) {
             c1 c1Var2 = this.y0;
-            if (c1Var2 == null || StringUtils.isNull(c1Var2.f49966b)) {
+            if (c1Var2 == null || StringUtils.isNull(c1Var2.f53642b)) {
                 c1 c1Var3 = this.z0;
-                return (c1Var3 == null || StringUtils.isNull(c1Var3.f49966b)) ? false : true;
+                return (c1Var3 == null || StringUtils.isNull(c1Var3.f53642b)) ? false : true;
             }
             return true;
         }
         return true;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, d.a.c.j.e.n
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, d.a.c.k.e.n
     public BdUniqueId getType() {
         return A0;
     }

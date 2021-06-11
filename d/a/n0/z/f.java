@@ -40,31 +40,31 @@ public class f extends b<d.a.n0.e0.d> {
     public f(TbPageContext<?> tbPageContext, String str) {
         super(tbPageContext);
         this.y = str;
-        t(l());
+        u(m());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_frs_game_head_line_view_item;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setBackgroundResource(l(), R.color.CAM_X0201);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0106, 1);
         SkinManager.setBackgroundResource(this.v, R.color.CAM_X0205);
         SkinManager.setBackgroundResource(this.w, R.color.CAM_X0205);
         d dVar = this.p;
         if (dVar != null) {
-            dVar.n(tbPageContext, i2);
+            dVar.o(tbPageContext, i2);
         }
         e eVar = this.q;
         if (eVar != null) {
-            eVar.n(tbPageContext, i2);
+            eVar.o(tbPageContext, i2);
         }
         e eVar2 = this.r;
         if (eVar2 != null) {
-            eVar2.n(tbPageContext, i2);
+            eVar2.o(tbPageContext, i2);
         }
     }
 
@@ -72,7 +72,7 @@ public class f extends b<d.a.n0.e0.d> {
     public void onClick(View view) {
         d.a.n0.e0.b bVar;
         TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 6).param("fid", this.y));
-        if (view == this.p.l()) {
+        if (view == this.p.m()) {
             d.a.n0.e0.a aVar = this.s;
             if (aVar == null) {
                 return;
@@ -81,8 +81,8 @@ public class f extends b<d.a.n0.e0.d> {
             if (aVar2 != null) {
                 aVar2.a(view, aVar);
             }
-            s(this.s.h());
-        } else if (view == this.q.l()) {
+            t(this.s.c());
+        } else if (view == this.q.m()) {
             d.a.n0.e0.b bVar2 = this.t;
             if (bVar2 == null) {
                 return;
@@ -91,106 +91,106 @@ public class f extends b<d.a.n0.e0.d> {
             if (aVar3 != null) {
                 aVar3.a(view, bVar2);
             }
-            s(this.t.h());
-        } else if (view != this.r.l() || (bVar = this.u) == null) {
+            t(this.t.c());
+        } else if (view != this.r.m() || (bVar = this.u) == null) {
         } else {
             a aVar4 = this.x;
             if (aVar4 != null) {
                 aVar4.a(view, bVar);
             }
-            s(this.u.h());
+            t(this.u.c());
         }
     }
 
-    public final void s(a2 a2Var) {
+    public final void t(a2 a2Var) {
         PbActivityConfig createFromThreadCfg = new PbActivityConfig(k().getPageActivity()).createFromThreadCfg(a2Var, null, m.g(), 18003, true, false, false);
         createFromThreadCfg.setForumId(String.valueOf(a2Var.c0()));
         createFromThreadCfg.setForumName(a2Var.i0());
         createFromThreadCfg.setStartFrom(0);
-        m.a(a2Var.y1());
+        m.a(a2Var.z1());
         k().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 
-    public final void t(View view) {
+    public final void u(View view) {
         this.m = (LinearLayout) view.findViewById(R.id.card_frs_game_head_line_layout);
         this.n = (TextView) view.findViewById(R.id.frs_game_head_line_title);
         this.o = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
         this.v = view.findViewById(R.id.divider_line_1);
         this.w = view.findViewById(R.id.divider_line_2);
-        int dimensionPixelSize = this.f63442g.getResources().getDimensionPixelSize(R.dimen.tbds44);
+        int dimensionPixelSize = this.f67160g.getResources().getDimensionPixelSize(R.dimen.tbds44);
         if (this.p == null) {
-            this.p = new d(this.f63441f, null, null);
+            this.p = new d(this.f67159f, null, null);
         }
-        this.p.v(0, 0, 0, 0);
-        this.p.w(8);
+        this.p.w(0, 0, 0, 0);
         this.p.x(8);
-        if (this.p.l().getParent() != null) {
-            ((ViewGroup) this.p.l().getParent()).removeView(this.p.l());
+        this.p.y(8);
+        if (this.p.m().getParent() != null) {
+            ((ViewGroup) this.p.m().getParent()).removeView(this.p.m());
         }
-        this.p.l().setOnClickListener(this);
-        this.p.l().setVisibility(8);
-        this.o.addView(this.p.l());
+        this.p.m().setOnClickListener(this);
+        this.p.m().setVisibility(8);
+        this.o.addView(this.p.m());
         if (this.q == null) {
-            this.q = new e(this.f63441f);
+            this.q = new e(this.f67159f);
         }
-        this.q.v(8);
-        this.q.w(0, dimensionPixelSize, 0, 0);
-        if (this.q.l().getParent() != null) {
-            ((ViewGroup) this.q.l().getParent()).removeView(this.q.l());
+        this.q.w(8);
+        this.q.x(0, dimensionPixelSize, 0, 0);
+        if (this.q.m().getParent() != null) {
+            ((ViewGroup) this.q.m().getParent()).removeView(this.q.m());
         }
-        this.q.l().setOnClickListener(this);
-        this.q.l().setVisibility(8);
-        this.o.addView(this.q.l());
+        this.q.m().setOnClickListener(this);
+        this.q.m().setVisibility(8);
+        this.o.addView(this.q.m());
         if (this.r == null) {
-            this.r = new e(this.f63441f);
+            this.r = new e(this.f67159f);
         }
-        this.r.v(8);
-        this.r.w(0, dimensionPixelSize, 0, 0);
-        if (this.r.l().getParent() != null) {
-            ((ViewGroup) this.r.l().getParent()).removeView(this.r.l());
+        this.r.w(8);
+        this.r.x(0, dimensionPixelSize, 0, 0);
+        if (this.r.m().getParent() != null) {
+            ((ViewGroup) this.r.m().getParent()).removeView(this.r.m());
         }
-        this.r.l().setOnClickListener(this);
-        this.r.l().setVisibility(8);
-        this.o.addView(this.r.l());
+        this.r.m().setOnClickListener(this);
+        this.r.m().setVisibility(8);
+        this.o.addView(this.r.m());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: u */
-    public void m(d.a.n0.e0.d dVar) {
-        if (dVar == null || dVar.h() == null) {
+    /* renamed from: v */
+    public void n(d.a.n0.e0.d dVar) {
+        if (dVar == null || dVar.c() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(dVar.h().f59685b)) {
-            this.n.setText(dVar.h().f59685b);
+        if (!TextUtils.isEmpty(dVar.c().f63376b)) {
+            this.n.setText(dVar.c().f63376b);
         }
-        List<a2> list = dVar.h().f59684a;
+        List<a2> list = dVar.c().f63375a;
         if (ListUtils.getCount(list) >= 1) {
             d.a.n0.e0.a aVar = new d.a.n0.e0.a();
             this.s = aVar;
-            aVar.l(list.get(0));
-            this.p.l().setVisibility(0);
-            this.p.m(this.s);
+            aVar.g(list.get(0));
+            this.p.m().setVisibility(0);
+            this.p.n(this.s);
         }
         if (ListUtils.getCount(list) >= 2) {
             d.a.n0.e0.b bVar = new d.a.n0.e0.b();
             this.t = bVar;
-            bVar.l(list.get(1));
-            this.q.l().setVisibility(0);
-            this.q.m(this.t);
-            this.q.x(8);
+            bVar.g(list.get(1));
+            this.q.m().setVisibility(0);
+            this.q.n(this.t);
+            this.q.y(8);
         }
         if (ListUtils.getCount(list) >= 3) {
             d.a.n0.e0.b bVar2 = new d.a.n0.e0.b();
             this.u = bVar2;
-            bVar2.l(list.get(2));
-            this.r.l().setVisibility(0);
-            this.r.m(this.u);
-            this.r.x(8);
+            bVar2.g(list.get(2));
+            this.r.m().setVisibility(0);
+            this.r.n(this.u);
+            this.r.y(8);
         }
     }
 
-    public void v(a aVar) {
+    public void w(a aVar) {
         this.x = aVar;
     }
 }

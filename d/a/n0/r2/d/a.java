@@ -5,17 +5,17 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f59967a;
+    public ArrayList<String> f63658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59968b;
+    public String f63659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59969c;
+    public String f63660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f59970d;
+    public ArrayList<String> f63661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59971e = false;
+    public boolean f63662e = false;
 }

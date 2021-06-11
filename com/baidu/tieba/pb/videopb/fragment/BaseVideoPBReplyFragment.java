@@ -7,11 +7,11 @@ import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import d.a.n0.e2.o.o.a;
 /* loaded from: classes5.dex */
 public abstract class BaseVideoPBReplyFragment extends BaseFragment {
-    public abstract PbActivity A();
+    public abstract PbModel A();
 
-    public abstract a D0();
+    public abstract PbActivity B();
 
-    public abstract VideoPbFragment w();
+    public abstract a G0();
 
-    public abstract PbModel z();
+    public abstract VideoPbFragment x();
 }

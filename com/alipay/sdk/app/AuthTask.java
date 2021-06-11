@@ -15,23 +15,23 @@ import java.util.Map;
 public class AuthTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f1734a = com.alipay.sdk.util.e.class;
+    public static final Object f1747a = com.alipay.sdk.util.e.class;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f1735b;
+    public Activity f1748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.alipay.sdk.widget.a f1736c;
+    public com.alipay.sdk.widget.a f1749c;
 
     public AuthTask(Activity activity) {
-        this.f1735b = activity;
-        com.alipay.sdk.sys.b.a().a(this.f1735b, com.alipay.sdk.data.c.b());
+        this.f1748b = activity;
+        com.alipay.sdk.sys.b.a().a(this.f1748b, com.alipay.sdk.data.c.b());
         com.alipay.sdk.app.statistic.a.a(activity);
-        this.f1736c = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f1999c);
+        this.f1749c = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f2012c);
     }
 
     private void b() {
-        com.alipay.sdk.widget.a aVar = this.f1736c;
+        com.alipay.sdk.widget.a aVar = this.f1749c;
         if (aVar != null) {
             aVar.b();
         }
@@ -39,7 +39,7 @@ public class AuthTask {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        com.alipay.sdk.widget.a aVar = this.f1736c;
+        com.alipay.sdk.widget.a aVar = this.f1749c;
         if (aVar != null) {
             aVar.c();
         }
@@ -51,19 +51,19 @@ public class AuthTask {
         if (z) {
             b();
         }
-        com.alipay.sdk.sys.b.a().a(this.f1735b, com.alipay.sdk.data.c.b());
+        com.alipay.sdk.sys.b.a().a(this.f1748b, com.alipay.sdk.data.c.b());
         c2 = j.c();
         i.a("");
         try {
-            c2 = a(this.f1735b, str);
-            com.alipay.sdk.data.a.g().a(this.f1735b);
+            c2 = a(this.f1748b, str);
+            com.alipay.sdk.data.a.g().a(this.f1748b);
             c();
-            activity = this.f1735b;
+            activity = this.f1748b;
         } catch (Exception e2) {
             com.alipay.sdk.util.c.a(e2);
-            com.alipay.sdk.data.a.g().a(this.f1735b);
+            com.alipay.sdk.data.a.g().a(this.f1748b);
             c();
-            activity = this.f1735b;
+            activity = this.f1748b;
         }
         com.alipay.sdk.app.statistic.a.b(activity, str);
         return c2;
@@ -78,14 +78,14 @@ public class AuthTask {
     }
 
     private String a(Activity activity, String str) {
-        String a2 = new com.alipay.sdk.sys.a(this.f1735b).a(str);
-        List<a.C0015a> f2 = com.alipay.sdk.data.a.g().f();
+        String a2 = new com.alipay.sdk.sys.a(this.f1748b).a(str);
+        List<a.C0016a> f2 = com.alipay.sdk.data.a.g().f();
         if (!com.alipay.sdk.data.a.g().q || f2 == null) {
-            f2 = i.f1787a;
+            f2 = i.f1800a;
         }
-        if (n.b(this.f1735b, f2)) {
+        if (n.b(this.f1748b, f2)) {
             String a3 = new com.alipay.sdk.util.e(activity, a()).a(a2);
-            if (!TextUtils.equals(a3, com.alipay.sdk.util.e.f1950a) && !TextUtils.equals(a3, com.alipay.sdk.util.e.f1951b)) {
+            if (!TextUtils.equals(a3, com.alipay.sdk.util.e.f1963a) && !TextUtils.equals(a3, com.alipay.sdk.util.e.f1964b)) {
                 return TextUtils.isEmpty(a3) ? j.c() : a3;
             }
             com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.O, "");
@@ -100,7 +100,7 @@ public class AuthTask {
         b();
         try {
             try {
-                List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(new com.alipay.sdk.packet.impl.a().a(activity, str).c().optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f1836d));
+                List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(new com.alipay.sdk.packet.impl.a().a(activity, str).c().optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f1849d));
                 c();
                 for (int i2 = 0; i2 < a2.size(); i2++) {
                     if (a2.get(i2).b() == com.alipay.sdk.protocol.a.WapPay) {
@@ -128,12 +128,12 @@ public class AuthTask {
         String[] c2 = bVar.c();
         Bundle bundle = new Bundle();
         bundle.putString("url", c2[0]);
-        Intent intent = new Intent(this.f1735b, H5AuthActivity.class);
+        Intent intent = new Intent(this.f1748b, H5AuthActivity.class);
         intent.putExtras(bundle);
-        this.f1735b.startActivity(intent);
-        synchronized (f1734a) {
+        this.f1748b.startActivity(intent);
+        synchronized (f1747a) {
             try {
-                f1734a.wait();
+                f1747a.wait();
             } catch (InterruptedException unused) {
                 return j.c();
             }

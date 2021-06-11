@@ -11,9 +11,9 @@ import d.a.m0.w.m;
 public class c extends m {
     public c(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
-        this.f50850d = R.drawable.icon_pure_post_voice_n_svg;
-        this.f50851e = R.drawable.icon_mask_post_voice24_selection_svg;
-        this.f50853g = true;
+        this.f54527d = R.drawable.icon_pure_post_voice_n_svg;
+        this.f54528e = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.f54530g = true;
         this.l = 6;
         this.m = true;
         this.k = VoiceRecordButton.w(context);

@@ -19,7 +19,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     /* loaded from: classes4.dex */
     public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
         public AlaFrsLiveListNoDataViewHolder(AlaFrsLiveListGatherNoDataTitleView alaFrsLiveListGatherNoDataTitleView) {
-            super(alaFrsLiveListGatherNoDataTitleView.l());
+            super(alaFrsLiveListGatherNoDataTitleView.m());
         }
     }
 
@@ -27,19 +27,19 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
         super(tbPageContext);
         this.p = 3;
         this.o = tbPageContext;
-        View l = l();
-        this.m = (TextView) l.findViewById(R.id.frs_game_live_recommand1);
-        this.n = (TextView) l.findViewById(R.id.frs_game_live_recommand2);
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        View m = m();
+        this.m = (TextView) m.findViewById(R.id.frs_game_live_recommand1);
+        this.n = (TextView) m.findViewById(R.id.frs_game_live_recommand2);
+        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.ala_frs_game_live_no_data_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.p != i2) {
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
@@ -53,8 +53,8 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(a aVar) {
-        n(this.o, TbadkCoreApplication.getInst().getSkinType());
+    /* renamed from: t */
+    public void n(a aVar) {
+        o(this.o, TbadkCoreApplication.getInst().getSkinType());
     }
 }

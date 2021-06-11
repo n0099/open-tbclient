@@ -16,27 +16,27 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f61398a;
+    public JSONObject f65111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f61399b;
+    public HttpMessageListener f65112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f61400c = BdUniqueId.gen();
+    public BdUniqueId f65113c = BdUniqueId.gen();
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f61401d = BdUniqueId.gen();
+    public BdUniqueId f65114d = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f61402e = new b(2000994);
+    public CustomMessageListener f65115e = new b(2000994);
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f61403f = new c(2921324);
+    public CustomMessageListener f65116f = new c(2921324);
 
     /* renamed from: d.a.n0.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1638a extends HttpMessageListener {
-        public C1638a(int i2) {
+    public class C1695a extends HttpMessageListener {
+        public C1695a(int i2) {
             super(i2);
         }
 
@@ -44,7 +44,7 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                a.this.f61398a = null;
+                a.this.f65111a = null;
             }
         }
     }
@@ -58,9 +58,9 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && a.this.f61398a != null) {
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && a.this.f65111a != null) {
                 a aVar = a.this;
-                aVar.h(aVar.f61398a, a.this.f61401d);
+                aVar.h(aVar.f65111a, a.this.f65114d);
             }
         }
     }
@@ -82,14 +82,14 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext) {
-        if (this.f61399b == null) {
-            this.f61399b = new C1638a(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
+        if (this.f65112b == null) {
+            this.f65112b = new C1695a(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
         }
-        MessageManager.getInstance().registerListener(this.f61399b);
-        MessageManager.getInstance().registerListener(this.f61402e);
-        this.f61403f.setTag(tbPageContext.getUniqueId());
-        this.f61403f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f61403f);
+        MessageManager.getInstance().registerListener(this.f65112b);
+        MessageManager.getInstance().registerListener(this.f65115e);
+        this.f65116f.setTag(tbPageContext.getUniqueId());
+        this.f65116f.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f65116f);
     }
 
     public final void f(JSONObject jSONObject) {
@@ -97,17 +97,17 @@ public class a {
             return;
         }
         if (j.A()) {
-            h(jSONObject, this.f61400c);
+            h(jSONObject, this.f65113c);
         } else {
-            this.f61398a = jSONObject;
+            this.f65111a = jSONObject;
         }
     }
 
     public void g() {
-        MessageManager.getInstance().unRegisterListener(this.f61399b);
-        MessageManager.getInstance().unRegisterListener(this.f61402e);
-        MessageManager.getInstance().unRegisterListener(this.f61403f);
-        this.f61398a = null;
+        MessageManager.getInstance().unRegisterListener(this.f65112b);
+        MessageManager.getInstance().unRegisterListener(this.f65115e);
+        MessageManager.getInstance().unRegisterListener(this.f65116f);
+        this.f65111a = null;
     }
 
     public final void h(JSONObject jSONObject, BdUniqueId bdUniqueId) {

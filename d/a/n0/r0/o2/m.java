@@ -12,62 +12,62 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsFragment f59330a;
+    public FrsFragment f63021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBarCoverTip f59331b;
+    public NavigationBarCoverTip f63022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59332c;
+    public TextView f63023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f59333d;
+    public int f63024d;
 
     public m(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
-        this.f59330a = frsFragment;
-        this.f59331b = navigationBarCoverTip;
+        this.f63021a = frsFragment;
+        this.f63022b = navigationBarCoverTip;
         b();
     }
 
     public void a(String str) {
         int i2;
         String str2;
-        if (d.a.c.e.p.k.isEmpty(str) || this.f59331b == null || !this.f59330a.isPrimary() || (i2 = this.f59333d) > 0) {
+        if (d.a.c.e.p.k.isEmpty(str) || this.f63022b == null || !this.f63021a.isPrimary() || (i2 = this.f63024d) > 0) {
             return;
         }
-        this.f59333d = i2 + 1;
+        this.f63024d = i2 + 1;
         if (str.length() < 20) {
-            str2 = this.f59330a.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
+            str2 = this.f63021a.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
         } else if (str.length() < 34) {
-            str2 = this.f59330a.getResources().getString(R.string.forum_ueg_tip) + str;
+            str2 = this.f63021a.getResources().getString(R.string.forum_ueg_tip) + str;
         } else {
-            str2 = this.f59330a.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
+            str2 = this.f63021a.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
         }
-        this.f59332c.setText(str2);
-        SkinManager.setViewTextColor(this.f59332c, R.color.CAM_X0101);
-        SkinManager.setBackgroundColor(this.f59331b, R.color.cp_link_tip_a_alpha95);
-        this.f59331b.m(this.f59330a.getActivity(), this.f59332c, 5000);
+        this.f63023c.setText(str2);
+        SkinManager.setViewTextColor(this.f63023c, R.color.CAM_X0101);
+        SkinManager.setBackgroundColor(this.f63022b, R.color.cp_link_tip_a_alpha95);
+        this.f63022b.m(this.f63021a.getActivity(), this.f63023c, 5000);
     }
 
     public final void b() {
-        this.f59333d = 0;
-        this.f59332c = new TextView(this.f59330a.getActivity());
-        this.f59332c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.f59330a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
+        this.f63024d = 0;
+        this.f63023c = new TextView(this.f63021a.getActivity());
+        this.f63023c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.f63021a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.f59332c.setPadding(this.f59330a.getResources().getDimensionPixelSize(R.dimen.ds34), this.f59330a.getResources().getDimensionPixelSize(R.dimen.ds1), this.f59330a.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-            this.f59332c.setGravity(3);
+            this.f63023c.setPadding(this.f63021a.getResources().getDimensionPixelSize(R.dimen.ds34), this.f63021a.getResources().getDimensionPixelSize(R.dimen.ds1), this.f63021a.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.f63023c.setGravity(3);
         } else {
-            this.f59332c.setPadding(this.f59330a.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.f59330a.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-            this.f59332c.setGravity(19);
+            this.f63023c.setPadding(this.f63021a.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.f63021a.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.f63023c.setGravity(19);
         }
-        this.f59332c.setTextSize(0, this.f59330a.getResources().getDimensionPixelSize(R.dimen.ds28));
-        this.f59332c.setLineSpacing(this.f59330a.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
-        this.f59332c.setMaxLines(2);
-        this.f59332c.setEllipsize(TextUtils.TruncateAt.END);
+        this.f63023c.setTextSize(0, this.f63021a.getResources().getDimensionPixelSize(R.dimen.ds28));
+        this.f63023c.setLineSpacing(this.f63021a.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+        this.f63023c.setMaxLines(2);
+        this.f63023c.setEllipsize(TextUtils.TruncateAt.END);
     }
 
     public void c() {
-        NavigationBarCoverTip navigationBarCoverTip = this.f59331b;
+        NavigationBarCoverTip navigationBarCoverTip = this.f63022b;
         if (navigationBarCoverTip != null) {
             navigationBarCoverTip.i();
         }

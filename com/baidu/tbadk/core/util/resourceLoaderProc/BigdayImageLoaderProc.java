@@ -13,7 +13,7 @@ import d.a.c.e.l.b;
 import d.a.c.e.l.d;
 import d.a.c.e.l.e;
 import d.a.c.e.p.j;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 /* loaded from: classes3.dex */
 public class BigdayImageLoaderProc implements e<a> {
     public static boolean isImageFileExist(String str) {
@@ -77,7 +77,7 @@ public class BigdayImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
         boolean H = j.H();
         if (d.a.c.e.a.d.g().a(cVar)) {
@@ -117,11 +117,11 @@ public class BigdayImageLoaderProc implements e<a> {
         }
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f38695a = webClient;
+            bVar.f42348a = webClient;
         }
         byte[] downloadImageBytes = webClient.downloadImageBytes(str, false);
         boolean needCache = webClient.needCache();
-        if ((downloadImageBytes != null || webClient.getResponse().f38641a) && needCache && !webClient.isCrackPic) {
+        if ((downloadImageBytes != null || webClient.getResponse().f42294a) && needCache && !webClient.isCrackPic) {
             c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
             cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.setData(downloadImageBytes);
@@ -132,7 +132,7 @@ public class BigdayImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(cVar);
-                bVar.f38695a = diskCancelWorker;
+                bVar.f42348a = diskCancelWorker;
             }
         }
         return null;

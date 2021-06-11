@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder;
 import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
 /* loaded from: classes4.dex */
-public class b extends d.a.c.j.e.a<d.a.n0.m0.z.b.c, ForumEmotionViewHolder> {
+public class b extends d.a.c.k.e.a<d.a.n0.m0.z.b.c, ForumEmotionViewHolder> {
     public TbPageContext m;
     public d.a.n0.m0.z.b.b n;
     public a o;
@@ -20,9 +20,9 @@ public class b extends d.a.c.j.e.a<d.a.n0.m0.z.b.c, ForumEmotionViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public ForumEmotionViewHolder P(ViewGroup viewGroup) {
+    public ForumEmotionViewHolder Q(ViewGroup viewGroup) {
         ForumEmotionItemView forumEmotionItemView = new ForumEmotionItemView(this.m);
         ForumEmotionViewHolder forumEmotionViewHolder = new ForumEmotionViewHolder(this.m, forumEmotionItemView);
         forumEmotionItemView.b(TbadkCoreApplication.getInst().getSkinType());
@@ -30,14 +30,14 @@ public class b extends d.a.c.j.e.a<d.a.n0.m0.z.b.c, ForumEmotionViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.m0.z.b.c cVar, ForumEmotionViewHolder forumEmotionViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.m0.z.b.c cVar, ForumEmotionViewHolder forumEmotionViewHolder) {
         forumEmotionViewHolder.m(cVar, this.n, this.o, i2);
         return forumEmotionViewHolder.a();
     }
 
-    public void g0(a aVar) {
+    public void h0(a aVar) {
         this.o = aVar;
     }
 }

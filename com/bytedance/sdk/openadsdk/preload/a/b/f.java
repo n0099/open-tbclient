@@ -5,7 +5,7 @@ import java.io.IOException;
 public abstract class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f29820a;
+    public static f f29923a;
 
     public abstract void a(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException;
 }

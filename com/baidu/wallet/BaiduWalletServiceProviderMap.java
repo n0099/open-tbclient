@@ -20,11 +20,11 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BaiduWalletServiceProviderMap f22935a = new BaiduWalletServiceProviderMap();
+        public static final BaiduWalletServiceProviderMap f23038a = new BaiduWalletServiceProviderMap();
     }
 
     public static final BaiduWalletServiceProviderMap getInstance() {
-        return a.f22935a;
+        return a.f23038a;
     }
 
     private void initMaps() {

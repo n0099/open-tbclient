@@ -17,35 +17,35 @@ import d.a.l0.a.k;
 import d.a.l0.a.v2.q0;
 /* loaded from: classes3.dex */
 public class SwanAppAudioClient {
-    public static final boolean n = k.f43199a;
+    public static final boolean n = k.f46875a;
     public static final String o = AppRuntime.getAppContext().getPackageName();
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10810a;
+    public Context f10872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IAudioService f10811b;
+    public IAudioService f10873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10812c;
+    public boolean f10874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f10813d;
+    public boolean f10875d;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f10816g;
+    public c f10878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f10817h;
+    public d f10879h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10818i;
+    public String f10880i;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10814e = "";
+    public String f10876e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f10815f = true;
+    public boolean f10877f = true;
     public boolean j = false;
     public ServiceConnection k = new a();
     public final IAudioListener l = new IAudioListener.Stub() { // from class: com.baidu.swan.apps.media.audio.SwanAppAudioClient.2
@@ -55,16 +55,16 @@ public class SwanAppAudioClient {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Message f10819e;
+            public final /* synthetic */ Message f10881e;
 
             public a(Message message) {
-                this.f10819e = message;
+                this.f10881e = message;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (SwanAppAudioClient.this.f10816g != null) {
-                    SwanAppAudioClient.this.f10816g.a(this.f10819e);
+                if (SwanAppAudioClient.this.f10878g != null) {
+                    SwanAppAudioClient.this.f10878g.a(this.f10881e);
                 }
             }
         }
@@ -86,16 +86,16 @@ public class SwanAppAudioClient {
             if (SwanAppAudioClient.n) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("onChangeSrc() ");
-                sb.append((SwanAppAudioClient.this.f10815f || TextUtils.equals(str, SwanAppAudioClient.this.f10818i)) ? false : true);
+                sb.append((SwanAppAudioClient.this.f10877f || TextUtils.equals(str, SwanAppAudioClient.this.f10880i)) ? false : true);
                 Log.d("SwanAppAudioClient", sb.toString());
             }
-            if (SwanAppAudioClient.this.f10815f || TextUtils.equals(str, SwanAppAudioClient.this.f10818i)) {
+            if (SwanAppAudioClient.this.f10877f || TextUtils.equals(str, SwanAppAudioClient.this.f10880i)) {
                 return;
             }
             dispatchAudioEvent(1004);
             SwanAppAudioClient swanAppAudioClient = SwanAppAudioClient.this;
-            swanAppAudioClient.D(swanAppAudioClient.f10810a);
-            SwanAppAudioClient.this.f10811b.unregisterListener(SwanAppAudioClient.this.l);
+            swanAppAudioClient.D(swanAppAudioClient.f10872a);
+            SwanAppAudioClient.this.f10873b.unregisterListener(SwanAppAudioClient.this.l);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
@@ -176,12 +176,12 @@ public class SwanAppAudioClient {
                 Log.d("SwanAppAudioClient", "onStop() ");
             }
             dispatchAudioEvent(1004);
-            if (SwanAppAudioClient.this.f10815f) {
+            if (SwanAppAudioClient.this.f10877f) {
                 return;
             }
             SwanAppAudioClient swanAppAudioClient = SwanAppAudioClient.this;
-            swanAppAudioClient.D(swanAppAudioClient.f10810a);
-            SwanAppAudioClient.this.f10811b.unregisterListener(SwanAppAudioClient.this.l);
+            swanAppAudioClient.D(swanAppAudioClient.f10872a);
+            SwanAppAudioClient.this.f10873b.unregisterListener(SwanAppAudioClient.this.l);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
@@ -216,9 +216,9 @@ public class SwanAppAudioClient {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                SwanAppAudioClient.this.f10813d = true;
-                SwanAppAudioClient.this.f10811b = IAudioService.Stub.asInterface(iBinder);
-                SwanAppAudioClient.this.f10811b.registerListener(SwanAppAudioClient.this.l);
+                SwanAppAudioClient.this.f10875d = true;
+                SwanAppAudioClient.this.f10873b = IAudioService.Stub.asInterface(iBinder);
+                SwanAppAudioClient.this.f10873b.registerListener(SwanAppAudioClient.this.l);
                 iBinder.linkToDeath(SwanAppAudioClient.this.m, 0);
                 SwanAppAudioClient.this.q();
             } catch (RemoteException e2) {
@@ -227,8 +227,8 @@ public class SwanAppAudioClient {
                     e2.printStackTrace();
                 }
             }
-            if (SwanAppAudioClient.this.f10817h != null) {
-                SwanAppAudioClient.this.f10817h.onServiceConnected(componentName, iBinder);
+            if (SwanAppAudioClient.this.f10879h != null) {
+                SwanAppAudioClient.this.f10879h.onServiceConnected(componentName, iBinder);
             }
         }
 
@@ -236,9 +236,9 @@ public class SwanAppAudioClient {
         public void onServiceDisconnected(ComponentName componentName) {
             try {
                 try {
-                    SwanAppAudioClient.this.f10813d = false;
-                    if (SwanAppAudioClient.this.f10811b != null) {
-                        SwanAppAudioClient.this.f10811b.unregisterListener(SwanAppAudioClient.this.l);
+                    SwanAppAudioClient.this.f10875d = false;
+                    if (SwanAppAudioClient.this.f10873b != null) {
+                        SwanAppAudioClient.this.f10873b.unregisterListener(SwanAppAudioClient.this.l);
                     }
                 } catch (RemoteException e2) {
                     d.a.l0.a.e0.d.b("backgroundAudio", e2.toString());
@@ -246,11 +246,11 @@ public class SwanAppAudioClient {
                         e2.printStackTrace();
                     }
                 }
-                if (SwanAppAudioClient.this.f10817h != null) {
-                    SwanAppAudioClient.this.f10817h.onServiceDisconnected(componentName);
+                if (SwanAppAudioClient.this.f10879h != null) {
+                    SwanAppAudioClient.this.f10879h.onServiceDisconnected(componentName);
                 }
             } finally {
-                SwanAppAudioClient.this.f10811b = null;
+                SwanAppAudioClient.this.f10873b = null;
             }
         }
     }
@@ -265,15 +265,15 @@ public class SwanAppAudioClient {
             if (SwanAppAudioClient.n) {
                 Log.d("SwanAppAudioClient", "binderDied()");
             }
-            if (SwanAppAudioClient.this.f10811b == null) {
+            if (SwanAppAudioClient.this.f10873b == null) {
                 return;
             }
-            SwanAppAudioClient.this.f10811b.asBinder().unlinkToDeath(SwanAppAudioClient.this.m, 0);
-            SwanAppAudioClient.this.f10811b = null;
-            SwanAppAudioClient.this.f10812c = false;
-            SwanAppAudioClient.this.f10813d = false;
+            SwanAppAudioClient.this.f10873b.asBinder().unlinkToDeath(SwanAppAudioClient.this.m, 0);
+            SwanAppAudioClient.this.f10873b = null;
+            SwanAppAudioClient.this.f10874c = false;
+            SwanAppAudioClient.this.f10875d = false;
             SwanAppAudioClient swanAppAudioClient = SwanAppAudioClient.this;
-            swanAppAudioClient.p(swanAppAudioClient.f10810a);
+            swanAppAudioClient.p(swanAppAudioClient.f10872a);
         }
     }
 
@@ -290,24 +290,24 @@ public class SwanAppAudioClient {
     }
 
     public SwanAppAudioClient(Context context) {
-        this.f10810a = context;
+        this.f10872a = context;
     }
 
     public void A(c cVar) {
-        this.f10816g = cVar;
+        this.f10878g = cVar;
     }
 
     public void B() {
         Intent intent = new Intent("com.baidu.swan.apps.action.AUDIO_SERVICE");
         intent.setPackage(o);
-        this.f10810a.startService(intent);
+        this.f10872a.startService(intent);
     }
 
     public void C() {
         try {
-            if (this.f10812c && this.f10813d) {
-                this.f10811b.stop();
-                D(this.f10810a);
+            if (this.f10874c && this.f10875d) {
+                this.f10873b.stop();
+                D(this.f10872a);
                 this.j = true;
             }
         } catch (RemoteException e2) {
@@ -319,8 +319,8 @@ public class SwanAppAudioClient {
     }
 
     public final void D(Context context) {
-        if (this.f10812c) {
-            this.f10812c = false;
+        if (this.f10874c) {
+            this.f10874c = false;
             context.unbindService(this.k);
             if (n) {
                 Log.d("SwanAppAudioClient", "unbindService()");
@@ -329,10 +329,10 @@ public class SwanAppAudioClient {
     }
 
     public final void p(Context context) {
-        if (this.f10812c) {
+        if (this.f10874c) {
             return;
         }
-        this.f10812c = true;
+        this.f10874c = true;
         Intent intent = new Intent("com.baidu.swan.apps.action.AUDIO_SERVICE");
         intent.setPackage(o);
         context.bindService(intent, this.k, 1);
@@ -343,8 +343,8 @@ public class SwanAppAudioClient {
 
     public final void q() {
         try {
-            if (this.f10812c && this.f10813d) {
-                this.f10811b.setParams(this.f10814e);
+            if (this.f10874c && this.f10875d) {
+                this.f10873b.setParams(this.f10876e);
             }
         } catch (RemoteException e2) {
             d.a.l0.a.e0.d.b("backgroundAudio", e2.toString());
@@ -356,8 +356,8 @@ public class SwanAppAudioClient {
 
     public int r() {
         try {
-            if (this.f10812c && this.f10813d && this.f10811b != null) {
-                return this.f10811b.getDuration();
+            if (this.f10874c && this.f10875d && this.f10873b != null) {
+                return this.f10873b.getDuration();
             }
             return -1;
         } catch (RemoteException e2) {
@@ -372,8 +372,8 @@ public class SwanAppAudioClient {
 
     public boolean s() {
         try {
-            if (this.f10812c && this.f10813d) {
-                return this.f10811b.isPlaying();
+            if (this.f10874c && this.f10875d) {
+                return this.f10873b.isPlaying();
             }
             return false;
         } catch (RemoteException e2) {
@@ -387,13 +387,13 @@ public class SwanAppAudioClient {
     }
 
     public void t(boolean z) {
-        this.f10815f = z;
+        this.f10877f = z;
     }
 
     public void u() {
         try {
-            if (this.f10812c && this.f10813d) {
-                this.f10811b.pause();
+            if (this.f10874c && this.f10875d) {
+                this.f10873b.pause();
             }
         } catch (RemoteException e2) {
             d.a.l0.a.e0.d.b("backgroundAudio", e2.toString());
@@ -404,11 +404,11 @@ public class SwanAppAudioClient {
     }
 
     public void v(String str, String str2) {
-        this.f10814e = str;
-        this.f10818i = str2;
+        this.f10876e = str;
+        this.f10880i = str2;
         B();
-        if (!this.f10812c) {
-            p(this.f10810a);
+        if (!this.f10874c) {
+            p(this.f10872a);
         } else {
             q();
         }
@@ -417,14 +417,14 @@ public class SwanAppAudioClient {
 
     public void w() {
         x();
-        D(this.f10810a);
+        D(this.f10872a);
         this.j = false;
     }
 
     public final void x() {
         try {
-            if (this.f10812c && this.f10813d) {
-                this.f10811b.release();
+            if (this.f10874c && this.f10875d) {
+                this.f10873b.release();
             }
         } catch (RemoteException e2) {
             d.a.l0.a.e0.d.b("backgroundAudio", e2.toString());
@@ -436,10 +436,10 @@ public class SwanAppAudioClient {
 
     public void y() {
         try {
-            if (this.f10812c && this.f10813d) {
-                this.f10811b.play();
+            if (this.f10874c && this.f10875d) {
+                this.f10873b.play();
             } else if (!this.j) {
-                v(this.f10814e, this.f10818i);
+                v(this.f10876e, this.f10880i);
             }
         } catch (RemoteException e2) {
             d.a.l0.a.e0.d.b("backgroundAudio", e2.toString());
@@ -451,8 +451,8 @@ public class SwanAppAudioClient {
 
     public void z(int i2) {
         try {
-            if (this.f10812c && this.f10813d) {
-                this.f10811b.seek(i2);
+            if (this.f10874c && this.f10875d) {
+                this.f10873b.seek(i2);
             }
         } catch (RemoteException e2) {
             d.a.l0.a.e0.d.b("backgroundAudio", e2.toString());

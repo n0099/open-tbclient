@@ -11,11 +11,11 @@ public class BaiduLBSPay {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduLBSPay f2566a = new BaiduLBSPay();
+        public static BaiduLBSPay f2585a = new BaiduLBSPay();
     }
 
     public static BaiduLBSPay getInstance() {
-        return a.f2566a;
+        return a.f2585a;
     }
 
     public void doCallFrontCashierPay(Activity activity, GetPayOrderListener getPayOrderListener, LBSPayBack lBSPayBack, Map<String, String> map, String str) {

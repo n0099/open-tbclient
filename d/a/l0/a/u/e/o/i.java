@@ -15,21 +15,21 @@ public class i extends d.a.l0.a.u.c.d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f45167e;
+        public final /* synthetic */ int f48841e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45168f;
+        public final /* synthetic */ String f48842f;
 
         public a(int i2, String str) {
-            this.f45167e = i2;
-            this.f45168f = str;
+            this.f48841e = i2;
+            this.f48842f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             View b2 = d.a.l0.a.z1.b.a.b();
             LinearLayout c2 = d.a.l0.a.z1.b.a.c();
-            int i2 = this.f45167e;
+            int i2 = this.f48841e;
             if (i2 == -90) {
                 if (b2 != null) {
                     b2.setVisibility(8);
@@ -60,8 +60,8 @@ public class i extends d.a.l0.a.u.c.d {
                 d.a.l0.a.z1.b.a.k(true);
                 i.v(0);
             }
-            k.e().t(this.f45167e);
-            i.this.d(this.f45168f, new d.a.l0.a.u.h.b(0));
+            k.e().t(this.f48841e);
+            i.this.d(this.f48842f, new d.a.l0.a.u.h.b(0));
         }
     }
 
@@ -101,13 +101,13 @@ public class i extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b x(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-FullScreenApi", "start set full screen");
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-FullScreenApi", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-FullScreenApi", "parse fail");
             }
             return bVar;

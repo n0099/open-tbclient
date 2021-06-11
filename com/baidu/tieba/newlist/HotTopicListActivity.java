@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.b2.b;
 import java.util.List;
 /* loaded from: classes4.dex */

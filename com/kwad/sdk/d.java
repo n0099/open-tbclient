@@ -2,23 +2,23 @@ package com.kwad.sdk;
 
 import android.text.TextUtils;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
-import com.kwad.sdk.plugin.f;
-/* loaded from: classes6.dex */
+import com.kwad.sdk.plugin.g;
+/* loaded from: classes5.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f33038a;
+    public static final int f35162a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f33039b;
+    public static String f35163b;
 
     static {
-        f33038a = b.f31818a.booleanValue() ? 1 : 2;
-        f33039b = "kwrules.csv";
+        f35162a = a.f32183a.booleanValue() ? 1 : 2;
+        f35163b = "kwrules.csv";
     }
 
     public static String a() {
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) f.a(DevelopMangerPlugin.class)).a("KEY_HOST_API");
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) g.a(DevelopMangerPlugin.class)).a("KEY_HOST_API");
         if (a2 != null) {
             String obj = a2.getValue().toString();
             if (!TextUtils.isEmpty(obj)) {
@@ -33,26 +33,74 @@ public class d {
     }
 
     public static String c() {
-        return a() + "/rest/e/v3/open/logBatch";
+        return a() + "/rest/e/v3/open/feed";
     }
 
     public static String d() {
-        return a() + "/rest/e/v3/open/config";
+        return a() + "/rest/e/v3/open/logBatch";
     }
 
     public static String e() {
-        return a() + "/rest/e/v3/open/mediaPlayerLog";
+        return a() + "/rest/e/v3/open/config";
     }
 
     public static String f() {
-        return a() + "/rest/e/v3/open/crashLog";
+        return a() + "/rest/e/v3/open/share";
     }
 
     public static String g() {
-        return a() + "/rest/e/v3/open/appCheck";
+        return a() + "/rest/e/v3/open/comment";
     }
 
     public static String h() {
-        return a() + "/rest/e/v3/open/collect";
+        return a() + "/rest/e/v3/open/trend/list";
+    }
+
+    public static String i() {
+        return a() + "/rest/e/v3/open/trend/feed";
+    }
+
+    public static String j() {
+        return a() + "/rest/e/v3/open/mediaPlayerLog";
+    }
+
+    public static String k() {
+        return a() + "/rest/e/v3/open/user/profile";
+    }
+
+    public static String l() {
+        return a() + "/rest/e/v3/open/user/feed";
+    }
+
+    public static String m() {
+        return a() + "/rest/e/v3/open/live/status";
+    }
+
+    public static String n() {
+        return a() + "/rest/e/v3/open/live/share";
+    }
+
+    public static String o() {
+        return a() + "/rest/e/v3/open/tube/profile";
+    }
+
+    public static String p() {
+        return a() + "/rest/e/v3/open/tube/feed";
+    }
+
+    public static String q() {
+        return a() + "/rest/e/v3/open/crashLog";
+    }
+
+    public static String r() {
+        return a() + "/rest/e/v3/open/suggest/feed";
+    }
+
+    public static String s() {
+        return "https://zt.gifshow.com/rest/zt/emoticon/package/list";
+    }
+
+    public static String t() {
+        return a() + "/rest/e/v3/open/appCheck";
     }
 }

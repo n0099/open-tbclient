@@ -5,22 +5,22 @@ import androidx.collection.ArraySet;
 import d.a.l0.a.a1.e;
 import d.a.l0.a.k;
 import d.a.l0.a.v2.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f43620a = {d.a.l0.a.k2.b.w(), d.a.l0.a.k2.b.y(), d.a.l0.a.h0.o.h.d.a.c()};
+    public final String[] f47296a = {d.a.l0.a.k2.b.w(), d.a.l0.a.k2.b.y(), d.a.l0.a.h0.o.h.d.a.c()};
 
     @Override // d.a.l0.a.n0.j.d.a
     public ArraySet<String> a() {
         ArraySet<String> arraySet = new ArraySet<>();
-        for (String str : this.f43620a) {
+        for (String str : this.f47296a) {
             String J = d.a.l0.t.d.J(str);
             if (!TextUtils.isEmpty(J)) {
                 arraySet.add(J);
             }
         }
-        if (k.f43199a) {
+        if (k.f46875a) {
             b(arraySet);
         }
         d.a.l0.a.e0.d.h("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());

@@ -8,80 +8,80 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f65968a = null;
+    public static Context f69699a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f65969b = 0;
+    public static long f69700b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f65970c = "default";
+    public static String f69701c = "default";
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f65971d = false;
+    public static boolean f69702d = false;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: e  reason: collision with root package name */
-    public static d.b.d.b.h.b f65972e;
+    public static d.b.d.b.h.b f69703e;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile ConcurrentHashMap<Integer, String> f65975h;
+    public static volatile ConcurrentHashMap<Integer, String> f69706h;
     public static volatile int j;
     public static volatile String k;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f65973f = new c();
+    public static c f69704f = new c();
 
     /* renamed from: g  reason: collision with root package name */
-    public static d f65974g = new d();
+    public static d f69705g = new d();
 
     /* renamed from: i  reason: collision with root package name */
-    public static d.b.d.b.h.k f65976i = null;
+    public static d.b.d.b.h.k f69707i = null;
 
     public static d.b.d.b.h.b a() {
-        return f65972e;
+        return f69703e;
     }
 
     public static void b(Context context, g gVar) {
-        f65969b = System.currentTimeMillis();
-        f65968a = context;
-        f65972e = new d.b.d.b.h.b(context, gVar);
+        f69700b = System.currentTimeMillis();
+        f69699a = context;
+        f69703e = new d.b.d.b.h.b(context, gVar);
     }
 
     public static d c() {
-        return f65974g;
+        return f69705g;
     }
 
     public static d.b.d.b.h.k d() {
-        if (f65976i == null) {
+        if (f69707i == null) {
             synchronized (m.class) {
-                f65976i = new d.b.d.b.h.k(f65968a);
+                f69707i = new d.b.d.b.h.k(f69699a);
             }
         }
-        return f65976i;
+        return f69707i;
     }
 
     public static Context e() {
-        return f65968a;
+        return f69699a;
     }
 
     public static c f() {
-        return f65973f;
+        return f69704f;
     }
 
     public static long g() {
-        return f65969b;
+        return f69700b;
     }
 
     public static String h() {
-        return f65970c;
+        return f69701c;
     }
 
     public static boolean i() {
-        return f65971d;
+        return f69702d;
     }
 
     public static ConcurrentHashMap<Integer, String> j() {
-        return f65975h;
+        return f69706h;
     }
 
     public static int k() {

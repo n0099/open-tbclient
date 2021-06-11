@@ -39,16 +39,16 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11870e;
+        public final /* synthetic */ String f11932e;
 
         public b(String str) {
-            this.f11870e = str;
+            this.f11932e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             if (TraceInfoActivity.this.mTraceInfo != null) {
-                TraceInfoActivity.this.mTraceInfo.setText(this.f11870e);
+                TraceInfoActivity.this.mTraceInfo.setText(this.f11932e);
             }
         }
     }

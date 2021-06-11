@@ -20,7 +20,7 @@ public final class MaybeDoFinally<T> extends AbstractMaybeWithUpstream<T, T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68971d;
+        public Disposable f72280d;
         public final Action onFinally;
 
         public DoFinallyObserver(MaybeObserver<? super T> maybeObserver, Action action) {
@@ -30,13 +30,13 @@ public final class MaybeDoFinally<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68971d.dispose();
+            this.f72280d.dispose();
             runFinally();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68971d.isDisposed();
+            return this.f72280d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -53,8 +53,8 @@ public final class MaybeDoFinally<T> extends AbstractMaybeWithUpstream<T, T> {
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68971d, disposable)) {
-                this.f68971d = disposable;
+            if (DisposableHelper.validate(this.f72280d, disposable)) {
+                this.f72280d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

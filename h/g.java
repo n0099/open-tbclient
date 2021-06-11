@@ -2,10 +2,10 @@ package h;
 
 import java.util.concurrent.TimeUnit;
 import rx.internal.schedulers.SchedulerWhen;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class g {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a implements k {
         public long a() {
             return System.currentTimeMillis();

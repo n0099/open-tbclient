@@ -16,7 +16,7 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<DecodeHintType, Object> f58344a = new EnumMap(DecodeHintType.class);
+    public static final Map<DecodeHintType, Object> f62035a = new EnumMap(DecodeHintType.class);
 
     static {
         ArrayList arrayList = new ArrayList();
@@ -24,9 +24,9 @@ public class a {
         arrayList.add(BarcodeFormat.AZTEC);
         arrayList.add(BarcodeFormat.DATA_MATRIX);
         arrayList.add(BarcodeFormat.PDF_417);
-        f58344a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        f58344a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        f58344a.put(DecodeHintType.CHARACTER_SET, "utf-8");
+        f62035a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        f62035a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        f62035a.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
     public static Bitmap a(String str) {
@@ -60,13 +60,13 @@ public class a {
             rGBLuminanceSource = null;
         }
         try {
-            return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), f58344a).getText();
+            return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), f62035a).getText();
         } catch (Exception e3) {
             e = e3;
             e.printStackTrace();
             if (rGBLuminanceSource != null) {
                 try {
-                    return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), f58344a).getText();
+                    return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), f62035a).getText();
                 } catch (Throwable th) {
                     th.printStackTrace();
                     return null;

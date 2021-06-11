@@ -2,6 +2,7 @@ package com.baidu.android.pushservice.j;
 
 import android.util.Base64;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -49,14 +50,14 @@ public class k {
 
     public static byte[] a(byte[] bArr, String str) throws Exception {
         PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(1, generatePublic);
         return cipher.doFinal(bArr);
     }
 
     public static byte[] b(byte[] bArr, String str) throws Exception {
         PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str, 2)));
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(2, generatePrivate);
         return cipher.doFinal(bArr);
     }

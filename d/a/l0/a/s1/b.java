@@ -14,38 +14,38 @@ import d.a.l0.a.z1.b.b.f;
 public final class b implements g.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f44668a = false;
+    public boolean f48342a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44669b = false;
+    public boolean f48343b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44670c = false;
+    public boolean f48344c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f44671d;
+    public final int f48345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f44672e;
+    public final f f48346e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f44673f;
+    public final Context f48347f;
 
     /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44674e;
+        public final /* synthetic */ String f48348e;
 
         public a(String str) {
-            this.f44674e = str;
+            this.f48348e = str;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            if (b.this.f44668a) {
-                if (!b.this.f44669b) {
-                    b.this.h(this.f44674e, i2, dialogInterface);
+            if (b.this.f48342a) {
+                if (!b.this.f48343b) {
+                    b.this.h(this.f48348e, i2, dialogInterface);
                 } else {
                     dialogInterface.dismiss();
                 }
@@ -55,18 +55,18 @@ public final class b implements g.a {
 
     /* renamed from: d.a.l0.a.s1.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnClickListenerC0819b implements DialogInterface.OnClickListener {
+    public class DialogInterface$OnClickListenerC0875b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44676e;
+        public final /* synthetic */ String f48350e;
 
-        public DialogInterface$OnClickListenerC0819b(String str) {
-            this.f44676e = str;
+        public DialogInterface$OnClickListenerC0875b(String str) {
+            this.f48350e = str;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            b.this.i(this.f44676e, i2, dialogInterface);
+            b.this.i(this.f48350e, i2, dialogInterface);
         }
     }
 
@@ -74,15 +74,15 @@ public final class b implements g.a {
     public class c implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44678e;
+        public final /* synthetic */ String f48352e;
 
         public c(String str) {
-            this.f44678e = str;
+            this.f48352e = str;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            b.this.h(this.f44678e, i2, dialogInterface);
+            b.this.h(this.f48352e, i2, dialogInterface);
         }
     }
 
@@ -93,7 +93,7 @@ public final class b implements g.a {
 
         @Override // android.content.DialogInterface.OnShowListener
         public void onShow(DialogInterface dialogInterface) {
-            b.this.f44668a = true;
+            b.this.f48342a = true;
             b.this.j("show");
         }
     }
@@ -102,27 +102,27 @@ public final class b implements g.a {
     public class e implements DialogInterface.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44681e;
+        public final /* synthetic */ String f48355e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f44682f;
+        public final /* synthetic */ f f48356f;
 
         public e(String str, f fVar) {
-            this.f44681e = str;
-            this.f44682f = fVar;
+            this.f48355e = str;
+            this.f48356f = fVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
-            b.this.p(this.f44681e, this.f44682f);
-            b.this.f44668a = false;
+            b.this.p(this.f48355e, this.f48356f);
+            b.this.f48342a = false;
         }
     }
 
     public b(Context context, int i2, @NonNull f fVar) {
-        this.f44673f = context;
-        this.f44671d = i2;
-        this.f44672e = fVar;
+        this.f48347f = context;
+        this.f48345d = i2;
+        this.f48346e = fVar;
     }
 
     public final void h(String str, int i2, DialogInterface dialogInterface) {
@@ -144,21 +144,21 @@ public final class b implements g.a {
         } else {
             j(FreeSpaceBox.TYPE);
         }
-        this.f44669b = true;
+        this.f48343b = true;
         dialogInterface.dismiss();
-        a0.g(this.f44673f);
+        a0.g(this.f48347f);
     }
 
     public final void j(String str) {
         d.a.l0.a.a2.d g2 = d.a.l0.a.a2.d.g();
         String appId = g2.getAppId();
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43190f = appId;
-        eVar.f43185a = "swan";
-        eVar.f43187c = d.a.l0.a.s1.c.a(this.f44671d);
-        eVar.f43191g = "minipnl";
-        eVar.f43186b = str;
-        eVar.f43189e = d.a.l0.a.s1.c.b(this.f44670c);
+        eVar.f46866f = appId;
+        eVar.f46861a = "swan";
+        eVar.f46863c = d.a.l0.a.s1.c.a(this.f48345d);
+        eVar.f46867g = "minipnl";
+        eVar.f46862b = str;
+        eVar.f46865e = d.a.l0.a.s1.c.b(this.f48344c);
         eVar.a("appid", appId);
         eVar.a("appname", g2.r().O());
         eVar.a("host", d.a.l0.a.c1.a.m().a());
@@ -190,42 +190,42 @@ public final class b implements g.a {
         aVar.i0(new e(str4, fVar));
         aVar.j0(new d());
         aVar.g0(new c(str3));
-        aVar.k0(new DialogInterface$OnClickListenerC0819b(str3));
+        aVar.k0(new DialogInterface$OnClickListenerC0875b(str3));
         aVar.h0(new a(str3));
         return aVar.c();
     }
 
     @Override // d.a.l0.a.s1.g.a
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (i2 != this.f44671d) {
-            this.f44672e.b(2, "request permission fail");
+        if (i2 != this.f48345d) {
+            this.f48346e.b(2, "request permission fail");
         } else if (strArr.length == 0 && iArr.length == 0) {
-            this.f44672e.a("permission granted successful");
+            this.f48346e.a("permission granted successful");
         } else if (strArr.length != iArr.length) {
-            this.f44672e.b(2, "request permission fail");
-        } else if (!(this.f44673f instanceof SwanAppBaseActivity)) {
-            this.f44672e.b(2, "request permission fail");
+            this.f48346e.b(2, "request permission fail");
+        } else if (!(this.f48347f instanceof SwanAppBaseActivity)) {
+            this.f48346e.b(2, "request permission fail");
         } else {
             for (int i3 = 0; i3 < iArr.length; i3++) {
                 String str = strArr[i3];
                 if (iArr[i3] == -1) {
-                    if (!d.a.l0.o.a.a.a.k((SwanAppBaseActivity) this.f44673f, str)) {
-                        q(str, this.f44672e);
+                    if (!d.a.l0.o.a.a.a.k((SwanAppBaseActivity) this.f48347f, str)) {
+                        q(str, this.f48346e);
                         return;
                     } else {
-                        this.f44672e.b(1, "user denied");
+                        this.f48346e.b(1, "user denied");
                         return;
                     }
                 }
             }
-            this.f44672e.a("permission granted successful");
+            this.f48346e.a("permission granted successful");
         }
     }
 
     public final void p(String str, f fVar) {
-        Context context = this.f44673f;
+        Context context = this.f48347f;
         boolean z = context != null && d.a.l0.u.d.c.a(context, str);
-        this.f44670c = z;
+        this.f48344c = z;
         if (z) {
             fVar.a("permission granted successful");
         } else {
@@ -234,21 +234,21 @@ public final class b implements g.a {
     }
 
     public final void q(String str, f fVar) {
-        if (!(this.f44673f instanceof SwanAppBaseActivity)) {
-            this.f44672e.b(2, "request permission fail");
+        if (!(this.f48347f instanceof SwanAppBaseActivity)) {
+            this.f48346e.b(2, "request permission fail");
             return;
         }
         String l = l(str);
         if (k(l)) {
-            this.f44672e.b(2, "request permission fail");
+            this.f48346e.b(2, "request permission fail");
             return;
         }
         String n = a0.n(str);
         if (n != null && n.trim().length() != 0) {
-            o(this.f44673f, n(n), m(n), l, str, fVar).show();
+            o(this.f48347f, n(n), m(n), l, str, fVar).show();
             return;
         }
-        this.f44672e.b(2, "request permission fail");
+        this.f48346e.b(2, "request permission fail");
     }
 
     public final void r(String str, boolean z) {
@@ -258,6 +258,6 @@ public final class b implements g.a {
     }
 
     public g.a s() {
-        return new d.a.l0.a.s1.a(this.f44671d, this.f44672e);
+        return new d.a.l0.a.s1.a(this.f48345d, this.f48346e);
     }
 }

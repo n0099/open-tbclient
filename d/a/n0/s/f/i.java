@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class i extends BdAsyncTask<Void, Void, Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f60376a;
+    public a f64065a;
 
     public i(a aVar) {
-        this.f60376a = aVar;
+        this.f64065a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        if (f.f().b(this.f60376a)) {
+        if (f.f().b(this.f64065a)) {
             return null;
         }
         d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();

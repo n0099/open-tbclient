@@ -22,7 +22,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultRequestDirector implements RequestDirector {
     public final ClientConnectionManager connManager;
     public final HttpProcessor httpProcessor;

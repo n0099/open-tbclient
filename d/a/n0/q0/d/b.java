@@ -28,18 +28,18 @@ public class b extends d.a.n0.z.b<d.a.n0.q0.c.a> {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f58292a;
+        public View f61983a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f58293b;
+        public TextView f61984b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f58294c;
+        public ImageView f61985c;
 
         /* renamed from: d.a.n0.q0.d.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnLongClickListenerC1480a implements View.OnLongClickListener {
-            public View$OnLongClickListenerC1480a(b bVar) {
+        public class View$OnLongClickListenerC1536a implements View.OnLongClickListener {
+            public View$OnLongClickListenerC1536a(b bVar) {
             }
 
             @Override // android.view.View.OnLongClickListener
@@ -56,16 +56,16 @@ public class b extends d.a.n0.z.b<d.a.n0.q0.c.a> {
 
         /* renamed from: d.a.n0.q0.d.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC1481b implements View.OnClickListener {
-            public View$OnClickListenerC1481b(b bVar) {
+        public class View$OnClickListenerC1537b implements View.OnClickListener {
+            public View$OnClickListenerC1537b(b bVar) {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.f58293b.getText() == null || StringUtils.isNull(a.this.f58293b.getText().toString())) {
+                if (a.this.f61984b.getText() == null || StringUtils.isNull(a.this.f61984b.getText().toString())) {
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921021, a.this.f58293b.getText().toString()));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921021, a.this.f61984b.getText().toString()));
             }
         }
 
@@ -76,42 +76,42 @@ public class b extends d.a.n0.z.b<d.a.n0.q0.c.a> {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.f58293b.getText() == null) {
+                if (a.this.f61984b.getText() == null) {
                     return;
                 }
-                e.b(a.this.f58293b.getText().toString());
+                e.b(a.this.f61984b.getText().toString());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
             }
         }
 
         public a() {
             View inflate = LayoutInflater.from(b.this.k().getPageActivity()).inflate(R.layout.forum_search_history_info_item, (ViewGroup) null);
-            this.f58292a = inflate;
-            this.f58293b = (TextView) inflate.findViewById(R.id.content);
-            this.f58294c = (ImageView) this.f58292a.findViewById(R.id.delete);
+            this.f61983a = inflate;
+            this.f61984b = (TextView) inflate.findViewById(R.id.content);
+            this.f61985c = (ImageView) this.f61983a.findViewById(R.id.delete);
             c();
-            this.f58293b.setOnLongClickListener(new View$OnLongClickListenerC1480a(b.this));
-            this.f58293b.setOnClickListener(new View$OnClickListenerC1481b(b.this));
-            this.f58294c.setOnClickListener(new c(b.this));
+            this.f61984b.setOnLongClickListener(new View$OnLongClickListenerC1536a(b.this));
+            this.f61984b.setOnClickListener(new View$OnClickListenerC1537b(b.this));
+            this.f61985c.setOnClickListener(new c(b.this));
         }
 
         public View b() {
-            return this.f58292a;
+            return this.f61983a;
         }
 
         public void c() {
-            SkinManager.setViewTextColor(this.f58293b, R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f58293b, R.drawable.search_history_item_bg);
-            SkinManager.setImageResource(this.f58294c, R.drawable.del_search_btn);
+            SkinManager.setViewTextColor(this.f61984b, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f61984b, R.drawable.search_history_item_bg);
+            SkinManager.setImageResource(this.f61985c, R.drawable.del_search_btn);
         }
 
         public void d(boolean z) {
             if (z) {
-                this.f58294c.setVisibility(0);
-                SkinManager.setImageResource(this.f58294c, R.drawable.del_search_btn);
+                this.f61985c.setVisibility(0);
+                SkinManager.setImageResource(this.f61985c, R.drawable.del_search_btn);
                 return;
             }
-            this.f58294c.setVisibility(4);
+            this.f61985c.setVisibility(4);
         }
     }
 
@@ -119,16 +119,16 @@ public class b extends d.a.n0.z.b<d.a.n0.q0.c.a> {
         super(tbPageContext);
         this.n = new ArrayList();
         this.o = 3;
-        this.m = (WrapLineLayout) l();
+        this.m = (WrapLineLayout) m();
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.forum_search_history_info;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.o == i2) {
             return;
         }
@@ -144,11 +144,11 @@ public class b extends d.a.n0.z.b<d.a.n0.q0.c.a> {
     public void onClick(View view) {
     }
 
-    public final a t() {
+    public final a u() {
         return new a();
     }
 
-    public final void u(int i2) {
+    public final void v(int i2) {
         int size = this.n.size();
         if (size == i2) {
             return;
@@ -157,13 +157,13 @@ public class b extends d.a.n0.z.b<d.a.n0.q0.c.a> {
         if (size < i2) {
             int i4 = i2 - size;
             while (i3 < i4) {
-                a t = t();
+                a u = u();
                 ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
                 int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.ds2);
                 marginLayoutParams.topMargin = g2;
                 marginLayoutParams.leftMargin = g2;
-                this.m.addView(t.b(), marginLayoutParams);
-                this.n.add(t);
+                this.m.addView(u.b(), marginLayoutParams);
+                this.n.add(u);
                 i3++;
             }
         } else if (i2 == 0) {
@@ -181,20 +181,20 @@ public class b extends d.a.n0.z.b<d.a.n0.q0.c.a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: v */
-    public void m(d.a.n0.q0.c.a aVar) {
-        if (aVar == null || ListUtils.isEmpty(aVar.h())) {
+    /* renamed from: w */
+    public void n(d.a.n0.q0.c.a aVar) {
+        if (aVar == null || ListUtils.isEmpty(aVar.c())) {
             return;
         }
-        u(aVar.h().size());
+        v(aVar.c().size());
         int size = this.n.size();
         for (int i2 = 0; i2 < size; i2++) {
             a aVar2 = this.n.get(i2);
             if (aVar2 != null) {
                 aVar2.d(false);
-                aVar2.f58293b.setText(aVar.h().get(i2));
+                aVar2.f61984b.setText(aVar.c().get(i2));
             }
         }
-        n(this.f63441f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f67159f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

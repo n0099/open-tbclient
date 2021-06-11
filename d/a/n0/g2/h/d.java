@@ -18,22 +18,22 @@ public class d extends d.a.n0.r.a<f, PersonInfoUserPicsHolder> {
         this.n = tbPageContext;
     }
 
-    @Override // d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        f0(i2, view, viewGroup, (f) obj, (PersonInfoUserPicsHolder) viewHolder);
+    @Override // d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        g0(i2, view, viewGroup, (f) obj, (PersonInfoUserPicsHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public PersonInfoUserPicsHolder P(ViewGroup viewGroup) {
-        PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.n);
-        personInfoUserPicsHolder.f19646e.d(this.m);
+    public PersonInfoUserPicsHolder Q(ViewGroup viewGroup) {
+        PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.n);
+        personInfoUserPicsHolder.f19723e.d(this.m);
         return personInfoUserPicsHolder;
     }
 
-    public View f0(int i2, View view, ViewGroup viewGroup, f fVar, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
+    public View g0(int i2, View view, ViewGroup viewGroup, f fVar, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
         if (fVar != null && personInfoUserPicsHolder != null) {
             personInfoUserPicsHolder.c();
             personInfoUserPicsHolder.b(fVar);

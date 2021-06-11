@@ -29,7 +29,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Http2Codec implements HttpCodec {
     public static final List<ByteString> HTTP_2_SKIPPED_REQUEST_HEADERS;
     public static final List<ByteString> HTTP_2_SKIPPED_RESPONSE_HEADERS;
@@ -47,7 +47,7 @@ public final class Http2Codec implements HttpCodec {
     public static final ByteString TE = ByteString.encodeUtf8("te");
     public static final ByteString ENCODING = ByteString.encodeUtf8("encoding");
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class StreamFinishingSource extends ForwardingSource {
         public long bytesRead;
         public boolean completed;

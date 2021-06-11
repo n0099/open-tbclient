@@ -6,29 +6,29 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f56663a;
+    public final String f60352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f56664b;
+    public final int f60353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f56665c;
+    public final int f60354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f56666d;
+    public final String f60355d;
 
     public c(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f56663a = jSONObject.optString("moreText");
-            this.f56664b = d.a.n0.k1.o.k.b.b(jSONObject.optString("moreColor", ""));
-            this.f56665c = d.a.n0.k1.o.k.b.b(jSONObject.optString("moreColorNight", ""));
-            this.f56666d = jSONObject.optString("moreScheme");
+            this.f60352a = jSONObject.optString("moreText");
+            this.f60353b = d.a.n0.k1.o.k.b.b(jSONObject.optString("moreColor", ""));
+            this.f60354c = d.a.n0.k1.o.k.b.b(jSONObject.optString("moreColorNight", ""));
+            this.f60355d = jSONObject.optString("moreScheme");
             return;
         }
-        this.f56663a = "";
-        this.f56664b = Integer.MAX_VALUE;
-        this.f56665c = Integer.MAX_VALUE;
-        this.f56666d = "";
+        this.f60352a = "";
+        this.f60353b = Integer.MAX_VALUE;
+        this.f60354c = Integer.MAX_VALUE;
+        this.f60355d = "";
     }
 
     public static c a(JSONObject jSONObject) {
@@ -36,22 +36,22 @@ public class c {
     }
 
     public int b() {
-        return this.f56664b;
+        return this.f60353b;
     }
 
     public int c() {
-        return this.f56665c;
+        return this.f60354c;
     }
 
     public String d() {
-        return this.f56666d;
+        return this.f60355d;
     }
 
     public String e() {
-        return this.f56663a;
+        return this.f60352a;
     }
 
     public boolean f() {
-        return !TextUtils.isEmpty(this.f56663a);
+        return !TextUtils.isEmpty(this.f60352a);
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 /* loaded from: classes5.dex */
-public abstract class a<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a<T, V> {
+public abstract class a<T, V extends TypeAdapter.ViewHolder> extends d.a.c.k.e.a<T, V> {
     public d.a.n0.e2.k.a m;
     public boolean n;
 

@@ -6,11 +6,11 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42263a;
+    public String f45939a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PMSAppInfo f42264b;
+    public PMSAppInfo f45940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PrefetchEvent.c f42265c;
+    public PrefetchEvent.c f45941c;
 }

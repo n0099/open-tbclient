@@ -20,33 +20,33 @@ import d.a.c.e.p.l;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public MainTabActivity f55600a;
+    public MainTabActivity f59289a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PopupWindow f55601b;
+    public PopupWindow f59290b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FragmentTabHost f55602c;
+    public FragmentTabHost f59291c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55603d;
+    public String f59292d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f55604e;
+    public long f59293e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f55605f;
+    public View f59294f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55606g;
+    public TextView f59295g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f55607h;
+    public TextView f59296h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f55608i = new a();
+    public Runnable f59297i = new a();
     public Runnable j = new b();
-    public View.OnClickListener k = new View$OnClickListenerC1365c();
+    public View.OnClickListener k = new View$OnClickListenerC1421c();
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -55,15 +55,15 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.f55602c == null || c.this.f55601b == null || c.this.f55601b.getContentView() == null) {
+            if (c.this.f59291c == null || c.this.f59290b == null || c.this.f59290b.getContentView() == null) {
                 return;
             }
-            FragmentTabWidget fragmentTabWidget = c.this.f55602c.getFragmentTabWidget();
-            int k = l.k(c.this.f55600a.getActivity());
-            int g2 = l.g(c.this.f55600a.getActivity(), R.dimen.ds278);
-            c.this.f55601b.getContentView().measure(0, 0);
-            g.l(c.this.f55601b, fragmentTabWidget, (k - l.g(c.this.f55600a.getActivity(), R.dimen.ds430)) / 2, -g2);
-            d.a.m0.r.d0.b.j().w("home_tip", c.this.f55604e);
+            FragmentTabWidget fragmentTabWidget = c.this.f59291c.getFragmentTabWidget();
+            int k = l.k(c.this.f59289a.getActivity());
+            int g2 = l.g(c.this.f59289a.getActivity(), R.dimen.ds278);
+            c.this.f59290b.getContentView().measure(0, 0);
+            g.l(c.this.f59290b, fragmentTabWidget, (k - l.g(c.this.f59289a.getActivity(), R.dimen.ds430)) / 2, -g2);
+            d.a.m0.r.d0.b.j().w("home_tip", c.this.f59293e);
             d.a.c.e.m.e.a().postDelayed(c.this.j, 5000L);
             TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 1));
         }
@@ -82,8 +82,8 @@ public class c {
 
     /* renamed from: d.a.n0.h3.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1365c implements View.OnClickListener {
-        public View$OnClickListenerC1365c() {
+    public class View$OnClickListenerC1421c implements View.OnClickListener {
+        public View$OnClickListenerC1421c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -92,22 +92,22 @@ public class c {
             if (WriteActivityConfig.isAsyncWriting()) {
                 return;
             }
-            WriteActivityConfig.newInstance(c.this.f55600a).setType(9).setTitle(c.this.f55603d).setForumId("0").send();
+            WriteActivityConfig.newInstance(c.this.f59289a).setType(9).setTitle(c.this.f59292d).setForumId("0").send();
             TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 1));
         }
     }
 
     public c(MainTabActivity mainTabActivity) {
-        this.f55600a = mainTabActivity;
-        this.f55602c = (FragmentTabHost) mainTabActivity.findViewById(R.id.tab_host);
+        this.f59289a = mainTabActivity;
+        this.f59291c = (FragmentTabHost) mainTabActivity.findViewById(R.id.tab_host);
     }
 
     public void g() {
-        g.c(this.f55601b);
+        g.c(this.f59290b);
     }
 
     public void h() {
-        d.a.c.e.m.e.a().removeCallbacks(this.f55608i);
+        d.a.c.e.m.e.a().removeCallbacks(this.f59297i);
         d.a.c.e.m.e.a().removeCallbacks(this.j);
         g();
     }
@@ -120,23 +120,23 @@ public class c {
         if (d.a.m0.r.d0.b.j().l("home_tip", 0L) == j || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return;
         }
-        this.f55603d = str2;
-        this.f55604e = j;
-        if (this.f55605f == null) {
-            View inflate = LayoutInflater.from(this.f55600a.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
-            this.f55605f = inflate;
-            this.f55606g = (TextView) inflate.findViewById(R.id.tips);
-            this.f55607h = (TextView) this.f55605f.findViewById(R.id.tips_content);
-            this.f55605f.setOnClickListener(this.k);
+        this.f59292d = str2;
+        this.f59293e = j;
+        if (this.f59294f == null) {
+            View inflate = LayoutInflater.from(this.f59289a.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+            this.f59294f = inflate;
+            this.f59295g = (TextView) inflate.findViewById(R.id.tips);
+            this.f59296h = (TextView) this.f59294f.findViewById(R.id.tips_content);
+            this.f59294f.setOnClickListener(this.k);
         }
-        this.f55606g.setText(StringHelper.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
-        this.f55607h.setText(R.string.topic_join);
-        if (this.f55601b == null) {
-            this.f55601b = new PopupWindow(this.f55605f, -2, -2);
+        this.f59295g.setText(StringHelper.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
+        this.f59296h.setText(R.string.topic_join);
+        if (this.f59290b == null) {
+            this.f59290b = new PopupWindow(this.f59294f, -2, -2);
         } else {
             h();
         }
-        d.a.c.e.m.e.a().removeCallbacks(this.f55608i);
-        d.a.c.e.m.e.a().postDelayed(this.f55608i, 100L);
+        d.a.c.e.m.e.a().removeCallbacks(this.f59297i);
+        d.a.c.e.m.e.a().postDelayed(this.f59297i, 100L);
     }
 }

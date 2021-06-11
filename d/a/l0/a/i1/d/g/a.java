@@ -20,24 +20,24 @@ import java.util.Iterator;
 public class a implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.a.l0.a.i1.d.f.a> f42892e = new ArrayList<>();
+    public ArrayList<d.a.l0.a.i1.d.f.a> f46568e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<MediaModel> f42893f = new ArrayList<>();
+    public ArrayList<MediaModel> f46569f = new ArrayList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42894g;
+    public String f46570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f42895h;
+    public Handler f46571h;
 
     public a(String str, Handler handler) {
-        this.f42894g = str;
-        this.f42895h = handler;
+        this.f46570g = str;
+        this.f46571h = handler;
     }
 
     public final void a() {
-        if (TextUtils.equals(this.f42894g, "video")) {
+        if (TextUtils.equals(this.f46570g, "video")) {
             return;
         }
         Cursor cursor = null;
@@ -45,7 +45,7 @@ public class a implements Runnable {
             try {
                 cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
             } catch (Exception e2) {
-                if (c.f42863a) {
+                if (c.f46539a) {
                     e2.printStackTrace();
                 }
             }
@@ -57,7 +57,7 @@ public class a implements Runnable {
                 long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                 File file = new File(string);
-                if (file.exists() && (c.f42866d || !d.d(string))) {
+                if (file.exists() && (c.f46542d || !d.d(string))) {
                     ImageModel imageModel = new ImageModel(string);
                     imageModel.f(j);
                     imageModel.g(j2);
@@ -81,7 +81,7 @@ public class a implements Runnable {
         Exception e2;
         MediaMetadataRetriever mediaMetadataRetriever;
         Throwable th2;
-        if (TextUtils.equals(this.f42894g, "Image")) {
+        if (TextUtils.equals(this.f46570g, "Image")) {
             return;
         }
         try {
@@ -127,7 +127,7 @@ public class a implements Runnable {
                                 }
                             } catch (Exception e4) {
                                 e = e4;
-                                if (c.f42863a) {
+                                if (c.f46539a) {
                                     e.printStackTrace();
                                 }
                             }
@@ -152,7 +152,7 @@ public class a implements Runnable {
                     }
                 } catch (Exception e6) {
                     e2 = e6;
-                    if (c.f42863a) {
+                    if (c.f46539a) {
                         e2.printStackTrace();
                     }
                     d.a.l0.t.d.d(cursor);
@@ -188,34 +188,34 @@ public class a implements Runnable {
         d.a.l0.a.i1.d.f.a aVar = new d.a.l0.a.i1.d.f.a();
         aVar.h(name);
         aVar.g(path);
-        int indexOf = this.f42892e.indexOf(aVar);
+        int indexOf = this.f46568e.indexOf(aVar);
         if (indexOf >= 0) {
-            this.f42892e.get(indexOf).a(mediaModel);
+            this.f46568e.get(indexOf).a(mediaModel);
         } else {
             aVar.a(mediaModel);
-            this.f42892e.add(aVar);
+            this.f46568e.add(aVar);
         }
-        this.f42893f.add(mediaModel);
+        this.f46569f.add(mediaModel);
     }
 
     @Override // java.lang.Runnable
     public void run() {
         a();
         b();
-        c(this.f42892e);
+        c(this.f46568e);
         d.a.l0.a.i1.d.f.a aVar = new d.a.l0.a.i1.d.f.a();
-        aVar.h(d.b(AppRuntime.getAppContext(), this.f42894g));
-        aVar.f42891h = this.f42893f;
-        this.f42892e.add(0, aVar);
-        Iterator<d.a.l0.a.i1.d.f.a> it = this.f42892e.iterator();
+        aVar.h(d.b(AppRuntime.getAppContext(), this.f46570g));
+        aVar.f46567h = this.f46569f;
+        this.f46568e.add(0, aVar);
+        Iterator<d.a.l0.a.i1.d.f.a> it = this.f46568e.iterator();
         while (it.hasNext()) {
             Collections.sort(it.next().f());
         }
-        Handler handler = this.f42895h;
+        Handler handler = this.f46571h;
         if (handler != null) {
             Message obtainMessage = handler.obtainMessage(0);
-            obtainMessage.obj = this.f42892e;
-            this.f42895h.sendMessage(obtainMessage);
+            obtainMessage.obj = this.f46568e;
+            this.f46571h.sendMessage(obtainMessage);
         }
     }
 }

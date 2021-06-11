@@ -35,15 +35,15 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
 
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
         public void a(InterestFrsData interestFrsData) {
-            NewUserGuideActivity.this.mNewUserGuideModel.y(false);
-            NewUserGuideActivity.this.mNewUserGuideModel.x(interestFrsData);
-            ((NewUserGuideMainFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(1)).L0(interestFrsData);
+            NewUserGuideActivity.this.mNewUserGuideModel.C(false);
+            NewUserGuideActivity.this.mNewUserGuideModel.B(interestFrsData);
+            ((NewUserGuideMainFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(1)).O0(interestFrsData);
         }
 
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
         public void b(InterestFrsData interestFrsData) {
-            NewUserGuideActivity.this.mNewUserGuideModel.y(true);
-            NewUserGuideActivity.this.mNewUserGuideModel.x(null);
+            NewUserGuideActivity.this.mNewUserGuideModel.C(true);
+            NewUserGuideActivity.this.mNewUserGuideModel.B(null);
             NewUserGuideActivity.this.showToast(R.string.neterror);
         }
     }
@@ -57,15 +57,15 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void onPageScrollStateChanged(int i2) {
             NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) NewUserGuideActivity.this.mViewPager.getAdapter()).getItem(0);
             if (i2 == 0) {
-                newUserGuideIntroduceFragment.H0();
+                newUserGuideIntroduceFragment.K0();
             } else {
-                newUserGuideIntroduceFragment.J0();
+                newUserGuideIntroduceFragment.M0();
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
-            if (NewUserGuideActivity.this.mNewUserGuideModel.v() && i2 == 0 && f2 > 0.0f) {
+            if (NewUserGuideActivity.this.mNewUserGuideModel.z() && i2 == 0 && f2 > 0.0f) {
                 NewUserGuideActivity.this.startMainTabEnterFourm();
             }
         }
@@ -84,7 +84,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         int i2 = this.mIsNewUser ? 1 : 2;
         NewUserGuideModel newUserGuideModel = new NewUserGuideModel(this);
         this.mNewUserGuideModel = newUserGuideModel;
-        newUserGuideModel.w(i2, 0, 100, this.mCallBack);
+        newUserGuideModel.A(i2, 0, 100, this.mCallBack);
     }
 
     private void initUI() {
@@ -151,7 +151,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         super.onDestroy();
         NewUserGuideModel newUserGuideModel = this.mNewUserGuideModel;
         if (newUserGuideModel != null) {
-            newUserGuideModel.t();
+            newUserGuideModel.x();
         }
     }
 

@@ -173,8 +173,8 @@ public class MemberCenterStatic {
         public CustomResponsedMessage<Boolean> run(CustomMessage<TbPageContext> customMessage) {
             if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
                 BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
-                bubbleListModel.y();
-                bubbleListModel.B(0, d.a.c.e.p.l.k(customMessage.getData().getPageActivity()), d.a.c.e.p.l.i(customMessage.getData().getPageActivity()));
+                bubbleListModel.C();
+                bubbleListModel.F(0, d.a.c.e.p.l.k(customMessage.getData().getPageActivity()), d.a.c.e.p.l.i(customMessage.getData().getPageActivity()));
             }
             return null;
         }

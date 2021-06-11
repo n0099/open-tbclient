@@ -6,30 +6,30 @@ import d.m.a.b.f;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f35128a = 0;
+    public static int f38807a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f35129b = 3600;
+    public static long f38808b = 3600;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f35130c;
+    public static long f38809c;
 
     public static synchronized void a(Context context) {
         synchronized (d.class) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (currentTimeMillis - f35130c >= f35129b) {
+            if (currentTimeMillis - f38809c >= f38808b) {
                 int i2 = 0;
-                b.f35116d = false;
-                f35128a = 0;
-                f35130c = currentTimeMillis;
+                b.f38795d = false;
+                f38807a = 0;
+                f38809c = currentTimeMillis;
                 while (i2 < 3) {
-                    if (!b.f35116d && f35128a < 3) {
+                    if (!b.f38795d && f38807a < 3) {
                         b(context);
-                        f35128a++;
+                        f38807a++;
                     }
                     i2++;
                     f.a(i2 * 5000);
-                    if (b.f35116d) {
+                    if (b.f38795d) {
                         break;
                     }
                 }

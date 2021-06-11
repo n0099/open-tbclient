@@ -12,126 +12,111 @@ import com.baidu.tieba.write.album.TbCameraView;
 public class a extends d.a.c.a.d<BaseFragmentActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62799a;
+    public String f66514a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62800b;
+    public String f66515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f62801c;
+    public e f66516c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Fragment[] f62802d;
+    public Fragment[] f66517d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f62803e;
+    public String[] f66518e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageListFragment f62804f;
+    public ImageListFragment f66519f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlbumImageBrowseFragment f62805g;
+    public AlbumImageBrowseFragment f66520g;
 
     public a(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
-        this.f62799a = "tag_image";
-        this.f62800b = "tag_b_image";
-        this.f62801c = eVar;
+        this.f66514a = "tag_image";
+        this.f66515b = "tag_b_image";
+        this.f66516c = eVar;
     }
 
     public View d() {
-        AlbumImageBrowseFragment albumImageBrowseFragment = this.f62805g;
+        AlbumImageBrowseFragment albumImageBrowseFragment = this.f66520g;
         if (albumImageBrowseFragment == null) {
             return null;
         }
-        return albumImageBrowseFragment.P0();
+        return albumImageBrowseFragment.S0();
     }
 
     public View e() {
-        ImageListFragment imageListFragment = this.f62804f;
+        ImageListFragment imageListFragment = this.f66519f;
         if (imageListFragment == null) {
             return null;
         }
-        return imageListFragment.U0();
+        return imageListFragment.X0();
     }
 
     public View f() {
-        AlbumImageBrowseFragment albumImageBrowseFragment = this.f62805g;
+        AlbumImageBrowseFragment albumImageBrowseFragment = this.f66520g;
         if (albumImageBrowseFragment == null) {
             return null;
         }
-        return albumImageBrowseFragment.Q0();
+        return albumImageBrowseFragment.T0();
     }
 
-    public View g() {
-        ImageListFragment imageListFragment = this.f62804f;
-        if (imageListFragment == null) {
-            return null;
-        }
-        return imageListFragment.V0();
-    }
-
-    public TbCameraView h() {
-        ImageListFragment imageListFragment = this.f62804f;
-        if (imageListFragment == null) {
-            return null;
-        }
-        return imageListFragment.W0();
-    }
-
-    public Fragment j(int i2) {
-        if (i2 < 0 || i2 > 1) {
-            return null;
-        }
-        return this.f62802d[i2];
-    }
-
-    public String k(int i2) {
-        if (i2 < 0 || i2 > 1) {
-            return null;
-        }
-        return this.f62803e[i2];
-    }
-
-    public ImageListFragment l() {
-        return this.f62804f;
-    }
-
-    public View m() {
-        ImageListFragment imageListFragment = this.f62804f;
+    public View h() {
+        ImageListFragment imageListFragment = this.f66519f;
         if (imageListFragment == null) {
             return null;
         }
         return imageListFragment.Y0();
     }
 
+    public TbCameraView i() {
+        ImageListFragment imageListFragment = this.f66519f;
+        if (imageListFragment == null) {
+            return null;
+        }
+        return imageListFragment.Z0();
+    }
+
+    public Fragment k(int i2) {
+        if (i2 < 0 || i2 > 1) {
+            return null;
+        }
+        return this.f66517d[i2];
+    }
+
+    public String l(int i2) {
+        if (i2 < 0 || i2 > 1) {
+            return null;
+        }
+        return this.f66518e[i2];
+    }
+
+    public ImageListFragment m() {
+        return this.f66519f;
+    }
+
     public View n() {
-        AlbumImageBrowseFragment albumImageBrowseFragment = this.f62805g;
+        ImageListFragment imageListFragment = this.f66519f;
+        if (imageListFragment == null) {
+            return null;
+        }
+        return imageListFragment.b1();
+    }
+
+    public View o() {
+        AlbumImageBrowseFragment albumImageBrowseFragment = this.f66520g;
         if (albumImageBrowseFragment == null) {
             return null;
         }
-        return albumImageBrowseFragment.R0();
-    }
-
-    public void o() {
-        this.f62802d = new Fragment[2];
-        this.f62803e = new String[2];
-        ImageListFragment imageListFragment = new ImageListFragment();
-        this.f62804f = imageListFragment;
-        imageListFragment.e1(this.f62801c);
-        this.f62802d[0] = this.f62804f;
-        this.f62803e[0] = this.f62799a;
-        AlbumImageBrowseFragment albumImageBrowseFragment = new AlbumImageBrowseFragment();
-        this.f62805g = albumImageBrowseFragment;
-        albumImageBrowseFragment.W0(this.f62801c);
-        this.f62802d[1] = this.f62805g;
-        this.f62803e[1] = this.f62800b;
+        return albumImageBrowseFragment.U0();
     }
 
     public void onChangeSkinType(int i2) {
         int i3 = 0;
         while (true) {
-            Fragment[] fragmentArr = this.f62802d;
+            Fragment[] fragmentArr = this.f66517d;
             if (i3 >= fragmentArr.length) {
                 return;
             }
@@ -143,55 +128,70 @@ public class a extends d.a.c.a.d<BaseFragmentActivity> {
     }
 
     public void p() {
+        this.f66517d = new Fragment[2];
+        this.f66518e = new String[2];
+        ImageListFragment imageListFragment = new ImageListFragment();
+        this.f66519f = imageListFragment;
+        imageListFragment.h1(this.f66516c);
+        this.f66517d[0] = this.f66519f;
+        this.f66518e[0] = this.f66514a;
+        AlbumImageBrowseFragment albumImageBrowseFragment = new AlbumImageBrowseFragment();
+        this.f66520g = albumImageBrowseFragment;
+        albumImageBrowseFragment.Z0(this.f66516c);
+        this.f66517d[1] = this.f66520g;
+        this.f66518e[1] = this.f66515b;
     }
 
     public void q() {
-        TbCameraView h2 = h();
-        if (h2 != null) {
-            h2.setVisibility(0);
-            h2.k(false);
-        }
-        ImageListFragment imageListFragment = this.f62804f;
-        if (imageListFragment == null || imageListFragment.X0() == null) {
-            return;
-        }
-        this.f62804f.X0().n();
     }
 
     public void r() {
-        ImageListFragment imageListFragment = this.f62804f;
+        TbCameraView i2 = i();
+        if (i2 != null) {
+            i2.setVisibility(0);
+            i2.k(false);
+        }
+        ImageListFragment imageListFragment = this.f66519f;
+        if (imageListFragment == null || imageListFragment.a1() == null) {
+            return;
+        }
+        this.f66519f.a1().n();
+    }
+
+    public void s() {
+        ImageListFragment imageListFragment = this.f66519f;
         if (imageListFragment != null) {
-            imageListFragment.Z0();
+            imageListFragment.c1();
         }
     }
 
-    public void s(boolean z) {
-        AlbumImageBrowseFragment albumImageBrowseFragment = this.f62805g;
+    public void t(boolean z) {
+        AlbumImageBrowseFragment albumImageBrowseFragment = this.f66520g;
         if (albumImageBrowseFragment != null) {
-            albumImageBrowseFragment.V0(z);
+            albumImageBrowseFragment.Y0(z);
         }
-        ImageListFragment imageListFragment = this.f62804f;
+        ImageListFragment imageListFragment = this.f66519f;
         if (imageListFragment != null) {
-            imageListFragment.d1(z);
+            imageListFragment.g1(z);
         }
     }
 
-    public void t(NavigationBar navigationBar) {
-        this.f62804f.f1(navigationBar);
+    public void u(NavigationBar navigationBar) {
+        this.f66519f.i1(navigationBar);
     }
 
-    public void u(j jVar) {
-        ImageListFragment imageListFragment = this.f62804f;
+    public void v(j jVar) {
+        ImageListFragment imageListFragment = this.f66519f;
         if (imageListFragment != null) {
-            imageListFragment.g1(jVar);
+            imageListFragment.j1(jVar);
         }
     }
 
-    public void v() {
-        TbCameraView h2 = h();
-        if (h2 != null) {
-            h2.m();
-            h2.setVisibility(4);
+    public void w() {
+        TbCameraView i2 = i();
+        if (i2 != null) {
+            i2.m();
+            i2.setVisibility(4);
         }
     }
 }

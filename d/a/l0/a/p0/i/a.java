@@ -10,43 +10,43 @@ import d.a.l0.a.p0.g.c.a;
 import d.a.l0.a.v2.j0;
 import d.a.l0.t.d;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a<T extends d.a.l0.a.p0.g.c.a> extends d.a.l0.a.p0.d.a<T> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44105b = k.f43199a;
+    public static final boolean f47779b = k.f46875a;
 
     /* renamed from: d.a.l0.a.p0.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0798a {
+    /* loaded from: classes3.dex */
+    public static class C0854a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f44106a = 0;
+        public int f47780a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44107b;
+        public String f47781b;
 
-        public static C0798a a(int i2, String str) {
-            C0798a c0798a = new C0798a();
-            c0798a.f44106a = i2;
-            c0798a.f44107b = str;
-            return c0798a;
+        public static C0854a a(int i2, String str) {
+            C0854a c0854a = new C0854a();
+            c0854a.f47780a = i2;
+            c0854a.f47781b = str;
+            return c0854a;
         }
 
-        public static C0798a b(String str) {
+        public static C0854a b(String str) {
             return a(1, str);
         }
 
-        public static C0798a d() {
+        public static C0854a d() {
             return a(0, "");
         }
 
         public boolean c() {
-            return this.f44106a == 0;
+            return this.f47780a == 0;
         }
 
         public String toString() {
-            return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.f44106a + ", message='" + this.f44107b + "'}";
+            return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.f47780a + ", message='" + this.f47781b + "'}";
         }
     }
 
@@ -73,20 +73,20 @@ public class a<T extends d.a.l0.a.p0.g.c.a> extends d.a.l0.a.p0.d.a<T> {
 
     /* JADX WARN: Incorrect types in method signature: <T:Ld/a/l0/a/p0/g/a;>(TT;)Ljava/lang/Exception; */
     public Exception e(@NonNull d.a.l0.a.p0.g.a aVar) {
-        if (f44105b) {
+        if (f47779b) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote");
         }
-        if (TextUtils.isEmpty(aVar.f44090c)) {
-            if (f44105b) {
+        if (TextUtils.isEmpty(aVar.f47764c)) {
+            if (f47779b) {
                 Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
             }
             return new Exception("ExtCore-RemoteControl doUpdate: failed by updateInfo.coreFilePath empty");
         }
-        C0798a i2 = i(aVar);
-        if (f44105b) {
+        C0854a i2 = i(aVar);
+        if (f47779b) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + i2);
         }
-        d(aVar.f44090c);
+        d(aVar.f47764c);
         if (i2.c()) {
             return null;
         }
@@ -105,42 +105,42 @@ public class a<T extends d.a.l0.a.p0.g.c.a> extends d.a.l0.a.p0.d.a<T> {
     }
 
     public long g() {
-        return h.a().getLong(this.f44013a.b(), 0L);
+        return h.a().getLong(this.f47687a.b(), 0L);
     }
 
     public String h() {
-        return h.a().getString(this.f44013a.e(), "0");
+        return h.a().getString(this.f47687a.e(), "0");
     }
 
-    public final C0798a i(@NonNull d.a.l0.a.p0.g.a aVar) {
-        if (f44105b) {
+    public final C0854a i(@NonNull d.a.l0.a.p0.g.a aVar) {
+        if (f47779b) {
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
-            Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + aVar.f44088a + " ,filePath: " + aVar.f44090c + " ,sign:" + aVar.f44091d);
+            Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + aVar.f47762a + " ,filePath: " + aVar.f47764c + " ,sign:" + aVar.f47765d);
         }
-        long j = aVar.f44089b;
+        long j = aVar.f47763b;
         if (j == 0) {
-            return C0798a.b("invalid version code : " + aVar.f44088a);
-        } else if (!j0.a(new File(aVar.f44090c), aVar.f44091d)) {
-            return C0798a.b("sign failed.");
+            return C0854a.b("invalid version code : " + aVar.f47762a);
+        } else if (!j0.a(new File(aVar.f47764c), aVar.f47765d)) {
+            return C0854a.b("sign failed.");
         } else {
-            if (!d.T(aVar.f44090c, b(j).getPath())) {
-                return C0798a.b("unzip bundle failed.");
+            if (!d.T(aVar.f47764c, b(j).getPath())) {
+                return C0854a.b("unzip bundle failed.");
             }
             d.a.l0.a.p0.j.a.b(a(), g(), j);
             j(j);
-            k(aVar.f44088a);
-            if (f44105b) {
+            k(aVar.f47762a);
+            if (f47779b) {
                 Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + j);
             }
-            return C0798a.d();
+            return C0854a.d();
         }
     }
 
     public void j(long j) {
-        h.a().putLong(this.f44013a.b(), j);
+        h.a().putLong(this.f47687a.b(), j);
     }
 
     public void k(String str) {
-        h.a().putString(this.f44013a.e(), str);
+        h.a().putString(this.f47687a.e(), str);
     }
 }

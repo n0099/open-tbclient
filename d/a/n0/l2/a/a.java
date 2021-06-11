@@ -22,8 +22,8 @@ public class a extends d.a.m0.g0.f.a<PluginConfigWrapper, d.a.m0.g0.d.b> {
 
     /* renamed from: d.a.n0.l2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1429a implements View.OnClickListener {
-        public View$OnClickListenerC1429a() {
+    public class View$OnClickListenerC1485a implements View.OnClickListener {
+        public View$OnClickListenerC1485a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -54,7 +54,7 @@ public class a extends d.a.m0.g0.f.a<PluginConfigWrapper, d.a.m0.g0.d.b> {
         this.m = (TextView) view.findViewById(R.id.desc);
         TextView textView = (TextView) view.findViewById(R.id.status);
         this.n = textView;
-        textView.setOnClickListener(new View$OnClickListenerC1429a());
+        textView.setOnClickListener(new View$OnClickListenerC1485a());
         TextView textView2 = (TextView) view.findViewById(R.id.install);
         this.o = textView2;
         textView2.setOnClickListener(new b());
@@ -78,7 +78,7 @@ public class a extends d.a.m0.g0.f.a<PluginConfigWrapper, d.a.m0.g0.d.b> {
             return;
         }
         if (!StringUtils.isNull(pluginConfigWrapper.icon)) {
-            this.k.V(pluginConfigWrapper.icon, 10, false);
+            this.k.U(pluginConfigWrapper.icon, 10, false);
         }
         this.l.setText(pluginConfigWrapper.display_name);
         this.m.setText(pluginConfigWrapper.verbose);

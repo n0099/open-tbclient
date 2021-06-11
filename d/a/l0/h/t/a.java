@@ -2,7 +2,7 @@ package d.a.l0.h.t;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import d.a.l0.a.p.c.k0;
+import d.a.l0.a.p.c.j0;
 import d.a.l0.a.p.d.g1;
 import d.a.l0.h.t.b.c;
 import d.a.l0.h.t.b.d;
@@ -56,6 +56,6 @@ public class a {
 
     @Inject(force = false)
     public static g1 i() {
-        return new k0();
+        return new j0();
     }
 }

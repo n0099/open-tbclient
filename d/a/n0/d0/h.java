@@ -44,19 +44,19 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 public class h implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBarCoverTip f52450e;
+    public NavigationBarCoverTip f56139e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ShadowLinearLayout f52451f;
+    public ShadowLinearLayout f56140f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52452g;
+    public TextView f56141g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52453h;
+    public TextView f56142h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f52454i;
+    public TBSpecificationBtn f56143i;
     public d.a.m0.r.f0.a j;
     public long k;
     public long l;
@@ -75,7 +75,7 @@ public class h implements View.OnClickListener {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            h.this.g();
+            h.this.h();
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                 GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                 h.this.f(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -89,7 +89,7 @@ public class h implements View.OnClickListener {
     public h(TbPageContext tbPageContext, NavigationBarCoverTip navigationBarCoverTip) {
         this.n = tbPageContext.getPageActivity();
         this.o = tbPageContext;
-        this.f52450e = navigationBarCoverTip;
+        this.f56139e = navigationBarCoverTip;
         this.r.setTag(tbPageContext.getUniqueId());
         this.r.getHttpMessageListener().setSelfListener(true);
         this.r.getSocketMessageListener().setSelfListener(true);
@@ -122,13 +122,13 @@ public class h implements View.OnClickListener {
 
     public final int e(a2 a2Var) {
         if (a2Var != null) {
-            if (a2Var.q2()) {
+            if (a2Var.r2()) {
                 return 4;
             }
             if (a2Var.s0() == 1) {
                 return 3;
             }
-            return a2Var.r2() ? 2 : 1;
+            return a2Var.s2() ? 2 : 1;
         }
         return 0;
     }
@@ -138,28 +138,28 @@ public class h implements View.OnClickListener {
         if (i2 == 0 && getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
             a2 a2Var = new a2();
             this.m = a2Var;
-            a2Var.U2(getMyPostResIdl.data.thread_info);
-            k();
+            a2Var.V2(getMyPostResIdl.data.thread_info);
+            l();
             return;
         }
         this.o.showToast(R.string.neterror);
     }
 
-    public final void g() {
+    public final void h() {
         d.a.m0.r.f0.a aVar = this.j;
         if (aVar != null) {
             aVar.h(false);
         }
     }
 
-    public void h() {
-        NavigationBarCoverTip navigationBarCoverTip = this.f52450e;
+    public void i() {
+        NavigationBarCoverTip navigationBarCoverTip = this.f56139e;
         if (navigationBarCoverTip != null) {
             navigationBarCoverTip.i();
         }
     }
 
-    public final void i() {
+    public final void j() {
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
         statisticItem.param("tid", this.l);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -170,43 +170,43 @@ public class h implements View.OnClickListener {
         TiebaStatic.log(statisticItem);
     }
 
-    public final void j() {
+    public final void k() {
         if (this.j == null) {
             this.j = new d.a.m0.r.f0.a(this.o);
         }
         this.j.h(true);
     }
 
-    public final void k() {
+    public final void l() {
         a2 a2Var = this.m;
         if (a2Var == null || this.n == null) {
             return;
         }
         String valueOf = String.valueOf(a2Var.c0());
         String i0 = this.m.i0();
-        String z1 = this.m.z1();
-        if (TextUtils.isEmpty(z1)) {
-            z1 = this.m.C();
+        String A1 = this.m.A1();
+        if (TextUtils.isEmpty(A1)) {
+            A1 = this.m.C();
         }
-        String y1 = this.m.y1();
-        String str = "http://tieba.baidu.com/p/" + y1 + "?share=9105&fr=share";
+        String z1 = this.m.z1();
+        String str = "http://tieba.baidu.com/p/" + z1 + "?share=9105&fr=share";
         String c2 = c(this.m);
         Uri parse = c2 == null ? null : Uri.parse(c2);
         String C = this.m.C();
-        String format = MessageFormat.format(this.n.getResources().getString(R.string.share_content_tpl), z1, C);
+        String format = MessageFormat.format(this.n.getResources().getString(R.string.share_content_tpl), A1, C);
         ShareItem shareItem = new ShareItem();
-        shareItem.r = z1;
+        shareItem.r = A1;
         shareItem.s = format;
         shareItem.R = 0L;
         shareItem.D = C;
         shareItem.t = str;
         shareItem.o = 5;
-        shareItem.q = y1;
+        shareItem.q = z1;
         shareItem.F = 3;
         shareItem.J = valueOf;
         shareItem.p = i0;
-        shareItem.K = y1;
-        shareItem.f12600f = true;
+        shareItem.K = z1;
+        shareItem.f12662f = true;
         shareItem.E = d();
         shareItem.M = e(this.m);
         if (parse != null) {
@@ -215,7 +215,7 @@ public class h implements View.OnClickListener {
         shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(this.m);
         shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(this.m);
         TbadkCoreApplication.getInst().setShareItem(shareItem);
-        shareItem.e0 = this.m.f1();
+        shareItem.e0 = this.m.g1();
         Bundle bundle = new Bundle();
         bundle.putInt("obj_param1", shareItem.F);
         bundle.putInt("obj_type", shareItem.M);
@@ -226,8 +226,8 @@ public class h implements View.OnClickListener {
         f.b().k(new ShareDialogConfig((Context) this.n, shareItem, true, true));
     }
 
-    public void l(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData == null || this.f52450e == null) {
+    public void m(PostWriteCallBackData postWriteCallBackData) {
+        if (postWriteCallBackData == null || this.f56139e == null) {
             return;
         }
         this.k = d.a.c.e.m.b.f(postWriteCallBackData.getPostId(), 0L);
@@ -237,24 +237,24 @@ public class h implements View.OnClickListener {
             return;
         }
         this.q = false;
-        if (this.f52451f == null) {
+        if (this.f56140f == null) {
             ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.n).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
-            this.f52451f = shadowLinearLayout;
-            this.f52452g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
-            this.f52453h = (TextView) this.f52451f.findViewById(R.id.tb_top_toast_content);
-            this.f52454i = (TBSpecificationBtn) this.f52451f.findViewById(R.id.tb_top_toast_btn);
-            this.f52452g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
-            this.f52453h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
-            this.f52454i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
-            this.f52454i.setConfig(new d.a.m0.r.f0.m.a());
+            this.f56140f = shadowLinearLayout;
+            this.f56141g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+            this.f56142h = (TextView) this.f56140f.findViewById(R.id.tb_top_toast_content);
+            this.f56143i = (TBSpecificationBtn) this.f56140f.findViewById(R.id.tb_top_toast_btn);
+            this.f56141g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
+            this.f56142h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
+            this.f56143i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
+            this.f56143i.setConfig(new d.a.m0.r.f0.m.a());
         }
-        SkinManager.setViewTextColor(this.f52452g, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f52453h, R.color.CAM_X0302);
-        this.f52454i.k();
-        this.f52451f.b();
-        this.f52454i.setOnClickListener(this);
-        this.f52450e.setBackgroundColor(0);
-        this.f52450e.m(this.n, this.f52451f, 5000);
+        SkinManager.setViewTextColor(this.f56141g, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f56142h, R.color.CAM_X0302);
+        this.f56143i.k();
+        this.f56140f.b();
+        this.f56143i.setOnClickListener(this);
+        this.f56139e.setBackgroundColor(0);
+        this.f56139e.m(this.n, this.f56140f, 5000);
     }
 
     @Override // android.view.View.OnClickListener
@@ -265,7 +265,7 @@ public class h implements View.OnClickListener {
         this.q = true;
         if (!j.z()) {
             this.o.showToast(R.string.neterror);
-            this.f52450e.e();
+            this.f56139e.e();
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
@@ -276,8 +276,8 @@ public class h implements View.OnClickListener {
         requestGetMyPostNetMessage.setTag(this.o.getUniqueId());
         requestGetMyPostNetMessage.setParams(this.l, this.k, 0L, k, i2, f2, i3);
         MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
+        k();
+        this.f56139e.e();
         j();
-        this.f52450e.e();
-        i();
     }
 }

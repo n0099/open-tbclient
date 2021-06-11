@@ -10,18 +10,18 @@ import com.baidu.tieba.ala.personcenter.privilege.AlaTDouBuyPrivilegeResponsedMe
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f62073a;
+    public TbPageContext f65788a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f62074b;
+    public b f65789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f62075c;
+    public HttpMessageListener f65790c;
 
     /* renamed from: d.a.n0.v.j.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1670a extends HttpMessageListener {
-        public C1670a(int i2) {
+    public class C1727a extends HttpMessageListener {
+        public C1727a(int i2) {
             super(i2);
         }
 
@@ -32,8 +32,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.f62074b != null) {
-                    a.this.f62074b.a(z, errorString);
+                if (a.this.f65789b != null) {
+                    a.this.f65789b.a(z, errorString);
                 }
             }
         }
@@ -45,11 +45,11 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, b bVar) {
-        C1670a c1670a = new C1670a(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-        this.f62075c = c1670a;
-        this.f62073a = tbPageContext;
-        this.f62074b = bVar;
-        tbPageContext.registerListener(c1670a);
+        C1727a c1727a = new C1727a(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+        this.f65790c = c1727a;
+        this.f65788a = tbPageContext;
+        this.f65789b = bVar;
+        tbPageContext.registerListener(c1727a);
     }
 
     public void b(String str, int i2) {
@@ -57,7 +57,7 @@ public class a {
         httpMessage.addParam("props_id", i2);
         httpMessage.addParam("effect_id", str);
         httpMessage.addParam("buy_action", 0);
-        this.f62073a.sendMessage(httpMessage);
+        this.f65788a.sendMessage(httpMessage);
     }
 
     public void c(int i2, int i3, boolean z) {
@@ -65,6 +65,6 @@ public class a {
         httpMessage.addParam("props_id", i3);
         httpMessage.addParam("mark_id", i2);
         httpMessage.addParam("buy_action", z ? 1 : 0);
-        this.f62073a.sendMessage(httpMessage);
+        this.f65788a.sendMessage(httpMessage);
     }
 }

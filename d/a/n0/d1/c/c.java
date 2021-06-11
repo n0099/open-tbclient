@@ -5,67 +5,67 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
 /* loaded from: classes4.dex */
-public class c implements d.a.c.j.e.n {
+public class c implements d.a.c.k.e.n {
     public static final BdUniqueId m = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52559e;
+    public String f56248e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52560f;
+    public String f56249f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52561g;
+    public String f56250g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52562h = -1;
+    public int f56251h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f52563i;
+    public long f56252i;
     public String j;
     public int k;
     public long l;
 
-    public long c() {
+    public long b() {
         return this.l;
     }
 
-    public long e() {
-        return this.f52563i;
+    public long c() {
+        return this.f56252i;
     }
 
-    public String f() {
-        return this.f52559e;
+    public String e() {
+        return this.f56248e;
     }
 
-    @Override // d.a.c.j.e.n
+    public String g() {
+        return this.j;
+    }
+
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return m;
     }
 
     public String h() {
-        return this.j;
+        return this.f56250g;
     }
 
-    public String i() {
-        return this.f52561g;
-    }
-
-    public int k() {
+    public int i() {
         return this.k;
     }
 
-    public String l() {
-        return this.f52560f;
+    public String k() {
+        return this.f56249f;
     }
 
-    public int m() {
-        return this.f52562h;
+    public int l() {
+        return this.f56251h;
     }
 
-    public void o(TopicList topicList) {
+    public void n(TopicList topicList) {
         if (topicList != null) {
-            this.f52563i = topicList.topic_id.longValue();
+            this.f56252i = topicList.topic_id.longValue();
             this.j = topicList.topic_name;
             this.k = topicList.tag.intValue();
             this.l = topicList.discuss_num.longValue();
@@ -74,17 +74,17 @@ public class c implements d.a.c.j.e.n {
         }
     }
 
-    public void p(TopicListModule topicListModule) {
+    public void o(TopicListModule topicListModule) {
         try {
-            this.f52559e = topicListModule.module_title;
-            this.f52560f = topicListModule.tips;
-            this.f52561g = topicListModule.rule_jump_url;
+            this.f56248e = topicListModule.module_title;
+            this.f56249f = topicListModule.tips;
+            this.f56250g = topicListModule.rule_jump_url;
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
     }
 
-    public void q(int i2) {
-        this.f52562h = i2;
+    public void p(int i2) {
+        this.f56251h = i2;
     }
 }

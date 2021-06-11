@@ -25,49 +25,49 @@ public class d extends d.a.n0.r0.k<d.a.n0.e3.x, a> implements View.OnClickListen
     public static class a extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f59016a;
+        public View f62707a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f59017b;
+        public TextView f62708b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f59018c;
+        public View f62709c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f59019d;
+        public TextView f62710d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f59020e;
+        public View f62711e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f59021f;
+        public View f62712f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f59022g;
+        public TextView f62713g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f59023h;
+        public View f62714h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f59024i;
+        public View f62715i;
         public View j;
         public List<View> k;
 
         public a(View view) {
             super(view);
             this.k = new ArrayList();
-            this.f59017b = (TextView) view.findViewById(R.id.frs_fortune_bag_content);
-            this.f59016a = view.findViewById(R.id.frs_fortune_bag_item);
-            this.f59018c = view.findViewById(R.id.frs_my_service_item);
-            this.f59019d = (TextView) view.findViewById(R.id.frs_my_service_content);
-            this.f59020e = view.findViewById(R.id.frs_list_item_official_buttom_line);
-            this.f59021f = view.findViewById(R.id.frs_bawu_center);
-            this.f59022g = (TextView) view.findViewById(R.id.frs_bawu_center_inner);
-            this.f59023h = view.findViewById(R.id.official_account_text_divider_fortune_top);
-            this.f59024i = view.findViewById(R.id.official_account_text_divider_service_top);
+            this.f62708b = (TextView) view.findViewById(R.id.frs_fortune_bag_content);
+            this.f62707a = view.findViewById(R.id.frs_fortune_bag_item);
+            this.f62709c = view.findViewById(R.id.frs_my_service_item);
+            this.f62710d = (TextView) view.findViewById(R.id.frs_my_service_content);
+            this.f62711e = view.findViewById(R.id.frs_list_item_official_buttom_line);
+            this.f62712f = view.findViewById(R.id.frs_bawu_center);
+            this.f62713g = (TextView) view.findViewById(R.id.frs_bawu_center_inner);
+            this.f62714h = view.findViewById(R.id.official_account_text_divider_fortune_top);
+            this.f62715i = view.findViewById(R.id.official_account_text_divider_service_top);
             this.j = view.findViewById(R.id.official_account_text_divider_bawucenter_top);
-            this.k.add(this.f59023h);
-            this.k.add(this.f59024i);
+            this.k.add(this.f62714h);
+            this.k.add(this.f62715i);
             this.k.add(this.j);
         }
     }
@@ -83,8 +83,8 @@ public class d extends d.a.n0.r0.k<d.a.n0.e3.x, a> implements View.OnClickListen
         if (this.p != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            if (y(intValue) instanceof a2) {
-                a2 a2Var = (a2) y(intValue);
+            if (z(intValue) instanceof a2) {
+                a2 a2Var = (a2) z(intValue);
                 this.p.a(id, intValue, view, e0(this.q.getListView(), intValue), a2Var);
             }
         }
@@ -99,27 +99,27 @@ public class d extends d.a.n0.r0.k<d.a.n0.e3.x, a> implements View.OnClickListen
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: t0 */
-    public a P(ViewGroup viewGroup) {
-        return new a(LayoutInflater.from(this.f39228e).inflate(R.layout.frs_extra_account_item, (ViewGroup) null));
+    public a Q(ViewGroup viewGroup) {
+        return new a(LayoutInflater.from(this.f42909e).inflate(R.layout.frs_extra_account_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: u0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.e3.x xVar, a aVar) {
-        super.W(i2, view, viewGroup, xVar, aVar);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: v0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.e3.x xVar, a aVar) {
+        super.X(i2, view, viewGroup, xVar, aVar);
         boolean z = true;
-        if (xVar.E4()) {
-            String C4 = xVar.C4();
-            if (C4 != null) {
-                aVar.f59017b.setText(C4);
+        if (xVar.F4()) {
+            String D4 = xVar.D4();
+            if (D4 != null) {
+                aVar.f62708b.setText(D4);
             } else {
                 FrsViewData frsViewData = this.n;
                 if (frsViewData != null && frsViewData.getForum() != null && this.n.getForum().getName() != null) {
-                    TextView textView = aVar.f59017b;
-                    Context context = this.f39228e;
+                    TextView textView = aVar.f62708b;
+                    Context context = this.f42909e;
                     int i3 = R.string.get_fortune_hint_format;
                     Object[] objArr = new Object[1];
                     FrsViewData frsViewData2 = this.n;
@@ -127,51 +127,51 @@ public class d extends d.a.n0.r0.k<d.a.n0.e3.x, a> implements View.OnClickListen
                     textView.setText(context.getString(i3, objArr));
                 }
             }
-            aVar.f59016a.setTag(Integer.valueOf(i2));
-            aVar.f59016a.setOnClickListener(this);
-            aVar.f59016a.setVisibility(0);
+            aVar.f62707a.setTag(Integer.valueOf(i2));
+            aVar.f62707a.setOnClickListener(this);
+            aVar.f62707a.setVisibility(0);
         } else {
-            aVar.f59016a.setVisibility(8);
-            aVar.f59023h.setVisibility(8);
+            aVar.f62707a.setVisibility(8);
+            aVar.f62714h.setVisibility(8);
         }
-        d.a.n0.e3.r D4 = xVar.D4();
-        if (D4 != null && D4.b() && !TextUtils.isEmpty(D4.a())) {
-            aVar.f59019d.setText(D4.a());
-            aVar.f59018c.setTag(Integer.valueOf(i2));
-            aVar.f59018c.setOnClickListener(this);
-            aVar.f59018c.setVisibility(0);
+        d.a.n0.e3.r E4 = xVar.E4();
+        if (E4 != null && E4.b() && !TextUtils.isEmpty(E4.a())) {
+            aVar.f62710d.setText(E4.a());
+            aVar.f62709c.setTag(Integer.valueOf(i2));
+            aVar.f62709c.setOnClickListener(this);
+            aVar.f62709c.setVisibility(0);
         } else {
-            aVar.f59018c.setVisibility(8);
-            aVar.f59024i.setVisibility(8);
+            aVar.f62709c.setVisibility(8);
+            aVar.f62715i.setVisibility(8);
         }
         if (this.x) {
-            aVar.f59020e.setVisibility(0);
+            aVar.f62711e.setVisibility(0);
         } else {
-            aVar.f59020e.setVisibility(8);
+            aVar.f62711e.setVisibility(8);
         }
         this.o.getLayoutMode().k(this.r == 1);
         this.o.getLayoutMode().j(view);
         FrsViewData frsViewData3 = this.n;
         z = (frsViewData3 == null || frsViewData3.getUserData() == null || !this.n.getUserData().isBawu()) ? false : false;
         if (z) {
-            aVar.f59021f.setVisibility(0);
-            SkinManager.setBackgroundResource(aVar.f59021f, R.drawable.frs_top_item_bg);
-            aVar.f59020e.setVisibility(0);
-            aVar.f59021f.setOnClickListener(this);
-            aVar.f59021f.setTag(Integer.valueOf(i2));
+            aVar.f62712f.setVisibility(0);
+            SkinManager.setBackgroundResource(aVar.f62712f, R.drawable.frs_top_item_bg);
+            aVar.f62711e.setVisibility(0);
+            aVar.f62712f.setOnClickListener(this);
+            aVar.f62712f.setTag(Integer.valueOf(i2));
         } else {
-            aVar.f59021f.setVisibility(8);
+            aVar.f62712f.setVisibility(8);
             aVar.j.setVisibility(8);
         }
-        if (this.w || xVar.E4()) {
+        if (this.w || xVar.F4()) {
             return view;
         }
         if (z) {
-            aVar.f59016a.setVisibility(8);
-            aVar.f59018c.setVisibility(8);
+            aVar.f62707a.setVisibility(8);
+            aVar.f62709c.setVisibility(8);
             s0(aVar);
             return view;
         }
-        return new View(this.f39228e);
+        return new View(this.f42909e);
     }
 }

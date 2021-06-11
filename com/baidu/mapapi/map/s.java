@@ -7,10 +7,10 @@ import com.baidu.mapapi.map.WearMapView;
 public class s implements SwipeDismissTouchListener.DismissCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissView f7105a;
+    public final /* synthetic */ SwipeDismissView f7148a;
 
     public s(SwipeDismissView swipeDismissView) {
-        this.f7105a = swipeDismissView;
+        this.f7148a = swipeDismissView;
     }
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
@@ -20,7 +20,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
     public void onDismiss(View view, Object obj) {
-        WearMapView.OnDismissCallback onDismissCallback = this.f7105a.f7004a;
+        WearMapView.OnDismissCallback onDismissCallback = this.f7148a.f7047a;
         if (onDismissCallback == null) {
             return;
         }
@@ -29,7 +29,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
     public void onNotify() {
-        WearMapView.OnDismissCallback onDismissCallback = this.f7105a.f7004a;
+        WearMapView.OnDismissCallback onDismissCallback = this.f7148a.f7047a;
         if (onDismissCallback == null) {
             return;
         }

@@ -6,10 +6,10 @@ import d.a.n0.v.d.c.f.d.d;
 public class LiveTabConcernItemViewLineHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f13757a;
+    public d f13822a;
 
     public LiveTabConcernItemViewLineHolder(d dVar) {
-        super(dVar.l());
-        this.f13757a = dVar;
+        super(dVar.m());
+        this.f13822a = dVar;
     }
 }

@@ -15,27 +15,27 @@ import d.a.n0.v.d.b.b.c;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f61455a;
+    public TbPageContext<?> f65168a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.v.d.b.d.b f61456b;
+    public d.a.n0.v.d.b.d.b f65169b;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f61458d;
+    public c f65171d;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61457c = false;
+    public boolean f65170c = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f61459e = new C1641a(2000994);
+    public CustomMessageListener f65172e = new C1698a(2000994);
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f61460f = new b();
+    public Runnable f65173f = new b();
 
     /* renamed from: d.a.n0.v.d.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1641a extends CustomMessageListener {
-        public C1641a(int i2) {
+    public class C1698a extends CustomMessageListener {
+        public C1698a(int i2) {
             super(i2);
         }
 
@@ -58,67 +58,67 @@ public class a {
     }
 
     public a(TbPageContext<?> tbPageContext) {
-        this.f61455a = null;
-        this.f61455a = tbPageContext;
-        this.f61456b = new d.a.n0.v.d.b.d.b(tbPageContext);
-        MessageManager.getInstance().registerListener(this.f61459e);
+        this.f65168a = null;
+        this.f65168a = tbPageContext;
+        this.f65169b = new d.a.n0.v.d.b.d.b(tbPageContext);
+        MessageManager.getInstance().registerListener(this.f65172e);
     }
 
     public void b() {
-        if (this.f61457c) {
+        if (this.f65170c) {
             return;
         }
         if (m0.a(1)) {
-            e.a().removeCallbacks(this.f61460f);
-            e.a().postDelayed(this.f61460f, 1000L);
+            e.a().removeCallbacks(this.f65173f);
+            e.a().postDelayed(this.f65173f, 1000L);
             return;
         }
-        d.a.n0.v.d.b.d.b bVar = this.f61456b;
+        d.a.n0.v.d.b.d.b bVar = this.f65169b;
         if (bVar != null) {
             bVar.r();
         }
     }
 
     public c c() {
-        return this.f61458d;
+        return this.f65171d;
     }
 
     public View d() {
-        return this.f61456b.j();
+        return this.f65169b.j();
     }
 
     public void e(boolean z) {
-        this.f61457c = z;
+        this.f65170c = z;
     }
 
     public void f(c cVar) {
-        if (cVar == null || cVar.f61439a == null) {
+        if (cVar == null || cVar.f65152a == null) {
             return;
         }
-        this.f61458d = cVar;
-        d.a.n0.v.d.b.d.b bVar = this.f61456b;
+        this.f65171d = cVar;
+        d.a.n0.v.d.b.d.b bVar = this.f65169b;
         if (bVar != null) {
             bVar.n(cVar);
             StatisticItem statisticItem = new StatisticItem("c12644");
-            int i2 = cVar.f61440b;
+            int i2 = cVar.f65153b;
             if (i2 == 0) {
                 statisticItem.param("obj_type", 1);
             } else if (i2 == 1) {
                 statisticItem.param("obj_type", 2);
             }
-            statisticItem.param("tid", cVar.f61439a.y1());
+            statisticItem.param("tid", cVar.f65152a.z1());
             TiebaStatic.log(statisticItem);
         }
     }
 
     public void g() {
-        this.f61456b.o();
+        this.f65169b.o();
     }
 
     public void h() {
-        MessageManager.getInstance().unRegisterListener(this.f61459e);
-        e.a().removeCallbacks(this.f61460f);
-        d.a.n0.v.d.b.d.b bVar = this.f61456b;
+        MessageManager.getInstance().unRegisterListener(this.f65172e);
+        e.a().removeCallbacks(this.f65173f);
+        d.a.n0.v.d.b.d.b bVar = this.f65169b;
         if (bVar != null) {
             bVar.p();
         }
@@ -127,18 +127,18 @@ public class a {
     public final void i() {
         a2 a2Var;
         d.a.n0.v.d.b.d.b bVar;
-        c cVar = this.f61458d;
-        if (cVar == null || (a2Var = cVar.f61439a) == null || a2Var.r1() == null || (bVar = this.f61456b) == null) {
+        c cVar = this.f65171d;
+        if (cVar == null || (a2Var = cVar.f65152a) == null || a2Var.s1() == null || (bVar = this.f65169b) == null) {
             return;
         }
-        bVar.x(this.f61458d.f61439a.r1().hls_url);
+        bVar.x(this.f65171d.f65152a.s1().hls_url);
     }
 
     public void j() {
-        d.a.n0.v.d.b.d.b bVar = this.f61456b;
+        d.a.n0.v.d.b.d.b bVar = this.f65169b;
         if (bVar != null) {
             bVar.r();
         }
-        e.a().removeCallbacks(this.f61460f);
+        e.a().removeCallbacks(this.f65173f);
     }
 }

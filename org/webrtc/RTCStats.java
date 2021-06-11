@@ -3,7 +3,7 @@ package org.webrtc;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.Map;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RTCStats {
     public final String id;
     public final Map<String, Object> members;

@@ -17,7 +17,7 @@ import d.a.m0.r.q.a2;
 public class k0 extends c implements p<a2> {
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f40031i;
+    public TbPageContext f43712i;
     public TbImageView j;
     public boolean k = true;
 
@@ -25,20 +25,20 @@ public class k0 extends c implements p<a2> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f40032e;
+        public final /* synthetic */ ThemeCardInUserData f43713e;
 
         public a(ThemeCardInUserData themeCardInUserData) {
-            this.f40032e = themeCardInUserData;
+            this.f43713e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(k0.this.f40031i.getPageActivity(), this.f40032e.getCardId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(k0.this.f43712i.getPageActivity(), this.f43713e.getCardId())));
         }
     }
 
     public k0(TbPageContext tbPageContext) {
-        this.f40031i = tbPageContext;
+        this.f43712i = tbPageContext;
         h(-1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
         layoutParams.addRule(11);
@@ -56,15 +56,15 @@ public class k0 extends c implements p<a2> {
             return;
         }
         ThemeCardInUserData themeCard = T.getThemeCard();
-        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !a2Var.Q1) {
+        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !a2Var.R1) {
             if (this.k && (this.j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.rightMargin = d.a.c.e.p.l.g(this.f40031i.getPageActivity(), R.dimen.tbds106);
+                layoutParams.rightMargin = d.a.c.e.p.l.g(this.f43712i.getPageActivity(), R.dimen.tbds106);
                 this.j.setLayoutParams(layoutParams);
             }
             this.j.setVisibility(0);
             this.j.setImageDrawable(null);
-            this.j.V(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.j.U(themeCard.getCardImageUrlAndroid(), 10, false);
             this.j.setOnClickListener(new a(themeCard));
             return;
         }

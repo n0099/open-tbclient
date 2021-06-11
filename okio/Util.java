@@ -2,7 +2,7 @@ package okio;
 
 import java.nio.charset.Charset;
 import kotlin.UShort;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Util {
     public static final Charset UTF_8 = Charset.forName("UTF-8");
 

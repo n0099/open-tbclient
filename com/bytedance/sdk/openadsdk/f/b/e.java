@@ -33,7 +33,7 @@ public class e extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject>
                 return jSONObject2;
             }
             u.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadId " + optString);
-            JSONObject a2 = a.C0304a.a(optString);
+            JSONObject a2 = a.C0306a.a(optString);
             u.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadJson " + a2.toString());
             return a2;
         } catch (Throwable unused) {

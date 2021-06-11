@@ -9,10 +9,10 @@ import d.a.l0.a.a1.e;
 import d.a.l0.a.c2.f.a0;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements e.c {
         public a(j jVar) {
         }
@@ -45,7 +45,7 @@ public class j extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 Toast.makeText(context, d.a.l0.a.h.aiapps_debug_params_empty, 1).show();

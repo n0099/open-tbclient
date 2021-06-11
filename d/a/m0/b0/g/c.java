@@ -10,10 +10,10 @@ import java.util.List;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f48938b = new c();
+    public static c f52612b = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, Class<? extends b>> f48939a = new HashMap<>();
+    public final HashMap<String, Class<? extends b>> f52613a = new HashMap<>();
 
     public c() {
         f(d.class);
@@ -24,12 +24,12 @@ public class c {
     }
 
     public static c d() {
-        return f48938b;
+        return f52612b;
     }
 
     public b a(ImageOperation imageOperation) {
         b e2;
-        Class<? extends b> cls = this.f48939a.get(imageOperation.actionName);
+        Class<? extends b> cls = this.f52613a.get(imageOperation.actionName);
         if (cls == null || (e2 = e(cls)) == null) {
             return null;
         }
@@ -134,7 +134,7 @@ public class c {
     public final void f(Class<? extends b> cls) {
         b e2 = e(cls);
         if (e2 != null) {
-            this.f48939a.put(e2.a(), cls);
+            this.f52613a.put(e2.a(), cls);
         }
     }
 }

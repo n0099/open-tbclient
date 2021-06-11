@@ -6,56 +6,56 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f54128a;
+    public String f57817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54129b;
+    public String f57818b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f54130c;
+    public JSONObject f57819c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54131d;
+    public String f57820d;
 
     public String a() {
-        return this.f54128a;
+        return this.f57817a;
     }
 
     public String b() {
-        if (k.isEmpty(this.f54129b)) {
-            return this.f54128a;
+        if (k.isEmpty(this.f57818b)) {
+            return this.f57817a;
         }
-        return this.f54129b + "/" + this.f54128a;
+        return this.f57818b + "/" + this.f57817a;
     }
 
     public String c() {
-        return this.f54129b;
+        return this.f57818b;
     }
 
     public String d() {
-        return this.f54131d;
+        return this.f57820d;
     }
 
     public JSONObject e() {
-        return this.f54130c;
+        return this.f57819c;
     }
 
     public void f(String str) {
-        this.f54128a = str;
+        this.f57817a = str;
     }
 
     public void g(String str) {
     }
 
     public void h(String str) {
-        this.f54129b = str;
+        this.f57818b = str;
     }
 
     public void i(String str) {
-        this.f54131d = str;
+        this.f57820d = str;
     }
 
     public void j(JSONObject jSONObject) {
-        this.f54130c = jSONObject;
+        this.f57819c = jSONObject;
     }
 }

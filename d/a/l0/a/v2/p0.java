@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class p0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45439a = d.a.l0.a.k.f43199a;
+    public static final boolean f49113a = d.a.l0.a.k.f46875a;
 
     public static String a() {
-        return d.a.l0.a.a2.e.i() != null ? d.a.l0.a.a2.e.i().f40749f : "";
+        return d.a.l0.a.a2.e.i() != null ? d.a.l0.a.a2.e.i().f44425f : "";
     }
 
     public static String b() {
@@ -28,7 +28,7 @@ public class p0 {
 
     public static JSONObject d(String str) {
         String string = d.a.l0.a.k2.g.h.a().getString("dailyInfo", "");
-        if (f45439a) {
+        if (f49113a) {
             Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
         }
         JSONObject jSONObject = null;
@@ -44,7 +44,7 @@ public class p0 {
                 return jSONObject;
             }
         } catch (JSONException e2) {
-            if (f45439a) {
+            if (f49113a) {
                 Log.e("SwanAppUserVisitInfoUtils", e2.getMessage());
             }
         }
@@ -78,7 +78,7 @@ public class p0 {
     public static void i(String str, String str2, Object obj) {
         JSONObject jSONObject;
         String string = d.a.l0.a.k2.g.h.a().getString("dailyInfo", "");
-        if (f45439a) {
+        if (f49113a) {
             Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
         }
         try {
@@ -95,7 +95,7 @@ public class p0 {
             }
             d.a.l0.a.k2.g.h.a().putString("dailyInfo", jSONObject.toString());
         } catch (JSONException e2) {
-            if (f45439a) {
+            if (f49113a) {
                 Log.e("SwanAppUserVisitInfoUtils", e2.getMessage());
             }
         }

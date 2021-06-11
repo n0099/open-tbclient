@@ -17,6 +17,6 @@ public class e extends d.a.l0.a.y0.a<d.a.l0.a.y0.e.c> {
         int i2 = command.arg1;
         String str = command.what;
         d(cVar, str, "Type:" + i2, false);
-        cVar.D0(i2);
+        cVar.A0(i2);
     }
 }

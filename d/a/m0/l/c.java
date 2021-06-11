@@ -70,7 +70,7 @@ public class c {
 
     /* renamed from: d.a.m0.l.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1126c implements UrlManager.UrlDealListener {
+    public static class C1182c implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             Uri parse;
@@ -165,7 +165,7 @@ public class c {
                         return 0;
                     } else if (str2.contains(UrlSchemaHelper.FROM_ENTER_FORUM) && tbPageContext.getPageActivity() != null) {
                         MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1);
-                        String queryParameter3 = Uri.parse(str2).getQueryParameter(d.a.m0.a.f.z);
+                        String queryParameter3 = Uri.parse(str2).getQueryParameter(d.a.m0.a.g.z);
                         if (!k.isEmpty(queryParameter3)) {
                             createNormalCfg.setSubTab(0, queryParameter3);
                         }
@@ -203,24 +203,24 @@ public class c {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f49451e;
+        public final /* synthetic */ TbPageContext f53125e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f49452f;
+        public final /* synthetic */ String f53126f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f49453g;
+        public final /* synthetic */ String f53127g;
 
         public d(TbPageContext tbPageContext, String str, String str2) {
-            this.f49451e = tbPageContext;
-            this.f49452f = str;
-            this.f49453g = str2;
+            this.f53125e = tbPageContext;
+            this.f53126f = str;
+            this.f53127g = str2;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            d.a.m0.l.a.m(this.f49451e.getPageActivity(), this.f49452f, this.f49453g);
+            d.a.m0.l.a.m(this.f53125e.getPageActivity(), this.f53126f, this.f53127g);
         }
     }
 
@@ -428,7 +428,7 @@ public class c {
     }
 
     public static void i() {
-        UrlManager.getInstance().addListener(new C1126c());
+        UrlManager.getInstance().addListener(new C1182c());
     }
 
     public static void j() {

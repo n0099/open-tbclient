@@ -20,17 +20,17 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67617a;
+    public String f71404a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67618b;
+    public String f71405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ReentrantLock f67619c;
+    public ReentrantLock f71406c;
 
     public a() {
-        this.f67618b = "";
-        this.f67619c = new ReentrantLock();
+        this.f71405b = "";
+        this.f71406c = new ReentrantLock();
     }
 
     public /* synthetic */ a(byte b2) {
@@ -38,7 +38,7 @@ public class a {
     }
 
     public static a a() {
-        return b.f67620a;
+        return b.f71407a;
     }
 
     public static String b(Context context) {
@@ -62,7 +62,7 @@ public class a {
                     return e2;
                 }
             }
-            if (d.q.a.a.c.b.e.c(context, new String[]{"android.permission.READ_PHONE_STATE"})) {
+            if (d.q.a.a.c.b.e.e(context, new String[]{"android.permission.READ_PHONE_STATE"})) {
                 String serial = Build.getSerial();
                 if (!TextUtils.isEmpty(serial) && !serial.equals("unknown")) {
                     return serial;
@@ -155,82 +155,81 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0226  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0215  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final String c(Context context, boolean z, boolean z2) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            this.f67619c.lock();
+            this.f71406c.lock();
         } finally {
             try {
-                this.f67619c.unlock();
-                if (TextUtils.isEmpty(this.f67618b)) {
+                this.f71406c.unlock();
+                if (TextUtils.isEmpty(this.f71405b)) {
                 }
                 d.q.a.a.c.b.b.e("mini cost : " + (System.currentTimeMillis() - currentTimeMillis));
-                return this.f67618b;
+                return this.f71405b;
             } finally {
             }
         }
-        if (TextUtils.isEmpty(this.f67618b)) {
+        if (TextUtils.isEmpty(this.f71405b)) {
             JSONObject jSONObject = new JSONObject();
             String str = Build.MODEL;
-            jSONObject.put("k27", d.q.a.a.c.b.e.d(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace("&", "")));
-            jSONObject.put("k64", d.q.a.a.c.b.e.d(b(context)));
-            jSONObject.put("k31", d.q.a.a.c.b.e.d(z ? d.a() : d.e()));
-            jSONObject.put("k66", d.q.a.a.c.b.e.d(f(context)));
-            jSONObject.put("k39", d.q.a.a.c.b.e.d(Long.toString(i())));
-            jSONObject.put("k101", d.q.a.a.c.b.e.d(d.q.a.a.c.b.e.a(new String(Base64.decode("Y2F0IC9zeXMvZGV2aWNlcy9zb2MwL3NlcmlhbF9udW1iZXI=", 0)))));
-            jSONObject.put("k102", d.q.a.a.c.b.e.d(d.q.a.a.c.b.e.a(new String(Base64.decode("Y2F0IC9wcm9jL3N5cy9rZXJuZWwvcmFuZG9tL2Jvb3RfaWQ=", 0)))));
-            jSONObject.put("k57", d.q.a.a.c.b.e.d(d.f(context)));
-            jSONObject.put("k68", d.q.a.a.c.b.e.d(d.b(context)));
-            jSONObject.put("k105", d.q.a.a.c.b.e.d(Orange.a().c()));
-            jSONObject.put("k83", d.q.a.a.c.b.e.d(d.h(context)));
-            jSONObject.put("k86", d.q.a.a.c.b.e.d(d.i(context)));
-            jSONObject.put("k3", d.q.a.a.c.b.e.d(d.g(context)));
-            jSONObject.put("k109", d.q.a.a.c.b.e.d(Orange.a().g()));
+            jSONObject.put("k27", d.q.a.a.c.b.e.f(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace("&", "")));
+            jSONObject.put("k64", d.q.a.a.c.b.e.f(b(context)));
+            jSONObject.put("k31", d.q.a.a.c.b.e.f(z ? d.d(context, true) : d.a()));
+            jSONObject.put("k66", d.q.a.a.c.b.e.f(f(context)));
+            jSONObject.put("k39", d.q.a.a.c.b.e.f(Long.toString(i())));
+            jSONObject.put("k101", d.q.a.a.c.b.e.f(d.q.a.a.c.b.e.c(new String(Base64.decode("Y2F0IC9zeXMvZGV2aWNlcy9zb2MwL3NlcmlhbF9udW1iZXI=", 0)))));
+            jSONObject.put("k102", d.q.a.a.c.b.e.f(d.q.a.a.c.b.e.c(new String(Base64.decode("Y2F0IC9wcm9jL3N5cy9rZXJuZWwvcmFuZG9tL2Jvb3RfaWQ=", 0)))));
+            jSONObject.put("k57", d.q.a.a.c.b.e.f(d.h(context)));
+            jSONObject.put("k68", d.q.a.a.c.b.e.f(d.b(context)));
+            jSONObject.put("k105", d.q.a.a.c.b.e.f(Orange.a().c()));
+            jSONObject.put("k83", d.q.a.a.c.b.e.f(d.k(context)));
+            jSONObject.put("k86", d.q.a.a.c.b.e.f(d.n(context)));
+            jSONObject.put("k3", d.q.a.a.c.b.e.f(d.j(context)));
             if (z2) {
                 d.q.a.a.a.a.b.c().i();
             }
-            String str2 = d.q.a.a.b.f67610g;
+            String str2 = d.q.a.a.b.f71397h;
             if (TextUtils.isEmpty(str2) || str2.startsWith("KWE")) {
                 str2 = new e(context).e();
             }
-            jSONObject.put("k97", d.q.a.a.c.b.e.d(str2));
-            jSONObject.put("k36", d.q.a.a.c.b.e.d(d.q.a.a.c.b.b.a()));
-            jSONObject.put("k14", d.q.a.a.c.b.e.d(d.q.a.a.c.b.b.d()));
+            jSONObject.put("k97", d.q.a.a.c.b.e.f(str2));
+            jSONObject.put("k36", d.q.a.a.c.b.e.f(d.q.a.a.c.b.b.a()));
+            jSONObject.put("k14", d.q.a.a.c.b.e.f(d.q.a.a.c.b.b.d()));
             CRC32 crc32 = new CRC32();
-            for (int i2 = 1; i2 <= 109; i2++) {
+            for (int i2 = 1; i2 <= 106; i2++) {
                 String str3 = Config.APP_KEY + i2;
                 if (jSONObject.has(str3)) {
                     crc32.update(jSONObject.optString(str3).getBytes());
                 }
             }
-            jSONObject.put("k14", d.q.a.a.c.b.e.d(d.q.a.a.c.b.b.d() + ":" + String.valueOf(crc32.getValue())));
+            jSONObject.put("k14", d.q.a.a.c.b.e.f(d.q.a.a.c.b.b.d() + ":" + String.valueOf(crc32.getValue())));
             d.q.a.a.c.b.b.e("mimi :" + jSONObject.toString() + " " + jSONObject.toString().getBytes().length + " " + (System.currentTimeMillis() - currentTimeMillis));
             byte[] d2 = Orange.a().d(context, jSONObject.toString().getBytes(), 0);
             StringBuilder sb = new StringBuilder("get mini lenth ");
             sb.append(d2.length);
             d.q.a.a.c.b.b.b(sb.toString());
-            this.f67618b = URLEncoder.encode(Base64.encodeToString(d2, 0), "utf-8");
-            this.f67619c.unlock();
-            if (TextUtils.isEmpty(this.f67618b)) {
-                this.f67618b = "KWE_N";
+            this.f71405b = URLEncoder.encode(Base64.encodeToString(d2, 0), "utf-8");
+            this.f71406c.unlock();
+            if (TextUtils.isEmpty(this.f71405b)) {
+                this.f71405b = "KWE_N";
             }
             d.q.a.a.c.b.b.e("mini cost : " + (System.currentTimeMillis() - currentTimeMillis));
-            return this.f67618b;
+            return this.f71405b;
         }
-        return this.f67618b;
+        return this.f71405b;
     }
 
     public final void d(String str) {
-        this.f67617a = str;
+        this.f71404a = str;
     }
 
     public final String e() {
         try {
-            return !TextUtils.isEmpty(this.f67617a) ? this.f67617a : "KWE_N";
+            return !TextUtils.isEmpty(this.f71404a) ? this.f71404a : "KWE_N";
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
             return "KWE_N";

@@ -10,22 +10,22 @@ import d.a.l0.a.z1.b.b.h;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f41347a;
+    public static boolean f45023a;
 
     /* renamed from: d.a.l0.a.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class DialogInterface$OnClickListenerC0596a implements DialogInterface.OnClickListener {
+    public static class DialogInterface$OnClickListenerC0652a implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f41348e;
+        public final /* synthetic */ d.a.l0.a.a2.e f45024e;
 
-        public DialogInterface$OnClickListenerC0596a(d.a.l0.a.a2.e eVar) {
-            this.f41348e = eVar;
+        public DialogInterface$OnClickListenerC0652a(d.a.l0.a.a2.e eVar) {
+            this.f45024e = eVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            SwanAppActivity x = this.f41348e.x();
+            SwanAppActivity x = this.f45024e.x();
             if (x != null && Build.VERSION.SDK_INT >= 21) {
                 x.finishAndRemoveTask();
             }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public static boolean a() {
-        return f41347a;
+        return f45023a;
     }
 
     public static void b(boolean z) {
-        f41347a = z;
+        f45023a = z;
     }
 
     public static void c(Context context, boolean z) {
@@ -51,7 +51,7 @@ public class a {
             aVar.x(context.getString(i3));
             aVar.n(new d.a.l0.a.w2.h.a());
             aVar.m(false);
-            aVar.O(d.a.l0.a.h.aiapps_confirm, new DialogInterface$OnClickListenerC0596a(i2));
+            aVar.O(d.a.l0.a.h.aiapps_confirm, new DialogInterface$OnClickListenerC0652a(i2));
             aVar.X();
         }
     }

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 public class PBMediaView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public K f36900a;
+    public K f40579a;
 
     public PBMediaView(Context context) {
         this(context, null);
@@ -20,8 +20,8 @@ public class PBMediaView extends FrameLayout {
 
     public PBMediaView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f36900a = new K(context);
-        addView(this.f36900a.f36851c, new FrameLayout.LayoutParams(-1, -1));
+        this.f40579a = new K(context);
+        addView(this.f40579a.f40530c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int i3 = (int) ((context.getResources().getDisplayMetrics().density * 15.0f) + 0.5f);
@@ -34,6 +34,6 @@ public class PBMediaView extends FrameLayout {
     }
 
     public K getHtmlWebView() {
-        return this.f36900a;
+        return this.f40579a;
     }
 }

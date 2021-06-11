@@ -14,14 +14,14 @@ import java.util.Set;
 public class k<T extends j> extends d.a.l0.n.f.b<d.a.l0.n.h.g> {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f42369f = d.a.l0.a.k.f43199a;
+    public static final boolean f46045f = d.a.l0.a.k.f46875a;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final T f42370e;
+    public final T f46046e;
 
     public k(@NonNull T t) {
-        this.f42370e = t;
+        this.f46046e = t;
     }
 
     @Override // d.a.l0.n.f.b
@@ -38,7 +38,7 @@ public class k<T extends j> extends d.a.l0.n.f.b<d.a.l0.n.h.g> {
     public Bundle m(@NonNull Bundle bundle, Set<String> set) {
         Bundle bundle2 = new Bundle();
         if (set.contains("event_performance_ubc")) {
-            this.f42370e.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+            this.f46046e.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
             set.remove("event_performance_ubc");
         }
         return bundle2;
@@ -51,12 +51,12 @@ public class k<T extends j> extends d.a.l0.n.f.b<d.a.l0.n.h.g> {
         if (TextUtils.isEmpty(gVar.o)) {
             gVar.o = l();
         }
-        int i2 = gVar.f48013h;
+        int i2 = gVar.f51687h;
         if (i2 == 0) {
-            return d.a.l0.a.h0.m.r.b.b(gVar.o, String.valueOf(gVar.f48014i));
+            return d.a.l0.a.h0.m.r.b.b(gVar.o, String.valueOf(gVar.f51688i));
         }
         if (i2 == 1) {
-            return d.a.l0.a.h0.m.r.b.d(gVar.o, String.valueOf(gVar.f48014i));
+            return d.a.l0.a.h0.m.r.b.d(gVar.o, String.valueOf(gVar.f51688i));
         }
         return null;
     }
@@ -68,9 +68,9 @@ public class k<T extends j> extends d.a.l0.n.f.b<d.a.l0.n.h.g> {
     @CallSuper
     public void q(d.a.l0.n.h.g gVar, d.a.l0.n.h.a aVar) {
         super.e(gVar, aVar);
-        d.a.l0.a.e0.d.h("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + gVar.f48006a);
-        d.a.l0.t.d.L(gVar.f48006a);
-        if (f42369f) {
+        d.a.l0.a.e0.d.h("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + gVar.f51680a);
+        d.a.l0.t.d.L(gVar.f51680a);
+        if (f46045f) {
             Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + gVar + ", error=" + aVar);
         }
     }
@@ -81,7 +81,7 @@ public class k<T extends j> extends d.a.l0.n.f.b<d.a.l0.n.h.g> {
     public final void i(d.a.l0.n.h.g gVar) {
         super.i(gVar);
         p(gVar, t(gVar));
-        if (f42369f) {
+        if (f46045f) {
             Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + gVar);
         }
     }
@@ -91,13 +91,13 @@ public class k<T extends j> extends d.a.l0.n.f.b<d.a.l0.n.h.g> {
     /* renamed from: s */
     public void c(d.a.l0.n.h.g gVar) {
         super.c(gVar);
-        if (f42369f) {
+        if (f46045f) {
             Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + gVar);
         }
     }
 
     public final d.a.l0.a.q2.a t(d.a.l0.n.h.g gVar) {
-        if (!j0.a(new File(gVar.f48006a), gVar.m)) {
+        if (!j0.a(new File(gVar.f51680a), gVar.m)) {
             d.a.l0.a.q2.a aVar = new d.a.l0.a.q2.a();
             aVar.j(12L);
             aVar.b(2300L);

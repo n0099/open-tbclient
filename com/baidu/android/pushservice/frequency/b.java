@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f3089a;
+    public static volatile b f3108a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str) {
@@ -42,14 +42,14 @@ public class b {
     }
 
     public static b a() {
-        if (f3089a == null) {
+        if (f3108a == null) {
             synchronized (b.class) {
-                if (f3089a == null) {
-                    f3089a = new b();
+                if (f3108a == null) {
+                    f3108a = new b();
                 }
             }
         }
-        return f3089a;
+        return f3108a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -228,7 +228,7 @@ public class b {
         if (b(context, str, aVar)) {
             return;
         }
-        final String str2 = h.f3124c + h.f3128g;
+        final String str2 = h.f3143c + h.f3147g;
         final HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.3
@@ -294,7 +294,7 @@ public class b {
     }
 
     public void a(final Context context, final HashMap<String, Object> hashMap, final UploadDataListener uploadDataListener) {
-        final String str = h.f3124c + h.f3126e;
+        final String str = h.f3143c + h.f3145e;
         final HashMap hashMap2 = new HashMap();
         hashMap2.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.1
@@ -344,7 +344,7 @@ public class b {
             return;
         }
         if (i.b(context, "click_data_size", -1) != -1 || z) {
-            final String str3 = h.f3130i + h.j;
+            final String str3 = h.f3149i + h.j;
             final HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
             d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.2

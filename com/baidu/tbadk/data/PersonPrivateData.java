@@ -7,31 +7,31 @@ import tbclient.PrivSets;
 public class PersonPrivateData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12721e = 1;
+    public int f12786e = 1;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
         jSONObject.optInt("location", 1);
-        this.f12721e = jSONObject.optInt("like", 1);
+        this.f12786e = jSONObject.optInt("like", 1);
         jSONObject.optInt("group", 1);
         jSONObject.optInt("post", 1);
         jSONObject.optInt("friend", 1);
         jSONObject.optInt("live", 1);
     }
 
-    public int s() {
-        return this.f12721e;
+    public int w() {
+        return this.f12786e;
     }
 
-    public void t(PrivSets privSets) {
+    public void x(PrivSets privSets) {
         if (privSets == null) {
             return;
         }
         try {
             privSets.location.intValue();
-            this.f12721e = privSets.like.intValue();
+            this.f12786e = privSets.like.intValue();
             privSets.group.intValue();
             privSets.post.intValue();
             privSets.friend.intValue();

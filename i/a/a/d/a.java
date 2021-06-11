@@ -1,164 +1,330 @@
 package i.a.a.d;
 
-import com.yy.mobile.framework.revenuesdk.giftapi.IGiftService;
-import d.r.b.a.a.g.e.d;
-import d.r.b.a.a.g.e.e;
-import d.r.b.a.a.g.e.f;
-import d.r.b.a.a.g.e.g;
-import d.r.b.a.a.g.e.h;
-import d.r.b.a.a.g.e.i;
-import d.r.b.a.a.g.e.j;
-import java.util.List;
+import android.app.Activity;
+import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
+import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ExchangeResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetUserYbDetailsResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.RechargeHistoryResult;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.reporter.IPayReporter;
+import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.ExchangeCurrencyReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetUserYbDetailsReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyChannelsReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryRechargeHistoryReqParams;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
+import tv.athena.revenue.api.pay.MiddlePayStatus;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.api.pay.params.RefreshAppExpandInfo;
 /* loaded from: classes8.dex */
-public final class a implements IGiftService {
+public final class a implements IMiddlePayService {
 
     /* renamed from: a  reason: collision with root package name */
-    public final MiddleRevenueConfig f68784a;
+    public final MiddleRevenueConfig f72043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IGiftService f68785b;
+    public final IAppPayService f72044b;
 
-    public a(MiddleRevenueConfig middleRevenueConfig, IGiftService iGiftService) {
-        this.f68784a = middleRevenueConfig;
-        this.f68785b = iGiftService;
-    }
+    /* renamed from: i.a.a.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public static final class C1992a implements IPayCallback<String> {
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void addGiftEventCallback(d.r.b.a.a.g.a aVar) {
-        this.f68785b.addGiftEventCallback(aVar);
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ IPayCallback f72045a;
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void clearAllGiftCache() {
-        this.f68785b.clearAllGiftCache();
-    }
+        public C1992a(IPayCallback iPayCallback) {
+            this.f72045a = iPayCallback;
+        }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void clearGiftCacheByChannelAndCategoryId(int i2, int i3) {
-        this.f68785b.clearGiftCacheByChannelAndCategoryId(i2, i3);
-    }
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(String str, PayCallBackBean payCallBackBean) {
+            RLog.debug("MiddlePayService", "doPayProduct onSuccess");
+            IPayCallback iPayCallback = this.f72045a;
+            if (iPayCallback != null) {
+                iPayCallback.onSuccess(str, payCallBackBean);
+            }
+        }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public d.r.b.a.a.g.c.a findGiftById(int i2) {
-        return this.f68785b.findGiftById(i2);
-    }
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
+            RLog.debug("MiddlePayService", "doPayProduct onFail [code = " + i2 + ", failReason=" + str + ']');
+            IPayCallback iPayCallback = this.f72045a;
+            if (iPayCallback != null) {
+                iPayCallback.onFail(i2, str, payCallBackBean);
+            }
+        }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public List<d.r.b.a.a.g.c.a> getAllChannelGift() {
-        List<d.r.b.a.a.g.c.a> allChannelGift = this.f68785b.getAllChannelGift();
-        Intrinsics.checkExpressionValueIsNotNull(allChannelGift, "giftService.allChannelGift");
-        return allChannelGift;
-    }
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+        public void onPayStart() {
+            RLog.debug("MiddlePayService", "doPayProduct onPayStart");
+            IPayCallback iPayCallback = this.f72045a;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStart();
+            }
+        }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public List<d.r.b.a.a.g.c.a> getAllGift(int i2) {
-        List<d.r.b.a.a.g.c.a> allGift = this.f68785b.getAllGift(i2);
-        Intrinsics.checkExpressionValueIsNotNull(allGift, "giftService.getAllGift(usedChannel)");
-        return allGift;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void getGiftBagInfo(d.r.b.a.a.g.e.a aVar, d.r.b.a.a.g.b<Object> bVar) {
-        aVar.f67771a = this.f68784a.getAppId();
-        this.f68785b.getGiftBagInfo(aVar, bVar);
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void getRankEntranceInfo(h hVar, d.r.b.a.a.g.b<Object> bVar) {
-        hVar.f67779a = this.f68784a.getAppId();
-        this.f68785b.getRankEntranceInfo(hVar, bVar);
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void getToInfo(d.r.b.a.a.g.e.b bVar, d.r.b.a.a.g.b<Object> bVar2) {
-        bVar.f67772a = this.f68784a.getAppId();
-        this.f68785b.getToInfo(bVar, bVar2);
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void loadAllGift(d dVar, d.r.b.a.a.g.b<Object> bVar, boolean z) {
-        dVar.f67773a = this.f68784a.getAppId();
-        dVar.f67775c = this.f68784a.getCountry();
-        dVar.f67776d = this.f68784a.getVersion();
-        this.f68785b.loadAllGift(dVar, bVar, z);
-        IGiftService iGiftService = this.f68785b;
-        if (iGiftService != null) {
-            iGiftService.setCurrentUsedChannel(dVar.f67774b);
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
+            IPayCallback iPayCallback = this.f72045a;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
+            }
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void loadAllGiftJsonData(d.r.b.a.a.g.e.c cVar, d.r.b.a.a.g.b<String> bVar, boolean z) {
-        cVar.f67773a = this.f68784a.getAppId();
-        cVar.f67775c = this.f68784a.getCountry();
-        cVar.f67776d = this.f68784a.getVersion();
-        this.f68785b.loadAllGiftJsonData(cVar, bVar, z);
-        IGiftService iGiftService = this.f68785b;
-        if (iGiftService != null) {
-            iGiftService.setCurrentUsedChannel(cVar.f67774b);
+    public a(MiddleRevenueConfig middleRevenueConfig, IAppPayService iAppPayService) {
+        this.f72043a = middleRevenueConfig;
+        this.f72044b = iAppPayService;
+    }
+
+    @Override // tv.athena.revenue.api.pay.IMiddlePayService
+    public void a(i.a.a.b.b.a.a aVar) {
+        f(aVar.a(), aVar.h(), aVar.n(), aVar.k(), aVar.g(), aVar.o(), aVar.e(), aVar.j(), aVar.d(), aVar.i(), aVar.f(), aVar.c(), aVar.l(), aVar.b(), aVar.m());
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void addAlipaySdkProxy(IAlipaySdkServiceProxy iAlipaySdkServiceProxy) {
+        this.f72044b.addAlipaySdkProxy(iAlipaySdkServiceProxy);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void addDxmPaySdkProxy(IDxmSdkServiceProxy iDxmSdkServiceProxy) {
+        this.f72044b.addDxmPaySdkProxy(iDxmSdkServiceProxy);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void addPayListener(IAppPayServiceListener iAppPayServiceListener) {
+        this.f72044b.addPayListener(iAppPayServiceListener);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void addWechatSdkProxy(IWechatSdkServiceProxy iWechatSdkServiceProxy) {
+        this.f72044b.addWechatSdkProxy(iWechatSdkServiceProxy);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0046  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(Activity activity, PayType payType, long j, String str, ProductInfo productInfo, int i2, int i3, int i4, String str2, String str3, Map<String, Object> map, IPayCallback<String> iPayCallback, IToken iToken, AppCustomExpand appCustomExpand, String str4) {
+        a aVar;
+        Map<String, Object> map2;
+        RLog.info("MiddlePayService", "doPayProduct");
+        if (e(activity)) {
+            Map<String, String> map3 = appCustomExpand != null ? appCustomExpand.appServerExpand : null;
+            if ((appCustomExpand != null ? appCustomExpand.iAppServerExpand : null) != null) {
+                RefreshAppExpandInfo refreshAppExpandInfo = new RefreshAppExpandInfo();
+                refreshAppExpandInfo.payType = payType;
+                Map<String, String> appServerExpand = (appCustomExpand != null ? appCustomExpand.iAppServerExpand : null).getAppServerExpand(refreshAppExpandInfo);
+                if (appServerExpand != null) {
+                    map2 = map;
+                    map3 = appServerExpand;
+                    aVar = this;
+                    payWithProductInfo(activity, c(activity, payType, productInfo, j, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C1992a(iPayCallback));
+                }
+            }
+            aVar = this;
+            map2 = map;
+            payWithProductInfo(activity, c(activity, payType, productInfo, j, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C1992a(iPayCallback));
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void loadPackageGift(e eVar, d.r.b.a.a.g.b<Object> bVar) {
-        eVar.f67777a = this.f68784a.getAppId();
-        this.f68785b.loadPackageGift(eVar, bVar);
+    public final ChargeCurrencyReqParams c(Activity activity, PayType payType, ProductInfo productInfo, long j, String str, int i2, int i3, String str2, int i4, String str3, String str4, IToken iToken, Map<String, String> map, String str5) {
+        ChargeCurrencyReqParams chargeCurrencyReqParams = new ChargeCurrencyReqParams();
+        chargeCurrencyReqParams.setUid(j);
+        chargeCurrencyReqParams.setToken(str);
+        chargeCurrencyReqParams.setAppId(this.f72043a.getAppId());
+        chargeCurrencyReqParams.setSid(0);
+        chargeCurrencyReqParams.setUsedChannel(i2);
+        chargeCurrencyReqParams.setCurrencyType(i3);
+        chargeCurrencyReqParams.setClientVersion(this.f72043a.getVersion());
+        chargeCurrencyReqParams.setSubscriptionType(i4);
+        chargeCurrencyReqParams.setExpand(str3);
+        chargeCurrencyReqParams.setReturnUrl(str2);
+        chargeCurrencyReqParams.setAppClientExpand(map);
+        if (str5 != null) {
+            chargeCurrencyReqParams.setTraceid(str5);
+        }
+        chargeCurrencyReqParams.setPayType(payType);
+        chargeCurrencyReqParams.setProductId(productInfo.productId);
+        Double d2 = productInfo.srcAmount;
+        Intrinsics.checkExpressionValueIsNotNull(d2, "info.srcAmount");
+        chargeCurrencyReqParams.setSrcAmount(d2.doubleValue());
+        chargeCurrencyReqParams.setCid(productInfo.cid);
+        chargeCurrencyReqParams.setTokenCallback(iToken);
+        if (str4.equals(IMiddlePayService.ChargeSource.WALLET_CHARGE)) {
+            chargeCurrencyReqParams.setFrom(1);
+        } else if (str4.equals(IMiddlePayService.ChargeSource.ROOM_CHARGE)) {
+            chargeCurrencyReqParams.setFrom(2);
+        } else if (str4.equals(IMiddlePayService.ChargeSource.OTHER_CHARGE)) {
+            chargeCurrencyReqParams.setFrom(3);
+        }
+        return chargeCurrencyReqParams;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void loadReceiveGiftAmount(f fVar, d.r.b.a.a.g.b<Object> bVar) {
-        fVar.f67778a = this.f68784a.getAppId();
-        this.f68785b.loadReceiveGiftAmount(fVar, bVar);
+    public final String d(Map<String, String> map, Map<String, Object> map2) {
+        JSONObject jSONObject = new JSONObject();
+        if (map2 != null) {
+            try {
+                if (map2.size() > 0) {
+                    for (Map.Entry<String, Object> entry : map2.entrySet()) {
+                        if (entry.getKey() != null && entry.getValue() != null) {
+                            jSONObject.put(entry.getKey(), entry.getValue());
+                        } else {
+                            RLog.info("MiddlePayService", "expandMap parse error! key or value null");
+                        }
+                    }
+                }
+            } catch (JSONException e2) {
+                RLog.error("ChargeCurrencyRequest", "ExpandBuilder.toJson", e2);
+            }
+        }
+        if (map != null && map.size() > 0) {
+            JSONObject jSONObject2 = new JSONObject();
+            for (Map.Entry<String, String> entry2 : map.entrySet()) {
+                if (entry2.getKey() != null && entry2.getValue() != null) {
+                    jSONObject2.put(entry2.getKey(), entry2.getValue());
+                } else {
+                    RLog.info("MiddlePayService", "expandMap parse error! key or value null");
+                }
+            }
+            jSONObject.put("yyBussinessPenetrateMsg", jSONObject2);
+        }
+        String jSONObject3 = jSONObject.toString();
+        Intrinsics.checkExpressionValueIsNotNull(jSONObject3, "expand.toString()");
+        return jSONObject3;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void queryUserCouponStore(g gVar, d.r.b.a.a.g.b<Object> bVar) {
-        this.f68785b.queryUserCouponStore(gVar, bVar);
+    public final boolean e(Activity activity) {
+        if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
+            RLog.info("MiddlePayService", "act not alive");
+            return false;
+        }
+        return true;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void registerGiftReporter(d.r.b.a.a.g.d.a aVar) {
-        this.f68785b.registerGiftReporter(aVar);
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void exchangeCurrency(ExchangeCurrencyReqParams exchangeCurrencyReqParams, IResult<ExchangeResult> iResult) {
+        exchangeCurrencyReqParams.setAppId(this.f72043a.getAppId());
+        exchangeCurrencyReqParams.setClientVersion(this.f72043a.getVersion());
+        this.f72044b.exchangeCurrency(exchangeCurrencyReqParams, iResult);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void removeGiftEventCallback(d.r.b.a.a.g.a aVar) {
-        this.f68785b.removeGiftEventCallback(aVar);
+    public final void f(Activity activity, PayType payType, long j, String str, ProductInfo productInfo, int i2, int i3, IMiddlePayService.SubscriptType subscriptType, IMiddlePayService.ChargeSource chargeSource, String str2, Map<String, Object> map, IPayCallback<String> iPayCallback, IToken iToken, AppCustomExpand appCustomExpand, String str3) {
+        if (isSupported(activity, payType)) {
+            b(activity, payType, j, str, productInfo, i2, i3, subscriptType.getValue(), chargeSource.getValue(), str2, map, iPayCallback, iToken, appCustomExpand, str3);
+        } else if (iPayCallback != null) {
+            iPayCallback.onFail(MiddlePayStatus.NOT_SUPPORT.getCode(), MiddlePayStatus.NOT_SUPPORT.getMessage(), null);
+        }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void sendGiftToMultiUser(j jVar, d.r.b.a.a.g.b<Object> bVar) {
-        jVar.f67781a = this.f68784a.getAppId();
-        this.f68785b.sendGiftToMultiUser(jVar, bVar);
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public boolean isPayingStatus(PayType payType) {
+        return this.f72044b.isPayingStatus(payType);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void sendGiftToUser(i iVar, d.r.b.a.a.g.b<Object> bVar) {
-        iVar.f67780a = this.f68784a.getAppId();
-        this.f68785b.sendGiftToUser(iVar, bVar);
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public boolean isSupported(Activity activity, PayType payType) {
+        return this.f72044b.isSupported(activity, payType);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void setCountryCode(String str) {
-        this.f68785b.setCountryCode(str);
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void onWxPayResult(int i2, String str) {
+        this.f72044b.onWxPayResult(i2, str);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public void setCurrentUsedChannel(int i2) {
-        this.f68785b.setCurrentUsedChannel(i2);
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, IPayCallback<String> iPayCallback) {
+        this.f72044b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, iPayCallback);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public d.r.b.a.a.g.c.a findGiftById(int i2, int i3) {
-        return this.f68785b.findGiftById(i2, i3);
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryBannerConfigRequest(GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
+        this.f72044b.queryBannerConfigRequest(getBannerConfigReqParams, iResult);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.giftapi.IGiftService
-    public List<d.r.b.a.a.g.c.a> getAllGift(int i2, int i3) {
-        List<d.r.b.a.a.g.c.a> allGift = this.f68785b.getAllGift(i2, i3);
-        Intrinsics.checkExpressionValueIsNotNull(allGift, "giftService.getAllGift(u…dChannel, liveCategoryId)");
-        return allGift;
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryChargeOrderStatus(GetChargeOrderStatusReqParams getChargeOrderStatusReqParams, IResult<GetChargeOrderStatusResult> iResult) {
+        getChargeOrderStatusReqParams.setAppId(this.f72043a.getAppId());
+        this.f72044b.queryChargeOrderStatus(getChargeOrderStatusReqParams, iResult);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryMyBalance(QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
+        this.f72044b.queryMyBalance(queryCurrencyReqParams, iResult);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryProductList(QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
+        queryCurrencyReqParams.setAppId(this.f72043a.getAppId());
+        this.f72044b.queryProductList(queryCurrencyReqParams, iResult);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryProductListChannels(QueryCurrencyChannelsReqParams queryCurrencyChannelsReqParams, IResult<ProductListResult> iResult) {
+        queryCurrencyChannelsReqParams.setAppId(this.f72043a.getAppId());
+        this.f72044b.queryProductListChannels(queryCurrencyChannelsReqParams, iResult);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryRechargeHistory(QueryRechargeHistoryReqParams queryRechargeHistoryReqParams, IResult<RechargeHistoryResult> iResult) {
+        this.f72044b.queryRechargeHistory(queryRechargeHistoryReqParams, iResult);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryUserYbDetailsRequest(GetUserYbDetailsReqParams getUserYbDetailsReqParams, IResult<GetUserYbDetailsResult> iResult) {
+        getUserYbDetailsReqParams.setAppId(this.f72043a.getAppId());
+        this.f72044b.queryUserYbDetailsRequest(getUserYbDetailsReqParams, iResult);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void registerPayReporter(IPayReporter iPayReporter) {
+        this.f72044b.registerPayReporter(iPayReporter);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void removePayListener(IAppPayServiceListener iAppPayServiceListener) {
+        this.f72044b.removePayListener(iAppPayServiceListener);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void reportPayEntrancePage(int i2) {
+        this.f72044b.reportPayEntrancePage(i2);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void requestPay(Activity activity, PayType payType, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
+        this.f72044b.requestPay(activity, payType, str, str2, z, iPayCallback);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, int i2, int i3, int i4, IPayCallback<String> iPayCallback) {
+        this.f72044b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, i2, i3, i4, iPayCallback);
     }
 }

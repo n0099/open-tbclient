@@ -20,19 +20,19 @@ public class e extends Handler implements d.a.c.c.e.c.b {
     public static e j;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f50736e = 0;
+    public long f54413e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50737f = TiebaStatic.MAX_COST_VALUE;
+    public int f54414f = TiebaStatic.MAX_COST_VALUE;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50738g = 900000;
+    public int f54415g = 900000;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50739h = 900000;
+    public int f54416h = 900000;
 
     /* renamed from: i  reason: collision with root package name */
-    public PingMessage f50740i = null;
+    public PingMessage f54417i = null;
 
     /* loaded from: classes3.dex */
     public class a extends d.a.c.c.g.c {
@@ -84,14 +84,14 @@ public class e extends Handler implements d.a.c.c.e.c.b {
 
     @Override // d.a.c.c.e.c.b
     public boolean b(boolean z, String str) {
-        if ((z || System.currentTimeMillis() - this.f50736e >= 180000) && BdSocketLinkService.isOpen()) {
-            this.f50736e = System.currentTimeMillis();
-            MessageManager.getInstance().sendMessage(this.f50740i);
-            PingMessage pingMessage = this.f50740i;
+        if ((z || System.currentTimeMillis() - this.f54413e >= 180000) && BdSocketLinkService.isOpen()) {
+            this.f54413e = System.currentTimeMillis();
+            MessageManager.getInstance().sendMessage(this.f54417i);
+            PingMessage pingMessage = this.f54417i;
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append("-");
-            sb.append(this.f50739h == this.f50738g ? j.j : "fore");
+            sb.append(this.f54416h == this.f54415g ? j.j : "fore");
             d.a.c.c.e.c.i.c("PingManager", pingMessage, 0, "send_ping", 0, sb.toString());
             return true;
         }
@@ -116,8 +116,8 @@ public class e extends Handler implements d.a.c.c.e.c.b {
     @Override // d.a.c.c.e.c.b
     public void e() {
         removeMessages(1);
-        sendMessageDelayed(obtainMessage(1), this.f50739h);
-        this.f50736e = System.currentTimeMillis();
+        sendMessageDelayed(obtainMessage(1), this.f54416h);
+        this.f54413e = System.currentTimeMillis();
     }
 
     public final void h(BackgroundSwitchMessage backgroundSwitchMessage) {
@@ -125,10 +125,10 @@ public class e extends Handler implements d.a.c.c.e.c.b {
             return;
         }
         if (backgroundSwitchMessage.getData().booleanValue()) {
-            this.f50739h = this.f50738g;
+            this.f54416h = this.f54415g;
             return;
         }
-        this.f50739h = this.f50737f;
+        this.f54416h = this.f54414f;
         d("switchToForeground");
     }
 
@@ -142,7 +142,7 @@ public class e extends Handler implements d.a.c.c.e.c.b {
     }
 
     public int i() {
-        return this.f50737f;
+        return this.f54414f;
     }
 
     public void k() {
@@ -153,7 +153,7 @@ public class e extends Handler implements d.a.c.c.e.c.b {
         bVar.f(SocketMessageTask.DupLicateMode.REMOVE_ME);
         bVar.e(false);
         MessageManager.getInstance().registerTask(bVar);
-        this.f50740i = new PingMessage();
+        this.f54417i = new PingMessage();
         m();
         a aVar = new a(1003);
         MessageManager.getInstance().registerListener(new b(2001011));
@@ -167,27 +167,27 @@ public class e extends Handler implements d.a.c.c.e.c.b {
         int error = responsedMessage.getError();
         if (error == 0) {
             com.baidu.adp.framework.message.Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            int i2 = d.a.m0.r.h.f49853a;
-            d.a.c.c.e.c.i.c("PingManager", orginalMessage, 0, "ping_succ", i2, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f50736e));
+            int i2 = d.a.m0.r.h.f53528a;
+            d.a.c.c.e.c.i.c("PingManager", orginalMessage, 0, "ping_succ", i2, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f54413e));
             return;
         }
         BdSocketLinkService.close(7, "ping error");
-        int cmd = this.f50740i.getCmd();
-        long clientLogID = this.f50740i.getClientLogID();
-        d.a.c.c.e.c.i.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f50736e));
+        int cmd = this.f54417i.getCmd();
+        long clientLogID = this.f54417i.getClientLogID();
+        d.a.c.c.e.c.i.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f54413e));
     }
 
     public void m() {
         int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
         if (socketHeartBeatStratgy.length == 2) {
             int i2 = socketHeartBeatStratgy[0] * 1000;
-            this.f50737f = i2;
-            this.f50738g = socketHeartBeatStratgy[1] * 1000;
+            this.f54414f = i2;
+            this.f54415g = socketHeartBeatStratgy[1] * 1000;
             if (i2 < 180000) {
-                this.f50737f = TiebaStatic.MAX_COST_VALUE;
+                this.f54414f = TiebaStatic.MAX_COST_VALUE;
             }
-            if (this.f50738g < 180000) {
-                this.f50738g = TiebaStatic.MAX_COST_VALUE;
+            if (this.f54415g < 180000) {
+                this.f54415g = TiebaStatic.MAX_COST_VALUE;
             }
         }
     }

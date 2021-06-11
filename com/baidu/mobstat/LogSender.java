@@ -28,30 +28,30 @@ import org.json.JSONObject;
 public class LogSender {
 
     /* renamed from: a  reason: collision with root package name */
-    public static LogSender f8400a = new LogSender();
+    public static LogSender f8462a = new LogSender();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8401b = false;
+    public boolean f8463b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f8402c = 0;
+    public int f8464c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8403d = 1;
+    public int f8465d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public SendStrategyEnum f8404e = SendStrategyEnum.APP_START;
+    public SendStrategyEnum f8466e = SendStrategyEnum.APP_START;
 
     /* renamed from: f  reason: collision with root package name */
-    public Timer f8405f;
+    public Timer f8467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f8406g;
+    public Handler f8468g;
 
     public LogSender() {
         HandlerThread handlerThread = new HandlerThread("LogSenderThread");
         handlerThread.start();
-        this.f8406g = new Handler(handlerThread.getLooper());
+        this.f8468g = new Handler(handlerThread.getLooper());
     }
 
     private String e(Context context, String str, String str2) throws Exception {
@@ -91,7 +91,7 @@ public class LogSender {
     }
 
     public static LogSender instance() {
-        return f8400a;
+        return f8462a;
     }
 
     public void onSend(final Context context) {
@@ -101,30 +101,30 @@ public class LogSender {
         if (context == null) {
             return;
         }
-        this.f8406g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.1
+        this.f8468g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.1
             @Override // java.lang.Runnable
             public void run() {
-                if (LogSender.this.f8405f != null) {
-                    LogSender.this.f8405f.cancel();
-                    LogSender.this.f8405f = null;
+                if (LogSender.this.f8467f != null) {
+                    LogSender.this.f8467f.cancel();
+                    LogSender.this.f8467f = null;
                 }
-                LogSender.this.f8404e = SendStrategyEnum.values()[bq.a().b(context)];
-                LogSender.this.f8403d = bq.a().c(context);
-                LogSender.this.f8401b = bq.a().d(context);
-                if (!LogSender.this.f8404e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
-                    if (LogSender.this.f8404e.equals(SendStrategyEnum.ONCE_A_DAY)) {
+                LogSender.this.f8466e = SendStrategyEnum.values()[bq.a().b(context)];
+                LogSender.this.f8465d = bq.a().c(context);
+                LogSender.this.f8463b = bq.a().d(context);
+                if (!LogSender.this.f8466e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
+                    if (LogSender.this.f8466e.equals(SendStrategyEnum.ONCE_A_DAY)) {
                         LogSender.this.setSendingLogTimer(context);
                     }
                 } else {
                     LogSender.this.setSendingLogTimer(context);
                 }
-                LogSender.this.f8406g.postDelayed(new Runnable() { // from class: com.baidu.mobstat.LogSender.1.1
+                LogSender.this.f8468g.postDelayed(new Runnable() { // from class: com.baidu.mobstat.LogSender.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
                         LogSender.this.a(context);
                     }
-                }, LogSender.this.f8402c * 1000);
+                }, LogSender.this.f8464c * 1000);
             }
         });
     }
@@ -139,7 +139,7 @@ public class LogSender {
 
     public void sendEmptyLogData(Context context, final String str) {
         final Context applicationContext = context.getApplicationContext();
-        this.f8406g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.7
+        this.f8468g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.7
             @Override // java.lang.Runnable
             public void run() {
                 String constructLogWithEmptyBody = DataCore.instance().constructLogWithEmptyBody(applicationContext, str);
@@ -159,7 +159,7 @@ public class LogSender {
         if (z) {
             b(applicationContext, str);
         } else {
-            this.f8406g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.6
+            this.f8468g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.6
                 @Override // java.lang.Runnable
                 public void run() {
                     LogSender.this.b(applicationContext, str);
@@ -172,32 +172,32 @@ public class LogSender {
         if (i2 < 0 || i2 > 30) {
             return;
         }
-        this.f8402c = i2;
+        this.f8464c = i2;
     }
 
     public void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i2, boolean z) {
         if (!sendStrategyEnum.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
-            this.f8404e = sendStrategyEnum;
-            bq.a().a(context, this.f8404e.ordinal());
+            this.f8466e = sendStrategyEnum;
+            bq.a().a(context, this.f8466e.ordinal());
             if (sendStrategyEnum.equals(SendStrategyEnum.ONCE_A_DAY)) {
                 bq.a().b(context, 24);
             }
         } else if (i2 > 0 && i2 <= 24) {
-            this.f8403d = i2;
-            this.f8404e = SendStrategyEnum.SET_TIME_INTERVAL;
-            bq.a().a(context, this.f8404e.ordinal());
-            bq.a().b(context, this.f8403d);
+            this.f8465d = i2;
+            this.f8466e = SendStrategyEnum.SET_TIME_INTERVAL;
+            bq.a().a(context, this.f8466e.ordinal());
+            bq.a().b(context, this.f8465d);
         }
-        this.f8401b = z;
-        bq.a().a(context, this.f8401b);
+        this.f8463b = z;
+        bq.a().a(context, this.f8463b);
     }
 
     public void setSendingLogTimer(Context context) {
         final Context applicationContext = context.getApplicationContext();
-        long j = this.f8403d * 3600000;
+        long j = this.f8465d * 3600000;
         try {
             Timer timer = new Timer();
-            this.f8405f = timer;
+            this.f8467f = timer;
             timer.schedule(new TimerTask() { // from class: com.baidu.mobstat.LogSender.2
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
@@ -375,8 +375,8 @@ public class LogSender {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context) {
-        if (!this.f8401b || bw.q(context)) {
-            this.f8406g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.5
+        if (!this.f8463b || bw.q(context)) {
+            this.f8468g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.5
                 @Override // java.lang.Runnable
                 public void run() {
                     String str;
@@ -419,7 +419,7 @@ public class LogSender {
             bc.c().a("Start send log \n" + str);
         }
         boolean z2 = false;
-        if (this.f8401b && !bw.q(context)) {
+        if (this.f8463b && !bw.q(context)) {
             bc.c().a("[WARNING] wifi not available, log will be cached, next time will try to resend");
             return false;
         }
@@ -434,7 +434,7 @@ public class LogSender {
             bc.c().c(e2);
         }
         if (!z) {
-            String str3 = z2 ? "success" : com.alipay.sdk.util.e.f1950a;
+            String str3 = z2 ? "success" : com.alipay.sdk.util.e.f1963a;
             bc.c().a("Send log " + str3);
         }
         return z2;

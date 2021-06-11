@@ -11,59 +11,59 @@ public class a {
 
     /* renamed from: d.a.n0.f1.f.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1310a {
+    public static class C1366a {
 
         /* renamed from: d  reason: collision with root package name */
-        public long f54445d;
+        public long f58134d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f54446e;
+        public String f58135e;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f54442a = null;
+        public String f58131a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54443b = null;
+        public String f58132b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54444c = null;
+        public String f58133c = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f54447f = 0;
+        public long f58136f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f54448g = null;
+        public String f58137g = null;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f54449h = 0;
+        public long f58138h = 0;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f54450i = 0;
+        public int f58139i = 0;
         public int j = 0;
     }
 
-    public static C1310a a(String str) {
+    public static C1366a a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C1310a c1310a = new C1310a();
+        C1366a c1366a = new C1366a();
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c1310a.f54442a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
-                c1310a.f54443b = optJSONObject.optString("user_id");
-                c1310a.f54444c = optJSONObject.optString("nick_name");
-                c1310a.f54445d = optJSONObject.optLong("caller_time");
-                c1310a.f54446e = optJSONObject.optString("caller_content");
-                c1310a.f54447f = optJSONObject.optLong("thread_id");
-                c1310a.f54448g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+                c1366a.f58131a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
+                c1366a.f58132b = optJSONObject.optString("user_id");
+                c1366a.f58133c = optJSONObject.optString("nick_name");
+                c1366a.f58134d = optJSONObject.optLong("caller_time");
+                c1366a.f58135e = optJSONObject.optString("caller_content");
+                c1366a.f58136f = optJSONObject.optLong("thread_id");
+                c1366a.f58137g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
                 optJSONObject.optString("forum_name");
-                c1310a.f54449h = optJSONObject.optLong("post_id");
-                c1310a.f54450i = optJSONObject.optInt("msg_type");
-                c1310a.j = optJSONObject.optInt("remind_count");
+                c1366a.f58138h = optJSONObject.optLong("post_id");
+                c1366a.f58139i = optJSONObject.optInt("msg_type");
+                c1366a.j = optJSONObject.optInt("remind_count");
             }
-            return c1310a;
+            return c1366a;
         } catch (JSONException e2) {
             e2.printStackTrace();
             return null;

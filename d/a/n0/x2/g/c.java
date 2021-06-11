@@ -53,31 +53,31 @@ public class c extends d {
     public c(Context context, boolean z, int i2, m mVar) {
         super(context, z, i2);
         this.C = mVar;
-        this.D = this.f63332f.findViewById(R.id.pb_post_share_root_view);
-        this.E = this.f63332f.findViewById(R.id.pb_post_share_card_container);
-        this.F = this.f63332f.findViewById(R.id.pb_post_share_card);
-        this.G = this.f63332f.findViewById(R.id.pb_post_share_card_content);
-        this.H = (TbImageView) this.f63332f.findViewById(R.id.pb_post_share_title);
-        this.I = (LinearLayout) this.f63332f.findViewById(R.id.pb_share_thread_container);
-        TbImageView tbImageView = (TbImageView) this.f63332f.findViewById(R.id.pb_share_origin_thread_img);
+        this.D = this.f67047f.findViewById(R.id.pb_post_share_root_view);
+        this.E = this.f67047f.findViewById(R.id.pb_post_share_card_container);
+        this.F = this.f67047f.findViewById(R.id.pb_post_share_card);
+        this.G = this.f67047f.findViewById(R.id.pb_post_share_card_content);
+        this.H = (TbImageView) this.f67047f.findViewById(R.id.pb_post_share_title);
+        this.I = (LinearLayout) this.f67047f.findViewById(R.id.pb_share_thread_container);
+        TbImageView tbImageView = (TbImageView) this.f67047f.findViewById(R.id.pb_share_origin_thread_img);
         this.J = tbImageView;
         tbImageView.setPlaceHolder(2);
         this.J.setConrers(15);
         this.J.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
         this.J.setGifIconSupport(false);
         this.J.setLongIconSupport(false);
-        this.K = (TextView) this.f63332f.findViewById(R.id.origin_thread_abstract);
-        this.L = this.f63332f.findViewById(R.id.pb_share_origin_thread_gradient_mask);
-        this.M = (ImageView) this.f63332f.findViewById(R.id.pb_post_share_video_play_iv);
-        this.N = (TextView) this.f63332f.findViewById(R.id.post_share_screen_shot_title);
-        this.O = (TextView) this.f63332f.findViewById(R.id.post_share_qcode_comment);
-        this.P = (TbImageView) this.f63332f.findViewById(R.id.post_share_qcode);
-        this.Q = this.f63332f.findViewById(R.id.post_share_reply_user_id_guide_line);
-        this.R = (TextView) this.f63332f.findViewById(R.id.post_share_reply_user_id);
-        this.S = (TextView) this.f63332f.findViewById(R.id.post_share_comment_text);
-        this.T = (LinearLayout) this.f63332f.findViewById(R.id.post_share_comment_image_container);
-        this.U = (PlayVoiceBntNew) this.f63332f.findViewById(R.id.post_share_comment_voice);
-        d0(context, mVar.c().K());
+        this.K = (TextView) this.f67047f.findViewById(R.id.origin_thread_abstract);
+        this.L = this.f67047f.findViewById(R.id.pb_share_origin_thread_gradient_mask);
+        this.M = (ImageView) this.f67047f.findViewById(R.id.pb_post_share_video_play_iv);
+        this.N = (TextView) this.f67047f.findViewById(R.id.post_share_screen_shot_title);
+        this.O = (TextView) this.f67047f.findViewById(R.id.post_share_qcode_comment);
+        this.P = (TbImageView) this.f67047f.findViewById(R.id.post_share_qcode);
+        this.Q = this.f67047f.findViewById(R.id.post_share_reply_user_id_guide_line);
+        this.R = (TextView) this.f67047f.findViewById(R.id.post_share_reply_user_id);
+        this.S = (TextView) this.f67047f.findViewById(R.id.post_share_comment_text);
+        this.T = (LinearLayout) this.f67047f.findViewById(R.id.post_share_comment_image_container);
+        this.U = (PlayVoiceBntNew) this.f67047f.findViewById(R.id.post_share_comment_voice);
+        c0(context, mVar.c().K());
         i0();
         N(2);
     }
@@ -103,7 +103,7 @@ public class c extends d {
         this.I.setBackgroundDrawable(gradientDrawable);
         SkinManager.setViewTextColor(this.K, R.color.CAM_X0107);
         this.K.setText(this.C.b());
-        e0();
+        d0();
         SkinManager.setBackgroundColor(this.Q, R.color.CAM_X0109);
         String name_show = this.C.c().t().getName_show();
         if (name_show.length() > 10) {
@@ -122,23 +122,23 @@ public class c extends d {
     public final void b0(Context context, List<TbRichTextImageInfo> list) {
         int i2 = 0;
         while (i2 < list.size() && i2 != 9) {
-            this.T.addView(f0(context, g0(list.get(i2), this.C.a()), list.get(i2), i2 == 0, this.C.a().r));
+            this.T.addView(e0(context, g0(list.get(i2), this.C.a()), list.get(i2), i2 == 0, this.C.a().r));
             i2++;
         }
     }
 
-    public void d0(Context context, TbRichText tbRichText) {
-        if (tbRichText == null || tbRichText.u() == null || tbRichText.u().isEmpty()) {
+    public void c0(Context context, TbRichText tbRichText) {
+        if (tbRichText == null || tbRichText.y() == null || tbRichText.y().isEmpty()) {
             return;
         }
-        Iterator<TbRichTextData> it = tbRichText.u().iterator();
+        Iterator<TbRichTextData> it = tbRichText.y().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {
                 int type = next.getType();
                 if (type != 1) {
                     if (type == 512) {
-                        this.U.setVoiceModel((VoiceData$VoiceModel) next.E().u());
+                        this.U.setVoiceModel((VoiceData$VoiceModel) next.I().y());
                         if (this.S.getVisibility() == 0 || this.T.getVisibility() == 0) {
                             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.U.getLayoutParams();
                             if (this.S.getVisibility() == 0 && this.T.getVisibility() == 8) {
@@ -152,12 +152,12 @@ public class c extends d {
                     }
                 } else if (this.S.getVisibility() == 8) {
                     SkinManager.setViewTextColor(this.S, R.color.CAM_X0105);
-                    this.S.setText(next.A());
+                    this.S.setText(next.E());
                     this.S.setVisibility(0);
                 }
             }
         }
-        if (tbRichText.w().isEmpty()) {
+        if (tbRichText.A().isEmpty()) {
             return;
         }
         if (this.S.getVisibility() == 0) {
@@ -166,14 +166,14 @@ public class c extends d {
             this.T.setLayoutParams(layoutParams2);
         }
         this.T.setVisibility(0);
-        b0(context, tbRichText.w());
+        b0(context, tbRichText.A());
     }
 
-    public final void e0() {
+    public final void d0() {
         int f2 = this.C.f();
         if (f2 == 0) {
             if (!StringUtils.isNull(this.C.e())) {
-                this.J.V(this.C.e(), 10, false);
+                this.J.U(this.C.e(), 10, false);
                 return;
             }
             this.J.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_article_thread));
@@ -187,11 +187,11 @@ public class c extends d {
             this.M.setVisibility(0);
             this.M.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voide_thread_play));
             TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0604).cornerRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10)).into(this.L);
-            this.J.V(this.C.e(), 10, false);
+            this.J.U(this.C.e(), 10, false);
         }
     }
 
-    public final TbImageView f0(Context context, String str, TbRichTextImageInfo tbRichTextImageInfo, boolean z, boolean z2) {
+    public final TbImageView e0(Context context, String str, TbRichTextImageInfo tbRichTextImageInfo, boolean z, boolean z2) {
         int[] j0 = j0(tbRichTextImageInfo.getWidth(), tbRichTextImageInfo.getHeight(), l.g(TbadkCoreApplication.getInst(), R.dimen.tbds981));
         TbImageView tbImageView = new TbImageView(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(j0[0], j0[1]);
@@ -200,18 +200,18 @@ public class c extends d {
         }
         tbImageView.setLayoutParams(layoutParams);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        if (tbRichTextImageInfo.A()) {
+        if (tbRichTextImageInfo.E()) {
             tbImageView.setLongIconSupport(true);
             tbImageView.setIsLongPic(true);
         }
         tbImageView.setConrers(15);
         tbImageView.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds21));
-        tbImageView.V(str, z2 ? 17 : 18, false);
+        tbImageView.U(str, z2 ? 17 : 18, false);
         return tbImageView;
     }
 
     public final String g0(TbRichTextImageInfo tbRichTextImageInfo, d.a.m0.b1.m.a aVar) {
-        return aVar.c() ? tbRichTextImageInfo.s() : tbRichTextImageInfo.u();
+        return aVar.c() ? tbRichTextImageInfo.w() : tbRichTextImageInfo.y();
     }
 
     public final Bitmap h0(View view) {

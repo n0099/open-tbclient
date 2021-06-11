@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class MediaType {
     public static final String QUOTED = "\"([^\"]*)\"";
     public static final String TOKEN = "([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)";

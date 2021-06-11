@@ -7,25 +7,25 @@ import com.baidu.storage.swankv.SwanKV;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final AshmemFileDescriptor f43289a;
+    public final AshmemFileDescriptor f46965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SwanKV f43290b;
+    public volatile SwanKV f46966b;
 
     static {
         c.B();
     }
 
     public AshmemFileDescriptor a() {
-        return this.f43289a;
+        return this.f46965a;
     }
 
     @NonNull
     public SwanKV b() {
-        return this.f43290b;
+        return this.f46966b;
     }
 
     public void c(@NonNull SwanKV swanKV) {
-        this.f43290b = swanKV;
+        this.f46966b = swanKV;
     }
 }

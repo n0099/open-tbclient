@@ -18,18 +18,18 @@ public class e extends d.a.l0.j.k.a<d.a.l0.a.h1.c.c> {
     public class a implements d.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f47841a;
+        public final /* synthetic */ Context f51515a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.j.n.c f47842b;
+        public final /* synthetic */ d.a.l0.j.n.c f51516b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.j.b f47843c;
+        public final /* synthetic */ d.a.l0.j.b f51517c;
 
         public a(Context context, d.a.l0.j.n.c cVar, d.a.l0.j.b bVar) {
-            this.f47841a = context;
-            this.f47842b = cVar;
-            this.f47843c = bVar;
+            this.f51515a = context;
+            this.f51516b = cVar;
+            this.f51517c = bVar;
         }
 
         @Override // d.a.l0.j.k.f.d.c
@@ -40,7 +40,7 @@ public class e extends d.a.l0.j.k.a<d.a.l0.a.h1.c.c> {
         @Override // d.a.l0.j.k.f.d.c
         public void onSuccess() {
             d.a.l0.a.e0.d.l("map", "location permission success");
-            e.this.e(this.f47841a, this.f47842b, this.f47843c);
+            e.this.e(this.f51515a, this.f51516b, this.f51517c);
         }
     }
 
@@ -48,25 +48,25 @@ public class e extends d.a.l0.j.k.a<d.a.l0.a.h1.c.c> {
     public class b implements d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.j.n.c f47845a;
+        public final /* synthetic */ d.a.l0.j.n.c f51519a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.j.b f47846b;
+        public final /* synthetic */ d.a.l0.j.b f51520b;
 
         public b(e eVar, d.a.l0.j.n.c cVar, d.a.l0.j.b bVar) {
-            this.f47845a = cVar;
-            this.f47846b = bVar;
+            this.f51519a = cVar;
+            this.f51520b = bVar;
         }
 
         @Override // d.a.l0.a.c1.d.d.a
         public void a(d.a.l0.a.c2.f.k0.b bVar) {
             d.a.l0.a.e0.d.g("map", "get location " + bVar.a().toString());
-            BaiduMap map = this.f47845a.l.getMap();
-            map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bVar.f41129c, bVar.f41128b)));
+            BaiduMap map = this.f51519a.l.getMap();
+            map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bVar.f44805c, bVar.f44804b)));
             map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
             map.setMyLocationEnabled(true);
-            map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bVar.f41131e).latitude(bVar.f41129c).longitude(bVar.f41128b).build());
-            this.f47846b.q(true);
+            map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bVar.f44807e).latitude(bVar.f44805c).longitude(bVar.f44804b).build());
+            this.f51520b.q(true);
         }
 
         @Override // d.a.l0.a.c1.d.d.a
@@ -76,7 +76,7 @@ public class e extends d.a.l0.j.k.a<d.a.l0.a.h1.c.c> {
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static e f() {
@@ -94,15 +94,15 @@ public class e extends d.a.l0.j.k.a<d.a.l0.a.h1.c.c> {
 
     public final boolean g(Context context, d.a.l0.a.h1.c.c cVar, d.a.l0.a.h1.b bVar, d.a.l0.a.a2.e eVar) {
         d.a.l0.a.e0.d.g("map", "MoveToLocationAction start");
-        d.a.l0.a.p.e.d B = d.a.l0.a.g1.f.V().B(cVar.f40846g);
+        d.a.l0.a.p.e.d B = d.a.l0.a.g1.f.V().B(cVar.f44522g);
         if (!(B instanceof d.a.l0.a.p.e.b)) {
             d.a.l0.a.e0.d.b("map", "WebViewManager is null");
             return false;
         }
         d.a.l0.j.b c2 = d.a.l0.j.c.b().c((d.a.l0.a.p.e.b) B);
-        d.a.l0.j.n.c d2 = c2.d(cVar.f40845f);
+        d.a.l0.j.n.c d2 = c2.d(cVar.f44521f);
         if (d2 == null) {
-            d.a.l0.a.e0.d.b("map", "can not find map by id " + cVar.f40845f);
+            d.a.l0.a.e0.d.b("map", "can not find map by id " + cVar.f44521f);
             return false;
         } else if (!d2.k) {
             d.a.l0.a.e0.d.l("map", "can not move to location because showLocation is not set");

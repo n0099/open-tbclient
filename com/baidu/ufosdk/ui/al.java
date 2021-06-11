@@ -3,14 +3,14 @@ package com.baidu.ufosdk.ui;
 public final class al implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ak f22637a;
+    public final /* synthetic */ ak f22740a;
 
     public al(ak akVar) {
-        this.f22637a = akVar;
+        this.f22740a = akVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.baidu.ufosdk.e.a.a(this.f22637a.f22636a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f22740a.f22739a.getApplicationContext());
     }
 }

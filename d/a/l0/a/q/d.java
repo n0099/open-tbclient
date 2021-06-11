@@ -6,7 +6,7 @@ import d.a.l0.a.k;
 /* loaded from: classes2.dex */
 public class d extends SwanAppSimpleH5Widget {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public d(Context context) {

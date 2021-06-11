@@ -2,7 +2,7 @@ package com.alipay.apmobilesecuritysdk.d;
 
 import android.content.Context;
 import com.alipay.apmobilesecuritysdk.e.f;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -39,8 +39,8 @@ public final class c {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", fVar.a());
-                jSONObject.put("imsi", fVar.b());
-                jSONObject.put(IAdRequestParam.MAC, fVar.c());
+                jSONObject.put(BaseStatisContent.IMSI, fVar.b());
+                jSONObject.put("mac", fVar.c());
                 jSONObject.put("bluetoothmac", fVar.d());
                 jSONObject.put("gsi", fVar.e());
                 String jSONObject2 = jSONObject.toString();

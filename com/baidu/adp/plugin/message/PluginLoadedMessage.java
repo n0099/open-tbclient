@@ -8,14 +8,14 @@ public class PluginLoadedMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2207a;
+        public String f2220a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2208b;
+        public int f2221b;
 
         public a(String str, int i2, String str2) {
-            this.f2207a = str;
-            this.f2208b = i2;
+            this.f2220a = str;
+            this.f2221b = i2;
         }
     }
 

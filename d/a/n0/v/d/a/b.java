@@ -3,7 +3,7 @@ package d.a.n0.v.d.a;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,15 +27,15 @@ public class b {
     }
 
     public static List<n> b(d.a.n0.v.d.b.b.a aVar) {
-        List<ThreadInfo> list = aVar.f61431e;
+        List<ThreadInfo> list = aVar.f65144e;
         ArrayList arrayList = new ArrayList(list.size());
         for (ThreadInfo threadInfo : list) {
-            if (threadInfo != null && threadInfo.thread_type.intValue() == 49) {
+            if (threadInfo != null) {
                 c cVar = new c();
-                cVar.f61414e = aVar.f61427a;
-                cVar.f61415f = aVar.f61428b;
-                cVar.f61416g = aVar.f61429c;
-                cVar.l(threadInfo);
+                cVar.f65127e = aVar.f65140a;
+                cVar.f65128f = aVar.f65141b;
+                cVar.f65129g = aVar.f65142c;
+                cVar.g(threadInfo);
                 arrayList.add(cVar);
             }
         }
@@ -49,15 +49,15 @@ public class b {
         HashMap hashMap = new HashMap(list2.size());
         for (d.a.n0.v.d.b.b.a aVar : list2) {
             if (aVar != null) {
-                hashMap.put(e(aVar), aVar.f61431e);
+                hashMap.put(e(aVar), aVar.f65144e);
             }
         }
         for (d.a.n0.v.d.b.b.a aVar2 : list) {
-            if (aVar2 != null && !ListUtils.isEmpty(aVar2.f61431e)) {
+            if (aVar2 != null && !ListUtils.isEmpty(aVar2.f65144e)) {
                 ArrayList<Integer> arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
-                for (int i2 = 0; i2 < aVar2.f61431e.size(); i2++) {
-                    ThreadInfo threadInfo = aVar2.f61431e.get(i2);
+                for (int i2 = 0; i2 < aVar2.f65144e.size(); i2++) {
+                    ThreadInfo threadInfo = aVar2.f65144e.get(i2);
                     if (threadInfo != null) {
                         if (list3.contains(threadInfo.ala_info.live_id)) {
                             arrayList.add(Integer.valueOf(i2));
@@ -72,7 +72,7 @@ public class b {
                         ArrayList arrayList3 = new ArrayList();
                         for (Integer num : arrayList) {
                             int intValue = num.intValue();
-                            if (intValue < aVar2.f61431e.size()) {
+                            if (intValue < aVar2.f65144e.size()) {
                                 ThreadInfo threadInfo2 = null;
                                 Iterator it = list4.iterator();
                                 while (true) {
@@ -87,9 +87,9 @@ public class b {
                                 }
                                 if (threadInfo2 != null) {
                                     arrayList3.add(threadInfo2.ala_info.live_id);
-                                    aVar2.f61431e.set(intValue, threadInfo2);
+                                    aVar2.f65144e.set(intValue, threadInfo2);
                                 } else {
-                                    aVar2.f61431e.remove(intValue);
+                                    aVar2.f65144e.remove(intValue);
                                 }
                             }
                         }
@@ -107,42 +107,42 @@ public class b {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (d.a.n0.v.d.b.b.a aVar : list) {
-            if (aVar != null && !ListUtils.isEmpty(aVar.f61431e)) {
+            if (aVar != null && !ListUtils.isEmpty(aVar.f65144e)) {
                 List<n> b2 = b(aVar);
-                String str2 = aVar.f61428b;
+                String str2 = aVar.f65141b;
                 if (!ListUtils.isEmpty(b2) && b2.size() >= 2 && !TextUtils.isEmpty(str2)) {
                     d.a.n0.v.d.b.b.b bVar = new d.a.n0.v.d.b.b.b();
-                    bVar.f61434e = aVar.f61427a;
-                    bVar.f61435f = str2;
-                    bVar.f61436g = aVar.f61429c;
-                    bVar.f61437h = aVar.f61430d;
-                    int i2 = aVar.f61432f;
-                    bVar.f61438i = aVar.f61433g;
+                    bVar.f65147e = aVar.f65140a;
+                    bVar.f65148f = str2;
+                    bVar.f65149g = aVar.f65142c;
+                    bVar.f65150h = aVar.f65143d;
+                    int i2 = aVar.f65145f;
+                    bVar.f65151i = aVar.f65146g;
                     linkedList.add(bVar);
                     int size = b2.size();
                     if (size % 2 != 0) {
                         size--;
                     }
                     int i3 = 0;
-                    aVar.f61431e = aVar.f61431e.subList(0, size);
+                    aVar.f65144e = aVar.f65144e.subList(0, size);
                     while (true) {
                         int i4 = i3 + 1;
                         if (i4 < size) {
-                            if ("1:1".equals(aVar.f61430d)) {
+                            if ("1:1".equals(aVar.f65143d)) {
                                 d.a.n0.v.d.g.b.b bVar2 = new d.a.n0.v.d.g.b.b();
                                 c cVar = (c) b2.get(i3);
                                 c cVar2 = (c) b2.get(i4);
-                                bVar2.f61787e = cVar;
-                                bVar2.f61788f = cVar2;
+                                bVar2.f65502e = cVar;
+                                bVar2.f65503f = cVar2;
                                 arrayList.add(cVar);
                                 arrayList.add(cVar2);
                                 linkedList.add(bVar2);
-                            } else if ("16:9".equals(aVar.f61430d)) {
+                            } else if ("16:9".equals(aVar.f65143d)) {
                                 d.a.n0.v.d.g.b.a aVar2 = new d.a.n0.v.d.g.b.a();
                                 c cVar3 = (c) b2.get(i3);
                                 c cVar4 = (c) b2.get(i4);
-                                aVar2.f61784e = cVar3;
-                                aVar2.f61785f = cVar4;
+                                aVar2.f65499e = cVar3;
+                                aVar2.f65500f = cVar4;
                                 arrayList.add(cVar3);
                                 arrayList.add(cVar4);
                                 linkedList.add(aVar2);
@@ -163,16 +163,16 @@ public class b {
 
     public static String e(d.a.n0.v.d.b.b.a aVar) {
         StringBuilder sb = new StringBuilder();
-        sb.append(aVar.f61427a + "_");
-        sb.append(aVar.f61428b + "_");
-        sb.append(aVar.f61429c);
+        sb.append(aVar.f65140a + "_");
+        sb.append(aVar.f65141b + "_");
+        sb.append(aVar.f65142c);
         return sb.toString();
     }
 
     public static boolean f(d.a.n0.v.d.b.b.a aVar, List<d.a.n0.v.d.b.b.a> list) {
         if (aVar != null && !ListUtils.isEmpty(list)) {
             for (d.a.n0.v.d.b.b.a aVar2 : list) {
-                if (aVar.f61427a == aVar2.f61427a && aVar.f61428b.equals(aVar2.f61428b) && aVar.f61429c.equals(aVar2.f61429c)) {
+                if (aVar.f65140a == aVar2.f65140a && aVar.f65141b.equals(aVar2.f65141b) && aVar.f65142c.equals(aVar2.f65142c)) {
                     return true;
                 }
             }
@@ -189,7 +189,7 @@ public class b {
         }
         LinkedList linkedList = new LinkedList();
         for (d.a.n0.v.d.b.b.a aVar : list2) {
-            if (aVar != null && !ListUtils.isEmpty(aVar.f61431e) && !TextUtils.isEmpty(aVar.f61428b)) {
+            if (aVar != null && !ListUtils.isEmpty(aVar.f65144e) && !TextUtils.isEmpty(aVar.f65141b)) {
                 if (z) {
                     if (!f(aVar, list)) {
                         linkedList.add(aVar);

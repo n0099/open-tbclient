@@ -18,92 +18,92 @@ import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000d\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u0006\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\n\b\u0016\u0018\u00002\u00020\u0001:\u0001LB\u0013\b\u0016\u0012\b\u0010D\u001a\u0004\u0018\u00010C¢\u0006\u0004\bE\u0010FB\u001d\b\u0016\u0012\b\u0010D\u001a\u0004\u0018\u00010C\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\bE\u0010GB%\b\u0016\u0012\b\u0010D\u001a\u0004\u0018\u00010C\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002\u0012\u0006\u0010H\u001a\u00020\u0018¢\u0006\u0004\bE\u0010IB-\b\u0016\u0012\b\u0010D\u001a\u0004\u0018\u00010C\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002\u0012\u0006\u0010H\u001a\u00020\u0018\u0012\u0006\u0010J\u001a\u00020\u0018¢\u0006\u0004\bE\u0010KJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0004¢\u0006\u0004\b\t\u0010\bJ\u000f\u0010\n\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\n\u0010\bJ\u0017\u0010\r\u001a\u00020\u00042\b\u0010\f\u001a\u0004\u0018\u00010\u000b¢\u0006\u0004\b\r\u0010\u000eJ!\u0010\r\u001a\u00020\u00042\b\u0010\f\u001a\u0004\u0018\u00010\u000b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u000f¢\u0006\u0004\b\r\u0010\u0011J\r\u0010\u0012\u001a\u00020\u0004¢\u0006\u0004\b\u0012\u0010\bJ!\u0010\u0012\u001a\u00020\u00042\b\u0010\u0014\u001a\u0004\u0018\u00010\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0012\u0010\u0017J\u001d\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u0019\u001a\u00020\u00182\u0006\u0010\u001a\u001a\u00020\u0015¢\u0006\u0004\b\u001b\u0010\u001cJ\u001d\u0010\u001f\u001a\u00020\u00042\u0006\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u001a\u001a\u00020\u0015¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\u0004¢\u0006\u0004\b!\u0010\bJ\u0015\u0010!\u001a\u00020\u00042\u0006\u0010\"\u001a\u00020\u0015¢\u0006\u0004\b!\u0010#R\u0018\u0010%\u001a\u0004\u0018\u00010$8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010&R$\u0010(\u001a\u0004\u0018\u00010'8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b(\u0010)\u001a\u0004\b*\u0010+\"\u0004\b,\u0010-R\"\u0010.\u001a\u00020\u00158\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b.\u0010/\u001a\u0004\b0\u00101\"\u0004\b2\u0010#R\"\u00104\u001a\u0002038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b4\u00105\u001a\u0004\b6\u00107\"\u0004\b8\u00109R*\u0010;\u001a\u00020\u00152\u0006\u0010:\u001a\u00020\u00158\u0006@BX\u0086\u000e¢\u0006\u0012\n\u0004\b;\u0010/\u001a\u0004\b;\u00101\"\u0004\b<\u0010#R\"\u0010=\u001a\u00020\u00188\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b=\u0010>\u001a\u0004\b?\u0010@\"\u0004\bA\u0010B¨\u0006M"}, d2 = {"Lcom/opensource/svgaplayer/SVGAImageView;", "Landroid/widget/ImageView;", "Landroid/util/AttributeSet;", "attrs", "", "loadAttrs", "(Landroid/util/AttributeSet;)V", "onDetachedFromWindow", "()V", "pauseAnimation", "setSoftwareLayerType", "Lcom/opensource/svgaplayer/SVGAVideoEntity;", "videoItem", "setVideoItem", "(Lcom/opensource/svgaplayer/SVGAVideoEntity;)V", "Lcom/opensource/svgaplayer/SVGADynamicEntity;", "dynamicItem", "(Lcom/opensource/svgaplayer/SVGAVideoEntity;Lcom/opensource/svgaplayer/SVGADynamicEntity;)V", "startAnimation", "Lcom/opensource/svgaplayer/utils/SVGARange;", "range", "", "reverse", "(Lcom/opensource/svgaplayer/utils/SVGARange;Z)V", "", "frame", "andPlay", "stepToFrame", "(IZ)V", "", "percentage", "stepToPercentage", "(DZ)V", "stopAnimation", "clear", "(Z)V", "Landroid/animation/ValueAnimator;", "animator", "Landroid/animation/ValueAnimator;", "Lcom/opensource/svgaplayer/SVGACallback;", "callback", "Lcom/opensource/svgaplayer/SVGACallback;", "getCallback", "()Lcom/opensource/svgaplayer/SVGACallback;", "setCallback", "(Lcom/opensource/svgaplayer/SVGACallback;)V", "clearsAfterStop", "Z", "getClearsAfterStop", "()Z", "setClearsAfterStop", "Lcom/opensource/svgaplayer/SVGAImageView$FillMode;", "fillMode", "Lcom/opensource/svgaplayer/SVGAImageView$FillMode;", "getFillMode", "()Lcom/opensource/svgaplayer/SVGAImageView$FillMode;", "setFillMode", "(Lcom/opensource/svgaplayer/SVGAImageView$FillMode;)V", "<set-?>", "isAnimating", "setAnimating", "loops", "I", "getLoops", "()I", "setLoops", "(I)V", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "defStyleRes", "(Landroid/content/Context;Landroid/util/AttributeSet;II)V", "FillMode", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SVGAImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35032e;
+    public boolean f38711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35033f;
+    public int f38712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35034g;
+    public boolean f38713g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FillMode f35035h;
+    public FillMode f38714h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.l.a.a f35036i;
+    public d.l.a.a f38715i;
     public ValueAnimator j;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003j\u0002\b\u0004j\u0002\b\u0005¨\u0006\u0006"}, d2 = {"Lcom/opensource/svgaplayer/SVGAImageView$FillMode;", "Ljava/lang/Enum;", "<init>", "(Ljava/lang/String;I)V", "Backward", "Forward", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum FillMode {
         Backward,
         Forward
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f35037e;
+        public final /* synthetic */ String f38716e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SVGAParser f35038f;
+        public final /* synthetic */ SVGAParser f38717f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SVGAImageView f35039g;
+        public final /* synthetic */ SVGAImageView f38718g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f35040h;
+        public final /* synthetic */ boolean f38719h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f35041i;
+        public final /* synthetic */ boolean f38720i;
 
         /* renamed from: com.opensource.svgaplayer.SVGAImageView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static final class C0407a implements SVGAParser.b {
+        /* loaded from: classes7.dex */
+        public static final class C0458a implements SVGAParser.b {
 
             /* renamed from: com.opensource.svgaplayer.SVGAImageView$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public static final class RunnableC0408a implements Runnable {
+            /* loaded from: classes7.dex */
+            public static final class RunnableC0459a implements Runnable {
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ SVGAVideoEntity f35044f;
+                public final /* synthetic */ SVGAVideoEntity f38723f;
 
-                public RunnableC0408a(SVGAVideoEntity sVGAVideoEntity) {
-                    this.f35044f = sVGAVideoEntity;
+                public RunnableC0459a(SVGAVideoEntity sVGAVideoEntity) {
+                    this.f38723f = sVGAVideoEntity;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
-                    this.f35044f.o(a.this.f35040h);
-                    a.this.f35039g.setVideoItem(this.f35044f);
-                    Drawable drawable = a.this.f35039g.getDrawable();
+                    this.f38723f.o(a.this.f38719h);
+                    a.this.f38718g.setVideoItem(this.f38723f);
+                    Drawable drawable = a.this.f38718g.getDrawable();
                     if (!(drawable instanceof d.l.a.b)) {
                         drawable = null;
                     }
                     d.l.a.b bVar = (d.l.a.b) drawable;
                     if (bVar != null) {
-                        ImageView.ScaleType scaleType = a.this.f35039g.getScaleType();
+                        ImageView.ScaleType scaleType = a.this.f38718g.getScaleType();
                         Intrinsics.checkExpressionValueIsNotNull(scaleType, "scaleType");
                         bVar.e(scaleType);
                     }
                     a aVar = a.this;
-                    if (aVar.f35041i) {
-                        aVar.f35039g.d();
+                    if (aVar.f38720i) {
+                        aVar.f38718g.d();
                     }
                 }
             }
 
-            public C0407a() {
+            public C0458a() {
             }
 
             @Override // com.opensource.svgaplayer.SVGAParser.b
             public void a(SVGAVideoEntity sVGAVideoEntity) {
-                a.this.f35039g.post(new RunnableC0408a(sVGAVideoEntity));
+                a.this.f38718g.post(new RunnableC0459a(sVGAVideoEntity));
             }
 
             @Override // com.opensource.svgaplayer.SVGAParser.b
@@ -112,53 +112,53 @@ public class SVGAImageView extends ImageView {
         }
 
         public a(String str, SVGAParser sVGAParser, SVGAImageView sVGAImageView, boolean z, boolean z2) {
-            this.f35037e = str;
-            this.f35038f = sVGAParser;
-            this.f35039g = sVGAImageView;
-            this.f35040h = z;
-            this.f35041i = z2;
+            this.f38716e = str;
+            this.f38717f = sVGAParser;
+            this.f38718g = sVGAImageView;
+            this.f38719h = z;
+            this.f38720i = z2;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            C0407a c0407a = new C0407a();
-            if (!StringsKt__StringsJVMKt.startsWith$default(this.f35037e, "http://", false, 2, null) && !StringsKt__StringsJVMKt.startsWith$default(this.f35037e, "https://", false, 2, null)) {
-                this.f35038f.v(this.f35037e, c0407a);
+            C0458a c0458a = new C0458a();
+            if (!StringsKt__StringsJVMKt.startsWith$default(this.f38716e, "http://", false, 2, null) && !StringsKt__StringsJVMKt.startsWith$default(this.f38716e, "https://", false, 2, null)) {
+                this.f38717f.v(this.f38716e, c0458a);
             } else {
-                this.f35038f.w(new URL(this.f35037e), c0407a);
+                this.f38717f.w(new URL(this.f38716e), c0458a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ValueAnimator f35045e;
+        public final /* synthetic */ ValueAnimator f38724e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SVGAImageView f35046f;
+        public final /* synthetic */ SVGAImageView f38725f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.b f35047g;
+        public final /* synthetic */ d.l.a.b f38726g;
 
         public b(ValueAnimator valueAnimator, SVGAImageView sVGAImageView, d.l.a.h.b bVar, d.l.a.b bVar2, boolean z) {
-            this.f35045e = valueAnimator;
-            this.f35046f = sVGAImageView;
-            this.f35047g = bVar2;
+            this.f38724e = valueAnimator;
+            this.f38725f = sVGAImageView;
+            this.f38726g = bVar2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-            d.l.a.b bVar = this.f35047g;
-            ValueAnimator animator = this.f35045e;
+            d.l.a.b bVar = this.f38726g;
+            ValueAnimator animator = this.f38724e;
             Intrinsics.checkExpressionValueIsNotNull(animator, "animator");
             Object animatedValue = animator.getAnimatedValue();
             if (animatedValue != null) {
                 bVar.d(((Integer) animatedValue).intValue());
-                d.l.a.a callback = this.f35046f.getCallback();
+                d.l.a.a callback = this.f38725f.getCallback();
                 if (callback != null) {
-                    callback.b(this.f35047g.a(), (this.f35047g.a() + 1) / this.f35047g.b().d());
+                    callback.b(this.f38726g.a(), (this.f38726g.a() + 1) / this.f38726g.b().d());
                     return;
                 }
                 return;
@@ -167,45 +167,45 @@ public class SVGAImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class c implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35048e;
+        public final /* synthetic */ int f38727e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f35049f;
+        public final /* synthetic */ int f38728f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SVGAImageView f35050g;
+        public final /* synthetic */ SVGAImageView f38729g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.b f35051h;
+        public final /* synthetic */ d.l.a.b f38730h;
 
         public c(int i2, int i3, SVGAImageView sVGAImageView, d.l.a.h.b bVar, d.l.a.b bVar2, boolean z) {
-            this.f35048e = i2;
-            this.f35049f = i3;
-            this.f35050g = sVGAImageView;
-            this.f35051h = bVar2;
+            this.f38727e = i2;
+            this.f38728f = i3;
+            this.f38729g = sVGAImageView;
+            this.f38730h = bVar2;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            this.f35050g.f35032e = false;
+            this.f38729g.f38711e = false;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            this.f35050g.f35032e = false;
-            this.f35050g.f();
-            if (!this.f35050g.getClearsAfterStop()) {
-                if (this.f35050g.getFillMode() == FillMode.Backward) {
-                    this.f35051h.d(this.f35048e);
-                } else if (this.f35050g.getFillMode() == FillMode.Forward) {
-                    this.f35051h.d(this.f35049f);
+            this.f38729g.f38711e = false;
+            this.f38729g.f();
+            if (!this.f38729g.getClearsAfterStop()) {
+                if (this.f38729g.getFillMode() == FillMode.Backward) {
+                    this.f38730h.d(this.f38727e);
+                } else if (this.f38729g.getFillMode() == FillMode.Forward) {
+                    this.f38730h.d(this.f38728f);
                 }
             }
-            d.l.a.a callback = this.f35050g.getCallback();
+            d.l.a.a callback = this.f38729g.getCallback();
             if (callback != null) {
                 callback.a();
             }
@@ -213,7 +213,7 @@ public class SVGAImageView extends ImageView {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            d.l.a.a callback = this.f35050g.getCallback();
+            d.l.a.a callback = this.f38729g.getCallback();
             if (callback != null) {
                 callback.c();
             }
@@ -221,14 +221,14 @@ public class SVGAImageView extends ImageView {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            this.f35050g.f35032e = true;
+            this.f38729g.f38711e = true;
         }
     }
 
     public SVGAImageView(Context context) {
         super(context);
-        this.f35034g = true;
-        this.f35035h = FillMode.Forward;
+        this.f38713g = true;
+        this.f38714h = FillMode.Forward;
         c();
     }
 
@@ -239,16 +239,16 @@ public class SVGAImageView extends ImageView {
         Context context = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context, "context");
         TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SVGAImageView, 0, 0);
-        this.f35033f = obtainStyledAttributes.getInt(R.styleable.SVGAImageView_loopCount, 0);
-        this.f35034g = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_clearsAfterStop, true);
+        this.f38712f = obtainStyledAttributes.getInt(R.styleable.SVGAImageView_loopCount, 0);
+        this.f38713g = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_clearsAfterStop, true);
         boolean z = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_antiAlias, true);
         boolean z2 = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_autoPlay, true);
         String string = obtainStyledAttributes.getString(R.styleable.SVGAImageView_fillMode);
         if (string != null) {
             if (Intrinsics.areEqual(string, "0")) {
-                this.f35035h = FillMode.Backward;
+                this.f38714h = FillMode.Backward;
             } else if (Intrinsics.areEqual(string, "1")) {
-                this.f35035h = FillMode.Forward;
+                this.f38714h = FillMode.Forward;
             }
         }
         String string2 = obtainStyledAttributes.getString(R.styleable.SVGAImageView_source);
@@ -313,7 +313,7 @@ public class SVGAImageView extends ImageView {
                     Intrinsics.checkExpressionValueIsNotNull(animator, "animator");
                     animator.setInterpolator(new LinearInterpolator());
                     animator.setDuration((long) ((((min - max) + 1) * (1000 / b2.c())) / d3));
-                    int i2 = this.f35033f;
+                    int i2 = this.f38712f;
                     animator.setRepeatCount(i2 <= 0 ? 99999 : i2 - 1);
                     animator.addUpdateListener(new b(animator, this, bVar, bVar2, z));
                     animator.addListener(new c(max, min, this, bVar, bVar2, z));
@@ -335,7 +335,7 @@ public class SVGAImageView extends ImageView {
     }
 
     public final void f() {
-        g(this.f35034g);
+        g(this.f38713g);
     }
 
     public final void g(boolean z) {
@@ -362,19 +362,19 @@ public class SVGAImageView extends ImageView {
     }
 
     public final d.l.a.a getCallback() {
-        return this.f35036i;
+        return this.f38715i;
     }
 
     public final boolean getClearsAfterStop() {
-        return this.f35034g;
+        return this.f38713g;
     }
 
     public final FillMode getFillMode() {
-        return this.f35035h;
+        return this.f38714h;
     }
 
     public final int getLoops() {
-        return this.f35033f;
+        return this.f38712f;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -395,19 +395,19 @@ public class SVGAImageView extends ImageView {
     }
 
     public final void setCallback(d.l.a.a aVar) {
-        this.f35036i = aVar;
+        this.f38715i = aVar;
     }
 
     public final void setClearsAfterStop(boolean z) {
-        this.f35034g = z;
+        this.f38713g = z;
     }
 
     public final void setFillMode(FillMode fillMode) {
-        this.f35035h = fillMode;
+        this.f38714h = fillMode;
     }
 
     public final void setLoops(int i2) {
-        this.f35033f = i2;
+        this.f38712f = i2;
     }
 
     public final void setVideoItem(SVGAVideoEntity sVGAVideoEntity) {
@@ -423,14 +423,14 @@ public class SVGAImageView extends ImageView {
             cVar = new d.l.a.c();
         }
         d.l.a.b bVar = new d.l.a.b(sVGAVideoEntity, cVar);
-        bVar.c(this.f35034g);
+        bVar.c(this.f38713g);
         setImageDrawable(bVar);
     }
 
     public SVGAImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f35034g = true;
-        this.f35035h = FillMode.Forward;
+        this.f38713g = true;
+        this.f38714h = FillMode.Forward;
         c();
         if (attributeSet != null) {
             b(attributeSet);
@@ -439,8 +439,8 @@ public class SVGAImageView extends ImageView {
 
     public SVGAImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f35034g = true;
-        this.f35035h = FillMode.Forward;
+        this.f38713g = true;
+        this.f38714h = FillMode.Forward;
         c();
         if (attributeSet != null) {
             b(attributeSet);

@@ -14,29 +14,29 @@ import com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.e2.k.e.e0;
 import d.a.n0.e2.k.e.m;
 import d.a.n0.e2.k.e.t0;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a implements d.a.m0.k0.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f53035e;
+    public boolean f56724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PbFragment f53036f;
+    public final PbFragment f56725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.e2.k.d.d f53037g;
+    public d.a.n0.e2.k.d.d f56726g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.e2.k.d.c f53038h;
+    public d.a.n0.e2.k.d.c f56727h;
 
     /* renamed from: i  reason: collision with root package name */
-    public t0 f53039i;
+    public t0 f56728i;
     public m j;
     public View.OnClickListener k;
     public View.OnClickListener l;
@@ -46,31 +46,31 @@ public class a implements d.a.m0.k0.a {
     public final MoreGodReplyModel p;
     public d.a.m0.k0.d q;
     public long r;
-    public BdListView.p s = new C1256a();
+    public BdListView.p s = new C1312a();
     public AbsListView.OnScrollListener t = new b();
     public e0.b u = new c();
     public PbFragment.p2 v = new h();
 
     /* renamed from: d.a.n0.e2.k.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C1256a implements BdListView.p {
-        public C1256a() {
+    /* loaded from: classes5.dex */
+    public class C1312a implements BdListView.p {
+        public C1312a() {
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            if (a.this.p.C()) {
+            if (a.this.p.G()) {
                 return;
             }
-            a.this.p.D();
+            a.this.p.H();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements AbsListView.OnScrollListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53041e = -1;
+        public int f56730e = -1;
 
         public b() {
         }
@@ -86,15 +86,15 @@ public class a implements d.a.m0.k0.a {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             PbFragment pbFragment;
-            if (!a(this.f53041e) && a(i2) && (pbFragment = a.this.f53036f) != null && pbFragment.K4() != null) {
-                a.this.f53036f.K4().h2();
-                a.this.f53036f.K4().W0();
+            if (!a(this.f56730e) && a(i2) && (pbFragment = a.this.f56725f) != null && pbFragment.N4() != null) {
+                a.this.f56725f.N4().h2();
+                a.this.f56725f.N4().W0();
             }
-            this.f53041e = i2;
+            this.f56730e = i2;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class c implements e0.b {
         public c() {
         }
@@ -104,7 +104,7 @@ public class a implements d.a.m0.k0.a {
             if (StringUtils.isNull(str)) {
                 return;
             }
-            a.this.f53039i.r3(str);
+            a.this.f56728i.r3(str);
         }
 
         @Override // d.a.n0.e2.k.e.e0.b
@@ -113,39 +113,39 @@ public class a implements d.a.m0.k0.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f53044e;
+        public final /* synthetic */ Runnable f56733e;
 
         public d(Runnable runnable) {
-            this.f53044e = runnable;
+            this.f56733e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f53037g.i();
-            a.this.f53035e = false;
-            PbFragment pbFragment = a.this.f53036f;
+            a.this.f56726g.i();
+            a.this.f56724e = false;
+            PbFragment pbFragment = a.this.f56725f;
             if (pbFragment != null) {
-                if (pbFragment.K4() != null) {
-                    a.this.f53036f.K4().V2(false);
-                    d.a.n0.e2.k.e.i l0 = a.this.f53036f.K4().l0();
-                    l0.Z(a.this.f53036f.z().y0(), true);
+                if (pbFragment.N4() != null) {
+                    a.this.f56725f.N4().V2(false);
+                    d.a.n0.e2.k.e.i l0 = a.this.f56725f.N4().l0();
+                    l0.Z(a.this.f56725f.A().C0(), true);
                     l0.U();
                 }
                 a aVar = a.this;
-                aVar.f53036f.D5(aVar.v);
+                aVar.f56725f.G5(aVar.v);
             }
-            Runnable runnable = this.f53044e;
+            Runnable runnable = this.f56733e;
             if (runnable != null) {
                 runnable.run();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -156,7 +156,7 @@ public class a implements d.a.m0.k0.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class f implements View.OnClickListener {
         public f() {
         }
@@ -167,21 +167,21 @@ public class a implements d.a.m0.k0.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class g implements View.OnClickListener {
         public g() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.p.C()) {
+            if (a.this.p.G()) {
                 return;
             }
-            a.this.p.D();
+            a.this.p.H();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class h implements PbFragment.p2 {
         public h() {
         }
@@ -193,25 +193,25 @@ public class a implements d.a.m0.k0.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class i implements Runnable {
         public i() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f53038h.g(false);
+            a.this.f56727h.g(false);
         }
     }
 
     public a(PbFragment pbFragment, t0 t0Var, ViewStub viewStub) {
-        MoreGodReplyModel moreGodReplyModel = new MoreGodReplyModel(pbFragment.getPageContext(), pbFragment.z());
+        MoreGodReplyModel moreGodReplyModel = new MoreGodReplyModel(pbFragment.getPageContext(), pbFragment.A());
         this.p = moreGodReplyModel;
-        moreGodReplyModel.E(this.u);
-        this.f53039i = t0Var;
-        this.f53036f = pbFragment;
-        this.f53037g = new d.a.n0.e2.k.d.d(pbFragment, viewStub);
-        this.f53038h = new d.a.n0.e2.k.d.c(this);
+        moreGodReplyModel.I(this.u);
+        this.f56728i = t0Var;
+        this.f56725f = pbFragment;
+        this.f56726g = new d.a.n0.e2.k.d.d(pbFragment, viewStub);
+        this.f56727h = new d.a.n0.e2.k.d.c(this);
     }
 
     @Override // d.a.m0.k0.a
@@ -221,7 +221,7 @@ public class a implements d.a.m0.k0.a {
 
     @Override // d.a.m0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
-        PbFragment pbFragment = this.f53036f;
+        PbFragment pbFragment = this.f56725f;
         if (pbFragment == null) {
             return null;
         }
@@ -262,18 +262,18 @@ public class a implements d.a.m0.k0.a {
 
     public void i(Runnable runnable) {
         this.p.cancelLoadData();
-        this.f53036f.V4();
+        this.f56725f.Y4();
         if (!l() && runnable != null) {
             runnable.run();
             return;
         }
-        if (l() && !this.f53038h.e()) {
-            this.f53037g.r(new d(runnable));
+        if (l() && !this.f56727h.e()) {
+            this.f56726g.r(new d(runnable));
         }
         if (this.r != 0) {
             d.a.m0.k0.d j = j();
             j.v(System.currentTimeMillis() - this.r);
-            d.a.m0.k0.e.b().i(this.f53036f.getContext(), j, getPageStayFilter());
+            d.a.m0.k0.e.b().i(this.f56725f.getContext(), j, getPageStayFilter());
         }
     }
 
@@ -283,25 +283,25 @@ public class a implements d.a.m0.k0.a {
             this.q = dVar;
             dVar.u(getCurrentPageSourceKeyList());
             this.q.p(getCurrentPageKey());
-            PbModel z = this.f53036f.z();
-            if (z != null) {
-                this.q.q(d.a.c.e.m.b.f(z.getForumId(), 0L));
-                this.q.y(d.a.c.e.m.b.f(z.O0(), 0L));
+            PbModel A = this.f56725f.A();
+            if (A != null) {
+                this.q.q(d.a.c.e.m.b.f(A.getForumId(), 0L));
+                this.q.y(d.a.c.e.m.b.f(A.S0(), 0L));
             }
         }
         return this.q;
     }
 
     public d.a.n0.e2.k.d.d k() {
-        return this.f53037g;
+        return this.f56726g;
     }
 
     public boolean l() {
-        return this.f53035e;
+        return this.f56724e;
     }
 
     public void m(int i2) {
-        this.f53037g.o(i2);
+        this.f56726g.o(i2);
     }
 
     public void n() {
@@ -332,9 +332,9 @@ public class a implements d.a.m0.k0.a {
 
     public final void t(BdTypeListView bdTypeListView) {
         if (this.j == null) {
-            m mVar = new m(this.f53036f, PostData.p0);
+            m mVar = new m(this.f56725f, PostData.p0);
             this.j = mVar;
-            mVar.U0(false);
+            mVar.V0(false);
             ArrayList arrayList = new ArrayList(1);
             arrayList.add(this.j);
             bdTypeListView.a(arrayList);
@@ -342,61 +342,61 @@ public class a implements d.a.m0.k0.a {
     }
 
     public final void u() {
-        boolean m = this.f53037g.m();
-        this.f53037g.p();
+        boolean m = this.f56726g.m();
+        this.f56726g.p();
         if (!m) {
-            this.f53037g.d().setOnClickListener(new e());
-            this.f53037g.c().setOnClickListener(new f());
-            this.f53037g.f().z(new g());
-            this.f53037g.e().setOnScrollListener(this.t);
+            this.f56726g.d().setOnClickListener(new e());
+            this.f56726g.c().setOnClickListener(new f());
+            this.f56726g.f().z(new g());
+            this.f56726g.e().setOnScrollListener(this.t);
         }
         this.r = System.currentTimeMillis();
     }
 
     public void v() {
         if (!l()) {
-            this.f53036f.V4();
-            this.f53035e = true;
-            this.f53038h.h(false);
-            this.f53038h.g(true);
+            this.f56725f.Y4();
+            this.f56724e = true;
+            this.f56727h.h(false);
+            this.f56727h.g(true);
             u();
             x();
-            this.f53037g.q(new i());
-            this.f53036f.P3(this.v);
-            this.p.D();
+            this.f56726g.q(new i());
+            this.f56725f.S3(this.v);
+            this.p.H();
         }
-        this.f53036f.K4().W0();
+        this.f56725f.N4().W0();
     }
 
     public final void w(d.a.n0.e2.h.e eVar) {
-        this.j.s(eVar);
-        d.a.n0.e2.k.e.i l0 = this.f53039i.l0();
+        this.j.t(eVar);
+        d.a.n0.e2.k.e.i l0 = this.f56728i.l0();
         this.j.setFromCDN(l0.S());
-        this.j.p(eVar.L().T().getUserId());
+        this.j.q(eVar.L().T().getUserId());
         this.j.c(l0.T());
         this.j.e(this.k);
-        this.j.l(this.l);
-        this.j.o(this.m);
+        this.j.m(this.l);
+        this.j.p(this.m);
         this.j.d(this.n);
-        this.j.X0(this.o);
+        this.j.Y0(this.o);
     }
 
     public final void x() {
-        List<n> z = this.p.z();
-        if (z == null) {
+        List<n> D = this.p.D();
+        if (D == null) {
             return;
         }
-        d.a.n0.e2.h.e y0 = this.p.A().y0();
-        this.f53037g.p();
-        this.f53037g.e().setOnSrollToBottomListener(this.s);
-        BdTypeListView e2 = this.f53037g.e();
-        this.f53038h.d();
+        d.a.n0.e2.h.e C0 = this.p.E().C0();
+        this.f56726g.p();
+        this.f56726g.e().setOnSrollToBottomListener(this.s);
+        BdTypeListView e2 = this.f56726g.e();
+        this.f56727h.d();
         t(e2);
-        w(y0);
-        e2.setData(new ArrayList(z));
-        this.f53037g.g().setCenterTextTitle(String.format(this.f53036f.getResources().getString(R.string.more_god_reply_count), StringHelper.numFormatOver10000(y0.Q().f52977b.size())));
-        this.f53037g.b(this.p.B());
-        if (e2.getAdapter2() instanceof d.a.c.j.e.e) {
+        w(C0);
+        e2.setData(new ArrayList(D));
+        this.f56726g.g().setCenterTextTitle(String.format(this.f56725f.getResources().getString(R.string.more_god_reply_count), StringHelper.numFormatOver10000(C0.Q().f56666b.size())));
+        this.f56726g.b(this.p.F());
+        if (e2.getAdapter2() instanceof d.a.c.k.e.e) {
             e2.getAdapter2().notifyDataSetChanged();
         }
     }

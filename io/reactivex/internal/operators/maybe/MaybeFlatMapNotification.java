@@ -22,7 +22,7 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
         public final MaybeObserver<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68977d;
+        public Disposable f72286d;
         public final Callable<? extends MaybeSource<? extends R>> onCompleteSupplier;
         public final Function<? super Throwable, ? extends MaybeSource<? extends R>> onErrorMapper;
         public final Function<? super T, ? extends MaybeSource<? extends R>> onSuccessMapper;
@@ -63,7 +63,7 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             DisposableHelper.dispose(this);
-            this.f68977d.dispose();
+            this.f72286d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -93,8 +93,8 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68977d, disposable)) {
-                this.f68977d = disposable;
+            if (DisposableHelper.validate(this.f72286d, disposable)) {
+                this.f72286d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -55,19 +55,19 @@ public class a implements View.OnClickListener {
     public d.a.m0.r.s.l O;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbPageContext<?> f59434e;
+    public final TbPageContext<?> f63125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f59435f;
+    public final String f63126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f59436g;
+    public final String f63127g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f59437h;
+    public final String f63128h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.r0.q1.b.b f59438i;
+    public d.a.n0.r0.q1.b.b f63129i;
     public ForumRulesEditActivity j;
     public View k;
     public View l;
@@ -91,12 +91,12 @@ public class a implements View.OnClickListener {
     public boolean P = false;
     public Runnable Q = new d();
     public l.d R = new l();
-    public l.d S = new C1538a();
+    public l.d S = new C1594a();
 
     /* renamed from: d.a.n0.r0.q1.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1538a implements l.d {
-        public C1538a() {
+    public class C1594a implements l.d {
+        public C1594a() {
         }
 
         @Override // d.a.m0.r.s.l.d
@@ -112,15 +112,15 @@ public class a implements View.OnClickListener {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f59440e;
+        public final /* synthetic */ d.a.m0.r.s.a f63131e;
 
         public b(a aVar, d.a.m0.r.s.a aVar2) {
-            this.f59440e = aVar2;
+            this.f63131e = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.m0.r.s.a aVar = this.f59440e;
+            d.a.m0.r.s.a aVar = this.f63131e;
             if (aVar != null) {
                 aVar.dismiss();
             }
@@ -131,20 +131,20 @@ public class a implements View.OnClickListener {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f59441e;
+        public final /* synthetic */ View.OnClickListener f63132e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f59442f;
+        public final /* synthetic */ d.a.m0.r.s.a f63133f;
 
         public c(a aVar, View.OnClickListener onClickListener, d.a.m0.r.s.a aVar2) {
-            this.f59441e = onClickListener;
-            this.f59442f = aVar2;
+            this.f63132e = onClickListener;
+            this.f63133f = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f59441e.onClick(view);
-            d.a.m0.r.s.a aVar = this.f59442f;
+            this.f63132e.onClick(view);
+            d.a.m0.r.s.a aVar = this.f63133f;
             if (aVar != null) {
                 aVar.dismiss();
             }
@@ -170,8 +170,8 @@ public class a implements View.OnClickListener {
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
             a.this.F();
-            d.a.c.e.p.l.x(a.this.f59434e.getPageActivity(), a.this.y);
-            d.a.c.e.p.l.x(a.this.f59434e.getPageActivity(), a.this.z);
+            d.a.c.e.p.l.x(a.this.f63125e.getPageActivity(), a.this.y);
+            d.a.c.e.p.l.x(a.this.f63125e.getPageActivity(), a.this.z);
         }
     }
 
@@ -202,8 +202,8 @@ public class a implements View.OnClickListener {
 
         /* renamed from: d.a.n0.r0.q1.f.a$g$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnTouchListenerC1539a implements View.OnTouchListener {
-            public View$OnTouchListenerC1539a(g gVar) {
+        public class View$OnTouchListenerC1595a implements View.OnTouchListener {
+            public View$OnTouchListenerC1595a(g gVar) {
             }
 
             @Override // android.view.View.OnTouchListener
@@ -229,7 +229,7 @@ public class a implements View.OnClickListener {
             a.R(a.this.w, length, 500);
             a.this.M();
             if (a.this.z.getLineCount() > 6) {
-                a.this.z.setOnTouchListener(new View$OnTouchListenerC1539a(this));
+                a.this.z.setOnTouchListener(new View$OnTouchListenerC1595a(this));
             } else {
                 a.this.z.setOnTouchListener(null);
             }
@@ -248,31 +248,31 @@ public class a implements View.OnClickListener {
     public class h implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.r0.q1.f.b f59447e;
+        public final /* synthetic */ d.a.n0.r0.q1.f.b f63138e;
 
         /* renamed from: d.a.n0.r0.q1.f.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC1540a implements View.OnClickListener {
-            public View$OnClickListenerC1540a() {
+        public class View$OnClickListenerC1596a implements View.OnClickListener {
+            public View$OnClickListenerC1596a() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 h hVar = h.this;
-                a.this.O(hVar.f59447e);
+                a.this.O(hVar.f63138e);
             }
         }
 
         public h(d.a.n0.r0.q1.f.b bVar) {
-            this.f59447e = bVar;
+            this.f63138e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f59447e.k().getText().toString().length() != 0 || this.f59447e.l().getText().toString().length() != 0) {
-                a.this.W(new View$OnClickListenerC1540a());
+            if (this.f63138e.k().getText().toString().length() != 0 || this.f63138e.l().getText().toString().length() != 0) {
+                a.this.V(new View$OnClickListenerC1596a());
             } else {
-                a.this.O(this.f59447e);
+                a.this.O(this.f63138e);
             }
         }
     }
@@ -322,13 +322,13 @@ public class a implements View.OnClickListener {
     }
 
     public a(TbPageContext<?> tbPageContext, d.a.n0.r0.q1.b.b bVar, View view, String str, String str2, String str3, String str4, int i2, ForumRulesEditActivity forumRulesEditActivity) {
-        this.f59434e = tbPageContext;
-        this.f59435f = str;
-        this.f59436g = str2;
-        this.f59437h = str4;
+        this.f63125e = tbPageContext;
+        this.f63126f = str;
+        this.f63127g = str2;
+        this.f63128h = str4;
         this.M = i2;
         this.j = forumRulesEditActivity;
-        this.f59438i = bVar;
+        this.f63129i = bVar;
         G(view, str3);
     }
 
@@ -388,23 +388,23 @@ public class a implements View.OnClickListener {
         this.o = (RelativeLayout) view.findViewById(R.id.create_rule_btn);
         this.x = (EMTextView) view.findViewById(R.id.create_rule);
         this.r = (ImageView) view.findViewById(R.id.create_rule_icon);
-        TextView addTextButton = this.C.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.f59434e.getString(R.string.dialog_cancel), null);
+        TextView addTextButton = this.C.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.f63125e.getString(R.string.dialog_cancel), null);
         this.F = addTextButton;
         addTextButton.setId(R.id.negative_feedback_view);
         this.F.setOnClickListener(this);
-        this.C.setCenterTextTitle(this.f59434e.getString(R.string.forum_rule_defalt_title_setting));
-        EMTextView eMTextView = new EMTextView(this.f59434e.getPageActivity());
+        this.C.setCenterTextTitle(this.f63125e.getString(R.string.forum_rule_defalt_title_setting));
+        EMTextView eMTextView = new EMTextView(this.f63125e.getPageActivity());
         this.D = eMTextView;
-        eMTextView.setText(this.f59434e.getString(R.string.video_preview));
+        eMTextView.setText(this.f63125e.getString(R.string.video_preview));
         this.D.setGravity(16);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
         layoutParams.gravity = 17;
         this.D.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004), 0);
         this.D.setLayoutParams(layoutParams);
         this.C.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.D, this);
-        EMTextView eMTextView2 = new EMTextView(this.f59434e.getPageActivity());
+        EMTextView eMTextView2 = new EMTextView(this.f63125e.getPageActivity());
         this.E = eMTextView2;
-        eMTextView2.setText(this.f59434e.getString(R.string.push_commit));
+        eMTextView2.setText(this.f63125e.getString(R.string.push_commit));
         this.E.setEnabled(false);
         this.E.setGravity(16);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
@@ -413,7 +413,7 @@ public class a implements View.OnClickListener {
         this.E.setLayoutParams(layoutParams2);
         this.C.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.E, this);
         H();
-        V();
+        U();
         s(false, null, false);
     }
 
@@ -433,7 +433,7 @@ public class a implements View.OnClickListener {
     public void I() {
         this.K = null;
         this.J = null;
-        this.f59438i = null;
+        this.f63129i = null;
         this.j = null;
         B();
         this.N = null;
@@ -442,16 +442,16 @@ public class a implements View.OnClickListener {
 
     public void J() {
         if (this.N == null) {
-            d.a.m0.r.s.l lVar = new d.a.m0.r.s.l(this.f59434e.getPageActivity());
+            d.a.m0.r.s.l lVar = new d.a.m0.r.s.l(this.f63125e.getPageActivity());
             this.O = lVar;
-            lVar.q(this.f59434e.getString(R.string.forum_rule_draft_title));
-            this.N = new d.a.m0.r.s.j(this.f59434e, this.O);
+            lVar.q(this.f63125e.getString(R.string.forum_rule_draft_title));
+            this.N = new d.a.m0.r.s.j(this.f63125e, this.O);
             ArrayList arrayList = new ArrayList();
-            d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(this.f59434e.getString(R.string.save), this.O);
+            d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(this.f63125e.getString(R.string.save), this.O);
             hVar.o(R.color.CAM_X0302);
             hVar.m(this.R);
             arrayList.add(hVar);
-            d.a.m0.r.s.h hVar2 = new d.a.m0.r.s.h(this.f59434e.getString(R.string.not_save), this.O);
+            d.a.m0.r.s.h hVar2 = new d.a.m0.r.s.h(this.f63125e.getString(R.string.not_save), this.O);
             hVar2.m(this.S);
             arrayList.add(hVar2);
             this.O.m(new k());
@@ -491,7 +491,7 @@ public class a implements View.OnClickListener {
         List<d.a.n0.r0.q1.f.b> list = this.I;
         if (list != null) {
             if (list.size() >= 20) {
-                this.x.setText(this.f59434e.getString(R.string.forum_rule_item_number_max));
+                this.x.setText(this.f63125e.getString(R.string.forum_rule_item_number_max));
                 this.o.setEnabled(false);
                 this.x.setEnabled(false);
                 this.L = false;
@@ -504,7 +504,7 @@ public class a implements View.OnClickListener {
                 d2.f(R.color.CAM_X0201);
                 return;
             }
-            this.x.setText(String.format(this.f59434e.getString(R.string.forum_rule_item_add_number), Integer.valueOf(20 - this.I.size())));
+            this.x.setText(String.format(this.f63125e.getString(R.string.forum_rule_item_add_number), Integer.valueOf(20 - this.I.size())));
             this.o.setEnabled(true);
             this.x.setEnabled(true);
             this.L = true;
@@ -597,12 +597,12 @@ public class a implements View.OnClickListener {
         this.N.l();
     }
 
-    public final void V() {
+    public final void U() {
         RelativeLayout relativeLayout;
         if (this.G != null || (relativeLayout = this.n) == null) {
             return;
         }
-        d.a.n0.d0.e eVar = new d.a.n0.d0.e(this.f59434e, relativeLayout);
+        d.a.n0.d0.e eVar = new d.a.n0.d0.e(this.f63125e, relativeLayout);
         this.G = eVar;
         eVar.g0(R.drawable.bg_tip_blue_up_left);
         this.G.O(16);
@@ -610,24 +610,24 @@ public class a implements View.OnClickListener {
         this.G.h0(true);
         this.G.N(3000);
         this.G.j0(UtilHelper.getDimenPixelSize(R.dimen.tbds20));
-        this.G.m0(this.f59434e.getString(R.string.forum_rule_defalt_tocopy_tip), "key_forum_rule_first_edit");
+        this.G.m0(this.f63125e.getString(R.string.forum_rule_defalt_tocopy_tip), "key_forum_rule_first_edit");
     }
 
-    public final void W(View.OnClickListener onClickListener) {
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f59434e.getPageActivity());
+    public final void V(View.OnClickListener onClickListener) {
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f63125e.getPageActivity());
         aVar.setContentViewSize(2);
         aVar.setCanceledOnTouchOutside(false);
-        ForumRuleDelItemDialogView forumRuleDelItemDialogView = new ForumRuleDelItemDialogView(this.f59434e.getPageActivity());
+        ForumRuleDelItemDialogView forumRuleDelItemDialogView = new ForumRuleDelItemDialogView(this.f63125e.getPageActivity());
         forumRuleDelItemDialogView.setConfirmButtonListener(new b(this, aVar));
         forumRuleDelItemDialogView.setpostButtonListener(new c(this, onClickListener, aVar));
         aVar.setContentView(forumRuleDelItemDialogView);
-        aVar.create(this.f59434e).show();
+        aVar.create(this.f63125e).show();
     }
 
     public final void X(String str) {
         BdTopToast bdTopToast = this.K;
         if (bdTopToast == null || !bdTopToast.isShown()) {
-            BdTopToast bdTopToast2 = new BdTopToast(this.f59434e.getPageActivity(), 2000);
+            BdTopToast bdTopToast2 = new BdTopToast(this.f63125e.getPageActivity(), 2000);
             bdTopToast2.i(false);
             bdTopToast2.h(str);
             this.K = bdTopToast2;
@@ -657,9 +657,9 @@ public class a implements View.OnClickListener {
             v();
         } else if (view == this.D) {
             K();
-            this.f59434e.sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.f59434e.getPageActivity(), this.f59435f, this.f59436g, this.J, ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, this.f59437h, this.M)));
+            this.f63125e.sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.f63125e.getPageActivity(), this.f63126f, this.f63127g, this.J, ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, this.f63128h, this.M)));
         } else if (view == this.n) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsActivityConfig(this.f59434e.getPageActivity()).createNormalCfg(this.f59436g, FrsActivityConfig.FRS_FROM_FORUM_RULE_EDIT)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsActivityConfig(this.f63125e.getPageActivity()).createNormalCfg(this.f63127g, FrsActivityConfig.FRS_FROM_FORUM_RULE_EDIT)));
         } else if (view == this.t) {
             z();
         } else if (view != this.A && view != this.C) {
@@ -668,8 +668,8 @@ public class a implements View.OnClickListener {
                 d.a.c.e.m.e.a().postDelayed(this.Q, 300L);
             }
         } else {
-            d.a.c.e.p.l.x(this.f59434e.getPageActivity(), this.y);
-            d.a.c.e.p.l.x(this.f59434e.getPageActivity(), this.z);
+            d.a.c.e.p.l.x(this.f63125e.getPageActivity(), this.y);
+            d.a.c.e.p.l.x(this.f63125e.getPageActivity(), this.z);
         }
     }
 
@@ -684,7 +684,7 @@ public class a implements View.OnClickListener {
 
     public final void q(int i2, int i3) {
         if (this.B != null) {
-            d.a.n0.r0.q1.f.b bVar = new d.a.n0.r0.q1.f.b(this.f59434e.getPageActivity());
+            d.a.n0.r0.q1.f.b bVar = new d.a.n0.r0.q1.f.b(this.f63125e.getPageActivity());
             P(bVar);
             r(bVar);
             String string = TbadkApplication.getInst().getResources().getString(i2);
@@ -712,7 +712,7 @@ public class a implements View.OnClickListener {
 
     public final void s(boolean z, ForumRuleBaseData.ForumRuleItemPbData forumRuleItemPbData, boolean z2) {
         if (this.B != null) {
-            d.a.n0.r0.q1.f.b bVar = new d.a.n0.r0.q1.f.b(this.f59434e.getPageActivity());
+            d.a.n0.r0.q1.f.b bVar = new d.a.n0.r0.q1.f.b(this.f63125e.getPageActivity());
             P(bVar);
             r(bVar);
             if (forumRuleItemPbData != null) {
@@ -802,7 +802,7 @@ public class a implements View.OnClickListener {
             }
             NavigationBar navigationBar = this.C;
             if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.f59434e, i2);
+                navigationBar.onChangeSkinType(this.f63125e, i2);
             }
             d.a.m0.r.s.l lVar = this.O;
             if (lVar != null) {
@@ -827,7 +827,7 @@ public class a implements View.OnClickListener {
     public final void v() {
         EditText editText = this.y;
         if (editText != null && editText.getText().toString().length() > 50) {
-            X(String.format(this.f59434e.getString(R.string.forum_rule_commit_error_toast), this.f59434e.getString(R.string.forum_rule_defalt_main_title)));
+            X(String.format(this.f63125e.getString(R.string.forum_rule_commit_error_toast), this.f63125e.getString(R.string.forum_rule_defalt_main_title)));
             return;
         }
         List<d.a.n0.r0.q1.f.b> list = this.I;
@@ -838,21 +838,21 @@ public class a implements View.OnClickListener {
                 EditText l2 = bVar.l();
                 SpanGroupEditText k2 = bVar.k();
                 if (l2 != null && l2.getText().toString().trim().length() > 30) {
-                    X(String.format(this.f59434e.getString(R.string.forum_rule_commit_error_toast), String.format(this.f59434e.getString(R.string.forum_rule_defalt_has_forum_rule), d.a.n0.r0.q1.e.a.d(i2 + 1), this.f59434e.getString(R.string.forum_rule_title))));
+                    X(String.format(this.f63125e.getString(R.string.forum_rule_commit_error_toast), String.format(this.f63125e.getString(R.string.forum_rule_defalt_has_forum_rule), d.a.n0.r0.q1.e.a.d(i2 + 1), this.f63125e.getString(R.string.forum_rule_title))));
                     return;
                 } else if (k2 != null && k2.getText().toString().length() > 1000) {
-                    X(String.format(this.f59434e.getString(R.string.forum_rule_commit_error_toast), String.format(this.f59434e.getString(R.string.forum_rule_defalt_has_forum_rule), d.a.n0.r0.q1.e.a.d(i2 + 1), this.f59434e.getString(R.string.forum_rule_content))));
+                    X(String.format(this.f63125e.getString(R.string.forum_rule_commit_error_toast), String.format(this.f63125e.getString(R.string.forum_rule_defalt_has_forum_rule), d.a.n0.r0.q1.e.a.d(i2 + 1), this.f63125e.getString(R.string.forum_rule_content))));
                     return;
                 }
             }
         }
         EditText editText2 = this.z;
         if (editText2 != null && editText2.getText().toString().length() > 500) {
-            X(String.format(this.f59434e.getString(R.string.forum_rule_commit_error_toast), this.f59434e.getString(R.string.forum_rule_defalt_preface_title)));
+            X(String.format(this.f63125e.getString(R.string.forum_rule_commit_error_toast), this.f63125e.getString(R.string.forum_rule_defalt_preface_title)));
             return;
         }
         K();
-        this.f59438i.commitData(this.J, false);
+        this.f63129i.commitData(this.J, false);
     }
 
     public final boolean w() {
@@ -890,7 +890,7 @@ public class a implements View.OnClickListener {
         }
         if (i2 + i4 + i5 + i3 > 5000) {
             B();
-            X(String.format(this.f59434e.getString(R.string.forum_rule_draft_total_num_error_toast), 5000));
+            X(String.format(this.f63125e.getString(R.string.forum_rule_draft_total_num_error_toast), 5000));
             return true;
         }
         return false;
@@ -905,7 +905,7 @@ public class a implements View.OnClickListener {
         if (forumRuleBaseData != null) {
             if (forumRuleBaseData.getTitle().length() > 50) {
                 B();
-                X(String.format(this.f59434e.getString(R.string.forum_rule_draft_error_toast), this.f59434e.getString(R.string.forum_rule_defalt_main_title), 50));
+                X(String.format(this.f63125e.getString(R.string.forum_rule_draft_error_toast), this.f63125e.getString(R.string.forum_rule_defalt_main_title), 50));
                 return;
             }
             if (this.J.getList() != null) {
@@ -914,11 +914,11 @@ public class a implements View.OnClickListener {
                     if (forumRuleItemData != null) {
                         if (forumRuleItemData.getTitle().length() > 50) {
                             B();
-                            X(String.format(this.f59434e.getString(R.string.forum_rule_draft_error_toast), this.f59434e.getString(R.string.forum_rule_defalt_item_title), 50));
+                            X(String.format(this.f63125e.getString(R.string.forum_rule_draft_error_toast), this.f63125e.getString(R.string.forum_rule_defalt_item_title), 50));
                             return;
                         } else if (forumRuleItemData.getContent().length() > 1000) {
                             B();
-                            X(String.format(this.f59434e.getString(R.string.forum_rule_draft_error_toast), this.f59434e.getString(R.string.forum_rule_defalt_item_content), 1000));
+                            X(String.format(this.f63125e.getString(R.string.forum_rule_draft_error_toast), this.f63125e.getString(R.string.forum_rule_defalt_item_content), 1000));
                             return;
                         }
                     }
@@ -926,11 +926,11 @@ public class a implements View.OnClickListener {
             }
             if (this.J.getPreface().length() > 600) {
                 B();
-                X(String.format(this.f59434e.getString(R.string.forum_rule_draft_error_toast), this.f59434e.getString(R.string.forum_rule_defalt_preface_title), 600));
+                X(String.format(this.f63125e.getString(R.string.forum_rule_draft_error_toast), this.f63125e.getString(R.string.forum_rule_defalt_preface_title), 600));
                 return;
             }
         }
-        this.f59438i.commitData(this.J, true);
+        this.f63129i.commitData(this.J, true);
     }
 
     public final boolean y() {
@@ -958,7 +958,7 @@ public class a implements View.OnClickListener {
     }
 
     public final void z() {
-        String format = String.format(this.f59434e.getString(R.string.forum_rule_defalt_title_demo), this.f59436g, d.a.c.e.p.k.getDateStringMouth(new Date()));
+        String format = String.format(this.f63125e.getString(R.string.forum_rule_defalt_title_demo), this.f63127g, d.a.c.e.p.k.getDateStringMouth(new Date()));
         this.y.setText(format);
         this.y.setSelection(format.length());
         ViewGroup.LayoutParams layoutParams = this.y.getLayoutParams();

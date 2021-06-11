@@ -3,5 +3,5 @@ package d.a.n0.z;
 public interface z {
     void a(String str);
 
-    void q(int i2);
+    void r(int i2);
 }

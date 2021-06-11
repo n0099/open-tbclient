@@ -1,16 +1,16 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
 import androidx.annotation.Keep;
-import d.r.b.a.a.i.c.n;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.YbChargeItemInfo;
 import java.util.List;
 @Keep
 /* loaded from: classes7.dex */
 public class GetUserYbDetailsResult {
     public int result;
     public int total;
-    public List<n> ybChargeItemInfoList;
+    public List<YbChargeItemInfo> ybChargeItemInfoList;
 
-    public GetUserYbDetailsResult(int i2, int i3, List<n> list) {
+    public GetUserYbDetailsResult(int i2, int i3, List<YbChargeItemInfo> list) {
         this.result = -1;
         this.result = i2;
         this.total = i3;
@@ -25,7 +25,7 @@ public class GetUserYbDetailsResult {
         return this.total;
     }
 
-    public List<n> getYbChargeItemInfoList() {
+    public List<YbChargeItemInfo> getYbChargeItemInfoList() {
         return this.ybChargeItemInfoList;
     }
 
@@ -37,7 +37,7 @@ public class GetUserYbDetailsResult {
         this.total = i2;
     }
 
-    public void setYbChargeItemInfoList(List<n> list) {
+    public void setYbChargeItemInfoList(List<YbChargeItemInfo> list) {
         this.ybChargeItemInfoList = list;
     }
 }

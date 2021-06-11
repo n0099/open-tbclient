@@ -21,19 +21,19 @@ import d.a.n0.j0.i.d.a;
 public class HotUserRankFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f14437e;
+    public View f14494e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RankListViewController f14438f;
+    public RankListViewController f14495f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14439g;
+    public String f14496g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f14440h;
+    public long f14497h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14441i;
+    public boolean f14498i;
     public d.a.n0.j0.i.d.a j;
     public BdListView.p k = new a();
     public a.b l = new b();
@@ -46,8 +46,8 @@ public class HotUserRankFragment extends BaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             if (HotUserRankFragment.this.j.j()) {
-                HotUserRankFragment.this.O0();
-                HotUserRankFragment.this.f14438f.i();
+                HotUserRankFragment.this.R0();
+                HotUserRankFragment.this.f14495f.i();
             }
         }
     }
@@ -61,22 +61,22 @@ public class HotUserRankFragment extends BaseFragment {
         public void a(c cVar) {
             if (HotUserRankFragment.this.isLoadingViewAttached()) {
                 HotUserRankFragment hotUserRankFragment = HotUserRankFragment.this;
-                hotUserRankFragment.hideLoadingView(hotUserRankFragment.f14437e);
+                hotUserRankFragment.hideLoadingView(hotUserRankFragment.f14494e);
             }
             if (cVar != null) {
                 if (HotUserRankFragment.this.j.f() == 2) {
-                    if (HotUserRankFragment.this.f14440h <= 0 && !TextUtils.isEmpty(HotUserRankFragment.this.f14439g)) {
-                        if (cVar.f55973a != null) {
-                            if (HotUserRankFragment.this.f14441i) {
-                                cVar.f55973a.f55959a = String.format(HotUserRankFragment.this.getResources().getString(R.string.god_rank_category_name), HotUserRankFragment.this.f14439g);
+                    if (HotUserRankFragment.this.f14497h <= 0 && !TextUtils.isEmpty(HotUserRankFragment.this.f14496g)) {
+                        if (cVar.f59662a != null) {
+                            if (HotUserRankFragment.this.f14498i) {
+                                cVar.f59662a.f59648a = String.format(HotUserRankFragment.this.getResources().getString(R.string.god_rank_category_name), HotUserRankFragment.this.f14496g);
                             } else {
-                                cVar.f55973a.f55959a = String.format(HotUserRankFragment.this.getResources().getString(R.string.hot_user_rank_category_name), HotUserRankFragment.this.f14439g);
+                                cVar.f59662a.f59648a = String.format(HotUserRankFragment.this.getResources().getString(R.string.hot_user_rank_category_name), HotUserRankFragment.this.f14496g);
                             }
                         }
                     } else {
-                        cVar.f55973a.f55959a = HotUserRankFragment.this.getResources().getString(R.string.forum_hot_user_rank);
+                        cVar.f59662a.f59648a = HotUserRankFragment.this.getResources().getString(R.string.forum_hot_user_rank);
                     }
-                    HotUserRankFragment.this.f14438f.f(cVar.f55973a, !k.isEmpty(HotUserRankFragment.this.f14439g));
+                    HotUserRankFragment.this.f14495f.f(cVar.f59662a, !k.isEmpty(HotUserRankFragment.this.f14496g));
                     if (HotUserRankFragment.this.isResumed() || HotUserRankFragment.this.getBaseFragmentActivity() != null) {
                         CustomMessage customMessage = new CustomMessage(2921447);
                         customMessage.setTag(HotUserRankFragment.this.getBaseFragmentActivity().getUniqueId());
@@ -86,55 +86,55 @@ public class HotUserRankFragment extends BaseFragment {
                     }
                 }
                 if (HotUserRankFragment.this.j.g() != null) {
-                    HotUserRankFragment.this.f14438f.h(HotUserRankFragment.this.j.g().f55974b);
+                    HotUserRankFragment.this.f14495f.h(HotUserRankFragment.this.j.g().f59663b);
                 }
                 if (HotUserRankFragment.this.j.j()) {
                     return;
                 }
-                HotUserRankFragment.this.f14438f.j(HotUserRankFragment.this.f14439g);
+                HotUserRankFragment.this.f14495f.j(HotUserRankFragment.this.f14496g);
             }
         }
 
         @Override // d.a.n0.j0.i.d.a.b
         public void onError(int i2, String str) {
             HotUserRankFragment hotUserRankFragment = HotUserRankFragment.this;
-            hotUserRankFragment.hideLoadingView(hotUserRankFragment.f14437e);
+            hotUserRankFragment.hideLoadingView(hotUserRankFragment.f14494e);
             HotUserRankFragment hotUserRankFragment2 = HotUserRankFragment.this;
-            hotUserRankFragment2.showNetRefreshView(hotUserRankFragment2.f14437e, str, false);
+            hotUserRankFragment2.showNetRefreshView(hotUserRankFragment2.f14494e, str, false);
         }
     }
 
-    public d.a.n0.j0.i.d.a N0() {
+    public d.a.n0.j0.i.d.a Q0() {
         return this.j;
     }
 
-    public final void O0() {
-        if (!TextUtils.isEmpty(this.f14439g)) {
-            this.j.i(this.f14439g);
+    public final void R0() {
+        if (!TextUtils.isEmpty(this.f14496g)) {
+            this.j.i(this.f14496g);
             return;
         }
-        long j = this.f14440h;
+        long j = this.f14497h;
         if (j > 0) {
             this.j.h(j);
         }
     }
 
-    public void P0(String str) {
-        this.f14439g = str;
+    public void S0(String str) {
+        this.f14496g = str;
     }
 
-    public void Q0(long j) {
-        this.f14440h = j;
+    public void T0(long j) {
+        this.f14497h = j;
     }
 
-    public void R0(boolean z) {
-        this.f14441i = z;
+    public void U0(boolean z) {
+        this.f14498i = z;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        this.f14438f.e(i2);
+        this.f14495f.e(i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -148,18 +148,18 @@ public class HotUserRankFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f14437e == null) {
+        if (this.f14494e == null) {
             View inflate = layoutInflater.inflate(R.layout.fragment_hot_user_rank, (ViewGroup) null);
-            this.f14437e = inflate;
-            RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.rank_list), this.f14439g, this.f14440h);
-            this.f14438f = rankListViewController;
+            this.f14494e = inflate;
+            RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.rank_list), this.f14496g, this.f14497h);
+            this.f14495f = rankListViewController;
             rankListViewController.g(this.k);
         }
-        if (this.j.g() == null || ListUtils.isEmpty(this.j.g().f55974b)) {
-            O0();
-            showLoadingView(this.f14437e);
+        if (this.j.g() == null || ListUtils.isEmpty(this.j.g().f59663b)) {
+            R0();
+            showLoadingView(this.f14494e);
         }
-        return this.f14437e;
+        return this.f14494e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -170,8 +170,8 @@ public class HotUserRankFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.f14437e);
-        O0();
-        showLoadingView(this.f14437e);
+        hideNetRefreshView(this.f14494e);
+        R0();
+        showLoadingView(this.f14494e);
     }
 }

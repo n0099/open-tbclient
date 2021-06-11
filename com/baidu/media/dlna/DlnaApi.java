@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.StatFs;
+import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
@@ -20,10 +21,10 @@ import java.util.Map;
 public class DlnaApi {
 
     /* renamed from: a  reason: collision with root package name */
-    public static DlnaProvider.DlnaSearchListener f7967a;
+    public static DlnaProvider.DlnaSearchListener f8011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f7968b = new a(Looper.getMainLooper());
+    public static Handler f8012b = new a(Looper.getMainLooper());
 
     /* loaded from: classes2.dex */
     public static class a extends Handler {
@@ -38,14 +39,14 @@ public class DlnaApi {
                 if (i2 == 1) {
                     Map<String, Object> map = (Map) message.obj;
                     synchronized (DlnaApi.class) {
-                        if (DlnaApi.f7967a != null && map != null) {
-                            DlnaApi.f7967a.onDeviceChangeNotification(map);
+                        if (DlnaApi.f8011a != null && map != null) {
+                            DlnaApi.f8011a.onDeviceChangeNotification(map);
                         }
                     }
                 } else if (i2 == 2) {
                     synchronized (DlnaApi.class) {
-                        if (DlnaApi.f7967a != null) {
-                            DlnaApi.f7967a.onRefreshFinishNotification(message.arg1, message.arg2);
+                        if (DlnaApi.f8011a != null) {
+                            DlnaApi.f8011a.onRefreshFinishNotification(message.arg1, message.arg2);
                         }
                     }
                 }
@@ -57,7 +58,18 @@ public class DlnaApi {
     }
 
     public static CtrlPointProvider ctrlPoint(String str) {
-        return new CtrlPoint(nativeCtrlPoint(str), str);
+        String str2;
+        try {
+            return new CtrlPoint(nativeCtrlPoint(str), str);
+        } catch (Error unused) {
+            str2 = "CALL nativeCtrlPoint error";
+            CyberLog.e("DLNA API", str2);
+            return null;
+        } catch (Exception unused2) {
+            str2 = "CALL nativeCtrlPoint exception";
+            CyberLog.e("DLNA API", str2);
+            return null;
+        }
     }
 
     public static String getExternalStorageCacheDirectory(Context context) {
@@ -115,7 +127,7 @@ public class DlnaApi {
         HashMap hashMap = new HashMap();
         hashMap.put("friendlyName", str);
         hashMap.put("uuid", str2);
-        Message.obtain(f7968b, 1, hashMap).sendToTarget();
+        Message.obtain(f8012b, 1, hashMap).sendToTarget();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0075, code lost:
@@ -168,21 +180,47 @@ public class DlnaApi {
 
     @Keep
     public static void onRefreshFinished(int i2, int i3) {
-        Message obtain = Message.obtain(f7968b, 2);
+        Message obtain = Message.obtain(f8012b, 2);
         obtain.arg1 = i2;
         obtain.arg2 = i3;
         obtain.sendToTarget();
     }
 
     public static void search(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        f7967a = dlnaSearchListener;
-        nativeSearch();
+        String str;
+        String str2;
+        synchronized (DlnaApi.class) {
+            f8011a = dlnaSearchListener;
+        }
+        try {
+            nativeSearch();
+        } catch (Error unused) {
+            str = "DLNA API";
+            str2 = "CALL nativeSearch error";
+            CyberLog.e(str, str2);
+        } catch (Exception unused2) {
+            str = "DLNA API";
+            str2 = "CALL nativeSearch exception";
+            CyberLog.e(str, str2);
+        }
     }
 
     public static void stop() {
+        String str;
+        String str2;
         synchronized (DlnaApi.class) {
-            f7967a = null;
+            f8011a = null;
         }
-        nativeStop();
+        try {
+            nativeStop();
+        } catch (Error unused) {
+            str = "DLNA API";
+            str2 = "CALL nativeStop error";
+            CyberLog.e(str, str2);
+        } catch (Exception unused2) {
+            str = "DLNA API";
+            str2 = "CALL nativeStop exception";
+            CyberLog.e(str, str2);
+        }
     }
 }

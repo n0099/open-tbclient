@@ -8,16 +8,16 @@ import java.io.File;
 public class d implements d.a.l0.h.c.j.c {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47236f;
+    public String f50910f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47237g;
+    public boolean f50911g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f47238h;
+    public float f50912h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47239i;
+    public int f50913i;
     public MediaPlayer.OnPreparedListener j;
     public MediaPlayer.OnCompletionListener k;
     public MediaPlayer.OnErrorListener l;
@@ -25,7 +25,7 @@ public class d implements d.a.l0.h.c.j.c {
     public d.a.l0.l.a.c n;
 
     /* renamed from: e  reason: collision with root package name */
-    public SwanAudioPlayer f47235e = SwanAudioPlayer.getInstance();
+    public SwanAudioPlayer f50909e = SwanAudioPlayer.getInstance();
     public Handler o = d.a.l0.h.c.j.b.h().e();
 
     /* loaded from: classes3.dex */
@@ -35,8 +35,8 @@ public class d implements d.a.l0.h.c.j.c {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (2 != d.this.f47235e.getState(d.this.f47239i)) {
-                d.this.f47235e.play(d.this.f47239i, d.this.f47238h, d.this.f47237g);
+            if (2 != d.this.f50909e.getState(d.this.f50913i)) {
+                d.this.f50909e.play(d.this.f50913i, d.this.f50912h, d.this.f50911g);
             }
         }
     }
@@ -48,7 +48,7 @@ public class d implements d.a.l0.h.c.j.c {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f47235e.pause(d.this.f47239i);
+            d.this.f50909e.pause(d.this.f50913i);
         }
     }
 
@@ -56,27 +56,27 @@ public class d implements d.a.l0.h.c.j.c {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f47242e;
+        public final /* synthetic */ float f50916e;
 
         public c(float f2) {
-            this.f47242e = f2;
+            this.f50916e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f47235e.seek(d.this.f47239i, (int) this.f47242e);
+            d.this.f50909e.seek(d.this.f50913i, (int) this.f50916e);
         }
     }
 
     /* renamed from: d.a.l0.h.c.j.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1015d implements Runnable {
-        public RunnableC1015d() {
+    public class RunnableC1071d implements Runnable {
+        public RunnableC1071d() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f47235e.stop(d.this.f47239i);
+            d.this.f50909e.stop(d.this.f50913i);
         }
     }
 
@@ -84,7 +84,7 @@ public class d implements d.a.l0.h.c.j.c {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47245e;
+        public final /* synthetic */ String f50919e;
 
         /* loaded from: classes3.dex */
         public class a implements MediaPlayer.OnPreparedListener {
@@ -127,8 +127,8 @@ public class d implements d.a.l0.h.c.j.c {
 
         /* renamed from: d.a.l0.h.c.j.d$e$d  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1016d implements MediaPlayer.OnErrorListener {
-            public C1016d() {
+        public class C1072d implements MediaPlayer.OnErrorListener {
+            public C1072d() {
             }
 
             @Override // android.media.MediaPlayer.OnErrorListener
@@ -142,8 +142,8 @@ public class d implements d.a.l0.h.c.j.c {
 
         /* renamed from: d.a.l0.h.c.j.d$e$e  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1017e implements d.a.l0.l.a.c {
-            public C1017e() {
+        public class C1073e implements d.a.l0.l.a.c {
+            public C1073e() {
             }
 
             @Override // d.a.l0.l.a.c
@@ -155,24 +155,24 @@ public class d implements d.a.l0.h.c.j.c {
         }
 
         public e(String str) {
-            this.f47245e = str;
+            this.f50919e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f47236f = this.f47245e;
-            File file = new File(this.f47245e);
+            d.this.f50910f = this.f50919e;
+            File file = new File(this.f50919e);
             if (!file.exists() || file.isDirectory()) {
                 return;
             }
             d dVar = d.this;
-            dVar.f47239i = dVar.f47235e.setDataSource(this.f47245e, (int) file.length());
-            d.this.f47235e.setOnPreparedListener(d.this.f47239i, new a());
-            d.this.f47235e.setOnCompletionListener(d.this.f47239i, new b());
-            d.this.f47235e.setOnSeekCompleteListener(d.this.f47239i, new c());
-            d.this.f47235e.setOnErrorListener(d.this.f47239i, new C1016d());
-            d.this.f47235e.setOnPauseListener(d.this.f47239i, new C1017e());
-            d.this.f47235e.prepare(d.this.f47239i);
+            dVar.f50913i = dVar.f50909e.setDataSource(this.f50919e, (int) file.length());
+            d.this.f50909e.setOnPreparedListener(d.this.f50913i, new a());
+            d.this.f50909e.setOnCompletionListener(d.this.f50913i, new b());
+            d.this.f50909e.setOnSeekCompleteListener(d.this.f50913i, new c());
+            d.this.f50909e.setOnErrorListener(d.this.f50913i, new C1072d());
+            d.this.f50909e.setOnPauseListener(d.this.f50913i, new C1073e());
+            d.this.f50909e.prepare(d.this.f50913i);
         }
     }
 
@@ -180,18 +180,18 @@ public class d implements d.a.l0.h.c.j.c {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f47252e;
+        public final /* synthetic */ boolean f50926e;
 
         public f(boolean z) {
-            this.f47252e = z;
+            this.f50926e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (2 == d.this.f47235e.getState(d.this.f47239i)) {
-                d.this.f47235e.setLoop(d.this.f47239i, this.f47252e);
+            if (2 == d.this.f50909e.getState(d.this.f50913i)) {
+                d.this.f50909e.setLoop(d.this.f50913i, this.f50926e);
             }
-            d.this.f47237g = this.f47252e;
+            d.this.f50911g = this.f50926e;
         }
     }
 
@@ -199,18 +199,18 @@ public class d implements d.a.l0.h.c.j.c {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f47254e;
+        public final /* synthetic */ float f50928e;
 
         public g(float f2) {
-            this.f47254e = f2;
+            this.f50928e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (2 == d.this.f47235e.getState(d.this.f47239i)) {
-                d.this.f47235e.setVolume(d.this.f47239i, this.f47254e);
+            if (2 == d.this.f50909e.getState(d.this.f50913i)) {
+                d.this.f50909e.setVolume(d.this.f50913i, this.f50928e);
             }
-            d.this.f47238h = this.f47254e;
+            d.this.f50912h = this.f50928e;
         }
     }
 
@@ -226,7 +226,7 @@ public class d implements d.a.l0.h.c.j.c {
 
     @Override // d.a.l0.h.c.a
     public void destroy() {
-        this.f47235e.release(this.f47239i);
+        this.f50909e.release(this.f50913i);
         stop();
     }
 
@@ -241,7 +241,7 @@ public class d implements d.a.l0.h.c.j.c {
 
     @Override // d.a.l0.h.c.a
     public int getDuration() {
-        return this.f47235e.getDuration(this.f47239i);
+        return this.f50909e.getDuration(this.f50913i);
     }
 
     @Override // d.a.l0.h.c.j.c
@@ -285,7 +285,7 @@ public class d implements d.a.l0.h.c.j.c {
 
     @Override // d.a.l0.h.c.a
     public void stop() {
-        this.o.post(new RunnableC1015d());
+        this.o.post(new RunnableC1071d());
     }
 
     @Override // d.a.l0.h.c.j.c
@@ -300,6 +300,6 @@ public class d implements d.a.l0.h.c.j.c {
 
     @Override // d.a.l0.h.c.a
     public int x() {
-        return this.f47235e.getPosition(this.f47239i);
+        return this.f50909e.getPosition(this.f50913i);
     }
 }

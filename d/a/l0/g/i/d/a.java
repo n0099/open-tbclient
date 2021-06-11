@@ -19,29 +19,25 @@ public class a {
 
     /* renamed from: d.a.l0.g.i.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1005a implements d.a.l0.g.h.b<List<ReservationGameInfo>> {
+    public class C1061a implements d.a.l0.g.h.b<List<ReservationGameInfo>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String[] f47094a;
+        public final /* synthetic */ String[] f50768a;
 
-        public C1005a(String[] strArr) {
-            this.f47094a = strArr;
-        }
-
-        @Override // d.a.l0.g.h.b
-        public void a(String str) {
+        public C1061a(String[] strArr) {
+            this.f50768a = strArr;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.g.h.b
-        /* renamed from: b */
+        /* renamed from: a */
         public void onSuccess(List<ReservationGameInfo> list) {
             if (list == null) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(list);
-            ArrayList arrayList2 = new ArrayList(Arrays.asList(this.f47094a));
+            ArrayList arrayList2 = new ArrayList(Arrays.asList(this.f50768a));
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 ReservationGameInfo reservationGameInfo = (ReservationGameInfo) it.next();
@@ -62,13 +58,17 @@ public class a {
                 }
             }
         }
+
+        @Override // d.a.l0.g.h.b
+        public void onFail(String str) {
+        }
     }
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f47096a = new a();
+        public static final a f50770a = new a();
     }
 
     /* loaded from: classes3.dex */
@@ -82,7 +82,7 @@ public class a {
     }
 
     public static final a c() {
-        return b.f47096a;
+        return b.f50770a;
     }
 
     public void d() {
@@ -95,7 +95,7 @@ public class a {
             if (split.length == 0) {
                 return;
             }
-            d.a.l0.g.h.a.b().d(new C1005a(split));
+            d.a.l0.g.h.a.b().d(new C1061a(split));
         }
     }
 

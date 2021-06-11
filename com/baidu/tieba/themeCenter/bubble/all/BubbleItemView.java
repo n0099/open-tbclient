@@ -17,19 +17,19 @@ import d.a.c.e.p.l;
 public class BubbleItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21097e;
+    public Context f21175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21098f;
+    public View f21176f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f21099g;
+    public FrameLayout f21177g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f21100h;
+    public TbImageView f21178h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21101i;
+    public TextView f21179i;
     public TbImageView j;
     public TbImageView k;
     public ImageView l;
@@ -45,7 +45,7 @@ public class BubbleItemView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == null || BubbleItemView.this.m == null || BubbleItemView.this.n == null || view != BubbleItemView.this.f21100h) {
+            if (view == null || BubbleItemView.this.m == null || BubbleItemView.this.n == null || view != BubbleItemView.this.f21178h) {
                 return;
             }
             BubbleItemView.this.n.b(BubbleItemView.this.m, BubbleItemView.this.o);
@@ -55,7 +55,7 @@ public class BubbleItemView extends LinearLayout {
     public BubbleItemView(Context context) {
         super(context);
         this.p = new a();
-        this.f21097e = context;
+        this.f21175e = context;
         f();
     }
 
@@ -66,22 +66,22 @@ public class BubbleItemView extends LinearLayout {
         this.m = dressItemData;
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isDefault()) {
-            this.f21100h.setDefaultResource(R.drawable.icon_choose_no);
-            this.f21100h.V("", 10, false);
-            this.f21101i.setText(R.string.default_bubble);
-            this.f21101i.setGravity(17);
-            this.f21101i.setTextSize(0, l.g(this.f21097e, R.dimen.ds28));
-            this.f21101i.setTextColor(getResources().getColor(R.color.CAM_X0108));
+            this.f21178h.setDefaultResource(R.drawable.icon_choose_no);
+            this.f21178h.U("", 10, false);
+            this.f21179i.setText(R.string.default_bubble);
+            this.f21179i.setGravity(17);
+            this.f21179i.setTextSize(0, l.g(this.f21175e, R.dimen.ds28));
+            this.f21179i.setTextColor(getResources().getColor(R.color.CAM_X0108));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
-            this.f21101i.setLayoutParams(layoutParams);
-            this.f21101i.setVisibility(0);
-            this.f21099g.removeView(this.f21101i);
-            this.f21099g.addView(this.f21101i);
+            this.f21179i.setLayoutParams(layoutParams);
+            this.f21179i.setVisibility(0);
+            this.f21177g.removeView(this.f21179i);
+            this.f21177g.addView(this.f21179i);
         } else {
-            this.f21099g.removeView(this.f21101i);
-            this.f21100h.setDefaultResource(R.drawable.img_default_100);
-            this.f21100h.V(dressItemData.getExampleImgUrl(), 10, false);
+            this.f21177g.removeView(this.f21179i);
+            this.f21178h.setDefaultResource(R.drawable.img_default_100);
+            this.f21178h.U(dressItemData.getExampleImgUrl(), 10, false);
         }
         if (inUse) {
             this.l.setVisibility(0);
@@ -89,8 +89,8 @@ public class BubbleItemView extends LinearLayout {
         } else {
             this.l.setVisibility(8);
         }
-        this.j.V(dressItemData.getPermissionImgUrl(), 10, false);
-        this.k.V(dressItemData.getPropsStateImg(), 10, false);
+        this.j.U(dressItemData.getPermissionImgUrl(), 10, false);
+        this.k.U(dressItemData.getPropsStateImg(), 10, false);
         setVisibility(0);
     }
 
@@ -99,21 +99,21 @@ public class BubbleItemView extends LinearLayout {
     }
 
     public final void f() {
-        View inflate = LayoutInflater.from(this.f21097e).inflate(R.layout.bubble_item, this);
-        this.f21098f = inflate;
-        this.f21099g = (FrameLayout) inflate.findViewById(R.id.ly_bubble);
-        this.f21100h = (TbImageView) this.f21098f.findViewById(R.id.bg_image);
-        TbImageView tbImageView = (TbImageView) this.f21098f.findViewById(R.id.permission_icon);
+        View inflate = LayoutInflater.from(this.f21175e).inflate(R.layout.bubble_item, this);
+        this.f21176f = inflate;
+        this.f21177g = (FrameLayout) inflate.findViewById(R.id.ly_bubble);
+        this.f21178h = (TbImageView) this.f21176f.findViewById(R.id.bg_image);
+        TbImageView tbImageView = (TbImageView) this.f21176f.findViewById(R.id.permission_icon);
         this.j = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
         this.j.setDefaultBgResource(R.drawable.transparent_bg);
-        TbImageView tbImageView2 = (TbImageView) this.f21098f.findViewById(R.id.state_icon);
+        TbImageView tbImageView2 = (TbImageView) this.f21176f.findViewById(R.id.state_icon);
         this.k = tbImageView2;
         tbImageView2.setDefaultResource(R.drawable.transparent_bg);
         this.k.setDefaultBgResource(R.drawable.transparent_bg);
-        this.l = (ImageView) this.f21098f.findViewById(R.id.choosed_icon);
-        this.f21101i = new TextView(this.f21097e);
-        this.f21100h.setOnClickListener(this.p);
+        this.l = (ImageView) this.f21176f.findViewById(R.id.choosed_icon);
+        this.f21179i = new TextView(this.f21175e);
+        this.f21178h.setOnClickListener(this.p);
     }
 
     public void setController(d.a.n0.k3.f.a.a aVar) {
@@ -127,14 +127,14 @@ public class BubbleItemView extends LinearLayout {
     public BubbleItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.p = new a();
-        this.f21097e = context;
+        this.f21175e = context;
         f();
     }
 
     public BubbleItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
         this.p = new a();
-        this.f21097e = context;
+        this.f21175e = context;
         f();
     }
 }

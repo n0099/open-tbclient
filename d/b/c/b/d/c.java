@@ -19,13 +19,13 @@ import java.util.TreeSet;
 public class c implements d.b.c.b.f.c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f65744c = q.f65818b;
+    public static final boolean f69475c = q.f69549b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.b.c.b.f.a f65745a;
+    public final d.b.c.b.f.a f69476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f65746b;
+    public final d f69477b;
 
     public c(d.b.c.b.f.a aVar) {
         this(aVar, new d(4096));
@@ -41,17 +41,17 @@ public class c implements d.b.c.b.f.c {
             }
         }
         if (aVar != null) {
-            List<a> list2 = aVar.f65841i;
+            List<a> list2 = aVar.f69572i;
             if (list2 != null) {
                 if (!list2.isEmpty()) {
-                    for (a aVar3 : aVar.f65841i) {
+                    for (a aVar3 : aVar.f69572i) {
                         if (!treeSet.contains(aVar3.a())) {
                             arrayList.add(aVar3);
                         }
                     }
                 }
-            } else if (!aVar.f65840h.isEmpty()) {
-                for (Map.Entry<String, String> entry : aVar.f65840h.entrySet()) {
+            } else if (!aVar.f69571h.isEmpty()) {
+                for (Map.Entry<String, String> entry : aVar.f69571h.entrySet()) {
                     if (!treeSet.contains(entry.getKey())) {
                         arrayList.add(new a(entry.getKey(), entry.getValue()));
                     }
@@ -97,7 +97,7 @@ public class c implements d.b.c.b.f.c {
             List<a> emptyList = Collections.emptyList();
             b bVar = null;
             try {
-                b a2 = this.f65745a.a(request, c(request.getCacheEntry()));
+                b a2 = this.f69476a.a(request, c(request.getCacheEntry()));
                 try {
                     try {
                         int d2 = a2.d();
@@ -117,7 +117,7 @@ public class c implements d.b.c.b.f.c {
                                     }
                                     return kVar;
                                 }
-                                k kVar2 = new k(304, cacheEntry.f65834b, true, SystemClock.elapsedRealtime() - elapsedRealtime, b(c2, cacheEntry));
+                                k kVar2 = new k(304, cacheEntry.f69565b, true, SystemClock.elapsedRealtime() - elapsedRealtime, b(c2, cacheEntry));
                                 if (a2 != null) {
                                     try {
                                         if (a2.a() != null) {
@@ -255,11 +255,11 @@ public class c implements d.b.c.b.f.c {
             return Collections.emptyMap();
         }
         HashMap hashMap = new HashMap();
-        String str = aVar.f65835c;
+        String str = aVar.f69566c;
         if (str != null) {
             hashMap.put("If-None-Match", str);
         }
-        long j = aVar.f65837e;
+        long j = aVar.f69568e;
         if (j > 0) {
             hashMap.put("If-Modified-Since", d.b.c.b.e.c.c(j));
         }
@@ -267,7 +267,7 @@ public class c implements d.b.c.b.f.c {
     }
 
     public final void d(long j, Request<?> request, byte[] bArr, int i2) {
-        if (f65744c || j > 3000) {
+        if (f69475c || j > 3000) {
             Object[] objArr = new Object[5];
             objArr[0] = request;
             objArr[1] = Long.valueOf(j);
@@ -287,10 +287,10 @@ public class c implements d.b.c.b.f.c {
     }
 
     public final byte[] g(InputStream inputStream, int i2) throws IOException, com.bytedance.sdk.adnet.err.f {
-        e eVar = new e(this.f65746b, i2);
+        e eVar = new e(this.f69477b, i2);
         try {
             if (inputStream != null) {
-                byte[] c2 = this.f65746b.c(1024);
+                byte[] c2 = this.f69477b.c(1024);
                 while (true) {
                     int read = inputStream.read(c2);
                     if (read == -1) {
@@ -306,7 +306,7 @@ public class c implements d.b.c.b.f.c {
                         q.a("Error occurred when closing InputStream", new Object[0]);
                     }
                 }
-                this.f65746b.b(c2);
+                this.f69477b.b(c2);
                 eVar.close();
                 return byteArray;
             }
@@ -319,14 +319,14 @@ public class c implements d.b.c.b.f.c {
                     q.a("Error occurred when closing InputStream", new Object[0]);
                 }
             }
-            this.f65746b.b(null);
+            this.f69477b.b(null);
             eVar.close();
             throw th;
         }
     }
 
     public c(d.b.c.b.f.a aVar, d dVar) {
-        this.f65745a = aVar;
-        this.f65746b = dVar;
+        this.f69476a = aVar;
+        this.f69477b = dVar;
     }
 }

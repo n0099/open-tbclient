@@ -1,20 +1,24 @@
 package d.a.n0.p1.i;
 
+import android.content.Intent;
 import android.webkit.WebView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
@@ -34,31 +38,31 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f58095a;
+    public TbPageContext f61786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.p1.i.b f58096b;
+    public d.a.n0.p1.i.b f61787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.p1.i.d f58097c;
+    public d.a.n0.p1.i.d f61788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f58098d = new ArrayList();
+    public List<String> f61789d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58099e;
+    public boolean f61790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SearchJsBridge f58100f;
+    public SearchJsBridge f61791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f58101g;
+    public CustomMessageListener f61792g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f58102h;
+    public CustomMessageListener f61793h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f58103i;
+    public CustomMessageListener f61794i;
     public CustomMessageListener j;
 
     /* loaded from: classes3.dex */
@@ -78,21 +82,43 @@ public class c {
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
         public void a(WebView webView, int i2, String str, String str2) {
-            if (webView == c.this.f58097c.e()) {
-                c.this.o(false);
+            if (webView == c.this.f61788c.e()) {
+                c.this.p(false);
             }
         }
     }
 
     /* renamed from: d.a.n0.p1.i.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1468c implements BaseWebView.d {
-        public C1468c() {
+    public class C1524c implements BaseWebView.d {
+        public C1524c() {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            return c.this.n(str);
+            if (c.this.o(str)) {
+                return true;
+            }
+            if (c.this.f61786a != null && c.this.f61786a.getPageActivity() != null) {
+                if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(c.this.f61786a, new String[]{str}) != 3) {
+                    return true;
+                }
+                if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
+                    Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(c.this.f61786a.getPageActivity(), str);
+                    if (parseIntentFromUrl != null) {
+                        try {
+                            c.this.f61786a.getPageActivity().startActivity(parseIntentFromUrl);
+                        } catch (Throwable th) {
+                            BdLog.detailException(th);
+                        }
+                        return true;
+                    }
+                } else {
+                    UrlManager.getInstance().dealOneLink(c.this.f61786a, new String[]{str}, true);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 
@@ -121,8 +147,8 @@ public class c {
             if (ListUtils.isEmpty(list)) {
                 return;
             }
-            c.this.f58098d = list;
-            c.this.f58100f.setHistoryDatas(c.this.f58098d);
+            c.this.f61789d = list;
+            c.this.f61791f.setHistoryDatas(c.this.f61789d);
         }
     }
 
@@ -138,7 +164,7 @@ public class c {
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            c.this.f58099e = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            c.this.f61790e = ((Boolean) customResponsedMessage.getData()).booleanValue();
         }
     }
 
@@ -154,7 +180,7 @@ public class c {
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String)) {
                 return;
             }
-            c.this.f58098d.remove((String) customResponsedMessage.getData());
+            c.this.f61789d.remove((String) customResponsedMessage.getData());
         }
     }
 
@@ -167,8 +193,8 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (c.this.f58098d != null) {
-                c.this.f58098d.clear();
+            if (c.this.f61789d != null) {
+                c.this.f61789d.clear();
             }
         }
     }
@@ -189,8 +215,8 @@ public class c {
                 JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
                 String optString = jSONObject.optString("query");
                 int optInt = jSONObject.optInt("subType");
-                if (c.this.f58096b != null) {
-                    c.this.f58096b.a(optString, true, optInt);
+                if (c.this.f61787b != null) {
+                    c.this.f61787b.a(optString, true, optInt);
                     TiebaStatic.log(new StatisticItem("c12034"));
                 }
             } catch (JSONException e2) {
@@ -200,70 +226,70 @@ public class c {
     }
 
     public c(BaseActivity baseActivity, d.a.n0.p1.i.b bVar, d.a.n0.p1.i.d dVar) {
-        this.f58095a = baseActivity.getPageContext();
-        this.f58096b = bVar;
-        this.f58097c = dVar;
-        l();
+        this.f61786a = baseActivity.getPageContext();
+        this.f61787b = bVar;
+        this.f61788c = dVar;
         m();
-        j();
+        n();
+        k();
     }
 
-    public void i(String str) {
+    public void j(String str) {
         List<String> list;
-        if (StringUtils.isNull(str) || (list = this.f58098d) == null) {
+        if (StringUtils.isNull(str) || (list = this.f61789d) == null) {
             return;
         }
         list.remove(str);
-        this.f58098d.add(0, str);
+        this.f61789d.add(0, str);
     }
 
-    public final void j() {
+    public final void k() {
         h0.b(new d(this), new e());
     }
 
-    public final String k() {
-        int count = ListUtils.getCount(this.f58098d);
+    public final String l() {
+        int count = ListUtils.getCount(this.f61789d);
         if (count == 0) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
         for (int i2 = 0; i2 < count; i2++) {
-            jSONArray.put(this.f58098d.get(i2));
+            jSONArray.put(this.f61789d.get(i2));
         }
         return jSONArray.toString();
     }
 
-    public final void l() {
-        this.f58101g = new f(2921556);
-        this.f58102h = new g(2921557);
-        this.f58103i = new h(2921558);
+    public final void m() {
+        this.f61792g = new f(2921556);
+        this.f61793h = new g(2921557);
+        this.f61794i = new h(2921558);
         this.j = new i(2921559);
-        MessageManager.getInstance().registerListener(this.f58101g);
-        MessageManager.getInstance().registerListener(this.f58102h);
-        MessageManager.getInstance().registerListener(this.f58103i);
+        MessageManager.getInstance().registerListener(this.f61792g);
+        MessageManager.getInstance().registerListener(this.f61793h);
+        MessageManager.getInstance().registerListener(this.f61794i);
         MessageManager.getInstance().registerListener(this.j);
     }
 
-    public final void m() {
+    public final void n() {
         a aVar = new a(this);
         b bVar = new b();
-        C1468c c1468c = new C1468c();
-        QuickWebView e2 = this.f58097c.e();
+        C1524c c1524c = new C1524c();
+        QuickWebView e2 = this.f61788c.e();
         if (e2 != null) {
-            SearchJsBridge searchJsBridge = new SearchJsBridge(this.f58098d);
-            this.f58100f = searchJsBridge;
+            SearchJsBridge searchJsBridge = new SearchJsBridge(this.f61789d);
+            this.f61791f = searchJsBridge;
             e2.h(searchJsBridge);
             e2.setOnPageFinishedListener(aVar);
             e2.setOnReceivedErrorListener(bVar);
-            e2.setOnLoadUrlListener(c1468c);
+            e2.setOnLoadUrlListener(c1524c);
         }
     }
 
-    public final boolean n(String str) {
+    public final boolean o(String str) {
         if (!str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") && !str.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) && !str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC2) && !str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW)) {
             if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW) || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage/list")) {
-                if (!d.a.m0.p0.b.b(this.f58095a)) {
-                    new HotRanklistActivityConfig(this.f58095a.getPageActivity()).createNormalConfig("hotforum", "all").start();
+                if (!d.a.m0.p0.b.b(this.f61786a)) {
+                    new HotRanklistActivityConfig(this.f61786a.getPageActivity()).createNormalConfig("hotforum", "all").start();
                 }
                 return true;
             }
@@ -271,47 +297,47 @@ public class c {
         }
         String c2 = n0.c(str, "topic_id=");
         String c3 = n0.c(str, "topic_name=");
-        if (!d.a.m0.p0.b.b(this.f58095a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
-            this.f58095a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f58095a.getPageActivity()).createNormalConfig(c2, c3, "4")));
+        if (!d.a.m0.p0.b.b(this.f61786a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
+            this.f61786a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f61786a.getPageActivity()).createNormalConfig(c2, c3, "4")));
         }
         TiebaStatic.log(new StatisticItem("c10363").param("obj_name", c3));
         return true;
     }
 
-    public final void o(boolean z) {
+    public final void p(boolean z) {
         NoDataViewFactory.e a2;
         if (!z) {
-            this.f58097c.w();
+            this.f61788c.w();
             if (j.z()) {
                 a2 = NoDataViewFactory.e.a(R.string.text_no_search_record);
             } else {
                 a2 = NoDataViewFactory.e.a(R.string.neterror);
             }
-            this.f58097c.v(a2);
+            this.f61788c.v(a2);
             return;
         }
-        this.f58097c.s();
-    }
-
-    public void p() {
-        this.f58097c.s();
-        if (this.f58099e) {
-            String k = k();
-            if (StringUtils.isNull(k)) {
-                return;
-            }
-            QuickWebView e2 = this.f58097c.e();
-            e2.loadUrl("javascript:setSearchHistory('" + k + "')");
-            return;
-        }
-        QuickWebView e3 = this.f58097c.e();
-        e3.loadUrl(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid/searchHistory");
+        this.f61788c.s();
     }
 
     public void q() {
-        MessageManager.getInstance().unRegisterListener(this.f58101g);
-        MessageManager.getInstance().unRegisterListener(this.f58102h);
-        MessageManager.getInstance().unRegisterListener(this.f58103i);
+        this.f61788c.s();
+        if (this.f61790e) {
+            String l = l();
+            if (StringUtils.isNull(l)) {
+                return;
+            }
+            QuickWebView e2 = this.f61788c.e();
+            e2.loadUrl("javascript:setSearchHistory('" + l + "')");
+            return;
+        }
+        QuickWebView e3 = this.f61788c.e();
+        e3.loadUrl(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid/searchHistory");
+    }
+
+    public void r() {
+        MessageManager.getInstance().unRegisterListener(this.f61792g);
+        MessageManager.getInstance().unRegisterListener(this.f61793h);
+        MessageManager.getInstance().unRegisterListener(this.f61794i);
         MessageManager.getInstance().unRegisterListener(this.j);
     }
 }

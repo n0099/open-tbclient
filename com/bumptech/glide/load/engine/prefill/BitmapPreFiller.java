@@ -10,7 +10,7 @@ import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.load.engine.prefill.PreFillType;
 import com.bumptech.glide.util.Util;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BitmapPreFiller {
     public final BitmapPool bitmapPool;
     public BitmapPreFillRunner current;

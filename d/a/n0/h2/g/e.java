@@ -50,27 +50,27 @@ public class e extends d.a.n0.z.b<n> {
         super(tbPageContext);
         this.m = 3;
         this.p = new a();
-        View l = l();
-        this.n = (LinearLayout) l.findViewById(R.id.viewpager);
-        AutoBannerView autoBannerView = (AutoBannerView) l.findViewById(R.id.person_center_auto_banner_view);
+        View m = m();
+        this.n = (LinearLayout) m.findViewById(R.id.viewpager);
+        AutoBannerView autoBannerView = (AutoBannerView) m.findViewById(R.id.person_center_auto_banner_view);
         this.o = autoBannerView;
         autoBannerView.setMarqueenTime(3000L);
         this.o.getCoverFlowView().setCallback(this.p);
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.person_center_viewpager_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.m != i2) {
             AutoBannerView autoBannerView = this.o;
             if (autoBannerView != null) {
                 autoBannerView.e(i2);
             }
-            SkinManager.setBackgroundColor(l(), R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(m(), R.color.CAM_X0205);
             this.m = i2;
         }
     }
@@ -81,13 +81,13 @@ public class e extends d.a.n0.z.b<n> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(n nVar) {
+    /* renamed from: u */
+    public void n(n nVar) {
         List<d.a.n0.h2.e.a> list;
-        n(this.f63441f, TbadkCoreApplication.getInst().getSkinType());
-        if (this.n == null || nVar == null || (list = nVar.f55582e) == null || this.o == null || list.size() == 0) {
+        o(this.f67159f, TbadkCoreApplication.getInst().getSkinType());
+        if (this.n == null || nVar == null || (list = nVar.f59271e) == null || this.o == null || list.size() == 0) {
             return;
         }
-        this.o.d(nVar.f55582e);
+        this.o.d(nVar.f59271e);
     }
 }

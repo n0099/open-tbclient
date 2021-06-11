@@ -39,7 +39,7 @@ import d.a.n0.k2.n;
 import d.a.n0.k2.o;
 /* loaded from: classes5.dex */
 public class a extends d.a.n0.k2.q.d {
-    public PbVideoFullscreenAttentionLayout L0;
+    public PbVideoFullscreenAttentionLayout G0;
     public PbNextVideoLayout M0;
     public ImageView N0;
     public ImageView O0;
@@ -66,8 +66,8 @@ public class a extends d.a.n0.k2.q.d {
 
     /* renamed from: d.a.n0.e2.o.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1289a implements Runnable {
-        public RunnableC1289a() {
+    public class RunnableC1345a implements Runnable {
+        public RunnableC1345a() {
         }
 
         @Override // java.lang.Runnable
@@ -81,14 +81,14 @@ public class a extends d.a.n0.k2.q.d {
 
         /* renamed from: d.a.n0.e2.o.r.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1290a extends AnimatorListenerAdapter {
-            public C1290a() {
+        public class C1346a extends AnimatorListenerAdapter {
+            public C1346a() {
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                a.this.U0();
+                a.this.V0();
                 e.a().postDelayed(a.this.h1, 5000L);
             }
         }
@@ -98,7 +98,7 @@ public class a extends d.a.n0.k2.q.d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.L0.b()) {
+            if (a.this.G0.b()) {
                 return;
             }
             Context context = a.this.P;
@@ -106,7 +106,7 @@ public class a extends d.a.n0.k2.q.d {
             a.this.R0 = true;
             a.this.S0.setFloatValues(-l.g(context, i2));
             a.this.S0.removeAllListeners();
-            a.this.S0.addListener(new C1290a());
+            a.this.S0.addListener(new C1346a());
             a.this.S0.start();
         }
     }
@@ -116,14 +116,14 @@ public class a extends d.a.n0.k2.q.d {
 
         /* renamed from: d.a.n0.e2.o.r.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1291a extends AnimatorListenerAdapter {
-            public C1291a() {
+        public class C1347a extends AnimatorListenerAdapter {
+            public C1347a() {
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                a.this.L0.setVisibility(8);
+                a.this.G0.setVisibility(8);
             }
         }
 
@@ -134,7 +134,7 @@ public class a extends d.a.n0.k2.q.d {
         public void run() {
             a.this.S0.setFloatValues(l.g(a.this.P, a.this.U ? R.dimen.tbds210 : R.dimen.tbds244));
             a.this.S0.removeAllListeners();
-            a.this.S0.addListener(new C1291a());
+            a.this.S0.addListener(new C1347a());
             a.this.S0.start();
         }
     }
@@ -147,7 +147,7 @@ public class a extends d.a.n0.k2.q.d {
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.c1 && (a.this.P instanceof Activity)) {
-                a.this.P0();
+                a.this.Q0();
             }
         }
     }
@@ -156,7 +156,7 @@ public class a extends d.a.n0.k2.q.d {
         super(context, view);
         this.P0 = -1;
         this.U0 = 0;
-        this.f1 = new RunnableC1289a();
+        this.f1 = new RunnableC1345a();
         this.g1 = new b();
         this.h1 = new c();
         this.i1 = new d();
@@ -167,6 +167,7 @@ public class a extends d.a.n0.k2.q.d {
             this.b1 = TbSingleton.getInstance().isNotchScreen(activity) || TbSingleton.getInstance().isCutoutScreen(activity);
         }
         X(true);
+        Y(true);
         this.e0 = false;
     }
 
@@ -174,34 +175,20 @@ public class a extends d.a.n0.k2.q.d {
     public void N() {
         super.N();
         if (this.a0) {
-            N0();
+            O0();
         }
-    }
-
-    public final void N0() {
-        if (this.R0 || this.L0.b()) {
-            return;
-        }
-        this.L0.setTranslationX(0.0f);
-        this.L0.setVisibility(0);
-        ((RelativeLayout.LayoutParams) this.L0.getLayoutParams()).bottomMargin = l.g(this.P, this.U ? R.dimen.tbds248 : R.dimen.tbds428);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.L0, "translationX", 0.0f);
-        this.S0 = ofFloat;
-        ofFloat.setDuration(500);
-        U0();
-        e.a().postDelayed(this.g1, 5000L);
     }
 
     @Override // d.a.n0.k2.q.d
     public void O() {
-        int i2 = this.f56923f & (-33);
-        this.f56923f = i2;
-        int i3 = this.f56924g & (-33);
-        this.f56924g = i3;
-        int i4 = this.f56925h & (-33);
-        this.f56925h = i4;
-        int i5 = this.f56926i & (-33);
-        this.f56926i = i5;
+        int i2 = this.f60612f & (-33);
+        this.f60612f = i2;
+        int i3 = this.f60613g & (-33);
+        this.f60613g = i3;
+        int i4 = this.f60614h & (-33);
+        this.f60614h = i4;
+        int i5 = this.f60615i & (-33);
+        this.f60615i = i5;
         int i6 = this.j & (-33);
         this.j = i6;
         int i7 = this.k & (-33);
@@ -212,11 +199,11 @@ public class a extends d.a.n0.k2.q.d {
         this.m = i9;
         int i10 = this.n & (-33);
         this.n = i10;
-        this.f56923f = i2 | 1024;
+        this.f60612f = i2 | 1024;
         int i11 = i3 | 1024;
-        this.f56924g = i11;
-        this.f56925h = i4 & (-1025);
-        this.f56926i = i5 | 1024;
+        this.f60613g = i11;
+        this.f60614h = i4 & (-1025);
+        this.f60615i = i5 | 1024;
         this.j = i6 | 1024;
         int i12 = i7 | 1024;
         this.k = i12;
@@ -224,31 +211,23 @@ public class a extends d.a.n0.k2.q.d {
         this.l = i13;
         this.m = i9 | 1024;
         this.n = i10 & (-1025);
-        this.f56924g = i11 | 16384;
+        this.f60613g = i11 | 16384;
         this.k = i12 | 16384;
         this.l = i13 & (-2);
     }
 
-    public final StatisticItem O0(String str) {
-        StatisticItem param = new StatisticItem(str).param("tid", this.W).param("fid", this.Y).param("uid", TbadkCoreApplication.getCurrentAccount());
-        BaijiahaoData baijiahaoData = this.X0;
-        if (baijiahaoData != null) {
-            param.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
-            param.param(TiebaStatic.Params.OBJ_PARAM6, this.X0.oriUgcVid);
-            int i2 = this.X0.oriUgcType;
-            if (i2 == 4) {
-                param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
-            } else if (i2 == 2) {
-                param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
-            }
-        } else {
-            param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+    public final void O0() {
+        if (this.R0 || this.G0.b()) {
+            return;
         }
-        Context context = this.P;
-        if ((context instanceof PbActivity) && ((PbActivity) context).getPbModel() != null) {
-            param.param("ab_tag", ((PbActivity) this.P).getPbModel().D0()).param("obj_id", ((PbActivity) this.P).getPbModel().E0()).param("obj_source", ((PbActivity) this.P).getPbModel().F0());
-        }
-        return param;
+        this.G0.setTranslationX(0.0f);
+        this.G0.setVisibility(0);
+        ((RelativeLayout.LayoutParams) this.G0.getLayoutParams()).bottomMargin = l.g(this.P, this.U ? R.dimen.tbds248 : R.dimen.tbds428);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.G0, "translationX", 0.0f);
+        this.S0 = ofFloat;
+        ofFloat.setDuration(500);
+        V0();
+        e.a().postDelayed(this.g1, 5000L);
     }
 
     @Override // d.a.n0.k2.q.d
@@ -275,30 +254,68 @@ public class a extends d.a.n0.k2.q.d {
         this.M0.b(this.U, this.a0);
     }
 
-    public final void P0() {
-        c1();
+    public final StatisticItem P0(String str) {
+        StatisticItem param = new StatisticItem(str).param("tid", this.W).param("fid", this.Y).param("uid", TbadkCoreApplication.getCurrentAccount());
+        BaijiahaoData baijiahaoData = this.X0;
+        if (baijiahaoData != null) {
+            param.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
+            param.param(TiebaStatic.Params.OBJ_PARAM6, this.X0.oriUgcVid);
+            int i2 = this.X0.oriUgcType;
+            if (i2 == 4) {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+            } else if (i2 == 2) {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+            }
+        } else {
+            param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+        }
+        Context context = this.P;
+        if ((context instanceof PbActivity) && ((PbActivity) context).getPbModel() != null) {
+            param.param("ab_tag", ((PbActivity) this.P).getPbModel().H0()).param("obj_id", ((PbActivity) this.P).getPbModel().I0()).param("obj_source", ((PbActivity) this.P).getPbModel().J0());
+        }
+        return param;
+    }
+
+    public final void Q0() {
+        d1();
         UtilHelper.hideStatusBar((Activity) this.P, this.Z0);
         this.c1 = false;
         VideoPbFragment videoPbFragment = this.Y0;
         if (videoPbFragment != null) {
-            videoPbFragment.u4(false);
+            videoPbFragment.x4(false);
         }
     }
 
-    public boolean Q0() {
+    public boolean R0() {
         return this.c1;
     }
 
-    public boolean R0() {
+    public boolean S0() {
         return this.U;
     }
 
-    public void S0() {
-        U0();
+    public void T0() {
+        V0();
         X(false);
+        Y(false);
     }
 
-    public boolean T0() {
+    @Override // d.a.n0.k2.q.d
+    public void U(boolean z) {
+        Context context = this.P;
+        if (context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) context).setSwipeBackEnabled(this.a0);
+        }
+        super.U(z);
+        V0();
+        if (this.a0) {
+            O0();
+        } else {
+            this.G0.setVisibility(8);
+        }
+    }
+
+    public boolean U0() {
         if (this.q == this.n) {
             return false;
         }
@@ -309,38 +326,23 @@ public class a extends d.a.n0.k2.q.d {
         return true;
     }
 
-    public final void U0() {
+    public final void V0() {
         e.a().removeCallbacks(this.g1);
         e.a().removeCallbacks(this.h1);
     }
 
-    @Override // d.a.n0.k2.q.d
-    public void V(boolean z) {
-        Context context = this.P;
-        if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) context).setSwipeBackEnabled(this.a0);
-        }
-        super.V(z);
-        U0();
-        if (this.a0) {
-            N0();
-        } else {
-            this.L0.setVisibility(8);
-        }
-    }
-
-    public void V0(boolean z) {
+    public void W0(boolean z) {
         this.M0.setIsCountDownValid(z);
     }
 
-    public void W0(boolean z) {
+    public void X0(boolean z) {
         this.c1 = z;
     }
 
-    public void X0(a2 a2Var) {
-        if (a2Var != null && a2Var.w1() != null && !k.isEmpty(a2Var.w1().video_url)) {
+    public void Y0(a2 a2Var) {
+        if (a2Var != null && a2Var.x1() != null && !k.isEmpty(a2Var.x1().video_url)) {
             int i2 = this.q;
-            if (i2 == this.f56926i || i2 == this.j) {
+            if (i2 == this.f60615i || i2 == this.j) {
                 int i3 = this.q | 32768;
                 this.q = i3;
                 s0(i3);
@@ -351,66 +353,108 @@ public class a extends d.a.n0.k2.q.d {
                 this.q = i5;
                 s0(i5);
             }
-            this.f56926i |= 32768;
+            this.f60615i |= 32768;
             this.j |= 32768;
             this.l |= 131072;
             this.M0.setDate(a2Var);
             return;
         }
         int i6 = this.q;
-        if (i6 == this.f56926i || i6 == this.j || i6 == this.l) {
+        if (i6 == this.f60615i || i6 == this.j || i6 == this.l) {
             int i7 = this.q & (-32769);
             this.q = i7;
             int i8 = i7 & (-131073);
             this.q = i8;
             s0(i8);
         }
-        this.f56926i &= -32769;
+        this.f60615i &= -32769;
         this.j &= -32769;
         this.l &= -131073;
     }
 
-    public void Y0(a2 a2Var) {
-        if (a2Var != null && a2Var.w1() != null && !k.isEmpty(a2Var.w1().video_url)) {
+    public void Z0(a2 a2Var) {
+        if (a2Var != null && a2Var.x1() != null && !k.isEmpty(a2Var.x1().video_url)) {
             int i2 = this.q;
-            if (i2 == this.f56926i || i2 == this.j) {
+            if (i2 == this.f60615i || i2 == this.j) {
                 int i3 = this.q | 65536;
                 this.q = i3;
                 s0(i3);
             }
-            this.f56926i |= 65536;
+            this.f60615i |= 65536;
             this.j |= 65536;
             return;
         }
         int i4 = this.q;
-        if (i4 == this.f56926i || i4 == this.j) {
+        if (i4 == this.f60615i || i4 == this.j) {
             int i5 = this.q & (-65537);
             this.q = i5;
             s0(i5);
         }
-        this.f56926i &= -65537;
+        this.f60615i &= -65537;
         this.j &= -65537;
     }
 
     @Override // d.a.n0.k2.q.d
-    public int Z() {
+    public int a0() {
         return R.layout.pb_operable_video_container;
     }
 
-    public void Z0(View view) {
+    public void a1(View view) {
         this.Z0 = view;
     }
 
-    public void a1(View view) {
+    public void b1(View view) {
         this.a1 = view;
     }
 
-    public void b1(VideoPbFragment videoPbFragment) {
+    public void c1(VideoPbFragment videoPbFragment) {
         this.Y0 = videoPbFragment;
     }
 
+    @Override // d.a.n0.k2.q.d
+    public void d0() {
+        super.d0();
+        this.G0 = (PbVideoFullscreenAttentionLayout) this.R.findViewById(R.id.video_fullscreen_attention);
+        this.M0 = (PbNextVideoLayout) this.R.findViewById(R.id.video_next_layout);
+        this.N0 = (ImageView) this.R.findViewById(R.id.video_pre);
+        this.O0 = (ImageView) this.R.findViewById(R.id.video_next);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.N0, R.drawable.ic_icon_pure_video_up44_svg, R.color.CAM_X0101, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.O0, R.drawable.ic_icon_pure_video_down44_svg, R.color.CAM_X0101, null);
+        this.v.A();
+        this.v.setDrawCorner(false);
+        this.G0.setOnClickEvent(this);
+        this.N0.setOnClickListener(this);
+        this.O0.setOnClickListener(this);
+        this.M0.setOnClickListener(this);
+        this.Q0 = l.k(this.P) / 10;
+        this.I.setShareFrom(18);
+    }
+
+    public final void d1() {
+        if (this.e1 == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a1, "alpha", 1.0f, 0.0f);
+            this.e1 = ofFloat;
+            ofFloat.setDuration(200L);
+        }
+        this.e1.start();
+    }
+
+    @Override // d.a.n0.k2.q.d
+    public void e0() {
+        this.u.setVolume(1.0f, 1.0f);
+    }
+
+    public final void e1() {
+        if (this.d1 == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a1, "alpha", 0.0f, 1.0f);
+            this.d1 = ofFloat;
+            ofFloat.setDuration(200L);
+        }
+        this.d1.start();
+    }
+
     @Override // d.a.n0.k2.q.d, d.a.n0.k2.q.a
-    public boolean c0() {
+    public boolean f0() {
         if (this.q == this.n) {
             return false;
         }
@@ -421,84 +465,14 @@ public class a extends d.a.n0.k2.q.d {
         return true;
     }
 
-    public final void c1() {
-        if (this.e1 == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a1, "alpha", 1.0f, 0.0f);
-            this.e1 = ofFloat;
-            ofFloat.setDuration(200L);
-        }
-        this.e1.start();
-    }
-
     @Override // d.a.n0.k2.q.d
-    public void d0() {
-        super.d0();
-        this.L0 = (PbVideoFullscreenAttentionLayout) this.R.findViewById(R.id.video_fullscreen_attention);
-        this.M0 = (PbNextVideoLayout) this.R.findViewById(R.id.video_next_layout);
-        this.N0 = (ImageView) this.R.findViewById(R.id.video_pre);
-        this.O0 = (ImageView) this.R.findViewById(R.id.video_next);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.N0, R.drawable.ic_icon_pure_video_up44_svg, R.color.CAM_X0101, null);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.O0, R.drawable.ic_icon_pure_video_down44_svg, R.color.CAM_X0101, null);
-        this.v.A();
-        this.v.setDrawCorner(false);
-        this.L0.setOnClickEvent(this);
-        this.N0.setOnClickListener(this);
-        this.O0.setOnClickListener(this);
-        this.M0.setOnClickListener(this);
-        this.Q0 = l.k(this.P) / 10;
-        this.I.setShareFrom(18);
-    }
-
-    public final void d1() {
-        if (this.d1 == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a1, "alpha", 0.0f, 1.0f);
-            this.d1 = ofFloat;
-            ofFloat.setDuration(200L);
-        }
-        this.d1.start();
-    }
-
-    @Override // d.a.n0.k2.q.d
-    public void e0() {
-        this.u.setVolume(1.0f, 1.0f);
-    }
-
-    @Override // d.a.n0.k2.q.d
-    public boolean f0(MotionEvent motionEvent) {
+    public boolean g0(MotionEvent motionEvent) {
         return this.a0 || motionEvent.getX() > ((float) this.Q0);
     }
 
     @Override // d.a.n0.k2.q.d
-    public boolean g0() {
+    public boolean h0() {
         return false;
-    }
-
-    @Override // d.a.n0.k2.q.d, d.a.n0.k2.q.a
-    public boolean o0(boolean z) {
-        U0();
-        this.L0.setVisibility(8);
-        if (!this.b1) {
-            P0();
-        }
-        if (z) {
-            int i2 = this.q;
-            this.P0 = i2;
-            if (i2 == this.j || ((i2 == this.k && !this.u.isPlaying()) || this.q == this.l)) {
-                this.P0 |= 1;
-            }
-            stopPlay();
-        } else {
-            int i3 = this.P0;
-            if (i3 == -1) {
-                startPlay();
-            } else if (i3 != this.f56924g && i3 != this.f56926i && i3 != this.f56925h) {
-                this.G.setCurrentDuration(n.d().c(this.V), false);
-                s0(this.P0);
-            } else {
-                startPlay();
-            }
-        }
-        return true;
     }
 
     @Override // d.a.n0.k2.q.d, android.view.View.OnClickListener
@@ -512,7 +486,7 @@ public class a extends d.a.n0.k2.q.d {
         }
         super.onClick(view);
         if (id == R.id.concern_video_info_item) {
-            U0();
+            V0();
             e.a().post(this.h1);
         } else if (id != R.id.video_next && id != R.id.video_next_layout) {
             if (id == R.id.video_pre) {
@@ -537,12 +511,40 @@ public class a extends d.a.n0.k2.q.d {
         }
     }
 
+    @Override // d.a.n0.k2.q.d, d.a.n0.k2.q.a
+    public boolean r0(boolean z) {
+        V0();
+        this.G0.setVisibility(8);
+        if (!this.b1) {
+            Q0();
+        }
+        if (z) {
+            int i2 = this.q;
+            this.P0 = i2;
+            if (i2 == this.j || ((i2 == this.k && !this.u.isPlaying()) || this.q == this.l)) {
+                this.P0 |= 1;
+            }
+            stopPlay();
+        } else {
+            int i3 = this.P0;
+            if (i3 == -1) {
+                startPlay();
+            } else if (i3 != this.f60613g && i3 != this.f60615i && i3 != this.f60614h) {
+                this.G.setCurrentDuration(n.d().c(this.V), false);
+                s0(this.P0);
+            } else {
+                startPlay();
+            }
+        }
+        return true;
+    }
+
     @Override // d.a.n0.k2.q.d
     public void s0(int i2) {
         VideoPbFragment videoPbFragment;
-        if (i2 != this.j && i2 != this.k && i2 != this.f56926i && i2 != this.f56924g) {
-            U0();
-            PbVideoFullscreenAttentionLayout pbVideoFullscreenAttentionLayout = this.L0;
+        if (i2 != this.j && i2 != this.k && i2 != this.f60615i && i2 != this.f60613g) {
+            V0();
+            PbVideoFullscreenAttentionLayout pbVideoFullscreenAttentionLayout = this.G0;
             if (pbVideoFullscreenAttentionLayout != null) {
                 pbVideoFullscreenAttentionLayout.setVisibility(8);
             }
@@ -590,7 +592,7 @@ public class a extends d.a.n0.k2.q.d {
             boolean z = (131072 & i2) > 0;
             this.M0.setVisibility(z ? 0 : 8);
             if (z) {
-                TiebaStatic.log(O0("c13600"));
+                TiebaStatic.log(P0("c13600"));
             }
         }
         if (this.a0 || this.b1 || !(this.P instanceof Activity)) {
@@ -601,15 +603,15 @@ public class a extends d.a.n0.k2.q.d {
                 return;
             }
             VideoPbFragment videoPbFragment2 = this.Y0;
-            if (videoPbFragment2 == null || !videoPbFragment2.E3()) {
-                d1();
+            if (videoPbFragment2 == null || !videoPbFragment2.H3()) {
+                e1();
                 UtilHelper.showStatusBar((Activity) this.P, this.Z0);
             }
             this.c1 = true;
             e.a().removeCallbacks(this.i1);
             e.a().postDelayed(this.i1, 3000L);
-        } else if (this.c1 || ((videoPbFragment = this.Y0) != null && videoPbFragment.E3())) {
-            P0();
+        } else if (this.c1 || ((videoPbFragment = this.Y0) != null && videoPbFragment.H3())) {
+            Q0();
         }
     }
 
@@ -620,14 +622,14 @@ public class a extends d.a.n0.k2.q.d {
         }
         this.X0 = a2Var.V();
         o oVar = new o();
-        oVar.f56898a = "6";
-        oVar.f56900c = a2Var.y1();
-        oVar.f56901d = Long.toString(a2Var.c0());
-        oVar.f56902e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f60587a = "6";
+        oVar.f60589c = a2Var.z1();
+        oVar.f60590d = Long.toString(a2Var.c0());
+        oVar.f60591e = TbadkCoreApplication.getCurrentAccount();
         Context context = this.P;
         if (context instanceof BaseFragmentActivity) {
             Intent intent = ((BaseFragmentActivity) context).getIntent();
-            if (a2Var.U1()) {
+            if (a2Var.V1()) {
                 int intExtra = intent.getIntExtra(PbActivityConfig.KEY_BJH_FROM, 0);
                 this.U0 = intExtra;
                 if (intExtra == 0) {
@@ -638,26 +640,26 @@ public class a extends d.a.n0.k2.q.d {
                 if (!StringUtils.isNull(stringExtra)) {
                     oVar.k = this.V0;
                 }
-                oVar.f56906i = Integer.toString(this.U0);
+                oVar.f60595i = Integer.toString(this.U0);
             } else {
                 String stringExtra2 = intent.getStringExtra(PbActivityConfig.KEY_VIDEO_SOURCE);
                 this.W0 = stringExtra2;
-                oVar.f56906i = stringExtra2;
+                oVar.f60595i = stringExtra2;
             }
         }
-        if (a2Var.w1() != null) {
-            oVar.m = a2Var.w1().video_md5;
-            oVar.p = String.valueOf(a2Var.w1().is_vertical);
+        if (a2Var.x1() != null) {
+            oVar.m = a2Var.x1().video_md5;
+            oVar.p = String.valueOf(a2Var.x1().is_vertical);
         }
-        k0(oVar);
+        n0(oVar);
         this.R0 = false;
         if (this.T0.c().g0()) {
             this.M0.setIsCountDownValid(true);
         } else {
             this.M0.setIsCountDownValid(false);
         }
-        if (this.a0 && a2Var.w1() != null) {
-            if (this.U != (a2Var.w1().is_vertical.intValue() == 1)) {
+        if (this.a0 && a2Var.x1() != null) {
+            if (this.U != (a2Var.x1().is_vertical.intValue() == 1)) {
                 T();
             }
         }
@@ -666,17 +668,17 @@ public class a extends d.a.n0.k2.q.d {
         if (a2Var.T() != null) {
             a2Var.T().setIsLike(a2Var.T().hadConcerned());
         }
-        this.L0.setData(a2Var);
+        this.G0.setData(a2Var);
     }
 
     @Override // d.a.n0.k2.q.d, d.a.n0.k2.q.a
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.L0.setUniqueId(bdUniqueId);
+        this.G0.setUniqueId(bdUniqueId);
     }
 
     @Override // d.a.n0.k2.q.d
-    public void x0(int i2) {
+    public void y0(int i2) {
         if (i2 == R.id.video_full_screen) {
             if (!C()) {
                 TiebaStatic.log(new StatisticItem("c13598"));
@@ -684,22 +686,22 @@ public class a extends d.a.n0.k2.q.d {
                 TiebaStatic.log(new StatisticItem("c13599"));
             }
         } else if (i2 == R.id.video_replay) {
-            TiebaStatic.log(O0("c13602"));
+            TiebaStatic.log(P0("c13602"));
         } else if (i2 == R.id.video_play) {
             TiebaStatic.log(new StatisticItem("c13597"));
         } else if (i2 == R.id.video_pause) {
             TiebaStatic.log(new StatisticItem("c13596"));
         } else if (i2 == R.id.video_next_layout) {
-            TiebaStatic.log(O0("c13601").param("obj_type", this.M0.l ? 1 : 2));
+            TiebaStatic.log(P0("c13601").param("obj_type", this.M0.l ? 1 : 2));
         }
     }
 
     @Override // d.a.n0.k2.q.d
-    public void y0() {
+    public void z0() {
         o oVar = this.b0;
         if (oVar != null) {
             o b2 = oVar.b();
-            b2.f56898a = "pb";
+            b2.f60587a = "pb";
             h.e(b2.m, "", "2", b2, this.u.getPcdnState());
         }
     }

@@ -15,33 +15,33 @@ import java.util.Map;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c.a.f f56712a;
+    public d.a.c.a.f f60401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56713b;
+    public int f60402b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ListView f56715d;
+    public ListView f60404d;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f56719h;
+    public View f60408h;
     public d.a.n0.k2.e j;
     public d.a.n0.k2.l k;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56714c = 0;
+    public int f60403c = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56716e = null;
+    public String f60405e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56717f = 0;
+    public int f60406f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, Integer> f56718g = new HashMap();
+    public Map<String, Integer> f60407g = new HashMap();
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f56720i = false;
+    public boolean f60409i = false;
     public boolean l = true;
     public d.a.n0.k2.a m = new d.a.n0.k2.a();
     public final CustomMessageListener n = new a(2000994);
@@ -67,10 +67,10 @@ public class n {
     }
 
     public n(d.a.c.a.f fVar, ListView listView) {
-        this.f56713b = 0;
-        this.f56712a = fVar;
-        this.f56713b = d.a.c.e.p.l.i(fVar.getPageActivity());
-        this.f56715d = listView;
+        this.f60402b = 0;
+        this.f60401a = fVar;
+        this.f60402b = d.a.c.e.p.l.i(fVar.getPageActivity());
+        this.f60404d = listView;
         BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         this.k = new d.a.n0.k2.l();
         fVar.registerListener(this.n);
@@ -83,8 +83,8 @@ public class n {
     }
 
     public void d() {
-        for (int i2 = 0; i2 < this.f56715d.getChildCount(); i2++) {
-            View childAt = this.f56715d.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f60404d.getChildCount(); i2++) {
+            View childAt = this.f60404d.getChildAt(i2);
             if (childAt.getTag() instanceof d.a.n0.k2.e) {
                 ((d.a.n0.k2.e) childAt.getTag()).stopPlay();
             }
@@ -92,16 +92,16 @@ public class n {
     }
 
     public String e() {
-        return this.f56716e;
+        return this.f60405e;
     }
 
     public int f() {
-        return this.f56717f;
+        return this.f60406f;
     }
 
     public int g(String str) {
-        if (this.f56718g.containsKey(str)) {
-            return this.f56718g.get(str).intValue();
+        if (this.f60407g.containsKey(str)) {
+            return this.f60407g.get(str).intValue();
         }
         return 0;
     }
@@ -127,18 +127,18 @@ public class n {
             return false;
         }
         view.getLocationOnScreen(iArr);
-        return view != null && (measuredHeight = iArr[1] + (view.getMeasuredHeight() / 2)) > this.f56714c && measuredHeight < this.f56713b;
+        return view != null && (measuredHeight = iArr[1] + (view.getMeasuredHeight() / 2)) > this.f60403c && measuredHeight < this.f60402b;
     }
 
     public void j(int i2, int i3, boolean z, int i4) {
         boolean z2;
         boolean z3;
         this.k.e(i2, i3, z);
-        ListView listView = this.f56715d;
+        ListView listView = this.f60404d;
         if (listView == null || listView.getChildCount() == 0) {
             return;
         }
-        ListView listView2 = this.f56715d;
+        ListView listView2 = this.f60404d;
         ListAdapter wrappedAdapter = listView2 instanceof BdListView ? ((BdListView) listView2).getWrappedAdapter() : listView2.getAdapter();
         if (wrappedAdapter == null || wrappedAdapter.getCount() == 0) {
             return;
@@ -147,7 +147,7 @@ public class n {
         if (eVar != null && !i(eVar.getVideoContainer())) {
             this.j.stopPlay();
         }
-        int count = wrappedAdapter.getCount() + this.f56715d.getHeaderViewsCount() + this.f56715d.getFooterViewsCount();
+        int count = wrappedAdapter.getCount() + this.f60404d.getHeaderViewsCount() + this.f60404d.getFooterViewsCount();
         int i5 = 0;
         if (i2 == 0) {
             z2 = true;
@@ -157,8 +157,8 @@ public class n {
         }
         if (i2 == 0 || i3 == count - 1) {
             z3 = false;
-            for (int i7 = 0; i7 < this.f56715d.getChildCount(); i7++) {
-                View childAt = this.f56715d.getChildAt(z2 ? i7 : (this.f56715d.getChildCount() - 1) - i7);
+            for (int i7 = 0; i7 < this.f60404d.getChildCount(); i7++) {
+                View childAt = this.f60404d.getChildAt(z2 ? i7 : (this.f60404d.getChildCount() - 1) - i7);
                 if (childAt.getTag() instanceof d.a.n0.k2.e) {
                     d.a.n0.k2.e eVar2 = (d.a.n0.k2.e) childAt.getTag();
                     if (!z3 && i(eVar2.getVideoContainer())) {
@@ -181,10 +181,10 @@ public class n {
         int i8 = -1;
         int i9 = 0;
         while (true) {
-            if (i9 >= this.f56715d.getChildCount()) {
+            if (i9 >= this.f60404d.getChildCount()) {
                 break;
             }
-            View childAt2 = this.f56715d.getChildAt(i9);
+            View childAt2 = this.f60404d.getChildAt(i9);
             if (childAt2.getTag() instanceof d.a.n0.k2.e) {
                 d.a.n0.k2.e eVar3 = (d.a.n0.k2.e) childAt2.getTag();
                 if (eVar3.isPlayStarted() && i(eVar3.getVideoContainer())) {
@@ -195,8 +195,8 @@ public class n {
             i9++;
         }
         if (i8 >= 0) {
-            while (i5 < this.f56715d.getChildCount()) {
-                View childAt3 = this.f56715d.getChildAt(i5);
+            while (i5 < this.f60404d.getChildCount()) {
+                View childAt3 = this.f60404d.getChildAt(i5);
                 if (i5 == i8) {
                     r(i4, childAt3);
                 } else {
@@ -213,8 +213,8 @@ public class n {
             return;
         }
         boolean z4 = false;
-        while (i5 < this.f56715d.getChildCount()) {
-            View childAt4 = this.f56715d.getChildAt(z ? (this.f56715d.getChildCount() - 1) - i5 : i5);
+        while (i5 < this.f60404d.getChildCount()) {
+            View childAt4 = this.f60404d.getChildAt(z ? (this.f60404d.getChildCount() - 1) - i5 : i5);
             if (childAt4.getTag() instanceof d.a.n0.k2.e) {
                 d.a.n0.k2.e eVar5 = (d.a.n0.k2.e) childAt4.getTag();
                 if (!z4 && i(eVar5.getVideoContainer())) {
@@ -242,24 +242,24 @@ public class n {
     }
 
     public void l(String str) {
-        if (this.f56718g.containsKey(str)) {
-            this.f56718g.put(str, 0);
+        if (this.f60407g.containsKey(str)) {
+            this.f60407g.put(str, 0);
         }
     }
 
     public void m() {
         if (this.l) {
-            View view = this.f56719h;
+            View view = this.f60408h;
             if (view != null && (view.getTag() instanceof d.a.n0.k2.e)) {
-                d.a.n0.k2.e eVar = (d.a.n0.k2.e) this.f56719h.getTag();
-                if (this.f56720i) {
+                d.a.n0.k2.e eVar = (d.a.n0.k2.e) this.f60408h.getTag();
+                if (this.f60409i) {
                     eVar.startPlay();
                 }
-                if (this.f56719h.getTag() instanceof d.a.n0.k2.d) {
-                    ((d.a.n0.k2.d) this.f56719h.getTag()).c();
+                if (this.f60408h.getTag() instanceof d.a.n0.k2.d) {
+                    ((d.a.n0.k2.d) this.f60408h.getTag()).d();
                 }
             }
-            this.f56719h = null;
+            this.f60408h = null;
         }
     }
 
@@ -268,29 +268,29 @@ public class n {
     }
 
     public void o(String str) {
-        this.f56716e = str;
+        this.f60405e = str;
     }
 
     public void p(int i2) {
-        this.f56717f = i2;
+        this.f60406f = i2;
     }
 
     public void q(String str, int i2) {
-        if (this.f56718g.containsKey(str)) {
-            if (this.f56718g.get(str).intValue() == 0) {
+        if (this.f60407g.containsKey(str)) {
+            if (this.f60407g.get(str).intValue() == 0) {
                 return;
             }
-            this.f56718g.put(str, Integer.valueOf(i2));
+            this.f60407g.put(str, Integer.valueOf(i2));
             return;
         }
-        this.f56718g.put(str, Integer.valueOf(i2));
+        this.f60407g.put(str, Integer.valueOf(i2));
     }
 
     public final void r(int i2, View view) {
         if (view == null) {
             return;
         }
-        this.f56719h = view;
+        this.f60408h = view;
         if (i2 == 1 && (view.getTag() instanceof d.a.n0.k2.e)) {
             d.a.n0.k2.e eVar = (d.a.n0.k2.e) view.getTag();
             if (!this.l || eVar.isPlayStarted()) {
@@ -305,8 +305,8 @@ public class n {
     public void s() {
         d.a.c.e.m.e.a().removeCallbacks(this.m);
         d.a.c.e.m.e.a().removeCallbacks(this.o);
-        for (int i2 = 0; i2 < this.f56715d.getChildCount(); i2++) {
-            View childAt = this.f56715d.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f60404d.getChildCount(); i2++) {
+            View childAt = this.f60404d.getChildAt(i2);
             if (childAt.getTag() instanceof d.a.n0.k2.e) {
                 d.a.n0.k2.e eVar = (d.a.n0.k2.e) childAt.getTag();
                 if (eVar.isPlayStarted()) {
@@ -318,15 +318,15 @@ public class n {
     }
 
     public void t() {
-        for (int i2 = 0; i2 < this.f56715d.getChildCount(); i2++) {
-            View childAt = this.f56715d.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f60404d.getChildCount(); i2++) {
+            View childAt = this.f60404d.getChildAt(i2);
             if (childAt.getTag() instanceof d.a.n0.k2.e) {
                 d.a.n0.k2.e eVar = (d.a.n0.k2.e) childAt.getTag();
                 if (eVar.isPlayStarted()) {
                     p(eVar.getCurrentPosition());
                     o(eVar.getPlayUrl());
-                    this.f56719h = childAt;
-                    this.f56720i = eVar.isPlaying();
+                    this.f60408h = childAt;
+                    this.f60409i = eVar.isPlaying();
                     eVar.stopPlay();
                     return;
                 }
@@ -338,7 +338,7 @@ public class n {
         if (i2 == 1 && (view.getTag() instanceof d.a.n0.k2.e)) {
             ((d.a.n0.k2.e) view.getTag()).stopPlay();
         } else if (i2 == 2 && (view.getTag() instanceof d.a.n0.k2.d)) {
-            ((d.a.n0.k2.d) view.getTag()).d();
+            ((d.a.n0.k2.d) view.getTag()).e();
         }
     }
 }

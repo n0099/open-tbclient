@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FileDownloadHttpException extends IOException {
     public final int mCode;
     public final Map<String, List<String>> mRequestHeaderMap;

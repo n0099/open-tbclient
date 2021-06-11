@@ -10,16 +10,16 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f2050a;
+    public File f2063a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.security.mobile.module.http.v2.a f2051b;
+    public com.alipay.security.mobile.module.http.v2.a f2064b;
 
     public b(String str, com.alipay.security.mobile.module.http.v2.a aVar) {
-        this.f2050a = null;
-        this.f2051b = null;
-        this.f2050a = new File(str);
-        this.f2051b = aVar;
+        this.f2063a = null;
+        this.f2064b = null;
+        this.f2063a = new File(str);
+        this.f2064b = aVar;
     }
 
     public static String a(String str) {
@@ -35,12 +35,12 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b() {
-        if (this.f2050a == null) {
+        if (this.f2063a == null) {
             return;
         }
-        if (this.f2050a.exists() && this.f2050a.isDirectory() && this.f2050a.list().length != 0) {
+        if (this.f2063a.exists() && this.f2063a.isDirectory() && this.f2063a.list().length != 0) {
             ArrayList arrayList = new ArrayList();
-            for (String str : this.f2050a.list()) {
+            for (String str : this.f2063a.list()) {
                 arrayList.add(str);
             }
             Collections.sort(arrayList);
@@ -53,11 +53,11 @@ public final class b {
                 str2 = (String) arrayList.get(arrayList.size() - 2);
                 size--;
             }
-            if (!this.f2051b.a(a(com.alipay.security.mobile.module.a.b.a(this.f2050a.getAbsolutePath(), str2)))) {
+            if (!this.f2064b.a(a(com.alipay.security.mobile.module.a.b.a(this.f2063a.getAbsolutePath(), str2)))) {
                 size--;
             }
             for (int i2 = 0; i2 < size; i2++) {
-                new File(this.f2050a, (String) arrayList.get(i2)).delete();
+                new File(this.f2063a, (String) arrayList.get(i2)).delete();
             }
         }
     }

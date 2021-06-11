@@ -18,7 +18,7 @@ public class a extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
@@ -28,7 +28,7 @@ public class a extends a0 {
     @Override // d.a.l0.a.c2.f.a0
     public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, d.a.l0.a.a2.e eVar) {
         boolean optBoolean;
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("ConsoleAction", "handleSubAction subAction: " + str);
         }
         if (!d.a.l0.a.e0.a.a() && !d.a.l0.a.e0.d.d() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {

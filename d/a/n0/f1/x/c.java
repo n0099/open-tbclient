@@ -16,25 +16,25 @@ import java.util.List;
 public class c extends d<ValidateActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f54795a;
+    public View f58484a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f54796b;
+    public ImageView f58485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ValidateActivity f54797c;
+    public ValidateActivity f58486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdListView f54798d;
+    public BdListView f58487d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.f1.x.a f54799e;
+    public d.a.n0.f1.x.a f58488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f54800f;
+    public ProgressBar f58489f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBar f54801g;
+    public NavigationBar f58490g;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -43,73 +43,73 @@ public class c extends d<ValidateActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.f54797c.finish();
+            c.this.f58486c.finish();
         }
     }
 
     public c(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext());
-        this.f54797c = validateActivity;
-        g();
-        d.a.n0.f1.x.a aVar = new d.a.n0.f1.x.a(this.f54797c);
-        this.f54799e = aVar;
-        this.f54798d.setAdapter((ListAdapter) aVar);
-        this.f54798d.setOnSrollToBottomListener(this.f54797c);
+        this.f58486c = validateActivity;
+        h();
+        d.a.n0.f1.x.a aVar = new d.a.n0.f1.x.a(this.f58486c);
+        this.f58488e = aVar;
+        this.f58487d.setAdapter((ListAdapter) aVar);
+        this.f58487d.setOnSrollToBottomListener(this.f58486c);
     }
 
     @Override // d.a.c.a.d
     public void destroy() {
         super.destroy();
-        d.a.n0.f1.x.a aVar = this.f54799e;
+        d.a.n0.f1.x.a aVar = this.f58488e;
         if (aVar != null) {
             aVar.a();
-            this.f54799e = null;
+            this.f58488e = null;
         }
-        this.f54797c = null;
+        this.f58486c = null;
     }
 
     public ImageView e() {
-        return this.f54796b;
+        return this.f58485b;
     }
 
     public d.a.n0.f1.x.a f() {
-        return this.f54799e;
+        return this.f58488e;
     }
 
-    public void g() {
-        View inflate = View.inflate(this.f54797c.getPageContext().getPageActivity(), R.layout.validate_activity, null);
-        this.f54795a = inflate;
-        this.f54797c.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.f54797c.findViewById(R.id.view_navigation_bar);
-        this.f54801g = navigationBar;
-        navigationBar.setTitleText(this.f54797c.getPageContext().getString(R.string.validate));
-        this.f54801g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
-        this.f54798d = (BdListView) this.f54795a.findViewById(R.id.validate_list);
-        this.f54800f = (ProgressBar) this.f54795a.findViewById(R.id.pro_load);
-        j(false);
+    public void h() {
+        View inflate = View.inflate(this.f58486c.getPageContext().getPageActivity(), R.layout.validate_activity, null);
+        this.f58484a = inflate;
+        this.f58486c.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.f58486c.findViewById(R.id.view_navigation_bar);
+        this.f58490g = navigationBar;
+        navigationBar.setTitleText(this.f58486c.getPageContext().getString(R.string.validate));
+        this.f58490g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
+        this.f58487d = (BdListView) this.f58484a.findViewById(R.id.validate_list);
+        this.f58489f = (ProgressBar) this.f58484a.findViewById(R.id.pro_load);
+        k(false);
     }
 
-    public void h(List<ValidateItemData> list) {
-        d.a.n0.f1.x.a aVar = this.f54799e;
+    public void i(List<ValidateItemData> list) {
+        d.a.n0.f1.x.a aVar = this.f58488e;
         if (aVar != null) {
             aVar.c(list);
         }
     }
 
-    public void j(boolean z) {
-        this.f54800f.setVisibility(z ? 0 : 8);
+    public void k(boolean z) {
+        this.f58489f.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i2) {
-        this.f54797c.getLayoutMode().k(i2 == 1);
-        this.f54797c.getLayoutMode().j(this.f54795a);
-        this.f54801g.onChangeSkinType(this.f54797c.getPageContext(), i2);
+        this.f58486c.getLayoutMode().k(i2 == 1);
+        this.f58486c.getLayoutMode().j(this.f58484a);
+        this.f58490g.onChangeSkinType(this.f58486c.getPageContext(), i2);
         if (i2 != 1 && i2 != 4) {
-            this.f54798d.setDivider(new ColorDrawable(this.f54797c.getResources().getColor(R.color.common_color_10241)));
-            this.f54798d.setDividerHeight(this.f54797c.getResources().getDimensionPixelSize(R.dimen.ds2));
+            this.f58487d.setDivider(new ColorDrawable(this.f58486c.getResources().getColor(R.color.common_color_10241)));
+            this.f58487d.setDividerHeight(this.f58486c.getResources().getDimensionPixelSize(R.dimen.ds2));
             return;
         }
-        this.f54798d.setDivider(new ColorDrawable(this.f54797c.getResources().getColor(R.color.common_color_10179)));
-        this.f54798d.setDividerHeight(this.f54797c.getResources().getDimensionPixelSize(R.dimen.ds2));
+        this.f58487d.setDivider(new ColorDrawable(this.f58486c.getResources().getColor(R.color.common_color_10179)));
+        this.f58487d.setDividerHeight(this.f58486c.getResources().getDimensionPixelSize(R.dimen.ds2));
     }
 }

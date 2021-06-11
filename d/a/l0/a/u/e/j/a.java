@@ -14,17 +14,17 @@ public class a extends d.a.l0.a.u.c.d {
 
     /* renamed from: d.a.l0.a.u.e.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0854a extends ResponseCallback<JSONObject> {
+    public class C0910a extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45031a;
+        public final /* synthetic */ String f48705a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f45032b;
+        public final /* synthetic */ String f48706b;
 
-        public C0854a(String str, String str2) {
-            this.f45031a = str;
-            this.f45032b = str2;
+        public C0910a(String str, String str2) {
+            this.f48705a = str;
+            this.f48706b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,8 +38,8 @@ public class a extends d.a.l0.a.u.c.d {
             } catch (JSONException e2) {
                 d.a.l0.a.e0.d.a("CallServiceApi", Log.getStackTraceString(e2));
             }
-            d.a.l0.a.e0.d.a("CallServiceApi", "Cloud capability '" + this.f45031a + "' request success: data:" + jSONObject2.toString());
-            a.this.d(this.f45032b, new d.a.l0.a.u.h.b(0, jSONObject2));
+            d.a.l0.a.e0.d.a("CallServiceApi", "Cloud capability '" + this.f48705a + "' request success: data:" + jSONObject2.toString());
+            a.this.d(this.f48706b, new d.a.l0.a.u.h.b(0, jSONObject2));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,9 +55,9 @@ public class a extends d.a.l0.a.u.c.d {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             String str;
-            d.a.l0.a.e0.d.g("CallServiceApi", "Cloud capability request failed: " + this.f45031a + "\n" + Log.getStackTraceString(exc));
+            d.a.l0.a.e0.d.g("CallServiceApi", "Cloud capability request failed: " + this.f48705a + "\n" + Log.getStackTraceString(exc));
             a aVar = a.this;
-            String str2 = this.f45032b;
+            String str2 = this.f48706b;
             if (TextUtils.isEmpty(exc.getMessage())) {
                 str = "请求失败";
             } else {
@@ -78,7 +78,7 @@ public class a extends d.a.l0.a.u.c.d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("CallServiceApi", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
+        if (!bVar.isSuccess()) {
             d.a.l0.a.e0.d.a("CallServiceApi", "parse fail");
             return bVar;
         }
@@ -101,6 +101,6 @@ public class a extends d.a.l0.a.u.c.d {
         b bVar = new b();
         bVar.g(str);
         bVar.f(jSONObject);
-        bVar.c(new C0854a(str, str2));
+        bVar.c(new C0910a(str, str2));
     }
 }

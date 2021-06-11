@@ -20,38 +20,38 @@ public class a extends o<b, GodReplyMoreViewHolder> {
         super(pbFragment, bdUniqueId);
     }
 
-    @Override // d.a.n0.e2.k.e.o, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        h0(i2, view, viewGroup, (b) obj, (GodReplyMoreViewHolder) viewHolder);
+    @Override // d.a.n0.e2.k.e.o, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        i0(i2, view, viewGroup, (b) obj, (GodReplyMoreViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public GodReplyMoreViewHolder P(ViewGroup viewGroup) {
-        return new GodReplyMoreViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public GodReplyMoreViewHolder Q(ViewGroup viewGroup) {
+        return new GodReplyMoreViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
     }
 
-    public View h0(int i2, View view, ViewGroup viewGroup, b bVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {
+    public View i0(int i2, View view, ViewGroup viewGroup, b bVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {
         TextView textView;
-        super.W(i2, view, viewGroup, bVar, godReplyMoreViewHolder);
-        if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.f19341a) != null) {
+        super.X(i2, view, viewGroup, bVar, godReplyMoreViewHolder);
+        if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.f19418a) != null) {
             View.OnClickListener onClickListener = this.s;
             if (onClickListener != null) {
                 textView.setOnClickListener(onClickListener);
             }
-            if (godReplyMoreViewHolder.f19343c != TbadkCoreApplication.getInst().getSkinType()) {
-                godReplyMoreViewHolder.f19343c = TbadkCoreApplication.getInst().getSkinType();
-                SkinManager.setViewTextColor(godReplyMoreViewHolder.f19341a, R.color.CAM_X0106);
-                SkinManager.setBackgroundResource(godReplyMoreViewHolder.f19341a, R.drawable.more_all);
-                SkinManager.setBackgroundResource(godReplyMoreViewHolder.f19342b, R.color.CAM_X0204);
+            if (godReplyMoreViewHolder.f19420c != TbadkCoreApplication.getInst().getSkinType()) {
+                godReplyMoreViewHolder.f19420c = TbadkCoreApplication.getInst().getSkinType();
+                SkinManager.setViewTextColor(godReplyMoreViewHolder.f19418a, R.color.CAM_X0106);
+                SkinManager.setBackgroundResource(godReplyMoreViewHolder.f19418a, R.drawable.more_all);
+                SkinManager.setBackgroundResource(godReplyMoreViewHolder.f19419b, R.color.CAM_X0204);
             }
         }
         return view;
     }
 
-    public void i0(View.OnClickListener onClickListener) {
+    public void j0(View.OnClickListener onClickListener) {
         this.s = onClickListener;
     }
 }

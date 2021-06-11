@@ -5,14 +5,14 @@ import java.util.Set;
 public class r implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<Object> f38492a;
+    public Set<Object> f42145a;
 
     public r(Set<Object> set) {
-        this.f38492a = set;
+        this.f42145a = set;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
-        return d.a.c.e.b.b.a.e.b.e(this.f38492a, cVar);
+        return d.a.c.e.b.b.a.e.b.e(this.f42145a, cVar);
     }
 }

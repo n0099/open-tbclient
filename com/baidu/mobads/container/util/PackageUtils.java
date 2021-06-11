@@ -16,7 +16,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.format.Formatter;
 import com.alibaba.fastjson.asm.Label;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
 import com.baidu.mobads.container.adrequest.XAdContainerContext;
 import com.baidu.mobads.container.executor.BaseTask;
@@ -608,7 +607,7 @@ public class PackageUtils {
                 hashMap2.put("open", "false");
                 z = false;
             }
-            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(i2).append("fb_act", i3).append("pk", str2).append("targetscheme", str3).appendApId(xAdContainerContext.getAdPlacementId()).appendAppSid(xAdContainerContext.getAppsid()).appendProdType(xAdContainerContext.getAdProd()).append(IAdRequestParam.MAC, "").append("targetVer", CommonUtils.getTargetVersion(appContext)).append(hashMap).append(hashMap2).append("open", z);
+            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(i2).append("fb_act", i3).append("pk", str2).append("targetscheme", str3).appendApId(xAdContainerContext.getAdPlacementId()).appendAppSid(xAdContainerContext.getAppsid()).appendProdType(xAdContainerContext.getAdProd()).append("mac", "").append("targetVer", CommonUtils.getTargetVersion(appContext)).append(hashMap).append(hashMap2).append("open", z);
             if (adInstanceInfo != null) {
                 append.appendAdInfo(adInstanceInfo);
             }
@@ -648,7 +647,7 @@ public class PackageUtils {
 
     public static void sendDownloadAPOLog(Context context, XAdContainerContext xAdContainerContext, String str, String str2, int i2) {
         try {
-            SendLogUtil.Builder.create(context).appendType(SDKLogTypeConstants.TYPE_APO_WAKE_UP_MONITOR).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).append(IAdRequestParam.MAC, "").append("schema", AdURIUtils.encodeUrl(str2)).append("pk", str).append("source", i2).sendWithVd();
+            SendLogUtil.Builder.create(context).appendType(SDKLogTypeConstants.TYPE_APO_WAKE_UP_MONITOR).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).append("mac", "").append("schema", AdURIUtils.encodeUrl(str2)).append("pk", str).append("source", i2).sendWithVd();
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(TAG, e2.getMessage());
         }
@@ -656,7 +655,7 @@ public class PackageUtils {
 
     public static void sendInfo(Context context, XAdContainerContext xAdContainerContext) {
         try {
-            SendLogUtil.Builder append = SendLogUtil.Builder.create(context).appendType(SDKLogTypeConstants.TYPE_SEND_INFO).appendApId(xAdContainerContext.getAdPlacementId()).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).append(IAdRequestParam.MAC, "").append("cpuSerial", getCPUSerial()).append("simState", ((TelephonyManager) context.getSystemService("phone")).getSimState()).append("sdState", Environment.getExternalStorageState().equals("mounted"));
+            SendLogUtil.Builder append = SendLogUtil.Builder.create(context).appendType(SDKLogTypeConstants.TYPE_SEND_INFO).appendApId(xAdContainerContext.getAdPlacementId()).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).append("mac", "").append("cpuSerial", getCPUSerial()).append("simState", ((TelephonyManager) context.getSystemService("phone")).getSimState()).append("sdState", Environment.getExternalStorageState().equals("mounted"));
             boolean hasPermission = PermissionUtils.hasPermission("permission_storage");
             if (hasPermission) {
                 append.append("sdTotalSize", getSDTotalSize(context));
@@ -724,7 +723,7 @@ public class PackageUtils {
 
     public static void sendRsplashLog(Context context, XAdContainerContext xAdContainerContext, int i2, int i3) {
         try {
-            SendLogUtil.Builder append = SendLogUtil.Builder.create(context).appendType(i2).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append(IAdRequestParam.MAC, "");
+            SendLogUtil.Builder append = SendLogUtil.Builder.create(context).appendType(i2).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append("mac", "");
             append.append("logtime", System.currentTimeMillis() + "").append("subtype", i3).sendWithVd();
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(TAG, e2.getMessage());
@@ -821,7 +820,7 @@ public class PackageUtils {
             } catch (Exception unused) {
                 str = "";
             }
-            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(i3).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append(IAdRequestParam.MAC, "");
+            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(i3).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append("mac", "");
             append.append("logtime", System.currentTimeMillis() + "").append("subtype", i2).append("curl", str).sendWithVd();
         } catch (Throwable th) {
             RemoteXAdLogger.getInstance().d(TAG, th.getMessage());

@@ -3,49 +3,51 @@ package com.kwad.sdk.core.video.a;
 import android.media.TimedText;
 import android.view.Surface;
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(c cVar, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(c cVar);
     }
 
     /* renamed from: com.kwad.sdk.core.video.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0370c {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0391c {
         boolean a(c cVar, int i2, int i3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         boolean a(c cVar, int i2, int i3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(c cVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void a(c cVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface g {
         void a(c cVar, TimedText timedText);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface h {
         void a(c cVar, int i2, int i3);
     }
+
+    void a(float f2);
 
     void a(float f2, float f3);
 
@@ -53,13 +55,13 @@ public interface c {
 
     void a(Surface surface);
 
-    void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar);
+    void a(@NonNull com.kwad.sdk.contentalliance.detail.video.d dVar);
 
     void a(a aVar);
 
     void a(b bVar);
 
-    void a(InterfaceC0370c interfaceC0370c);
+    void a(InterfaceC0391c interfaceC0391c);
 
     void a(d dVar);
 
@@ -83,13 +85,15 @@ public interface c {
 
     int i();
 
-    long j();
+    boolean j();
 
     long k();
 
-    void l();
+    long l();
 
     void m();
 
-    int n();
+    void n();
+
+    int o();
 }

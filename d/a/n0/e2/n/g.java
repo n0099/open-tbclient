@@ -67,25 +67,25 @@ public class g {
     public int R;
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f53700a;
+    public RelativeLayout f57389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.e2.k.e.f1.c f53701b;
+    public d.a.n0.e2.k.e.f1.c f57390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomFrameLayout f53702c;
+    public CustomFrameLayout f57391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PbFragment f53703d;
+    public PbFragment f57392d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.y f53704e;
+    public c.y f57393e;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.k2.c f53707h;
+    public d.a.n0.k2.c f57396h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.k2.o f53708i;
+    public d.a.n0.k2.o f57397i;
     public d.a.n0.e2.n.e j;
     public boolean k;
     public a2 l;
@@ -99,10 +99,10 @@ public class g {
     public boolean z;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53705f = null;
+    public String f57394f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public VideoInfo f53706g = null;
+    public VideoInfo f57395g = null;
     public boolean o = false;
     public boolean p = false;
     public int q = 0;
@@ -123,18 +123,18 @@ public class g {
     public class a implements f.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoInfo f53709a;
+        public final /* synthetic */ VideoInfo f57398a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f53710b;
+        public final /* synthetic */ String f57399b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a2 f53711c;
+        public final /* synthetic */ a2 f57400c;
 
         public a(VideoInfo videoInfo, String str, a2 a2Var) {
-            this.f53709a = videoInfo;
-            this.f53710b = str;
-            this.f53711c = a2Var;
+            this.f57398a = videoInfo;
+            this.f57399b = str;
+            this.f57400c = a2Var;
         }
 
         @Override // d.a.n0.k2.f.c
@@ -142,7 +142,7 @@ public class g {
             if (g.this.D <= 0) {
                 g.this.D = i3;
             }
-            McnAdInfo mcnAdInfo = this.f53709a.mcn_ad_card;
+            McnAdInfo mcnAdInfo = this.f57398a.mcn_ad_card;
             if (mcnAdInfo == null) {
                 return;
             }
@@ -158,17 +158,17 @@ public class g {
                     return;
                 }
                 d.a.x.a aVar = new d.a.x.a();
-                aVar.f64843b = mcnAdInfo.card_title;
-                aVar.f64844c = mcnAdInfo.button_title;
-                aVar.f64845d = mcnAdInfo.jump_url;
-                aVar.f64842a = mcnAdInfo.pic_url;
-                aVar.f64847f = this.f53710b;
-                aVar.f64846e = this.f53711c.y1();
-                aVar.f64848g = 4;
+                aVar.f68561b = mcnAdInfo.card_title;
+                aVar.f68562c = mcnAdInfo.button_title;
+                aVar.f68563d = mcnAdInfo.jump_url;
+                aVar.f68560a = mcnAdInfo.pic_url;
+                aVar.f68565f = this.f57399b;
+                aVar.f68564e = this.f57400c.z1();
+                aVar.f68566g = 4;
                 if (z2) {
-                    g.this.A.f(aVar, (ViewGroup) g.this.f53707h.E0());
+                    g.this.A.f(aVar, (ViewGroup) g.this.f57396h.E0());
                 } else {
-                    g.this.A.e(aVar, (ViewGroup) g.this.f53707h.E0());
+                    g.this.A.e(aVar, (ViewGroup) g.this.f57396h.E0());
                 }
             } else if (g.this.A.c()) {
                 g.this.A.a();
@@ -202,7 +202,7 @@ public class g {
 
         @Override // d.a.n0.k2.c.x
         public void a() {
-            g.this.f53703d.getBaseFragmentActivity().setSwipeBackEnabled(false);
+            g.this.f57392d.getBaseFragmentActivity().setSwipeBackEnabled(false);
             g.this.G = false;
             g gVar = g.this;
             gVar.C = gVar.P().getHeight();
@@ -210,7 +210,7 @@ public class g {
 
         @Override // d.a.n0.k2.c.x
         public void b() {
-            g.this.f53703d.getBaseFragmentActivity().setSwipeBackEnabled(true);
+            g.this.f57392d.getBaseFragmentActivity().setSwipeBackEnabled(true);
             g.this.H.postDelayed(new a(), 200L);
             g.this.D = -1L;
         }
@@ -223,10 +223,10 @@ public class g {
 
         @Override // d.a.n0.k2.c.c0
         public void a() {
-            if (g.this.f53703d == null || g.this.m == null || StringUtils.isNull(g.this.m.o0())) {
+            if (g.this.f57392d == null || g.this.m == null || StringUtils.isNull(g.this.m.o0())) {
                 return;
             }
-            g.this.f53703d.j5(g.this.m.o0());
+            g.this.f57392d.m5(g.this.m.o0());
         }
     }
 
@@ -250,7 +250,7 @@ public class g {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i2, int i3, Object obj) {
-            BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i2), "extra", Integer.valueOf(i3), "url", g.this.f53705f);
+            BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i2), "extra", Integer.valueOf(i3), "url", g.this.f57394f);
             return true;
         }
     }
@@ -272,7 +272,7 @@ public class g {
 
         @Override // d.a.c.e.g.b
         public View c(LayoutInflater layoutInflater) {
-            ImageView imageView = new ImageView(g.this.f53703d.getActivity());
+            ImageView imageView = new ImageView(g.this.f57392d.getActivity());
             if (g.this.L == null) {
                 try {
                     g.this.L = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.pb_video_guide_like);
@@ -296,8 +296,8 @@ public class g {
 
     /* renamed from: d.a.n0.e2.n.g$g  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1280g implements d.a {
-        public C1280g() {
+    public class C1336g implements d.a {
+        public C1336g() {
         }
 
         @Override // d.a.c.e.g.d.a
@@ -347,14 +347,14 @@ public class g {
 
         @Override // d.a.n0.k2.c.k0
         public void a() {
-            if (g.this.f53703d == null || g.this.f53703d.z() == null || g.this.f53703d.z().y0() == null) {
+            if (g.this.f57392d == null || g.this.f57392d.A() == null || g.this.f57392d.A().C0() == null) {
                 return;
             }
-            PostData j = g.this.f53703d.z().y0().j();
-            if (j == null && ListUtils.getCount(g.this.f53703d.z().y0().D()) > 1) {
-                j = (PostData) ListUtils.getItem(g.this.f53703d.z().y0().D(), 0);
+            PostData j = g.this.f57392d.A().C0().j();
+            if (j == null && ListUtils.getCount(g.this.f57392d.A().C0().D()) > 1) {
+                j = (PostData) ListUtils.getItem(g.this.f57392d.A().C0().D(), 0);
             }
-            d.a.n0.e2.m.a.b(g.this.f53703d.z().y0(), j, 1, 1, 4);
+            d.a.n0.e2.m.a.b(g.this.f57392d.A().C0(), j, 1, 1, 4);
         }
     }
 
@@ -378,11 +378,11 @@ public class g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (g.this.f53706g != null) {
+            if (g.this.f57395g != null) {
                 g gVar = g.this;
-                gVar.b0(gVar.f53706g);
-                g.this.f53707h.c1();
-                g.this.f53707h.q0();
+                gVar.b0(gVar.f57395g);
+                g.this.f57396h.c1();
+                g.this.f57396h.q0();
                 if (g.this.x == null || g.this.x.getLayoutParams() == null) {
                     return;
                 }
@@ -417,17 +417,17 @@ public class g {
         @Override // d.a.n0.k2.c.h0
         public boolean b() {
             if (g.this.w >= 1.0d) {
-                if (!g.this.f53703d.checkUpIsLogin()) {
+                if (!g.this.f57392d.checkUpIsLogin()) {
                     return true;
                 }
-                g.this.f53703d.V4();
-                if (g.this.f53703d.z() != null && g.this.f53703d.z().y0() != null && g.this.f53703d.z().y0().P() != null) {
-                    d.a.n0.e2.h.p P = g.this.f53703d.z().y0().P();
+                g.this.f57392d.Y4();
+                if (g.this.f57392d.A() != null && g.this.f57392d.A().C0() != null && g.this.f57392d.A().C0().P() != null) {
+                    d.a.n0.e2.h.p P = g.this.f57392d.A().C0().P();
                     if (g.this.I == null) {
-                        g.this.I = new PbFullScreenFloatingHuajiAninationView(g.this.f53703d.getActivity());
+                        g.this.I = new PbFullScreenFloatingHuajiAninationView(g.this.f57392d.getActivity());
                         g.this.I.setFloatingHuajiAninationListener(g.this.J);
                     }
-                    g.this.I.f(!P.h());
+                    g.this.I.f(!P.g());
                     return true;
                 }
             }
@@ -445,16 +445,16 @@ public class g {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && d.a.c.e.p.j.z()) {
-                if (g.this.f53707h != null) {
-                    g.this.f53707h.w1();
+                if (g.this.f57396h != null) {
+                    g.this.f57396h.w1();
                 }
-                if (!d.a.c.e.p.j.x() || g.this.f53707h == null || !g.this.f53707h.T0() || g.this.f53706g == null || g.this.f53706g.video_length.intValue() <= 0 || g.this.f53706g.video_duration.intValue() <= 0) {
+                if (!d.a.c.e.p.j.x() || g.this.f57396h == null || !g.this.f57396h.T0() || g.this.f57395g == null || g.this.f57395g.video_length.intValue() <= 0 || g.this.f57395g.video_duration.intValue() <= 0) {
                     return;
                 }
                 DecimalFormat decimalFormat = new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT);
-                double intValue = ((g.this.f53706g.video_length.intValue() * (1.0f - ((g.this.f53707h.B0() * 1.0f) / (g.this.f53706g.video_duration.intValue() * 1000)))) * 1.0f) / 1048576.0f;
+                double intValue = ((g.this.f57395g.video_length.intValue() * (1.0f - ((g.this.f57396h.B0() * 1.0f) / (g.this.f57395g.video_duration.intValue() * 1000)))) * 1.0f) / 1048576.0f;
                 if (intValue >= 0.1d) {
-                    d.a.c.e.p.l.M(g.this.f53703d.getPageContext().getPageActivity(), String.format(g.this.f53703d.getPageContext().getString(R.string.pb_video_net_change_tip), decimalFormat.format(intValue)));
+                    d.a.c.e.p.l.M(g.this.f57392d.getPageContext().getPageActivity(), String.format(g.this.f57392d.getPageContext().getString(R.string.pb_video_net_change_tip), decimalFormat.format(intValue)));
                 }
             }
         }
@@ -496,8 +496,8 @@ public class g {
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        if (g.this.f53703d.getListView() != null && g.this.f53703d.getListView().getChildCount() > 0 && g.this.f53703d.getListView().getChildAt(0) == g.this.R()) {
-                            g.this.f53703d.getListView().setSelectionFromTop(0, g.this.R + ((int) (motionEvent.getY() - g.this.y)));
+                        if (g.this.f57392d.getListView() != null && g.this.f57392d.getListView().getChildCount() > 0 && g.this.f57392d.getListView().getChildAt(0) == g.this.R()) {
+                            g.this.f57392d.getListView().setSelectionFromTop(0, g.this.R + ((int) (motionEvent.getY() - g.this.y)));
                         }
                     }
                 }
@@ -505,7 +505,7 @@ public class g {
                 g.this.R = 0;
             } else {
                 g.this.y = motionEvent.getY();
-                if (g.this.f53703d.getListView() != null && g.this.f53703d.getListView().getChildCount() > 0 && g.this.f53703d.getListView().getChildAt(0) == g.this.R()) {
+                if (g.this.f57392d.getListView() != null && g.this.f57392d.getListView().getChildCount() > 0 && g.this.f57392d.getListView().getChildAt(0) == g.this.R()) {
                     g gVar = g.this;
                     gVar.R = gVar.R().getTop();
                 }
@@ -532,23 +532,23 @@ public class g {
     public class t implements c.y {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation f53730a;
+        public final /* synthetic */ Animation f57419a;
 
         public t(Animation animation) {
-            this.f53730a = animation;
+            this.f57419a = animation;
         }
 
         @Override // d.a.n0.k2.c.y
         public void a(boolean z) {
-            if (!g.this.a0() || g.this.f53701b == null) {
+            if (!g.this.a0() || g.this.f57390b == null) {
                 return;
             }
-            this.f53730a.setAnimationListener(null);
-            g.this.f53701b.i().clearAnimation();
+            this.f57419a.setAnimationListener(null);
+            g.this.f57390b.i().clearAnimation();
             g.this.u0();
             if (z) {
-                this.f53730a.setAnimationListener(g.this.S);
-                g.this.f53701b.i().startAnimation(this.f53730a);
+                this.f57419a.setAnimationListener(g.this.S);
+                g.this.f57390b.i().startAnimation(this.f57419a);
             }
         }
 
@@ -581,8 +581,8 @@ public class g {
 
     public g(PbFragment pbFragment, d.a.n0.e2.k.e.f1.c cVar, VideoInfo videoInfo, long j2) {
         this.s = 0.0f;
-        this.f53703d = pbFragment;
-        this.f53701b = cVar;
+        this.f57392d = pbFragment;
+        this.f57390b = cVar;
         this.s = d.a.c.e.p.l.g(pbFragment.getActivity(), R.dimen.ds240);
         V(videoInfo);
         T();
@@ -597,35 +597,35 @@ public class g {
         if (P().getHeight() + i2 <= 0) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f53702c.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f57391c.getLayoutParams();
         if ((layoutParams.width == -1 && layoutParams.height == -1) || i2 == 0) {
             return;
         }
         if (i2 > 0) {
             this.O = false;
             if (this.v != P().getHeight()) {
-                this.f53702c.setLayoutParams(new RelativeLayout.LayoutParams(d.a.c.e.p.l.k(this.f53703d.getActivity()), Math.min(this.v, P().getHeight() + i2)));
-                this.f53707h.q0();
+                this.f57391c.setLayoutParams(new RelativeLayout.LayoutParams(d.a.c.e.p.l.k(this.f57392d.getActivity()), Math.min(this.v, P().getHeight() + i2)));
+                this.f57396h.q0();
             }
-        } else if (d.a.c.e.p.l.k(this.f53703d.getActivity()) * 0.5625d != P().getHeight()) {
-            this.f53702c.setLayoutParams(new RelativeLayout.LayoutParams(d.a.c.e.p.l.k(this.f53703d.getActivity()), (int) Math.max(d.a.c.e.p.l.k(this.f53703d.getActivity()) * 0.5625d, P().getHeight() + i2)));
-            this.f53707h.q0();
+        } else if (d.a.c.e.p.l.k(this.f57392d.getActivity()) * 0.5625d != P().getHeight()) {
+            this.f57391c.setLayoutParams(new RelativeLayout.LayoutParams(d.a.c.e.p.l.k(this.f57392d.getActivity()), (int) Math.max(d.a.c.e.p.l.k(this.f57392d.getActivity()) * 0.5625d, P().getHeight() + i2)));
+            this.f57396h.q0();
         }
     }
 
     public final void N(boolean z) {
-        PbFragment pbFragment = this.f53703d;
+        PbFragment pbFragment = this.f57392d;
         if (pbFragment != null) {
-            pbFragment.i4();
+            pbFragment.l4();
         }
     }
 
     public void O() {
-        d.a.n0.k2.c cVar = this.f53707h;
+        d.a.n0.k2.c cVar = this.f57396h;
         if (cVar != null) {
             cVar.v0();
         }
-        CustomFrameLayout customFrameLayout = this.f53702c;
+        CustomFrameLayout customFrameLayout = this.f57391c;
         if (customFrameLayout != null) {
             customFrameLayout.clearAnimation();
         }
@@ -638,7 +638,7 @@ public class g {
     }
 
     public View P() {
-        return this.f53700a;
+        return this.f57389a;
     }
 
     public int Q() {
@@ -650,133 +650,133 @@ public class g {
     }
 
     public void S() {
-        d.a.n0.e2.k.e.f1.c cVar = this.f53701b;
+        d.a.n0.e2.k.e.f1.c cVar = this.f57390b;
         if (cVar != null) {
             cVar.k();
         }
     }
 
     public final void T() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f53703d.getActivity(), R.anim.anim_alpha_1_to_0_duration_2000_accelerate);
-        if (this.f53704e == null) {
-            this.f53704e = new t(loadAnimation);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f57392d.getActivity(), R.anim.anim_alpha_1_to_0_duration_2000_accelerate);
+        if (this.f57393e == null) {
+            this.f57393e = new t(loadAnimation);
         }
-        p0(this.f53704e);
+        p0(this.f57393e);
         UtilHelper.getLightStatusBarHeight();
-        d.a.c.e.p.l.g(this.f53703d.getActivity(), R.dimen.ds98);
+        d.a.c.e.p.l.g(this.f57392d.getActivity(), R.dimen.ds98);
         this.H = new Handler();
     }
 
     public void U(VideoInfo videoInfo, a2 a2Var, String str) {
         d.a.n0.k2.c cVar;
-        if (videoInfo == null || (cVar = this.f53707h) == null || a2Var == null) {
+        if (videoInfo == null || (cVar = this.f57396h) == null || a2Var == null) {
             return;
         }
-        this.f53706g = videoInfo;
+        this.f57395g = videoInfo;
         this.l = a2Var;
-        this.f53705f = videoInfo.video_url;
+        this.f57394f = videoInfo.video_url;
         cVar.k2();
         d.a.n0.k2.o oVar = new d.a.n0.k2.o();
-        this.f53708i = oVar;
-        oVar.f56898a = "pb";
-        oVar.f56900c = a2Var.y1();
-        d.a.n0.k2.o oVar2 = this.f53708i;
-        oVar2.f56901d = str;
-        oVar2.f56902e = TbadkCoreApplication.getCurrentAccount();
-        if (a2Var.U1()) {
-            if (!StringUtils.isNull(this.f53703d.n1)) {
-                this.f53708i.k = this.f53703d.n1;
+        this.f57397i = oVar;
+        oVar.f60587a = "pb";
+        oVar.f60589c = a2Var.z1();
+        d.a.n0.k2.o oVar2 = this.f57397i;
+        oVar2.f60590d = str;
+        oVar2.f60591e = TbadkCoreApplication.getCurrentAccount();
+        if (a2Var.V1()) {
+            if (!StringUtils.isNull(this.f57392d.n1)) {
+                this.f57397i.k = this.f57392d.n1;
             }
-            d.a.n0.k2.o oVar3 = this.f53708i;
-            oVar3.f56906i = this.f53703d.m1 + "";
+            d.a.n0.k2.o oVar3 = this.f57397i;
+            oVar3.f60595i = this.f57392d.m1 + "";
         } else {
-            this.f53708i.f56906i = this.f53703d.O4();
+            this.f57397i.f60595i = this.f57392d.R4();
         }
-        k1 L4 = this.f53703d.L4();
-        if (L4 != null) {
-            L4.d(this.f53708i);
+        k1 O4 = this.f57392d.O4();
+        if (O4 != null) {
+            O4.d(this.f57397i);
         }
-        d.a.n0.k2.o oVar4 = this.f53708i;
+        d.a.n0.k2.o oVar4 = this.f57397i;
         oVar4.m = videoInfo.video_md5;
         d.a.n0.k2.o b2 = oVar4.b();
-        b2.f56898a = "6";
+        b2.f60587a = "6";
         this.D = -1L;
-        if (this.f53707h.I0() != null && this.f53707h.I0().getMediaProgressObserver() != null) {
-            this.f53707h.I0().getMediaProgressObserver().j(new a(videoInfo, str, a2Var));
+        if (this.f57396h.I0() != null && this.f57396h.I0().getMediaProgressObserver() != null) {
+            this.f57396h.I0().getMediaProgressObserver().j(new a(videoInfo, str, a2Var));
         }
-        this.f53707h.I0().setVideoStatData(b2);
-        if (this.f53707h.H0()) {
-            this.f53707h.q0();
+        this.f57396h.I0().setVideoStatData(b2);
+        if (this.f57396h.H0()) {
+            this.f57396h.q0();
         }
-        this.f53707h.z1(this.F);
+        this.f57396h.z1(this.F);
         this.n = null;
         this.m = null;
-        this.f53707h.x1(null);
-        this.f53707h.K0().setOnDragingListener(U);
-        this.f53707h.y1(new b());
-        this.f53707h.C1(new c());
-        this.f53707h.E1(new d());
-        this.f53707h.J1(new e());
-        this.f53707h.S1(videoInfo.thumbnail_url);
-        this.f53707h.Y1(this.f53705f, a2Var.y1());
-        this.f53707h.m1(str);
-        this.f53707h.X1(a2Var.z1());
-        this.f53707h.D1(V);
-        this.f53707h.a1();
-        this.f53707h.a2();
+        this.f57396h.x1(null);
+        this.f57396h.K0().setOnDragingListener(U);
+        this.f57396h.y1(new b());
+        this.f57396h.C1(new c());
+        this.f57396h.E1(new d());
+        this.f57396h.J1(new e());
+        this.f57396h.S1(videoInfo.thumbnail_url);
+        this.f57396h.Y1(this.f57394f, a2Var.z1());
+        this.f57396h.m1(str);
+        this.f57396h.X1(a2Var.A1());
+        this.f57396h.D1(V);
+        this.f57396h.a1();
+        this.f57396h.a2();
     }
 
     public final void V(VideoInfo videoInfo) {
         NavigationBar navigationBar;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f53703d.getPageContext().getPageActivity()).inflate(R.layout.video_pb_container_layout, (ViewGroup) null);
-        this.f53700a = relativeLayout;
-        this.f53702c = (CustomFrameLayout) relativeLayout.findViewById(R.id.pb_video_container);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f57392d.getPageContext().getPageActivity()).inflate(R.layout.video_pb_container_layout, (ViewGroup) null);
+        this.f57389a = relativeLayout;
+        this.f57391c = (CustomFrameLayout) relativeLayout.findViewById(R.id.pb_video_container);
         int b0 = b0(videoInfo);
         int i2 = 0;
-        this.z = ((double) this.v) <= (((double) d.a.c.e.p.l.k(this.f53703d.getActivity())) * 0.5625d) + 5.0d;
+        this.z = ((double) this.v) <= (((double) d.a.c.e.p.l.k(this.f57392d.getActivity())) * 0.5625d) + 5.0d;
         int intValue = videoInfo.video_width.intValue();
-        d.a.n0.k2.c cVar = new d.a.n0.k2.c(this.f53703d.getPageContext(), this.f53702c, true);
-        this.f53707h = cVar;
+        d.a.n0.k2.c cVar = new d.a.n0.k2.c(this.f57392d.getPageContext(), this.f57391c, true);
+        this.f57396h = cVar;
         cVar.O1("2002");
-        this.f53707h.Z1(this.P);
-        this.f53707h.t1(false);
-        this.f53707h.U1(this.E);
-        this.f53707h.V1(SkinManager.getResourceId(R.drawable.pic_use_header_40_n));
-        this.f53707h.N1(new q());
-        if (TbSingleton.getInstance().isNotchScreen(this.f53703d.getBaseFragmentActivity()) || TbSingleton.getInstance().isCutoutScreen(this.f53703d.getBaseFragmentActivity())) {
-            this.f53707h.o1(false);
+        this.f57396h.Z1(this.P);
+        this.f57396h.t1(false);
+        this.f57396h.U1(this.E);
+        this.f57396h.V1(SkinManager.getResourceId(R.drawable.pic_use_header_40_n));
+        this.f57396h.N1(new q());
+        if (TbSingleton.getInstance().isNotchScreen(this.f57392d.getBaseFragmentActivity()) || TbSingleton.getInstance().isCutoutScreen(this.f57392d.getBaseFragmentActivity())) {
+            this.f57396h.o1(false);
         }
-        this.f53707h.F1(new r());
+        this.f57396h.F1(new r());
         if (intValue > 0) {
             if (this.w >= 1.0d) {
-                this.f53707h.M1(false, true);
+                this.f57396h.M1(false, true);
             } else {
-                this.f53707h.M1(true, false);
+                this.f57396h.M1(true, false);
             }
-            boolean z = ((float) b0) + this.s > ((float) d.a.c.e.p.l.i(this.f53703d.getActivity()));
+            boolean z = ((float) b0) + this.s > ((float) d.a.c.e.p.l.i(this.f57392d.getActivity()));
             this.t = z;
             if (z) {
                 if (this.j == null) {
-                    this.j = new d.a.n0.e2.n.e(this.f53703d.getPageContext(), this.f53702c);
+                    this.j = new d.a.n0.e2.n.e(this.f57392d.getPageContext(), this.f57391c);
                 }
-                this.f53703d.K4().W0();
+                this.f57392d.N4().W0();
                 this.k = true;
             }
         }
         v0();
-        this.x = new View(this.f53703d.getContext());
+        this.x = new View(this.f57392d.getContext());
         this.x.setLayoutParams(new AbsListView.LayoutParams(-1, this.v));
-        d.a.n0.e2.k.e.f1.c cVar2 = this.f53701b;
-        if (cVar2 != null && (navigationBar = cVar2.f53323a) != null) {
+        d.a.n0.e2.k.e.f1.c cVar2 = this.f57390b;
+        if (cVar2 != null && (navigationBar = cVar2.f57012a) != null) {
             navigationBar.getBarBgView().setAlpha(0.0f);
-            this.f53701b.f53323a.getTopCoverBgView().setAlpha(1.0f);
-            NavigationBar navigationBar2 = this.f53701b.f53323a;
-            if (!DeviceInfoUtil.isHWnova() && !TbSingleton.getInstance().isNotchScreen(this.f53703d.getBaseFragmentActivity()) && !TbSingleton.getInstance().isCutoutScreen(this.f53703d.getBaseFragmentActivity())) {
+            this.f57390b.f57012a.getTopCoverBgView().setAlpha(1.0f);
+            NavigationBar navigationBar2 = this.f57390b.f57012a;
+            if (!DeviceInfoUtil.isHWnova() && !TbSingleton.getInstance().isNotchScreen(this.f57392d.getBaseFragmentActivity()) && !TbSingleton.getInstance().isCutoutScreen(this.f57392d.getBaseFragmentActivity())) {
                 i2 = 8;
             }
             navigationBar2.setStatusBarVisibility(i2);
         }
-        PbVideoWifiTipLayout pbVideoWifiTipLayout = (PbVideoWifiTipLayout) this.f53700a.findViewById(R.id.layout_wifi_tip);
+        PbVideoWifiTipLayout pbVideoWifiTipLayout = (PbVideoWifiTipLayout) this.f57389a.findViewById(R.id.layout_wifi_tip);
         this.B = pbVideoWifiTipLayout;
         pbVideoWifiTipLayout.setOnPlayClickListener(new s());
         d.a.x.c cVar3 = this.A;
@@ -801,12 +801,12 @@ public class g {
             return;
         }
         if (W()) {
-            this.f53703d.K4().W0();
+            this.f57392d.N4().W0();
         } else if (this.j.f().getVisibility() == 0) {
-            this.f53703d.K4().W0();
+            this.f57392d.N4().W0();
             this.k = true;
         } else if (this.k) {
-            this.f53703d.K4().V2(false);
+            this.f57392d.N4().V2(false);
             this.k = false;
         }
     }
@@ -821,12 +821,12 @@ public class g {
 
     public final int b0(VideoInfo videoInfo) {
         if (TbadkCoreApplication.getInst().getResources() != null && TbadkCoreApplication.getInst().getResources().getConfiguration() != null && TbadkCoreApplication.getInst().getResources().getConfiguration().orientation == 2) {
-            this.f53702c.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            return d.a.c.e.p.l.k(this.f53703d.getActivity());
+            this.f57391c.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            return d.a.c.e.p.l.k(this.f57392d.getActivity());
         }
-        int k2 = d.a.c.e.p.l.k(this.f53703d.getActivity());
-        Rect visibilityRegion = ViewCommonUtil.getVisibilityRegion(this.f53703d.getPageContext().getPageActivity());
-        int i2 = visibilityRegion.height() <= 0 ? d.a.c.e.p.l.i(this.f53703d.getActivity()) : visibilityRegion.height();
+        int k2 = d.a.c.e.p.l.k(this.f57392d.getActivity());
+        Rect visibilityRegion = ViewCommonUtil.getVisibilityRegion(this.f57392d.getPageContext().getPageActivity());
+        int i2 = visibilityRegion.height() <= 0 ? d.a.c.e.p.l.i(this.f57392d.getActivity()) : visibilityRegion.height();
         int i3 = (int) (k2 * 0.5625d);
         int intValue = videoInfo != null ? videoInfo.video_width.intValue() : 0;
         int intValue2 = videoInfo != null ? videoInfo.video_height.intValue() : 0;
@@ -838,12 +838,12 @@ public class g {
             }
         }
         this.v = i3;
-        this.f53702c.setLayoutParams(new RelativeLayout.LayoutParams(k2, i3));
+        this.f57391c.setLayoutParams(new RelativeLayout.LayoutParams(k2, i3));
         return i3;
     }
 
     public void c0(int i2) {
-        d.a.n0.e2.k.e.f1.c cVar = this.f53701b;
+        d.a.n0.e2.k.e.f1.c cVar = this.f57390b;
         if (cVar != null) {
             cVar.n(i2);
         }
@@ -860,7 +860,7 @@ public class g {
     public void d0(Configuration configuration) {
         CustomFrameLayout customFrameLayout;
         this.p = false;
-        if (this.f53707h == null || (customFrameLayout = this.f53702c) == null) {
+        if (this.f57396h == null || (customFrameLayout = this.f57391c) == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) customFrameLayout.getLayoutParams();
@@ -878,20 +878,20 @@ public class g {
             layoutParams.width = -1;
             layoutParams.height = -1;
             this.p = true;
-            this.f53702c.setLayoutParams(layoutParams);
-            this.f53703d.K4().W0();
+            this.f57391c.setLayoutParams(layoutParams);
+            this.f57392d.N4().W0();
             this.k = true;
         } else {
-            b0(this.f53706g);
+            b0(this.f57395g);
             u0();
             this.p = false;
-            this.f53701b.t(true);
+            this.f57390b.t(true);
         }
-        this.f53707h.V0(this.f53703d.getPageContext(), configuration);
+        this.f57396h.V0(this.f57392d.getPageContext(), configuration);
     }
 
     public boolean e0(int i2) {
-        d.a.n0.k2.c cVar = this.f53707h;
+        d.a.n0.k2.c cVar = this.f57396h;
         if (cVar == null) {
             return false;
         }
@@ -899,21 +899,21 @@ public class g {
     }
 
     public void f0() {
-        d.a.n0.k2.c cVar = this.f53707h;
+        d.a.n0.k2.c cVar = this.f57396h;
         if (cVar == null) {
             return;
         }
         if (cVar.T0()) {
             this.o = true;
-            this.f53707h.k2();
-        } else if (this.f53707h.C0() == 3) {
+            this.f57396h.k2();
+        } else if (this.f57396h.C0() == 3) {
             this.o = false;
-        } else if (this.f53707h.C0() != 0 && this.f53707h.C0() != 1) {
+        } else if (this.f57396h.C0() != 0 && this.f57396h.C0() != 1) {
             this.o = false;
-            this.f53707h.k2();
+            this.f57396h.k2();
         } else {
             this.o = true;
-            this.f53707h.k2();
+            this.f57396h.k2();
         }
         PbFullScreenFloatingHuajiAninationView pbFullScreenFloatingHuajiAninationView = this.I;
         if (pbFullScreenFloatingHuajiAninationView != null) {
@@ -922,7 +922,7 @@ public class g {
     }
 
     public void g0() {
-        d.a.n0.k2.c cVar = this.f53707h;
+        d.a.n0.k2.c cVar = this.f57396h;
         if (cVar != null && this.o) {
             cVar.i1();
         }
@@ -945,7 +945,7 @@ public class g {
                 j0(P().getHeight());
             } else if (i3 != 2) {
                 if (i3 == 0) {
-                    if (this.N || !VideoPlayActivity.FROM_VIDEO_PLAY.equals(this.f53703d.O4())) {
+                    if (this.N || !VideoPlayActivity.FROM_VIDEO_PLAY.equals(this.f57392d.R4())) {
                         j0(P().getHeight());
                     }
                 }
@@ -990,15 +990,15 @@ public class g {
     }
 
     public final void l0(String str) {
-        if (this.f53706g != null) {
+        if (this.f57395g != null) {
             if ("1".equals(str) || "2".equals(str)) {
-                d.a.n0.k2.h.e(this.f53706g.video_md5, "", str, this.f53708i, this.f53707h.I0().getPcdnState());
+                d.a.n0.k2.h.e(this.f57395g.video_md5, "", str, this.f57397i, this.f57396h.I0().getPcdnState());
             }
         }
     }
 
     public void m0() {
-        d.a.n0.k2.c cVar = this.f53707h;
+        d.a.n0.k2.c cVar = this.f57396h;
         if (cVar != null) {
             cVar.g1();
         }
@@ -1009,7 +1009,7 @@ public class g {
             return;
         }
         a2 a2Var = this.l;
-        if (a2Var != null && a2Var.B2()) {
+        if (a2Var != null && a2Var.C2()) {
             this.j.f().setVisibility(8);
             return;
         }
@@ -1044,7 +1044,7 @@ public class g {
 
     public void r0(String str) {
         this.n = str;
-        d.a.n0.k2.c cVar = this.f53707h;
+        d.a.n0.k2.c cVar = this.f57396h;
         if (cVar != null) {
             cVar.x1(str);
         }
@@ -1062,8 +1062,8 @@ public class g {
     }
 
     public void u0() {
-        if (this.f53701b != null) {
-            this.f53701b.v(this.f53703d.isSimpleForum());
+        if (this.f57390b != null) {
+            this.f57390b.v(this.f57392d.isSimpleForum());
         }
     }
 
@@ -1079,38 +1079,38 @@ public class g {
         dVar.c(153);
         dVar.i(false);
         dVar.a(new f());
-        dVar.g(new C1280g());
+        dVar.g(new C1336g());
         d.a.c.e.g.c b2 = dVar.b();
         this.K = b2;
-        b2.p(this.f53703d.getActivity());
+        b2.q(this.f57392d.getActivity());
     }
 
     public void w0() {
         a2 a2Var;
-        if (this.f53707h != null) {
+        if (this.f57396h != null) {
             if (d.a.c.e.p.j.x() && !this.M && !d.a.n0.r3.f.d().e()) {
                 this.B.setVisibility(0);
-                this.B.setData(this.f53706g);
+                this.B.setData(this.f57395g);
                 TiebaStatic.log("c12622");
                 return;
             }
-            if (StringUtils.isNull(this.f53705f) && (a2Var = this.l) != null && a2Var.w1() != null) {
-                TiebaStatic.log(new StatisticItem("c12619").param("obj_locate", "pb").param("tid", this.l.y1()));
-                this.f53705f = this.l.w1().video_url;
+            if (StringUtils.isNull(this.f57394f) && (a2Var = this.l) != null && a2Var.x1() != null) {
+                TiebaStatic.log(new StatisticItem("c12619").param("obj_locate", "pb").param("tid", this.l.z1()));
+                this.f57394f = this.l.x1().video_url;
             }
-            d.a.n0.k2.c cVar = this.f53707h;
-            String str = this.f53705f;
+            d.a.n0.k2.c cVar = this.f57396h;
+            String str = this.f57394f;
             a2 a2Var2 = this.l;
-            cVar.d2(str, a2Var2 == null ? "" : a2Var2.y1());
+            cVar.d2(str, a2Var2 == null ? "" : a2Var2.z1());
             l0("2");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016517));
         }
     }
 
     public void x0(String str) {
-        d.a.n0.k2.o oVar = this.f53708i;
+        d.a.n0.k2.o oVar = this.f57397i;
         if (oVar != null) {
-            oVar.f56901d = str;
+            oVar.f60590d = str;
         }
     }
 }

@@ -57,25 +57,25 @@ import java.util.List;
 public class WalletSmsActivity extends PayBaseActivity implements View.OnClickListener, SmsVerifyHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f25938a;
+    public Context f26041a;
 
     /* renamed from: c  reason: collision with root package name */
-    public ISmsController f25940c;
+    public ISmsController f26043c;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeKeyBoardEditText f25941e;
+    public SafeKeyBoardEditText f26044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeScrollView f25942f;
+    public SafeScrollView f26045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f25943g;
+    public ViewGroup f26046g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f25944h;
+    public Button f26047h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f25945i;
+    public TextView f26048i;
     public TextView j;
     public ImageView k;
     public View l;
@@ -96,7 +96,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public LinearLayout x;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25939b = -1;
+    public int f26042b = -1;
     public boolean s = false;
     public boolean mHasVerifyCodeSend = false;
     public int y = 4;
@@ -104,8 +104,8 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
 
     @Override // com.baidu.wallet.paysdk.sms.controller.SmsUpdateUiInterface
     public void clearSmsEditText() {
-        this.f25941e.setText("");
-        this.f25941e.requestFocus();
+        this.f26044e.setText("");
+        this.f26044e.requestFocus();
         this.k.setVisibility(8);
     }
 
@@ -156,7 +156,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
     public void handleFailure(int i2, int i3, String str) {
         WalletGlobalUtils.safeDismissDialog(this, 0);
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController == null || !iSmsController.handleFailure(i2, i3, str)) {
             super.handleFailure(i2, i3, str);
         }
@@ -164,7 +164,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController == null || !iSmsController.handleResponse(i2, obj, str)) {
             super.handleResponse(i2, obj, str);
         }
@@ -173,7 +173,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     @Override // com.baidu.wallet.paysdk.sms.controller.SmsUpdateUiInterface
     public void initSMSActivityView(String str, String str2, String str3, String str4, boolean z) {
         this.x.setVisibility(0);
-        this.m.setText(ResUtils.string(this.f25938a, str));
+        this.m.setText(ResUtils.string(this.f26041a, str));
         setPhoneNum(str4);
         if (TextUtils.isEmpty(str2)) {
             this.j.setVisibility(8);
@@ -181,7 +181,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             this.j.setText(str2);
             this.j.setVisibility(0);
         }
-        this.f25944h.setText(str3);
+        this.f26047h.setText(str3);
         if (this.z) {
             return;
         }
@@ -190,7 +190,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
     public boolean isBindPay() {
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController != null && (iSmsController instanceof d)) {
             return ((d) iSmsController).b();
         }
@@ -199,7 +199,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        if (this.f25939b == 8) {
+        if (this.f26042b == 8) {
             WalletGlobalUtils.safeShowDialog(this, 18, "");
             return;
         }
@@ -215,7 +215,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         ErrorContentResponse.Guidance guidance;
         WalletGlobalUtils.safeDismissDialog(this, 0);
         ErrorContentResponse errorContentResponse = (obj == null || !(obj instanceof ErrorContentResponse)) ? null : (ErrorContentResponse) obj;
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController == null || !iSmsController.doOnBeanExecFailureWithErrContent(i2, i3, str, obj)) {
             if (i3 == 51000 && errorContentResponse != null && (guidance = errorContentResponse.guidance) != null) {
                 this.mGuidance = guidance;
@@ -243,19 +243,19 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             startCountDown();
             c();
             b();
-        } else if (view == this.f25944h) {
+        } else if (view == this.f26047h) {
             if (CheckUtils.isFastDoubleClick()) {
                 return;
             }
             if (!this.mHasVerifyCodeSend) {
                 a((CharSequence) ResUtils.getString(getActivity(), "ebpay_sms_tips_get_code_first"));
-            } else if (!a(this.f25941e.getText().toString())) {
+            } else if (!a(this.f26044e.getText().toString())) {
                 GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "ebpay_error_cer"));
-                this.f25941e.requestFocus();
+                this.f26044e.requestFocus();
             } else {
-                ISmsController iSmsController = this.f25940c;
+                ISmsController iSmsController = this.f26043c;
                 if (iSmsController != null) {
-                    iSmsController.onNextBtnClick(this.f25941e.getText().toString());
+                    iSmsController.onNextBtnClick(this.f26044e.getText().toString());
                 }
             }
         } else if (view == this.mHelp) {
@@ -265,7 +265,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             StatisticManager.onEvent(StatServiceEvent.EVENT_CLOSE_FROM_SMS_VERIFY);
             finishWithoutAnim();
         } else if (view.getId() == ResUtils.id(this, "ebpay_btn_modify_phone")) {
-            ISmsController iSmsController2 = this.f25940c;
+            ISmsController iSmsController2 = this.f26043c;
             if (iSmsController2 instanceof com.baidu.wallet.paysdk.sms.controller.a) {
                 ((com.baidu.wallet.paysdk.sms.controller.a) iSmsController2).a();
             }
@@ -277,21 +277,21 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setIsShowMultiWindowTips(true);
-        this.f25938a = getActivity();
+        this.f26041a = getActivity();
         this.u = bundle;
         if (bundle == null) {
-            this.f25939b = getIntent().getIntExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, -1);
+            this.f26042b = getIntent().getIntExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, -1);
         } else {
-            this.f25939b = bundle.getInt("SMS_FROM");
+            this.f26042b = bundle.getInt("SMS_FROM");
         }
-        setContentView(ResUtils.layout(this.f25938a, "wallet_base_sms"));
+        setContentView(ResUtils.layout(this.f26041a, "wallet_base_sms"));
         a();
-        a(this.f25939b, getIntent().getBooleanExtra(BeanConstants.KEY_SEND_SMS_AUTO, false));
+        a(this.f26042b, getIntent().getBooleanExtra(BeanConstants.KEY_SEND_SMS_AUTO, false));
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
     public Dialog onCreateDialog(int i2) {
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController != null) {
             Dialog doOnCreateDialog = iSmsController.doOnCreateDialog(i2);
             return doOnCreateDialog != null ? doOnCreateDialog : super.onCreateDialog(i2);
@@ -301,7 +301,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController != null) {
             iSmsController.doOnDestroy();
         }
@@ -313,7 +313,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             countDownTimer.cancel();
             this.mTimer = null;
         }
-        this.f25940c = null;
+        this.f26043c = null;
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -321,19 +321,19 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         super.onNewIntent(intent);
         setIntent(intent);
         a(intent);
-        a(this.f25939b, intent.getBooleanExtra(BeanConstants.KEY_SEND_SMS_AUTO, false));
+        a(this.f26042b, intent.getBooleanExtra(BeanConstants.KEY_SEND_SMS_AUTO, false));
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
     public void onPrepareDialog(int i2, Dialog dialog) {
-        if (this.f25940c != null) {
+        if (this.f26043c != null) {
             if (!(dialog instanceof LoadingDialog)) {
                 try {
                     if (this.n == null) {
                         this.n = AnimationUtils.loadAnimation(this, this.p);
                     }
-                    this.f25942f.setAlwaysShowSoftKeyBoard(false);
-                    this.f25942f.startAnimation(this.n);
+                    this.f26045f.setAlwaysShowSoftKeyBoard(false);
+                    this.f26045f.startAnimation(this.n);
                 } catch (Resources.NotFoundException unused) {
                 }
                 dialog.setOnDismissListener(new DelegateOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.wallet.paysdk.ui.WalletSmsActivity.3
@@ -343,14 +343,14 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                             if (WalletSmsActivity.this.o == null) {
                                 WalletSmsActivity.this.o = AnimationUtils.loadAnimation(WalletSmsActivity.this.getActivity(), WalletSmsActivity.this.q);
                             }
-                            WalletSmsActivity.this.f25942f.setAlwaysShowSoftKeyBoard(true);
-                            WalletSmsActivity.this.f25942f.startAnimation(WalletSmsActivity.this.o);
+                            WalletSmsActivity.this.f26045f.setAlwaysShowSoftKeyBoard(true);
+                            WalletSmsActivity.this.f26045f.startAnimation(WalletSmsActivity.this.o);
                         } catch (Resources.NotFoundException unused2) {
                         }
                     }
                 }));
             }
-            if (this.f25940c.doOnPrepareDialog(i2, dialog)) {
+            if (this.f26043c.doOnPrepareDialog(i2, dialog)) {
                 return;
             }
             super.onPrepareDialog(i2, dialog);
@@ -359,11 +359,11 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController != null) {
             iSmsController.doOnSaveInstanceState(bundle);
         }
-        bundle.putInt("SMS_FROM", this.f25939b);
+        bundle.putInt("SMS_FROM", this.f26042b);
         super.onSaveInstanceState(bundle);
     }
 
@@ -390,9 +390,9 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
 
     public void setPhoneNum(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f25945i.setText(StringUtils.maskingPhoneNumber(str));
+            this.f26048i.setText(StringUtils.maskingPhoneNumber(str));
         } else {
-            this.f25945i.setText("");
+            this.f26048i.setText("");
         }
     }
 
@@ -437,7 +437,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     @Override // com.baidu.wallet.paysdk.sms.controller.SmsUpdateUiInterface
     public void upDateSafeKeyBoradView(String str, String str2) {
         int i2;
-        if (this.f25941e != null) {
+        if (this.f26044e != null) {
             if (TextUtils.isEmpty(str2)) {
                 i2 = 0;
             } else {
@@ -460,27 +460,27 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.SMS_LENTH, str);
             }
             if (i2 == 0) {
-                this.f25941e.setInputType(2);
+                this.f26044e.setInputType(2);
                 getWindow().setSoftInputMode(2);
-                this.f25941e.setUseSafeKeyBoard(true);
-                this.f25941e.initSafeKeyBoardParams(this.f25943g, this.f25942f, this.mHelp, true);
-                this.f25942f.setAlwaysShowSoftKeyBoard(true);
-                List<IEditTextPasteFilter> editTextPasteFilters = this.f25941e.getEditTextPasteFilters();
+                this.f26044e.setUseSafeKeyBoard(true);
+                this.f26044e.initSafeKeyBoardParams(this.f26046g, this.f26045f, this.mHelp, true);
+                this.f26045f.setAlwaysShowSoftKeyBoard(true);
+                List<IEditTextPasteFilter> editTextPasteFilters = this.f26044e.getEditTextPasteFilters();
                 if (editTextPasteFilters != null) {
                     editTextPasteFilters.clear();
                     editTextPasteFilters.add(new NumberEditTextPasteFilter());
                 }
             } else {
-                this.f25941e.setInputType(1);
-                List<IEditTextPasteFilter> editTextPasteFilters2 = this.f25941e.getEditTextPasteFilters();
+                this.f26044e.setInputType(1);
+                List<IEditTextPasteFilter> editTextPasteFilters2 = this.f26044e.getEditTextPasteFilters();
                 if (editTextPasteFilters2 != null) {
                     editTextPasteFilters2.clear();
                     editTextPasteFilters2.add(new BlankCharEditTextPasteFilter());
                 }
                 getWindow().setSoftInputMode(4);
-                this.f25941e.initSafeKeyBoardParams(this.f25943g, this.f25942f, this.mHelp, true);
+                this.f26044e.initSafeKeyBoardParams(this.f26046g, this.f26045f, this.mHelp, true);
             }
-            this.f25941e.setFilters(new InputFilter[]{new InputFilter.LengthFilter(i3)});
+            this.f26044e.setFilters(new InputFilter[]{new InputFilter.LengthFilter(i3)});
         }
     }
 
@@ -489,7 +489,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f25944h.setText(str);
+        this.f26047h.setText(str);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.SmsUpdateUiInterface
@@ -508,26 +508,26 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     }
 
     private void c() {
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController != null) {
             iSmsController.sendSms();
         }
     }
 
     private void d() {
-        SafeScrollView safeScrollView = this.f25942f;
+        SafeScrollView safeScrollView = this.f26045f;
         if (safeScrollView == null || !safeScrollView.isPopupWindowShowing()) {
             return;
         }
-        this.f25942f.dismissKeyBoard(this.f25941e);
+        this.f26045f.dismissKeyBoard(this.f26044e);
     }
 
     private void a(int i2, boolean z) {
         this.z = getIntent().getBooleanExtra("showSMSDialog", true);
-        this.f25940c = getController(i2);
+        this.f26043c = getController(i2);
         PayRequestCache.BindCategory bindCategoryByIntent = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
         getBindCardFlagDelegate().a((BindFastRequest) PayRequestCache.getInstance().getRequest(bindCategoryByIntent));
-        ISmsController iSmsController = this.f25940c;
+        ISmsController iSmsController = this.f26043c;
         if (iSmsController == null) {
             finish();
             return;
@@ -538,20 +538,20 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             dVar.a(bindCategoryByIntent2);
             dVar.a((BindFastRequest) PayRequestCache.getInstance().getRequest(bindCategoryByIntent2));
         }
-        this.f25940c.setSmsUpdateUIInterface(this);
-        this.f25940c.setSmsVerifyHandler(this);
-        this.f25940c.setActivity(this);
-        if (this.f25940c.onCreateCheckInvalide(this.u)) {
-            if (this.f25940c.isBelongPaySDK()) {
+        this.f26043c.setSmsUpdateUIInterface(this);
+        this.f26043c.setSmsVerifyHandler(this);
+        this.f26043c.setActivity(this);
+        if (this.f26043c.onCreateCheckInvalide(this.u)) {
+            if (this.f26043c.isBelongPaySDK()) {
                 setFlagPaySdk();
             }
-            this.f25940c.initSmsActivityView();
-            ISmsController iSmsController2 = this.f25940c;
+            this.f26043c.initSmsActivityView();
+            ISmsController iSmsController2 = this.f26043c;
             if (!(iSmsController2 instanceof i) && !(iSmsController2 instanceof h)) {
                 clearSmsEditText();
                 startCountDown();
             }
-            if (this.f25940c.isSendSmsOnCreate() || z) {
+            if (this.f26043c.isSendSmsOnCreate() || z) {
                 stopCountDown();
                 c();
             }
@@ -562,29 +562,29 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     }
 
     private void a() {
-        this.f25943g = (ViewGroup) findViewById(ResUtils.id(this.f25938a, "root_view"));
-        this.f25942f = (SafeScrollView) findViewById(ResUtils.id(this.f25938a, "scrollview"));
-        this.f25945i = (TextView) findViewById(ResUtils.id(this.f25938a, "ebpay_sms_moblie"));
-        this.mTopPhoneTip = (TextView) findViewById(ResUtils.id(this.f25938a, "ebpay_tip_top"));
-        this.f25941e = (SafeKeyBoardEditText) findViewById(ResUtils.id(this.f25938a, "ebpay_message_vcode_id"));
-        this.k = (ImageView) findViewById(ResUtils.id(this.f25938a, "wallet_sms_clear"));
-        this.mSendSms = (Button) findViewById(ResUtils.id(this.f25938a, "ebpay_sms_sendsms"));
-        this.mHelp = (TextView) findViewById(ResUtils.id(this.f25938a, "ebpay_tip_bottom_right"));
-        this.j = (TextView) findViewById(ResUtils.id(this.f25938a, "ebpay_top_tip"));
-        this.f25944h = (Button) findViewById(ResUtils.id(this.f25938a, "ebpay_next_btn"));
+        this.f26046g = (ViewGroup) findViewById(ResUtils.id(this.f26041a, "root_view"));
+        this.f26045f = (SafeScrollView) findViewById(ResUtils.id(this.f26041a, "scrollview"));
+        this.f26048i = (TextView) findViewById(ResUtils.id(this.f26041a, "ebpay_sms_moblie"));
+        this.mTopPhoneTip = (TextView) findViewById(ResUtils.id(this.f26041a, "ebpay_tip_top"));
+        this.f26044e = (SafeKeyBoardEditText) findViewById(ResUtils.id(this.f26041a, "ebpay_message_vcode_id"));
+        this.k = (ImageView) findViewById(ResUtils.id(this.f26041a, "wallet_sms_clear"));
+        this.mSendSms = (Button) findViewById(ResUtils.id(this.f26041a, "ebpay_sms_sendsms"));
+        this.mHelp = (TextView) findViewById(ResUtils.id(this.f26041a, "ebpay_tip_bottom_right"));
+        this.j = (TextView) findViewById(ResUtils.id(this.f26041a, "ebpay_top_tip"));
+        this.f26047h = (Button) findViewById(ResUtils.id(this.f26041a, "ebpay_next_btn"));
         this.x = (LinearLayout) findViewById(ResUtils.id(getActivity(), "lin_sms_dialog"));
         SafeScrollView safeScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-        this.f25942f = safeScrollView;
-        this.f25941e.initSafeKeyBoardParams(this.f25943g, safeScrollView, this.mHelp, false);
-        this.f25941e.setUseSafeKeyBoard(true);
+        this.f26045f = safeScrollView;
+        this.f26044e.initSafeKeyBoardParams(this.f26046g, safeScrollView, this.mHelp, false);
+        this.f26044e.setUseSafeKeyBoard(true);
         this.k.setOnClickListener(this);
         this.mSendSms.setOnClickListener(this);
-        this.f25944h.setOnClickListener(this);
+        this.f26047h.setOnClickListener(this);
         this.mHelp.setOnClickListener(this);
-        this.f25941e.addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.WalletSmsActivity.1
+        this.f26044e.addTextChangedListener(new TextWatcher() { // from class: com.baidu.wallet.paysdk.ui.WalletSmsActivity.1
 
             /* renamed from: b  reason: collision with root package name */
-            public boolean f25947b = false;
+            public boolean f26050b = false;
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
@@ -593,7 +593,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 } else {
                     WalletSmsActivity.this.k.setVisibility(8);
                 }
-                WalletSmsActivity.this.f25944h.setEnabled(WalletSmsActivity.this.a(editable.toString()));
+                WalletSmsActivity.this.f26047h.setEnabled(WalletSmsActivity.this.a(editable.toString()));
             }
 
             @Override // android.text.TextWatcher
@@ -602,19 +602,19 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-                if (!this.f25947b) {
-                    if (WalletSmsActivity.this.f25940c != null) {
-                        WalletSmsActivity.this.f25940c.doOnEvent();
+                if (!this.f26050b) {
+                    if (WalletSmsActivity.this.f26043c != null) {
+                        WalletSmsActivity.this.f26043c.doOnEvent();
                     }
-                    this.f25947b = true;
+                    this.f26050b = true;
                 }
                 WalletSmsActivity.this.b();
             }
         });
-        View findViewById = findViewById(ResUtils.id(this.f25938a, "dialog_close"));
+        View findViewById = findViewById(ResUtils.id(this.f26041a, "dialog_close"));
         this.l = findViewById;
         findViewById.setOnClickListener(this);
-        this.m = (TextView) findViewById(ResUtils.id(this.f25938a, "dialog_title"));
+        this.m = (TextView) findViewById(ResUtils.id(this.f26041a, "dialog_title"));
         this.p = ResUtils.anim(this, "wallet_dialog_slide_to_left");
         this.q = ResUtils.anim(this, "wallet_dialog_slide_to_right");
         this.r = (TextView) findViewById(ResUtils.id(this, "ebpay_error_tip"));
@@ -624,9 +624,9 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         TextView textView = (TextView) findViewById(ResUtils.id(this, "ebpay_btn_modify_phone"));
         this.v = textView;
         textView.setOnClickListener(this);
-        setSafeScrollView(this.f25942f);
+        setSafeScrollView(this.f26045f);
         a(getIntent());
-        this.f25941e.requestFocus();
+        this.f26044e.requestFocus();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

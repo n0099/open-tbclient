@@ -12,13 +12,13 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45986a = k.f43199a;
+    public static final boolean f49660a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a.g f45987b;
+    public static a.g f49661b;
 
     public static void a(a.g gVar) {
-        f45987b = gVar;
+        f49661b = gVar;
     }
 
     public static void b(EditText editText, int i2) {
@@ -26,7 +26,7 @@ public class c {
     }
 
     public static void c(EditText editText, int i2) {
-        if (editText == null || f45987b == null) {
+        if (editText == null || f49661b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -36,11 +36,11 @@ public class c {
             jSONObject.put("cursorOffset", editText.getSelectionStart());
             jSONObject.put("keyCode", i2);
         } catch (JSONException e2) {
-            if (f45986a) {
+            if (f49660a) {
                 e2.printStackTrace();
             }
         }
-        f45987b.a(String.valueOf(editText.getTag()), jSONObject);
+        f49661b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void d(EditText editText, int i2) {
@@ -48,7 +48,7 @@ public class c {
     }
 
     public static void e(EditText editText, String str, int i2) {
-        if (editText == null || f45987b == null) {
+        if (editText == null || f49661b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -58,11 +58,11 @@ public class c {
             jSONObject.put("cursorOffset", editText.getText().length());
             jSONObject.put("keyboardHeight", n0.K(i2));
         } catch (JSONException e2) {
-            if (f45986a) {
+            if (f49660a) {
                 e2.printStackTrace();
             }
         }
-        f45987b.a(String.valueOf(editText.getTag()), jSONObject);
+        f49661b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void f(EditText editText, int i2) {

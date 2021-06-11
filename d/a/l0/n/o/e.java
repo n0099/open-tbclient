@@ -96,18 +96,18 @@ public class e {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                a.C1078a c1078a = new a.C1078a();
-                c1078a.f48081a = optJSONObject.optInt("errno");
-                c1078a.f48082b = optJSONObject.optString("bundle_id");
-                c1078a.f48083c = optJSONObject.optInt("category");
-                c1078a.f48084d = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
-                c1078a.f48085e = k(optJSONObject.optJSONArray("sub"));
-                c1078a.f48086f = a(optJSONObject.optJSONObject("app_info"));
-                d.a.l0.n.c.b().p(c1078a.f48082b, optJSONObject, c1078a.f48084d, c1078a.f48085e);
-                arrayList.add(c1078a);
+                a.C1134a c1134a = new a.C1134a();
+                c1134a.f51755a = optJSONObject.optInt("errno");
+                c1134a.f51756b = optJSONObject.optString("bundle_id");
+                c1134a.f51757c = optJSONObject.optInt("category");
+                c1134a.f51758d = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
+                c1134a.f51759e = k(optJSONObject.optJSONArray("sub"));
+                c1134a.f51760f = a(optJSONObject.optJSONObject("app_info"));
+                d.a.l0.n.c.b().p(c1134a.f51756b, optJSONObject, c1134a.f51758d, c1134a.f51759e);
+                arrayList.add(c1134a);
             }
         }
-        aVar.f48080a = arrayList;
+        aVar.f51754a = arrayList;
         return aVar;
     }
 
@@ -118,13 +118,13 @@ public class e {
         d.a.l0.n.i.l.b bVar = new d.a.l0.n.i.l.b();
         JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
         if (optJSONObject != null) {
-            bVar.f48088a = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
-            bVar.f48089b = k(optJSONObject.optJSONArray("sub"));
-            d.a.l0.n.c.b().p(str, optJSONObject, bVar.f48088a, bVar.f48089b);
+            bVar.f51762a = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
+            bVar.f51763b = k(optJSONObject.optJSONArray("sub"));
+            d.a.l0.n.c.b().p(str, optJSONObject, bVar.f51762a, bVar.f51763b);
         }
-        bVar.f48090c = d(jSONObject.optJSONObject("framework"));
-        bVar.f48092e = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
-        bVar.f48091d = a(jSONObject.optJSONObject("app_info"));
+        bVar.f51764c = d(jSONObject.optJSONObject("framework"));
+        bVar.f51766e = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        bVar.f51765d = a(jSONObject.optJSONObject("app_info"));
         return bVar;
     }
 
@@ -133,7 +133,7 @@ public class e {
             return null;
         }
         d.a.l0.n.i.l.c cVar = new d.a.l0.n.i.l.c();
-        cVar.f48093a = l(jSONObject);
+        cVar.f51767a = l(jSONObject);
         return cVar;
     }
 
@@ -144,8 +144,8 @@ public class e {
         d.a.l0.n.i.l.d dVar = new d.a.l0.n.i.l.d();
         JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
         if (optJSONObject != null) {
-            dVar.f48094a = k(optJSONObject.optJSONArray("sub"));
-            d.a.l0.n.c.b().p(str, optJSONObject, null, dVar.f48094a);
+            dVar.f51768a = k(optJSONObject.optJSONArray("sub"));
+            d.a.l0.n.c.b().p(str, optJSONObject, null, dVar.f51768a);
         }
         return dVar;
     }
@@ -154,10 +154,10 @@ public class e {
         if (jSONObject == null || t == null) {
             return null;
         }
-        t.f48012g = jSONObject.optString("bundle_id");
-        t.f48013h = jSONObject.optInt("category");
+        t.f51686g = jSONObject.optString("bundle_id");
+        t.f51687h = jSONObject.optInt("category");
         t.j = jSONObject.optString("version_name");
-        t.f48014i = jSONObject.optInt("version_code");
+        t.f51688i = jSONObject.optInt("version_code");
         t.k = jSONObject.optLong("size");
         t.l = jSONObject.optString(PackageTable.MD5);
         t.m = jSONObject.optString("sign");
@@ -223,12 +223,12 @@ public class e {
             return null;
         }
         d.a.l0.n.i.l.e eVar = new d.a.l0.n.i.l.e();
-        eVar.f48095a = jSONObject.optLong("max_age");
+        eVar.f51769a = jSONObject.optLong("max_age");
         long optLong = jSONObject.optLong("lastsynctime");
         if (optLong > 0) {
-            l.f48156c = optLong;
+            l.f51830c = optLong;
         }
-        eVar.f48096b = jSONObject;
+        eVar.f51770b = jSONObject;
         return eVar;
     }
 }

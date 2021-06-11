@@ -9,10 +9,10 @@ import java.util.HashMap;
 public class TMNTokenClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public static TMNTokenClient f1718a;
+    public static TMNTokenClient f1731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1719b;
+    public Context f1732b;
 
     /* loaded from: classes.dex */
     public interface InitResultListener {
@@ -20,22 +20,22 @@ public class TMNTokenClient {
     }
 
     public TMNTokenClient(Context context) {
-        this.f1719b = null;
+        this.f1732b = null;
         if (context == null) {
             throw new IllegalArgumentException("TMNTokenClient initialization error: context is null.");
         }
-        this.f1719b = context;
+        this.f1732b = context;
     }
 
     public static TMNTokenClient getInstance(Context context) {
-        if (f1718a == null) {
+        if (f1731a == null) {
             synchronized (TMNTokenClient.class) {
-                if (f1718a == null) {
-                    f1718a = new TMNTokenClient(context);
+                if (f1731a == null) {
+                    f1731a = new TMNTokenClient(context);
                 }
             }
         }
-        return f1718a;
+        return f1731a;
     }
 
     public void intiToken(final String str, String str2, String str3, final InitResultListener initResultListener) {
@@ -46,7 +46,7 @@ public class TMNTokenClient {
             initResultListener.onResult("", 3);
         }
         final HashMap hashMap = new HashMap();
-        hashMap.put(b.f1830g, UtdidWrapper.getUtdid(this.f1719b));
+        hashMap.put(b.f1843g, UtdidWrapper.getUtdid(this.f1732b));
         hashMap.put("tid", "");
         hashMap.put("userId", "");
         hashMap.put("appName", str);
@@ -57,7 +57,7 @@ public class TMNTokenClient {
         com.alipay.apmobilesecuritysdk.f.b.a().a(new Runnable() { // from class: com.alipay.apmobilesecuritysdk.face.TMNTokenClient.1
             @Override // java.lang.Runnable
             public void run() {
-                int a2 = new com.alipay.apmobilesecuritysdk.a.a(TMNTokenClient.this.f1719b).a(hashMap);
+                int a2 = new com.alipay.apmobilesecuritysdk.a.a(TMNTokenClient.this.f1732b).a(hashMap);
                 InitResultListener initResultListener2 = initResultListener;
                 if (initResultListener2 == null) {
                     return;
@@ -66,7 +66,7 @@ public class TMNTokenClient {
                     initResultListener2.onResult("", a2);
                     return;
                 }
-                initResultListener.onResult(com.alipay.apmobilesecuritysdk.a.a.a(TMNTokenClient.this.f1719b, str), 0);
+                initResultListener.onResult(com.alipay.apmobilesecuritysdk.a.a.a(TMNTokenClient.this.f1732b, str), 0);
             }
         });
     }

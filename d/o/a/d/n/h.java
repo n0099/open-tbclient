@@ -29,53 +29,53 @@ public class h {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f66995e;
+        public final /* synthetic */ Context f70781e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f66996f;
+        public final /* synthetic */ String f70782f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.f f66997g;
+        public final /* synthetic */ c.f f70783g;
 
         /* renamed from: d.o.a.d.n.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1880a implements p {
+        public class C1940a implements p {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f66998a;
+            public final /* synthetic */ JSONObject f70784a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f66999b;
+            public final /* synthetic */ JSONObject f70785b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f67000c;
+            public final /* synthetic */ String f70786c;
 
-            public C1880a(JSONObject jSONObject, JSONObject jSONObject2, String str) {
-                this.f66998a = jSONObject;
-                this.f66999b = jSONObject2;
-                this.f67000c = str;
+            public C1940a(JSONObject jSONObject, JSONObject jSONObject2, String str) {
+                this.f70784a = jSONObject;
+                this.f70785b = jSONObject2;
+                this.f70786c = str;
             }
 
             @Override // d.o.a.a.a.a.p
             public void a(String str) {
                 a aVar = a.this;
-                h.m(aVar.f66995e, aVar.f66996f, str, aVar.f66997g, true, this.f66998a, this.f66999b, this.f67000c);
+                h.m(aVar.f70781e, aVar.f70782f, str, aVar.f70783g, true, this.f70784a, this.f70785b, this.f70786c);
             }
 
             @Override // d.o.a.a.a.a.p
             public void a(Throwable th) {
-                Context context = a.this.f66995e;
-                h.a(context, Uri.parse("market://details?id=" + a.this.f66996f));
-                k.r(this.f66998a, "error_code", 4);
-                k.r(this.f66998a, "ttdownloader_type", 1);
-                j.c.a().t("am_result", this.f66998a, a.this.f66997g);
+                Context context = a.this.f70781e;
+                h.a(context, Uri.parse("market://details?id=" + a.this.f70782f));
+                k.r(this.f70784a, "error_code", 4);
+                k.r(this.f70784a, "ttdownloader_type", 1);
+                j.c.a().t("am_result", this.f70784a, a.this.f70783g);
             }
         }
 
         public a(Context context, String str, c.f fVar) {
-            this.f66995e = context;
-            this.f66996f = str;
-            this.f66997g = fVar;
+            this.f70781e = context;
+            this.f70782f = str;
+            this.f70783g = fVar;
         }
 
         @Override // java.lang.Runnable
@@ -85,22 +85,22 @@ public class h {
             JSONObject jSONObject = new JSONObject();
             String b2 = d.o.a.e.a.h.b.b(s.optString("x"), optString);
             if (n.o() == null) {
-                Context context = this.f66995e;
-                h.a(context, Uri.parse("market://details?id=" + this.f66996f));
+                Context context = this.f70781e;
+                h.a(context, Uri.parse("market://details?id=" + this.f70782f));
                 k.r(jSONObject, "error_code", 5);
                 k.r(jSONObject, "ttdownloader_type", 1);
-                j.c.a().t("am_result", jSONObject, this.f66997g);
+                j.c.a().t("am_result", jSONObject, this.f70783g);
                 return;
             }
             JSONObject jSONObject2 = new JSONObject();
-            k.r(jSONObject2, "p", this.f66996f);
+            k.r(jSONObject2, "p", this.f70782f);
             k.r(jSONObject2, "i", Build.VERSION.INCREMENTAL);
             k.r(jSONObject2, "m", Build.MODEL);
-            k.r(jSONObject2, "im", d.o.a.d.e$i.b.b(this.f66995e));
-            k.r(jSONObject2, "d", d.o.a.d.e$i.b.d(this.f66995e));
+            k.r(jSONObject2, "im", d.o.a.d.e$i.b.b(this.f70781e));
+            k.r(jSONObject2, "d", d.o.a.d.e$i.b.d(this.f70781e));
             k.r(jSONObject2, "t", "m");
             byte[] bytes = jSONObject2.toString().getBytes();
-            n.o().a(b2, EncryptorUtil.a(bytes, bytes.length), "application/octet-stream;tt-data=a", 0, new C1880a(jSONObject, s, optString));
+            n.o().a(b2, EncryptorUtil.a(bytes, bytes.length), "application/octet-stream;tt-data=a", 0, new C1940a(jSONObject, s, optString));
         }
     }
 
@@ -108,33 +108,33 @@ public class h {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f67002e;
+        public final /* synthetic */ Context f70788e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f67003f;
+        public final /* synthetic */ String f70789f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.f f67004g;
+        public final /* synthetic */ c.f f70790g;
 
         public b(Context context, String str, c.f fVar) {
-            this.f67002e = context;
-            this.f67003f = str;
-            this.f67004g = fVar;
+            this.f70788e = context;
+            this.f70789f = str;
+            this.f70790g = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Context context = this.f67002e;
-            g.b.b(h.a(context, Uri.parse("market://details?id=" + this.f67003f)), this.f67004g);
+            Context context = this.f70788e;
+            g.b.b(h.a(context, Uri.parse("market://details?id=" + this.f70789f)), this.f70790g);
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject s = n.s();
                 Thread.sleep(s.optInt("m2_delay_millis", 1000));
-                d.o.a.d.e$j.a.b().e(this.f67002e, true);
+                d.o.a.d.e$j.a.b().e(this.f70788e, true);
                 com.ss.android.downloadlib.a.c.b bVar = new com.ss.android.downloadlib.a.c.b();
-                bVar.f35769a = 1;
-                bVar.f35770b = 0;
-                bVar.f35771c = String.format(d.o.a.e.a.h.b.b(s.optString("v"), s.optString("s")), this.f67003f);
+                bVar.f39448a = 1;
+                bVar.f39449b = 0;
+                bVar.f39450c = String.format(d.o.a.e.a.h.b.b(s.optString("v"), s.optString("s")), this.f70789f);
                 d.o.a.d.e$j.a.b().c(bVar, null);
                 d.o.a.d.e$j.a.b().f();
                 k.r(jSONObject, "error_code", -1);
@@ -177,7 +177,7 @@ public class h {
             if (d.o.a.e.a.h.c.h() && k.I(context, "com.sec.android.app.samsungapps")) {
                 return p(context, str);
             }
-            if (!fVar.f66759b.t()) {
+            if (!fVar.f70545b.t()) {
                 return a(context, Uri.parse("market://details?id=" + str));
             }
             JSONArray optJSONArray = n.s().optJSONArray("am_plans");
@@ -230,7 +230,7 @@ public class h {
 
     public static c.h e(@NonNull d.o.a.b.a.c.b bVar, String str, String str2) {
         c.h k = k(str, bVar);
-        return (g.C1873g.c(bVar) && k.a() == 2) ? f(str2, bVar) : k;
+        return (g.C1933g.c(bVar) && k.a() == 2) ? f(str2, bVar) : k;
     }
 
     public static c.h f(String str, d.o.a.b.a.c.a aVar) {
@@ -396,7 +396,7 @@ public class h {
         Intent intent = new Intent(context, JumpKllkActivity.class);
         intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.putExtra("p", str);
-        intent.putExtra("id", fVar.f66758a);
+        intent.putExtra("id", fVar.f70544a);
         intent.putExtra("start_only_for_android", true);
         JSONObject jSONObject = new JSONObject();
         try {

@@ -111,7 +111,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
             if (dataRes.hot_search != null) {
                 HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
                 this.hotSearchInfo = hotSearchInfoData;
-                hotSearchInfoData.t(forumRecommendResIdl.data.hot_search);
+                hotSearchInfoData.x(forumRecommendResIdl.data.hot_search);
             }
             DataRes dataRes2 = forumRecommendResIdl.data;
             this.recommend_concern_forums = dataRes2.tag_recommend_forum;

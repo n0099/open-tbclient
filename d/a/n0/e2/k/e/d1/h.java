@@ -15,35 +15,35 @@ import d.a.n0.z.b0;
 public class h extends d.a.n0.e2.k.e.d1.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public a2 f53261f;
+    public a2 f56950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.m0.r.q.a f53262g;
+    public d.a.m0.r.q.a f56951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public o f53263h;
+    public o f56952h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f53264i;
+    public View f56953i;
 
     /* loaded from: classes5.dex */
     public class a extends d.a.m0.r.q.a {
         public a() {
         }
 
-        @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+        @Override // d.a.m0.r.q.a
+        public v0 c() {
+            return null;
+        }
+
+        @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
         public BdUniqueId getType() {
             return null;
         }
 
         @Override // d.a.m0.r.q.a
-        public v0 h() {
-            return null;
-        }
-
-        @Override // d.a.m0.r.q.a
-        public a2 m() {
-            return h.this.f53261f;
+        public a2 i() {
+            return h.this.f56950f;
         }
     }
 
@@ -55,9 +55,9 @@ public class h extends d.a.n0.e2.k.e.d1.a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             h hVar = h.this;
-            a.InterfaceC0542a interfaceC0542a = hVar.f53227c;
-            if (interfaceC0542a != null) {
-                interfaceC0542a.a(hVar.f53262g);
+            a.InterfaceC0598a interfaceC0598a = hVar.f56916c;
+            if (interfaceC0598a != null) {
+                interfaceC0598a.a(hVar.f56951g);
             }
         }
     }
@@ -68,27 +68,27 @@ public class h extends d.a.n0.e2.k.e.d1.a {
 
     @Override // d.a.n0.e2.k.e.d1.a
     public View a() {
-        if (this.f53263h == null) {
-            o oVar = new o(this.f53225a.getPageActivity());
-            this.f53263h = oVar;
+        if (this.f56952h == null) {
+            o oVar = new o(this.f56914a.getPageActivity());
+            this.f56952h = oVar;
             oVar.n(Boolean.TRUE);
-            this.f53263h.x("pb");
-            this.f53263h.z(0);
-            this.f53263h.F(this.f53225a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f53225a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.f53225a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f53225a.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
-            this.f53263h.G(false);
-            this.f53263h.E(true);
+            this.f56952h.x("pb");
+            this.f56952h.z(0);
+            this.f56952h.F(this.f56914a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f56914a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.f56914a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f56914a.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
+            this.f56952h.G(false);
+            this.f56952h.E(true);
         }
-        View g2 = this.f53263h.g();
-        this.f53264i = g2;
+        View g2 = this.f56952h.g();
+        this.f56953i = g2;
         return g2;
     }
 
     @Override // d.a.n0.e2.k.e.d1.a
     public void b(TbPageContext tbPageContext, int i2) {
-        if (this.f53229e != i2) {
-            this.f53229e = i2;
-            SkinManager.setBackgroundColor(this.f53264i, R.color.CAM_X0204);
-            o oVar = this.f53263h;
+        if (this.f56918e != i2) {
+            this.f56918e = i2;
+            SkinManager.setBackgroundColor(this.f56953i, R.color.CAM_X0204);
+            o oVar = this.f56952h;
             if (oVar != null) {
                 oVar.onChangeSkinType(tbPageContext, i2);
             }
@@ -97,24 +97,24 @@ public class h extends d.a.n0.e2.k.e.d1.a {
 
     @Override // d.a.n0.e2.k.e.d1.a
     public void c(OriginalThreadInfo originalThreadInfo) {
-        this.f53228d = originalThreadInfo;
-        this.f53261f = originalThreadInfo == null ? null : originalThreadInfo.a();
+        this.f56917d = originalThreadInfo;
+        this.f56950f = originalThreadInfo == null ? null : originalThreadInfo.a();
         a aVar = new a();
-        this.f53262g = aVar;
-        o oVar = this.f53263h;
+        this.f56951g = aVar;
+        o oVar = this.f56952h;
         if (oVar != null) {
             oVar.a(aVar);
         }
     }
 
     @Override // d.a.n0.e2.k.e.d1.a
-    public void d(a.InterfaceC0542a interfaceC0542a) {
-        super.d(interfaceC0542a);
-        o oVar = this.f53263h;
+    public void d(a.InterfaceC0598a interfaceC0598a) {
+        super.d(interfaceC0598a);
+        o oVar = this.f56952h;
         if (oVar != null) {
-            oVar.A(interfaceC0542a);
+            oVar.A(interfaceC0598a);
         }
-        View view = this.f53264i;
+        View view = this.f56953i;
         if (view != null) {
             view.setOnClickListener(new b());
         }
@@ -123,9 +123,9 @@ public class h extends d.a.n0.e2.k.e.d1.a {
     @Override // d.a.n0.e2.k.e.d1.a
     public void e(b0 b0Var) {
         super.e(b0Var);
-        o oVar = this.f53263h;
+        o oVar = this.f56952h;
         if (oVar != null) {
-            oVar.l(this.f53226b);
+            oVar.l(this.f56915b);
         }
     }
 }

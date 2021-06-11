@@ -5,24 +5,24 @@ import com.baidu.tbadk.TbPageContext;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f50783a;
+    public TbPageContext f54460a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50784b;
+    public String f54461b;
 
     public i() {
     }
 
     public String a() {
-        return this.f50784b;
+        return this.f54461b;
     }
 
     public TbPageContext b() {
-        return this.f50783a;
+        return this.f54460a;
     }
 
     public i(TbPageContext tbPageContext, String str) {
-        this.f50783a = tbPageContext;
-        this.f50784b = str;
+        this.f54460a = tbPageContext;
+        this.f54461b = str;
     }
 }

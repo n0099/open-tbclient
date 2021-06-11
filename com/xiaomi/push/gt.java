@@ -5,12 +5,12 @@ import com.xiaomi.push.service.XMPushService;
 public class gt extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ gs f37691a;
+    public final /* synthetic */ gs f41370a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gt(gs gsVar, int i2) {
         super(i2);
-        this.f37691a = gsVar;
+        this.f41370a = gsVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -20,6 +20,6 @@ public class gt extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        this.f37691a.c();
+        this.f41370a.c();
     }
 }

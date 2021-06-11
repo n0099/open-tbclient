@@ -6,12 +6,11 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class s extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager f45884b;
+    public AudioManager f49558b;
 
     @Override // d.a.l0.a.y0.a
     @NonNull
@@ -26,7 +25,7 @@ public class s extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
         if (command.obj == null) {
             return;
         }
-        if (!aVar.S()) {
+        if (!aVar.P()) {
             d(aVar, command.what, "Not Set!! Volume: " + command.obj, false);
             return;
         }
@@ -43,7 +42,7 @@ public class s extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
                 }
                 f(doubleValue, aVar.getContext());
             } catch (Exception unused) {
-                if (d.a.l0.a.y0.a.f45771a) {
+                if (d.a.l0.a.y0.a.f49445a) {
                     Log.e(b(), "setVolume param type error");
                 }
             }
@@ -51,16 +50,16 @@ public class s extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
     }
 
     public final void f(double d2, Context context) {
-        if (this.f45884b == null) {
-            this.f45884b = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        if (this.f49558b == null) {
+            this.f49558b = (AudioManager) context.getSystemService("audio");
         }
-        AudioManager audioManager = this.f45884b;
+        AudioManager audioManager = this.f49558b;
         if (audioManager == null) {
             return;
         }
         int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d2);
-        if (round == this.f45884b.getStreamVolume(3)) {
-            if (d.a.l0.a.y0.a.f45771a) {
+        if (round == this.f49558b.getStreamVolume(3)) {
+            if (d.a.l0.a.y0.a.f49445a) {
                 Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
                 return;
             }
@@ -69,9 +68,9 @@ public class s extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
         if (d2 > 0.0d && round == 0) {
             round = 1;
         }
-        if (d.a.l0.a.y0.a.f45771a) {
+        if (d.a.l0.a.y0.a.f49445a) {
             Log.d("【InlineCommand】", "setVolumeInt" + round);
         }
-        this.f45884b.setStreamVolume(3, round, 0);
+        this.f49558b.setStreamVolume(3, round, 0);
     }
 }

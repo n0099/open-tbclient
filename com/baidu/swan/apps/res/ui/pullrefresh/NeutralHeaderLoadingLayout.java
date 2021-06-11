@@ -12,10 +12,10 @@ import d.a.l0.a.k;
 import d.a.l0.a.v2.n0;
 /* loaded from: classes3.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
-    public static final boolean o = k.f43199a;
+    public static final boolean o = k.f46875a;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11156i;
+    public int f11218i;
     public int j;
     public int k;
     public int l;
@@ -26,21 +26,21 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f11157e;
+        public final /* synthetic */ Runnable f11219e;
 
         public a(Runnable runnable) {
-            this.f11157e = runnable;
+            this.f11219e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f11157e.run();
+            this.f11219e.run();
         }
     }
 
     public NeutralHeaderLoadingLayout(Context context) {
         super(context);
-        this.f11156i = 0;
+        this.f11218i = 0;
         o();
     }
 
@@ -144,7 +144,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         float f2;
         int i3 = this.j;
         if (i2 < i3) {
-            int i4 = this.f11156i;
+            int i4 = this.f11218i;
             f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
         } else {
             f2 = 1.0f;
@@ -159,13 +159,13 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         this.n = (NeutralRefreshAnimView) findViewById(f.neutral_refresh_anim_view);
         int f2 = n0.f(getContext(), 29.0f);
-        this.f11156i = f2;
+        this.f11218i = f2;
         this.j = (int) (f2 * 2.4f);
         int i2 = (int) (f2 * 1.5f);
         this.l = i2;
         this.k = i2;
         if (o) {
-            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.f11156i);
+            Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.f11218i);
             Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.j);
             Log.e("NeutralLoadingLayout", "mRefreshingHeight" + this.l);
             Log.e("NeutralLoadingLayout", "mScrollStartLength" + this.k);

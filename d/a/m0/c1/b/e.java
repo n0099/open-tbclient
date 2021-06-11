@@ -13,7 +13,7 @@ import com.baidu.tieba.view.BdTopToast;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f49258a = false;
+    public static boolean f52932a = false;
 
     public static void a() {
         d.a.m0.r.d0.b.j().C("key_youngster_verify");

@@ -12,35 +12,35 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     public static final Parcelable.Creator<MassTransitRouteResult> CREATOR = new l();
 
     /* renamed from: a  reason: collision with root package name */
-    public TransitResultNode f7309a;
+    public TransitResultNode f7352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TransitResultNode f7310b;
+    public TransitResultNode f7353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TaxiInfo f7311c;
+    public TaxiInfo f7354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7312d;
+    public int f7355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<MassTransitRouteLine> f7313e;
+    public List<MassTransitRouteLine> f7356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SuggestAddrInfo f7314f;
+    public SuggestAddrInfo f7357f;
 
     public MassTransitRouteResult() {
     }
 
     public MassTransitRouteResult(Parcel parcel) {
-        this.f7309a = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
-        this.f7310b = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
-        this.f7311c = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
-        this.f7312d = parcel.readInt();
+        this.f7352a = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
+        this.f7353b = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
+        this.f7354c = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f7355d = parcel.readInt();
         ArrayList arrayList = new ArrayList();
-        this.f7313e = arrayList;
+        this.f7356e = arrayList;
         parcel.readList(arrayList, MassTransitRouteLine.class.getClassLoader());
-        this.f7314f = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f7357f = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -49,60 +49,60 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     }
 
     public TransitResultNode getDestination() {
-        return this.f7310b;
+        return this.f7353b;
     }
 
     public TransitResultNode getOrigin() {
-        return this.f7309a;
+        return this.f7352a;
     }
 
     public List<MassTransitRouteLine> getRouteLines() {
-        return this.f7313e;
+        return this.f7356e;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
-        return this.f7314f;
+        return this.f7357f;
     }
 
     public TaxiInfo getTaxiInfo() {
-        return this.f7311c;
+        return this.f7354c;
     }
 
     public int getTotal() {
-        return this.f7312d;
+        return this.f7355d;
     }
 
     public void setDestination(TransitResultNode transitResultNode) {
-        this.f7310b = transitResultNode;
+        this.f7353b = transitResultNode;
     }
 
     public void setOrigin(TransitResultNode transitResultNode) {
-        this.f7309a = transitResultNode;
+        this.f7352a = transitResultNode;
     }
 
     public void setRoutelines(List<MassTransitRouteLine> list) {
-        this.f7313e = list;
+        this.f7356e = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
-        this.f7314f = suggestAddrInfo;
+        this.f7357f = suggestAddrInfo;
     }
 
     public void setTaxiInfo(TaxiInfo taxiInfo) {
-        this.f7311c = taxiInfo;
+        this.f7354c = taxiInfo;
     }
 
     public void setTotal(int i2) {
-        this.f7312d = i2;
+        this.f7355d = i2;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeParcelable(this.f7309a, 1);
-        parcel.writeParcelable(this.f7310b, 1);
-        parcel.writeParcelable(this.f7311c, 1);
-        parcel.writeInt(this.f7312d);
-        parcel.writeList(this.f7313e);
-        parcel.writeParcelable(this.f7314f, 1);
+        parcel.writeParcelable(this.f7352a, 1);
+        parcel.writeParcelable(this.f7353b, 1);
+        parcel.writeParcelable(this.f7354c, 1);
+        parcel.writeInt(this.f7355d);
+        parcel.writeList(this.f7356e);
+        parcel.writeParcelable(this.f7357f, 1);
     }
 }

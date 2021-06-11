@@ -22,31 +22,31 @@ import tbclient.User;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Wire f53954c = new Wire(new Class[0]);
+    public static final Wire f57643c = new Wire(new Class[0]);
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f53955d;
+    public static e f57644d;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f53956a = null;
+    public m f57645a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.e.d.l<byte[]> f53957b;
+    public d.a.c.e.d.l<byte[]> f57646b;
 
     public e() {
-        this.f53957b = null;
-        this.f53957b = BdCacheService.l().a("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.f57646b = null;
+        this.f57646b = BdCacheService.l().a("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
     public static e i() {
-        if (f53955d == null) {
+        if (f57644d == null) {
             synchronized (e.class) {
-                if (f53955d == null) {
-                    f53955d = new e();
+                if (f57644d == null) {
+                    f57644d = new e();
                 }
             }
         }
-        return f53955d;
+        return f57644d;
     }
 
     public void a(String str, byte[] bArr, boolean z) {
@@ -55,27 +55,27 @@ public class e {
         }
         if (z) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            d.a.c.e.d.l<byte[]> lVar = this.f53957b;
+            d.a.c.e.d.l<byte[]> lVar = this.f57646b;
             lVar.e(currentAccount + str, bArr, h());
             return;
         }
         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        d.a.c.e.d.l<byte[]> lVar2 = this.f53957b;
+        d.a.c.e.d.l<byte[]> lVar2 = this.f57646b;
         lVar2.i(currentAccount2 + str, bArr, h());
     }
 
     public void b(String str, String str2) {
-        if (this.f53957b == null || str == null) {
+        if (this.f57646b == null || str == null) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        d.a.c.e.d.l<byte[]> lVar = this.f53957b;
+        d.a.c.e.d.l<byte[]> lVar = this.f57646b;
         byte[] bArr = lVar.get(currentAccount + str);
         if (bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f53954c.parseFrom(bArr, FrsPageResIdl.class);
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f57643c.parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.forum == null || frsPageResIdl.data.forum.banner_list == null || frsPageResIdl.data.forum.banner_list.app == null || frsPageResIdl.data.forum.banner_list.app.size() <= 0) {
                 return;
             }
@@ -102,17 +102,17 @@ public class e {
     }
 
     public void c(String str, String str2) {
-        if (this.f53957b == null || str == null) {
+        if (this.f57646b == null || str == null) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        d.a.c.e.d.l<byte[]> lVar = this.f53957b;
+        d.a.c.e.d.l<byte[]> lVar = this.f57646b;
         byte[] bArr = lVar.get(currentAccount + str);
         if (bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f53954c.parseFrom(bArr, FrsPageResIdl.class);
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f57643c.parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.ala_stage_list == null) {
                 return;
             }
@@ -129,17 +129,17 @@ public class e {
     }
 
     public void d(String str, String str2) {
-        if (this.f53957b == null || str == null) {
+        if (this.f57646b == null || str == null) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        d.a.c.e.d.l<byte[]> lVar = this.f53957b;
+        d.a.c.e.d.l<byte[]> lVar = this.f57646b;
         byte[] bArr = lVar.get(currentAccount + str);
         if (bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f53954c.parseFrom(bArr, FrsPageResIdl.class);
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f57643c.parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.thread_list == null) {
                 return;
             }
@@ -162,19 +162,19 @@ public class e {
     }
 
     public boolean e(String str) {
-        if (this.f53957b != null && str != null) {
+        if (this.f57646b != null && str != null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            d.a.c.e.d.l<byte[]> lVar = this.f53957b;
+            d.a.c.e.d.l<byte[]> lVar = this.f57646b;
             byte[] bArr = lVar.get(currentAccount + str);
             if (bArr != null && bArr.length > 0) {
                 m mVar = new m();
-                this.f53956a = mVar;
+                this.f57645a = mVar;
                 mVar.parserProtobuf(bArr, false);
-                ForumData forumData = this.f53956a.forum;
+                ForumData forumData = this.f57645a.forum;
                 if (forumData == null || forumData.getFrsBannerData() == null) {
                     return true;
                 }
-                this.f53956a.forum.getFrsBannerData().f50019i = false;
+                this.f57645a.forum.getFrsBannerData().f53695i = false;
                 return true;
             }
         }
@@ -210,7 +210,7 @@ public class e {
     }
 
     public m j() {
-        return this.f53956a;
+        return this.f57645a;
     }
 
     public final boolean k(long j, List<ThreadInfo> list) {
@@ -227,20 +227,20 @@ public class e {
 
     public boolean l(String str) {
         l.b<byte[]> h2;
-        if (str == null || str.length() <= 0 || (h2 = this.f53957b.h(str)) == null) {
+        if (str == null || str.length() <= 0 || (h2 = this.f57646b.h(str)) == null) {
             return false;
         }
-        return UtilHelper.isSameDay(h2.f38543c, System.currentTimeMillis());
+        return UtilHelper.isSameDay(h2.f42196c, System.currentTimeMillis());
     }
 
     public void m(String str, byte[] bArr) {
         List<ThreadInfo> list;
         int count;
-        if (this.f53957b == null || str == null || bArr == null || bArr.length <= 0) {
+        if (this.f57646b == null || str == null || bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f53954c.parseFrom(bArr, FrsPageResIdl.class);
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f57643c.parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl == null || frsPageResIdl.data == null || (count = ListUtils.getCount((list = frsPageResIdl.data.thread_list))) <= 0) {
                 return;
             }
@@ -249,10 +249,10 @@ public class e {
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            d.a.c.e.d.l<byte[]> lVar = this.f53957b;
+            d.a.c.e.d.l<byte[]> lVar = this.f57646b;
             byte[] bArr2 = lVar.get(currentAccount + str);
             if (bArr2 != null) {
-                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) f53954c.parseFrom(bArr2, FrsPageResIdl.class);
+                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) f57643c.parseFrom(bArr2, FrsPageResIdl.class);
                 if (frsPageResIdl2 != null && frsPageResIdl2.data != null && frsPageResIdl2.data.thread_list != null) {
                     List<ThreadInfo> list2 = frsPageResIdl2.data.thread_list;
                     int count2 = ListUtils.getCount(list2);
@@ -294,12 +294,12 @@ public class e {
         }
         if (z) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            d.a.c.e.d.l<byte[]> lVar = this.f53957b;
+            d.a.c.e.d.l<byte[]> lVar = this.f57646b;
             lVar.remove(currentAccount + str);
             return;
         }
         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        d.a.c.e.d.l<byte[]> lVar2 = this.f53957b;
+        d.a.c.e.d.l<byte[]> lVar2 = this.f57646b;
         lVar2.d(currentAccount2 + str);
     }
 }

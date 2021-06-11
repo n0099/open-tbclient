@@ -15,10 +15,10 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45073a = k.f43199a;
+    public static final boolean f48747a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f45074b = Sets.newHashSet("localhost", "127.0.0.1");
+    public static final Set<String> f48748b = Sets.newHashSet("localhost", "127.0.0.1");
 
     public static String a(String str) {
         return str + "_" + System.currentTimeMillis();
@@ -30,7 +30,7 @@ public class h {
             i2 = false;
         }
         if (httpUrl != null) {
-            return (!i2 || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !f45074b.contains(httpUrl.host().toLowerCase());
+            return (!i2 || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !f48748b.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -42,7 +42,7 @@ public class h {
                 jSONObject.put("cancelTag", str);
             }
         } catch (JSONException e2) {
-            if (f45073a) {
+            if (f48747a) {
                 e2.printStackTrace();
             }
         }

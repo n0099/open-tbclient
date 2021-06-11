@@ -13,19 +13,19 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.a.n0.v0.b.a> f16016e;
+    public ArrayList<d.a.n0.v0.b.a> f16078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<i0> f16017f;
+    public ArrayList<i0> f16079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<e> f16018g;
+    public ArrayList<e> f16080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16019h;
+    public String f16081h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f16020i;
+    public int f16082i;
     public b j;
     public d.a.c.c.g.a k;
 
@@ -55,28 +55,28 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             }
             if (z) {
                 DefaultGiftListHttpResponseMessage defaultGiftListHttpResponseMessage = (DefaultGiftListHttpResponseMessage) responsedMessage;
-                DefaultGiftListModel.this.f16016e = defaultGiftListHttpResponseMessage.getCategoryList();
-                DefaultGiftListModel.this.f16017f = defaultGiftListHttpResponseMessage.getGiftList();
-                DefaultGiftListModel.this.f16018g = defaultGiftListHttpResponseMessage.getGiftNumberList();
-                DefaultGiftListModel.this.f16019h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
-                DefaultGiftListModel.this.f16020i = defaultGiftListHttpResponseMessage.getFreeChance();
+                DefaultGiftListModel.this.f16078e = defaultGiftListHttpResponseMessage.getCategoryList();
+                DefaultGiftListModel.this.f16079f = defaultGiftListHttpResponseMessage.getGiftList();
+                DefaultGiftListModel.this.f16080g = defaultGiftListHttpResponseMessage.getGiftNumberList();
+                DefaultGiftListModel.this.f16081h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
+                DefaultGiftListModel.this.f16082i = defaultGiftListHttpResponseMessage.getFreeChance();
                 i3 = defaultGiftListHttpResponseMessage.currencyType;
                 j0Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (!(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
                 j0Var = null;
                 i2 = 0;
                 if (DefaultGiftListModel.this.j == null) {
-                    DefaultGiftListModel.this.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.f16020i, DefaultGiftListModel.this.f16019h, i2, j0Var, DefaultGiftListModel.this.f16016e, DefaultGiftListModel.this.f16017f, DefaultGiftListModel.this.f16018g);
+                    DefaultGiftListModel.this.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.f16082i, DefaultGiftListModel.this.f16081h, i2, j0Var, DefaultGiftListModel.this.f16078e, DefaultGiftListModel.this.f16079f, DefaultGiftListModel.this.f16080g);
                     return;
                 }
                 return;
             } else {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
-                DefaultGiftListModel.this.f16016e = defaultGiftListSocketResponseMessage.getCategoryList();
-                DefaultGiftListModel.this.f16017f = defaultGiftListSocketResponseMessage.getGiftList();
-                DefaultGiftListModel.this.f16018g = defaultGiftListSocketResponseMessage.getGiftNumberList();
-                DefaultGiftListModel.this.f16019h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
-                DefaultGiftListModel.this.f16020i = defaultGiftListSocketResponseMessage.getFreeChance();
+                DefaultGiftListModel.this.f16078e = defaultGiftListSocketResponseMessage.getCategoryList();
+                DefaultGiftListModel.this.f16079f = defaultGiftListSocketResponseMessage.getGiftList();
+                DefaultGiftListModel.this.f16080g = defaultGiftListSocketResponseMessage.getGiftNumberList();
+                DefaultGiftListModel.this.f16081h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
+                DefaultGiftListModel.this.f16082i = defaultGiftListSocketResponseMessage.getFreeChance();
                 i3 = defaultGiftListSocketResponseMessage.currencyType;
                 j0Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             }
@@ -99,14 +99,14 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         registerListener();
     }
 
-    public void D(String str, long j) {
+    public void H(String str, long j) {
         DefaultGiftListRequest defaultGiftListRequest = new DefaultGiftListRequest();
         defaultGiftListRequest.setFrom(str);
         defaultGiftListRequest.setToUserId(j);
         sendMessage(defaultGiftListRequest);
     }
 
-    public void E(b bVar) {
+    public void I(b bVar) {
         this.j = bVar;
     }
 

@@ -36,7 +36,7 @@ public class e extends c {
                 }
             } catch (Exception e2) {
                 k(callbackHandler, str, 1001, e2.getMessage());
-                if (c.f44247c) {
+                if (c.f47921c) {
                     e2.printStackTrace();
                     return;
                 }

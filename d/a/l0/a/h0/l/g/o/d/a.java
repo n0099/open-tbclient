@@ -14,7 +14,7 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b r(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-preloadStatus", "start get preloadStatus - " + str);
         }
         if (e.Q() == null) {
@@ -22,8 +22,8 @@ public class a extends d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-preloadStatus", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.f48486c) {
                 Log.e("Api-preloadStatus", "parse fail");
             }
             return bVar;

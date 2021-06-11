@@ -14,6 +14,7 @@ public class SapiAccountResponse extends SapiResponse {
     public String livingUname;
     public boolean newReg;
     public String portraitSign;
+    public String socialNickname;
     public String bduss = "";
     public String ptoken = "";
     public String stoken = "";
@@ -29,6 +30,6 @@ public class SapiAccountResponse extends SapiResponse {
     public String isGuestAccount = "";
 
     public String toString() {
-        return "SapiAccountResponse{bduss='" + this.bduss + "', ptoken='" + this.ptoken + "', stoken='" + this.stoken + "', displayname='" + this.displayname + "', username='" + this.username + "', email='" + this.email + "', uid='" + this.uid + "', portraitSign='" + this.portraitSign + "', newReg=" + this.newReg + ", authSid='" + this.authSid + "', socialPortraitUrl='" + this.socialPortraitUrl + "', socialType=" + this.socialType + ", actionType='" + this.actionType + "', isGuestAccount='" + this.isGuestAccount + "', livingUname='" + this.livingUname + "', app='" + this.app + "', extra='" + this.extra + "', accountType=" + this.accountType + ", fromType=" + this.fromType + ", tplStokenMap=" + this.tplStokenMap + '}';
+        return "SapiAccountResponse{bduss='" + this.bduss + "', ptoken='" + this.ptoken + "', stoken='" + this.stoken + "', displayname='" + this.displayname + "', username='" + this.username + "', email='" + this.email + "', uid='" + this.uid + "', portraitSign='" + this.portraitSign + "', newReg=" + this.newReg + ", authSid='" + this.authSid + "', socialPortraitUrl='" + this.socialPortraitUrl + "', socialNickname='" + this.socialNickname + "', socialType=" + this.socialType + ", actionType='" + this.actionType + "', isGuestAccount='" + this.isGuestAccount + "', livingUname='" + this.livingUname + "', app='" + this.app + "', extra='" + this.extra + "', accountType=" + this.accountType + ", fromType=" + this.fromType + ", tplStokenMap=" + this.tplStokenMap + '}';
     }
 }

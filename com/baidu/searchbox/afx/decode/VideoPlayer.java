@@ -16,6 +16,7 @@ import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.PlaySuccessInfo;
 import com.baidu.searchbox.afx.gl.GLTextureView;
+import com.kwai.video.player.misc.IMediaFormat;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -351,7 +352,7 @@ public class VideoPlayer {
             mediaExtractor.selectTrack(selectVideoTrackIndex);
             if (mediaCodec == null) {
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
+                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
                 Surface surface = this.mOutputSurface;
                 if (surface != null) {
                     createDecoderByType.configure(trackFormat, surface, (MediaCrypto) null, 0);
@@ -378,7 +379,7 @@ public class VideoPlayer {
     public static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
         int trackCount = mediaExtractor.getTrackCount();
         for (int i2 = 0; i2 < trackCount; i2++) {
-            if (mediaExtractor.getTrackFormat(i2).getString("mime").startsWith(FileUtils.VIDEO_FILE_START)) {
+            if (mediaExtractor.getTrackFormat(i2).getString(IMediaFormat.KEY_MIME).startsWith(FileUtils.VIDEO_FILE_START)) {
                 return i2;
             }
         }

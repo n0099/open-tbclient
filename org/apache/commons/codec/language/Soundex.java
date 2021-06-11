@@ -3,7 +3,7 @@ package org.apache.commons.codec.language;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Soundex implements StringEncoder {
     public static final Soundex US_ENGLISH = null;
     public static final char[] US_ENGLISH_MAPPING = null;

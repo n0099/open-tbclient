@@ -2,7 +2,7 @@ package plugin.writeSettings;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Plugin_setting extends Message {
     public static final String DEFAULT_ABANDON_APK_PATH = "";
     public static final String DEFAULT_APK_PATH = "";
@@ -80,7 +80,7 @@ public final class Plugin_setting extends Message {
     public static final Integer DEFAULT_LOAD_PRIORITY = 1000;
     public static final Integer DEFAULT_IS_PATCH = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<Plugin_setting> {
         public String abandon_apk_path;
         public String apk_path;

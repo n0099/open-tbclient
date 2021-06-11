@@ -26,17 +26,17 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f20174e;
+        public final /* synthetic */ AdCard f20251e;
 
         public a(AdCard adCard) {
-            this.f20174e = adCard;
+            this.f20251e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AdCardSmallPicVideoView adCardSmallPicVideoView = AdCardSmallPicVideoView.this;
             if (adCardSmallPicVideoView.C == null) {
-                adCardSmallPicVideoView.X(this.f20174e);
+                adCardSmallPicVideoView.X(this.f20251e);
             }
             DistributeVideoView distributeVideoView = AdCardSmallPicVideoView.this.C;
             int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
@@ -62,10 +62,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
             String str = videoInfo.thumbnail_url;
             if (!TextUtils.isEmpty(str)) {
                 this.t.setVisibility(0);
-                this.A.V(str, 17, false);
+                this.A.U(str, 17, false);
             }
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            if (advertAppInfo != null && advertAppInfo.E4()) {
+            if (advertAppInfo != null && advertAppInfo.F4()) {
                 this.r.setOnClickListener(new a(adCard));
             }
             this.D.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
@@ -101,10 +101,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         if (advertAppInfo != null) {
             int i2 = -1;
             String pageTypeByBusiness = getPageTypeByBusiness();
-            d dVar = advertAppInfo.P3;
+            d dVar = advertAppInfo.S3;
             if (dVar != null) {
-                i2 = dVar.f49980b;
-                pageTypeByBusiness = dVar.f49979a;
+                i2 = dVar.f53656b;
+                pageTypeByBusiness = dVar.f53655a;
             }
             this.C.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
         }

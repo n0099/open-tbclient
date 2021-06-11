@@ -19,38 +19,38 @@ import java.util.Locale;
 public class a extends EventTargetImpl {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f47632h = k.f43199a;
+    public static final boolean f51306h = k.f46875a;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f47633e;
+    public f f51307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f47634f;
+    public volatile String f51308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f47635g;
+    public e f51309g;
 
     /* renamed from: d.a.l0.h.o0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1047a implements Runnable {
+    public class RunnableC1103a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47636e;
+        public final /* synthetic */ String f51310e;
 
-        public RunnableC1047a(String str) {
-            this.f47636e = str;
+        public RunnableC1103a(String str) {
+            this.f51310e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47633e == null) {
+            if (a.this.f51307e == null) {
                 a.this.H();
             }
-            if (!a.this.f47633e.d()) {
-                a.this.f47633e.J();
+            if (!a.this.f51307e.d()) {
+                a.this.f51307e.J();
             }
-            a.this.f47633e.loadUrl(this.f47636e);
-            a.this.F("open", new d.a.l0.h.o0.h.b(this.f47636e));
+            a.this.f51307e.loadUrl(this.f51310e);
+            a.this.F("open", new d.a.l0.h.o0.h.b(this.f51310e));
         }
     }
 
@@ -61,14 +61,14 @@ public class a extends EventTargetImpl {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47633e == null || !a.this.f47633e.d()) {
+            if (a.this.f51307e == null || !a.this.f51307e.d()) {
                 return;
             }
-            a.this.f47633e.removeFromParent();
-            a.this.f47633e.destroy();
-            a.this.f47633e = null;
+            a.this.f51307e.removeFromParent();
+            a.this.f51307e.destroy();
+            a.this.f51307e = null;
             a aVar = a.this;
-            aVar.F(IntentConfig.CLOSE, new d.a.l0.h.o0.h.b(aVar.f47634f));
+            aVar.F(IntentConfig.CLOSE, new d.a.l0.h.o0.h.b(aVar.f51308f));
         }
     }
 
@@ -76,19 +76,19 @@ public class a extends EventTargetImpl {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47639e;
+        public final /* synthetic */ String f51313e;
 
         public c(String str) {
-            this.f47639e = str;
+            this.f51313e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f47633e != null) {
-                if (TextUtils.equals("1", this.f47639e)) {
-                    a.this.f47633e.h(true);
+            if (a.this.f51307e != null) {
+                if (TextUtils.equals("1", this.f51313e)) {
+                    a.this.f51307e.h(true);
                 } else {
-                    a.this.f47633e.h(false);
+                    a.this.f51307e.h(false);
                 }
             }
         }
@@ -109,29 +109,29 @@ public class a extends EventTargetImpl {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f47642a;
+        public String f51316a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47643b;
+        public String f51317b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f47644c;
+        public long f51318c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f47645d;
+        public long f51319d;
 
-        public /* synthetic */ e(String str, String str2, long j, RunnableC1047a runnableC1047a) {
+        public /* synthetic */ e(String str, String str2, long j, RunnableC1103a runnableC1103a) {
             this(str, str2, j);
         }
 
         public String toString() {
-            return "H5GameInfo{mGameId='" + this.f47642a + "', mGameName='" + this.f47643b + "', mStartLoadingTimestamp=" + this.f47644c + ", mFinishLoadingTimestamp=" + this.f47645d + '}';
+            return "H5GameInfo{mGameId='" + this.f51316a + "', mGameName='" + this.f51317b + "', mStartLoadingTimestamp=" + this.f51318c + ", mFinishLoadingTimestamp=" + this.f51319d + '}';
         }
 
         public e(String str, String str2, long j) {
-            this.f47642a = str;
-            this.f47643b = str2;
-            this.f47644c = j;
+            this.f51316a = str;
+            this.f51317b = str2;
+            this.f51318c = j;
         }
     }
 
@@ -183,16 +183,16 @@ public class a extends EventTargetImpl {
     }
 
     public final void F(String str, Object obj) {
-        if (f47632h) {
+        if (f51306h) {
             Log.i("GameWebViewApi", "dispatchEvent:" + str + "," + obj);
         }
         dispatchEvent(new JSEvent(str, obj));
     }
 
     public final void H() {
-        if (this.f47633e == null) {
+        if (this.f51307e == null) {
             GameWebViewManager gameWebViewManager = new GameWebViewManager(d.a.l0.a.c1.a.b());
-            this.f47633e = gameWebViewManager;
+            this.f51307e = gameWebViewManager;
             gameWebViewManager.j(new d());
         }
     }
@@ -206,8 +206,8 @@ public class a extends EventTargetImpl {
     }
 
     public void J() {
-        if (this.f47635g == null) {
-            if (f47632h) {
+        if (this.f51309g == null) {
+            if (f51306h) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
                 return;
             }
@@ -215,18 +215,18 @@ public class a extends EventTargetImpl {
         }
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
         if (Q == null) {
-            if (f47632h) {
+            if (f51306h) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
                 return;
             }
             return;
         }
-        this.f47635g.f47645d = System.currentTimeMillis();
-        if (f47632h) {
-            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.f47635g);
+        this.f51309g.f51319d = System.currentTimeMillis();
+        if (f51306h) {
+            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.f51309g);
         }
-        d.a.l0.h.o0.h.d.a(Q, this.f47635g);
-        this.f47635g = null;
+        d.a.l0.h.o0.h.d.a(Q, this.f51309g);
+        this.f51309g = null;
     }
 
     @JavascriptInterface
@@ -243,9 +243,9 @@ public class a extends EventTargetImpl {
         String C = G.C("gameId");
         String C2 = G.C("gameName");
         if (!TextUtils.isEmpty(C) && !TextUtils.isEmpty(C2)) {
-            this.f47635g = new e(C, C2, System.currentTimeMillis(), null);
-            if (f47632h) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.f47635g);
+            this.f51309g = new e(C, C2, System.currentTimeMillis(), null);
+            if (f51306h) {
+                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.f51309g);
             }
             d.a.l0.h.m0.c.a(G, true, null);
             return;
@@ -266,11 +266,11 @@ public class a extends EventTargetImpl {
         } else if (!d.a.l0.a.b2.a.b.h(D)) {
             F("error", E(D, "1002"));
         } else {
-            if (f47632h) {
+            if (f51306h) {
                 Log.i("GameWebViewApi", "open:" + D);
             }
-            this.f47634f = D;
-            q0.b0(new RunnableC1047a(D));
+            this.f51308f = D;
+            q0.b0(new RunnableC1103a(D));
         }
     }
 

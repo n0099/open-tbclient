@@ -15,13 +15,13 @@ import java.util.List;
 public class d extends e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f40947b = k.f43199a;
+    public static final boolean f44623b = k.f46875a;
 
     @Override // d.a.l0.a.c2.e
     public void a() {
         List<a0> b2;
         List<a0> a2;
-        this.f40948a.clear();
+        this.f44624a.clear();
         b(new d.a.l0.a.f1.a(this));
         b(new d.a.l0.a.e0.f.e.a(this));
         b(new d.a.l0.a.e0.f.f.a(this));
@@ -44,7 +44,7 @@ public class d extends e {
                 b(a0Var);
             }
         }
-        if (f40947b) {
+        if (f44623b) {
             b(new j(this));
             b(new d.a.l0.a.c2.f.a(this));
             if (d2 == null || (b2 = d2.b(this)) == null || b2.isEmpty()) {

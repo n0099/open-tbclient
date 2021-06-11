@@ -32,32 +32,32 @@ import tbclient.ThemeElement;
 public class d implements d.a.n0.r0.n1.e.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsFragment f59221a;
+    public FrsFragment f62912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NoPressedRelativeLayout f59222b;
+    public NoPressedRelativeLayout f62913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f59223c;
+    public l f62914c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.n0.m3.d f59224d;
+    public d.a.n0.m3.d f62915d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.r0.f2.a.c f59225e;
+    public d.a.n0.r0.f2.a.c f62916e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OvalActionButton f59226f;
+    public OvalActionButton f62917f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.w3.f f59227g;
+    public d.a.n0.w3.f f62918g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.d f59228h = new a();
+    public c.d f62919h = new a();
 
     /* renamed from: i  reason: collision with root package name */
-    public final View.OnClickListener f59229i = new b();
-    public final d.a.c.e.l.c<d.a.c.j.d.a> j = new c();
+    public final View.OnClickListener f62920i = new b();
+    public final d.a.c.e.l.c<d.a.c.k.d.a> j = new c();
 
     /* loaded from: classes4.dex */
     public class a implements c.d {
@@ -93,43 +93,43 @@ public class d implements d.a.n0.r0.n1.e.d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!DialogLoginHelper.checkUpIsLogin(new r0(d.this.f59221a.getPageContext().getPageActivity(), "frs_fabu")) || !ViewHelper.checkUpIsLogin(d.this.f59221a.getPageContext().getPageActivity()) || d.this.f59224d.c() || d.this.k() || WriteActivityConfig.isAsyncWriting()) {
+            if (!DialogLoginHelper.checkUpIsLogin(new r0(d.this.f62912a.getPageContext().getPageActivity(), "frs_fabu")) || !ViewHelper.checkUpIsLogin(d.this.f62912a.getPageContext().getPageActivity()) || d.this.f62915d.c() || d.this.k() || WriteActivityConfig.isAsyncWriting()) {
                 return;
             }
-            if (d.this.f59223c != null) {
-                d.this.f59223c.i();
+            if (d.this.f62914c != null) {
+                d.this.f62914c.i();
             }
-            if (d.this.f59221a.y2().G(502) == null || d.this.f59221a.y2().y() == null) {
+            if (d.this.f62912a.B2().G(502) == null || d.this.f62912a.B2().y() == null) {
                 d.this.B(-1);
             } else {
-                d.this.f59225e.i(d.this.f59221a.h(), d.this.f59221a.y2().y().f15760a);
+                d.this.f62916e.h(d.this.f62912a.i(), d.this.f62912a.B2().y().f15822a);
             }
             d.this.j();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class c extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((c) aVar, str, i2);
             if (aVar == null || !aVar.w()) {
                 d.this.w();
                 return;
             }
-            d.this.f59226f.setImageDrawable(null);
-            aVar.h(d.this.f59226f);
+            d.this.f62917f.setImageDrawable(null);
+            aVar.h(d.this.f62917f);
         }
     }
 
     /* renamed from: d.a.n0.r0.o2.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1530d implements a.e {
-        public C1530d(d dVar) {
+    public class C1586d implements a.e {
+        public C1586d(d dVar) {
         }
 
         @Override // d.a.m0.r.s.a.e
@@ -145,15 +145,15 @@ public class d implements d.a.n0.r0.n1.e.d {
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f59233e;
+        public final /* synthetic */ BlockPopInfoData f62924e;
 
         public e(BlockPopInfoData blockPopInfoData) {
-            this.f59233e = blockPopInfoData;
+            this.f62924e = blockPopInfoData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            UrlManager.getInstance().dealOneLink(d.this.f59221a.getPageContext(), new String[]{this.f59233e.ahead_url});
+            UrlManager.getInstance().dealOneLink(d.this.f62912a.getPageContext(), new String[]{this.f62924e.ahead_url});
             if (aVar == null) {
                 return;
             }
@@ -165,59 +165,59 @@ public class d implements d.a.n0.r0.n1.e.d {
         if (frsFragment == null || noPressedRelativeLayout == null) {
             return;
         }
-        this.f59221a = frsFragment;
-        this.f59222b = noPressedRelativeLayout;
-        this.f59224d = new d.a.n0.m3.d(frsFragment.getPageContext());
+        this.f62912a = frsFragment;
+        this.f62913b = noPressedRelativeLayout;
+        this.f62915d = new d.a.n0.m3.d(frsFragment.getPageContext());
         d.a.n0.r0.f2.a.c cVar = new d.a.n0.r0.f2.a.c(frsFragment.getPageContext());
-        this.f59225e = cVar;
-        cVar.j(this.f59228h);
+        this.f62916e = cVar;
+        cVar.i(this.f62919h);
         u(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void A(boolean z) {
-        FrsViewData g0;
-        if (this.f59226f != null) {
+        FrsViewData j0;
+        if (this.f62917f != null) {
             l();
-            this.f59226f.setVisibility(z ? 0 : 8);
-            if (!z || !TbadkCoreApplication.isLogin() || (g0 = this.f59221a.g0()) == null || g0.postTopic == null || g0.getForum() == null || StringUtils.isNull(g0.getForum().getId()) || StringUtils.isNull(g0.postTopic.recom_title) || StringUtils.isNull(g0.postTopic.recom_topic) || !d.a.n0.r0.p.a.d().c(g0.getForum().getId(), g0.postTopic.uniq_topicid.longValue())) {
+            this.f62917f.setVisibility(z ? 0 : 8);
+            if (!z || !TbadkCoreApplication.isLogin() || (j0 = this.f62912a.j0()) == null || j0.postTopic == null || j0.getForum() == null || StringUtils.isNull(j0.getForum().getId()) || StringUtils.isNull(j0.postTopic.recom_title) || StringUtils.isNull(j0.postTopic.recom_topic) || !d.a.n0.r0.p.a.d().c(j0.getForum().getId(), j0.postTopic.uniq_topicid.longValue())) {
                 return;
             }
-            z(this.f59226f, g0);
+            z(this.f62917f, j0);
         }
     }
 
     public final void B(int i2) {
-        if (this.f59227g == null) {
-            d.a.n0.w3.f fVar = new d.a.n0.w3.f(this.f59221a.getPageContext(), this.f59222b, "frs");
-            this.f59227g = fVar;
+        if (this.f62918g == null) {
+            d.a.n0.w3.f fVar = new d.a.n0.w3.f(this.f62912a.getPageContext(), this.f62913b, "frs");
+            this.f62918g = fVar;
             fVar.C("2");
-            ItemInfo itemInfo = this.f59221a.g0().itemInfo;
-            this.f59227g.B((itemInfo == null || itemInfo.id.intValue() <= 0 || d.a.c.e.p.k.isEmpty(itemInfo.name)) ? false : true);
+            ItemInfo itemInfo = this.f62912a.j0().itemInfo;
+            this.f62918g.B((itemInfo == null || itemInfo.id.intValue() <= 0 || d.a.c.e.p.k.isEmpty(itemInfo.name)) ? false : true);
         }
-        this.f59227g.E(m());
-        if (this.f59221a.g0().getAnti() != null) {
-            this.f59227g.y(this.f59221a.g0().getAnti().getCanGoods());
+        this.f62918g.E(m());
+        if (this.f62912a.j0().getAnti() != null) {
+            this.f62918g.y(this.f62912a.j0().getAnti().getCanGoods());
         }
-        ForumWriteData o2 = this.f59221a.o2();
-        o2.setDefaultZone(i2);
-        this.f59227g.z(o2);
-        this.f59227g.A(this.f59221a.g0().itemInfo);
-        this.f59227g.D(i2 == 1 ? R.drawable.btn_frs_professional_edit_n : 0);
-        FrsFragment frsFragment = this.f59221a;
-        if (frsFragment != null && frsFragment.g0() != null) {
-            this.f59227g.A(this.f59221a.g0().itemInfo);
+        ForumWriteData r2 = this.f62912a.r2();
+        r2.setDefaultZone(i2);
+        this.f62918g.z(r2);
+        this.f62918g.A(this.f62912a.j0().itemInfo);
+        this.f62918g.D(i2 == 1 ? R.drawable.btn_frs_professional_edit_n : 0);
+        FrsFragment frsFragment = this.f62912a;
+        if (frsFragment != null && frsFragment.j0() != null) {
+            this.f62918g.A(this.f62912a.j0().itemInfo);
         }
-        this.f59227g.G(false, null, this.f59226f);
-        this.f59221a.C2().setAlpha(0);
-        FrsFragment frsFragment2 = this.f59221a;
-        if (frsFragment2 == null || frsFragment2.g0() == null || this.f59221a.g0().itemInfo == null) {
+        this.f62918g.G(false, null, this.f62917f);
+        this.f62912a.F2().setAlpha(0);
+        FrsFragment frsFragment2 = this.f62912a;
+        if (frsFragment2 == null || frsFragment2.j0() == null || this.f62912a.j0().itemInfo == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13721").param("fid", this.f59221a.h()).param("fname", this.f59221a.g()).param("obj_param1", this.f59221a.g0().itemInfo.name));
+        TiebaStatic.log(new StatisticItem("c13721").param("fid", this.f62912a.i()).param("fname", this.f62912a.h()).param("obj_param1", this.f62912a.j0().itemInfo.name));
     }
 
     public void C() {
-        OvalActionButton ovalActionButton = this.f59226f;
+        OvalActionButton ovalActionButton = this.f62917f;
         if (ovalActionButton != null) {
             ovalActionButton.performClick();
         }
@@ -225,12 +225,12 @@ public class d implements d.a.n0.r0.n1.e.d {
 
     @Override // d.a.n0.r0.n1.e.d
     public boolean a() {
-        return (this.f59224d.c() || k()) ? false : true;
+        return (this.f62915d.c() || k()) ? false : true;
     }
 
     public final void j() {
         StatisticItem statisticItem = new StatisticItem("c13604");
-        FrsFragment frsFragment = this.f59221a;
+        FrsFragment frsFragment = this.f62912a;
         if (frsFragment != null) {
             d.a.m0.j0.c.b(frsFragment.getContext(), statisticItem);
         }
@@ -238,23 +238,23 @@ public class d implements d.a.n0.r0.n1.e.d {
     }
 
     public boolean k() {
-        FrsViewData g0;
-        FrsFragment frsFragment = this.f59221a;
-        if (frsFragment == null || (g0 = frsFragment.g0()) == null) {
+        FrsViewData j0;
+        FrsFragment frsFragment = this.f62912a;
+        if (frsFragment == null || (j0 = frsFragment.j0()) == null) {
             return false;
         }
-        if (ViewHelper.checkUpIsLogin(this.f59221a.getPageContext().getPageActivity())) {
-            AntiData anti = g0.getAnti();
+        if (ViewHelper.checkUpIsLogin(this.f62912a.getPageContext().getPageActivity())) {
+            AntiData anti = j0.getAnti();
             return anti != null && y(anti.getBlock_stat(), anti.mFrsForbidenDialogInfo);
         }
         return true;
     }
 
     public boolean l() {
-        FrsViewData g0;
+        FrsViewData j0;
         ActivityConfig activityConfig;
-        FrsFragment frsFragment = this.f59221a;
-        if (frsFragment != null && (g0 = frsFragment.g0()) != null && (activityConfig = g0.activityConfig) != null && activityConfig.type.intValue() == 2) {
+        FrsFragment frsFragment = this.f62912a;
+        if (frsFragment != null && (j0 = frsFragment.j0()) != null && (activityConfig = j0.activityConfig) != null && activityConfig.type.intValue() == 2) {
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(activityConfig.night_addthread_icon)) {
                 q(activityConfig.night_addthread_icon);
                 return true;
@@ -267,10 +267,10 @@ public class d implements d.a.n0.r0.n1.e.d {
     }
 
     public final String m() {
-        FrsViewData g0;
+        FrsViewData j0;
         ActivityConfig activityConfig;
-        FrsFragment frsFragment = this.f59221a;
-        return (frsFragment == null || (g0 = frsFragment.g0()) == null || (activityConfig = g0.activityConfig) == null) ? "" : activityConfig.addthread_text;
+        FrsFragment frsFragment = this.f62912a;
+        return (frsFragment == null || (j0 = frsFragment.j0()) == null || (activityConfig = j0.activityConfig) == null) ? "" : activityConfig.addthread_text;
     }
 
     public final void n() {
@@ -287,8 +287,8 @@ public class d implements d.a.n0.r0.n1.e.d {
         String str10;
         String str11;
         String str12;
-        FrsFragment frsFragment = this.f59221a;
-        if (frsFragment == null || frsFragment.g0() == null || (forum = this.f59221a.g0().getForum()) == null) {
+        FrsFragment frsFragment = this.f62912a;
+        if (frsFragment == null || frsFragment.j0() == null || (forum = this.f62912a.j0().getForum()) == null) {
             return;
         }
         ThemeColorInfo themeColorInfo = forum.getThemeColorInfo();
@@ -347,13 +347,13 @@ public class d implements d.a.n0.r0.n1.e.d {
             str6 = null;
             str7 = null;
         }
-        FrsProfessionIntroActivityConfig frsProfessionIntroActivityConfig = new FrsProfessionIntroActivityConfig(this.f59221a.getContext());
+        FrsProfessionIntroActivityConfig frsProfessionIntroActivityConfig = new FrsProfessionIntroActivityConfig(this.f62912a.getContext());
         frsProfessionIntroActivityConfig.putColor(str, str2, str3, str4, str5, str6, str7);
         frsProfessionIntroActivityConfig.start();
     }
 
     public boolean o() {
-        d.a.n0.w3.f fVar = this.f59227g;
+        d.a.n0.w3.f fVar = this.f62918g;
         if (fVar == null) {
             return false;
         }
@@ -361,7 +361,7 @@ public class d implements d.a.n0.r0.n1.e.d {
     }
 
     public boolean p() {
-        d.a.n0.w3.f fVar = this.f59227g;
+        d.a.n0.w3.f fVar = this.f62918g;
         if (fVar == null) {
             return false;
         }
@@ -369,22 +369,22 @@ public class d implements d.a.n0.r0.n1.e.d {
     }
 
     public final void q(String str) {
-        d.a.c.e.l.d.h().m(str, 10, this.j, this.f59221a.getUniqueId());
+        d.a.c.e.l.d.h().m(str, 10, this.j, this.f62912a.getUniqueId());
     }
 
     public void r() {
-        d.a.n0.w3.f fVar = this.f59227g;
+        d.a.n0.w3.f fVar = this.f62918g;
         if (fVar != null) {
             fVar.r();
         }
-        l lVar = this.f59223c;
+        l lVar = this.f62914c;
         if (lVar != null) {
             lVar.i();
         }
     }
 
     public void s() {
-        l lVar = this.f59223c;
+        l lVar = this.f62914c;
         if (lVar != null) {
             lVar.i();
         }
@@ -394,31 +394,31 @@ public class d implements d.a.n0.r0.n1.e.d {
     }
 
     public void u(int i2) {
-        d.a.n0.w3.f fVar = this.f59227g;
+        d.a.n0.w3.f fVar = this.f62918g;
         if (fVar != null) {
             fVar.p(i2);
         }
     }
 
     public boolean v() {
-        d.a.n0.w3.f fVar = this.f59227g;
+        d.a.n0.w3.f fVar = this.f62918g;
         if (fVar == null || !fVar.l()) {
             return false;
         }
-        this.f59227g.k(true);
+        this.f62918g.k(true);
         return true;
     }
 
     public final void w() {
-        this.f59226f.setImageResource(0);
+        this.f62917f.setImageResource(0);
     }
 
     public void x(OvalActionButton ovalActionButton) {
         if (ovalActionButton == null) {
             return;
         }
-        this.f59226f = ovalActionButton;
-        ovalActionButton.setOnClickListener(this.f59229i);
+        this.f62917f = ovalActionButton;
+        ovalActionButton.setOnClickListener(this.f62920i);
         if (l()) {
             return;
         }
@@ -429,28 +429,28 @@ public class d implements d.a.n0.r0.n1.e.d {
         if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
             return false;
         }
-        String string = StringUtils.isNull(blockPopInfoData.block_info) ? this.f59221a.getResources().getString(R.string.frs_forbiden_dialog_msg) : blockPopInfoData.block_info;
+        String string = StringUtils.isNull(blockPopInfoData.block_info) ? this.f62912a.getResources().getString(R.string.frs_forbiden_dialog_msg) : blockPopInfoData.block_info;
         if (i2 == 1 || i2 == 2) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f59221a.getPageContext().getPageActivity());
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f62912a.getPageContext().getPageActivity());
             aVar.setMessage(StringHelper.getFixedText(string, 50, true));
-            aVar.setNegativeButton(StringHelper.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.f59221a.getResources().getString(R.string.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new C1530d(this));
+            aVar.setNegativeButton(StringHelper.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.f62912a.getResources().getString(R.string.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new C1586d(this));
             if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
                 aVar.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new e(blockPopInfoData));
             }
-            aVar.create(this.f59221a.getPageContext()).show();
+            aVar.create(this.f62912a.getPageContext()).show();
             return true;
         }
         return false;
     }
 
     public void z(View view, FrsViewData frsViewData) {
-        if (this.f59221a == null || frsViewData == null || frsViewData.getForum() == null || frsViewData.postTopic == null) {
+        if (this.f62912a == null || frsViewData == null || frsViewData.getForum() == null || frsViewData.postTopic == null) {
             return;
         }
-        if (this.f59223c == null) {
-            this.f59223c = new l(this.f59221a.getActivity(), this);
+        if (this.f62914c == null) {
+            this.f62914c = new l(this.f62912a.getActivity(), this);
         }
-        this.f59223c.i();
-        this.f59223c.j(view, frsViewData);
+        this.f62914c.i();
+        this.f62914c.j(view, frsViewData);
     }
 }

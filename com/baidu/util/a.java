@@ -5,29 +5,29 @@ import android.content.Context;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f22891a;
+    public static a f22994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f22892b;
+    public Context f22995b;
 
     public a(Context context) {
-        this.f22892b = context;
+        this.f22995b = context;
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f22891a == null) {
-                f22891a = new a(context);
+            if (f22994a == null) {
+                f22994a = new a(context);
             }
-            aVar = f22891a;
+            aVar = f22994a;
         }
         return aVar;
     }
 
     public long a(String str, String str2, long j) {
         try {
-            return this.f22892b.getSharedPreferences(str, 0).getLong(str2, j);
+            return this.f22995b.getSharedPreferences(str, 0).getLong(str2, j);
         } catch (Exception e2) {
             e2.printStackTrace();
             return System.currentTimeMillis();
@@ -36,7 +36,7 @@ public class a {
 
     public String a(String str, String str2, String str3) {
         try {
-            return this.f22892b.getSharedPreferences(str, 0).getString(str2, str3);
+            return this.f22995b.getSharedPreferences(str, 0).getString(str2, str3);
         } catch (Exception e2) {
             e2.printStackTrace();
             return "";
@@ -44,10 +44,10 @@ public class a {
     }
 
     public void b(String str, String str2, long j) {
-        this.f22892b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
+        this.f22995b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
     }
 
     public void b(String str, String str2, String str3) {
-        this.f22892b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
+        this.f22995b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
     }
 }

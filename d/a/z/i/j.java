@@ -14,8 +14,8 @@ public class j {
             long longValue = !TextUtils.isEmpty(queryParameter) ? Long.valueOf(queryParameter).longValue() : 0L;
             String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
             long longValue2 = TextUtils.isEmpty(queryParameter2) ? 0L : Long.valueOf(queryParameter2).longValue();
-            gVar.f64952a = longValue;
-            gVar.f64953b = longValue2;
+            gVar.f68683a = longValue;
+            gVar.f68684b = longValue2;
         }
         return gVar;
     }

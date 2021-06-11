@@ -45,7 +45,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public final Function<? super Object[], R> combiner;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicReference<Disposable> f69015d;
+        public final AtomicReference<Disposable> f72324d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final WithLatestInnerObserver[] observers;
@@ -60,7 +60,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
             }
             this.observers = withLatestInnerObserverArr;
             this.values = new AtomicReferenceArray<>(i2);
-            this.f69015d = new AtomicReference<>();
+            this.f72324d = new AtomicReference<>();
             this.error = new AtomicThrowable();
         }
 
@@ -75,7 +75,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            DisposableHelper.dispose(this.f69015d);
+            DisposableHelper.dispose(this.f72324d);
             for (WithLatestInnerObserver withLatestInnerObserver : this.observers) {
                 withLatestInnerObserver.dispose();
             }
@@ -92,7 +92,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
 
         public void innerError(int i2, Throwable th) {
             this.done = true;
-            DisposableHelper.dispose(this.f69015d);
+            DisposableHelper.dispose(this.f72324d);
             cancelAllBut(i2);
             HalfSerializer.onError(this.actual, th, this, this.error);
         }
@@ -103,7 +103,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.f69015d.get());
+            return DisposableHelper.isDisposed(this.f72324d.get());
         }
 
         @Override // io.reactivex.Observer
@@ -156,12 +156,12 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            DisposableHelper.setOnce(this.f69015d, disposable);
+            DisposableHelper.setOnce(this.f72324d, disposable);
         }
 
         public void subscribe(ObservableSource<?>[] observableSourceArr, int i2) {
             WithLatestInnerObserver[] withLatestInnerObserverArr = this.observers;
-            AtomicReference<Disposable> atomicReference = this.f69015d;
+            AtomicReference<Disposable> atomicReference = this.f72324d;
             for (int i3 = 0; i3 < i2 && !DisposableHelper.isDisposed(atomicReference.get()) && !this.done; i3++) {
                 observableSourceArr[i3].subscribe(withLatestInnerObserverArr[i3]);
             }

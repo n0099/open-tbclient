@@ -16,10 +16,10 @@ public class h0 extends z {
     @Override // d.b.b.z
     @NonNull
     public z a(@NonNull Cursor cursor) {
-        this.f65142e = cursor.getLong(0);
-        this.f65143f = cursor.getLong(1);
-        this.f65144g = cursor.getString(2);
-        this.f65145h = cursor.getString(3);
+        this.f68873e = cursor.getLong(0);
+        this.f68874f = cursor.getLong(1);
+        this.f68875g = cursor.getString(2);
+        this.f68876h = cursor.getString(3);
         this.o = cursor.getString(4);
         this.n = cursor.getString(5);
         this.m = cursor.getLong(6);
@@ -29,10 +29,10 @@ public class h0 extends z {
 
     @Override // d.b.b.z
     public void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f65142e));
-        contentValues.put("tea_event_index", Long.valueOf(this.f65143f));
-        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65144g);
-        contentValues.put("user_unique_id", this.f65145h);
+        contentValues.put("local_time_ms", Long.valueOf(this.f68873e));
+        contentValues.put("tea_event_index", Long.valueOf(this.f68874f));
+        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f68875g);
+        contentValues.put("user_unique_id", this.f68876h);
         contentValues.put("page_key", this.o);
         contentValues.put("refer_page_key", this.n);
         contentValues.put("duration", Long.valueOf(this.m));
@@ -44,9 +44,9 @@ public class h0 extends z {
         jSONObject.put("page_key", this.o);
         jSONObject.put("refer_page_key", this.n);
         jSONObject.put("duration", this.m);
-        jSONObject.put("local_time_ms", this.f65142e);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65144g);
-        jSONObject.put("tea_event_index", this.f65143f);
+        jSONObject.put("local_time_ms", this.f68873e);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f68875g);
+        jSONObject.put("tea_event_index", this.f68874f);
         jSONObject.put("is_back", this.p);
     }
 
@@ -57,9 +57,9 @@ public class h0 extends z {
 
     @Override // d.b.b.z
     public z h(@NonNull JSONObject jSONObject) {
-        this.f65142e = jSONObject.optLong("local_time_ms", 0L);
-        this.f65143f = jSONObject.optLong("tea_event_index", 0L);
-        this.f65144g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
+        this.f68873e = jSONObject.optLong("local_time_ms", 0L);
+        this.f68874f = jSONObject.optLong("tea_event_index", 0L);
+        this.f68875g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
         this.o = jSONObject.optString("page_key", null);
         this.n = jSONObject.optString("refer_page_key", null);
         this.m = jSONObject.optLong("duration", 0L);
@@ -70,11 +70,11 @@ public class h0 extends z {
     @Override // d.b.b.z
     public JSONObject i() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f65142e);
-        jSONObject.put("tea_event_index", this.f65143f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65144g);
-        if (!TextUtils.isEmpty(this.f65145h)) {
-            jSONObject.put("user_unique_id", this.f65145h);
+        jSONObject.put("local_time_ms", this.f68873e);
+        jSONObject.put("tea_event_index", this.f68874f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f68875g);
+        if (!TextUtils.isEmpty(this.f68876h)) {
+            jSONObject.put("user_unique_id", this.f68876h);
         }
         jSONObject.put("event", "bav2b_page");
         jSONObject.put("is_bav", 1);

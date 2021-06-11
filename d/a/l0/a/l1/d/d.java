@@ -11,11 +11,11 @@ public class d extends d.a.l0.a.l1.d.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f43373a = new d();
+        public static final d f47049a = new d();
     }
 
     public static d f() {
-        return b.f43373a;
+        return b.f47049a;
     }
 
     public boolean g(PMSAppInfo pMSAppInfo) {
@@ -24,7 +24,7 @@ public class d extends d.a.l0.a.l1.d.a {
             return false;
         }
         boolean optBoolean = c2.optBoolean("is_opti");
-        if (d.a.l0.a.l1.d.a.f43368c) {
+        if (d.a.l0.a.l1.d.a.f47044c) {
             Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
         }
         return optBoolean;
@@ -39,7 +39,7 @@ public class d extends d.a.l0.a.l1.d.a {
             JSONObject a2 = a(pMSAppInfo);
             z = a2 != null && a2.optBoolean(PrefetchEvent.MODULE);
         }
-        if (d.a.l0.a.l1.d.a.f43368c) {
+        if (d.a.l0.a.l1.d.a.f47044c) {
             Log.d("SwanAppExtInfo", "is prefetch on - " + z);
         }
         return z;

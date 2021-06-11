@@ -1,11 +1,11 @@
 package h.r;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i extends h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final i f68749a = new i();
+    public static final i f72005a = new i();
 
     public static h e() {
-        return f68749a;
+        return f72005a;
     }
 }

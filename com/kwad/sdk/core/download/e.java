@@ -5,10 +5,9 @@ import android.text.TextUtils;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.network.k;
-import com.kwad.sdk.core.network.l;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ad;
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -30,16 +29,16 @@ import org.apache.http.protocol.HTTP;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f32178a = ae.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
+    public static final String f34213a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
 
     /* loaded from: classes6.dex */
     public static class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f32179a;
+        public final OutputStream f34214a;
 
         public a(File file, boolean z) {
-            this.f32179a = new FileOutputStream(file, z);
+            this.f34214a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.core.download.e.c
@@ -52,12 +51,12 @@ public class e {
 
         @Override // com.kwad.sdk.core.download.e.c
         public void a(byte[] bArr, int i2, int i3) {
-            this.f32179a.write(bArr, i2, i3);
+            this.f34214a.write(bArr, i2, i3);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f32179a.close();
+            this.f34214a.close();
         }
     }
 
@@ -78,7 +77,6 @@ public class e {
     public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {
         try {
             URLConnection openConnection = new URL(str).openConnection();
-            l.a(openConnection);
             openConnection.setRequestProperty("Accept-Language", "zh-CN");
             if (i2 > 0) {
                 openConnection.setConnectTimeout(i2);
@@ -252,7 +250,7 @@ public class e {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file = new File(f32178a, random.nextInt() + ".tmp");
+                    file = new File(f34213a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream2 = new FileOutputStream(file);
                     } catch (Throwable th4) {

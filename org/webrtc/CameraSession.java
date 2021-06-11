@@ -1,15 +1,15 @@
 package org.webrtc;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface CameraSession {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface CreateSessionCallback {
         void onDone(CameraSession cameraSession);
 
         void onFailure(FailureType failureType, String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Events {
         void onCameraClosed(CameraSession cameraSession);
 
@@ -22,7 +22,7 @@ public interface CameraSession {
         void onFrameCaptured(CameraSession cameraSession, VideoFrame videoFrame);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum FailureType {
         ERROR,
         DISCONNECTED

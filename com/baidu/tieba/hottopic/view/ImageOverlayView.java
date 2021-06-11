@@ -12,16 +12,16 @@ import java.util.List;
 public class ImageOverlayView extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16867e;
+    public int f16943e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16868f;
+    public int f16944f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16869g;
+    public int f16945g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16870h;
+    public int f16946h;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -36,17 +36,17 @@ public class ImageOverlayView extends ViewGroup {
         View childAt;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        for (int i6 = 0; i6 < this.f16867e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
-            childAt.layout(paddingLeft, paddingTop, this.f16868f + paddingLeft, this.f16869g + paddingTop);
-            paddingLeft += this.f16868f - this.f16870h;
+        for (int i6 = 0; i6 < this.f16943e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
+            childAt.layout(paddingLeft, paddingTop, this.f16944f + paddingLeft, this.f16945g + paddingTop);
+            paddingLeft += this.f16944f - this.f16946h;
         }
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         int paddingLeft = getPaddingLeft() + getPaddingRight();
-        int i4 = this.f16867e;
-        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f16868f * i4)) - ((i4 - 1) * this.f16870h), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f16869g, i3));
+        int i4 = this.f16943e;
+        setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f16944f * i4)) - ((i4 - 1) * this.f16946h), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f16945g, i3));
     }
 
     public void setData(List<l> list) {
@@ -54,7 +54,7 @@ public class ImageOverlayView extends ViewGroup {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        for (int i2 = 0; i2 < this.f16867e && (headImageView = (HeadImageView) getChildAt(i2)) != null; i2++) {
+        for (int i2 = 0; i2 < this.f16943e && (headImageView = (HeadImageView) getChildAt(i2)) != null; i2++) {
             if (i2 >= list.size()) {
                 headImageView.setVisibility(8);
             } else {
@@ -63,8 +63,8 @@ public class ImageOverlayView extends ViewGroup {
                 if (lVar == null) {
                     return;
                 }
-                headImageView.setUserId(String.valueOf(lVar.f52596a));
-                headImageView.R(lVar.f52597b, 12, this.f16868f, this.f16869g, false);
+                headImageView.setUserId(String.valueOf(lVar.f56285a));
+                headImageView.R(lVar.f56286b, 12, this.f16944f, this.f16945g, false);
             }
         }
     }

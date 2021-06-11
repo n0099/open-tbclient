@@ -7,6 +7,7 @@ import android.net.Uri;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.wallet.core.NoProguard;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -28,11 +29,11 @@ public class LBSPayAli implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayAli f2642a = new LBSPayAli();
+        public static LBSPayAli f2661a = new LBSPayAli();
     }
 
     public static LBSPayAli getInstance() {
-        return a.f2642a;
+        return a.f2661a;
     }
 
     private void handleError() {
@@ -90,7 +91,7 @@ public class LBSPayAli implements NoProguard {
                     if ("T".equals(data.getQueryParameter("is_success")) && "TRADE_SUCCESS".equals(data.getQueryParameter("trade_status"))) {
                         this.mChannelPay.paySuccess(data.getQuery());
                     } else {
-                        this.mChannelPay.payError(Result.RESULT_FAILED, "支付失败");
+                        this.mChannelPay.payError(Result.RESULT_FAILED, EventAlias.PayEventAlias.PAY_FAIL);
                     }
                 } else if (AUTHPAY_CANCEL_HOST.equals(host)) {
                     this.mChannelPay.payCancel();

@@ -4,13 +4,13 @@ import com.baidu.tieba.frs.mc.FrsModelController;
 import d.a.n0.r0.r;
 /* loaded from: classes4.dex */
 public interface l {
-    d.a.n0.r0.o2.h P();
+    r B0();
 
-    FrsModelController b0();
+    d.a.n0.r0.o2.h R();
+
+    FrsModelController e0();
 
     void loadMore();
 
-    c n0();
-
-    r y0();
+    c q0();
 }

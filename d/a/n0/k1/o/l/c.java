@@ -41,7 +41,6 @@ import d.a.m0.r.s.a;
 import d.a.m0.z0.m0;
 import d.a.n0.t2.x;
 import java.lang.ref.WeakReference;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes4.dex */
 public class c {
     public static int s0;
@@ -67,35 +66,35 @@ public class c {
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f56689a;
+    public TbPageContext<?> f60378a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwipeBackLayout.c f56690b;
+    public SwipeBackLayout.c f60379b;
     public int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.k1.o.l.o f56691c;
+    public d.a.n0.k1.o.l.o f60380c;
     public int c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f56692d;
+    public View f60381d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f56693e;
+    public View f60382e;
     public WeakReference<Context> e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbCyberVideoView f56694f;
+    public TbCyberVideoView f60383f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f56695g;
+    public View f60384g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VideoListMediaControllerView f56696h;
+    public VideoListMediaControllerView f60385h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f56697i;
+    public View f60386i;
     public View j;
     public FrameLayout k;
     public FrameLayout.LayoutParams l;
@@ -131,7 +130,7 @@ public class c {
     public View.OnClickListener m0 = new m();
     public boolean n0 = false;
     public Animation.AnimationListener o0 = new b();
-    public Animation.AnimationListener p0 = new animation.Animation$AnimationListenerC1412c();
+    public Animation.AnimationListener p0 = new animation.Animation$AnimationListenerC1468c();
     public Runnable q0 = new d();
     public CustomMessageListener r0 = new e(2016503);
 
@@ -171,8 +170,8 @@ public class c {
 
     /* renamed from: d.a.n0.k1.o.l.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class animation.Animation$AnimationListenerC1412c implements Animation.AnimationListener {
-        public animation.Animation$AnimationListenerC1412c() {
+    public class animation.Animation$AnimationListenerC1468c implements Animation.AnimationListener {
+        public animation.Animation$AnimationListenerC1468c() {
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -232,7 +231,7 @@ public class c {
                         c.this.U = 0;
                         c.this.T = 0;
                     }
-                    if (!c.this.f56694f.isPlaying() && 8 == c.this.t.getVisibility()) {
+                    if (!c.this.f60383f.isPlaying() && 8 == c.this.t.getVisibility()) {
                         c.this.t.setVisibility(0);
                     }
                 }
@@ -258,17 +257,17 @@ public class c {
             d.a.c.e.m.e.a().removeCallbacks(c.this.h0);
             d.a.c.e.m.e.a().post(c.this.h0);
             d.a.c.e.m.e.a().removeCallbacks(c.this.k0);
-            if (c.this.f56694f == null || c.this.f56696h == null) {
+            if (c.this.f60383f == null || c.this.f60385h == null) {
                 return;
             }
             if (!c.this.d0) {
                 c cVar = c.this;
                 if (!cVar.s) {
-                    cVar.f56694f.setVolume(0.0f, 0.0f);
+                    cVar.f60383f.setVolume(0.0f, 0.0f);
                     m0.e(c.this.e0, false);
-                    c.this.f56696h.o(c.this.H, c.this.f56694f.getDuration());
+                    c.this.f60385h.o(c.this.H, c.this.f60383f.getDuration());
                     if (c.this.H != 0) {
-                        c.this.f56694f.seekTo(c.this.H);
+                        c.this.f60383f.seekTo(c.this.H);
                     }
                     if (c.this.w == null) {
                         c.this.w.onPrepared();
@@ -277,9 +276,9 @@ public class c {
                     return;
                 }
             }
-            c.this.f56694f.setVolume(1.0f, 1.0f);
+            c.this.f60383f.setVolume(1.0f, 1.0f);
             m0.e(c.this.e0, true);
-            c.this.f56696h.o(c.this.H, c.this.f56694f.getDuration());
+            c.this.f60385h.o(c.this.H, c.this.f60383f.getDuration());
             if (c.this.H != 0) {
             }
             if (c.this.w == null) {
@@ -294,17 +293,17 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.f56694f.getCurrentPositionSync() > 100) {
+            if (c.this.f60383f.getCurrentPositionSync() > 100) {
                 c.this.B = true;
-                c.this.f56697i.setVisibility(8);
+                c.this.f60386i.setVisibility(8);
                 c.this.j.setVisibility(8);
-                c.this.f56695g.setVisibility(8);
+                c.this.f60384g.setVisibility(8);
                 c.this.v.setVisibility(8);
                 c.this.U();
                 if (c.this.p != null) {
                     c.this.p.setVisibility(0);
                 }
-                c.this.f56696h.s();
+                c.this.f60385h.s();
                 return;
             }
             d.a.c.e.m.e.a().postDelayed(c.this.h0, 20L);
@@ -342,7 +341,7 @@ public class c {
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i2, int i3, Object obj) {
             c.this.j.setVisibility(0);
-            c.this.f56695g.setVisibility(8);
+            c.this.f60384g.setVisibility(8);
             return true;
         }
     }
@@ -355,7 +354,7 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             c.this.j.setVisibility(0);
-            c.this.f56695g.setVisibility(8);
+            c.this.f60384g.setVisibility(8);
         }
     }
 
@@ -386,7 +385,7 @@ public class c {
                             TiebaStatic.log(new StatisticItem("c11713"));
                             c.this.Q0();
                             return;
-                        } else if (view.getId() == c.this.f56692d.getId()) {
+                        } else if (view.getId() == c.this.f60381d.getId()) {
                             if (c.this.B || c.this.s) {
                                 c.this.X();
                                 return;
@@ -398,13 +397,13 @@ public class c {
                                 return;
                             }
                             if (cVar.d0) {
-                                c.this.f56694f.setVolume(0.0f, 0.0f);
+                                c.this.f60383f.setVolume(0.0f, 0.0f);
                                 c.this.m.setImageResource(R.drawable.card_icon_sound_close);
                                 m0.e(c.this.e0, false);
                                 c.this.d0 = false;
                                 return;
                             }
-                            c.this.f56694f.setVolume(1.0f, 1.0f);
+                            c.this.f60383f.setVolume(1.0f, 1.0f);
                             c.this.m.setImageResource(R.drawable.card_icon_sound_open);
                             m0.e(c.this.e0, true);
                             c.this.d0 = true;
@@ -415,13 +414,13 @@ public class c {
                     }
                     c cVar2 = c.this;
                     if (cVar2.s) {
-                        SwipeBackLayout.c cVar3 = cVar2.f56690b;
+                        SwipeBackLayout.c cVar3 = cVar2.f60379b;
                         if (cVar3 != null) {
                             cVar3.enableSwipeBack();
                         }
                         TiebaStatic.log(new StatisticItem("c11714"));
                     } else {
-                        SwipeBackLayout.c cVar4 = cVar2.f56690b;
+                        SwipeBackLayout.c cVar4 = cVar2.f60379b;
                         if (cVar4 != null) {
                             cVar4.disableSwipeBack();
                         }
@@ -431,9 +430,9 @@ public class c {
                     c.this.Q0();
                     return;
                 } else if (!d.a.c.e.p.j.z()) {
-                    d.a.c.e.p.l.J(c.this.f56689a.getPageActivity(), c.this.f56689a.getString(R.string.neterror));
+                    d.a.c.e.p.l.J(c.this.f60378a.getPageActivity(), c.this.f60378a.getString(R.string.neterror));
                     return;
-                } else if (!c.this.f56694f.isPlaying()) {
+                } else if (!c.this.f60383f.isPlaying()) {
                     if (c.this.B) {
                         c.this.s0();
                         return;
@@ -473,7 +472,7 @@ public class c {
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             c cVar = c.this;
             if (cVar.s && cVar.B) {
-                if (!c.this.f56694f.isPlaying() && c.this.t.getVisibility() == 0 && c.this.R == 1) {
+                if (!c.this.f60383f.isPlaying() && c.this.t.getVisibility() == 0 && c.this.R == 1) {
                     c.this.t.setVisibility(8);
                 }
                 if (c.this.R == 0) {
@@ -481,7 +480,7 @@ public class c {
                     if (Math.abs(f2) - Math.abs(f3) > 0.0f) {
                         c.this.R = 1;
                         c cVar2 = c.this;
-                        cVar2.T = cVar2.f56694f.getCurrentPositionSync();
+                        cVar2.T = cVar2.f60383f.getCurrentPositionSync();
                         c.this.R(f2, true);
                     } else {
                         c.this.R = 2;
@@ -512,74 +511,74 @@ public class c {
     public c(TbPageContext<?> tbPageContext, View view) {
         this.a0 = 0;
         this.e0 = null;
-        this.f56689a = tbPageContext;
+        this.f60378a = tbPageContext;
         this.e0 = new WeakReference<>(TbadkCoreApplication.getInst());
         View g0 = g0(tbPageContext);
-        this.f56692d = g0;
+        this.f60381d = g0;
         if (view instanceof FrameLayout) {
             ((FrameLayout) view).addView(g0);
         }
-        TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) this.f56692d.findViewById(R.id.videoView);
-        this.f56694f = tbCyberVideoView;
+        TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) this.f60381d.findViewById(R.id.videoView);
+        this.f60383f = tbCyberVideoView;
         tbCyberVideoView.setStageType(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR);
-        this.f56695g = this.f56692d.findViewById(R.id.video_list_layout_loading);
-        VideoListMediaControllerView videoListMediaControllerView = (VideoListMediaControllerView) this.f56692d.findViewById(R.id.media_controller);
-        this.f56696h = videoListMediaControllerView;
-        videoListMediaControllerView.setPlayer(this.f56694f);
-        this.f56697i = this.f56692d.findViewById(R.id.black_mask);
-        View findViewById = this.f56692d.findViewById(R.id.layout_error);
+        this.f60384g = this.f60381d.findViewById(R.id.video_list_layout_loading);
+        VideoListMediaControllerView videoListMediaControllerView = (VideoListMediaControllerView) this.f60381d.findViewById(R.id.media_controller);
+        this.f60385h = videoListMediaControllerView;
+        videoListMediaControllerView.setPlayer(this.f60383f);
+        this.f60386i = this.f60381d.findViewById(R.id.black_mask);
+        View findViewById = this.f60381d.findViewById(R.id.layout_error);
         this.j = findViewById;
         findViewById.setOnClickListener(this.m0);
-        this.k = (FrameLayout) this.f56692d.findViewById(R.id.danmu_container);
-        ImageView imageView = (ImageView) this.f56692d.findViewById(R.id.img_play_icon);
+        this.k = (FrameLayout) this.f60381d.findViewById(R.id.danmu_container);
+        ImageView imageView = (ImageView) this.f60381d.findViewById(R.id.img_play_icon);
         this.n = imageView;
         imageView.setOnClickListener(this.m0);
-        ImageView imageView2 = (ImageView) this.f56692d.findViewById(R.id.img_sound_control);
+        ImageView imageView2 = (ImageView) this.f60381d.findViewById(R.id.img_sound_control);
         this.m = imageView2;
         imageView2.setOnClickListener(this.m0);
-        ImageView imageView3 = (ImageView) this.f56692d.findViewById(R.id.card_img_full_screen);
+        ImageView imageView3 = (ImageView) this.f60381d.findViewById(R.id.card_img_full_screen);
         this.o = imageView3;
         imageView3.setOnClickListener(this.m0);
-        this.p = this.f56692d.findViewById(R.id.card_layout_media_controller);
-        this.f56693e = this.f56692d.findViewById(R.id.rl_control);
-        this.f56694f.setOnPreparedListener(this.g0);
-        this.f56694f.setOnCompletionListener(this.i0);
-        this.f56694f.setOnErrorListener(this.j0);
-        this.f56694f.setOnSurfaceDestroyedListener(this.l0);
-        ImageView imageView4 = (ImageView) this.f56692d.findViewById(R.id.img_play);
+        this.p = this.f60381d.findViewById(R.id.card_layout_media_controller);
+        this.f60382e = this.f60381d.findViewById(R.id.rl_control);
+        this.f60383f.setOnPreparedListener(this.g0);
+        this.f60383f.setOnCompletionListener(this.i0);
+        this.f60383f.setOnErrorListener(this.j0);
+        this.f60383f.setOnSurfaceDestroyedListener(this.l0);
+        ImageView imageView4 = (ImageView) this.f60381d.findViewById(R.id.img_play);
         this.t = imageView4;
         imageView4.setOnClickListener(this.m0);
-        TbImageView tbImageView = (TbImageView) this.f56692d.findViewById(R.id.video_thumbnail);
+        TbImageView tbImageView = (TbImageView) this.f60381d.findViewById(R.id.video_thumbnail);
         this.v = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.Y = d.a.c.e.p.l.k(this.f56689a.getPageActivity());
-        this.Z = d0(this.f56689a.getPageActivity());
-        ImageView imageView5 = (ImageView) this.f56692d.findViewById(R.id.img_exit);
+        this.Y = d.a.c.e.p.l.k(this.f60378a.getPageActivity());
+        this.Z = d0(this.f60378a.getPageActivity());
+        ImageView imageView5 = (ImageView) this.f60381d.findViewById(R.id.img_exit);
         this.y = imageView5;
         imageView5.setOnClickListener(this.m0);
-        this.z = (TextView) this.f56692d.findViewById(R.id.video_title);
-        View findViewById2 = this.f56692d.findViewById(R.id.layout_title);
+        this.z = (TextView) this.f60381d.findViewById(R.id.video_title);
+        View findViewById2 = this.f60381d.findViewById(R.id.layout_title);
         this.A = findViewById2;
         findViewById2.setVisibility(8);
-        this.E = AnimationUtils.loadAnimation(this.f56689a.getPageActivity(), R.anim.anim_alpha_1_to_0_duration_2000_accelerate);
-        this.F = AnimationUtils.loadAnimation(this.f56689a.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);
-        this.J = (WindowManager) this.f56689a.getPageActivity().getSystemService("window");
-        this.I = new GestureDetector(this.f56689a.getPageActivity(), new o(this, null));
-        AudioManager audioManager = (AudioManager) TbadkCoreApplication.getInst().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.E = AnimationUtils.loadAnimation(this.f60378a.getPageActivity(), R.anim.anim_alpha_1_to_0_duration_2000_accelerate);
+        this.F = AnimationUtils.loadAnimation(this.f60378a.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);
+        this.J = (WindowManager) this.f60378a.getPageActivity().getSystemService("window");
+        this.I = new GestureDetector(this.f60378a.getPageActivity(), new o(this, null));
+        AudioManager audioManager = (AudioManager) TbadkCoreApplication.getInst().getSystemService("audio");
         this.Q = audioManager;
         this.S = audioManager.getStreamMaxVolume(3);
         this.c0 = this.Q.getStreamVolume(3);
         s0 = 100 / this.S;
-        this.f56692d.setOnTouchListener(new f());
-        d.a.n0.k2.j jVar = new d.a.n0.k2.j(this.f56689a.getPageActivity());
+        this.f60381d.setOnTouchListener(new f());
+        d.a.n0.k2.j jVar = new d.a.n0.k2.j(this.f60378a.getPageActivity());
         this.X = jVar;
         jVar.j();
-        this.a0 = d.a.c.e.p.l.g(this.f56689a.getPageActivity(), R.dimen.ds16);
+        this.a0 = d.a.c.e.p.l.g(this.f60378a.getPageActivity(), R.dimen.ds16);
         if (t0 == null) {
             t0 = new CallStateReceiver();
         }
-        t0.register(this.f56689a.getPageActivity());
-        this.f56689a.registerListener(this.r0);
+        t0.register(this.f60378a.getPageActivity());
+        this.f60378a.registerListener(this.r0);
     }
 
     public void A0(View view) {
@@ -588,7 +587,7 @@ public class c {
 
     public void B0() {
         this.n.setImageResource(R.drawable.icon_video_midpause);
-        this.f56695g.setVisibility(8);
+        this.f60384g.setVisibility(8);
         this.t.setVisibility(0);
     }
 
@@ -601,26 +600,26 @@ public class c {
     }
 
     public void E0(SwipeBackLayout.c cVar) {
-        this.f56690b = cVar;
+        this.f60379b = cVar;
     }
 
     public final void F0() {
         int i2 = Build.VERSION.SDK_INT;
         if (i2 < 16) {
-            this.f56692d.setSystemUiVisibility(2);
+            this.f60381d.setSystemUiVisibility(2);
         } else if (i2 >= 16 && i2 <= 18) {
-            this.f56692d.setSystemUiVisibility(4);
+            this.f60381d.setSystemUiVisibility(4);
         } else {
-            this.f56692d.setSystemUiVisibility(5894);
+            this.f60381d.setSystemUiVisibility(5894);
         }
     }
 
     public void G0(String str) {
-        this.v.V(str, 17, false);
+        this.v.U(str, 17, false);
     }
 
     public void H0(d.a.n0.k1.o.l.o oVar) {
-        this.f56691c = oVar;
+        this.f60380c = oVar;
     }
 
     public void I0(long j2) {
@@ -632,21 +631,21 @@ public class c {
     }
 
     public void K0(int i2) {
-        d.a.n0.k1.o.l.o oVar = this.f56691c;
+        d.a.n0.k1.o.l.o oVar = this.f60380c;
         if (oVar == null || i2 == oVar.l()) {
             return;
         }
-        this.f56691c.w();
+        this.f60380c.w();
     }
 
     public void L0() {
-        this.f56692d.setVisibility(0);
+        this.f60381d.setVisibility(0);
     }
 
     public void M0() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f56693e.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f60382e.getLayoutParams();
         layoutParams.bottomMargin = 0;
-        this.f56693e.setLayoutParams(layoutParams);
+        this.f60382e.setLayoutParams(layoutParams);
         this.o.setClickable(true);
         this.o.setVisibility(0);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
@@ -654,26 +653,26 @@ public class c {
             layoutParams2.alignWithParent = false;
             layoutParams2.addRule(11, 0);
             layoutParams2.addRule(0, R.id.card_img_full_screen);
-            int dimension = (int) (this.f56689a.getResources().getDimension(R.dimen.ds16) + 0.5f);
-            this.m.setPadding((int) (this.f56689a.getResources().getDimension(R.dimen.ds22) + 0.5f), (int) (this.f56689a.getResources().getDimension(R.dimen.ds16) + 0.5f), (int) (this.f56689a.getResources().getDimension(R.dimen.ds16) + 0.5f), dimension);
+            int dimension = (int) (this.f60378a.getResources().getDimension(R.dimen.ds16) + 0.5f);
+            this.m.setPadding((int) (this.f60378a.getResources().getDimension(R.dimen.ds22) + 0.5f), (int) (this.f60378a.getResources().getDimension(R.dimen.ds16) + 0.5f), (int) (this.f60378a.getResources().getDimension(R.dimen.ds16) + 0.5f), dimension);
             this.m.setLayoutParams(layoutParams2);
         }
     }
 
     public void N0(boolean z) {
         if (z) {
-            this.f56696h.setVisibility(0);
+            this.f60385h.setVisibility(0);
             this.n.setVisibility(0);
             return;
         }
-        this.f56696h.setVisibility(8);
+        this.f60385h.setVisibility(8);
         this.n.setVisibility(8);
     }
 
     public void O0(String str) {
-        this.f56694f.setVideoPath(str);
-        this.f56694f.start();
-        this.f56695g.setVisibility(0);
+        this.f60383f.setVideoPath(str);
+        this.f60383f.start();
+        this.f60384g.setVisibility(0);
         this.v.setVisibility(0);
         this.t.setVisibility(8);
         this.n.setImageResource(R.drawable.icon_video_midplay);
@@ -686,7 +685,7 @@ public class c {
         int i2 = this.R;
         if (i2 == 1) {
             if (this.K == null) {
-                View inflate = LayoutInflater.from(this.f56689a.getPageActivity()).inflate(R.layout.float_video_window_jindu, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.f60378a.getPageActivity()).inflate(R.layout.float_video_window_jindu, (ViewGroup) null);
                 this.K = inflate;
                 this.M = (TextView) inflate.findViewById(R.id.show_time);
                 this.P = (ImageView) this.K.findViewById(R.id.arrow_icon);
@@ -696,7 +695,7 @@ public class c {
             }
         } else if (i2 == 2) {
             if (this.L == null) {
-                View inflate2 = LayoutInflater.from(this.f56689a.getPageActivity()).inflate(R.layout.float_video_window_voice, (ViewGroup) null);
+                View inflate2 = LayoutInflater.from(this.f60378a.getPageActivity()).inflate(R.layout.float_video_window_voice, (ViewGroup) null);
                 this.L = inflate2;
                 this.O = (ImageView) inflate2.findViewById(R.id.arrow_voice_icon);
                 this.N = (SeekBar) this.L.findViewById(R.id.show_voice_seekbar);
@@ -710,7 +709,7 @@ public class c {
     public void P0() {
         d.a.c.e.m.e.a().removeCallbacks(this.h0);
         d.a.c.e.m.e.a().removeCallbacks(this.k0);
-        this.f56694f.stopPlayback();
+        this.f60383f.stopPlayback();
         this.B = false;
         this.H = 0;
         r0();
@@ -720,7 +719,7 @@ public class c {
         if (this.r == null) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f56692d.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f60381d.getLayoutParams();
         this.l = layoutParams;
         layoutParams.width = this.r.getWidth();
         this.l.height = this.r.getHeight();
@@ -728,7 +727,7 @@ public class c {
         this.r.getLocationOnScreen(iArr);
         FrameLayout.LayoutParams layoutParams2 = this.l;
         layoutParams2.topMargin = iArr[1] - this.q;
-        this.f56692d.setLayoutParams(layoutParams2);
+        this.f60381d.setLayoutParams(layoutParams2);
     }
 
     public void Q0() {
@@ -750,12 +749,12 @@ public class c {
             int i2 = this.T;
             if (i2 < 0) {
                 this.T = 0;
-            } else if (i2 > this.f56694f.getDuration()) {
-                this.T = this.f56694f.getDuration();
+            } else if (i2 > this.f60383f.getDuration()) {
+                this.T = this.f60383f.getDuration();
             }
         }
         P();
-        String m2 = this.f56696h.m(this.T);
+        String m2 = this.f60385h.m(this.T);
         if (f2 > 0.0f) {
             this.P.setImageResource(R.drawable.icon_kuaitui);
         } else {
@@ -766,10 +765,10 @@ public class c {
             StringBuilder sb = new StringBuilder();
             sb.append(m2);
             sb.append("/");
-            sb.append(this.f56696h.m(this.f56694f.getDuration()));
+            sb.append(this.f60385h.m(this.f60383f.getDuration()));
             textView.setText(sb);
         }
-        this.f56696h.setCurrentDuration(this.T, !z);
+        this.f60385h.setCurrentDuration(this.T, !z);
     }
 
     public void R0(String str, String str2) {
@@ -782,7 +781,7 @@ public class c {
         int i3;
         int i4;
         int i5;
-        if (!this.f56694f.isPlaying()) {
+        if (!this.f60383f.isPlaying()) {
             this.R = 0;
             return;
         }
@@ -834,7 +833,7 @@ public class c {
         d.a.c.e.m.e.a().removeCallbacks(this.h0);
         d.a.c.e.m.e.a().removeCallbacks(this.k0);
         this.X.k();
-        t0.unregister(this.f56689a.getPageActivity());
+        t0.unregister(this.f60378a.getPageActivity());
     }
 
     public void W() {
@@ -874,7 +873,7 @@ public class c {
         attributes2.flags &= -1025;
         baseFragmentActivity.getWindow().setAttributes(attributes2);
         baseFragmentActivity.getWindow().clearFlags(512);
-        this.f56695g.getVisibility();
+        this.f60384g.getVisibility();
     }
 
     public final WindowManager.LayoutParams Z() {
@@ -918,7 +917,7 @@ public class c {
     }
 
     public TbCyberVideoView f0() {
-        return this.f56694f;
+        return this.f60383f;
     }
 
     public View g0(TbPageContext<?> tbPageContext) {
@@ -926,11 +925,11 @@ public class c {
     }
 
     public VideoListMediaControllerView h0() {
-        return this.f56696h;
+        return this.f60385h;
     }
 
     public void i0(int i2) {
-        if (this.f56694f.getDuration() - i2 > 3000 || !this.s) {
+        if (this.f60383f.getDuration() - i2 > 3000 || !this.s) {
             return;
         }
         U();
@@ -941,24 +940,24 @@ public class c {
     }
 
     public void j0() {
-        this.f56692d.setVisibility(8);
+        this.f60381d.setVisibility(8);
     }
 
     public void k0() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f56693e.getLayoutParams();
-        if (d.a.n0.k1.o.k.e.c(this.f56689a.getPageActivity())) {
-            layoutParams.bottomMargin = (int) (this.f56689a.getResources().getDimension(R.dimen.ds40) + 0.5f);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f60382e.getLayoutParams();
+        if (d.a.n0.k1.o.k.e.c(this.f60378a.getPageActivity())) {
+            layoutParams.bottomMargin = (int) (this.f60378a.getResources().getDimension(R.dimen.ds40) + 0.5f);
         } else {
-            layoutParams.bottomMargin = (int) (this.f56689a.getResources().getDimension(R.dimen.ds30) + 0.5f);
+            layoutParams.bottomMargin = (int) (this.f60378a.getResources().getDimension(R.dimen.ds30) + 0.5f);
         }
-        this.f56693e.setLayoutParams(layoutParams);
+        this.f60382e.setLayoutParams(layoutParams);
         this.o.setClickable(false);
         this.o.setVisibility(8);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
         if (layoutParams2 != null) {
             layoutParams2.alignWithParent = true;
-            int dimension = (int) (this.f56689a.getResources().getDimension(R.dimen.ds16) + 0.5f);
-            this.m.setPadding((int) (this.f56689a.getResources().getDimension(R.dimen.ds22) + 0.5f), (int) (this.f56689a.getResources().getDimension(R.dimen.ds16) + 0.5f), (int) (this.f56689a.getResources().getDimension(R.dimen.ds38) + 0.5f), dimension);
+            int dimension = (int) (this.f60378a.getResources().getDimension(R.dimen.ds16) + 0.5f);
+            this.m.setPadding((int) (this.f60378a.getResources().getDimension(R.dimen.ds22) + 0.5f), (int) (this.f60378a.getResources().getDimension(R.dimen.ds16) + 0.5f), (int) (this.f60378a.getResources().getDimension(R.dimen.ds38) + 0.5f), dimension);
             layoutParams2.addRule(11);
             this.m.setLayoutParams(layoutParams2);
         }
@@ -977,7 +976,7 @@ public class c {
     }
 
     public boolean m0() {
-        return this.f56692d.getVisibility() == 0;
+        return this.f60381d.getVisibility() == 0;
     }
 
     public void n0(BaseFragmentActivity baseFragmentActivity, Configuration configuration) {
@@ -985,9 +984,9 @@ public class c {
         if (configuration.orientation == 2) {
             this.s = true;
             this.m.setVisibility(8);
-            this.f56694f.setVolume(1.0f, 1.0f);
+            this.f60383f.setVolume(1.0f, 1.0f);
             m0.e(this.e0, true);
-            this.f56692d.setLayoutParams(new FrameLayout.LayoutParams(this.Z, this.Y));
+            this.f60381d.setLayoutParams(new FrameLayout.LayoutParams(this.Z, this.Y));
             Y(baseFragmentActivity, true);
             this.A.setVisibility(0);
             v0(true);
@@ -1005,15 +1004,15 @@ public class c {
         this.s = false;
         this.m.setVisibility(0);
         if (this.d0) {
-            this.f56694f.setVolume(1.0f, 1.0f);
+            this.f60383f.setVolume(1.0f, 1.0f);
             m0.e(this.e0, true);
         } else {
-            this.f56694f.setVolume(0.0f, 0.0f);
+            this.f60383f.setVolume(0.0f, 0.0f);
             m0.e(this.e0, false);
         }
         FrameLayout.LayoutParams layoutParams = this.l;
         if (layoutParams != null) {
-            this.f56692d.setLayoutParams(layoutParams);
+            this.f60381d.setLayoutParams(layoutParams);
         }
         Y(baseFragmentActivity, false);
         this.A.setVisibility(8);
@@ -1030,21 +1029,21 @@ public class c {
         q0();
         this.o.setImageResource(R.drawable.icon_fangda);
         w0(0);
-        this.f56692d.setSystemUiVisibility(0);
+        this.f60381d.setSystemUiVisibility(0);
     }
 
     public void o0() {
-        this.f56694f.pause();
+        this.f60383f.pause();
         B0();
     }
 
     public void p0() {
         if (d.a.c.e.p.j.x() && !this.n0) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f56689a.getPageActivity());
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f60378a.getPageActivity());
             aVar.setMessage(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
             aVar.setPositiveButton(R.string.confirm, new n());
             aVar.setNegativeButton(R.string.cancel, new a(this));
-            aVar.create(this.f56689a).show();
+            aVar.create(this.f60378a).show();
             return;
         }
         O0(this.u);
@@ -1076,23 +1075,23 @@ public class c {
         if (this.p == null) {
             return;
         }
-        this.f56697i.setVisibility(0);
+        this.f60386i.setVisibility(0);
         this.t.setVisibility(0);
-        this.f56695g.setVisibility(8);
+        this.f60384g.setVisibility(8);
         this.n.setImageResource(R.drawable.icon_video_midpause);
         this.p.setVisibility(4);
         this.j.setVisibility(8);
-        this.f56696h.q();
+        this.f60385h.q();
         this.v.setVisibility(0);
     }
 
     public void s0() {
-        this.f56694f.start();
+        this.f60383f.start();
         this.n.setImageResource(R.drawable.icon_video_midplay);
         this.v.setVisibility(8);
-        this.f56697i.setVisibility(8);
-        this.f56695g.setVisibility(8);
-        this.f56696h.s();
+        this.f60386i.setVisibility(8);
+        this.f60384g.setVisibility(8);
+        this.f60385h.s();
         this.t.setVisibility(8);
     }
 
@@ -1100,13 +1099,13 @@ public class c {
         if (this.p == null) {
             return;
         }
-        this.f56697i.setVisibility(0);
+        this.f60386i.setVisibility(0);
         this.t.setVisibility(0);
-        this.f56695g.setVisibility(8);
+        this.f60384g.setVisibility(8);
         this.n.setImageResource(R.drawable.icon_video_midpause);
         this.p.setVisibility(0);
         this.j.setVisibility(8);
-        this.f56696h.q();
+        this.f60385h.q();
         this.v.setVisibility(0);
     }
 
@@ -1116,21 +1115,21 @@ public class c {
 
     public void v0(boolean z) {
         if (z) {
-            this.f56692d.setOnClickListener(this.m0);
+            this.f60381d.setOnClickListener(this.m0);
         } else {
-            this.f56692d.setClickable(false);
+            this.f60381d.setClickable(false);
         }
     }
 
     public final void w0(int i2) {
-        VideoListMediaControllerView videoListMediaControllerView = this.f56696h;
+        VideoListMediaControllerView videoListMediaControllerView = this.f60385h;
         if (videoListMediaControllerView == null || !(videoListMediaControllerView.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f56696h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f60385h.getLayoutParams();
         layoutParams.leftMargin = i2;
         layoutParams.rightMargin = i2;
-        this.f56696h.setLayoutParams(layoutParams);
+        this.f60385h.setLayoutParams(layoutParams);
     }
 
     public void x0(p pVar) {

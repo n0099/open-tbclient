@@ -24,19 +24,19 @@ import java.util.Map;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f7919a = null;
+    public static Context f7962a = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f7922d = null;
+    public static String f7965d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f7923e = "i";
+    public static final String f7966e = "i";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f7926h;
+    public static String f7969h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f7927i;
+    public static String f7970i;
     public static String j;
     public static String k;
     public static int l;
@@ -50,10 +50,10 @@ public class i {
     public static String x;
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.baidu.mapsdkplatform.comjni.util.a f7924f = new com.baidu.mapsdkplatform.comjni.util.a();
+    public static com.baidu.mapsdkplatform.comjni.util.a f7967f = new com.baidu.mapsdkplatform.comjni.util.a();
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f7925g = "02";
+    public static String f7968g = "02";
     public static String s = PathUtils.DIRCTORY_BAIDU;
     public static String t = "";
     public static String u = "";
@@ -62,10 +62,10 @@ public class i {
     public static String z = "-1";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f7920b = Integer.parseInt(Build.VERSION.SDK);
+    public static final int f7963b = Integer.parseInt(Build.VERSION.SDK);
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f7921c = 1.0f;
+    public static float f7964c = 1.0f;
     public static String A = "";
     public static Map<String, String> B = new HashMap();
 
@@ -96,7 +96,7 @@ public class i {
     public static Bundle b() {
         Bundle bundle = new Bundle();
         bundle.putString("cpu", t);
-        bundle.putString("resid", f7925g);
+        bundle.putString("resid", f7968g);
         bundle.putString("channel", s);
         bundle.putString("glr", u);
         bundle.putString("glv", v);
@@ -107,11 +107,11 @@ public class i {
         bundle.putInt("dpi_y", l());
         bundle.putString("net", r);
         bundle.putString("cuid", A);
-        bundle.putByteArray(SocialOperation.GAME_SIGNATURE, a(f7919a));
-        bundle.putString("pcn", f7919a.getPackageName());
+        bundle.putByteArray(SocialOperation.GAME_SIGNATURE, a(f7962a));
+        bundle.putString("pcn", f7962a.getPackageName());
         bundle.putInt("screen_x", h());
         bundle.putInt("screen_y", j());
-        com.baidu.mapsdkplatform.comjni.util.a aVar = f7924f;
+        com.baidu.mapsdkplatform.comjni.util.a aVar = f7967f;
         if (aVar != null) {
             aVar.a(bundle);
         }
@@ -119,30 +119,30 @@ public class i {
     }
 
     public static void b(Context context) {
-        f7919a = context;
+        f7962a = context;
         if (context.getFilesDir() != null) {
             w = context.getFilesDir().getAbsolutePath();
         }
         if (context.getCacheDir() != null) {
             x = context.getCacheDir().getAbsolutePath();
         }
-        f7927i = Build.MODEL;
+        f7970i = Build.MODEL;
         j = "Android" + Build.VERSION.SDK;
-        f7926h = context.getPackageName();
+        f7969h = context.getPackageName();
         c(context);
         d(context);
         q();
         A = p();
-        B.put("resid", AppMD5.encodeUrlParamsValue(f7925g));
+        B.put("resid", AppMD5.encodeUrlParamsValue(f7968g));
         B.put("channel", AppMD5.encodeUrlParamsValue(m()));
         B.put("mb", AppMD5.encodeUrlParamsValue(g()));
         B.put("sv", AppMD5.encodeUrlParamsValue(i()));
         B.put(IAdRequestParam.OS, AppMD5.encodeUrlParamsValue(k()));
         B.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
         B.put("cuid", AppMD5.encodeUrlParamsValue(A));
-        B.put("pcn", AppMD5.encodeUrlParamsValue(f7919a.getPackageName()));
+        B.put("pcn", AppMD5.encodeUrlParamsValue(f7962a.getPackageName()));
         B.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(h()), Integer.valueOf(j()))));
-        com.baidu.mapsdkplatform.comjni.util.a aVar = f7924f;
+        com.baidu.mapsdkplatform.comjni.util.a aVar = f7967f;
         if (aVar != null) {
             aVar.a();
         }
@@ -181,7 +181,7 @@ public class i {
     }
 
     public static void d() {
-        com.baidu.mapsdkplatform.comjni.util.a aVar = f7924f;
+        com.baidu.mapsdkplatform.comjni.util.a aVar = f7967f;
         if (aVar != null) {
             aVar.b();
         }
@@ -196,10 +196,10 @@ public class i {
             n = defaultDisplay.getHeight();
             defaultDisplay.getMetrics(displayMetrics);
         }
-        f7921c = displayMetrics.density;
+        f7964c = displayMetrics.density;
         o = (int) displayMetrics.xdpi;
         p = (int) displayMetrics.ydpi;
-        if (f7920b > 3) {
+        if (f7963b > 3) {
             q = displayMetrics.densityDpi;
         } else {
             q = 160;
@@ -217,12 +217,12 @@ public class i {
         B.put("net", AppMD5.encodeUrlParamsValue(e()));
         B.put("appid", AppMD5.encodeUrlParamsValue(y));
         B.put("bduid", "");
-        if (f7924f == null) {
+        if (f7967f == null) {
             return;
         }
         Bundle bundle = new Bundle();
         bundle.putString("cpu", t);
-        bundle.putString("resid", f7925g);
+        bundle.putString("resid", f7968g);
         bundle.putString("channel", s);
         bundle.putString("glr", u);
         bundle.putString("glv", v);
@@ -233,20 +233,20 @@ public class i {
         bundle.putInt("dpi_y", l());
         bundle.putString("net", r);
         bundle.putString("cuid", A);
-        bundle.putString("pcn", f7919a.getPackageName());
+        bundle.putString("pcn", f7962a.getPackageName());
         bundle.putInt("screen_x", h());
         bundle.putInt("screen_y", j());
         bundle.putString("appid", y);
         bundle.putString("duid", z);
-        if (!TextUtils.isEmpty(f7922d)) {
-            bundle.putString("token", f7922d);
+        if (!TextUtils.isEmpty(f7965d)) {
+            bundle.putString("token", f7965d);
         }
-        f7924f.a(bundle);
+        f7967f.a(bundle);
         SysUpdateObservable.getInstance().updatePhoneInfo();
     }
 
     public static String g() {
-        return f7927i;
+        return f7970i;
     }
 
     public static int h() {
@@ -274,7 +274,7 @@ public class i {
     }
 
     public static String n() {
-        return f7926h;
+        return f7969h;
     }
 
     public static String o() {
@@ -284,7 +284,7 @@ public class i {
     public static String p() {
         String str;
         try {
-            str = CommonParam.getCUID(f7919a);
+            str = CommonParam.getCUID(f7962a);
         } catch (Exception unused) {
             str = "";
         }

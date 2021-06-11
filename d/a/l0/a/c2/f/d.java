@@ -5,9 +5,9 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 public abstract class d<DispatcherT extends UnitedSchemeAbsDispatcher> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f40951a;
+    public final String f44627a;
 
     public d(DispatcherT dispatchert, String str) {
-        this.f40951a = str;
+        this.f44627a = str;
     }
 }

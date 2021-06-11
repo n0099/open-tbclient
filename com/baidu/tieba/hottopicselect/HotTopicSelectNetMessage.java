@@ -10,7 +10,7 @@ import tbclient.CommonReq;
 public class HotTopicSelectNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16946common;
+    public CommonReq f17022common;
     public long fid;
     public String firstDir;
     public String prefix;
@@ -49,7 +49,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f16946common;
+        return this.f17022common;
     }
 
     public long getFid() {
@@ -69,7 +69,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f16946common = commonReq;
+        this.f17022common = commonReq;
     }
 
     public void setFid(long j) {

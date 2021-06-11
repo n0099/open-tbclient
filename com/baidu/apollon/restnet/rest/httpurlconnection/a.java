@@ -14,10 +14,10 @@ import javax.net.ssl.X509TrustManager;
 public class a implements X509TrustManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509Certificate[] f3882a = new X509Certificate[0];
+    public static final X509Certificate[] f3901a = new X509Certificate[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static TrustManager[] f3883b;
+    public static TrustManager[] f3902b;
 
     public static void a() {
         SSLContext sSLContext;
@@ -29,8 +29,8 @@ public class a implements X509TrustManager {
                 return true;
             }
         });
-        if (f3883b == null) {
-            f3883b = new TrustManager[]{new a()};
+        if (f3902b == null) {
+            f3902b = new TrustManager[]{new a()};
         }
         try {
             sSLContext = SSLContext.getInstance("TLS");
@@ -42,7 +42,7 @@ public class a implements X509TrustManager {
             e2 = e5;
         }
         try {
-            sSLContext.init(null, f3883b, null);
+            sSLContext.init(null, f3902b, null);
         } catch (KeyManagementException e6) {
             e3 = e6;
             e3.printStackTrace();
@@ -73,6 +73,6 @@ public class a implements X509TrustManager {
 
     @Override // javax.net.ssl.X509TrustManager
     public X509Certificate[] getAcceptedIssuers() {
-        return f3882a;
+        return f3901a;
     }
 }

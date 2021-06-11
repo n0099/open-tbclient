@@ -33,19 +33,19 @@ import java.util.List;
 public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public n f14719e;
+    public n f14776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FaceShopModel f14720f;
+    public FaceShopModel f14777f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FaceBuyModel f14721g;
+    public FaceBuyModel f14778g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<String, DownloadData> f14722h = new HashMap<>();
+    public final HashMap<String, DownloadData> f14779h = new HashMap<>();
 
     /* renamed from: i  reason: collision with root package name */
-    public final NoNetworkView.b f14723i = new c();
+    public final NoNetworkView.b f14780i = new c();
     public final d.a.c.a.e j = new d();
     public final CustomMessageListener k = new f(0);
 
@@ -78,10 +78,10 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
-            if (!z || FaceShopActivity.this.f14719e == null) {
+            if (!z || FaceShopActivity.this.f14776e == null) {
                 return;
             }
-            FaceShopActivity.this.f14719e.s();
+            FaceShopActivity.this.f14776e.s();
         }
     }
 
@@ -94,15 +94,15 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
         public void c(Object obj) {
             FaceShopActivity.this.hideProgressBar();
             if (obj != null && (obj instanceof FaceShopData)) {
-                if (FaceShopActivity.this.f14719e != null) {
+                if (FaceShopActivity.this.f14776e != null) {
                     FaceShopData faceShopData = (FaceShopData) obj;
                     if (faceShopData.errno == 0 && faceShopData.usermsg != null) {
-                        if (FaceShopActivity.this.f14720f.F()) {
-                            FaceShopActivity.this.f14719e.r();
+                        if (FaceShopActivity.this.f14777f.J()) {
+                            FaceShopActivity.this.f14776e.r();
                         } else {
-                            FaceShopActivity.this.f14719e.f();
+                            FaceShopActivity.this.f14776e.f();
                         }
-                        FaceShopActivity.this.f14719e.j(faceShopData);
+                        FaceShopActivity.this.f14776e.j(faceShopData);
                         return;
                     }
                     String str = faceShopData.usermsg;
@@ -111,13 +111,13 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
                     } else {
                         FaceShopActivity.this.showToast(R.string.neterror);
                     }
-                    FaceShopActivity.this.f14719e.b();
+                    FaceShopActivity.this.f14776e.b();
                     return;
                 }
                 return;
             }
             FaceShopActivity.this.showToast(R.string.neterror);
-            FaceShopActivity.this.f14719e.b();
+            FaceShopActivity.this.f14776e.b();
         }
     }
 
@@ -125,10 +125,10 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
     public class e extends d.a.c.a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f14728a;
+        public final /* synthetic */ int f14785a;
 
         public e(int i2) {
-            this.f14728a = i2;
+            this.f14785a = i2;
         }
 
         @Override // d.a.c.a.e
@@ -137,7 +137,7 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
                 FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
                 if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
                     if (faceBuyQueryData.buy_result.status == 2) {
-                        FaceShopActivity.this.p(this.f14728a);
+                        FaceShopActivity.this.p(this.f14785a);
                         return;
                     } else {
                         FaceShopActivity.this.o();
@@ -160,25 +160,25 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FaceShopData E;
+            FaceShopData I;
             m c2;
-            if (FaceShopActivity.this.f14720f == null || FaceShopActivity.this.f14719e == null || (E = FaceShopActivity.this.f14720f.E()) == null || E.pack_list == null) {
+            if (FaceShopActivity.this.f14777f == null || FaceShopActivity.this.f14776e == null || (I = FaceShopActivity.this.f14777f.I()) == null || I.pack_list == null) {
                 return;
             }
             if (customResponsedMessage.getCmd() == 2001118) {
                 if (customResponsedMessage instanceof DownloadMessage) {
-                    FaceShopActivity.this.f14722h.clear();
+                    FaceShopActivity.this.f14779h.clear();
                     List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
-                    if (data == null || (c2 = FaceShopActivity.this.f14719e.c()) == null) {
+                    if (data == null || (c2 = FaceShopActivity.this.f14776e.c()) == null) {
                         return;
                     }
                     for (DownloadData downloadData : data) {
-                        FaceShopActivity.this.f14722h.put(downloadData.getId(), downloadData);
+                        FaceShopActivity.this.f14779h.put(downloadData.getId(), downloadData);
                     }
-                    Iterator<FacePackageData> it = E.pack_list.iterator();
+                    Iterator<FacePackageData> it = I.pack_list.iterator();
                     while (it.hasNext()) {
                         FacePackageData next = it.next();
-                        DownloadData downloadData2 = (DownloadData) FaceShopActivity.this.f14722h.get(String.valueOf(next.pid));
+                        DownloadData downloadData2 = (DownloadData) FaceShopActivity.this.f14779h.get(String.valueOf(next.pid));
                         if (downloadData2 != null) {
                             int status = downloadData2.getStatus();
                             if (status == 3 || status == 0) {
@@ -199,11 +199,11 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
                             }
                         }
                     }
-                    c2.n(E);
+                    c2.n(I);
                 }
             } else if (customResponsedMessage.getCmd() == 2001117) {
                 ArrayList<String> arrayList = new ArrayList<>();
-                Iterator<FacePackageData> it2 = E.pack_list.iterator();
+                Iterator<FacePackageData> it2 = I.pack_list.iterator();
                 while (it2.hasNext()) {
                     FacePackageData next2 = it2.next();
                     if (next2.downloaded == 1) {
@@ -211,34 +211,34 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
                     }
                     arrayList.add(String.valueOf(next2.pid));
                 }
-                FaceShopActivity.this.f14719e.i(arrayList);
+                FaceShopActivity.this.f14776e.i(arrayList);
             }
         }
     }
 
     public final void k() {
-        this.f14719e.a(this.f14723i);
+        this.f14776e.a(this.f14780i);
     }
 
     public final void l(Bundle bundle) {
         String st_type;
-        this.f14720f = new FaceShopModel(this);
+        this.f14777f = new FaceShopModel(this);
         if (bundle != null) {
             st_type = FaceShopActivityConfig.getST_TYPE(bundle);
         } else {
             st_type = FaceShopActivityConfig.getST_TYPE(getIntent());
             TiebaStatic.log(st_type);
         }
-        this.f14720f.H(st_type);
-        this.f14720f.setLoadDataCallBack(this.j);
+        this.f14777f.L(st_type);
+        this.f14777f.setLoadDataCallBack(this.j);
     }
 
     public final void m() {
         n nVar = new n(getPageContext());
-        this.f14719e = nVar;
+        this.f14776e = nVar;
         nVar.o(new a());
-        this.f14719e.p(new b());
-        this.f14719e.m(this);
+        this.f14776e.p(new b());
+        this.f14776e.m(this);
         k();
         registerListener(2001118, this.k);
         registerListener(2001117, this.k);
@@ -246,46 +246,46 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
     }
 
     public final void n() {
-        FaceShopModel faceShopModel = this.f14720f;
-        if (faceShopModel == null || this.f14719e == null || !faceShopModel.F()) {
+        FaceShopModel faceShopModel = this.f14777f;
+        if (faceShopModel == null || this.f14776e == null || !faceShopModel.J()) {
             return;
         }
-        this.f14719e.n();
-        this.f14720f.G(2);
+        this.f14776e.n();
+        this.f14777f.K(2);
     }
 
     public void o() {
-        this.f14719e.l();
+        this.f14776e.l();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onActivityResult(int i2, int i3, Intent intent) {
         n nVar;
         super.onActivityResult(i2, i3, intent);
-        if (i3 != -1 || (nVar = this.f14719e) == null || nVar.c() == null) {
+        if (i3 != -1 || (nVar = this.f14776e) == null || nVar.c() == null) {
             return;
         }
         if (i2 == 10000) {
             int intExtra = intent.getIntExtra("tag_position", -1);
             String stringExtra = intent.getStringExtra("tag_order_id");
-            FacePackageData facePackageData = (FacePackageData) this.f14719e.c().getItem(intExtra);
+            FacePackageData facePackageData = (FacePackageData) this.f14776e.c().getItem(intExtra);
             if (facePackageData == null) {
                 return;
             }
             if (k.isEmpty(stringExtra)) {
                 stringExtra = facePackageData.orderId;
             }
-            this.f14719e.q();
+            this.f14776e.q();
             FaceBuyModel faceBuyModel = new FaceBuyModel(getActivity());
-            this.f14721g = faceBuyModel;
+            this.f14778g = faceBuyModel;
             faceBuyModel.setLoadDataCallBack(new e(intExtra));
-            this.f14721g.A(stringExtra);
+            this.f14778g.E(stringExtra);
         } else if (i2 != 11003) {
             if (i2 == 11037) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2902012, new IntentConfig(getActivity())));
             }
         } else {
-            m c2 = this.f14719e.c();
+            m c2 = this.f14776e.c();
             int e2 = c2.e();
             if (e2 < 0) {
                 return;
@@ -301,7 +301,7 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        n nVar = this.f14719e;
+        n nVar = this.f14776e;
         if (nVar != null) {
             nVar.g(i2);
         }
@@ -309,7 +309,7 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        n nVar = this.f14719e;
+        n nVar = this.f14776e;
         if (nVar == null) {
             return;
         }
@@ -328,21 +328,21 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
         super.onCreate(bundle);
         m();
         l(bundle);
-        this.f14719e.s();
+        this.f14776e.s();
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        FaceShopModel faceShopModel = this.f14720f;
+        FaceShopModel faceShopModel = this.f14777f;
         if (faceShopModel != null) {
             faceShopModel.cancelLoadData();
         }
-        n nVar = this.f14719e;
+        n nVar = this.f14776e;
         if (nVar != null) {
             nVar.c().h();
         }
-        FaceBuyModel faceBuyModel = this.f14721g;
+        FaceBuyModel faceBuyModel = this.f14778g;
         if (faceBuyModel != null) {
             faceBuyModel.cancelLoadData();
         }
@@ -354,7 +354,7 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
         n nVar;
         m c2;
         FacePackageData facePackageData;
-        if (this.f14720f == null || (nVar = this.f14719e) == null || (c2 = nVar.c()) == null) {
+        if (this.f14777f == null || (nVar = this.f14776e) == null || (c2 = nVar.c()) == null) {
             return;
         }
         if (i2 < c2.getCount() && i2 >= 0 && (facePackageData = (FacePackageData) c2.getItem(i2)) != null) {
@@ -366,7 +366,7 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         super.onResume();
-        n nVar = this.f14719e;
+        n nVar = this.f14776e;
         if (nVar != null) {
             nVar.h();
         }
@@ -374,15 +374,15 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
 
     public void p(int i2) {
         FacePackageData facePackageData;
-        n nVar = this.f14719e;
-        if (nVar == null || nVar.c() == null || (facePackageData = (FacePackageData) this.f14719e.c().getItem(i2)) == null) {
+        n nVar = this.f14776e;
+        if (nVar == null || nVar.c() == null || (facePackageData = (FacePackageData) this.f14776e.c().getItem(i2)) == null) {
             return;
         }
-        this.f14719e.e();
+        this.f14776e.e();
         facePackageData.buy_status = 1;
         facePackageData.can_download = 1;
-        this.f14719e.c().notifyDataSetChanged();
-        this.f14719e.c().i(i2);
+        this.f14776e.c().notifyDataSetChanged();
+        this.f14776e.c().i(i2);
     }
 
     public final void q(boolean z) {
@@ -390,13 +390,13 @@ public class FaceShopActivity extends ProxyAdkBaseActivity<FaceShopActivity> {
             if (z) {
                 showProgressBar();
             }
-            this.f14720f.G(1);
+            this.f14777f.K(1);
             return;
         }
-        this.f14719e.b();
+        this.f14776e.b();
     }
 
     public final void r() {
-        this.f14719e.k(this.f14723i);
+        this.f14776e.k(this.f14780i);
     }
 }

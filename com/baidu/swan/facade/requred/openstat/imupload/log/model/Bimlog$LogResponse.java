@@ -43,16 +43,16 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
     public static final class b extends GeneratedMessageLite.Builder<Bimlog$LogResponse, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11517e;
+        public int f11579e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f11518f;
+        public int f11580f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f11519g = "";
+        public Object f11581g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public long f11520h;
+        public long f11582h;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -98,31 +98,31 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         /* renamed from: n */
         public Bimlog$LogResponse buildPartial() {
             Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this);
-            int i2 = this.f11517e;
+            int i2 = this.f11579e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            bimlog$LogResponse.errorCode_ = this.f11518f;
+            bimlog$LogResponse.errorCode_ = this.f11580f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            bimlog$LogResponse.errorMsg_ = this.f11519g;
+            bimlog$LogResponse.errorMsg_ = this.f11581g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            bimlog$LogResponse.pingIntervalMs_ = this.f11520h;
+            bimlog$LogResponse.pingIntervalMs_ = this.f11582h;
             bimlog$LogResponse.bitField0_ = i3;
             return bimlog$LogResponse;
         }
 
         public b o() {
             super.clear();
-            this.f11518f = 0;
-            int i2 = this.f11517e & (-2);
-            this.f11517e = i2;
-            this.f11519g = "";
+            this.f11580f = 0;
+            int i2 = this.f11579e & (-2);
+            this.f11579e = i2;
+            this.f11581g = "";
             int i3 = i2 & (-3);
-            this.f11517e = i3;
-            this.f11520h = 0L;
-            this.f11517e = i3 & (-5);
+            this.f11579e = i3;
+            this.f11582h = 0L;
+            this.f11579e = i3 & (-5);
             return this;
         }
 
@@ -150,8 +150,8 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
                 u(bimlog$LogResponse.getErrorCode());
             }
             if (bimlog$LogResponse.hasErrorMsg()) {
-                this.f11517e |= 2;
-                this.f11519g = bimlog$LogResponse.errorMsg_;
+                this.f11579e |= 2;
+                this.f11581g = bimlog$LogResponse.errorMsg_;
             }
             if (bimlog$LogResponse.hasPingIntervalMs()) {
                 v(bimlog$LogResponse.getPingIntervalMs());
@@ -194,14 +194,14 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
 
         public b u(int i2) {
-            this.f11517e |= 1;
-            this.f11518f = i2;
+            this.f11579e |= 1;
+            this.f11580f = i2;
             return this;
         }
 
         public b v(long j) {
-            this.f11517e |= 4;
-            this.f11520h = j;
+            this.f11579e |= 4;
+            this.f11582h = j;
             return this;
         }
 

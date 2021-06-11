@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41315a = k.f43199a;
+    public static final boolean f44991a = k.f46875a;
 
     @NonNull
     public static String a(d.a.l0.a.h0.f.a aVar) {
@@ -26,7 +26,7 @@ public class b {
             try {
                 jSONObject.put("containerId", aVar.getContainerId());
             } catch (JSONException e2) {
-                if (!f41315a) {
+                if (!f44991a) {
                     e2.printStackTrace();
                 } else {
                     throw new RuntimeException(e2);
@@ -38,7 +38,7 @@ public class b {
         d.h("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + d.a.l0.a.p0.h.c.a.r(b2));
         jSONObject.put("sdkExtension", b2);
         jSONObject.put("gameSdkExtension", b(d.a.l0.a.c1.b.i().t()));
-        jSONObject.put("isDebugSdk", f41315a);
+        jSONObject.put("isDebugSdk", f44991a);
         String string = h.a().getString("ctsUrl", "");
         if (!TextUtils.isEmpty(string) && d.a.l0.a.u1.a.a.s()) {
             jSONObject.put("ctsJsAddress", new JSONObject(string));
@@ -54,7 +54,7 @@ public class b {
         jSONObject.put("abTestSwitch", a2);
         jSONObject.put("userDataPath", d.a.l0.a.r0.a.USER_DATA_PATH);
         jSONObject.put("preloadId", g.N().S());
-        jSONObject.put("isBaiduSeries", f.f44582d.h());
+        jSONObject.put("isBaiduSeries", f.f48256d.h());
         jSONObject.put("ttsExtractJSUrl", n.b().a());
         jSONObject.put("coreJSPath", g.N().U());
         String jSONObject2 = jSONObject.toString();

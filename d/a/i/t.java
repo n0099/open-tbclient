@@ -33,11 +33,11 @@ public class t extends a<d.a.m0.r.q.a> {
     @Override // d.a.i.p
     /* renamed from: o */
     public void a(d.a.m0.r.q.a aVar) {
-        if (aVar != null && aVar.m() != null) {
+        if (aVar != null && aVar.i() != null) {
             this.m = aVar;
-            a2 m = aVar.m();
-            d.a.n0.z.m.j(m, this.l);
-            this.k.setData(m);
+            a2 i2 = aVar.i();
+            d.a.n0.z.m.j(i2, this.l);
+            this.k.setData(i2);
             return;
         }
         g().setVisibility(8);
@@ -47,9 +47,9 @@ public class t extends a<d.a.m0.r.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         this.k.b();
         d.a.m0.r.q.a aVar = this.m;
-        if (aVar == null || aVar.m() == null) {
+        if (aVar == null || aVar.i() == null) {
             return;
         }
-        d.a.n0.z.m.l(this.l, this.m.m().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        d.a.n0.z.m.l(this.l, this.m.i().o0(), R.color.CAM_X0105, R.color.CAM_X0109);
     }
 }

@@ -4,7 +4,7 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.message.e;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class z implements e.b {
     private boolean a(List<a.b> list, MessageSnapshot messageSnapshot) {
         if (list.size() > 1 && messageSnapshot.b() == -3) {
@@ -38,7 +38,7 @@ public class z implements e.b {
             List<a.b> b2 = h.a().b(messageSnapshot.m());
             if (b2.size() > 0) {
                 a F = b2.get(0).F();
-                if (com.kwai.filedownloader.f.d.f34292a) {
+                if (com.kwai.filedownloader.f.d.f37776a) {
                     com.kwai.filedownloader.f.d.c(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(F.v()), Byte.valueOf(messageSnapshot.b()), Integer.valueOf(b2.size()));
                 }
                 if (!a(b2, messageSnapshot)) {

@@ -46,7 +46,7 @@ public abstract class b<V extends TextView, M extends c> extends d.a.l0.a.c0.a.d
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: android.text.SpannableStringBuilder */
     /* JADX WARN: Multi-variable type inference failed */
     public void W(@NonNull V v, @NonNull M m) {
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-TextView", "renderText");
         }
         boolean z = !TextUtils.isEmpty(m.x) && m.B >= 0;
@@ -64,7 +64,7 @@ public abstract class b<V extends TextView, M extends c> extends d.a.l0.a.c0.a.d
         if (m.n == null) {
             return;
         }
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-TextView", "renderTextStyle");
         }
         if (m.z) {
@@ -100,7 +100,7 @@ public abstract class b<V extends TextView, M extends c> extends d.a.l0.a.c0.a.d
         if (m.n == null) {
             return;
         }
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-TextView", "renderTextStyleFontWeight");
         }
         String str = m.D;
@@ -132,7 +132,7 @@ public abstract class b<V extends TextView, M extends c> extends d.a.l0.a.c0.a.d
         if (m.n == null) {
             return;
         }
-        if (d.a.l0.a.c0.b.a.f40832h) {
+        if (d.a.l0.a.c0.b.a.f44508h) {
             Log.d("Component-TextView", "renderTextStyleTextAlign");
         }
         String str = m.C;

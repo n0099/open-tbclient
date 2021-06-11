@@ -10,23 +10,23 @@ public class a extends b {
 
     /* renamed from: d.a.l0.a.y0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0914a implements Runnable {
+    public class RunnableC0970a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f45838e;
+        public final /* synthetic */ List f49512e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y0.j.b f45839f;
+        public final /* synthetic */ d.a.l0.a.y0.j.b f49513f;
 
-        public RunnableC0914a(a aVar, List list, d.a.l0.a.y0.j.b bVar) {
-            this.f45838e = list;
-            this.f45839f = bVar;
+        public RunnableC0970a(a aVar, List list, d.a.l0.a.y0.j.b bVar) {
+            this.f49512e = list;
+            this.f49513f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            for (String str : this.f45838e) {
-                this.f45839f.c(str);
+            for (String str : this.f49512e) {
+                this.f49513f.c(str);
             }
         }
     }
@@ -37,7 +37,7 @@ public class a extends b {
 
     @Override // d.a.l0.a.y0.h.b
     public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull d.a.l0.a.y0.j.b bVar, @NonNull List<String> list) {
-        q0.X(new RunnableC0914a(this, list, bVar));
+        q0.X(new RunnableC0970a(this, list, bVar));
         return true;
     }
 }

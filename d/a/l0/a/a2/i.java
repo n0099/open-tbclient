@@ -7,7 +7,7 @@ import d.a.l0.a.a2.i;
 public abstract class i<SelfT extends i<SelfT>> extends d.a.l0.a.f1.e.f.c<SelfT> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f40755f;
+    public final String f44431f;
 
     /* loaded from: classes3.dex */
     public static final class a extends i<a> {
@@ -36,11 +36,11 @@ public abstract class i<SelfT extends i<SelfT>> extends d.a.l0.a.f1.e.f.c<SelfT>
 
     @Override // d.a.l0.a.f1.e.f.c
     public String toString() {
-        return String.format("Event(%s) Ext => %s", this.f40755f, super.toString());
+        return String.format("Event(%s) Ext => %s", this.f44431f, super.toString());
     }
 
     public i(String str, Bundle bundle) {
         super(bundle);
-        this.f40755f = TextUtils.isEmpty(str) ? "" : str;
+        this.f44431f = TextUtils.isEmpty(str) ? "" : str;
     }
 }

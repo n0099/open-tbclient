@@ -3,27 +3,27 @@ package d.a.m0.w.w;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f50891b;
+    public static a f54568b;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50892a = 0;
+    public int f54569a = 0;
 
     public static a a() {
-        if (f50891b == null) {
+        if (f54568b == null) {
             synchronized (a.class) {
-                if (f50891b == null) {
-                    f50891b = new a();
+                if (f54568b == null) {
+                    f54568b = new a();
                 }
             }
         }
-        return f50891b;
+        return f54568b;
     }
 
     public int b() {
-        return this.f50892a;
+        return this.f54569a;
     }
 
     public void c(int i2) {
-        this.f50892a = i2;
+        this.f54569a = i2;
     }
 }

@@ -20,35 +20,35 @@ public class f extends h {
     public static class a extends h.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f46078f;
+        public TextView f49752f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f46079g;
+        public TextView f49753g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f46080h;
+        public TextView f49754h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f46081i;
+        public TextView f49755i;
         public LinearLayout j;
         public LinearLayout k;
         public CheckBox l;
 
         /* renamed from: d.a.l0.a.z1.b.b.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class DialogInterface$OnKeyListenerC0932a implements DialogInterface.OnKeyListener {
+        public class DialogInterface$OnKeyListenerC0988a implements DialogInterface.OnKeyListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46082e;
+            public final /* synthetic */ DialogInterface.OnClickListener f49756e;
 
-            public DialogInterface$OnKeyListenerC0932a(DialogInterface.OnClickListener onClickListener) {
-                this.f46082e = onClickListener;
+            public DialogInterface$OnKeyListenerC0988a(DialogInterface.OnClickListener onClickListener) {
+                this.f49756e = onClickListener;
             }
 
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
                 DialogInterface.OnClickListener onClickListener;
-                if (keyEvent.getAction() == 1 && i2 == 4 && keyEvent.getRepeatCount() == 0 && (onClickListener = this.f46082e) != null) {
+                if (keyEvent.getAction() == 1 && i2 == 4 && keyEvent.getRepeatCount() == 0 && (onClickListener = this.f49756e) != null) {
                     onClickListener.onClick(dialogInterface, a.this.c0());
                     return true;
                 }
@@ -60,18 +60,18 @@ public class f extends h {
         public class b implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46084e;
+            public final /* synthetic */ DialogInterface.OnClickListener f49758e;
 
             public b(DialogInterface.OnClickListener onClickListener) {
-                this.f46084e = onClickListener;
+                this.f49758e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DialogInterface.OnClickListener onClickListener = this.f46084e;
+                DialogInterface.OnClickListener onClickListener = this.f49758e;
                 if (onClickListener != null) {
                     a aVar = a.this;
-                    onClickListener.onClick(aVar.f46094b, aVar.c0());
+                    onClickListener.onClick(aVar.f49768b, aVar.c0());
                 }
             }
         }
@@ -80,18 +80,18 @@ public class f extends h {
         public class c implements View.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46086e;
+            public final /* synthetic */ DialogInterface.OnClickListener f49760e;
 
             public c(DialogInterface.OnClickListener onClickListener) {
-                this.f46086e = onClickListener;
+                this.f49760e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DialogInterface.OnClickListener onClickListener = this.f46086e;
+                DialogInterface.OnClickListener onClickListener = this.f49760e;
                 if (onClickListener != null) {
                     a aVar = a.this;
-                    onClickListener.onClick(aVar.f46094b, aVar.c0());
+                    onClickListener.onClick(aVar.f49768b, aVar.c0());
                 }
             }
         }
@@ -100,15 +100,15 @@ public class f extends h {
         public class d implements DialogInterface.OnShowListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnShowListener f46088a;
+            public final /* synthetic */ DialogInterface.OnShowListener f49762a;
 
             public d(a aVar, DialogInterface.OnShowListener onShowListener) {
-                this.f46088a = onShowListener;
+                this.f49762a = onShowListener;
             }
 
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                DialogInterface.OnShowListener onShowListener = this.f46088a;
+                DialogInterface.OnShowListener onShowListener = this.f49762a;
                 if (onShowListener != null) {
                     onShowListener.onShow(dialogInterface);
                 }
@@ -119,15 +119,15 @@ public class f extends h {
         public class e implements DialogInterface.OnDismissListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnDismissListener f46089e;
+            public final /* synthetic */ DialogInterface.OnDismissListener f49763e;
 
             public e(a aVar, DialogInterface.OnDismissListener onDismissListener) {
-                this.f46089e = onDismissListener;
+                this.f49763e = onDismissListener;
             }
 
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                DialogInterface.OnDismissListener onDismissListener = this.f46089e;
+                DialogInterface.OnDismissListener onDismissListener = this.f49763e;
                 if (onDismissListener != null) {
                     onDismissListener.onDismiss(dialogInterface);
                 }
@@ -140,17 +140,17 @@ public class f extends h {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(d.a.l0.a.g.swan_app_auth_hover_dialog, e(), false);
             W(viewGroup);
             this.j = (LinearLayout) viewGroup.findViewById(d.a.l0.a.f.auth_layout);
-            this.f46080h = (TextView) viewGroup.findViewById(d.a.l0.a.f.auth_negative_button);
-            this.f46081i = (TextView) viewGroup.findViewById(d.a.l0.a.f.auth_positive_button);
+            this.f49754h = (TextView) viewGroup.findViewById(d.a.l0.a.f.auth_negative_button);
+            this.f49755i = (TextView) viewGroup.findViewById(d.a.l0.a.f.auth_positive_button);
             this.k = (LinearLayout) viewGroup.findViewById(d.a.l0.a.f.know_it_layout);
             this.l = (CheckBox) viewGroup.findViewById(d.a.l0.a.f.hover_dialog_not_tips);
-            this.f46078f = (TextView) viewGroup.findViewById(d.a.l0.a.f.hover_dialog_title);
-            this.f46079g = (TextView) viewGroup.findViewById(d.a.l0.a.f.hover_dialog_tip);
+            this.f49752f = (TextView) viewGroup.findViewById(d.a.l0.a.f.hover_dialog_title);
+            this.f49753g = (TextView) viewGroup.findViewById(d.a.l0.a.f.hover_dialog_tip);
             this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(d.a.l0.a.e.swanapp_hover_dialog_tip_selector), (Drawable) null, (Drawable) null, (Drawable) null);
             this.k.setVisibility(8);
             this.j.setVisibility(0);
             this.l.setVisibility(0);
-            this.f46094b.setCancelable(false);
+            this.f49768b.setCancelable(false);
         }
 
         @Override // d.a.l0.a.z1.b.b.h.a
@@ -178,22 +178,22 @@ public class f extends h {
         }
 
         public a e0(String str) {
-            this.f46079g.setText(str);
+            this.f49753g.setText(str);
             return this;
         }
 
         public a f0(String str) {
-            this.f46078f.setText(str);
+            this.f49752f.setText(str);
             return this;
         }
 
         public a g0(DialogInterface.OnClickListener onClickListener) {
-            this.f46080h.setOnClickListener(new b(onClickListener));
+            this.f49754h.setOnClickListener(new b(onClickListener));
             return this;
         }
 
         public a h0(DialogInterface.OnClickListener onClickListener) {
-            super.M(new DialogInterface$OnKeyListenerC0932a(onClickListener));
+            super.M(new DialogInterface$OnKeyListenerC0988a(onClickListener));
             return this;
         }
 
@@ -208,7 +208,7 @@ public class f extends h {
         }
 
         public a k0(DialogInterface.OnClickListener onClickListener) {
-            this.f46081i.setOnClickListener(new c(onClickListener));
+            this.f49755i.setOnClickListener(new c(onClickListener));
             return this;
         }
     }

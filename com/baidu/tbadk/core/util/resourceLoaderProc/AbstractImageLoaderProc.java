@@ -25,7 +25,7 @@ import d.a.c.e.l.e;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public abstract class AbstractImageLoaderProc implements e<a> {
@@ -173,7 +173,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
     }
 
@@ -216,7 +216,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(createDiskPicOperate);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
         if (!d.a.c.e.a.d.g().a(createDiskPicOperate)) {
             d.a.c.e.l.a.f(false, 0L);
@@ -321,7 +321,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 z = true;
                 webClient = new WebClient();
                 if (bVar != null) {
-                    bVar.f38695a = webClient;
+                    bVar.f42348a = webClient;
                 }
                 downloadImageBytes = webClient.downloadImageBytes(str3, !isFromCDN);
                 boolean needCache = webClient.needCache();
@@ -380,14 +380,14 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                     webClient2 = webClient;
                     i4 = 1;
                     c2 = 0;
-                    if (!webClient2.getResponse().f38641a) {
+                    if (!webClient2.getResponse().f42294a) {
                         d.a.c.e.l.a.j(false, str3, webClient2.mStat, 0L, 0L);
                         ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
                     }
                 }
                 if (downloadImageBytes != null) {
-                    if (webClient2.getResponse().f38641a) {
+                    if (webClient2.getResponse().f42294a) {
                         return null;
                     }
                     d.a.c.e.l.a.j(false, str3, webClient2.mStat, 0L, 0L);

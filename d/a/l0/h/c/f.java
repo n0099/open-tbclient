@@ -18,13 +18,13 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, String> f47187a;
+    public static final HashMap<String, String> f50861a;
 
     static {
         HashMap<String, String> hashMap = new HashMap<>();
-        f47187a = hashMap;
+        f50861a = hashMap;
         hashMap.put("494433", EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
-        f47187a.put("524946", ".wav");
+        f50861a.put("524946", ".wav");
     }
 
     public static String a(byte[] bArr) {
@@ -40,7 +40,7 @@ public class f {
             sb.append(upperCase);
         }
         String sb2 = sb.toString();
-        if (k.f43199a) {
+        if (k.f46875a) {
             Log.e("AudioDataUtils", "audio buffer header: " + sb2);
         }
         return sb2;
@@ -52,13 +52,13 @@ public class f {
 
     public static d c(g gVar) {
         d dVar = new d();
-        dVar.f47175a = gVar.f47189f;
-        dVar.f47179e = gVar.autoplay;
-        dVar.f47180f = gVar.loop;
-        dVar.f47177c = gVar.src;
-        dVar.f47178d = gVar.startTime;
-        dVar.f47181g = gVar.obeyMuteSwitch;
-        dVar.f47183i = gVar.volume;
+        dVar.f50849a = gVar.f50863f;
+        dVar.f50853e = gVar.autoplay;
+        dVar.f50854f = gVar.loop;
+        dVar.f50851c = gVar.src;
+        dVar.f50852d = gVar.startTime;
+        dVar.f50855g = gVar.obeyMuteSwitch;
+        dVar.f50857i = gVar.volume;
         dVar.j = i().toString();
         return dVar;
     }
@@ -96,7 +96,7 @@ public class f {
         for (int i2 = 0; i2 < 3; i2++) {
             bArr2[i2] = bArr[i2];
         }
-        return f47187a.get(a(bArr2));
+        return f50861a.get(a(bArr2));
     }
 
     public static JSONObject i() {
@@ -114,7 +114,7 @@ public class f {
             jSONObject.put("onBufferingUpdate", "buffered");
             jSONObject.put("onWaiting", "waiting");
         } catch (Exception e2) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 e2.printStackTrace();
             }
         }

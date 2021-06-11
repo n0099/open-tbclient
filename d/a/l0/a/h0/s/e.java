@@ -7,31 +7,31 @@ import d.a.l0.a.k;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42569c = k.f43199a;
+    public static final boolean f46245c = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f42570d;
+    public static final boolean f46246d;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42571a;
+    public String f46247a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42572b = false;
+    public boolean f46248b = false;
 
     static {
         d.a.l0.a.c1.a.Z().getSwitch("swan_sailor_init_delay", false);
-        f42570d = false;
+        f46246d = false;
     }
 
     public static boolean a() {
-        if (f42569c) {
-            Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + f42570d);
+        if (f46245c) {
+            Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + f46246d);
         }
-        return f42570d;
+        return f46246d;
     }
 
     @NonNull
     public String toString() {
-        return "SwanSailorUpdateModel{scene='" + this.f42571a + "'}";
+        return "SwanSailorUpdateModel{scene='" + this.f46247a + "'}";
     }
 }

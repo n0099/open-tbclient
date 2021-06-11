@@ -15,35 +15,35 @@ import java.util.List;
 public class e extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f60533e;
+    public List<d> f64224e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LayoutInflater f60534f;
+    public LayoutInflater f64225f;
 
     /* loaded from: classes3.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f60535a;
+        public ImageView f64226a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f60536b;
+        public TextView f64227b;
 
         public a(e eVar, View view) {
-            this.f60535a = (ImageView) view.findViewById(R.id.member_privilege_pic);
-            this.f60536b = (TextView) view.findViewById(R.id.member_privilege_name);
+            this.f64226a = (ImageView) view.findViewById(R.id.member_privilege_pic);
+            this.f64227b = (TextView) view.findViewById(R.id.member_privilege_name);
         }
     }
 
     public e(Context context) {
-        this.f60534f = LayoutInflater.from(context);
+        this.f64225f = LayoutInflater.from(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public d getItem(int i2) {
-        List<d> list = this.f60533e;
+        List<d> list = this.f64224e;
         if (list == null) {
             return null;
         }
@@ -54,18 +54,18 @@ public class e extends BaseAdapter {
         if (dVar == null) {
             return;
         }
-        aVar.f60536b.setText(dVar.f60532b);
-        SkinManager.setViewTextColor(aVar.f60536b, R.color.CAM_X0106);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(aVar.f60535a, dVar.f60531a, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        aVar.f64227b.setText(dVar.f64223b);
+        SkinManager.setViewTextColor(aVar.f64227b, R.color.CAM_X0106);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(aVar.f64226a, dVar.f64222a, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void c(List<d> list) {
-        this.f60533e = list;
+        this.f64224e = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<d> list = this.f60533e;
+        List<d> list = this.f64224e;
         if (list == null) {
             return 0;
         }
@@ -74,7 +74,7 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i2) {
-        if (this.f60533e == null) {
+        if (this.f64224e == null) {
             return 0L;
         }
         return i2;
@@ -83,7 +83,7 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = this.f60534f.inflate(R.layout.member_pay_privilege_list_item, (ViewGroup) null);
+            view = this.f64225f.inflate(R.layout.member_pay_privilege_list_item, (ViewGroup) null);
             view.setTag(new a(this, view));
         }
         b(getItem(i2), (a) view.getTag());

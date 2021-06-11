@@ -375,7 +375,7 @@ public class AccountCenterActivity extends SlideActiviy {
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onSuccess(AccountType accountType) {
                 super.onSuccess(accountType);
-                AccountCenterActivity.this.G.setResultCode(AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS);
+                AccountCenterActivity.this.G.setResultCode(-10002);
                 AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
                 accountCenterActivity.a(accountCenterActivity.G);
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
@@ -384,7 +384,7 @@ public class AccountCenterActivity extends SlideActiviy {
         this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.10
             @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
             public void onSuccess() {
-                AccountCenterActivity.this.G.setResultCode(AccountCenterResult.ERROR_CODE_LOGIN_SUCCESS);
+                AccountCenterActivity.this.G.setResultCode(-10002);
                 AccountCenterActivity accountCenterActivity = AccountCenterActivity.this;
                 accountCenterActivity.a(accountCenterActivity.G);
             }

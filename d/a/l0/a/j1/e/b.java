@@ -42,6 +42,6 @@ public class b {
         if (s == null) {
             return false;
         }
-        return TextUtils.equals("none", s.f11249e.q);
+        return TextUtils.equals("none", s.f11311e.q);
     }
 }

@@ -7,29 +7,29 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ThreadUtils {
 
     /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class C1CaughtException {
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f69049e;
+        public Exception f72358e;
     }
 
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class C1Result {
         public V value;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ThreadChecker {
         @Nullable
         public Thread thread = Thread.currentThread();
@@ -128,17 +128,17 @@ public class ThreadUtils {
                 try {
                     C1Result.this.value = callable.call();
                 } catch (Exception e3) {
-                    c1CaughtException.f69049e = e3;
+                    c1CaughtException.f72358e = e3;
                 }
                 countDownLatch.countDown();
             }
         });
         awaitUninterruptibly(countDownLatch);
-        if (c1CaughtException.f69049e == null) {
+        if (c1CaughtException.f72358e == null) {
             return c1Result.value;
         }
-        RuntimeException runtimeException = new RuntimeException(c1CaughtException.f69049e);
-        runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f69049e.getStackTrace(), runtimeException.getStackTrace()));
+        RuntimeException runtimeException = new RuntimeException(c1CaughtException.f72358e);
+        runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f72358e.getStackTrace(), runtimeException.getStackTrace()));
         throw runtimeException;
     }
 

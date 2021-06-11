@@ -9,48 +9,48 @@ import com.baidu.apollon.utils.DisplayUtils;
 public final class FlowLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f23402a = 6;
+    public static final int f23505a = 6;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f23403b = 6;
+    public static final int f23506b = 6;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f23404c = 55;
+    public static final int f23507c = 55;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23405d;
+    public int f23508d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23406e;
+    public int f23509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23407f;
+    public int f23510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23408g;
+    public int f23511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23409h;
+    public int f23512h;
 
     public FlowLayout(Context context) {
         super(context);
-        this.f23409h = 2;
+        this.f23512h = 2;
     }
 
     public int getChildViewHeight() {
-        return this.f23408g;
+        return this.f23511g;
     }
 
     public int getHorizontalChildNum() {
-        return this.f23409h;
+        return this.f23512h;
     }
 
     public int getHorizontalSpacing() {
-        return this.f23406e;
+        return this.f23509e;
     }
 
     public int getVerticalSpacing() {
-        return this.f23407f;
+        return this.f23510f;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -65,10 +65,10 @@ public final class FlowLayout extends ViewGroup {
                 int measuredWidth = childAt.getMeasuredWidth();
                 childAt.layout(paddingLeft, paddingTop, paddingLeft + measuredWidth, childAt.getMeasuredHeight() + paddingTop);
                 if (i7 != childCount - 1) {
-                    paddingLeft += this.f23406e + measuredWidth;
+                    paddingLeft += this.f23509e + measuredWidth;
                     if ((measuredWidth + paddingLeft) - 1 > i6) {
                         paddingLeft = getPaddingLeft();
-                        paddingTop += this.f23405d;
+                        paddingTop += this.f23508d;
                     }
                 }
             }
@@ -82,44 +82,44 @@ public final class FlowLayout extends ViewGroup {
         getPaddingTop();
         getPaddingBottom();
         int childCount = getChildCount();
-        int i4 = this.f23406e;
-        int i5 = this.f23409h;
+        int i4 = this.f23509e;
+        int i5 = this.f23512h;
         int i6 = (size - (i4 * (i5 - 1))) / i5;
         int i7 = 0;
         for (int i8 = 0; i8 < childCount; i8++) {
             View childAt = getChildAt(i8);
             if (childAt.getVisibility() != 8) {
-                childAt.measure(View.MeasureSpec.makeMeasureSpec(i6, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f23408g, 1073741824));
-                i7 = Math.max(i7, childAt.getMeasuredHeight() + this.f23407f);
+                childAt.measure(View.MeasureSpec.makeMeasureSpec(i6, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f23511g, 1073741824));
+                i7 = Math.max(i7, childAt.getMeasuredHeight() + this.f23510f);
             }
         }
-        this.f23405d = i7;
-        int i9 = this.f23409h;
+        this.f23508d = i7;
+        int i9 = this.f23512h;
         int i10 = (childCount / i9) + (childCount % i9 != 0 ? 1 : 0);
-        setMeasuredDimension(size, (this.f23408g * i10) + (this.f23407f * (i10 - 1)));
+        setMeasuredDimension(size, (this.f23511g * i10) + (this.f23510f * (i10 - 1)));
     }
 
     public void setChildViewHeight(int i2) {
-        this.f23408g = i2;
+        this.f23511g = i2;
     }
 
     public void setHorizontalChildNum(int i2) {
-        this.f23409h = i2;
+        this.f23512h = i2;
     }
 
     public void setHorizontalSpacing(int i2) {
-        this.f23406e = i2;
+        this.f23509e = i2;
     }
 
     public void setVerticalSpacing(int i2) {
-        this.f23407f = i2;
+        this.f23510f = i2;
     }
 
     public FlowLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23409h = 2;
-        this.f23406e = DisplayUtils.dip2px(context, 6.0f);
-        this.f23407f = DisplayUtils.dip2px(context, 6.0f);
-        this.f23408g = DisplayUtils.dip2px(context, 55.0f);
+        this.f23512h = 2;
+        this.f23509e = DisplayUtils.dip2px(context, 6.0f);
+        this.f23510f = DisplayUtils.dip2px(context, 6.0f);
+        this.f23511g = DisplayUtils.dip2px(context, 55.0f);
     }
 }

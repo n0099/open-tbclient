@@ -21,7 +21,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     public class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XiaomiOAuthFuture f9753a;
+        public final /* synthetic */ XiaomiOAuthFuture f9815a;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
@@ -39,34 +39,34 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         public class RunnableC0123b implements Runnable {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f9756a;
+            public final /* synthetic */ String f9818a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f9757b;
+            public final /* synthetic */ String f9819b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f9758c;
+            public final /* synthetic */ String f9820c;
 
             public RunnableC0123b(String str, String str2, String str3) {
-                this.f9756a = str;
-                this.f9757b = str2;
-                this.f9758c = str3;
+                this.f9818a = str;
+                this.f9819b = str2;
+                this.f9820c = str3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                XiaomiSSOLoginActivity.this.p.a(this.f9756a, this.f9757b, this.f9758c);
+                XiaomiSSOLoginActivity.this.p.a(this.f9818a, this.f9819b, this.f9820c);
             }
         }
 
         public b(XiaomiOAuthFuture xiaomiOAuthFuture) {
-            this.f9753a = xiaomiOAuthFuture;
+            this.f9815a = xiaomiOAuthFuture;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                XiaomiOAuthResults xiaomiOAuthResults = (XiaomiOAuthResults) this.f9753a.getResult();
+                XiaomiOAuthResults xiaomiOAuthResults = (XiaomiOAuthResults) this.f9815a.getResult();
                 if (xiaomiOAuthResults.hasError()) {
                     new Handler(Looper.getMainLooper()).post(new a());
                 } else {
@@ -146,7 +146,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
         public void a() {
             XiaomiSSOLoginActivity xiaomiSSOLoginActivity = XiaomiSSOLoginActivity.this;
-            xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f9728g);
+            xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f9790g);
         }
     }
 }

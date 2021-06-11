@@ -15,25 +15,25 @@ import tbclient.SimpleForum;
 public class b implements d.a.n0.d0.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.n0.w3.q.d.a f62704a;
+    public d.a.n0.w3.q.d.a f66419a;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<SimpleForum> f62706c;
+    public List<SimpleForum> f66421c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a f62707d;
+    public c.a f66422d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62708e;
+    public boolean f66423e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62709f;
+    public int f66424f;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f62705b = new ArrayList<>();
+    public ArrayList<TransmitForumData> f66420b = new ArrayList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public a.b f62710g = new a();
+    public a.b f66425g = new a();
 
     /* loaded from: classes5.dex */
     public class a implements a.b {
@@ -42,8 +42,8 @@ public class b implements d.a.n0.d0.c {
 
         @Override // d.a.n0.w3.q.d.a.b
         public void a(List<SimpleForum> list, int i2) {
-            b.this.f62706c = list;
-            b.this.f62709f = i2;
+            b.this.f66421c = list;
+            b.this.f66424f = i2;
             b.this.h();
         }
 
@@ -56,44 +56,44 @@ public class b implements d.a.n0.d0.c {
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
         d.a.n0.w3.q.d.a aVar = new d.a.n0.w3.q.d.a(gen);
-        this.f62704a = aVar;
-        aVar.i(this.f62710g);
-        this.f62704a.j(gen);
+        this.f66419a = aVar;
+        aVar.i(this.f66425g);
+        this.f66419a.j(gen);
     }
 
     @Override // d.a.n0.d0.c
     public void a(c.a aVar) {
-        this.f62707d = aVar;
+        this.f66422d = aVar;
     }
 
     @Override // d.a.n0.d0.c
     public void b() {
         d.a.n0.w3.q.d.a aVar;
-        if (this.f62707d == null || (aVar = this.f62704a) == null) {
+        if (this.f66422d == null || (aVar = this.f66419a) == null) {
             return;
         }
-        this.f62708e = false;
+        this.f66423e = false;
         aVar.l(null);
-        this.f62704a.k(null);
-        this.f62704a.h();
+        this.f66419a.k(null);
+        this.f66419a.h();
     }
 
     public final void g() {
-        if (this.f62708e) {
+        if (this.f66423e) {
             return;
         }
-        c.a aVar = this.f62707d;
+        c.a aVar = this.f66422d;
         if (aVar != null) {
             aVar.a(null, false, 2, 0);
         }
-        this.f62708e = true;
+        this.f66423e = true;
     }
 
     public final void h() {
         Long l;
-        this.f62705b.clear();
-        if (ListUtils.getCount(this.f62706c) > 0) {
-            for (SimpleForum simpleForum : this.f62706c) {
+        this.f66420b.clear();
+        if (ListUtils.getCount(this.f66421c) > 0) {
+            for (SimpleForum simpleForum : this.f66421c) {
                 if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
                     transmitForumData.tabItemDatas = new ArrayList<>();
@@ -102,13 +102,13 @@ public class b implements d.a.n0.d0.c {
                             transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
                         }
                     }
-                    this.f62705b.add(transmitForumData);
+                    this.f66420b.add(transmitForumData);
                 }
             }
         }
-        c.a aVar = this.f62707d;
+        c.a aVar = this.f66422d;
         if (aVar != null) {
-            aVar.a(this.f62705b, true, 2, this.f62709f);
+            aVar.a(this.f66420b, true, 2, this.f66424f);
         }
     }
 }

@@ -22,6 +22,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class BaseWebView extends WebView {
@@ -304,6 +305,13 @@ public class BaseWebView extends WebView {
 
     public void resetProxy(int i2) {
         CompatibleUtile.dealWebView(null);
+    }
+
+    public void sendNotification(String str, HashMap hashMap) {
+        d.a.n0.e3.l0.a aVar = this.mJsBridge;
+        if (aVar != null) {
+            aVar.h(getWebView(), str, hashMap);
+        }
     }
 
     @RequiresApi(api = 21)

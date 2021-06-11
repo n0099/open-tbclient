@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class j<IN, OUT> extends l<IN, OUT> {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29950d;
+    public String f30053d;
 
     public abstract String a(b<OUT> bVar, IN in);
 
@@ -20,21 +20,21 @@ public abstract class j<IN, OUT> extends l<IN, OUT> {
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public final Object a_(b<OUT> bVar, IN in) throws Throwable {
-        this.f29950d = a(new m(bVar), in);
-        l.a aVar = a().get(this.f29950d);
+        this.f30053d = a(new m(bVar), in);
+        l.a aVar = a().get(this.f30053d);
         while (aVar != null) {
-            List<h> list = aVar.f29953a;
+            List<h> list = aVar.f30056a;
             try {
-                Object a2 = c.a(list, bVar.f29946a, this).a((b) in);
+                Object a2 = c.a(list, bVar.f30049a, this).a((b) in);
                 return !a(list) ? a2 : bVar.a((b<OUT>) a2);
             } catch (i.a e2) {
-                this.f29950d = a(new m(bVar), in, e2.getCause(), this.f29950d);
-                aVar = a().get(this.f29950d);
+                this.f30053d = a(new m(bVar), in, e2.getCause(), this.f30053d);
+                aVar = a().get(this.f30053d);
             } catch (Throwable th) {
-                this.f29950d = a(new m(bVar), in, th, this.f29950d);
-                aVar = a().get(this.f29950d);
+                this.f30053d = a(new m(bVar), in, th, this.f30053d);
+                aVar = a().get(this.f30053d);
             }
         }
-        throw new IllegalArgumentException("can not found branch，branch name is：" + this.f29950d);
+        throw new IllegalArgumentException("can not found branch，branch name is：" + this.f30053d);
     }
 }

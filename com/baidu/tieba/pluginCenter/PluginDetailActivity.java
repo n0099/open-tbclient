@@ -371,7 +371,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         super.onStart();
         PluginNetConfigInfos.PluginConfig pluginConfig = this.mPluginConfig;
         if (pluginConfig != null) {
-            this.mIcon.V(pluginConfig.icon, 10, false);
+            this.mIcon.U(pluginConfig.icon, 10, false);
             PluginNetConfigInfos.PluginConfig pluginConfig2 = this.mPluginConfig;
             if (pluginConfig2.display_name == null) {
                 pluginConfig2.display_name = "";

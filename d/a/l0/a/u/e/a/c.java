@@ -19,35 +19,35 @@ import org.json.JSONObject;
 public class c extends d.a.l0.a.u.c.d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f44823d = k.f43199a;
+    public static final boolean f48497d = k.f46875a;
 
     /* loaded from: classes2.dex */
     public static class a implements d.a.l0.a.v2.e1.b<i<f.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f44824e;
+        public final /* synthetic */ boolean f48498e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f44825f;
+        public final /* synthetic */ boolean f48499f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f44826g;
+        public final /* synthetic */ JSONObject f48500g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ C0832c f44827h;
+        public final /* synthetic */ C0888c f48501h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44828i;
+        public final /* synthetic */ CallbackHandler f48502i;
         public final /* synthetic */ String j;
         public final /* synthetic */ e k;
         public final /* synthetic */ String l;
 
-        public a(boolean z, boolean z2, JSONObject jSONObject, C0832c c0832c, CallbackHandler callbackHandler, String str, e eVar, String str2) {
-            this.f44824e = z;
-            this.f44825f = z2;
-            this.f44826g = jSONObject;
-            this.f44827h = c0832c;
-            this.f44828i = callbackHandler;
+        public a(boolean z, boolean z2, JSONObject jSONObject, C0888c c0888c, CallbackHandler callbackHandler, String str, e eVar, String str2) {
+            this.f48498e = z;
+            this.f48499f = z2;
+            this.f48500g = jSONObject;
+            this.f48501h = c0888c;
+            this.f48502i = callbackHandler;
             this.j = str;
             this.k = eVar;
             this.l = str2;
@@ -59,44 +59,44 @@ public class c extends d.a.l0.a.u.c.d {
         public void onCallback(i<f.d> iVar) {
             d.a.l0.a.e0.d.h("Api-Login", "Info: login request error code is  " + iVar.b() + " error info is " + iVar.a());
             if (!iVar.c()) {
-                if (!this.f44824e && this.f44825f) {
-                    d.a.l0.a.j2.k.M("fail", 1, this.f44826g.optString("invokeFrom"));
+                if (!this.f48498e && this.f48499f) {
+                    d.a.l0.a.j2.k.M(com.baidu.pass.biometrics.face.liveness.b.b.g0, 1, this.f48500g.optString("invokeFrom"));
                     d.a.l0.a.e0.d.h("Api-Login", "Error: login failed from api-invoking.");
                 }
                 int b2 = iVar.b();
-                d.a.l0.a.e0.d.l("Api-Login", b2 + " " + this.f44827h.toString());
+                d.a.l0.a.e0.d.l("Api-Login", b2 + " " + this.f48501h.toString());
                 String f2 = d.a.l0.a.e2.c.d.f(b2);
-                this.f44828i.handleSchemeDispatchCallback(this.j, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
-                d.a.l0.a.c1.b.j().f(this.f44828i, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
+                this.f48502i.handleSchemeDispatchCallback(this.j, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
+                d.a.l0.a.c1.b.j().f(this.f48502i, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
                 c.B(this.k, 43, b2, f2);
                 String str = "Error: login failed error code = " + b2 + " error msg = " + f2;
                 d.a.l0.a.e0.d.h("Api-Login", str);
-                d.a.l0.a.j2.k.O(this.l, "fail", str);
+                d.a.l0.a.j2.k.O(this.l, com.baidu.pass.biometrics.face.liveness.b.b.g0, str);
                 return;
             }
-            if (!this.f44824e && this.f44825f) {
-                d.a.l0.a.j2.k.M("success", 1, this.f44826g.optString("invokeFrom"));
+            if (!this.f48498e && this.f48499f) {
+                d.a.l0.a.j2.k.M("success", 1, this.f48500g.optString("invokeFrom"));
                 d.a.l0.a.e0.d.h("Api-Login", "Success: login success from api-invoking.");
             }
-            if (c.y(this.f44826g)) {
-                this.f44828i.handleSchemeDispatchCallback(this.j, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            if (c.y(this.f48500g)) {
+                this.f48502i.handleSchemeDispatchCallback(this.j, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 d.a.l0.a.e0.d.h("Api-Login", "Success: login success from component-invoking.");
                 d.a.l0.a.j2.k.O(this.l, "success", "Success: login success from component-invoking.");
                 return;
             }
             d.a.l0.a.j2.k.N(this.l, "getLoginCodeStart");
-            if (TextUtils.isEmpty(iVar.f41736a.f41754a)) {
-                this.f44828i.handleSchemeDispatchCallback(this.j, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
-                d.a.l0.a.c1.b.j().f(this.f44828i, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+            if (TextUtils.isEmpty(iVar.f45412a.f45430a)) {
+                this.f48502i.handleSchemeDispatchCallback(this.j, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                d.a.l0.a.c1.b.j().f(this.f48502i, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
                 c.B(this.k, 43, 1001, "empty code");
-                d.a.l0.a.j2.k.O(this.l, "fail", "empty code");
+                d.a.l0.a.j2.k.O(this.l, com.baidu.pass.biometrics.face.liveness.b.b.g0, "empty code");
                 return;
             }
-            String optString = this.f44826g.optString("__plugin__");
+            String optString = this.f48500g.optString("__plugin__");
             if (!TextUtils.isEmpty(optString)) {
-                c.w(optString, this.k, this.f44828i, this.j, iVar, this.l);
+                c.w(optString, this.k, this.f48502i, this.j, iVar, this.l);
             } else {
-                c.x(this.k, this.f44828i, this.j, iVar, this.l);
+                c.x(this.k, this.f48502i, this.j, iVar, this.l);
             }
         }
     }
@@ -105,27 +105,27 @@ public class c extends d.a.l0.a.u.c.d {
     public static class b implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44829e;
+        public final /* synthetic */ CallbackHandler f48503e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44830f;
+        public final /* synthetic */ String f48504f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f44831g;
+        public final /* synthetic */ String f48505g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f44832h;
+        public final /* synthetic */ String f48506h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f44833i;
+        public final /* synthetic */ e f48507i;
         public final /* synthetic */ i j;
 
         public b(CallbackHandler callbackHandler, String str, String str2, String str3, e eVar, i iVar) {
-            this.f44829e = callbackHandler;
-            this.f44830f = str;
-            this.f44831g = str2;
-            this.f44832h = str3;
-            this.f44833i = eVar;
+            this.f48503e = callbackHandler;
+            this.f48504f = str;
+            this.f48505g = str2;
+            this.f48506h = str3;
+            this.f48507i = eVar;
             this.j = iVar;
         }
 
@@ -134,37 +134,37 @@ public class c extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.d.a aVar) {
             if (aVar != null && aVar.E()) {
-                c.x(this.f44833i, this.f44829e, this.f44830f, this.j, this.f44832h);
+                c.x(this.f48507i, this.f48503e, this.f48504f, this.j, this.f48506h);
                 return;
             }
-            this.f44829e.handleSchemeDispatchCallback(this.f44830f, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
-            String str = "Error: scope snsapi_userinfopermission denied plugin appkey : " + this.f44831g + " from plugin-invoking.";
+            this.f48503e.handleSchemeDispatchCallback(this.f48504f, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
+            String str = "Error: scope snsapi_userinfopermission denied plugin appkey : " + this.f48505g + " from plugin-invoking.";
             d.a.l0.a.e0.d.h("Api-Login", str);
-            d.a.l0.a.j2.k.O(this.f44832h, "fail", str);
+            d.a.l0.a.j2.k.O(this.f48506h, com.baidu.pass.biometrics.face.liveness.b.b.g0, str);
         }
     }
 
     /* renamed from: d.a.l0.a.u.e.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0832c {
+    public static class C0888c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f44834a;
+        public final boolean f48508a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f44835b;
+        public final long f48509b;
 
-        public C0832c(@NonNull JSONObject jSONObject) {
-            this.f44834a = jSONObject.has("timeout");
+        public C0888c(@NonNull JSONObject jSONObject) {
+            this.f48508a = jSONObject.has("timeout");
             long optLong = jSONObject.optLong("timeout", 0L);
-            this.f44835b = optLong;
+            this.f48509b = optLong;
             if (optLong < 0) {
                 d.a.l0.a.e0.d.l("Api-Login", "timeout is a minus：" + toString());
             }
         }
 
         public String toString() {
-            return "LoginTimeoutConfig{enableTimeout=" + this.f44834a + ", timeoutMills=" + this.f44835b + '}';
+            return "LoginTimeoutConfig{enableTimeout=" + this.f48508a + ", timeoutMills=" + this.f48509b + '}';
         }
     }
 
@@ -188,7 +188,7 @@ public class c extends d.a.l0.a.u.c.d {
                 jSONObject.put("errorCode", i3);
                 jSONObject.put("errorMessage", str);
             } catch (JSONException e2) {
-                if (f44823d) {
+                if (f48497d) {
                     e2.printStackTrace();
                 }
             }
@@ -199,8 +199,8 @@ public class c extends d.a.l0.a.u.c.d {
 
     public static void v(e eVar, Activity activity, JSONObject jSONObject, CallbackHandler callbackHandler, String str, boolean z, String str2) {
         boolean e2 = eVar.j().e(activity);
-        C0832c c0832c = new C0832c(jSONObject);
-        eVar.T().r(activity, c0832c, null, new a(e2, z, jSONObject, c0832c, callbackHandler, str, eVar, str2), str2);
+        C0888c c0888c = new C0888c(jSONObject);
+        eVar.T().r(activity, c0888c, null, new a(e2, z, jSONObject, c0888c, callbackHandler, str, eVar, str2), str2);
     }
 
     public static void w(String str, e eVar, CallbackHandler callbackHandler, String str2, i<f.d> iVar, String str3) {
@@ -208,7 +208,7 @@ public class c extends d.a.l0.a.u.c.d {
         if (x == null) {
             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001, "the activity is null").toString());
             d.a.l0.a.e0.d.h("Api-Login", "Error: activity is null from plugin-invoking.");
-            d.a.l0.a.j2.k.O(str3, "fail", "the activity is null");
+            d.a.l0.a.j2.k.O(str3, com.baidu.pass.biometrics.face.liveness.b.b.g0, "the activity is null");
             return;
         }
         String f2 = d.a.l0.a.t1.g.b.f(str);
@@ -218,13 +218,13 @@ public class c extends d.a.l0.a.u.c.d {
     public static void x(e eVar, CallbackHandler callbackHandler, String str, i<f.d> iVar, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("code", iVar.f41736a.f41754a);
+            jSONObject.put("code", iVar.f45412a.f45430a);
             d.a.l0.a.e0.d.h("Api-Login", "Success: call back msg = " + jSONObject.toString());
-            d.a.l0.a.x1.c.f45762c.e();
+            d.a.l0.a.x1.c.f49436c.e();
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
             d.a.l0.a.j2.k.N(str2, "success");
         } catch (JSONException e2) {
-            if (f44823d) {
+            if (f48497d) {
                 e2.printStackTrace();
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
@@ -232,7 +232,7 @@ public class c extends d.a.l0.a.u.c.d {
             B(eVar, 43, 1001, e2.getMessage());
             String str3 = "Error: exception = " + e2.getMessage() + " stack trace = " + Arrays.toString(e2.getStackTrace());
             d.a.l0.a.e0.d.h("Api-Login", str3);
-            d.a.l0.a.j2.k.O(str2, "fail", str3);
+            d.a.l0.a.j2.k.O(str2, com.baidu.pass.biometrics.face.liveness.b.b.g0, str3);
         }
     }
 
@@ -290,7 +290,7 @@ public class c extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b u(String str) {
-        if (f44823d) {
+        if (f48497d) {
             Log.d("Api-Login", "start getLoginCode action, params = " + str);
         }
         d.a.l0.a.j2.k.N("getLoginCode", "create");
@@ -300,26 +300,26 @@ public class c extends d.a.l0.a.u.c.d {
             d.a.l0.a.c1.b.j().f(h2, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
             return new d.a.l0.a.u.h.b(1001, "empty swanApp");
         } else if (!Q.j().e(i())) {
-            d.a.l0.a.j2.k.N("getLoginCode", "fail");
+            d.a.l0.a.j2.k.N("getLoginCode", com.baidu.pass.biometrics.face.liveness.b.b.g0);
             return new d.a.l0.a.u.h.b(10004, "user not logged in");
         } else {
             JSONObject m = d.a.l0.a.u.c.d.m(str);
             if (m == null) {
                 d.a.l0.a.c1.b.j().f(h2, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
                 B(Q, 1, 201, "empty joParams");
-                d.a.l0.a.j2.k.N("getLoginCode", "fail");
+                d.a.l0.a.j2.k.N("getLoginCode", com.baidu.pass.biometrics.face.liveness.b.b.g0);
                 return new d.a.l0.a.u.h.b(201, "empty joParams");
             }
             String optString = m.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 d.a.l0.a.c1.b.j().f(h2, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
                 B(Q, 1, 201, "empty cb");
-                d.a.l0.a.j2.k.N("getLoginCode", "fail");
+                d.a.l0.a.j2.k.N("getLoginCode", com.baidu.pass.biometrics.face.liveness.b.b.g0);
                 return new d.a.l0.a.u.h.b(201, "empty cb");
             }
             Context i2 = i();
             if (!(i2 instanceof Activity) && (i2 = Q.x()) == null) {
-                d.a.l0.a.j2.k.N("getLoginCode", "fail");
+                d.a.l0.a.j2.k.N("getLoginCode", com.baidu.pass.biometrics.face.liveness.b.b.g0);
                 return new d.a.l0.a.u.h.b(1001, "the context is not an activity");
             }
             Activity activity = (Activity) i2;
@@ -332,7 +332,7 @@ public class c extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b z() {
-        if (f44823d) {
+        if (f48497d) {
             Log.d("Api-Login", "start is login action");
         }
         e Q = e.Q();

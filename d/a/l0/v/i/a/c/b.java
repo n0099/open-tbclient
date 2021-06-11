@@ -22,14 +22,14 @@ public class b extends d.a.l0.v.i.a.c.a {
 
         @Override // d.a.l0.v.j.a.a.b
         public void a(int i2, int i3) {
-            b.this.C0();
+            b.this.z0();
         }
     }
 
     /* renamed from: d.a.l0.v.i.a.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1089b implements d.a.l0.a.v2.e1.b<Integer> {
-        public C1089b() {
+    public class C1145b implements d.a.l0.a.v2.e1.b<Integer> {
+        public C1145b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,19 +38,19 @@ public class b extends d.a.l0.v.i.a.c.a {
         public void onCallback(Integer num) {
             if (num.intValue() == 2) {
                 if (d.a.l0.v.i.a.c.a.x) {
-                    Log.d("SwanInlineLiveWidget", b.this.f48522f + "-" + hashCode() + " authorize deny => onError 0");
+                    Log.d("SwanInlineLiveWidget", b.this.f52196f + "-" + hashCode() + " authorize deny => onError 0");
                 }
-                a.InterfaceC0920a interfaceC0920a = b.this.f48525i;
-                if (interfaceC0920a != null) {
-                    interfaceC0920a.onError(0);
+                a.InterfaceC0976a interfaceC0976a = b.this.f52199i;
+                if (interfaceC0976a != null) {
+                    interfaceC0976a.onError(0);
                     return;
                 }
                 return;
             }
             if (d.a.l0.v.i.a.c.a.x) {
-                Log.d("SwanInlineLiveWidget", b.this.f48522f + "-" + hashCode() + " real do prepareAsync");
+                Log.d("SwanInlineLiveWidget", b.this.f52196f + "-" + hashCode() + " real do prepareAsync");
             }
-            b.super.I();
+            b.super.prepareAsync();
         }
     }
 
@@ -58,10 +58,10 @@ public class b extends d.a.l0.v.i.a.c.a {
     public class c implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f48540e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f52214e;
 
         public c(d.a.l0.a.v2.e1.b bVar) {
-            this.f48540e = bVar;
+            this.f52214e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,10 +70,10 @@ public class b extends d.a.l0.v.i.a.c.a {
         public void onCallback(i<b.e> iVar) {
             boolean h2 = d.h(iVar);
             if (d.a.l0.v.i.a.c.a.x) {
-                Log.d("SwanInlineLiveWidget", b.this.f48522f + "-" + hashCode() + " authorize: " + h2);
+                Log.d("SwanInlineLiveWidget", b.this.f52196f + "-" + hashCode() + " authorize: " + h2);
             }
             b.this.A = h2 ? 1 : 2;
-            this.f48540e.onCallback(Integer.valueOf(b.this.A));
+            this.f52214e.onCallback(Integer.valueOf(b.this.A));
         }
     }
 
@@ -82,30 +82,21 @@ public class b extends d.a.l0.v.i.a.c.a {
         this.A = 0;
         d.a.l0.v.j.a.a aVar = new d.a.l0.v.j.a.a();
         this.z = aVar;
-        aVar.e(this.f48519c);
+        aVar.e(this.f52193c);
         this.z.f(new a());
     }
 
     @Override // d.a.l0.v.i.a.c.a
-    public void F0(int i2, int i3, String str) {
+    public void C0(int i2, int i3, String str) {
     }
 
     @Override // d.a.l0.v.i.a.c.a
-    public void G0() {
+    public void D0() {
     }
 
-    @Override // d.a.l0.v.i.a.c.a, d.a.l0.a.y0.k.g.a
-    public boolean I() {
+    public final void M0(@NonNull Context context, @NonNull d.a.l0.a.v2.e1.b<Integer> bVar) {
         if (d.a.l0.v.i.a.c.a.x) {
-            Log.d("SwanInlineLiveWidget", this.f48522f + "-" + hashCode() + " start prepareAsync");
-        }
-        P0(this.f48519c, new C1089b());
-        return true;
-    }
-
-    public final void P0(@NonNull Context context, @NonNull d.a.l0.a.v2.e1.b<Integer> bVar) {
-        if (d.a.l0.v.i.a.c.a.x) {
-            Log.d("SwanInlineLiveWidget", this.f48522f + "-" + hashCode() + " start authorize");
+            Log.d("SwanInlineLiveWidget", this.f52196f + "-" + hashCode() + " start authorize");
         }
         e Q = e.Q();
         if (Q == null) {
@@ -117,7 +108,7 @@ public class b extends d.a.l0.v.i.a.c.a {
         } else if (d.a.l0.a.u1.a.a.r()) {
             this.A = 1;
             if (d.a.l0.v.i.a.c.a.x) {
-                Log.d("SwanInlineLiveWidget", this.f48522f + "-" + hashCode() + " authorize debug: true");
+                Log.d("SwanInlineLiveWidget", this.f52196f + "-" + hashCode() + " authorize debug: true");
             }
             bVar.onCallback(Integer.valueOf(this.A));
         } else {
@@ -126,11 +117,11 @@ public class b extends d.a.l0.v.i.a.c.a {
     }
 
     @Override // d.a.l0.a.y0.k.g.a
-    public void Q(ZeusPluginFactory.Invoker invoker) {
+    public void N(ZeusPluginFactory.Invoker invoker) {
     }
 
     @Override // d.a.l0.a.y0.k.g.a
-    public void Y() {
+    public void V() {
     }
 
     @Override // d.a.l0.v.i.a.c.a, d.a.l0.a.y0.k.g.a
@@ -139,12 +130,21 @@ public class b extends d.a.l0.v.i.a.c.a {
     }
 
     @Override // d.a.l0.v.i.a.c.a, d.a.l0.a.y0.k.g.a
-    public void f0(String str) {
+    public void c0(String str) {
     }
 
     @Override // d.a.l0.a.y0.k.g.a
-    public ZeusPluginFactory.Invoker j0() {
+    public ZeusPluginFactory.Invoker g0() {
         return null;
+    }
+
+    @Override // d.a.l0.v.i.a.c.a, d.a.l0.a.y0.k.g.a
+    public boolean prepareAsync() {
+        if (d.a.l0.v.i.a.c.a.x) {
+            Log.d("SwanInlineLiveWidget", this.f52196f + "-" + hashCode() + " start prepareAsync");
+        }
+        M0(this.f52193c, new C1145b());
+        return true;
     }
 
     @Override // d.a.l0.v.i.a.c.a, d.a.l0.a.y0.k.g.a

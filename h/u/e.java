@@ -1,13 +1,13 @@
 package h.u;
 
 import h.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f68763a = new a();
+    public static final a f72019a = new a();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements k {
         @Override // h.k
         public boolean isUnsubscribed() {
@@ -28,6 +28,6 @@ public final class e {
     }
 
     public static k c() {
-        return f68763a;
+        return f72019a;
     }
 }

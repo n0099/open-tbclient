@@ -11,26 +11,26 @@ import org.json.JSONObject;
 public class q0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f50100a = new UserData();
+    public UserData f53776a = new UserData();
 
     /* renamed from: b  reason: collision with root package name */
-    public AntiData f50101b = new AntiData();
+    public AntiData f53777b = new AntiData();
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f50102c;
+    public ArrayList<String> f53778c;
 
     public q0() {
-        this.f50102c = null;
-        this.f50102c = new ArrayList<>();
+        this.f53778c = null;
+        this.f53778c = new ArrayList<>();
         e(0);
     }
 
     public AntiData a() {
-        return this.f50101b;
+        return this.f53777b;
     }
 
     public UserData b() {
-        return this.f50100a;
+        return this.f53776a;
     }
 
     public void c(String str) {
@@ -43,12 +43,12 @@ public class q0 {
 
     public void d(JSONObject jSONObject) {
         try {
-            this.f50100a.parserJson(jSONObject.optJSONObject("user"));
-            this.f50101b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+            this.f53776a.parserJson(jSONObject.optJSONObject("user"));
+            this.f53777b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.f50102c.add(optJSONArray.optString(i2, null));
+                    this.f53778c.add(optJSONArray.optString(i2, null));
                 }
             }
             e(jSONObject.optInt("retrytime"));

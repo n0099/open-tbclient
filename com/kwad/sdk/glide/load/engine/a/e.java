@@ -1,0 +1,101 @@
+package com.kwad.sdk.glide.load.engine.a;
+
+import android.util.Log;
+import com.bumptech.glide.load.engine.cache.DiskLruCacheWrapper;
+import com.kwad.sdk.glide.a.a;
+import com.kwad.sdk.glide.load.engine.a.a;
+import java.io.File;
+import java.io.IOException;
+/* loaded from: classes7.dex */
+public class e implements a {
+
+    /* renamed from: b  reason: collision with root package name */
+    public final File f36110b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final long f36111c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.glide.a.a f36113e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final c f36112d = new c();
+
+    /* renamed from: a  reason: collision with root package name */
+    public final j f36109a = new j();
+
+    @Deprecated
+    public e(File file, long j) {
+        this.f36110b = file;
+        this.f36111c = j;
+    }
+
+    private synchronized com.kwad.sdk.glide.a.a a() {
+        if (this.f36113e == null) {
+            this.f36113e = com.kwad.sdk.glide.a.a.a(this.f36110b, 1, 1, this.f36111c);
+        }
+        return this.f36113e;
+    }
+
+    public static a a(File file, long j) {
+        return new e(file, j);
+    }
+
+    @Override // com.kwad.sdk.glide.load.engine.a.a
+    public File a(com.kwad.sdk.glide.load.c cVar) {
+        String a2 = this.f36109a.a(cVar);
+        if (Log.isLoggable(DiskLruCacheWrapper.TAG, 2)) {
+            Log.v(DiskLruCacheWrapper.TAG, "Get: Obtained: " + a2 + " for for Key: " + cVar);
+        }
+        try {
+            a.d a3 = a().a(a2);
+            if (a3 != null) {
+                return a3.a(0);
+            }
+            return null;
+        } catch (IOException e2) {
+            if (Log.isLoggable(DiskLruCacheWrapper.TAG, 5)) {
+                Log.w(DiskLruCacheWrapper.TAG, "Unable to get from disk cache", e2);
+                return null;
+            }
+            return null;
+        }
+    }
+
+    @Override // com.kwad.sdk.glide.load.engine.a.a
+    public void a(com.kwad.sdk.glide.load.c cVar, a.b bVar) {
+        com.kwad.sdk.glide.a.a a2;
+        String a3 = this.f36109a.a(cVar);
+        this.f36112d.a(a3);
+        try {
+            if (Log.isLoggable(DiskLruCacheWrapper.TAG, 2)) {
+                Log.v(DiskLruCacheWrapper.TAG, "Put: Obtained: " + a3 + " for for Key: " + cVar);
+            }
+            try {
+                a2 = a();
+            } catch (IOException e2) {
+                if (Log.isLoggable(DiskLruCacheWrapper.TAG, 5)) {
+                    Log.w(DiskLruCacheWrapper.TAG, "Unable to put to disk cache", e2);
+                }
+            }
+            if (a2.a(a3) != null) {
+                return;
+            }
+            a.b b2 = a2.b(a3);
+            if (b2 == null) {
+                throw new IllegalStateException("Had two simultaneous puts for: " + a3);
+            }
+            try {
+                if (bVar.a(b2.a(0))) {
+                    b2.a();
+                }
+                b2.c();
+            } catch (Throwable th) {
+                b2.c();
+                throw th;
+            }
+        } finally {
+            this.f36112d.b(a3);
+        }
+    }
+}

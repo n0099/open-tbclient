@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ExcZan.ExcZanResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChosenPbZanHttpResponse extends HttpResponsedMessage {
     public ChosenPbZanHttpResponse(int i2) {
         super(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE);

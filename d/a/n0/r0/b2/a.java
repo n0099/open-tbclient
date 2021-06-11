@@ -18,33 +18,33 @@ public class a extends k<ICardInfo, LegoItemHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public View H(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
+    public View I(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
         this.w = iCardInfo;
-        return super.H(i2, view, viewGroup, iCardInfo);
+        return super.I(i2, view, viewGroup, iCardInfo);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: t0 */
-    public LegoItemHolder P(ViewGroup viewGroup) {
+    public LegoItemHolder Q(ViewGroup viewGroup) {
         e a2 = b.h().a(this.o, this.w, 1);
         if (a2 == null) {
             return null;
         }
-        a2.k(this.f39232i);
+        a2.c(this.f42913i);
         return new LegoItemHolder(a2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: u0 */
-    public View W(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
-        super.W(i2, view, viewGroup, iCardInfo, legoItemHolder);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: v0 */
+    public View X(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
+        super.X(i2, view, viewGroup, iCardInfo, legoItemHolder);
         View a2 = legoItemHolder.a();
         if (a2 != null && iCardInfo != null) {
-            ((e) a2).g(iCardInfo);
+            ((e) a2).i(iCardInfo);
         }
         return a2;
     }

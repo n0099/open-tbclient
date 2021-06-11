@@ -7,7 +7,7 @@ import d.a.l0.a.k;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47202a = k.f43199a;
+    public static final boolean f50876a = k.f46875a;
 
     public h(JsObject jsObject) {
         d.a.l0.a.y.b.a G = d.a.l0.a.y.b.a.G(jsObject);
@@ -22,7 +22,7 @@ public class h {
         try {
             boolean n = G.n("mixWithOther", false);
             i2.J().h("key_audio_is_mix_with_other", Boolean.valueOf(n));
-            if (f47202a) {
+            if (f50876a) {
                 Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + n);
             }
             a(G, true, "setInnerAudioOption:ok");

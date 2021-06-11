@@ -8,66 +8,66 @@ import d.a.l0.a.k;
 public class g {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47287c = k.f43199a;
+    public static final boolean f50961c = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile g f47288d = null;
+    public static volatile g f50962d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public GameRecorderController f47289a;
+    public GameRecorderController f50963a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f47290b;
+    public boolean f50964b;
 
     public static g a() {
-        if (f47288d == null) {
+        if (f50962d == null) {
             synchronized (g.class) {
-                if (f47288d == null) {
-                    f47288d = new g();
+                if (f50962d == null) {
+                    f50962d = new g();
                 }
             }
         }
-        return f47288d;
+        return f50962d;
     }
 
     @NonNull
     public GameRecorderController b() {
-        if (f47287c) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.f47289a);
+        if (f50961c) {
+            Log.i("GameRecorderManager", "getRecorderController:" + this.f50963a);
         }
-        GameRecorderController gameRecorderController = this.f47289a;
+        GameRecorderController gameRecorderController = this.f50963a;
         return gameRecorderController == null ? GameRecorderController.j() : gameRecorderController;
     }
 
     public boolean c() {
-        if (f47287c) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.f47290b);
+        if (f50961c) {
+            Log.i("GameRecorderManager", "isGamePause:" + this.f50964b);
         }
-        return this.f47290b;
+        return this.f50964b;
     }
 
     public void d() {
-        this.f47290b = true;
+        this.f50964b = true;
     }
 
     public void e() {
-        this.f47290b = false;
+        this.f50964b = false;
     }
 
     public void f(GameRecorderController gameRecorderController) {
-        GameRecorderController gameRecorderController2 = this.f47289a;
+        GameRecorderController gameRecorderController2 = this.f50963a;
         if (gameRecorderController2 == null || gameRecorderController2 != gameRecorderController) {
             return;
         }
         gameRecorderController2.p();
-        this.f47289a = null;
+        this.f50963a = null;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        GameRecorderController gameRecorderController2 = this.f47289a;
+        GameRecorderController gameRecorderController2 = this.f50963a;
         if (gameRecorderController2 != null && gameRecorderController2 != gameRecorderController) {
             gameRecorderController2.p();
         }
-        this.f47289a = gameRecorderController;
+        this.f50963a = gameRecorderController;
     }
 }

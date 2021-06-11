@@ -25,7 +25,6 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes2.dex */
 public class EmotionUtils {
     public static final boolean CACHE_DEBUG = false;
@@ -331,7 +330,7 @@ public class EmotionUtils {
     public void playEmotionClickSound() {
         int streamVolume;
         MediaPlayer mediaPlayer = this.mMediaPlayer;
-        if (mediaPlayer == null || mediaPlayer.isPlaying() || (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(2)) <= 0) {
+        if (mediaPlayer == null || mediaPlayer.isPlaying() || (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService("audio")).getStreamVolume(2)) <= 0) {
             return;
         }
         float f2 = streamVolume;

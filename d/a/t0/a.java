@@ -5,40 +5,40 @@ import android.text.TextUtils;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f64645a;
+    public boolean f68363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64646b;
+    public boolean f68364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64647c;
+    public String f68365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64648d;
+    public String f68366d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f64649e;
+    public String f68367e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64650f;
+    public int f68368f;
 
     public a(boolean z, boolean z2, String str, String str2, String str3, int i2) {
-        this.f64645a = z;
-        this.f64646b = z2;
-        this.f64647c = str;
-        this.f64648d = str2;
-        this.f64649e = str3;
-        this.f64650f = i2;
+        this.f68363a = z;
+        this.f68364b = z2;
+        this.f68365c = str;
+        this.f68366d = str2;
+        this.f68367e = str3;
+        this.f68368f = i2;
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f64647c)) {
-            return this.f64647c;
+        if (TextUtils.isEmpty(this.f68365c)) {
+            return this.f68365c;
         }
-        return new d.a.t0.e.h.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f64647c.getBytes());
+        return new d.a.t0.e.h.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f68365c.getBytes());
     }
 
     public String toString() {
-        return "UnionIDInfo{isTrackLimited=" + this.f64645a + ", isSupport=" + this.f64646b + ", OAID='" + this.f64647c + "', EncodedOAID='" + a() + "', AAID='" + this.f64648d + "', VAID='" + this.f64649e + "', StatusCode='" + this.f64650f + "'}";
+        return "UnionIDInfo{isTrackLimited=" + this.f68363a + ", isSupport=" + this.f68364b + ", OAID='" + this.f68365c + "', EncodedOAID='" + a() + "', AAID='" + this.f68366d + "', VAID='" + this.f68367e + "', StatusCode='" + this.f68368f + "'}";
     }
 }

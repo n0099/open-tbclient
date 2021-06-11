@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Window;
 import com.alibaba.fastjson.asm.Label;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.poly.widget.m;
 import com.google.protobuf.CodedInputStream;
 import com.heytap.mcssdk.mode.CommandMessage;
@@ -90,7 +89,7 @@ public class PolyActivity extends Activity implements m.l {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("c", bundle.getString("cuid"));
             jSONObject.put("z", string);
-            jSONObject.put(IAdRequestParam.MAC, d.a.c0.n.a.d());
+            jSONObject.put("mac", d.a.c0.n.a.d());
             jSONObject.put("app", "android");
             jSONObject.put("ver", X());
             bundle.putString("deviceInfo", jSONObject.toString());
@@ -102,9 +101,9 @@ public class PolyActivity extends Activity implements m.l {
         if (bundle == null) {
             return new Bundle();
         }
-        d.f39439a = bundle.getString("bduss");
-        d.f39440b = bundle.getString("tpOrderId");
-        d.f39443e = bundle.getString("nativeAppId");
+        d.f43120a = bundle.getString("bduss");
+        d.f43121b = bundle.getString("tpOrderId");
+        d.f43124e = bundle.getString("nativeAppId");
         bundle.putString("deviceType", "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.7.7");

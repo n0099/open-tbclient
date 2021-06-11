@@ -10,11 +10,14 @@ import d.a.m0.r.z.a;
 /* loaded from: classes3.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static final String ACTIVITY_ID = "activity_id";
+    public static final String AUTO_LOGIN = "autoLogin";
+    public static final String AUTO_LOGIN_URL = "http://bjhw-bac-orcp-baiduapp-core-134992.bjhw.baidu.com:8090/autologin/main.html?user=%s&password=%s&business=tieba&osName=android";
     public static final String CUSTOM_LOGIN_CSS_URL = "custom_login_css_url";
     public static final String IS_FROM_AIAPP = "is_from_aiapp";
     public static final String JUMP_AFTER_DESTROY = "jump_after_destroy";
     public static final int JUMP_TO_MAINTAB = 1;
     public static final String LOGIN_DIALOG_LOGIN_LISTENER = "login_dialog_login_listener";
+    public static final String SCHEME = "scheme";
     public static final String SOCIAL_TYPE = "social_type";
     public static final String URL = "url";
     public static final String USER_INFO_CHANGED = "user_info_changed";
@@ -32,6 +35,11 @@ public class LoginActivityConfig extends IntentConfig {
             return false;
         }
         return ((Boolean) runTask.getData()).booleanValue();
+    }
+
+    public void setAutoLogin(String str) {
+        getIntent().putExtra(AUTO_LOGIN, true);
+        getIntent().putExtra("scheme", str);
     }
 
     public void setIsFromAiapp(boolean z) {

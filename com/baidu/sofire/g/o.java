@@ -16,14 +16,14 @@ import java.util.UUID;
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10247a = "";
+    public static String f10309a = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f10247a)) {
+        if (TextUtils.isEmpty(f10309a)) {
             new o();
-            f10247a = b(context);
+            f10309a = b(context);
         }
-        return f10247a;
+        return f10309a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:41:0x00da A[Catch: all -> 0x00fa, TryCatch #3 {all -> 0x00fa, blocks: (B:33:0x00b4, B:36:0x00bb, B:39:0x00c2, B:41:0x00da, B:43:0x00e0, B:45:0x00ea, B:44:0x00e7), top: B:64:0x00b4 }] */
@@ -144,7 +144,7 @@ public final class o {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             String p = eVar.p();
             if (TextUtils.isEmpty(p)) {
-                String string = eVar.f10190b.getString("rpnewuid", "");
+                String string = eVar.f10252b.getString("rpnewuid", "");
                 if (TextUtils.isEmpty(string)) {
                     return "";
                 }

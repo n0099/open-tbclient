@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class PublishSubject<T> extends d<T, T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final PublishSubjectState<T> f69211f;
+    public final PublishSubjectState<T> f72520f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PublishSubjectProducer<T> extends AtomicLong implements f, k, e<T> {
         public static final long serialVersionUID = 6451806817170721536L;
         public final j<? super T> actual;
@@ -84,7 +84,7 @@ public final class PublishSubject<T> extends d<T, T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements d.a<T>, e<T> {
         public static final PublishSubjectProducer[] EMPTY = new PublishSubjectProducer[0];
         public static final PublishSubjectProducer[] TERMINATED = new PublishSubjectProducer[0];
@@ -204,7 +204,7 @@ public final class PublishSubject<T> extends d<T, T> {
 
     public PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
-        this.f69211f = publishSubjectState;
+        this.f72520f = publishSubjectState;
     }
 
     public static <T> PublishSubject<T> K() {
@@ -213,16 +213,16 @@ public final class PublishSubject<T> extends d<T, T> {
 
     @Override // h.e
     public void onCompleted() {
-        this.f69211f.onCompleted();
+        this.f72520f.onCompleted();
     }
 
     @Override // h.e
     public void onError(Throwable th) {
-        this.f69211f.onError(th);
+        this.f72520f.onError(th);
     }
 
     @Override // h.e
     public void onNext(T t) {
-        this.f69211f.onNext(t);
+        this.f72520f.onNext(t);
     }
 }

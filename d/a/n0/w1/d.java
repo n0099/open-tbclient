@@ -28,11 +28,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends d.a.n0.w1.b {
 
     /* renamed from: h  reason: collision with root package name */
-    public PersonListActivity f62501h;
+    public PersonListActivity f66216h;
     public boolean j;
     public boolean k;
     public int l;
@@ -42,75 +42,75 @@ public class d extends d.a.n0.w1.b {
     public View.OnClickListener q;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f62502i = false;
+    public boolean f66217i = false;
     public HashSet<Long> n = new HashSet<>();
     public NewMyFansUserLikeButton.b r = new b();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f62503e;
+        public final /* synthetic */ c f66218e;
 
         public a(c cVar) {
-            this.f62503e = cVar;
+            this.f66218e = cVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            Layout layout = this.f62503e.f62508c.getLayout();
+            Layout layout = this.f66218e.f66223c.getLayout();
             if (layout != null) {
                 if (layout.getEllipsisCount(layout.getLineCount() - 1) <= 0) {
-                    this.f62503e.f62508c.setCompoundDrawablePadding(l.g(d.this.f62501h, R.dimen.tbds10));
+                    this.f66218e.f66223c.setCompoundDrawablePadding(l.g(d.this.f66216h, R.dimen.tbds10));
                 } else {
-                    this.f62503e.f62508c.setCompoundDrawablePadding(0);
+                    this.f66218e.f66223c.setCompoundDrawablePadding(0);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements NewMyFansUserLikeButton.b {
         public b() {
         }
 
         @Override // com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton.b
         public void callback() {
-            if (d.this.f62501h != null) {
-                d.this.f62501h.hideFollowSwitchGuideTip();
+            if (d.this.f66216h != null) {
+                d.this.f66216h.hideFollowSwitchGuideTip();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public ViewGroup f62506a;
+        public ViewGroup f66221a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ClickableHeaderImageView f62507b;
+        public ClickableHeaderImageView f66222b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EMTextView f62508c;
+        public EMTextView f66223c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f62509d;
+        public View f66224d;
 
         /* renamed from: e  reason: collision with root package name */
-        public EMTextView f62510e;
+        public EMTextView f66225e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f62511f;
+        public TextView f66226f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f62512g;
+        public LinearLayout f66227g;
 
         /* renamed from: h  reason: collision with root package name */
-        public LinearLayout f62513h;
+        public LinearLayout f66228h;
 
         /* renamed from: i  reason: collision with root package name */
-        public NewMyFansUserLikeButton f62514i;
+        public NewMyFansUserLikeButton f66229i;
         public d.a.m0.r.f0.q.c j;
         public ProgressBar k;
         public TextView l;
@@ -127,21 +127,21 @@ public class d extends d.a.n0.w1.b {
     }
 
     public d(PersonListActivity personListActivity, boolean z, boolean z2, int i2, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3) {
-        this.f62501h = null;
+        this.f66216h = null;
         this.j = false;
         this.k = true;
         this.l = 0;
         this.o = null;
         this.p = null;
         this.q = null;
-        this.f62501h = personListActivity;
+        this.f66216h = personListActivity;
         this.j = z;
         this.k = z2;
         this.l = i2;
         this.o = onClickListener2;
         this.p = onClickListener3;
         this.q = onClickListener;
-        this.f62484e = new ArrayList<>();
+        this.f66199e = new ArrayList<>();
     }
 
     @Override // d.a.n0.w1.b
@@ -149,9 +149,9 @@ public class d extends d.a.n0.w1.b {
         if (g1Var == null) {
             return;
         }
-        this.m = g1Var.f50033i;
+        this.m = g1Var.f53709i;
         ArrayList arrayList = new ArrayList();
-        if (this.f62484e.isEmpty() && !ListUtils.isEmpty(g1Var.a())) {
+        if (this.f66199e.isEmpty() && !ListUtils.isEmpty(g1Var.a())) {
             Iterator<UserData> it = g1Var.a().iterator();
             while (it.hasNext()) {
                 UserData next = it.next();
@@ -165,21 +165,21 @@ public class d extends d.a.n0.w1.b {
             arrayList.add(userData);
         }
         arrayList.addAll(i(g1Var.b()));
-        this.f62484e.addAll(arrayList);
-        if (this.f62484e.isEmpty() || this.f62484e.get(0).mAttentionType == 3) {
+        this.f66199e.addAll(arrayList);
+        if (this.f66199e.isEmpty() || this.f66199e.get(0).mAttentionType == 3) {
             return;
         }
         UserData userData2 = new UserData();
         userData2.mAttentionType = 3;
-        this.f62484e.add(0, userData2);
+        this.f66199e.add(0, userData2);
     }
 
     @Override // d.a.n0.w1.b
     public boolean d(long j) {
         ArrayList<UserData> arrayList;
         boolean z = false;
-        if (j != 0 && (arrayList = this.f62484e) != null && arrayList.size() != 0) {
-            Iterator<UserData> it = this.f62484e.iterator();
+        if (j != 0 && (arrayList = this.f66199e) != null && arrayList.size() != 0) {
+            Iterator<UserData> it = this.f66199e.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -198,26 +198,26 @@ public class d extends d.a.n0.w1.b {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f62502i) {
+        if (this.f66217i) {
             return 1;
         }
-        ArrayList<UserData> arrayList = this.f62484e;
+        ArrayList<UserData> arrayList = this.f66199e;
         int size = arrayList != null ? arrayList.size() : 0;
         return c() ? size + 1 : size;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        ArrayList<UserData> arrayList = this.f62484e;
+        ArrayList<UserData> arrayList = this.f66199e;
         if (arrayList == null || i2 >= arrayList.size()) {
             return null;
         }
-        return this.f62484e.get(i2);
+        return this.f66199e.get(i2);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i2) {
-        ArrayList<UserData> arrayList = this.f62484e;
+        ArrayList<UserData> arrayList = this.f66199e;
         if (arrayList == null || i2 >= arrayList.size()) {
             return -1L;
         }
@@ -226,24 +226,24 @@ public class d extends d.a.n0.w1.b {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
-        if (this.f62502i) {
+        if (this.f66217i) {
             return 0;
         }
-        ArrayList<UserData> arrayList = this.f62484e;
+        ArrayList<UserData> arrayList = this.f66199e;
         if (arrayList == null || i2 >= arrayList.size()) {
             return 1;
         }
-        if (this.f62484e.get(i2).mAttentionType == 0) {
+        if (this.f66199e.get(i2).mAttentionType == 0) {
             return 2;
         }
-        return this.f62484e.get(i2).mAttentionType == 3 ? 3 : 0;
+        return this.f66199e.get(i2).mAttentionType == 3 ? 3 : 0;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         c cVar;
         String str;
-        if (this.f62484e == null) {
+        if (this.f66199e == null) {
             return view;
         }
         if (view != null && (view.getTag() instanceof c)) {
@@ -251,49 +251,49 @@ public class d extends d.a.n0.w1.b {
         } else {
             cVar = new c(this, null);
             if (getItemViewType(i2) == 0) {
-                view = LayoutInflater.from(this.f62501h.getPageContext().getPageActivity()).inflate(R.layout.person_list_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f66216h.getPageContext().getPageActivity()).inflate(R.layout.person_list_item, (ViewGroup) null);
                 ViewGroup viewGroup2 = (ViewGroup) view.findViewById(R.id.item_view);
-                cVar.f62506a = viewGroup2;
+                cVar.f66221a = viewGroup2;
                 viewGroup2.setOnClickListener(this.q);
                 ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view.findViewById(R.id.photo);
-                cVar.f62507b = clickableHeaderImageView;
-                clickableHeaderImageView.setRadius(l.g(this.f62501h.getPageContext().getPageActivity(), R.dimen.ds90));
-                cVar.f62507b.setAutoChangeStyle(true);
-                cVar.f62507b.setClickable(false);
-                cVar.f62512g = (LinearLayout) view.findViewById(R.id.info);
-                cVar.f62513h = (LinearLayout) view.findViewById(R.id.tail_container);
+                cVar.f66222b = clickableHeaderImageView;
+                clickableHeaderImageView.setRadius(l.g(this.f66216h.getPageContext().getPageActivity(), R.dimen.ds90));
+                cVar.f66222b.setAutoChangeStyle(true);
+                cVar.f66222b.setClickable(false);
+                cVar.f66227g = (LinearLayout) view.findViewById(R.id.info);
+                cVar.f66228h = (LinearLayout) view.findViewById(R.id.tail_container);
                 EMTextView eMTextView = (EMTextView) view.findViewById(R.id.name);
-                cVar.f62508c = eMTextView;
+                cVar.f66223c = eMTextView;
                 eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(cVar));
-                View a2 = d.a.m0.d.c.b().a(this.f62501h.getPageContext().getPageActivity(), 5);
-                cVar.f62509d = a2;
+                View a2 = d.a.m0.d.c.b().a(this.f66216h.getPageContext().getPageActivity(), 5);
+                cVar.f66224d = a2;
                 if (a2 != null) {
                     a2.setVisibility(8);
-                    cVar.f62513h.addView(cVar.f62509d, 1);
+                    cVar.f66228h.addView(cVar.f66224d, 1);
                 }
                 cVar.l = (TextView) view.findViewById(R.id.at_list_nodata);
-                cVar.f62510e = (EMTextView) view.findViewById(R.id.intro);
+                cVar.f66225e = (EMTextView) view.findViewById(R.id.intro);
                 TextView textView = (TextView) view.findViewById(R.id.chat);
-                cVar.f62511f = textView;
+                cVar.f66226f = textView;
                 textView.setOnClickListener(this.o);
                 NewMyFansUserLikeButton newMyFansUserLikeButton = (NewMyFansUserLikeButton) view.findViewById(R.id.attention_btn);
-                cVar.f62514i = newMyFansUserLikeButton;
-                newMyFansUserLikeButton.setContext(this.f62501h.getPageContext());
-                cVar.f62514i.setCallback(this.r);
-                cVar.j = new d.a.m0.r.f0.q.c(this.f62501h.getPageContext(), cVar.f62514i);
+                cVar.f66229i = newMyFansUserLikeButton;
+                newMyFansUserLikeButton.setContext(this.f66216h.getPageContext());
+                cVar.f66229i.setCallback(this.r);
+                cVar.j = new d.a.m0.r.f0.q.c(this.f66216h.getPageContext(), cVar.f66229i);
                 cVar.k = null;
                 cVar.m = null;
                 cVar.n = null;
             } else if (getItemViewType(i2) == 2) {
-                view = LayoutInflater.from(this.f62501h.getPageContext().getPageActivity()).inflate(R.layout.person_list_newheader, (ViewGroup) null);
+                view = LayoutInflater.from(this.f66216h.getPageContext().getPageActivity()).inflate(R.layout.person_list_newheader, (ViewGroup) null);
                 cVar.m = (TextView) view.findViewById(R.id.person_list_title);
                 cVar.n = (LinearLayout) view.findViewById(R.id.newheader_root);
             } else if (getItemViewType(i2) == 3) {
-                view = LayoutInflater.from(this.f62501h.getPageContext().getPageActivity()).inflate(R.layout.attention_list_follow_from_title, (ViewGroup) null);
+                view = LayoutInflater.from(this.f66216h.getPageContext().getPageActivity()).inflate(R.layout.attention_list_follow_from_title, (ViewGroup) null);
                 cVar.o = (EMTextView) view.findViewById(R.id.attention_follow_tip_text);
             } else {
-                view = LayoutInflater.from(this.f62501h.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-                cVar.f62508c = (EMTextView) view.findViewById(R.id.pb_more_text);
+                view = LayoutInflater.from(this.f66216h.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                cVar.f66223c = (EMTextView) view.findViewById(R.id.pb_more_text);
                 view.setOnClickListener(this.p);
                 cVar.k = (ProgressBar) view.findViewById(R.id.progress);
                 cVar.m = null;
@@ -301,14 +301,14 @@ public class d extends d.a.n0.w1.b {
             }
             view.setTag(cVar);
         }
-        NewMyFansUserLikeButton newMyFansUserLikeButton2 = cVar.f62514i;
+        NewMyFansUserLikeButton newMyFansUserLikeButton2 = cVar.f66229i;
         if (newMyFansUserLikeButton2 != null) {
             newMyFansUserLikeButton2.setTag(Integer.valueOf(i2));
         }
         if (getItemViewType(i2) == 0) {
-            if (this.f62502i) {
-                cVar.f62512g.setVisibility(8);
-                cVar.f62511f.setVisibility(8);
+            if (this.f66217i) {
+                cVar.f66227g.setVisibility(8);
+                cVar.f66226f.setVisibility(8);
                 cVar.l.setVisibility(0);
                 if (this.j) {
                     if (this.k) {
@@ -336,33 +336,33 @@ public class d extends d.a.n0.w1.b {
                     }
                 }
             } else {
-                UserData userData = (UserData) ListUtils.getItem(this.f62484e, i2);
+                UserData userData = (UserData) ListUtils.getItem(this.f66199e, i2);
                 if (userData == null) {
                     return null;
                 }
-                cVar.f62506a.setTag(Integer.valueOf(i2));
-                cVar.f62511f.setVisibility(0);
+                cVar.f66221a.setTag(Integer.valueOf(i2));
+                cVar.f66226f.setVisibility(0);
                 cVar.l.setVisibility(8);
-                UtilHelper.showHeadImageViewBigV(cVar.f62507b, userData, 0);
-                cVar.f62508c.setText(UtilHelper.getUserName(userData));
-                cVar.f62507b.setPlaceHolder(1);
-                cVar.f62507b.V(userData.getAvater(), 12, false);
-                if (cVar.f62509d != null && userData.getAlaUserData() != null) {
+                UtilHelper.showHeadImageViewBigV(cVar.f66222b, userData, 0);
+                cVar.f66223c.setText(UtilHelper.getUserName(userData));
+                cVar.f66222b.setPlaceHolder(1);
+                cVar.f66222b.U(userData.getAvater(), 12, false);
+                if (cVar.f66224d != null && userData.getAlaUserData() != null) {
                     if (userData.getAlaUserData().anchor_live == 0 && userData.getAlaUserData().enter_live == 0) {
-                        cVar.f62509d.setVisibility(8);
+                        cVar.f66224d.setVisibility(8);
                     } else {
-                        cVar.f62509d.setVisibility(0);
+                        cVar.f66224d.setVisibility(0);
                         d.a.m0.d.b bVar = new d.a.m0.d.b();
-                        bVar.f49262a = userData.getAlaUserData();
-                        bVar.f49263b = 5;
-                        cVar.f62509d.setTag(bVar);
+                        bVar.f52936a = userData.getAlaUserData();
+                        bVar.f52937b = 5;
+                        cVar.f66224d.setTag(bVar);
                     }
                 }
                 if (k.isEmpty(userData.getIntro())) {
-                    cVar.f62510e.setVisibility(8);
+                    cVar.f66225e.setVisibility(8);
                 } else {
-                    cVar.f62510e.setVisibility(0);
-                    EMTextView eMTextView2 = cVar.f62510e;
+                    cVar.f66225e.setVisibility(0);
+                    EMTextView eMTextView2 = cVar.f66225e;
                     if (TextUtils.isEmpty(userData.getFollowFrom()) && this.k) {
                         str = userData.getIntro();
                     } else {
@@ -370,17 +370,17 @@ public class d extends d.a.n0.w1.b {
                     }
                     eMTextView2.setText(str);
                 }
-                cVar.f62511f.setTag(Integer.valueOf(i2));
+                cVar.f66226f.setTag(Integer.valueOf(i2));
                 String userId = userData.getUserId();
-                cVar.f62514i.setStatsParams(1, userId);
+                cVar.f66229i.setStatsParams(1, userId);
                 userData.setIsLike(userData.getHave_attention() > 0);
                 cVar.j.n(userData);
                 if ((!TextUtils.isEmpty(userId) && userId.equals(TbadkCoreApplication.getCurrentAccount())) || userData.mAttentionType == 1) {
-                    cVar.f62514i.setVisibility(8);
-                    cVar.f62511f.setVisibility(8);
+                    cVar.f66229i.setVisibility(8);
+                    cVar.f66226f.setVisibility(8);
                 } else {
-                    cVar.f62511f.setVisibility(8);
-                    cVar.f62514i.setVisibility(0);
+                    cVar.f66226f.setVisibility(8);
+                    cVar.f66229i.setVisibility(0);
                 }
             }
             cVar.k = null;
@@ -392,7 +392,7 @@ public class d extends d.a.n0.w1.b {
         } else if (getItemViewType(i2) == 2) {
             cVar.m.setText(this.m);
         } else if (getItemViewType(i2) != 2 || getItemViewType(i2) != 3) {
-            cVar.f62508c.setText(this.f62501h.getPageContext().getString(R.string.loading));
+            cVar.f66223c.setText(this.f66216h.getPageContext().getString(R.string.loading));
             cVar.k.setVisibility(0);
         }
         h(view, cVar);
@@ -406,14 +406,14 @@ public class d extends d.a.n0.w1.b {
 
     public final void h(View view, c cVar) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.f62501h.getLayoutMode().k(skinType == 1);
-        this.f62501h.getLayoutMode().j(view);
+        this.f66216h.getLayoutMode().k(skinType == 1);
+        this.f66216h.getLayoutMode().j(view);
         if (cVar != null) {
-            TextView textView = cVar.f62511f;
+            TextView textView = cVar.f66226f;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.btn_forum_focus_color, 1);
-                SkinManager.setBackgroundResource(cVar.f62511f, R.drawable.btn_focus_border_bg);
-                cVar.f62511f.setEnabled(true);
+                SkinManager.setBackgroundResource(cVar.f66226f, R.drawable.btn_focus_border_bg);
+                cVar.f66226f.setEnabled(true);
             }
             LinearLayout linearLayout = cVar.n;
             if (linearLayout != null && cVar.m != null) {
@@ -424,7 +424,7 @@ public class d extends d.a.n0.w1.b {
             if (eMTextView != null) {
                 SkinManager.setViewTextColor(eMTextView, R.color.CAM_X0105);
             }
-            NewMyFansUserLikeButton newMyFansUserLikeButton = cVar.f62514i;
+            NewMyFansUserLikeButton newMyFansUserLikeButton = cVar.f66229i;
             if (newMyFansUserLikeButton != null) {
                 newMyFansUserLikeButton.r(skinType);
             }
@@ -448,7 +448,7 @@ public class d extends d.a.n0.w1.b {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i2) {
-        if (this.f62502i) {
+        if (this.f66217i) {
             return false;
         }
         return super.isEnabled(i2);

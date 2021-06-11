@@ -13,26 +13,26 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f48822b;
+    public static b f52496b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, a> f48823a = new HashMap<>();
+    public final HashMap<String, a> f52497a = new HashMap<>();
 
     public b() {
         HashMap<String, a> d2 = d();
-        this.f48823a.clear();
-        this.f48823a.putAll(d2);
+        this.f52497a.clear();
+        this.f52497a.putAll(d2);
     }
 
     public static b e() {
-        if (f48822b == null) {
+        if (f52496b == null) {
             synchronized (b.class) {
-                if (f48822b == null) {
-                    f48822b = new b();
+                if (f52496b == null) {
+                    f52496b = new b();
                 }
             }
         }
-        return f48822b;
+        return f52496b;
     }
 
     public static String f() {
@@ -49,8 +49,8 @@ public class b {
 
     public final void a() {
         try {
-            synchronized (this.f48823a) {
-                this.f48823a.clear();
+            synchronized (this.f52497a) {
+                this.f52497a.clear();
             }
             SharedPreferences.Editor edit = g().edit();
             edit.clear();
@@ -66,11 +66,11 @@ public class b {
 
     public final String b(String str, String str2) {
         a c2 = c(str);
-        return (c2 == null || TextUtils.isEmpty(c2.f48821a)) ? str2 : c2.f48821a;
+        return (c2 == null || TextUtils.isEmpty(c2.f52495a)) ? str2 : c2.f52495a;
     }
 
     public synchronized a c(String str) {
-        return this.f48823a.get(str);
+        return this.f52497a.get(str);
     }
 
     public final HashMap<String, a> d() {
@@ -104,9 +104,9 @@ public class b {
                     hashMap.put(optString, new a(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
                 }
             }
-            synchronized (this.f48823a) {
-                this.f48823a.clear();
-                this.f48823a.putAll(hashMap);
+            synchronized (this.f52497a) {
+                this.f52497a.clear();
+                this.f52497a.putAll(hashMap);
             }
             EditorHelper.putString(g(), "pref_key_abtest_switchs", jSONArray.toString());
             d.a.m0.r.d0.b.j().v("perf_start_open", h("performance_start_small_flow") ? 1 : 0);

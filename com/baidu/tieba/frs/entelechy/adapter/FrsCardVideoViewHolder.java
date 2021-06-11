@@ -19,12 +19,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
     @Override // com.baidu.tieba.card.holder.CardViewHolder
     /* renamed from: c */
     public T b() {
-        return (T) this.f14285e;
+        return (T) this.f14342e;
     }
 
     @Override // d.a.n0.k2.e
     public int getCurrentPosition() {
-        T t = this.f14285e;
+        T t = this.f14342e;
         if (t == 0) {
             return 0;
         }
@@ -33,16 +33,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
 
     @Override // d.a.n0.k2.e
     public String getPlayUrl() {
-        T t = this.f14285e;
-        if (t == 0) {
-            return null;
-        }
-        return ((a) t).L();
-    }
-
-    @Override // d.a.n0.k2.e
-    public View getVideoContainer() {
-        T t = this.f14285e;
+        T t = this.f14342e;
         if (t == 0) {
             return null;
         }
@@ -50,17 +41,26 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
     }
 
     @Override // d.a.n0.k2.e
+    public View getVideoContainer() {
+        T t = this.f14342e;
+        if (t == 0) {
+            return null;
+        }
+        return ((a) t).N();
+    }
+
+    @Override // d.a.n0.k2.e
     public boolean isPlayStarted() {
-        T t = this.f14285e;
+        T t = this.f14342e;
         if (t == 0) {
             return false;
         }
-        return ((a) t).W();
+        return ((a) t).X();
     }
 
     @Override // d.a.n0.k2.e
     public boolean isPlaying() {
-        T t = this.f14285e;
+        T t = this.f14342e;
         if (t == 0) {
             return false;
         }
@@ -69,7 +69,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
 
     @Override // d.a.n0.k2.e
     public void startPlay() {
-        T t = this.f14285e;
+        T t = this.f14342e;
         if (t != 0) {
             ((a) t).startPlay();
         }
@@ -77,7 +77,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
 
     @Override // d.a.n0.k2.e
     public void stopPlay() {
-        T t = this.f14285e;
+        T t = this.f14342e;
         if (t != 0) {
             ((a) t).stopPlay();
         }

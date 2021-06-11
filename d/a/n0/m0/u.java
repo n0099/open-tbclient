@@ -35,27 +35,27 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class u {
 
     /* renamed from: b  reason: collision with root package name */
-    public static u f57342b;
+    public static u f61031b;
 
     /* renamed from: a  reason: collision with root package name */
-    public GetEmotionInfosModel f57343a;
+    public GetEmotionInfosModel f61032a;
 
     /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Void, Void, Integer> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f57344a;
+        public final /* synthetic */ l f61033a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f57345b;
+        public final /* synthetic */ List f61034b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f57346c;
+        public final /* synthetic */ boolean f61035c;
 
         public a(l lVar, List list, boolean z) {
-            this.f57344a = lVar;
-            this.f57345b = list;
-            this.f57346c = z;
+            this.f61033a = lVar;
+            this.f61034b = list;
+            this.f61035c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +68,7 @@ public class u {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             if (num.intValue() >= 300) {
-                l lVar = this.f57344a;
+                l lVar = this.f61033a;
                 if (lVar != null) {
                     lVar.onResult(4, 0, 0);
                     return;
@@ -77,11 +77,11 @@ public class u {
                     return;
                 }
             }
-            while (this.f57345b.size() + num.intValue() > 300) {
-                List list = this.f57345b;
+            while (this.f61034b.size() + num.intValue() > 300) {
+                List list = this.f61034b;
                 list.remove(list.size() - 1);
             }
-            u.this.i(this.f57345b, this.f57346c, this.f57344a);
+            u.this.i(this.f61034b, this.f61035c, this.f61033a);
         }
     }
 
@@ -89,27 +89,27 @@ public class u {
     public class b implements GetEmotionInfosModel.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f57348a;
+        public final /* synthetic */ l f61037a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f57349b;
+        public final /* synthetic */ Map f61038b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f57350c;
+        public final /* synthetic */ List f61039c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f57351d;
+        public final /* synthetic */ boolean f61040d;
 
         public b(l lVar, Map map, List list, boolean z) {
-            this.f57348a = lVar;
-            this.f57349b = map;
-            this.f57350c = list;
-            this.f57351d = z;
+            this.f61037a = lVar;
+            this.f61038b = map;
+            this.f61039c = list;
+            this.f61040d = z;
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
         public void onFail(int i2, String str) {
-            l lVar = this.f57348a;
+            l lVar = this.f61037a;
             if (lVar == null) {
                 d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
             } else {
@@ -120,7 +120,7 @@ public class u {
         @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
         public void onSuccess(List<d.a.m0.b0.c> list) {
             if (list == null || list.isEmpty()) {
-                l lVar = this.f57348a;
+                l lVar = this.f61037a;
                 if (lVar == null) {
                     d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
                 } else {
@@ -128,12 +128,12 @@ public class u {
                 }
             }
             for (d.a.m0.b0.c cVar : list) {
-                if (!v.e().f(cVar.f48910a)) {
-                    cVar.f48915f = (String) this.f57349b.get(cVar.f48916g);
-                    this.f57350c.add(cVar);
+                if (!v.e().f(cVar.f52584a)) {
+                    cVar.f52589f = (String) this.f61038b.get(cVar.f52590g);
+                    this.f61039c.add(cVar);
                 }
             }
-            u.this.m(this.f57350c, this.f57348a, this.f57351d);
+            u.this.m(this.f61039c, this.f61037a, this.f61040d);
         }
     }
 
@@ -141,40 +141,40 @@ public class u {
     public class c implements j {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f57353a;
+        public final /* synthetic */ List f61042a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.b0.c f57354b;
+        public final /* synthetic */ d.a.m0.b0.c f61043b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f57355c;
+        public final /* synthetic */ AtomicInteger f61044c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ l f57356d;
+        public final /* synthetic */ l f61045d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f57357e;
+        public final /* synthetic */ boolean f61046e;
 
         public c(List list, d.a.m0.b0.c cVar, AtomicInteger atomicInteger, l lVar, boolean z) {
-            this.f57353a = list;
-            this.f57354b = cVar;
-            this.f57355c = atomicInteger;
-            this.f57356d = lVar;
-            this.f57357e = z;
+            this.f61042a = list;
+            this.f61043b = cVar;
+            this.f61044c = atomicInteger;
+            this.f61045d = lVar;
+            this.f61046e = z;
         }
 
         @Override // d.a.n0.m0.u.j
         public void onFail() {
-            if (this.f57355c.decrementAndGet() == 0) {
-                u.this.f(this.f57353a, this.f57356d, this.f57357e);
+            if (this.f61044c.decrementAndGet() == 0) {
+                u.this.f(this.f61042a, this.f61045d, this.f61046e);
             }
         }
 
         @Override // d.a.n0.m0.u.j
         public void onSuccess() {
-            this.f57353a.add(u.this.w(this.f57354b));
-            if (this.f57355c.decrementAndGet() == 0) {
-                u.this.f(this.f57353a, this.f57356d, this.f57357e);
+            this.f61042a.add(u.this.w(this.f61043b));
+            if (this.f61044c.decrementAndGet() == 0) {
+                u.this.f(this.f61042a, this.f61045d, this.f61046e);
             }
         }
     }
@@ -183,45 +183,45 @@ public class u {
     public class d extends BdAsyncTask<Void, Void, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f57359a;
+        public final /* synthetic */ List f61048a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f57360b;
+        public final /* synthetic */ l f61049b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f57361c;
+        public final /* synthetic */ boolean f61050c;
 
         public d(u uVar, List list, l lVar, boolean z) {
-            this.f57359a = list;
-            this.f57360b = lVar;
-            this.f57361c = z;
+            this.f61048a = list;
+            this.f61049b = lVar;
+            this.f61050c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
-            return Boolean.valueOf(d.a.n0.m0.g.k().b(this.f57359a));
+            return Boolean.valueOf(d.a.n0.m0.g.k().b(this.f61048a));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             if (bool != null && bool.booleanValue()) {
-                l lVar = this.f57360b;
+                l lVar = this.f61049b;
                 if (lVar == null) {
                     d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.add_success);
                 } else {
                     lVar.onResult(4, 1, 0);
                 }
                 v.e().g();
-                if (this.f57361c) {
-                    new UserCollectModel().s();
+                if (this.f61050c) {
+                    new UserCollectModel().w();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
                 TiebaStatic.log("c12222");
                 return;
             }
-            l lVar2 = this.f57360b;
+            l lVar2 = this.f61049b;
             if (lVar2 == null) {
                 d.a.c.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
             } else {
@@ -234,18 +234,18 @@ public class u {
     public class e extends BdAsyncTask<Void, Void, List<Integer>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f57362a;
+        public final /* synthetic */ List f61051a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f57363b;
+        public final /* synthetic */ l f61052b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f57364c;
+        public final /* synthetic */ boolean f61053c;
 
         public e(u uVar, List list, l lVar, boolean z) {
-            this.f57362a = list;
-            this.f57363b = lVar;
-            this.f57364c = z;
+            this.f61051a = list;
+            this.f61052b = lVar;
+            this.f61053c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -258,8 +258,8 @@ public class u {
                 hashMap.put(collectEmotionData.getSharpText(), collectEmotionData);
             }
             int size = n.size() - 2;
-            for (int i2 = 0; i2 < this.f57362a.size(); i2++) {
-                CollectEmotionData collectEmotionData2 = (CollectEmotionData) this.f57362a.get(i2);
+            for (int i2 = 0; i2 < this.f61051a.size(); i2++) {
+                CollectEmotionData collectEmotionData2 = (CollectEmotionData) this.f61051a.get(i2);
                 collectEmotionData2.orderId = size;
                 String sharpText = collectEmotionData2.getSharpText();
                 if (hashMap.containsKey(sharpText)) {
@@ -271,17 +271,17 @@ public class u {
             }
             for (int i3 = 0; i3 < n.size(); i3++) {
                 CollectEmotionData collectEmotionData3 = n.get(i3);
-                if (!d.a.m0.a0.d.f48816d.equals(collectEmotionData3.sharpText)) {
+                if (!d.a.m0.a0.d.f52490d.equals(collectEmotionData3.sharpText)) {
                     collectEmotionData3.orderId = size;
                     d.a.n0.m0.g.k().r(collectEmotionData3);
                     size--;
                 }
             }
-            if (this.f57362a.size() > 0) {
+            if (this.f61051a.size() > 0) {
                 v.e().g();
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(Integer.valueOf(this.f57362a.size()));
+            arrayList.add(Integer.valueOf(this.f61051a.size()));
             arrayList.add(0);
             return arrayList;
         }
@@ -290,13 +290,13 @@ public class u {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
-            if (this.f57363b == null || list == null || list.size() != 2) {
+            if (this.f61052b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f57363b.onResult(2, list.get(0).intValue(), list.get(1).intValue());
+            this.f61052b.onResult(2, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
-                if (this.f57364c) {
-                    new UserCollectModel().s();
+                if (this.f61053c) {
+                    new UserCollectModel().w();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
                 StatisticItem statisticItem = new StatisticItem("c12227");
@@ -310,18 +310,18 @@ public class u {
     public class f extends BdAsyncTask<Void, Void, List<Integer>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f57365a;
+        public final /* synthetic */ List f61054a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f57366b;
+        public final /* synthetic */ l f61055b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f57367c;
+        public final /* synthetic */ boolean f61056c;
 
         public f(u uVar, List list, l lVar, boolean z) {
-            this.f57365a = list;
-            this.f57366b = lVar;
-            this.f57367c = z;
+            this.f61054a = list;
+            this.f61055b = lVar;
+            this.f61056c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -329,8 +329,8 @@ public class u {
         /* renamed from: b */
         public List<Integer> doInBackground(Void[] voidArr) {
             int i2 = 0;
-            for (CollectEmotionData collectEmotionData : this.f57365a) {
-                if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !d.a.m0.a0.d.f48816d.equals(collectEmotionData.sharpText)) {
+            for (CollectEmotionData collectEmotionData : this.f61054a) {
+                if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !d.a.m0.a0.d.f52490d.equals(collectEmotionData.sharpText)) {
                     d.a.n0.m0.g.k().g(collectEmotionData);
                     ImageFileInfo imageFileInfo = collectEmotionData.imageFileInfo;
                     if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
@@ -354,7 +354,7 @@ public class u {
             List<CollectEmotionData> n = d.a.n0.m0.g.k().n(TbadkCoreApplication.getCurrentAccount());
             for (int i3 = 0; i3 < n.size(); i3++) {
                 CollectEmotionData collectEmotionData2 = n.get(i3);
-                if (!d.a.m0.a0.d.f48816d.equals(collectEmotionData2.getSharpText())) {
+                if (!d.a.m0.a0.d.f52490d.equals(collectEmotionData2.getSharpText())) {
                     collectEmotionData2.orderId = (n.size() - i3) - 1;
                     d.a.n0.m0.g.k().r(collectEmotionData2);
                 }
@@ -364,7 +364,7 @@ public class u {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(Integer.valueOf(i2));
-            arrayList.add(Integer.valueOf(this.f57365a.size() - i2));
+            arrayList.add(Integer.valueOf(this.f61054a.size() - i2));
             return arrayList;
         }
 
@@ -372,13 +372,13 @@ public class u {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
-            if (this.f57366b == null || list == null || list.size() != 2) {
+            if (this.f61055b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f57366b.onResult(1, list.get(0).intValue(), list.get(1).intValue());
+            this.f61055b.onResult(1, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
-                if (this.f57367c) {
-                    new UserCollectModel().s();
+                if (this.f61056c) {
+                    new UserCollectModel().w();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
                 StatisticItem statisticItem = new StatisticItem("c12226");
@@ -392,14 +392,14 @@ public class u {
     public class g extends BdAsyncTask<Void, Void, List<Integer>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f57368a;
+        public final /* synthetic */ List f61057a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f57369b;
+        public final /* synthetic */ l f61058b;
 
         public g(List list, l lVar) {
-            this.f57368a = list;
-            this.f57369b = lVar;
+            this.f61057a = list;
+            this.f61058b = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -407,7 +407,7 @@ public class u {
         /* renamed from: b */
         public List<Integer> doInBackground(Void[] voidArr) {
             int i2 = 0;
-            for (CollectEmotionData collectEmotionData : this.f57368a) {
+            for (CollectEmotionData collectEmotionData : this.f61057a) {
                 String filePath = collectEmotionData.imageFileInfo.getFilePath();
                 File file = new File(filePath.replace("_s.jpg", "_b.jpg"));
                 byte[] r = file.exists() ? u.this.r(file) : null;
@@ -420,7 +420,7 @@ public class u {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(Integer.valueOf(i2));
-            arrayList.add(Integer.valueOf(this.f57368a.size() - i2));
+            arrayList.add(Integer.valueOf(this.f61057a.size() - i2));
             return arrayList;
         }
 
@@ -428,10 +428,10 @@ public class u {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
-            if (this.f57369b == null || list == null || list.size() != 2) {
+            if (this.f61058b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f57369b.onResult(3, list.get(0).intValue(), list.get(1).intValue());
+            this.f61058b.onResult(3, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
                 StatisticItem statisticItem = new StatisticItem("c12228");
                 statisticItem.param("obj_param1", list.get(0).intValue());
@@ -462,12 +462,12 @@ public class u {
             for (CollectEmotionData collectEmotionData : list) {
                 if (collectEmotionData != null) {
                     d.a.m0.b0.c cVar = new d.a.m0.b0.c();
-                    cVar.f48910a = collectEmotionData.pid;
-                    cVar.f48915f = collectEmotionData.pkgId;
-                    cVar.f48913d = collectEmotionData.picUrl;
-                    cVar.f48914e = collectEmotionData.thumbnail;
-                    cVar.f48911b = collectEmotionData.width;
-                    cVar.f48912c = collectEmotionData.height;
+                    cVar.f52584a = collectEmotionData.pid;
+                    cVar.f52589f = collectEmotionData.pkgId;
+                    cVar.f52587d = collectEmotionData.picUrl;
+                    cVar.f52588e = collectEmotionData.thumbnail;
+                    cVar.f52585b = collectEmotionData.width;
+                    cVar.f52586c = collectEmotionData.height;
                     new k(null).execute(cVar);
                 }
             }
@@ -495,13 +495,13 @@ public class u {
     public class k extends BdAsyncTask<d.a.m0.b0.c, Void, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.m0.b0.c f57372a;
+        public d.a.m0.b0.c f61061a;
 
         /* renamed from: b  reason: collision with root package name */
-        public j f57373b;
+        public j f61062b;
 
         public k(j jVar) {
-            this.f57373b = jVar;
+            this.f61062b = jVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -509,11 +509,11 @@ public class u {
         /* renamed from: b */
         public Boolean doInBackground(d.a.m0.b0.c[] cVarArr) {
             if (cVarArr != null && cVarArr.length > 0) {
-                this.f57372a = cVarArr[0];
+                this.f61061a = cVarArr[0];
                 WebClient webClient = new WebClient();
-                byte[] downloadImageBytes = webClient.downloadImageBytes(this.f57372a.f48913d, false);
+                byte[] downloadImageBytes = webClient.downloadImageBytes(this.f61061a.f52587d, false);
                 if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
-                    String q = u.this.q(this.f57372a, true);
+                    String q = u.this.q(this.f61061a, true);
                     if (TextUtils.isEmpty(q)) {
                         return Boolean.FALSE;
                     }
@@ -527,9 +527,9 @@ public class u {
                     if (!u.this.u(file, downloadImageBytes)) {
                         return Boolean.FALSE;
                     }
-                    byte[] downloadImageBytes2 = webClient.downloadImageBytes(this.f57372a.f48914e, false);
+                    byte[] downloadImageBytes2 = webClient.downloadImageBytes(this.f61061a.f52588e, false);
                     if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
-                        String q2 = u.this.q(this.f57372a, false);
+                        String q2 = u.this.q(this.f61061a, false);
                         if (TextUtils.isEmpty(q2)) {
                             return Boolean.FALSE;
                         }
@@ -549,14 +549,14 @@ public class u {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             if (bool != null && bool.booleanValue()) {
-                j jVar = this.f57373b;
+                j jVar = this.f61062b;
                 if (jVar != null) {
                     jVar.onSuccess();
                     return;
                 }
                 return;
             }
-            j jVar2 = this.f57373b;
+            j jVar2 = this.f61062b;
             if (jVar2 != null) {
                 jVar2.onFail();
             }
@@ -582,10 +582,10 @@ public class u {
     }
 
     public static u s() {
-        if (f57342b == null) {
-            f57342b = new u();
+        if (f61031b == null) {
+            f61031b = new u();
         }
-        return f57342b;
+        return f61031b;
     }
 
     public final void f(List<CollectEmotionData> list, l lVar, boolean z) {
@@ -598,8 +598,8 @@ public class u {
             return;
         }
         d.a.m0.b0.c cVar = new d.a.m0.b0.c();
-        cVar.f48913d = str;
-        cVar.f48915f = str2;
+        cVar.f52587d = str;
+        cVar.f52589f = str2;
         ArrayList arrayList = new ArrayList();
         arrayList.add(cVar);
         h(arrayList, true, null);
@@ -621,24 +621,24 @@ public class u {
             ArrayList arrayList2 = new ArrayList();
             HashMap hashMap = new HashMap();
             for (d.a.m0.b0.c cVar : list) {
-                String str = cVar.f48910a;
+                String str = cVar.f52584a;
                 if (str != null && !TextUtils.isEmpty(str)) {
-                    if (!v.e().f(cVar.f48910a)) {
+                    if (!v.e().f(cVar.f52584a)) {
                         arrayList.add(cVar);
                     }
                 } else {
-                    arrayList2.add(cVar.f48913d);
-                    String str2 = cVar.f48915f;
+                    arrayList2.add(cVar.f52587d);
+                    String str2 = cVar.f52589f;
                     if (str2 != null) {
-                        hashMap.put(cVar.f48913d, str2);
+                        hashMap.put(cVar.f52587d, str2);
                     }
                 }
             }
             if (arrayList2.size() > 0) {
-                if (this.f57343a == null) {
-                    this.f57343a = new GetEmotionInfosModel();
+                if (this.f61032a == null) {
+                    this.f61032a = new GetEmotionInfosModel();
                 }
-                this.f57343a.u(arrayList2, new b(lVar, hashMap, arrayList, z));
+                this.f61032a.y(arrayList2, new b(lVar, hashMap, arrayList, z));
                 return;
             }
             m(arrayList, lVar, z);
@@ -661,7 +661,7 @@ public class u {
         ArrayList arrayList = new ArrayList();
         for (String str : list) {
             d.a.m0.b0.c cVar = new d.a.m0.b0.c();
-            cVar.f48913d = str;
+            cVar.f52587d = str;
             arrayList.add(cVar);
         }
         h(arrayList, true, lVar);
@@ -722,7 +722,7 @@ public class u {
 
     public final String q(d.a.m0.b0.c cVar, boolean z) {
         String str;
-        if (cVar == null || TextUtils.isEmpty(cVar.f48913d) || TextUtils.isEmpty(cVar.f48910a)) {
+        if (cVar == null || TextUtils.isEmpty(cVar.f52587d) || TextUtils.isEmpty(cVar.f52584a)) {
             return "";
         }
         if (z) {
@@ -730,7 +730,7 @@ public class u {
         } else {
             str = "_s.jpg";
         }
-        return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + d.a.m0.a0.d.b() + "/" + cVar.f48910a + str;
+        return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + d.a.m0.a0.d.b() + "/" + cVar.f52584a + str;
     }
 
     /* JADX WARN: Type inference failed for: r1v0, types: [boolean] */
@@ -837,29 +837,29 @@ public class u {
 
     public final CollectEmotionData w(d.a.m0.b0.c cVar) {
         CollectEmotionData collectEmotionData = new CollectEmotionData();
-        StringBuilder sb = new StringBuilder(d.a.m0.a0.d.f48818f);
-        if (TextUtils.isEmpty(cVar.f48915f)) {
-            sb.append(cVar.f48910a);
+        StringBuilder sb = new StringBuilder(d.a.m0.a0.d.f52492f);
+        if (TextUtils.isEmpty(cVar.f52589f)) {
+            sb.append(cVar.f52584a);
             sb.append(",");
         } else {
-            sb.append(cVar.f48915f);
+            sb.append(cVar.f52589f);
             sb.append("_");
-            sb.append(cVar.f48910a);
+            sb.append(cVar.f52584a);
             sb.append(",");
         }
-        sb.append(cVar.f48911b);
+        sb.append(cVar.f52585b);
         sb.append(",");
-        sb.append(cVar.f48912c);
+        sb.append(cVar.f52586c);
         sb.append(",");
         String lowerCase = d.a.c.e.p.q.c(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase();
-        collectEmotionData.pid = cVar.f48910a;
+        collectEmotionData.pid = cVar.f52584a;
         collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
         collectEmotionData.sharpText = SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX;
         collectEmotionData.orderId = d.a.n0.m0.g.k().i(collectEmotionData.uid) + 1;
-        collectEmotionData.width = cVar.f48911b;
-        collectEmotionData.height = cVar.f48912c;
-        collectEmotionData.picUrl = cVar.f48913d;
-        collectEmotionData.thumbnail = cVar.f48914e;
+        collectEmotionData.width = cVar.f52585b;
+        collectEmotionData.height = cVar.f52586c;
+        collectEmotionData.picUrl = cVar.f52587d;
+        collectEmotionData.thumbnail = cVar.f52588e;
         collectEmotionData.backup = "";
         return collectEmotionData;
     }

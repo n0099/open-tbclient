@@ -14,33 +14,33 @@ import d.a.m0.s.c.v;
 public class b {
 
     /* loaded from: classes3.dex */
-    public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f60734a;
+        public final /* synthetic */ EditText f64425a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f60735b;
+        public final /* synthetic */ SpannableStringBuilder f64426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f60736c;
+        public final /* synthetic */ int f64427c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ EmotionGroupType f60737d;
+        public final /* synthetic */ EmotionGroupType f64428d;
 
         public a(EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, EmotionGroupType emotionGroupType) {
-            this.f60734a = editText;
-            this.f60735b = spannableStringBuilder;
-            this.f60736c = i2;
-            this.f60737d = emotionGroupType;
+            this.f64425a = editText;
+            this.f64426b = spannableStringBuilder;
+            this.f64427c = i2;
+            this.f64428d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((a) aVar, str, i2);
             if (aVar != null) {
-                b.this.c(this.f60734a, this.f60735b, this.f60736c, aVar, this.f60737d);
+                b.this.c(this.f64425a, this.f64426b, this.f64427c, aVar, this.f64428d);
             }
         }
     }
@@ -57,7 +57,7 @@ public class b {
         }
     }
 
-    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, d.a.c.j.d.a aVar, EmotionGroupType emotionGroupType) {
+    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, d.a.c.k.d.a aVar, EmotionGroupType emotionGroupType) {
         Bitmap p = aVar.p();
         BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
         int width = p.getWidth();

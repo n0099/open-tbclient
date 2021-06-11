@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
 public class gx {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37700a;
+    public int f41379a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f458a;
@@ -32,7 +32,7 @@ public class gx {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final gx f37701a = new gx();
+        public static final gx f41380a = new gx();
     }
 
     private ex a(bi.a aVar) {
@@ -43,11 +43,11 @@ public class gx {
             }
             return null;
         }
-        ex m352a = m352a();
-        m352a.a(ew.CHANNEL_STATS_COUNTER.a());
-        m352a.c(aVar.f150a);
-        m352a.c(aVar.f152a);
-        return m352a;
+        ex m351a = m351a();
+        m351a.a(ew.CHANNEL_STATS_COUNTER.a());
+        m351a.c(aVar.f150a);
+        m351a.c(aVar.f152a);
+        return m351a;
     }
 
     private ey a(int i2) {
@@ -62,10 +62,10 @@ public class gx {
             eyVar.b(a2);
         } catch (iv unused) {
         }
-        LinkedList<bi.a> m166a = this.f459a.m166a();
-        while (m166a.size() > 0) {
+        LinkedList<bi.a> m165a = this.f459a.m165a();
+        while (m165a.size() > 0) {
             try {
-                ex a3 = a(m166a.getLast());
+                ex a3 = a(m165a.getLast());
                 if (a3 != null) {
                     a3.b(a2);
                 }
@@ -75,7 +75,7 @@ public class gx {
                 if (a3 != null) {
                     arrayList.add(a3);
                 }
-                m166a.removeLast();
+                m165a.removeLast();
             } catch (iv | NoSuchElementException unused2) {
             }
         }
@@ -84,20 +84,20 @@ public class gx {
 
     public static gw a() {
         gw gwVar;
-        synchronized (a.f37701a) {
-            gwVar = a.f37701a.f460a;
+        synchronized (a.f41380a) {
+            gwVar = a.f41380a.f460a;
         }
         return gwVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gx m350a() {
-        return a.f37701a;
+    public static gx m349a() {
+        return a.f41380a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m351a() {
-        if (!this.f462a || System.currentTimeMillis() - this.f458a <= this.f37700a) {
+    private void m350a() {
+        if (!this.f462a || System.currentTimeMillis() - this.f458a <= this.f41379a) {
             return;
         }
         this.f462a = false;
@@ -105,10 +105,10 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ex m352a() {
+    public synchronized ex m351a() {
         ex exVar;
         exVar = new ex();
-        exVar.a(bg.m159a((Context) this.f460a.f455a));
+        exVar.a(bg.m158a((Context) this.f460a.f455a));
         exVar.f341a = (byte) 0;
         exVar.f345b = 1;
         exVar.d((int) (System.currentTimeMillis() / 1000));
@@ -116,7 +116,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ey m353a() {
+    public synchronized ey m352a() {
         ey eyVar;
         eyVar = null;
         if (b()) {
@@ -126,18 +126,18 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m354a(int i2) {
+    public void m353a(int i2) {
         if (i2 > 0) {
             int i3 = i2 * 1000;
             if (i3 > 604800000) {
                 i3 = 604800000;
             }
-            if (this.f37700a == i3 && this.f462a) {
+            if (this.f41379a == i3 && this.f462a) {
                 return;
             }
             this.f462a = true;
             this.f458a = System.currentTimeMillis();
-            this.f37700a = i3;
+            this.f41379a = i3;
             com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i3 + " start = " + this.f458a);
         }
     }
@@ -153,12 +153,12 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m355a() {
+    public boolean m354a() {
         return this.f462a;
     }
 
     public boolean b() {
-        m351a();
-        return this.f462a && this.f459a.m165a() > 0;
+        m350a();
+        return this.f462a && this.f459a.m164a() > 0;
     }
 }

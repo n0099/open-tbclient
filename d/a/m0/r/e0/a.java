@@ -21,62 +21,62 @@ import d.a.c.e.p.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49693a;
+    public int f53368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FragmentTabHost f49694b;
+    public FragmentTabHost f53369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c<d.a.c.j.d.a> f49695c = new C1133a();
+    public final c<d.a.c.k.d.a> f53370c = new C1189a();
 
     /* renamed from: d.a.m0.r.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1133a extends c<d.a.c.j.d.a> {
-        public C1133a() {
+    public class C1189a extends c<d.a.c.k.d.a> {
+        public C1189a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
-            super.onLoaded((C1133a) aVar, str, i2);
-            if (a.this.f49694b == null || aVar == null || !aVar.w()) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
+            super.onLoaded((C1189a) aVar, str, i2);
+            if (a.this.f53369b == null || aVar == null || !aVar.w()) {
                 a.this.f();
                 return;
             }
-            FragmentTabWidget fragmentTabWidget = a.this.f49694b.getFragmentTabWidget();
-            CustomViewPager fragmentViewPager = a.this.f49694b.getFragmentViewPager();
-            ViewGroup tabWrapper = a.this.f49694b.getTabWrapper();
+            FragmentTabWidget fragmentTabWidget = a.this.f53369b.getFragmentTabWidget();
+            CustomViewPager fragmentViewPager = a.this.f53369b.getFragmentViewPager();
+            ViewGroup tabWrapper = a.this.f53369b.getTabWrapper();
             if (fragmentTabWidget == null || fragmentViewPager == null) {
                 return;
             }
-            a.this.f49694b.setNeedShowThemeStyle(false);
+            a.this.f53369b.setNeedShowThemeStyle(false);
             fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
             SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
             SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-            layoutParams.bottomMargin = l.g(a.this.f49694b.getContext(), R.dimen.tbds100);
+            layoutParams.bottomMargin = l.g(a.this.f53369b.getContext(), R.dimen.tbds100);
             fragmentViewPager.setLayoutParams(layoutParams);
             fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(aVar.p()));
         }
     }
 
     public a(FragmentTabHost fragmentTabHost, int i2) {
-        this.f49693a = 0;
-        this.f49694b = fragmentTabHost;
-        this.f49693a = i2;
+        this.f53368a = 0;
+        this.f53369b = fragmentTabHost;
+        this.f53368a = i2;
     }
 
     public final BdUniqueId c() {
         f<?> a2;
-        FragmentTabHost fragmentTabHost = this.f49694b;
-        if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = j.a(this.f49694b.getContext())) == null) {
+        FragmentTabHost fragmentTabHost = this.f53369b;
+        if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = j.a(this.f53369b.getContext())) == null) {
             return null;
         }
         return a2.getUniqueId();
     }
 
     public final void d(String str) {
-        d.h().m(str, 10, this.f49695c, c());
+        d.h().m(str, 10, this.f53370c, c());
     }
 
     public void e(Pair<String, String> pair) {
@@ -94,12 +94,12 @@ public class a {
     }
 
     public final void f() {
-        FragmentTabHost fragmentTabHost = this.f49694b;
+        FragmentTabHost fragmentTabHost = this.f53369b;
         if (fragmentTabHost == null || fragmentTabHost.getFragmentTabWidget() == null) {
             return;
         }
-        this.f49694b.getFragmentTabWidget().setBackGroundDrawableResId(this.f49693a);
-        SkinManager.setBackgroundColor(this.f49694b.getFragmentTabWidget(), this.f49693a);
-        SkinManager.setBackgroundColor(this.f49694b.getTabWrapper(), this.f49693a);
+        this.f53369b.getFragmentTabWidget().setBackGroundDrawableResId(this.f53368a);
+        SkinManager.setBackgroundColor(this.f53369b.getFragmentTabWidget(), this.f53368a);
+        SkinManager.setBackgroundColor(this.f53369b.getTabWrapper(), this.f53368a);
     }
 }

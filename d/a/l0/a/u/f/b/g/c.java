@@ -12,19 +12,19 @@ public class c extends BasePendingOperation {
     public static final CopyOnWriteArrayList<String> j;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f45227e;
+    public g f48901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f45228f;
+    public e f48902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f45229g;
+    public JSONObject f48903g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f45230h;
+    public String f48904h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f45231i;
+    public String f48905i;
 
     static {
         CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
@@ -37,16 +37,16 @@ public class c extends BasePendingOperation {
     }
 
     public c(@NonNull g gVar, @NonNull e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2) {
-        this.f45227e = gVar;
-        this.f45228f = eVar;
-        this.f45229g = jSONObject;
-        this.f45230h = str;
-        this.f45231i = str2;
+        this.f48901e = gVar;
+        this.f48902f = eVar;
+        this.f48903g = jSONObject;
+        this.f48904h = str;
+        this.f48905i = str2;
     }
 
     @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
     public boolean a() {
-        return e(this.f45229g.optString("url"));
+        return e(this.f48903g.optString("url"));
     }
 
     @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
@@ -56,7 +56,7 @@ public class c extends BasePendingOperation {
 
     @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
     public String c() {
-        return String.format("%s : %s", this.f45228f.getAppId(), this.f45229g.optString("url"));
+        return String.format("%s : %s", this.f48902f.getAppId(), this.f48903g.optString("url"));
     }
 
     @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
@@ -80,6 +80,6 @@ public class c extends BasePendingOperation {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f45227e.A(this.f45228f, this.f45229g, this.f45230h, this.f45231i);
+        this.f48901e.A(this.f48902f, this.f48903g, this.f48904h, this.f48905i);
     }
 }

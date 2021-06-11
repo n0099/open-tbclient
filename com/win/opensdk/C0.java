@@ -7,18 +7,18 @@ import java.util.Map;
 public class C0 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ D0 f36791a;
+    public final /* synthetic */ D0 f40470a;
 
     public C0(D0 d0) {
-        this.f36791a = d0;
+        this.f40470a = d0;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
-        HashMap a2 = M0.a(this.f36791a.f36804a);
+        HashMap a2 = M0.a(this.f40470a.f40483a);
         try {
-            str = this.f36791a.a() + M0.a(a2);
+            str = this.f40470a.a() + M0.a(a2);
         } catch (UnsupportedEncodingException unused) {
             str = "";
         }

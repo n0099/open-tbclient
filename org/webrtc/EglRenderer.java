@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EglRenderer implements VideoSink {
     public static final long LOG_INTERVAL_SEC = 4;
     public static final String TAG = "EglRenderer";
@@ -66,7 +66,7 @@ public class EglRenderer implements VideoSink {
     };
     public final EglSurfaceCreation eglSurfaceCreationRunnable = new EglSurfaceCreation();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class EglSurfaceCreation implements Runnable {
         public Object surface;
 
@@ -97,12 +97,12 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface FrameListener {
         void onFrame(Bitmap bitmap);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FrameListenerAndParams {
         public final boolean applyFpsReduction;
         public final RendererCommon.GlDrawer drawer;
@@ -117,7 +117,7 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HandlerWithExceptionCallback extends Handler {
         public final Runnable exceptionCallback;
 

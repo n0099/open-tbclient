@@ -3,31 +3,31 @@ package com.baidu.mobads.cid.cesium.a;
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8042a;
+    public long f8104a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8043b;
+    public int f8105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f8044c;
+    public int f8106c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8045d;
+    public int f8107d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8046e;
+    public int f8108e;
 
     public int a() {
-        return this.f8045d;
+        return this.f8107d;
     }
 
     public abstract b a(byte[] bArr, int i2, int i3);
 
     public int b() {
-        return this.f8044c;
+        return this.f8106c;
     }
 
     public int c() {
-        return this.f8046e;
+        return this.f8108e;
     }
 }

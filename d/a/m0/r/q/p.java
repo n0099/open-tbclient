@@ -3,46 +3,46 @@ package d.a.m0.r.q;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes3.dex */
 public class p extends a2 {
-    public static final BdUniqueId K3 = BdUniqueId.gen();
-    public boolean G3 = false;
-    public boolean H3 = false;
-    public boolean I3 = false;
-    public int J3;
+    public static final BdUniqueId N3 = BdUniqueId.gen();
+    public boolean J3 = false;
+    public boolean K3 = false;
+    public boolean L3 = false;
+    public int M3;
 
-    public int C4() {
-        return this.J3;
-    }
-
-    public boolean D4() {
-        return this.G3;
+    public int D4() {
+        return this.M3;
     }
 
     public boolean E4() {
-        return this.I3;
+        return this.J3;
     }
 
     public boolean F4() {
-        return this.H3;
+        return this.L3;
     }
 
-    public void G4(int i2) {
-        this.J3 = i2;
+    public boolean G4() {
+        return this.K3;
     }
 
-    public void H4(boolean z) {
-        this.G3 = z;
+    public void H4(int i2) {
+        this.M3 = i2;
     }
 
     public void I4(boolean z) {
-        this.I3 = z;
+        this.J3 = z;
     }
 
     public void J4(boolean z) {
-        this.H3 = z;
+        this.L3 = z;
     }
 
-    @Override // d.a.m0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    public void K4(boolean z) {
+        this.K3 = z;
+    }
+
+    @Override // d.a.m0.r.q.a2, com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return K3;
+        return N3;
     }
 }

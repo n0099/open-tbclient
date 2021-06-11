@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import d.a.n0.j2.e.k;
 import d.a.n0.z.e0.b;
@@ -17,13 +17,13 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f56496a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    public static final int f60185a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f56497b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    public static final int f60186b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f56498c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    public static final int f60187c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<n> a(List<a2> list) {
         ArrayList arrayList = new ArrayList();
@@ -48,10 +48,10 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!ListUtils.isEmpty(list)) {
             k kVar = new k();
-            kVar.f56426h = f56498c;
-            kVar.f56425g = f56497b;
-            kVar.f56424f = f56496a;
-            kVar.f56423e = R.string.person_center_tab_main_list_title;
+            kVar.f60115h = f60187c;
+            kVar.f60114g = f60186b;
+            kVar.f60113f = f60185a;
+            kVar.f60112e = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             for (int i2 = 0; i2 < list.size(); i2++) {
                 a2 a2Var = list.get(i2);
@@ -93,11 +93,11 @@ public class a {
         if (a2Var == null) {
             return null;
         }
-        a2Var.X1 = true;
-        a2Var.L1();
-        if (a2Var.t1) {
+        a2Var.Z1 = true;
+        a2Var.M1();
+        if (a2Var.u1) {
             bVar = new d.a.n0.z.e0.k();
-            bVar.f63459e = a2Var;
+            bVar.f67177e = a2Var;
         } else if (e.i0(a2Var)) {
             bVar = new e(a2Var);
         } else if (f.l0(a2Var)) {
@@ -108,10 +108,10 @@ public class a {
             }
         } else {
             bVar = new d.a.n0.z.e0.k();
-            if (!a2Var.h2() && !a2Var.v2()) {
-                a2Var.c2();
+            if (!a2Var.i2() && !a2Var.w2()) {
+                a2Var.d2();
             }
-            bVar.f63459e = a2Var;
+            bVar.f67177e = a2Var;
         }
         if (bVar != null) {
             d.a.m0.b.f.a.e(bVar);
@@ -121,10 +121,10 @@ public class a {
 
     public static a2 e(n nVar) {
         if (nVar != null && (nVar instanceof d.a.m0.r.q.a)) {
-            a2 m = ((d.a.m0.r.q.a) nVar).m();
-            m.X1 = true;
-            d.a.m0.b.f.a.e(m);
-            return m;
+            a2 i2 = ((d.a.m0.r.q.a) nVar).i();
+            i2.Z1 = true;
+            d.a.m0.b.f.a.e(i2);
+            return i2;
         }
         return null;
     }

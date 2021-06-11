@@ -57,7 +57,7 @@ public final class IMConnection {
     public Runnable mReconnectRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.f64463e) {
+            if (a.f68181e) {
                 return;
             }
             IMConnection.this.internalConnect(false);
@@ -450,7 +450,7 @@ public final class IMConnection {
     }
 
     private void connectImpl(final boolean z) {
-        if (a.f64463e) {
+        if (a.f68181e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -545,7 +545,7 @@ public final class IMConnection {
     }
 
     private void destroy() {
-        if (a.f64463e) {
+        if (a.f68181e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -621,7 +621,7 @@ public final class IMConnection {
     }
 
     public void disconnectedByPeer() {
-        if (a.f64463e) {
+        if (a.f68181e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

@@ -1,7 +1,7 @@
 package d.a.l0.a.j0;
 
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public String A;
     public long B = PMSAppInfo.DEFAULT_SWAN_APP_PKG_MAX_AGE;
@@ -11,31 +11,31 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43029a;
+    public String f46705a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43030b;
+    public String f46706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43031c;
+    public String f46707c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43032d;
+    public int f46708d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43033e;
+    public String f46709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43034f;
+    public String f46710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43035g;
+    public String f46711g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43036h;
+    public String f46712h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f43037i;
+    public String f46713i;
     public String j;
     public String k;
     public String l;
@@ -55,6 +55,6 @@ public class a {
     public int z;
 
     public String a() {
-        return "SwanAppDbInfo{appId='" + this.f43029a + "', appKey='" + this.f43030b + "', errorCode=" + this.f43032d + ", errorDetail='" + this.f43033e + "', errorMsg='" + this.f43034f + "', resumeDate='" + this.f43035g + "', maxSwanVersion='" + this.j + "', minSwanVersion='" + this.k + "', name='" + this.l + "', version='" + this.q + "', type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + "', mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + "', maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + '}';
+        return "SwanAppDbInfo{appId='" + this.f46705a + "', appKey='" + this.f46706b + "', errorCode=" + this.f46708d + ", errorDetail='" + this.f46709e + "', errorMsg='" + this.f46710f + "', resumeDate='" + this.f46711g + "', maxSwanVersion='" + this.j + "', minSwanVersion='" + this.k + "', name='" + this.l + "', version='" + this.q + "', type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + "', mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + "', maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + '}';
     }
 }

@@ -5,16 +5,16 @@ import android.content.Context;
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f1665a;
+    public static Boolean f1678a;
 
     public static final boolean a(Context context) {
-        Boolean bool = f1665a;
+        Boolean bool = f1678a;
         if (bool != null) {
             return bool.booleanValue();
         }
         try {
             Boolean valueOf = Boolean.valueOf((context.getPackageManager().getApplicationInfo(context.getPackageName(), 0).flags & 2) != 0);
-            f1665a = valueOf;
+            f1678a = valueOf;
             return valueOf.booleanValue();
         } catch (Exception unused) {
             return false;

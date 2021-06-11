@@ -30,7 +30,7 @@ public class d {
                 sb.append("_NET_");
             }
             if (j.u()) {
-                sb.append(com.baidu.apollon.statistics.g.f3966b);
+                sb.append(com.baidu.apollon.statistics.g.f3985b);
             } else if (j.v()) {
                 sb.append("4G");
             } else if (j.t()) {

@@ -38,34 +38,34 @@ public class c extends d.a.l0.h.y.a {
     public class a implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47751a;
+        public final /* synthetic */ String f51425a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f47752b;
+        public final /* synthetic */ long f51426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f47753c;
+        public final /* synthetic */ String f51427c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.y.b f47754d;
+        public final /* synthetic */ d.a.l0.h.y.b f51428d;
 
         public a(String str, long j, String str2, d.a.l0.h.y.b bVar) {
-            this.f47751a = str;
-            this.f47752b = j;
-            this.f47753c = str2;
-            this.f47754d = bVar;
+            this.f51425a = str;
+            this.f51426b = j;
+            this.f51427c = str2;
+            this.f51428d = bVar;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            this.f47754d.cancelTag(c.this.f47722g);
-            c.this.Y(this.f47751a, 0, iOException.getMessage(), this.f47752b);
+            this.f51428d.cancelTag(c.this.f51396g);
+            c.this.Y(this.f51425a, 0, iOException.getMessage(), this.f51426b);
         }
 
         @Override // okhttp3.Callback
         public void onResponse(Call call, Response response) {
             if (!response.isSuccessful()) {
-                c.this.Y(this.f47751a, response.code(), response.message(), this.f47752b);
+                c.this.Y(this.f51425a, response.code(), response.message(), this.f51426b);
                 return;
             }
             try {
@@ -73,11 +73,11 @@ public class c extends d.a.l0.h.y.a {
                 jSEvent.data = new e(c.this.K(response.headers()));
                 c.this.dispatchEvent(jSEvent);
             } catch (JSONException e2) {
-                if (d.a.l0.h.y.a.f47719i) {
+                if (d.a.l0.h.y.a.f51393i) {
                     e2.printStackTrace();
                 }
             }
-            String str = this.f47753c;
+            String str = this.f51427c;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 3556653) {
@@ -88,22 +88,22 @@ public class c extends d.a.l0.h.y.a {
                 c2 = 1;
             }
             if (c2 != 0) {
-                c.this.Z(this.f47751a, response);
+                c.this.Z(this.f51425a, response);
             } else {
-                c.this.X(this.f47751a, response);
+                c.this.X(this.f51425a, response);
             }
             int code = response.code();
             String message = response.message();
-            if (d.a.l0.h.y.a.f47719i) {
-                Log.d("RequestTask", "onResponse: id:" + c.this.f47722g + ",respCode: " + code + ", url=" + this.f47751a + ", msg=" + message);
+            if (d.a.l0.h.y.a.f51393i) {
+                Log.d("RequestTask", "onResponse: id:" + c.this.f51396g + ",respCode: " + code + ", url=" + this.f51425a + ", msg=" + message);
             }
-            k.J(code, this.f47751a, 1, message, this.f47752b, System.currentTimeMillis());
+            k.J(code, this.f51425a, 1, message, this.f51426b, System.currentTimeMillis());
         }
     }
 
     public c(d.a.l0.a.l0.c cVar, d.a.l0.a.y.b.a aVar) {
         super(cVar, aVar);
-        this.f47720e = 1;
+        this.f51394e = 1;
     }
 
     @NonNull
@@ -121,12 +121,12 @@ public class c extends d.a.l0.h.y.a {
     public final Request T() {
         String B = B();
         if (TextUtils.isEmpty(B)) {
-            if (d.a.l0.h.y.a.f47719i) {
+            if (d.a.l0.h.y.a.f51393i) {
                 Log.d("RequestTask", "buildRequest url =" + B);
             }
             return null;
         }
-        String C = this.f47721f.C("method");
+        String C = this.f51395f.C("method");
         if (TextUtils.isEmpty(C)) {
             C = "GET";
         }
@@ -137,29 +137,29 @@ public class c extends d.a.l0.h.y.a {
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        I(builder, this.f47721f.x("header"), hashMap, true);
-        if (d.a.l0.h.y.a.f47719i) {
+        I(builder, this.f51395f.x("header"), hashMap, true);
+        if (d.a.l0.h.y.a.f51393i) {
             Log.d("RequestTask", "lowerCaseHeaderMap =" + hashMap);
         }
-        Object D = this.f47721f.D("data", null);
+        Object D = this.f51395f.D("data", null);
         if (D == null) {
-            D = this.f47721f.u("data", null);
+            D = this.f51395f.u("data", null);
         }
         boolean z = D != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            return builder.url(B).method(upperCase, null).tag(this.f47722g).build();
+            return builder.url(B).method(upperCase, null).tag(this.f51396g).build();
         }
         RequestBody U = (z || HttpMethod.requiresRequestBody(upperCase)) ? U(D, hashMap) : null;
         if (HttpMethod.requiresRequestBody(upperCase) && U == null) {
             return null;
         }
-        return builder.url(B).method(upperCase, U).tag(this.f47722g).build();
+        return builder.url(B).method(upperCase, U).tag(this.f51396g).build();
     }
 
     @Nullable
     public final RequestBody U(Object obj, Map<String, String> map) {
         String str = map.get("content-type");
-        MediaType mediaType = f.f43693a;
+        MediaType mediaType = f.f47369a;
         if (!TextUtils.isEmpty(str)) {
             mediaType = MediaType.parse(str);
         }
@@ -170,7 +170,7 @@ public class c extends d.a.l0.h.y.a {
             }
             return RequestBody.create(mediaType, buffer);
         } else if (obj instanceof String) {
-            if (d.a.l0.h.y.a.f47719i) {
+            if (d.a.l0.h.y.a.f51393i) {
                 Log.d("RequestTask", "createBody = " + obj);
             }
             return RequestBody.create(mediaType, (String) obj);
@@ -180,7 +180,7 @@ public class c extends d.a.l0.h.y.a {
     }
 
     public void V(Request request) {
-        String W = W(this.f47721f);
+        String W = W(this.f51395f);
         String httpUrl = request.url().toString();
         if (d.a.l0.a.a2.e.i() == null) {
             E("", -1, "request:swanApp is null");
@@ -207,7 +207,7 @@ public class c extends d.a.l0.h.y.a {
             }
             F(aVar);
         } catch (IOException | JSONException e2) {
-            if (d.a.l0.h.y.a.f47719i) {
+            if (d.a.l0.h.y.a.f51393i) {
                 Log.d("RequestTask", Log.getStackTraceString(e2));
             }
             E(str, -1, e2.getMessage());
@@ -215,7 +215,7 @@ public class c extends d.a.l0.h.y.a {
     }
 
     public final void Y(String str, int i2, String str2, long j) {
-        if (d.a.l0.h.y.a.f47719i) {
+        if (d.a.l0.h.y.a.f51393i) {
             Log.d("RequestTask", "onFailure: " + str2);
         }
         if (ResponseException.CANCELED.equalsIgnoreCase(str2)) {
@@ -239,13 +239,13 @@ public class c extends d.a.l0.h.y.a {
             dVar.header = K(response.headers());
             if (body != null) {
                 dVar.data = body.string();
-                if (d.a.l0.h.y.a.f47719i) {
+                if (d.a.l0.h.y.a.f51393i) {
                     Log.d("RequestTask", "onStringResponse = " + dVar.data);
                 }
             }
             F(dVar);
         } catch (IOException | JSONException e2) {
-            if (d.a.l0.h.y.a.f47719i) {
+            if (d.a.l0.h.y.a.f51393i) {
                 Log.d("RequestTask", Log.getStackTraceString(e2));
             }
             E(str, -1, e2.getMessage());
@@ -254,7 +254,7 @@ public class c extends d.a.l0.h.y.a {
 
     public void start() {
         Request T;
-        if (this.f47721f == null || (T = T()) == null) {
+        if (this.f51395f == null || (T = T()) == null) {
             return;
         }
         V(T);

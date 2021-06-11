@@ -7,7 +7,6 @@ import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.service.AsInstallService;
 import com.baidubce.AbstractBceClient;
-import com.tencent.connect.common.Constants;
 import d.a.l0.a.j2.k;
 import d.a.l0.a.j2.p.e;
 import d.a.l0.a.v2.q0;
@@ -19,16 +18,16 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f46951a = new b();
+    public static b f50625a = new b();
 
     public static b n() {
-        return f46951a;
+        return f50625a;
     }
 
     public void a(String str) {
         e eVar = new e();
-        eVar.f43186b = "beforeConfigRequest";
-        eVar.f43189e = str;
+        eVar.f46862b = "beforeConfigRequest";
+        eVar.f46865e = str;
         k.g(eVar);
     }
 
@@ -38,9 +37,9 @@ public class b {
         String str6 = z != null ? z.targetAppPackageId : "";
         String str7 = z != null ? z.targetAppDownloadUrl : "";
         e eVar = new e();
-        eVar.f43186b = str;
-        eVar.f43191g = "gbview";
-        eVar.f43189e = str2;
+        eVar.f46862b = str;
+        eVar.f46867g = "gbview";
+        eVar.f46865e = str2;
         eVar.a("gameAppkey", str3);
         eVar.a("gamePosition", str4);
         eVar.a("configName", str5);
@@ -55,12 +54,12 @@ public class b {
         String str3 = z != null ? z.targetAppPackageId : "";
         String str4 = z != null ? z.targetAppDownloadUrl : "";
         e eVar = new e();
-        eVar.f43186b = str;
-        eVar.f43191g = "gbview";
+        eVar.f46862b = str;
+        eVar.f46867g = "gbview";
         eVar.a("configName", str2);
         eVar.a("targetPackageName", str3);
         eVar.a("targetDownloadUrl", str4);
-        if (str3.equals(d.a.l0.f.j.m.c.f46874a)) {
+        if (str3.equals(d.a.l0.f.j.m.c.f50548a)) {
             if (q0.F(d.a.l0.a.c1.a.b(), str3)) {
                 eVar.a("isGamenowInstalled", "1");
             } else {
@@ -72,13 +71,13 @@ public class b {
 
     public void d(String str, boolean z, String str2) {
         e eVar = new e();
-        eVar.f43186b = "request";
-        eVar.f43191g = "wdview";
+        eVar.f46862b = "request";
+        eVar.f46867g = "wdview";
         eVar.a("requestStatus", str);
         eVar.a("isFromNet", z ? "0" : "1");
         eVar.a("errMsg", str2);
         k.g(eVar);
-        if (TextUtils.equals(str, "fail") || (TextUtils.equals(str, IntentConfig.START) && !z)) {
+        if (TextUtils.equals(str, com.baidu.pass.biometrics.face.liveness.b.b.g0) || (TextUtils.equals(str, IntentConfig.START) && !z)) {
             o();
         }
     }
@@ -88,13 +87,13 @@ public class b {
         String str7 = z != null ? z.configName : "";
         String str8 = z != null ? z.targetAppPackageId : "";
         String str9 = z != null ? z.targetAppDownloadUrl : "";
-        if (!TextUtils.equals(str8, d.a.l0.f.j.m.c.f46874a)) {
+        if (!TextUtils.equals(str8, d.a.l0.f.j.m.c.f50548a)) {
             str6 = str9;
         }
         e eVar = new e();
-        eVar.f43186b = str;
-        eVar.f43191g = str2;
-        eVar.f43189e = str3;
+        eVar.f46862b = str;
+        eVar.f46867g = str2;
+        eVar.f46865e = str3;
         eVar.a("gameAppkey", str4);
         eVar.a("gamePosition", str5);
         eVar.a("configName", str7);
@@ -107,9 +106,9 @@ public class b {
         JSONObject d2 = w.d(str3);
         c cVar = new c();
         cVar.g(aVar);
-        cVar.f43186b = str;
-        cVar.f43191g = d2.optString("from_view");
-        cVar.f43189e = d2.optString("from_value");
+        cVar.f46862b = str;
+        cVar.f46867g = d2.optString("from_view");
+        cVar.f46865e = d2.optString("from_value");
         cVar.a("configName", d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
         cVar.a("targetPackageName", str2);
         cVar.a("targetDownloadUrl", str4);
@@ -122,9 +121,9 @@ public class b {
         long elapsedRealtime = optLong != 0 ? SystemClock.elapsedRealtime() - optLong : 0L;
         c cVar = new c();
         cVar.g(aVar);
-        cVar.f43189e = d2.optString("from_value");
-        cVar.f43186b = str;
-        cVar.f43191g = d2.optString("from_view");
+        cVar.f46865e = d2.optString("from_value");
+        cVar.f46862b = str;
+        cVar.f46867g = d2.optString("from_view");
         cVar.a("error_code", Integer.valueOf(i2));
         cVar.a("configName", d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
         if (elapsedRealtime != 0) {
@@ -154,8 +153,8 @@ public class b {
         String str2 = z != null ? z.targetAppPackageId : "";
         String str3 = z != null ? z.targetAppDownloadUrl : "";
         e eVar = new e();
-        eVar.f43186b = "guideClick";
-        eVar.f43191g = "wdview";
+        eVar.f46862b = "guideClick";
+        eVar.f46867g = "wdview";
         eVar.a("guideViewNum", String.valueOf(i2));
         eVar.a("configName", str);
         eVar.a("targetPackageName", str2);
@@ -169,9 +168,9 @@ public class b {
         String str3 = z != null ? z.targetAppPackageId : "";
         String str4 = z != null ? z.targetAppDownloadUrl : "";
         e eVar = new e();
-        eVar.f43186b = "wdDialogClick";
-        eVar.f43191g = "wdview";
-        eVar.f43189e = str;
+        eVar.f46862b = "wdDialogClick";
+        eVar.f46867g = "wdview";
+        eVar.f46865e = str;
         eVar.a("coinsThisTime", String.valueOf(i2));
         eVar.a("coinsTotal", String.valueOf(i3));
         eVar.a("configName", str2);
@@ -186,14 +185,14 @@ public class b {
         String str2 = z != null ? z.targetAppPackageId : "";
         String str3 = z != null ? z.targetAppDownloadUrl : "";
         e eVar = new e();
-        eVar.f43186b = "wdDialogShow";
-        eVar.f43191g = "wdview";
+        eVar.f46862b = "wdDialogShow";
+        eVar.f46867g = "wdview";
         eVar.a("coinsThisTime", String.valueOf(i2));
         eVar.a("coinsTotal", String.valueOf(i3));
         eVar.a("configName", str);
         eVar.a("targetPackageName", str2);
         eVar.a("targetDownloadUrl", str3);
-        if (str2.equals(d.a.l0.f.j.m.c.f46874a)) {
+        if (str2.equals(d.a.l0.f.j.m.c.f50548a)) {
             if (q0.F(d.a.l0.a.c1.a.b(), str2)) {
                 eVar.a("isGamenowInstalled", "1");
             } else {
@@ -209,8 +208,8 @@ public class b {
         String str2 = z != null ? z.targetAppPackageId : "";
         String str3 = z != null ? z.targetAppDownloadUrl : "";
         e eVar = new e();
-        eVar.f43186b = "guideShow";
-        eVar.f43191g = "wdview";
+        eVar.f46862b = "guideShow";
+        eVar.f46867g = "wdview";
         eVar.a("configName", str);
         eVar.a("targetPackageName", str2);
         eVar.a("targetDownloadUrl", str3);
@@ -223,8 +222,8 @@ public class b {
         String str4 = z != null ? z.targetAppPackageId : "";
         String str5 = z != null ? z.targetAppDownloadUrl : "";
         e eVar = new e();
-        eVar.f43191g = str;
-        eVar.f43189e = str2;
+        eVar.f46867g = str;
+        eVar.f46865e = str2;
         eVar.a("configName", str3);
         eVar.a("targetPackageName", str4);
         eVar.a("targetDownloadUrl", str5);
@@ -233,7 +232,7 @@ public class b {
     }
 
     public final void o() {
-        d.a.l0.a.h0.c.a.b.f("T43rINkXjgPfdKNXTuhQER2KdACVdB00", Constants.VIA_REPORT_TYPE_SET_AVATAR, "swan");
+        d.a.l0.a.h0.c.a.b.f("T43rINkXjgPfdKNXTuhQER2KdACVdB00", "12", "swan");
     }
 
     public void p(int i2, String str, String str2, String str3) {
@@ -256,7 +255,7 @@ public class b {
     public void q(int i2, String str, String str2, int i3, String str3, long j, long j2) {
         String c2 = d.a.l0.h.t.a.b().c();
         JSONObject jSONObject = new JSONObject();
-        String str4 = TextUtils.equals(str, d.a.l0.f.j.m.c.f46874a) ? "2101000000" : "";
+        String str4 = TextUtils.equals(str, d.a.l0.f.j.m.c.f50548a) ? "2101000000" : "";
         d.a.l0.f.j.b bVar = d.a.l0.f.j.b.o;
         if (bVar != null && bVar.z() != null && !TextUtils.isEmpty(d.a.l0.f.j.b.o.z().gamenowChannel)) {
             str4 = d.a.l0.f.j.b.o.z().gamenowChannel;

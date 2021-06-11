@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.webkit.ValueCallback;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface StaticsBoundaryInterface {
     Uri getSafeBrowsingPrivacyPolicyUrl();
 

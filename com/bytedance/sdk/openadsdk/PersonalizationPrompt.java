@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public class PersonalizationPrompt {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26965a;
+    public String f27068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26966b;
+    public String f27069b;
 
     private void a(String str) {
-        this.f26966b = str;
+        this.f27069b = str;
     }
 
     private void b(String str) {
-        this.f26965a = str;
+        this.f27068a = str;
     }
 
     public static PersonalizationPrompt parseFromJson(JSONObject jSONObject) {
@@ -36,11 +36,11 @@ public class PersonalizationPrompt {
     }
 
     public String getName() {
-        return this.f26965a;
+        return this.f27068a;
     }
 
     public String getUrl() {
-        return this.f26966b;
+        return this.f27069b;
     }
 
     public JSONObject toJson() {

@@ -14,42 +14,42 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42917c = k.f43199a;
+    public static final boolean f46593c = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f42918d;
+    public static String f46594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f42919e;
+    public static String f46595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f42920f;
+    public static String f46596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f42921g;
+    public static String f46597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f42922h;
+    public static String f46598h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f42923i;
+    public static String f46599i;
     public static String j;
 
     /* renamed from: a  reason: collision with root package name */
-    public CallbackHandler f42924a;
+    public CallbackHandler f46600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UnitedSchemeEntity f42925b;
+    public UnitedSchemeEntity f46601b;
 
     public b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        this.f42924a = callbackHandler;
-        this.f42925b = unitedSchemeEntity;
-        f42918d = str;
-        f42919e = str2;
-        f42920f = str3;
-        f42921g = str4;
-        f42922h = str5;
-        f42923i = str6;
+        this.f46600a = callbackHandler;
+        this.f46601b = unitedSchemeEntity;
+        f46594d = str;
+        f46595e = str2;
+        f46596f = str3;
+        f46597g = str4;
+        f46598h = str5;
+        f46599i = str6;
         j = str7;
     }
 
@@ -84,8 +84,8 @@ public class b {
             return;
         }
         JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-        UnitedSchemeUtility.safeCallback(this.f42924a, this.f42925b, wrapCallbackParams.toString(), str);
-        if (f42917c) {
+        UnitedSchemeUtility.safeCallback(this.f46600a, this.f46601b, wrapCallbackParams.toString(), str);
+        if (f46593c) {
             Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
         }
     }
@@ -101,6 +101,6 @@ public class b {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        c(f42922h, jSONObject);
+        c(f46598h, jSONObject);
     }
 }

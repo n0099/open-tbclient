@@ -12,19 +12,19 @@ import com.baidu.tbadk.widget.TbImageView;
 public class b extends d.a.m0.r.f0.r.b<d.a.m0.r.f0.r.d.a, a> {
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f49818d;
+    public Context f53493d;
 
     /* loaded from: classes3.dex */
     public class a extends BdBaseViewPagerAdapter.a {
 
         /* renamed from: h  reason: collision with root package name */
-        public TbImageView f49819h;
+        public TbImageView f53494h;
 
         public a(b bVar, View view) {
             super(view);
             if (view instanceof TbImageView) {
                 TbImageView tbImageView = (TbImageView) view;
-                this.f49819h = tbImageView;
+                this.f53494h = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
@@ -32,14 +32,14 @@ public class b extends d.a.m0.r.f0.r.b<d.a.m0.r.f0.r.d.a, a> {
 
     public b(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.f49818d = context;
+        this.f53493d = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.m0.r.f0.r.b
     /* renamed from: g */
     public a c(ViewGroup viewGroup) {
-        TbImageView tbImageView = new TbImageView(this.f49818d);
+        TbImageView tbImageView = new TbImageView(this.f53493d);
         tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         return new a(this, tbImageView);
     }
@@ -48,7 +48,7 @@ public class b extends d.a.m0.r.f0.r.b<d.a.m0.r.f0.r.d.a, a> {
     @Override // d.a.m0.r.f0.r.b
     /* renamed from: h */
     public View e(ViewGroup viewGroup, a aVar, d.a.m0.r.f0.r.d.a aVar2) {
-        aVar.f49819h.V(aVar2.c(), 10, false);
+        aVar.f53494h.U(aVar2.b(), 10, false);
         return null;
     }
 }

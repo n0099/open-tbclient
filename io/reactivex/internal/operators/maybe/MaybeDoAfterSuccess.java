@@ -18,7 +18,7 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68970d;
+        public Disposable f72279d;
         public final Consumer<? super T> onAfterSuccess;
 
         public DoAfterObserver(MaybeObserver<? super T> maybeObserver, Consumer<? super T> consumer) {
@@ -28,12 +28,12 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68970d.dispose();
+            this.f72279d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68970d.isDisposed();
+            return this.f72279d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -48,8 +48,8 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68970d, disposable)) {
-                this.f68970d = disposable;
+            if (DisposableHelper.validate(this.f72279d, disposable)) {
+                this.f72279d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

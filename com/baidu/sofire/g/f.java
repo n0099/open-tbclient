@@ -15,7 +15,6 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import com.android.internal.http.multipart.Part;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -26,10 +25,10 @@ import java.util.UUID;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f10220a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
+    public static final String[] f10282a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10221b = "";
+    public static String f10283b = "";
 
     public static void a(Context context) {
         try {
@@ -51,22 +50,22 @@ public final class f {
     public static synchronized String b(Context context) {
         synchronized (f.class) {
             try {
-                if (!TextUtils.isEmpty(f10221b)) {
-                    return f10221b;
+                if (!TextUtils.isEmpty(f10283b)) {
+                    return f10283b;
                 }
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
                 String m = eVar.m();
                 if (!TextUtils.isEmpty(m)) {
                     String f2 = d.f(m);
                     if (!TextUtils.isEmpty(f2)) {
-                        f10221b = f2;
+                        f10283b = f2;
                         return f2;
                     }
                 }
                 String l = eVar.l();
                 if (!TextUtils.isEmpty(l)) {
                     eVar.b(new String(Base64.encode(a.a("30212102dicudiab".getBytes(), l.getBytes("UTF-8")), 10), "UTF-8"));
-                    f10221b = l;
+                    f10283b = l;
                     return l;
                 }
                 String i2 = i(context);
@@ -74,16 +73,16 @@ public final class f {
                 if (TextUtils.isEmpty(h2)) {
                     h2 = "0";
                 }
-                String str = i2 + FieldBuilder.SE + new StringBuffer(h2).reverse().toString();
+                String str = i2 + "|" + new StringBuffer(h2).reverse().toString();
                 String str2 = new String(Base64.encode(a.a("30212102dicudiab".getBytes(), str.getBytes("UTF-8")), 10), "UTF-8");
                 String l2 = eVar.l();
                 if (TextUtils.isEmpty(l2)) {
                     eVar.a(str);
                     eVar.b(str2);
-                    f10221b = str;
+                    f10283b = str;
                     return str;
                 }
-                f10221b = l2;
+                f10283b = l2;
                 return l2;
             } catch (Throwable unused) {
                 d.a();
@@ -93,12 +92,12 @@ public final class f {
     }
 
     public static String c(Context context) {
-        if (!TextUtils.isEmpty(f10221b)) {
-            return f10221b;
+        if (!TextUtils.isEmpty(f10283b)) {
+            return f10283b;
         }
         String h2 = h(context);
         if (!TextUtils.isEmpty(h2)) {
-            f10221b = h2;
+            f10283b = h2;
             return h2;
         }
         return b(context);
@@ -107,7 +106,7 @@ public final class f {
     public static String d(Context context) {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String string = eVar.f10190b.getString("sgud", "");
+            String string = eVar.f10252b.getString("sgud", "");
             if (TextUtils.isEmpty(string)) {
                 if (Build.VERSION.SDK_INT > 25) {
                     return "";
@@ -125,8 +124,8 @@ public final class f {
                 if (TextUtils.isEmpty(a2)) {
                     return "";
                 }
-                eVar.f10192d.putString("sgud", a2);
-                eVar.f10192d.commit();
+                eVar.f10254d.putString("sgud", a2);
+                eVar.f10254d.commit();
                 return a2;
             }
             return string;
@@ -176,7 +175,7 @@ public final class f {
                 h2 = "0";
             }
             String stringBuffer = new StringBuffer(h2).reverse().toString();
-            return string + FieldBuilder.SE + stringBuffer;
+            return string + "|" + stringBuffer;
         } catch (Throwable unused3) {
             return "";
         }
@@ -196,7 +195,7 @@ public final class f {
                 String stringBuffer = new StringBuffer(h2).reverse().toString();
                 String a2 = a(context, string);
                 if (!TextUtils.isEmpty(a2)) {
-                    return a2 + FieldBuilder.SE + stringBuffer;
+                    return a2 + "|" + stringBuffer;
                 }
             } catch (Exception unused) {
             }
@@ -236,7 +235,7 @@ public final class f {
                 if (providerInfoArr != null && providerInfoArr.length > 0) {
                     ContentResolver contentResolver = context.getContentResolver();
                     boolean z = false;
-                    for (String str : f10220a) {
+                    for (String str : f10282a) {
                         String str2 = new String(a.a("30212102dicudiab".getBytes(), Base64.decode(str, 10), true), "UTF-8");
                         if (!TextUtils.isEmpty(str2)) {
                             boolean z2 = "sofire".equals(str2) ? true : z;

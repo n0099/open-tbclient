@@ -10,22 +10,22 @@ import java.nio.channels.FileLock;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f38028a;
+    public static volatile a f41707a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f864a;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f38032e;
+    public volatile String f41711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f38033f;
+    public volatile String f41712f;
 
     /* renamed from: a  reason: collision with other field name */
     public final Object f865a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f38029b = new Object();
+    public final Object f41708b = new Object();
 
     /* renamed from: a  reason: collision with other field name */
     public final String f866a = "mipush_region";
@@ -34,24 +34,24 @@ public class a {
     public final String f867b = "mipush_country_code";
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f38030c = "mipush_region.lock";
+    public final String f41709c = "mipush_region.lock";
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f38031d = "mipush_country_code.lock";
+    public final String f41710d = "mipush_country_code.lock";
 
     public a(Context context) {
         this.f864a = context;
     }
 
     public static a a(Context context) {
-        if (f38028a == null) {
+        if (f41707a == null) {
             synchronized (a.class) {
-                if (f38028a == null) {
-                    f38028a = new a(context);
+                if (f41707a == null) {
+                    f41707a = new a(context);
                 }
             }
         }
-        return f38028a;
+        return f41707a;
     }
 
     private String a(Context context, String str, String str2, Object obj) {
@@ -60,13 +60,13 @@ public class a {
         File file = new File(context.getFilesDir(), str);
         FileLock fileLock2 = null;
         if (!file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m56a("No ready file to get data from " + str);
             return null;
         }
         synchronized (obj) {
             try {
                 File file2 = new File(context.getFilesDir(), str2);
-                com.xiaomi.push.y.m630a(file2);
+                com.xiaomi.push.y.m629a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
             } catch (Exception e2) {
                 e = e2;
@@ -137,7 +137,7 @@ public class a {
             try {
                 try {
                     File file = new File(context.getFilesDir(), str3);
-                    com.xiaomi.push.y.m630a(file);
+                    com.xiaomi.push.y.m629a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         try {
@@ -194,32 +194,32 @@ public class a {
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f38032e)) {
-            this.f38032e = a(this.f864a, "mipush_region", "mipush_region.lock", this.f865a);
+        if (TextUtils.isEmpty(this.f41711e)) {
+            this.f41711e = a(this.f864a, "mipush_region", "mipush_region.lock", this.f865a);
         }
-        return this.f38032e;
+        return this.f41711e;
     }
 
     public void a(String str) {
-        if (TextUtils.equals(str, this.f38032e)) {
+        if (TextUtils.equals(str, this.f41711e)) {
             return;
         }
-        this.f38032e = str;
-        a(this.f864a, this.f38032e, "mipush_region", "mipush_region.lock", this.f865a);
+        this.f41711e = str;
+        a(this.f864a, this.f41711e, "mipush_region", "mipush_region.lock", this.f865a);
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f38033f)) {
-            this.f38033f = a(this.f864a, "mipush_country_code", "mipush_country_code.lock", this.f38029b);
+        if (TextUtils.isEmpty(this.f41712f)) {
+            this.f41712f = a(this.f864a, "mipush_country_code", "mipush_country_code.lock", this.f41708b);
         }
-        return this.f38033f;
+        return this.f41712f;
     }
 
     public void b(String str) {
-        if (TextUtils.equals(str, this.f38033f)) {
+        if (TextUtils.equals(str, this.f41712f)) {
             return;
         }
-        this.f38033f = str;
-        a(this.f864a, this.f38033f, "mipush_country_code", "mipush_country_code.lock", this.f38029b);
+        this.f41712f = str;
+        a(this.f864a, this.f41712f, "mipush_country_code", "mipush_country_code.lock", this.f41708b);
     }
 }

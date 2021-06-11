@@ -40,13 +40,13 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.a.l
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements d.a.l0.c.a.i.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11455e;
+        public int f11517e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f11456f;
+        public int f11518f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f11457g = ByteString.EMPTY;
+        public ByteString f11519g = ByteString.EMPTY;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -63,7 +63,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.a.l
         }
 
         public boolean hasType() {
-            return (this.f11455e & 1) == 1;
+            return (this.f11517e & 1) == 1;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -96,24 +96,24 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.a.l
         /* renamed from: n */
         public Bdtls$Extension buildPartial() {
             Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this);
-            int i2 = this.f11455e;
+            int i2 = this.f11517e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            bdtls$Extension.type_ = this.f11456f;
+            bdtls$Extension.type_ = this.f11518f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            bdtls$Extension.data_ = this.f11457g;
+            bdtls$Extension.data_ = this.f11519g;
             bdtls$Extension.bitField0_ = i3;
             return bdtls$Extension;
         }
 
         public b o() {
             super.clear();
-            this.f11456f = 0;
-            int i2 = this.f11455e & (-2);
-            this.f11455e = i2;
-            this.f11457g = ByteString.EMPTY;
-            this.f11455e = i2 & (-3);
+            this.f11518f = 0;
+            int i2 = this.f11517e & (-2);
+            this.f11517e = i2;
+            this.f11519g = ByteString.EMPTY;
+            this.f11517e = i2 & (-3);
             return this;
         }
 
@@ -134,7 +134,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.a.l
         }
 
         public boolean s() {
-            return (this.f11455e & 2) == 2;
+            return (this.f11517e & 2) == 2;
         }
 
         public b t(Bdtls$Extension bdtls$Extension) {
@@ -186,16 +186,16 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.a.l
 
         public b v(ByteString byteString) {
             if (byteString != null) {
-                this.f11455e |= 2;
-                this.f11457g = byteString;
+                this.f11517e |= 2;
+                this.f11519g = byteString;
                 return this;
             }
             throw null;
         }
 
         public b w(int i2) {
-            this.f11455e |= 1;
-            this.f11456f = i2;
+            this.f11517e |= 1;
+            this.f11518f = i2;
             return this;
         }
 

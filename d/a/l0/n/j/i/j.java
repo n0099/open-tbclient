@@ -9,14 +9,14 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f48150a;
+    public final String f51824a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f48151b;
+    public final Set<String> f51825b;
 
     public j(String str, Set<String> set) {
-        this.f48150a = str;
-        this.f48151b = set;
+        this.f51824a = str;
+        this.f51825b = set;
     }
 
     public static j a(JSONObject jSONObject) {
@@ -38,10 +38,10 @@ public class j {
     }
 
     public Set<String> b() {
-        return this.f48151b;
+        return this.f51825b;
     }
 
     public String c() {
-        return this.f48150a;
+        return this.f51824a;
     }
 }

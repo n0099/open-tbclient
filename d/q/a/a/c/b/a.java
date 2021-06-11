@@ -93,7 +93,7 @@ public final class a {
         List<SubscriptionInfo> activeSubscriptionInfoList;
         String str;
         try {
-            if (e.c(context, new String[]{"android.permission.READ_PHONE_STATE"})) {
+            if (e.e(context, new String[]{"android.permission.READ_PHONE_STATE"})) {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 int phoneCount = Build.VERSION.SDK_INT >= 23 ? ((TelephonyManager) context.getSystemService("phone")).getPhoneCount() : Build.VERSION.SDK_INT >= 22 ? SubscriptionManager.from(context).getActiveSubscriptionInfoCount() : 1;
                 if (phoneCount == 0) {

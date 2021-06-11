@@ -19,9 +19,9 @@ public class ResponseHttpMajorResidueMessage extends JsonHttpResponsedMessage {
         }
         ForumBroadcastMajorResidueData forumBroadcastMajorResidueData = new ForumBroadcastMajorResidueData();
         this.majorHistoryData = forumBroadcastMajorResidueData;
-        forumBroadcastMajorResidueData.w(optJSONObject.optInt("used_cnt"));
-        this.majorHistoryData.u(optJSONObject.optInt("has_cnt"));
-        this.majorHistoryData.v(optJSONObject.optInt("predict_push_usercnt"));
+        forumBroadcastMajorResidueData.A(optJSONObject.optInt("used_cnt"));
+        this.majorHistoryData.y(optJSONObject.optInt("has_cnt"));
+        this.majorHistoryData.z(optJSONObject.optInt("predict_push_usercnt"));
     }
 
     public ForumBroadcastMajorResidueData getData() {

@@ -20,26 +20,26 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42401a = k.f43199a;
+    public static final boolean f46077a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<Integer> f42402b = Sets.newHashSet(0, 1010, 1011, 1012, 1020, 1015);
+    public static final Set<Integer> f46078b = Sets.newHashSet(0, 1010, 1011, 1012, 1020, 1015);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, Long> f42403c = new ConcurrentHashMap();
+    public static final Map<String, Long> f46079c = new ConcurrentHashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f42404d = 1800;
+    public static int f46080d = 1800;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c<String, String> f42405e = new C0683a();
+    public static final c<String, String> f46081e = new C0739a();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c<b.a, String> f42406f = new b();
+    public static final c<b.a, String> f46082f = new b();
 
     /* renamed from: d.a.l0.a.h0.m.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0683a implements c<String, String> {
+    public static class C0739a implements c<String, String> {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // d.a.l0.a.v2.e1.c
@@ -65,15 +65,15 @@ public final class a {
     }
 
     public static <T> T a(String str, T t) {
-        if (f42401a) {
-            Log.i("PreDownloadUtils", "Recorded=" + f42403c.size() + " # " + str + " => " + t);
+        if (f46077a) {
+            Log.i("PreDownloadUtils", "Recorded=" + f46079c.size() + " # " + str + " => " + t);
         }
         return t;
     }
 
     public static boolean b(@NonNull String str) {
-        Long l = f42403c.get(str);
-        return l == null || System.currentTimeMillis() - l.longValue() > ((long) (f42404d * 1000));
+        Long l = f46079c.get(str);
+        return l == null || System.currentTimeMillis() - l.longValue() > ((long) (f46080d * 1000));
     }
 
     public static boolean c(String str) {
@@ -105,10 +105,10 @@ public final class a {
             return false;
         }
         if (z) {
-            f42403c.put(str, Long.valueOf(System.currentTimeMillis()));
+            f46079c.put(str, Long.valueOf(System.currentTimeMillis()));
             z2 = true;
         } else {
-            z2 = !f42403c.containsKey(str);
+            z2 = !f46079c.containsKey(str);
         }
         Boolean valueOf = Boolean.valueOf(z2);
         a(str2 + " should", valueOf);
@@ -123,11 +123,11 @@ public final class a {
     }
 
     public static List<String> h(Collection<String> collection) {
-        return j(f42405e, collection);
+        return j(f46081e, collection);
     }
 
     public static List<b.a> i(Collection<b.a> collection) {
-        return j(f42406f, collection);
+        return j(f46082f, collection);
     }
 
     public static <SwanItemT> List<SwanItemT> j(@NonNull c<SwanItemT, String> cVar, Collection<SwanItemT> collection) {
@@ -150,18 +150,18 @@ public final class a {
     }
 
     public static boolean l(int i2) {
-        return f42402b.contains(Integer.valueOf(i2));
+        return f46078b.contains(Integer.valueOf(i2));
     }
 
     public static boolean m(d.a.l0.n.h.a aVar) {
-        return aVar != null && l(aVar.f48002a);
+        return aVar != null && l(aVar.f51676a);
     }
 
     public static boolean n(@Nullable String str) {
         if (str == null) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = f42403c.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = f46079c.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, Long> next = it.next();
             if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {

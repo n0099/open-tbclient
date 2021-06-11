@@ -8,10 +8,10 @@ import java.util.Locale;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f63846a = new Object();
+    public static final Object f67564a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f63847b;
+    public static int f67565b;
 
     public static String a(Context context) {
         StringBuilder sb = new StringBuilder();
@@ -40,15 +40,15 @@ public final class c {
 
     public static int b(Context context) {
         int i2;
-        synchronized (f63846a) {
-            if (f63847b == 0) {
+        synchronized (f67564a) {
+            if (f67565b == 0) {
                 try {
-                    f63847b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    f67565b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
                 } catch (PackageManager.NameNotFoundException unused) {
                     throw new IllegalStateException("Cannot determine package version");
                 }
             }
-            i2 = f63847b;
+            i2 = f67565b;
         }
         return i2;
     }

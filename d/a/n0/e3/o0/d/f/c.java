@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class c extends a {
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54196g;
+    public boolean f57885g;
 
     public c(String str, int i2, int i3, long j, String str2) {
         super(str, i2, i3, j, str2);
@@ -19,19 +19,19 @@ public class c extends a {
 
     @Override // d.a.n0.e3.o0.d.f.a
     public void a() {
-        this.f54196g = true;
+        this.f57885g = true;
     }
 
     @Override // d.a.n0.e3.o0.d.f.a
     public boolean c() {
-        return this.f54196g;
+        return this.f57885g;
     }
 
     @Override // d.a.n0.e3.o0.d.f.a
     public d g(ArrayList<Integer> arrayList, String str, int i2) {
         d dVar = new d();
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f54182b), r.f7672a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f57871b), r.f7715a);
             int i3 = 0;
             int size = arrayList.size();
             Iterator<Integer> it = arrayList.iterator();
@@ -42,7 +42,7 @@ public class c extends a {
                     return null;
                 }
                 d((int) (((i4 * 50.0f) / size) + 30.0f));
-                if (!StringUtils.isNull(h2.f54197a) || h2.f54198b != 0) {
+                if (!StringUtils.isNull(h2.f57886a) || h2.f57887b != 0) {
                     return h2;
                 }
                 i3 = i4;

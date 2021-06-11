@@ -6,80 +6,80 @@ import tbclient.GetVipInfo.VipTaskItem;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f60454a;
+    public long f64145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60455b;
+    public String f64146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60456c;
+    public String f64147c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60457d;
+    public int f64148d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60458e;
+    public int f64149e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f60459f;
+    public int f64150f;
 
     public r() {
     }
 
     public int a() {
-        return this.f60458e;
+        return this.f64149e;
     }
 
     public String b() {
-        return this.f60456c;
+        return this.f64147c;
     }
 
     public long c() {
-        return this.f60454a;
+        return this.f64145a;
     }
 
     public boolean d() {
-        return this.f60457d == 1;
+        return this.f64148d == 1;
     }
 
     public int e() {
-        return this.f60457d;
+        return this.f64148d;
     }
 
     public String f() {
-        return this.f60455b;
+        return this.f64146b;
     }
 
     public int g() {
-        return this.f60459f;
+        return this.f64150f;
     }
 
     public void h(int i2) {
-        this.f60457d = i2;
+        this.f64148d = i2;
     }
 
     public void i(long j) {
-        this.f60454a = j;
+        this.f64145a = j;
     }
 
     public r(VipTaskItem vipTaskItem) {
-        this.f60454a = vipTaskItem.task_id.intValue();
-        this.f60455b = vipTaskItem.title;
-        this.f60456c = vipTaskItem.desc;
+        this.f64145a = vipTaskItem.task_id.intValue();
+        this.f64146b = vipTaskItem.title;
+        this.f64147c = vipTaskItem.desc;
         String str = vipTaskItem.img_url;
         String str2 = vipTaskItem.link;
-        this.f60457d = vipTaskItem.is_finish.intValue();
+        this.f64148d = vipTaskItem.is_finish.intValue();
     }
 
     public r(PointTaskInfo pointTaskInfo) {
         if (pointTaskInfo == null) {
             return;
         }
-        this.f60454a = pointTaskInfo.task_id.longValue();
-        this.f60455b = pointTaskInfo.task_name;
-        this.f60456c = pointTaskInfo.task_intro;
-        this.f60457d = pointTaskInfo.is_finish.intValue();
-        this.f60458e = pointTaskInfo.points_add.intValue();
-        this.f60459f = pointTaskInfo.type.intValue();
+        this.f64145a = pointTaskInfo.task_id.longValue();
+        this.f64146b = pointTaskInfo.task_name;
+        this.f64147c = pointTaskInfo.task_intro;
+        this.f64148d = pointTaskInfo.is_finish.intValue();
+        this.f64149e = pointTaskInfo.points_add.intValue();
+        this.f64150f = pointTaskInfo.type.intValue();
     }
 }

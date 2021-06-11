@@ -10,35 +10,35 @@ import d.a.n0.k1.o.l.e;
 public abstract class a implements e<AdCard> {
 
     /* renamed from: e  reason: collision with root package name */
-    public AdCard f61086e;
+    public AdCard f64778e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdvertAppInfo f61087f;
+    public AdvertAppInfo f64779f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61088g;
+    public boolean f64780g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f61089h;
+    public Context f64781h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f61090i;
+    public TbPageContext f64782i;
     public d.a.n0.k1.o.a j;
 
     public a(TbPageContext tbPageContext) {
-        this.f61090i = tbPageContext;
-        this.f61089h = tbPageContext.getPageActivity();
-    }
-
-    public abstract void c();
-
-    public void d(AdCard adCard) {
-        this.f61086e = adCard;
-        this.f61087f = adCard.getAdvertAppInfo();
+        this.f64782i = tbPageContext;
+        this.f64781h = tbPageContext.getPageActivity();
     }
 
     @Override // d.a.n0.k1.o.l.e
-    public void e() {
+    public void c(BdUniqueId bdUniqueId) {
+    }
+
+    public abstract void d();
+
+    public void e(AdCard adCard) {
+        this.f64778e = adCard;
+        this.f64779f = adCard.getAdvertAppInfo();
     }
 
     @Override // d.a.n0.k1.o.l.e
@@ -46,24 +46,24 @@ public abstract class a implements e<AdCard> {
     }
 
     @Override // d.a.n0.k1.o.l.e
-    public void g(Object obj) {
-        if (obj instanceof AdCard) {
-            this.f61086e = (AdCard) obj;
-            c();
-            d(this.f61086e);
-        }
-    }
-
-    @Override // d.a.n0.k1.o.l.e
     public void h() {
     }
 
     @Override // d.a.n0.k1.o.l.e
-    public void i() {
+    public void i(Object obj) {
+        if (obj instanceof AdCard) {
+            this.f64778e = (AdCard) obj;
+            d();
+            e(this.f64778e);
+        }
     }
 
     @Override // d.a.n0.k1.o.l.e
-    public void k(BdUniqueId bdUniqueId) {
+    public void j() {
+    }
+
+    @Override // d.a.n0.k1.o.l.e
+    public void k() {
     }
 
     @Override // d.a.n0.k1.o.l.e
@@ -81,7 +81,7 @@ public abstract class a implements e<AdCard> {
 
     @Override // d.a.n0.k1.o.l.e
     public void setFromCDN(boolean z) {
-        this.f61088g = z;
+        this.f64780g = z;
     }
 
     @Override // d.a.n0.k1.o.l.e

@@ -24,35 +24,35 @@ import org.apache.http.protocol.HTTP;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1877a = "msp";
+    public static final String f1890a = "msp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1878b = "application/octet-stream;binary/octet-stream";
+    public static final String f1891b = "application/octet-stream;binary/octet-stream";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CookieManager f1879c = new CookieManager();
+    public static final CookieManager f1892c = new CookieManager();
 
     /* renamed from: com.alipay.sdk.net.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0016a {
+    public static final class C0017a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1880a;
+        public final String f1893a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f1881b;
+        public final byte[] f1894b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Map<String, String> f1882c;
+        public final Map<String, String> f1895c;
 
-        public C0016a(String str, Map<String, String> map, byte[] bArr) {
-            this.f1880a = str;
-            this.f1881b = bArr;
-            this.f1882c = map;
+        public C0017a(String str, Map<String, String> map, byte[] bArr) {
+            this.f1893a = str;
+            this.f1894b = bArr;
+            this.f1895c = map;
         }
 
         public String toString() {
-            return String.format("<UrlConnectionConfigure url=%s requestBody=%s headers=%s>", this.f1880a, this.f1881b, this.f1882c);
+            return String.format("<UrlConnectionConfigure url=%s requestBody=%s headers=%s>", this.f1893a, this.f1894b, this.f1895c);
         }
     }
 
@@ -60,18 +60,18 @@ public final class a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, List<String>> f1883a;
+        public final Map<String, List<String>> f1896a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f1884b;
+        public final String f1897b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f1885c;
+        public final byte[] f1898c;
 
         public b(Map<String, List<String>> map, String str, byte[] bArr) {
-            this.f1883a = map;
-            this.f1884b = str;
-            this.f1885c = bArr;
+            this.f1896a = map;
+            this.f1897b = str;
+            this.f1898c = bArr;
         }
     }
 
@@ -81,7 +81,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static b a(Context context, C0016a c0016a) {
+    public static b a(Context context, C0017a c0017a) {
         HttpURLConnection httpURLConnection;
         BufferedInputStream bufferedInputStream;
         BufferedOutputStream bufferedOutputStream;
@@ -91,10 +91,10 @@ public final class a {
             return null;
         }
         try {
-            c.c(f1877a, "config : " + c0016a);
-            URL url = new URL(c0016a.f1880a);
+            c.c(f1890a, "config : " + c0017a);
+            URL url = new URL(c0017a.f1893a);
             Proxy a2 = a(context);
-            c.c(f1877a, "proxy: " + a2);
+            c.c(f1890a, "proxy: " + a2);
             if (a2 != null) {
                 httpURLConnection2 = (HttpURLConnection) url.openConnection(a2);
             } else {
@@ -105,24 +105,24 @@ public final class a {
                 if (httpURLConnection2 instanceof HttpsURLConnection) {
                     HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection2;
                 }
-                if (f1879c.getCookieStore().getCookies().size() > 0) {
-                    httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f1879c.getCookieStore().getCookies()));
+                if (f1892c.getCookieStore().getCookies().size() > 0) {
+                    httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f1892c.getCookieStore().getCookies()));
                 }
                 httpURLConnection2.setConnectTimeout(20000);
                 httpURLConnection2.setReadTimeout(30000);
                 httpURLConnection2.setInstanceFollowRedirects(true);
-                httpURLConnection2.setRequestProperty("User-Agent", f1877a);
-                if (c0016a.f1881b != null && c0016a.f1881b.length > 0) {
+                httpURLConnection2.setRequestProperty("User-Agent", f1890a);
+                if (c0017a.f1894b != null && c0017a.f1894b.length > 0) {
                     httpURLConnection2.setRequestMethod("POST");
-                    httpURLConnection2.setRequestProperty("Content-Type", f1878b);
+                    httpURLConnection2.setRequestProperty("Content-Type", f1891b);
                     httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                     httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                     httpURLConnection2.setRequestProperty(HTTP.CONN_KEEP_ALIVE, "timeout=180, max=100");
                 } else {
                     httpURLConnection2.setRequestMethod("GET");
                 }
-                if (c0016a.f1882c != null) {
-                    for (Map.Entry<String, String> entry : c0016a.f1882c.entrySet()) {
+                if (c0017a.f1895c != null) {
+                    for (Map.Entry<String, String> entry : c0017a.f1895c.entrySet()) {
                         if (entry.getKey() != null) {
                             httpURLConnection2.setRequestProperty(entry.getKey(), entry.getValue());
                         }
@@ -135,7 +135,7 @@ public final class a {
                 if ("POST".equals(httpURLConnection2.getRequestMethod())) {
                     bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection2.getOutputStream());
                     try {
-                        bufferedOutputStream2.write(c0016a.f1881b);
+                        bufferedOutputStream2.write(c0017a.f1894b);
                         bufferedOutputStream2.flush();
                     } catch (Throwable th) {
                         th = th;
@@ -181,7 +181,7 @@ public final class a {
                         for (String str : list) {
                             List<HttpCookie> parse = HttpCookie.parse(str);
                             if (parse != null && !parse.isEmpty()) {
-                                f1879c.getCookieStore().add(url.toURI(), parse.get(0));
+                                f1892c.getCookieStore().add(url.toURI(), parse.get(0));
                             }
                         }
                     }

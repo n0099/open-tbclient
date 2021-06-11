@@ -8,25 +8,25 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import d.a.l0.a.c2.f.a0;
 import d.a.l0.a.e2.c.j.b;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44043e;
+        public final /* synthetic */ CallbackHandler f47717e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44044f;
+        public final /* synthetic */ String f47718f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f44045g;
+        public final /* synthetic */ String f47719g;
 
         public a(c cVar, CallbackHandler callbackHandler, String str, String str2) {
-            this.f44043e = callbackHandler;
-            this.f44044f = str;
-            this.f44045g = str2;
+            this.f47717e = callbackHandler;
+            this.f47718f = str;
+            this.f47719g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,9 +34,9 @@ public class c extends a0 {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
-                d.a.l0.a.e2.c.d.p(iVar, this.f44043e, this.f44044f);
+                d.a.l0.a.e2.c.d.p(iVar, this.f47717e, this.f47718f);
             } else {
-                d.a.l0.a.p0.f.b.h(this.f44045g, this.f44043e, this.f44044f);
+                d.a.l0.a.p0.f.b.h(this.f47719g, this.f47717e, this.f47718f);
             }
         }
     }

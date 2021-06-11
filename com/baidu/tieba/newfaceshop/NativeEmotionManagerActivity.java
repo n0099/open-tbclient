@@ -102,7 +102,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         this.mTitles.add("我的表情");
         MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
         this.myEmotionManagerFragment = myEmotionManagerFragment;
-        myEmotionManagerFragment.J0(this);
+        myEmotionManagerFragment.M0(this);
         this.fragments.add(this.myEmotionManagerFragment);
         if (this.isModerator == 1) {
             this.mTitles.add("单吧表情");

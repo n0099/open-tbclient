@@ -49,17 +49,17 @@ public class ShareStatic {
                 return;
             }
             d.a.m0.r.m.a aVar = (d.a.m0.r.m.a) extra;
-            String replace = aVar.f49880a.n0.replace("TOKEN", commandShareHttpResMsg.token);
-            ShareItem shareItem = aVar.f49880a;
+            String replace = aVar.f53556a.n0.replace("TOKEN", commandShareHttpResMsg.token);
+            ShareItem shareItem = aVar.f53556a;
             shareItem.n0 = replace;
-            int i2 = aVar.f49882c;
+            int i2 = aVar.f53558c;
             if (i2 == 0) {
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(aVar.f49881b, aVar.f49880a, false);
-                shareDialogConfig.onCancelListener = aVar.f49883d;
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(aVar.f53557b, aVar.f53556a, false);
+                shareDialogConfig.onCancelListener = aVar.f53559d;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
                 return;
             }
-            d.a.m0.s.g.a.e(shareItem, aVar.f49881b, i2, aVar.f49883d);
+            d.a.m0.s.g.a.e(shareItem, aVar.f53557b, i2, aVar.f53559d);
         }
     }
 
@@ -209,24 +209,24 @@ public class ShareStatic {
 
     public static void h(ShareDialogConfig shareDialogConfig) {
         d.a.n0.x2.g.a aVar = new d.a.n0.x2.g.a(shareDialogConfig.getContext(), shareDialogConfig.isLandscape, shareDialogConfig.hideMode);
-        aVar.t(shareDialogConfig.shareItem, shareDialogConfig.showLocation);
+        aVar.u(shareDialogConfig.shareItem, shareDialogConfig.showLocation);
         View.OnClickListener onClickListener = shareDialogConfig.copyLinkListener;
         if (onClickListener != null) {
-            aVar.s(onClickListener);
+            aVar.t(onClickListener);
         }
         DialogInterface.OnDismissListener onDismissListener = shareDialogConfig.onDismissListener;
         if (onDismissListener != null) {
-            aVar.k(onDismissListener);
+            aVar.l(onDismissListener);
         }
         ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> arrayList = shareDialogConfig.textViewList;
         if (arrayList != null && arrayList.size() > 0) {
             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = shareDialogConfig.textViewList.iterator();
             while (it.hasNext()) {
                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                aVar.c(aVar.l(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.g(), (View.OnClickListener) ((Pair) next.second).second);
+                aVar.c(aVar.m(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.h(), (View.OnClickListener) ((Pair) next.second).second);
             }
         }
-        aVar.u();
+        aVar.v();
     }
 
     public static void i(ShareDialogConfig shareDialogConfig) {
@@ -234,13 +234,13 @@ public class ShareStatic {
             return;
         }
         d.a.n0.l3.c cVar = new d.a.n0.l3.c(shareDialogConfig.getContext());
-        cVar.m((!TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAlaLive || shareDialogConfig.shareItem.f()) ? false : true);
-        cVar.l(shareDialogConfig);
-        cVar.k(shareDialogConfig.onDismissListener);
+        cVar.n((!TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAlaLive || shareDialogConfig.shareItem.f()) ? false : true);
+        cVar.m(shareDialogConfig);
+        cVar.l(shareDialogConfig.onDismissListener);
         ShareItem shareItem = shareDialogConfig.shareItem;
         if (shareItem != null && shareItem.a0) {
-            cVar.i(shareDialogConfig.getFrom());
+            cVar.j(shareDialogConfig.getFrom());
         }
-        cVar.n();
+        cVar.o();
     }
 }

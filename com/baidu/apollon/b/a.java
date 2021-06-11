@@ -10,38 +10,38 @@ import java.util.Set;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Set<c>> f3583a;
+    public final Map<String, Set<c>> f3602a;
 
     /* renamed from: com.baidu.apollon.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0059a {
+    public static class C0060a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f3584a = new a();
+        public static final a f3603a = new a();
     }
 
     public static a a() {
-        return C0059a.f3584a;
+        return C0060a.f3603a;
     }
 
     public void b() {
-        this.f3583a.clear();
+        this.f3602a.clear();
     }
 
     public a() {
-        this.f3583a = new HashMap();
+        this.f3602a = new HashMap();
     }
 
     public Set<c> a(String str) {
-        Set<c> set = this.f3583a.get(str);
+        Set<c> set = this.f3602a.get(str);
         return set == null ? Collections.emptySet() : set;
     }
 
     public a a(@NonNull String str, @NonNull Set<String> set) {
-        if (this.f3583a.get(str) == null) {
-            this.f3583a.put(str, new HashSet());
+        if (this.f3602a.get(str) == null) {
+            this.f3602a.put(str, new HashSet());
         }
-        Set<c> set2 = this.f3583a.get(str);
+        Set<c> set2 = this.f3602a.get(str);
         for (String str2 : set) {
             set2.add(new c(str2));
         }

@@ -13,27 +13,27 @@ import com.baidu.tieba.medialive.like.HeartSurfaceView;
 public class c implements ILiveLikeView {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f59895a = 1.0f;
+    public float f63586a = 1.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59896b = 500;
+    public int f63587b = 500;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f59897c = 0.4f;
+    public float f63588c = 0.4f;
 
     /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f59898e;
+        public final /* synthetic */ LottieAnimationView f63589e;
 
         public a(c cVar, LottieAnimationView lottieAnimationView) {
-            this.f59898e = lottieAnimationView;
+            this.f63589e = lottieAnimationView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            this.f59898e.setProgress(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            this.f63589e.setProgress(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 
@@ -41,15 +41,15 @@ public class c implements ILiveLikeView {
     public class b implements HeartSurfaceView.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveLikeAnimatorCallback f59899a;
+        public final /* synthetic */ LiveLikeAnimatorCallback f63590a;
 
         public b(c cVar, LiveLikeAnimatorCallback liveLikeAnimatorCallback) {
-            this.f59899a = liveLikeAnimatorCallback;
+            this.f63590a = liveLikeAnimatorCallback;
         }
 
         @Override // com.baidu.tieba.medialive.like.HeartSurfaceView.e
         public void a(int i2, int i3) {
-            LiveLikeAnimatorCallback liveLikeAnimatorCallback = this.f59899a;
+            LiveLikeAnimatorCallback liveLikeAnimatorCallback = this.f63590a;
             if (liveLikeAnimatorCallback != null) {
                 liveLikeAnimatorCallback.onAnimLocation(0, i2, i3);
             }
@@ -76,8 +76,8 @@ public class c implements ILiveLikeView {
         LottieAnimationView lottieAnimationView = new LottieAnimationView(AppRuntime.getAppContext());
         lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         lottieAnimationView.setAnimation("lottie/liveshow_video_like_bg.json");
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f59897c, this.f59895a);
-        ofFloat.setDuration(this.f59896b);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f63588c, this.f63586a);
+        ofFloat.setDuration(this.f63587b);
         ofFloat.addUpdateListener(new a(this, lottieAnimationView));
         lottieAnimationView.setTag(ofFloat);
         return lottieAnimationView;

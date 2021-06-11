@@ -35,16 +35,16 @@ public class QRCodeStatic {
                 return null;
             }
             q data = customMessage.getData();
-            int i2 = data.f54036a;
+            int i2 = data.f57725a;
             if (i2 == 0) {
-                str = d.a.n0.q2.b.b.a.b(data.f54038c);
+                str = d.a.n0.q2.b.b.a.b(data.f57727c);
             } else if (i2 == 1) {
-                str = d.a.n0.q2.b.b.a.c(data.f54039d);
+                str = d.a.n0.q2.b.b.a.c(data.f57728d);
             }
             if (TextUtils.isEmpty(str)) {
-                data.f54040e = "qr_none";
+                data.f57729e = "qr_none";
             } else {
-                data.f54040e = str;
+                data.f57729e = str;
             }
             return new CustomResponsedMessage<>(2921403, data);
         }

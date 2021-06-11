@@ -109,13 +109,22 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 setLeftBtnTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
                 setTitleTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
                 setRightBtnColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
-                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
-                this.mRightBtnClose.setImageResource(d.sapi_sdk_title_close_dark_mode);
-                this.dividerLine.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+                LinearLayout linearLayout = this.mLeftBtnLayout;
+                if (linearLayout != null) {
+                    linearLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+                }
+                ImageView imageView = this.mRightBtnClose;
+                if (imageView != null) {
+                    imageView.setImageResource(d.sapi_sdk_title_close_dark_mode);
+                }
+                View view = this.dividerLine;
+                if (view != null) {
+                    view.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+                }
             }
-            ImageView imageView = this.mBottomBackBtnIv;
-            if (imageView != null) {
-                imageView.setImageResource(d.sapi_sdk_btn_back_dark_mode);
+            ImageView imageView2 = this.mBottomBackBtnIv;
+            if (imageView2 != null) {
+                imageView2.setImageResource(d.sapi_sdk_btn_back_dark_mode);
             }
             RelativeLayout relativeLayout = this.mBottomBgLayout;
             if (relativeLayout != null) {
@@ -125,9 +134,9 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             if (textView != null) {
                 textView.setTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
             }
-            ImageView imageView2 = this.mBottomDividerLine;
-            if (imageView2 != null) {
-                imageView2.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+            ImageView imageView3 = this.mBottomDividerLine;
+            if (imageView3 != null) {
+                imageView3.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
             }
         }
     }
@@ -387,7 +396,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
 
     public void setTitleLayoutBg(int i2) {
         RelativeLayout relativeLayout;
-        if (!this.useTitle || (relativeLayout = this.mTitleBgLayout) == null || i2 == Integer.MAX_VALUE) {
+        if (!this.useTitle || (relativeLayout = this.mTitleBgLayout) == null || i2 == Integer.MAX_VALUE || relativeLayout == null) {
             return;
         }
         relativeLayout.setBackgroundColor(i2);

@@ -24,7 +24,7 @@ import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.servicearea.ServiceAreaView;
 import com.baidu.tieba.frs.vc.FrsTopView;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import d.a.c.j.e.w;
+import d.a.c.k.e.w;
 import d.a.m0.r.q.a2;
 import d.a.m0.r.q.k;
 import d.a.n0.r0.o2.f;
@@ -66,39 +66,39 @@ public abstract class b {
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f59552a;
+    public TbPageContext f63243a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrsFragment f59553b;
+    public FrsFragment f63244b;
     public int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f59554c;
+    public Handler f63245c;
     public int c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f59555d;
+    public View f63246d;
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f59556e;
+    public TextView f63247e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f59557f;
+    public TextView f63248f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f59558g;
+    public TextView f63249g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f59559h;
+    public TBSpecificationBtn f63250h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f59560i;
+    public TBSpecificationBtn f63251i;
     public boolean i0;
     public TextView j;
     public float j0;
@@ -136,19 +136,19 @@ public abstract class b {
             if (bVar.f0) {
                 return;
             }
-            d.a.c.e.m.g.d(bVar.G, bVar.f59552a.getPageActivity());
+            d.a.c.e.m.g.d(bVar.G, bVar.f63243a.getPageActivity());
         }
     }
 
     /* renamed from: d.a.n0.r0.r2.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1547b implements Animator.AnimatorListener {
+    public class C1603b implements Animator.AnimatorListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f59562e;
+        public final /* synthetic */ View f63253e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float f59563f;
+        public final /* synthetic */ float f63254f;
 
         /* renamed from: d.a.n0.r0.r2.b$b$a */
         /* loaded from: classes4.dex */
@@ -162,8 +162,8 @@ public abstract class b {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                C1547b c1547b = C1547b.this;
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(c1547b.f59562e, "scaleX", 0.0f, c1547b.f59563f);
+                C1603b c1603b = C1603b.this;
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(c1603b.f63253e, "scaleX", 0.0f, c1603b.f63254f);
                 ofFloat.setDuration(300L);
                 ofFloat.start();
             }
@@ -177,9 +177,9 @@ public abstract class b {
             }
         }
 
-        public C1547b(b bVar, View view, float f2) {
-            this.f59562e = view;
-            this.f59563f = f2;
+        public C1603b(b bVar, View view, float f2) {
+            this.f63253e = view;
+            this.f63254f = f2;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -189,7 +189,7 @@ public abstract class b {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             a aVar = new a();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f59562e, "scaleX", 1.0f, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f63253e, "scaleX", 1.0f, 0.0f);
             ofFloat.setDuration(300L);
             ofFloat.addListener(aVar);
             ofFloat.start();
@@ -218,8 +218,8 @@ public abstract class b {
 
     public void C(TextView textView, TextView textView2) {
         textView.setText(String.valueOf(this.b0));
-        String string = this.f59552a.getString(R.string.experience_divider);
-        String string2 = this.f59552a.getString(R.string.member_count_unit);
+        String string = this.f63243a.getString(R.string.experience_divider);
+        String string2 = this.f63243a.getString(R.string.member_count_unit);
         int i2 = this.c0;
         if (i2 >= 10000) {
             if (i2 % 10000 == 0) {
@@ -238,15 +238,15 @@ public abstract class b {
             this.k0 = false;
             this.p.setVisibility(0);
             this.q.setVisibility(8);
-            this.f59559h.setVisibility(0);
-            this.f59560i.setVisibility(8);
+            this.f63250h.setVisibility(0);
+            this.f63251i.setVisibility(8);
             return;
         }
         this.e0 = true;
         this.p.setVisibility(8);
         this.q.setVisibility(0);
-        this.f59559h.setVisibility(8);
-        this.f59560i.setVisibility(0);
+        this.f63250h.setVisibility(8);
+        this.f63251i.setVisibility(0);
     }
 
     public void E(int i2, String str, int i3, float f2, boolean z) {
@@ -257,15 +257,15 @@ public abstract class b {
             this.k0 = false;
             this.p.setVisibility(0);
             this.q.setVisibility(8);
-            this.f59559h.setVisibility(0);
-            this.f59560i.setVisibility(8);
+            this.f63250h.setVisibility(0);
+            this.f63251i.setVisibility(8);
             return;
         }
         this.e0 = true;
         this.p.setVisibility(8);
         this.q.setVisibility(0);
-        this.f59559h.setVisibility(8);
-        this.f59560i.setVisibility(0);
+        this.f63250h.setVisibility(8);
+        this.f63251i.setVisibility(0);
         if (!z || this.k0) {
             return;
         }
@@ -276,12 +276,12 @@ public abstract class b {
     public void F(int i2) {
         if (i2 == 0) {
             this.g0 = false;
-            this.f59560i.setText(this.f59552a.getString(R.string.sign));
+            this.f63251i.setText(this.f63243a.getString(R.string.sign));
             z();
             return;
         }
         this.g0 = true;
-        this.f59560i.setText(this.f59552a.getString(R.string.signed));
+        this.f63251i.setText(this.f63243a.getString(R.string.signed));
         y();
     }
 
@@ -303,7 +303,7 @@ public abstract class b {
     public void I(f fVar) {
         if (fVar != null) {
             this.Q = fVar;
-            fVar.j(this.f59559h);
+            fVar.j(this.f63250h);
         }
     }
 
@@ -314,7 +314,7 @@ public abstract class b {
     public void K(g gVar) {
         if (gVar != null) {
             this.P = gVar;
-            gVar.i(this.f59560i);
+            gVar.i(this.f63251i);
         }
     }
 
@@ -329,10 +329,10 @@ public abstract class b {
 
     public void P(View view, float f2, float f3) {
         view.setPivotX(0.0f);
-        C1547b c1547b = new C1547b(this, view, f3);
+        C1603b c1603b = new C1603b(this, view, f3);
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "scaleX", f2, 1.0f);
         ofFloat.setDuration(400L);
-        ofFloat.addListener(c1547b);
+        ofFloat.addListener(c1603b);
         ofFloat.start();
     }
 
@@ -368,7 +368,7 @@ public abstract class b {
     }
 
     public TextView f() {
-        return this.f59558g;
+        return this.f63249g;
     }
 
     public View g() {
@@ -386,7 +386,7 @@ public abstract class b {
     public abstract SignActivityInfo j();
 
     public View k() {
-        return this.f59555d;
+        return this.f63246d;
     }
 
     public boolean l() {

@@ -7,7 +7,7 @@ import d.a.l0.b.i;
 /* loaded from: classes3.dex */
 public class b extends a {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public b(e eVar) {

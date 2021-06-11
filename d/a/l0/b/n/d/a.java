@@ -20,57 +20,57 @@ import d.a.l0.b.g;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f46370b = k.f43199a;
+    public static final boolean f50044b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f46371a = new Bundle();
+    public Bundle f50045a = new Bundle();
 
     /* renamed from: d.a.l0.b.n.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0953a implements d.a.l0.b.n.g.c {
+    public class C1009a implements d.a.l0.b.n.g.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f46372a;
+        public final /* synthetic */ ViewGroup f50046a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.m.a f46373b;
+        public final /* synthetic */ d.a.l0.a.m.a f50047b;
 
         /* renamed from: d.a.l0.b.n.d.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0954a implements Runnable {
-            public RunnableC0954a() {
+        public class RunnableC1010a implements Runnable {
+            public RunnableC1010a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.a.z1.b.d.a.c(C0953a.this.f46372a);
+                d.a.l0.a.z1.b.d.a.c(C1009a.this.f50046a);
             }
         }
 
-        public C0953a(ViewGroup viewGroup, d.a.l0.a.m.a aVar) {
-            this.f46372a = viewGroup;
-            this.f46373b = aVar;
+        public C1009a(ViewGroup viewGroup, d.a.l0.a.m.a aVar) {
+            this.f50046a = viewGroup;
+            this.f50047b = aVar;
         }
 
         @Override // d.a.l0.b.n.g.c
         public void a(QuickLoginInfo quickLoginInfo) {
-            ViewGroup viewGroup = this.f46372a;
+            ViewGroup viewGroup = this.f50046a;
             if (viewGroup != null) {
-                viewGroup.post(new RunnableC0954a());
+                viewGroup.post(new RunnableC1010a());
             }
             if (a.this.i(quickLoginInfo)) {
-                a.this.f46371a.putParcelable("quick_login_info", quickLoginInfo);
+                a.this.f50045a.putParcelable("quick_login_info", quickLoginInfo);
             }
             String T = d.a.l0.a.a2.d.g().r().L().T();
             String appId = d.a.l0.a.a2.d.g().getAppId();
-            a.this.f46371a.putString("app_name", d.a.l0.a.a2.d.g().r().O());
-            a.this.f46371a.putString("appid", appId);
-            a.this.f46371a.putString("launch_from", T);
-            if (a.f46370b) {
-                Log.d("LoginAndGetMobile", "onQueryResult: mParams: " + a.this.f46371a.toString());
+            a.this.f50045a.putString("app_name", d.a.l0.a.a2.d.g().r().O());
+            a.this.f50045a.putString("appid", appId);
+            a.this.f50045a.putString("launch_from", T);
+            if (a.f50044b) {
+                Log.d("LoginAndGetMobile", "onQueryResult: mParams: " + a.this.f50045a.toString());
             }
             d.a("show", "login", null, T, appId);
-            a.this.f(this.f46373b);
+            a.this.f(this.f50047b);
         }
     }
 
@@ -78,19 +78,19 @@ public class a {
     public class b implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.m.a f46376a;
+        public final /* synthetic */ d.a.l0.a.m.a f50050a;
 
         public b(a aVar, d.a.l0.a.m.a aVar2) {
-            this.f46376a = aVar2;
+            this.f50050a = aVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             if (delegateResult.isOk()) {
-                this.f46376a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
+                this.f50050a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
                 return;
             }
-            this.f46376a.onResult(-2);
+            this.f50050a.onResult(-2);
         }
     }
 
@@ -100,7 +100,7 @@ public class a {
             return;
         }
         Intent intent = new Intent(activity, LoginAndGetMobileActivity.class);
-        intent.putExtras(this.f46371a);
+        intent.putExtras(this.f50045a);
         activity.startActivity(intent);
         activity.overridePendingTransition(d.a.l0.b.b.login_get_mobile_act_enter, 0);
         c.c(aVar);
@@ -115,7 +115,7 @@ public class a {
     }
 
     public final void g(d.a.l0.a.m.a aVar) {
-        DelegateUtils.callOnMainWithActivity(f.V().getActivity(), PluginDelegateActivity.class, d.a.l0.b.n.d.b.class, this.f46371a, new b(this, aVar));
+        DelegateUtils.callOnMainWithActivity(f.V().getActivity(), PluginDelegateActivity.class, d.a.l0.b.n.d.b.class, this.f50045a, new b(this, aVar));
     }
 
     public void h(d.a.l0.a.m.a aVar) {
@@ -127,7 +127,7 @@ public class a {
             viewGroup = (ViewGroup) x.findViewById(16908290);
             d.a.l0.a.z1.b.d.a.f(x, viewGroup, x.getResources().getString(g.swanapp_login_loading));
         }
-        d.a.l0.b.n.g.f.b(new C0953a(viewGroup, aVar));
+        d.a.l0.b.n.g.f.b(new C1009a(viewGroup, aVar));
     }
 
     public final boolean i(QuickLoginInfo quickLoginInfo) {

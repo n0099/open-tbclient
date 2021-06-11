@@ -12,24 +12,23 @@ import com.baidu.searchbox.player.event.VideoReceiver;
 import d.a.l0.a.k;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f43787e;
+    public static d f47463e;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager f43789b;
+    public AudioManager f47465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f43790c;
+    public boolean f47466c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ConcurrentHashMap<String, b> f43788a = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<String, b> f47464a = new ConcurrentHashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public BroadcastReceiver f43791d = new a();
+    public BroadcastReceiver f47467d = new a();
 
     /* loaded from: classes3.dex */
     public class a extends BroadcastReceiver {
@@ -39,11 +38,11 @@ public class d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (VideoReceiver.ACTION_VOLUME_CHANGED.equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                if (d.this.f43789b == null) {
-                    d.this.f43789b = (AudioManager) d.a.l0.a.c1.a.b().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                if (d.this.f47465b == null) {
+                    d.this.f47465b = (AudioManager) d.a.l0.a.c1.a.b().getSystemService("audio");
                 }
-                for (Map.Entry entry : d.this.f43788a.entrySet()) {
-                    ((b) entry.getValue()).a(d.this.f43789b != null ? d.this.f43789b.getStreamVolume(3) : 0);
+                for (Map.Entry entry : d.this.f47464a.entrySet()) {
+                    ((b) entry.getValue()).a(d.this.f47465b != null ? d.this.f47465b.getStreamVolume(3) : 0);
                 }
             }
         }
@@ -55,18 +54,18 @@ public class d {
     }
 
     public static d e() {
-        if (f43787e == null) {
+        if (f47463e == null) {
             synchronized (d.class) {
-                if (f43787e == null) {
-                    f43787e = new d();
+                if (f47463e == null) {
+                    f47463e = new d();
                 }
             }
         }
-        return f43787e;
+        return f47463e;
     }
 
     public static void i() {
-        d dVar = f43787e;
+        d dVar = f47463e;
         if (dVar != null) {
             dVar.g();
         }
@@ -77,21 +76,21 @@ public class d {
             return;
         }
         synchronized (this) {
-            this.f43788a.put(str, bVar);
-            if (!this.f43790c) {
+            this.f47464a.put(str, bVar);
+            if (!this.f47466c) {
                 h();
             }
-            if (k.f43199a) {
-                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.f43788a.size());
+            if (k.f46875a) {
+                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.f47464a.size());
             }
         }
     }
 
     public int f() {
-        if (this.f43789b == null) {
-            this.f43789b = (AudioManager) d.a.l0.a.c1.a.b().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        if (this.f47465b == null) {
+            this.f47465b = (AudioManager) d.a.l0.a.c1.a.b().getSystemService("audio");
         }
-        AudioManager audioManager = this.f43789b;
+        AudioManager audioManager = this.f47465b;
         if (audioManager != null) {
             return audioManager.getStreamMaxVolume(3);
         }
@@ -100,18 +99,18 @@ public class d {
 
     public final void g() {
         synchronized (this) {
-            this.f43788a.clear();
-            this.f43789b = null;
-            this.f43790c = false;
+            this.f47464a.clear();
+            this.f47465b = null;
+            this.f47466c = false;
         }
-        f43787e = null;
+        f47463e = null;
     }
 
     public final void h() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(VideoReceiver.ACTION_VOLUME_CHANGED);
-        d.a.l0.a.c1.a.b().registerReceiver(this.f43791d, intentFilter);
-        this.f43790c = true;
+        d.a.l0.a.c1.a.b().registerReceiver(this.f47467d, intentFilter);
+        this.f47466c = true;
     }
 
     public boolean j(@NonNull String str) {
@@ -120,12 +119,12 @@ public class d {
             return false;
         }
         synchronized (this) {
-            b remove = this.f43788a.remove(str);
-            if (this.f43788a.size() == 0 && this.f43790c) {
+            b remove = this.f47464a.remove(str);
+            if (this.f47464a.size() == 0 && this.f47466c) {
                 k();
             }
-            if (k.f43199a && remove != null) {
-                Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.f43788a.size());
+            if (k.f46875a && remove != null) {
+                Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.f47464a.size());
             }
             z = remove != null;
         }
@@ -134,8 +133,8 @@ public class d {
 
     public final void k() {
         try {
-            d.a.l0.a.c1.a.b().unregisterReceiver(this.f43791d);
-            this.f43790c = false;
+            d.a.l0.a.c1.a.b().unregisterReceiver(this.f47467d);
+            this.f47466c = false;
         } catch (Exception e2) {
             e2.printStackTrace();
         }

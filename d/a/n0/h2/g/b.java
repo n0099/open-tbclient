@@ -15,14 +15,14 @@ public class b extends d.a.n0.z.b<d.a.n0.h2.e.e> {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.person_center_blank_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.m != i2) {
-            SkinManager.setBackgroundColor(l(), R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(m(), R.color.CAM_X0204);
             this.m = i2;
         }
     }
@@ -33,8 +33,8 @@ public class b extends d.a.n0.z.b<d.a.n0.h2.e.e> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.h2.e.e eVar) {
-        n(this.f63441f, TbadkCoreApplication.getInst().getSkinType());
+    /* renamed from: t */
+    public void n(d.a.n0.h2.e.e eVar) {
+        o(this.f67159f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

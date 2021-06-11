@@ -14,31 +14,31 @@ import java.util.concurrent.TimeUnit;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f29992a;
+    public final Context f30095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f29993b;
+    public final Executor f30096b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f29994c;
+    public final Executor f30097c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.k.a f29995d;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.k.a f30098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f29996e;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f30099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.i.b f29997f;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.i.b f30100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<String> f29998g;
+    public final List<String> f30101g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<String> f29999h;
+    public final List<String> f30102h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.geckox.a.a.a f30000i;
+    public final com.bytedance.sdk.openadsdk.preload.geckox.a.a.a f30103i;
     public final Long j;
     public final String k;
     public final String l;
@@ -52,31 +52,31 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.i.b f30003a;
+        public com.bytedance.sdk.openadsdk.preload.geckox.i.b f30106a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f30004b;
+        public List<String> f30107b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f30005c;
+        public List<String> f30108c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Context f30006d;
+        public Context f30109d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Executor f30007e;
+        public Executor f30110e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Executor f30008f;
+        public Executor f30111f;
 
         /* renamed from: g  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.k.a f30009g;
+        public com.bytedance.sdk.openadsdk.preload.geckox.k.a f30112g;
 
         /* renamed from: h  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f30010h;
+        public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a f30113h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f30011i = true;
+        public boolean f30114i = true;
         public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a j;
         public Long k;
         public String l;
@@ -87,19 +87,19 @@ public class b {
         public String q;
 
         public a(Context context) {
-            this.f30006d = context.getApplicationContext();
+            this.f30109d = context.getApplicationContext();
         }
 
         public a a(String... strArr) {
             if (strArr != null && strArr.length >= 1) {
-                this.f30005c = Arrays.asList(strArr);
+                this.f30108c = Arrays.asList(strArr);
             }
             return this;
         }
 
         public a b(String... strArr) {
             if (strArr != null && strArr.length >= 1) {
-                this.f30004b = Arrays.asList(strArr);
+                this.f30107b = Arrays.asList(strArr);
             }
             return this;
         }
@@ -110,17 +110,17 @@ public class b {
         }
 
         public a a(com.bytedance.sdk.openadsdk.preload.geckox.statistic.a aVar) {
-            this.f30010h = aVar;
+            this.f30113h = aVar;
             return this;
         }
 
         public a b(Executor executor) {
-            this.f30008f = executor;
+            this.f30111f = executor;
             return this;
         }
 
         public a a(boolean z) {
-            this.f30011i = z;
+            this.f30114i = z;
             return this;
         }
 
@@ -130,7 +130,7 @@ public class b {
         }
 
         public a a(Executor executor) {
-            this.f30007e = executor;
+            this.f30110e = executor;
             return this;
         }
 
@@ -160,11 +160,11 @@ public class b {
     }
 
     public Context a() {
-        return this.f29992a;
+        return this.f30095a;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a b() {
-        return this.f30000i;
+        return this.f30103i;
     }
 
     public boolean c() {
@@ -172,23 +172,23 @@ public class b {
     }
 
     public List<String> d() {
-        return this.f29999h;
+        return this.f30102h;
     }
 
     public List<String> e() {
-        return this.f29998g;
+        return this.f30101g;
     }
 
     public Executor f() {
-        return this.f29993b;
+        return this.f30096b;
     }
 
     public Executor g() {
-        return this.f29994c;
+        return this.f30097c;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.i.b h() {
-        return this.f29997f;
+        return this.f30100f;
     }
 
     public String i() {
@@ -216,11 +216,11 @@ public class b {
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.k.a o() {
-        return this.f29995d;
+        return this.f30098d;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.statistic.a p() {
-        return this.f29996e;
+        return this.f30099e;
     }
 
     public String q() {
@@ -228,18 +228,18 @@ public class b {
     }
 
     public b(a aVar) {
-        Context context = aVar.f30006d;
-        this.f29992a = context;
+        Context context = aVar.f30109d;
+        this.f30095a = context;
         if (context != null) {
-            this.f29998g = aVar.f30004b;
-            this.f29999h = aVar.f30005c;
-            this.f29995d = aVar.f30009g;
-            this.f30000i = aVar.j;
+            this.f30101g = aVar.f30107b;
+            this.f30102h = aVar.f30108c;
+            this.f30098d = aVar.f30112g;
+            this.f30103i = aVar.j;
             this.j = aVar.k;
             if (!TextUtils.isEmpty(aVar.l)) {
                 this.k = aVar.l;
             } else {
-                this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f29992a);
+                this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f30095a);
             }
             this.l = aVar.m;
             this.n = aVar.p;
@@ -247,17 +247,17 @@ public class b {
             if (aVar.o != null) {
                 this.p = aVar.o;
             } else {
-                this.p = new File(this.f29992a.getFilesDir(), "gecko_offline_res_x");
+                this.p = new File(this.f30095a.getFilesDir(), "gecko_offline_res_x");
             }
             String str = aVar.n;
             this.m = str;
             if (!TextUtils.isEmpty(str)) {
-                List<String> list = this.f29998g;
+                List<String> list = this.f30101g;
                 if (list != null && !list.isEmpty()) {
                     if (this.j != null) {
                         if (!TextUtils.isEmpty(this.l)) {
-                            if (aVar.f30007e != null) {
-                                this.f29993b = aVar.f30007e;
+                            if (aVar.f30110e != null) {
+                                this.f30096b = aVar.f30110e;
                             } else {
                                 ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.b.1
                                     @Override // java.util.concurrent.ThreadFactory
@@ -269,10 +269,10 @@ public class b {
                                     }
                                 });
                                 threadPoolExecutor.allowCoreThreadTimeOut(true);
-                                this.f29993b = threadPoolExecutor;
+                                this.f30096b = threadPoolExecutor;
                             }
-                            if (aVar.f30008f != null) {
-                                this.f29994c = aVar.f30008f;
+                            if (aVar.f30111f != null) {
+                                this.f30097c = aVar.f30111f;
                             } else {
                                 ThreadPoolExecutor threadPoolExecutor2 = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.b.2
                                     @Override // java.util.concurrent.ThreadFactory
@@ -284,15 +284,15 @@ public class b {
                                     }
                                 });
                                 threadPoolExecutor2.allowCoreThreadTimeOut(true);
-                                this.f29994c = threadPoolExecutor2;
+                                this.f30097c = threadPoolExecutor2;
                             }
-                            if (aVar.f30003a != null) {
-                                this.f29997f = aVar.f30003a;
+                            if (aVar.f30106a != null) {
+                                this.f30100f = aVar.f30106a;
                             } else {
-                                this.f29997f = new com.bytedance.sdk.openadsdk.preload.geckox.i.a();
+                                this.f30100f = new com.bytedance.sdk.openadsdk.preload.geckox.i.a();
                             }
-                            this.f29996e = aVar.f30010h;
-                            this.q = aVar.f30011i;
+                            this.f30099e = aVar.f30113h;
+                            this.q = aVar.f30114i;
                             return;
                         }
                         throw new IllegalArgumentException("deviceId key empty");

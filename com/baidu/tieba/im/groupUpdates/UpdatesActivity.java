@@ -59,10 +59,10 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             ImMessageCenterPojo imMessageCenterPojo;
             List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-            UpdatesActivity.this.updatesView.o(convertToUpdatesItemData);
+            UpdatesActivity.this.updatesView.p(convertToUpdatesItemData);
             UpdatesActivity.this.model.calculateSelects(convertToUpdatesItemData);
-            UpdatesActivity.this.updatesView.q(false);
-            UpdatesActivity.this.updatesView.p(UpdatesActivity.this.model.getDeleteSize());
+            UpdatesActivity.this.updatesView.r(false);
+            UpdatesActivity.this.updatesView.q(UpdatesActivity.this.model.getDeleteSize());
             UpdatesActivity.this.loadImage();
             if (convertToUpdatesItemData == null || convertToUpdatesItemData.size() <= 0) {
                 imMessageCenterPojo = null;
@@ -83,10 +83,10 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     public class b implements n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f17228a;
+        public final /* synthetic */ n f17304a;
 
         public b(n nVar) {
-            this.f17228a = nVar;
+            this.f17304a = nVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             UpdatesActivity.this.model.clearSelect();
             UpdatesActivity.this.updatesView.d();
             UpdatesActivity.this.setEditMode(false);
-            UpdatesModel.requestUpdatesDataFromDB(this.f17228a);
+            UpdatesModel.requestUpdatesDataFromDB(this.f17304a);
         }
     }
 
@@ -110,10 +110,10 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-            UpdatesActivity.this.updatesView.o(convertToUpdatesItemData);
+            UpdatesActivity.this.updatesView.p(convertToUpdatesItemData);
             UpdatesActivity.this.model.calculateSelects(convertToUpdatesItemData);
-            UpdatesActivity.this.updatesView.q(false);
-            UpdatesActivity.this.updatesView.p(UpdatesActivity.this.model.getDeleteSize());
+            UpdatesActivity.this.updatesView.r(false);
+            UpdatesActivity.this.updatesView.q(UpdatesActivity.this.model.getDeleteSize());
             UpdatesActivity.this.loadImage();
         }
     }
@@ -131,7 +131,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             if (i2 != 0) {
                 return;
             }
-            UpdatesActivity.this.updatesView.q(true);
+            UpdatesActivity.this.updatesView.r(true);
             UpdatesActivity updatesActivity = UpdatesActivity.this;
             updatesActivity.processDel(updatesActivity.pendingToDel);
         }
@@ -146,7 +146,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            UpdatesActivity.this.updatesView.q(false);
+            UpdatesActivity.this.updatesView.r(false);
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage) && 202004 == socketResponsedMessage.getCmd()) {
                 ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
                 RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
@@ -174,7 +174,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            UpdatesActivity.this.updatesView.q(false);
+            UpdatesActivity.this.updatesView.r(false);
             if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage)) {
                 int cmd = customResponsedMessage.getCmd();
                 if (2001132 == cmd || 2001133 == cmd || 2001130 == cmd || 2001129 == cmd || 2001137 == cmd) {
@@ -199,9 +199,9 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadImage() {
-        if (this.updatesView.l() != null) {
-            this.updatesView.l().removeCallbacks(this.loadImageRunnable);
-            this.updatesView.l().post(this.loadImageRunnable);
+        if (this.updatesView.m() != null) {
+            this.updatesView.m().removeCallbacks(this.loadImageRunnable);
+            this.updatesView.m().post(this.loadImageRunnable);
         }
     }
 
@@ -212,7 +212,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         } else if (updatesItemData == null || TextUtils.isEmpty(d.a.n0.f1.p.b.b().c()) || !TextUtils.isDigitsOnly(d.a.n0.f1.p.b.b().c()) || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
         } else {
             try {
-                this.updatesView.q(true);
+                this.updatesView.r(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
                 requestDelSystemMessage.setGroupId(d.a.c.e.m.b.f(d.a.n0.f1.p.b.b().c(), 0L));
                 long parseLong = Long.parseLong(updatesItemData.getNotice_id());
@@ -262,8 +262,8 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             this.model.cancelSelect(updatesItemData);
             updatesItemData.setSelected(false);
         }
-        this.updatesView.p(this.model.getDeleteSize());
-        this.updatesView.n();
+        this.updatesView.q(this.model.getDeleteSize());
+        this.updatesView.o();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -274,24 +274,24 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
         if (view.equals(cVar.f())) {
             finish();
-        } else if (view.equals(this.updatesView.j())) {
+        } else if (view.equals(this.updatesView.k())) {
             this.model.clearSelect();
-            this.model.calculateSelects(this.updatesView.k().b());
-            this.updatesView.p(this.model.getDeleteSize());
+            this.model.calculateSelects(this.updatesView.l().b());
+            this.updatesView.q(this.model.getDeleteSize());
             setEditMode(true);
             this.updatesView.e();
-        } else if (view.equals(this.updatesView.g())) {
+        } else if (view.equals(this.updatesView.h())) {
             setEditMode(false);
             this.updatesView.d();
             this.model.clearSelect();
             UpdatesModel.requestUpdatesDataFromDB(this.getDataCallBack);
-        } else if (view.equals(this.updatesView.h())) {
-            this.updatesView.q(true);
+        } else if (view.equals(this.updatesView.i())) {
+            this.updatesView.r(true);
             String deleteDatasIds = this.model.deleteDatasIds();
             if (!TextUtils.isEmpty(deleteDatasIds)) {
                 processDel(deleteDatasIds);
             } else {
-                this.updatesView.q(false);
+                this.updatesView.r(false);
             }
         }
     }
@@ -307,7 +307,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         registerListener(2001130, this.mCustomListener);
         registerListener(2001129, this.mCustomListener);
         registerListener(2001137, this.mCustomListener);
-        this.updatesView.q(true);
+        this.updatesView.r(true);
         UpdatesModel.requestUpdatesDataFromDB(this.getDataCallBack);
         registerListener(202004, this.mListener);
     }
@@ -370,7 +370,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (4 == i2 && keyEvent.getAction() == 0 && this.isEditMode) {
             setEditMode(false);
             this.model.clearSelect();
-            this.updatesView.p(this.model.getDeleteSize());
+            this.updatesView.q(this.model.getDeleteSize());
             this.updatesView.d();
             return true;
         }
@@ -434,7 +434,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             if (TextUtils.isEmpty(c2) || !TextUtils.isDigitsOnly(c2)) {
                 return;
             }
-            this.updatesView.q(true);
+            this.updatesView.r(true);
             RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
             requestDelSystemMessage.setGroupId(d.a.c.e.m.b.f(c2, 0L));
             requestDelSystemMessage.setMsgIds(str);

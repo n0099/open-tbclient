@@ -34,41 +34,41 @@ import org.json.JSONObject;
 public class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public c f41456c;
+    public c f45132c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f41457d;
+    public ExecutorService f45133d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41458e;
+    public int f45134e;
 
     /* renamed from: d.a.l0.a.e0.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0601a implements Runnable {
+    public class RunnableC0657a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41459e;
+        public final /* synthetic */ Context f45135e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f41460f;
+        public final /* synthetic */ File f45136f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41461g;
+        public final /* synthetic */ UnitedSchemeEntity f45137g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41462h;
+        public final /* synthetic */ CallbackHandler f45138h;
 
-        public RunnableC0601a(Context context, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.f41459e = context;
-            this.f41460f = file;
-            this.f41461g = unitedSchemeEntity;
-            this.f41462h = callbackHandler;
+        public RunnableC0657a(Context context, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+            this.f45135e = context;
+            this.f45136f = file;
+            this.f45137g = unitedSchemeEntity;
+            this.f45138h = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             a aVar = a.this;
-            aVar.q(this.f41459e, aVar.f41456c.f41471b, a.this.f41456c.f41472c, this.f41460f, this.f41461g, this.f41462h);
+            aVar.q(this.f45135e, aVar.f45132c.f45147b, a.this.f45132c.f45148c, this.f45136f, this.f45137g, this.f45138h);
         }
     }
 
@@ -76,33 +76,33 @@ public class a extends a0 {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41464e;
+        public final /* synthetic */ Context f45140e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41465f;
+        public final /* synthetic */ String f45141f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41466g;
+        public final /* synthetic */ String f45142g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f41467h;
+        public final /* synthetic */ File f45143h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41468i;
+        public final /* synthetic */ UnitedSchemeEntity f45144i;
         public final /* synthetic */ CallbackHandler j;
 
         public b(Context context, String str, String str2, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.f41464e = context;
-            this.f41465f = str;
-            this.f41466g = str2;
-            this.f41467h = file;
-            this.f41468i = unitedSchemeEntity;
+            this.f45140e = context;
+            this.f45141f = str;
+            this.f45142g = str2;
+            this.f45143h = file;
+            this.f45144i = unitedSchemeEntity;
             this.j = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.q(this.f41464e, this.f41465f, this.f41466g, this.f41467h, this.f41468i, this.j);
+            a.this.q(this.f45140e, this.f45141f, this.f45142g, this.f45143h, this.f45144i, this.j);
         }
     }
 
@@ -115,12 +115,12 @@ public class a extends a0 {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
             c e2 = c.e(optParamsAsJo);
-            this.f41456c = e2;
+            this.f45132c = e2;
             if (e2 != null && !e2.d()) {
                 l(context, unitedSchemeEntity, callbackHandler);
                 return true;
             }
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.e("WirelessDebugAction", "Wireless Debug params is invalid");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -136,34 +136,34 @@ public class a extends a0 {
         if (b2.exists()) {
             b2.delete();
         }
-        this.f41457d = Executors.newFixedThreadPool(4);
-        this.f41458e = 0;
-        JSONArray jSONArray = this.f41456c.f41476g;
+        this.f45133d = Executors.newFixedThreadPool(4);
+        this.f45134e = 0;
+        JSONArray jSONArray = this.f45132c.f45152g;
         if (jSONArray != null && jSONArray.length() > 0) {
-            int length = this.f41456c.f41476g.length();
+            int length = this.f45132c.f45152g.length();
             for (int i2 = 0; i2 < length; i2++) {
-                String a2 = this.f41456c.a(i2);
+                String a2 = this.f45132c.a(i2);
                 if (TextUtils.isEmpty(a2)) {
-                    int i3 = this.f41458e + 1;
-                    this.f41458e = i3;
+                    int i3 = this.f45134e + 1;
+                    this.f45134e = i3;
                     if (i3 >= length) {
                         d.a.l0.a.e0.d.b("WirelessDebugAction", "Hosts are invalid");
                         p(context, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH);
                     }
                 } else {
-                    this.f41457d.execute(new b(context, a2, this.f41456c.c(i2), b2, unitedSchemeEntity, callbackHandler));
+                    this.f45133d.execute(new b(context, a2, this.f45132c.c(i2), b2, unitedSchemeEntity, callbackHandler));
                 }
             }
             return;
         }
-        ExecutorUtilsExt.postOnSerial(new RunnableC0601a(context, b2, unitedSchemeEntity, callbackHandler), "WirelessDebugAction");
+        ExecutorUtilsExt.postOnSerial(new RunnableC0657a(context, b2, unitedSchemeEntity, callbackHandler), "WirelessDebugAction");
     }
 
     public final String m(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.e("WirelessDebugAction", "url encode fail", e2);
                 return str;
             }
@@ -175,15 +175,15 @@ public class a extends a0 {
         b.a L = d.a.l0.a.a2.d.g().r().L();
         f fVar = new f();
         fVar.j(L);
-        fVar.f43185a = k.m(L.G());
-        fVar.f43186b = "launch";
-        fVar.f43187c = "adb-debug";
-        fVar.f43189e = "download_fail";
+        fVar.f46861a = k.m(L.G());
+        fVar.f46862b = "launch";
+        fVar.f46863c = "adb-debug";
+        fVar.f46865e = "download_fail";
         k.onEvent(fVar);
     }
 
     public final c.a o() {
-        return (c.a) ((c.a) ((c.a) new c.a().u0(this.f41456c.f41470a)).z0(false)).O0(this.f41456c.f41473d);
+        return (c.a) ((c.a) ((c.a) new c.a().u0(this.f45132c.f45146a)).z0(false)).O0(this.f45132c.f45149d);
     }
 
     public final void p(Context context, String str) {
@@ -200,7 +200,7 @@ public class a extends a0 {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00b6, code lost:
-        if (r4 >= r2.f41456c.f41476g.length()) goto L33;
+        if (r4 >= r2.f45132c.f45152g.length()) goto L33;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -211,17 +211,17 @@ public class a extends a0 {
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 g.a(executeSync.body().byteStream(), file);
                 Intent d1 = d.a.l0.a.f1.e.c.d1(context, o());
-                d1.putExtra(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, this.f41456c.f41474e);
-                d1.putExtra("slavePreload", this.f41456c.f41475f);
+                d1.putExtra(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, this.f45132c.f45150e);
+                d1.putExtra("slavePreload", this.f45132c.f45151f);
                 d1.putExtra("extraWSUrl", str2);
                 context.startActivity(d1);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.f41457d != null) {
-                    this.f41457d.shutdownNow();
-                    this.f41457d = null;
+                if (this.f45133d != null) {
+                    this.f45133d.shutdownNow();
+                    this.f45133d = null;
                 }
                 if (!ProcessUtils.isMainProcess()) {
-                    if (a0.f40949b) {
+                    if (a0.f44625b) {
                         Log.d("WirelessDebugAction", "Suicide for reload.");
                     }
                     d.d();
@@ -233,9 +233,9 @@ public class a extends a0 {
         } catch (IOException unused) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             synchronized (this) {
-                if (this.f41456c.f41476g != null) {
-                    int i2 = this.f41458e + 1;
-                    this.f41458e = i2;
+                if (this.f45132c.f45152g != null) {
+                    int i2 = this.f45134e + 1;
+                    this.f45134e = i2;
                 }
                 d.a.l0.a.e0.d.b("WirelessDebugAction", "Host IPs are invalid");
                 p(context, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH);

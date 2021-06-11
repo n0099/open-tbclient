@@ -1,67 +1,11 @@
 package d.a.l0.a.p.c;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.SparseArray;
-import com.baidu.searchbox.live.interfaces.DI;
-import d.a.l0.a.v2.q0;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
+import android.os.Message;
+import d.a.l0.a.p.d.n0;
 /* loaded from: classes2.dex */
-public class w implements d.a.l0.k.b {
-
-    /* renamed from: a  reason: collision with root package name */
-    public SparseArray<String> f43979a;
-
-    public w() {
-        SparseArray<String> sparseArray = new SparseArray<>();
-        this.f43979a = sparseArray;
-        sparseArray.put(38, DI.BD.FAVOR);
-    }
-
-    @Override // d.a.l0.k.b
-    public void a(Activity activity, d.a.l0.k.o oVar) {
-    }
-
-    @Override // d.a.l0.k.b
-    public void b(int i2, List<d.a.l0.k.o> list) {
-    }
-
-    @Override // d.a.l0.k.b
-    public void c(int i2, List<d.a.l0.k.o> list) {
-    }
-
-    @Override // d.a.l0.k.b
-    public void d(int i2, List<d.a.l0.k.o> list) {
-        j(i2, list);
-    }
-
-    @Override // d.a.l0.k.b
-    public void e(Activity activity, d.a.l0.k.o oVar) {
-    }
-
-    @Override // d.a.l0.k.b
-    public void f(Context context, JSONObject jSONObject) {
-    }
-
-    @Override // d.a.l0.k.b
-    public boolean h(d.a.l0.k.o oVar) {
+public class w implements n0 {
+    @Override // d.a.l0.a.p.d.n0
+    public boolean a(Message message) {
         return false;
-    }
-
-    public final void j(int i2, List<d.a.l0.k.o> list) {
-        if (q0.G() || list == null || list.size() <= 0) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (d.a.l0.k.o oVar : list) {
-            if (this.f43979a.get(oVar.c()) != null) {
-                arrayList.add(oVar);
-            }
-        }
-        if (arrayList.size() > 0) {
-            list.removeAll(arrayList);
-        }
     }
 }

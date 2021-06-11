@@ -13,22 +13,22 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f40809d = k.f43199a;
+    public static final boolean f44485d = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.d f40810a;
+    public c.d f44486a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.d f40811b;
+    public c.d f44487b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, c.d> f40812c = new ConcurrentHashMap();
+    public Map<String, c.d> f44488c = new ConcurrentHashMap();
 
     public static boolean a(c.d dVar, String str) {
         List<String> list;
-        if ((dVar == null || (list = dVar.f40824b) == null || list.isEmpty()) ? false : true) {
+        if ((dVar == null || (list = dVar.f44500b) == null || list.isEmpty()) ? false : true) {
             File file = new File(str);
-            if (file.exists() && file.lastModified() == dVar.f40825c) {
+            if (file.exists() && file.lastModified() == dVar.f44501c) {
                 return true;
             }
         }
@@ -40,9 +40,9 @@ public class a {
     }
 
     public c.d c(String str, String str2, boolean z) {
-        c.d dVar = this.f40812c.get(str2);
+        c.d dVar = this.f44488c.get(str2);
         if (a(dVar, c.i(str))) {
-            d.h("SwanAppWebSafe", "read from cache: serverDomains.data=" + dVar.f40824b);
+            d.h("SwanAppWebSafe", "read from cache: serverDomains.data=" + dVar.f44500b);
             return dVar;
         }
         if (dVar != null) {
@@ -51,43 +51,43 @@ public class a {
             dVar = new c.d();
         }
         c.h(z, str, str2, dVar);
-        this.f40812c.put(str2, dVar);
+        this.f44488c.put(str2, dVar);
         return dVar;
     }
 
     public List<String> d(boolean z) {
-        if (a(this.f40811b, c.j())) {
-            d.h("SwanAppWebSafe", "read from cache: webActions.data=" + this.f40811b.f40824b);
-            return this.f40811b.f40824b;
+        if (a(this.f44487b, c.j())) {
+            d.h("SwanAppWebSafe", "read from cache: webActions.data=" + this.f44487b.f44500b);
+            return this.f44487b.f44500b;
         }
-        c.d dVar = this.f40811b;
+        c.d dVar = this.f44487b;
         if (dVar != null) {
             dVar.c();
         } else {
-            this.f40811b = new c.d();
+            this.f44487b = new c.d();
         }
-        c.k(z, this.f40811b);
-        return this.f40811b.f40824b;
+        c.k(z, this.f44487b);
+        return this.f44487b.f44500b;
     }
 
     public List<String> e(@NonNull String str, boolean z) {
-        if (a(this.f40810a, c.m(str))) {
-            d.h("SwanAppWebSafe", "read from cache: webDomains.data=" + this.f40810a.f40824b);
-            return this.f40810a.f40824b;
+        if (a(this.f44486a, c.m(str))) {
+            d.h("SwanAppWebSafe", "read from cache: webDomains.data=" + this.f44486a.f44500b);
+            return this.f44486a.f44500b;
         }
-        c.d dVar = this.f40810a;
+        c.d dVar = this.f44486a;
         if (dVar != null) {
             dVar.c();
         } else {
-            this.f40810a = new c.d();
+            this.f44486a = new c.d();
         }
-        c.l(z, str, this.f40810a);
-        return this.f40810a.f40824b;
+        c.l(z, str, this.f44486a);
+        return this.f44486a.f44500b;
     }
 
     public void f(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (f40809d) {
+            if (f44485d) {
                 throw new RuntimeException("appId can not be empty");
             }
             return;
@@ -97,15 +97,15 @@ public class a {
     }
 
     public void g() {
-        c.d dVar = this.f40810a;
+        c.d dVar = this.f44486a;
         if (dVar != null) {
             dVar.c();
-            this.f40810a = null;
+            this.f44486a = null;
         }
-        c.d dVar2 = this.f40811b;
+        c.d dVar2 = this.f44487b;
         if (dVar2 != null) {
             dVar2.c();
-            this.f40811b = null;
+            this.f44487b = null;
         }
         d.h("SwanAppWebSafe", "release cache done");
     }

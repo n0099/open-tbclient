@@ -19,7 +19,7 @@ public class l extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
     @Override // d.a.l0.a.y0.a
     /* renamed from: e */
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.k.g.a aVar) {
-        command.ret = aVar.I() ? 1 : 0;
+        command.ret = aVar.prepareAsync() ? 1 : 0;
         String str = command.what;
         d(aVar, str, "isSupport: " + command.ret, false);
     }

@@ -14,7 +14,7 @@ import d.a.l0.f.j.l;
 public class f extends Dialog {
 
     /* renamed from: e  reason: collision with root package name */
-    public DialogInterface.OnClickListener f46877e;
+    public DialogInterface.OnClickListener f50551e;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -25,7 +25,7 @@ public class f extends Dialog {
         public void onClick(View view) {
             f.this.dismiss();
             f fVar = f.this;
-            DialogInterface.OnClickListener onClickListener = fVar.f46877e;
+            DialogInterface.OnClickListener onClickListener = fVar.f50551e;
             if (onClickListener != null) {
                 onClickListener.onClick(fVar, -2);
             }
@@ -41,7 +41,7 @@ public class f extends Dialog {
         public void onClick(View view) {
             f.this.dismiss();
             f fVar = f.this;
-            DialogInterface.OnClickListener onClickListener = fVar.f46877e;
+            DialogInterface.OnClickListener onClickListener = fVar.f50551e;
             if (onClickListener != null) {
                 onClickListener.onClick(fVar, -1);
             }
@@ -50,7 +50,7 @@ public class f extends Dialog {
 
     public f(@NonNull Context context) {
         super(context, l.AiappsGameGuideDialogStyle);
-        this.f46877e = null;
+        this.f50551e = null;
     }
 
     public final void a() {

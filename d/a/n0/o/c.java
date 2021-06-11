@@ -10,10 +10,10 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f57752a;
+    public int f61441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f57753b = false;
+    public boolean f61442b = false;
 
     public c() {
         i();
@@ -23,7 +23,7 @@ public class c {
         if (i2 == 1) {
             return d(i2);
         }
-        int i3 = this.f57752a;
+        int i3 = this.f61441a;
         if (i3 == 1) {
             return c(i2);
         }
@@ -76,7 +76,7 @@ public class c {
     }
 
     public boolean g() {
-        return this.f57753b;
+        return this.f61442b;
     }
 
     public boolean h() {
@@ -101,26 +101,26 @@ public class c {
     }
 
     public final void i() {
-        this.f57752a = d.a.m0.r.d0.b.j().k("key_abtest_channel", 0);
+        this.f61441a = d.a.m0.r.d0.b.j().k("key_abtest_channel", 0);
         j();
     }
 
     public final void j() {
-        if (this.f57753b || this.f57752a != 1) {
+        if (this.f61442b || this.f61441a != 1) {
             return;
         }
         boolean h2 = h();
-        this.f57753b = h2;
+        this.f61442b = h2;
         if (h2) {
             return;
         }
-        this.f57752a = 0;
+        this.f61441a = 0;
     }
 
     public void k(int i2) {
         if (i2 == 1 || i2 == 0) {
-            this.f57752a = i2;
-            d.a.m0.r.d0.b.j().v("key_abtest_channel", this.f57752a);
+            this.f61441a = i2;
+            d.a.m0.r.d0.b.j().v("key_abtest_channel", this.f61441a);
             j();
         }
     }

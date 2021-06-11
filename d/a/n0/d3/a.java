@@ -16,7 +16,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f52722a = Arrays.asList("a006", "a005", "a008", "a002");
+    public static final List<String> f56411a = Arrays.asList("a006", "a005", "a008", "a002");
 
     public static String a(String str) {
         return "enterfourm_att_" + str;
@@ -69,7 +69,7 @@ public class a {
     public static StatisticItem i(String str, String str2, boolean z, int i2, int i3) {
         StatisticItem statisticItem = new StatisticItem(str2);
         statisticItem.param("page_type", str).param("ad_exp", z ? 1 : 0).param("ad_exp_cnt", i2).param(TiebaStatic.Params.OBJ_FLOOR, 0).param(TiebaStatic.Params.OBJ_AD_LOCATE, i3);
-        if (str != null && f52722a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && f56411a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().r);
         }
         return statisticItem;
@@ -96,7 +96,7 @@ public class a {
             str3 = str4;
         }
         param.param("obj_id", str3).param(TiebaStatic.Params.OBJ_AD_LOCATE, i4);
-        if (str != null && f52722a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+        if (str != null && f56411a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
             statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().r);
         }
         if (z) {
@@ -118,7 +118,7 @@ public class a {
             return null;
         }
         StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("tid", a2Var.y1()).param("fid", a2Var.c0()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", a2Var.G2() ? 1 : 0);
+        statisticItem.param("tid", a2Var.z1()).param("fid", a2Var.c0()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", a2Var.H2() ? 1 : 0);
         if (i2 != 0) {
             statisticItem.param("obj_locate", i2);
         }
@@ -140,14 +140,14 @@ public class a {
 
     public static StatisticItem q(boolean z, a2 a2Var, String str, String str2, int i2, int i3, boolean z2, String str3, String str4, boolean z3, String str5, int i4) {
         StatisticItem statisticItem = new StatisticItem(str2);
-        statisticItem.param("page_type", str).param(TiebaStatic.Params.OBJ_FLOOR, i3).param(TiebaStatic.Params.OBJ_ISAD, z2 ? 1 : 0).param("obj_id", p(z2, str3, z3, str5, a2Var.o0(), a2Var.V())).param("tid", a2Var.y1()).param("thread_type", z2 ? -1 : a2Var.u1()).param(TiebaStatic.Params.OBJ_AD_LOCATE, i4).param("nid", a2Var.M0());
-        if (!k.isEmpty(a2Var.X0())) {
-            statisticItem.param("list_strategy", a2Var.X0());
+        statisticItem.param("page_type", str).param(TiebaStatic.Params.OBJ_FLOOR, i3).param(TiebaStatic.Params.OBJ_ISAD, z2 ? 1 : 0).param("obj_id", p(z2, str3, z3, str5, a2Var.o0(), a2Var.V())).param("tid", a2Var.z1()).param("thread_type", z2 ? -1 : a2Var.v1()).param(TiebaStatic.Params.OBJ_AD_LOCATE, i4).param("nid", a2Var.M0());
+        if (!k.isEmpty(a2Var.Y0())) {
+            statisticItem.param("list_strategy", a2Var.Y0());
         }
-        if (str != null && f52722a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().r)) {
+        if (str != null && f56411a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().r)) {
             statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().r);
-        } else if (!k.isEmpty(a2Var.U0)) {
-            statisticItem.param("ab_tag", a2Var.U0);
+        } else if (!k.isEmpty(a2Var.V0)) {
+            statisticItem.param("ab_tag", a2Var.V0);
         }
         if (z) {
             statisticItem.param("obj_locate", i2);
@@ -158,8 +158,8 @@ public class a {
         if (!StringUtils.isNull(a2Var.d0())) {
             statisticItem.param(TiebaStatic.Params.FIRST_DIR, a2Var.d0());
         }
-        if (!StringUtils.isNull(a2Var.e1())) {
-            statisticItem.param(TiebaStatic.Params.SECOND_DIR, a2Var.e1());
+        if (!StringUtils.isNull(a2Var.f1())) {
+            statisticItem.param(TiebaStatic.Params.SECOND_DIR, a2Var.f1());
         }
         if (a2Var.V() != null) {
             statisticItem.param(TiebaStatic.Params.UGC_VID, a2Var.V().oriUgcVid);
@@ -168,7 +168,7 @@ public class a {
         if (!StringUtils.isNull(str4)) {
             statisticItem.param("pid", str4);
         }
-        statisticItem.param(TiebaStatic.Params.IS_ZP, a2Var.G2() ? 1 : 0);
+        statisticItem.param(TiebaStatic.Params.IS_ZP, a2Var.H2() ? 1 : 0);
         return statisticItem;
     }
 }

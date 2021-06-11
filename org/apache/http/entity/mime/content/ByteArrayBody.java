@@ -2,7 +2,7 @@ package org.apache.http.entity.mime.content;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ByteArrayBody extends AbstractContentBody {
     public final byte[] data;
     public final String filename;

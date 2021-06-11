@@ -5,10 +5,10 @@ import com.alipay.sdk.util.e;
 public class a implements e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AuthTask f1769a;
+    public final /* synthetic */ AuthTask f1782a;
 
     public a(AuthTask authTask) {
-        this.f1769a = authTask;
+        this.f1782a = authTask;
     }
 
     @Override // com.alipay.sdk.util.e.a
@@ -17,6 +17,6 @@ public class a implements e.a {
 
     @Override // com.alipay.sdk.util.e.a
     public void b() {
-        this.f1769a.c();
+        this.f1782a.c();
     }
 }

@@ -31,7 +31,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f49450a;
+    public static String f53124a;
 
     public static void a(WebSettings webSettings) {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
@@ -176,7 +176,7 @@ public class a {
     }
 
     public static void i(String str) {
-        f49450a = str;
+        f53124a = str;
     }
 
     public static void j(Context context, String str) {

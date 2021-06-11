@@ -99,7 +99,7 @@ public class PersonConstellationActivity extends BaseActivity {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (PersonConstellationActivity.this.mTimePickerView != null) {
-                    PersonConstellationActivity.this.mTimePickerView.A();
+                    PersonConstellationActivity.this.mTimePickerView.B();
                     PersonConstellationActivity.this.mTimePickerView.f();
                 }
             }
@@ -260,6 +260,6 @@ public class PersonConstellationActivity extends BaseActivity {
             aVar.h(this.mRootView);
             this.mTimePickerView = aVar.a();
         }
-        this.mTimePickerView.u();
+        this.mTimePickerView.v();
     }
 }

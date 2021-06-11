@@ -5,16 +5,16 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import d.a.m0.r.q.a2;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class h extends BaseCardInfo implements d.a.c.j.e.n {
+public class h extends BaseCardInfo implements d.a.c.k.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f53984f = BdUniqueId.gen();
+    public static final BdUniqueId f57673f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a2> f53985e;
+    public List<a2> f57674e;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f53984f;
+        return f57673f;
     }
 }

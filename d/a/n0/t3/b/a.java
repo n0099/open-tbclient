@@ -9,6 +9,7 @@ import android.widget.EditText;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
@@ -33,16 +34,16 @@ import d.a.n0.e3.q0.g;
 public class a extends e {
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteModel f61204f;
+    public NewWriteModel f64913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.w3.c f61205g;
+    public d.a.n0.w3.c f64914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61206h;
+    public String f64915h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f61207i;
+    public TbPageContext<?> f64916i;
     public String j;
     public String k;
     public String l;
@@ -53,14 +54,14 @@ public class a extends e {
 
     /* renamed from: d.a.n0.t3.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1623a implements NewWriteModel.g {
-        public C1623a() {
+    public class C1680a implements NewWriteModel.g {
+        public C1680a() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, i0 i0Var, WriteData writeData, AntiData antiData) {
             String str;
-            if (a.this.f61204f == null) {
+            if (a.this.f64913f == null) {
                 return;
             }
             if (a.this.a() != null) {
@@ -70,14 +71,14 @@ public class a extends e {
                 a.this.n.a(false);
             }
             if (writeData == null) {
-                writeData = a.this.f61204f.T();
+                writeData = a.this.f64913f.X();
             }
             WriteData writeData2 = writeData;
             if (z) {
                 String str2 = null;
-                a.this.f61205g.n(null);
-                a.this.f61205g.i(null);
-                a.this.f61205g.k(false);
+                a.this.f64914g.n(null);
+                a.this.f64914g.i(null);
+                a.this.f64914g.k(false);
                 a.this.r();
                 a.this.q();
                 if (writeData2 != null) {
@@ -100,17 +101,17 @@ public class a extends e {
                 writeData2.setVcodeUrl(i0Var.c());
                 writeData2.setVcodeExtra(i0Var.a());
                 if (d.a.m0.a1.a.b(i0Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(a.this.f61207i.getPageActivity(), 12006, writeData2, false, i0Var.d())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(a.this.f64916i.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData2, false, i0Var.d())));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(a.this.f61207i.getPageActivity(), writeData2, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(a.this.f64916i.getPageActivity(), writeData2, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.f61207i.getPageActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.f64916i.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData2, postWriteCallBackData.getAccessState())));
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
                 a.this.A(postWriteCallBackData.getErrorString());
-                a.this.f61205g.i(postWriteCallBackData.getSensitiveWords());
-                a.this.f61205g.n(postWriteCallBackData.getErrorString());
-                if (ListUtils.isEmpty(a.this.f61205g.a())) {
+                a.this.f64914g.i(postWriteCallBackData.getSensitiveWords());
+                a.this.f64914g.n(postWriteCallBackData.getErrorString());
+                if (ListUtils.isEmpty(a.this.f64914g.a())) {
                     return;
                 }
                 a.this.k(true);
@@ -142,13 +143,13 @@ public class a extends e {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            if (a.this.f61205g == null) {
+            if (a.this.f64914g == null) {
                 return;
             }
-            if (!a.this.f61205g.e()) {
+            if (!a.this.f64914g.e()) {
                 a.this.k(false);
             }
-            a.this.f61205g.l(false);
+            a.this.f64914g.l(false);
         }
 
         @Override // android.text.TextWatcher
@@ -167,22 +168,22 @@ public class a extends e {
 
     public a(EditorTools editorTools) {
         super(editorTools);
-        this.f61206h = "";
+        this.f64915h = "";
         this.j = null;
-        this.o = new C1623a();
+        this.o = new C1680a();
         this.p = new c();
         editorTools.C(true);
         d.a.n0.w3.c cVar = new d.a.n0.w3.c();
-        this.f61205g = cVar;
+        this.f64914g = cVar;
         cVar.h(R.color.cp_cont_h_alpha85);
-        this.f61205g.j(R.color.CAM_X0101);
+        this.f64914g.j(R.color.CAM_X0101);
     }
 
     public final void A(String str) {
-        if (this.f61207i == null || StringUtils.isNull(str)) {
+        if (this.f64916i == null || StringUtils.isNull(str)) {
             return;
         }
-        this.f61207i.showToast(str);
+        this.f64916i.showToast(str);
     }
 
     public final void k(boolean z) {
@@ -191,17 +192,17 @@ public class a extends e {
         }
         EditText g2 = ((d.a.n0.t3.b.c) a().n(28)).g();
         int selectionEnd = g2.getSelectionEnd();
-        SpannableStringBuilder f2 = this.f61205g.f(g2.getText());
+        SpannableStringBuilder f2 = this.f64914g.f(g2.getText());
         if (f2 != null) {
-            this.f61205g.l(true);
+            this.f64914g.l(true);
             g2.setText(f2);
-            if (z && this.f61205g.b() >= 0) {
+            if (z && this.f64914g.b() >= 0) {
                 g2.requestFocus();
-                g2.setSelection(this.f61205g.b());
+                g2.setSelection(this.f64914g.b());
             } else {
                 g2.setSelection(selectionEnd);
             }
-            d.a.n0.w3.c cVar = this.f61205g;
+            d.a.n0.w3.c cVar = this.f64914g;
             cVar.k(cVar.b() >= 0);
         }
     }
@@ -214,7 +215,7 @@ public class a extends e {
     }
 
     public TbPageContext<?> m() {
-        return this.f61207i;
+        return this.f64916i;
     }
 
     public void n(int i2, int i3, Intent intent) {
@@ -232,44 +233,44 @@ public class a extends e {
         if (intent != null && (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) {
             postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
         }
-        this.o.callback(false, postWriteCallBackData, null, this.f61204f.T(), null);
+        this.o.callback(false, postWriteCallBackData, null, this.f64913f.X(), null);
     }
 
     public void o() {
-        NewWriteModel newWriteModel = this.f61204f;
+        NewWriteModel newWriteModel = this.f64913f;
         if (newWriteModel != null) {
             newWriteModel.cancelLoadData();
         }
     }
 
     public void p() {
-        if (this.f61204f == null) {
-            NewWriteModel newWriteModel = new NewWriteModel(this.f61207i);
-            this.f61204f = newWriteModel;
-            newWriteModel.d0(this.o);
+        if (this.f64913f == null) {
+            NewWriteModel newWriteModel = new NewWriteModel(this.f64916i);
+            this.f64913f = newWriteModel;
+            newWriteModel.h0(this.o);
         }
         WriteData writeData = new WriteData();
         writeData.setType(1);
         writeData.setThreadId(this.j);
         writeData.setForumId(this.k);
         writeData.setForumName(this.l);
-        writeData.setContent(this.f61206h);
+        writeData.setContent(this.f64915h);
         VideoItemData videoItemData = this.m;
         if (videoItemData != null && videoItemData.baijiahaoData != null) {
             writeData.setIsBJHPost(true);
             writeData.setBaijiahaoData(this.m.baijiahaoData);
         }
-        this.f61204f.f0(writeData);
-        this.f61204f.i0();
+        this.f64913f.j0(writeData);
+        this.f64913f.m0();
     }
 
     public final void q() {
-        NewWriteModel newWriteModel = this.f61204f;
+        NewWriteModel newWriteModel = this.f64913f;
         if (newWriteModel == null) {
             return;
         }
-        newWriteModel.f0(null);
-        this.f61204f.Z(false);
+        newWriteModel.j0(null);
+        this.f64913f.d0(false);
     }
 
     public final void r() {
@@ -285,7 +286,7 @@ public class a extends e {
     }
 
     public void s(TbPageContext<?> tbPageContext) {
-        this.f61207i = tbPageContext;
+        this.f64916i = tbPageContext;
     }
 
     public void t(String str, String str2, String str3) {
@@ -305,7 +306,7 @@ public class a extends e {
     }
 
     public void v(String str) {
-        this.f61206h = str;
+        this.f64915h = str;
     }
 
     public void w(VideoItemData videoItemData) {
@@ -314,7 +315,7 @@ public class a extends e {
 
     public final void x(int i2, String str) {
         if (AntiHelper.m(i2, str)) {
-            AntiHelper.w(this.f61207i.getPageActivity(), str, i2, null);
+            AntiHelper.w(this.f64916i.getPageActivity(), str, i2, null);
         } else if (i2 != 230277 && i2 != 230278) {
             A(str);
         } else {

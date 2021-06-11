@@ -12,9 +12,9 @@ public class b {
         e.g gVar = new e.g();
         File file = new File(e2, "app.json");
         SwanAppConfigData b2 = d.a.l0.a.a2.n.d.b(e2.getAbsolutePath());
-        gVar.f40691a = e2.getPath() + File.separator;
-        gVar.f40692b = b2;
-        d.a.l0.a.e0.d.h("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f40691a);
+        gVar.f44367a = e2.getPath() + File.separator;
+        gVar.f44368b = b2;
+        d.a.l0.a.e0.d.h("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f44367a);
         return gVar;
     }
 

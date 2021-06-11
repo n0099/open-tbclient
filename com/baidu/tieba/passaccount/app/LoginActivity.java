@@ -3,6 +3,7 @@ package com.baidu.tieba.passaccount.app;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
@@ -26,6 +27,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -44,7 +46,7 @@ import d.a.m0.s.i.b;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LoginActivity extends BaseActivity<LoginActivity> {
     public static final int SOCIAL_TYPE_QQ = 3;
     public static final int SOCIAL_TYPE_WEIBO = 1;
@@ -64,10 +66,12 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public int loginResult = -2;
     public boolean mClose = false;
     public int jumpTo = -1;
+    public boolean isAutoLogin = false;
+    public String mScheme = null;
     public int mTab = -1;
-    public final a.InterfaceC1141a mReLoginCallback = new c();
+    public final a.InterfaceC1197a mReLoginCallback = new d();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends WebAuthListener {
         public a() {
         }
@@ -100,9 +104,42 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends WebAuthListener {
         public b() {
+        }
+
+        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
+        public void beforeSuccess(SapiAccount sapiAccount) {
+        }
+
+        @Override // com.baidu.sapi2.shell.listener.WebAuthListener, com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            super.onFinish();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+            LoginActivity.this.loginResult = -1;
+            LoginActivity.this.finishForResult(0);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            LoginActivity.this.mWebAuthResult = webAuthResult;
+            LoginActivity.this.mPassActivity = webAuthResult.activity;
+            d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
+            LoginActivity.this.passLoginSucc();
+            LoginActivity.this.loginResult = 0;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends WebAuthListener {
+        public c() {
         }
 
         @Override // com.baidu.sapi2.shell.listener.WebAuthListener
@@ -131,10 +168,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC1141a {
+    /* loaded from: classes5.dex */
+    public class d implements a.InterfaceC1197a {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements DialogInterface.OnCancelListener {
             public a() {
             }
@@ -145,10 +182,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        public c() {
+        public d() {
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void a(String str, int i2, String str2) {
             d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i2, str2, new Object[0]);
             LoginActivity.this.closeLoadingDialog();
@@ -159,7 +196,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             LoginActivity.this.finishForResult(0);
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void b(String str) {
             if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().c()) {
                 LoginActivity loginActivity = LoginActivity.this;
@@ -167,7 +204,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // d.a.m0.r.l.a.InterfaceC1141a
+        @Override // d.a.m0.r.l.a.InterfaceC1197a
         public void c(AccountData accountData) {
             d.a.m0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
             TiebaStatic.log(new StatisticItem("c12948").param("obj_type", LoginActivity.this.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, LoginActivity.this.mFromUrl));
@@ -175,7 +212,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                 LoginActivity.this.goToMainEntrance(accountData);
                 if (d.a.m0.b.d.f()) {
-                    d.a.m0.a.c.y().r();
+                    d.a.m0.a.d.y().r();
                     return;
                 }
                 return;
@@ -184,26 +221,26 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f18747e;
+        public final /* synthetic */ AccountData f18824e;
 
-        public d(AccountData accountData) {
-            this.f18747e = accountData;
+        public e(AccountData accountData) {
+            this.f18824e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.m0.r.l.c.g(this.f18747e);
+            d.a.m0.r.l.c.g(this.f18824e);
             d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e implements b.e {
-        public e() {
+    /* loaded from: classes5.dex */
+    public class f implements b.e {
+        public f() {
         }
 
         @Override // d.a.m0.s.i.b.e
@@ -213,6 +250,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 LoginActivity.this.mWebAuthResult.finishActivity();
             }
             LoginActivity.this.finish();
+        }
+    }
+
+    private void autoLogin() {
+        try {
+            this.jumpTo = 1;
+            Uri parse = Uri.parse(this.mScheme);
+            PassportSDK.getInstance().startSchemeLoginForQA(getActivity(), String.format(LoginActivityConfig.AUTO_LOGIN_URL, parse.getQueryParameter("username"), parse.getQueryParameter("password")), new a());
+        } catch (Exception unused) {
+            this.loginResult = -1;
+            finishForResult(0);
         }
     }
 
@@ -281,6 +329,12 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 this.mTab = 2;
             }
         }
+        if (d.a.m0.r.a0.b.b() != null) {
+            d.a.m0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
+        } else {
+            sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mTab)));
+        }
+        this.jumpTo = -1;
         WebAuthResult webAuthResult2 = this.mWebAuthResult;
         if (webAuthResult2 != null) {
             webAuthResult2.finishActivity();
@@ -290,6 +344,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
 
     private void initWeiboSdk() {
         sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
+    }
+
+    private boolean isAutoLogin() {
+        return this.isAutoLogin && !TextUtils.isEmpty(this.mScheme) && this.mScheme.startsWith("tiebaclient://passlogin");
     }
 
     private boolean isThirdLogin() {
@@ -307,16 +365,16 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         } else if (i2 == 3) {
             webSocialLoginDTO.socialType = SocialType.QQ_SSO;
         }
-        b bVar = new b();
+        c cVar = new c();
         if (this.isFromAiapp) {
             try {
                 Field declaredField = passportSDK.getClass().getDeclaredField("webAuthListener");
                 declaredField.setAccessible(true);
-                declaredField.set(passportSDK, bVar);
+                declaredField.set(passportSDK, cVar);
                 Field declaredField2 = passportSDK.getClass().getDeclaredField("socialLoginDTO");
                 declaredField2.setAccessible(true);
                 declaredField2.set(passportSDK, webSocialLoginDTO);
-                passportSDK.loadThirdPartyLogin(bVar, webSocialLoginDTO);
+                passportSDK.loadThirdPartyLogin(cVar, webSocialLoginDTO);
                 return;
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
@@ -326,7 +384,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 return;
             }
         }
-        passportSDK.loadThirdPartyLogin(bVar, webSocialLoginDTO);
+        passportSDK.loadThirdPartyLogin(cVar, webSocialLoginDTO);
     }
 
     private void parseIntent() {
@@ -338,6 +396,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.mCustomLoginCssUrl = intent.getStringExtra(LoginActivityConfig.CUSTOM_LOGIN_CSS_URL);
         this.mActivityId = intent.getStringExtra("activity_id");
         this.isFromAiapp = intent.getBooleanExtra(LoginActivityConfig.IS_FROM_AIAPP, false);
+        this.isAutoLogin = intent.getBooleanExtra(LoginActivityConfig.AUTO_LOGIN, false);
+        this.mScheme = intent.getStringExtra("scheme");
         Serializable serializableExtra = getIntent().getSerializableExtra("login_dialog_login_listener");
         if (serializableExtra instanceof ILoginListener) {
             this.loginListener = (ILoginListener) serializableExtra;
@@ -354,11 +414,13 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 bdAsyncTask.cancel();
             }
             this.mAccountLoginTask = d.a.m0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+            return;
         }
+        finish();
     }
 
     private void saveAccountInfo(AccountData accountData) {
-        h.a().c(new d(accountData));
+        h.a().c(new e(accountData));
         d.a.m0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
         d.a.m0.l.a.f(TbadkCoreApplication.getInst());
@@ -372,7 +434,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             d.a.m0.s.i.b bVar = new d.a.m0.s.i.b(this.mPassActivity);
             this.mInputUserNameDialog = bVar;
             bVar.x(this.mReLoginCallback);
-            this.mInputUserNameDialog.v(new e());
+            this.mInputUserNameDialog.v(new f());
         }
         this.mInputUserNameDialog.p();
         this.mInputUserNameDialog.u(accountData);
@@ -386,7 +448,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (SwitchManager.getInstance().findType(LoginDefaultTypeSmsSwitch.SWITCH_NAME) == 1) {
             webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_SMS;
         }
-        passportSDK.startLogin(getActivity(), new a(), webLoginDTO);
+        passportSDK.startLogin(getActivity(), new b(), webLoginDTO);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -414,7 +476,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             confignation2.fastLoginFeatureList.addAll(PassManagerStatic.l());
         }
         checkAndSetCustomLoginCss();
-        if (isThirdLogin()) {
+        if (isAutoLogin()) {
+            autoLogin();
+        } else if (isThirdLogin()) {
             loadThirdPartyLogin(this.mSocialType);
         } else {
             startLogin();

@@ -21,13 +21,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public abstract class gc {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f37637a;
+    public static long f41316a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final DateFormat f424a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37639c;
+    public static String f41318c;
 
     /* renamed from: a  reason: collision with other field name */
     public gg f425a;
@@ -39,63 +39,63 @@ public abstract class gc {
     public final Map<String, Object> f427a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37640d;
+    public String f41319d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37641e;
+    public String f41320e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37642f;
+    public String f41321f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37643g;
+    public String f41322g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37644h;
+    public String f41323h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f37645i;
+    public String f41324i;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String f423a = Locale.getDefault().getLanguage().toLowerCase();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37638b = null;
+    public static String f41317b = null;
 
     static {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         f424a = simpleDateFormat;
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        f37639c = gn.a(5) + "-";
-        f37637a = 0L;
+        f41318c = gn.a(5) + "-";
+        f41316a = 0L;
     }
 
     public gc() {
-        this.f37640d = f37638b;
-        this.f37641e = null;
-        this.f37642f = null;
-        this.f37643g = null;
-        this.f37644h = null;
-        this.f37645i = null;
+        this.f41319d = f41317b;
+        this.f41320e = null;
+        this.f41321f = null;
+        this.f41322g = null;
+        this.f41323h = null;
+        this.f41324i = null;
         this.f426a = new CopyOnWriteArrayList();
         this.f427a = new HashMap();
         this.f425a = null;
     }
 
     public gc(Bundle bundle) {
-        this.f37640d = f37638b;
-        this.f37641e = null;
-        this.f37642f = null;
-        this.f37643g = null;
-        this.f37644h = null;
-        this.f37645i = null;
+        this.f41319d = f41317b;
+        this.f41320e = null;
+        this.f41321f = null;
+        this.f41322g = null;
+        this.f41323h = null;
+        this.f41324i = null;
         this.f426a = new CopyOnWriteArrayList();
         this.f427a = new HashMap();
         this.f425a = null;
-        this.f37642f = bundle.getString("ext_to");
-        this.f37643g = bundle.getString("ext_from");
-        this.f37644h = bundle.getString("ext_chid");
-        this.f37641e = bundle.getString("ext_pkt_id");
+        this.f41321f = bundle.getString("ext_to");
+        this.f41322g = bundle.getString("ext_from");
+        this.f41323h = bundle.getString("ext_chid");
+        this.f41320e = bundle.getString("ext_pkt_id");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
             this.f426a = new ArrayList(parcelableArray.length);
@@ -116,9 +116,9 @@ public abstract class gc {
         String sb;
         synchronized (gc.class) {
             StringBuilder sb2 = new StringBuilder();
-            sb2.append(f37639c);
-            long j = f37637a;
-            f37637a = 1 + j;
+            sb2.append(f41318c);
+            long j = f41316a;
+            f41316a = 1 + j;
             sb2.append(Long.toString(j));
             sb = sb2.toString();
         }
@@ -131,20 +131,20 @@ public abstract class gc {
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        if (!TextUtils.isEmpty(this.f37640d)) {
-            bundle.putString("ext_ns", this.f37640d);
+        if (!TextUtils.isEmpty(this.f41319d)) {
+            bundle.putString("ext_ns", this.f41319d);
         }
-        if (!TextUtils.isEmpty(this.f37643g)) {
-            bundle.putString("ext_from", this.f37643g);
+        if (!TextUtils.isEmpty(this.f41322g)) {
+            bundle.putString("ext_from", this.f41322g);
         }
-        if (!TextUtils.isEmpty(this.f37642f)) {
-            bundle.putString("ext_to", this.f37642f);
+        if (!TextUtils.isEmpty(this.f41321f)) {
+            bundle.putString("ext_to", this.f41321f);
         }
-        if (!TextUtils.isEmpty(this.f37641e)) {
-            bundle.putString("ext_pkt_id", this.f37641e);
+        if (!TextUtils.isEmpty(this.f41320e)) {
+            bundle.putString("ext_pkt_id", this.f41320e);
         }
-        if (!TextUtils.isEmpty(this.f37644h)) {
-            bundle.putString("ext_chid", this.f37644h);
+        if (!TextUtils.isEmpty(this.f41323h)) {
+            bundle.putString("ext_chid", this.f41323h);
         }
         gg ggVar = this.f425a;
         if (ggVar != null) {
@@ -173,7 +173,7 @@ public abstract class gc {
     public fz a(String str, String str2) {
         for (fz fzVar : this.f426a) {
             if (str2 == null || str2.equals(fzVar.b())) {
-                if (str.equals(fzVar.m321a())) {
+                if (str.equals(fzVar.m320a())) {
                     return fzVar;
                 }
             }
@@ -182,12 +182,12 @@ public abstract class gc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gg m330a() {
+    public gg m329a() {
         return this.f425a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m331a(String str) {
+    public synchronized Object m330a(String str) {
         if (this.f427a == null) {
             return null;
         }
@@ -195,10 +195,10 @@ public abstract class gc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m332a();
+    public abstract String m331a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<fz> m333a() {
+    public synchronized Collection<fz> m332a() {
         if (this.f426a == null) {
             return Collections.emptyList();
         }
@@ -230,19 +230,19 @@ public abstract class gc {
         gc gcVar = (gc) obj;
         gg ggVar = this.f425a;
         if (ggVar == null ? gcVar.f425a == null : ggVar.equals(gcVar.f425a)) {
-            String str = this.f37643g;
-            if (str == null ? gcVar.f37643g == null : str.equals(gcVar.f37643g)) {
+            String str = this.f41322g;
+            if (str == null ? gcVar.f41322g == null : str.equals(gcVar.f41322g)) {
                 if (this.f426a.equals(gcVar.f426a)) {
-                    String str2 = this.f37641e;
-                    if (str2 == null ? gcVar.f37641e == null : str2.equals(gcVar.f37641e)) {
-                        String str3 = this.f37644h;
-                        if (str3 == null ? gcVar.f37644h == null : str3.equals(gcVar.f37644h)) {
+                    String str2 = this.f41320e;
+                    if (str2 == null ? gcVar.f41320e == null : str2.equals(gcVar.f41320e)) {
+                        String str3 = this.f41323h;
+                        if (str3 == null ? gcVar.f41323h == null : str3.equals(gcVar.f41323h)) {
                             Map<String, Object> map = this.f427a;
                             if (map == null ? gcVar.f427a == null : map.equals(gcVar.f427a)) {
-                                String str4 = this.f37642f;
-                                if (str4 == null ? gcVar.f37642f == null : str4.equals(gcVar.f37642f)) {
-                                    String str5 = this.f37640d;
-                                    String str6 = gcVar.f37640d;
+                                String str4 = this.f41321f;
+                                if (str4 == null ? gcVar.f41321f == null : str4.equals(gcVar.f41321f)) {
+                                    String str5 = this.f41319d;
+                                    String str6 = gcVar.f41319d;
                                     if (str5 != null) {
                                         if (str5.equals(str6)) {
                                             return true;
@@ -268,60 +268,60 @@ public abstract class gc {
     }
 
     public int hashCode() {
-        String str = this.f37640d;
+        String str = this.f41319d;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        String str2 = this.f37641e;
+        String str2 = this.f41320e;
         int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-        String str3 = this.f37642f;
+        String str3 = this.f41321f;
         int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-        String str4 = this.f37643g;
+        String str4 = this.f41322g;
         int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-        String str5 = this.f37644h;
+        String str5 = this.f41323h;
         int hashCode5 = (((((hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31) + this.f426a.hashCode()) * 31) + this.f427a.hashCode()) * 31;
         gg ggVar = this.f425a;
         return hashCode5 + (ggVar != null ? ggVar.hashCode() : 0);
     }
 
     public String j() {
-        if ("ID_NOT_AVAILABLE".equals(this.f37641e)) {
+        if ("ID_NOT_AVAILABLE".equals(this.f41320e)) {
             return null;
         }
-        if (this.f37641e == null) {
-            this.f37641e = i();
+        if (this.f41320e == null) {
+            this.f41320e = i();
         }
-        return this.f37641e;
+        return this.f41320e;
     }
 
     public String k() {
-        return this.f37644h;
+        return this.f41323h;
     }
 
     public void k(String str) {
-        this.f37641e = str;
+        this.f41320e = str;
     }
 
     public String l() {
-        return this.f37642f;
+        return this.f41321f;
     }
 
     public void l(String str) {
-        this.f37644h = str;
+        this.f41323h = str;
     }
 
     public String m() {
-        return this.f37643g;
+        return this.f41322g;
     }
 
     public void m(String str) {
-        this.f37642f = str;
+        this.f41321f = str;
     }
 
     public String n() {
-        return this.f37645i;
+        return this.f41324i;
     }
 
     public void n(String str) {
-        this.f37643g = str;
+        this.f41322g = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x010f A[SYNTHETIC] */
@@ -336,41 +336,41 @@ public abstract class gc {
         Exception e2;
         String str;
         sb = new StringBuilder();
-        for (fz fzVar : m333a()) {
+        for (fz fzVar : m332a()) {
             sb.append(fzVar.d());
         }
         if (this.f427a != null && !this.f427a.isEmpty()) {
             sb.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");
             for (String str2 : b()) {
-                Object m331a = m331a(str2);
+                Object m330a = m330a(str2);
                 sb.append("<property>");
                 sb.append("<name>");
                 sb.append(gn.a(str2));
                 sb.append("</name>");
                 sb.append("<value type=\"");
-                if (m331a instanceof Integer) {
+                if (m330a instanceof Integer) {
                     sb.append("integer\">");
-                    sb.append(m331a);
+                    sb.append(m330a);
                     str = "</value>";
-                } else if (m331a instanceof Long) {
+                } else if (m330a instanceof Long) {
                     sb.append("long\">");
-                    sb.append(m331a);
+                    sb.append(m330a);
                     str = "</value>";
-                } else if (m331a instanceof Float) {
+                } else if (m330a instanceof Float) {
                     sb.append("float\">");
-                    sb.append(m331a);
+                    sb.append(m330a);
                     str = "</value>";
-                } else if (m331a instanceof Double) {
+                } else if (m330a instanceof Double) {
                     sb.append("double\">");
-                    sb.append(m331a);
+                    sb.append(m330a);
                     str = "</value>";
-                } else if (m331a instanceof Boolean) {
+                } else if (m330a instanceof Boolean) {
                     sb.append("boolean\">");
-                    sb.append(m331a);
+                    sb.append(m330a);
                     str = "</value>";
-                } else if (m331a instanceof String) {
+                } else if (m330a instanceof String) {
                     sb.append("string\">");
-                    sb.append(gn.a((String) m331a));
+                    sb.append(gn.a((String) m330a));
                     str = "</value>";
                 } else {
                     ObjectOutputStream objectOutputStream2 = null;
@@ -389,7 +389,7 @@ public abstract class gc {
                             objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                             try {
                                 try {
-                                    objectOutputStream.writeObject(m331a);
+                                    objectOutputStream.writeObject(m330a);
                                     sb.append("java-object\">");
                                     sb.append(gn.a(byteArrayOutputStream.toByteArray()));
                                     sb.append("</value>");
@@ -454,10 +454,10 @@ public abstract class gc {
     }
 
     public void o(String str) {
-        this.f37645i = str;
+        this.f41324i = str;
     }
 
     public String p() {
-        return this.f37640d;
+        return this.f41319d;
     }
 }

@@ -26,7 +26,7 @@ public class a extends d.a.l0.a.y0.a<d.a.l0.a.y0.f.a> {
             hashMap.put("Cookie", (String) arrayList.get(1));
             hashMap.put("User-Agent", (String) arrayList.get(2));
             hashMap.put("Referer", (String) arrayList.get(3));
-            aVar.k((String) arrayList.get(0), hashMap);
+            aVar.j((String) arrayList.get(0), hashMap);
         }
     }
 }

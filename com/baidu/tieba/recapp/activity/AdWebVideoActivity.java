@@ -61,13 +61,13 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public AdvertAppInfo f20137a;
+        public AdvertAppInfo f20214a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20138b;
+        public int f20215b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f20139c;
+        public String f20216c;
     }
 
     private void configWebviewParams(int i2) {
@@ -90,9 +90,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public static void setStaticInfo(AdvertAppInfo advertAppInfo, int i2, String str) {
         b bVar = new b();
         STATISTIC_DATA = bVar;
-        bVar.f20137a = advertAppInfo;
-        bVar.f20139c = str;
-        bVar.f20138b = i2;
+        bVar.f20214a = advertAppInfo;
+        bVar.f20216c = str;
+        bVar.f20215b = i2;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
@@ -139,10 +139,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             this.mVideoView.initVideoViewLayout(this.mGoodsStyle == 14);
             b bVar = STATISTIC_DATA;
             if (bVar != null) {
-                this.mVideoView.updateTailFrameView(bVar.f20137a);
+                this.mVideoView.updateTailFrameView(bVar.f20214a);
                 DistributeVideoView distributeVideoView = this.mVideoView;
                 b bVar2 = STATISTIC_DATA;
-                distributeVideoView.setStatisticInfo(bVar2.f20137a, bVar2.f20138b, bVar2.f20139c);
+                distributeVideoView.setStatisticInfo(bVar2.f20214a, bVar2.f20215b, bVar2.f20216c);
             } else {
                 this.mVideoView.updateTailFrameView(null);
             }

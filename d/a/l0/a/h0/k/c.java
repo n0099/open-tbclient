@@ -12,34 +12,34 @@ import d.a.l0.a.l0.j;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42208c = k.f43199a;
+    public static final boolean f45884c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.l0.a f42209a;
+    public d.a.l0.a.l0.a f45885a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f42210b;
+    public j f45886b;
 
     /* loaded from: classes2.dex */
     public class a extends d.a.l0.a.l0.n.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42211a;
+        public String f45887a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42212b;
+        public String f45888b;
 
         public a(@NonNull String str, @NonNull String str2) {
-            this.f42211a = str;
-            this.f42212b = str2;
-            if (c.f42208c) {
+            this.f45887a = str;
+            this.f45888b = str2;
+            if (c.f45884c) {
                 Log.d("SwanAppV8Daemon", "basePath: " + str + ", jsFile: " + str2);
             }
         }
 
         @Override // d.a.l0.a.l0.n.b
         public String a() {
-            return this.f42212b;
+            return this.f45888b;
         }
 
         @Override // d.a.l0.a.l0.n.a, d.a.l0.a.l0.n.b
@@ -50,8 +50,8 @@ public class c {
 
         @Override // d.a.l0.a.l0.n.a, d.a.l0.a.l0.n.b
         public void c(d.a.l0.a.l0.a aVar) {
-            if (c.this.f42210b != null) {
-                c.this.f42210b.a(aVar);
+            if (c.this.f45886b != null) {
+                c.this.f45886b.a(aVar);
             }
             aVar.y0();
         }
@@ -63,13 +63,13 @@ public class c {
 
         @Override // d.a.l0.a.l0.n.b
         public String getInitBasePath() {
-            return this.f42211a;
+            return this.f45887a;
         }
     }
 
     public c(@NonNull String str, @NonNull String str2) {
-        this.f42209a = d.a.l0.a.l0.f.c(c(), new a(str, str2), null);
-        this.f42209a.addJavascriptInterface(new b(this.f42209a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.f45885a = d.a.l0.a.l0.f.c(c(), new a(str, str2), null);
+        this.f45885a.addJavascriptInterface(new b(this.f45885a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
     public final g c() {
@@ -80,19 +80,19 @@ public class c {
     }
 
     public d.a.l0.a.l0.a d() {
-        return this.f42209a;
+        return this.f45885a;
     }
 
     public void e() {
-        d.a.l0.a.l0.a aVar = this.f42209a;
+        d.a.l0.a.l0.a aVar = this.f45885a;
         if (aVar != null) {
             aVar.k0();
-            this.f42209a = null;
+            this.f45885a = null;
         }
-        this.f42210b = null;
+        this.f45886b = null;
     }
 
     public void f(j jVar) {
-        this.f42210b = jVar;
+        this.f45886b = jVar;
     }
 }

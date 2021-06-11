@@ -13,22 +13,22 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f48145c = "PageTipsManager";
+    public static String f51819c = "PageTipsManager";
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f48146d = d.a.l0.n.c.f47984a;
+    public static boolean f51820d = d.a.l0.n.c.f51658a;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f48147a;
+    public c f51821a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f48148b;
+    public Map<String, String> f51822b;
 
     /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final i f48149a = new i();
+        public static final i f51823a = new i();
     }
 
     /* loaded from: classes3.dex */
@@ -39,7 +39,7 @@ public class i {
     }
 
     public static i b() {
-        return b.f48149a;
+        return b.f51823a;
     }
 
     @NonNull
@@ -50,57 +50,57 @@ public class i {
         try {
             return new JSONObject(str);
         } catch (JSONException e2) {
-            if (f48146d) {
-                Log.w(f48145c, "JSONObject parsed error!!", e2);
+            if (f51820d) {
+                Log.w(f51819c, "JSONObject parsed error!!", e2);
             }
             return new JSONObject();
         }
     }
 
     public final void a() {
-        Map<String, String> map = this.f48148b;
+        Map<String, String> map = this.f51822b;
         if (map == null) {
             return;
         }
         map.clear();
-        this.f48148b = null;
+        this.f51822b = null;
     }
 
     public Map<String, String> c() {
-        Map<String, String> map = this.f48148b;
+        Map<String, String> map = this.f51822b;
         if (map == null || map.size() < 1) {
             h();
         }
-        return this.f48148b;
+        return this.f51822b;
     }
 
     public String d() {
-        return this.f48147a.getString("version", "0");
+        return this.f51821a.getString("version", "0");
     }
 
     public final void e(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f48148b = new HashMap();
+        this.f51822b = new HashMap();
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
             JSONObject optJSONObject = jSONObject.optJSONObject(next);
             if (optJSONObject != null) {
                 String optString = optJSONObject.optString("tips");
-                Map<String, String> map = this.f48148b;
+                Map<String, String> map = this.f51822b;
                 map.put(next + "_tips", optString);
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("button");
                 if (optJSONObject2 != null) {
                     String optString2 = optJSONObject2.optString("cmd");
                     if (!TextUtils.isEmpty(optString2)) {
-                        Map<String, String> map2 = this.f48148b;
+                        Map<String, String> map2 = this.f51822b;
                         map2.put(next + "_btn_cmd", optString2);
                     }
                     String optString3 = optJSONObject2.optString("text");
                     if (!TextUtils.isEmpty(optString3)) {
-                        Map<String, String> map3 = this.f48148b;
+                        Map<String, String> map3 = this.f51822b;
                         map3.put(next + "_btn_text", optString3);
                     }
                 }
@@ -123,7 +123,7 @@ public class i {
     }
 
     public void h() {
-        JSONObject f2 = f(this.f48147a.getString("page_error_tips", ""));
+        JSONObject f2 = f(this.f51821a.getString("page_error_tips", ""));
         a();
         e(f2);
     }
@@ -132,17 +132,17 @@ public class i {
         if (str == null || str.isEmpty() || TextUtils.isEmpty(str2)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f48147a.edit();
+        SharedPreferences.Editor edit = this.f51821a.edit();
         edit.clear();
         edit.putString("version", str2);
         edit.putString("page_error_tips", str);
         edit.apply();
-        if (f48146d) {
-            Log.d(f48145c, "write success");
+        if (f51820d) {
+            Log.d(f51819c, "write success");
         }
     }
 
     public i() {
-        this.f48147a = new c();
+        this.f51821a = new c();
     }
 }

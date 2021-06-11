@@ -12,15 +12,15 @@ public class g {
     public static class a extends AnimatorListenerAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f45410e;
+        public final /* synthetic */ View f49084e;
 
         public a(View view) {
-            this.f45410e = view;
+            this.f49084e = view;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            this.f45410e.setTranslationX(0.0f);
+            this.f49084e.setTranslationX(0.0f);
         }
     }
 

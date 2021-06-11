@@ -6,10 +6,10 @@ import d.a.n0.v.d.c.h.b;
 public class OfficialRecommendLiveViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f13768a;
+    public b f13833a;
 
     public OfficialRecommendLiveViewHolder(b bVar) {
-        super(bVar.l());
-        this.f13768a = bVar;
+        super(bVar.m());
+        this.f13833a = bVar;
     }
 }

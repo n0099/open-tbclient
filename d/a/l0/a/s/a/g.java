@@ -3,69 +3,69 @@ package d.a.l0.a.s.a;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f44583a = null;
+    public static Boolean f48257a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f44584b = "8893";
+    public static String f48258b = "8893";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f44585c = "80";
+    public static String f48259c = "80";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f44586d = "81";
+    public static String f48260d = "81";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f44587e = "82";
+    public static String f48261e = "82";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f44588f = "show";
+    public static String f48262f = "show";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f44589g = "fail";
+    public static String f48263g = "fail";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f44590h = "success";
+    public static String f48264h = "success";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f44591i = "login";
+    public static String f48265i = "login";
 
     public static final String a() {
-        return f44587e;
+        return f48261e;
     }
 
     public static final String b() {
-        return f44585c;
+        return f48259c;
     }
 
     public static final String c() {
-        return f44586d;
+        return f48260d;
     }
 
     public static final String d() {
-        return f44589g;
+        return f48263g;
     }
 
     public static final String e() {
-        return f44588f;
+        return f48262f;
     }
 
     public static final String f() {
-        return f44590h;
+        return f48264h;
     }
 
     public static final String g() {
-        return f44584b;
+        return f48258b;
     }
 
     public static final String h() {
-        return f44591i;
+        return f48265i;
     }
 
     public static final Boolean i() {
-        return f44583a;
+        return f48257a;
     }
 
     public static final void j(Boolean bool) {
-        f44583a = bool;
+        f48257a = bool;
     }
 }

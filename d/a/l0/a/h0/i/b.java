@@ -17,26 +17,26 @@ import java.util.TreeMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42159a = k.f43199a;
+    public static final boolean f45835a = k.f46875a;
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42160e;
+        public final /* synthetic */ String f45836e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f42161f;
+        public final /* synthetic */ File f45837f;
 
         public a(String str, File file) {
-            this.f42160e = str;
-            this.f42161f = file;
+            this.f45836e = str;
+            this.f45837f = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             synchronized (b.class) {
-                d.a.l0.t.d.R(this.f42160e, this.f42161f, true);
+                d.a.l0.t.d.R(this.f45836e, this.f45837f, true);
             }
             b.c();
         }
@@ -44,7 +44,7 @@ public class b {
 
     /* renamed from: d.a.l0.a.h0.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0667b implements Comparator<Long> {
+    public static class C0723b implements Comparator<Long> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -103,7 +103,7 @@ public class b {
         if (g2 == null) {
             return null;
         }
-        TreeMap treeMap = new TreeMap(new C0667b());
+        TreeMap treeMap = new TreeMap(new C0723b());
         long i2 = i(System.currentTimeMillis());
         for (File file : g2) {
             try {
@@ -166,7 +166,7 @@ public class b {
     public static void h(long j, String str) {
         long i2 = i(j);
         if (i2 == -1) {
-            if (f42159a) {
+            if (f45835a) {
                 Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
                 return;
             }
@@ -188,7 +188,7 @@ public class b {
             }
             return parse.getTime();
         } catch (ParseException e2) {
-            if (k.f43199a) {
+            if (k.f46875a) {
                 e2.printStackTrace();
             }
             return -1L;

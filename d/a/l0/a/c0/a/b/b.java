@@ -1,7 +1,6 @@
 package d.a.l0.a.c0.a.b;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -19,6 +18,6 @@ public class b extends d.a.l0.a.c0.a.d.b {
             return;
         }
         super.a(jSONObject);
-        this.x = jSONObject.optString(UserAccountActionItem.KEY_SRC);
+        this.x = jSONObject.optString("src");
     }
 }

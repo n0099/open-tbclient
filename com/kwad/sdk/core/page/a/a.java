@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.page.a;
 
-import android.content.Context;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
@@ -8,54 +7,39 @@ import com.kwad.sdk.core.page.recycle.e;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.feed.widget.k;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends Presenter {
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f32435a;
-
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        final e eVar = (e) k();
+        final e eVar = (e) n();
         KsAdVideoPlayConfig build = new KsAdVideoPlayConfig.Builder().videoSoundEnable(true).build();
-        k kVar = (k) i();
-        kVar.a(eVar.f32481c);
+        k kVar = (k) l();
+        kVar.a(eVar.f34573c);
         kVar.a(build);
         kVar.setVisibility(0);
         kVar.setOnEndBtnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.kwad.sdk.core.response.b.a.v(c.g(eVar.f32481c))) {
-                    com.kwad.sdk.core.download.b.b bVar = eVar.f32479a;
+                if (com.kwad.sdk.core.response.b.a.y(c.j(eVar.f34573c))) {
+                    com.kwad.sdk.core.download.b.b bVar = eVar.f34571a;
                     if (bVar != null) {
-                        bVar.a((Context) a.this.j(), false);
+                        bVar.a(a.this.m());
                         return;
                     }
                     return;
                 }
-                RecyclerView recyclerView = eVar.f32480b;
-                if (recyclerView == null || recyclerView.getAdapter() == null || eVar.f32480b.getAdapter().getItemCount() <= 1) {
+                RecyclerView recyclerView = eVar.f34572b;
+                if (recyclerView == null || recyclerView.getAdapter() == null || eVar.f34572b.getAdapter().getItemCount() <= 1) {
                     return;
                 }
-                eVar.f32480b.scrollToPosition(1);
-            }
-        });
-        kVar.setWindowFullScreenListener(new k.a() { // from class: com.kwad.sdk.core.page.a.a.2
-            @Override // com.kwad.sdk.feed.widget.k.a
-            public void a() {
-                a.this.f32435a = eVar.f32480b.computeVerticalScrollOffset();
-            }
-
-            @Override // com.kwad.sdk.feed.widget.k.a
-            public void b() {
-                eVar.f32480b.scrollToPosition(a.this.f32435a);
+                eVar.f34572b.scrollToPosition(1);
             }
         });
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b() {
-        super.b();
+    public void c() {
+        super.c();
     }
 }

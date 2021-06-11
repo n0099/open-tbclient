@@ -5,23 +5,23 @@ import d.a.n0.e3.n0.f;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50484a;
+    public int f54160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50485b;
+    public String f54161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f.c f50486c;
+    public f.c f54162c;
 
     /* loaded from: classes3.dex */
     public static class a extends c {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50487b;
+        public String f54163b;
 
         public a(boolean z, String str) {
             super(z);
-            this.f50487b = str;
+            this.f54163b = str;
         }
     }
 
@@ -29,11 +29,11 @@ public class l {
     public static class b extends c {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50488b;
+        public String f54164b;
 
         public b(boolean z, String str) {
             super(z);
-            this.f50488b = str;
+            this.f54164b = str;
         }
     }
 
@@ -41,16 +41,16 @@ public class l {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f50489a;
+        public boolean f54165a;
 
         public c(boolean z) {
-            this.f50489a = z;
+            this.f54165a = z;
         }
     }
 
     public l(int i2, String str) {
-        this.f50484a = i2;
-        this.f50485b = str;
+        this.f54160a = i2;
+        this.f54161b = str;
     }
 
     public static l a(String str) {
@@ -70,18 +70,18 @@ public class l {
     }
 
     public String e() {
-        return this.f50485b;
+        return this.f54161b;
     }
 
     public f.c f() {
-        return this.f50486c;
+        return this.f54162c;
     }
 
     public int g() {
-        return this.f50484a;
+        return this.f54160a;
     }
 
     public void h(f.c cVar) {
-        this.f50486c = cVar;
+        this.f54162c = cVar;
     }
 }

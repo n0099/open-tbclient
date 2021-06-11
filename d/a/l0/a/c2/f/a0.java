@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f40949b = d.a.l0.a.k.f43199a;
+    public static final boolean f44625b = d.a.l0.a.k.f46875a;
 
     public a0(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher, String str) {
         super(unitedSchemeBaseDispatcher, str);
@@ -32,7 +32,7 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
         try {
             return new JSONObject(param);
         } catch (JSONException e2) {
-            if (f40949b) {
+            if (f44625b) {
                 e2.printStackTrace();
             }
             return null;
@@ -47,12 +47,12 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
 
     public boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         try {
-            if (TextUtils.equals(this.f40951a, str)) {
+            if (TextUtils.equals(this.f44627a, str)) {
                 return d(context, unitedSchemeEntity, callbackHandler, c());
             }
             return i(context, unitedSchemeEntity, callbackHandler, str, c());
         } catch (Throwable th) {
-            if (f40949b) {
+            if (f44625b) {
                 Log.e("SwanAppAction", Log.getStackTraceString(th));
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));

@@ -50,9 +50,9 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
                 return;
             }
             v.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mZanListModel.k(), null, "praise_list"));
-        } else if (view != this.mZanListView.e() || this.mZanListView.g()) {
+        } else if (view != this.mZanListView.e() || this.mZanListView.h()) {
         } else {
-            this.mZanListView.k(true);
+            this.mZanListView.l(true);
             this.mZanListModel.m(this.pageType);
         }
     }
@@ -80,7 +80,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         this.mZanListModel.t(z);
         e eVar = new e(this, this.mZanListModel.i());
         this.mZanListView = eVar;
-        eVar.k(false);
+        eVar.l(false);
         this.mZanListModel.m(this.pageType);
     }
 
@@ -103,19 +103,19 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (k.isEmpty(str)) {
             str = getResources().getString(R.string.neterror);
         }
-        this.mZanListView.l();
-        this.mZanListView.j(str, this.pageType);
+        this.mZanListView.m();
+        this.mZanListView.k(str, this.pageType);
     }
 
     @Override // d.a.n0.f2.c.d.b
     public void onLoadSuccessed(int i2, List<a> list, int i3, int i4) {
-        this.mZanListView.m(i2, list, i3, i4);
+        this.mZanListView.n(i2, list, i3, i4);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mZanListView.h();
+        this.mZanListView.i();
     }
 
     @Override // android.app.Activity

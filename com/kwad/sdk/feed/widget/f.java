@@ -3,7 +3,7 @@ package com.kwad.sdk.feed.widget;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f extends a {
     public f(@NonNull Context context) {
         super(context);

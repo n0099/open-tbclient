@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
     public static final long serialVersionUID = 6210984603741293445L;
     public final int capacitySkip;

@@ -16,22 +16,22 @@ public class a extends d.a.l0.a.u.c.d {
 
     /* renamed from: d.a.l0.a.u.e.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0867a implements Runnable {
+    public class RunnableC0923a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f45188e;
+        public final /* synthetic */ JSONArray f48862e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45189f;
+        public final /* synthetic */ String f48863f;
 
-        public RunnableC0867a(JSONArray jSONArray, String str) {
-            this.f45188e = jSONArray;
-            this.f45189f = str;
+        public RunnableC0923a(JSONArray jSONArray, String str) {
+            this.f48862e = jSONArray;
+            this.f48863f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.d(this.f45189f, a.this.x(this.f45188e));
+            a.this.d(this.f48863f, a.this.x(this.f48862e));
         }
     }
 
@@ -39,19 +39,19 @@ public class a extends d.a.l0.a.u.c.d {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45191e;
+        public final /* synthetic */ String f48865e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45192f;
+        public final /* synthetic */ String f48866f;
 
         public b(String str, String str2) {
-            this.f45191e = str;
-            this.f45192f = str2;
+            this.f48865e = str;
+            this.f48866f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.d(this.f45192f, a.this.v(this.f45191e));
+            a.this.d(this.f48866f, a.this.v(this.f48865e));
         }
     }
 
@@ -64,13 +64,13 @@ public class a extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b u(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-CheckAppInstall", "start check app install");
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-CheckAppInstall", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-CheckAppInstall", "parse fail");
             }
             return bVar;
@@ -123,7 +123,7 @@ public class a extends d.a.l0.a.u.c.d {
     }
 
     public final void w(JSONArray jSONArray, String str) {
-        q.e().execute(new RunnableC0867a(jSONArray, str));
+        q.e().execute(new RunnableC0923a(jSONArray, str));
     }
 
     public final d.a.l0.a.u.h.b x(JSONArray jSONArray) {

@@ -14,16 +14,16 @@ public interface e extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0436a implements e {
+        public static class C0487a implements e {
 
             /* renamed from: a  reason: collision with root package name */
-            public static e f35963a;
+            public static e f39642a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f35964b;
+            public IBinder f39643b;
 
-            public C0436a(IBinder iBinder) {
-                this.f35964b = iBinder;
+            public C0487a(IBinder iBinder) {
+                this.f39643b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.e
@@ -33,7 +33,7 @@ public interface e extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
                     obtain.writeLong(j);
-                    if (!this.f35964b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f39643b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(j);
                     }
                     obtain2.readException();
@@ -46,7 +46,7 @@ public interface e extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f35964b;
+                return this.f39643b;
             }
         }
 
@@ -62,7 +62,7 @@ public interface e extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
                 return (e) queryLocalInterface;
             }
-            return new C0436a(iBinder);
+            return new C0487a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -87,7 +87,7 @@ public interface e extends IInterface {
         }
 
         public static e a() {
-            return C0436a.f35963a;
+            return C0487a.f39642a;
         }
     }
 }

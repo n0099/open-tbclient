@@ -28,45 +28,45 @@ import java.util.Stack;
 public class c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f49649f = false;
+    public static boolean f53324f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f49650g;
+    public static String f53325g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f49651h;
+    public static int f53326h;
 
     /* renamed from: c  reason: collision with root package name */
-    public Resources f49654c;
+    public Resources f53329c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f49655d;
+    public Resources f53330d;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49652a = false;
+    public boolean f53327a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, b> f49653b = new HashMap();
+    public Map<String, b> f53328b = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49656e = false;
+    public boolean f53331e = false;
 
     public static int g(Resources resources, Resources resources2, int i2) {
         int i3;
-        if (f49649f) {
+        if (f53324f) {
             String resourceName = resources.getResourceName(i2);
             if (TextUtils.isEmpty(resourceName)) {
                 i3 = i2;
             } else {
-                if (f49651h == 0) {
+                if (f53326h == 0) {
                     String packageName = BdBaseApplication.getInst().getPackageName();
-                    f49650g = packageName;
-                    f49651h = packageName.length();
+                    f53325g = packageName;
+                    f53326h = packageName.length();
                 }
                 int length = resourceName.length();
-                int i4 = f49651h;
-                if (length > i4 && resourceName.charAt(i4) != ':' && resourceName.startsWith(f49650g)) {
-                    resourceName = f49650g + resourceName.substring(resourceName.indexOf(":"));
+                int i4 = f53326h;
+                if (length > i4 && resourceName.charAt(i4) != ':' && resourceName.startsWith(f53325g)) {
+                    resourceName = f53325g + resourceName.substring(resourceName.indexOf(":"));
                 }
                 i3 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
                 if (i3 <= 0) {
@@ -89,22 +89,22 @@ public class c {
         Drawable f4;
         int q;
         String str = "@" + view.getId();
-        Map<String, b> map = this.f49653b;
+        Map<String, b> map = this.f53328b;
         if (map == null || !map.containsKey(str)) {
             return;
         }
-        b bVar = this.f49653b.get(str);
+        b bVar = this.f53328b.get(str);
         if (view instanceof TextView) {
             if (bVar.v() != 0) {
-                ((TextView) view).setTextColor(e(this.f49652a, bVar.u(), bVar.v()));
+                ((TextView) view).setTextColor(e(this.f53327a, bVar.u(), bVar.v()));
             }
             if (bVar.t() != 0) {
-                ((TextView) view).setHintTextColor(e(this.f49652a, bVar.s(), bVar.t()));
+                ((TextView) view).setHintTextColor(e(this.f53327a, bVar.s(), bVar.t()));
             }
             if (bVar.r() != 0) {
                 TextView textView = (TextView) view;
                 Context context = view.getContext();
-                if (this.f49652a) {
+                if (this.f53327a) {
                     q = bVar.r();
                 } else {
                     q = bVar.q();
@@ -112,23 +112,23 @@ public class c {
                 textView.setTextAppearance(context, q);
             }
             if (bVar.k() != 0) {
-                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, f(this.f49652a, bVar.j(), bVar.k()), (Drawable) null, (Drawable) null);
+                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, f(this.f53327a, bVar.j(), bVar.k()), (Drawable) null, (Drawable) null);
             }
             if (bVar.g() != 0) {
-                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(f(this.f49652a, bVar.f(), bVar.g()), (Drawable) null, (Drawable) null, (Drawable) null);
+                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(f(this.f53327a, bVar.f(), bVar.g()), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             if (bVar.i() != 0) {
-                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, f(this.f49652a, bVar.h(), bVar.i()), (Drawable) null);
+                ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, f(this.f53327a, bVar.h(), bVar.i()), (Drawable) null);
             }
         } else if (view instanceof ImageButton) {
-            if (bVar.n() != 0 && (f4 = f(this.f49652a, bVar.m(), bVar.n())) != null) {
+            if (bVar.n() != 0 && (f4 = f(this.f53327a, bVar.m(), bVar.n())) != null) {
                 ((ImageView) view).setImageDrawable(f4);
             }
         } else if (view instanceof ImageView) {
-            if (bVar.n() != 0 && (f3 = f(this.f49652a, bVar.m(), bVar.n())) != null) {
+            if (bVar.n() != 0 && (f3 = f(this.f53327a, bVar.m(), bVar.n())) != null) {
                 ((ImageView) view).setImageDrawable(f3);
             }
-        } else if ((view instanceof ProgressBar) && bVar.p() != 0 && (f2 = f(this.f49652a, bVar.o(), bVar.p())) != null) {
+        } else if ((view instanceof ProgressBar) && bVar.p() != 0 && (f2 = f(this.f53327a, bVar.o(), bVar.p())) != null) {
             ((ProgressBar) view).setProgressDrawable(f2);
         }
         if (bVar.c() != 0) {
@@ -136,11 +136,11 @@ public class c {
             int paddingTop = view.getPaddingTop();
             int paddingRight = view.getPaddingRight();
             int paddingBottom = view.getPaddingBottom();
-            String resourceTypeName = this.f49654c.getResourceTypeName(bVar.b());
+            String resourceTypeName = this.f53329c.getResourceTypeName(bVar.b());
             if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                view.setBackgroundColor(d(this.f49652a, bVar.b(), bVar.c()));
+                view.setBackgroundColor(d(this.f53327a, bVar.b(), bVar.c()));
             } else {
-                view.setBackgroundDrawable(f(this.f49652a, bVar.b(), bVar.c()));
+                view.setBackgroundDrawable(f(this.f53327a, bVar.b(), bVar.c()));
             }
             view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
@@ -148,16 +148,16 @@ public class c {
 
     public final void b(ViewGroup viewGroup) {
         String str = "@" + viewGroup.getId();
-        Map<String, b> map = this.f49653b;
+        Map<String, b> map = this.f53328b;
         if (map == null || !map.containsKey(str)) {
             return;
         }
-        b bVar = this.f49653b.get(str);
+        b bVar = this.f53328b.get(str);
         if (viewGroup instanceof AdapterView) {
             if ((viewGroup instanceof ListView) && bVar.e() != 0) {
                 ListView listView = (ListView) viewGroup;
                 int dividerHeight = listView.getDividerHeight();
-                listView.setDivider(f(this.f49652a, bVar.d(), bVar.e()));
+                listView.setDivider(f(this.f53327a, bVar.d(), bVar.e()));
                 listView.setDividerHeight(dividerHeight);
             }
             Adapter adapter = ((AdapterView) viewGroup).getAdapter();
@@ -170,93 +170,93 @@ public class c {
             int paddingTop = viewGroup.getPaddingTop();
             int paddingRight = viewGroup.getPaddingRight();
             int paddingBottom = viewGroup.getPaddingBottom();
-            String resourceTypeName = this.f49654c.getResourceTypeName(bVar.b());
+            String resourceTypeName = this.f53329c.getResourceTypeName(bVar.b());
             if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                viewGroup.setBackgroundColor(d(this.f49652a, bVar.b(), bVar.c()));
+                viewGroup.setBackgroundColor(d(this.f53327a, bVar.b(), bVar.c()));
             } else {
-                viewGroup.setBackgroundDrawable(f(this.f49652a, bVar.b(), bVar.c()));
+                viewGroup.setBackgroundDrawable(f(this.f53327a, bVar.b(), bVar.c()));
             }
             viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 
     public void c() {
-        Map<String, b> map = this.f49653b;
+        Map<String, b> map = this.f53328b;
         if (map != null) {
             map.clear();
-            this.f49653b = null;
+            this.f53328b = null;
         }
     }
 
     public final int d(boolean z, int i2, int i3) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.f49656e && skinType == 4)) {
+        if (skinType == 2 || (!this.f53331e && skinType == 4)) {
             return SkinManager.getColor(i2);
         }
         if (!z) {
-            return this.f49654c.getColor(i2);
+            return this.f53329c.getColor(i2);
         }
         if (i2 == i3) {
-            Resources resources = this.f49654c;
-            this.f49655d = resources;
+            Resources resources = this.f53329c;
+            this.f53330d = resources;
             i3 = g(resources, resources, i2);
         }
-        Resources resources2 = this.f49655d;
+        Resources resources2 = this.f53330d;
         if (resources2 == null) {
-            return this.f49654c.getColor(i2);
+            return this.f53329c.getColor(i2);
         }
         try {
             return resources2.getColor(i3);
         } catch (Resources.NotFoundException unused) {
-            return this.f49654c.getColor(i2);
+            return this.f53329c.getColor(i2);
         }
     }
 
     public final ColorStateList e(boolean z, int i2, int i3) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.f49656e && skinType == 4)) {
+        if (skinType == 2 || (!this.f53331e && skinType == 4)) {
             return SkinManager.getColorList(i2);
         }
         if (!z) {
-            return this.f49654c.getColorStateList(i2);
+            return this.f53329c.getColorStateList(i2);
         }
         if (i2 == i3) {
-            Resources resources = this.f49654c;
-            this.f49655d = resources;
+            Resources resources = this.f53329c;
+            this.f53330d = resources;
             i3 = g(resources, resources, i2);
         }
-        Resources resources2 = this.f49655d;
+        Resources resources2 = this.f53330d;
         if (resources2 == null) {
-            return this.f49654c.getColorStateList(i2);
+            return this.f53329c.getColorStateList(i2);
         }
         try {
             return resources2.getColorStateList(i3);
         } catch (Resources.NotFoundException unused) {
-            return this.f49654c.getColorStateList(i2);
+            return this.f53329c.getColorStateList(i2);
         }
     }
 
     public final Drawable f(boolean z, int i2, int i3) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.f49656e && skinType == 4)) {
+        if (skinType == 2 || (!this.f53331e && skinType == 4)) {
             return SkinManager.getDrawable(i2);
         }
         if (!z) {
             try {
-                return this.f49654c.getDrawable(i2);
+                return this.f53329c.getDrawable(i2);
             } catch (Throwable unused) {
                 return null;
             }
         }
         if (i2 == i3) {
-            Resources resources = this.f49654c;
-            this.f49655d = resources;
+            Resources resources = this.f53329c;
+            this.f53330d = resources;
             i3 = g(resources, resources, i2);
         }
-        Resources resources2 = this.f49655d;
+        Resources resources2 = this.f53330d;
         if (resources2 == null) {
             try {
-                return this.f49654c.getDrawable(i2);
+                return this.f53329c.getDrawable(i2);
             } catch (Throwable unused2) {
                 return null;
             }
@@ -268,7 +268,7 @@ public class c {
                 return null;
             }
         } catch (Resources.NotFoundException unused4) {
-            return this.f49654c.getDrawable(i2);
+            return this.f53329c.getDrawable(i2);
         } catch (ArrayIndexOutOfBoundsException unused5) {
             return null;
         }
@@ -277,7 +277,7 @@ public class c {
     public final int[] h(String str) {
         int parseInt;
         if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
-            return new int[]{parseInt, g(this.f49654c, this.f49655d, parseInt)};
+            return new int[]{parseInt, g(this.f53329c, this.f53330d, parseInt)};
         }
         return null;
     }
@@ -287,8 +287,8 @@ public class c {
         int d2;
         try {
             Resources resources = context.getResources();
-            this.f49654c = resources;
-            this.f49655d = resources;
+            this.f53329c = resources;
+            this.f53330d = resources;
             int attributeCount = attributeSet.getAttributeCount();
             b bVar = new b();
             bVar.R(str);
@@ -367,15 +367,15 @@ public class c {
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (d2 = d.a.c.e.m.b.d(attributeValue.substring(1), 0)) != 0) {
-                    String resourceName = this.f49654c.getResourceName(d2);
+                    String resourceName = this.f53329c.getResourceName(d2);
                     bVar.a(attributeName + "=" + resourceName);
                 }
             }
             if (z) {
-                if (!TextUtils.isEmpty(bVar.l()) && this.f49653b != null && !this.f49653b.containsKey(bVar.l())) {
-                    this.f49653b.put(bVar.l(), bVar);
+                if (!TextUtils.isEmpty(bVar.l()) && this.f53328b != null && !this.f53328b.containsKey(bVar.l())) {
+                    this.f53328b.put(bVar.l(), bVar);
                 } else if (!TextUtils.isEmpty(bVar.l())) {
-                    this.f49653b.containsKey(bVar.l());
+                    this.f53328b.containsKey(bVar.l());
                 }
             }
         } catch (Resources.NotFoundException unused) {
@@ -408,10 +408,10 @@ public class c {
     }
 
     public void k(boolean z) {
-        this.f49652a = z;
+        this.f53327a = z;
     }
 
     public void l(Resources resources) {
-        this.f49655d = resources;
+        this.f53330d = resources;
     }
 }

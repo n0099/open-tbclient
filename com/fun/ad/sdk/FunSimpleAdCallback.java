@@ -2,34 +2,34 @@ package com.fun.ad.sdk;
 /* loaded from: classes6.dex */
 public class FunSimpleAdCallback implements FunAdCallback {
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdClicked(String str, String str2, String str3, String str4) {
+    public void onAdClicked(String str, String str2, String str3) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdClose(String str, String str2, String str3, String str4) {
+    public void onAdClose(String str, String str2, String str3) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdLoad(String str, String str2, String str3, String str4) {
+    public void onAdLoad(String str, String str2, String str3) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdLoadError(String str, String str2, String str3, String str4, int i2, String str5) {
+    public void onAdLoadError(String str, String str2, String str3, int i2, String str4) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdLoaded(String str, String str2, String str3, String str4) {
+    public void onAdLoaded(String str, String str2, String str3) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdShow(String str, String str2, String str3, String str4) {
+    public void onAdShow(String str, String str2, String str3) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onAdShowError(String str, String str2, String str3, String str4, int i2, String str5) {
+    public void onAdShowError(String str, String str2, String str3, int i2, String str4) {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onRewardedVideo(String str, String str2, String str3, String str4) {
+    public void onRewardedVideo(String str, String str2, String str3) {
     }
 }

@@ -12,13 +12,13 @@ import java.util.List;
 public class c extends h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41888a = k.f43199a;
+    public static final boolean f45564a = k.f46875a;
 
     static {
         try {
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
         } catch (Exception e2) {
-            if (f41888a) {
+            if (f45564a) {
                 Log.w("RealCookieManager", "static createInstance err=" + e2 + " trace=" + Log.getStackTraceString(e2));
             }
         }
@@ -26,14 +26,14 @@ public class c extends h {
 
     public void a() {
         if (d.f()) {
-            if (f41888a) {
+            if (f45564a) {
                 Log.i("RealCookieManager", "syncCookie: hasLollipop flush");
             }
             CookieManager.getInstance().flush();
             android.webkit.CookieManager.getInstance().flush();
             return;
         }
-        if (f41888a) {
+        if (f45564a) {
             Log.i("RealCookieManager", "syncCookie: noLollipop sync");
         }
         CookieSyncManager.getInstance().sync();
@@ -41,21 +41,21 @@ public class c extends h {
 
     @Override // d.a.l0.a.e2.c.h, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        if (f41888a) {
+        if (f45564a) {
             Log.i("RealCookieManager", "getCookie: httpUrl=" + str);
         }
         String str2 = "";
         try {
             str2 = CookieManager.getInstance().getCookie(str);
-            if (f41888a) {
+            if (f45564a) {
                 Log.d("RealCookieManager", "RealCookieManager:" + str2);
             }
         } catch (Exception e2) {
-            if (f41888a) {
+            if (f45564a) {
                 Log.e("RealCookieManager", "getCookie: err=" + e2 + " trace=" + Log.getStackTraceString(e2));
             }
         }
-        if (f41888a) {
+        if (f45564a) {
             Log.i("RealCookieManager", "getCookie: ret cookie=" + str2 + " for httpUrl=" + str);
         }
         return str2;
@@ -73,7 +73,7 @@ public class c extends h {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public void storeCookie(String str, List<String> list) {
-        if (f41888a) {
+        if (f45564a) {
             Log.d("RealCookieManager", "storeCookie: httpUrl= " + str);
             StringBuilder sb = new StringBuilder();
             sb.append("storeCookie: cookies=");
@@ -85,7 +85,7 @@ public class c extends h {
         }
         try {
             for (String str2 : list) {
-                if (f41888a) {
+                if (f45564a) {
                     Log.i("RealCookieManager", "storeCookie: cookies item=" + str2);
                 }
                 CookieManager.getInstance().setCookie(str, str2);
@@ -93,7 +93,7 @@ public class c extends h {
             }
             a();
         } catch (Exception e2) {
-            if (f41888a) {
+            if (f45564a) {
                 Log.e("RealCookieManager", "storeCookie: err=" + e2 + " trace=" + Log.getStackTraceString(e2));
             }
         }

@@ -11,44 +11,44 @@ import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f52864a;
+    public View f56553a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f52865b;
+    public View f56554b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f52866c;
+    public TextView f56555c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f52867d;
+    public b f56556d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f52868e;
+    public b f56557e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f52869f;
+    public b f56558f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f52870g;
+    public View f56559g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(String str);
     }
 
     public c(Context context, a aVar) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.chosen_pb_comment_layout, (ViewGroup) null);
-        this.f52865b = inflate;
-        this.f52866c = (TextView) inflate.findViewById(R.id.chosen_pb_comment_title);
-        this.f52870g = this.f52865b.findViewById(R.id.chosen_pb_comment_line);
-        this.f52864a = this.f52865b.findViewById(R.id.comment_layout_blank_view);
-        this.f52867d = new b((ViewStub) this.f52865b.findViewById(R.id.chosen_pb_commrnt_first), aVar);
-        this.f52868e = new b((ViewStub) this.f52865b.findViewById(R.id.chosen_pb_commrnt_second), aVar);
-        this.f52869f = new b((ViewStub) this.f52865b.findViewById(R.id.chosen_pb_commrnt_third), aVar);
+        this.f56554b = inflate;
+        this.f56555c = (TextView) inflate.findViewById(R.id.chosen_pb_comment_title);
+        this.f56559g = this.f56554b.findViewById(R.id.chosen_pb_comment_line);
+        this.f56553a = this.f56554b.findViewById(R.id.comment_layout_blank_view);
+        this.f56556d = new b((ViewStub) this.f56554b.findViewById(R.id.chosen_pb_commrnt_first), aVar);
+        this.f56557e = new b((ViewStub) this.f56554b.findViewById(R.id.chosen_pb_commrnt_second), aVar);
+        this.f56558f = new b((ViewStub) this.f56554b.findViewById(R.id.chosen_pb_commrnt_third), aVar);
     }
 
     public final User a(Post post, List<User> list) {
@@ -67,17 +67,17 @@ public class c {
     }
 
     public View b() {
-        return this.f52865b;
+        return this.f56554b;
     }
 
     public void c() {
-        SkinManager.setBackgroundResource(this.f52865b, R.color.common_color_10187);
-        SkinManager.setBackgroundColor(this.f52864a, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f52866c, R.color.CAM_X0106, 1);
-        SkinManager.setBackgroundColor(this.f52870g, R.color.CAM_X0204);
-        this.f52867d.c();
-        this.f52868e.c();
-        this.f52869f.c();
+        SkinManager.setBackgroundResource(this.f56554b, R.color.common_color_10187);
+        SkinManager.setBackgroundColor(this.f56553a, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.f56555c, R.color.CAM_X0106, 1);
+        SkinManager.setBackgroundColor(this.f56559g, R.color.CAM_X0204);
+        this.f56556d.c();
+        this.f56557e.c();
+        this.f56558f.c();
     }
 
     public void d(Context context, List<Post> list, List<User> list2) {
@@ -85,46 +85,46 @@ public class c {
         boolean e2;
         boolean e3;
         if (list != null && !list.isEmpty()) {
-            this.f52870g.setVisibility(0);
+            this.f56559g.setVisibility(0);
             int size = list.size();
             if (size != 1) {
                 if (size == 2) {
-                    boolean e4 = this.f52867d.e(context, list.get(0), a(list.get(0), list2));
-                    boolean e5 = this.f52868e.e(context, list.get(1), a(list.get(1), list2));
-                    this.f52869f.d(false);
+                    boolean e4 = this.f56556d.e(context, list.get(0), a(list.get(0), list2));
+                    boolean e5 = this.f56557e.e(context, list.get(1), a(list.get(1), list2));
+                    this.f56558f.d(false);
                     e2 = e5;
                     z = e4;
                     e3 = false;
                 } else if (size >= 3) {
-                    boolean e6 = this.f52867d.e(context, list.get(0), a(list.get(0), list2));
-                    e2 = this.f52868e.e(context, list.get(1), a(list.get(1), list2));
-                    e3 = this.f52869f.e(context, list.get(2), a(list.get(2), list2));
+                    boolean e6 = this.f56556d.e(context, list.get(0), a(list.get(0), list2));
+                    e2 = this.f56557e.e(context, list.get(1), a(list.get(1), list2));
+                    e3 = this.f56558f.e(context, list.get(2), a(list.get(2), list2));
                     z = e6;
                 } else {
                     z = false;
                 }
                 if (z && !e2 && !e3) {
-                    this.f52866c.setVisibility(8);
+                    this.f56555c.setVisibility(8);
                     return;
                 } else {
-                    this.f52866c.setVisibility(0);
+                    this.f56555c.setVisibility(0);
                     return;
                 }
             }
-            z = this.f52867d.e(context, list.get(0), a(list.get(0), list2));
-            this.f52868e.d(false);
-            this.f52869f.d(false);
+            z = this.f56556d.e(context, list.get(0), a(list.get(0), list2));
+            this.f56557e.d(false);
+            this.f56558f.d(false);
             e3 = false;
             e2 = false;
             if (z) {
             }
-            this.f52866c.setVisibility(0);
+            this.f56555c.setVisibility(0);
             return;
         }
-        this.f52866c.setVisibility(8);
-        this.f52867d.d(false);
-        this.f52868e.d(false);
-        this.f52869f.d(false);
-        this.f52870g.setVisibility(8);
+        this.f56555c.setVisibility(8);
+        this.f56556d.d(false);
+        this.f56557e.d(false);
+        this.f56558f.d(false);
+        this.f56559g.setVisibility(8);
     }
 }

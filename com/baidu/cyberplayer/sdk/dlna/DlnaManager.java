@@ -32,6 +32,7 @@ public class DlnaManager {
     public static final int DLNA_PLAY_SUB_STATUS_PAUSED = 2;
     public static final int DLNA_PLAY_SUB_STATUS_PLAYING = 1;
     public static final int DLNA_PLAY_SUB_STATUS_PREPARED = 3;
+    public static final int DLNA_PLAY_SUB_STATUS_UNKNOW = -1;
     public static final int DLNA_SUB_ERROR_NETWORK_NOT_WIFI = -2001;
     public static final int DLNA_SUB_ERROR_NETWORK_UNREACHABLE = -2000;
 }

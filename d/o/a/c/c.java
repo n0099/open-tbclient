@@ -7,25 +7,25 @@ import java.security.MessageDigest;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f66660a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f70446a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* loaded from: classes7.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66661a;
+        public int f70447a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66662b;
+        public int f70448b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f66663c;
+        public int f70449c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f66664d;
+        public long f70450d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66665e;
+        public String f70451e;
 
         public b() {
         }
@@ -43,22 +43,22 @@ public class c {
                     try {
                         b b2 = b(str);
                         if (b2 != null) {
-                            if (b2.f66661a > 1) {
+                            if (b2.f70447a > 1) {
                                 return 3;
                             }
-                            i2 = b2.f66663c;
-                            j = b2.f66664d;
+                            i2 = b2.f70449c;
+                            j = b2.f70450d;
                         }
                         b bVar = null;
                         String k = k(file, i2, j);
                         if (k != null && k.length() != 0) {
-                            if (b2 != null && (b2.f66661a != 1 || b2.f66662b != 1)) {
-                                if (b2.f66665e != null) {
+                            if (b2 != null && (b2.f70447a != 1 || b2.f70448b != 1)) {
+                                if (b2.f70451e != null) {
                                     try {
                                         bVar = b(k);
                                     } catch (Throwable unused) {
                                     }
-                                    if (bVar != null && b2.f66663c == bVar.f66663c && b2.f66664d == bVar.f66664d && b2.f66665e.equals(bVar.f66665e)) {
+                                    if (bVar != null && b2.f70449c == bVar.f70449c && b2.f70450d == bVar.f70450d && b2.f70451e.equals(bVar.f70451e)) {
                                         return 0;
                                     }
                                 }
@@ -83,15 +83,15 @@ public class c {
             String[] split = str.split(";");
             String[] split2 = split[0].split(":");
             b bVar = new b();
-            bVar.f66661a = Integer.parseInt(split2[1]);
-            if (bVar.f66661a > 1) {
+            bVar.f70447a = Integer.parseInt(split2[1]);
+            if (bVar.f70447a > 1) {
                 return bVar;
             }
-            bVar.f66662b = Integer.parseInt(split2[2]);
+            bVar.f70448b = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split("g");
-            bVar.f66663c = (int) j(split3[0]);
-            bVar.f66664d = j(split3[1]);
-            bVar.f66665e = split[1];
+            bVar.f70449c = (int) j(split3[0]);
+            bVar.f70450d = j(split3[1]);
+            bVar.f70451e = split[1];
             return bVar;
         }
         return null;
@@ -199,7 +199,7 @@ public class c {
             for (int i4 = 0; i4 < length; i4++) {
                 int i5 = bArr[i4 + 0] & 255;
                 int i6 = i3 + 1;
-                char[] cArr2 = f66660a;
+                char[] cArr2 = f70446a;
                 cArr[i3] = cArr2[i5 >> 4];
                 i3 = i6 + 1;
                 cArr[i6] = cArr2[i5 & 15];

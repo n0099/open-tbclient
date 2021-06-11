@@ -10,64 +10,64 @@ import java.io.File;
 public class bv extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f1451a;
+    public final /* synthetic */ b f1464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f1452b;
+    public final /* synthetic */ String f1465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ File f1453c;
+    public final /* synthetic */ File f1466c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ File f1454d;
+    public final /* synthetic */ File f1467d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f1455e;
+    public final /* synthetic */ String f1468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ DownSoHelper f1456f;
+    public final /* synthetic */ DownSoHelper f1469f;
 
     public bv(DownSoHelper downSoHelper, b bVar, String str, File file, File file2, String str2) {
-        this.f1456f = downSoHelper;
-        this.f1451a = bVar;
-        this.f1452b = str;
-        this.f1453c = file;
-        this.f1454d = file2;
-        this.f1455e = str2;
+        this.f1469f = downSoHelper;
+        this.f1464a = bVar;
+        this.f1465b = str;
+        this.f1466c = file;
+        this.f1467d = file2;
+        this.f1468e = str2;
     }
 
     @Override // d.a.k.b.c.a
     public void onCompleted(String str) {
         try {
-            this.f1453c.renameTo(this.f1454d);
-            Log.e("RtcDownSo", "unzip:" + this.f1454d + "---" + this.f1455e);
-            d.a.k.e.a.e(this.f1454d, this.f1455e);
-            d.a.k.e.a.b(this.f1454d.getAbsolutePath());
-            this.f1456f.h(this.f1451a, this.f1452b, this.f1455e);
+            this.f1466c.renameTo(this.f1467d);
+            Log.e("RtcDownSo", "unzip:" + this.f1467d + "---" + this.f1468e);
+            d.a.k.e.a.e(this.f1467d, this.f1468e);
+            d.a.k.e.a.b(this.f1467d.getAbsolutePath());
+            this.f1469f.h(this.f1464a, this.f1465b, this.f1468e);
         } catch (Exception e2) {
             e2.printStackTrace();
-            d.a.k.e.a.b(this.f1454d.getAbsolutePath());
-            if (d.a.k.e.a.c(this.f1455e)) {
-                d.a.k.e.a.a(new File(this.f1455e));
+            d.a.k.e.a.b(this.f1467d.getAbsolutePath());
+            if (d.a.k.e.a.c(this.f1468e)) {
+                d.a.k.e.a.a(new File(this.f1468e));
             }
-            this.f1456f.e(this.f1451a, this.f1452b, 108, "unzip exception");
+            this.f1469f.e(this.f1464a, this.f1465b, 108, "unzip exception");
         }
     }
 
     @Override // d.a.k.b.c.a
     public void onFailed(DownloadException downloadException) {
         downloadException.printStackTrace();
-        d.a.k.e.a.b(this.f1453c.getAbsolutePath());
-        this.f1456f.e(this.f1451a, this.f1452b, downloadException.getErrorCode(), downloadException.getErrorMessage());
+        d.a.k.e.a.b(this.f1466c.getAbsolutePath());
+        this.f1469f.e(this.f1464a, this.f1465b, downloadException.getErrorCode(), downloadException.getErrorMessage());
     }
 
     @Override // d.a.k.b.c.a
     public void onProgress(long j, long j2, int i2) {
-        this.f1456f.f(this.f1451a, this.f1452b, i2);
+        this.f1469f.f(this.f1464a, this.f1465b, i2);
     }
 
     @Override // d.a.k.b.c.a
     public void onStarted() {
-        this.f1456f.g(this.f1451a, this.f1452b);
+        this.f1469f.g(this.f1464a, this.f1465b);
     }
 }

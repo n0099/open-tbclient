@@ -21,26 +21,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
 import d.a.c.e.p.l;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 /* loaded from: classes5.dex */
 public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static a t;
     public static String u;
 
     /* renamed from: e  reason: collision with root package name */
-    public ReplyLinearLayout f19850e;
+    public ReplyLinearLayout f19927e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19851f;
+    public TextView f19928f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final LinearLayout f19852g;
+    public final LinearLayout f19929g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LinearLayout f19853h;
+    public final LinearLayout f19930h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ColumnLayout f19854i;
+    public final ColumnLayout f19931i;
     public final ColumnLayout j;
     public int k;
     public LinearLayout l;
@@ -57,21 +57,21 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         this.r = tbPageContext;
         this.s = z;
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-        this.f19850e = replyLinearLayout;
+        this.f19927e = replyLinearLayout;
         replyLinearLayout.setIsHost(this.s);
-        this.f19851f = (TextView) view.findViewById(R.id.original_post_title);
+        this.f19928f = (TextView) view.findViewById(R.id.original_post_title);
         this.l = (LinearLayout) view.findViewById(R.id.top_line);
         this.m = (HeadImageView) view.findViewById(R.id.portrait);
         this.n = (TextView) view.findViewById(R.id.username);
         this.o = (TextView) view.findViewById(R.id.reply_time);
         this.p = (TextView) view.findViewById(R.id.forum_name);
         this.q = (TextView) view.findViewById(R.id.reply_count);
-        this.f19853h = (LinearLayout) view.findViewById(R.id.item_content);
-        this.f19854i = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.f19930h = (LinearLayout) view.findViewById(R.id.item_content);
+        this.f19931i = (ColumnLayout) view.findViewById(R.id.item_header);
         this.j = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.f19852g = (LinearLayout) view.findViewById(R.id.person_child);
+        this.f19929g = (LinearLayout) view.findViewById(R.id.person_child);
         this.k = l.e(view.getContext(), 42.0f);
-        LinearLayout linearLayout = this.f19853h;
+        LinearLayout linearLayout = this.f19930h;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
         }
@@ -79,15 +79,15 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         this.n.setOnClickListener(this);
         this.p.setOnClickListener(this);
         this.q.setOnClickListener(this);
-        this.f19854i.setOnClickListener(this);
+        this.f19931i.setOnClickListener(this);
         this.j.setOnClickListener(this);
-        this.f19851f.setOnClickListener(this);
+        this.f19928f.setOnClickListener(this);
     }
 
     public void b(int i2) {
-        SkinManager.setBackgroundResource(this.f19851f, R.color.CAM_X0205);
+        SkinManager.setBackgroundResource(this.f19928f, R.color.CAM_X0205);
         SkinManager.setBackgroundColor(a(), R.color.CAM_X0204);
-        SkinManager.setBackgroundResource(this.f19852g, R.drawable.daily_recommend_item_selector);
+        SkinManager.setBackgroundResource(this.f19929g, R.drawable.daily_recommend_item_selector);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0109, 1);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
@@ -238,11 +238,11 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             this.q.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), charSequence7));
             this.p.setOnClickListener(this);
             c(str);
-            LinearLayout linearLayout = this.f19853h;
+            LinearLayout linearLayout = this.f19930h;
             if (linearLayout != null) {
                 linearLayout.setTag(strArr);
             }
-            this.f19854i.setTag(strArr);
+            this.f19931i.setTag(strArr);
             this.j.setTag(strArr);
         }
     }
@@ -255,7 +255,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             if (this.r != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.r.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view != this.f19851f || (strArr = (String[]) view.getTag()) == null || strArr.length < 4 || strArr[3] == null) {
+        } else if (view != this.f19928f || (strArr = (String[]) view.getTag()) == null || strArr.length < 4 || strArr[3] == null) {
         } else {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(this.r.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");

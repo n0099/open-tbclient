@@ -18,13 +18,13 @@ import tbclient.T;
 public class GetSugMatchWordsModel extends BdBaseModel {
 
     /* renamed from: g  reason: collision with root package name */
-    public static List<String> f19171g = new ArrayList();
+    public static List<String> f19248g = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public b f19172e;
+    public b f19249e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f19173f;
+    public final HttpMessageListener f19250f;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -35,17 +35,17 @@ public class GetSugMatchWordsModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003370 || !(httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) || GetSugMatchWordsModel.this.f19172e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003370 || !(httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) || GetSugMatchWordsModel.this.f19249e == null) {
                 return;
             }
             GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
             if (!ListUtils.isEmpty(getSugMatchWordsResponseMessage.getData())) {
-                GetSugMatchWordsModel.this.f19172e.onSuccess(getSugMatchWordsResponseMessage.getData());
-                GetSugMatchWordsModel.f19171g.clear();
-                GetSugMatchWordsModel.f19171g.addAll(getSugMatchWordsResponseMessage.getData());
+                GetSugMatchWordsModel.this.f19249e.onSuccess(getSugMatchWordsResponseMessage.getData());
+                GetSugMatchWordsModel.f19248g.clear();
+                GetSugMatchWordsModel.f19248g.addAll(getSugMatchWordsResponseMessage.getData());
                 return;
             }
-            GetSugMatchWordsModel.this.f19172e.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+            GetSugMatchWordsModel.this.f19249e.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
         }
     }
 
@@ -58,10 +58,10 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     public GetSugMatchWordsModel(f<T> fVar) {
         super(fVar);
-        this.f19173f = new a(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
+        this.f19250f = new a(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
         registerTask();
-        this.f19173f.setSelfListener(true);
-        registerListener(this.f19173f);
+        this.f19250f.setSelfListener(true);
+        registerListener(this.f19250f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -71,7 +71,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f19173f);
+        MessageManager.getInstance().unRegisterListener(this.f19250f);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
         return true;
     }
@@ -82,13 +82,13 @@ public class GetSugMatchWordsModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void u(b bVar) {
-        this.f19172e = bVar;
+    public void y(b bVar) {
+        this.f19249e = bVar;
         if (bVar == null) {
             return;
         }
-        if (!ListUtils.isEmpty(f19171g)) {
-            this.f19172e.onSuccess(f19171g);
+        if (!ListUtils.isEmpty(f19248g)) {
+            this.f19249e.onSuccess(f19248g);
         } else {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS));
         }

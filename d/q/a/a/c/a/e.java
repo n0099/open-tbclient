@@ -6,40 +6,40 @@ import android.content.SharedPreferences;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f67627a;
+    public SharedPreferences f71414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f67628b;
+    public SharedPreferences.Editor f71415b;
 
     public e(Context context) {
         try {
             SharedPreferences sharedPreferences = context.getSharedPreferences("kscfg_outdfp", 0);
-            this.f67627a = sharedPreferences;
-            this.f67628b = sharedPreferences.edit();
+            this.f71414a = sharedPreferences;
+            this.f71415b = sharedPreferences.edit();
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
         }
     }
 
     public final void a(String str) {
-        this.f67628b.putString("kwtk", str);
-        this.f67628b.commit();
+        this.f71415b.putString("kwtk", str);
+        this.f71415b.commit();
     }
 
     public final boolean b() {
-        return this.f67627a.getBoolean("xytk", true);
+        return this.f71414a.getBoolean("xytk", true);
     }
 
     public final String c() {
-        return this.f67627a.getString("kwtk", "");
+        return this.f71414a.getString("kwtk", "");
     }
 
     public final void d(String str) {
-        this.f67628b.putString("oai_ll_sn_d", str);
-        this.f67628b.commit();
+        this.f71415b.putString("oai_ll_sn_d", str);
+        this.f71415b.commit();
     }
 
     public final String e() {
-        return this.f67627a.getString("oai_ll_sn_d", "");
+        return this.f71414a.getString("oai_ll_sn_d", "");
     }
 }

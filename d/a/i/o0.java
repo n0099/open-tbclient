@@ -23,9 +23,9 @@ public class o0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o0 o0Var = o0.this;
-            a.InterfaceC0542a interfaceC0542a = o0Var.f40011i;
-            if (interfaceC0542a != null) {
-                interfaceC0542a.a(o0Var.n);
+            a.InterfaceC0598a interfaceC0598a = o0Var.f43692i;
+            if (interfaceC0598a != null) {
+                interfaceC0598a.a(o0Var.n);
             }
         }
     }
@@ -38,7 +38,7 @@ public class o0 extends h {
     @Override // d.a.i.a
     public View g() {
         if (this.l == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f40008f);
+            LinearLayout linearLayout = new LinearLayout(this.f43689f);
             this.l = linearLayout;
             SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
             this.l.setOrientation(1);
@@ -46,15 +46,15 @@ public class o0 extends h {
         }
         this.l.removeAllViews();
         if (this.m == null) {
-            BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f40008f);
+            BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f43689f);
             this.m = bjhArticleLayout;
             bjhArticleLayout.setJumpToPbListener(new a());
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = this.f40008f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-        layoutParams.leftMargin = this.f40008f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-        layoutParams.rightMargin = this.f40008f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-        layoutParams.bottomMargin = this.f40008f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+        layoutParams.topMargin = this.f43689f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        layoutParams.leftMargin = this.f43689f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+        layoutParams.rightMargin = this.f43689f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+        layoutParams.bottomMargin = this.f43689f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
         this.l.addView(this.m, layoutParams);
         return this.l;
     }
@@ -91,7 +91,7 @@ public class o0 extends h {
         }
     }
 
-    public void u(a.InterfaceC0542a interfaceC0542a) {
-        this.f40011i = interfaceC0542a;
+    public void u(a.InterfaceC0598a interfaceC0598a) {
+        this.f43692i = interfaceC0598a;
     }
 }

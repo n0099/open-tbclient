@@ -5,7 +5,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.ParseException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BasicHeaderValueParser implements HeaderValueParser {
     public static final BasicHeaderValueParser DEFAULT = null;
 

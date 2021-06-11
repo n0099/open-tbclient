@@ -20,7 +20,7 @@ public final class a {
 
     public static final String b() {
         e i2 = e.i();
-        String v = b.v(i2 != null ? i2.f40749f : null);
+        String v = b.v(i2 != null ? i2.f44425f : null);
         Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
         return v;
     }

@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.ErrorData;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public ErrorData f62903a;
+    public ErrorData f66618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62904b;
+    public String f66619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62905c;
+    public String f66620c;
 }

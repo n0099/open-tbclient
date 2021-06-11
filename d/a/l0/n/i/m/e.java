@@ -15,16 +15,16 @@ public class e extends d.a.l0.n.i.m.b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f48111a;
+        public final String f51785a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48112b;
+        public String f51786b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f48113c = 0;
+        public long f51787c = 0;
 
         public a(String str) {
-            this.f48111a = str;
+            this.f51785a = str;
         }
 
         @NonNull
@@ -33,9 +33,9 @@ public class e extends d.a.l0.n.i.m.b {
             if (list != null && !list.isEmpty()) {
                 for (d.a.l0.n.h.g gVar : list) {
                     if (gVar != null) {
-                        a aVar = new a(gVar.f48012g);
+                        a aVar = new a(gVar.f51686g);
                         aVar.d(gVar.r ? "independent" : "normal");
-                        aVar.e(gVar.f48014i);
+                        aVar.e(gVar.f51688i);
                         arrayList.add(aVar);
                     }
                 }
@@ -44,23 +44,23 @@ public class e extends d.a.l0.n.i.m.b {
         }
 
         public String a() {
-            return this.f48111a;
+            return this.f51785a;
         }
 
         public String b() {
-            return this.f48112b;
+            return this.f51786b;
         }
 
         public long c() {
-            return this.f48113c;
+            return this.f51787c;
         }
 
         public void d(String str) {
-            this.f48112b = str;
+            this.f51786b = str;
         }
 
         public void e(long j) {
-            this.f48113c = j;
+            this.f51787c = j;
         }
     }
 
@@ -69,11 +69,11 @@ public class e extends d.a.l0.n.i.m.b {
         @Nullable
 
         /* renamed from: e  reason: collision with root package name */
-        public String[] f48114e;
+        public String[] f51788e;
         @Nullable
 
         /* renamed from: f  reason: collision with root package name */
-        public List<a> f48115f;
+        public List<a> f51789f;
 
         public b(String str) {
             super(str);
@@ -81,20 +81,20 @@ public class e extends d.a.l0.n.i.m.b {
 
         @Nullable
         public String[] h() {
-            return this.f48114e;
+            return this.f51788e;
         }
 
         @Nullable
         public List<a> i() {
-            return this.f48115f;
+            return this.f51789f;
         }
 
         public void j(@Nullable String[] strArr) {
-            this.f48114e = strArr;
+            this.f51788e = strArr;
         }
 
         public void k(@Nullable List<a> list) {
-            this.f48115f = list;
+            this.f51789f = list;
         }
     }
 

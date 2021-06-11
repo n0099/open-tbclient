@@ -11,34 +11,34 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.square.model.ForumSquareModel;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext f52075a;
+    public final TbPageContext f55764a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f52076b;
+    public final Context f55765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ForumSquareModel f52077c;
+    public ForumSquareModel f55766c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f52078d;
+    public b f55767d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f52079e;
+    public c f55768e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52080f = "";
+    public String f55769f = "";
 
     public a(Context context, TbPageContext tbPageContext) {
-        this.f52075a = tbPageContext;
-        this.f52076b = context;
-        this.f52077c = new ForumSquareModel(context, this);
-        this.f52078d = new b(context, this.f52075a);
+        this.f55764a = tbPageContext;
+        this.f55765b = context;
+        this.f55766c = new ForumSquareModel(context, this);
+        this.f55767d = new b(context, this.f55764a);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x002b, code lost:
@@ -49,31 +49,31 @@ public class a implements d {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(String str, List<String> list, List<n> list2) {
-        if (this.f52077c == null || this.f52078d == null) {
+        if (this.f55766c == null || this.f55767d == null) {
             return;
         }
         boolean z = false;
-        if (TextUtils.isEmpty(str) || str.equals(this.f52080f)) {
-            String e2 = this.f52078d.e();
+        if (TextUtils.isEmpty(str) || str.equals(this.f55769f)) {
+            String e2 = this.f55767d.e();
             if (!TextUtils.isEmpty(str)) {
             }
-            this.f52080f = str;
-            this.f52078d.J();
-            this.f52078d.r(str, list, z);
-            this.f52078d.t(list2, this.f52077c.K(list2, 300));
+            this.f55769f = str;
+            this.f55767d.J();
+            this.f55767d.r(str, list, z);
+            this.f55767d.t(list2, this.f55766c.O(list2, 300));
             d(str, list2);
         }
         z = true;
-        this.f52080f = str;
-        this.f52078d.J();
-        this.f52078d.r(str, list, z);
-        this.f52078d.t(list2, this.f52077c.K(list2, 300));
+        this.f55769f = str;
+        this.f55767d.J();
+        this.f55767d.r(str, list, z);
+        this.f55767d.t(list2, this.f55766c.O(list2, 300));
         d(str, list2);
     }
 
     @Override // d.a.n0.b3.d
     public void b(ErrorData errorData) {
-        b bVar = this.f52078d;
+        b bVar = this.f55767d;
         if (bVar != null) {
             bVar.I();
         }
@@ -81,127 +81,127 @@ public class a implements d {
 
     @Override // d.a.n0.b3.d
     public void c(String str, ErrorData errorData) {
-        b bVar = this.f52078d;
-        if (bVar == null || this.f52077c == null) {
+        b bVar = this.f55767d;
+        if (bVar == null || this.f55766c == null) {
             return;
         }
         bVar.J();
-        d.a.n0.b3.f.c E = this.f52077c.E(str);
-        if (E != null && (!E.f52121d || !ListUtils.isEmpty(E.a()))) {
-            this.f52078d.s(E.a());
-            d(str, E.a());
+        d.a.n0.b3.f.c I = this.f55766c.I(str);
+        if (I != null && (!I.f55810d || !ListUtils.isEmpty(I.a()))) {
+            this.f55767d.s(I.a());
+            d(str, I.a());
             return;
         }
-        this.f52078d.f();
-        this.f52078d.u();
+        this.f55767d.f();
+        this.f55767d.u();
     }
 
     public final void d(String str, List<n> list) {
-        if (this.f52078d == null || this.f52077c == null) {
+        if (this.f55767d == null || this.f55766c == null) {
             return;
         }
         if (ListUtils.isEmpty(list)) {
-            this.f52078d.f();
+            this.f55767d.f();
         } else if (ListUtils.getCount(list) < 10) {
-            this.f52078d.n();
+            this.f55767d.n();
         } else {
-            this.f52078d.E(this.f52077c.F(str));
+            this.f55767d.E(this.f55766c.J(str));
         }
     }
 
     public void e() {
-        this.f52078d.b();
+        this.f55767d.b();
     }
 
     public String f() {
-        return this.f52080f;
+        return this.f55769f;
     }
 
     public void g() {
         String f2 = f();
-        ForumSquareModel forumSquareModel = this.f52077c;
-        if (forumSquareModel == null || this.f52078d == null) {
+        ForumSquareModel forumSquareModel = this.f55766c;
+        if (forumSquareModel == null || this.f55767d == null) {
             return;
         }
-        boolean G = forumSquareModel.G();
-        boolean E = this.f52078d.E(this.f52077c.F(f2));
-        if (G || !E) {
+        boolean K = forumSquareModel.K();
+        boolean E = this.f55767d.E(this.f55766c.J(f2));
+        if (K || !E) {
             return;
         }
-        this.f52077c.H(f2);
+        this.f55766c.L(f2);
     }
 
     public void h() {
-        b bVar = this.f52078d;
+        b bVar = this.f55767d;
         if (bVar != null) {
             bVar.F();
         }
-        ForumSquareModel forumSquareModel = this.f52077c;
+        ForumSquareModel forumSquareModel = this.f55766c;
         if (forumSquareModel != null) {
-            forumSquareModel.H(f());
+            forumSquareModel.L(f());
         }
     }
 
     public void i(String str) {
-        k(this.f52080f);
-        this.f52080f = str;
-        ForumSquareModel forumSquareModel = this.f52077c;
-        if (forumSquareModel == null || this.f52078d == null) {
+        k(this.f55769f);
+        this.f55769f = str;
+        ForumSquareModel forumSquareModel = this.f55766c;
+        if (forumSquareModel == null || this.f55767d == null) {
             return;
         }
-        d.a.n0.b3.f.c E = forumSquareModel.E(str);
-        if (E != null && (!E.f52121d || !ListUtils.isEmpty(E.a()))) {
-            this.f52078d.J();
-            d(str, E.a());
-            this.f52078d.s(E.a());
-            this.f52078d.q(E.f52123f, E.f52124g);
+        d.a.n0.b3.f.c I = forumSquareModel.I(str);
+        if (I != null && (!I.f55810d || !ListUtils.isEmpty(I.a()))) {
+            this.f55767d.J();
+            d(str, I.a());
+            this.f55767d.s(I.a());
+            this.f55767d.q(I.f55812f, I.f55813g);
             return;
         }
-        this.f52078d.D();
+        this.f55767d.D();
         d(str, null);
-        this.f52077c.H(str);
-        this.f52078d.q(0, 0);
+        this.f55766c.L(str);
+        this.f55767d.q(0, 0);
     }
 
     public void j(Intent intent) {
         Uri uri;
         if (intent != null) {
             String stringExtra = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            this.f52080f = stringExtra;
+            this.f55769f = stringExtra;
             if (TextUtils.isEmpty(stringExtra) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.f52080f = uri.getQueryParameter("tab_name");
+                this.f55769f = uri.getQueryParameter("tab_name");
             }
-            this.f52078d.C(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
+            this.f55767d.C(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
         }
     }
 
     public void k(String str) {
-        d.a.n0.b3.f.c E;
+        d.a.n0.b3.f.c I;
         Pair<Integer, Integer> c2;
-        if (this.f52078d == null || this.f52077c == null || TextUtils.isEmpty(str) || (E = this.f52077c.E(str)) == null || (c2 = this.f52078d.c()) == null) {
+        if (this.f55767d == null || this.f55766c == null || TextUtils.isEmpty(str) || (I = this.f55766c.I(str)) == null || (c2 = this.f55767d.c()) == null) {
             return;
         }
-        E.f52123f = ((Integer) c2.first).intValue();
-        E.f52124g = ((Integer) c2.second).intValue();
+        I.f55812f = ((Integer) c2.first).intValue();
+        I.f55813g = ((Integer) c2.second).intValue();
     }
 
     public void l(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f52078d.B(str);
+        this.f55767d.B(str);
         i(str);
     }
 
     public void m() {
-        c cVar = new c(this.f52076b, this, this.f52078d);
-        this.f52079e = cVar;
+        c cVar = new c(this.f55765b, this, this.f55767d);
+        this.f55768e = cVar;
         cVar.e();
         n();
     }
 
     public final void n() {
-        this.f52078d.F();
-        this.f52077c.H(this.f52080f);
+        this.f55767d.F();
+        this.f55766c.L(this.f55769f);
     }
 }

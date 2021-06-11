@@ -3,24 +3,24 @@ package com.baidu.pass.biometrics;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8911a = false;
+    public static final boolean f8973a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f8912b = "com.baidu.pass.biometrics";
+    public static final String f8974b = "com.baidu.pass.biometrics";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f8913c = "com.baidu.pass.biometrics";
+    public static final String f8975c = "com.baidu.pass.biometrics";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f8914d = "release";
+    public static final String f8976d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f8915e = "";
+    public static final String f8977e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f8916f = 1;
+    public static final int f8978f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f8917g = "9.3.1";
+    public static final String f8979g = "9.3.2.5";
 }

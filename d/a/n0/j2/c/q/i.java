@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.R;
-import d.a.c.j.e.n;
-import d.a.c.j.e.s;
-import d.a.c.j.e.w;
+import d.a.c.k.e.n;
+import d.a.c.k.e.s;
+import d.a.c.k.e.w;
 import d.a.i.a0;
 import d.a.i.d;
 import d.a.i.h0;
@@ -26,7 +26,7 @@ import d.a.n0.z.b0;
 import d.a.n0.z.e0.k;
 import d.a.n0.z.e0.l;
 /* loaded from: classes5.dex */
-public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a.n0.o.f {
+public class i extends d.a.c.k.e.a<l, AutoVideoCardViewHolder<l>> implements d.a.n0.o.f {
     public BdUniqueId m;
     public TbPageContext<?> n;
     public String o;
@@ -44,7 +44,7 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
         @Override // d.a.n0.z.b0
         /* renamed from: d */
         public void a(View view, l lVar) {
-            if (view == null || lVar == null || lVar.m() == null) {
+            if (view == null || lVar == null || lVar.i() == null) {
                 return;
             }
             int id = view.getId();
@@ -85,7 +85,7 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
         public c() {
         }
 
-        @Override // d.a.c.j.e.w
+        @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if ((nVar instanceof l) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
@@ -95,7 +95,7 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
                     i.this.s.a(threadCardViewHolder.a(), lVar);
                 }
                 ThreadCardUtils.jumpToPB((d.a.m0.r.q.a) lVar, view.getContext(), 4, false, d.a.i.e.a((s) viewGroup, view, i2));
-                threadCardViewHolder.b().o(new a.C0544a(1));
+                threadCardViewHolder.b().o(new a.C0600a(1));
             }
         }
     }
@@ -104,24 +104,24 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
     public class d implements ThreadCommentAndPraiseInfoLayout.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f56312a;
+        public final /* synthetic */ ViewGroup f60001a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f56313b;
+        public final /* synthetic */ View f60002b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f56314c;
+        public final /* synthetic */ int f60003c;
 
         public d(i iVar, ViewGroup viewGroup, View view, int i2) {
-            this.f56312a = viewGroup;
-            this.f56313b = view;
-            this.f56314c = i2;
+            this.f60001a = viewGroup;
+            this.f60002b = view;
+            this.f60003c = i2;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             if (intentConfig instanceof PbActivityConfig) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.a.i.e.a((s) this.f56312a, this.f56313b, this.f56314c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(d.a.i.e.a((s) this.f60001a, this.f60002b, this.f60003c));
             }
         }
     }
@@ -132,11 +132,7 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
         this.q = 0;
         this.s = new a(this);
         this.n = tbPageContext;
-        f0();
-    }
-
-    public final void f0() {
-        k.l0 = "c13542";
+        g0();
     }
 
     @Override // d.a.n0.o.f
@@ -144,10 +140,14 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
         this.o = str;
     }
 
+    public final void g0() {
+        k.l0 = "c13542";
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public AutoVideoCardViewHolder<l> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public AutoVideoCardViewHolder<l> Q(ViewGroup viewGroup) {
         l0.b bVar = new l0.b(this.n.getPageActivity());
         d.a.i.d dVar = new d.a.i.d(this.n.getPageActivity());
         dVar.t(this.m);
@@ -166,15 +166,15 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
         mVar.u("profile");
         mVar.y(null);
         bVar.n(mVar);
-        bVar.l().d(d.a.c.e.p.l.g(this.f39228e, R.dimen.tbds25));
+        bVar.l().d(d.a.c.e.p.l.g(this.f42909e, R.dimen.tbds25));
         bVar.h(new d.a.i.s(this.n.getPageActivity()));
         bVar.h(new h0(this.n.getPageActivity()));
         bVar.h(new a0(this.n.getPageActivity()));
         bVar.h(new d.a.i.k(this.n.getPageActivity()));
         n0 n0Var = new n0(this.n.getPageActivity());
         d.a.m0.r.q.e eVar = new d.a.m0.r.q.e();
-        eVar.f49994b = 3;
-        eVar.f50000h = 3;
+        eVar.f53670b = 3;
+        eVar.f53676h = 3;
         n0Var.v(eVar);
         n0Var.w(8);
         n0Var.B("personalize_page");
@@ -183,18 +183,18 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
         bVar.m(n0Var);
         l0 i3 = bVar.i();
         AutoVideoCardViewHolder<l> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(i3);
-        autoVideoCardViewHolder.j(this.m);
+        autoVideoCardViewHolder.k(this.m);
         i3.p(this.s);
         i3.r(4);
-        autoVideoCardViewHolder.q(this.q);
-        Z(new c());
+        autoVideoCardViewHolder.r(this.q);
+        a0(new c());
         return autoVideoCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public View W(int i2, View view, ViewGroup viewGroup, l lVar, AutoVideoCardViewHolder autoVideoCardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public View X(int i2, View view, ViewGroup viewGroup, l lVar, AutoVideoCardViewHolder autoVideoCardViewHolder) {
         if (lVar == null) {
             return autoVideoCardViewHolder.a();
         }
@@ -206,7 +206,7 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
             autoVideoCardViewHolder.b().setPage(this.o);
         }
         if (!this.r) {
-            autoVideoCardViewHolder.r();
+            autoVideoCardViewHolder.s();
         }
         if (autoVideoCardViewHolder.b().e() instanceof n0) {
             ((n0) autoVideoCardViewHolder.b().e()).z(new d(this, viewGroup, view, i2));
@@ -218,18 +218,18 @@ public class i extends d.a.c.j.e.a<l, AutoVideoCardViewHolder<l>> implements d.a
         return autoVideoCardViewHolder.a();
     }
 
-    public void i0(boolean z) {
+    public void j0(boolean z) {
         this.r = z;
     }
 
-    public void j0(int i2) {
+    public void k0(int i2) {
         this.q = i2;
     }
 
-    public void m0(int i2) {
+    public void l0(int i2) {
     }
 
-    public void n0(int i2) {
+    public void m0(int i2) {
         this.p = i2;
     }
 }

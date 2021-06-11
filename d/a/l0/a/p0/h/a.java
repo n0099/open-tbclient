@@ -8,30 +8,30 @@ import d.a.l0.a.k;
 import d.a.l0.t.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44093c = k.f43199a;
+    public static final boolean f47767c = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f44094d;
+    public static a f47768d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f44095e;
+    public static a f47769e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44096a;
+    public String f47770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f44097b;
+    public long f47771b;
 
     @NonNull
     public static a a(@NonNull String str) {
-        if (f44094d == null) {
-            f44094d = d(e(str));
+        if (f47768d == null) {
+            f47768d = d(e(str));
         }
-        return f44094d;
+        return f47768d;
     }
 
     @NonNull
@@ -44,41 +44,41 @@ public class a {
 
     @NonNull
     public static a c(@NonNull String str) {
-        if (f44095e == null) {
-            f44095e = d(e(str));
+        if (f47769e == null) {
+            f47769e = d(e(str));
         }
-        return f44095e;
+        return f47769e;
     }
 
     @NonNull
     public static a d(JSONObject jSONObject) {
         a aVar = new a();
         if (jSONObject != null) {
-            aVar.f44096a = jSONObject.optString("extension-core-version-name");
-            aVar.f44097b = jSONObject.optLong("extension-core-version-code");
+            aVar.f47770a = jSONObject.optString("extension-core-version-name");
+            aVar.f47771b = jSONObject.optLong("extension-core-version-code");
         }
         return aVar;
     }
 
     public static JSONObject e(@NonNull String str) {
-        if (f44093c) {
+        if (f47767c) {
             Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }
         String C = d.C(AppRuntime.getAppContext(), str);
         if (TextUtils.isEmpty(C)) {
-            if (f44093c) {
+            if (f47767c) {
                 Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
             }
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(C);
-            if (f44093c) {
+            if (f47767c) {
                 Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (f44093c) {
+            if (f47767c) {
                 throw new RuntimeException(e2);
             }
             return null;

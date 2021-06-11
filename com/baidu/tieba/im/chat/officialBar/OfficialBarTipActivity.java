@@ -55,11 +55,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            ImMessageCenterShowItemData item = OfficialBarTipActivity.this.mView.j().getItem(i2);
+            ImMessageCenterShowItemData item = OfficialBarTipActivity.this.mView.i().getItem(i2);
             if (item == null || view == null) {
                 return;
             }
-            if (OfficialBarTipActivity.this.mView.j().c()) {
+            if (OfficialBarTipActivity.this.mView.i().c()) {
                 ImageView imageView = (ImageView) view.findViewById(R.id.select_status);
                 if (item.isSelected()) {
                     item.setSelected(false);
@@ -95,10 +95,10 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         public class a implements l.e {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ j f17092e;
+            public final /* synthetic */ j f17168e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ ImMessageCenterShowItemData f17093f;
+            public final /* synthetic */ ImMessageCenterShowItemData f17169f;
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
@@ -109,9 +109,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                 @Override // d.a.m0.r.s.a.e
                 public void onClick(d.a.m0.r.s.a aVar) {
                     aVar.dismiss();
-                    OfficialBarTipActivity.this.mModel.subscribeBar(false, a.this.f17093f.getFriendId());
+                    OfficialBarTipActivity.this.mModel.subscribeBar(false, a.this.f17169f.getFriendId());
                     a aVar2 = a.this;
-                    OfficialBarTipActivity.this.mUnsubscribeItem = aVar2.f17093f;
+                    OfficialBarTipActivity.this.mUnsubscribeItem = aVar2.f17169f;
                 }
             }
 
@@ -128,18 +128,18 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             }
 
             public a(j jVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-                this.f17092e = jVar;
-                this.f17093f = imMessageCenterShowItemData;
+                this.f17168e = jVar;
+                this.f17169f = imMessageCenterShowItemData;
             }
 
             @Override // d.a.m0.r.s.l.e
             public void onItemClick(l lVar, int i2, View view) {
-                j jVar = this.f17092e;
+                j jVar = this.f17168e;
                 if (jVar != null && jVar.isShowing()) {
-                    this.f17092e.dismiss();
+                    this.f17168e.dismiss();
                 }
                 if (i2 == 0) {
-                    OfficialBarTipActivity.this.mModel.asyncDeleteItem(this.f17093f, OfficialBarTipActivity.this.IProcessImpl);
+                    OfficialBarTipActivity.this.mModel.asyncDeleteItem(this.f17169f, OfficialBarTipActivity.this.IProcessImpl);
                     return;
                 }
                 d.a.m0.r.s.a a2 = d.a.m0.s.h.a.a(OfficialBarTipActivity.this.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C0183a(), new C0184b(this));
@@ -153,9 +153,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            ImMessageCenterShowItemData item = OfficialBarTipActivity.this.mView.j().getItem(i2);
+            ImMessageCenterShowItemData item = OfficialBarTipActivity.this.mView.i().getItem(i2);
             if (item != null) {
-                if (OfficialBarTipActivity.this.mView.j().c()) {
+                if (OfficialBarTipActivity.this.mView.i().c()) {
                     ImageView imageView = (ImageView) view.findViewById(R.id.select_status);
                     if (item.isSelected()) {
                         item.setSelected(false);
@@ -201,9 +201,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                 OfficialBarTipActivity.this.processResponsedMemoryList(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016001) {
                 OfficialBarTipActivity.this.mModel.setData(null, OfficialBarTipActivity.this.mCompleteProcess);
-            } else if (customResponsedMessage.getCmd() != 2016011 || OfficialBarTipActivity.this.mView == null || OfficialBarTipActivity.this.mView.j() == null) {
+            } else if (customResponsedMessage.getCmd() != 2016011 || OfficialBarTipActivity.this.mView == null || OfficialBarTipActivity.this.mView.i() == null) {
             } else {
-                OfficialBarTipActivity.this.mView.j().notifyDataSetChanged();
+                OfficialBarTipActivity.this.mView.i().notifyDataSetChanged();
             }
         }
     }
@@ -249,19 +249,19 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public class f extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f17099a;
+        public final /* synthetic */ String f17175a;
 
         public f(String str) {
-            this.f17099a = str;
+            this.f17175a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.f17099a)) {
+            if (TextUtils.isEmpty(this.f17175a)) {
                 return null;
             }
-            d.a.n0.f1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17099a), false);
+            d.a.n0.f1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17175a), false);
             return null;
         }
     }
@@ -323,17 +323,17 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
         d.a.n0.f1.f.j.e eVar = this.mView;
-        if (eVar == null || eVar.j() == null) {
+        if (eVar == null || eVar.i() == null) {
             return;
         }
-        this.mView.j().notifyDataSetChanged();
+        this.mView.i().notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onCompleteProcess() {
         OfficialBarTipModel officialBarTipModel;
         d.a.n0.f1.f.j.e eVar = this.mView;
-        if (eVar == null || eVar.j() == null || (officialBarTipModel = this.mModel) == null) {
+        if (eVar == null || eVar.i() == null || (officialBarTipModel = this.mModel) == null) {
             return;
         }
         if (officialBarTipModel != null && officialBarTipModel.isEmpty()) {
@@ -459,7 +459,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mView.j().notifyDataSetChanged();
+        this.mView.i().notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity

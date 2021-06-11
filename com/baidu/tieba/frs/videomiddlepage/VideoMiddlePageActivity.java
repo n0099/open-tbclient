@@ -63,7 +63,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
         VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
         if (videoMiddlePageFragment == null) {
-            videoMiddlePageFragment = VideoMiddlePageFragment.M0(this.mFrom, this.mId);
+            videoMiddlePageFragment = VideoMiddlePageFragment.P0(this.mFrom, this.mId);
             supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
         }
         this.mFragment = videoMiddlePageFragment;
@@ -172,7 +172,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         VideoMiddlePageFragment videoMiddlePageFragment;
         if (keyEvent != null && (videoMiddlePageFragment = this.mFragment) != null) {
-            if (videoMiddlePageFragment.Q0(i2)) {
+            if (videoMiddlePageFragment.T0(i2)) {
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -183,7 +183,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        d.a.m0.a.c.y().E();
+        d.a.m0.a.d.y().E();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -192,7 +192,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         if (k.isEmpty(this.mId)) {
             return;
         }
-        d.a.m0.a.c.y().P(d.a.m0.a.b.Z, b.f(this.mId, 0L));
+        d.a.m0.a.d.y().P(d.a.m0.a.c.Z, b.f(this.mId, 0L));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity

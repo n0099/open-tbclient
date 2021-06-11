@@ -22,6 +22,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.FileProvider;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.io.ActionJsonData;
+import com.kwai.video.player.KsMediaMeta;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.e.a.h.a;
@@ -36,32 +37,32 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f67041a;
+    public static int f70827a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f67042b;
+    public static NotificationChannel f70828b;
 
     /* loaded from: classes7.dex */
     public static class a implements k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f67043a;
+        public final /* synthetic */ Context f70829a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f67044b;
+        public final /* synthetic */ int f70830b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f67045c;
+        public final /* synthetic */ boolean f70831c;
 
         public a(Context context, int i2, boolean z) {
-            this.f67043a = context;
-            this.f67044b = i2;
-            this.f67045c = z;
+            this.f70829a = context;
+            this.f70830b = i2;
+            this.f70831c = z;
         }
 
         @Override // d.o.a.e.a.d.k
         public void a() {
-            int unused = d.f67041a = d.P(this.f67043a, this.f67044b, this.f67045c);
+            int unused = d.f70827a = d.P(this.f70829a, this.f70830b, this.f70831c);
         }
     }
 
@@ -69,31 +70,31 @@ public class d {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f67046e;
+        public final /* synthetic */ Context f70832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f67047f;
+        public final /* synthetic */ int f70833f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f67048g;
+        public final /* synthetic */ boolean f70834g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f67049h;
+        public final /* synthetic */ DownloadInfo f70835h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ File f67050i;
+        public final /* synthetic */ File f70836i;
 
         public b(Context context, int i2, boolean z, DownloadInfo downloadInfo, File file) {
-            this.f67046e = context;
-            this.f67047f = i2;
-            this.f67048g = z;
-            this.f67049h = downloadInfo;
-            this.f67050i = file;
+            this.f70832e = context;
+            this.f70833f = i2;
+            this.f70834g = z;
+            this.f70835h = downloadInfo;
+            this.f70836i = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.I(this.f67049h, this.f67048g, d.e(this.f67046e, this.f67047f, this.f67048g, this.f67049h, this.f67050i));
+            d.I(this.f70835h, this.f70834g, d.e(this.f70832e, this.f70833f, this.f70834g, this.f70835h, this.f70836i));
         }
     }
 
@@ -116,7 +117,7 @@ public class d {
 
     /* renamed from: d.o.a.e.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public abstract class AbstractC1882d implements n {
+    public abstract class AbstractC1942d implements n {
         @Override // d.o.a.e.a.d.n
         public n a(boolean z) {
             return null;
@@ -281,7 +282,7 @@ public class d {
     }
 
     public static String G(long j2) {
-        long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
+        long[] jArr = {1099511627776L, KsMediaMeta.AV_CH_STEREO_RIGHT, 1048576, 1024, 1};
         String[] strArr = {"TB", "GB", "MB", "KB", "B"};
         if (j2 < 1) {
             return "0 " + strArr[4];
@@ -298,12 +299,12 @@ public class d {
     @TargetApi(26)
     public static String H(@NonNull Context context) {
         try {
-            if (f67042b == null) {
+            if (f70828b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                f67042b = notificationChannel;
+                f70828b = notificationChannel;
                 notificationChannel.setSound(null, null);
-                f67042b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f67042b);
+                f70828b.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f70828b);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -418,9 +419,9 @@ public class d {
             return P(context, i2, z);
         }
         DownloadInfo f2 = d.o.a.e.b.g.a.l(context).f(i2);
-        f67041a = 1;
+        f70827a = 1;
         C.a(f2, new a(context, i2, z));
-        return f67041a;
+        return f70827a;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -630,7 +631,7 @@ public class d {
     }
 
     public static String n(long j2, boolean z) {
-        long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
+        long[] jArr = {1099511627776L, KsMediaMeta.AV_CH_STEREO_RIGHT, 1048576, 1024, 1};
         String[] strArr = {"TB", "GB", "MB", "KB", "B"};
         if (j2 < 1) {
             return "0 " + strArr[4];

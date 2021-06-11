@@ -12,7 +12,6 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -808,7 +807,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     JSONObject jSONObject = new JSONObject(ext);
                     if (jSONObject.has("to_cuid")) {
                         String optString = jSONObject.optString("to_cuid");
-                        if (!TextUtils.equals(optString.substring(0, optString.lastIndexOf(FieldBuilder.SE)), Utility.getDeviceId(context).substring(0, optString.lastIndexOf(FieldBuilder.SE)))) {
+                        if (!TextUtils.equals(optString.substring(0, optString.lastIndexOf("|")), Utility.getDeviceId(context).substring(0, optString.lastIndexOf("|")))) {
                             LogUtils.d(TAG, "CUID is not equal, will abandon this message!");
                             return true;
                         }

@@ -16,11 +16,11 @@ import okhttp3.Response;
 public class c implements Interceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43733a = true;
+    public static boolean f47409a = true;
 
     public static Map<String, String> a(String str, String str2) {
         HashMap hashMap = new HashMap();
-        if (f43733a) {
+        if (f47409a) {
             if (str == null) {
                 str = "";
             }
@@ -36,7 +36,7 @@ public class c implements Interceptor {
     }
 
     public static HttpRequest e(HttpRequest httpRequest, String str, String str2) {
-        if (f43733a && httpRequest != null) {
+        if (f47409a && httpRequest != null) {
             if (str == null) {
                 str = "";
             }
@@ -49,7 +49,7 @@ public class c implements Interceptor {
     }
 
     public static Request f(Request request, String str, String str2) {
-        if (f43733a && request != null) {
+        if (f47409a && request != null) {
             if (str == null) {
                 str = "";
             }
@@ -87,7 +87,7 @@ public class c implements Interceptor {
     public Response intercept(Interceptor.Chain chain) throws IOException {
         HttpUrl resolve;
         Request request = chain.request();
-        if (!f43733a) {
+        if (!f47409a) {
             return chain.proceed(request);
         }
         if (!c(request)) {

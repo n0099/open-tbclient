@@ -11,13 +11,13 @@ public class f {
     public static class a implements e.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f38520a;
+        public final int f42173a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinkedList<g<?>> f38521b;
+        public LinkedList<g<?>> f42174b;
 
         public a(int i2) {
-            this.f38520a = i2;
+            this.f42173a = i2;
         }
 
         @Override // d.a.c.e.d.e
@@ -27,39 +27,39 @@ public class f {
 
         @Override // d.a.c.e.d.e.a
         public void b() {
-            this.f38521b.clear();
-            this.f38521b = null;
+            this.f42174b.clear();
+            this.f42174b = null;
         }
 
         @Override // d.a.c.e.d.e.a
         public void c() {
-            this.f38521b = new LinkedList<>();
+            this.f42174b = new LinkedList<>();
         }
 
         @Override // d.a.c.e.d.e
         public int getMaxSize() {
-            return this.f38520a;
+            return this.f42173a;
         }
 
         @Override // d.a.c.e.d.e.a
         public String h(g<?> gVar) {
-            if (gVar.f38529f < System.currentTimeMillis()) {
-                return gVar.f38524a;
+            if (gVar.f42182f < System.currentTimeMillis()) {
+                return gVar.f42177a;
             }
-            this.f38521b.add(gVar);
+            this.f42174b.add(gVar);
             String str = null;
-            if (this.f38521b.size() > getMaxSize()) {
+            if (this.f42174b.size() > getMaxSize()) {
                 long j = 0;
                 int i2 = -1;
-                for (int i3 = 0; i3 < this.f38521b.size(); i3++) {
-                    g<?> gVar2 = this.f38521b.get(i3);
-                    if (i2 == -1 || gVar2.f38528e < j) {
-                        str = gVar2.f38524a;
-                        j = gVar2.f38528e;
+                for (int i3 = 0; i3 < this.f42174b.size(); i3++) {
+                    g<?> gVar2 = this.f42174b.get(i3);
+                    if (i2 == -1 || gVar2.f42181e < j) {
+                        str = gVar2.f42177a;
+                        j = gVar2.f42181e;
                         i2 = i3;
                     }
                 }
-                this.f38521b.remove(i2);
+                this.f42174b.remove(i2);
             }
             return str;
         }
@@ -69,13 +69,13 @@ public class f {
     public static class b implements e.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f38522a;
+        public final int f42175a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, Long> f38523b = new HashMap<>();
+        public HashMap<String, Long> f42176b = new HashMap<>();
 
         public b(int i2) {
-            this.f38522a = i2;
+            this.f42175a = i2;
         }
 
         @Override // d.a.c.e.d.e
@@ -85,9 +85,9 @@ public class f {
 
         @Override // d.a.c.e.d.e.b
         public String d(g<?> gVar) {
-            String i2 = i(gVar.f38524a);
+            String i2 = i(gVar.f42177a);
             synchronized (this) {
-                this.f38523b.put(gVar.f38524a, Long.valueOf(gVar.f38528e));
+                this.f42176b.put(gVar.f42177a, Long.valueOf(gVar.f42181e));
             }
             return i2;
         }
@@ -102,23 +102,23 @@ public class f {
 
         @Override // d.a.c.e.d.e.b
         public String g(g<?> gVar) {
-            if (gVar.f38529f < System.currentTimeMillis()) {
-                return gVar.f38524a;
+            if (gVar.f42182f < System.currentTimeMillis()) {
+                return gVar.f42177a;
             }
             return d(gVar);
         }
 
         @Override // d.a.c.e.d.e
         public int getMaxSize() {
-            return this.f38522a;
+            return this.f42175a;
         }
 
         public String i(String str) {
             String str2 = null;
-            if (!this.f38523b.containsKey(str) && this.f38523b.size() >= this.f38522a) {
+            if (!this.f42176b.containsKey(str) && this.f42176b.size() >= this.f42175a) {
                 synchronized (this) {
                     long j = -1;
-                    for (Map.Entry<String, Long> entry : this.f38523b.entrySet()) {
+                    for (Map.Entry<String, Long> entry : this.f42176b.entrySet()) {
                         long longValue = entry.getValue().longValue();
                         if (j == -1 || j > longValue) {
                             str2 = entry.getKey();
@@ -126,7 +126,7 @@ public class f {
                         }
                     }
                     if (str2 != null) {
-                        this.f38523b.remove(str2);
+                        this.f42176b.remove(str2);
                     }
                 }
                 return str2;
@@ -137,7 +137,7 @@ public class f {
         @Override // d.a.c.e.d.e.b
         public void release() {
             synchronized (this) {
-                this.f38523b.clear();
+                this.f42176b.clear();
             }
         }
     }

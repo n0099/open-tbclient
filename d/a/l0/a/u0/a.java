@@ -15,23 +15,23 @@ public class a extends d {
     public class b implements d.a.l0.a.u0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f45245a;
+        public String f48919a;
 
         @Override // d.a.l0.a.u0.b
-        public void b(@Nullable JSONObject jSONObject) {
-            a.this.d(this.f45245a, jSONObject == null ? new d.a.l0.a.u.h.b(0) : new d.a.l0.a.u.h.b(0, jSONObject));
+        public void a(@Nullable JSONObject jSONObject) {
+            a.this.d(this.f48919a, jSONObject == null ? new d.a.l0.a.u.h.b(0) : new d.a.l0.a.u.h.b(0, jSONObject));
         }
 
         @Override // d.a.l0.a.u0.b
         public void onFail(int i2, @Nullable String str) {
-            if (d.f44812c && i2 == 0) {
+            if (d.f48486c && i2 == 0) {
                 Log.e("Api-GameCenterApi", "GameCenterCallback:onFail errCode cannot be ERR_OK.");
             }
-            a.this.d(this.f45245a, str == null ? new d.a.l0.a.u.h.b(i2) : new d.a.l0.a.u.h.b(i2, str));
+            a.this.d(this.f48919a, str == null ? new d.a.l0.a.u.h.b(i2) : new d.a.l0.a.u.h.b(i2, str));
         }
 
         public b(String str) {
-            this.f45245a = str;
+            this.f48919a = str;
         }
     }
 
@@ -41,15 +41,15 @@ public class a extends d {
         }
 
         @Override // d.a.l0.a.u0.b
-        public void b(@Nullable JSONObject jSONObject) {
-            if (d.f44812c) {
+        public void a(@Nullable JSONObject jSONObject) {
+            if (d.f48486c) {
                 Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onSuccess could not be invoked.");
             }
         }
 
         @Override // d.a.l0.a.u0.b
         public void onFail(int i2, @Nullable String str) {
-            if (d.f44812c) {
+            if (d.f48486c) {
                 Log.e("Api-GameCenterApi", "GameCenterEmptyCallback:onFail could not be invoked.");
             }
         }
@@ -60,12 +60,12 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b r(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-GameCenterApi", "postGameCenterMessage: " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-GameCenterApi", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
+        if (!bVar.isSuccess()) {
             d.a.l0.a.e0.d.b("Api-GameCenterApi", "parse fail");
             return bVar;
         }
@@ -79,12 +79,12 @@ public class a extends d {
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-GameCenterApi", "postGameCenterMessageSync: " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-GameCenterApi", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
+        if (!bVar.isSuccess()) {
             d.a.l0.a.e0.d.b("Api-GameCenterApi", "parse fail");
             return bVar;
         }

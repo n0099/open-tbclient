@@ -2,7 +2,7 @@ package d.a.l0.a.p0.f;
 
 import d.a.l0.t.d;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static void a() {
         File b2 = b();
@@ -12,7 +12,7 @@ public final class c {
     }
 
     public static File b() {
-        return new File(d.a.l0.a.f1.c.a.d().get(0).f45423a, "/aiapps_debug_extension_core/");
+        return new File(d.a.l0.a.f1.c.a.d().get(0).f49097a, "/aiapps_debug_extension_core/");
     }
 
     public static File c() {

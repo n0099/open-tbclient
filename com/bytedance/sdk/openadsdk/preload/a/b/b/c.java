@@ -7,13 +7,13 @@ import java.lang.reflect.Field;
 public final class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f29778a;
+    public static Class f29881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f29779b = b();
+    public final Object f29882b = b();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Field f29780c = c();
+    public final Field f29883c = c();
 
     public static Field c() {
         try {
@@ -36,9 +36,9 @@ public final class c extends b {
     }
 
     public boolean b(AccessibleObject accessibleObject) {
-        if (this.f29779b != null && this.f29780c != null) {
+        if (this.f29882b != null && this.f29883c != null) {
             try {
-                f29778a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f29779b, accessibleObject, Long.valueOf(((Long) f29778a.getMethod("objectFieldOffset", Field.class).invoke(this.f29779b, this.f29780c)).longValue()), Boolean.TRUE);
+                f29881a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f29882b, accessibleObject, Long.valueOf(((Long) f29881a.getMethod("objectFieldOffset", Field.class).invoke(this.f29882b, this.f29883c)).longValue()), Boolean.TRUE);
                 return true;
             } catch (Exception unused) {
             }
@@ -49,7 +49,7 @@ public final class c extends b {
     public static Object b() {
         try {
             Class<?> cls = Class.forName("sun.misc.Unsafe");
-            f29778a = cls;
+            f29881a = cls;
             Field declaredField = cls.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);

@@ -12,7 +12,7 @@ public class l {
         if (d2 == null || d2.size() <= 0) {
             return null;
         }
-        File file = new File(d2.get(0).f45423a, "/debug/");
+        File file = new File(d2.get(0).f49097a, "/debug/");
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -20,6 +20,6 @@ public class l {
     }
 
     public static String b() {
-        return new File(d.a.l0.a.f1.c.a.d().get(0).f45423a, "/debug/").getAbsolutePath();
+        return new File(d.a.l0.a.f1.c.a.d().get(0).f49097a, "/debug/").getAbsolutePath();
     }
 }

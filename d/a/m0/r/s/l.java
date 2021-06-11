@@ -19,31 +19,31 @@ import java.util.List;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50277a;
+    public Context f53953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RoundLinearLayout f50278b;
+    public RoundLinearLayout f53954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f50279c;
+    public LinearLayout f53955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f50280d;
+    public LinearLayout f53956d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f50281e;
+    public EMTextView f53957e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50282f;
+    public View f53958f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50283g;
+    public TextView f53959g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f50284h;
+    public View f53960h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f50285i;
+    public String f53961i;
     public SpannableStringBuilder j;
     public List<? extends k> k;
     public e l;
@@ -91,7 +91,7 @@ public class l {
         if (context == null) {
             return;
         }
-        this.f50277a = context;
+        this.f53953a = context;
         h();
     }
 
@@ -112,15 +112,15 @@ public class l {
         }
         i();
         this.k = list;
-        this.f50279c.removeAllViews();
-        this.f50280d.removeAllViews();
+        this.f53955c.removeAllViews();
+        this.f53956d.removeAllViews();
         if (list.size() < 2) {
             z = false;
         } else {
             z = ((h) list.get(0)).f() == -1;
             if (((h) list.get(1)).f() == -2) {
                 z2 = true;
-                this.f50282f.setVisibility(!z ? 0 : 8);
+                this.f53958f.setVisibility(!z ? 0 : 8);
                 int i2 = z ? 0 : z2 ? 4 : 3;
                 boolean z3 = list.size() - i2 > 4;
                 for (int i3 = 0; i3 < list.size(); i3++) {
@@ -129,16 +129,16 @@ public class l {
                     hVar.e();
                     if (hVar != null) {
                         if (i3 < i2) {
-                            this.f50279c.addView(hVar.getView());
+                            this.f53955c.addView(hVar.getView());
                         } else {
-                            this.f50280d.addView(hVar.getView());
+                            this.f53956d.addView(hVar.getView());
                         }
                     }
                 }
             }
         }
         z2 = false;
-        this.f50282f.setVisibility(!z ? 0 : 8);
+        this.f53958f.setVisibility(!z ? 0 : 8);
         if (z) {
         }
         if (list.size() - i2 > 4) {
@@ -150,14 +150,14 @@ public class l {
     public View c() {
         p();
         if (this.m != null) {
-            this.f50283g.setOnClickListener(new b());
+            this.f53959g.setOnClickListener(new b());
         }
         j();
-        return this.f50278b;
+        return this.f53954b;
     }
 
     public Context d() {
-        return this.f50277a;
+        return this.f53953a;
     }
 
     public e e() {
@@ -165,63 +165,63 @@ public class l {
     }
 
     public View f() {
-        return this.f50278b;
+        return this.f53954b;
     }
 
     public ViewGroup g() {
-        return this.f50279c;
+        return this.f53955c;
     }
 
     public final void h() {
-        RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.f50277a).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-        this.f50278b = roundLinearLayout;
+        RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.f53953a).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+        this.f53954b = roundLinearLayout;
         d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(roundLinearLayout);
         d2.m(R.string.J_X14);
         d2.f(R.color.CAM_X0204);
-        this.f50279c = (LinearLayout) this.f50278b.findViewById(R.id.content_view);
-        this.f50281e = (EMTextView) this.f50278b.findViewById(R.id.title);
-        View findViewById = this.f50278b.findViewById(R.id.title_divide_line);
-        this.f50282f = findViewById;
+        this.f53955c = (LinearLayout) this.f53954b.findViewById(R.id.content_view);
+        this.f53957e = (EMTextView) this.f53954b.findViewById(R.id.title);
+        View findViewById = this.f53954b.findViewById(R.id.title_divide_line);
+        this.f53958f = findViewById;
         findViewById.setVisibility(8);
-        this.f50284h = this.f50278b.findViewById(R.id.dialog_header);
+        this.f53960h = this.f53954b.findViewById(R.id.dialog_header);
         this.k = new ArrayList();
-        this.f50283g = (TextView) this.f50278b.findViewById(R.id.dialog_bottom_cancel_button);
+        this.f53959g = (TextView) this.f53954b.findViewById(R.id.dialog_bottom_cancel_button);
     }
 
     public final void i() {
         this.n = true;
-        RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.f50277a).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
-        this.f50278b = roundLinearLayout;
+        RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.f53953a).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
+        this.f53954b = roundLinearLayout;
         d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(roundLinearLayout);
         d2.m(R.string.J_X14);
         d2.f(R.color.CAM_X0204);
-        this.f50279c = (LinearLayout) this.f50278b.findViewById(R.id.content_view);
-        this.f50280d = (LinearLayout) this.f50278b.findViewById(R.id.content_view_second);
-        this.f50281e = (EMTextView) this.f50278b.findViewById(R.id.title);
-        View findViewById = this.f50278b.findViewById(R.id.title_divide_line);
-        this.f50282f = findViewById;
+        this.f53955c = (LinearLayout) this.f53954b.findViewById(R.id.content_view);
+        this.f53956d = (LinearLayout) this.f53954b.findViewById(R.id.content_view_second);
+        this.f53957e = (EMTextView) this.f53954b.findViewById(R.id.title);
+        View findViewById = this.f53954b.findViewById(R.id.title_divide_line);
+        this.f53958f = findViewById;
         findViewById.setVisibility(8);
-        this.f50284h = this.f50278b.findViewById(R.id.dialog_header);
+        this.f53960h = this.f53954b.findViewById(R.id.dialog_header);
         this.k = new ArrayList();
-        this.f50283g = (TextView) this.f50278b.findViewById(R.id.dialog_bottom_cancel_button);
-        int k = (d.a.c.e.p.l.k(this.f50277a) - (h.q * 4)) / 2;
-        ((LinearLayout.LayoutParams) this.f50279c.getLayoutParams()).leftMargin = k;
-        ((LinearLayout.LayoutParams) this.f50279c.getLayoutParams()).rightMargin = k;
-        ((FrameLayout.LayoutParams) this.f50280d.getLayoutParams()).leftMargin = k;
-        ((FrameLayout.LayoutParams) this.f50280d.getLayoutParams()).rightMargin = k;
+        this.f53959g = (TextView) this.f53954b.findViewById(R.id.dialog_bottom_cancel_button);
+        int k = (d.a.c.e.p.l.k(this.f53953a) - (h.q * 4)) / 2;
+        ((LinearLayout.LayoutParams) this.f53955c.getLayoutParams()).leftMargin = k;
+        ((LinearLayout.LayoutParams) this.f53955c.getLayoutParams()).rightMargin = k;
+        ((FrameLayout.LayoutParams) this.f53956d.getLayoutParams()).leftMargin = k;
+        ((FrameLayout.LayoutParams) this.f53956d.getLayoutParams()).rightMargin = k;
     }
 
     public void j() {
         if (this.n) {
-            SkinManager.setBackgroundColor(this.f50282f, R.color.CAM_X0203);
+            SkinManager.setBackgroundColor(this.f53958f, R.color.CAM_X0203);
         } else {
-            SkinManager.setViewTextColor(this.f50281e, R.color.CAM_X0109);
-            SkinManager.setBackgroundColor(this.f50282f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f53957e, R.color.CAM_X0109);
+            SkinManager.setBackgroundColor(this.f53958f, R.color.CAM_X0204);
         }
-        SkinManager.setBackgroundResource(this.f50281e, R.color.CAM_X0209);
-        SkinManager.setBackgroundResource(this.f50284h, R.color.CAM_X0209);
-        SkinManager.setBackgroundResource(this.f50283g, R.color.CAM_X0204);
-        SkinManager.setViewTextColorSelector(this.f50283g, R.color.CAM_X0107);
+        SkinManager.setBackgroundResource(this.f53957e, R.color.CAM_X0209);
+        SkinManager.setBackgroundResource(this.f53960h, R.color.CAM_X0209);
+        SkinManager.setBackgroundResource(this.f53959g, R.color.CAM_X0204);
+        SkinManager.setViewTextColorSelector(this.f53959g, R.color.CAM_X0107);
         List<? extends k> list = this.k;
         if (list != null) {
             for (k kVar : list) {
@@ -235,11 +235,11 @@ public class l {
             return;
         }
         this.k = list;
-        this.f50279c.removeAllViews();
+        this.f53955c.removeAllViews();
         for (int i2 = 0; i2 < list.size(); i2++) {
             k kVar = list.get(i2);
             if (kVar != null) {
-                this.f50279c.addView(kVar.getView());
+                this.f53955c.addView(kVar.getView());
             }
         }
     }
@@ -255,7 +255,7 @@ public class l {
     public void m(c cVar) {
         TextView textView;
         this.m = cVar;
-        if (cVar == null || (textView = this.f50283g) == null) {
+        if (cVar == null || (textView = this.f53959g) == null) {
             return;
         }
         textView.setOnClickListener(new a());
@@ -270,16 +270,16 @@ public class l {
     }
 
     public void p() {
-        if (!StringUtils.isNull(this.f50285i)) {
-            this.f50281e.setVisibility(0);
-            this.f50281e.setText(this.f50285i);
+        if (!StringUtils.isNull(this.f53961i)) {
+            this.f53957e.setVisibility(0);
+            this.f53957e.setText(this.f53961i);
         } else if (this.j != null) {
-            this.f50281e.setVisibility(0);
-            this.f50281e.setText(this.j);
+            this.f53957e.setVisibility(0);
+            this.f53957e.setText(this.j);
         }
     }
 
     public void q(String str) {
-        this.f50285i = str;
+        this.f53961i = str;
     }
 }

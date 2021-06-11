@@ -6,6 +6,7 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
@@ -41,16 +42,16 @@ import java.util.ArrayList;
 public class h extends d.a.m0.w.e {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f50915f;
+    public TbPageContext<?> f54592f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j f50916g;
+    public j f54593g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50917h;
+    public String f54594h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f50918i;
+    public String f54595i;
     public VoiceData$VoiceModel j;
     public NewWriteModel k;
     public SpanGroupManager l;
@@ -81,8 +82,8 @@ public class h extends d.a.m0.w.e {
                 h.this.q.callback(z, postWriteCallBackData, i0Var, writeData, antiData);
             }
             if (z) {
-                h.this.f50916g = null;
-                h.this.f50917h = null;
+                h.this.f54593g = null;
+                h.this.f54594h = null;
                 h.this.I(true);
                 h.this.p();
             }
@@ -99,7 +100,7 @@ public class h extends d.a.m0.w.e {
                 statisticItem.param("fid", h.this.t.c0());
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_type", 2);
-                d.a.m0.i0.c k = TbPageExtraHelper.k(h.this.f50915f.getPageActivity());
+                d.a.m0.i0.c k = TbPageExtraHelper.k(h.this.f54592f.getPageActivity());
                 if (k != null) {
                     statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, k.a());
                 }
@@ -109,18 +110,18 @@ public class h extends d.a.m0.w.e {
                 TiebaStatic.log(statisticItem);
             }
             if (z) {
-                WriteData T = h.this.k.T();
-                h.this.k.f0(null);
-                h.this.k.Z(false);
+                WriteData X = h.this.k.X();
+                h.this.k.j0(null);
+                h.this.k.d0(false);
                 h.this.j = null;
-                if (T == null || T == null || T.getType() != 2) {
+                if (X == null || X == null || X.getType() != 2) {
                     return;
                 }
-                h.this.m.u();
+                h.this.m.y();
             } else if (i2 != 230277 && i2 != 230278 && i2 != 340016 && i2 != 1990032 && !AntiHelper.m(i2, str)) {
                 if (i0Var == null || writeData == null || StringUtils.isNull(i0Var.c())) {
                     if (postWriteCallBackData != null && i2 == 227001) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(h.this.f50915f.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(h.this.f54592f.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
                         return;
                     } else if (i2 == 238010 || d.a.n0.o3.a.c(i2)) {
                         return;
@@ -136,9 +137,9 @@ public class h extends d.a.m0.w.e {
                     writeData.setBaijiahaoData(h.this.t.V());
                 }
                 if (d.a.m0.a1.a.b(i0Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(h.this.r().getPageActivity(), 12006, writeData, false, i0Var.d())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(h.this.r().getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, i0Var.d())));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(h.this.r().getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(h.this.r().getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
                 }
             } else {
                 h.this.Z(i2, str);
@@ -170,13 +171,13 @@ public class h extends d.a.m0.w.e {
         @Override // d.a.n0.e3.y.d
         public void onDraftLoaded(WriteData writeData) {
             if (writeData != null && !StringUtils.isNull(writeData.getContent())) {
-                if (h.this.f50916g == null) {
-                    h.this.f50916g = new j();
+                if (h.this.f54593g == null) {
+                    h.this.f54593g = new j();
                 }
-                h.this.f50916g.f50928a = writeData.getContent();
-                h.this.f50916g.f50929b = writeData.getSubPbReplyPrefix();
+                h.this.f54593g.f54605a = writeData.getContent();
+                h.this.f54593g.f54606b = writeData.getSubPbReplyPrefix();
                 h hVar = h.this;
-                hVar.J(hVar.f50916g);
+                hVar.J(hVar.f54593g);
             }
             if (h.this.u != null) {
                 h.this.u.onDraftLoaded(writeData);
@@ -211,7 +212,7 @@ public class h extends d.a.m0.w.e {
 
     public h(EditorTools editorTools) {
         super(editorTools);
-        this.f50917h = "";
+        this.f54594h = "";
         this.n = false;
         this.r = null;
         this.w = 0;
@@ -231,7 +232,7 @@ public class h extends d.a.m0.w.e {
                 PostWriteCallBackData postWriteCallBackData2 = postWriteCallBackData;
                 NewWriteModel.g gVar = this.q;
                 if (gVar != null) {
-                    gVar.callback(false, postWriteCallBackData2, null, this.k.T(), null);
+                    gVar.callback(false, postWriteCallBackData2, null, this.k.X(), null);
                 }
             }
         } else if (i2 == 12005) {
@@ -246,13 +247,13 @@ public class h extends d.a.m0.w.e {
             }
             p();
             I(true);
-            WriteData T = this.k.T();
-            this.k.f0(null);
-            this.k.Z(false);
-            if (T == null || T == null || T.getType() != 2) {
+            WriteData X = this.k.X();
+            this.k.j0(null);
+            this.k.d0(false);
+            if (X == null || X == null || X.getType() != 2) {
                 return;
             }
-            this.m.u();
+            this.m.y();
         }
     }
 
@@ -266,43 +267,43 @@ public class h extends d.a.m0.w.e {
 
     public void D() {
         a2 a2Var;
-        if (this.k.T() == null) {
+        if (this.k.X() == null) {
             DataModel<?> dataModel = this.m;
-            WriteData t = dataModel.t(dataModel.s());
-            if (t != null && (a2Var = this.t) != null) {
-                t.setBaijiahaoData(a2Var.V());
+            WriteData x = dataModel.x(dataModel.w());
+            if (x != null && (a2Var = this.t) != null) {
+                x.setBaijiahaoData(a2Var.V());
             }
-            this.k.f0(t);
+            this.k.j0(x);
         }
-        if (this.k.T() == null) {
+        if (this.k.X() == null) {
             return;
         }
         this.k.setSpanGroupManager(this.l);
-        if (this.f50916g != null) {
-            this.k.T().setContent(this.f50916g.f50928a);
-            this.k.T().setSubPbReplyPrefix(this.f50916g.f50929b);
+        if (this.f54593g != null) {
+            this.k.X().setContent(this.f54593g.f54605a);
+            this.k.X().setSubPbReplyPrefix(this.f54593g.f54606b);
             if (this.t != null) {
-                this.k.T().setBaijiahaoData(this.t.V());
+                this.k.X().setBaijiahaoData(this.t.V());
             }
         }
-        this.k.T().setReplyId(this.f50917h);
-        if (this.f50918i != null) {
-            this.k.T().setRepostId(this.m.s());
+        this.k.X().setReplyId(this.f54594h);
+        if (this.f54595i != null) {
+            this.k.X().setRepostId(this.m.w());
         }
         VoiceData$VoiceModel voiceData$VoiceModel = this.j;
         if (voiceData$VoiceModel != null) {
             if (voiceData$VoiceModel.getId() != null) {
-                this.k.T().setVoice(this.j.getId());
-                this.k.T().setVoiceDuringTime(this.j.duration);
+                this.k.X().setVoice(this.j.getId());
+                this.k.X().setVoiceDuringTime(this.j.duration);
             } else {
-                this.k.T().setVoice(null);
-                this.k.T().setVoiceDuringTime(-1);
+                this.k.X().setVoice(null);
+                this.k.X().setVoiceDuringTime(-1);
             }
         } else {
-            this.k.T().setVoice(null);
-            this.k.T().setVoiceDuringTime(-1);
+            this.k.X().setVoice(null);
+            this.k.X().setVoiceDuringTime(-1);
         }
-        if (!this.k.Q()) {
+        if (!this.k.U()) {
             r().showToast(R.string.write_img_limit);
             return;
         }
@@ -312,8 +313,8 @@ public class h extends d.a.m0.w.e {
             if (cVar != null) {
                 cVar.a();
             }
-            q(this.k.T());
-            if (!this.k.i0()) {
+            q(this.k.X());
+            if (!this.k.m0()) {
             }
         }
     }
@@ -331,21 +332,21 @@ public class h extends d.a.m0.w.e {
     }
 
     public void F() {
-        this.k.f0(null);
-        this.k.Z(false);
+        this.k.j0(null);
+        this.k.d0(false);
         this.j = null;
     }
 
     public void G() {
         WriteData writeData = new WriteData(2);
-        j jVar = this.f50916g;
+        j jVar = this.f54593g;
         if (jVar != null) {
-            writeData.setContent(jVar.f50928a);
-            writeData.setSubPbReplyPrefix(this.f50916g.f50929b);
+            writeData.setContent(jVar.f54605a);
+            writeData.setSubPbReplyPrefix(this.f54593g.f54606b);
         }
-        writeData.setReplyId(this.f50917h);
-        writeData.setThreadId(this.f50918i);
-        y.q(this.f50918i, writeData);
+        writeData.setReplyId(this.f54594h);
+        writeData.setThreadId(this.f54595i);
+        y.q(this.f54595i, writeData);
     }
 
     public final void H(ArrayList<String> arrayList) {
@@ -371,7 +372,7 @@ public class h extends d.a.m0.w.e {
     }
 
     public void L(TbPageContext<?> tbPageContext) {
-        this.f50915f = tbPageContext;
+        this.f54592f = tbPageContext;
     }
 
     public void M(int i2) {
@@ -387,10 +388,10 @@ public class h extends d.a.m0.w.e {
     }
 
     public void P(String str) {
-        if (this.f50916g == null) {
-            this.f50916g = new j();
+        if (this.f54593g == null) {
+            this.f54593g = new j();
         }
-        this.f50916g.f50928a = str;
+        this.f54593g.f54605a = str;
     }
 
     public void Q(d.a.m0.w.w.c cVar) {
@@ -402,13 +403,13 @@ public class h extends d.a.m0.w.e {
             return;
         }
         String replace = TbadkCoreApplication.getInst().getResources().getString(R.string.reply_sub_floor).replace("%s", str);
-        j jVar = this.f50916g;
+        j jVar = this.f54593g;
         if (jVar != null) {
-            if (TextUtils.isEmpty(jVar.f50929b) && TextUtils.isEmpty(this.f50916g.f50928a)) {
+            if (TextUtils.isEmpty(jVar.f54606b) && TextUtils.isEmpty(this.f54593g.f54605a)) {
                 f0(str);
                 return;
-            } else if (!TextUtils.isEmpty(this.f50916g.f50929b) && this.f50916g.f50929b.equals(replace)) {
-                b0(this.f50916g);
+            } else if (!TextUtils.isEmpty(this.f54593g.f54606b) && this.f54593g.f54606b.equals(replace)) {
+                b0(this.f54593g);
                 return;
             } else {
                 f0(str);
@@ -419,7 +420,7 @@ public class h extends d.a.m0.w.e {
     }
 
     public void S(String str) {
-        this.f50917h = str;
+        this.f54594h = str;
     }
 
     public void T(boolean z) {
@@ -431,13 +432,13 @@ public class h extends d.a.m0.w.e {
     }
 
     public void V(j jVar) {
-        this.f50916g = jVar;
+        this.f54593g = jVar;
     }
 
     public void W(DataModel<?> dataModel) {
         this.m = dataModel;
         if (dataModel != null) {
-            this.f50918i = dataModel.s();
+            this.f54595i = dataModel.w();
         }
     }
 
@@ -447,7 +448,7 @@ public class h extends d.a.m0.w.e {
             return;
         }
         a().setFid(this.t.c0());
-        a().setTid(this.t.y1());
+        a().setTid(this.t.z1());
     }
 
     public void Y(VoiceData$VoiceModel voiceData$VoiceModel) {
@@ -456,7 +457,7 @@ public class h extends d.a.m0.w.e {
 
     public void Z(int i2, String str) {
         if (AntiHelper.m(i2, str)) {
-            if (AntiHelper.w(this.f50915f.getPageActivity(), str, i2, this.y) != null) {
+            if (AntiHelper.w(this.f54592f.getPageActivity(), str, i2, this.y) != null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_REPLY_SUB_PB));
             }
         } else if (i2 != 230277 && i2 != 230278) {
@@ -503,11 +504,11 @@ public class h extends d.a.m0.w.e {
         if (str != null && str.length() != 0) {
             String replace = r().getResources().getString(R.string.reply_sub_floor).replace("%s", str);
             j jVar = new j();
-            jVar.f50929b = replace;
+            jVar.f54606b = replace;
             J(jVar);
         } else {
             j jVar2 = new j();
-            jVar2.f50928a = "";
+            jVar2.f54605a = "";
             J(jVar2);
         }
         TiebaStatic.eventStat(r().getPageActivity(), "subpb_write", "subpbclick", 1, new Object[0]);
@@ -521,7 +522,7 @@ public class h extends d.a.m0.w.e {
     }
 
     public void p() {
-        y.q(this.f50918i, null);
+        y.q(this.f54595i, null);
     }
 
     public void q(WriteData writeData) {
@@ -563,7 +564,7 @@ public class h extends d.a.m0.w.e {
     }
 
     public TbPageContext<?> r() {
-        return this.f50915f;
+        return this.f54592f;
     }
 
     public f s() {
@@ -576,21 +577,21 @@ public class h extends d.a.m0.w.e {
     public void t(PostWriteCallBackData postWriteCallBackData) {
         PbEditorData pbEditorData = new PbEditorData();
         pbEditorData.setEditorType(1);
-        j jVar = this.f50916g;
+        j jVar = this.f54593g;
         if (jVar != null) {
-            pbEditorData.setContent(jVar.f50928a);
-            pbEditorData.setSubPbReplyPrefix(this.f50916g.f50929b);
+            pbEditorData.setContent(jVar.f54605a);
+            pbEditorData.setSubPbReplyPrefix(this.f54593g.f54606b);
         }
         pbEditorData.setVoiceModel(this.j);
         pbEditorData.setThreadData(new PbEditorData.ThreadData());
         pbEditorData.setDisableVoiceMessage(this.r);
         pbEditorData.setOpenVoiceRecordButton(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbFullScreenEditorActivityConfig(this.f50915f.getPageActivity(), 25035, pbEditorData, postWriteCallBackData)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbFullScreenEditorActivityConfig(this.f54592f.getPageActivity(), 25035, pbEditorData, postWriteCallBackData)));
     }
 
     public boolean u() {
-        j jVar = this.f50916g;
-        return (jVar == null || k.isEmpty(jVar.f50928a)) ? false : true;
+        j jVar = this.f54593g;
+        return (jVar == null || k.isEmpty(jVar.f54605a)) ? false : true;
     }
 
     public boolean v() {
@@ -609,8 +610,8 @@ public class h extends d.a.m0.w.e {
         }
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.k = newWriteModel;
-        newWriteModel.d0(this.x);
-        y.j(this.m.s(), new c());
+        newWriteModel.h0(this.x);
+        y.j(this.m.w(), new c());
     }
 
     public boolean y() {
@@ -621,11 +622,11 @@ public class h extends d.a.m0.w.e {
         if (writeData == null) {
             return;
         }
-        if (this.f50916g == null) {
-            this.f50916g = new j();
+        if (this.f54593g == null) {
+            this.f54593g = new j();
         }
-        this.f50916g.f50928a = writeData.getContent();
-        this.f50916g.f50929b = writeData.getSubPbReplyPrefix();
-        J(this.f50916g);
+        this.f54593g.f54605a = writeData.getContent();
+        this.f54593g.f54606b = writeData.getSubPbReplyPrefix();
+        J(this.f54593g);
     }
 }

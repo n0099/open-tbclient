@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FileDescriptorLocalUriFetcher extends LocalUriFetcher<ParcelFileDescriptor> {
     public FileDescriptorLocalUriFetcher(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);
@@ -30,7 +30,7 @@ public class FileDescriptorLocalUriFetcher extends LocalUriFetcher<ParcelFileDes
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public ParcelFileDescriptor loadResource(Uri uri, ContentResolver contentResolver) throws FileNotFoundException {
-        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7672a);
+        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7715a);
         if (openAssetFileDescriptor != null) {
             return openAssetFileDescriptor.getParcelFileDescriptor();
         }

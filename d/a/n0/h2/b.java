@@ -9,27 +9,27 @@ import com.baidu.ufosdk.UfoSDK;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f55509b;
+    public static b f59198b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f55510a;
+    public Context f59199a;
 
     public b(Context context) {
-        this.f55510a = context;
+        this.f59199a = context;
         UfoSDK.init(context);
         UfoSDK.openRobotAnswer();
         UfoSDK.setContactDialogSwitch(false);
     }
 
     public static b a() {
-        if (f55509b == null) {
+        if (f59198b == null) {
             synchronized (b.class) {
-                if (f55509b == null) {
-                    f55509b = new b(TbadkCoreApplication.getInst());
+                if (f59198b == null) {
+                    f59198b = new b(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return f55509b;
+        return f59198b;
     }
 
     public void b() {
@@ -40,8 +40,8 @@ public class b {
         }
         UfoSDK.setUserId(TbadkCoreApplication.getCurrentAccount());
         UfoSDK.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        Intent feedbackInputIntent = UfoSDK.getFeedbackInputIntent(this.f55510a, 0);
+        Intent feedbackInputIntent = UfoSDK.getFeedbackInputIntent(this.f59199a, 0);
         feedbackInputIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        this.f55510a.startActivity(feedbackInputIntent);
+        this.f59199a.startActivity(feedbackInputIntent);
     }
 }

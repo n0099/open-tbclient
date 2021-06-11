@@ -67,7 +67,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         if (hotForumResIdl.data.hot_search != null) {
             HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
             this.mHotSearchInfo = hotSearchInfoData;
-            hotSearchInfoData.u(hotForumResIdl.data.hot_search);
+            hotSearchInfoData.y(hotForumResIdl.data.hot_search);
         }
         if (hotForumResIdl.data.hot_topic != null) {
             this.mTopicInfoList = new ArrayList();

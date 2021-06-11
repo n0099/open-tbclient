@@ -7,42 +7,42 @@ import java.util.ArrayList;
 public class a extends BaseCardInfo {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f58278g = BdUniqueId.gen();
+    public static final BdUniqueId f61969g = BdUniqueId.gen();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f58279h = BdUniqueId.gen();
+    public static final BdUniqueId f61970h = BdUniqueId.gen();
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f58280i = BdUniqueId.gen();
+    public static final BdUniqueId f61971i = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f58281e;
+    public BdUniqueId f61972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f58282f;
+    public ArrayList<String> f61973f;
 
     public a() {
-        BdUniqueId bdUniqueId = f58279h;
-        this.f58281e = bdUniqueId;
-        this.f58281e = bdUniqueId;
+        BdUniqueId bdUniqueId = f61970h;
+        this.f61972e = bdUniqueId;
+        this.f61972e = bdUniqueId;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    public ArrayList<String> c() {
+        return this.f61973f;
+    }
+
+    public void g(BdUniqueId bdUniqueId) {
+        this.f61972e = bdUniqueId;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return this.f58281e;
-    }
-
-    public ArrayList<String> h() {
-        return this.f58282f;
-    }
-
-    public void l(BdUniqueId bdUniqueId) {
-        this.f58281e = bdUniqueId;
+        return this.f61972e;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.f58281e = f58279h;
-        this.f58282f = arrayList;
-        this.f58281e = f58278g;
+        this.f61972e = f61970h;
+        this.f61973f = arrayList;
+        this.f61972e = f61969g;
     }
 }

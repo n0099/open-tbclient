@@ -3,10 +3,10 @@ package d.a.l0.o.a.c;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f48283a = new int[0];
+    public static final int[] f51957a = new int[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object[] f48284b = new Object[0];
+    public static final Object[] f51958b = new Object[0];
 
     public static int a(int[] iArr, int i2, int i3) {
         int i4 = i2 - 1;

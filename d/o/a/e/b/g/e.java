@@ -14,44 +14,44 @@ import java.util.List;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f67213d;
+    public static volatile e f70999d;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<Boolean> f67214a = new SparseArray<>();
+    public volatile SparseArray<Boolean> f71000a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f67215b = new Handler(Looper.getMainLooper());
+    public Handler f71001b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile List<d.o.a.e.b.f.g> f67216c = new ArrayList();
+    public volatile List<d.o.a.e.b.f.g> f71002c = new ArrayList();
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f67217e;
+        public final /* synthetic */ m f71003e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.n.a f67218f;
+        public final /* synthetic */ d.o.a.e.b.n.a f71004f;
 
         public a(e eVar, m mVar, d.o.a.e.b.n.a aVar) {
-            this.f67217e = mVar;
-            this.f67218f = aVar;
+            this.f71003e = mVar;
+            this.f71004f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f67217e.b(this.f67218f);
+            this.f71003e.b(this.f71004f);
         }
     }
 
     public static e c() {
-        if (f67213d == null) {
+        if (f70999d == null) {
             synchronized (e.class) {
-                f67213d = new e();
+                f70999d = new e();
             }
         }
-        return f67213d;
+        return f70999d;
     }
 
     public List<DownloadInfo> A(String str) {
@@ -206,7 +206,7 @@ public class e {
         if (t == null) {
             return;
         }
-        t.h(i2, bVar == null ? 0 : bVar.hashCode(), bVar, gVar, z);
+        t.g(i2, bVar == null ? 0 : bVar.hashCode(), bVar, gVar, z);
     }
 
     public void g(int i2, d.o.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2) {
@@ -214,7 +214,7 @@ public class e {
         if (t == null) {
             return;
         }
-        t.e(i2, bVar.hashCode(), bVar, gVar, z, z2);
+        t.d(i2, bVar.hashCode(), bVar, gVar, z, z2);
     }
 
     public void h(int i2, boolean z) {
@@ -246,7 +246,7 @@ public class e {
                 d.o.a.e.b.e.a.e(aVar.O(), aVar.H(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), aVar.H() != null ? aVar.H().H0() : 0);
             }
         } else if (aVar.W()) {
-            this.f67215b.postDelayed(new a(this, n, aVar), 500L);
+            this.f71001b.postDelayed(new a(this, n, aVar), 500L);
         } else {
             n.b(aVar);
         }
@@ -272,10 +272,10 @@ public class e {
     }
 
     public synchronized int m(int i2) {
-        if (this.f67214a.get(i2) == null) {
+        if (this.f71000a.get(i2) == null) {
             return -1;
         }
-        return this.f67214a.get(i2).booleanValue() ? 1 : 0;
+        return this.f71000a.get(i2).booleanValue() ? 1 : 0;
     }
 
     public final m n(d.o.a.e.b.n.a aVar) {
@@ -327,8 +327,8 @@ public class e {
     }
 
     public void p() {
-        synchronized (this.f67216c) {
-            for (d.o.a.e.b.f.g gVar : this.f67216c) {
+        synchronized (this.f71002c) {
+            for (d.o.a.e.b.f.g gVar : this.f71002c) {
                 if (gVar != null) {
                     gVar.a();
                 }
@@ -341,11 +341,11 @@ public class e {
         if (t == null) {
             return;
         }
-        t.g(i2, bVar.hashCode(), bVar, gVar, z);
+        t.f(i2, bVar.hashCode(), bVar, gVar, z);
     }
 
     public synchronized void r(int i2, boolean z) {
-        this.f67214a.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
+        this.f71000a.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
     }
 
     public void s(List<String> list) {

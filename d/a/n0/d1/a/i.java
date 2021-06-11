@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.holder.QualityThreadItemHolder;
-import d.a.c.j.e.n;
-import d.a.c.j.e.w;
+import d.a.c.k.e.n;
+import d.a.c.k.e.w;
 import d.a.n0.d1.c.m;
 /* loaded from: classes4.dex */
-public class i extends d.a.c.j.e.a<m, QualityThreadItemHolder> {
+public class i extends d.a.c.k.e.a<m, QualityThreadItemHolder> {
     public int m;
     public HotTopicActivity n;
     public b o;
@@ -33,13 +33,13 @@ public class i extends d.a.c.j.e.a<m, QualityThreadItemHolder> {
         public a() {
         }
 
-        @Override // d.a.c.j.e.w
+        @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if (nVar == null || !(nVar instanceof m)) {
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-            i.this.g0((m) nVar);
+            i.this.h0((m) nVar);
         }
     }
 
@@ -47,25 +47,25 @@ public class i extends d.a.c.j.e.a<m, QualityThreadItemHolder> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f52481e;
+        public String f56170e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f52482f;
+        public String f56171f;
 
         public b() {
         }
 
         public void a(String str, String str2) {
-            this.f52481e = str;
-            this.f52482f = str2;
+            this.f56170e = str;
+            this.f56171f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.a.c.e.p.k.isForumName(this.f52481e)) {
+            if (d.a.c.e.p.k.isForumName(this.f56170e)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(i.this.f39228e).createNormalCfg(this.f52481e, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                TiebaStatic.log(new StatisticItem("c10523").param("fid", this.f52482f));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(i.this.f42909e).createNormalCfg(this.f56170e, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                TiebaStatic.log(new StatisticItem("c10523").param("fid", this.f56171f));
             }
         }
 
@@ -82,88 +82,88 @@ public class i extends d.a.c.j.e.a<m, QualityThreadItemHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, m mVar, QualityThreadItemHolder qualityThreadItemHolder) {
-        m0(i2, view, viewGroup, mVar, qualityThreadItemHolder);
+    @Override // d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, m mVar, QualityThreadItemHolder qualityThreadItemHolder) {
+        l0(i2, view, viewGroup, mVar, qualityThreadItemHolder);
         return view;
     }
 
-    public final void g0(m mVar) {
-        if (mVar == null || mVar.c()) {
+    public final void h0(m mVar) {
+        if (mVar == null || mVar.b()) {
             return;
         }
-        String valueOf = String.valueOf(mVar.f52600g);
+        String valueOf = String.valueOf(mVar.f56289g);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.n.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.n), "hot_topic")));
         TiebaStatic.log(new StatisticItem("c10522").param("tid", valueOf).param("obj_id", this.n.getHotTopicId()));
     }
 
-    public final void h0(QualityThreadItemHolder qualityThreadItemHolder, m mVar) {
+    public final void i0(QualityThreadItemHolder qualityThreadItemHolder, m mVar) {
         if (qualityThreadItemHolder == null || mVar == null) {
             return;
         }
-        if (mVar.c()) {
-            qualityThreadItemHolder.f16801c.setVisibility(0);
-            qualityThreadItemHolder.f16802d.setVisibility(0);
-            qualityThreadItemHolder.f16804f.setVisibility(8);
-            qualityThreadItemHolder.f16803e.setVisibility(8);
-            qualityThreadItemHolder.f16802d.setText(mVar.f52599f.trim());
+        if (mVar.b()) {
+            qualityThreadItemHolder.f16877c.setVisibility(0);
+            qualityThreadItemHolder.f16878d.setVisibility(0);
+            qualityThreadItemHolder.f16880f.setVisibility(8);
+            qualityThreadItemHolder.f16879e.setVisibility(8);
+            qualityThreadItemHolder.f16878d.setText(mVar.f56288f.trim());
             SkinManager.setBackgroundColor(qualityThreadItemHolder.a(), R.color.CAM_X0201);
             return;
         }
-        qualityThreadItemHolder.f16801c.setVisibility(8);
-        qualityThreadItemHolder.f16802d.setVisibility(8);
-        qualityThreadItemHolder.f16804f.setVisibility(0);
-        qualityThreadItemHolder.f16803e.setVisibility(0);
-        qualityThreadItemHolder.f16805g.V(mVar.o, 10, false);
-        qualityThreadItemHolder.f16806h.setText(mVar.f52601h.trim());
-        qualityThreadItemHolder.f16807i.setText(mVar.j.trim());
+        qualityThreadItemHolder.f16877c.setVisibility(8);
+        qualityThreadItemHolder.f16878d.setVisibility(8);
+        qualityThreadItemHolder.f16880f.setVisibility(0);
+        qualityThreadItemHolder.f16879e.setVisibility(0);
+        qualityThreadItemHolder.f16881g.U(mVar.o, 10, false);
+        qualityThreadItemHolder.f16882h.setText(mVar.f56290h.trim());
+        qualityThreadItemHolder.f16883i.setText(mVar.j.trim());
         qualityThreadItemHolder.j.setText(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.l, 7, false)}));
         qualityThreadItemHolder.k.setText(StringHelper.numberUniformFormat(mVar.k));
-        qualityThreadItemHolder.l.setText(StringHelper.numFormatOver10000(mVar.f52602i));
-        n0(qualityThreadItemHolder, mVar);
+        qualityThreadItemHolder.l.setText(StringHelper.numFormatOver10000(mVar.f56291i));
+        m0(qualityThreadItemHolder, mVar);
     }
 
-    public final void i0(QualityThreadItemHolder qualityThreadItemHolder, View view) {
+    public final void j0(QualityThreadItemHolder qualityThreadItemHolder, View view) {
         if (qualityThreadItemHolder == null) {
             return;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.m = skinType;
-        if (this.n == null || qualityThreadItemHolder.f16799a == skinType) {
+        if (this.n == null || qualityThreadItemHolder.f16875a == skinType) {
             return;
         }
-        qualityThreadItemHolder.f16799a = skinType;
+        qualityThreadItemHolder.f16875a = skinType;
         SkinManager.setBackgroundResource(qualityThreadItemHolder.a(), R.drawable.list_item_selector);
-        SkinManager.setViewTextColor(qualityThreadItemHolder.f16802d, R.color.CAM_X0108, 1);
-        SkinManager.setViewTextColor(qualityThreadItemHolder.f16806h, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(qualityThreadItemHolder.f16807i, R.color.CAM_X0109, 1);
-        SkinManager.setBackgroundColor(qualityThreadItemHolder.f16804f, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(qualityThreadItemHolder.f16801c, R.color.CAM_X0204);
-        qualityThreadItemHolder.f16805g.setImageDrawable(null);
+        SkinManager.setViewTextColor(qualityThreadItemHolder.f16878d, R.color.CAM_X0108, 1);
+        SkinManager.setViewTextColor(qualityThreadItemHolder.f16882h, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(qualityThreadItemHolder.f16883i, R.color.CAM_X0109, 1);
+        SkinManager.setBackgroundColor(qualityThreadItemHolder.f16880f, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(qualityThreadItemHolder.f16877c, R.color.CAM_X0204);
+        qualityThreadItemHolder.f16881g.setImageDrawable(null);
         this.n.getLayoutMode().k(this.m == 1);
         this.n.getLayoutMode().j(view);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: j0 */
-    public QualityThreadItemHolder P(ViewGroup viewGroup) {
-        return new QualityThreadItemHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.hot_topic_quality_item, viewGroup, false));
+    @Override // d.a.c.k.e.a
+    /* renamed from: k0 */
+    public QualityThreadItemHolder Q(ViewGroup viewGroup) {
+        return new QualityThreadItemHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.hot_topic_quality_item, viewGroup, false));
     }
 
-    public View m0(int i2, View view, ViewGroup viewGroup, m mVar, QualityThreadItemHolder qualityThreadItemHolder) {
+    public View l0(int i2, View view, ViewGroup viewGroup, m mVar, QualityThreadItemHolder qualityThreadItemHolder) {
         if (mVar != null && qualityThreadItemHolder != null) {
-            i0(qualityThreadItemHolder, view);
-            h0(qualityThreadItemHolder, mVar);
+            j0(qualityThreadItemHolder, view);
+            i0(qualityThreadItemHolder, mVar);
         }
         return view;
     }
 
-    public final void n0(QualityThreadItemHolder qualityThreadItemHolder, m mVar) {
+    public final void m0(QualityThreadItemHolder qualityThreadItemHolder, m mVar) {
         if (qualityThreadItemHolder == null || mVar == null || this.n == null) {
             return;
         }
-        Z(this.p);
+        a0(this.p);
         this.o.a(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.l, 7, false)}), String.valueOf(mVar.m));
         qualityThreadItemHolder.j.setOnClickListener(this.o);
     }

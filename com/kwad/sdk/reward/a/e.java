@@ -1,7 +1,5 @@
 package com.kwad.sdk.reward.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface e {
     void a();
-
-    void b();
 }

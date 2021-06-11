@@ -6,7 +6,7 @@ import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes2.dex */
 public class k extends a {
-    public static final boolean l = d.a.l0.a.k.f43199a;
+    public static final boolean l = d.a.l0.a.k.f46875a;
 
     public k(boolean z, boolean z2) {
         super(z, z2);
@@ -40,9 +40,9 @@ public class k extends a {
 
     public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
         PMSAppInfo g2 = g();
-        if (this.f42243c == null) {
+        if (this.f45919c == null) {
             return false;
         }
-        return (pMSAppInfo.versionCode == g2.versionCode && TextUtils.equals(pMSAppInfo.appId, g2.appId) && !m(cVar, this.f42244d)) ? false : true;
+        return (pMSAppInfo.versionCode == g2.versionCode && TextUtils.equals(pMSAppInfo.appId, g2.appId) && !m(cVar, this.f45920d)) ? false : true;
     }
 }

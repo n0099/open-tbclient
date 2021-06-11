@@ -5,5 +5,5 @@ import d.a.l0.a.a2.n.c;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a f40779a;
+    public c.a f44455a;
 }

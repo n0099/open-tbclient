@@ -5,24 +5,24 @@ import tbclient.FrsPage.GconAccount;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f54235a;
+    public boolean f57924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54236b;
+    public String f57925b;
 
     public String a() {
-        return this.f54236b;
+        return this.f57925b;
     }
 
     public boolean b() {
-        return this.f54235a;
+        return this.f57924a;
     }
 
     public void c(GconAccount gconAccount) {
         if (gconAccount == null) {
             return;
         }
-        this.f54235a = gconAccount.has_account.intValue() == 1;
-        this.f54236b = gconAccount.menu_name;
+        this.f57924a = gconAccount.has_account.intValue() == 1;
+        this.f57925b = gconAccount.menu_name;
     }
 }

@@ -44,21 +44,21 @@ public class g extends d.a.n0.r0.k<h, FrsMemberHeaderViewHolder> {
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag instanceof Integer) {
-                d.a.c.j.e.n y = g.this.y(((Integer) tag).intValue());
-                if (y instanceof h) {
-                    h hVar = (h) y;
+                d.a.c.k.e.n z = g.this.z(((Integer) tag).intValue());
+                if (z instanceof h) {
+                    h hVar = (h) z;
                     if (view.getId() == R.id.like_btn) {
                         if (ViewHelper.checkUpIsLogin(g.this.o.getPageActivity())) {
                             if (!d.a.c.e.p.j.z()) {
                                 g.this.o.showToast(R.string.neterror);
                                 return;
                             }
-                            String c2 = hVar.c();
-                            g.this.w.H(hVar.e(), c2);
+                            String b2 = hVar.b();
+                            g.this.w.L(hVar.c(), b2);
                         }
                     } else if (view.getId() == R.id.user_level_name) {
-                        String c3 = hVar.c();
-                        g.this.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(g.this.f39228e, hVar.e(), c3)));
+                        String b3 = hVar.b();
+                        g.this.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(g.this.f42909e, hVar.c(), b3)));
                     }
                 }
             }
@@ -94,7 +94,11 @@ public class g extends d.a.n0.r0.k<h, FrsMemberHeaderViewHolder> {
         this.z = new a();
     }
 
-    public final void A0() {
+    public final int[] A0(int i2) {
+        return i2 <= 3 ? new int[]{-8331843, -10499102} : i2 <= 9 ? new int[]{-10499102, -154262} : i2 <= 15 ? new int[]{-154262, -148180} : new int[]{-148180, -100818};
+    }
+
+    public final void B0() {
         TbPageContext<?> tbPageContext = this.o;
         if (tbPageContext == null) {
             return;
@@ -105,85 +109,85 @@ public class g extends d.a.n0.r0.k<h, FrsMemberHeaderViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: B0 */
-    public FrsMemberHeaderViewHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: C0 */
+    public FrsMemberHeaderViewHolder Q(ViewGroup viewGroup) {
         if (this.w == null) {
-            A0();
+            B0();
         }
-        return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.z);
+        return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.z);
     }
 
-    public View C0(int i2, View view, ViewGroup viewGroup, h hVar, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
-        super.W(i2, view, viewGroup, hVar, frsMemberHeaderViewHolder);
-        if (hVar != null && hVar.f() != null) {
+    public View D0(int i2, View view, ViewGroup viewGroup, h hVar, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
+        super.X(i2, view, viewGroup, hVar, frsMemberHeaderViewHolder);
+        if (hVar != null && hVar.e() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = SkinManager.getColor(R.color.CAM_X0109);
-            w f2 = hVar.f();
+            w e2 = hVar.e();
             if (TbadkCoreApplication.isLogin()) {
-                if (f2.l() == 1) {
-                    frsMemberHeaderViewHolder.f14970a.setVisibility(8);
-                    frsMemberHeaderViewHolder.f14971b.setVisibility(0);
-                    frsMemberHeaderViewHolder.f14971b.setText(R.string.mydegree);
-                    SkinManager.setImageResource(frsMemberHeaderViewHolder.f14972c, BitmapHelper.getSmallGradeResourceIdNew(f2.k()));
-                    if (StringUtils.isNull(f2.h())) {
-                        frsMemberHeaderViewHolder.f14973d.setVisibility(8);
+                if (e2.l() == 1) {
+                    frsMemberHeaderViewHolder.f15027a.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15028b.setVisibility(0);
+                    frsMemberHeaderViewHolder.f15028b.setText(R.string.mydegree);
+                    SkinManager.setImageResource(frsMemberHeaderViewHolder.f15029c, BitmapHelper.getSmallGradeResourceIdNew(e2.k()));
+                    if (StringUtils.isNull(e2.h())) {
+                        frsMemberHeaderViewHolder.f15030d.setVisibility(8);
                     } else {
-                        frsMemberHeaderViewHolder.f14973d.setText(f2.h());
-                        frsMemberHeaderViewHolder.f14973d.setVisibility(0);
+                        frsMemberHeaderViewHolder.f15030d.setText(e2.h());
+                        frsMemberHeaderViewHolder.f15030d.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(f2.c() + "");
+                    SpannableString spannableString = new SpannableString(e2.c() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + f2.i());
+                    SpannableString spannableString2 = new SpannableString("/" + e2.i());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
-                    frsMemberHeaderViewHolder.f14976g.setText(spannableStringBuilder);
-                    frsMemberHeaderViewHolder.f14976g.setVisibility(0);
+                    frsMemberHeaderViewHolder.f15033g.setText(spannableStringBuilder);
+                    frsMemberHeaderViewHolder.f15033g.setVisibility(0);
                     frsMemberHeaderViewHolder.k.setVisibility(0);
                     frsMemberHeaderViewHolder.l.setVisibility(0);
                 } else {
-                    frsMemberHeaderViewHolder.f14970a.setVisibility(0);
-                    frsMemberHeaderViewHolder.f14971b.setVisibility(8);
-                    frsMemberHeaderViewHolder.f14972c.setVisibility(8);
-                    frsMemberHeaderViewHolder.f14973d.setVisibility(8);
-                    frsMemberHeaderViewHolder.f14976g.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15027a.setVisibility(0);
+                    frsMemberHeaderViewHolder.f15028b.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15029c.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15030d.setVisibility(8);
+                    frsMemberHeaderViewHolder.f15033g.setVisibility(8);
                     frsMemberHeaderViewHolder.k.setVisibility(8);
                     frsMemberHeaderViewHolder.l.setVisibility(8);
                 }
             } else {
-                frsMemberHeaderViewHolder.f14970a.setVisibility(8);
-                frsMemberHeaderViewHolder.f14971b.setVisibility(8);
-                frsMemberHeaderViewHolder.f14972c.setVisibility(8);
-                frsMemberHeaderViewHolder.f14973d.setVisibility(8);
-                frsMemberHeaderViewHolder.f14976g.setVisibility(8);
+                frsMemberHeaderViewHolder.f15027a.setVisibility(8);
+                frsMemberHeaderViewHolder.f15028b.setVisibility(8);
+                frsMemberHeaderViewHolder.f15029c.setVisibility(8);
+                frsMemberHeaderViewHolder.f15030d.setVisibility(8);
+                frsMemberHeaderViewHolder.f15033g.setVisibility(8);
                 frsMemberHeaderViewHolder.k.setVisibility(8);
                 frsMemberHeaderViewHolder.l.setVisibility(8);
             }
-            frsMemberHeaderViewHolder.f14970a.setTag(Integer.valueOf(i2));
-            frsMemberHeaderViewHolder.f14973d.setTag(Integer.valueOf(i2));
-            frsMemberHeaderViewHolder.f14973d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f14977h, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f14974e, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f14978i, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.f14970a, R.drawable.frs_btn_like);
-            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f14970a, R.color.white_alpha100, 1);
-            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f14971b, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f14973d, R.color.CAM_X0109, 1);
+            frsMemberHeaderViewHolder.f15027a.setTag(Integer.valueOf(i2));
+            frsMemberHeaderViewHolder.f15030d.setTag(Integer.valueOf(i2));
+            frsMemberHeaderViewHolder.f15030d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f15034h, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f15031e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.f15035i, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.f15027a, R.drawable.frs_btn_like);
+            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15027a, R.color.white_alpha100, 1);
+            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15028b, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(frsMemberHeaderViewHolder.f15030d, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.forum_member_exp_progress);
             SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);
-            if (this.x != f2.k() || this.y != f2.c()) {
-                this.x = f2.k();
-                this.y = f2.c();
-                frsMemberHeaderViewHolder.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, z0(this.x)));
-                int c2 = f2.c();
+            if (this.x != e2.k() || this.y != e2.c()) {
+                this.x = e2.k();
+                this.y = e2.c();
+                frsMemberHeaderViewHolder.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, A0(this.x)));
+                int c2 = e2.c();
                 this.y = c2;
-                if (c2 > f2.i()) {
-                    this.y = f2.i();
+                if (c2 > e2.i()) {
+                    this.y = e2.i();
                 }
-                float i3 = f2.i() != 0 ? this.y / f2.i() : 0.0f;
+                float i3 = e2.i() != 0 ? this.y / e2.i() : 0.0f;
                 if (i3 > 0.999f) {
                     i3 = 1.0f;
                 }
@@ -196,13 +200,9 @@ public class g extends d.a.n0.r0.k<h, FrsMemberHeaderViewHolder> {
         return view;
     }
 
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        C0(i2, view, viewGroup, (h) obj, (FrsMemberHeaderViewHolder) viewHolder);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        D0(i2, view, viewGroup, (h) obj, (FrsMemberHeaderViewHolder) viewHolder);
         return view;
-    }
-
-    public final int[] z0(int i2) {
-        return i2 <= 3 ? new int[]{-8331843, -10499102} : i2 <= 9 ? new int[]{-10499102, -154262} : i2 <= 15 ? new int[]{-154262, -148180} : new int[]{-148180, -100818};
     }
 }

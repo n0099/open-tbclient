@@ -13,42 +13,42 @@ import javax.net.ssl.SSLException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5167a = "g";
+    public static final String f5210a = "g";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashSet<Class<?>> f5168b = new HashSet<>();
+    public static final HashSet<Class<?>> f5211b = new HashSet<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashSet<Class<?>> f5169c = new HashSet<>();
+    public static final HashSet<Class<?>> f5212c = new HashSet<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f5170d;
+    public final int f5213d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f5171e;
+    public final int f5214e;
 
     static {
-        f5168b.add(UnknownHostException.class);
-        f5168b.add(SocketException.class);
-        f5168b.add(ProtocolException.class);
-        f5169c.add(SSLException.class);
-        f5169c.add(SocketTimeoutException.class);
+        f5211b.add(UnknownHostException.class);
+        f5211b.add(SocketException.class);
+        f5211b.add(ProtocolException.class);
+        f5212c.add(SSLException.class);
+        f5212c.add(SocketTimeoutException.class);
     }
 
     public g(int i2, int i3) {
-        this.f5170d = i2;
-        this.f5171e = i3;
+        this.f5213d = i2;
+        this.f5214e = i3;
     }
 
     public boolean a(Exception exc, int i2) {
         boolean z = false;
-        if (i2 <= this.f5170d && (a(f5168b, exc) || !a(f5169c, exc))) {
+        if (i2 <= this.f5213d && (a(f5211b, exc) || !a(f5212c, exc))) {
             z = true;
         }
-        String str = f5167a;
-        LogUtil.d(str, f5167a + " retryRequest is called ,retry flag is " + z);
+        String str = f5210a;
+        LogUtil.d(str, f5210a + " retryRequest is called ,retry flag is " + z);
         if (z) {
-            SystemClock.sleep(this.f5171e);
+            SystemClock.sleep(this.f5214e);
         } else {
             exc.printStackTrace();
         }

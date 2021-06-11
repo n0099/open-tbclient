@@ -3,7 +3,6 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
-import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -180,7 +179,7 @@ public class JsUploadTask implements INoProGuard {
             addRawLogItem(sb2, ETAG.KEY_UPLOAD_NUM, mUpLoadNum);
             addRawLogItem(sb2, ETAG.KEY_SYS_PROXY, WebSettingsGlobalBlink.getSysProxyEnabled());
             addRawLogItem(sb2, ETAG.KEY_NET_ERROR, mNetError);
-            addRawLogItem(sb2, ETAG.KEY_HTTP_CODE, mHttpcode);
+            addRawLogItem(sb2, "http_code", mHttpcode);
             addRawLogItem(sb2, ETAG.KEY_NET_CODE, mNetcode);
             addRawLogItem(sb2, ETAG.KEY_FIRST_JUMP_TYPE, mFirstJumpType.ordinal());
             addRawLogItem(sb2, ETAG.KEY_LAST_JUMP_TYPE, mLastJumpType.ordinal());
@@ -189,7 +188,7 @@ public class JsUploadTask implements INoProGuard {
             addRawLogItem(sb2, ETAG.KEY_SUB_RESOURCE_ENABLE, WebSettingsGlobalBlink.getSubResourceMonitorEnabled());
             mNetError = 0;
             mHttpcode = -1;
-            mNetcode = AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL;
+            mNetcode = -500;
             mFirstJumpType = JumpType.DefaultJump;
             mLastJumpType = JumpType.DefaultJump;
             if (WebKitFactory.getCurEngine() == 1) {
@@ -240,9 +239,9 @@ public class JsUploadTask implements INoProGuard {
                         CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                         CloudSettings.NetRecordList.remove(0);
                         Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                        jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f26599c);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f26597a);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f26598b);
+                        jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f26702c);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f26700a);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f26701b);
                     }
                     if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                         jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);

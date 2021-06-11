@@ -5,5 +5,5 @@ import d.a.l0.a.k;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41852a = k.f43199a;
+    public static final boolean f45528a = k.f46875a;
 }

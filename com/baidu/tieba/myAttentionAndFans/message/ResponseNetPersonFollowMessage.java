@@ -9,7 +9,7 @@ import d.a.c.e.d.l;
 import d.a.m0.r.q.g1;
 import d.a.m0.r.r.a;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public g1 data;
     public int mErrCode;
@@ -58,7 +58,7 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
         super.afterDispatchInBackGround(i2, (int) bArr);
         if (getError() == 0 && (personListModel = this.mModel) != null) {
             boolean z = true;
-            if (personListModel.A() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
+            if (personListModel.E() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
                 BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                 z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                 String str = new String(bArr);

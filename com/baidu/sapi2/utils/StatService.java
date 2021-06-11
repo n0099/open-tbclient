@@ -41,7 +41,7 @@ public final class StatService implements NoProguard {
     }
 
     public static String getEventTypeBase64Value(String str) {
-        return "{eventType=" + str + "}";
+        return "{eventType:" + str + "}";
     }
 
     public static boolean isSearchBox() {
@@ -63,22 +63,13 @@ public final class StatService implements NoProguard {
             httpHashMapWrap.put("name", str);
             httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-            StringBuilder sb = new StringBuilder();
-            sb.append("eventType=");
-            sb.append(str);
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             if (map != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                        sb.append(entry.getKey());
-                        sb.append("=");
-                        sb.append(entry.getValue());
-                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                         httpHashMapWrap.put(entry.getKey(), entry.getValue());
                     }
                 }
             }
-            Log.d("StatService", sb.toString());
             if (delayRequestName.contains(str) && isSearchBox()) {
                 NetworkRequestScheduler.execute(new Runnable() { // from class: com.baidu.sapi2.utils.StatService.1
                     @Override // java.lang.Runnable
@@ -86,9 +77,9 @@ public final class StatService implements NoProguard {
                         StatService.sendRequest(HttpHashMapWrap.this);
                     }
                 }, "pass_sdk_".concat(str), 60000L, false);
-            } else {
-                sendRequest(httpHashMapWrap);
+                return;
             }
+            sendRequest(httpHashMapWrap);
         } catch (Throwable th) {
             Log.e(th);
         }

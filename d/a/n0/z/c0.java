@@ -157,16 +157,16 @@ public class c0 extends d.a.m0.r.s.j {
             switch (c0.this.z.getLoadDataMode()) {
                 case 0:
                     ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    if (bVar == null || bVar.f20828d != 0) {
+                    if (bVar == null || bVar.f20905d != 0) {
                         d.a.c.e.p.l.M(c0.this.p, c0.this.T(R.string.delete_fail, new Object[0]));
                         return;
-                    } else if (bVar.f20825a) {
+                    } else if (bVar.f20902a) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, c0.this.y.o0()));
                         d.a.c.e.p.l.L(c0.this.p, R.string.delete_success);
                         return;
                     } else {
-                        String T = !TextUtils.isEmpty(bVar.f20826b) ? bVar.f20826b : c0.this.T(R.string.delete_fail, new Object[0]);
-                        if (bVar.f20827c == 1211066) {
+                        String T = !TextUtils.isEmpty(bVar.f20903b) ? bVar.f20903b : c0.this.T(R.string.delete_fail, new Object[0]);
+                        if (bVar.f20904c == 1211066) {
                             if (c0.this.s == null) {
                                 c0 c0Var = c0.this;
                                 c0Var.s = new d.a.m0.r.s.a(c0Var.o.getPageActivity());
@@ -186,11 +186,11 @@ public class c0 extends d.a.m0.r.s.j {
                     if (dVar == null) {
                         d.a.c.e.p.l.M(c0.this.p, c0.this.T(R.string.mute_fail, new Object[0]));
                         return;
-                    } else if (dVar.f20832a) {
-                        d.a.c.e.p.l.M(c0.this.p, !TextUtils.isEmpty(dVar.f20833b) ? dVar.f20833b : c0.this.T(R.string.mute_success, new Object[0]));
+                    } else if (dVar.f20909a) {
+                        d.a.c.e.p.l.M(c0.this.p, !TextUtils.isEmpty(dVar.f20910b) ? dVar.f20910b : c0.this.T(R.string.mute_success, new Object[0]));
                         return;
                     } else {
-                        d.a.c.e.p.l.M(c0.this.p, !TextUtils.isEmpty(dVar.f20833b) ? dVar.f20833b : c0.this.T(R.string.mute_fail, new Object[0]));
+                        d.a.c.e.p.l.M(c0.this.p, !TextUtils.isEmpty(dVar.f20910b) ? dVar.f20910b : c0.this.T(R.string.mute_fail, new Object[0]));
                         return;
                     }
                 case 2:
@@ -202,11 +202,11 @@ public class c0 extends d.a.m0.r.s.j {
                     return;
                 case 6:
                     ForumManageModel.g gVar = (ForumManageModel.g) obj;
-                    if (gVar == null || !gVar.f20846a) {
+                    if (gVar == null || !gVar.f20923a) {
                         d.a.c.e.p.l.M(c0.this.p, c0.this.T(R.string.operation_failed, new Object[0]));
                         return;
                     } else {
-                        c0.this.a0(gVar.f20848c);
+                        c0.this.a0(gVar.f20925c);
                         return;
                     }
                 default:
@@ -231,7 +231,7 @@ public class c0 extends d.a.m0.r.s.j {
                 if (c0.this.y != null && c0.this.y.T() != null) {
                     if (UtilHelper.isCurrentAccount(c0.this.y.T().getUserId())) {
                         c0 c0Var = c0.this;
-                        c0Var.Z(c0Var.y.X1());
+                        c0Var.Z(c0Var.y.Y1());
                     } else {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921515, new d.a.n0.h.g(1, c0.this.z, c0.this.y)));
                     }
@@ -307,9 +307,9 @@ public class c0 extends d.a.m0.r.s.j {
         }
         list.clear();
         if (d.a.n0.r0.j.c(d.a.n0.r0.j.a()) && !d.a.n0.r0.j.e()) {
-            if (!this.y.U1() && (this.y.T() == null || !this.y.T().isForumBusinessAccount() || this.y.s() || w0.isOn())) {
+            if (!this.y.V1() && (this.y.T() == null || !this.y.T().isForumBusinessAccount() || this.y.o() || w0.isOn())) {
                 int i2 = R.string.delete_page;
-                if (this.y.X1()) {
+                if (this.y.Y1()) {
                     i2 = R.string.delete_page_work;
                 }
                 this.u.add(new d.a.m0.r.s.h(1, T(i2, new Object[0]), this.q));
@@ -333,7 +333,7 @@ public class c0 extends d.a.m0.r.s.j {
         if (d.a.n0.r0.j.d() || d.a.n0.r0.j.e()) {
             this.u.add(new d.a.m0.r.s.h(8, T(R.string.frs_forum_bawu_send_broadcast, new Object[0]), this.q));
         }
-        if (!d.a.n0.r0.j.e() && d.a.n0.r0.b.e().h() && this.A && (this.y.T() == null || !this.y.T().isForumBusinessAccount() || this.y.s() || w0.isOn())) {
+        if (!d.a.n0.r0.j.e() && d.a.n0.r0.b.e().h() && this.A && (this.y.T() == null || !this.y.T().isForumBusinessAccount() || this.y.o() || w0.isOn())) {
             this.u.add(new d.a.m0.r.s.h(5, T(R.string.multi_delete, new Object[0]), this.q));
         }
         this.q.k(this.u);
@@ -368,41 +368,41 @@ public class c0 extends d.a.m0.r.s.j {
     public final void S(int i2, ForumManageModel.g gVar) {
         String T;
         a2 a2Var = this.y;
-        if (a2Var != null && gVar != null && gVar.f20846a) {
+        if (a2Var != null && gVar != null && gVar.f20923a) {
             String str = "";
             boolean z = true;
             if (i2 == 2) {
-                a2Var.O3(1);
+                a2Var.P3(1);
                 d.a.m0.r.q.z zVar = new d.a.m0.r.q.z();
-                zVar.f50187a = 2;
-                zVar.f50188b = this.y.y1();
+                zVar.f53863a = 2;
+                zVar.f53864b = this.y.z1();
                 if (d.a.n0.r0.j.d()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, zVar));
                 } else {
-                    str = U(gVar.f20847b, R.string.set_good_success);
+                    str = U(gVar.f20924b, R.string.set_good_success);
                     z = false;
                 }
             } else {
                 if (i2 == 3) {
-                    a2Var.O3(0);
-                    str = U(gVar.f20847b, R.string.operation_success);
+                    a2Var.P3(0);
+                    str = U(gVar.f20924b, R.string.operation_success);
                 } else if (i2 == 4) {
-                    a2Var.P3(1);
+                    a2Var.Q3(1);
                     d.a.m0.r.q.z zVar2 = new d.a.m0.r.q.z();
-                    zVar2.f50187a = 1;
-                    zVar2.f50188b = this.y.y1();
+                    zVar2.f53863a = 1;
+                    zVar2.f53864b = this.y.z1();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, zVar2));
                 } else if (i2 == 5) {
-                    a2Var.P3(0);
-                    str = U(gVar.f20847b, R.string.operation_success);
+                    a2Var.Q3(0);
+                    str = U(gVar.f20924b, R.string.operation_success);
                 }
                 z = false;
             }
             ForumManageModel.e eVar = new ForumManageModel.e();
-            eVar.f20834a = this.y.o0();
-            eVar.f20836c = this.y.i0();
-            eVar.f20835b = String.valueOf(this.y.c0());
-            eVar.f20837d = i2;
+            eVar.f20911a = this.y.o0();
+            eVar.f20913c = this.y.i0();
+            eVar.f20912b = String.valueOf(this.y.c0());
+            eVar.f20914d = i2;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = T(R.string.operation_success, new Object[0]);
@@ -413,8 +413,8 @@ public class c0 extends d.a.m0.r.s.j {
             d.a.c.e.p.l.M(this.p, str);
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.f20847b)) {
-            T = gVar.f20847b;
+        if (gVar != null && !TextUtils.isEmpty(gVar.f20924b)) {
+            T = gVar.f20924b;
         } else {
             T = T(R.string.operation_failed, new Object[0]);
         }
@@ -562,9 +562,9 @@ public class c0 extends d.a.m0.r.s.j {
         String valueOf = String.valueOf(this.y.c0());
         boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
         if (jSONArray != null) {
-            this.z.M(StringHelper.JsonArrayToString(jSONArray));
+            this.z.Q(StringHelper.JsonArrayToString(jSONArray));
         }
-        this.z.N(valueOf, i0, o0, null, 0, 1, isCurrentAccount, this.y.V());
+        this.z.R(valueOf, i0, o0, null, 0, 1, isCurrentAccount, this.y.V());
     }
 
     public final void c0() {
@@ -585,7 +585,7 @@ public class c0 extends d.a.m0.r.s.j {
             return;
         }
         int i2 = a2Var.x0() == 1 ? 3 : z ? 6 : 2;
-        this.z.O(String.valueOf(this.y.c0()), this.y.i0(), this.y.o0(), i2, str);
+        this.z.S(String.valueOf(this.y.c0()), this.y.i0(), this.y.o0(), i2, str);
     }
 
     public final void e0() {
@@ -595,6 +595,6 @@ public class c0 extends d.a.m0.r.s.j {
         }
         int i2 = a2Var.y0() == 1 ? 5 : 4;
         String o0 = this.y.o0();
-        this.z.O(String.valueOf(this.y.c0()), this.y.i0(), o0, i2, null);
+        this.z.S(String.valueOf(this.y.c0()), this.y.i0(), o0, i2, null);
     }
 }

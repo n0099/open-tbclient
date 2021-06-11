@@ -19,19 +19,19 @@ import d.a.m0.r.q.a2;
 public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12400e;
+    public TextView f12462e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadCommentAndPraiseInfoLayout f12401f;
+    public ThreadCommentAndPraiseInfoLayout f12463f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a2 f12402g;
+    public a2 f12464g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f12403h;
+    public Context f12465h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12404i;
+    public String f12466i;
     public View.OnClickListener j;
     public boolean k;
 
@@ -42,10 +42,10 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ThreadSourceShareAndPraiseLayout.this.f12402g == null || StringUtils.isNull(ThreadSourceShareAndPraiseLayout.this.f12402g.i0())) {
+            if (ThreadSourceShareAndPraiseLayout.this.f12464g == null || StringUtils.isNull(ThreadSourceShareAndPraiseLayout.this.f12464g.i0())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ThreadSourceShareAndPraiseLayout.this.f12403h).createNormalCfg(ThreadSourceShareAndPraiseLayout.this.f12402g.i0(), ThreadSourceShareAndPraiseLayout.this.f12404i)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ThreadSourceShareAndPraiseLayout.this.f12465h).createNormalCfg(ThreadSourceShareAndPraiseLayout.this.f12464g.i0(), ThreadSourceShareAndPraiseLayout.this.f12466i)));
             if (ThreadSourceShareAndPraiseLayout.this.j != null) {
                 ThreadSourceShareAndPraiseLayout.this.j.onClick(view);
             }
@@ -61,20 +61,20 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
         if (context == null) {
             return;
         }
-        this.f12403h = context;
+        this.f12465h = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_praise_read_info_layout, (ViewGroup) this, true);
-        this.f12400e = (TextView) inflate.findViewById(R.id.view_forum_source);
-        this.f12401f = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.layout_share_and_praise);
-        this.f12400e.setOnClickListener(new a());
+        this.f12462e = (TextView) inflate.findViewById(R.id.view_forum_source);
+        this.f12463f = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.layout_share_and_praise);
+        this.f12462e.setOnClickListener(new a());
     }
 
     public void f() {
         if (!this.k) {
-            SkinManager.setViewTextColor(this.f12400e, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f12400e, R.drawable.bg_forum_source_gray);
+            SkinManager.setViewTextColor(this.f12462e, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f12462e, R.drawable.bg_forum_source_gray);
         }
-        if (this.f12401f.getVisibility() == 0) {
-            this.f12401f.onChangeSkinType();
+        if (this.f12463f.getVisibility() == 0) {
+            this.f12463f.onChangeSkinType();
         }
     }
 
@@ -83,26 +83,26 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             setVisibility(8);
             return false;
         }
-        this.f12402g = a2Var;
+        this.f12464g = a2Var;
         if (!StringUtils.isNull(a2Var.i0()) && !this.k) {
-            TextView textView = this.f12400e;
-            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f12402g.i0(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
-            this.f12400e.setVisibility(0);
+            TextView textView = this.f12462e;
+            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f12464g.i0(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
+            this.f12462e.setVisibility(0);
         } else {
-            this.f12400e.setVisibility(8);
+            this.f12462e.setVisibility(8);
         }
-        this.f12401f.setData(this.f12402g);
+        this.f12463f.setData(this.f12464g);
         setVisibility(0);
         return true;
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.f12401f.setForumAfterClickListener(onClickListener);
+        this.f12463f.setForumAfterClickListener(onClickListener);
         this.j = onClickListener;
     }
 
     public void setFrom(int i2) {
-        this.f12401f.setFrom(i2);
+        this.f12463f.setFrom(i2);
     }
 
     public void setHideBarName(boolean z) {
@@ -110,16 +110,16 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     }
 
     public void setShareReportFrom(int i2) {
-        this.f12401f.setShareReportFrom(i2);
+        this.f12463f.setShareReportFrom(i2);
     }
 
     public void setSourceFromForPb(int i2) {
-        this.f12401f.R = i2;
+        this.f12463f.R = i2;
     }
 
     public void setStType(String str) {
-        this.f12404i = str;
-        this.f12401f.setStType(str);
+        this.f12466i = str;
+        this.f12463f.setStType(str);
     }
 
     public ThreadSourceShareAndPraiseLayout(Context context, AttributeSet attributeSet) {

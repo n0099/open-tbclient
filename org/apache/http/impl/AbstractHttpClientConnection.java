@@ -16,7 +16,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractHttpClientConnection implements HttpClientConnection {
     public AbstractHttpClientConnection() {
         throw new RuntimeException("Stub!");

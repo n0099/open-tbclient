@@ -37,14 +37,14 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.f12151c = fragment;
-        bVar.f12149a = i2;
+        bVar.f12213c = fragment;
+        bVar.f12211a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -119,7 +119,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             }
         });
         this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.ds80));
-        this.mTabHost.p();
+        this.mTabHost.q();
         this.mTabHost.getFragmentTabWidget().setDiverColor(getResources().getColor(R.color.CAM_X0105));
         this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.ds12));
         this.mTabHost.getFragmentTabWidget().setDviderRectWidth(l.g(getActivity(), R.dimen.ds64));
@@ -152,7 +152,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 i3 = R.color.CAM_X0105;
             }
             fragmentTabWidget.setDiverColor(resources.getColor(i3));
-            this.mTabHost.o(i2);
+            this.mTabHost.p(i2);
         }
     }
 

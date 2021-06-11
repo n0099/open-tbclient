@@ -10,10 +10,10 @@ import java.util.Map;
 public class i {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f66061b;
+    public static Handler f69792b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66062a;
+    public boolean f69793a;
 
     /* loaded from: classes6.dex */
     public class a extends Handler {
@@ -26,7 +26,7 @@ public class i {
             int i2 = message.what;
             if (10001 == i2) {
                 j jVar = (j) message.obj;
-                f.a().c(d.d.a.a.a.c(), jVar.f66069f);
+                f.a().c(d.d.a.a.a.c(), jVar.f69800f);
                 h.a().c(jVar);
             } else if (10002 != i2) {
                 if (10003 == i2) {
@@ -44,7 +44,7 @@ public class i {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f66063a = new i(null);
+        public static i f69794a = new i(null);
     }
 
     public /* synthetic */ i(a aVar) {
@@ -52,11 +52,11 @@ public class i {
     }
 
     public static i a() {
-        return b.f66063a;
+        return b.f69794a;
     }
 
     public void b(String str, int i2) {
-        f66061b.obtainMessage(10002, i2, -1, str).sendToTarget();
+        f69792b.obtainMessage(10002, i2, -1, str).sendToTarget();
     }
 
     public void c(String str, String str2, String str3, String str4, long j) {
@@ -75,22 +75,22 @@ public class i {
             return;
         }
         e();
-        f66061b.obtainMessage(10001, j.a(str, j, str2, k.a(), e.a(), collection, map, str3)).sendToTarget();
+        f69792b.obtainMessage(10001, j.a(str, j, str2, k.a(), e.a(), collection, map, str3)).sendToTarget();
     }
 
     public boolean e() {
-        if (this.f66062a) {
+        if (this.f69793a) {
             return false;
         }
-        this.f66062a = true;
-        f66061b.sendEmptyMessage(10003);
+        this.f69793a = true;
+        f69792b.sendEmptyMessage(10003);
         d.h().a();
         d.d.a.a.a.e().f().loadStrategy();
         return true;
     }
 
     public i() {
-        this.f66062a = false;
-        f66061b = new a(this, g.a().b().getLooper());
+        this.f69793a = false;
+        f69792b = new a(this, g.a().b().getLooper());
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.crabsdk.lite.b;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class b<E> extends LinkedList<E> {
     public final int xu;
 

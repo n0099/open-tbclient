@@ -20,14 +20,14 @@ public class c extends a0 {
         if (eVar == null) {
             d.a.l0.a.e0.d.b("stopMediaVolumeListen", "none swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal swanApp");
             }
             return false;
         } else if (context == null) {
             d.a.l0.a.e0.d.b("stopMediaVolumeListen", "none context");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal context");
             }
             return false;

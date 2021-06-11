@@ -1,212 +1,191 @@
 package d.a.m0.a;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.data.UserData;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.R;
-import d.a.m0.a.d;
-import d.a.m0.z0.l0;
 /* loaded from: classes3.dex */
-public class y {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile y f48798b;
+public class y implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public g f48799a = null;
+    public Context f52464a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f52465b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public SensorManager f52466c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Sensor f52467d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Vibrator f52468e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SoundPool f52469f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f52470g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f52471h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f52472i;
+    public boolean j;
+    public MediaPlayer k;
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserData f48800e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f48801f;
-
-        public a(UserData userData, TbPageContext tbPageContext) {
-            this.f48800e = userData;
-            this.f48801f = tbPageContext;
+    public class a implements MediaPlayer.OnPreparedListener {
+        public a() {
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (y.this.f48799a != null) {
-                y.this.f48799a.a();
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
+            y.this.k.start();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a();
+    }
+
+    public y(@NonNull Context context, @Nullable b bVar) {
+        if (context == null) {
+            return;
+        }
+        this.f52464a = context;
+        this.f52465b = bVar;
+        SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
+        this.f52466c = sensorManager;
+        if (sensorManager != null) {
+            this.f52467d = sensorManager.getDefaultSensor(1);
+        }
+        this.f52468e = (Vibrator) context.getSystemService("vibrator");
+        SoundPool soundPool = new SoundPool(1, 3, 0);
+        this.f52469f = soundPool;
+        if (soundPool != null) {
+            try {
+                this.f52470g = soundPool.load(context, R.raw.shake_tone, 1);
+            } catch (Exception e2) {
+                BdLog.e(e2);
             }
-            if (TextUtils.isEmpty(this.f48800e.getName_show()) || TextUtils.isEmpty(this.f48800e.getUserId())) {
+        }
+    }
+
+    public final boolean b() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.f52472i > 2000) {
+            this.f52472i = currentTimeMillis;
+            return true;
+        }
+        return false;
+    }
+
+    public void c() {
+        SensorManager sensorManager = this.f52466c;
+        if (sensorManager != null) {
+            sensorManager.unregisterListener(this);
+            this.j = false;
+        }
+    }
+
+    public boolean d() {
+        return this.j;
+    }
+
+    public final boolean e(float[] fArr) {
+        double sqrt = Math.sqrt(Math.pow(Math.abs(fArr[0]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[1]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[2]) / 9.8d, 2.0d));
+        if (Build.VERSION.SDK_INT <= 23) {
+            if (sqrt >= 2.5d && b()) {
+                return true;
+            }
+        } else if (sqrt >= 4.2d && b()) {
+            return true;
+        }
+        return false;
+    }
+
+    public void f() {
+        Sensor sensor = this.f52467d;
+        if (sensor != null) {
+            this.f52466c.registerListener(this, sensor, 2);
+            this.j = true;
+        }
+    }
+
+    public boolean g() {
+        Context context = this.f52464a;
+        if (context == null) {
+            return false;
+        }
+        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+        int ringerMode = audioManager != null ? audioManager.getRingerMode() : -1;
+        Vibrator vibrator = this.f52468e;
+        if (vibrator == null || !vibrator.hasVibrator() || ringerMode <= 0) {
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= 26) {
+            this.f52468e.vibrate(VibrationEffect.createOneShot(400L, 255));
+            return true;
+        }
+        this.f52468e.vibrate(400L);
+        return true;
+    }
+
+    public void h(boolean z) {
+        int i2;
+        if (!z && (i2 = this.f52471h) != 0) {
+            SoundPool soundPool = this.f52469f;
+            if (soundPool != null) {
+                soundPool.play(i2, 1.0f, 1.0f, 0, 0, 1.0f);
                 return;
             }
-            String name_show = this.f48800e.getName_show();
-            String userId = this.f48800e.getUserId();
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_param1", userId);
-            TiebaStatic.log(statisticItem);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f48801f.getPageActivity(), userId, name_show)));
-        }
-    }
-
-    public static TbPageContext c(Activity activity) {
-        if (activity instanceof BaseActivity) {
-            return ((BaseActivity) activity).getPageContext();
-        }
-        if (activity instanceof BaseFragmentActivity) {
-            return ((BaseFragmentActivity) activity).getPageContext();
-        }
-        return null;
-    }
-
-    public static y d() {
-        if (f48798b == null) {
-            synchronized (y.class) {
-                if (f48798b == null) {
-                    f48798b = new y();
-                }
-            }
-        }
-        return f48798b;
-    }
-
-    public void b() {
-        g gVar = this.f48799a;
-        if (gVar == null || !gVar.isShowing()) {
             return;
         }
-        this.f48799a.a();
+        SoundPool soundPool2 = this.f52469f;
+        if (soundPool2 != null) {
+            soundPool2.play(this.f52470g, 1.0f, 1.0f, 0, 0, 1.0f);
+        }
     }
 
-    public void e(UserData userData, d.l lVar) {
-        boolean z;
-        boolean z2;
-        String format;
-        TbPageContext c2 = c(TbadkCoreApplication.getInst().getCurrentActivity());
-        if (c2 == null || c2.getPageActivity() == null || userData == null || lVar == null) {
-            return;
+    public void i(String str) {
+        if (this.k == null) {
+            this.k = new MediaPlayer();
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_SHOW);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("obj_param1", userData.getUserId());
-        TiebaStatic.log(statisticItem);
-        Activity pageActivity = c2.getPageActivity();
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(c2.getPageActivity()).inflate(R.layout.content_tieba_uid_info, (ViewGroup) null, false);
-        TextView textView = (TextView) viewGroup.findViewById(R.id.who_share_info);
-        textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.tieba_uid_share_info), lVar.a()));
-        textView.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-        View findViewById = viewGroup.findViewById(R.id.left_divider);
-        View findViewById2 = viewGroup.findViewById(R.id.right_divider);
-        findViewById.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-        findViewById2.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-        HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.user_averter);
-        headImageView.setDefaultResource(R.drawable.transparent_bg);
-        headImageView.setGodIconWidth(R.dimen.tbds68);
-        headImageView.setAutoChangeStyle(false);
-        UtilHelper.showHeadImageViewBigV(headImageView, userData);
-        headImageView.setIsRound(true);
-        headImageView.V(userData.getAvater(), 25, false);
-        TextView textView2 = (TextView) viewGroup.findViewById(R.id.user_name);
-        textView2.setText(userData.getName_show());
-        textView2.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0105));
-        TextView textView3 = (TextView) viewGroup.findViewById(R.id.user_tieba_uid);
-        textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.tieba_uid_info), lVar.b()));
-        textView3.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0109));
-        LinearLayout linearLayout = (LinearLayout) viewGroup.findViewById(R.id.container_authentication);
-        if (ListUtils.isEmpty(userData.getManagerForum()) && !userData.isNewGod()) {
-            linearLayout.setVisibility(8);
-            z2 = true;
-        } else {
-            linearLayout.setVisibility(0);
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X001);
-            boolean z3 = userData.isNewGod() && !ListUtils.isEmpty(userData.getManagerForum());
-            if (userData.isNewGod()) {
-                TextView textView4 = new TextView(pageActivity);
-                textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                textView4.setText(userData.getNewGodData().getFieldName() + l0.b(userData.getNewGodData()));
-                textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
-                linearLayout.addView(textView4);
-                textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-                int i2 = R.dimen.tbds26;
-                int i3 = R.color.CAM_X0623;
-                SkinManager.setBackgroundShapeDrawable(textView4, i2, i3, i3, 0);
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!ListUtils.isEmpty(userData.getManagerForum())) {
-                TextView textView5 = new TextView(pageActivity);
-                textView5.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                String desc = userData.getManagerForum().get(0).getDesc();
-                if (userData.getManagerForum().size() > 1) {
-                    if (z3) {
-                        desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 6, StringHelper.STRING_MORE);
-                    }
-                    format = String.format(TbadkCoreApplication.getInst().getString(R.string.multi_bazhu_sign), desc, Integer.valueOf(userData.getManagerForum().size()));
-                } else {
-                    if (z3) {
-                        desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 8, StringHelper.STRING_MORE);
-                    }
-                    format = String.format(TbadkCoreApplication.getInst().getString(R.string.single_bazhu_sign), desc);
-                }
-                textView5.setText(format);
-                textView5.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X09));
-                if (z) {
-                    View view = new View(pageActivity);
-                    view.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 1));
-                    linearLayout.addView(view);
-                }
-                linearLayout.addView(textView5);
-                textView5.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-                int i4 = R.dimen.tbds26;
-                int i5 = R.color.CAM_X0623;
-                SkinManager.setBackgroundShapeDrawable(textView5, i4, i5, i5, 0);
-            }
-            z2 = false;
+        try {
+            this.k.reset();
+            this.k.setLooping(false);
+            this.k.setDataSource(str);
+            this.k.prepareAsync();
+            this.k.setOnPreparedListener(new a());
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        TextView textView6 = (TextView) viewGroup.findViewById(R.id.user_simple_intro);
-        String intro = userData.getIntro();
-        if (TextUtils.isEmpty(userData.getIntro()) && z2) {
-            intro = StringHelper.getBaAgeAutoYearAndMonth(userData.getTb_age());
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i2) {
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        b bVar;
+        if (sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.f52465b) != null) {
+            bVar.a();
         }
-        textView6.setText(intro);
-        if (linearLayout.getVisibility() == 0) {
-            textView6.setMaxLines(1);
-        } else {
-            textView6.setMaxLines(2);
-        }
-        textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.jump_user_detail_btn);
-        d.a.m0.r.f0.m.b bVar = new d.a.m0.r.f0.m.b();
-        bVar.o(R.color.CAM_X0302, R.color.CAM_X0101);
-        tBSpecificationBtn.setTextSize(R.dimen.T_X05);
-        tBSpecificationBtn.setConfig(bVar);
-        tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.browse_user_detail));
-        tBSpecificationBtn.setOnClickListener(new a(userData, c2));
-        this.f48799a = new g(c2);
-        this.f48799a.b(WebPManager.getMaskDrawable(R.drawable.mask_popup_background, false));
-        this.f48799a.c(viewGroup);
-        this.f48799a.d();
     }
 }

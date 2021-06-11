@@ -13,37 +13,37 @@ import java.util.concurrent.ConcurrentHashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<PlaceId, List<AdvertAppInfo>> f58180a;
+    public final Map<PlaceId, List<AdvertAppInfo>> f61871a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<PlaceId, Long> f58181b;
+    public final Map<PlaceId, Long> f61872b;
 
     /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f58182a = new c();
+        public static final c f61873a = new c();
     }
 
     public static c d() {
-        return b.f58182a;
+        return b.f61873a;
     }
 
     public void a(@NonNull PlaceId placeId, @NonNull List<AdvertAppInfo> list) {
-        List<AdvertAppInfo> list2 = this.f58180a.get(placeId);
+        List<AdvertAppInfo> list2 = this.f61871a.get(placeId);
         if (list2 == null) {
-            synchronized (this.f58180a) {
+            synchronized (this.f61871a) {
                 list2 = Collections.synchronizedList(new ArrayList());
-                this.f58180a.put(placeId, list2);
+                this.f61871a.put(placeId, list2);
             }
         }
         list2.addAll(list);
-        this.f58181b.put(placeId, Long.valueOf(System.currentTimeMillis()));
+        this.f61872b.put(placeId, Long.valueOf(System.currentTimeMillis()));
     }
 
     @Nullable
     public List<AdvertAppInfo> b(@NonNull PlaceId placeId) {
-        List<AdvertAppInfo> list = this.f58180a.get(placeId);
+        List<AdvertAppInfo> list = this.f61871a.get(placeId);
         if (d.a.n0.k1.o.k.a.e(list)) {
             return null;
         }
@@ -54,7 +54,7 @@ public class c {
 
     @Nullable
     public AdvertAppInfo c(@NonNull PlaceId placeId) {
-        List<AdvertAppInfo> list = this.f58180a.get(placeId);
+        List<AdvertAppInfo> list = this.f61871a.get(placeId);
         if (d.a.n0.k1.o.k.a.e(list)) {
             return null;
         }
@@ -62,7 +62,7 @@ public class c {
     }
 
     public long e(PlaceId placeId) {
-        Long l = this.f58181b.get(placeId);
+        Long l = this.f61872b.get(placeId);
         if (l == null) {
             return 0L;
         }
@@ -70,11 +70,11 @@ public class c {
     }
 
     public boolean f(@NonNull PlaceId placeId) {
-        return !d.a.n0.k1.o.k.a.e(this.f58180a.get(placeId));
+        return !d.a.n0.k1.o.k.a.e(this.f61871a.get(placeId));
     }
 
     public c() {
-        this.f58180a = new ConcurrentHashMap();
-        this.f58181b = new ConcurrentHashMap();
+        this.f61871a = new ConcurrentHashMap();
+        this.f61872b = new ConcurrentHashMap();
     }
 }

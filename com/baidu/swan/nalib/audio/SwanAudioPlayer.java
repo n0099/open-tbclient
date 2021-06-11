@@ -11,7 +11,6 @@ import android.util.SparseArray;
 import androidx.annotation.Keep;
 import d.a.l0.l.a.b;
 import d.a.l0.l.a.c;
-import org.webrtc.MediaStreamTrack;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAudioPlayer {
@@ -125,7 +124,7 @@ public class SwanAudioPlayer {
     public static native void release();
 
     public static final void settingNativeAudioParameters(Context context) {
-        AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
         String property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE");
         String property2 = audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER");
         try {
@@ -156,9 +155,9 @@ public class SwanAudioPlayer {
     public void postAudioData(byte[] bArr, long j) {
         if (bArr != null) {
             d.a.l0.l.a.a aVar = new d.a.l0.l.a.a();
-            aVar.f47966a = bArr;
-            aVar.f47967b = j;
-            aVar.f47968c = System.nanoTime();
+            aVar.f51640a = bArr;
+            aVar.f51641b = j;
+            aVar.f51642c = System.nanoTime();
             this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
         }
     }

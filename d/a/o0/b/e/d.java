@@ -26,31 +26,31 @@ import java.util.TreeMap;
 public class d extends HttpURLConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    public final TurbonetEngine f63862a;
+    public final TurbonetEngine f67580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f63863b;
+    public final g f67581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public UrlRequest f63864c;
+    public UrlRequest f67582c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Pair<String, String>> f63865d;
+    public final List<Pair<String, String>> f67583d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f63866e;
+    public e f67584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f63867f;
+    public f f67585f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UrlResponseInfo f63868g;
+    public UrlResponseInfo f67586g;
 
     /* renamed from: h  reason: collision with root package name */
-    public UrlRequestException f63869h;
+    public UrlRequestException f67587h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f63870i;
+    public boolean f67588i;
     public boolean j;
     public List<Map.Entry<String, String>> k;
     public Map<String, List<String>> l;
@@ -70,7 +70,7 @@ public class d extends HttpURLConnection {
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            d.this.f63868g = urlResponseInfo;
+            d.this.f67586g = urlResponseInfo;
             g(new IOException("stream closed"));
         }
 
@@ -78,9 +78,9 @@ public class d extends HttpURLConnection {
         public void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, UrlRequestException urlRequestException) {
             if (urlRequestException != null) {
                 d.a.o0.a.a.c("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", d.this.getURL().toString(), urlRequestException);
-                d.this.f63868g = urlResponseInfo;
-                d.this.f63869h = urlRequestException;
-                g(d.this.f63869h);
+                d.this.f67586g = urlResponseInfo;
+                d.this.f67587h = urlRequestException;
+                g(d.this.f67587h);
                 return;
             }
             throw new IllegalStateException("Exception cannot be null in onFailed.");
@@ -88,13 +88,13 @@ public class d extends HttpURLConnection {
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) {
-            d.this.f63868g = urlResponseInfo;
-            d.this.f63863b.quit();
+            d.this.f67586g = urlResponseInfo;
+            d.this.f67581b.quit();
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void d(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, String str) {
-            d.this.f63870i = true;
+            d.this.f67588i = true;
             try {
                 URL url = new URL(str);
                 boolean equals = url.getProtocol().equals(((HttpURLConnection) d.this).url.getProtocol());
@@ -102,53 +102,53 @@ public class d extends HttpURLConnection {
                     ((HttpURLConnection) d.this).url = url;
                 }
                 if (((HttpURLConnection) d.this).instanceFollowRedirects && (equals || d.this.o)) {
-                    d.this.f63864c.d();
+                    d.this.f67582c.d();
                     return;
                 }
             } catch (MalformedURLException unused) {
             }
-            d.this.f63868g = urlResponseInfo;
-            d.this.f63864c.cancel();
+            d.this.f67586g = urlResponseInfo;
+            d.this.f67582c.cancel();
             g(null);
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            d.this.f63868g = urlResponseInfo;
-            d.this.f63863b.quit();
+            d.this.f67586g = urlResponseInfo;
+            d.this.f67581b.quit();
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
             d.a.o0.a.a.h("cr_CronetHttpURLConn", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
-            d.this.f63868g = urlResponseInfo;
+            d.this.f67586g = urlResponseInfo;
             g(null);
         }
 
         public final void g(IOException iOException) {
-            if (d.this.f63866e != null) {
-                d.this.f63866e.p(iOException);
+            if (d.this.f67584e != null) {
+                d.this.f67584e.p(iOException);
             }
-            if (d.this.f63867f != null) {
-                d.this.f63867f.t(iOException);
+            if (d.this.f67585f != null) {
+                d.this.f67585f.t(iOException);
             }
             d.this.j = true;
-            d.this.f63863b.quit();
+            d.this.f67581b.quit();
         }
     }
 
     public d(URL url, TurbonetEngine turbonetEngine) {
         super(url);
-        this.f63870i = false;
+        this.f67588i = false;
         this.j = false;
         this.o = false;
         this.r = 0;
         this.s = false;
         this.t = false;
-        this.f63862a = turbonetEngine;
-        this.f63863b = new g(getURL().toString());
-        this.f63866e = new e(this);
-        this.f63865d = new ArrayList();
+        this.f67580a = turbonetEngine;
+        this.f67581b = new g(getURL().toString());
+        this.f67584e = new e(this);
+        this.f67583d = new ArrayList();
     }
 
     public final void A(String str, String str2, boolean z) {
@@ -156,12 +156,12 @@ public class d extends HttpURLConnection {
             int q = q(str);
             if (q >= 0) {
                 if (z) {
-                    this.f63865d.remove(q);
+                    this.f67583d.remove(q);
                 } else {
                     throw new UnsupportedOperationException("Cannot add multiple headers of the same key, " + str + ". crbug.com/432719.");
                 }
             }
-            this.f63865d.add(Pair.create(str, str2));
+            this.f67583d.add(Pair.create(str, str2));
             return;
         }
         throw new IllegalStateException("Cannot modify request property after connection is made.");
@@ -171,18 +171,18 @@ public class d extends HttpURLConnection {
         if (((HttpURLConnection) this).connected) {
             return;
         }
-        UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(), this.f63863b, this.f63862a);
+        UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(), this.f67581b, this.f67580a);
         if (((HttpURLConnection) this).doOutput) {
             if (((HttpURLConnection) this).method.equals("GET")) {
                 ((HttpURLConnection) this).method = "POST";
             }
-            f fVar = this.f63867f;
+            f fVar = this.f67585f;
             if (fVar != null) {
-                builder.k(fVar.r(), this.f63863b);
+                builder.k(fVar.r(), this.f67581b);
                 if (getRequestProperty("Content-Length") == null && !z()) {
-                    addRequestProperty("Content-Length", Long.toString(this.f63867f.r().n()));
+                    addRequestProperty("Content-Length", Long.toString(this.f67585f.r().n()));
                 }
-                this.f63867f.s();
+                this.f67585f.s();
             } else if (getRequestProperty("Content-Length") == null) {
                 addRequestProperty("Content-Length", "0");
             }
@@ -190,7 +190,7 @@ public class d extends HttpURLConnection {
                 addRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             }
         }
-        for (Pair<String, String> pair : this.f63865d) {
+        for (Pair<String, String> pair : this.f67583d) {
             builder.a((String) pair.first, (String) pair.second);
         }
         if (!getUseCaches()) {
@@ -214,7 +214,7 @@ public class d extends HttpURLConnection {
         builder.j(v());
         ((HttpURLConnection) this).connected = true;
         UrlRequest b2 = builder.b();
-        this.f63864c = b2;
+        this.f67582c = b2;
         b2.start();
     }
 
@@ -232,7 +232,7 @@ public class d extends HttpURLConnection {
     @Override // java.net.HttpURLConnection
     public void disconnect() {
         if (((HttpURLConnection) this).connected) {
-            this.f63864c.cancel();
+            this.f67582c.cancel();
         }
     }
 
@@ -240,8 +240,8 @@ public class d extends HttpURLConnection {
     public InputStream getErrorStream() {
         try {
             w();
-            if (this.f63868g.c() >= 400) {
-                return this.f63866e;
+            if (this.f67586g.c() >= 400) {
+                return this.f67584e;
             }
             return null;
         } catch (IOException unused) {
@@ -286,38 +286,38 @@ public class d extends HttpURLConnection {
     @Override // java.net.URLConnection
     public InputStream getInputStream() throws IOException {
         w();
-        if (!((HttpURLConnection) this).instanceFollowRedirects && this.f63870i) {
+        if (!((HttpURLConnection) this).instanceFollowRedirects && this.f67588i) {
             throw new IOException("Cannot read response body of a redirect.");
         }
-        if (this.f63868g.c() < 400) {
-            return this.f63866e;
+        if (this.f67586g.c() < 400) {
+            return this.f67584e;
         }
         throw new FileNotFoundException(((HttpURLConnection) this).url.toString());
     }
 
     @Override // java.net.URLConnection
     public OutputStream getOutputStream() throws IOException {
-        if (this.f63867f == null && ((HttpURLConnection) this).doOutput) {
+        if (this.f67585f == null && ((HttpURLConnection) this).doOutput) {
             if (!((HttpURLConnection) this).connected) {
                 if (z()) {
-                    this.f63867f = new b(this, ((HttpURLConnection) this).chunkLength, this.f63863b, this.s, this.t);
+                    this.f67585f = new b(this, ((HttpURLConnection) this).chunkLength, this.f67581b, this.s, this.t);
                     B();
                 } else {
                     long x = x();
                     if (x != -1) {
-                        this.f63867f = new c(this, x, this.f63863b);
+                        this.f67585f = new c(this, x, this.f67581b);
                         B();
                     } else {
                         d.a.o0.a.a.a("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
                         String requestProperty = getRequestProperty("Content-Length");
                         if (requestProperty == null) {
-                            this.f63867f = new d.a.o0.b.e.a(this);
+                            this.f67585f = new d.a.o0.b.e.a(this);
                         } else {
                             try {
-                                this.f63867f = new d.a.o0.b.e.a(this, Long.parseLong(requestProperty));
+                                this.f67585f = new d.a.o0.b.e.a(this, Long.parseLong(requestProperty));
                             } catch (NumberFormatException unused) {
                                 d.a.o0.a.a.c("cr_CronetHttpURLConn", "CONTENT_LENGTH has wrong format.", new Object[0]);
-                                this.f63867f = new d.a.o0.b.e.a(this);
+                                this.f67585f = new d.a.o0.b.e.a(this);
                             }
                         }
                     }
@@ -326,14 +326,14 @@ public class d extends HttpURLConnection {
                 throw new ProtocolException("Cannot write to OutputStream after receiving response.");
             }
         }
-        return this.f63867f;
+        return this.f67585f;
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getRequestProperties() {
         if (!((HttpURLConnection) this).connected) {
             TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-            for (Pair<String, String> pair : this.f63865d) {
+            for (Pair<String, String> pair : this.f67583d) {
                 if (!treeMap.containsKey(pair.first)) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(pair.second);
@@ -351,7 +351,7 @@ public class d extends HttpURLConnection {
     public String getRequestProperty(String str) {
         int q = q(str);
         if (q >= 0) {
-            return (String) this.f63865d.get(q).second;
+            return (String) this.f67583d.get(q).second;
         }
         return null;
     }
@@ -359,20 +359,20 @@ public class d extends HttpURLConnection {
     @Override // java.net.HttpURLConnection
     public int getResponseCode() throws IOException {
         w();
-        return this.f63868g.c();
+        return this.f67586g.c();
     }
 
     @Override // java.net.HttpURLConnection
     public String getResponseMessage() throws IOException {
         w();
-        return this.f63868g.d();
+        return this.f67586g.d();
     }
 
     public final void o() throws IOException {
         if (this.j) {
-            UrlRequestException urlRequestException = this.f63869h;
+            UrlRequestException urlRequestException = this.f67587h;
             if (urlRequestException == null) {
-                if (this.f63868g == null) {
+                if (this.f67586g == null) {
                     throw new NullPointerException("Response info is null when there is no exception.");
                 }
                 return;
@@ -387,8 +387,8 @@ public class d extends HttpURLConnection {
     }
 
     public final int q(String str) {
-        for (int i2 = 0; i2 < this.f63865d.size(); i2++) {
-            if (((String) this.f63865d.get(i2).first).equalsIgnoreCase(str)) {
+        for (int i2 = 0; i2 < this.f67583d.size(); i2++) {
+            if (((String) this.f67583d.get(i2).first).equalsIgnoreCase(str)) {
                 return i2;
             }
         }
@@ -420,7 +420,7 @@ public class d extends HttpURLConnection {
             return list;
         }
         this.k = new ArrayList();
-        for (Map.Entry<String, String> entry : this.f63868g.b()) {
+        for (Map.Entry<String, String> entry : this.f67586g.b()) {
             if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
                 this.k.add(new AbstractMap.SimpleImmutableEntry(entry));
             }
@@ -449,8 +449,8 @@ public class d extends HttpURLConnection {
     }
 
     public void u(ByteBuffer byteBuffer) throws IOException {
-        this.f63864c.read(byteBuffer);
-        this.f63863b.b(getReadTimeout());
+        this.f67582c.read(byteBuffer);
+        this.f67581b.b(getReadTimeout());
     }
 
     @Override // java.net.HttpURLConnection
@@ -463,16 +463,16 @@ public class d extends HttpURLConnection {
     }
 
     public final void w() throws IOException {
-        f fVar = this.f63867f;
+        f fVar = this.f67585f;
         if (fVar != null) {
             fVar.q();
             if (z()) {
-                this.f63867f.close();
+                this.f67585f.close();
             }
         }
         if (!this.j) {
             B();
-            this.f63863b.b(getReadTimeout());
+            this.f67581b.b(getReadTimeout());
             this.j = true;
         }
         o();
@@ -489,7 +489,7 @@ public class d extends HttpURLConnection {
     }
 
     public UrlResponseInfo y() {
-        return this.f63868g;
+        return this.f67586g;
     }
 
     public final boolean z() {

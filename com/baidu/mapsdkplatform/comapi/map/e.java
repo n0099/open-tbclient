@@ -79,7 +79,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public c aq;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comjni.map.basemap.a f7625i;
+    public com.baidu.mapsdkplatform.comjni.map.basemap.a f7668i;
     public long j;
     public boolean k;
     public int l;
@@ -91,17 +91,17 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public static final String r = j.class.getSimpleName();
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f7617d = 1096.0f;
+    public static float f7660d = 1096.0f;
     public static long m = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f7618a = 21.0f;
+    public float f7661a = 21.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f7619b = 4.0f;
+    public float f7662b = 4.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f7620c = 21.0f;
+    public float f7663c = 21.0f;
     public boolean u = true;
     public boolean v = false;
     public boolean w = false;
@@ -109,13 +109,13 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public boolean y = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f7621e = true;
+    public boolean f7664e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7622f = true;
+    public boolean f7665f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7623g = false;
+    public boolean f7666g = false;
     public boolean z = true;
     public boolean A = false;
     public j.a S = new j.a();
@@ -130,35 +130,35 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public boolean av = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<l> f7624h = new ArrayList();
+    public List<l> f7667h = new ArrayList();
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f7626a;
+        public long f7669a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f7627b;
+        public int f7670b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f7628c;
+        public int f7671c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f7629d;
+        public int f7672d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Bundle f7630e;
+        public Bundle f7673e;
 
         public a(long j, int i2, int i3, int i4) {
-            this.f7626a = j;
-            this.f7627b = i2;
-            this.f7628c = i3;
-            this.f7629d = i4;
+            this.f7669a = j;
+            this.f7670b = i2;
+            this.f7671c = i3;
+            this.f7672d = i4;
         }
 
         public a(Bundle bundle) {
-            this.f7630e = bundle;
+            this.f7673e = bundle;
         }
     }
 
@@ -170,15 +170,15 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     private void R() {
         if (!this.w && !this.t && !this.s && !this.x) {
-            this.f7618a = this.f7620c;
+            this.f7661a = this.f7663c;
             return;
         }
-        if (this.f7618a > 20.0f) {
-            this.f7618a = 20.0f;
+        if (this.f7661a > 20.0f) {
+            this.f7661a = 20.0f;
         }
-        if (E().f7571a > 20.0f) {
+        if (E().f7614a > 20.0f) {
             ab E = E();
-            E.f7571a = 20.0f;
+            E.f7614a = 20.0f;
             a(E);
         }
     }
@@ -189,7 +189,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         }
         this.n = true;
         this.o = false;
-        List<l> list = this.f7624h;
+        List<l> list = this.f7667h;
         if (list != null) {
             for (l lVar : list) {
                 if (lVar != null) {
@@ -200,11 +200,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     private boolean T() {
-        if (this.f7625i == null || !this.k) {
+        if (this.f7668i == null || !this.k) {
             return true;
         }
         this.af = false;
-        if (this.f7621e) {
+        if (this.f7664e) {
             float f2 = (float) (this.al - this.ak);
             float abs = (Math.abs(this.ai - this.ag) * 1000.0f) / f2;
             float abs2 = (Math.abs(this.aj - this.ah) * 1000.0f) / f2;
@@ -234,11 +234,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     private void a(d dVar) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
-        dVar.f7613a = aVar.a(dVar.f7615c, dVar.f7616d, dVar.f7614b);
+        dVar.f7656a = aVar.a(dVar.f7658c, dVar.f7659d, dVar.f7657b);
         this.E.add(dVar);
     }
 
@@ -251,7 +251,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     private void b(MotionEvent motionEvent) {
-        if (this.S.f7653e) {
+        if (this.S.f7696e) {
             return;
         }
         long downTime = motionEvent.getDownTime();
@@ -267,18 +267,18 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     private void b(String str, Bundle bundle) {
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return;
         }
         this.G.a(str);
         this.G.a(bundle);
-        this.f7625i.b(this.G.f7613a);
+        this.f7668i.b(this.G.f7656a);
     }
 
     private boolean c(MotionEvent motionEvent) {
-        if (!this.S.f7653e && System.currentTimeMillis() - m >= 300) {
+        if (!this.S.f7696e && System.currentTimeMillis() - m >= 300) {
             if (this.p) {
-                List<l> list = this.f7624h;
+                List<l> list = this.f7667h;
                 if (list != null) {
                     for (l lVar : list) {
                         GeoPoint b2 = b((int) motionEvent.getX(), (int) motionEvent.getY());
@@ -307,7 +307,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 if (y < 0) {
                     y = 0;
                 }
-                if (this.f7621e) {
+                if (this.f7664e) {
                     BaiduMap.mapStatusReason = 1 | BaiduMap.mapStatusReason;
                     S();
                     a(3, 0, (y << 16) | x);
@@ -321,7 +321,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     private boolean d(MotionEvent motionEvent) {
         if (this.p) {
-            List<l> list = this.f7624h;
+            List<l> list = this.f7667h;
             if (list != null) {
                 for (l lVar : list) {
                     GeoPoint b2 = b((int) motionEvent.getX(), (int) motionEvent.getY());
@@ -333,7 +333,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             this.p = false;
             return true;
         }
-        boolean z = !this.S.f7653e && motionEvent.getEventTime() - this.ad < 400 && Math.abs(motionEvent.getX() - this.Z) < 10.0f && Math.abs(motionEvent.getY() - this.aa) < 10.0f;
+        boolean z = !this.S.f7696e && motionEvent.getEventTime() - this.ad < 400 && Math.abs(motionEvent.getX() - this.Z) < 10.0f && Math.abs(motionEvent.getY() - this.aa) < 10.0f;
         M();
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
@@ -351,13 +351,13 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     private boolean e(float f2, float f3) {
-        if (this.f7625i == null || !this.k) {
+        if (this.f7668i == null || !this.k) {
             return true;
         }
         this.ae = false;
         GeoPoint b2 = b((int) f2, (int) f3);
         if (b2 != null) {
-            List<l> list = this.f7624h;
+            List<l> list = this.f7667h;
             if (list != null) {
                 for (l lVar : list) {
                     if (lVar != null) {
@@ -365,11 +365,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     }
                 }
             }
-            if (this.f7622f) {
+            if (this.f7665f) {
                 ab E = E();
-                E.f7571a += 1.0f;
-                E.f7574d = b2.getLongitudeE6();
-                E.f7575e = b2.getLatitudeE6();
+                E.f7614a += 1.0f;
+                E.f7617d = b2.getLongitudeE6();
+                E.f7618e = b2.getLatitudeE6();
                 a(E, 300);
                 m = System.currentTimeMillis();
                 return true;
@@ -379,7 +379,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     private boolean e(Bundle bundle) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return false;
         }
@@ -388,13 +388,13 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     private boolean f(Bundle bundle) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
-        if (bundle == null || (aVar = this.f7625i) == null) {
+        if (bundle == null || (aVar = this.f7668i) == null) {
             return false;
         }
         boolean d2 = aVar.d(bundle);
         if (d2) {
             f(d2);
-            this.f7625i.b(this.B.f7613a);
+            this.f7668i.b(this.B.f7656a);
         }
         return d2;
     }
@@ -405,7 +405,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (bundle.get("param") == null ? (i2 = bundle.getInt("type")) != h.ground.ordinal() && i2 < h.arc.ordinal() : (i3 = (bundle = (Bundle) bundle.get("param")).getInt("type")) != h.ground.ordinal() && i3 < h.arc.ordinal()) {
             h.popup.ordinal();
         }
-        bundle.putLong("layer_addr", this.I.f7613a);
+        bundle.putLong("layer_addr", this.I.f7656a);
     }
 
     public static void m(boolean z) {
@@ -415,10 +415,10 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             com.baidu.mapsdkplatform.comjni.map.basemap.a.b(0L, z);
             return;
         }
-        com.baidu.mapsdkplatform.comjni.map.basemap.a.b(ar.get(0).f7931a, z);
+        com.baidu.mapsdkplatform.comjni.map.basemap.a.b(ar.get(0).f7974a, z);
         for (JNIBaseMap jNIBaseMap : ar) {
             if (jNIBaseMap != null) {
-                jNIBaseMap.ClearLayer(jNIBaseMap.f7931a, -1L);
+                jNIBaseMap.ClearLayer(jNIBaseMap.f7974a, -1L);
             }
         }
     }
@@ -428,7 +428,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             return;
         }
         this.o = true;
-        List<l> list = this.f7624h;
+        List<l> list = this.f7667h;
         if (list == null) {
             return;
         }
@@ -442,7 +442,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void B() {
         this.o = false;
         this.n = false;
-        List<l> list = this.f7624h;
+        List<l> list = this.f7667h;
         if (list == null) {
             return;
         }
@@ -454,23 +454,23 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public boolean C() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar != null) {
-            return aVar.a(this.H.f7613a);
+            return aVar.a(this.H.f7656a);
         }
         return false;
     }
 
     public boolean D() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar != null) {
-            return aVar.a(this.aq.f7613a);
+            return aVar.a(this.aq.f7656a);
         }
         return false;
     }
 
     public ab E() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return null;
         }
@@ -481,7 +481,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public LatLngBounds F() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return null;
         }
@@ -506,7 +506,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public ab J() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return null;
         }
@@ -523,7 +523,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void L() {
         List<l> list;
         this.n = false;
-        if (this.o || (list = this.f7624h) == null) {
+        if (this.o || (list = this.f7667h) == null) {
             return;
         }
         for (l lVar : list) {
@@ -536,12 +536,12 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void M() {
         this.R = 0;
         j.a aVar = this.S;
-        aVar.f7653e = false;
-        aVar.f7656h = 0.0d;
+        aVar.f7696e = false;
+        aVar.f7699h = 0.0d;
     }
 
     public float[] N() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return null;
         }
@@ -549,7 +549,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public float[] O() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return null;
         }
@@ -565,17 +565,17 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             return;
         }
         a poll = this.at.poll();
-        if (poll.f7630e == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a.a(poll.f7626a, poll.f7627b, poll.f7628c, poll.f7629d);
-        } else if (this.f7625i != null) {
+        if (poll.f7673e == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a.a(poll.f7669a, poll.f7670b, poll.f7671c, poll.f7672d);
+        } else if (this.f7668i != null) {
             A();
-            this.f7625i.a(poll.f7630e);
+            this.f7668i.a(poll.f7673e);
         }
     }
 
     public float a(int i2, int i3, int i4, int i5, int i6, int i7) {
         if (this.k) {
-            if (this.f7625i == null) {
+            if (this.f7668i == null) {
                 return 0.0f;
             }
             Bundle bundle = new Bundle();
@@ -586,7 +586,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             bundle.putInt("hasHW", 1);
             bundle.putInt("width", i6);
             bundle.putInt("height", i7);
-            return this.f7625i.c(bundle);
+            return this.f7668i.c(bundle);
         }
         return 12.0f;
     }
@@ -603,27 +603,27 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public int a(Bundle bundle, long j, int i2, Bundle bundle2) {
         ag agVar;
         g gVar = this.G;
-        if (j == gVar.f7613a) {
+        if (j == gVar.f7656a) {
             bundle.putString("jsondata", gVar.a());
             bundle.putBundle("param", this.G.b());
             agVar = this.G;
         } else {
             x xVar = this.F;
-            if (j == xVar.f7613a) {
+            if (j == xVar.f7656a) {
                 bundle.putString("jsondata", xVar.a());
                 bundle.putBundle("param", this.F.b());
                 agVar = this.F;
-            } else if (j == this.J.f7613a) {
+            } else if (j == this.J.f7656a) {
                 bundle.putBundle("param", this.L.a(bundle2.getInt("x"), bundle2.getInt("y"), bundle2.getInt("zoom")));
                 agVar = this.J;
-            } else if (j != this.B.f7613a) {
+            } else if (j != this.B.f7656a) {
                 return 0;
             } else {
                 bundle.putBundle("param", this.C.a(bundle2.getInt("x"), bundle2.getInt("y"), bundle2.getInt("zoom"), this.D));
                 agVar = this.B;
             }
         }
-        return agVar.f7603g;
+        return agVar.f7646g;
     }
 
     public Point a(GeoPoint geoPoint) {
@@ -651,7 +651,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         c cVar = new c();
         this.aq = cVar;
         a(cVar);
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar2 = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar2 = this.f7668i;
         if (aVar2 != null) {
             aVar2.e(false);
         }
@@ -667,16 +667,16 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void a(float f2, float f3) {
-        this.f7618a = f2;
-        this.f7620c = f2;
-        this.f7619b = f3;
+        this.f7661a = f2;
+        this.f7663c = f2;
+        this.f7662b = f3;
     }
 
     public void a(int i2) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = new com.baidu.mapsdkplatform.comjni.map.basemap.a();
-        this.f7625i = aVar;
+        this.f7668i = aVar;
         aVar.a(i2);
-        long a2 = this.f7625i.a();
+        long a2 = this.f7668i.a();
         this.j = a2;
         a("com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap", "setId", a2);
         this.l = SysOSUtil.getDensityDpi() < 180 ? 18 : SysOSUtil.getDensityDpi() < 240 ? 25 : SysOSUtil.getDensityDpi() < 320 ? 37 : 50;
@@ -702,7 +702,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             throw new RuntimeException("BDMapSDKException: Please give the right context.");
         }
         Display defaultDisplay = a3.getWindowManager().getDefaultDisplay();
-        this.f7625i.a(str4, str7, str9, str10, str8, str5, this.an, this.ao, str6, defaultDisplay.getWidth(), defaultDisplay.getHeight(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
+        this.f7668i.a(str4, str7, str9, str10, str8, str5, this.an, this.ao, str6, defaultDisplay.getWidth(), defaultDisplay.getHeight(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
     }
 
     public void a(int i2, int i3) {
@@ -711,12 +711,12 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void a(long j, long j2, long j3, long j4, boolean z) {
-        this.f7625i.a(j, j2, j3, j4, z);
+        this.f7668i.a(j, j2, j3, j4, z);
     }
 
     public void a(Bitmap bitmap) {
         Bundle bundle;
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -758,7 +758,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             bundle = bundle2;
         }
         b(jSONObject.toString(), bundle);
-        this.f7625i.b(this.G.f7613a);
+        this.f7668i.b(this.G.f7656a);
     }
 
     public void a(Handler handler) {
@@ -777,7 +777,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void a(LatLngBounds latLngBounds) {
-        if (latLngBounds == null || this.f7625i == null) {
+        if (latLngBounds == null || this.f7668i == null) {
             return;
         }
         LatLng latLng = latLngBounds.northeast;
@@ -791,21 +791,21 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         bundle.putInt("minCoory", (int) ll2mc2.getLatitudeE6());
         bundle.putInt("minCoorx", longitudeE6);
         bundle.putInt("maxCoory", latitudeE6);
-        this.f7625i.b(bundle);
+        this.f7668i.b(bundle);
     }
 
     public void a(ab abVar) {
-        if (this.f7625i == null || abVar == null) {
+        if (this.f7668i == null || abVar == null) {
             return;
         }
         Bundle a2 = abVar.a(this);
         a2.putInt("animation", 0);
         a2.putInt("animatime", 0);
-        this.f7625i.a(a2);
+        this.f7668i.a(a2);
     }
 
     public void a(ab abVar, int i2) {
-        if (this.f7625i == null || abVar == null) {
+        if (this.f7668i == null || abVar == null) {
             return;
         }
         Bundle a2 = abVar.a(this);
@@ -816,7 +816,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             return;
         }
         A();
-        this.f7625i.a(a2);
+        this.f7668i.a(a2);
     }
 
     public void a(ai aiVar) {
@@ -825,7 +825,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     public void a(l lVar) {
         List<l> list;
-        if (lVar == null || (list = this.f7624h) == null) {
+        if (lVar == null || (list = this.f7667h) == null) {
             return;
         }
         list.add(lVar);
@@ -840,14 +840,14 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (zVar == null) {
             zVar = new z();
         }
-        ab abVar = zVar.f7695a;
-        this.y = zVar.f7700f;
-        this.z = zVar.f7698d;
-        this.f7621e = zVar.f7699e;
-        this.f7622f = zVar.f7701g;
-        this.f7625i.a(abVar.a(this));
-        this.f7625i.c(y.DEFAULT.ordinal());
-        boolean z = zVar.f7696b;
+        ab abVar = zVar.f7738a;
+        this.y = zVar.f7743f;
+        this.z = zVar.f7741d;
+        this.f7664e = zVar.f7742e;
+        this.f7665f = zVar.f7744g;
+        this.f7668i.a(abVar.a(this));
+        this.f7668i.c(y.DEFAULT.ordinal());
+        boolean z = zVar.f7739b;
         this.u = z;
         if (z) {
             N = (int) (SysOSUtil.getDensity() * 40.0f);
@@ -865,33 +865,33 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 e2.printStackTrace();
             }
             this.G.a(jSONObject.toString());
-            this.f7625i.a(this.G.f7613a, true);
+            this.f7668i.a(this.G.f7656a, true);
         } else {
-            this.f7625i.a(this.G.f7613a, false);
+            this.f7668i.a(this.G.f7656a, false);
         }
-        int i2 = zVar.f7697c;
+        int i2 = zVar.f7740c;
         if (i2 == 2) {
             a(true);
         }
         if (i2 == 3) {
-            this.f7625i.a(this.am.f7613a, false);
-            this.f7625i.a(this.aq.f7613a, false);
-            this.f7625i.a(this.H.f7613a, false);
-            this.f7625i.e(false);
+            this.f7668i.a(this.am.f7656a, false);
+            this.f7668i.a(this.aq.f7656a, false);
+            this.f7668i.a(this.H.f7656a, false);
+            this.f7668i.e(false);
         }
     }
 
     public void a(String str, Bundle bundle) {
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return;
         }
         this.F.a(str);
         this.F.a(bundle);
-        this.f7625i.b(this.F.f7613a);
+        this.f7668i.b(this.F.f7656a);
     }
 
     public void a(List<Bundle> list) {
-        if (this.f7625i == null || list == null) {
+        if (this.f7668i == null || list == null) {
             return;
         }
         int size = list.size();
@@ -900,20 +900,20 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             g(list.get(i2));
             bundleArr[i2] = list.get(i2);
         }
-        this.f7625i.a(bundleArr);
+        this.f7668i.a(bundleArr);
     }
 
     public void a(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
-        if (!aVar.a(this.am.f7613a)) {
-            this.f7625i.a(this.am.f7613a, true);
+        if (!aVar.a(this.am.f7656a)) {
+            this.f7668i.a(this.am.f7656a, true);
         }
         this.t = z;
         R();
-        this.f7625i.a(this.t);
+        this.f7668i.a(this.t);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:0x00ae A[RETURN] */
@@ -937,11 +937,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         float f11 = i4 - f3;
         float f12 = i4 - f5;
         j.a aVar2 = this.S;
-        if (aVar2.f7653e) {
+        if (aVar2.f7696e) {
             if (this.R == 0) {
-                if (aVar2.f7651c - f11 <= 0.0f || aVar2.f7652d - f12 <= 0.0f) {
+                if (aVar2.f7694c - f11 <= 0.0f || aVar2.f7695d - f12 <= 0.0f) {
                     j.a aVar3 = this.S;
-                    if (aVar3.f7651c - f11 >= 0.0f || aVar3.f7652d - f12 >= 0.0f) {
+                    if (aVar3.f7694c - f11 >= 0.0f || aVar3.f7695d - f12 >= 0.0f) {
                         z = true;
                         this.R = 2;
                         if (this.R == 0) {
@@ -951,8 +951,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 }
                 double atan2 = Math.atan2(f12 - f11, f4 - f2);
                 j.a aVar4 = this.S;
-                double atan22 = atan2 - Math.atan2(aVar4.f7652d - aVar4.f7651c, aVar4.f7650b - aVar4.f7649a);
-                double sqrt = Math.sqrt((f10 * f10) + (f9 * f9)) / this.S.f7656h;
+                double atan22 = atan2 - Math.atan2(aVar4.f7695d - aVar4.f7694c, aVar4.f7693b - aVar4.f7692a);
+                double sqrt = Math.sqrt((f10 * f10) + (f9 * f9)) / this.S.f7699h;
                 int log = (int) ((Math.log(sqrt) / Math.log(2.0d)) * 10000.0d);
                 int i5 = (int) ((atan22 * 180.0d) / 3.1416d);
                 if ((sqrt <= 0.0d || (log <= 3000 && log >= -3000)) && Math.abs(i5) < 10) {
@@ -969,9 +969,9 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             }
             if (this.R == z && this.y) {
                 j.a aVar5 = this.S;
-                if (aVar5.f7651c - f11 <= 0.0f || aVar5.f7652d - f12 <= 0.0f) {
+                if (aVar5.f7694c - f11 <= 0.0f || aVar5.f7695d - f12 <= 0.0f) {
                     j.a aVar6 = this.S;
-                    if (aVar6.f7651c - f11 < 0.0f && aVar6.f7652d - f12 < 0.0f) {
+                    if (aVar6.f7694c - f11 < 0.0f && aVar6.f7695d - f12 < 0.0f) {
                         S();
                         i3 = 87;
                     }
@@ -985,17 +985,17 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 if (i6 == 2 || i6 == 4 || i6 == 3) {
                     double atan23 = Math.atan2(f12 - f11, f4 - f2);
                     j.a aVar7 = this.S;
-                    double atan24 = atan23 - Math.atan2(aVar7.f7652d - aVar7.f7651c, aVar7.f7650b - aVar7.f7649a);
-                    double sqrt2 = Math.sqrt((f8 * f8) + (f7 * f7)) / this.S.f7656h;
+                    double atan24 = atan23 - Math.atan2(aVar7.f7695d - aVar7.f7694c, aVar7.f7693b - aVar7.f7692a);
+                    double sqrt2 = Math.sqrt((f8 * f8) + (f7 * f7)) / this.S.f7699h;
                     int log2 = (int) ((Math.log(sqrt2) / Math.log(2.0d)) * 10000.0d);
                     j.a aVar8 = this.S;
-                    double atan25 = Math.atan2(aVar8.f7655g - aVar8.f7651c, aVar8.f7654f - aVar8.f7649a);
+                    double atan25 = Math.atan2(aVar8.f7698g - aVar8.f7694c, aVar8.f7697f - aVar8.f7692a);
                     j.a aVar9 = this.S;
-                    float f13 = aVar9.f7654f;
-                    float f14 = aVar9.f7649a;
+                    float f13 = aVar9.f7697f;
+                    float f14 = aVar9.f7692a;
                     float f15 = (f13 - f14) * (f13 - f14);
-                    float f16 = aVar9.f7655g;
-                    float f17 = aVar9.f7651c;
+                    float f16 = aVar9.f7698g;
+                    float f17 = aVar9.f7694c;
                     double sqrt3 = Math.sqrt(f15 + ((f16 - f17) * (f16 - f17)));
                     double d2 = atan25 + atan24;
                     f6 = f12;
@@ -1004,15 +1004,15 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     int i7 = (int) ((atan24 * 180.0d) / 3.1416d);
                     if (sqrt2 > 0.0d && (3 == this.R || (Math.abs(log2) > 2000 && 2 == this.R))) {
                         this.R = 3;
-                        float f18 = E().f7571a;
-                        if (this.f7622f) {
+                        float f18 = E().f7614a;
+                        if (this.f7665f) {
                             if (sqrt2 <= 1.0d) {
                                 i2 = 3;
-                                if (f18 <= this.f7619b) {
+                                if (f18 <= this.f7662b) {
                                     return false;
                                 }
                                 S();
-                            } else if (f18 >= this.f7618a) {
+                            } else if (f18 >= this.f7661a) {
                                 return false;
                             } else {
                                 S();
@@ -1029,27 +1029,27 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         }
                     }
                     j.a aVar10 = this.S;
-                    aVar10.f7654f = cos;
-                    aVar10.f7655g = sin;
+                    aVar10.f7697f = cos;
+                    aVar10.f7698g = sin;
                     if (2 != this.R) {
                         j.a aVar11 = this.S;
-                        aVar11.f7651c = f11;
-                        aVar11.f7652d = f6;
-                        aVar11.f7649a = f2;
-                        aVar11.f7650b = f4;
+                        aVar11.f7694c = f11;
+                        aVar11.f7695d = f6;
+                        aVar11.f7692a = f2;
+                        aVar11.f7693b = f4;
                     }
                     aVar = this.S;
-                    if (aVar.f7653e) {
-                        aVar.f7654f = this.P / 2;
-                        aVar.f7655g = this.Q / 2;
-                        aVar.f7653e = true;
-                        if (0.0d == aVar.f7656h) {
-                            float f19 = aVar.f7650b;
-                            float f20 = aVar.f7649a;
+                    if (aVar.f7696e) {
+                        aVar.f7697f = this.P / 2;
+                        aVar.f7698g = this.Q / 2;
+                        aVar.f7696e = true;
+                        if (0.0d == aVar.f7699h) {
+                            float f19 = aVar.f7693b;
+                            float f20 = aVar.f7692a;
                             float f21 = (f19 - f20) * (f19 - f20);
-                            float f22 = aVar.f7652d;
-                            float f23 = aVar.f7651c;
-                            this.S.f7656h = Math.sqrt(f21 + ((f22 - f23) * (f22 - f23)));
+                            float f22 = aVar.f7695d;
+                            float f23 = aVar.f7694c;
+                            this.S.f7699h = Math.sqrt(f21 + ((f22 - f23) * (f22 - f23)));
                             return true;
                         }
                         return true;
@@ -1062,7 +1062,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (2 != this.R) {
         }
         aVar = this.S;
-        if (aVar.f7653e) {
+        if (aVar.f7696e) {
         }
     }
 
@@ -1070,7 +1070,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public boolean a(long j) {
         Iterator<d> it = this.E.iterator();
         while (it.hasNext()) {
-            if (it.next().f7613a == j) {
+            if (it.next().f7656a == j) {
                 return true;
             }
         }
@@ -1080,7 +1080,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public boolean a(Point point) {
         int i2;
         int i3;
-        if (point != null && this.f7625i != null && (i2 = point.x) >= 0 && (i3 = point.y) >= 0) {
+        if (point != null && this.f7668i != null && (i2 = point.x) >= 0 && (i3 = point.y) >= 0) {
             N = i2;
             O = i3;
             JSONObject jSONObject = new JSONObject();
@@ -1096,22 +1096,22 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 e2.printStackTrace();
             }
             this.G.a(jSONObject.toString());
-            this.f7625i.b(this.G.f7613a);
+            this.f7668i.b(this.G.f7656a);
             return true;
         }
         return false;
     }
 
     public boolean a(Bundle bundle) {
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return false;
         }
         aj ajVar = new aj();
         this.B = ajVar;
-        long a2 = this.f7625i.a(ajVar.f7615c, ajVar.f7616d, ajVar.f7614b);
+        long a2 = this.f7668i.a(ajVar.f7658c, ajVar.f7659d, ajVar.f7657b);
         if (a2 != 0) {
             aj ajVar2 = this.B;
-            ajVar2.f7613a = a2;
+            ajVar2.f7656a = a2;
             this.E.add(ajVar2);
             bundle.putLong("sdktileaddr", a2);
             if (e(bundle) && f(bundle)) {
@@ -1192,11 +1192,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 f2 = minimumFlingVelocity;
                 if (Math.abs(xVelocity) <= f2 || Math.abs(yVelocity) > f2 || Math.abs(xVelocity2) > f2 || Math.abs(yVelocity2) > f2) {
                     aVar = this.S;
-                    if (aVar.f7653e) {
+                    if (aVar.f7696e) {
                         if (this.R == 0) {
-                            if (aVar.f7651c - y <= 0.0f || aVar.f7652d - y2 <= 0.0f) {
+                            if (aVar.f7694c - y <= 0.0f || aVar.f7695d - y2 <= 0.0f) {
                                 j.a aVar3 = this.S;
-                                if (aVar3.f7651c - y >= 0.0f || aVar3.f7652d - y2 >= 0.0f) {
+                                if (aVar3.f7694c - y >= 0.0f || aVar3.f7695d - y2 >= 0.0f) {
                                     f3 = y2;
                                     z = true;
                                     this.R = 2;
@@ -1208,8 +1208,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                             f3 = y2;
                             double atan2 = Math.atan2(y2 - y, x2 - x);
                             j.a aVar4 = this.S;
-                            double atan22 = atan2 - Math.atan2(aVar4.f7652d - aVar4.f7651c, aVar4.f7650b - aVar4.f7649a);
-                            double sqrt = Math.sqrt((f7 * f7) + (f6 * f6)) / this.S.f7656h;
+                            double atan22 = atan2 - Math.atan2(aVar4.f7695d - aVar4.f7694c, aVar4.f7693b - aVar4.f7692a);
+                            double sqrt = Math.sqrt((f7 * f7) + (f6 * f6)) / this.S.f7699h;
                             int log = (int) ((Math.log(sqrt) / Math.log(2.0d)) * 10000.0d);
                             int i7 = (int) ((atan22 * 180.0d) / 3.1416d);
                             if ((sqrt <= 0.0d || (log <= 3000 && log >= -3000)) && Math.abs(i7) < 10) {
@@ -1227,9 +1227,9 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         }
                         if (this.R == z && this.y) {
                             j.a aVar5 = this.S;
-                            if (aVar5.f7651c - y <= 0.0f || aVar5.f7652d - f3 <= 0.0f) {
+                            if (aVar5.f7694c - y <= 0.0f || aVar5.f7695d - f3 <= 0.0f) {
                                 j.a aVar6 = this.S;
-                                if (aVar6.f7651c - y < 0.0f && aVar6.f7652d - f3 < 0.0f) {
+                                if (aVar6.f7694c - y < 0.0f && aVar6.f7695d - f3 < 0.0f) {
                                     i5 = 1;
                                     BaiduMap.mapStatusReason |= 1;
                                     S();
@@ -1247,16 +1247,16 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                             if (i8 == 2 || i8 == 4 || i8 == 3) {
                                 double atan23 = Math.atan2(f3 - y, x2 - x);
                                 j.a aVar7 = this.S;
-                                double atan24 = atan23 - Math.atan2(aVar7.f7652d - aVar7.f7651c, aVar7.f7650b - aVar7.f7649a);
-                                double sqrt2 = Math.sqrt((f5 * f5) + (f4 * f4)) / this.S.f7656h;
+                                double atan24 = atan23 - Math.atan2(aVar7.f7695d - aVar7.f7694c, aVar7.f7693b - aVar7.f7692a);
+                                double sqrt2 = Math.sqrt((f5 * f5) + (f4 * f4)) / this.S.f7699h;
                                 int log2 = (int) ((Math.log(sqrt2) / Math.log(2.0d)) * 10000.0d);
                                 j.a aVar8 = this.S;
-                                double atan25 = Math.atan2(aVar8.f7655g - aVar8.f7651c, aVar8.f7654f - aVar8.f7649a);
+                                double atan25 = Math.atan2(aVar8.f7698g - aVar8.f7694c, aVar8.f7697f - aVar8.f7692a);
                                 j.a aVar9 = this.S;
-                                float f8 = aVar9.f7654f;
-                                float f9 = aVar9.f7649a;
-                                float f10 = aVar9.f7655g;
-                                float f11 = aVar9.f7651c;
+                                float f8 = aVar9.f7697f;
+                                float f9 = aVar9.f7692a;
+                                float f10 = aVar9.f7698g;
+                                float f11 = aVar9.f7694c;
                                 double sqrt3 = Math.sqrt(((f8 - f9) * (f8 - f9)) + ((f10 - f11) * (f10 - f11)));
                                 double d2 = atan25 + atan24;
                                 float cos = (float) ((Math.cos(d2) * sqrt3 * sqrt2) + x);
@@ -1265,17 +1265,17 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                                 eVar = this;
                                 if (sqrt2 > 0.0d && (3 == eVar.R || (Math.abs(log2) > 2000 && 2 == eVar.R))) {
                                     eVar.R = 3;
-                                    float f12 = E().f7571a;
-                                    if (eVar.f7622f) {
+                                    float f12 = E().f7614a;
+                                    if (eVar.f7665f) {
                                         if (sqrt2 <= 1.0d) {
                                             i3 = log2;
                                             i4 = 3;
-                                            if (f12 <= eVar.f7619b) {
+                                            if (f12 <= eVar.f7662b) {
                                                 return false;
                                             }
                                             BaiduMap.mapStatusReason |= 1;
                                             S();
-                                        } else if (f12 >= eVar.f7618a) {
+                                        } else if (f12 >= eVar.f7661a) {
                                             return false;
                                         } else {
                                             BaiduMap.mapStatusReason |= 1;
@@ -1293,29 +1293,29 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                                     }
                                 }
                                 j.a aVar10 = eVar.S;
-                                aVar10.f7654f = cos;
-                                aVar10.f7655g = sin;
+                                aVar10.f7697f = cos;
+                                aVar10.f7698g = sin;
                                 if (2 != eVar.R) {
                                     j.a aVar11 = eVar.S;
-                                    aVar11.f7651c = y;
-                                    aVar11.f7652d = f3;
-                                    aVar11.f7649a = x;
-                                    aVar11.f7650b = x2;
+                                    aVar11.f7694c = y;
+                                    aVar11.f7695d = f3;
+                                    aVar11.f7692a = x;
+                                    aVar11.f7693b = x2;
                                 }
                                 aVar2 = eVar.S;
-                                if (aVar2.f7653e) {
+                                if (aVar2.f7696e) {
                                     return true;
                                 }
-                                aVar2.f7654f = eVar.P / 2;
-                                aVar2.f7655g = eVar.Q / 2;
-                                aVar2.f7653e = true;
-                                if (0.0d == aVar2.f7656h) {
-                                    float f13 = aVar2.f7650b;
-                                    float f14 = aVar2.f7649a;
+                                aVar2.f7697f = eVar.P / 2;
+                                aVar2.f7698g = eVar.Q / 2;
+                                aVar2.f7696e = true;
+                                if (0.0d == aVar2.f7699h) {
+                                    float f13 = aVar2.f7693b;
+                                    float f14 = aVar2.f7692a;
                                     float f15 = (f13 - f14) * (f13 - f14);
-                                    float f16 = aVar2.f7652d;
-                                    float f17 = aVar2.f7651c;
-                                    eVar.S.f7656h = Math.sqrt(f15 + ((f16 - f17) * (f16 - f17)));
+                                    float f16 = aVar2.f7695d;
+                                    float f17 = aVar2.f7694c;
+                                    eVar.S.f7699h = Math.sqrt(f15 + ((f16 - f17) * (f16 - f17)));
                                     return true;
                                 }
                                 return true;
@@ -1325,7 +1325,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         if (2 != eVar.R) {
                         }
                         aVar2 = eVar.S;
-                        if (aVar2.f7653e) {
+                        if (aVar2.f7696e) {
                         }
                     }
                 } else if (this.R == 0 && this.Y == 0) {
@@ -1341,8 +1341,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         j3 = j4;
                     }
                     this.U = j3;
-                    if (this.W - j3 < 200 && this.f7622f && (E = E()) != null) {
-                        E.f7571a -= 1.0f;
+                    if (this.W - j3 < 200 && this.f7665f && (E = E()) != null) {
+                        E.f7614a -= 1.0f;
                         BaiduMap.mapStatusReason |= 1;
                         a(E, 300);
                     }
@@ -1352,7 +1352,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 if (2 != eVar.R) {
                 }
                 aVar2 = eVar.S;
-                if (aVar2.f7653e) {
+                if (aVar2.f7696e) {
                 }
             } else {
                 this.U = motionEvent.getEventTime();
@@ -1372,14 +1372,14 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             if (Math.abs(xVelocity) <= f2) {
             }
             aVar = this.S;
-            if (aVar.f7653e) {
+            if (aVar.f7696e) {
             }
             eVar = this;
             f3 = y2;
             if (2 != eVar.R) {
             }
             aVar2 = eVar.S;
-            if (aVar2.f7653e) {
+            if (aVar2.f7696e) {
             }
         } else {
             this.V = motionEvent.getEventTime();
@@ -1399,19 +1399,19 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (Math.abs(xVelocity) <= f2) {
         }
         aVar = this.S;
-        if (aVar.f7653e) {
+        if (aVar.f7696e) {
         }
         eVar = this;
         f3 = y2;
         if (2 != eVar.R) {
         }
         aVar2 = eVar.S;
-        if (aVar2.f7653e) {
+        if (aVar2.f7696e) {
         }
     }
 
     public boolean a(String str, String str2) {
-        return this.f7625i.a(str, str2);
+        return this.f7668i.a(str, str2);
     }
 
     public GeoPoint b(int i2, int i3) {
@@ -1419,7 +1419,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void b(float f2, float f3) {
-        if (this.S.f7653e) {
+        if (this.S.f7696e) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -1443,19 +1443,19 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void b(int i2) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar != null) {
             aVar.b(i2);
-            this.f7625i = null;
+            this.f7668i = null;
         }
     }
 
     public void b(Bundle bundle) {
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return;
         }
         g(bundle);
-        this.f7625i.f(bundle);
+        this.f7668i.f(bundle);
     }
 
     public void b(Handler handler) {
@@ -1478,25 +1478,25 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void c() {
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return;
         }
         for (d dVar : this.E) {
-            this.f7625i.a(dVar.f7613a, false);
+            this.f7668i.a(dVar.f7656a, false);
         }
     }
 
     public void c(Bundle bundle) {
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return;
         }
         g(bundle);
-        this.f7625i.g(bundle);
+        this.f7668i.g(bundle);
     }
 
     public void c(boolean z) {
         boolean z2;
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
@@ -1504,21 +1504,21 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             if (this.au) {
                 return;
             }
-            aVar.a(this.ap.f7613a, this.I.f7613a);
+            aVar.a(this.ap.f7656a, this.I.f7656a);
             z2 = true;
         } else if (!this.au) {
             return;
         } else {
-            aVar.a(this.I.f7613a, this.ap.f7613a);
+            aVar.a(this.I.f7656a, this.ap.f7656a);
             z2 = false;
         }
         this.au = z2;
     }
 
     public boolean c(float f2, float f3) {
-        if (!this.S.f7653e && System.currentTimeMillis() - m >= 300) {
+        if (!this.S.f7696e && System.currentTimeMillis() - m >= 300) {
             if (this.p) {
-                List<l> list = this.f7624h;
+                List<l> list = this.f7667h;
                 if (list != null) {
                     for (l lVar : list) {
                         GeoPoint b2 = b((int) f2, (int) f3);
@@ -1547,7 +1547,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 if (i4 < 0) {
                     i4 = 0;
                 }
-                if (this.f7621e) {
+                if (this.f7664e) {
                     this.ag = this.ai;
                     this.ah = this.aj;
                     this.ai = f2;
@@ -1570,25 +1570,25 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void d() {
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return;
         }
         for (d dVar : this.E) {
             if ((dVar instanceof x) || (dVar instanceof com.baidu.mapsdkplatform.comapi.map.a) || (dVar instanceof n)) {
-                this.f7625i.a(dVar.f7613a, false);
+                this.f7668i.a(dVar.f7656a, false);
             } else {
-                this.f7625i.a(dVar.f7613a, true);
+                this.f7668i.a(dVar.f7656a, true);
             }
         }
-        this.f7625i.c(false);
+        this.f7668i.c(false);
     }
 
     public void d(Bundle bundle) {
-        if (this.f7625i == null) {
+        if (this.f7668i == null) {
             return;
         }
         g(bundle);
-        this.f7625i.h(bundle);
+        this.f7668i.h(bundle);
     }
 
     public void d(boolean z) {
@@ -1597,12 +1597,12 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             if (this.av) {
                 return;
             }
-            this.f7625i.a(this.I.f7613a, this.F.f7613a);
+            this.f7668i.a(this.I.f7656a, this.F.f7656a);
             z2 = true;
         } else if (!this.av) {
             return;
         } else {
-            this.f7625i.a(this.F.f7613a, this.I.f7613a);
+            this.f7668i.a(this.F.f7656a, this.I.f7656a);
             z2 = false;
         }
         this.av = z2;
@@ -1610,7 +1610,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     public boolean d(float f2, float f3) {
         if (this.p) {
-            List<l> list = this.f7624h;
+            List<l> list = this.f7667h;
             if (list != null) {
                 for (l lVar : list) {
                     GeoPoint b2 = b((int) f2, (int) f3);
@@ -1622,7 +1622,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             this.p = false;
             return true;
         }
-        if (!this.S.f7653e) {
+        if (!this.S.f7696e) {
             if (this.ae) {
                 return e(f2, f3);
             }
@@ -1648,24 +1648,24 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void e(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
-        aVar.a(this.G.f7613a, z);
+        aVar.a(this.G.f7656a, z);
     }
 
     public boolean e() {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         aj ajVar = this.B;
-        if (ajVar == null || (aVar = this.f7625i) == null) {
+        if (ajVar == null || (aVar = this.f7668i) == null) {
             return false;
         }
-        return aVar.c(ajVar.f7613a);
+        return aVar.c(ajVar.f7656a);
     }
 
     public void f() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
@@ -1673,19 +1673,19 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void f(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
-        aVar.a(this.B.f7613a, z);
+        aVar.a(this.B.f7656a, z);
     }
 
     public void g(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
-        aVar.a(this.am.f7613a, z);
+        aVar.a(this.am.f7656a, z);
     }
 
     public boolean g() {
@@ -1693,15 +1693,15 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public String h() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return null;
         }
-        return aVar.e(this.G.f7613a);
+        return aVar.e(this.G.f7656a);
     }
 
     public void h(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
@@ -1710,7 +1710,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void i(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
@@ -1723,7 +1723,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void j(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
@@ -1731,7 +1731,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public boolean j() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return false;
         }
@@ -1739,12 +1739,12 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void k(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
         this.u = z;
-        aVar.a(this.G.f7613a, z);
+        aVar.a(this.G.f7656a, z);
     }
 
     public boolean k() {
@@ -1753,19 +1753,19 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     public void l(boolean z) {
         float f2 = z ? 22.0f : 21.0f;
-        this.f7618a = f2;
-        this.f7620c = f2;
-        this.f7625i.e(z);
-        this.f7625i.d(this.ap.f7613a);
-        this.f7625i.d(this.aq.f7613a);
+        this.f7661a = f2;
+        this.f7663c = f2;
+        this.f7668i.e(z);
+        this.f7668i.d(this.ap.f7656a);
+        this.f7668i.d(this.aq.f7656a);
     }
 
     public boolean l() {
-        return this.f7625i.a(this.am.f7613a);
+        return this.f7668i.a(this.am.f7656a);
     }
 
     public boolean m() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return false;
         }
@@ -1773,58 +1773,58 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void n() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
-        aVar.d(this.I.f7613a);
+        aVar.d(this.I.f7656a);
     }
 
     public void n(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
         this.v = z;
-        aVar.a(this.F.f7613a, z);
+        aVar.a(this.F.f7656a, z);
     }
 
     public void o() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
         aVar.p();
-        this.f7625i.b(this.J.f7613a);
+        this.f7668i.b(this.J.f7656a);
     }
 
     public void o(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
         this.w = z;
-        aVar.a(this.J.f7613a, z);
+        aVar.a(this.J.f7656a, z);
     }
 
     public MapBaseIndoorMapInfo p() {
-        return this.f7625i.q();
+        return this.f7668i.q();
     }
 
     public void p(boolean z) {
-        this.f7621e = z;
+        this.f7664e = z;
     }
 
     public void q(boolean z) {
-        this.f7622f = z;
+        this.f7665f = z;
     }
 
     public boolean q() {
-        return this.f7625i.r();
+        return this.f7668i.r();
     }
 
     public void r(boolean z) {
-        this.f7623g = z;
+        this.f7666g = z;
     }
 
     public boolean r() {
@@ -1840,11 +1840,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void t() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
-        aVar.b(this.J.f7613a);
+        aVar.b(this.J.f7656a);
     }
 
     public void t(boolean z) {
@@ -1852,7 +1852,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void u() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
@@ -1860,14 +1860,14 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void u(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar != null) {
-            aVar.a(this.H.f7613a, z);
+            aVar.a(this.H.f7656a, z);
         }
     }
 
     public void v() {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar == null) {
             return;
         }
@@ -1875,9 +1875,9 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void v(boolean z) {
-        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7625i;
+        com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f7668i;
         if (aVar != null) {
-            aVar.a(this.aq.f7613a, z);
+            aVar.a(this.aq.f7656a, z);
         }
     }
 
@@ -1886,11 +1886,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public boolean w() {
-        return this.f7621e;
+        return this.f7664e;
     }
 
     public boolean x() {
-        return this.f7622f;
+        return this.f7665f;
     }
 
     public boolean y() {

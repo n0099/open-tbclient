@@ -25,16 +25,16 @@ import org.json.JSONObject;
 public class ReloginManager {
 
     /* renamed from: d  reason: collision with root package name */
-    public static ReloginManager f12131d = new ReloginManager();
+    public static ReloginManager f12193d = new ReloginManager();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12132a;
+    public boolean f12194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<HttpMessage> f12133b = new ArrayList<>();
+    public final ArrayList<HttpMessage> f12195b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f12134c = new a(CmdConfigHttp.BG_LOGIN_HTTP_CMD);
+    public final HttpMessageListener f12196c = new a(CmdConfigHttp.BG_LOGIN_HTTP_CMD);
 
     /* loaded from: classes3.dex */
     public static class BgLoginHttpResponsedMessage extends JsonHttpResponsedMessage {
@@ -95,7 +95,7 @@ public class ReloginManager {
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof BgLoginHttpResponsedMessage)) {
                 return;
             }
-            ReloginManager.this.f12132a = false;
+            ReloginManager.this.f12194a = false;
             BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (BgLoginHttpResponsedMessage) httpResponsedMessage;
             int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
             int error = bgLoginHttpResponsedMessage.getError();
@@ -108,19 +108,19 @@ public class ReloginManager {
             if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                 l.M(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
             }
-            ReloginManager.this.f12133b.clear();
+            ReloginManager.this.f12195b.clear();
         }
     }
 
     public static ReloginManager g() {
-        return f12131d;
+        return f12193d;
     }
 
     public final void d(HttpMessage httpMessage) {
-        if (this.f12133b.contains(httpMessage)) {
+        if (this.f12195b.contains(httpMessage)) {
             return;
         }
-        this.f12133b.add(httpMessage);
+        this.f12195b.add(httpMessage);
     }
 
     public final void e(AccountData accountData) {
@@ -143,7 +143,7 @@ public class ReloginManager {
     }
 
     public boolean h() {
-        return this.f12132a;
+        return this.f12194a;
     }
 
     public boolean i() {
@@ -152,16 +152,16 @@ public class ReloginManager {
 
     public final void j() {
         MessageManager messageManager = MessageManager.getInstance();
-        Iterator<HttpMessage> it = this.f12133b.iterator();
+        Iterator<HttpMessage> it = this.f12195b.iterator();
         while (it.hasNext()) {
             messageManager.sendMessage(it.next());
         }
-        this.f12133b.clear();
+        this.f12195b.clear();
     }
 
     public void k() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerListener(this.f12134c);
+        messageManager.registerListener(this.f12196c);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.BG_LOGIN_HTTP_CMD, TbConfig.LOGIN_FULL_ADDRESS);
         tbHttpMessageTask.setNeedGzip(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -174,7 +174,7 @@ public class ReloginManager {
     public void l(HttpMessage httpMessage) {
         d.a.m0.r.z.a.a("account", -1L, 0, "login_auto_start", 0, "", new Object[0]);
         d(httpMessage);
-        if (this.f12132a) {
+        if (this.f12194a) {
             return;
         }
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
@@ -182,7 +182,7 @@ public class ReloginManager {
             currentAccountObj = c.e();
         }
         if (currentAccountObj != null && !TextUtils.isEmpty(currentAccountObj.getAccount())) {
-            this.f12132a = true;
+            this.f12194a = true;
             if (i()) {
                 return;
             }
@@ -193,7 +193,7 @@ public class ReloginManager {
     }
 
     public void m(int i2, BdUniqueId bdUniqueId) {
-        Iterator<HttpMessage> it = this.f12133b.iterator();
+        Iterator<HttpMessage> it = this.f12195b.iterator();
         while (it.hasNext()) {
             HttpMessage next = it.next();
             BdUniqueId tag = next.getTag();
@@ -209,6 +209,6 @@ public class ReloginManager {
     }
 
     public void o(boolean z) {
-        this.f12132a = z;
+        this.f12194a = z;
     }
 }

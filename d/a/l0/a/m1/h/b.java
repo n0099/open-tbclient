@@ -3,14 +3,14 @@ package d.a.l0.a.m1.h;
 public class b extends c {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43482e;
+    public boolean f47158e;
 
     public b(boolean z) {
         super(4);
-        this.f43482e = z;
+        this.f47158e = z;
     }
 
     public boolean e() {
-        return this.f43482e;
+        return this.f47158e;
     }
 }

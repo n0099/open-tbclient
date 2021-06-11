@@ -20,22 +20,22 @@ import tbclient.App;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.a.n0.t2.c0.l.a f58233a;
+    public final d.a.n0.t2.c0.l.a f61924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f58234b;
+    public final int f61925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f58235c;
+    public final int f61926c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f58236d;
+    public final int f61927d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<String> f58237e;
+    public final List<String> f61928e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<d.a.n0.t2.c0.l.b> f58238f;
+    public final List<d.a.n0.t2.c0.l.b> f61929f;
 
     /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<Integer, Integer, Void> {
@@ -49,7 +49,7 @@ public class a {
             if (numArr == null || numArr.length <= 1 || numArr[0] == null || numArr[1] == null) {
                 return null;
             }
-            a.this.f58233a.c(numArr[0], numArr[1]);
+            a.this.f61924a.c(numArr[0], numArr[1]);
             return null;
         }
     }
@@ -65,7 +65,7 @@ public class a {
             if (strArr == null || strArr.length <= 0 || strArr[0] == null) {
                 return null;
             }
-            a.this.f58233a.d(strArr[0]);
+            a.this.f61924a.d(strArr[0]);
             return null;
         }
     }
@@ -82,7 +82,7 @@ public class a {
             if (numArr == null || numArr.length <= 1 || numArr[0] == null || numArr[1] == null) {
                 return null;
             }
-            return a.this.f58233a.f(numArr[0], numArr[1]);
+            return a.this.f61924a.f(numArr[0], numArr[1]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,7 +93,7 @@ public class a {
             if (d.a.n0.k1.o.k.a.e(list)) {
                 return;
             }
-            a.this.f58238f.addAll(list);
+            a.this.f61929f.addAll(list);
         }
     }
 
@@ -101,7 +101,7 @@ public class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f58242a = new a();
+        public static final a f61933a = new a();
     }
 
     /* loaded from: classes4.dex */
@@ -116,40 +116,40 @@ public class a {
             if (bVarArr == null || bVarArr.length <= 0 || bVarArr[0] == null) {
                 return null;
             }
-            a.this.f58233a.g(bVarArr[0]);
+            a.this.f61924a.g(bVarArr[0]);
             return null;
         }
     }
 
     public static String g(AdvertAppInfo advertAppInfo) {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.O3) == null) {
+        if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.R3) == null) {
             return null;
         }
         return iLegoAdvert.getDownloadKey();
     }
 
     public static a i() {
-        return e.f58242a;
+        return e.f61933a;
     }
 
     public final d.a.n0.t2.c0.l.b c(IDownloadModel iDownloadModel) {
         d.a.n0.t2.c0.l.b bVar = new d.a.n0.t2.c0.l.b();
-        bVar.f60976f = iDownloadModel.getAppJson();
-        bVar.f60972b = iDownloadModel.getPkgName();
-        bVar.f60971a = iDownloadModel.getDownloadKey();
-        bVar.f60974d = 0;
-        bVar.f60975e = System.currentTimeMillis();
-        bVar.f60973c = System.currentTimeMillis();
+        bVar.f64668f = iDownloadModel.getAppJson();
+        bVar.f64664b = iDownloadModel.getPkgName();
+        bVar.f64663a = iDownloadModel.getDownloadKey();
+        bVar.f64666d = 0;
+        bVar.f64667e = System.currentTimeMillis();
+        bVar.f64665c = System.currentTimeMillis();
         return bVar;
     }
 
     public final boolean d(@NonNull Cmatch cmatch) {
         d.a.n0.t2.c0.l.b bVar;
-        if (!this.f58237e.contains(cmatch.value) || d.a.n0.k1.o.k.a.e(this.f58238f) || (bVar = (d.a.n0.t2.c0.l.b) d.a.n0.k1.o.k.a.d(this.f58238f, 0)) == null) {
+        if (!this.f61928e.contains(cmatch.value) || d.a.n0.k1.o.k.a.e(this.f61929f) || (bVar = (d.a.n0.t2.c0.l.b) d.a.n0.k1.o.k.a.d(this.f61929f, 0)) == null) {
             return false;
         }
-        return this.f58235c <= ((int) ((System.currentTimeMillis() - bVar.f60975e) / 60000));
+        return this.f61926c <= ((int) ((System.currentTimeMillis() - bVar.f64667e) / 60000));
     }
 
     public final void e(String str) {
@@ -157,9 +157,9 @@ public class a {
     }
 
     public final void f(String str) {
-        Iterator<d.a.n0.t2.c0.l.b> it = this.f58238f.iterator();
+        Iterator<d.a.n0.t2.c0.l.b> it = this.f61929f.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f60971a, str)) {
+            if (TextUtils.equals(it.next().f64663a, str)) {
                 it.remove();
             }
         }
@@ -168,20 +168,20 @@ public class a {
 
     public final App h(@NonNull App app, @NonNull Cmatch cmatch) {
         d.a.n0.t2.c0.l.b bVar;
-        if (d.a.n0.k1.o.k.a.e(this.f58238f)) {
+        if (d.a.n0.k1.o.k.a.e(this.f61929f)) {
             return null;
         }
-        Iterator<d.a.n0.t2.c0.l.b> it = this.f58238f.iterator();
+        Iterator<d.a.n0.t2.c0.l.b> it = this.f61929f.iterator();
         while (true) {
             if (!it.hasNext()) {
                 bVar = null;
                 break;
             }
             bVar = it.next();
-            if (!y.q(bVar.f60972b)) {
+            if (!y.q(bVar.f64664b)) {
                 break;
             }
-            bVar.f60978h = 2;
+            bVar.f64670h = 2;
             o(bVar);
             it.remove();
         }
@@ -189,7 +189,7 @@ public class a {
             return null;
         }
         try {
-            JSONObject jSONObject = new JSONObject(bVar.f60976f);
+            JSONObject jSONObject = new JSONObject(bVar.f64668f);
             jSONObject.put("pos_name", app.pos_name);
             App parseFromJson = App.parseFromJson(jSONObject);
             if (j(cmatch, parseFromJson)) {
@@ -216,8 +216,8 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        for (d.a.n0.t2.c0.l.b bVar : this.f58238f) {
-            if (bVar != null && TextUtils.equals(bVar.f60971a, str)) {
+        for (d.a.n0.t2.c0.l.b bVar : this.f61929f) {
+            if (bVar != null && TextUtils.equals(bVar.f64663a, str)) {
                 p(bVar);
             }
         }
@@ -229,12 +229,12 @@ public class a {
         }
         d.a.n0.t2.c0.l.b c2 = c(iDownloadModel);
         if (downloadStatus == DownloadStatus.STATUS_INSTALL_SUCCESS) {
-            c2.f60978h = 2;
-            this.f58238f.remove(c2);
+            c2.f64670h = 2;
+            this.f61929f.remove(c2);
         } else {
-            c2.f60978h = 1;
-            if (!this.f58238f.contains(c2)) {
-                this.f58238f.add(0, c2);
+            c2.f64670h = 1;
+            if (!this.f61929f.contains(c2)) {
+                this.f61929f.add(0, c2);
             }
         }
         o(c2);
@@ -259,29 +259,29 @@ public class a {
     }
 
     public final void p(@NonNull d.a.n0.t2.c0.l.b bVar) {
-        int i2 = bVar.f60974d + 1;
-        bVar.f60974d = i2;
-        if (i2 >= this.f58234b) {
-            f(bVar.f60971a);
+        int i2 = bVar.f64666d + 1;
+        bVar.f64666d = i2;
+        if (i2 >= this.f61925b) {
+            f(bVar.f64663a);
             return;
         }
-        bVar.f60975e = System.currentTimeMillis();
+        bVar.f64667e = System.currentTimeMillis();
         o(bVar);
     }
 
     public a() {
-        this.f58233a = d.a.n0.t2.c0.l.a.e();
-        this.f58234b = d.a.n0.a.h().f();
-        this.f58235c = d.a.n0.a.h().e();
-        this.f58236d = d.a.n0.a.h().d();
+        this.f61924a = d.a.n0.t2.c0.l.a.e();
+        this.f61925b = d.a.n0.a.h().f();
+        this.f61926c = d.a.n0.a.h().e();
+        this.f61927d = d.a.n0.a.h().d();
         String g2 = d.a.n0.a.h().g();
         if (TextUtils.isEmpty(g2)) {
-            this.f58237e = new ArrayList();
+            this.f61928e = new ArrayList();
         } else {
-            this.f58237e = Arrays.asList(g2.split("_"));
+            this.f61928e = Arrays.asList(g2.split("_"));
         }
-        this.f58238f = Collections.synchronizedList(new ArrayList());
-        m(this.f58236d, this.f58234b);
-        new b().execute(Integer.valueOf(this.f58236d), Integer.valueOf(this.f58234b));
+        this.f61929f = Collections.synchronizedList(new ArrayList());
+        m(this.f61927d, this.f61925b);
+        new b().execute(Integer.valueOf(this.f61927d), Integer.valueOf(this.f61925b));
     }
 }

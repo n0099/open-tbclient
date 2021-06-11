@@ -26,7 +26,7 @@ public class g extends a {
         d.a.l0.a.c0.b.c C = aVar.C();
         boolean a2 = C.a();
         if (!a2) {
-            d.a.l0.a.e0.d.b("SwanAppCanvas", "remove canvas fail: " + C.f40850b);
+            d.a.l0.a.e0.d.b("SwanAppCanvas", "remove canvas fail: " + C.f44526b);
         }
         j(unitedSchemeEntity, callbackHandler, a2);
         return a2;

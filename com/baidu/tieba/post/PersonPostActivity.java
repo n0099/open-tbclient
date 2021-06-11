@@ -37,7 +37,7 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMess
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 import d.a.n0.n2.d;
 import d.a.n0.n2.h;
 /* loaded from: classes5.dex */
@@ -117,12 +117,12 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12151c = fragment;
-        bVar.f12149a = i2;
+        bVar.f12213c = fragment;
+        bVar.f12211a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -143,11 +143,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             int count = personPostAdapter.getCount();
             for (int i2 = 0; i2 < count; i2++) {
                 Fragment item = this.mPersonPostAdapter.getItem(i2);
-                int b2 = this.mPersonPostAdapter.b(i2);
+                int i3 = this.mPersonPostAdapter.i(i2);
                 if (item != null) {
-                    if (b2 == 0) {
+                    if (i3 == 0) {
                         createAndAddTabSpec(item, 0, getPageContext().getString(R.string.person_post_thread_new));
-                    } else if (b2 == 1) {
+                    } else if (i3 == 1) {
                         createAndAddTabSpec(item, 1, getPageContext().getString(R.string.reply));
                     }
                 }
@@ -254,7 +254,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         this.mNoNetworkView.c(getPageContext(), i2);
         this.mTabHost.setNeedShowThemeStyle(false);
         this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(0);
-        this.mTabHost.o(i2);
+        this.mTabHost.p(i2);
         if (this.mTabHost.getFragmentTabWidget() != null) {
             SkinManager.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), R.color.CAM_X0201);
         }
@@ -332,10 +332,10 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     public q onGetPreLoadListView() {
         PersonPostAdapter personPostAdapter = this.mPersonPostAdapter;
         if (personPostAdapter != null) {
-            PersonThreadFragment c2 = personPostAdapter.c();
-            h N0 = c2 != null ? c2.N0() : null;
-            if (N0 != null && N0.f() != null) {
-                return N0.f().getPreLoadHandle();
+            PersonThreadFragment j = personPostAdapter.j();
+            h Q0 = j != null ? j.Q0() : null;
+            if (Q0 != null && Q0.f() != null) {
+                return Q0.f().getPreLoadHandle();
             }
         }
         return null;
@@ -346,7 +346,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         if (this.mPersonPostAdapter != null) {
             for (int i2 = 0; i2 < this.mPersonPostAdapter.getCount(); i2++) {
                 if (this.mPersonPostAdapter.getItem(i2) instanceof d.a.n0.n2.c) {
-                    ((d.a.n0.n2.c) this.mPersonPostAdapter.getItem(i2)).Y();
+                    ((d.a.n0.n2.c) this.mPersonPostAdapter.getItem(i2)).b0();
                 }
             }
         }

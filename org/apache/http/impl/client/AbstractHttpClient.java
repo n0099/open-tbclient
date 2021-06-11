@@ -29,7 +29,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractHttpClient implements HttpClient {
     public AbstractHttpClient(ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
         throw new RuntimeException("Stub!");

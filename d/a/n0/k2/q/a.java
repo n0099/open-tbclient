@@ -14,21 +14,19 @@ public interface a extends View.OnClickListener, CyberPlayerManager.OnPreparedLi
 
     View E();
 
-    void U(int i2);
+    void W(int i2);
 
-    boolean c0();
+    boolean f0();
 
     int getCurrentPosition();
 
     boolean isPlaying();
 
-    void k0(o oVar);
+    void n0(o oVar);
 
-    void l0();
+    void o0();
 
-    boolean o0(boolean z);
-
-    void r0(View.OnClickListener onClickListener);
+    boolean r0(boolean z);
 
     void setAfterClickListener(View.OnClickListener onClickListener);
 
@@ -43,4 +41,6 @@ public interface a extends View.OnClickListener, CyberPlayerManager.OnPreparedLi
     void startPlay();
 
     void stopPlay();
+
+    void u0(View.OnClickListener onClickListener);
 }

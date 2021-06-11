@@ -24,76 +24,76 @@ import org.json.JSONObject;
 public class b extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f46987c = k.f43199a;
+    public static final boolean f50661c = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ExecutorService f46988d = Executors.newSingleThreadExecutor();
+    public static ExecutorService f50662d = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes3.dex */
     public class a implements DelegateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46989a;
+        public final /* synthetic */ String f50663a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f46990b;
+        public final /* synthetic */ String f50664b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.u0.b f46991c;
+        public final /* synthetic */ d.a.l0.a.u0.b f50665c;
 
         public a(b bVar, String str, String str2, d.a.l0.a.u0.b bVar2) {
-            this.f46989a = str;
-            this.f46990b = str2;
-            this.f46991c = bVar2;
+            this.f50663a = str;
+            this.f50664b = str2;
+            this.f50665c = bVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            if (b.f46987c) {
-                Log.d("appManagerAction", "InstallAppDelegation onDelegateCallBack isOk:" + delegateResult.isOk() + ",packageName：" + this.f46989a + ",result:" + delegateResult.mResult);
+            if (b.f50661c) {
+                Log.d("appManagerAction", "InstallAppDelegation onDelegateCallBack isOk:" + delegateResult.isOk() + ",packageName：" + this.f50663a + ",result:" + delegateResult.mResult);
             }
             String string = delegateResult.mResult.getString("packageName");
-            if (!TextUtils.isEmpty(this.f46989a) && !TextUtils.equals(this.f46989a, string)) {
-                if (d.a.l0.g.c.e.a.h(AppRuntime.getAppContext(), this.f46989a)) {
-                    if (!TextUtils.isEmpty(this.f46990b)) {
-                        d.a.l0.g.c.i.c.a(this.f46989a, this.f46990b, "success", "", null);
+            if (!TextUtils.isEmpty(this.f50663a) && !TextUtils.equals(this.f50663a, string)) {
+                if (d.a.l0.g.c.e.a.h(AppRuntime.getAppContext(), this.f50663a)) {
+                    if (!TextUtils.isEmpty(this.f50664b)) {
+                        d.a.l0.g.c.i.c.a(this.f50663a, this.f50664b, "success", "", null);
                     }
-                    this.f46991c.b(new JSONObject());
+                    this.f50665c.a(new JSONObject());
                     return;
                 }
-                if (!TextUtils.isEmpty(this.f46990b)) {
-                    d.a.l0.g.c.i.c.a(this.f46989a, this.f46990b, "fail", "", null);
+                if (!TextUtils.isEmpty(this.f50664b)) {
+                    d.a.l0.g.c.i.c.a(this.f50663a, this.f50664b, com.baidu.pass.biometrics.face.liveness.b.b.g0, "", null);
                 }
-                this.f46991c.onFail(31003, "apk install cancel");
+                this.f50665c.onFail(31003, "apk install cancel");
             } else if (!delegateResult.isOk()) {
-                if (!TextUtils.isEmpty(this.f46990b)) {
-                    d.a.l0.g.c.i.c.a(this.f46989a, this.f46990b, "fail", "", null);
+                if (!TextUtils.isEmpty(this.f50664b)) {
+                    d.a.l0.g.c.i.c.a(this.f50663a, this.f50664b, com.baidu.pass.biometrics.face.liveness.b.b.g0, "", null);
                 }
-                this.f46991c.onFail(31003, "apk install cancel");
+                this.f50665c.onFail(31003, "apk install cancel");
             } else {
-                d.a.l0.g.c.a.n().t(this.f46989a);
-                b.g(delegateResult.mResult, this.f46991c);
+                d.a.l0.g.c.a.n().t(this.f50663a);
+                b.g(delegateResult.mResult, this.f50665c);
             }
         }
     }
 
     /* renamed from: d.a.l0.g.c.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0997b extends d.a.l0.a.v1.a.b.c.c {
+    public static class C1053b extends d.a.l0.a.v1.a.b.c.c {
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46992c;
+        public String f50666c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f46993d;
+        public String f50667d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.l0.a.u0.b f46994e;
+        public d.a.l0.a.u0.b f50668e;
 
-        public C0997b(String str, String str2, d.a.l0.a.u0.b bVar) {
-            this.f46993d = str;
-            this.f46992c = str2;
-            this.f46994e = bVar;
+        public C1053b(String str, String str2, d.a.l0.a.u0.b bVar) {
+            this.f50667d = str;
+            this.f50666c = str2;
+            this.f50668e = bVar;
         }
 
         @Override // d.a.l0.a.v1.a.b.c.a
@@ -107,11 +107,11 @@ public class b extends d.a.l0.g.f.a {
         }
 
         public final void e() {
-            d.a.l0.a.u0.b bVar = this.f46994e;
+            d.a.l0.a.u0.b bVar = this.f50668e;
             if (bVar != null) {
                 bVar.onFail(31018, "download process is killed");
-                b.e(this.f46993d, this.f46992c, 31018);
-                this.f46994e = null;
+                b.e(this.f50667d, this.f50666c, 31018);
+                this.f50668e = null;
             }
         }
 
@@ -119,7 +119,7 @@ public class b extends d.a.l0.g.f.a {
         @Override // d.a.l0.a.v1.a.b.c.c, d.a.l0.a.v1.a.b.c.a
         public void onEvent(@NonNull d.a.l0.a.v1.a.b.a.b bVar) {
             Bundle a2 = bVar.a();
-            d.a.l0.a.u0.b bVar2 = this.f46994e;
+            d.a.l0.a.u0.b bVar2 = this.f50668e;
             if (bVar2 == null) {
                 return;
             }
@@ -135,19 +135,19 @@ public class b extends d.a.l0.g.f.a {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<C0997b> f46995e;
+        public WeakReference<C1053b> f50669e;
 
-        public c(C0997b c0997b) {
-            this.f46995e = new WeakReference<>(c0997b);
+        public c(C1053b c1053b) {
+            this.f50669e = new WeakReference<>(c1053b);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.f46987c) {
+            if (b.f50661c) {
                 Log.d("appManagerAction", "onConnectionDown");
             }
-            if (this.f46995e.get() != null) {
-                this.f46995e.get().e();
+            if (this.f50669e.get() != null) {
+                this.f50669e.get().e();
             }
         }
     }
@@ -157,7 +157,7 @@ public class b extends d.a.l0.g.f.a {
     }
 
     public static void e(String str, String str2, int i2) {
-        d.a.l0.g.c.i.c.a(str, str2, "fail", String.valueOf(i2), null);
+        d.a.l0.g.c.i.c.a(str, str2, com.baidu.pass.biometrics.face.liveness.b.b.g0, String.valueOf(i2), null);
     }
 
     public static void g(@NonNull Bundle bundle, @NonNull d.a.l0.a.u0.b bVar) {
@@ -167,8 +167,8 @@ public class b extends d.a.l0.g.f.a {
             return;
         }
         String string2 = bundle.getString("resultData", "");
-        int i2 = bundle.getInt(l.f1974a, 1001);
-        if (f46987c) {
+        int i2 = bundle.getInt(l.f1987a, 1001);
+        if (f50661c) {
             Log.d("appManagerAction", "handleResult:function = " + string + ",result = " + string2);
         }
         char c2 = 65535;
@@ -181,7 +181,7 @@ public class b extends d.a.l0.g.f.a {
             c2 = 1;
         }
         if (c2 == 0) {
-            bVar.b(w.d(string2));
+            bVar.a(w.d(string2));
         } else if (c2 != 1) {
         } else {
             bVar.onFail(i2, string2);
@@ -192,7 +192,7 @@ public class b extends d.a.l0.g.f.a {
     public d.a.l0.a.u.h.b a(@NonNull JSONObject jSONObject, @NonNull d.a.l0.a.u0.b bVar) {
         String str;
         String str2;
-        if (f46987c) {
+        if (f50661c) {
             Log.d("appManagerAction", "handle: " + jSONObject);
         }
         String optString = jSONObject.optString(AppDownloadNetworkStateReceiver.KEY_OPERATION);
@@ -217,9 +217,9 @@ public class b extends d.a.l0.g.f.a {
         }
         d.a.l0.a.v1.c.e.a z = d.a.l0.a.a2.d.g().z();
         if (z != null) {
-            C0997b c0997b = new C0997b(str, optString, bVar);
-            z.L(bundle, d.a.l0.g.c.d.e.class, c0997b);
-            z.J(new c(c0997b));
+            C1053b c1053b = new C1053b(str, optString, bVar);
+            z.L(bundle, d.a.l0.g.c.d.e.class, c1053b);
+            z.J(new c(c1053b));
         }
         return null;
     }
@@ -229,9 +229,9 @@ public class b extends d.a.l0.g.f.a {
         if (x == null) {
             bVar.onFail(1001, "");
         } else if (d.a.l0.g.c.e.a.h(AppRuntime.getAppContext(), str)) {
-            bVar.b(new JSONObject());
+            bVar.a(new JSONObject());
         } else {
-            if (f46987c) {
+            if (f50661c) {
                 Log.d("appManagerAction", "InstallAppDelegation handleInstall");
             }
             DelegateUtils.callOnMainWithActivity(x, InstallPluginDelegateActivity.class, d.a.l0.g.c.e.b.class, bundle, new a(this, str, str2, bVar));

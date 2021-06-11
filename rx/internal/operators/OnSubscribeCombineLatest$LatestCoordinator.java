@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements f, k {
     public static final Object MISSING = new Object();
     public static final long serialVersionUID = 8567835998786448817L;

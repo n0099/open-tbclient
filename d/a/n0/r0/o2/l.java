@@ -16,28 +16,28 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f59319a;
+    public Activity f63010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PopupWindow f59320b;
+    public PopupWindow f63011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f59321c;
+    public View f63012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrsViewData f59322d;
+    public FrsViewData f63013d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.r0.n1.e.d f59323e;
+    public d.a.n0.r0.n1.e.d f63014e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f59324f = new a();
+    public Runnable f63015f = new a();
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f59325g = new b();
+    public Runnable f63016g = new b();
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f59326h = new c();
+    public View.OnClickListener f63017h = new c();
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -46,13 +46,13 @@ public class l {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (l.this.f59319a == null || l.this.f59321c == null || l.this.f59320b == null || l.this.f59320b.getContentView() == null) {
+            if (l.this.f63010a == null || l.this.f63012c == null || l.this.f63011b == null || l.this.f63011b.getContentView() == null) {
                 return;
             }
-            int g2 = d.a.c.e.p.l.g(l.this.f59319a, R.dimen.ds270);
-            l.this.f59320b.getContentView().measure(0, 0);
-            d.a.c.e.m.g.l(l.this.f59320b, l.this.f59321c, (-d.a.c.e.p.l.g(l.this.f59319a, R.dimen.ds430)) + (l.this.f59321c.getMeasuredWidth() / 2) + 30, -g2);
-            d.a.c.e.m.e.a().postDelayed(l.this.f59325g, 5000L);
+            int g2 = d.a.c.e.p.l.g(l.this.f63010a, R.dimen.ds270);
+            l.this.f63011b.getContentView().measure(0, 0);
+            d.a.c.e.m.g.l(l.this.f63011b, l.this.f63012c, (-d.a.c.e.p.l.g(l.this.f63010a, R.dimen.ds430)) + (l.this.f63012c.getMeasuredWidth() / 2) + 30, -g2);
+            d.a.c.e.m.e.a().postDelayed(l.this.f63016g, 5000L);
             TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 2));
         }
     }
@@ -76,44 +76,44 @@ public class l {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             l.this.i();
-            if (l.this.f59322d == null || l.this.f59322d.postTopic == null || l.this.f59322d.getForum() == null) {
+            if (l.this.f63013d == null || l.this.f63013d.postTopic == null || l.this.f63013d.getForum() == null) {
                 return;
             }
-            if ((l.this.f59323e == null || l.this.f59323e.a()) && !WriteActivityConfig.isAsyncWriting()) {
-                WriteActivityConfig.newInstance(l.this.f59319a).setType(9).setForumData(l.this.f59322d.getForum()).setAntiData(l.this.f59322d.getAnti()).setTitle(l.this.f59322d.postTopic.recom_topic).send();
+            if ((l.this.f63014e == null || l.this.f63014e.a()) && !WriteActivityConfig.isAsyncWriting()) {
+                WriteActivityConfig.newInstance(l.this.f63010a).setType(9).setForumData(l.this.f63013d.getForum()).setAntiData(l.this.f63013d.getAnti()).setTitle(l.this.f63013d.postTopic.recom_topic).send();
                 TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 2));
             }
         }
     }
 
     public l(Activity activity, d.a.n0.r0.n1.e.d dVar) {
-        this.f59319a = activity;
-        this.f59323e = dVar;
+        this.f63010a = activity;
+        this.f63014e = dVar;
     }
 
     public final void h() {
-        d.a.c.e.m.g.c(this.f59320b);
+        d.a.c.e.m.g.c(this.f63011b);
     }
 
     public void i() {
-        d.a.c.e.m.e.a().removeCallbacks(this.f59324f);
-        d.a.c.e.m.e.a().removeCallbacks(this.f59325g);
+        d.a.c.e.m.e.a().removeCallbacks(this.f63015f);
+        d.a.c.e.m.e.a().removeCallbacks(this.f63016g);
         h();
     }
 
     public void j(View view, FrsViewData frsViewData) {
         Activity activity;
-        if (view == null || frsViewData == null || frsViewData.postTopic == null || (activity = this.f59319a) == null) {
+        if (view == null || frsViewData == null || frsViewData.postTopic == null || (activity = this.f63010a) == null) {
             return;
         }
-        this.f59322d = frsViewData;
-        this.f59321c = view;
+        this.f63013d = frsViewData;
+        this.f63012c = view;
         View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_tips_blue_twice_line_down, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.tips)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, StringHelper.STRING_MORE));
         ((TextView) inflate.findViewById(R.id.tips_content)).setText(R.string.topic_join);
-        inflate.setOnClickListener(this.f59326h);
-        this.f59320b = new PopupWindow(inflate, -2, -2);
-        d.a.c.e.m.e.a().removeCallbacks(this.f59324f);
-        d.a.c.e.m.e.a().postDelayed(this.f59324f, 100L);
+        inflate.setOnClickListener(this.f63017h);
+        this.f63011b = new PopupWindow(inflate, -2, -2);
+        d.a.c.e.m.e.a().removeCallbacks(this.f63015f);
+        d.a.c.e.m.e.a().postDelayed(this.f63015f, 100L);
     }
 }

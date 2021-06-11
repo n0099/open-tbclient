@@ -32,7 +32,7 @@ public class i extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
             d.a.l0.a.y0.g.i.b bVar2 = new d.a.l0.a.y0.g.i.b(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString("displayName"), jSONObject.optString("rtcAppId"), jSONObject.optString("token"));
             boolean a2 = bVar2.a();
             if (a2) {
-                bVar.v(bVar2);
+                bVar.u(bVar2);
             }
             command.ret = a2 ? 1 : 0;
         }

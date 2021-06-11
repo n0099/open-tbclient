@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
 import d.a.l0.a.e0.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {

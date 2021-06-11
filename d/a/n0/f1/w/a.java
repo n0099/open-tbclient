@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.util.NetWork;
 public class a extends Thread {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54778e;
+    public String f58467e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54779f;
+    public String f58468f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54780g;
+    public String f58469g;
 
     public a(String str, String str2, String str3) {
-        this.f54778e = null;
-        this.f54779f = null;
-        this.f54780g = null;
-        this.f54778e = str;
-        this.f54779f = str2;
-        this.f54780g = str3;
+        this.f58467e = null;
+        this.f58468f = null;
+        this.f58469g = null;
+        this.f58467e = str;
+        this.f58468f = str2;
+        this.f58469g = str3;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -31,9 +31,9 @@ public class a extends Thread {
             return;
         }
         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-        netWork.addPostData("obj", this.f54778e);
-        netWork.addPostData("obj_tp", this.f54779f);
-        netWork.addPostData("group_id", this.f54780g);
+        netWork.addPostData("obj", this.f58467e);
+        netWork.addPostData("obj_tp", this.f58468f);
+        netWork.addPostData("group_id", this.f58469g);
         netWork.postNetData();
     }
 }

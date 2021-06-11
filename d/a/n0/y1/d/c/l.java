@@ -3,7 +3,7 @@ package d.a.n0.y1.d.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import d.a.m0.r.q.w;
 import java.util.LinkedList;
@@ -12,105 +12,105 @@ import java.util.List;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f63387a;
+    public TbPageContext<?> f67102a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f63388b;
+    public BdUniqueId f67103b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f63389c;
+    public BdTypeRecyclerView f67104c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f63390d;
+    public j f67105d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f63391e;
+    public c f67106e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f63392f;
+    public e f67107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f63393g;
+    public d f67108g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f63394h;
+    public f f67109h;
 
     /* renamed from: i  reason: collision with root package name */
-    public k f63395i;
+    public k f67110i;
     public g j;
     public h k;
     public b l;
     public m m;
     public i n;
-    public List<d.a.c.j.e.a> o = new LinkedList();
+    public List<d.a.c.k.e.a> o = new LinkedList();
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.f63387a = tbPageContext;
-        this.f63388b = bdUniqueId;
-        this.f63389c = bdTypeRecyclerView;
+        this.f67102a = tbPageContext;
+        this.f67103b = bdUniqueId;
+        this.f67104c = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
-        j jVar = new j(this.f63387a, a2.P2, this.f63388b);
-        this.f63390d = jVar;
-        jVar.n0(this.f63389c);
-        this.o.add(this.f63390d);
-        c cVar = new c(this.f63387a, a2.U2, this.f63388b);
-        this.f63391e = cVar;
-        cVar.p0(this.f63389c);
-        this.o.add(this.f63391e);
-        e eVar = new e(this.f63387a, a2.S2, this.f63388b);
-        this.f63392f = eVar;
-        eVar.n0(this.f63389c);
-        this.o.add(this.f63392f);
-        d dVar = new d(this.f63387a, a2.T2, this.f63388b);
-        this.f63393g = dVar;
-        dVar.n0(this.f63389c);
-        this.o.add(this.f63393g);
-        f fVar = new f(this.f63387a, a2.Q2, this.f63388b);
-        this.f63394h = fVar;
-        fVar.n0(this.f63389c);
-        this.o.add(this.f63394h);
-        k kVar = new k(this.f63387a, a2.g3, this.f63388b);
-        this.f63395i = kVar;
-        kVar.s0(this.f63389c);
-        this.o.add(this.f63395i);
-        g gVar = new g(this.f63387a, a2.Z2, this.f63388b);
+        j jVar = new j(this.f67102a, a2.S2, this.f67103b);
+        this.f67105d = jVar;
+        jVar.m0(this.f67104c);
+        this.o.add(this.f67105d);
+        c cVar = new c(this.f67102a, a2.X2, this.f67103b);
+        this.f67106e = cVar;
+        cVar.p0(this.f67104c);
+        this.o.add(this.f67106e);
+        e eVar = new e(this.f67102a, a2.V2, this.f67103b);
+        this.f67107f = eVar;
+        eVar.m0(this.f67104c);
+        this.o.add(this.f67107f);
+        d dVar = new d(this.f67102a, a2.W2, this.f67103b);
+        this.f67108g = dVar;
+        dVar.m0(this.f67104c);
+        this.o.add(this.f67108g);
+        f fVar = new f(this.f67102a, a2.T2, this.f67103b);
+        this.f67109h = fVar;
+        fVar.m0(this.f67104c);
+        this.o.add(this.f67109h);
+        k kVar = new k(this.f67102a, a2.j3, this.f67103b);
+        this.f67110i = kVar;
+        kVar.s0(this.f67104c);
+        this.o.add(this.f67110i);
+        g gVar = new g(this.f67102a, a2.c3, this.f67103b);
         this.j = gVar;
-        gVar.n0(this.f63389c);
+        gVar.m0(this.f67104c);
         this.o.add(this.j);
-        h hVar = new h(this.f63387a, a2.V2, this.f63388b);
+        h hVar = new h(this.f67102a, a2.Y2, this.f67103b);
         this.k = hVar;
-        hVar.n0(this.f63389c);
+        hVar.m0(this.f67104c);
         this.o.add(this.k);
-        b bVar = new b(this.f63387a, a2.Y2, this.f63388b);
+        b bVar = new b(this.f67102a, a2.b3, this.f67103b);
         this.l = bVar;
-        bVar.p0(this.f63389c);
+        bVar.p0(this.f67104c);
         this.o.add(this.l);
-        m mVar = new m(this.f63387a, w.f50154f);
+        m mVar = new m(this.f67102a, w.f53830f);
         this.m = mVar;
-        mVar.m0(this.f63389c);
+        mVar.l0(this.f67104c);
         this.o.add(this.m);
-        i iVar = new i(this.f63387a, d.a.n0.z.e0.k.p0);
+        i iVar = new i(this.f67102a, d.a.n0.z.e0.k.p0);
         this.n = iVar;
         this.o.add(iVar);
-        this.f63389c.a(this.o);
+        this.f67104c.a(this.o);
     }
 
     public void b(boolean z) {
-        for (d.a.c.j.e.a aVar : this.o) {
+        for (d.a.c.k.e.a aVar : this.o) {
             if (aVar instanceof a) {
-                ((a) aVar).f0(z);
+                ((a) aVar).g0(z);
             }
         }
     }
 
     public void c() {
-        this.f63389c.getAdapter().notifyDataSetChanged();
+        this.f67104c.getAdapter().notifyDataSetChanged();
     }
 
     public void d(List<? extends n> list) {
-        this.f63389c.setData(list);
+        this.f67104c.setData(list);
     }
 }

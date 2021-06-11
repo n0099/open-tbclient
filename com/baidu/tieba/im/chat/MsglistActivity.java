@@ -46,7 +46,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            h.f54374a = o.e();
+            h.f58063a = o.e();
         }
     }
 

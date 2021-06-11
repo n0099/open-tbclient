@@ -18,28 +18,28 @@ import d.a.n0.k1.o.l.c;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f56722a;
+    public TbPageContext<?> f60411a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f56723b;
+    public View f60412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbCyberVideoView f56724c;
+    public TbCyberVideoView f60413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f56725d;
+    public int f60414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImmersiveVideoCardEx.a f56726e;
+    public ImmersiveVideoCardEx.a f60415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f56727f;
+    public TbImageView f60416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f56728g;
+    public ImageView f60417g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f56729h;
+    public String f60418h;
     public View j;
     public int k;
     public int l;
@@ -48,7 +48,7 @@ public class o {
     public d.a.n0.k1.o.l.c p;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f56730i = false;
+    public boolean f60419i = false;
     public boolean m = false;
     public TbImageView.f q = new a();
     public SeekBar.OnSeekBarChangeListener r = new b();
@@ -66,10 +66,10 @@ public class o {
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
-            if (!z || o.this.f56727f == null) {
+            if (!z || o.this.f60416f == null) {
                 return;
             }
-            o.this.f56727f.setDefaultBgResource(0);
+            o.this.f60416f.setDefaultBgResource(0);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
@@ -99,7 +99,7 @@ public class o {
                 return;
             }
             o.this.p.D0(o.this.p.h0().getSeekPosition());
-            o.this.p.O0(o.this.f56729h);
+            o.this.p.O0(o.this.f60418h);
         }
     }
 
@@ -124,11 +124,11 @@ public class o {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!o.this.r() && view.getId() == o.this.f56723b.getId()) {
+            if (!o.this.r() && view.getId() == o.this.f60412b.getId()) {
                 if (!d.a.c.e.p.j.z()) {
-                    d.a.c.e.p.l.J(o.this.f56722a.getPageActivity(), o.this.f56722a.getString(R.string.neterror));
+                    d.a.c.e.p.l.J(o.this.f60411a.getPageActivity(), o.this.f60411a.getString(R.string.neterror));
                 }
-                if (o.this.o == null || !o.this.f56724c.isPlaying()) {
+                if (o.this.o == null || !o.this.f60413c.isPlaying()) {
                     return;
                 }
                 o.this.o.r();
@@ -158,18 +158,18 @@ public class o {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
-            if (o.this.f56724c == null) {
+            if (o.this.f60413c == null) {
                 return;
             }
             o.this.o.r();
-            if (o.this.n == null || o.this.n.e() == null || !o.this.n.e().equals(o.this.f56729h) || o.this.n.f() <= 0) {
-                if (o.this.n == null || o.this.n.g(o.this.f56729h) <= 0) {
+            if (o.this.n == null || o.this.n.e() == null || !o.this.n.e().equals(o.this.f60418h) || o.this.n.f() <= 0) {
+                if (o.this.n == null || o.this.n.g(o.this.f60418h) <= 0) {
                     return;
                 }
-                o.this.f56724c.seekTo(o.this.n.g(o.this.f56729h));
+                o.this.f60413c.seekTo(o.this.n.g(o.this.f60418h));
                 return;
             }
-            o.this.f56724c.seekTo(o.this.n.f());
+            o.this.f60413c.seekTo(o.this.n.f());
             o.this.n.o(null);
             o.this.n.p(0);
         }
@@ -185,7 +185,7 @@ public class o {
             if (o.this.r() || o.this.o == null || o.this.j == null) {
                 return;
             }
-            if (o.this.f56724c.isPlaying()) {
+            if (o.this.f60413c.isPlaying()) {
                 o.this.o.r();
             }
             if (o.this.j.getAlpha() != 1.0f) {
@@ -223,49 +223,49 @@ public class o {
     }
 
     public o(TbPageContext<?> tbPageContext, View view) {
-        this.f56722a = tbPageContext;
-        this.f56723b = view;
+        this.f60411a = tbPageContext;
+        this.f60412b = view;
         view.setOnClickListener(this.t);
         d.a.n0.k1.o.l.c a2 = d.a.n0.k1.o.l.d.a(tbPageContext);
         this.p = a2;
         a2.H0(this);
-        this.f56724c = this.p.f0();
-        TbImageView tbImageView = (TbImageView) this.f56723b.findViewById(R.id.video_thumbnail);
-        this.f56727f = tbImageView;
+        this.f60413c = this.p.f0();
+        TbImageView tbImageView = (TbImageView) this.f60412b.findViewById(R.id.video_thumbnail);
+        this.f60416f = tbImageView;
         tbImageView.setEvent(this.q);
-        this.f56728g = (ImageView) this.f56723b.findViewById(R.id.img_play);
+        this.f60417g = (ImageView) this.f60412b.findViewById(R.id.img_play);
         this.j = this.p.b0();
-        this.k = d.a.c.e.p.l.k(this.f56722a.getPageActivity());
-        this.l = d.a.c.e.p.l.i(this.f56722a.getPageActivity());
-        this.n = d.a.n0.k1.o.l.d.c(this.f56722a);
+        this.k = d.a.c.e.p.l.k(this.f60411a.getPageActivity());
+        this.l = d.a.c.e.p.l.i(this.f60411a.getPageActivity());
+        this.n = d.a.n0.k1.o.l.d.c(this.f60411a);
     }
 
     public int k() {
         if (r()) {
             return 0;
         }
-        return this.f56724c.getCurrentPosition();
+        return this.f60413c.getCurrentPosition();
     }
 
     public int l() {
-        return this.f56725d;
+        return this.f60414d;
     }
 
     public String m() {
-        return this.f56729h;
+        return this.f60418h;
     }
 
     public View n() {
-        return this.f56723b;
+        return this.f60412b;
     }
 
     public final void o() {
         d.a.n0.k1.o.l.c cVar = this.p;
-        if (cVar == null || this.f56724c == null || this.f56726e == null) {
+        if (cVar == null || this.f60413c == null || this.f60415e == null) {
             return;
         }
         cVar.P0();
-        this.p.A0(this.f56723b);
+        this.p.A0(this.f60412b);
         if (this.p.e0()) {
             this.p.Q();
         }
@@ -273,9 +273,9 @@ public class o {
         this.p.h0().setOnDragingListener(this.w);
         this.p.h0().setOnSeekBarChangeListener(this.r);
         this.p.z0(this.v);
-        this.p.G0(this.f56726e.f17883d);
-        this.p.I0(this.f56726e.f17886g);
-        this.p.J0(this.f56729h);
+        this.p.G0(this.f60415e.f17959d);
+        this.p.I0(this.f60415e.f17962g);
+        this.p.J0(this.f60418h);
         this.p.x0(this.u);
         this.p.r0();
         this.p.L0();
@@ -286,11 +286,11 @@ public class o {
     }
 
     public boolean q() {
-        return !this.f56730i;
+        return !this.f60419i;
     }
 
     public final boolean r() {
-        return this.f56723b == null || this.f56724c == null || this.f56727f == null || this.f56728g == null || this.j == null || this.o == null;
+        return this.f60412b == null || this.f60413c == null || this.f60416f == null || this.f60417g == null || this.j == null || this.o == null;
     }
 
     public void s(d.a.n0.k1.o.l.a aVar) {
@@ -319,8 +319,8 @@ public class o {
         if (this.m) {
             return;
         }
-        int i2 = this.f56725d;
-        if (i2 <= 0 || i2 == d.a.n0.k1.o.k.c.f56667a) {
+        int i2 = this.f60414d;
+        if (i2 <= 0 || i2 == d.a.n0.k1.o.k.c.f60356a) {
             this.m = true;
             if (r()) {
                 return;
@@ -329,7 +329,7 @@ public class o {
             if (!v.b() || (cVar = this.p) == null) {
                 return;
             }
-            cVar.O0(this.f56729h);
+            cVar.O0(this.f60418h);
         }
     }
 
@@ -338,43 +338,43 @@ public class o {
         if (r()) {
             return;
         }
-        if (this.m && (cVar = this.p) != null && this.f56723b.equals(cVar.c0())) {
+        if (this.m && (cVar = this.p) != null && this.f60412b.equals(cVar.c0())) {
             this.p.P0();
             if (this.p.e0()) {
                 this.p.j0();
             }
         }
         this.m = false;
-        this.f56730i = false;
+        this.f60419i = false;
     }
 
     public void x(ImmersiveVideoCardEx.a aVar, int i2) {
-        this.f56726e = aVar;
-        this.f56725d = i2;
+        this.f60415e = aVar;
+        this.f60414d = i2;
         if (r() || aVar == null) {
             return;
         }
-        String str = this.f56729h;
-        if (str == null || !str.equalsIgnoreCase(aVar.f17880a)) {
+        String str = this.f60418h;
+        if (str == null || !str.equalsIgnoreCase(aVar.f17956a)) {
             w();
-            this.f56729h = aVar.f17880a;
-            this.f56727f.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.f56727f.V(aVar.f17883d, 17, false);
-            int i3 = aVar.f17884e;
-            int i4 = aVar.f17885f;
-            ViewGroup.LayoutParams layoutParams = this.f56723b.getLayoutParams();
-            if (i3 > 0 && i4 > 0 && layoutParams != null && !aVar.f17887h) {
+            this.f60418h = aVar.f17956a;
+            this.f60416f.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.f60416f.U(aVar.f17959d, 17, false);
+            int i3 = aVar.f17960e;
+            int i4 = aVar.f17961f;
+            ViewGroup.LayoutParams layoutParams = this.f60412b.getLayoutParams();
+            if (i3 > 0 && i4 > 0 && layoutParams != null && !aVar.f17963h) {
                 if (i3 > i4) {
                     layoutParams.height = ((this.k * 1) * i4) / i3;
                 } else {
                     layoutParams.height = this.k;
                 }
-                this.f56723b.setLayoutParams(layoutParams);
+                this.f60412b.setLayoutParams(layoutParams);
                 this.p.M0();
-            } else if (layoutParams != null && aVar.f17887h) {
+            } else if (layoutParams != null && aVar.f17963h) {
                 layoutParams.width = this.k;
                 layoutParams.height = this.l;
-                this.f56723b.setLayoutParams(layoutParams);
+                this.f60412b.setLayoutParams(layoutParams);
                 this.p.k0();
             }
             this.p.T();

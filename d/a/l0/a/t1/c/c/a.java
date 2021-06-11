@@ -9,22 +9,22 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44761a;
+    public String f48435a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44762b;
+    public String f48436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f44763c;
+    public Object f48437c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f44764d = false;
+    public boolean f48438d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44765e;
+    public String f48439e;
 
     public a(String str) {
-        this.f44762b = str;
+        this.f48436b = str;
     }
 
     public static String a(d.a.l0.a.t1.c.b.b bVar) {
@@ -33,10 +33,10 @@ public class a {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("componentId", bVar.f44757f);
-            jSONObject.put("pluginProvider", bVar.f44753b);
-            jSONObject.put("args", bVar.f44758g);
-            jSONObject.put("slaveId", bVar.f44756e);
+            jSONObject.put("componentId", bVar.f48431f);
+            jSONObject.put("pluginProvider", bVar.f48427b);
+            jSONObject.put("args", bVar.f48432g);
+            jSONObject.put("slaveId", bVar.f48430e);
         } catch (JSONException e2) {
             d.a.l0.a.t1.d.a.a(Log.getStackTraceString(e2));
         }
@@ -49,21 +49,21 @@ public class a {
         ?? jSONObject = new JSONObject();
         try {
             jSONObject.put("type", "functionPageFinished");
-            jSONObject.put("componentId", this.f44762b);
-            jSONObject.put("isSuccess", this.f44764d);
-            jSONObject.put("data", this.f44765e);
-            if (this.f44763c != null) {
-                jSONObject.put("error", this.f44763c.toString());
+            jSONObject.put("componentId", this.f48436b);
+            jSONObject.put("isSuccess", this.f48438d);
+            jSONObject.put("data", this.f48439e);
+            if (this.f48437c != null) {
+                jSONObject.put("error", this.f48437c.toString());
             }
         } catch (JSONException e2) {
             d.a.l0.a.t1.d.a.a(Log.getStackTraceString(e2));
         }
-        gVar.f43924c = jSONObject;
-        f.V().m(this.f44761a, gVar);
-        d.a.l0.a.t1.d.a.a("finish event, isSuccess = " + this.f44764d);
+        gVar.f47600c = jSONObject;
+        f.V().m(this.f48435a, gVar);
+        d.a.l0.a.t1.d.a.a("finish event, isSuccess = " + this.f48438d);
     }
 
     public String toString() {
-        return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.f44762b + "', error=" + this.f44763c + ", isSuccess=" + this.f44764d + ", resultData='" + this.f44765e + "'}";
+        return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.f48436b + "', error=" + this.f48437c + ", isSuccess=" + this.f48438d + ", resultData='" + this.f48439e + "'}";
     }
 }

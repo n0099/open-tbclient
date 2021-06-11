@@ -1,77 +1,73 @@
 package d.a.m0.a.c0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.BdToken.backUser.BackUserHTTPResMsg;
-import com.baidu.tbadk.BdToken.backUser.BackUserReqMsg;
-import com.baidu.tbadk.BdToken.backUser.BackUserSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.core.data.NewUserRedPackageData;
+import d.a.m0.a.r;
+import java.util.ArrayList;
+import tbclient.ActiveConfig.DataRes;
+import tbclient.FloatStrategy;
+import tbclient.MissionInfo;
 /* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f48656a;
+    public DataRes f52296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.c.g.a f48657b = new a(CmdConfigHttp.CMD_BACK_USER, 309689);
+    public boolean f52297b = false;
 
-    /* loaded from: classes3.dex */
-    public class a extends d.a.c.c.g.a {
-        public a(int i2, int i3) {
-            super(i2, i3);
+    /* renamed from: c  reason: collision with root package name */
+    public String f52298c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public final ArrayList<d.a.m0.a.c> f52299d = new ArrayList<>();
+
+    /* renamed from: e  reason: collision with root package name */
+    public final ArrayList<FloatStrategy> f52300e = new ArrayList<>();
+
+    /* renamed from: f  reason: collision with root package name */
+    public NewUserRedPackageData f52301f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ActiveCenterData f52302g;
+
+    public ArrayList<FloatStrategy> a() {
+        return this.f52300e;
+    }
+
+    public ArrayList<d.a.m0.a.c> b() {
+        return this.f52299d;
+    }
+
+    public void c(DataRes dataRes) {
+        this.f52296a = dataRes;
+        this.f52299d.clear();
+        this.f52300e.clear();
+        if (dataRes == null) {
+            return;
         }
-
-        @Override // d.a.c.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || b.this.b() != responsedMessage.getOrginalMessage().getTag() || responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                return;
+        this.f52297b = dataRes.is_new_user.intValue() == 1;
+        this.f52298c = dataRes.active_url;
+        this.f52300e.addAll(dataRes.float_list);
+        for (MissionInfo missionInfo : this.f52296a.mission_list) {
+            if (missionInfo != null) {
+                d.a.m0.a.c cVar = new d.a.m0.a.c(missionInfo);
+                if (missionInfo.tasktype.intValue() == 5) {
+                    d.a.m0.r.c0.a.e().g(missionInfo);
+                } else if (missionInfo.tasktype.intValue() == 9) {
+                    r.c().f(cVar);
+                } else if (cVar.K()) {
+                    this.f52299d.add(cVar);
+                }
             }
-            d.a.m0.a.c0.a aVar = null;
-            if (responsedMessage instanceof BackUserHTTPResMsg) {
-                aVar = ((BackUserHTTPResMsg) responsedMessage).getData();
-            } else if (responsedMessage instanceof BackUserSocketResMsg) {
-                aVar = ((BackUserSocketResMsg) responsedMessage).getData();
-            }
-            if (aVar == null || !aVar.f48655a) {
-                return;
-            }
-            d.a.m0.r.d0.b.j().w(d.a.m0.r.d0.b.n("pref_key_last_request_mission"), System.currentTimeMillis());
-            d.a.m0.r.c0.a.e().i();
         }
-    }
-
-    public b(BdUniqueId bdUniqueId) {
-        this.f48656a = bdUniqueId;
-        c();
-        this.f48657b.setTag(this.f48656a);
-        MessageManager.getInstance().registerListener(this.f48657b);
-    }
-
-    public final boolean a() {
-        return !UtilHelper.isSameDay(d.a.m0.r.d0.b.j().l(d.a.m0.r.d0.b.n("pref_key_last_request_mission"), 0L), System.currentTimeMillis());
-    }
-
-    public BdUniqueId b() {
-        return this.f48656a;
-    }
-
-    public final void c() {
-        d.a.n0.e3.d0.a.h(309689, BackUserSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, d.a.n0.e3.d0.a.a(TbConfig.URL_BACK_USER, 309689));
-        tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void d() {
-        if (a()) {
-            BackUserReqMsg backUserReqMsg = new BackUserReqMsg();
-            backUserReqMsg.setTag(this.f48656a);
-            MessageManager.getInstance().sendMessage(backUserReqMsg);
+        NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
+        this.f52301f = newUserRedPackageData;
+        newUserRedPackageData.parseProto(dataRes);
+        if (dataRes.active_center != null) {
+            ActiveCenterData activeCenterData = new ActiveCenterData();
+            this.f52302g = activeCenterData;
+            activeCenterData.parseProto(dataRes);
         }
     }
 }

@@ -14,19 +14,19 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CameraEnumerationAndroid {
     public static final ArrayList<Size> COMMON_RESOLUTIONS = new ArrayList<>(Arrays.asList(new Size(160, 120), new Size(240, 160), new Size(MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 240), new Size(400, 240), new Size(480, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP), new Size(640, 360), new Size(640, 480), new Size(768, 480), new Size(854, 480), new Size(800, 600), new Size(TbConfig.HEAD_IMG_SIZE, 540), new Size(TbConfig.HEAD_IMG_SIZE, 640), new Size(1024, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE), new Size(1024, 600), new Size(1280, PeerConnectionClient.HD_VIDEO_HEIGHT), new Size(1280, 1024), new Size(1920, IdCardOcrCameraActivity.G), new Size(1920, 1440), new Size(QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 1440), new Size(DisplayCompat.DISPLAY_SIZE_4K_WIDTH, DisplayCompat.DISPLAY_SIZE_4K_HEIGHT)));
     public static final String TAG = "CameraEnumerationAndroid";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CaptureFormat {
         public final FramerateRange framerate;
         public final int height;
         public final int imageFormat = 17;
         public final int width;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class FramerateRange {
             public int max;
             public int min;
@@ -93,7 +93,7 @@ public class CameraEnumerationAndroid {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class ClosestComparator<T> implements Comparator<T> {
         public ClosestComparator() {
         }

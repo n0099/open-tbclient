@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.j2.i.d.a;
 import d.a.n0.j2.i.d.b;
 import java.util.List;
@@ -17,19 +17,19 @@ import tbclient.User;
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19871f;
+    public a f19948f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f19872g;
+    public b f19949g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f19873h;
+    public long f19950h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19874i = false;
+    public boolean f19951i = false;
     public d.a.n0.j2.e.a j;
 
-    public static PersonCenterMainTabFragment J0(long j, boolean z) {
+    public static PersonCenterMainTabFragment M0(long j, boolean z) {
         PersonCenterMainTabFragment personCenterMainTabFragment = new PersonCenterMainTabFragment();
         Bundle bundle = new Bundle();
         bundle.putLong("uid", j);
@@ -38,61 +38,61 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
         return personCenterMainTabFragment;
     }
 
-    public void B0() {
-        if (this.f19871f == null || !isAdded()) {
+    public void E0() {
+        if (this.f19948f == null || !isAdded()) {
             return;
         }
-        this.f19871f.k();
+        this.f19948f.k();
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void D0(boolean z) {
-        B0();
+    public void G0(boolean z) {
+        E0();
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public int E0() {
+    public int H0() {
         return 0;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public boolean F0() {
-        return this.f19874i;
+    public boolean I0() {
+        return this.f19951i;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void H0(User user) {
+    public void K0(User user) {
     }
 
-    public final void I0(Bundle bundle) {
+    public final void L0(Bundle bundle) {
         if (bundle != null) {
-            this.f19873h = bundle.getLong("uid");
-            this.f19874i = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
+            this.f19950h = bundle.getLong("uid");
+            this.f19951i = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
             return;
         }
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f19873h = arguments.getLong("uid");
-            this.f19874i = arguments.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
+            this.f19950h = arguments.getLong("uid");
+            this.f19951i = arguments.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
         }
     }
 
-    public final void K0(d.a.n0.j2.e.a aVar) {
-        if (this.f19871f == null || this.f19872g == null || aVar == null) {
+    public final void N0(d.a.n0.j2.e.a aVar) {
+        if (this.f19948f == null || this.f19949g == null || aVar == null) {
             return;
         }
         List<n> b2 = d.a.n0.j2.i.c.a.b(aVar.h());
         if (!ListUtils.isEmpty(b2)) {
-            this.f19871f.r(R.string.person_center_tab_main_footer_text);
+            this.f19948f.r(R.string.person_center_tab_main_footer_text);
         }
-        this.f19871f.n(b2);
-        this.f19872g.m(aVar);
-        this.f19872g.n(ListUtils.isEmpty(b2), F0());
+        this.f19948f.n(b2);
+        this.f19949g.m(aVar);
+        this.f19949g.n(ListUtils.isEmpty(b2), I0());
     }
 
-    public void L0(d.a.n0.j2.e.a aVar) {
-        if (aVar != null && this.f19871f != null && isAdded()) {
-            K0(aVar);
+    public void O0(d.a.n0.j2.e.a aVar) {
+        if (aVar != null && this.f19948f != null && isAdded()) {
+            N0(aVar);
         } else if (aVar != null) {
             this.j = aVar;
         }
@@ -101,11 +101,11 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        a aVar = this.f19871f;
+        a aVar = this.f19948f;
         if (aVar != null) {
             aVar.i(i2);
         }
-        b bVar = this.f19872g;
+        b bVar = this.f19949g;
         if (bVar != null) {
             bVar.r(i2);
         }
@@ -114,7 +114,7 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        I0(bundle);
+        L0(bundle);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -122,18 +122,18 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
         a aVar = new a(getPageContext(), inflate, this);
-        this.f19871f = aVar;
+        this.f19948f = aVar;
         aVar.m(1011);
-        b bVar = new b(getPageContext(), this.f19874i);
-        this.f19872g = bVar;
-        this.f19871f.d(bVar.o());
+        b bVar = new b(getPageContext(), this.f19951i);
+        this.f19949g = bVar;
+        this.f19948f.d(bVar.o());
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        a aVar = this.f19871f;
+        a aVar = this.f19948f;
         if (aVar != null) {
             aVar.j();
         }
@@ -143,17 +143,17 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     public void onResume() {
         d.a.n0.j2.e.a aVar;
         super.onResume();
-        if (this.f19871f == null || this.f19872g == null || (aVar = this.j) == null) {
+        if (this.f19948f == null || this.f19949g == null || (aVar = this.j) == null) {
             return;
         }
-        K0(aVar);
+        N0(aVar);
         this.j = null;
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong("uid", this.f19873h);
-        bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, this.f19874i);
+        bundle.putLong("uid", this.f19950h);
+        bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, this.f19951i);
     }
 }

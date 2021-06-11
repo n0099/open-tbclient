@@ -3,8 +3,8 @@ package d.a.f0.a.k;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f39849a = 1.01f;
+    public static float f43530a = 1.01f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f39850b = false;
+    public static boolean f43531b = false;
 }

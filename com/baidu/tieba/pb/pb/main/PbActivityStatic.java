@@ -44,7 +44,7 @@ import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import d.a.c.e.p.l;
-import d.a.m0.a.w;
+import d.a.m0.a.x;
 import d.a.m0.t.i;
 import d.a.m0.z0.n0;
 import d.a.m0.z0.o0;
@@ -59,7 +59,7 @@ import tbclient.PbPage.PbPageResIdl;
 public class PbActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static BdAsyncTaskParallel f18864a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    public static BdAsyncTaskParallel f18941a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
     /* loaded from: classes5.dex */
     public static class a implements d.a.m0.d.e {
@@ -154,7 +154,7 @@ public class PbActivityStatic {
     public static class g implements UrlManager.UrlDealListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f18865a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        public Pattern f18942a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
         /* JADX WARN: Removed duplicated region for block: B:191:0x0381  */
         /* JADX WARN: Removed duplicated region for block: B:193:0x0387 A[RETURN] */
@@ -180,7 +180,7 @@ public class PbActivityStatic {
             }
             boolean z7 = strArr.length > 1 && !StringUtils.isNull(strArr[1]) && strArr[1].toLowerCase().contains("n/video/opersquare");
             String lowerCase = strArr[0].toLowerCase();
-            Matcher matcher = this.f18865a.matcher(lowerCase);
+            Matcher matcher = this.f18942a.matcher(lowerCase);
             String str3 = "push";
             if (!Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find() && !lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_BAIJIAHAO_PB)) {
                 if (lowerCase.contains("unidispatch/pb")) {
@@ -369,7 +369,7 @@ public class PbActivityStatic {
                         } else if (!z && !TextUtils.isEmpty(c2)) {
                             d.a.c.e.m.f.c(TbadkCoreApplication.getInst(), r0.e(TbadkCoreApplication.getInst(), c2));
                             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", 3).param("obj_type", 2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                            w.a(param, lowerCase);
+                            x.a(param, lowerCase);
                             TiebaStatic.log(param);
                             return 1;
                         } else {
@@ -452,8 +452,8 @@ public class PbActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
         d.a.m0.v0.b h2 = d.a.n0.e3.d0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
         TbHttpMessageTask c2 = d.a.n0.e3.d0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        h2.setParallel(f18864a);
-        c2.setParallel(f18864a);
+        h2.setParallel(f18941a);
+        c2.setParallel(f18941a);
     }
 
     public static void f() {
@@ -480,7 +480,7 @@ public class PbActivityStatic {
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        LocationModel.C();
+        LocationModel.G();
         k();
     }
 

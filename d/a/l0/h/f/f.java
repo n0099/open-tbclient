@@ -14,34 +14,34 @@ public class f {
     public class a implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f47350a;
+        public final /* synthetic */ boolean f51024a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f47351b;
+        public final /* synthetic */ Context f51025b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47352c;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51026c;
 
         public a(boolean z, Context context, d.a.l0.a.y.b.a aVar) {
-            this.f47350a = z;
-            this.f47351b = context;
-            this.f47352c = aVar;
+            this.f51024a = z;
+            this.f51025b = context;
+            this.f51026c = aVar;
         }
 
         @Override // d.a.l0.a.h0.e.c.b
         public void a(boolean z, String str) {
             if (z) {
-                if (this.f47350a) {
-                    f.this.g(this.f47351b, this.f47352c);
+                if (this.f51024a) {
+                    f.this.g(this.f51025b, this.f51026c);
                     return;
                 }
-                d.a.l0.a.e0.a.c(this.f47351b, false);
-                f.this.e(this.f47352c, true, "setEnableDebug:ok");
+                d.a.l0.a.e0.a.c(this.f51025b, false);
+                f.this.e(this.f51026c, true, "setEnableDebug:ok");
                 return;
             }
-            d.a.l0.a.h0.e.c.c(this.f47351b, str);
+            d.a.l0.a.h0.e.c.c(this.f51025b, str);
             f fVar = f.this;
-            fVar.e(this.f47352c, false, fVar.f(str));
+            fVar.e(this.f51026c, false, fVar.f(str));
         }
     }
 
@@ -49,14 +49,14 @@ public class f {
     public class b implements d.a.l0.a.v2.e1.b<Boolean> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f47354e;
+        public final /* synthetic */ Context f51028e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.y.b.a f47355f;
+        public final /* synthetic */ d.a.l0.a.y.b.a f51029f;
 
         public b(Context context, d.a.l0.a.y.b.a aVar) {
-            this.f47354e = context;
-            this.f47355f = aVar;
+            this.f51028e = context;
+            this.f51029f = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,12 +64,12 @@ public class f {
         /* renamed from: a */
         public void onCallback(Boolean bool) {
             if (bool.booleanValue()) {
-                d.a.l0.a.e0.a.c(this.f47354e, true);
-                f.this.e(this.f47355f, true, "setEnableDebug:ok");
+                d.a.l0.a.e0.a.c(this.f51028e, true);
+                f.this.e(this.f51029f, true, "setEnableDebug:ok");
                 return;
             }
-            d.m().p((Activity) this.f47354e, null);
-            f.this.e(this.f47355f, false, "internet error");
+            d.m().p((Activity) this.f51028e, null);
+            f.this.e(this.f51029f, false, "internet error");
         }
     }
 

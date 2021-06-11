@@ -283,7 +283,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         registerGetMemberPayInfoTask();
         PayConfigModel payConfigModel = new PayConfigModel(this, new d());
         this.mPayConfigModel = payConfigModel;
-        payConfigModel.x();
+        payConfigModel.B();
     }
 
     private void initListener() {
@@ -337,7 +337,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     public d.a.m0.k0.d getPageStayDurationItem() {
         d.a.m0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }

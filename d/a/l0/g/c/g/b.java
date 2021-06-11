@@ -5,33 +5,33 @@ import android.text.TextUtils;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f47054a;
+    public String f50728a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f47055b;
+    public String f50729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f47056c;
+    public int f50730c;
 
     public b(String str, int i2, String str2) {
-        this.f47054a = str;
-        this.f47055b = str2;
-        this.f47056c = i2;
+        this.f50728a = str;
+        this.f50729b = str2;
+        this.f50730c = i2;
     }
 
     public String a() {
-        return this.f47054a;
+        return this.f50728a;
     }
 
     public String b() {
-        return this.f47055b;
+        return this.f50729b;
     }
 
     public int c() {
-        return this.f47056c;
+        return this.f50730c;
     }
 
     public boolean d() {
-        return TextUtils.equals(this.f47054a, "onSuccess");
+        return TextUtils.equals(this.f50728a, "onSuccess");
     }
 }

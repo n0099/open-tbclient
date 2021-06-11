@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 public class SoUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f9004a = {"bd_idl_pass_token", License.LICENSE_DEFAULT_FILE_NAME, "FaceSDK"};
+    public static final String[] f9066a = {"bd_idl_pass_token", License.LICENSE_DEFAULT_FILE_NAME, "FaceSDK"};
 
     public static String a(Context context, String str) {
         Object invoke;
@@ -54,7 +54,7 @@ public class SoUtils {
     public static void load(Context context) {
         String[] strArr;
         String b2;
-        for (String str : f9004a) {
+        for (String str : f9066a) {
             if (Build.VERSION.SDK_INT > 8) {
                 b2 = a(context, str);
             } else {

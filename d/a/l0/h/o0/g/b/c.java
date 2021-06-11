@@ -12,10 +12,10 @@ import org.json.JSONArray;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f47594b = null;
+    public static final String f51268b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f47595a = new ArrayList();
+    public List<String> f51269a = new ArrayList();
 
     public final String a(String str, String str2, String str3) {
         return String.format("%s_%s:%s", str, str2, str3);
@@ -25,9 +25,9 @@ public class c {
         String g2 = g(i2);
         String D = d.a.l0.a.a2.e.i() == null ? null : d.a.l0.a.a2.e.i().D();
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = PrefetchEvent.STATE_CLICK;
-        eVar.f43191g = g2;
-        eVar.f43189e = str;
+        eVar.f46862b = PrefetchEvent.STATE_CLICK;
+        eVar.f46867g = g2;
+        eVar.f46865e = str;
         if (str2 != null) {
             eVar.a("target_appkey", str2);
         }
@@ -42,8 +42,8 @@ public class c {
         String g2 = g(i2);
         JSONArray f2 = f(aVar);
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = "show";
-        eVar.f43191g = g2;
+        eVar.f46862b = "show";
+        eVar.f46867g = g2;
         if (f2 != null) {
             eVar.a(GameGuideConfigInfo.KEY_GAME_LIST, f2);
         }
@@ -53,41 +53,41 @@ public class c {
     public void d(int i2, String str, String str2) {
         String g2 = g(i2);
         String a2 = a(g2, str, str2);
-        if (this.f47595a.contains(a2)) {
+        if (this.f51269a.contains(a2)) {
             return;
         }
         String D = d.a.l0.a.a2.e.i() == null ? null : d.a.l0.a.a2.e.i().D();
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = PrefetchEvent.STATE_CLICK;
-        eVar.f43191g = g2;
-        eVar.f43189e = str;
+        eVar.f46862b = PrefetchEvent.STATE_CLICK;
+        eVar.f46867g = g2;
+        eVar.f46865e = str;
         if (str2 != null) {
             eVar.a("target_appkey", str2);
         }
         eVar.a("current_appkey", D);
         k.g(eVar);
-        this.f47595a.add(a2);
+        this.f51269a.add(a2);
     }
 
     public void e(int i2, d.a.l0.h.o0.g.e.a aVar) {
         String g2 = g(i2);
         JSONArray f2 = f(aVar);
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = "show";
-        eVar.f43191g = g2;
+        eVar.f46862b = "show";
+        eVar.f46867g = g2;
         if (f2 != null) {
             eVar.a(GameGuideConfigInfo.KEY_GAME_LIST, f2);
         }
         k.g(eVar);
-        this.f47595a.clear();
+        this.f51269a.clear();
     }
 
     public final JSONArray f(d.a.l0.h.o0.g.e.a aVar) {
-        if (aVar == null || aVar.f47607b == null) {
+        if (aVar == null || aVar.f51281b == null) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (RecommendItemModel recommendItemModel : aVar.f47607b) {
+        for (RecommendItemModel recommendItemModel : aVar.f51281b) {
             jSONArray.put(recommendItemModel.appKey);
         }
         return jSONArray;

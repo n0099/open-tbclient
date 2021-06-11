@@ -13,30 +13,30 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f59675a;
+    public boolean f63366a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59676b;
+    public int f63367b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ScoreCardInfo f59678d;
+    public ScoreCardInfo f63369d;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<a2> f59677c = new ArrayList();
+    public List<a2> f63368c = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<FeatureCardHot> f59679e = new ArrayList();
+    public List<FeatureCardHot> f63370e = new ArrayList();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<FeatureCardTopic> f59680f = new ArrayList();
+    public List<FeatureCardTopic> f63371f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b> f59681g = new ArrayList();
+    public List<b> f63372g = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public List<FeatureCardCompetition> f59682h = new ArrayList();
+    public List<FeatureCardCompetition> f63373h = new ArrayList();
 
     /* renamed from: i  reason: collision with root package name */
-    public List<FeatureCardGod> f59683i = new ArrayList();
+    public List<FeatureCardGod> f63374i = new ArrayList();
     public List<FeatureCardGame> j = new ArrayList();
 }

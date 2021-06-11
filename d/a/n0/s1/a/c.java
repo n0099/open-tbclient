@@ -18,22 +18,22 @@ public class c {
     public static class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f60402e;
+        public final /* synthetic */ e f64093e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BubbleListData.BubbleData f60403f;
+        public final /* synthetic */ BubbleListData.BubbleData f64094f;
 
         public a(e eVar, BubbleListData.BubbleData bubbleData) {
-            this.f60402e = eVar;
-            this.f60403f = bubbleData;
+            this.f64093e = eVar;
+            this.f64094f = bubbleData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            e eVar = this.f60402e;
+            e eVar = this.f64093e;
             if (eVar != null) {
-                eVar.a(this.f60403f.getBcode());
+                eVar.a(this.f64094f.getBcode());
             }
         }
     }
@@ -42,16 +42,16 @@ public class c {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f60404e;
+        public final /* synthetic */ e f64095e;
 
         public b(e eVar) {
-            this.f60404e = eVar;
+            this.f64095e = eVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            e eVar = this.f60404e;
+            e eVar = this.f64095e;
             if (eVar != null) {
                 eVar.b();
             }
@@ -60,25 +60,25 @@ public class c {
 
     /* renamed from: d.a.n0.s1.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1590c implements a.e {
+    public static class C1646c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f60405e;
+        public final /* synthetic */ e f64096e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BubbleListData.BubbleData f60406f;
+        public final /* synthetic */ BubbleListData.BubbleData f64097f;
 
-        public C1590c(e eVar, BubbleListData.BubbleData bubbleData) {
-            this.f60405e = eVar;
-            this.f60406f = bubbleData;
+        public C1646c(e eVar, BubbleListData.BubbleData bubbleData) {
+            this.f64096e = eVar;
+            this.f64097f = bubbleData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            e eVar = this.f60405e;
+            e eVar = this.f64096e;
             if (eVar != null) {
-                eVar.a(this.f60406f.getBcode());
+                eVar.a(this.f64097f.getBcode());
             }
         }
     }
@@ -87,16 +87,16 @@ public class c {
     public static class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f60407e;
+        public final /* synthetic */ e f64098e;
 
         public d(e eVar) {
-            this.f60407e = eVar;
+            this.f64098e = eVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            e eVar = this.f60407e;
+            e eVar = this.f64098e;
             if (eVar != null) {
                 eVar.b();
             }
@@ -142,7 +142,7 @@ public class c {
         d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(tbPageContext.getPageActivity());
         aVar.setCanceledOnTouchOutside(false);
         aVar.setMessage(String.format(tbPageContext.getString(R.string.bubble_pay_dialog_text), bubbleData.getLevel_name()));
-        aVar.setPositiveButton(R.string.open_now, new C1590c(eVar, bubbleData));
+        aVar.setPositiveButton(R.string.open_now, new C1646c(eVar, bubbleData));
         aVar.setNegativeButton(R.string.cancel, new d(eVar));
         aVar.create(tbPageContext);
         aVar.show();

@@ -14,63 +14,63 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57089e;
+    public int f60778e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57090f;
+    public int f60779f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Object> f57091g;
+    public List<Object> f60780g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext<?> f57092h;
+    public TbPageContext<?> f60781h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PersonalCardItemView.b f57093i;
+    public PersonalCardItemView.b f60782i;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public PersonalCardItemView f57094a;
+        public PersonalCardItemView f60783a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PersonalCardItemView f57095b;
+        public PersonalCardItemView f60784b;
 
         /* renamed from: c  reason: collision with root package name */
-        public PersonalCardItemView f57096c;
+        public PersonalCardItemView f60785c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f57097d;
+        public View f60786d;
     }
 
     /* renamed from: d.a.n0.k3.g.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1426b {
+    public static class C1482b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f57098a;
+        public TextView f60787a;
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.f57089e = 0;
-        this.f57090f = 0;
-        this.f57092h = tbPageContext;
-        this.f57089e = l.g(tbPageContext.getPageActivity(), R.dimen.ds28);
-        this.f57090f = l.g(tbPageContext.getPageActivity(), R.dimen.ds20);
+        this.f60778e = 0;
+        this.f60779f = 0;
+        this.f60781h = tbPageContext;
+        this.f60778e = l.g(tbPageContext.getPageActivity(), R.dimen.ds28);
+        this.f60779f = l.g(tbPageContext.getPageActivity(), R.dimen.ds20);
     }
 
     public void a(PersonalCardItemView.b bVar) {
-        this.f57093i = bVar;
+        this.f60782i = bVar;
     }
 
     public void b(List<Object> list) {
-        this.f57091g = list;
+        this.f60780g = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<Object> list = this.f57091g;
+        List<Object> list = this.f60780g;
         if (list != null) {
             return list.size();
         }
@@ -79,11 +79,11 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        List<Object> list = this.f57091g;
-        if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f57091g.size()) {
+        List<Object> list = this.f60780g;
+        if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f60780g.size()) {
             return null;
         }
-        return this.f57091g.get(i2);
+        return this.f60780g.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -102,36 +102,36 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         a aVar;
-        C1426b c1426b;
+        C1482b c1482b;
         int itemViewType = getItemViewType(i2);
         Object item = getItem(i2);
         if (itemViewType == 0) {
-            if (view != null && (view.getTag() instanceof C1426b)) {
-                c1426b = (C1426b) view.getTag();
+            if (view != null && (view.getTag() instanceof C1482b)) {
+                c1482b = (C1482b) view.getTag();
             } else {
-                c1426b = new C1426b();
-                view = LayoutInflater.from(this.f57092h.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
+                c1482b = new C1482b();
+                view = LayoutInflater.from(this.f60781h.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
                 TextView textView = (TextView) view.findViewById(R.id.group_name);
-                c1426b.f57098a = textView;
-                textView.setPadding(0, this.f57089e, 0, this.f57090f);
-                view.setTag(c1426b);
+                c1482b.f60787a = textView;
+                textView.setPadding(0, this.f60778e, 0, this.f60779f);
+                view.setTag(c1482b);
             }
             if (item != null) {
-                c1426b.f57098a.setText(item.toString());
+                c1482b.f60787a.setText(item.toString());
             }
         } else if (itemViewType == 1) {
             if (view != null && (view.getTag() instanceof a)) {
                 aVar = (a) view.getTag();
             } else {
                 a aVar2 = new a();
-                View inflate = LayoutInflater.from(this.f57092h.getPageActivity()).inflate(R.layout.category_card_list_item, viewGroup, false);
-                aVar2.f57094a = (PersonalCardItemView) inflate.findViewById(R.id.card1);
-                aVar2.f57095b = (PersonalCardItemView) inflate.findViewById(R.id.card2);
-                aVar2.f57096c = (PersonalCardItemView) inflate.findViewById(R.id.card3);
-                aVar2.f57097d = inflate.findViewById(R.id.divider_line);
-                aVar2.f57094a.setCardViewController(this.f57093i);
-                aVar2.f57095b.setCardViewController(this.f57093i);
-                aVar2.f57096c.setCardViewController(this.f57093i);
+                View inflate = LayoutInflater.from(this.f60781h.getPageActivity()).inflate(R.layout.category_card_list_item, viewGroup, false);
+                aVar2.f60783a = (PersonalCardItemView) inflate.findViewById(R.id.card1);
+                aVar2.f60784b = (PersonalCardItemView) inflate.findViewById(R.id.card2);
+                aVar2.f60785c = (PersonalCardItemView) inflate.findViewById(R.id.card3);
+                aVar2.f60786d = inflate.findViewById(R.id.divider_line);
+                aVar2.f60783a.setCardViewController(this.f60782i);
+                aVar2.f60784b.setCardViewController(this.f60782i);
+                aVar2.f60785c.setCardViewController(this.f60782i);
                 inflate.setTag(aVar2);
                 aVar = aVar2;
                 view = inflate;
@@ -140,34 +140,34 @@ public class b extends BaseAdapter {
                 List list = (List) item;
                 int size = list.size();
                 if (size == 1) {
-                    aVar.f57094a.c((d.a.n0.k3.a) list.get(0));
-                    aVar.f57094a.setVisibility(0);
-                    aVar.f57095b.setVisibility(8);
-                    aVar.f57096c.setVisibility(8);
+                    aVar.f60783a.c((d.a.n0.k3.a) list.get(0));
+                    aVar.f60783a.setVisibility(0);
+                    aVar.f60784b.setVisibility(8);
+                    aVar.f60785c.setVisibility(8);
                 } else if (size == 2) {
-                    aVar.f57094a.c((d.a.n0.k3.a) list.get(0));
-                    aVar.f57095b.c((d.a.n0.k3.a) list.get(1));
-                    aVar.f57094a.setVisibility(0);
-                    aVar.f57095b.setVisibility(0);
-                    aVar.f57096c.setVisibility(8);
+                    aVar.f60783a.c((d.a.n0.k3.a) list.get(0));
+                    aVar.f60784b.c((d.a.n0.k3.a) list.get(1));
+                    aVar.f60783a.setVisibility(0);
+                    aVar.f60784b.setVisibility(0);
+                    aVar.f60785c.setVisibility(8);
                 } else if (size != 3) {
                     view.setVisibility(8);
                 } else {
-                    aVar.f57094a.c((d.a.n0.k3.a) list.get(0));
-                    aVar.f57095b.c((d.a.n0.k3.a) list.get(1));
-                    aVar.f57096c.c((d.a.n0.k3.a) list.get(2));
-                    aVar.f57094a.setVisibility(0);
-                    aVar.f57095b.setVisibility(0);
-                    aVar.f57096c.setVisibility(0);
+                    aVar.f60783a.c((d.a.n0.k3.a) list.get(0));
+                    aVar.f60784b.c((d.a.n0.k3.a) list.get(1));
+                    aVar.f60785c.c((d.a.n0.k3.a) list.get(2));
+                    aVar.f60783a.setVisibility(0);
+                    aVar.f60784b.setVisibility(0);
+                    aVar.f60785c.setVisibility(0);
                 }
                 if (getItem(i2 + 1) instanceof List) {
-                    aVar.f57097d.setVisibility(8);
+                    aVar.f60786d.setVisibility(8);
                 } else {
-                    aVar.f57097d.setVisibility(0);
+                    aVar.f60786d.setVisibility(0);
                 }
             }
         }
-        this.f57092h.getLayoutMode().j(view);
+        this.f60781h.getLayoutMode().j(view);
         return view;
     }
 

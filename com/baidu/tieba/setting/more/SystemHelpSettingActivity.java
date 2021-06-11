@@ -80,7 +80,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public void onClick(d.a.m0.r.s.a aVar) {
             SystemHelpSettingActivity systemHelpSettingActivity = SystemHelpSettingActivity.this;
             systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
-            SystemHelpSettingActivity.this.mModel.w();
+            SystemHelpSettingActivity.this.mModel.A();
             aVar.dismiss();
         }
     }
@@ -106,7 +106,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
             aVar.dismiss();
             SystemHelpSettingActivity systemHelpSettingActivity = SystemHelpSettingActivity.this;
             systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
-            SystemHelpSettingActivity.this.mModel.x();
+            SystemHelpSettingActivity.this.mModel.B();
         }
     }
 
@@ -115,7 +115,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     }
 
     private void refreshNew() {
-        this.mView.j().i();
+        this.mView.k().i();
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
@@ -123,13 +123,13 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         if (view == null) {
             return;
         }
-        if (view.equals(this.mView.h())) {
+        if (view.equals(this.mView.i())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                this.mModel.z(true);
+                this.mModel.D(true);
             } else {
-                this.mModel.z(false);
+                this.mModel.D(false);
             }
-        } else if (view == this.mView.k()) {
+        } else if (view == this.mView.l()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 d.a.m0.r.d0.b.j().t("prefs_save_paled_video", true);
             } else {
@@ -164,9 +164,9 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                 return;
             }
             this.mBdAlertDialog = new d.a.m0.r.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new f()).setNegativeButton(R.string.cancel, new e()).create(getPageContext()).show();
-        } else if (view == this.mView.j()) {
+        } else if (view == this.mView.k()) {
             sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
-        } else if (view == this.mView.g() && TbadkCoreApplication.getInst().isMainProcess(false)) {
+        } else if (view == this.mView.h() && TbadkCoreApplication.getInst().isMainProcess(false)) {
             MessageManager.getInstance().runTask(2921514, null, null);
         }
     }
@@ -177,18 +177,18 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         this.mView = new h(this);
         this.mModel = new SystemHelpSettingModel(this);
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.mView.h().i();
+            this.mView.i().i();
         } else {
-            this.mView.h().f();
+            this.mView.i().f();
         }
         if (d.a.m0.r.d0.b.j().g("prefs_save_paled_video", true)) {
-            this.mView.k().i();
+            this.mView.l().i();
         } else {
-            this.mView.k().f();
+            this.mView.l().f();
         }
         this.mView.e().setTip(getPageContext().getString(R.string.calc_cache_size));
         this.mView.e().b();
-        this.mModel.A(new a());
+        this.mModel.E(new a());
         registerListener(new b(2008016));
     }
 
@@ -206,7 +206,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         super.onResume();
         SystemHelpSettingModel systemHelpSettingModel = this.mModel;
         if (systemHelpSettingModel != null) {
-            systemHelpSettingModel.y();
+            systemHelpSettingModel.C();
         }
         refreshNew();
     }

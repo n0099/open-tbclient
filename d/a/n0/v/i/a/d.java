@@ -19,8 +19,8 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
     }
 
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         t0(i2, view, viewGroup, (h) obj, (FrsPageAlaStageViewHolder) viewHolder);
         return view;
     }
@@ -31,13 +31,13 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public FrsPageAlaStageViewHolder P(ViewGroup viewGroup) {
+    public FrsPageAlaStageViewHolder Q(ViewGroup viewGroup) {
         TbPageContext<?> tbPageContext = this.o;
         if (tbPageContext == null) {
             return null;
@@ -49,14 +49,14 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
     }
 
     public View t0(int i2, View view, ViewGroup viewGroup, h hVar, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
-        super.W(i2, view, viewGroup, hVar, frsPageAlaStageViewHolder);
+        super.X(i2, view, viewGroup, hVar, frsPageAlaStageViewHolder);
         if (hVar != null) {
             FrsViewData frsViewData = this.n;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            d.a.n0.v.i.e.d dVar = frsPageAlaStageViewHolder.f14003a;
+            d.a.n0.v.i.e.d dVar = frsPageAlaStageViewHolder.f14060a;
             dVar.B = (i2 + 1) - topThreadSize;
             dVar.a(this.w);
-            frsPageAlaStageViewHolder.f14003a.m(hVar);
+            frsPageAlaStageViewHolder.f14060a.n(hVar);
         }
         return view;
     }

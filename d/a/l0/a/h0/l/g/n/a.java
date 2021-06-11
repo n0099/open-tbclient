@@ -40,85 +40,85 @@ import org.json.JSONObject;
 public class a implements d.a.l0.a.v1.c.f.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f42278g = k.f43199a;
+    public static final boolean f45954g = k.f46875a;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile a f42279h;
+    public static volatile a f45955h;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f42283d;
+    public volatile boolean f45959d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f42284e;
+    public final int f45960e;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BlockingQueue<PrefetchEvent> f42280a = new LinkedBlockingQueue();
+    public final BlockingQueue<PrefetchEvent> f45956a = new LinkedBlockingQueue();
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f42281b = new AtomicInteger(0);
+    public final AtomicInteger f45957b = new AtomicInteger(0);
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f42282c = 1;
+    public final int f45958c = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<Bundle> f42285f = new ArrayList();
+    public final List<Bundle> f45961f = new ArrayList();
 
     /* loaded from: classes2.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f42286e;
+        public final int f45962e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f42287f;
+        public boolean f45963f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final BlockingQueue<PrefetchEvent> f42288g;
+        public final BlockingQueue<PrefetchEvent> f45964g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicInteger f42289h;
+        public final AtomicInteger f45965h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c f42290i;
+        public c f45966i;
         public int j = 0;
 
         public b(int i2, @NonNull BlockingQueue<PrefetchEvent> blockingQueue, @NonNull AtomicInteger atomicInteger) {
-            this.f42286e = i2 <= 0 ? 30 : i2;
-            this.f42287f = false;
-            this.f42288g = blockingQueue;
-            this.f42289h = atomicInteger;
+            this.f45962e = i2 <= 0 ? 30 : i2;
+            this.f45963f = false;
+            this.f45964g = blockingQueue;
+            this.f45965h = atomicInteger;
         }
 
         public final void a() {
-            this.f42287f = true;
-            this.f42289h.decrementAndGet();
+            this.f45963f = true;
+            this.f45965h.decrementAndGet();
             b();
-            if (a.f42278g) {
+            if (a.f45954g) {
                 Log.d("PreCodeCacheManager", "CodeCacheFillTask destroy");
             }
         }
 
         public final void b() {
-            c cVar = this.f42290i;
+            c cVar = this.f45966i;
             if (cVar != null) {
                 cVar.k();
-                this.f42290i = null;
+                this.f45966i = null;
             }
-            if (a.f42278g) {
+            if (a.f45954g) {
                 Log.d("PreCodeCacheManager", "master destroy");
             }
         }
 
         public final void c(PrefetchEvent prefetchEvent) throws InterruptedException {
-            if (this.f42290i == null) {
-                this.f42290i = d();
+            if (this.f45966i == null) {
+                this.f45966i = d();
             }
-            if (this.f42290i == null) {
+            if (this.f45966i == null) {
                 a();
                 return;
             }
             CountDownLatch countDownLatch = new CountDownLatch(1);
-            this.f42290i.l(prefetchEvent.appPath, prefetchEvent, countDownLatch);
+            this.f45966i.l(prefetchEvent.appPath, prefetchEvent, countDownLatch);
             countDownLatch.await(3L, TimeUnit.SECONDS);
             f();
         }
@@ -127,7 +127,7 @@ public class a implements d.a.l0.a.v1.c.f.a {
             if (g.N().b0() && e()) {
                 return new c();
             }
-            if (a.f42278g) {
+            if (a.f45954g) {
                 Log.d("PreCodeCacheManager", "v8 master can not create");
             }
             return null;
@@ -154,23 +154,23 @@ public class a implements d.a.l0.a.v1.c.f.a {
 
         @Override // java.lang.Runnable
         public void run() {
-            while (!this.f42287f) {
+            while (!this.f45963f) {
                 try {
                     try {
-                        PrefetchEvent poll = this.f42288g.poll(this.f42286e, TimeUnit.SECONDS);
+                        PrefetchEvent poll = this.f45964g.poll(this.f45962e, TimeUnit.SECONDS);
                         if (poll == null) {
                             a();
                         } else {
                             c(poll);
                         }
                     } catch (InterruptedException e2) {
-                        if (a.f42278g) {
+                        if (a.f45954g) {
                             e2.printStackTrace();
                         }
                         a();
                     }
                 } catch (Throwable th) {
-                    if (a.f42278g) {
+                    if (a.f45954g) {
                         th.printStackTrace();
                     }
                     a();
@@ -184,50 +184,50 @@ public class a implements d.a.l0.a.v1.c.f.a {
     public static class c {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final AtomicInteger f42291e = new AtomicInteger(1000);
+        public static final AtomicInteger f45967e = new AtomicInteger(1000);
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f42292a;
+        public volatile boolean f45968a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile d.a.l0.a.h0.l.a f42293b;
+        public volatile d.a.l0.a.h0.l.a f45969b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<j> f42294c;
+        public final List<j> f45970c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final List<String> f42295d;
+        public final List<String> f45971d;
 
         /* renamed from: d.a.l0.a.h0.l.g.n.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0672a implements j {
+        public class C0728a implements j {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f42296a;
+            public final /* synthetic */ String f45972a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ PrefetchEvent f42297b;
+            public final /* synthetic */ PrefetchEvent f45973b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ CountDownLatch f42298c;
+            public final /* synthetic */ CountDownLatch f45974c;
 
-            public C0672a(String str, PrefetchEvent prefetchEvent, CountDownLatch countDownLatch) {
-                this.f42296a = str;
-                this.f42297b = prefetchEvent;
-                this.f42298c = countDownLatch;
+            public C0728a(String str, PrefetchEvent prefetchEvent, CountDownLatch countDownLatch) {
+                this.f45972a = str;
+                this.f45973b = prefetchEvent;
+                this.f45974c = countDownLatch;
             }
 
             @Override // d.a.l0.a.h0.l.g.j
             public void onReady() {
                 d.a.l0.a.h0.f.a g2;
-                if (c.this.f42293b != null && (g2 = c.this.f42293b.g()) != null && !g2.isDestroyed()) {
-                    c.this.s(this.f42296a, g2);
-                    c.this.r(g2, this.f42297b);
-                    if (a.f42278g) {
-                        Log.d("PreCodeCacheManager", "fill code cache finish for - " + this.f42296a);
+                if (c.this.f45969b != null && (g2 = c.this.f45969b.g()) != null && !g2.isDestroyed()) {
+                    c.this.s(this.f45972a, g2);
+                    c.this.r(g2, this.f45973b);
+                    if (a.f45954g) {
+                        Log.d("PreCodeCacheManager", "fill code cache finish for - " + this.f45972a);
                     }
                 }
-                CountDownLatch countDownLatch = this.f42298c;
+                CountDownLatch countDownLatch = this.f45974c;
                 if (countDownLatch != null) {
                     countDownLatch.countDown();
                 }
@@ -238,32 +238,32 @@ public class a implements d.a.l0.a.v1.c.f.a {
         public class b extends d.a.l0.a.h0.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f42300a;
+            public final /* synthetic */ long f45976a;
 
             public b(long j) {
-                this.f42300a = j;
+                this.f45976a = j;
             }
 
             @Override // d.a.l0.a.h0.b
             public void a(String str) {
-                if (a.f42278g) {
+                if (a.f45954g) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("PreCodeCacheManager", "create a new master cost - " + (currentTimeMillis - this.f42300a) + "ms");
+                    Log.d("PreCodeCacheManager", "create a new master cost - " + (currentTimeMillis - this.f45976a) + "ms");
                 }
                 super.a(str);
-                c.this.f42292a = true;
+                c.this.f45968a = true;
                 c.this.q();
             }
         }
 
         /* renamed from: d.a.l0.a.h0.l.g.n.a$c$c  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0673c extends e {
+        public class C0729c extends e {
 
             /* renamed from: d.a.l0.a.h0.l.g.n.a$c$c$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class C0674a extends d.a.l0.a.h0.l.d {
-                public C0674a(String str, String str2) {
+            public class C0730a extends d.a.l0.a.h0.l.d {
+                public C0730a(String str, String str2) {
                     super(str, str2);
                 }
 
@@ -276,13 +276,13 @@ public class a implements d.a.l0.a.v1.c.f.a {
                 }
             }
 
-            public C0673c(Context context) {
+            public C0729c(Context context) {
                 super(context);
             }
 
             @Override // d.a.l0.a.h0.l.e
             public d.a.l0.a.h0.l.d j(String str) {
-                return new C0674a(str, "runtime/index.js");
+                return new C0730a(str, "runtime/index.js");
             }
         }
 
@@ -290,12 +290,12 @@ public class a implements d.a.l0.a.v1.c.f.a {
             if (jVar == null) {
                 return;
             }
-            if (this.f42292a) {
+            if (this.f45968a) {
                 jVar.onReady();
                 return;
             }
-            if (!this.f42294c.contains(jVar)) {
-                this.f42294c.add(jVar);
+            if (!this.f45970c.contains(jVar)) {
+                this.f45970c.add(jVar);
             }
         }
 
@@ -334,7 +334,7 @@ public class a implements d.a.l0.a.v1.c.f.a {
         }
 
         public final d.a.l0.a.h0.l.a i() {
-            long currentTimeMillis = a.f42278g ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = a.f45954g ? System.currentTimeMillis() : 0L;
             d.a.l0.a.h0.l.a j = j();
             j.loadUrl(o0.w(d.a.l0.a.h0.u.g.N().R()));
             j.c(new b(currentTimeMillis));
@@ -342,21 +342,21 @@ public class a implements d.a.l0.a.v1.c.f.a {
         }
 
         public final d.a.l0.a.h0.l.a j() {
-            return new C0673c(AppRuntime.getAppContext());
+            return new C0729c(AppRuntime.getAppContext());
         }
 
         public void k() {
-            if (this.f42293b != null) {
-                this.f42293b.destroy();
+            if (this.f45969b != null) {
+                this.f45969b.destroy();
             }
         }
 
         public void l(String str, PrefetchEvent prefetchEvent, CountDownLatch countDownLatch) {
-            if (this.f42293b == null) {
-                this.f42293b = i();
+            if (this.f45969b == null) {
+                this.f45969b = i();
             }
-            this.f42295d.add(str);
-            g(new C0672a(str, prefetchEvent, countDownLatch));
+            this.f45971d.add(str);
+            g(new C0728a(str, prefetchEvent, countDownLatch));
         }
 
         public final V8EngineConfiguration.CodeCacheSetting m() {
@@ -364,17 +364,17 @@ public class a implements d.a.l0.a.v1.c.f.a {
             codeCacheSetting.id = "appjs";
             ArrayList<String> arrayList = new ArrayList<>();
             codeCacheSetting.pathList = arrayList;
-            arrayList.addAll(this.f42295d);
-            a.C0645a a2 = a.b.a();
-            codeCacheSetting.maxCount = a2.f41959a;
-            codeCacheSetting.sizeLimit = a2.f41960b;
-            codeCacheSetting.diskCodeCacheSizeThreshold = a2.f41961c;
+            arrayList.addAll(this.f45971d);
+            a.C0701a a2 = a.b.a();
+            codeCacheSetting.maxCount = a2.f45635a;
+            codeCacheSetting.sizeLimit = a2.f45636b;
+            codeCacheSetting.diskCodeCacheSizeThreshold = a2.f45637c;
             return codeCacheSetting;
         }
 
         public final String n() {
-            String str = "master" + f42291e.getAndIncrement();
-            if (a.f42278g) {
+            String str = "master" + f45967e.getAndIncrement();
+            if (a.f45954g) {
                 Log.d("PreCodeCacheManager", "code cache master id - " + str);
             }
             return str;
@@ -400,7 +400,7 @@ public class a implements d.a.l0.a.v1.c.f.a {
             try {
                 return new JSONObject(str).has("_modules");
             } catch (JSONException e2) {
-                if (a.f42278g) {
+                if (a.f45954g) {
                     e2.printStackTrace();
                 }
                 return false;
@@ -408,20 +408,20 @@ public class a implements d.a.l0.a.v1.c.f.a {
         }
 
         public final synchronized void q() {
-            for (j jVar : this.f42294c) {
+            for (j jVar : this.f45970c) {
                 if (jVar != null) {
                     jVar.onReady();
                 }
             }
-            this.f42294c.clear();
+            this.f45970c.clear();
         }
 
         public final void r(@NonNull d.a.l0.a.h0.f.a aVar, PrefetchEvent prefetchEvent) {
-            long currentTimeMillis = a.f42278g ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = a.f45954g ? System.currentTimeMillis() : 0L;
             PrefetchEvent.c h2 = h(prefetchEvent, "preload");
             if (h2 != null) {
                 d.a.l0.a.o0.a.a(aVar, h2);
-                if (a.f42278g) {
+                if (a.f45954g) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     Log.d("PreCodeCacheManager", "send code cache msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
                 }
@@ -435,30 +435,30 @@ public class a implements d.a.l0.a.v1.c.f.a {
         }
 
         public c() {
-            this.f42294c = new ArrayList();
-            this.f42295d = new CopyOnWriteArrayList();
+            this.f45970c = new ArrayList();
+            this.f45971d = new CopyOnWriteArrayList();
         }
     }
 
     public a() {
         d.a.l0.a.c1.a.Z().getSwitch("swan_preset_code_cache", 0);
-        this.f42284e = 0;
+        this.f45960e = 0;
         m();
-        d.a.l0.a.e0.d.h("PreCodeCacheManager", "swan_preset_code_cache - " + this.f42284e);
-        if (f42278g) {
-            Log.d("PreCodeCacheManager", "max master size - " + this.f42282c);
+        d.a.l0.a.e0.d.h("PreCodeCacheManager", "swan_preset_code_cache - " + this.f45960e);
+        if (f45954g) {
+            Log.d("PreCodeCacheManager", "max master size - " + this.f45958c);
         }
     }
 
     public static a i() {
-        if (f42279h == null) {
+        if (f45955h == null) {
             synchronized (a.class) {
-                if (f42279h == null) {
-                    f42279h = new a();
+                if (f45955h == null) {
+                    f45955h = new a();
                 }
             }
         }
-        return f42279h;
+        return f45955h;
     }
 
     @Override // d.a.l0.a.v1.c.f.a
@@ -483,21 +483,21 @@ public class a implements d.a.l0.a.v1.c.f.a {
     public final boolean c(String str, long j) {
         boolean z;
         if (!ProcessUtils.isMainProcess() || q0.G() || d.a.l0.a.c1.a.n0().c()) {
-            int i2 = this.f42284e;
+            int i2 = this.f45960e;
             if (i2 != 0) {
                 if (i2 == 1) {
-                    if (f42278g) {
+                    if (f45954g) {
                         Log.d("PreCodeCacheManager", "all device preset code cache is on");
                     }
                     z = true;
                 } else if (i2 == 2) {
-                    if (f42278g) {
+                    if (f45954g) {
                         Log.d("PreCodeCacheManager", "high performance device preset code cache is on");
                     }
                     z = !d.a.l0.a.c1.a.l0().a();
                 }
                 return !z ? false : false;
-            } else if (f42278g) {
+            } else if (f45954g) {
                 Log.d("PreCodeCacheManager", "preset code cache is off");
             }
             z = false;
@@ -507,18 +507,18 @@ public class a implements d.a.l0.a.v1.c.f.a {
     }
 
     public final void d(@NonNull PrefetchEvent prefetchEvent) {
-        this.f42280a.offer(prefetchEvent);
-        if (this.f42283d) {
+        this.f45956a.offer(prefetchEvent);
+        if (this.f45959d) {
             p();
         }
     }
 
     public final void e(String str, long j) {
         if (c(str, j) && !ProcessUtils.isMainProcess()) {
-            if (f42278g) {
+            if (f45954g) {
                 Log.d("PreCodeCacheManager", "start to fill code cache app - " + str + " , version - " + j);
             }
-            d(b(str, e.C0561e.i(str, String.valueOf(j)).getPath() + File.separator));
+            d(b(str, e.C0617e.i(str, String.valueOf(j)).getPath() + File.separator));
         }
     }
 
@@ -526,7 +526,7 @@ public class a implements d.a.l0.a.v1.c.f.a {
         if (ProcessUtils.isMainProcess() && c(str, j)) {
             d.a.l0.a.v1.c.f.c h2 = h();
             if (h2 == null) {
-                if (f42278g) {
+                if (f45954g) {
                     Log.d("PreCodeCacheManager", "there is no blank client");
                     return;
                 }
@@ -559,7 +559,7 @@ public class a implements d.a.l0.a.v1.c.f.a {
     }
 
     public final b j() {
-        return new b(30, this.f42280a, this.f42281b);
+        return new b(30, this.f45956a, this.f45957b);
     }
 
     public boolean k(String str) {
@@ -583,8 +583,8 @@ public class a implements d.a.l0.a.v1.c.f.a {
         if (bundle == null) {
             return;
         }
-        this.f42285f.add(bundle);
-        if (f42278g) {
+        this.f45961f.add(bundle);
+        if (f45954g) {
             Log.d("PreCodeCacheManager", "add fill code cache msg to cache");
         }
     }
@@ -596,45 +596,45 @@ public class a implements d.a.l0.a.v1.c.f.a {
     }
 
     public final synchronized void n(d.a.l0.a.v1.c.f.c cVar) {
-        if (this.f42285f.size() <= 0) {
+        if (this.f45961f.size() <= 0) {
             return;
         }
-        if (f42278g) {
+        if (f45954g) {
             Log.d("PreCodeCacheManager", "send msg from cache");
         }
-        for (Bundle bundle : this.f42285f) {
+        for (Bundle bundle : this.f45961f) {
             o(cVar, bundle);
         }
-        this.f42285f.clear();
+        this.f45961f.clear();
     }
 
     public final void o(d.a.l0.a.v1.c.f.c cVar, Bundle bundle) {
         d.a.l0.a.v1.c.a e2 = d.a.l0.a.v1.c.a.e();
         d.a.l0.a.v1.c.c cVar2 = new d.a.l0.a.v1.c.c(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, bundle);
-        cVar2.b(cVar.f45331f);
+        cVar2.b(cVar.f49005f);
         e2.h(cVar2);
-        if (f42278g) {
-            Log.d("PreCodeCacheManager", "current process - " + cVar.f45331f.index);
+        if (f45954g) {
+            Log.d("PreCodeCacheManager", "current process - " + cVar.f49005f.index);
         }
     }
 
     public final void p() {
-        if (this.f42280a.size() <= 0 || this.f42281b.get() >= this.f42282c) {
+        if (this.f45956a.size() <= 0 || this.f45957b.get() >= this.f45958c) {
             return;
         }
-        if (this.f42281b.incrementAndGet() > this.f42282c) {
-            this.f42281b.decrementAndGet();
+        if (this.f45957b.incrementAndGet() > this.f45958c) {
+            this.f45957b.decrementAndGet();
             return;
         }
         j().g();
-        if (f42278g) {
+        if (f45954g) {
             Log.d("PreCodeCacheManager", "start a new code cache fill task");
-            Log.d("PreCodeCacheManager", "master size - " + this.f42281b.get());
+            Log.d("PreCodeCacheManager", "master size - " + this.f45957b.get());
         }
     }
 
     public void q() {
-        this.f42283d = true;
+        this.f45959d = true;
         p();
     }
 

@@ -17,19 +17,19 @@ import d.a.c.e.m.e;
 public class CommonTipView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21550e;
+    public int f21653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f21551f;
+    public Animation f21654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TranslateAnimation f21552g;
+    public TranslateAnimation f21655g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f21553h;
+    public Runnable f21656h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f21554i;
+    public Runnable f21657i;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -65,7 +65,7 @@ public class CommonTipView extends TextView {
         public void onAnimationEnd(Animation animation) {
             CommonTipView.this.i();
             CommonTipView.this.setVisibility(8);
-            e.a().postDelayed(CommonTipView.this.f21554i, 600L);
+            e.a().postDelayed(CommonTipView.this.f21657i, 600L);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -85,7 +85,7 @@ public class CommonTipView extends TextView {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             CommonTipView commonTipView = CommonTipView.this;
-            commonTipView.postDelayed(commonTipView.f21553h, CommonTipView.this.f21550e);
+            commonTipView.postDelayed(commonTipView.f21656h, CommonTipView.this.f21653e);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -99,11 +99,11 @@ public class CommonTipView extends TextView {
 
     public CommonTipView(Context context) {
         super(context);
-        this.f21550e = 4000;
-        this.f21551f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f21552g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f21553h = new a();
-        this.f21554i = new b();
+        this.f21653e = 4000;
+        this.f21654f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f21655g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f21656h = new a();
+        this.f21657i = new b();
         g();
     }
 
@@ -115,18 +115,18 @@ public class CommonTipView extends TextView {
     }
 
     public final void f() {
-        removeCallbacks(this.f21553h);
+        removeCallbacks(this.f21656h);
         if (getParent() != null) {
-            startAnimation(this.f21551f);
+            startAnimation(this.f21654f);
         }
     }
 
     public final void g() {
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds24));
         setGravity(17);
-        this.f21551f.setAnimationListener(new c());
-        this.f21552g.setDuration(400L);
-        this.f21552g.setAnimationListener(new d());
+        this.f21654f.setAnimationListener(new c());
+        this.f21655g.setDuration(400L);
+        this.f21655g.setAnimationListener(new d());
     }
 
     public void h(int i2) {
@@ -135,8 +135,8 @@ public class CommonTipView extends TextView {
     }
 
     public void i() {
-        removeCallbacks(this.f21553h);
-        e.a().removeCallbacks(this.f21554i);
+        removeCallbacks(this.f21656h);
+        e.a().removeCallbacks(this.f21657i);
         e();
     }
 
@@ -148,7 +148,7 @@ public class CommonTipView extends TextView {
         layoutParams.setMargins(0, 0, 0, 0);
         frameLayout.addView(this, layoutParams);
         h(i2);
-        startAnimation(this.f21552g);
+        startAnimation(this.f21655g);
     }
 
     public void k(LinearLayout linearLayout, int i2) {
@@ -159,32 +159,32 @@ public class CommonTipView extends TextView {
         layoutParams.gravity = 48;
         linearLayout.addView(this, layoutParams);
         h(i2);
-        startAnimation(this.f21552g);
+        startAnimation(this.f21655g);
     }
 
     public void setTipDuration(int i2) {
         if (i2 > 0) {
-            this.f21550e = i2;
+            this.f21653e = i2;
         }
     }
 
     public CommonTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21550e = 4000;
-        this.f21551f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f21552g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f21553h = new a();
-        this.f21554i = new b();
+        this.f21653e = 4000;
+        this.f21654f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f21655g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f21656h = new a();
+        this.f21657i = new b();
         g();
     }
 
     public CommonTipView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f21550e = 4000;
-        this.f21551f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f21552g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f21553h = new a();
-        this.f21554i = new b();
+        this.f21653e = 4000;
+        this.f21654f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f21655g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f21656h = new a();
+        this.f21657i = new b();
         g();
     }
 }

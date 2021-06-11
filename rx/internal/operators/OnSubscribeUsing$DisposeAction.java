@@ -4,7 +4,7 @@ import h.k;
 import h.n.a;
 import h.n.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolean implements a, k {
     public static final long serialVersionUID = 4262875056400218316L;
     public b<? super Resource> dispose;

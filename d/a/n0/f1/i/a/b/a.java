@@ -10,27 +10,27 @@ import tbclient.Page;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b> f54515a = new ArrayList();
+    public List<b> f58204a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public Page f54516b;
+    public Page f58205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54517c;
+    public boolean f58206c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f54518d;
+    public boolean f58207d;
 
     public boolean a() {
-        return this.f54517c;
+        return this.f58206c;
     }
 
     public List<b> b() {
-        return this.f54515a;
+        return this.f58204a;
     }
 
     public boolean c() {
-        return this.f54518d;
+        return this.f58207d;
     }
 
     public void d(DataRes dataRes) {
@@ -38,30 +38,30 @@ public class a {
             return;
         }
         Page page = dataRes.page;
-        this.f54516b = page;
+        this.f58205b = page;
         if (page != null) {
-            this.f54517c = page.has_more.intValue() == 1;
+            this.f58206c = page.has_more.intValue() == 1;
         }
         List<BroadcastInfo> list = dataRes.bcast_infos;
         if (list != null) {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 b bVar = new b();
                 bVar.l(list.get(i2));
-                this.f54515a.add(bVar);
+                this.f58204a.add(bVar);
             }
         }
     }
 
     public void e(boolean z) {
-        this.f54518d = z;
+        this.f58207d = z;
     }
 
     public void f() {
-        List<b> list = this.f54515a;
+        List<b> list = this.f58204a;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f54515a) {
+        for (b bVar : this.f58204a) {
             if (bVar != null) {
                 l.t().x(bVar.e().forum_id.longValue(), bVar.b() * 100, bVar.i());
             }

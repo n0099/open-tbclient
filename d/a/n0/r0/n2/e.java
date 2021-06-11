@@ -8,115 +8,114 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 /* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f59143a;
+    public f f62834a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LongSparseArray<Integer> f59144b;
+    public LongSparseArray<Integer> f62835b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.r0.x1.c f59145c;
+    public d.a.n0.r0.x1.c f62836c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f59146d;
+    public d f62837d;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.r0.o2.f f59147e;
+        public final /* synthetic */ d.a.n0.r0.o2.f f62838e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f59148f;
+        public final /* synthetic */ String f62839f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f59149g;
+        public final /* synthetic */ String f62840g;
 
         public a(e eVar, d.a.n0.r0.o2.f fVar, String str, String str2) {
-            this.f59147e = fVar;
-            this.f59148f = str;
-            this.f59149g = str2;
+            this.f62838e = fVar;
+            this.f62839f = str;
+            this.f62840g = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.n0.r0.o2.f fVar = this.f59147e;
+            d.a.n0.r0.o2.f fVar = this.f62838e;
             if (fVar != null) {
-                fVar.q(this.f59148f, this.f59149g);
+                fVar.q(this.f62839f, this.f62840g);
             }
-            TiebaStatic.log(new StatisticItem("c13982").param("fid", this.f59149g).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13982").param("fid", this.f62840g).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
     public e() {
-        this.f59143a = null;
-        this.f59143a = new f();
-        this.f59144b = new LongSparseArray<>();
+        this.f62834a = null;
+        this.f62834a = new f();
+        this.f62835b = new LongSparseArray<>();
     }
 
     public int a(long j) {
         if (j == 0) {
             return 0;
         }
-        Integer num = this.f59144b.get(j);
+        Integer num = this.f62835b.get(j);
         if (num == null) {
-            this.f59144b.put(j, 1);
+            this.f62835b.put(j, 1);
             return 1;
         }
-        this.f59144b.put(j, Integer.valueOf(num.intValue() + 1));
+        this.f62835b.put(j, Integer.valueOf(num.intValue() + 1));
         return num.intValue() + 1;
     }
 
     public void b(long j) {
         if (j != 0) {
-            this.f59144b.remove(j);
+            this.f62835b.remove(j);
         }
     }
 
     public void c(String str, String str2) {
-        this.f59143a.b(str, str2);
+        this.f62834a.b(str, str2);
     }
 
     public void d() {
-        d.a.n0.r0.x1.c cVar = this.f59145c;
+        d.a.n0.r0.x1.c cVar = this.f62836c;
         if (cVar != null) {
             cVar.m();
         }
     }
 
     public f e() {
-        return this.f59143a;
+        return this.f62834a;
     }
 
     public void f(Activity activity, String str, String str2) {
-        if (activity == null || !this.f59146d.c()) {
+        if (activity == null || !this.f62837d.c()) {
             return;
         }
-        if (this.f59145c == null) {
-            this.f59145c = new d.a.n0.r0.x1.c(activity, R.id.frs_guide_delete_forum_tip);
+        if (this.f62836c == null) {
+            this.f62836c = new d.a.n0.r0.x1.c(activity, R.id.frs_guide_delete_forum_tip);
         }
-        this.f59145c.p(str);
-        this.f59145c.q(str2);
-        this.f59145c.r();
+        this.f62836c.p(str);
+        this.f62836c.q(str2);
+        this.f62836c.r();
     }
 
     public boolean g(String str, String str2) {
         f fVar;
-        if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || (fVar = this.f59143a) == null) {
+        if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || (fVar = this.f62834a) == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis() - fVar.f(str, str2);
-        if (currentTimeMillis < VideoCloudSetting.HOUR_MILLISECOND) {
+        if (currentTimeMillis < 3600000) {
             return false;
         }
-        if (this.f59143a.e(str, str2) <= 3 || currentTimeMillis >= 2592000000L) {
-            long c2 = this.f59143a.c(str, str2);
+        if (this.f62834a.e(str, str2) <= 3 || currentTimeMillis >= 2592000000L) {
+            long c2 = this.f62834a.c(str, str2);
             if (c2 == 0 || System.currentTimeMillis() - c2 > 604800000) {
-                return this.f59143a.d(str, str2);
+                return this.f62834a.d(str, str2);
             }
             return true;
         }
@@ -127,19 +126,19 @@ public class e {
         if (activity == null) {
             return;
         }
-        if (this.f59145c == null) {
-            this.f59145c = new d.a.n0.r0.x1.c(activity, R.id.frs_guide_tip);
+        if (this.f62836c == null) {
+            this.f62836c = new d.a.n0.r0.x1.c(activity, R.id.frs_guide_tip);
         }
         if (!StringUtils.isNull(str3)) {
-            this.f59145c.n(str3);
+            this.f62836c.n(str3);
         }
-        this.f59145c.o(new a(this, fVar, str, str2));
-        this.f59145c.s();
+        this.f62836c.o(new a(this, fVar, str, str2));
+        this.f62836c.s();
         TiebaStatic.log(new StatisticItem("c13894").param("fid", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     public e(String str, String str2) {
-        this.f59143a = null;
-        this.f59146d = new d(str, str2);
+        this.f62834a = null;
+        this.f62837d = new d(str, str2);
     }
 }

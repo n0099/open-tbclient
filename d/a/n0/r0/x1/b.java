@@ -13,25 +13,25 @@ import d.a.n0.g0.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f59809a;
+    public Context f63500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f59810b;
+    public BdUniqueId f63501b;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.n0.g0.b f59812d;
+    public d.a.n0.g0.b f63503d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59813e;
+    public boolean f63504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VelocityTracker f59814f;
+    public VelocityTracker f63505f;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59811c = false;
+    public boolean f63502c = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.b f59815g = new a();
+    public a.b f63506g = new a();
 
     /* loaded from: classes4.dex */
     public class a implements a.b {
@@ -66,13 +66,13 @@ public class b {
     }
 
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
-        this.f59809a = context;
-        this.f59810b = bdUniqueId;
-        this.f59813e = z;
+        this.f63500a = context;
+        this.f63501b = bdUniqueId;
+        this.f63504e = z;
         if (z) {
             d.a.n0.g0.b bVar = new d.a.n0.g0.b(context);
-            this.f59812d = bVar;
-            bVar.d(this.f59815g);
+            this.f63503d = bVar;
+            bVar.d(this.f63506g);
         }
     }
 
@@ -84,58 +84,58 @@ public class b {
     */
     public void b(View view, MotionEvent motionEvent) {
         d.a.n0.g0.b bVar;
-        if (this.f59814f == null) {
-            this.f59814f = VelocityTracker.obtain();
+        if (this.f63505f == null) {
+            this.f63505f = VelocityTracker.obtain();
         }
-        this.f59814f.addMovement(motionEvent);
+        this.f63505f.addMovement(motionEvent);
         int action = motionEvent.getAction();
         if (action != 1) {
             if (action == 2) {
-                this.f59814f.computeCurrentVelocity(1000);
-                if (Math.abs(this.f59814f.getXVelocity()) > Math.abs(this.f59814f.getYVelocity())) {
-                    this.f59813e = false;
+                this.f63505f.computeCurrentVelocity(1000);
+                if (Math.abs(this.f63505f.getXVelocity()) > Math.abs(this.f63505f.getYVelocity())) {
+                    this.f63504e = false;
                 } else {
-                    this.f59813e = true;
+                    this.f63504e = true;
                 }
             }
-            if (this.f59813e || (bVar = this.f59812d) == null) {
+            if (this.f63504e || (bVar = this.f63503d) == null) {
             }
             bVar.c(motionEvent);
             return;
         }
         c();
-        if (this.f59813e) {
+        if (this.f63504e) {
         }
     }
 
     public final void c() {
-        VelocityTracker velocityTracker = this.f59814f;
+        VelocityTracker velocityTracker = this.f63505f;
         if (velocityTracker != null) {
             velocityTracker.clear();
-            this.f59814f.recycle();
-            this.f59814f = null;
+            this.f63505f.recycle();
+            this.f63505f = null;
         }
     }
 
     public final void d(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(2001617);
-            customMessage.setTag(this.f59810b);
+            customMessage.setTag(this.f63501b);
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             return;
         }
         CustomMessage customMessage2 = new CustomMessage(2001618);
-        customMessage2.setTag(this.f59810b);
+        customMessage2.setTag(this.f63501b);
         CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
         customResponsedMessage2.setOrginalMessage(customMessage2);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
     }
 
     public final void e(boolean z) {
-        this.f59811c = z;
-        if (this.f59813e) {
+        this.f63502c = z;
+        if (this.f63504e) {
             d(!z, true);
         }
     }

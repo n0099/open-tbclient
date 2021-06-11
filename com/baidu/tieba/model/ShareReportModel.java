@@ -9,11 +9,11 @@ import com.baidu.tieba.model.message.ShareReportNetMessage;
 import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
 import d.a.c.e.m.b;
 import d.a.n0.e3.d0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShareReportModel extends BdBaseModel {
     public ShareReportModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        s();
+        w();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -26,12 +26,12 @@ public class ShareReportModel extends BdBaseModel {
         return false;
     }
 
-    public final void s() {
+    public final void w() {
         a.h(309480, ShareReportSocketResponseMessage.class, false, false);
         a.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void t(String str, String str2, int i2) {
+    public void x(String str, String str2, int i2) {
         ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
         shareReportNetMessage.setFid(b.f(str, 0L));
         shareReportNetMessage.setTid(b.f(str2, 0L));

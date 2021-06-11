@@ -7,7 +7,7 @@ import d.a.l0.a.k;
 public abstract class d extends ProviderDelegation {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43274a = k.f43199a;
+    public static final boolean f46950a = k.f46875a;
 
     public abstract Bundle a(c cVar);
 

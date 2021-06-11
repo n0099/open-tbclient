@@ -16,29 +16,29 @@ import java.util.Map;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f39176b;
+    public static a f42829b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<String, PluginStatus> f39177a = new LinkedHashMap<>(10);
+    public final LinkedHashMap<String, PluginStatus> f42830a = new LinkedHashMap<>(10);
 
     public static a b() {
-        if (f39176b == null) {
+        if (f42829b == null) {
             synchronized (a.class) {
-                if (f39176b == null) {
-                    f39176b = new a();
+                if (f42829b == null) {
+                    f42829b = new a();
                 }
             }
         }
-        return f39176b;
+        return f42829b;
     }
 
     public List<PluginStatus> a() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.f39177a) {
-            arrayList = new ArrayList(this.f39177a.size());
-            for (Map.Entry<String, PluginStatus> entry : this.f39177a.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.f2240g == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.f42830a) {
+            arrayList = new ArrayList(this.f42830a.size());
+            for (Map.Entry<String, PluginStatus> entry : this.f42830a.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.f2253g == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -51,12 +51,12 @@ public class a {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f39177a) {
-            pluginStatus = this.f39177a.get(str);
+        synchronized (this.f42830a) {
+            pluginStatus = this.f42830a.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
-                pluginStatus.f2238e = str;
-                this.f39177a.put(str, pluginStatus);
+                pluginStatus.f2251e = str;
+                this.f42830a.put(str, pluginStatus);
             }
         }
         return pluginStatus;
@@ -112,10 +112,10 @@ public class a {
             if (c2 == null) {
                 c2 = new PluginStatus();
             }
-            c2.f2240g = PluginPackageManager.PluginStatus.ERROR;
-            c2.f2242i = string;
+            c2.f2253g = PluginPackageManager.PluginStatus.ERROR;
+            c2.f2255i = string;
             c2.j = string2;
-            c2.f2241h = i2;
+            c2.f2254h = i2;
             c2.k = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
         }
@@ -123,10 +123,10 @@ public class a {
         c2 = c(str);
         if (c2 == null) {
         }
-        c2.f2240g = PluginPackageManager.PluginStatus.ERROR;
-        c2.f2242i = string;
+        c2.f2253g = PluginPackageManager.PluginStatus.ERROR;
+        c2.f2255i = string;
         c2.j = string2;
-        c2.f2241h = i2;
+        c2.f2254h = i2;
         c2.k = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
     }
@@ -134,7 +134,7 @@ public class a {
     public void e(String str) {
         PluginStatus c2 = b().c(str);
         if (c2 != null) {
-            c2.f2240g = PluginPackageManager.PluginStatus.NROMAL;
+            c2.f2253g = PluginPackageManager.PluginStatus.NROMAL;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, c2));
     }
@@ -144,9 +144,9 @@ public class a {
         if (c2 == null) {
             c2 = new PluginStatus();
         }
-        c2.f2240g = PluginPackageManager.PluginStatus.ERROR;
-        c2.f2241h = 100;
-        c2.f2242i = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        c2.f2253g = PluginPackageManager.PluginStatus.ERROR;
+        c2.f2254h = 100;
+        c2.f2255i = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
         c2.j = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, c2));
     }

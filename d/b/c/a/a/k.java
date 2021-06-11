@@ -12,42 +12,42 @@ import java.util.logging.Logger;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Logger f65176a = Logger.getLogger(k.class.getName());
+    public static final Logger f68907a = Logger.getLogger(k.class.getName());
 
     /* loaded from: classes6.dex */
     public static class a implements p {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f65177e;
+        public final /* synthetic */ r f68908e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ OutputStream f65178f;
+        public final /* synthetic */ OutputStream f68909f;
 
         public a(r rVar, OutputStream outputStream) {
-            this.f65177e = rVar;
-            this.f65178f = outputStream;
+            this.f68908e = rVar;
+            this.f68909f = outputStream;
         }
 
         @Override // d.b.c.a.a.p
         public r a() {
-            return this.f65177e;
+            return this.f68908e;
         }
 
         @Override // d.b.c.a.a.p
         public void b(d.b.c.a.a.c cVar, long j) throws IOException {
-            s.c(cVar.f65162f, 0L, j);
+            s.c(cVar.f68893f, 0L, j);
             while (j > 0) {
-                this.f65177e.h();
-                n nVar = cVar.f65161e;
-                int min = (int) Math.min(j, nVar.f65190c - nVar.f65189b);
-                this.f65178f.write(nVar.f65188a, nVar.f65189b, min);
-                int i2 = nVar.f65189b + min;
-                nVar.f65189b = i2;
+                this.f68908e.h();
+                n nVar = cVar.f68892e;
+                int min = (int) Math.min(j, nVar.f68921c - nVar.f68920b);
+                this.f68909f.write(nVar.f68919a, nVar.f68920b, min);
+                int i2 = nVar.f68920b + min;
+                nVar.f68920b = i2;
                 long j2 = min;
                 j -= j2;
-                cVar.f65162f -= j2;
-                if (i2 == nVar.f65190c) {
-                    cVar.f65161e = nVar.e();
+                cVar.f68893f -= j2;
+                if (i2 == nVar.f68921c) {
+                    cVar.f68892e = nVar.e();
                     o.b(nVar);
                 }
             }
@@ -55,16 +55,16 @@ public final class k {
 
         @Override // d.b.c.a.a.p, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            this.f65178f.close();
+            this.f68909f.close();
         }
 
         @Override // d.b.c.a.a.p, java.io.Flushable
         public void flush() throws IOException {
-            this.f65178f.flush();
+            this.f68909f.flush();
         }
 
         public String toString() {
-            return "sink(" + this.f65178f + SmallTailInfo.EMOTION_SUFFIX;
+            return "sink(" + this.f68909f + SmallTailInfo.EMOTION_SUFFIX;
         }
     }
 
@@ -82,14 +82,14 @@ public final class k {
                 this.k.close();
             } catch (AssertionError e2) {
                 if (k.g(e2)) {
-                    Logger logger = k.f65176a;
+                    Logger logger = k.f68907a;
                     Level level = Level.WARNING;
                     logger.log(level, "Failed to close timed out socket " + this.k, (Throwable) e2);
                     return;
                 }
                 throw e2;
             } catch (Exception e3) {
-                Logger logger2 = k.f65176a;
+                Logger logger2 = k.f68907a;
                 Level level2 = Level.WARNING;
                 logger2.log(level2, "Failed to close timed out socket " + this.k, (Throwable) e3);
             }
@@ -171,14 +171,14 @@ public final class k {
     public static class b implements q {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f65179e;
+        public final /* synthetic */ r f68910e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ InputStream f65180f;
+        public final /* synthetic */ InputStream f68911f;
 
         public b(r rVar, InputStream inputStream) {
-            this.f65179e = rVar;
-            this.f65180f = inputStream;
+            this.f68910e = rVar;
+            this.f68911f = inputStream;
         }
 
         @Override // d.b.c.a.a.q
@@ -190,15 +190,15 @@ public final class k {
                 return 0L;
             } else {
                 try {
-                    this.f65179e.h();
+                    this.f68910e.h();
                     n D = cVar.D(1);
-                    int read = this.f65180f.read(D.f65188a, D.f65190c, (int) Math.min(j, 8192 - D.f65190c));
+                    int read = this.f68911f.read(D.f68919a, D.f68921c, (int) Math.min(j, 8192 - D.f68921c));
                     if (read == -1) {
                         return -1L;
                     }
-                    D.f65190c += read;
+                    D.f68921c += read;
                     long j2 = read;
-                    cVar.f65162f += j2;
+                    cVar.f68893f += j2;
                     return j2;
                 } catch (AssertionError e2) {
                     if (k.g(e2)) {
@@ -211,16 +211,16 @@ public final class k {
 
         @Override // d.b.c.a.a.q, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            this.f65180f.close();
+            this.f68911f.close();
         }
 
         public String toString() {
-            return "source(" + this.f65180f + SmallTailInfo.EMOTION_SUFFIX;
+            return "source(" + this.f68911f + SmallTailInfo.EMOTION_SUFFIX;
         }
 
         @Override // d.b.c.a.a.q
         public r a() {
-            return this.f65179e;
+            return this.f68910e;
         }
     }
 }

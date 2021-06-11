@@ -1,29 +1,24 @@
 package com.kwad.sdk.core.c.a;
 
-import com.kwad.sdk.live.mode.LiveInfo;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w implements com.kwad.sdk.core.c<LiveInfo.CoverThumbnailUrl> {
+public class w implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(LiveInfo.CoverThumbnailUrl coverThumbnailUrl, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        coverThumbnailUrl.cdn = jSONObject.optString("cdn");
-        coverThumbnailUrl.url = jSONObject.optString("url");
-        coverThumbnailUrl.urlPattern = jSONObject.optString("urlPattern");
+    public JSONObject a(com.kwad.sdk.core.g.a.g gVar) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Version", gVar.f34280a);
+        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Url", gVar.f34281b);
+        return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject b(LiveInfo.CoverThumbnailUrl coverThumbnailUrl, JSONObject jSONObject) {
+    public void a(com.kwad.sdk.core.g.a.g gVar, JSONObject jSONObject) {
         if (jSONObject == null) {
-            jSONObject = new JSONObject();
+            return;
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "cdn", coverThumbnailUrl.cdn);
-        com.kwad.sdk.utils.o.a(jSONObject, "url", coverThumbnailUrl.url);
-        com.kwad.sdk.utils.o.a(jSONObject, "urlPattern", coverThumbnailUrl.urlPattern);
-        return jSONObject;
+        gVar.f34280a = jSONObject.optString("feedAdH5Version");
+        gVar.f34281b = jSONObject.optString("feedAdH5Url");
     }
 }

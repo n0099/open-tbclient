@@ -6,6 +6,7 @@ import android.security.KeyPairGeneratorSpec;
 import android.security.keystore.KeyGenParameterSpec;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.math.BigInteger;
 import java.security.KeyPairGenerator;
 import java.security.KeyStore;
@@ -45,7 +46,7 @@ public class b {
                     }
                     byte[] a2 = a();
                     PublicKey publicKey = keyStore.getCertificate("CMCC_SDK").getPublicKey();
-                    Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                    Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
                     cipher.init(1, publicKey);
                     a(Base64.encodeToString(cipher.doFinal(a2), 0));
                     bArr = a2;
@@ -57,7 +58,7 @@ public class b {
                         if (privateKey == null) {
                             return null;
                         }
-                        Cipher cipher2 = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                        Cipher cipher2 = Cipher.getInstance(RsaCipher.RSA_PADDING);
                         cipher2.init(2, privateKey);
                         bArr = cipher2.doFinal(decode);
                     }

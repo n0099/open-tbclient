@@ -16,7 +16,7 @@ public final class er {
     public static final String f331a = XMJobService.class.getCanonicalName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37533a = 0;
+    public static int f41212a = 0;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -25,7 +25,7 @@ public final class er {
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m284a();
+        boolean m283a();
     }
 
     public static synchronized void a() {
@@ -79,7 +79,7 @@ public final class er {
                         } catch (Exception e2) {
                             e = e2;
                             i2 = i3;
-                            com.xiaomi.channel.commonutils.logger.b.m57a("check service err : " + e.getMessage());
+                            com.xiaomi.channel.commonutils.logger.b.m56a("check service err : " + e.getMessage());
                             if (i2 != 0) {
                             }
                             int i4 = Build.VERSION.SDK_INT;
@@ -92,7 +92,7 @@ public final class er {
             } catch (Exception e3) {
                 e = e3;
             }
-            if (i2 != 0 && t.m627a(applicationContext)) {
+            if (i2 != 0 && t.m626a(applicationContext)) {
                 throw new RuntimeException("Should export service: " + f331a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
             }
             int i42 = Build.VERSION.SDK_INT;
@@ -103,15 +103,15 @@ public final class er {
 
     public static synchronized void a(Context context, int i2) {
         synchronized (er.class) {
-            int i3 = f37533a;
+            int i3 = f41212a;
             if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                 if (i2 == 2) {
-                    f37533a = 2;
+                    f41212a = 2;
                 } else {
-                    f37533a = 0;
+                    f41212a = 0;
                 }
             }
-            if (i3 != f37533a && f37533a == 2) {
+            if (i3 != f41212a && f41212a == 2) {
                 a();
                 f330a = new eu(context);
             }
@@ -121,7 +121,7 @@ public final class er {
     public static synchronized void a(boolean z) {
         synchronized (er.class) {
             if (f330a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m57a("timer is not initialized");
+                com.xiaomi.channel.commonutils.logger.b.m56a("timer is not initialized");
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
@@ -130,12 +130,12 @@ public final class er {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m283a() {
+    public static synchronized boolean m282a() {
         synchronized (er.class) {
             if (f330a == null) {
                 return false;
             }
-            return f330a.m284a();
+            return f330a.m283a();
         }
     }
 }

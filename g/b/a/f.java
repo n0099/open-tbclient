@@ -1,5 +1,5 @@
 package g.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static void a(int[] iArr, int i2, int i3, int[] iArr2, int i4) {
         int[] iArr3 = new int[i4];

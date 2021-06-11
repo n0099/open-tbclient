@@ -3,15 +3,15 @@ package com.xiaomi.mipush.sdk;
 public class ab implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ NotificationClickedActivity f37223a;
+    public final /* synthetic */ NotificationClickedActivity f40902a;
 
     public ab(NotificationClickedActivity notificationClickedActivity) {
-        this.f37223a = notificationClickedActivity;
+        this.f40902a = notificationClickedActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.xiaomi.channel.commonutils.logger.b.m57a("clicked activity finish by timeout.");
-        this.f37223a.finish();
+        com.xiaomi.channel.commonutils.logger.b.m56a("clicked activity finish by timeout.");
+        this.f40902a.finish();
     }
 }

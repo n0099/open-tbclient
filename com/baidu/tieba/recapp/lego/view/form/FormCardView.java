@@ -57,13 +57,13 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class b extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((b) aVar, str, i2);
             if (aVar != null) {
                 try {
@@ -74,7 +74,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                             return;
                         }
                         int i3 = (FormCardView.this.D * height) / width;
-                        int i4 = FormCardView.this.A.backgroundInfo.f20146c;
+                        int i4 = FormCardView.this.A.backgroundInfo.f20223c;
                         if (i4 == 1) {
                             FormCardView.this.v.getLayoutParams().width = FormCardView.this.D;
                             FormCardView.this.v.getLayoutParams().height = i3;
@@ -82,7 +82,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                             FormCardView.this.v.getLayoutParams().width = FormCardView.this.D;
                             FormCardView.this.v.getLayoutParams().height = FormCardView.this.E;
                         }
-                        int b2 = d.a.n0.k1.o.k.b.b(FormCardView.this.A.backgroundInfo.f20145b);
+                        int b2 = d.a.n0.k1.o.k.b.b(FormCardView.this.A.backgroundInfo.f20222b);
                         if (!d.a.n0.k1.o.k.b.a(b2)) {
                             FormCardView.this.y.setBackgroundColor(b2);
                         }
@@ -112,11 +112,11 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         public void c(Object obj) {
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                if (fVar.f49214a) {
+                if (fVar.f52888a) {
                     FormCardView.this.A.setCommitState(true);
                     FormCardView.this.h0();
-                } else if (!TextUtils.isEmpty(fVar.f49216c)) {
-                    new d.a.m0.r.f0.c().b(fVar.f49216c);
+                } else if (!TextUtils.isEmpty(fVar.f52890c)) {
+                    new d.a.m0.r.f0.c().b(fVar.f52890c);
                     FormCardView.this.A.setCommitState(false);
                 } else {
                     new d.a.m0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_fail_string);
@@ -171,30 +171,30 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         this.y.setBackgroundResource(R.drawable.form_defalut_bg_image);
         if (this.A.backgroundInfo != null) {
             this.v.setVisibility(0);
-            if (!TextUtils.isEmpty(this.A.backgroundInfo.f20144a)) {
-                d.a.c.e.l.d.h().m(this.A.backgroundInfo.f20144a, 10, new b(), this.F.getUniqueId());
+            if (!TextUtils.isEmpty(this.A.backgroundInfo.f20221a)) {
+                d.a.c.e.l.d.h().m(this.A.backgroundInfo.f20221a, 10, new b(), this.F.getUniqueId());
                 return;
             }
         }
         this.v.setVisibility(8);
     }
 
-    public final void V() {
+    public final void U() {
         FormCard.f fVar = this.A.resultInfo;
         float dimension = this.m.getResources().getDimension(R.dimen.fontsize48);
         float dimension2 = this.m.getResources().getDimension(R.dimen.fontsize28);
         int color = this.m.getResources().getColor(R.color.form_font_color);
         if (fVar != null) {
-            this.w.setText(fVar.f20155a);
+            this.w.setText(fVar.f20232a);
             this.w.setTextColor(-1);
             this.w.setTextSize(0, dimension);
-            this.x.setText(fVar.f20156b);
+            this.x.setText(fVar.f20233b);
             this.x.setTextColor(color);
             this.x.setTextSize(0, dimension2);
         }
     }
 
-    public final void W() {
+    public final void V() {
         List<FormCard.b> list = this.A.itemList;
         if (list == null || list.size() <= 0) {
             return;
@@ -203,7 +203,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         for (int i2 = 0; i2 < size; i2++) {
             FormCard.b bVar = this.A.itemList.get(i2);
             if (bVar != null) {
-                switch (bVar.f20147a) {
+                switch (bVar.f20224a) {
                     case 1:
                         X(bVar, new TitleView(this.z), i2, size);
                         continue;
@@ -229,7 +229,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         formItemBaseView.f(this.G);
         formItemBaseView.g(bVar);
         g0(formItemBaseView, i2, i3);
-        d0(formItemBaseView);
+        c0(formItemBaseView);
         this.u.addView(formItemBaseView);
     }
 
@@ -296,10 +296,10 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         if (formCard == null || !formCard.mIsLegal || this.A == formCard) {
             return;
         }
-        e0();
+        d0();
         this.A = formCard;
         this.C = formCard.getItemId();
-        f0(formCard.mWidth, formCard.mHeight);
+        e0(formCard.mWidth, formCard.mHeight);
         this.r.f(this.G);
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.r.getLayoutParams();
         if (marginLayoutParams != null) {
@@ -314,28 +314,28 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         this.s.g(formCard.commitInfo);
         d.a.n0.t2.a0.b.a().b(new d.a.n0.t2.a0.a(this.s.getPostUrl()));
         T();
-        W();
         V();
-        d0(this.r);
-        d0(this.s);
+        U();
+        c0(this.r);
+        c0(this.s);
         if (formCard.isCommitSuccess()) {
             h0();
         }
         if (formCard.mHasShown) {
             return;
         }
-        x.p().m().d(formCard.getShowExtra(), this.f17906e);
+        x.p().m().d(formCard.getShowExtra(), this.f17982e);
         formCard.mHasShown = true;
     }
 
-    public void d0(d dVar) {
+    public void c0(d dVar) {
         if (this.B == null) {
             this.B = new ArrayList();
         }
         d.a.n0.k1.o.k.a.a(this.B, dVar);
     }
 
-    public final void e0() {
+    public final void d0() {
         this.u.removeAllViews();
         List<d> list = this.B;
         if (list != null) {
@@ -350,7 +350,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         this.v.setImageBitmap(null);
     }
 
-    public final void f0(int i2, int i3) {
+    public final void e0(int i2, int i3) {
         this.E = (this.D * i3) / i2;
         this.y.getLayoutParams().height = this.E;
         ViewGroup.LayoutParams layoutParams = this.y.getLayoutParams();

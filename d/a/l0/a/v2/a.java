@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45352a = d.a.l0.a.k.f43199a;
+    public static final boolean f49026a = d.a.l0.a.k.f46875a;
 
     public static JSONObject a(String str, String str2, String str3) throws JSONException {
         JSONObject jSONObject = new JSONObject();
@@ -29,7 +29,7 @@ public class a {
             jSONObject.put("type", CommonTbJsBridge.GET_APIS);
             jSONObject.put("from", "swan");
         } catch (JSONException e2) {
-            if (f45352a) {
+            if (f49026a) {
                 e2.printStackTrace();
             }
         }
@@ -41,7 +41,7 @@ public class a {
         try {
             str2 = d.a.l0.a.h0.u.g.N().V().swanCoreVersionName;
         } catch (Exception e2) {
-            if (f45352a) {
+            if (f49026a) {
                 e2.printStackTrace();
             }
             str2 = "";
@@ -57,7 +57,7 @@ public class a {
         try {
             str = d.a.l0.a.h0.u.g.N().V().swanCoreVersionName;
         } catch (Exception e2) {
-            if (f45352a) {
+            if (f49026a) {
                 e2.printStackTrace();
             }
             str = "";

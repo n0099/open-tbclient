@@ -21,31 +21,31 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class LivenessVideoXfordView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f6076a = 230.0f;
+    public static final float f6119a = 230.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f6077b = 20.0f;
+    public static final float f6120b = 20.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f6078c;
+    public float f6121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f6079d;
+    public float f6122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6080e;
+    public int f6123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f6081f;
+    public Paint f6124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f6082g;
+    public Paint f6125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f6083h;
+    public Paint f6126h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f6084i;
+    public Paint f6127i;
     public Paint j;
     public Xfermode k;
     public RectF l;
@@ -75,8 +75,8 @@ public class LivenessVideoXfordView extends FrameLayout {
 
     public LivenessVideoXfordView(@NonNull Context context) {
         super(context);
-        this.f6078c = 230.0f;
-        this.f6079d = 20.0f;
+        this.f6121c = 230.0f;
+        this.f6122d = 20.0f;
         a();
     }
 
@@ -99,26 +99,26 @@ public class LivenessVideoXfordView extends FrameLayout {
             return;
         }
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6081f);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6124f);
         RectF rectF2 = this.l;
-        canvas.drawCircle(getWidth() / 2, rectF2.top + (rectF2.height() / 2.0f), this.o, this.f6082g);
+        canvas.drawCircle(getWidth() / 2, rectF2.top + (rectF2.height() / 2.0f), this.o, this.f6125g);
         canvas.restoreToCount(saveLayer);
         VideoXfordViewState videoXfordViewState = this.n;
         if (videoXfordViewState == VideoXfordViewState.FAILURE) {
             if (this.p >= 0) {
-                this.f6084i.setAlpha(255);
+                this.f6127i.setAlpha(255);
                 RectF rectF3 = this.l;
-                canvas.drawCircle(getWidth() / 2, rectF3.top + (rectF3.height() / 2.0f), this.m.width() / 2.0f, this.f6084i);
+                canvas.drawCircle(getWidth() / 2, rectF3.top + (rectF3.height() / 2.0f), this.m.width() / 2.0f, this.f6127i);
                 this.j.setAlpha(220 - (this.p * 11));
                 RectF rectF4 = this.l;
                 canvas.drawCircle(getWidth() / 2, rectF4.top + (rectF4.height() / 2.0f), (this.m.width() / 2.0f) + ((int) ((getHeight() - this.l.width()) * this.p * 0.025d)), this.j);
             }
         } else if (videoXfordViewState == VideoXfordViewState.SUCCESSING) {
-            canvas.drawArc(this.m, this.f6078c, this.f6079d, false, this.f6083h);
-            canvas.drawArc(this.m, (this.f6078c + 180.0f) % 360.0f, this.f6079d, false, this.f6083h);
+            canvas.drawArc(this.m, this.f6121c, this.f6122d, false, this.f6126h);
+            canvas.drawArc(this.m, (this.f6121c + 180.0f) % 360.0f, this.f6122d, false, this.f6126h);
         } else if (videoXfordViewState == VideoXfordViewState.SUCCESSED) {
             RectF rectF5 = this.l;
-            canvas.drawCircle(getWidth() / 2, rectF5.top + (rectF5.height() / 2.0f), this.m.width() / 2.0f, this.f6083h);
+            canvas.drawCircle(getWidth() / 2, rectF5.top + (rectF5.height() / 2.0f), this.m.width() / 2.0f, this.f6126h);
         }
     }
 
@@ -141,7 +141,7 @@ public class LivenessVideoXfordView extends FrameLayout {
         }
         this.l = new RectF(rect);
         int i2 = rect.left;
-        int i3 = this.f6080e;
+        int i3 = this.f6123e;
         this.m = new RectF(i2 - i3, rect.top - i3, rect.right + i3, rect.bottom + i3);
         this.o = rect.width() / 2;
         invalidate();
@@ -158,8 +158,8 @@ public class LivenessVideoXfordView extends FrameLayout {
             b();
         } else if (videoXfordViewState == VideoXfordViewState.SUCCESSING) {
             this.w = aVar;
-            this.f6078c = 20.0f;
-            this.f6079d = 20.0f;
+            this.f6121c = 20.0f;
+            this.f6122d = 20.0f;
             this.q.removeCallbacksAndMessages(null);
             c();
         } else if (videoXfordViewState == VideoXfordViewState.SUCCESSED) {
@@ -178,29 +178,29 @@ public class LivenessVideoXfordView extends FrameLayout {
     }
 
     private void a() {
-        this.f6080e = getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_xfordview_circle_gap);
+        this.f6123e = getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_xfordview_circle_gap);
         Paint paint = new Paint();
-        this.f6081f = paint;
+        this.f6124f = paint;
         paint.setColor(Color.rgb(255, 255, 255));
-        this.f6081f.setStyle(Paint.Style.FILL);
-        this.f6081f.setAntiAlias(true);
+        this.f6124f.setStyle(Paint.Style.FILL);
+        this.f6124f.setAntiAlias(true);
         Paint paint2 = new Paint();
-        this.f6082g = paint2;
+        this.f6125g = paint2;
         paint2.setColor(Color.argb(0, 0, 0, 0));
-        this.f6082g.setStyle(Paint.Style.FILL);
-        this.f6082g.setAntiAlias(true);
+        this.f6125g.setStyle(Paint.Style.FILL);
+        this.f6125g.setAntiAlias(true);
         Paint paint3 = new Paint();
-        this.f6083h = paint3;
+        this.f6126h = paint3;
         paint3.setColor(Color.rgb(103, 155, (int) GDiffPatcher.COPY_INT_UBYTE));
-        this.f6083h.setStyle(Paint.Style.STROKE);
-        this.f6083h.setStrokeWidth(12.0f);
-        this.f6083h.setAntiAlias(true);
+        this.f6126h.setStyle(Paint.Style.STROKE);
+        this.f6126h.setStrokeWidth(12.0f);
+        this.f6126h.setAntiAlias(true);
         Paint paint4 = new Paint();
-        this.f6084i = paint4;
+        this.f6127i = paint4;
         paint4.setColor(Color.rgb((int) GDiffPatcher.COPY_USHORT_INT, 90, 92));
-        this.f6084i.setStyle(Paint.Style.STROKE);
-        this.f6084i.setStrokeWidth(12.0f);
-        this.f6084i.setAntiAlias(true);
+        this.f6127i.setStyle(Paint.Style.STROKE);
+        this.f6127i.setStrokeWidth(12.0f);
+        this.f6127i.setAntiAlias(true);
         Paint paint5 = new Paint();
         this.j = paint5;
         paint5.setColor(Color.rgb((int) GDiffPatcher.COPY_USHORT_INT, 90, 92));
@@ -209,7 +209,7 @@ public class LivenessVideoXfordView extends FrameLayout {
         this.j.setAntiAlias(true);
         PorterDuffXfermode porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         this.k = porterDuffXfermode;
-        this.f6082g.setXfermode(porterDuffXfermode);
+        this.f6125g.setXfermode(porterDuffXfermode);
         this.q = new Handler(Looper.getMainLooper());
         this.r = new Runnable() { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoXfordView.1
             @Override // java.lang.Runnable
@@ -244,8 +244,8 @@ public class LivenessVideoXfordView extends FrameLayout {
                     return;
                 }
                 LivenessVideoXfordView.this.v += 2;
-                LivenessVideoXfordView.this.f6079d = livenessVideoXfordView.v + 20.0f;
-                LivenessVideoXfordView.this.f6078c = ((livenessVideoXfordView2.v * 1) + 230.0f) % 360.0f;
+                LivenessVideoXfordView.this.f6122d = livenessVideoXfordView.v + 20.0f;
+                LivenessVideoXfordView.this.f6121c = ((livenessVideoXfordView2.v * 1) + 230.0f) % 360.0f;
                 LivenessVideoXfordView.this.invalidate();
                 LivenessVideoXfordView.this.t.postDelayed(LivenessVideoXfordView.this.u, 3L);
             }
@@ -260,8 +260,8 @@ public class LivenessVideoXfordView extends FrameLayout {
 
     public LivenessVideoXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f6078c = 230.0f;
-        this.f6079d = 20.0f;
+        this.f6121c = 230.0f;
+        this.f6122d = 20.0f;
         a();
     }
 }

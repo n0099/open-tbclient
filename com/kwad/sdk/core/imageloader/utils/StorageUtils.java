@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.imageloader.utils;
 
 import android.content.Context;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ad;
 import java.io.File;
 /* loaded from: classes6.dex */
 public final class StorageUtils {
@@ -13,7 +13,7 @@ public final class StorageUtils {
     }
 
     public static File getIndividualCacheDirectory(Context context, String str) {
-        File b2 = ae.b(context);
+        File b2 = ad.b(context);
         File file = new File(b2, str);
         return (file.exists() || file.mkdir()) ? file : b2;
     }

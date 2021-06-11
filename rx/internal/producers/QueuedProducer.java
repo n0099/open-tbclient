@@ -10,7 +10,7 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;

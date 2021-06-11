@@ -6,22 +6,22 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 public class a extends DiskFileOperate {
 
     /* renamed from: a  reason: collision with root package name */
-    public NSGif f38435a;
+    public NSGif f42088a;
 
     public a(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.f38435a = null;
+        this.f42088a = null;
     }
 
     public NSGif a() {
-        return this.f38435a;
+        return this.f42088a;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean formatData(byte[] bArr) {
-        if (bArr != null && NSGif.f2139f) {
+        if (bArr != null && NSGif.f2152f) {
             NSGif f2 = NSGif.f(bArr, 0, bArr.length);
-            this.f38435a = f2;
+            this.f42088a = f2;
             if (f2 != null) {
                 return true;
             }

@@ -1,7 +1,6 @@
 package com.baidu.sofire.g;
 
 import android.text.TextUtils;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.security.MessageDigest;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f10246a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
+    public static final String[] f10308a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
     public static String a(String str) {
         String str2 = null;
@@ -48,7 +47,7 @@ public final class n {
             if (i2 < 0) {
                 i2 += 256;
             }
-            stringBuffer.append(f10246a[i2 / 16] + f10246a[i2 % 16]);
+            stringBuffer.append(f10308a[i2 / 16] + f10308a[i2 % 16]);
         }
         return stringBuffer.toString();
     }

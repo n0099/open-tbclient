@@ -13,10 +13,10 @@ import com.baidu.tbadk.widget.TbImageView;
 public class c extends d.a.n0.v.d.f.f.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f61763f;
+    public ViewGroup f65478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f61764g;
+    public TbImageView f65479g;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -25,13 +25,13 @@ public class c extends d.a.n0.v.d.f.f.a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(c.this.f61759d.f61712b)) {
+            if (TextUtils.isEmpty(c.this.f65474d.f65426b)) {
                 return;
             }
             UrlManager urlManager = UrlManager.getInstance();
             c cVar = c.this;
-            urlManager.dealOneLink(cVar.f61758c, new String[]{cVar.f61759d.f61712b}, true);
-            d.a.n0.v.d.d.a.c().f("c12909", c.this.f61759d.f61715e, 3, "-1");
+            urlManager.dealOneLink(cVar.f65473c, new String[]{cVar.f65474d.f65426b}, true);
+            d.a.n0.v.d.d.a.c().f("c12909", c.this.f65474d.f65429e, 3, "-1", null);
         }
     }
 
@@ -43,32 +43,32 @@ public class c extends d.a.n0.v.d.f.f.a {
     @Override // d.a.n0.v.d.f.f.a
     public void b(d.a.n0.v.d.f.c.a aVar) {
         super.b(aVar);
-        this.f61764g.V(aVar.f61711a, 10, false);
-        d.a.n0.v.d.d.a.c().f("c12908", this.f61759d.f61715e, 3, "-1");
+        this.f65479g.U(aVar.f65425a, 10, false);
+        d.a.n0.v.d.d.a.c().f("c12908", this.f65474d.f65429e, 3, "-1", null);
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public View c() {
-        return this.f61763f;
+        return this.f65478f;
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public void d() {
-        this.f61763f = new FrameLayout(this.f61758c.getPageActivity());
-        this.f61764g = new TbImageView(this.f61758c.getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f61756a, this.f61757b);
-        this.f61764g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f61764g.setLayoutParams(layoutParams);
-        this.f61763f.addView(this.f61764g);
-        this.f61760e.setVisibility(8);
-        this.f61763f.addView(this.f61760e);
-        this.f61764g.setOnClickListener(new a());
+        this.f65478f = new FrameLayout(this.f65473c.getPageActivity());
+        this.f65479g = new TbImageView(this.f65473c.getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f65471a, this.f65472b);
+        this.f65479g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f65479g.setLayoutParams(layoutParams);
+        this.f65478f.addView(this.f65479g);
+        this.f65475e.setVisibility(8);
+        this.f65478f.addView(this.f65475e);
+        this.f65479g.setOnClickListener(new a());
         i(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public boolean f(d.a.n0.v.d.f.c.a aVar) {
-        return (aVar == null || 3 != aVar.f61714d || TextUtils.isEmpty(aVar.f61711a)) ? false : true;
+        return (aVar == null || 3 != aVar.f65428d || TextUtils.isEmpty(aVar.f65425a)) ? false : true;
     }
 
     @Override // d.a.n0.v.d.f.f.a
@@ -78,27 +78,27 @@ public class c extends d.a.n0.v.d.f.f.a {
     @Override // d.a.n0.v.d.f.f.a
     public void h() {
         super.h();
-        TbImageView tbImageView = this.f61764g;
+        TbImageView tbImageView = this.f65479g;
         if (tbImageView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
-            layoutParams.width = this.f61756a;
-            layoutParams.height = this.f61757b;
-            this.f61764g.setLayoutParams(layoutParams);
+            layoutParams.width = this.f65471a;
+            layoutParams.height = this.f65472b;
+            this.f65479g.setLayoutParams(layoutParams);
         }
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public void i(int i2) {
         if (1 == i2) {
-            this.f61760e.setVisibility(0);
+            this.f65475e.setVisibility(0);
         } else {
-            this.f61760e.setVisibility(8);
+            this.f65475e.setVisibility(8);
         }
     }
 
     @Override // d.a.n0.v.d.f.f.a
     public void j() {
-        this.f61764g = null;
+        this.f65479g = null;
     }
 
     @Override // d.a.n0.v.d.f.f.a

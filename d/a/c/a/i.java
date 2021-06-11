@@ -1,7 +1,7 @@
 package d.a.c.a;
 
 import com.baidu.adp.BdUniqueId;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 /* loaded from: classes.dex */
 public interface i {
     BdUniqueId getUniqueId();

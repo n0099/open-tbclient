@@ -1,55 +1,21 @@
 package com.kwad.sdk.utils;
 
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import androidx.annotation.MainThread;
-/* loaded from: classes6.dex */
-public class aq {
-    @MainThread
-    public static WebSettings a(WebView webView) {
-        if (webView == null) {
-            return null;
-        }
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setSavePassword(false);
-        settings.setAllowFileAccessFromFileURLs(false);
-        settings.setAllowUniversalAccessFromFileURLs(false);
-        settings.setAllowFileAccess(false);
-        if (Build.VERSION.SDK_INT >= 21) {
-            settings.setMixedContentMode(0);
-        }
-        if (Build.VERSION.SDK_INT < 19) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
-        }
-        webView.setSaveEnabled(false);
-        return settings;
+import java.lang.ref.WeakReference;
+/* loaded from: classes7.dex */
+public class aq implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    public WeakReference<Runnable> f37515a;
+
+    public aq(Runnable runnable) {
+        this.f37515a = new WeakReference<>(runnable);
     }
 
-    @MainThread
-    public static void b(WebView webView) {
-        if (webView == null) {
-            return;
+    @Override // java.lang.Runnable
+    public void run() {
+        Runnable runnable = this.f37515a.get();
+        if (runnable != null) {
+            runnable.run();
         }
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setSavePassword(false);
-        settings.setAllowFileAccess(true);
-        settings.setAllowContentAccess(false);
-        settings.setAllowFileAccessFromFileURLs(false);
-        settings.setAllowUniversalAccessFromFileURLs(false);
-        settings.setCacheMode(1);
-        if (Build.VERSION.SDK_INT >= 21) {
-            settings.setMixedContentMode(0);
-        }
-        if (Build.VERSION.SDK_INT < 19) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
-        }
-        webView.setSaveEnabled(false);
     }
 }

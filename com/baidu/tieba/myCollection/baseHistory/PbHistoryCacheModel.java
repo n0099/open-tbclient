@@ -3,29 +3,29 @@ package com.baidu.tieba.myCollection.baseHistory;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import d.a.n0.x1.h.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PbHistoryCacheModel extends CacheModel<a, TbPageContext> {
     public PbHistoryCacheModel(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<a> D() {
+    public Class<a> H() {
         return a.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int E() {
+    public int I() {
         return 2001186;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int F() {
+    public int J() {
         return 2001187;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String r() {
+    public String v() {
         return "tb.pb_history";
     }
 }

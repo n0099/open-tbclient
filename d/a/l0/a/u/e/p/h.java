@@ -29,22 +29,22 @@ public class h extends d.a.l0.a.u.c.d {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f45207e;
+        public final /* synthetic */ JSONObject f48881e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f45208f;
+        public final /* synthetic */ d.a.l0.a.a2.e f48882f;
 
         public a(JSONObject jSONObject, d.a.l0.a.a2.e eVar) {
-            this.f45207e = jSONObject;
-            this.f45208f = eVar;
+            this.f48881e = jSONObject;
+            this.f48882f = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-UbcFlowJar", "handlePerformMsg in thread pool");
             }
-            h.s(this.f45207e, this.f45208f);
+            h.s(this.f48881e, this.f48882f);
         }
     }
 
@@ -52,26 +52,26 @@ public class h extends d.a.l0.a.u.c.d {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45209e;
+        public final /* synthetic */ String f48883e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f45210f;
+        public final /* synthetic */ HybridUbcFlow f48884f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.p.e.b f45211g;
+        public final /* synthetic */ d.a.l0.a.p.e.b f48885g;
 
         public b(String str, HybridUbcFlow hybridUbcFlow, d.a.l0.a.p.e.b bVar) {
-            this.f45209e = str;
-            this.f45210f = hybridUbcFlow;
-            this.f45211g = bVar;
+            this.f48883e = str;
+            this.f48884f = hybridUbcFlow;
+            this.f48885g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (TextUtils.equals(this.f45209e, "1")) {
-                this.f45210f.P();
+            if (TextUtils.equals(this.f48883e, "1")) {
+                this.f48884f.P();
             } else {
-                this.f45210f.z(this.f45211g);
+                this.f48884f.z(this.f48885g);
             }
         }
     }
@@ -98,7 +98,7 @@ public class h extends d.a.l0.a.u.c.d {
         d.a.l0.a.h0.l.a P = d.a.l0.a.h0.u.g.N().P();
         if (P instanceof d.a.l0.a.h0.l.e) {
             i2 = ((d.a.l0.a.h0.l.e) P).k();
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.d("Api-UbcFlowJar", "ID_PERFORMANCED_FLOW CodeCache status: " + i2);
             }
         } else {
@@ -197,13 +197,13 @@ public class h extends d.a.l0.a.u.c.d {
     }
 
     public static void v(JSONObject jSONObject) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-UbcFlowJar", "upload swan app render log");
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("data");
         if (optJSONArray != null && optJSONArray.length() >= 1) {
             j.e().c(optJSONArray.optJSONObject(0));
-        } else if (d.a.l0.a.u.c.d.f44812c) {
+        } else if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-UbcFlowJar", "Render monitor log is null");
         }
     }
@@ -247,7 +247,7 @@ public class h extends d.a.l0.a.u.c.d {
                     d.a.l0.a.i2.a.d().k(jSONObject);
                 }
             } catch (JSONException e2) {
-                if (d.a.l0.a.u.c.d.f44812c) {
+                if (d.a.l0.a.u.c.d.f48486c) {
                     Log.w("Api-UbcFlowJar", "FlowJarAction-671: " + Log.getStackTraceString(e2));
                 }
             }
@@ -291,7 +291,7 @@ public class h extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b B(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-UbcFlowJar", "start handle ubc");
         }
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
@@ -300,8 +300,8 @@ public class h extends d.a.l0.a.u.c.d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-UbcFlowJar", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-UbcFlowJar", "parse fail");
             }
             return bVar;

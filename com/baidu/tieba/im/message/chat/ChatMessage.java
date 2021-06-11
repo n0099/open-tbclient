@@ -12,7 +12,7 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import d.a.c.c.e.c.a;
 import d.a.c.e.m.b;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -277,7 +277,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return this.toUserInfo;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         int i2 = this.msgType;
         if (i2 == 11) {

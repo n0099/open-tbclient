@@ -17,16 +17,16 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public CoverFlowLocalView<h> f15168e;
+    public CoverFlowLocalView<h> f15230e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d<h> f15169f;
+    public d<h> f15231f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<h> f15170g;
+    public List<h> f15232g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d<h> f15171h;
+    public d<h> f15233h;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.m0.r.w.b.b {
@@ -69,20 +69,20 @@ public class LocalBannerLayout extends RelativeLayout {
 
         @Override // d.a.m0.r.w.b.d
         public void b(int i2, String str) {
-            if (i2 < 0 || LocalBannerLayout.this.f15170g == null || i2 > LocalBannerLayout.this.f15170g.size() + 1 || LocalBannerLayout.this.f15169f == null) {
+            if (i2 < 0 || LocalBannerLayout.this.f15232g == null || i2 > LocalBannerLayout.this.f15232g.size() + 1 || LocalBannerLayout.this.f15231f == null) {
                 return;
             }
-            LocalBannerLayout.this.f15169f.b(i2, str);
+            LocalBannerLayout.this.f15231f.b(i2, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.r.w.b.d
         /* renamed from: c */
         public void a(int i2, h hVar) {
-            if (i2 < 0 || LocalBannerLayout.this.f15170g == null || i2 > LocalBannerLayout.this.f15170g.size() + 1 || LocalBannerLayout.this.f15169f == null) {
+            if (i2 < 0 || LocalBannerLayout.this.f15232g == null || i2 > LocalBannerLayout.this.f15232g.size() + 1 || LocalBannerLayout.this.f15231f == null) {
                 return;
             }
-            LocalBannerLayout.this.f15169f.a(i2, hVar);
+            LocalBannerLayout.this.f15231f.a(i2, hVar);
         }
     }
 
@@ -91,25 +91,25 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     public final void c() {
-        this.f15168e = new CoverFlowLocalView<>(getContext());
+        this.f15230e = new CoverFlowLocalView<>(getContext());
         a aVar = new a();
-        this.f15168e.setIndicatorNoOffet(false);
-        this.f15168e.setDisableParentEvent(false);
-        this.f15168e.setCoverFlowFactory(aVar);
-        this.f15168e.setIndicatorVisible(0);
-        this.f15168e.setIsAutoPlayDragging(false);
-        this.f15168e.setAutoPlay(false);
-        this.f15168e.setCallback(this.f15171h);
-        addView(this.f15168e);
+        this.f15230e.setIndicatorNoOffet(false);
+        this.f15230e.setDisableParentEvent(false);
+        this.f15230e.setCoverFlowFactory(aVar);
+        this.f15230e.setIndicatorVisible(0);
+        this.f15230e.setIsAutoPlayDragging(false);
+        this.f15230e.setAutoPlay(false);
+        this.f15230e.setCallback(this.f15233h);
+        addView(this.f15230e);
     }
 
     public void setData(List<h> list) {
-        this.f15170g = list;
-        this.f15168e.setData(list);
+        this.f15232g = list;
+        this.f15230e.setData(list);
     }
 
     public void setOnCoverViewCallback(d<h> dVar) {
-        this.f15169f = dVar;
+        this.f15231f = dVar;
     }
 
     public LocalBannerLayout(Context context, AttributeSet attributeSet) {
@@ -118,7 +118,7 @@ public class LocalBannerLayout extends RelativeLayout {
 
     public LocalBannerLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f15171h = new b();
+        this.f15233h = new b();
         c();
     }
 }

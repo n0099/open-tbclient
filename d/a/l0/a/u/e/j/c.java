@@ -26,7 +26,7 @@ public class c implements NetRequest.RequestInterceptor {
             int c2 = d.a.l0.a.b2.a.b.c("request", url, r2);
             if (c2 != 0) {
                 d.a.l0.a.u.h.b P = g.P(c2);
-                netRequestResult.setStatusCodeAndMsg(P.f45238b, P.f45239c);
+                netRequestResult.setStatusCodeAndMsg(P.f48912b, P.f48913c);
                 return true;
             }
         }

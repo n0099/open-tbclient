@@ -14,16 +14,16 @@ import org.json.JSONObject;
 public class a extends e<String> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final g.a f46466e;
+    public final g.a f50140e;
 
     public a(g.a aVar) {
-        this.f46466e = aVar;
+        this.f50140e = aVar;
     }
 
     @Override // d.a.l0.n.i.g.a
     public void a(String str, String str2, JSONObject jSONObject) {
         if (c()) {
-            this.f46466e.a(str, str2, jSONObject);
+            this.f50140e.a(str, str2, jSONObject);
         }
     }
 
@@ -31,56 +31,56 @@ public class a extends e<String> {
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     /* renamed from: b */
     public void onSuccess(String str, int i2) {
-        if (d.a.l0.c.a.a.f46449a) {
+        if (d.a.l0.c.a.a.f50123a) {
             Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
         }
-        if (this.f46466e == null) {
+        if (this.f50140e == null) {
             return;
         }
         d.a.l0.c.a.g l = d.a.l0.c.a.g.l();
         if (TextUtils.equals(str, "recovery")) {
             if (l.m().b()) {
                 l.m().a();
-                l.f46461d.i(true);
-                c cVar = l.f46461d;
+                l.f50135d.i(true);
+                c cVar = l.f50135d;
                 if (cVar instanceof d.a.l0.c.a.k.a) {
                     ((d.a.l0.c.a.k.a) cVar).j();
                     return;
                 }
                 return;
             }
-            this.f46466e.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+            this.f50140e.onFail(new Exception("Exceeded the limit of continuous downgrade"));
             return;
         }
         l.m().k();
-        c cVar2 = l.f46461d;
+        c cVar2 = l.f50135d;
         if (cVar2 instanceof d.a.l0.c.a.k.a) {
             d.a.l0.c.a.k.a aVar = (d.a.l0.c.a.k.a) cVar2;
             if (l.k()) {
-                if (l.f46461d.f46505b == 1) {
+                if (l.f50135d.f50179b == 1) {
                     f.a("application");
-                    this.f46466e.b(str, i2);
-                    aVar.f46496h = 0;
+                    this.f50140e.b(str, i2);
+                    aVar.f50170h = 0;
                     return;
                 }
-                int i3 = aVar.f46496h;
-                aVar.f46496h = i3 + 1;
+                int i3 = aVar.f50170h;
+                aVar.f50170h = i3 + 1;
                 if (i3 < 3) {
                     aVar.j();
                     return;
                 }
-                g.a aVar2 = this.f46466e;
+                g.a aVar2 = this.f50140e;
                 aVar2.onFail(new IOException("request fail : " + str));
-                aVar.f46496h = 0;
+                aVar.f50170h = 0;
                 return;
             }
-            this.f46466e.b(str, i2);
-            aVar.f46496h = 0;
+            this.f50140e.b(str, i2);
+            aVar.f50170h = 0;
         }
     }
 
     public final boolean c() {
-        return this.f46466e != null;
+        return this.f50140e != null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,8 +97,8 @@ public class a extends e<String> {
             return "recovery";
         }
         if (l.k()) {
-            string = l.f46461d.g(response.body().bytes());
-            if (d.a.l0.c.a.a.f46449a) {
+            string = l.f50135d.g(response.body().bytes());
+            if (d.a.l0.c.a.a.f50123a) {
                 Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
             }
         } else {
@@ -110,18 +110,18 @@ public class a extends e<String> {
 
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
-        if (d.a.l0.c.a.a.f46449a) {
+        if (d.a.l0.c.a.a.f50123a) {
             Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
         }
         if (c()) {
-            this.f46466e.onFail(exc);
+            this.f50140e.onFail(exc);
         }
     }
 
     @Override // d.a.l0.n.i.g.a
     public void onStart() {
         if (c()) {
-            this.f46466e.onStart();
+            this.f50140e.onStart();
         }
     }
 }

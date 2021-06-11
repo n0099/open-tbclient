@@ -19,7 +19,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
     public GestureDetector.OnGestureListener I;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49004i;
+    public int f52678i;
     public boolean j;
     public int k;
     public boolean l;
@@ -81,8 +81,8 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
 
     /* renamed from: d.a.m0.b1.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1106b extends GestureDetector.SimpleOnGestureListener {
-        public C1106b() {
+    public class C1162b extends GestureDetector.SimpleOnGestureListener {
+        public C1162b() {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -128,7 +128,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
         }
         int v = v(motionEvent);
         this.r = v;
-        if (v != -1 && this.f49004i == 0) {
+        if (v != -1 && this.f52678i == 0) {
             u(v, ((int) motionEvent.getX()) - this.v, ((int) motionEvent.getY()) - this.w);
         }
         this.m = false;
@@ -145,7 +145,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
 
     @Override // android.view.GestureDetector.OnGestureListener
     public void onLongPress(MotionEvent motionEvent) {
-        if (this.r == -1 || this.f49004i != 2) {
+        if (this.r == -1 || this.f52678i != 2) {
             return;
         }
         this.F.performHapticFeedback(0);
@@ -163,9 +163,9 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
             int i3 = y2 - this.w;
             if (this.E && !this.z && (this.r != -1 || this.s != -1)) {
                 if (this.r != -1) {
-                    if (this.f49004i == 1 && Math.abs(y2 - y) > this.q && this.j) {
+                    if (this.f52678i == 1 && Math.abs(y2 - y) > this.q && this.j) {
                         u(this.r, i2, i3);
-                    } else if (this.f49004i != 0 && Math.abs(x2 - x) > this.q && this.l) {
+                    } else if (this.f52678i != 0 && Math.abs(x2 - x) > this.q && this.l) {
                         this.m = true;
                         u(this.s, i2, i3);
                     }
@@ -237,7 +237,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
     }
 
     public void q(int i2) {
-        this.f49004i = i2;
+        this.f52678i = i2;
     }
 
     public void r(boolean z) {
@@ -303,7 +303,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
 
     public b(d.a.m0.b1.e.a aVar, ListView listView, int i2, int i3, int i4, int i5, int i6) {
         super(listView);
-        this.f49004i = 0;
+        this.f52678i = 0;
         this.j = true;
         this.l = false;
         this.m = false;
@@ -313,7 +313,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
         this.u = new int[2];
         this.z = false;
         this.A = 500.0f;
-        this.I = new C1106b();
+        this.I = new C1162b();
         this.G = aVar;
         this.F = listView;
         this.n = new GestureDetector(listView.getContext(), this);

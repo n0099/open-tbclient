@@ -10,28 +10,22 @@ public class j {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public static j f30581b;
+    public static j f30672b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30582a;
+    public Context f30673a;
 
     public j(Context context) {
-        this.f30582a = context;
+        this.f30673a = context;
     }
 
     public static void a(Context context) {
-        f30581b = new j(context);
-    }
-
-    @SuppressLint({"MissingPermission"})
-    public static String d() {
-        b.C0326b b2 = com.cmic.sso.sdk.a.b.a().b();
-        return b2.a(b2.d());
+        f30672b = new j(context);
     }
 
     public String b() {
         try {
-            b.C0326b b2 = com.cmic.sso.sdk.a.b.a().b();
+            b.C0328b b2 = com.cmic.sso.sdk.a.b.a().b();
             return b2.e(b2.d());
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -41,7 +35,17 @@ public class j {
 
     public String c() {
         try {
-            b.C0326b b2 = com.cmic.sso.sdk.a.b.a().b();
+            int e2 = com.cmic.sso.sdk.a.b.a().b().e();
+            return e2 >= 0 ? Integer.toString(e2) : "";
+        } catch (Exception e3) {
+            e3.printStackTrace();
+            return "";
+        }
+    }
+
+    public String d() {
+        try {
+            b.C0328b b2 = com.cmic.sso.sdk.a.b.a().b();
             String e2 = b2.e((b2.d() + 1) % 2);
             return e2 == null ? "" : e2;
         } catch (Exception unused) {
@@ -49,8 +53,14 @@ public class j {
         }
     }
 
+    @SuppressLint({"MissingPermission"})
     public String e() {
-        TelephonyManager telephonyManager = (TelephonyManager) this.f30582a.getSystemService("phone");
+        b.C0328b b2 = com.cmic.sso.sdk.a.b.a().b();
+        return b2.a(b2.d());
+    }
+
+    public String f() {
+        TelephonyManager telephonyManager = (TelephonyManager) this.f30673a.getSystemService("phone");
         if (telephonyManager != null) {
             String simOperator = telephonyManager.getSimOperator();
             c.b("SIMUtils", "SysOperType = " + simOperator);
@@ -60,17 +70,17 @@ public class j {
     }
 
     public static j a() {
-        return f30581b;
+        return f30672b;
     }
 
     @SuppressLint({"MissingPermission"})
     public String a(boolean z) {
         TelephonyManager telephonyManager;
-        b.C0326b b2 = com.cmic.sso.sdk.a.b.a().b();
+        b.C0328b b2 = com.cmic.sso.sdk.a.b.a().b();
         String f2 = b2.f(b2.d());
-        if (TextUtils.isEmpty(f2) && n.a(this.f30582a) && (telephonyManager = (TelephonyManager) this.f30582a.getSystemService("phone")) != null) {
+        if (TextUtils.isEmpty(f2) && n.a(this.f30673a) && (telephonyManager = (TelephonyManager) this.f30673a.getSystemService("phone")) != null) {
             f2 = telephonyManager.getSimOperator();
-            if (TextUtils.isEmpty(f2) && g.a(this.f30582a, "android.permission.READ_PHONE_STATE") && n.d()) {
+            if (TextUtils.isEmpty(f2) && g.a(this.f30673a, "android.permission.READ_PHONE_STATE") && n.d()) {
                 String str = null;
                 try {
                     str = telephonyManager.getSubscriberId();

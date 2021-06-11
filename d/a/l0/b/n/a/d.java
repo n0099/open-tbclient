@@ -17,22 +17,22 @@ public class d extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46319e;
+        public final /* synthetic */ CallbackHandler f49993e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46320f;
+        public final /* synthetic */ String f49994f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f46321g;
+        public final /* synthetic */ Context f49995g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f46322h;
+        public final /* synthetic */ boolean f49996h;
 
         public a(CallbackHandler callbackHandler, String str, Context context, boolean z) {
-            this.f46319e = callbackHandler;
-            this.f46320f = str;
-            this.f46321g = context;
-            this.f46322h = z;
+            this.f49993e = callbackHandler;
+            this.f49994f = str;
+            this.f49995g = context;
+            this.f49996h = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -40,9 +40,9 @@ public class d extends a0 {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                d.this.k((Activity) this.f46321g, this.f46322h, this.f46319e, this.f46320f);
+                d.this.k((Activity) this.f49995g, this.f49996h, this.f49993e, this.f49994f);
             } else {
-                d.a.l0.a.e2.c.d.p(iVar, this.f46319e, this.f46320f);
+                d.a.l0.a.e2.c.d.p(iVar, this.f49993e, this.f49994f);
             }
         }
     }
@@ -51,14 +51,14 @@ public class d extends a0 {
     public class b implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.d.a> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46324e;
+        public final /* synthetic */ CallbackHandler f49998e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46325f;
+        public final /* synthetic */ String f49999f;
 
         public b(d dVar, CallbackHandler callbackHandler, String str) {
-            this.f46324e = callbackHandler;
-            this.f46325f = str;
+            this.f49998e = callbackHandler;
+            this.f49999f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,9 +67,9 @@ public class d extends a0 {
         public void onCallback(d.a.l0.a.e2.d.a aVar) {
             d.a.l0.a.e0.d.g("OpenData", "onOpenDataCallback:: " + aVar.toString());
             if (!aVar.F()) {
-                d.a.l0.a.e2.c.d.m(aVar, this.f46324e, this.f46325f);
+                d.a.l0.a.e2.c.d.m(aVar, this.f49998e, this.f49999f);
             } else {
-                this.f46324e.handleSchemeDispatchCallback(this.f46325f, UnitedSchemeUtility.wrapCallbackParams(aVar.f41771g, 0).toString());
+                this.f49998e.handleSchemeDispatchCallback(this.f49999f, UnitedSchemeUtility.wrapCallbackParams(aVar.f45447g, 0).toString());
             }
         }
     }

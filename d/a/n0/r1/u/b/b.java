@@ -18,10 +18,10 @@ import org.json.JSONObject;
 public class b implements ThirdPartWxRechargeService {
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f59929b;
+    public static BroadcastReceiver f63620b;
 
     /* renamed from: a  reason: collision with root package name */
-    public IWXAPI f59930a;
+    public IWXAPI f63621a;
 
     /* loaded from: classes3.dex */
     public class a extends BroadcastReceiver {
@@ -57,41 +57,41 @@ public class b implements ThirdPartWxRechargeService {
 
     @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
     public void initWx() {
-        if (this.f59930a == null) {
-            this.f59930a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if (this.f63621a == null) {
+            this.f63621a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
         }
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
     public boolean isWxInstalled() {
-        if (this.f59930a == null) {
-            this.f59930a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if (this.f63621a == null) {
+            this.f63621a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
         }
-        return this.f59930a.isWXAppInstalled();
+        return this.f63621a.isWXAppInstalled();
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
     public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
         try {
-            if (this.f59930a == null) {
-                this.f59930a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+            if (this.f63621a == null) {
+                this.f63621a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
             }
             PayReq a2 = a(new JSONObject(str));
-            this.f59930a.registerApp(a2.appId);
-            if (!this.f59930a.sendReq(a2)) {
+            this.f63621a.registerApp(a2.appId);
+            if (!this.f63621a.sendReq(a2)) {
                 String str2 = wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive ? "wx_pay_result" : "yy_wx_pay_result";
                 HashMap hashMap = new HashMap();
                 hashMap.put(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
                 hashMap.put(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
                 LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
             }
-            if (f59929b != null) {
-                TbadkCoreApplication.getInst().unregisterReceiver(f59929b);
+            if (f63620b != null) {
+                TbadkCoreApplication.getInst().unregisterReceiver(f63620b);
             }
-            f59929b = new a(wxPayType);
+            f63620b = new a(wxPayType);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("WXPayResult");
-            TbadkCoreApplication.getInst().registerReceiver(f59929b, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(f63620b, intentFilter);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

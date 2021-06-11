@@ -15,7 +15,7 @@ import d.a.l0.a.r1.n.a;
 public class FooterLoadingLayout extends LoadingLayout {
 
     /* renamed from: i  reason: collision with root package name */
-    public LoadingAnimView f11143i;
+    public LoadingAnimView f11205i;
     public TextView j;
 
     public FooterLoadingLayout(Context context) {
@@ -53,8 +53,8 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void h() {
-        this.f11143i.setVisibility(0);
-        this.f11143i.d();
+        this.f11205i.setVisibility(0);
+        this.f11205i.d();
         this.j.setVisibility(0);
         this.j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
     }
@@ -72,14 +72,14 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void l(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
-        this.f11143i.setVisibility(8);
-        this.f11143i.e();
+        this.f11205i.setVisibility(8);
+        this.f11205i.e();
         this.j.setVisibility(4);
         super.l(iLoadingLayout$State, iLoadingLayout$State2);
     }
 
     public final void n(Context context) {
-        this.f11143i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
+        this.f11205i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
         TextView textView = (TextView) findViewById(f.pull_to_load_footer_hint_textview);
         this.j = textView;
         textView.setTextColor(getResources().getColor(c.aiapps_picture_loading_text_color));

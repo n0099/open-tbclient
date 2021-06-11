@@ -12,22 +12,22 @@ import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f33802a;
+    public TextView f37231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f33803b;
+    public TextView f37232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f33804c;
+    public AdTemplate f37233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f33805d;
+    public a f37234d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
     }
@@ -49,28 +49,28 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
-        this.f33802a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-        this.f33803b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+        this.f37231a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
+        this.f37232b = (TextView) findViewById(R.id.ksad_h5_open_btn);
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
-        this.f33804c = adTemplate;
-        this.f33805d = aVar;
-        AdInfo g2 = c.g(adTemplate);
-        this.f33802a.setText(com.kwad.sdk.core.response.b.a.m(g2));
-        this.f33803b.setText(com.kwad.sdk.core.response.b.a.u(g2));
+        this.f37233c = adTemplate;
+        this.f37234d = aVar;
+        AdInfo j = c.j(adTemplate);
+        this.f37231a.setText(com.kwad.sdk.core.response.b.a.n(j));
+        this.f37232b.setText(com.kwad.sdk.core.response.b.a.w(j));
         setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f33804c, new a.InterfaceC0364a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0364a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f37233c, new a.InterfaceC0379a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0379a
             public void a() {
-                if (ActionBarH5.this.f33805d != null) {
-                    ActionBarH5.this.f33805d.a();
+                if (ActionBarH5.this.f37234d != null) {
+                    ActionBarH5.this.f37234d.a();
                 }
             }
-        }, null, false);
+        }, null);
     }
 }

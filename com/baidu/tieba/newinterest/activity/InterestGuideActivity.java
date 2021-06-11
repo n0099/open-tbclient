@@ -18,12 +18,12 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        this.mGuideView.g();
+        this.mGuideView.h();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
-        this.mGuideView.h();
+        this.mGuideView.i();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity

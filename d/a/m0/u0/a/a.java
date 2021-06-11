@@ -15,46 +15,46 @@ import java.util.ArrayList;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d.a.m0.u0.a.b> f50819e;
+    public ArrayList<d.a.m0.u0.a.b> f54496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f50820f;
+    public TbPageContext<?> f54497f;
     public int j;
     public int k;
     public int l;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50821g = -1;
+    public int f54498g = -1;
     public int m = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50822h = SkinManager.getColor(R.color.common_color_10043);
+    public int f54499h = SkinManager.getColor(R.color.common_color_10043);
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50823i = SkinManager.getColor(R.color.CAM_X0302);
+    public int f54500i = SkinManager.getColor(R.color.CAM_X0302);
 
     /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f50824a;
+        public LinearLayout f54501a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f50825b;
+        public TbImageView f54502b;
 
         public b(a aVar) {
         }
     }
 
     public a(TbPageContext<?> tbPageContext) {
-        this.f50819e = null;
-        this.f50820f = null;
+        this.f54496e = null;
+        this.f54497f = null;
         this.l = 0;
-        this.f50820f = tbPageContext;
-        this.f50819e = new ArrayList<>();
+        this.f54497f = tbPageContext;
+        this.f54496e = new ArrayList<>();
         this.j = l.g(tbPageContext.getPageActivity(), R.dimen.ds1);
-        this.k = l.g(this.f50820f.getPageActivity(), R.dimen.ds4);
-        this.l = l.g(this.f50820f.getPageActivity(), R.dimen.ds36);
+        this.k = l.g(this.f54497f.getPageActivity(), R.dimen.ds4);
+        this.l = l.g(this.f54497f.getPageActivity(), R.dimen.ds36);
     }
 
     public int a(int i2) {
@@ -66,11 +66,11 @@ public class a extends BaseAdapter {
     }
 
     public void b(int i2) {
-        this.f50821g = i2;
+        this.f54498g = i2;
     }
 
     public void c(ArrayList<d.a.m0.u0.a.b> arrayList) {
-        this.f50819e = arrayList;
+        this.f54496e = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.m = arrayList.size() / 4;
@@ -82,7 +82,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<d.a.m0.u0.a.b> arrayList = this.f50819e;
+        ArrayList<d.a.m0.u0.a.b> arrayList = this.f54496e;
         if (arrayList != null) {
             return arrayList.size();
         }
@@ -91,11 +91,11 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        ArrayList<d.a.m0.u0.a.b> arrayList = this.f50819e;
+        ArrayList<d.a.m0.u0.a.b> arrayList = this.f54496e;
         if (arrayList == null || i2 >= arrayList.size()) {
             return null;
         }
-        return this.f50819e.get(i2);
+        return this.f54496e.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -105,7 +105,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
-        return i2 == this.f50821g ? 1 : 0;
+        return i2 == this.f54498g ? 1 : 0;
     }
 
     @Override // android.widget.Adapter
@@ -113,32 +113,32 @@ public class a extends BaseAdapter {
         b bVar;
         int itemViewType = getItemViewType(i2);
         if (view == null) {
-            view = LayoutInflater.from(this.f50820f.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
+            view = LayoutInflater.from(this.f54497f.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
             bVar = new b();
-            bVar.f50824a = (LinearLayout) view.findViewById(R.id.photo_container);
-            bVar.f50825b = (TbImageView) view.findViewById(R.id.photo);
+            bVar.f54501a = (LinearLayout) view.findViewById(R.id.photo_container);
+            bVar.f54502b = (TbImageView) view.findViewById(R.id.photo);
         } else {
             bVar = (b) view.getTag();
         }
         if (a(i2) == 1) {
-            bVar.f50824a.setPadding(0, this.l, 0, 0);
+            bVar.f54501a.setPadding(0, this.l, 0, 0);
         } else if (a(i2) == 2) {
-            bVar.f50824a.setPadding(0, 0, 0, this.l);
+            bVar.f54501a.setPadding(0, 0, 0, this.l);
         } else {
-            bVar.f50824a.setPadding(0, 0, 0, 0);
+            bVar.f54501a.setPadding(0, 0, 0, 0);
         }
-        bVar.f50825b.setDrawerType(0);
-        bVar.f50825b.setBorderSurroundContent(true);
-        bVar.f50825b.setDrawBorder(true);
+        bVar.f54502b.setDrawerType(0);
+        bVar.f54502b.setBorderSurroundContent(true);
+        bVar.f54502b.setDrawBorder(true);
         if (itemViewType == 0) {
-            bVar.f50825b.setBorderColor(this.f50822h);
-            bVar.f50825b.setBorderWidth(this.j);
+            bVar.f54502b.setBorderColor(this.f54499h);
+            bVar.f54502b.setBorderWidth(this.j);
         } else {
-            bVar.f50825b.setBorderColor(this.f50823i);
-            bVar.f50825b.setBorderWidth(this.k);
+            bVar.f54502b.setBorderColor(this.f54500i);
+            bVar.f54502b.setBorderWidth(this.k);
         }
-        bVar.f50825b.setDefaultResource(R.drawable.transparent_bg);
-        bVar.f50825b.V(this.f50819e.get(i2).a(), 10, false);
+        bVar.f54502b.setDefaultResource(R.drawable.transparent_bg);
+        bVar.f54502b.U(this.f54496e.get(i2).a(), 10, false);
         view.setTag(bVar);
         return view;
     }

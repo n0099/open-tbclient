@@ -32,15 +32,15 @@ public class j implements d.o.a.a.a.b {
     public class a implements a.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.a.b f66944a;
+        public final /* synthetic */ d.o.a.a.a.a.b f70730a;
 
         public a(j jVar, d.o.a.a.a.a.b bVar) {
-            this.f66944a = bVar;
+            this.f70730a = bVar;
         }
 
         @Override // d.o.a.e.b.a.a.d
         public boolean a() {
-            return this.f66944a.a();
+            return this.f70730a.a();
         }
     }
 
@@ -111,11 +111,11 @@ public class j implements d.o.a.a.a.b {
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public static c f66945a = new c();
+            public static c f70731a = new c();
         }
 
         public static c a() {
-            return b.f66945a;
+            return b.f70731a;
         }
 
         public final JSONObject b(d.o.a.b.a.c.a aVar) {
@@ -142,11 +142,11 @@ public class j implements d.o.a.a.a.b {
             c.f v = c.g.e().v(j);
             if (v.w()) {
                 d.o.a.d.n.k.B();
-            } else if (v.f66760c.l()) {
+            } else if (v.f70546c.l()) {
                 int i3 = 1;
-                d.o.a.a.a.c.c cVar = v.f66760c;
+                d.o.a.a.a.c.c cVar = v.f70546c;
                 String c2 = i2 == 1 ? cVar.c() : cVar.b();
-                String m = d.o.a.d.n.k.m(v.f66760c.d(), PrefetchEvent.STATE_CLICK);
+                String m = d.o.a.d.n.k.m(v.f70546c.d(), PrefetchEvent.STATE_CLICK);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("download_click_type", Integer.valueOf(i2));
@@ -159,10 +159,10 @@ public class j implements d.o.a.a.a.b {
                     e2.printStackTrace();
                 }
                 r(c2, m, jSONObject, v);
-                if (!PrefetchEvent.STATE_CLICK.equals(m) || v.f66759b == null) {
+                if (!PrefetchEvent.STATE_CLICK.equals(m) || v.f70545b == null) {
                     return;
                 }
-                e.a().b(j, v.f66759b.u());
+                e.a().b(j, v.f70545b.u());
             }
         }
 
@@ -175,15 +175,15 @@ public class j implements d.o.a.a.a.b {
             String str = null;
             JSONObject jSONObject = new JSONObject();
             if (i2 == 1) {
-                str = d.o.a.d.n.k.m(v.f66760c.i(), "storage_deny");
+                str = d.o.a.d.n.k.m(v.f70546c.i(), "storage_deny");
             } else if (i2 == 2) {
-                str = d.o.a.d.n.k.m(v.f66760c.e(), "click_start");
+                str = d.o.a.d.n.k.m(v.f70546c.e(), "click_start");
                 f.c(downloadInfo, jSONObject);
             } else if (i2 == 3) {
-                str = d.o.a.d.n.k.m(v.f66760c.f(), "click_pause");
+                str = d.o.a.d.n.k.m(v.f70546c.f(), "click_pause");
                 f.f(downloadInfo, jSONObject);
             } else if (i2 == 4) {
-                str = d.o.a.d.n.k.m(v.f66760c.g(), "click_continue");
+                str = d.o.a.d.n.k.m(v.f70546c.g(), "click_continue");
                 f.g(downloadInfo, jSONObject);
             } else if (i2 == 5) {
                 if (downloadInfo != null) {
@@ -193,7 +193,7 @@ public class j implements d.o.a.a.a.b {
                     } catch (Throwable unused) {
                     }
                 }
-                str = d.o.a.d.n.k.m(v.f66760c.h(), "click_install");
+                str = d.o.a.d.n.k.m(v.f70546c.h(), "click_install");
             }
             q(null, str, jSONObject, 0L, 1, v);
         }
@@ -232,9 +232,9 @@ public class j implements d.o.a.a.a.b {
             c.f v = c.g.e().v(j);
             if (v.w()) {
                 d.o.a.d.n.k.B();
-            } else if (v.f66759b.B() == null) {
+            } else if (v.f70545b.B() == null) {
             } else {
-                d.o.a.a.a.c.d dVar = v.f66759b;
+                d.o.a.a.a.c.d dVar = v.f70545b;
                 if (dVar instanceof d.o.a.b.a.a.c) {
                     ((d.o.a.b.a.a.c) dVar).b(3);
                 }
@@ -472,7 +472,7 @@ public class j implements d.o.a.a.a.b {
     public class d extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f66946a = {"_id", LegoListActivityConfig.AD_ID, IAdRequestParam.REQ_ID, "time"};
+        public static final String[] f70732a = {"_id", LegoListActivityConfig.AD_ID, IAdRequestParam.REQ_ID, "time"};
 
         public d(@Nullable Context context) {
             super(context, "click_event", (SQLiteDatabase.CursorFactory) null, 1);
@@ -494,33 +494,33 @@ public class j implements d.o.a.a.a.b {
     public class e {
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile e f66947b;
+        public static volatile e f70733b;
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f66948a;
+        public SQLiteDatabase f70734a;
 
         public e() {
             try {
-                this.f66948a = new d(n.a()).getWritableDatabase();
+                this.f70734a = new d(n.a()).getWritableDatabase();
             } catch (Throwable th) {
                 d.o.a.d.n.k.q(th);
             }
         }
 
         public static e a() {
-            if (f66947b == null) {
+            if (f70733b == null) {
                 synchronized (e.class) {
-                    if (f66947b == null) {
-                        f66947b = new e();
+                    if (f70733b == null) {
+                        f70733b = new e();
                     }
                 }
             }
-            return f66947b;
+            return f70733b;
         }
 
         public void b(long j, String str) {
             String optString;
-            SQLiteDatabase sQLiteDatabase = this.f66948a;
+            SQLiteDatabase sQLiteDatabase = this.f70734a;
             if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
                 return;
             }
@@ -536,7 +536,7 @@ public class j implements d.o.a.a.a.b {
             contentValues.put(LegoListActivityConfig.AD_ID, Long.valueOf(j));
             contentValues.put(IAdRequestParam.REQ_ID, optString);
             contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-            this.f66948a.insert("click_event", null, contentValues);
+            this.f70734a.insert("click_event", null, contentValues);
             e(j, str);
         }
 
@@ -546,7 +546,7 @@ public class j implements d.o.a.a.a.b {
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
         public boolean d(long j, String str) {
-            SQLiteDatabase sQLiteDatabase = this.f66948a;
+            SQLiteDatabase sQLiteDatabase = this.f70734a;
             if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -557,7 +557,7 @@ public class j implements d.o.a.a.a.b {
                     if (TextUtils.isEmpty(optString)) {
                         return false;
                     }
-                    cursor = this.f66948a.query("click_event", d.f66946a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString}, null, null, null, null);
+                    cursor = this.f70734a.query("click_event", d.f70732a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString}, null, null, null, null);
                     boolean z = cursor.getCount() > 0;
                     if (cursor != null) {
                         cursor.close();
@@ -579,7 +579,7 @@ public class j implements d.o.a.a.a.b {
         }
 
         public final void e(long j, String str) {
-            SQLiteDatabase sQLiteDatabase = this.f66948a;
+            SQLiteDatabase sQLiteDatabase = this.f70734a;
             if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
                 return;
             }
@@ -588,7 +588,7 @@ public class j implements d.o.a.a.a.b {
                 if (TextUtils.isEmpty(optString)) {
                     return;
                 }
-                this.f66948a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
+                this.f70734a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

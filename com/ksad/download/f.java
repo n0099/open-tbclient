@@ -14,6 +14,4 @@ public interface f {
     void a(String str);
 
     void b(DownloadTask downloadTask);
-
-    void c(DownloadTask downloadTask);
 }

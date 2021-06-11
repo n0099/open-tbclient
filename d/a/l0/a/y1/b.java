@@ -14,30 +14,30 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45904a = k.f43199a;
+    public static final boolean f49578a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a extends ResponseCallback<d.a.l0.a.y1.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0922b f45905a;
+        public final /* synthetic */ InterfaceC0978b f49579a;
 
-        public a(InterfaceC0922b interfaceC0922b) {
-            this.f45905a = interfaceC0922b;
+        public a(InterfaceC0978b interfaceC0978b) {
+            this.f49579a = interfaceC0978b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(d.a.l0.a.y1.a aVar, int i2) {
-            InterfaceC0922b interfaceC0922b = this.f45905a;
-            if (interfaceC0922b == null) {
+            InterfaceC0978b interfaceC0978b = this.f49579a;
+            if (interfaceC0978b == null) {
                 return;
             }
             if (aVar == null) {
-                interfaceC0922b.a(null);
+                interfaceC0978b.a(null);
             } else {
-                interfaceC0922b.a(aVar);
+                interfaceC0978b.a(aVar);
             }
         }
 
@@ -49,7 +49,7 @@ public class b {
             if (response == null || response.body() == null || (optJSONObject = new JSONObject(response.body().string()).optJSONObject("data")) == null) {
                 return null;
             }
-            if (b.f45904a) {
+            if (b.f49578a) {
                 Log.d("SwanAppRelatedSwanHelper", "parseResponse: RelateSwanData" + optJSONObject.toString());
             }
             return d.a.l0.a.y1.a.a(optJSONObject);
@@ -57,17 +57,17 @@ public class b {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            InterfaceC0922b interfaceC0922b = this.f45905a;
-            if (interfaceC0922b == null) {
+            InterfaceC0978b interfaceC0978b = this.f49579a;
+            if (interfaceC0978b == null) {
                 return;
             }
-            interfaceC0922b.a(null);
+            interfaceC0978b.a(null);
         }
     }
 
     /* renamed from: d.a.l0.a.y1.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0922b {
+    public interface InterfaceC0978b {
         void a(d.a.l0.a.y1.a aVar);
     }
 
@@ -82,12 +82,12 @@ public class b {
         return o0.b(h2, hashMap);
     }
 
-    public static void c(InterfaceC0922b interfaceC0922b) {
-        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(b(), new a(interfaceC0922b));
+    public static void c(InterfaceC0978b interfaceC0978b) {
+        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(b(), new a(interfaceC0978b));
         if (d.a.l0.m.e.a.g().c()) {
-            aVar.f47974f = true;
+            aVar.f51648f = true;
         }
-        aVar.f47975g = true;
+        aVar.f51649g = true;
         d.a.l0.m.e.a.g().d(aVar);
     }
 }

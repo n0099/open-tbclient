@@ -10,28 +10,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class d {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f67476e = "d";
+    public static final String f71262e = "d";
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f67477f = false;
+    public static volatile boolean f71263f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f67478g = -1;
+    public static long f71264g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile d f67479h;
+    public static volatile d f71265h;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f67480a = m.a();
+    public final m f71266a = m.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f67481b = new AtomicInteger();
+    public final AtomicInteger f71267b = new AtomicInteger();
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f67482c = new a(d.o.a.e.b.k.e.a());
+    public final a f71268c = new a(d.o.a.e.b.k.e.a());
 
     /* renamed from: d  reason: collision with root package name */
-    public long f67483d;
+    public long f71269d;
 
     /* loaded from: classes7.dex */
     public class a extends Handler {
@@ -58,14 +58,14 @@ public class d {
     }
 
     public static d a() {
-        if (f67479h == null) {
+        if (f71265h == null) {
             synchronized (d.class) {
-                if (f67479h == null) {
-                    f67479h = new d();
+                if (f71265h == null) {
+                    f71265h = new d();
                 }
             }
         }
-        return f67479h;
+        return f71265h;
     }
 
     public static long d() {
@@ -73,16 +73,16 @@ public class d {
     }
 
     public static void e() {
-        f67477f = d.o.a.e.b.l.e.d0(d.o.a.e.b.g.d.l());
+        f71263f = d.o.a.e.b.l.e.d0(d.o.a.e.b.g.d.l());
     }
 
     public void b() {
         try {
-            String str = f67476e;
-            d.o.a.e.b.c.a.h(str, "startSampling: mSamplingCounter = " + this.f67481b);
-            if (this.f67481b.getAndIncrement() == 0) {
-                this.f67482c.a();
-                this.f67483d = SystemClock.uptimeMillis();
+            String str = f71262e;
+            d.o.a.e.b.c.a.h(str, "startSampling: mSamplingCounter = " + this.f71267b);
+            if (this.f71267b.getAndIncrement() == 0) {
+                this.f71268c.a();
+                this.f71269d = SystemClock.uptimeMillis();
             }
         } catch (Throwable unused) {
         }
@@ -90,10 +90,10 @@ public class d {
 
     public void c() {
         try {
-            String str = f67476e;
-            d.o.a.e.b.c.a.h(str, "stopSampling: mSamplingCounter = " + this.f67481b);
-            if (this.f67481b.decrementAndGet() == 0) {
-                this.f67482c.b();
+            String str = f71262e;
+            d.o.a.e.b.c.a.h(str, "stopSampling: mSamplingCounter = " + this.f71267b);
+            if (this.f71267b.decrementAndGet() == 0) {
+                this.f71268c.b();
                 g();
             }
         } catch (Throwable unused) {
@@ -104,20 +104,20 @@ public class d {
         long mobileRxBytes;
         try {
             e();
-            if (f67477f) {
+            if (f71263f) {
                 mobileRxBytes = d();
             } else {
                 mobileRxBytes = TrafficStats.getMobileRxBytes();
             }
-            long j = mobileRxBytes - f67478g;
-            if (f67478g >= 0) {
+            long j = mobileRxBytes - f71264g;
+            if (f71264g >= 0) {
                 synchronized (this) {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.f67480a.c(j, uptimeMillis - this.f67483d);
-                    this.f67483d = uptimeMillis;
+                    this.f71266a.c(j, uptimeMillis - this.f71269d);
+                    this.f71269d = uptimeMillis;
                 }
             }
-            f67478g = mobileRxBytes;
+            f71264g = mobileRxBytes;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -125,6 +125,6 @@ public class d {
 
     public void g() {
         f();
-        f67478g = -1L;
+        f71264g = -1L;
     }
 }

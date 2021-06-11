@@ -30,19 +30,19 @@ import java.util.Collections;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f64427a;
+    public static String f68145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64428b;
+    public static String f68146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f64429c;
+    public static String f68147c;
 
     public static String a() {
-        if (TextUtils.isEmpty(f64429c)) {
+        if (TextUtils.isEmpty(f68147c)) {
             k(d.a.r0.a.c.i().g());
         }
-        return f64429c;
+        return f68147c;
     }
 
     public static String b(WifiManager wifiManager) throws Exception {
@@ -207,9 +207,9 @@ public final class i {
     public static void k(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-        f64427a = String.valueOf(displayMetrics.widthPixels);
-        f64428b = String.valueOf(displayMetrics.heightPixels);
-        f64429c = String.valueOf(displayMetrics.density);
+        f68145a = String.valueOf(displayMetrics.widthPixels);
+        f68146b = String.valueOf(displayMetrics.heightPixels);
+        f68147c = String.valueOf(displayMetrics.density);
     }
 
     public static String l(Context context) {
@@ -222,16 +222,16 @@ public final class i {
     }
 
     public static String m() {
-        if (TextUtils.isEmpty(f64427a)) {
+        if (TextUtils.isEmpty(f68145a)) {
             k(d.a.r0.a.c.i().g());
         }
-        return f64427a;
+        return f68145a;
     }
 
     public static String n() {
-        if (TextUtils.isEmpty(f64428b)) {
+        if (TextUtils.isEmpty(f68146b)) {
             k(d.a.r0.a.c.i().g());
         }
-        return f64428b;
+        return f68146b;
     }
 }

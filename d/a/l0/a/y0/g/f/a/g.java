@@ -18,7 +18,7 @@ public class g extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.a> {
         d(aVar, str, "" + command.obj, true);
         Object obj = command.obj;
         if (obj instanceof Long) {
-            aVar.b0(((Long) obj).longValue());
+            aVar.Y(((Long) obj).longValue());
         }
     }
 }

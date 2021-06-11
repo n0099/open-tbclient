@@ -3,31 +3,31 @@ package d.a.t.a.c;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f64564a = new byte[0];
+    public byte[] f68282a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64565b = 15000;
+    public long f68283b = 15000;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64566c = -1;
+    public int f68284c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64567d = "";
+    public String f68285d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f64568e = false;
+    public boolean f68286e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f64569f = new byte[0];
+    public byte[] f68287f = new byte[0];
 
     /* renamed from: g  reason: collision with root package name */
-    public long f64570g = 60000;
+    public long f68288g = 60000;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f64571h = -1;
+    public long f68289h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f64572i = -1;
+    public long f68290i = -1;
     public int j = -1;
     public boolean k = false;
     public boolean l = false;
@@ -37,8 +37,8 @@ public class b {
 
     public String toString() {
         if (this.m) {
-            return "Request correlationId :" + this.n + ", serviceId :" + this.f64571h + ", methodId :" + this.f64572i + ", connectState :" + this.j + ", isNotify :" + this.f64568e + ", bodySize :" + this.f64564a.length;
+            return "Request correlationId :" + this.n + ", serviceId :" + this.f68289h + ", methodId :" + this.f68290i + ", connectState :" + this.j + ", isNotify :" + this.f68286e + ", bodySize :" + this.f68282a.length;
         }
-        return "Response correlationId " + this.n + ", serviceId :" + this.f64571h + ", methodId :" + this.f64572i + ", errorCode :" + this.f64566c + ", errorMsg :" + this.f64567d + ", intervalMs :" + this.f64570g + ", isNotify :" + this.f64568e + ", bodySize :" + this.f64569f.length;
+        return "Response correlationId " + this.n + ", serviceId :" + this.f68289h + ", methodId :" + this.f68290i + ", errorCode :" + this.f68284c + ", errorMsg :" + this.f68285d + ", intervalMs :" + this.f68288g + ", isNotify :" + this.f68286e + ", bodySize :" + this.f68287f.length;
     }
 }

@@ -27,31 +27,31 @@ import com.baidu.tieba.R;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public final AlertDialog.Builder f50298a;
+    public final AlertDialog.Builder f53974a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f50299b;
+    public final Activity f53975b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50300c;
+    public boolean f53976c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlertDialog f50301d;
+    public AlertDialog f53977d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f50302e;
+    public View f53978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50303f;
+    public String f53979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50304g;
+    public String f53980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50305h = 17;
+    public int f53981h = 17;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f50306i;
+    public boolean f53982i;
     public View j;
     public TBAlertConfig.b k;
     public boolean l;
@@ -63,20 +63,20 @@ public class o {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f50307e;
+        public final /* synthetic */ TextView f53983e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f50308f;
+        public final /* synthetic */ View f53984f;
 
         public a(o oVar, TextView textView, View view) {
-            this.f50307e = textView;
-            this.f50308f = view;
+            this.f53983e = textView;
+            this.f53984f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (UtilHelper.getDimenPixelSize(R.dimen.tbds868) == this.f50307e.getHeight()) {
-                this.f50308f.setVisibility(0);
+            if (UtilHelper.getDimenPixelSize(R.dimen.tbds868) == this.f53983e.getHeight()) {
+                this.f53984f.setVisibility(0);
             }
         }
     }
@@ -88,8 +88,8 @@ public class o {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (o.this.f50301d != null) {
-                o.this.f50301d.dismiss();
+            if (o.this.f53977d != null) {
+                o.this.f53977d.dismiss();
             }
         }
     }
@@ -101,8 +101,8 @@ public class o {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (o.this.f50301d != null) {
-                o.this.f50301d.dismiss();
+            if (o.this.f53977d != null) {
+                o.this.f53977d.dismiss();
             }
             if (o.this.o != null) {
                 o.this.o.onClick(view);
@@ -111,8 +111,8 @@ public class o {
     }
 
     public o(@NonNull Activity activity) {
-        this.f50299b = activity;
-        this.f50298a = new AlertDialog.Builder(activity);
+        this.f53975b = activity;
+        this.f53974a = new AlertDialog.Builder(activity);
     }
 
     public static void d(@NonNull Dialog dialog) {
@@ -142,16 +142,16 @@ public class o {
     }
 
     public AlertDialog c() {
-        if (!this.f50300c) {
-            this.f50300c = true;
+        if (!this.f53976c) {
+            this.f53976c = true;
             m();
-            this.f50301d = this.f50298a.create();
+            this.f53977d = this.f53974a.create();
         }
-        return this.f50301d;
+        return this.f53977d;
     }
 
     public o f(boolean z) {
-        this.f50298a.setCancelable(z);
+        this.f53974a.setCancelable(z);
         return this;
     }
 
@@ -161,17 +161,17 @@ public class o {
     }
 
     public o h(View view) {
-        this.f50302e = view;
+        this.f53978e = view;
         return this;
     }
 
     public o i(@StringRes int i2) {
-        this.f50304g = TbadkCoreApplication.getInst().getResources().getString(i2);
+        this.f53980g = TbadkCoreApplication.getInst().getResources().getString(i2);
         return this;
     }
 
     public o j(DialogInterface.OnDismissListener onDismissListener) {
-        this.f50298a.setOnDismissListener(onDismissListener);
+        this.f53974a.setOnDismissListener(onDismissListener);
         return this;
     }
 
@@ -188,47 +188,47 @@ public class o {
     }
 
     public o l(@StringRes int i2) {
-        this.f50303f = TbadkCoreApplication.getInst().getResources().getString(i2);
+        this.f53979f = TbadkCoreApplication.getInst().getResources().getString(i2);
         return this;
     }
 
     public final void m() {
-        LinearLayout linearLayout = new LinearLayout(this.f50299b);
+        LinearLayout linearLayout = new LinearLayout(this.f53975b);
         linearLayout.setOrientation(1);
         linearLayout.setGravity(17);
         linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        View view = this.f50302e;
+        View view = this.f53978e;
         if (view != null) {
             if (view.getLayoutParams() == null) {
-                linearLayout.addView(this.f50302e, new ViewGroup.LayoutParams(-1, -2));
+                linearLayout.addView(this.f53978e, new ViewGroup.LayoutParams(-1, -2));
             } else {
-                linearLayout.addView(this.f50302e);
+                linearLayout.addView(this.f53978e);
             }
         }
-        LinearLayout linearLayout2 = new LinearLayout(this.f50299b);
+        LinearLayout linearLayout2 = new LinearLayout(this.f53975b);
         linearLayout2.setOrientation(1);
         linearLayout2.setGravity(17);
         linearLayout2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(linearLayout2);
-        d2.l(this.f50302e == null ? 0 : 2);
+        d2.l(this.f53978e == null ? 0 : 2);
         d2.m(R.string.J_X06);
         d2.f(R.color.CAM_X0205);
-        TextView k = p.k(this.f50299b);
-        k.setText(this.f50303f);
+        TextView k = p.k(this.f53975b);
+        k.setText(this.f53979f);
         k.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
         linearLayout2.addView(k);
-        if (!TextUtils.isEmpty(this.f50304g)) {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f50299b);
+        if (!TextUtils.isEmpty(this.f53980g)) {
+            RelativeLayout relativeLayout = new RelativeLayout(this.f53975b);
             relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            TextView b2 = p.b(this.f50299b, this.f50306i);
-            b2.setText(this.f50304g);
-            b2.setGravity(this.f50305h);
+            TextView b2 = p.b(this.f53975b, this.f53982i);
+            b2.setText(this.f53980g);
+            b2.setGravity(this.f53981h);
             b2.setId(R.id.desc);
             b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
             b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
             b2.setMovementMethod(ScrollingMovementMethod.getInstance());
             relativeLayout.addView(b2, new ViewGroup.LayoutParams(-1, -2));
-            View view2 = new View(this.f50299b);
+            View view2 = new View(this.f53975b);
             view2.setVisibility(4);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
             layoutParams.addRule(8, R.id.desc);
@@ -245,18 +245,18 @@ public class o {
             if (this.m) {
                 this.n = new b();
             }
-            linearLayout2.addView(p.i(this.f50299b, this.k, this.n));
+            linearLayout2.addView(p.i(this.f53975b, this.k, this.n));
         }
         linearLayout.addView(linearLayout2, new ViewGroup.LayoutParams(-1, -2));
         if (this.l) {
-            ImageView imageView = new ImageView(this.f50299b);
+            ImageView imageView = new ImageView(this.f53975b);
             imageView.setImageResource(R.drawable.icon_mask_pop_close);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
             layoutParams2.setMargins(0, d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
             imageView.setOnClickListener(new c());
             linearLayout.addView(imageView, layoutParams2);
         }
-        this.f50298a.setView(linearLayout);
+        this.f53974a.setView(linearLayout);
     }
 
     public AlertDialog n() {

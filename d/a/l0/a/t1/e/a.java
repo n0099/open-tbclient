@@ -13,7 +13,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44790a = k.f43199a;
+    public static final boolean f48464a = k.f46875a;
 
     public static void a() {
         String[] list = e.q().list();
@@ -23,12 +23,12 @@ public class a {
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
                 h hVar = new h();
-                hVar.f48012g = str;
-                hVar.f48014i = -1L;
+                hVar.f51686g = str;
+                hVar.f51688i = -1L;
                 d.a.l0.n.g.a.h().f(hVar);
             }
         }
-        e.C0561e.d();
+        e.C0617e.d();
     }
 
     public static void b(String str) {
@@ -43,7 +43,7 @@ public class a {
             try {
                 j2 = Long.parseLong(str2);
             } catch (NumberFormatException e2) {
-                if (f44790a) {
+                if (f48464a) {
                     d.a.l0.a.t1.d.a.a(Log.getStackTraceString(e2));
                 }
             }
@@ -70,7 +70,7 @@ public class a {
             int min = Math.min(list.size(), 2);
             for (int i2 = 0; i2 < min; i2++) {
                 h hVar = list.get(i2);
-                if (hVar != null && (j == hVar.f48014i || j == l0.c(hVar.j))) {
+                if (hVar != null && (j == hVar.f51688i || j == l0.c(hVar.j))) {
                     return true;
                 }
             }

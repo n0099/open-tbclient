@@ -21,40 +21,40 @@ import d.a.m0.r.l.c;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f50973b;
+    public static b f54650b;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f50974a;
+    public UserData f54651a;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f50975e;
+        public final /* synthetic */ AccountData f54652e;
 
         public a(b bVar, AccountData accountData) {
-            this.f50975e = accountData;
+            this.f54652e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.g(this.f50975e);
+            c.g(this.f54652e);
         }
     }
 
     public static b a() {
-        if (f50973b == null) {
+        if (f54650b == null) {
             synchronized (b.class) {
-                if (f50973b == null) {
-                    f50973b = new b();
+                if (f54650b == null) {
+                    f54650b = new b();
                 }
             }
         }
-        return f50973b;
+        return f54650b;
     }
 
     public UserData b() {
-        return this.f50974a;
+        return this.f54651a;
     }
 
     public void c() {
@@ -73,7 +73,7 @@ public class b {
     }
 
     public void e(UserData userData) {
-        this.f50974a = userData;
+        this.f54651a = userData;
         if (userData == null) {
             return;
         }
@@ -105,9 +105,7 @@ public class b {
         }
         currentAccountObj.setIsBigV(userData.isBigV());
         currentAccountObj.setNameShow(userData.getName_show());
-        if (!StringUtils.isNull(userData.getBimg_url())) {
-            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
-        }
+        TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
         PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
         if (currentAccountObj.getVipInfo() != null) {
             currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
@@ -116,8 +114,8 @@ public class b {
         }
         CloseAdData closeAdData = userData.getCloseAdData();
         if (closeAdData != null) {
-            currentAccountObj.setMemberCloseAdIsOpen(closeAdData.s());
-            currentAccountObj.setMemberCloseAdVipClose(closeAdData.t());
+            currentAccountObj.setMemberCloseAdIsOpen(closeAdData.w());
+            currentAccountObj.setMemberCloseAdVipClose(closeAdData.x());
         }
         currentAccountObj.setUserIcons(userData.getIconInfo());
         currentAccountObj.setIsSelectTail(userData.getIsSelectTail());

@@ -23,21 +23,21 @@ public class a extends d {
 
     /* renamed from: d.a.l0.a.u.e.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0838a implements ActivityResultConsumer {
+    public class C0894a implements ActivityResultConsumer {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44906a;
+        public final /* synthetic */ String f48580a;
 
-        public C0838a(String str) {
-            this.f44906a = str;
+        public C0894a(String str) {
+            this.f48580a = str;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
         public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i2, Intent intent) {
-            if (d.f44812c) {
+            if (d.f48486c) {
                 Log.d("shareFile", "resultCode:" + i2);
             }
-            a.this.d(this.f44906a, new b(0));
+            a.this.d(this.f48580a, new b(0));
             return true;
         }
     }
@@ -57,7 +57,7 @@ public class a extends d {
 
     public b s(String str) {
         Uri fromFile;
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-Base", "handle: " + str);
         }
         if (l()) {
@@ -66,8 +66,8 @@ public class a extends d {
         }
         Pair<b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         b bVar = (b) b2.first;
-        if (!bVar.a()) {
-            if (d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Base", "parse fail");
             }
             return bVar;
@@ -99,7 +99,7 @@ public class a extends d {
                 intent.setAction("android.intent.action.SEND");
                 intent.putExtra("android.intent.extra.STREAM", fromFile);
                 intent.setType(r(M));
-                resultDispatcher.addConsumer(new C0838a(optString2));
+                resultDispatcher.addConsumer(new C0894a(optString2));
                 resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
                 return new b(0);
             }

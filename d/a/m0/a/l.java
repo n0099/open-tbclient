@@ -1,16 +1,16 @@
 package d.a.m0.a;
 /* loaded from: classes3.dex */
-public class l extends i {
+public class l extends j {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48738e;
+    public long f52413e;
 
-    public l(b bVar, long j) {
-        super(bVar);
-        this.f48738e = j;
+    public l(c cVar, long j) {
+        super(cVar);
+        this.f52413e = j;
     }
 
     public long i() {
-        return this.f48738e;
+        return this.f52413e;
     }
 }

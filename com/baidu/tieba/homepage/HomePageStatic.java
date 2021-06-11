@@ -10,7 +10,7 @@ import d.a.m0.v0.b;
 public class HomePageStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f16120a = false;
+    public static boolean f16182a = false;
 
     static {
         a();

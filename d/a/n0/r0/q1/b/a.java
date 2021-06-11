@@ -4,17 +4,17 @@ import d.a.n0.r0.q1.c.c;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface a {
-    void b();
+    void a();
 
-    void c(d.a.n0.r0.q1.c.a aVar);
+    void b(d.a.n0.r0.q1.c.a aVar);
 
-    void d(List<c> list);
+    void c(List<c> list);
 
-    void e(boolean z, String str);
+    void d(boolean z, String str);
 
-    void f(d.a.n0.r0.q1.c.b bVar);
+    void e(d.a.n0.r0.q1.c.b bVar);
+
+    void f(String str);
 
     void finish();
-
-    void g(String str);
 }

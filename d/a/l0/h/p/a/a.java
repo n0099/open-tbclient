@@ -17,8 +17,8 @@ public class a extends a0 {
 
     /* renamed from: d.a.l0.h.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1048a implements e.c {
-        public C1048a(a aVar) {
+    public class C1104a implements e.c {
+        public C1104a(a aVar) {
         }
 
         @Override // d.a.l0.a.a1.e.c
@@ -49,7 +49,7 @@ public class a extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 Toast.makeText(context, g.aiapps_debug_game_core_params_empty, 1).show();
@@ -60,7 +60,7 @@ public class a extends a0 {
                 Toast.makeText(context, g.aiapps_debug_game_core_url_empty, 1).show();
                 return false;
             }
-            d.a.l0.h.s.a.g(optString, new C1048a(this));
+            d.a.l0.h.s.a.g(optString, new C1104a(this));
             return true;
         }
         return false;

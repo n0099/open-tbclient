@@ -6,12 +6,12 @@ import android.util.Log;
 /* loaded from: classes3.dex */
 public class b extends a {
     public b(double d2) {
-        this.f43491a = d2;
+        this.f47167a = d2;
     }
 
     @Override // d.a.l0.a.m1.i.a
     public boolean a(Bitmap bitmap, Rect rect) {
-        if (a.f43490c) {
+        if (a.f47166c) {
             Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
         }
         if (bitmap == null) {
@@ -22,7 +22,7 @@ public class b extends a {
         int height = rect2.height() - 2;
         int i2 = width / 3;
         int i3 = height / i2;
-        int ceil = (int) Math.ceil(i3 * 3 * this.f43491a);
+        int ceil = (int) Math.ceil(i3 * 3 * this.f47167a);
         int i4 = 0;
         int i5 = 0;
         while (i5 < 3) {
@@ -50,7 +50,7 @@ public class b extends a {
     }
 
     public double d(Bitmap bitmap, Rect rect) {
-        if (a.f43490c) {
+        if (a.f47166c) {
             Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
         }
         if (bitmap == null) {

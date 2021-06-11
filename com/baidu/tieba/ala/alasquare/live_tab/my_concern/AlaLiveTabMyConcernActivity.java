@@ -14,7 +14,7 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel
 import com.baidu.tieba.card.data.BaseCardInfo;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.d0.h;
 import d.a.n0.v.d.c.f.d.a;
 import java.util.List;
@@ -65,7 +65,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         public void onScrollToBottom() {
             if (l.D() && AlaLiveTabMyConcernActivity.this.mHasMore && !AlaLiveTabMyConcernActivity.this.isLoading) {
                 AlaLiveTabMyConcernActivity.this.isLoading = true;
-                AlaLiveTabMyConcernActivity.this.mModel.x();
+                AlaLiveTabMyConcernActivity.this.mModel.B();
             }
         }
     }
@@ -115,7 +115,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public void deleteItem(Class<? extends BaseCardInfo> cls) {
         MyConcernTabModel myConcernTabModel = this.mModel;
         if (myConcernTabModel != null) {
-            myConcernTabModel.A(cls);
+            myConcernTabModel.E(cls);
         }
         d.a.n0.v.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
         if (aVar != null) {
@@ -149,7 +149,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
         this.isLoading = true;
-        this.mModel.y();
+        this.mModel.C();
     }
 
     private void showNetRefreshView(int i2, String str, View.OnClickListener onClickListener) {
@@ -188,7 +188,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         this.hasNotificationAccessOpen = d.a.n0.v.d.c.f.c.a.a(getPageContext());
         MyConcernTabModel myConcernTabModel = new MyConcernTabModel(getPageContext());
         this.mModel = myConcernTabModel;
-        myConcernTabModel.B(this.mDataCallback);
+        myConcernTabModel.F(this.mDataCallback);
         if (!l.D()) {
             showNetRefreshView(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.mNetRefreshListener);
         } else {

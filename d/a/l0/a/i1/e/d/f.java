@@ -18,13 +18,13 @@ import java.util.List;
 public class f implements d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42907c = k.f43199a;
+    public static final boolean f46583c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapRegionDecoder f42908a;
+    public BitmapRegionDecoder f46584a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f42909b = new Object();
+    public final Object f46585b = new Object();
 
     @Override // d.a.l0.a.i1.e.d.d
     public Point a(Context context, Bitmap bitmap) throws Exception {
@@ -32,9 +32,9 @@ public class f implements d {
         try {
             inputStream = b(bitmap);
             try {
-                this.f42908a = BitmapRegionDecoder.newInstance(inputStream, false);
+                this.f46584a = BitmapRegionDecoder.newInstance(inputStream, false);
                 d.a.l0.t.d.d(inputStream);
-                return new Point(this.f42908a.getWidth(), this.f42908a.getHeight());
+                return new Point(this.f46584a.getWidth(), this.f46584a.getHeight());
             } catch (Throwable th) {
                 th = th;
                 d.a.l0.t.d.d(inputStream);
@@ -62,13 +62,13 @@ public class f implements d {
     @Override // d.a.l0.a.i1.e.d.d
     public Bitmap decodeRegion(Rect rect, int i2) {
         Bitmap decodeRegion;
-        synchronized (this.f42909b) {
+        synchronized (this.f46585b) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inSampleSize = i2;
             options.inPreferredConfig = Bitmap.Config.RGB_565;
-            decodeRegion = this.f42908a.decodeRegion(rect, options);
+            decodeRegion = this.f46584a.decodeRegion(rect, options);
             if (decodeRegion == null) {
-                if (!f42907c) {
+                if (!f46583c) {
                     d.a.l0.a.e0.d.h("SkiaImageRegionDecoder", "bitmap is null");
                 } else {
                     throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
@@ -104,31 +104,31 @@ public class f implements d {
                 }
                 i2 = 0;
             }
-            this.f42908a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i2), false);
+            this.f46584a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i2), false);
         } else if (uri2.startsWith("file:///android_asset/")) {
-            this.f42908a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
+            this.f46584a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
         } else if (uri2.startsWith("file://")) {
-            this.f42908a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
+            this.f46584a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
         } else {
             InputStream inputStream = null;
             try {
                 inputStream = context.getContentResolver().openInputStream(uri);
-                this.f42908a = BitmapRegionDecoder.newInstance(inputStream, false);
+                this.f46584a = BitmapRegionDecoder.newInstance(inputStream, false);
             } finally {
                 d.a.l0.t.d.d(inputStream);
             }
         }
-        return new Point(this.f42908a.getWidth(), this.f42908a.getHeight());
+        return new Point(this.f46584a.getWidth(), this.f46584a.getHeight());
     }
 
     @Override // d.a.l0.a.i1.e.d.d
     public boolean isReady() {
-        BitmapRegionDecoder bitmapRegionDecoder = this.f42908a;
+        BitmapRegionDecoder bitmapRegionDecoder = this.f46584a;
         return (bitmapRegionDecoder == null || bitmapRegionDecoder.isRecycled()) ? false : true;
     }
 
     @Override // d.a.l0.a.i1.e.d.d
     public void recycle() {
-        this.f42908a.recycle();
+        this.f46584a.recycle();
     }
 }

@@ -14,28 +14,28 @@ import java.util.List;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ChatSetting> f54739a = new HashMap<>();
+    public HashMap<String, ChatSetting> f58428a = new HashMap<>();
 
     /* renamed from: d.a.n0.f1.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1328a extends f0<Boolean> {
+    public class C1384a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54740a;
+        public final /* synthetic */ String f58429a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54741b;
+        public final /* synthetic */ String f58430b;
 
-        public C1328a(String str, String str2) {
-            this.f54740a = str;
-            this.f54741b = str2;
+        public C1384a(String str, String str2) {
+            this.f58429a = str;
+            this.f58430b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            ChatSetting a2 = a.this.a(this.f54740a, this.f54741b);
+            ChatSetting a2 = a.this.a(this.f58429a, this.f58430b);
             if (a2 == null) {
                 return Boolean.FALSE;
             }
@@ -56,27 +56,27 @@ public abstract class a {
     }
 
     public void d(String str, String str2, n<Boolean> nVar) {
-        h0.c(new C1328a(str, str2), nVar);
+        h0.c(new C1384a(str, str2), nVar);
     }
 
     public void e(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.f54739a) {
-            this.f54739a.clear();
+        synchronized (this.f58428a) {
+            this.f58428a.clear();
         }
         String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
         if (id == null || id.length() == 0) {
             return;
         }
         String str2 = id + "@";
-        synchronized (this.f54739a) {
+        synchronized (this.f58428a) {
             l<String> b2 = b();
             List<l.b<String>> b3 = p.b(b2);
             if (b3 != null) {
                 for (l.b<String> bVar : b3) {
-                    String str3 = bVar.f38541a;
+                    String str3 = bVar.f42194a;
                     if (str3 != null && str3.startsWith(str2) && (str = b2.get(str3)) != null) {
-                        this.f54739a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        this.f58428a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                     }
                 }
             }

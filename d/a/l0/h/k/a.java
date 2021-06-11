@@ -10,22 +10,22 @@ public class a implements h {
 
     /* renamed from: d.a.l0.h.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1028a {
+    public static class C1084a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f47416a;
+        public static String f51090a;
 
         public static String a() {
-            if (TextUtils.isEmpty(f47416a)) {
-                f47416a = d.a.l0.a.s2.b.c();
+            if (TextUtils.isEmpty(f51090a)) {
+                f51090a = d.a.l0.a.s2.b.c();
             }
-            return f47416a;
+            return f51090a;
         }
     }
 
     @Override // d.a.l0.a.l0.h
     public String a() {
-        return C1028a.a();
+        return C1084a.a();
     }
 
     @Override // d.a.l0.a.l0.h

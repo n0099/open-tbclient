@@ -17,15 +17,15 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f43024b = k.f43199a;
+    public static final boolean f46700b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f43025a;
+    public final String f46701a;
 
     /* renamed from: d.a.l0.a.i2.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0719a implements Comparator<File> {
-        public C0719a(a aVar) {
+    public class C0775a implements Comparator<File> {
+        public C0775a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,16 +46,16 @@ public class a {
         try {
             str = AppRuntime.getAppContext().getFilesDir().getPath();
         } catch (Exception e2) {
-            if (f43024b) {
+            if (f46700b) {
                 throw e2;
             }
             str = "";
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f43025a = str + File.separator + "aiapps_folder/stability";
+            this.f46701a = str + File.separator + "aiapps_folder/stability";
             return;
         }
-        this.f43025a = "";
+        this.f46701a = "";
     }
 
     public final void a(int i2) {
@@ -64,7 +64,7 @@ public class a {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        Arrays.sort(c2, new C0719a(this));
+        Arrays.sort(c2, new C0775a(this));
         ArrayList<File> arrayList = new ArrayList(c2.length);
         int i3 = 0;
         for (File file : c2) {
@@ -83,21 +83,21 @@ public class a {
     }
 
     public final File b(long j) {
-        if (TextUtils.isEmpty(this.f43025a)) {
+        if (TextUtils.isEmpty(this.f46701a)) {
             return null;
         }
         String V = e.V() == null ? "" : e.V();
-        return new File(this.f43025a + File.separator + V + "_" + j + "_swan_stability_traces.log");
+        return new File(this.f46701a + File.separator + V + "_" + j + "_swan_stability_traces.log");
     }
 
     public File[] c() {
-        if (TextUtils.isEmpty(this.f43025a)) {
+        if (TextUtils.isEmpty(this.f46701a)) {
             return null;
         }
         try {
-            return new File(this.f43025a).listFiles();
+            return new File(this.f46701a).listFiles();
         } catch (Exception e2) {
-            if (f43024b) {
+            if (f46700b) {
                 Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e2);
             }
             return null;
@@ -121,7 +121,7 @@ public class a {
             }
             return null;
         } catch (Exception e2) {
-            if (f43024b) {
+            if (f46700b) {
                 Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e2);
             }
             return null;

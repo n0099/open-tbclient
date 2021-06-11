@@ -7,29 +7,29 @@ import android.os.IInterface;
 public final class a implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.q.a.a.a.a.a f38181a;
+    public d.q.a.a.a.a.a f41860a;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.q.a.a.a.b.a.a f38186f;
+    public d.q.a.a.a.b.a.a f41865f;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38182b = "";
+    public String f41861b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38183c = "";
+    public String f41862c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38184d = "";
+    public String f41863d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38185e = "";
+    public String f41864e = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f38187g = false;
+    public boolean f41866g = false;
 
     public a(Context context, d.q.a.a.a.a.a aVar) {
-        this.f38181a = aVar;
-        this.f38186f = new d.q.a.a.a.b.a.a(context);
+        this.f41860a = aVar;
+        this.f41865f = new d.q.a.a.a.b.a.a(context);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
@@ -37,53 +37,53 @@ public final class a implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         b bVar = (b) iInterface;
         try {
             String b2 = bVar.b();
-            this.f38182b = b2;
+            this.f41861b = b2;
             if (b2 == null) {
-                this.f38182b = "";
+                this.f41861b = "";
             }
         } catch (Throwable unused) {
         }
         try {
             String c2 = bVar.c();
-            this.f38183c = c2;
+            this.f41862c = c2;
             if (c2 == null) {
-                this.f38183c = "";
+                this.f41862c = "";
             }
         } catch (Throwable unused2) {
         }
         try {
             String d2 = bVar.d();
-            this.f38184d = d2;
+            this.f41863d = d2;
             if (d2 == null) {
-                this.f38184d = "";
+                this.f41863d = "";
             }
         } catch (Throwable unused3) {
         }
         try {
             String e2 = bVar.e();
-            this.f38185e = e2;
+            this.f41864e = e2;
             if (e2 == null) {
-                this.f38185e = "";
+                this.f41864e = "";
             }
         } catch (Throwable unused4) {
         }
         try {
-            this.f38187g = bVar.a();
+            this.f41866g = bVar.a();
         } catch (Throwable unused5) {
         }
-        d.q.a.a.a.b.a.a aVar = this.f38186f;
+        d.q.a.a.a.b.a.a aVar = this.f41865f;
         if (aVar != null) {
             aVar.b();
         }
-        d.q.a.a.a.a.a aVar2 = this.f38181a;
+        d.q.a.a.a.a.a aVar2 = this.f41860a;
         if (aVar2 != null) {
-            aVar2.a(this.f38187g, this);
+            aVar2.a(this.f41866g, this);
         }
     }
 
     @Override // d.q.a.a.a.b.b
     public final void a(d.q.a.a.a.a.a aVar) {
-        this.f38186f.c(this);
+        this.f41865f.c(this);
     }
 
     @Override // d.q.a.a.a.b.b
@@ -98,17 +98,17 @@ public final class a implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // d.q.a.a.a.b.b
     public final String b() {
-        return this.f38183c;
+        return this.f41862c;
     }
 
     @Override // d.q.a.a.a.b.b
     public final boolean c() {
-        return this.f38187g;
+        return this.f41866g;
     }
 
     @Override // d.q.a.a.a.b.b
     public final void d() {
-        d.q.a.a.a.b.a.a aVar = this.f38186f;
+        d.q.a.a.a.b.a.a aVar = this.f41865f;
         if (aVar != null) {
             aVar.b();
         }
@@ -116,7 +116,7 @@ public final class a implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        d.q.a.a.a.a.a aVar = this.f38181a;
+        d.q.a.a.a.a.a aVar = this.f41860a;
         if (aVar != null) {
             aVar.a(false, this);
         }

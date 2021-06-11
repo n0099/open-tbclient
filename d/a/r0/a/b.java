@@ -1,58 +1,57 @@
 package d.a.r0.a;
 
 import android.content.Context;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import d.a.r0.a.f.i;
 /* loaded from: classes5.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64372a;
+    public Context f68090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64373b;
+    public boolean f68091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64374c;
+    public long f68092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f64375d;
+    public long f68093d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f64376e;
+    public long f68094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f64377f;
+    public boolean f68095f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64378g;
+    public int f68096g;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f64379a;
+        public Context f68097a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f64380b = true;
+        public boolean f68098b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f64381c = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
+        public long f68099c = 30000;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f64382d = 60000;
+        public long f68100d = 60000;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f64383e = 10000;
+        public long f68101e = 10000;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f64384f = false;
+        public boolean f68102f = false;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f64385g = 1000;
+        public int f68103g = 1000;
 
         public b c() {
-            if (this.f64379a == null) {
+            if (this.f68097a == null) {
                 i.b("Context must be not empty!");
                 return null;
             }
@@ -60,12 +59,12 @@ public final class b {
         }
 
         public a e(Context context) {
-            this.f64379a = context;
+            this.f68097a = context;
             return this;
         }
 
         public a j(boolean z) {
-            this.f64380b = z;
+            this.f68098b = z;
             return this;
         }
 
@@ -76,27 +75,27 @@ public final class b {
             if (i2 >= 1000) {
                 i2 = 1000;
             }
-            this.f64385g = i2;
+            this.f68103g = i2;
             return this;
         }
 
         public a l(boolean z) {
-            this.f64384f = z;
+            this.f68102f = z;
             return this;
         }
 
         public a m(int i2) {
-            this.f64382d = i2 * 60 * 1000;
+            this.f68100d = i2 * 60 * 1000;
             return this;
         }
 
         public a n(long j) {
-            this.f64381c = j * 1000;
+            this.f68099c = j * 1000;
             return this;
         }
 
         public a o(long j) {
-            this.f64383e = j * 1000;
+            this.f68101e = j * 1000;
             return this;
         }
     }
@@ -106,40 +105,40 @@ public final class b {
     }
 
     public final Context a() {
-        return this.f64372a;
+        return this.f68090a;
     }
 
     public final boolean b() {
-        return this.f64373b;
+        return this.f68091b;
     }
 
     public final long c() {
-        return this.f64374c;
+        return this.f68092c;
     }
 
     public final long d() {
-        return this.f64375d;
+        return this.f68093d;
     }
 
     public final long e() {
-        return this.f64376e;
+        return this.f68094e;
     }
 
     public final boolean f() {
-        return this.f64377f;
+        return this.f68095f;
     }
 
     public final int g() {
-        return this.f64378g;
+        return this.f68096g;
     }
 
     public b(a aVar) {
-        this.f64372a = aVar.f64379a;
-        this.f64373b = aVar.f64380b;
-        this.f64374c = aVar.f64381c;
-        this.f64375d = aVar.f64382d;
-        this.f64377f = aVar.f64384f;
-        this.f64376e = aVar.f64383e;
-        this.f64378g = aVar.f64385g;
+        this.f68090a = aVar.f68097a;
+        this.f68091b = aVar.f68098b;
+        this.f68092c = aVar.f68099c;
+        this.f68093d = aVar.f68100d;
+        this.f68095f = aVar.f68102f;
+        this.f68094e = aVar.f68101e;
+        this.f68096g = aVar.f68103g;
     }
 }

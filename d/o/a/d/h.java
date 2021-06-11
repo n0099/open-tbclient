@@ -27,7 +27,7 @@ import d.o.a.e.b.a.a;
 public class h implements d.j {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f66908a = new Handler(Looper.getMainLooper());
+    public Handler f70694a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -44,19 +44,19 @@ public class h implements d.j {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.j.a f66909e;
+        public final /* synthetic */ d.o.a.e.b.j.a f70695e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.a.a.c.d f66910f;
+        public final /* synthetic */ d.o.a.a.a.c.d f70696f;
 
         public b(h hVar, d.o.a.e.b.j.a aVar, d.o.a.a.a.c.d dVar) {
-            this.f66909e = aVar;
-            this.f66910f = dVar;
+            this.f70695e = aVar;
+            this.f70696f = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            n.n().a(2, n.a(), this.f66910f, this.f66909e.h("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
+            n.n().a(2, n.a(), this.f70696f, this.f70695e.h("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
         }
     }
 
@@ -64,39 +64,39 @@ public class h implements d.j {
     public class c implements a.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.b.a.c.b f66911e;
+        public final /* synthetic */ d.o.a.b.a.c.b f70697e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f66912f;
+        public final /* synthetic */ long f70698f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f66913g;
+        public final /* synthetic */ long f70699g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ double f66914h;
+        public final /* synthetic */ double f70700h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f66915i;
+        public final /* synthetic */ DownloadInfo f70701i;
 
         public c(h hVar, d.o.a.b.a.c.b bVar, long j, long j2, double d2, DownloadInfo downloadInfo) {
-            this.f66911e = bVar;
-            this.f66912f = j;
-            this.f66913g = j2;
-            this.f66914h = d2;
-            this.f66915i = downloadInfo;
+            this.f70697e = bVar;
+            this.f70698f = j;
+            this.f70699g = j2;
+            this.f70700h = d2;
+            this.f70701i = downloadInfo;
         }
 
         @Override // d.o.a.e.b.a.a.b
         public void b() {
-            if (!d.o.a.d.n.k.D(this.f66911e)) {
-                long j = this.f66912f;
-                if (j <= -1 || this.f66913g <= -1 || j >= this.f66914h) {
+            if (!d.o.a.d.n.k.D(this.f70697e)) {
+                long j = this.f70698f;
+                if (j <= -1 || this.f70699g <= -1 || j >= this.f70700h) {
                     return;
                 }
-                j.c.a().u("clean_space_install", d.o.a.d.f.h.d("install_no_enough_space"), this.f66911e);
-                if (d.o.a.d.f.h.p(this.f66915i, ((long) this.f66914h) - this.f66912f)) {
+                j.c.a().u("clean_space_install", d.o.a.d.f.h.d("install_no_enough_space"), this.f70697e);
+                if (d.o.a.d.f.h.p(this.f70701i, ((long) this.f70700h) - this.f70698f)) {
                     d.o.a.e.b.a.a.c().h(this);
-                    this.f66911e.G0(true);
+                    this.f70697e.G0(true);
                     return;
                 }
                 return;
@@ -116,17 +116,17 @@ public class h implements d.j {
         public static class a implements DialogInterface.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.a.a.d.c f66916e;
+            public final /* synthetic */ d.o.a.a.a.d.c f70702e;
 
             public a(d.o.a.a.a.d.c cVar) {
-                this.f66916e = cVar;
+                this.f70702e = cVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                c.InterfaceC1860c interfaceC1860c = this.f66916e.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.b(dialogInterface);
+                c.InterfaceC1920c interfaceC1920c = this.f70702e.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.a(dialogInterface);
                 }
             }
         }
@@ -135,17 +135,17 @@ public class h implements d.j {
         public static class b implements DialogInterface.OnClickListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.a.a.d.c f66917e;
+            public final /* synthetic */ d.o.a.a.a.d.c f70703e;
 
             public b(d.o.a.a.a.d.c cVar) {
-                this.f66917e = cVar;
+                this.f70703e = cVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                c.InterfaceC1860c interfaceC1860c = this.f66917e.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.a(dialogInterface);
+                c.InterfaceC1920c interfaceC1920c = this.f70703e.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.b(dialogInterface);
                 }
             }
         }
@@ -154,17 +154,17 @@ public class h implements d.j {
         public static class c implements DialogInterface.OnCancelListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.a.a.d.c f66918e;
+            public final /* synthetic */ d.o.a.a.a.d.c f70704e;
 
             public c(d.o.a.a.a.d.c cVar) {
-                this.f66918e = cVar;
+                this.f70704e = cVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                c.InterfaceC1860c interfaceC1860c = this.f66918e.f66562h;
-                if (interfaceC1860c != null) {
-                    interfaceC1860c.c(dialogInterface);
+                c.InterfaceC1920c interfaceC1920c = this.f70704e.f70348h;
+                if (interfaceC1920c != null) {
+                    interfaceC1920c.c(dialogInterface);
                 }
             }
         }
@@ -183,10 +183,10 @@ public class h implements d.j {
             if (cVar == null) {
                 return null;
             }
-            AlertDialog show = new AlertDialog.Builder(cVar.f66555a).setTitle(cVar.f66556b).setMessage(cVar.f66557c).setPositiveButton(cVar.f66558d, new b(cVar)).setNegativeButton(cVar.f66559e, new a(cVar)).show();
-            show.setCanceledOnTouchOutside(cVar.f66560f);
+            AlertDialog show = new AlertDialog.Builder(cVar.f70341a).setTitle(cVar.f70342b).setMessage(cVar.f70343c).setPositiveButton(cVar.f70344d, new b(cVar)).setNegativeButton(cVar.f70345e, new a(cVar)).show();
+            show.setCanceledOnTouchOutside(cVar.f70346f);
             show.setOnCancelListener(new c(cVar));
-            Drawable drawable = cVar.f66561g;
+            Drawable drawable = cVar.f70347g;
             if (drawable != null) {
                 show.setIcon(drawable);
             }
@@ -223,7 +223,7 @@ public class h implements d.j {
             BaseException baseException2 = null;
             if (baseException != null) {
                 if (d.o.a.e.b.j.a.d(downloadInfo.c0()).b("toast_without_network", 0) == 1 && baseException.getErrorCode() == 1049) {
-                    this.f66908a.post(new a(this));
+                    this.f70694a.post(new a(this));
                 }
                 if (d.o.a.e.b.l.e.M0(baseException)) {
                     if (n.v() != null) {
@@ -237,7 +237,7 @@ public class h implements d.j {
                     if ((n.v() == null || !n.v().d()) && (a2 = c.g.e().a(c2.b())) != null && a2.k()) {
                         d.o.a.e.b.j.a d2 = d.o.a.e.b.j.a.d(downloadInfo.c0());
                         if (d2.b("show_no_enough_space_toast", 0) == 1) {
-                            this.f66908a.post(new b(this, d2, a2));
+                            this.f70694a.post(new b(this, d2, a2));
                         }
                     }
                 }
@@ -268,12 +268,12 @@ public class h implements d.j {
     public class e implements d.o.a.a.a.a.h {
 
         /* renamed from: a  reason: collision with root package name */
-        public q f66919a;
+        public q f70705a;
 
         @Override // d.o.a.a.a.a.h
         public void a(@NonNull Activity activity, @NonNull String[] strArr, q qVar) {
             if (Build.VERSION.SDK_INT >= 23) {
-                this.f66919a = qVar;
+                this.f70705a = qVar;
                 activity.requestPermissions(strArr, 1);
             } else if (qVar != null) {
                 qVar.a();
@@ -288,7 +288,7 @@ public class h implements d.j {
         @Override // d.o.a.a.a.a.h
         public void a(@NonNull Activity activity, int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
             q qVar;
-            if (iArr.length <= 0 || (qVar = this.f66919a) == null) {
+            if (iArr.length <= 0 || (qVar = this.f70705a) == null) {
                 return;
             }
             if (iArr[0] == -1) {

@@ -31,13 +31,13 @@ public class ClickableHeaderImageView extends HeadImageView {
         public void onClick(View view) {
             d dVar = ClickableHeaderImageView.this.Z0;
             if ((dVar == null || !dVar.a(view)) && ClickableHeaderImageView.this.W0 != null) {
-                MetaData t = ClickableHeaderImageView.this.X0 ? ClickableHeaderImageView.this.W0.B1().t() : ClickableHeaderImageView.this.W0.T();
+                MetaData t = ClickableHeaderImageView.this.X0 ? ClickableHeaderImageView.this.W0.C1().t() : ClickableHeaderImageView.this.W0.T();
                 if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                     return;
                 }
                 long f2 = b.f(t.getUserId(), 0L);
                 PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                createNormalConfig.setSourceTid(ClickableHeaderImageView.this.W0.y1());
+                createNormalConfig.setSourceTid(ClickableHeaderImageView.this.W0.z1());
                 createNormalConfig.setSourceNid(ClickableHeaderImageView.this.W0.M0());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                 if (ClickableHeaderImageView.this.Y0 != null) {
@@ -71,22 +71,22 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.W0 = a2Var;
         this.X0 = z2;
         if (z2) {
-            T = a2Var.B1().t();
+            T = a2Var.C1().t();
         } else {
             T = a2Var.T();
         }
         setContentDescription(T.getName_show() + getContext().getString(R.string.somebodys_portrait));
         setUserId(T.getUserId());
         setUserName(T.getUserName());
-        if (a2Var.r1() != null && (this.W0.u1() == 49 || this.W0.u1() == 69)) {
+        if (a2Var.s1() != null && (this.W0.v1() == 49 || this.W0.v1() == 69)) {
             setUrl(a2Var.T().getAvater());
-            V(a2Var.T().getAvater(), 28, false);
+            U(a2Var.T().getAvater(), 28, false);
         } else {
             setUrl(T.getAvater());
             if (!StringUtils.isNull(T.getAvater()) && T.getAvater().contains("http")) {
-                V(T.getAvater(), 10, false);
+                U(T.getAvater(), 10, false);
             } else {
-                V(T.getAvater(), 28, false);
+                U(T.getAvater(), 28, false);
             }
         }
         UtilHelper.showHeadImageViewBigV(this, T);
@@ -115,7 +115,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             return;
         }
         a2 a2Var = new a2();
-        a2Var.t3(metaData);
+        a2Var.u3(metaData);
         setData(a2Var);
     }
 }

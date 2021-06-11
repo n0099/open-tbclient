@@ -63,7 +63,6 @@ import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import d.a.t.a.b.a;
 import d.a.t.a.h.c;
 import java.io.File;
@@ -201,7 +200,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             return false;
         }
         try {
-            c.f64637a = z;
+            c.f68355a = z;
         } catch (Throwable unused) {
             LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
         }
@@ -417,8 +416,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        d.a.s.a.f64463e = a.d(applicationContext);
-        if (d.a.s.a.f64463e) {
+        d.a.s.a.f68181e = a.d(applicationContext);
+        if (d.a.s.a.f68181e) {
             try {
                 initLCP();
                 c.c(applicationContext, i2 != 0);
@@ -443,7 +442,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 try {
                     BIMManager.initIMServiceImpl(context2);
-                    d.a.s.a.f64461c.removeCallbacks(BIMManager.checkIMLoginState);
+                    d.a.s.a.f68179c.removeCallbacks(BIMManager.checkIMLoginState);
                     if (z) {
                         BIMManager.postCheckRunnable();
                     }
@@ -702,7 +701,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void postCheckRunnable() {
         try {
             LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-            d.a.s.a.f64461c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+            d.a.s.a.f68179c.postDelayed(checkIMLoginState, 30000L);
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e2);
         }
@@ -854,7 +853,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (d.a.s.a.f64463e) {
+        if (d.a.s.a.f68181e) {
             return;
         }
         AccountManagerImpl.getInstance(context);

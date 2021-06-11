@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataRes extends Message {
     public static final String DEFAULT_CONFIG = "";
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
@@ -18,7 +18,7 @@ public final class DataRes extends Message {
     public static final List<GroupMsg> DEFAULT_GROUPMSG = Collections.emptyList();
     public static final Integer DEFAULT_ALLOWEGGS = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer allowEggs;
         public String config;

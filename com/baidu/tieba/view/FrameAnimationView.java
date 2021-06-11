@@ -33,7 +33,7 @@ public class FrameAnimationView extends TbImageView {
         public void run() {
             e.a().removeCallbacks(FrameAnimationView.this.E0);
             if (FrameAnimationView.this.A0 != null) {
-                FrameAnimationView.this.f0();
+                FrameAnimationView.this.e0();
             }
         }
     }
@@ -57,7 +57,7 @@ public class FrameAnimationView extends TbImageView {
         String frameUrl = getFrameUrl();
         this.w0++;
         if (!k.isEmpty(frameUrl)) {
-            d.a.c.j.d.a aVar = (d.a.c.j.d.a) d.h().n(frameUrl, 10, new Object[0]);
+            d.a.c.k.d.a aVar = (d.a.c.k.d.a) d.h().n(frameUrl, 10, new Object[0]);
             if (aVar != null) {
                 return aVar.p();
             }
@@ -74,7 +74,7 @@ public class FrameAnimationView extends TbImageView {
         return list.get(this.w0);
     }
 
-    public final void f0() {
+    public final void e0() {
         if (this.A0 == null) {
             return;
         }
@@ -104,7 +104,7 @@ public class FrameAnimationView extends TbImageView {
         if (this.A0 == null) {
             return;
         }
-        f0();
+        e0();
     }
 
     public void i0() {
@@ -169,7 +169,7 @@ public class FrameAnimationView extends TbImageView {
             return;
         }
         this.C0 = true;
-        V(str, 10, false);
+        U(str, 10, false);
     }
 
     public FrameAnimationView(Context context, AttributeSet attributeSet, int i2) {

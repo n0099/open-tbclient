@@ -19,26 +19,26 @@ import org.json.JSONObject;
 public class c extends WebSocketEventTarget {
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47764g;
+    public String f51438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f47765h;
+    public b f51439h;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47766a;
+        public static final /* synthetic */ int[] f51440a;
 
         static {
             int[] iArr = new int[WebSocketEventTarget.SocketTaskState.values().length];
-            f47766a = iArr;
+            f51440a = iArr;
             try {
                 iArr[WebSocketEventTarget.SocketTaskState.IDLE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47766a[WebSocketEventTarget.SocketTaskState.CLOSE.ordinal()] = 2;
+                f51440a[WebSocketEventTarget.SocketTaskState.CLOSE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -46,7 +46,7 @@ public class c extends WebSocketEventTarget {
 
     public c(b bVar, d.a.l0.a.l0.c cVar) {
         super(cVar);
-        this.f47765h = bVar;
+        this.f51439h = bVar;
     }
 
     public final WebSocketRequest A(String str, @NonNull d.a.l0.a.y.b.a aVar) {
@@ -56,7 +56,7 @@ public class c extends WebSocketEventTarget {
         d.a.l0.a.y.b.a x = aVar.x("header");
         if (x != null) {
             for (String str2 : x.k()) {
-                if (!TextUtils.isEmpty(str2) && !d.a.l0.a.n1.a.f43686d.contains(str2.toUpperCase(Locale.US))) {
+                if (!TextUtils.isEmpty(str2) && !d.a.l0.a.n1.a.f47362d.contains(str2.toUpperCase(Locale.US))) {
                     builder.addHeader(str2, x.I(str2));
                 }
             }
@@ -75,7 +75,7 @@ public class c extends WebSocketEventTarget {
 
     public final void B(d.a.l0.a.y.b.a aVar, String str, String str2) {
         String format = String.format("%s:fail %s", str, str2);
-        if (WebSocketEventTarget.f11672f) {
+        if (WebSocketEventTarget.f11734f) {
             Log.i("WebSocket", format);
         }
         d.a.l0.h.m0.c.a(aVar, false, new f(format));
@@ -83,7 +83,7 @@ public class c extends WebSocketEventTarget {
 
     public final void C(d.a.l0.a.y.b.a aVar, String str) {
         String format = String.format("%s:ok", str);
-        if (WebSocketEventTarget.f11672f) {
+        if (WebSocketEventTarget.f11734f) {
             Log.i("WebSocket", format);
         }
         d.a.l0.h.m0.c.a(aVar, true, new f(format));
@@ -91,7 +91,7 @@ public class c extends WebSocketEventTarget {
 
     public c D(JsObject jsObject) {
         d.a.l0.a.y.b.a F = F(jsObject);
-        this.f47764g = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
+        this.f51438g = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
         int i2 = F.i("url");
         if (i2 != 7) {
             B(F, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", d.a.l0.h.g0.f.d.f(7), d.a.l0.h.g0.f.d.f(i2)));
@@ -99,7 +99,7 @@ public class c extends WebSocketEventTarget {
         }
         String C = F.C("url");
         String C2 = F.C("__plugin__");
-        if (!this.f47765h.a()) {
+        if (!this.f51439h.a()) {
             B(F, "connectSocket", "up to max connect count");
             return this;
         } else if (!E(C, C2)) {
@@ -110,9 +110,9 @@ public class c extends WebSocketEventTarget {
             G(jsObject);
             try {
                 WebSocketTask connect = WebSocketManager.INSTANCE.connect(A, this);
-                this.f47764g = connect.getTaskId();
-                this.f47765h.b(connect);
-                d.a.l0.h.m0.c.a(F, true, new g(this.f47764g, String.format("%s:ok", "connectSocket")));
+                this.f51438g = connect.getTaskId();
+                this.f51439h.b(connect);
+                d.a.l0.h.m0.c.a(F, true, new g(this.f51438g, String.format("%s:ok", "connectSocket")));
                 return this;
             } catch (Exception e2) {
                 B(F, "connectSocket", e2.getMessage());
@@ -151,26 +151,26 @@ public class c extends WebSocketEventTarget {
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
         super.onClose(jSONObject);
-        if (this.f47765h == null || jSONObject == null) {
+        if (this.f51439h == null || jSONObject == null) {
             return;
         }
-        this.f47765h.c(jSONObject.optString("taskID"));
+        this.f51439h.c(jSONObject.optString("taskID"));
     }
 
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
         super.onError(th, jSONObject);
-        if (this.f47765h == null || jSONObject == null) {
+        if (this.f51439h == null || jSONObject == null) {
             return;
         }
-        this.f47765h.c(jSONObject.optString("taskID"));
+        this.f51439h.c(jSONObject.optString("taskID"));
     }
 
     @JavascriptInterface
     public void send(JsObject jsObject) {
         JsArrayBuffer jsArrayBuffer;
         d.a.l0.a.y.b.a F = F(jsObject);
-        int i2 = a.f47766a[this.f11673e.ordinal()];
+        int i2 = a.f51440a[this.f11735e.ordinal()];
         if (i2 == 1) {
             B(F, "SocketTask.send", "SocketTask.readyState is not OPEN");
         } else if (i2 != 2) {
@@ -191,9 +191,9 @@ public class c extends WebSocketEventTarget {
             }
             try {
                 if (str != null) {
-                    WebSocketManager.INSTANCE.send(this.f47764g, str);
+                    WebSocketManager.INSTANCE.send(this.f51438g, str);
                 } else if (jsArrayBuffer != null) {
-                    WebSocketManager.INSTANCE.send(this.f47764g, ByteBuffer.wrap(jsArrayBuffer.buffer()));
+                    WebSocketManager.INSTANCE.send(this.f51438g, ByteBuffer.wrap(jsArrayBuffer.buffer()));
                 }
                 C(F, "SocketTask.send");
             } catch (Exception e2) {
@@ -207,7 +207,7 @@ public class c extends WebSocketEventTarget {
     @JavascriptInterface
     public void close(JsObject jsObject) {
         d.a.l0.a.y.b.a F = F(jsObject);
-        if (this.f11673e == WebSocketEventTarget.SocketTaskState.CLOSE) {
+        if (this.f11735e == WebSocketEventTarget.SocketTaskState.CLOSE) {
             B(F, "SocketTask.close", "SocketTask.readyState is CLOSED");
             return;
         }
@@ -215,17 +215,17 @@ public class c extends WebSocketEventTarget {
         String C = F.C("reason");
         try {
             if (!(s == 1000 || (s >= 3000 && s <= 4999))) {
-                B(F, "SocketTask.close", d.f47767a);
+                B(F, "SocketTask.close", d.f51441a);
                 return;
             }
             try {
-                WebSocketManager.INSTANCE.close(this.f47764g, s, C);
+                WebSocketManager.INSTANCE.close(this.f51438g, s, C);
                 C(F, "SocketTask.close");
             } catch (Exception e2) {
                 B(F, "SocketTask.close", e2.getMessage());
             }
         } finally {
-            this.f47765h.c(this.f47764g);
+            this.f51439h.c(this.f51438g);
         }
     }
 }

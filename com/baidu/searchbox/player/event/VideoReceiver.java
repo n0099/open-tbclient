@@ -10,7 +10,6 @@ import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.player.utils.BdBatteryUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes2.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
@@ -53,7 +52,7 @@ public class VideoReceiver extends BroadcastReceiver {
     }
 
     private void onVolumeChanged(@NonNull Context context) {
-        AudioManager audioManager = (AudioManager) context.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio");
         if (audioManager == null) {
             return;
         }

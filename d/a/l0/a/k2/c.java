@@ -22,28 +22,28 @@ import java.util.List;
 public class c extends f {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43226e = k.f43199a;
+    public static final boolean f46902e = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f43227f = 1024;
+    public static int f46903f = 1024;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f43228g = -1;
+    public static int f46904g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f43229h = 1;
+    public static int f46905h = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f43230a;
+    public g f46906a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f43231b;
+    public final String f46907b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f43232c;
+    public final String f46908c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a<Long> f43233d;
+    public final c.a<Long> f46909d;
 
     /* loaded from: classes3.dex */
     public class a implements c.a<Long> {
@@ -60,10 +60,10 @@ public class c extends f {
 
     public c(e eVar) {
         super(eVar);
-        this.f43233d = new a();
-        this.f43231b = b.t(eVar);
-        this.f43232c = "aiapp_" + this.f43231b;
-        d.a.l0.a.q2.d.f44235h.e(this.f43233d);
+        this.f46909d = new a();
+        this.f46907b = b.t(eVar);
+        this.f46908c = "aiapp_" + this.f46907b;
+        d.a.l0.a.q2.d.f47909h.e(this.f46909d);
     }
 
     public static boolean b(@NonNull String str) {
@@ -90,13 +90,13 @@ public class c extends f {
         }
         d.a.l0.t.d.j(b.x(e.V()));
         d.a.l0.t.d.j(b.v(e.V()));
-        d.a.l0.a.q2.d.f44235h.b();
+        d.a.l0.a.q2.d.f47909h.b();
     }
 
     public long e() {
-        if (f43226e) {
+        if (f46902e) {
             File c2 = g().c();
-            Log.i("SwanAppStorage", this.f43231b + " exists = " + c2.exists() + " isFile = " + c2.isFile() + " path = " + c2.getPath() + " size = " + c2.length());
+            Log.i("SwanAppStorage", this.f46907b + " exists = " + c2.exists() + " isFile = " + c2.isFile() + " path = " + c2.getPath() + " size = " + c2.length());
         }
         return g().d();
     }
@@ -105,18 +105,18 @@ public class c extends f {
         if (!TextUtils.isEmpty(str) && !str.endsWith(File.separator)) {
             int lastIndexOf = str.lastIndexOf(File.separator);
             int length = str.length();
-            if (lastIndexOf != f43228g && length > lastIndexOf) {
-                return str.substring(lastIndexOf + f43229h, length);
+            if (lastIndexOf != f46904g && length > lastIndexOf) {
+                return str.substring(lastIndexOf + f46905h, length);
             }
         }
         return null;
     }
 
     public g g() {
-        if (this.f43230a == null) {
-            this.f43230a = new g(this.f43232c, false);
+        if (this.f46906a == null) {
+            this.f46906a = new g(this.f46908c, false);
         }
-        return this.f43230a;
+        return this.f46906a;
     }
 
     public d.a.l0.a.k2.a h(@NonNull String str) {
@@ -142,7 +142,7 @@ public class c extends f {
         if (file == null || !file.exists()) {
             return null;
         }
-        if (f43226e) {
+        if (f46902e) {
             Log.d("SwanAppStorage", "——> getSavedFileList: " + file.getAbsolutePath());
         }
         d.a.l0.a.k2.a aVar = new d.a.l0.a.k2.a();
@@ -168,7 +168,7 @@ public class c extends f {
     }
 
     public List<d.a.l0.a.k2.a> k(@NonNull String str) {
-        if (f43226e) {
+        if (f46902e) {
             Log.d("SwanAppStorage", "——> getSavedFileList:  dir " + str);
         }
         File file = new File(str);
@@ -233,7 +233,7 @@ public class c extends f {
                 try {
                     str = new FileOutputStream(l);
                     try {
-                        byte[] bArr = new byte[f43227f];
+                        byte[] bArr = new byte[f46903f];
                         while (true) {
                             int read = fileInputStream2.read(bArr);
                             if (read == -1) {
@@ -250,7 +250,7 @@ public class c extends f {
                         fileInputStream = fileInputStream2;
                         obj2 = str;
                         str = obj2;
-                        if (f43226e) {
+                        if (f46902e) {
                             e.printStackTrace();
                             str = obj2;
                         }
@@ -263,7 +263,7 @@ public class c extends f {
                         fileInputStream = fileInputStream2;
                         obj = str;
                         str = obj;
-                        if (f43226e) {
+                        if (f46902e) {
                             e.printStackTrace();
                             str = obj;
                         }

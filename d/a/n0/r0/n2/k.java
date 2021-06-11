@@ -51,27 +51,27 @@ public class k {
                         if (i2 != 7) {
                             if (i2 == 8 && frsRequestData != null) {
                                 frsRequestData.setSortType(4);
-                                frsRequestData.G(0);
+                                frsRequestData.K(0);
                             }
                         } else if (frsRequestData != null) {
                             frsRequestData.setSortType(3);
-                            frsRequestData.G(0);
+                            frsRequestData.K(0);
                         }
                     } else if (frsRequestData != null) {
                         frsRequestData.setSortType(2);
-                        frsRequestData.G(0);
+                        frsRequestData.K(0);
                     }
                 } else if (frsRequestData != null) {
                     frsRequestData.setSortType(0);
-                    frsRequestData.G(1);
+                    frsRequestData.K(1);
                 }
             } else if (frsRequestData != null) {
                 frsRequestData.setSortType(1);
-                frsRequestData.G(0);
+                frsRequestData.K(0);
             }
         } else if (frsRequestData != null) {
             frsRequestData.setSortType(0);
-            frsRequestData.G(0);
+            frsRequestData.K(0);
         }
         return 1;
     }

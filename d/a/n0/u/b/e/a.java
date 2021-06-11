@@ -21,28 +21,28 @@ import java.util.List;
 public class a implements k0 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f61261b = k.f43199a;
+    public static final boolean f64970b = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f61262a;
+    public long f64971a;
 
     @Override // d.a.l0.a.p.d.k0
     public void a(String str) {
-        if (f61261b) {
+        if (f64970b) {
             Log.e("DefaultSwanAppLifecycle", "onAppBackground");
         }
         long l = d.a.m0.r.d0.b.j().l("smart_app_tid", 0L);
         String p = d.a.m0.r.d0.b.j().p("smart_app_id", "");
         String p2 = d.a.m0.r.d0.b.j().p("smart_app_name", "");
-        if (this.f61262a == 0 || l == 0) {
+        if (this.f64971a == 0 || l == 0) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis() - this.f61262a;
+        long currentTimeMillis = System.currentTimeMillis() - this.f64971a;
         d dVar = new d();
         dVar.v(currentTimeMillis);
         dVar.p(g());
         dVar.y(l);
-        dVar.f49444i = p;
+        dVar.f53118i = p;
         dVar.j = p2;
         dVar.u(h());
         e.b().h(true);
@@ -56,15 +56,15 @@ public class a implements k0 {
 
     @Override // d.a.l0.a.p.d.k0
     public void c(String str) {
-        if (f61261b) {
-            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + d.a.l0.a.a2.e.i().f40749f);
+        if (f64970b) {
+            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + d.a.l0.a.a2.e.i().f44425f);
         }
-        this.f61262a = System.currentTimeMillis();
+        this.f64971a = System.currentTimeMillis();
     }
 
     @Override // d.a.l0.a.p.d.k0
     public void d(@NonNull SwanAppActivity swanAppActivity, int i2, @Nullable d.a.l0.a.f1.e.b bVar) {
-        if (f61261b) {
+        if (f64970b) {
             Log.e("DefaultSwanAppLifecycle", "onAppExit");
         }
         if (d.a.m0.r.d0.b.j().g("key_ai_app_guide_display", true)) {

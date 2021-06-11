@@ -6,16 +6,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f69042a = new a((byte) 0);
+    public static final Object f72351a = new a((byte) 0);
 
     /* renamed from: b  reason: collision with root package name */
-    public Map f69043b;
+    public Map f72352b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public a() {
         }
@@ -38,7 +38,7 @@ public class b {
     }
 
     public b() {
-        this.f69043b = new HashMap();
+        this.f72352b = new HashMap();
     }
 
     public b(String str) {
@@ -46,7 +46,7 @@ public class b {
     }
 
     public b(Map map) {
-        this.f69043b = map == null ? new HashMap() : map;
+        this.f72352b = map == null ? new HashMap() : map;
     }
 
     public b(c cVar) {
@@ -78,9 +78,9 @@ public class b {
             }
             if (d2 != null) {
                 b(d2);
-                this.f69043b.put(obj, d2);
+                this.f72352b.put(obj, d2);
             } else {
-                this.f69043b.remove(obj);
+                this.f72352b.remove(obj);
             }
             char c4 = cVar.c();
             if (c4 != ',' && c4 != ';') {
@@ -198,7 +198,7 @@ public class b {
     }
 
     public final Object a(String str) {
-        Object obj = str == null ? null : this.f69043b.get(str);
+        Object obj = str == null ? null : this.f72352b.get(str);
         if (obj != null) {
             return obj;
         }
@@ -206,11 +206,11 @@ public class b {
     }
 
     public final Iterator a() {
-        return this.f69043b.keySet().iterator();
+        return this.f72352b.keySet().iterator();
     }
 
     public final boolean b(String str) {
-        return this.f69043b.containsKey(str);
+        return this.f72352b.containsKey(str);
     }
 
     public String toString() {
@@ -224,7 +224,7 @@ public class b {
                 Object next = a2.next();
                 stringBuffer.append(c(next.toString()));
                 stringBuffer.append(':');
-                stringBuffer.append(a(this.f69043b.get(next)));
+                stringBuffer.append(a(this.f72352b.get(next)));
             }
             stringBuffer.append('}');
             return stringBuffer.toString();

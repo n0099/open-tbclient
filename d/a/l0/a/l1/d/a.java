@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43368c = k.f43199a;
+    public static final boolean f47044c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LruCache<String, JSONObject> f43369a = new LruCache<>(5);
+    public final LruCache<String, JSONObject> f47045a = new LruCache<>(5);
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, JSONObject> f43370b = new LruCache<>(5);
+    public final LruCache<String, JSONObject> f47046b = new LruCache<>(5);
 
     public final JSONObject a(PMSAppInfo pMSAppInfo) {
         if (pMSAppInfo == null) {
-            if (f43368c) {
+            if (f47044c) {
                 Log.e("SwanAppExtInfo", "appInfo is null");
             }
             return null;
@@ -30,17 +30,17 @@ public abstract class a {
         String valueOf = String.valueOf(pMSAppInfo.appSign);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
             String d2 = d(str, valueOf);
-            JSONObject jSONObject = this.f43369a.get(d2);
+            JSONObject jSONObject = this.f47045a.get(d2);
             if (jSONObject == null) {
                 jSONObject = e.m(b.a(pMSAppInfo));
-                this.f43369a.put(d2, jSONObject);
+                this.f47045a.put(d2, jSONObject);
             }
-            if (f43368c) {
+            if (f47044c) {
                 Log.d("SwanAppExtInfo", "appId - " + str + " app info' ext - " + jSONObject.toString());
             }
             return jSONObject;
         }
-        if (f43368c) {
+        if (f47044c) {
             Log.e("SwanAppExtInfo", "appId or app sign is empty");
         }
         return null;
@@ -49,19 +49,19 @@ public abstract class a {
     public final JSONObject b(PMSAppInfo pMSAppInfo) {
         JSONObject a2 = a(pMSAppInfo);
         if (a2 == null) {
-            if (f43368c) {
+            if (f47044c) {
                 Log.e("SwanAppExtInfo", "appInfoExt is null");
             }
             return null;
         }
         JSONObject optJSONObject = a2.optJSONObject("client");
         if (optJSONObject == null) {
-            if (f43368c) {
+            if (f47044c) {
                 Log.e("SwanAppExtInfo", "clientInfo is null");
             }
             return null;
         }
-        if (f43368c) {
+        if (f47044c) {
             Log.d("SwanAppExtInfo", "clientInfo - " + optJSONObject);
         }
         return optJSONObject;
@@ -69,7 +69,7 @@ public abstract class a {
 
     public final JSONObject c(PMSAppInfo pMSAppInfo) {
         if (pMSAppInfo == null) {
-            if (f43368c) {
+            if (f47044c) {
                 Log.e("SwanAppExtInfo", "appInfo is null");
             }
             return null;
@@ -78,17 +78,17 @@ public abstract class a {
         String valueOf = String.valueOf(pMSAppInfo.versionCode);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
             String d2 = d(str, valueOf);
-            JSONObject jSONObject = this.f43370b.get(d2);
+            JSONObject jSONObject = this.f47046b.get(d2);
             if (jSONObject == null) {
                 jSONObject = e.m(c.f(pMSAppInfo));
-                this.f43369a.put(d2, jSONObject);
+                this.f47045a.put(d2, jSONObject);
             }
-            if (f43368c) {
+            if (f47044c) {
                 Log.d("SwanAppExtInfo", "appId - " + str + " pkg info' ext - " + jSONObject.toString());
             }
             return jSONObject;
         }
-        if (f43368c) {
+        if (f47044c) {
             Log.e("SwanAppExtInfo", "appId or version code is empty");
         }
         return null;
@@ -99,10 +99,10 @@ public abstract class a {
     }
 
     public void e() {
-        if (f43368c) {
+        if (f47044c) {
             Log.d("SwanAppExtInfo", "release cache");
         }
-        this.f43369a.evictAll();
-        this.f43370b.evictAll();
+        this.f47045a.evictAll();
+        this.f47046b.evictAll();
     }
 }

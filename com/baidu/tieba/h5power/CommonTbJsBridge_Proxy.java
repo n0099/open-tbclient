@@ -36,6 +36,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.LOGIN_RESULT_TO_H5);
         this.mNotificationNameList.add(CommonTbJsBridge.RE_SHOW);
         this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
+        this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
     @Override // d.a.n0.e3.l0.d.a
@@ -417,6 +418,8 @@ public class CommonTbJsBridge_Proxy extends a {
             cVar = this.mJsBridge.reShow(hashMap);
         } else if (str.equals(CommonTbJsBridge.CLICK_GO_BACK_TO_H5)) {
             cVar = this.mJsBridge.dealClickGoBackToH5(hashMap);
+        } else if (str.equals(CommonTbJsBridge.GO_BACK_FROM_NATIVE)) {
+            cVar = this.mJsBridge.dealGoBackFromNative(hashMap);
         }
         if (cVar != null) {
             cVar.u(0);

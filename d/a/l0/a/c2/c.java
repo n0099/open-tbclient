@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends UnitedSchemeBaseDispatcher {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -75,19 +75,19 @@ public class c extends UnitedSchemeBaseDispatcher {
                 if ("requestPayment".equals(path)) {
                     d.a.l0.a.e0.d.g("SwanWalletDispatcher", "start PAYMENT");
                     d.a.l0.a.j2.k.F("baiduqianbao", "create", 0);
-                    return bVar.B("mapp_request_duxiaoman", optString, str);
+                    return bVar.A("mapp_request_duxiaoman", optString, str);
                 } else if ("requestAliPayment".equals(path)) {
                     d.a.l0.a.e0.d.g("SwanWalletDispatcher", "start ALI PAYMENT");
                     d.a.l0.a.j2.k.F(LBSTransAuthPresenter.AUTH_CHANNEL_ALI, "create", 0);
-                    return bVar.B("mapp_request_alipayment", optString, str);
+                    return bVar.A("mapp_request_alipayment", optString, str);
                 } else if ("requestPolymerPayment".equals(path)) {
                     d.a.l0.a.e0.d.g("SwanWalletDispatcher", "start POLYMER PAYMENT");
                     d.a.l0.a.j2.k.F(BeanConstants.CHANNEL_ID_NUOMI, "create", 0);
-                    return bVar.J(optString, optParamsAsJo);
+                    return bVar.I(optString, optParamsAsJo);
                 } else if (TextUtils.equals("requestWeChatPayment", path)) {
                     d.a.l0.a.e0.d.g("SwanWalletDispatcher", "start WECHAT HTML5 PAYMENT");
                     d.a.l0.a.j2.k.F("wechatH5Action", "create", 0);
-                    return bVar.B("mapp_request_wechatpayment", optString, str);
+                    return bVar.A("mapp_request_wechatpayment", optString, str);
                 } else {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;

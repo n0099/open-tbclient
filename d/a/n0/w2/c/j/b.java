@@ -16,20 +16,20 @@ import java.util.Locale;
 public class b extends Thread {
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f62635f;
+    public final String f66350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Process f62636g;
+    public Process f66351g;
 
     /* renamed from: i  reason: collision with root package name */
-    public FileOutputStream f62638i;
+    public FileOutputStream f66353i;
     public a j;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62634e = true;
+    public boolean f66349e = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public BufferedReader f62637h = null;
+    public BufferedReader f66352h = null;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -37,43 +37,43 @@ public class b extends Thread {
     }
 
     public b(String str, String str2, boolean z) {
-        this.f62638i = null;
+        this.f66353i = null;
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
-            this.f62638i = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+            this.f66353i = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
         } catch (FileNotFoundException e2) {
             BdLog.e(Log.getStackTraceString(e2));
         }
         if (z) {
-            this.f62635f = "logcat -v threadtime *:v -d";
+            this.f66350f = "logcat -v threadtime *:v -d";
         } else {
-            this.f62635f = "logcat -v threadtime *:v";
+            this.f66350f = "logcat -v threadtime *:v";
         }
     }
 
     public final void a() {
-        Process process = this.f62636g;
+        Process process = this.f66351g;
         if (process != null) {
             process.destroy();
-            this.f62636g = null;
+            this.f66351g = null;
         }
-        BufferedReader bufferedReader = this.f62637h;
+        BufferedReader bufferedReader = this.f66352h;
         if (bufferedReader != null) {
             try {
                 bufferedReader.close();
-                this.f62637h = null;
+                this.f66352h = null;
             } catch (IOException e2) {
                 BdLog.e(Log.getStackTraceString(e2));
             }
         }
-        FileOutputStream fileOutputStream = this.f62638i;
+        FileOutputStream fileOutputStream = this.f66353i;
         if (fileOutputStream != null) {
             try {
                 fileOutputStream.close();
             } catch (IOException e3) {
                 BdLog.e(Log.getStackTraceString(e3));
             }
-            this.f62638i = null;
+            this.f66353i = null;
         }
         a aVar = this.j;
         if (aVar != null) {
@@ -86,7 +86,7 @@ public class b extends Thread {
     }
 
     public void c() {
-        this.f62634e = false;
+        this.f66349e = false;
         a();
         interrupt();
     }
@@ -96,11 +96,11 @@ public class b extends Thread {
         String readLine;
         try {
             try {
-                this.f62636g = Runtime.getRuntime().exec(this.f62635f);
-                this.f62637h = new BufferedReader(new InputStreamReader(this.f62636g.getInputStream()), 1024);
-                while (this.f62634e && (readLine = this.f62637h.readLine()) != null && this.f62634e) {
-                    if (readLine.length() != 0 && this.f62638i != null) {
-                        FileOutputStream fileOutputStream = this.f62638i;
+                this.f66351g = Runtime.getRuntime().exec(this.f66350f);
+                this.f66352h = new BufferedReader(new InputStreamReader(this.f66351g.getInputStream()), 1024);
+                while (this.f66349e && (readLine = this.f66352h.readLine()) != null && this.f66349e) {
+                    if (readLine.length() != 0 && this.f66353i != null) {
+                        FileOutputStream fileOutputStream = this.f66353i;
                         fileOutputStream.write((readLine + "\n").getBytes());
                     }
                 }

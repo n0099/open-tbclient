@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayOutputStream;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -38,7 +39,7 @@ public class bv {
     }
 
     public static byte[] a(int i2, Key key, int i3, byte[] bArr) throws Exception {
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(i2, key);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         int i4 = 0;

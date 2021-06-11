@@ -70,7 +70,7 @@ public class SelectForumActivity extends SuspendedActivity {
         super.onDestroy();
         k kVar = this.selectForumView;
         if (kVar != null) {
-            kVar.i();
+            kVar.j();
         }
     }
 

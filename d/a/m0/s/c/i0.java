@@ -9,31 +9,31 @@ import org.json.JSONObject;
 public class i0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50464a = null;
+    public String f54140a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50465b = null;
+    public String f54141b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50466c = null;
+    public String f54142c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public VcodeExtra f50467d;
+    public VcodeExtra f54143d;
 
     public VcodeExtra a() {
-        return this.f50467d;
+        return this.f54143d;
     }
 
     public String b() {
-        return this.f50464a;
+        return this.f54140a;
     }
 
     public String c() {
-        return this.f50465b;
+        return this.f54141b;
     }
 
     public String d() {
-        return this.f50466c;
+        return this.f54142c;
     }
 
     public void e(String str) {
@@ -54,17 +54,17 @@ public class i0 {
             return;
         }
         try {
-            this.f50464a = jSONObject.optString("vcode_md5");
-            this.f50465b = jSONObject.optString("vcode_pic_url");
-            this.f50466c = jSONObject.optString("vcode_type");
+            this.f54140a = jSONObject.optString("vcode_md5");
+            this.f54141b = jSONObject.optString("vcode_pic_url");
+            this.f54142c = jSONObject.optString("vcode_type");
             JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
             VcodeExtra vcodeExtra = new VcodeExtra();
-            this.f50467d = vcodeExtra;
+            this.f54143d = vcodeExtra;
             vcodeExtra.textImg = jSONObject2.optString("textimg");
-            this.f50467d.slideImg = jSONObject2.optString("slideimg");
-            this.f50467d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
-            this.f50467d.successImg = jSONObject2.optString("successimg");
-            this.f50467d.slideEndPoint = jSONObject2.optString("slideendpoint");
+            this.f54143d.slideImg = jSONObject2.optString("slideimg");
+            this.f54143d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
+            this.f54143d.successImg = jSONObject2.optString("successimg");
+            this.f54143d.slideEndPoint = jSONObject2.optString("slideendpoint");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

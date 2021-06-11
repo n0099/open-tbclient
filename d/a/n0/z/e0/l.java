@@ -22,30 +22,30 @@ public class l extends b implements IVideoData {
     public static String d0 = "";
 
     public l(a2 a2Var) {
-        this.f63459e = a2Var;
+        this.f67177e = a2Var;
     }
 
     public static boolean d0(a2 a2Var) {
-        return (a2Var == null || a2Var.w1() == null) ? false : true;
+        return (a2Var == null || a2Var.x1() == null) ? false : true;
     }
 
     @Override // d.a.n0.z.e0.b
     public StatisticItem A(String str) {
         StatisticItem statisticItem = new StatisticItem(str);
-        a2 a2Var = this.f63459e;
+        a2 a2Var = this.f67177e;
         if (a2Var != null) {
             statisticItem.param("fid", a2Var.c0());
-            statisticItem.param("tid", this.f63459e.y1());
-            if (this.f63459e.T1()) {
+            statisticItem.param("tid", this.f67177e.z1());
+            if (this.f67177e.U1()) {
                 statisticItem.param("obj_type", 8);
-            } else if (this.f63459e.S1()) {
+            } else if (this.f67177e.T1()) {
                 statisticItem.param("obj_type", 9);
-            } else if (this.f63459e.C2()) {
+            } else if (this.f67177e.D2()) {
                 statisticItem.param("obj_type", 2);
             }
             statisticItem.param("obj_param1", P() ? 2 : 1);
-            if (this.f63459e.T() != null) {
-                statisticItem.param("obj_id", this.f63459e.T().getUserId());
+            if (this.f67177e.T() != null) {
+                statisticItem.param("obj_id", this.f67177e.T().getUserId());
             }
         }
         return statisticItem;
@@ -54,13 +54,13 @@ public class l extends b implements IVideoData {
     @Override // d.a.n0.z.e0.b
     public StatisticItem C() {
         StatisticItem I = I(Y, true);
-        if (I != null && m() != null) {
-            a2 m = m();
-            if (m.V() != null) {
-                I.param(TiebaStatic.Params.OBJ_PARAM4, m.V().oriUgcNid);
-                I.param(TiebaStatic.Params.OBJ_PARAM6, m.V().oriUgcVid);
+        if (I != null && i() != null) {
+            a2 i2 = i();
+            if (i2.V() != null) {
+                I.param(TiebaStatic.Params.OBJ_PARAM4, i2.V().oriUgcNid);
+                I.param(TiebaStatic.Params.OBJ_PARAM6, i2.V().oriUgcVid);
             }
-            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(m));
+            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(i2));
         }
         return I;
     }
@@ -69,29 +69,29 @@ public class l extends b implements IVideoData {
     public StatisticItem L() {
         int i2 = 1;
         StatisticItem I = I(Z, true);
-        if (I != null && m() != null) {
-            a2 m = m();
-            I.param("obj_name", (m.B1() == null || (m.B1().K() == null && m.B1().V() == null)) ? 0 : 1);
-            if (m.T() != null) {
-                I.param(TiebaStatic.Params.AB_TYPE, m.T().hadConcerned() ? 1 : 0);
+        if (I != null && i() != null) {
+            a2 i3 = i();
+            I.param("obj_name", (i3.C1() == null || (i3.C1().K() == null && i3.C1().V() == null)) ? 0 : 1);
+            if (i3.T() != null) {
+                I.param(TiebaStatic.Params.AB_TYPE, i3.T().hadConcerned() ? 1 : 0);
             }
-            if (m.V() != null) {
-                I.param(TiebaStatic.Params.OBJ_PARAM4, m.V().oriUgcNid);
-                I.param(TiebaStatic.Params.OBJ_PARAM6, m.V().oriUgcVid);
+            if (i3.V() != null) {
+                I.param(TiebaStatic.Params.OBJ_PARAM4, i3.V().oriUgcNid);
+                I.param(TiebaStatic.Params.OBJ_PARAM6, i3.V().oriUgcVid);
             }
-            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(m));
-            if (m.O1()) {
+            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(i3));
+            if (i3.P1()) {
                 I.param(TiebaStatic.Params.OBJ_TO, 2);
             } else {
                 I.param(TiebaStatic.Params.OBJ_TO, 1);
             }
-            if (m.T() != null && m.T().getAlaInfo() != null) {
-                int calculateLiveType = YYLiveUtil.calculateLiveType(m.T().getAlaInfo());
-                if (m.T().getAlaInfo().live_status != 1 && m.T().getAlaInfo().friendRoomStatus != 2) {
+            if (i3.T() != null && i3.T().getAlaInfo() != null) {
+                int calculateLiveType = YYLiveUtil.calculateLiveType(i3.T().getAlaInfo());
+                if (i3.T().getAlaInfo().live_status != 1 && i3.T().getAlaInfo().friendRoomStatus != 2) {
                     i2 = 2;
                 }
-                if (m.T().getAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(I, m.T().getAlaInfo().mYyExtData);
+                if (i3.T().getAlaInfo().mYyExtData != null) {
+                    TiebaStaticHelper.addYYParam(I, i3.T().getAlaInfo().mYyExtData);
                 }
                 I.param(TiebaStatic.Params.OBJ_PARAM7, i2);
                 I.param(TiebaStatic.Params.OBJ_PARAM8, calculateLiveType);
@@ -103,14 +103,14 @@ public class l extends b implements IVideoData {
     @Override // d.a.n0.z.e0.b
     public StatisticItem N() {
         StatisticItem I = I(a0, true);
-        if (m() != null) {
-            a2 m = m();
-            if (m.V() != null) {
-                I.param(TiebaStatic.Params.OBJ_PARAM4, m.V().oriUgcNid);
-                I.param(TiebaStatic.Params.OBJ_PARAM6, m.V().oriUgcVid);
+        if (i() != null) {
+            a2 i2 = i();
+            if (i2.V() != null) {
+                I.param(TiebaStatic.Params.OBJ_PARAM4, i2.V().oriUgcNid);
+                I.param(TiebaStatic.Params.OBJ_PARAM6, i2.V().oriUgcVid);
             }
-            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(m));
-            I.param("nid", m.M0());
+            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(i2));
+            I.param("nid", i2.M0());
         }
         return I;
     }
@@ -130,13 +130,13 @@ public class l extends b implements IVideoData {
             if (i2 != -1) {
                 I.param(TiebaStatic.Params.CLICK_LOCATE, i2);
             }
-            if (m() != null) {
-                a2 m = m();
-                if (m.V() != null) {
-                    I.param(TiebaStatic.Params.OBJ_PARAM4, m.V().oriUgcNid);
-                    I.param(TiebaStatic.Params.OBJ_PARAM6, m.V().oriUgcVid);
+            if (i() != null) {
+                a2 i3 = i();
+                if (i3.V() != null) {
+                    I.param(TiebaStatic.Params.OBJ_PARAM4, i3.V().oriUgcNid);
+                    I.param(TiebaStatic.Params.OBJ_PARAM6, i3.V().oriUgcVid);
                 }
-                I.param(TiebaStatic.Params.OBJ_PARAM5, e0(m));
+                I.param(TiebaStatic.Params.OBJ_PARAM5, e0(i3));
             }
         }
         return I;
@@ -144,38 +144,38 @@ public class l extends b implements IVideoData {
 
     public StatisticItem b0() {
         StatisticItem I = I(d0, true);
-        if (I != null && m() != null) {
-            a2 m = m();
-            if (m.V() != null) {
-                I.param(TiebaStatic.Params.OBJ_PARAM4, m.V().oriUgcNid);
-                I.param(TiebaStatic.Params.OBJ_PARAM6, m.V().oriUgcVid);
+        if (I != null && i() != null) {
+            a2 i2 = i();
+            if (i2.V() != null) {
+                I.param(TiebaStatic.Params.OBJ_PARAM4, i2.V().oriUgcNid);
+                I.param(TiebaStatic.Params.OBJ_PARAM6, i2.V().oriUgcVid);
             }
-            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(m));
+            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(i2));
         }
         return I;
     }
 
     public StatisticItem c0(a2 a2Var) {
         StatisticItem I = I(X, true);
-        if (I != null && m() != null) {
-            a2 m = m();
-            if (m.V() != null) {
-                I.param(TiebaStatic.Params.OBJ_PARAM4, m.V().oriUgcNid);
-                I.param(TiebaStatic.Params.OBJ_PARAM6, m.V().oriUgcVid);
-                if (m.O1()) {
+        if (I != null && i() != null) {
+            a2 i2 = i();
+            if (i2.V() != null) {
+                I.param(TiebaStatic.Params.OBJ_PARAM4, i2.V().oriUgcNid);
+                I.param(TiebaStatic.Params.OBJ_PARAM6, i2.V().oriUgcVid);
+                if (i2.P1()) {
                     I.param(TiebaStatic.Params.OBJ_PARAM2, 2);
                 } else {
                     I.param(TiebaStatic.Params.OBJ_PARAM2, 1);
                 }
             }
-            if (m.T() != null && m.T().getAlaInfo() != null) {
-                int calculateLiveType = YYLiveUtil.calculateLiveType(m.T().getAlaInfo());
-                if (m.T().getAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(I, m.T().getAlaInfo().mYyExtData);
+            if (i2.T() != null && i2.T().getAlaInfo() != null) {
+                int calculateLiveType = YYLiveUtil.calculateLiveType(i2.T().getAlaInfo());
+                if (i2.T().getAlaInfo().mYyExtData != null) {
+                    TiebaStaticHelper.addYYParam(I, i2.T().getAlaInfo().mYyExtData);
                 }
                 I.param(TiebaStatic.Params.OBJ_PARAM7, calculateLiveType);
             }
-            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(m));
+            I.param(TiebaStatic.Params.OBJ_PARAM5, e0(i2));
         }
         return I;
     }
@@ -184,21 +184,21 @@ public class l extends b implements IVideoData {
         if (a2Var == null) {
             return 1;
         }
-        if (a2Var.S1() || a2Var.R1()) {
+        if (a2Var.T1() || a2Var.S1()) {
             return 2;
         }
-        return (a2Var.Q1() || a2Var.T1()) ? 3 : 1;
+        return (a2Var.R1() || a2Var.U1()) ? 3 : 1;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        a2 a2Var = this.f63459e;
+        a2 a2Var = this.f67177e;
         if (a2Var == null) {
             return k.m0;
         }
         if (this.F) {
             if (this.s) {
-                return a2.K2;
+                return a2.N2;
             }
             return a2Var.getType();
         } else if (this.r) {
@@ -220,10 +220,10 @@ public class l extends b implements IVideoData {
                 return k.x0;
             }
             if (this.y) {
-                return k.K0;
+                return k.F0;
             }
             if (this.z) {
-                return k.L0;
+                return k.G0;
             }
             if (this.A) {
                 return k.M0;
@@ -237,22 +237,22 @@ public class l extends b implements IVideoData {
 
     @Override // com.baidu.tbadk.core.util.videoPreload.IVideoData
     public String getVideoUrl() {
-        a2 a2Var = this.f63459e;
-        if (a2Var == null || a2Var.w1() == null || this.f63459e.w1().video_url == null) {
+        a2 a2Var = this.f67177e;
+        if (a2Var == null || a2Var.x1() == null || this.f67177e.x1().video_url == null) {
             return null;
         }
-        return this.f63459e.w1().video_url;
+        return this.f67177e.x1().video_url;
     }
 
     @Override // d.a.n0.z.e0.b, d.a.m0.r.q.a
-    public a2 m() {
-        a2 a2Var = this.f63459e;
+    public a2 i() {
+        a2 a2Var = this.f67177e;
         if (a2Var == null) {
             return null;
         }
-        if (a2Var.b1() != 5) {
-            this.f63459e.d4(1);
+        if (a2Var.c1() != 5) {
+            this.f67177e.e4(1);
         }
-        return this.f63459e;
+        return this.f67177e;
     }
 }

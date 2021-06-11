@@ -5,7 +5,7 @@ import android.os.Build;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaCodecUtils {
     public static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
     public static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar16m4ka = 2141391874;
@@ -22,7 +22,7 @@ public class MediaCodecUtils {
     public static final int[] TEXTURE_COLOR_FORMATS = getTextureColorFormats();
 
     /* renamed from: org.webrtc.MediaCodecUtils$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
 

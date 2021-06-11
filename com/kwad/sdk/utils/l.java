@@ -1,162 +1,67 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import androidx.annotation.Nullable;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+import androidx.core.content.ContextCompat;
+/* loaded from: classes7.dex */
 public class l {
-    public static int a(Reader reader, Writer writer) {
-        long b2 = b(reader, writer);
-        if (b2 > 2147483647L) {
-            return -1;
-        }
-        return (int) b2;
-    }
-
-    public static long a(Reader reader, Writer writer, char[] cArr) {
-        long j = 0;
-        while (true) {
-            int read = reader.read(cArr);
-            if (-1 == read) {
-                return j;
-            }
-            writer.write(cArr, 0, read);
-            j += read;
-        }
-    }
-
-    public static FileInputStream a(File file) {
-        if (file.exists() && !file.isDirectory() && file.canRead()) {
-            return new FileInputStream(file);
-        }
-        return null;
-    }
-
     @Nullable
-    public static FileOutputStream a(File file, boolean z) {
-        if (!file.exists()) {
-            File parentFile = file.getParentFile();
-            if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
-                return null;
-            }
-        } else if (file.isDirectory() || !file.canWrite()) {
+    public static Location a(Context context) {
+        if (context == null) {
             return null;
         }
-        return new FileOutputStream(file, z);
-    }
-
-    @Nullable
-    public static String a(File file, Charset charset) {
-        FileInputStream fileInputStream = null;
         try {
-            FileInputStream a2 = a(file);
-            if (a2 == null) {
-                a(a2);
-                return null;
+            LocationManager locationManager = (LocationManager) context.getSystemService("location");
+            Location a2 = locationManager.isProviderEnabled("gps") ? a(context, locationManager) : null;
+            if (a2 == null && locationManager.isProviderEnabled("network")) {
+                a2 = b(context, locationManager);
             }
-            try {
-                String a3 = a(a2, a(charset));
-                a(a2);
-                return a3;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = a2;
-                a(fileInputStream);
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    @Nullable
-    public static String a(InputStream inputStream, Charset charset) {
-        if (inputStream == null) {
+            return (a2 == null && locationManager.isProviderEnabled("passive")) ? c(context, locationManager) : a2;
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
             return null;
         }
-        StringWriter stringWriter = new StringWriter();
-        a(inputStream, stringWriter, charset);
-        return stringWriter.toString();
     }
 
-    public static Charset a(Charset charset) {
-        return charset == null ? Charset.defaultCharset() : charset;
-    }
-
-    public static void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void a(File file, String str, Charset charset, boolean z) {
-        FileOutputStream fileOutputStream;
+    @SuppressLint({"MissingPermission"})
+    public static Location a(Context context, LocationManager locationManager) {
         try {
-            fileOutputStream = a(file, z);
-            if (fileOutputStream != null) {
-                try {
-                    a(str, fileOutputStream, charset);
-                } catch (Throwable th) {
-                    th = th;
-                    a(fileOutputStream);
-                    throw th;
-                }
+            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0) {
+                return locationManager.getLastKnownLocation("gps");
             }
-            a(fileOutputStream);
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
+            return null;
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+            return null;
         }
     }
 
-    public static void a(InputStream inputStream, Writer writer, Charset charset) {
-        a(new InputStreamReader(inputStream, a(charset)), writer);
-    }
-
-    public static void a(String str, OutputStream outputStream, Charset charset) {
-        if (outputStream == null || str == null) {
-            return;
-        }
-        outputStream.write(str.getBytes(a(charset)));
-    }
-
-    public static long b(Reader reader, Writer writer) {
-        return a(reader, writer, new char[4096]);
-    }
-
-    public static byte[] b(File file) {
-        byte[] bArr = new byte[(int) file.length()];
-        FileInputStream fileInputStream = null;
+    @SuppressLint({"MissingPermission"})
+    public static Location b(Context context, LocationManager locationManager) {
         try {
-            FileInputStream fileInputStream2 = new FileInputStream(file);
-            try {
-                fileInputStream2.read(bArr);
-                com.kwad.sdk.crash.utils.b.a((InputStream) fileInputStream2);
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                try {
-                    com.kwad.sdk.core.d.a.a(th);
-                    return bArr;
-                } finally {
-                    com.kwad.sdk.crash.utils.b.a((InputStream) fileInputStream);
-                }
+            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0 || ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
+                return locationManager.getLastKnownLocation("network");
             }
-        } catch (Throwable th2) {
-            th = th2;
+            return null;
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+            return null;
         }
-        return bArr;
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public static Location c(Context context, LocationManager locationManager) {
+        try {
+            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
+                return locationManager.getLastKnownLocation("passive");
+            }
+            return null;
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+            return null;
+        }
     }
 }

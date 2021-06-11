@@ -9,31 +9,31 @@ import org.json.JSONObject;
 public class ExtraInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8378a = "";
+    public String f8440a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8379b = "";
+    public String f8441b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8380c = "";
+    public String f8442c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8381d = "";
+    public String f8443d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8382e = "";
+    public String f8444e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8383f = "";
+    public String f8445f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8384g = "";
+    public String f8446g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8385h = "";
+    public String f8447h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public String f8386i = "";
+    public String f8448i = "";
     public String j = "";
 
     public static boolean a(String str, int i2) {
@@ -52,32 +52,32 @@ public class ExtraInfo {
     public JSONObject dumpToJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(this.f8378a)) {
-                jSONObject.put("v1", this.f8378a);
+            if (!TextUtils.isEmpty(this.f8440a)) {
+                jSONObject.put("v1", this.f8440a);
             }
-            if (!TextUtils.isEmpty(this.f8379b)) {
-                jSONObject.put(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX, this.f8379b);
+            if (!TextUtils.isEmpty(this.f8441b)) {
+                jSONObject.put(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX, this.f8441b);
             }
-            if (!TextUtils.isEmpty(this.f8380c)) {
-                jSONObject.put("v3", this.f8380c);
+            if (!TextUtils.isEmpty(this.f8442c)) {
+                jSONObject.put("v3", this.f8442c);
             }
-            if (!TextUtils.isEmpty(this.f8381d)) {
-                jSONObject.put("v4", this.f8381d);
+            if (!TextUtils.isEmpty(this.f8443d)) {
+                jSONObject.put("v4", this.f8443d);
             }
-            if (!TextUtils.isEmpty(this.f8382e)) {
-                jSONObject.put("v5", this.f8382e);
+            if (!TextUtils.isEmpty(this.f8444e)) {
+                jSONObject.put("v5", this.f8444e);
             }
-            if (!TextUtils.isEmpty(this.f8383f)) {
-                jSONObject.put("v6", this.f8383f);
+            if (!TextUtils.isEmpty(this.f8445f)) {
+                jSONObject.put("v6", this.f8445f);
             }
-            if (!TextUtils.isEmpty(this.f8384g)) {
-                jSONObject.put("v7", this.f8384g);
+            if (!TextUtils.isEmpty(this.f8446g)) {
+                jSONObject.put("v7", this.f8446g);
             }
-            if (!TextUtils.isEmpty(this.f8385h)) {
-                jSONObject.put(V8Engine.TYPE_V8, this.f8385h);
+            if (!TextUtils.isEmpty(this.f8447h)) {
+                jSONObject.put(V8Engine.TYPE_V8, this.f8447h);
             }
-            if (!TextUtils.isEmpty(this.f8386i)) {
-                jSONObject.put("v9", this.f8386i);
+            if (!TextUtils.isEmpty(this.f8448i)) {
+                jSONObject.put("v9", this.f8448i);
             }
             if (!TextUtils.isEmpty(this.j)) {
                 jSONObject.put("v10", this.j);
@@ -88,7 +88,7 @@ public class ExtraInfo {
     }
 
     public String getV1() {
-        return this.f8378a;
+        return this.f8440a;
     }
 
     public String getV10() {
@@ -96,39 +96,39 @@ public class ExtraInfo {
     }
 
     public String getV2() {
-        return this.f8379b;
+        return this.f8441b;
     }
 
     public String getV3() {
-        return this.f8380c;
+        return this.f8442c;
     }
 
     public String getV4() {
-        return this.f8381d;
+        return this.f8443d;
     }
 
     public String getV5() {
-        return this.f8382e;
+        return this.f8444e;
     }
 
     public String getV6() {
-        return this.f8383f;
+        return this.f8445f;
     }
 
     public String getV7() {
-        return this.f8384g;
+        return this.f8446g;
     }
 
     public String getV8() {
-        return this.f8385h;
+        return this.f8447h;
     }
 
     public String getV9() {
-        return this.f8386i;
+        return this.f8448i;
     }
 
     public void setV1(String str) {
-        this.f8378a = a(str);
+        this.f8440a = a(str);
     }
 
     public void setV10(String str) {
@@ -136,35 +136,35 @@ public class ExtraInfo {
     }
 
     public void setV2(String str) {
-        this.f8379b = a(str);
+        this.f8441b = a(str);
     }
 
     public void setV3(String str) {
-        this.f8380c = a(str);
+        this.f8442c = a(str);
     }
 
     public void setV4(String str) {
-        this.f8381d = a(str);
+        this.f8443d = a(str);
     }
 
     public void setV5(String str) {
-        this.f8382e = a(str);
+        this.f8444e = a(str);
     }
 
     public void setV6(String str) {
-        this.f8383f = a(str);
+        this.f8445f = a(str);
     }
 
     public void setV7(String str) {
-        this.f8384g = a(str);
+        this.f8446g = a(str);
     }
 
     public void setV8(String str) {
-        this.f8385h = a(str);
+        this.f8447h = a(str);
     }
 
     public void setV9(String str) {
-        this.f8386i = a(str);
+        this.f8448i = a(str);
     }
 
     public static String a(String str) {

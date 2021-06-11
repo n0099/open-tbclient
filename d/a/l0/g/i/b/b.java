@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class b extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47091c = k.f43199a;
+    public static final boolean f50765c = k.f46875a;
 
     public b() {
         super("GetSwanGameDuration");
@@ -27,7 +27,7 @@ public class b extends d.a.l0.g.f.a {
             bVar.onFail(202, "params may be error");
             return null;
         }
-        if (f47091c) {
+        if (f50765c) {
             Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
         }
         String optString = jSONObject.optString("swanGameId");
@@ -47,11 +47,11 @@ public class b extends d.a.l0.g.f.a {
                 jSONObject3.put("swanGameDuration", j);
                 jSONObject2.put("data", jSONObject3);
             } catch (JSONException e2) {
-                if (f47091c) {
+                if (f50765c) {
                     e2.printStackTrace();
                 }
             }
-            bVar.b(jSONObject2);
+            bVar.a(jSONObject2);
         }
         return null;
     }

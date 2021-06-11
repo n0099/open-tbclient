@@ -20,31 +20,31 @@ import org.json.JSONObject;
 public class e implements q, s {
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile e f61030i;
+    public static volatile e f64722i;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicReference<d.a.c.e.d.l<String>> f61031a = new AtomicReference<>(null);
+    public final AtomicReference<d.a.c.e.d.l<String>> f64723a = new AtomicReference<>(null);
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicReference<d.a.c.e.d.l<String>> f61032b = new AtomicReference<>(null);
+    public AtomicReference<d.a.c.e.d.l<String>> f64724b = new AtomicReference<>(null);
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61036f = false;
+    public boolean f64728f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61037g = false;
+    public boolean f64729g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f61038h = new a(this, 2921022);
+    public CustomMessageListener f64730h = new a(this, 2921022);
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, j> f61033c = new HashMap<>();
+    public HashMap<String, j> f64725c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61034d = 0;
+    public int f64726d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61035e = r();
+    public String f64727e = r();
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -80,8 +80,8 @@ public class e implements q, s {
                 while (it.hasNext()) {
                     j jVar = (j) it.next();
                     if (jVar != null) {
-                        e.this.f61033c.put(jVar.f61161a, jVar);
-                        e.this.f61036f = true;
+                        e.this.f64725c.put(jVar.f64853a, jVar);
+                        e.this.f64728f = true;
                     }
                 }
             }
@@ -92,11 +92,11 @@ public class e implements q, s {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.c.e.d.l lVar = (d.a.c.e.d.l) e.this.f61031a.get();
+            d.a.c.e.d.l lVar = (d.a.c.e.d.l) e.this.f64723a.get();
             if (lVar == null) {
                 return;
             }
-            lVar.f(e.this.f61035e, new a());
+            lVar.f(e.this.f64727e, new a());
         }
     }
 
@@ -116,11 +116,11 @@ public class e implements q, s {
                     return;
                 }
                 try {
-                    e.this.f61034d = Integer.parseInt(str2);
+                    e.this.f64726d = Integer.parseInt(str2);
                 } catch (NumberFormatException unused) {
-                    e.this.f61034d = 0;
+                    e.this.f64726d = 0;
                 }
-                e.this.f61037g = true;
+                e.this.f64729g = true;
             }
         }
 
@@ -129,7 +129,7 @@ public class e implements q, s {
 
         @Override // java.lang.Runnable
         public void run() {
-            ((d.a.c.e.d.l) e.this.f61032b.get()).f(e.this.f61035e, new a());
+            ((d.a.c.e.d.l) e.this.f64724b.get()).f(e.this.f64727e, new a());
         }
     }
 
@@ -137,13 +137,13 @@ public class e implements q, s {
     public static final class d extends BdAsyncTask<Void, Void, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicReference<d.a.c.e.d.l<String>> f61043a;
+        public final AtomicReference<d.a.c.e.d.l<String>> f64735a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f61044b;
+        public final String f64736b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Runnable f61045c;
+        public final Runnable f64737c;
 
         public /* synthetic */ d(AtomicReference atomicReference, String str, Runnable runnable, a aVar) {
             this(atomicReference, str, runnable);
@@ -154,28 +154,28 @@ public class e implements q, s {
         /* renamed from: b */
         public void onPostExecute(Void r1) {
             super.onPostExecute(r1);
-            Runnable runnable = this.f61045c;
+            Runnable runnable = this.f64737c;
             if (runnable != null) {
                 runnable.run();
             }
         }
 
         public d(AtomicReference<d.a.c.e.d.l<String>> atomicReference, String str, Runnable runnable) {
-            this.f61043a = atomicReference;
-            this.f61044b = str;
-            this.f61045c = runnable;
+            this.f64735a = atomicReference;
+            this.f64736b = str;
+            this.f64737c = runnable;
             setPriority(4);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (this.f61043a.get() != null) {
+            if (this.f64735a.get() != null) {
                 return null;
             }
             synchronized (d.class) {
-                if (this.f61043a.get() == null) {
-                    this.f61043a.set(d.a.m0.r.r.a.f().g(this.f61044b));
+                if (this.f64735a.get() == null) {
+                    this.f64735a.set(d.a.m0.r.r.a.f().g(this.f64736b));
                 }
             }
             return null;
@@ -183,48 +183,48 @@ public class e implements q, s {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.f61038h);
+        MessageManager.getInstance().registerListener(this.f64730h);
     }
 
     public static e t() {
-        if (f61030i == null) {
+        if (f64722i == null) {
             synchronized (e.class) {
-                if (f61030i == null) {
-                    f61030i = new e();
+                if (f64722i == null) {
+                    f64722i = new e();
                 }
             }
         }
-        return f61030i;
+        return f64722i;
     }
 
     @Override // d.a.n0.t2.s
     public int a() {
         if (v(r())) {
-            return this.f61034d;
+            return this.f64726d;
         }
         return 0;
     }
 
     @Override // d.a.n0.t2.s
     public void b() {
-        d.a.c.e.d.l<String> lVar = this.f61032b.get();
+        d.a.c.e.d.l<String> lVar = this.f64724b.get();
         if (lVar == null) {
             return;
         }
         p();
-        int i2 = this.f61034d + 1;
-        this.f61034d = i2;
-        lVar.i(this.f61035e, Integer.toString(i2), 86400000L);
+        int i2 = this.f64726d + 1;
+        this.f64726d = i2;
+        lVar.i(this.f64727e, Integer.toString(i2), 86400000L);
     }
 
     @Override // d.a.n0.t2.s
     public void c() {
-        if (this.f61037g) {
+        if (this.f64729g) {
             return;
         }
         c cVar = new c();
-        if (this.f61032b.get() == null) {
-            new d(this.f61032b, "hot.splash.count", cVar, null).execute(new Void[0]);
+        if (this.f64724b.get() == null) {
+            new d(this.f64724b, "hot.splash.count", cVar, null).execute(new Void[0]);
         }
     }
 
@@ -240,12 +240,12 @@ public class e implements q, s {
 
     @Override // d.a.n0.t2.q
     public void f() {
-        if (this.f61036f) {
+        if (this.f64728f) {
             return;
         }
         b bVar = new b();
-        if (this.f61031a.get() == null) {
-            new d(this.f61031a, "frs.refresh.count", bVar, null).execute(new Void[0]);
+        if (this.f64723a.get() == null) {
+            new d(this.f64723a, "frs.refresh.count", bVar, null).execute(new Void[0]);
         }
     }
 
@@ -263,9 +263,9 @@ public class e implements q, s {
         if (v(r)) {
             return;
         }
-        this.f61033c.clear();
-        this.f61034d = 0;
-        this.f61035e = r;
+        this.f64725c.clear();
+        this.f64726d = 0;
+        this.f64727e = r;
     }
 
     public final ArrayList<j> q(String str) {
@@ -289,7 +289,7 @@ public class e implements q, s {
     }
 
     public final int s(String str, boolean z, boolean z2) {
-        j jVar = this.f61033c.get(str);
+        j jVar = this.f64725c.get(str);
         if (jVar == null || !v(r())) {
             return 0;
         }
@@ -298,25 +298,25 @@ public class e implements q, s {
 
     public final void u(String str, boolean z, boolean z2) {
         p();
-        j jVar = this.f61033c.get(str);
+        j jVar = this.f64725c.get(str);
         if (jVar == null) {
             jVar = new j();
-            jVar.f61161a = str;
-            this.f61033c.put(str, jVar);
+            jVar.f64853a = str;
+            this.f64725c.put(str, jVar);
         }
         jVar.a(z, z2);
-        w(this.f61033c);
+        w(this.f64725c);
     }
 
     public final boolean v(String str) {
-        if (TextUtils.isEmpty(this.f61035e)) {
+        if (TextUtils.isEmpty(this.f64727e)) {
             return false;
         }
-        return this.f61035e.equals(str);
+        return this.f64727e.equals(str);
     }
 
     public final synchronized void w(HashMap<String, j> hashMap) {
-        d.a.c.e.d.l<String> lVar = this.f61031a.get();
+        d.a.c.e.d.l<String> lVar = this.f64723a.get();
         if (lVar == null) {
             return;
         }
@@ -327,6 +327,6 @@ public class e implements q, s {
                 jSONArray.put(c2);
             }
         }
-        lVar.i(this.f61035e, jSONArray.toString(), 86400000L);
+        lVar.i(this.f64727e, jSONArray.toString(), 86400000L);
     }
 }

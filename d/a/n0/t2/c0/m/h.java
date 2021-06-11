@@ -13,58 +13,58 @@ import org.apache.http.message.BasicNameValuePair;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61014a = "";
+    public String f64706a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f61015b = new HashMap();
+    public Map<String, String> f64707b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<BasicNameValuePair> f61016c = new LinkedList<>();
+    public LinkedList<BasicNameValuePair> f64708c = new LinkedList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, byte[]> f61017d = new HashMap<>();
+    public HashMap<String, byte[]> f64709d = new HashMap<>();
 
     public void a(String str, String str2) {
-        Map<String, String> map = this.f61015b;
+        Map<String, String> map = this.f64707b;
         if (map != null) {
             map.put(str, str2);
         }
     }
 
     public void b(BasicNameValuePair basicNameValuePair) {
-        this.f61016c.add(basicNameValuePair);
+        this.f64708c.add(basicNameValuePair);
     }
 
     public String c(e eVar) {
-        if (this.f61016c.size() == 0) {
+        if (this.f64708c.size() == 0) {
             if (eVar != null) {
-                eVar.f61002a = this.f61014a.length();
+                eVar.f64694a = this.f64706a.length();
             }
-            return this.f61014a;
+            return this.f64706a;
         }
         StringBuilder sb = new StringBuilder(30);
-        sb.append(this.f61014a);
-        if (this.f61014a.indexOf("?") < 0) {
+        sb.append(this.f64706a);
+        if (this.f64706a.indexOf("?") < 0) {
             sb.append("?");
-        } else if (!this.f61014a.endsWith("?") && !this.f61014a.endsWith("&")) {
+        } else if (!this.f64706a.endsWith("?") && !this.f64706a.endsWith("&")) {
             sb.append("&");
         }
-        for (int i2 = 0; i2 < this.f61016c.size(); i2++) {
+        for (int i2 = 0; i2 < this.f64708c.size(); i2++) {
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.f61016c.get(i2).getName());
+            sb.append(this.f64708c.get(i2).getName());
             sb.append("=");
-            sb.append(k.getUrlEncode(this.f61016c.get(i2).getValue()));
+            sb.append(k.getUrlEncode(this.f64708c.get(i2).getValue()));
         }
         if (eVar != null) {
-            eVar.f61002a = sb.length();
+            eVar.f64694a = sb.length();
         }
         return sb.toString();
     }
 
     public String d(String str) {
-        Map<String, String> map = this.f61015b;
+        Map<String, String> map = this.f64707b;
         if (map != null) {
             return map.get(str);
         }
@@ -72,17 +72,17 @@ public class h {
     }
 
     public String e() {
-        return this.f61014a;
+        return this.f64706a;
     }
 
     public boolean f() {
-        HashMap<String, byte[]> hashMap = this.f61017d;
+        HashMap<String, byte[]> hashMap = this.f64709d;
         return hashMap != null && hashMap.size() > 0;
     }
 
     public final StringBuilder g() {
         StringBuilder sb = new StringBuilder(1024);
-        LinkedList<BasicNameValuePair> linkedList = this.f61016c;
+        LinkedList<BasicNameValuePair> linkedList = this.f64708c;
         if (linkedList != null) {
             int i2 = 0;
             Iterator<BasicNameValuePair> it = linkedList.iterator();
@@ -108,15 +108,15 @@ public class h {
 
     public void i(String str) {
         if (str == null) {
-            this.f61014a = "";
+            this.f64706a = "";
         } else {
-            this.f61014a = str;
+            this.f64706a = str;
         }
     }
 
     public void j(HttpURLConnection httpURLConnection) {
         Map<String, String> map;
-        if (httpURLConnection == null || (map = this.f61015b) == null) {
+        if (httpURLConnection == null || (map = this.f64707b) == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -142,7 +142,7 @@ public class h {
             i2 = 0;
         }
         if (eVar != null) {
-            eVar.f61002a = i2;
+            eVar.f64694a = i2;
         }
     }
 
@@ -152,8 +152,8 @@ public class h {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.f61016c != null) {
-                    Iterator<BasicNameValuePair> it = this.f61016c.iterator();
+                if (this.f64708c != null) {
+                    Iterator<BasicNameValuePair> it = this.f64708c.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -170,8 +170,8 @@ public class h {
                         }
                     }
                 }
-                if (this.f61017d != null) {
-                    for (Map.Entry<String, byte[]> entry : this.f61017d.entrySet()) {
+                if (this.f64709d != null) {
+                    for (Map.Entry<String, byte[]> entry : this.f64709d.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -193,7 +193,7 @@ public class h {
             i2 = 0;
         }
         if (eVar != null) {
-            eVar.f61002a = i2;
+            eVar.f64694a = i2;
         }
     }
 }

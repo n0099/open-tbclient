@@ -14,15 +14,15 @@ public class r extends a0 {
     public class a implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.p.e.c f41253e;
+        public final /* synthetic */ d.a.l0.a.p.e.c f44929e;
 
         public a(r rVar, d.a.l0.a.p.e.c cVar) {
-            this.f41253e = cVar;
+            this.f44929e = cVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            this.f41253e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+            this.f44929e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
         }
     }
 

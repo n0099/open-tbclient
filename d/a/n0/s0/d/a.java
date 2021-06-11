@@ -18,27 +18,27 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f60384b;
+    public static volatile a f64075b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, ArrayList<FunAdHistoryData>> f60385a;
+    public Map<String, ArrayList<FunAdHistoryData>> f64076a;
 
     public a() {
         HashMap hashMap = new HashMap();
-        this.f60385a = hashMap;
+        this.f64076a = hashMap;
         hashMap.clear();
-        this.f60385a.putAll(d());
+        this.f64076a.putAll(d());
     }
 
     public static a f() {
-        if (f60384b == null) {
+        if (f64075b == null) {
             synchronized (a.class) {
-                if (f60384b == null) {
-                    f60384b = new a();
+                if (f64075b == null) {
+                    f64075b = new a();
                 }
             }
         }
-        return f60384b;
+        return f64075b;
     }
 
     public void a(String str, FunAdHistoryData funAdHistoryData) {
@@ -74,10 +74,10 @@ public class a {
     }
 
     public ArrayList<FunAdHistoryData> c(String str) {
-        if (this.f60385a == null || TextUtils.isEmpty(str) || !this.f60385a.containsKey(str)) {
+        if (this.f64076a == null || TextUtils.isEmpty(str) || !this.f64076a.containsKey(str)) {
             return null;
         }
-        return this.f60385a.get(str);
+        return this.f64076a.get(str);
     }
 
     public final Map<String, ArrayList<FunAdHistoryData>> d() {
@@ -141,7 +141,7 @@ public class a {
 
     public final void j(String str) {
         ArrayList<FunAdHistoryData> arrayList;
-        if (this.f60385a == null || TextUtils.isEmpty(str) || !this.f60385a.containsKey(str) || (arrayList = this.f60385a.get(str)) == null) {
+        if (this.f64076a == null || TextUtils.isEmpty(str) || !this.f64076a.containsKey(str) || (arrayList = this.f64076a.get(str)) == null) {
             return;
         }
         JSONArray jSONArray = new JSONArray();

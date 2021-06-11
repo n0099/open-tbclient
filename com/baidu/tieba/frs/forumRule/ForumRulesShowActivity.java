@@ -34,7 +34,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
 
         @Override // d.a.n0.r0.q1.b.a
-        public void b() {
+        public void a() {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.m();
                 ForumRulesShowActivity.this.mView.x();
@@ -44,21 +44,21 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
 
         @Override // d.a.n0.r0.q1.b.a
-        public void c(d.a.n0.r0.q1.c.a aVar) {
+        public void b(d.a.n0.r0.q1.c.a aVar) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.f(aVar);
             }
         }
 
         @Override // d.a.n0.r0.q1.b.a
-        public void d(List<d.a.n0.r0.q1.c.c> list) {
+        public void c(List<d.a.n0.r0.q1.c.c> list) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.g(list);
             }
         }
 
         @Override // d.a.n0.r0.q1.b.a
-        public void e(boolean z, String str) {
+        public void d(boolean z, String str) {
             if (ForumRulesShowActivity.this.mView == null) {
                 return;
             }
@@ -70,9 +70,16 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
 
         @Override // d.a.n0.r0.q1.b.a
-        public void f(d.a.n0.r0.q1.c.b bVar) {
+        public void e(d.a.n0.r0.q1.c.b bVar) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.e(bVar);
+            }
+        }
+
+        @Override // d.a.n0.r0.q1.b.a
+        public void f(String str) {
+            if (ForumRulesShowActivity.this.mView != null) {
+                ForumRulesShowActivity.this.mView.h(str);
             }
         }
 
@@ -84,13 +91,6 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                 ForumRulesShowActivity.this.mView.n();
                 ForumRulesShowActivity.this.mView.w();
                 ForumRulesShowActivity.this.mView.t();
-            }
-        }
-
-        @Override // d.a.n0.r0.q1.b.a
-        public void g(String str) {
-            if (ForumRulesShowActivity.this.mView != null) {
-                ForumRulesShowActivity.this.mView.h(str);
             }
         }
     }
@@ -108,7 +108,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f49129a, aVar.f49130b, aVar.f49131c);
+            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f52803a, aVar.f52804b, aVar.f52805c);
         }
     }
 
@@ -127,7 +127,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     }
 
     private void setModelCallback() {
-        this.mModel.E(this.callback);
+        this.mModel.I(this.callback);
     }
 
     public d.a.c.e.k.b<GifView> getGifViewPool() {
@@ -174,7 +174,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             if (!intent.getBooleanExtra("from", true)) {
                 this.mView.s();
                 this.mView.r.clear();
-                this.mModel.D();
+                this.mModel.H();
             }
             BdTopToast bdTopToast = new BdTopToast(this, 3000);
             bdTopToast.i(true);
@@ -200,7 +200,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         super.onCreate(bundle);
         initData(bundle);
         initView();
-        this.mModel.y(bundle);
+        this.mModel.C(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -212,7 +212,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
         c cVar = this.mView;
         if (cVar != null) {
-            cVar.j();
+            cVar.i();
         }
     }
 
@@ -250,7 +250,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     public void requestNet() {
         ForumRulesShowModel forumRulesShowModel = this.mModel;
         if (forumRulesShowModel != null) {
-            forumRulesShowModel.D();
+            forumRulesShowModel.H();
         }
     }
 

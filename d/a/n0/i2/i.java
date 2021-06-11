@@ -22,31 +22,31 @@ import tbclient.SmartApp;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f55753a;
+    public TbPageContext f59442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f55754b;
+    public Context f59443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f55755c;
+    public j f59444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public l f55756d;
+    public l f59445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.a.m0.r.s.h> f55757e;
+    public List<d.a.m0.r.s.h> f59446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.m0.r.s.h f55758f;
+    public d.a.m0.r.s.h f59447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f55759g;
+    public b f59448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SmartApp f55760h;
+    public SmartApp f59449h;
 
     /* renamed from: i  reason: collision with root package name */
-    public l.d f55761i = new a();
+    public l.d f59450i = new a();
 
     /* loaded from: classes5.dex */
     public class a implements l.d {
@@ -55,22 +55,22 @@ public class i {
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
-            if (i.this.f55760h == null) {
+            if (i.this.f59449h == null) {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-            httpMessage.addParam("swan_app_key", i.this.f55760h.id);
+            httpMessage.addParam("swan_app_key", i.this.f59449h.id);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (i.this.f55759g != null) {
-                i.this.f55759g.a(i.this.f55760h.id);
+            if (i.this.f59448g != null) {
+                i.this.f59448g.a(i.this.f59449h.id);
             }
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", i.this.f55760h.swan_app_id.longValue());
-            statisticItem.param("obj_name", i.this.f55760h.name);
+            statisticItem.param("obj_id", i.this.f59449h.swan_app_id.longValue());
+            statisticItem.param("obj_name", i.this.f59449h.name);
             TiebaStatic.log(statisticItem);
-            if (i.this.f55755c != null) {
-                i.this.f55755c.dismiss();
+            if (i.this.f59444c != null) {
+                i.this.f59444c.dismiss();
             }
         }
     }
@@ -85,35 +85,35 @@ public class i {
     }
 
     public i(TbPageContext tbPageContext) {
-        this.f55753a = tbPageContext;
+        this.f59442a = tbPageContext;
         Activity pageActivity = tbPageContext.getPageActivity();
-        this.f55754b = pageActivity;
-        this.f55756d = new l(pageActivity);
-        this.f55757e = new ArrayList();
+        this.f59443b = pageActivity;
+        this.f59445d = new l(pageActivity);
+        this.f59446e = new ArrayList();
     }
 
     public void d(SmartApp smartApp) {
-        this.f55760h = smartApp;
+        this.f59449h = smartApp;
     }
 
     public void e() {
-        if (this.f55755c != null) {
+        if (this.f59444c != null) {
             return;
         }
-        d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(this.f55754b.getString(R.string.delete), this.f55756d);
-        this.f55758f = hVar;
-        hVar.m(this.f55761i);
-        this.f55757e.add(this.f55758f);
-        this.f55756d.k(this.f55757e);
-        this.f55755c = new j(this.f55753a, this.f55756d);
+        d.a.m0.r.s.h hVar = new d.a.m0.r.s.h(this.f59443b.getString(R.string.delete), this.f59445d);
+        this.f59447f = hVar;
+        hVar.m(this.f59450i);
+        this.f59446e.add(this.f59447f);
+        this.f59445d.k(this.f59446e);
+        this.f59444c = new j(this.f59442a, this.f59445d);
     }
 
     public void f(b bVar) {
-        this.f55759g = bVar;
+        this.f59448g = bVar;
     }
 
     public void g() {
-        j jVar = this.f55755c;
+        j jVar = this.f59444c;
         if (jVar == null) {
             return;
         }

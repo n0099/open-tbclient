@@ -8,15 +8,15 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a2> f59684a = new ArrayList();
+    public List<a2> f63375a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59685b;
+    public String f63376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f59686c;
+    public Integer f63377c;
 
     public boolean a() {
-        return !ListUtils.isEmpty(this.f59684a);
+        return !ListUtils.isEmpty(this.f63375a);
     }
 }

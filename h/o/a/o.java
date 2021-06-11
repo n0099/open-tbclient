@@ -7,35 +7,35 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class o<T> implements d.b<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.g f68509e;
+    public final h.g f71765e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f68510f;
+    public final boolean f71766f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f68511g;
+    public final int f71767g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a<T> extends h.j<T> implements h.n.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super T> f68512e;
+        public final h.j<? super T> f71768e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g.a f68513f;
+        public final g.a f71769f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f68514g;
+        public final boolean f71770g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Queue<Object> f68515h;
+        public final Queue<Object> f71771h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f68516i;
+        public final int f71772i;
         public volatile boolean j;
         public final AtomicLong k = new AtomicLong();
         public final AtomicLong l = new AtomicLong();
@@ -43,9 +43,9 @@ public final class o<T> implements d.b<T, T> {
         public long n;
 
         /* renamed from: h.o.a.o$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1923a implements h.f {
-            public C1923a() {
+        /* loaded from: classes8.dex */
+        public class C1972a implements h.f {
+            public C1972a() {
             }
 
             @Override // h.f
@@ -58,15 +58,15 @@ public final class o<T> implements d.b<T, T> {
         }
 
         public a(h.g gVar, h.j<? super T> jVar, boolean z, int i2) {
-            this.f68512e = jVar;
-            this.f68513f = gVar.createWorker();
-            this.f68514g = z;
-            i2 = i2 <= 0 ? h.o.d.f.f68673g : i2;
-            this.f68516i = i2 - (i2 >> 2);
+            this.f71768e = jVar;
+            this.f71769f = gVar.createWorker();
+            this.f71770g = z;
+            i2 = i2 <= 0 ? h.o.d.f.f71929g : i2;
+            this.f71772i = i2 - (i2 >> 2);
             if (f0.b()) {
-                this.f68515h = new h.o.d.j.r(i2);
+                this.f71771h = new h.o.d.j.r(i2);
             } else {
-                this.f68515h = new h.o.d.i.c(i2);
+                this.f71771h = new h.o.d.i.c(i2);
             }
             request(i2);
         }
@@ -76,7 +76,7 @@ public final class o<T> implements d.b<T, T> {
                 queue.clear();
                 return true;
             } else if (z) {
-                if (this.f68514g) {
+                if (this.f71770g) {
                     if (z2) {
                         Throwable th = this.m;
                         try {
@@ -114,9 +114,9 @@ public final class o<T> implements d.b<T, T> {
         }
 
         public void c() {
-            h.j<? super T> jVar = this.f68512e;
-            jVar.setProducer(new C1923a());
-            jVar.add(this.f68513f);
+            h.j<? super T> jVar = this.f71768e;
+            jVar.setProducer(new C1972a());
+            jVar.add(this.f71769f);
             jVar.add(this);
         }
 
@@ -124,8 +124,8 @@ public final class o<T> implements d.b<T, T> {
         public void call() {
             int i2;
             long j = this.n;
-            Queue<Object> queue = this.f68515h;
-            h.j<? super T> jVar = this.f68512e;
+            Queue<Object> queue = this.f71771h;
+            h.j<? super T> jVar = this.f71768e;
             long j2 = 1;
             do {
                 long j3 = this.k.get();
@@ -145,7 +145,7 @@ public final class o<T> implements d.b<T, T> {
                     }
                     jVar.onNext((Object) NotificationLite.e(poll));
                     j++;
-                    if (j == this.f68516i) {
+                    if (j == this.f71772i) {
                         j3 = h.o.a.a.g(this.k, j);
                         request(j);
                         j = 0;
@@ -161,7 +161,7 @@ public final class o<T> implements d.b<T, T> {
 
         public void d() {
             if (this.l.getAndIncrement() == 0) {
-                this.f68513f.b(this);
+                this.f71769f.b(this);
             }
         }
 
@@ -190,7 +190,7 @@ public final class o<T> implements d.b<T, T> {
             if (isUnsubscribed() || this.j) {
                 return;
             }
-            if (!this.f68515h.offer(NotificationLite.h(t))) {
+            if (!this.f71771h.offer(NotificationLite.h(t))) {
                 onError(new MissingBackpressureException());
             } else {
                 d();
@@ -199,20 +199,20 @@ public final class o<T> implements d.b<T, T> {
     }
 
     public o(h.g gVar, boolean z, int i2) {
-        this.f68509e = gVar;
-        this.f68510f = z;
-        this.f68511g = i2 <= 0 ? h.o.d.f.f68673g : i2;
+        this.f71765e = gVar;
+        this.f71766f = z;
+        this.f71767g = i2 <= 0 ? h.o.d.f.f71929g : i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public h.j<? super T> call(h.j<? super T> jVar) {
-        h.g gVar = this.f68509e;
+        h.g gVar = this.f71765e;
         if ((gVar instanceof h.o.c.e) || (gVar instanceof h.o.c.j)) {
             return jVar;
         }
-        a aVar = new a(gVar, jVar, this.f68510f, this.f68511g);
+        a aVar = new a(gVar, jVar, this.f71766f, this.f71767g);
         aVar.c();
         return aVar;
     }

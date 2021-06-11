@@ -12,8 +12,8 @@ import android.view.Surface;
 import android.view.TextureView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R$styleable;
-import d.a.n0.r3.j.g.a;
-import d.a.n0.r3.j.g.b;
+import d.a.n0.r3.i.g.a;
+import d.a.n0.r3.i.g.b;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
@@ -21,10 +21,10 @@ import java.util.Map;
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaPlayer f21252e;
+    public MediaPlayer f21330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ScalableType f21253f;
+    public ScalableType f21331f;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -36,9 +36,9 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public final void a() {
-        if (this.f21252e == null) {
+        if (this.f21330e == null) {
             MediaPlayer mediaPlayer = new MediaPlayer();
-            this.f21252e = mediaPlayer;
+            this.f21330e = mediaPlayer;
             mediaPlayer.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
@@ -47,7 +47,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public boolean b() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return false;
         }
@@ -55,7 +55,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void c() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -63,25 +63,25 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void d(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
         mediaPlayer.setOnPreparedListener(onPreparedListener);
-        this.f21252e.prepare();
+        this.f21330e.prepare();
     }
 
     public void e() {
         f();
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer != null) {
             mediaPlayer.release();
-            this.f21252e = null;
+            this.f21330e = null;
         }
     }
 
     public void f() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer != null) {
             mediaPlayer.reset();
         }
@@ -89,14 +89,14 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
 
     public final void g(int i2, int i3) {
         Matrix m;
-        if (i2 == 0 || i3 == 0 || (m = new a(new b(getWidth(), getHeight()), new b(i2, i3)).m(this.f21253f)) == null) {
+        if (i2 == 0 || i3 == 0 || (m = new a(new b(getWidth(), getHeight()), new b(i2, i3)).m(this.f21331f)) == null) {
             return;
         }
         setTransform(m);
     }
 
     public int getCurrentPosition() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return 0;
         }
@@ -104,7 +104,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public int getDuration() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return 0;
         }
@@ -112,7 +112,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public int getVideoHeight() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return 0;
         }
@@ -120,7 +120,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public int getVideoWidth() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return 0;
         }
@@ -128,7 +128,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void h(int i2) {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -136,7 +136,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void i() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -144,7 +144,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void j() {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -154,7 +154,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     @Override // android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.f21252e == null) {
+        if (this.f21330e == null) {
             return;
         }
         if (b()) {
@@ -167,8 +167,8 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
         try {
             Surface surface = new Surface(surfaceTexture);
-            if (this.f21252e != null) {
-                this.f21252e.setSurface(surface);
+            if (this.f21330e != null) {
+                this.f21330e.setSurface(surface);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -198,7 +198,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void setLooping(boolean z) {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -206,7 +206,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -214,7 +214,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -222,7 +222,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -234,12 +234,12 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.f21253f = scalableType;
+        this.f21331f = scalableType;
         g(getVideoWidth(), getVideoHeight());
     }
 
     public void setVolume(float f2, float f3) {
-        MediaPlayer mediaPlayer = this.f21252e;
+        MediaPlayer mediaPlayer = this.f21330e;
         if (mediaPlayer == null) {
             return;
         }
@@ -253,37 +253,37 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         TypedArray obtainStyledAttributes;
-        this.f21253f = ScalableType.NONE;
+        this.f21331f = ScalableType.NONE;
         if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.videoScaleStyle, 0, 0)) == null) {
             return;
         }
         int i3 = obtainStyledAttributes.getInt(R$styleable.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
         obtainStyledAttributes.recycle();
-        this.f21253f = ScalableType.values()[i3];
+        this.f21331f = ScalableType.values()[i3];
     }
 
     public void setDataSource(String str) throws IOException {
         a();
-        this.f21252e.setDataSource(str);
+        this.f21330e.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
         a();
-        this.f21252e.setDataSource(context, uri, map);
+        this.f21330e.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
         a();
-        this.f21252e.setDataSource(context, uri);
+        this.f21330e.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
         a();
-        this.f21252e.setDataSource(fileDescriptor, j, j2);
+        this.f21330e.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
         a();
-        this.f21252e.setDataSource(fileDescriptor);
+        this.f21330e.setDataSource(fileDescriptor);
     }
 }

@@ -8,16 +8,16 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f1909a;
+    public a f1922a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1910b;
+    public String f1923b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f1911c;
+    public String[] f1924c;
 
     public b(String str) {
-        this.f1910b = str;
+        this.f1923b = str;
     }
 
     public static void a(b bVar) {
@@ -39,16 +39,16 @@ public class b {
     }
 
     public String[] c() {
-        return this.f1911c;
+        return this.f1924c;
     }
 
     public b(String str, a aVar) {
-        this.f1910b = str;
-        this.f1909a = aVar;
+        this.f1923b = str;
+        this.f1922a = aVar;
     }
 
     public a b() {
-        return this.f1909a;
+        return this.f1922a;
     }
 
     public static List<b> a(JSONObject jSONObject) {
@@ -61,7 +61,7 @@ public class b {
             a a2 = a.a(b2[i2]);
             if (a2 != a.None) {
                 b bVar = new b(b2[i2], a2);
-                bVar.f1911c = a(b2[i2]);
+                bVar.f1924c = a(b2[i2]);
                 arrayList.add(bVar);
             }
         }
@@ -82,6 +82,6 @@ public class b {
     }
 
     public String a() {
-        return this.f1910b;
+        return this.f1923b;
     }
 }

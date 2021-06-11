@@ -18,9 +18,9 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -48,41 +48,38 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f40281c;
+    public static final String f43962c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f40282d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f40283e;
+    public static int f43963d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f40284a;
+    public final Context f43964a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PublicKey f40285b;
+    public PublicKey f43965b;
 
     /* renamed from: d.a.j0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0550a implements Comparator<d> {
-        public C0550a(a aVar) {
+    public class C0606a implements Comparator<d> {
+        public C0606a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(d dVar, d dVar2) {
-            int i2 = dVar2.f40288c - dVar.f40288c;
+            int i2 = dVar2.f43968c - dVar.f43968c;
             if (i2 != 0) {
                 return i2;
             }
-            if (dVar.f40287b && dVar2.f40287b) {
+            if (dVar.f43967b && dVar2.f43967b) {
                 return 0;
             }
-            if (dVar.f40287b) {
+            if (dVar.f43967b) {
                 return -1;
             }
-            if (dVar2.f40287b) {
+            if (dVar2.f43967b) {
                 return 1;
             }
             return i2;
@@ -181,25 +178,25 @@ public final class a {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public ApplicationInfo f40286a;
+        public ApplicationInfo f43966a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f40287b;
+        public boolean f43967b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40288c;
+        public int f43968c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f40289d;
+        public boolean f43969d;
 
-        public /* synthetic */ d(C0550a c0550a) {
+        public /* synthetic */ d(C0606a c0606a) {
             this();
         }
 
         public d() {
-            this.f40288c = 0;
-            this.f40289d = false;
-            this.f40287b = false;
+            this.f43968c = 0;
+            this.f43969d = false;
+            this.f43967b = false;
         }
     }
 
@@ -207,13 +204,13 @@ public final class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40290a;
+        public String f43970a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40291b;
+        public String f43971b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40292c = 0;
+        public int f43972c = 0;
 
         public static e a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -226,24 +223,24 @@ public final class a {
                 String str3 = "0";
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    if (!a.s("ZGV2aWNlaWQ=").equals(next) && !a.s("dmVy").equals(next)) {
+                    if (!a.r("ZGV2aWNlaWQ=").equals(next) && !a.r("dmVy").equals(next)) {
                         str3 = jSONObject.optString(next, "0");
                     }
                 }
-                String string = jSONObject.getString(a.s("ZGV2aWNlaWQ="));
-                jSONObject.getInt(a.s("dmVy"));
+                String string = jSONObject.getString(a.r("ZGV2aWNlaWQ="));
+                jSONObject.getInt(a.r("dmVy"));
                 int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                 if (!TextUtils.isEmpty(string)) {
                     e eVar = new e();
-                    eVar.f40290a = string;
-                    eVar.f40292c = length;
+                    eVar.f43970a = string;
+                    eVar.f43972c = length;
                     if (length >= 14) {
                         return eVar;
                     }
                     if (!TextUtils.isEmpty(str3)) {
                         str2 = str3;
                     }
-                    eVar.f40291b = str2;
+                    eVar.f43971b = str2;
                     return eVar;
                 }
             } catch (Exception e2) {
@@ -261,16 +258,16 @@ public final class a {
                 return null;
             }
             e eVar = new e();
-            eVar.f40290a = str;
+            eVar.f43970a = str;
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-            eVar.f40292c = length;
+            eVar.f43972c = length;
             if (length >= 14) {
                 return eVar;
             }
             if (TextUtils.isEmpty(str2)) {
                 str2 = "0";
             }
-            eVar.f40291b = str2;
+            eVar.f43971b = str2;
             return eVar;
         }
 
@@ -279,19 +276,19 @@ public final class a {
         }
 
         public String c() {
-            String str = this.f40291b;
+            String str = this.f43971b;
             if (TextUtils.isEmpty(str)) {
                 str = "0";
             }
-            return this.f40290a + FieldBuilder.SE + str;
+            return this.f43970a + "|" + str;
         }
 
         public boolean f() {
-            return d(this.f40292c);
+            return d(this.f43972c);
         }
 
         public boolean h() {
-            return g(this.f40291b);
+            return g(this.f43971b);
         }
     }
 
@@ -308,7 +305,7 @@ public final class a {
             try {
                 return MessageDigest.getInstance("SHA-1").digest(bArr);
             } catch (Exception e2) {
-                a.n(e2);
+                a.m(e2);
                 return new byte[0];
             }
         }
@@ -316,17 +313,17 @@ public final class a {
 
     static {
         String str = new String(c.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-        f40281c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+        f43962c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
     }
 
     public a(Context context) {
-        this.f40284a = context.getApplicationContext();
-        u();
+        this.f43964a = context.getApplicationContext();
+        t();
     }
 
     public static String b(Context context) {
-        e m = m(context);
-        return m != null ? m.c() : "";
+        e a2 = new a(context).a();
+        return a2 != null ? a2.c() : "";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:41:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -353,17 +350,17 @@ public final class a {
                     try {
                         fileReader.close();
                     } catch (Exception e2) {
-                        n(e2);
+                        m(e2);
                     }
                     return charArrayWriter2;
                 } catch (Exception e3) {
                     e = e3;
-                    n(e);
+                    m(e);
                     if (fileReader != null) {
                         try {
                             fileReader.close();
                         } catch (Exception e4) {
-                            n(e4);
+                            m(e4);
                         }
                     }
                     return null;
@@ -375,7 +372,7 @@ public final class a {
                     try {
                         fileReader2.close();
                     } catch (Exception e5) {
-                        n(e5);
+                        m(e5);
                     }
                 }
                 throw th;
@@ -404,62 +401,51 @@ public final class a {
     }
 
     public static byte[] j(byte[] bArr, PublicKey publicKey) {
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
         cipher.init(2, publicKey);
         return cipher.doFinal(bArr);
     }
 
-    public static e m(Context context) {
-        if (f40282d == null) {
-            synchronized (e.class) {
-                if (f40282d == null) {
-                    f40282d = new a(context).a();
-                }
-            }
-        }
-        return f40282d;
+    public static void m(Throwable th) {
     }
 
-    public static void n(Throwable th) {
-    }
-
-    public static String q(String str) {
+    public static String p(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return new String(b.a(f40281c, f40281c, c.a(str.getBytes())));
+            return new String(b.a(f43962c, f43962c, c.a(str.getBytes())));
         } catch (Exception e2) {
-            n(e2);
+            m(e2);
             return "";
         }
     }
 
-    public static String s(String str) {
+    public static String r(String str) {
         return new String(c.a(str.getBytes()));
     }
 
     public final e a() {
-        List<d> f2 = f(new Intent("com.baidu.intent.action.GALAXY").setPackage(this.f40284a.getPackageName()), true);
+        List<d> f2 = f(new Intent("com.baidu.intent.action.GALAXY").setPackage(this.f43964a.getPackageName()), true);
         boolean z = false;
         if (f2 != null && f2.size() != 0) {
-            z = f2.get(0).f40289d;
+            z = f2.get(0).f43969d;
         }
-        File file = new File(this.f40284a.getFilesDir(), "libcuid.so");
-        e a2 = file.exists() ? e.a(q(c(file))) : null;
+        File file = new File(this.f43964a.getFilesDir(), "libcuid.so");
+        e a2 = file.exists() ? e.a(p(c(file))) : null;
         if (a2 == null) {
-            f40283e |= 16;
+            f43963d |= 16;
             List<d> f3 = f(new Intent("com.baidu.intent.action.GALAXY"), z);
             if (f3 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f5497g;
-                File filesDir = this.f40284a.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f5497g.equals(filesDir.getName())) {
+                String str = com.baidu.fsg.face.base.b.c.f5540g;
+                File filesDir = this.f43964a.getFilesDir();
+                if (!com.baidu.fsg.face.base.b.c.f5540g.equals(filesDir.getName())) {
                     str = filesDir.getName();
                 }
                 for (d dVar : f3) {
-                    if (!dVar.f40287b) {
-                        File file2 = new File(new File(dVar.f40286a.dataDir, str), "libcuid.so");
-                        if (file2.exists() && (a2 = e.a(q(c(file2)))) != null) {
+                    if (!dVar.f43967b) {
+                        File file2 = new File(new File(dVar.f43966a.dataDir, str), "libcuid.so");
+                        if (file2.exists() && (a2 = e.a(p(c(file2)))) != null) {
                             break;
                         }
                     }
@@ -467,20 +453,20 @@ public final class a {
             }
         }
         if (a2 == null) {
-            a2 = e.a(q(v("com.baidu.deviceid.v2")));
+            a2 = e.a(p(u("com.baidu.deviceid.v2")));
         }
-        boolean o = o("android.permission.READ_EXTERNAL_STORAGE");
-        if (a2 == null && o) {
-            f40283e |= 2;
-            a2 = p();
+        boolean n = n("android.permission.READ_EXTERNAL_STORAGE");
+        if (a2 == null && n) {
+            f43963d |= 2;
+            a2 = o();
         }
         if (a2 == null) {
-            f40283e |= 8;
+            f43963d |= 8;
             a2 = l();
         }
-        if (a2 == null && o) {
-            f40283e |= 1;
-            a2 = t(r());
+        if (a2 == null && n) {
+            f43963d |= 1;
+            a2 = s(q());
         }
         h(a2);
         return a2;
@@ -488,7 +474,7 @@ public final class a {
 
     public final List<d> f(Intent intent, boolean z) {
         ArrayList arrayList = new ArrayList();
-        PackageManager packageManager = this.f40284a.getPackageManager();
+        PackageManager packageManager = this.f43964a.getPackageManager();
         List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
         if (queryBroadcastReceivers != null) {
             for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
@@ -502,10 +488,10 @@ public final class a {
                                 byte[] a2 = c.a(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 d dVar = new d(null);
-                                dVar.f40288c = jSONObject.getInt("priority");
-                                dVar.f40286a = resolveInfo.activityInfo.applicationInfo;
-                                if (this.f40284a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                    dVar.f40287b = true;
+                                dVar.f43968c = jSONObject.getInt("priority");
+                                dVar.f43966a = resolveInfo.activityInfo.applicationInfo;
+                                if (this.f43964a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                                    dVar.f43967b = true;
                                 }
                                 if (z) {
                                     String string2 = bundle.getString("galaxy_sf");
@@ -518,9 +504,9 @@ public final class a {
                                             strArr[i2] = jSONArray.getString(i2);
                                         }
                                         if (i(strArr, k(packageInfo.signatures))) {
-                                            byte[] j = j(c.a(string2.getBytes()), this.f40285b);
+                                            byte[] j = j(c.a(string2.getBytes()), this.f43965b);
                                             if (j != null && Arrays.equals(j, g.a(a2))) {
-                                                dVar.f40289d = true;
+                                                dVar.f43969d = true;
                                             }
                                         }
                                     }
@@ -529,12 +515,12 @@ public final class a {
                             }
                         }
                     } catch (Exception e2) {
-                        n(e2);
+                        m(e2);
                     }
                 }
             }
         }
-        Collections.sort(arrayList, new C0550a(this));
+        Collections.sort(arrayList, new C0606a(this));
         return arrayList;
     }
 
@@ -543,10 +529,10 @@ public final class a {
             return false;
         }
         if (eVar.f()) {
-            eVar.f40291b = "O";
+            eVar.f43971b = "O";
             return true;
         } else if (eVar.h()) {
-            eVar.f40291b = "0";
+            eVar.f43971b = "0";
             return true;
         } else {
             return false;
@@ -578,14 +564,14 @@ public final class a {
     }
 
     public final e l() {
-        return e.e(v("com.baidu.deviceid"), v("bd_setting_i"));
+        return e.e(u("com.baidu.deviceid"), u("bd_setting_i"));
     }
 
-    public final boolean o(String str) {
-        return this.f40284a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+    public final boolean n(String str) {
+        return this.f43964a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
-    public final e p() {
+    public final e o() {
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
             String c2 = c(file);
@@ -593,20 +579,20 @@ public final class a {
                 return null;
             }
             try {
-                return e.a(new String(b.a(f40281c, f40281c, c.a(c2.getBytes()))));
+                return e.a(new String(b.a(f43962c, f43962c, c.a(c2.getBytes()))));
             } catch (Exception e2) {
-                n(e2);
+                m(e2);
                 return null;
             }
         }
         return null;
     }
 
-    public final String r() {
+    public final String q() {
         return "0";
     }
 
-    public final e t(String str) {
+    public final e s(String str) {
         String str2;
         String str3 = "";
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu/.cuid");
@@ -625,7 +611,7 @@ public final class a {
                 sb.append(Part.CRLF);
             }
             bufferedReader.close();
-            String[] split = new String(b.a(f40281c, f40281c, c.a(sb.toString().getBytes()))).split("=");
+            String[] split = new String(b.a(f43962c, f43962c, c.a(sb.toString().getBytes()))).split("=");
             if (split == null || split.length != 2) {
                 str2 = "";
             } else {
@@ -634,7 +620,7 @@ public final class a {
                     str3 = split[1];
                 } catch (Exception e2) {
                     e = e2;
-                    n(e);
+                    m(e);
                     return e.e(str3, str2);
                 }
             }
@@ -649,7 +635,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void u() {
+    public final void t() {
         ByteArrayInputStream byteArrayInputStream;
         Exception e2;
         ByteArrayInputStream byteArrayInputStream2 = null;
@@ -658,11 +644,11 @@ public final class a {
                 byteArrayInputStream = new ByteArrayInputStream(f.a());
                 try {
                     try {
-                        this.f40285b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+                        this.f43965b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
                         byteArrayInputStream.close();
                     } catch (Exception e3) {
                         e2 = e3;
-                        n(e2);
+                        m(e2);
                         if (byteArrayInputStream != null) {
                             byteArrayInputStream.close();
                         }
@@ -675,13 +661,13 @@ public final class a {
                         try {
                             byteArrayInputStream2.close();
                         } catch (Exception e4) {
-                            n(e4);
+                            m(e4);
                         }
                     }
                     throw th;
                 }
             } catch (Exception e5) {
-                n(e5);
+                m(e5);
             }
         } catch (Exception e6) {
             byteArrayInputStream = null;
@@ -694,11 +680,11 @@ public final class a {
         }
     }
 
-    public final String v(String str) {
+    public final String u(String str) {
         try {
-            return Settings.System.getString(this.f40284a.getContentResolver(), str);
+            return Settings.System.getString(this.f43964a.getContentResolver(), str);
         } catch (Exception e2) {
-            n(e2);
+            m(e2);
             return null;
         }
     }

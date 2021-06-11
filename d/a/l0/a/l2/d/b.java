@@ -14,34 +14,34 @@ import org.apache.http.cookie.ClientCookie;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43404c = k.f43199a;
+    public static final boolean f47080c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f43405a = null;
+    public a f47081a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43406b;
+    public boolean f47082b;
 
     public synchronized void a(d.a.l0.a.l2.a aVar) {
         if (aVar != null) {
-            if (!TextUtils.isEmpty(aVar.f43379a) && !TextUtils.isEmpty(aVar.f43381c) && !TextUtils.isEmpty(aVar.f43380b)) {
-                if (aVar.f43383e == -1) {
+            if (!TextUtils.isEmpty(aVar.f47055a) && !TextUtils.isEmpty(aVar.f47057c) && !TextUtils.isEmpty(aVar.f47056b)) {
+                if (aVar.f47059e == -1) {
                     return;
                 }
                 SQLiteDatabase f2 = f();
                 if (f2 == null) {
                     return;
                 }
-                if (f43404c) {
+                if (f47080c) {
                     Log.d("SwanCookieDatabase", "addCookie cookie=" + aVar.toString());
                 }
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("domain", aVar.f43379a);
-                contentValues.put("path", aVar.f43380b);
-                contentValues.put("name", aVar.f43381c);
-                contentValues.put("value", aVar.f43382d);
-                contentValues.put("expires", Long.valueOf(aVar.f43383e));
-                contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(aVar.f43384f));
+                contentValues.put("domain", aVar.f47055a);
+                contentValues.put("path", aVar.f47056b);
+                contentValues.put("name", aVar.f47057c);
+                contentValues.put("value", aVar.f47058d);
+                contentValues.put("expires", Long.valueOf(aVar.f47059e));
+                contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(aVar.f47060f));
                 f2.insert("cookies", null, contentValues);
             }
         }
@@ -52,23 +52,23 @@ public class b {
         if (f2 == null) {
             return;
         }
-        if (f43404c) {
+        if (f47080c) {
             Log.d("SwanCookieDatabase", "clearExpiredCookies");
         }
         f2.delete("cookies", "expires <= ?", new String[]{Long.toString(System.currentTimeMillis())});
     }
 
     public synchronized void c() {
-        if (this.f43405a == null) {
+        if (this.f47081a == null) {
             return;
         }
         try {
-            if (f43404c) {
+            if (f47080c) {
                 Log.d("SwanCookieDatabase", IntentConfig.CLOSE);
             }
-            this.f43405a.close();
-            this.f43405a = null;
-            this.f43406b = true;
+            this.f47081a.close();
+            this.f47081a = null;
+            this.f47082b = true;
         } catch (Exception e2) {
             d.h("SwanCookieDatabase", "close fail:" + Log.getStackTraceString(e2));
         }
@@ -82,14 +82,14 @@ public class b {
         if (f2 == null) {
             return;
         }
-        if (f43404c) {
+        if (f47080c) {
             Log.d("SwanCookieDatabase", "deleteCookies domain=" + str + ";path=" + str2 + ";name=" + str3);
         }
         f2.delete("cookies", "(domain == ?) AND (path == ?) AND (name == ?)", new String[]{str, str2, str3});
     }
 
     public synchronized ArrayList<d.a.l0.a.l2.a> e(String str) {
-        if (f43404c) {
+        if (f47080c) {
             Log.d("SwanCookieDatabase", "getCookiesForDomain baseDomain=" + str);
         }
         ArrayList<d.a.l0.a.l2.a> arrayList = new ArrayList<>();
@@ -114,20 +114,20 @@ public class b {
             int columnIndex6 = query.getColumnIndex(ClientCookie.SECURE_ATTR);
             do {
                 d.a.l0.a.l2.a aVar = new d.a.l0.a.l2.a();
-                aVar.f43379a = query.getString(columnIndex);
-                aVar.f43380b = query.getString(columnIndex2);
-                aVar.f43381c = query.getString(columnIndex3);
-                aVar.f43382d = query.getString(columnIndex4);
+                aVar.f47055a = query.getString(columnIndex);
+                aVar.f47056b = query.getString(columnIndex2);
+                aVar.f47057c = query.getString(columnIndex3);
+                aVar.f47058d = query.getString(columnIndex4);
                 if (query.isNull(columnIndex5)) {
-                    aVar.f43383e = -1L;
+                    aVar.f47059e = -1L;
                 } else {
-                    aVar.f43383e = query.getLong(columnIndex5);
+                    aVar.f47059e = query.getLong(columnIndex5);
                 }
-                aVar.f43384f = query.getShort(columnIndex6) != 0;
-                aVar.f43387i = 1;
-                if (aVar.f43383e > currentTimeMillis) {
+                aVar.f47060f = query.getShort(columnIndex6) != 0;
+                aVar.f47063i = 1;
+                if (aVar.f47059e > currentTimeMillis) {
                     arrayList.add(aVar);
-                    if (f43404c) {
+                    if (f47080c) {
                         Log.d("SwanCookieDatabase", "getCookiesForDomain cookie=" + aVar.toString());
                     }
                 }
@@ -140,10 +140,10 @@ public class b {
     }
 
     public final SQLiteDatabase f() {
-        if (this.f43406b) {
+        if (this.f47082b) {
             return null;
         }
-        a aVar = this.f43405a;
+        a aVar = this.f47081a;
         if (aVar != null) {
             return aVar.getWritableDatabase();
         }
@@ -155,7 +155,7 @@ public class b {
         String t = d.a.l0.a.k2.b.t(d.a.l0.a.a2.d.g().r());
         d.h("SwanCookieDatabase", "initDbHelper name =" + t);
         a aVar2 = new a(d.a.l0.a.c1.a.b(), t);
-        this.f43405a = aVar2;
+        this.f47081a = aVar2;
         return aVar2.getWritableDatabase();
     }
 

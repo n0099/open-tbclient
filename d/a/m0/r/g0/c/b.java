@@ -19,53 +19,53 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetWork f49834a;
+    public NetWork f53509a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f49835b;
+    public a f53510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public r f49836c;
+    public r f53511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f49837d;
+    public String f53512d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f49838e;
+    public String f53513e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<C1140b> f49839f = new ArrayList();
+    public List<C1196b> f53514f = new ArrayList();
 
     /* loaded from: classes3.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f49840a;
+        public String f53515a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49841b;
+        public String f53516b;
 
         /* renamed from: c  reason: collision with root package name */
-        public q f49842c;
+        public q f53517c;
 
         /* renamed from: d  reason: collision with root package name */
-        public NetWork f49843d;
+        public NetWork f53518d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f49844e = false;
+        public boolean f53519e = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f49845f;
+        public String f53520f;
 
         public a(b bVar, String str, q qVar, String str2, String str3) {
-            this.f49840a = null;
-            this.f49841b = null;
-            this.f49842c = null;
-            this.f49845f = null;
-            this.f49840a = str;
-            this.f49842c = qVar;
-            this.f49841b = str2;
-            this.f49845f = str3;
+            this.f53515a = null;
+            this.f53516b = null;
+            this.f53517c = null;
+            this.f53520f = null;
+            this.f53515a = str;
+            this.f53517c = qVar;
+            this.f53516b = str2;
+            this.f53520f = str3;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:38:0x00f2 A[SYNTHETIC] */
@@ -76,15 +76,15 @@ public class b {
         public r a() throws IOException {
             boolean z;
             r rVar = new r();
-            long c2 = this.f49842c.c();
+            long c2 = this.f53517c.c();
             long j = 30720;
             long j2 = c2 / 30720;
             if (c2 % 30720 != 0) {
                 j2++;
             }
-            int a2 = this.f49842c.a();
+            int a2 = this.f53517c.a();
             if (a2 < j2) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f49840a), com.baidu.mapsdkplatform.comapi.map.r.f7672a);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f53515a), com.baidu.mapsdkplatform.comapi.map.r.f7715a);
                 int i2 = a2 * TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
                 if (randomAccessFile.skipBytes(i2) >= i2) {
                     while (true) {
@@ -95,27 +95,27 @@ public class b {
                             byte[] bArr = new byte[i3];
                             int read = randomAccessFile.read(bArr, 0, i3);
                             if (read != -1) {
-                                NetWork netWork = new NetWork(this.f49841b);
-                                this.f49843d = netWork;
+                                NetWork netWork = new NetWork(this.f53516b);
+                                this.f53518d = netWork;
                                 netWork.addPostData("voice_chunk", bArr);
-                                this.f49843d.addPostData("chunk_md5", this.f49842c.b());
-                                this.f49843d.addPostData(CloudStabilityUBCUtils.KEY_LENGTH, String.valueOf(read));
-                                this.f49843d.addPostData("offset", String.valueOf(a2 * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                                this.f49843d.addPostData("total_length", String.valueOf(c2));
-                                this.f49843d.addPostData("chunk_no", String.valueOf(a2 + 1));
-                                this.f49843d.addPostData("total_num", String.valueOf(j2));
-                                this.f49843d.addPostData("voice_md5", this.f49845f);
-                                if (!this.f49844e) {
-                                    if (this.f49843d.postMultiNetData() == null || !this.f49843d.getNetContext().getResponse().isRequestSuccess()) {
-                                        this.f49842c.d(a2);
-                                        ChunkUploadDatabaseService.saveChunkUploadData(this.f49842c);
+                                this.f53518d.addPostData("chunk_md5", this.f53517c.b());
+                                this.f53518d.addPostData(CloudStabilityUBCUtils.KEY_LENGTH, String.valueOf(read));
+                                this.f53518d.addPostData("offset", String.valueOf(a2 * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
+                                this.f53518d.addPostData("total_length", String.valueOf(c2));
+                                this.f53518d.addPostData("chunk_no", String.valueOf(a2 + 1));
+                                this.f53518d.addPostData("total_num", String.valueOf(j2));
+                                this.f53518d.addPostData("voice_md5", this.f53520f);
+                                if (!this.f53519e) {
+                                    if (this.f53518d.postMultiNetData() == null || !this.f53518d.getNetContext().getResponse().isRequestSuccess()) {
+                                        this.f53517c.d(a2);
+                                        ChunkUploadDatabaseService.saveChunkUploadData(this.f53517c);
                                         randomAccessFile.close();
                                     } else {
                                         z = false;
                                         if (!z) {
-                                            rVar.f(this.f49843d.getServerErrorCode());
-                                            rVar.g(this.f49843d.getErrorString());
-                                            rVar.e(this.f49842c);
+                                            rVar.f(this.f53518d.getServerErrorCode());
+                                            rVar.g(this.f53518d.getErrorString());
+                                            rVar.e(this.f53517c);
                                             rVar.h(false);
                                             return rVar;
                                         }
@@ -145,35 +145,35 @@ public class b {
 
     /* renamed from: d.a.m0.r.g0.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1140b {
+    public class C1196b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f49846a;
+        public String f53521a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49847b;
+        public String f53522b;
 
-        public C1140b(b bVar, String str, String str2) {
-            this.f49846a = str;
-            this.f49847b = str2;
+        public C1196b(b bVar, String str, String str2) {
+            this.f53521a = str;
+            this.f53522b = str2;
         }
 
         public String a() {
-            return this.f49846a;
+            return this.f53521a;
         }
 
         public String b() {
-            return this.f49847b;
+            return this.f53522b;
         }
     }
 
     public b(String str, String str2) {
-        this.f49837d = str;
-        this.f49838e = str2;
+        this.f53512d = str;
+        this.f53513e = str2;
     }
 
     public void a(String str, int i2) {
-        this.f49839f.add(new C1140b(this, str, String.valueOf(i2)));
+        this.f53514f.add(new C1196b(this, str, String.valueOf(i2)));
     }
 
     public final long b(long j) {
@@ -183,26 +183,26 @@ public class b {
     }
 
     public final String c(String str, q qVar) {
-        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.f49838e);
-        this.f49834a = netWork;
+        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.f53513e);
+        this.f53509a = netWork;
         netWork.addPostData("voice_md5", qVar.b());
-        if (ListUtils.getCount(this.f49839f) != 0) {
-            for (C1140b c1140b : this.f49839f) {
-                if (c1140b != null) {
-                    this.f49834a.addPostData(c1140b.a(), c1140b.b());
+        if (ListUtils.getCount(this.f53514f) != 0) {
+            for (C1196b c1196b : this.f53514f) {
+                if (c1196b != null) {
+                    this.f53509a.addPostData(c1196b.a(), c1196b.b());
                 }
             }
         }
-        String postNetData = this.f49834a.postNetData();
-        if (postNetData != null && this.f49834a.getNetContext().getResponse().isRequestSuccess()) {
+        String postNetData = this.f53509a.postNetData();
+        if (postNetData != null && this.f53509a.getNetContext().getResponse().isRequestSuccess()) {
             ChunkUploadDatabaseService.delChunkUploadData(str);
             return postNetData;
         }
         qVar.d((int) b(qVar.c()));
         ChunkUploadDatabaseService.saveChunkUploadData(qVar);
-        this.f49836c.f(this.f49834a.getServerErrorCode());
-        this.f49836c.g(this.f49834a.getErrorString());
-        this.f49836c.h(false);
+        this.f53511c.f(this.f53509a.getServerErrorCode());
+        this.f53511c.g(this.f53509a.getErrorString());
+        this.f53511c.h(false);
         return null;
     }
 
@@ -210,7 +210,7 @@ public class b {
         try {
             File file = new File(str);
             if (file.exists()) {
-                this.f49834a = new NetWork(TbConfig.SERVER_ADDRESS + this.f49837d);
+                this.f53509a = new NetWork(TbConfig.SERVER_ADDRESS + this.f53512d);
                 return e(str, file);
             }
             return null;
@@ -234,22 +234,22 @@ public class b {
             chunkUploadDataByMd5.f(file.length());
         }
         q qVar = chunkUploadDataByMd5;
-        a aVar = new a(this, str, qVar, TbConfig.SERVER_ADDRESS + this.f49837d, b2);
-        this.f49835b = aVar;
+        a aVar = new a(this, str, qVar, TbConfig.SERVER_ADDRESS + this.f53512d, b2);
+        this.f53510b = aVar;
         r a2 = aVar.a();
-        this.f49836c = a2;
+        this.f53511c = a2;
         if (a2.d() && (c2 = c(b2, qVar)) != null && !c2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(c2);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
                 qVar.e(audioInfoData.getVoiceId());
-                this.f49836c.e(qVar);
+                this.f53511c.e(qVar);
             } else {
-                this.f49836c.f(audioInfoData.getErrorCode());
-                this.f49836c.g(audioInfoData.getErrorUserMsg());
-                this.f49836c.h(false);
+                this.f53511c.f(audioInfoData.getErrorCode());
+                this.f53511c.g(audioInfoData.getErrorUserMsg());
+                this.f53511c.h(false);
             }
         }
-        return this.f49836c;
+        return this.f53511c;
     }
 }

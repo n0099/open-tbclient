@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f48160a = -1;
+    public static int f51834a = -1;
 
     public static int a(String str) {
         int i2 = 5;
@@ -30,7 +30,7 @@ public class o {
             int optInt = optJSONObject.optInt(str, -1);
             return optInt < 0 ? i2 : optInt;
         } catch (JSONException e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
             return i2;
@@ -42,11 +42,11 @@ public class o {
     }
 
     public static int c() {
-        if (f48160a < 0) {
+        if (f51834a < 0) {
             d.a.l0.n.c.b().C("swan_update_expired_time", 0);
-            f48160a = 0;
+            f51834a = 0;
         }
-        return f48160a;
+        return f51834a;
     }
 
     public static String d() {
@@ -58,7 +58,7 @@ public class o {
         if (jSONObject == null) {
             return;
         }
-        if (d.a.l0.n.c.f47984a) {
+        if (d.a.l0.n.c.f51658a) {
             Log.d("UpdateExpireTimeManager", "processUpdateExpireTime: data" + jSONObject);
         }
         String optString = jSONObject.optString("version");

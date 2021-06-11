@@ -39,7 +39,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             this.videoUrl = getIntent().getStringExtra("video_url");
             this.thumbUrl = getIntent().getStringExtra("thumb_url");
         }
-        this.videoContainer.A0(this.thumbUrl, this.videoUrl);
+        this.videoContainer.B0(this.thumbUrl, this.videoUrl);
     }
 
     private void initView() {

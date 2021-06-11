@@ -8,7 +8,7 @@ import okio.Buffer;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Relay {
     public static final long FILE_HEADER_SIZE = 32;
     public static final ByteString PREFIX_CLEAN = ByteString.encodeUtf8("OkHttp cache v1\n");
@@ -26,7 +26,7 @@ public final class Relay {
     public final Buffer upstreamBuffer = new Buffer();
     public final Buffer buffer = new Buffer();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class RelaySource implements Source {
         public FileOperator fileOperator;
         public long sourcePos;

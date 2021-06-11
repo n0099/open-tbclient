@@ -7,64 +7,64 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class b implements Comparable, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public g f29534a;
+    public g f29637a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f29535b;
+    public a f29638b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29536c;
+    public long f29639c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Thread f29537d = null;
+    public Thread f29640d = null;
 
     public b(g gVar, a aVar) {
-        this.f29534a = null;
-        this.f29535b = null;
-        this.f29536c = 0L;
-        this.f29534a = gVar;
-        this.f29535b = aVar;
-        this.f29536c = SystemClock.uptimeMillis();
+        this.f29637a = null;
+        this.f29638b = null;
+        this.f29639c = 0L;
+        this.f29637a = gVar;
+        this.f29638b = aVar;
+        this.f29639c = SystemClock.uptimeMillis();
     }
 
     public g a() {
-        return this.f29534a;
+        return this.f29637a;
     }
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
         if (obj instanceof b) {
-            return this.f29534a.compareTo(((b) obj).a());
+            return this.f29637a.compareTo(((b) obj).a());
         }
         return 0;
     }
 
     public boolean equals(Object obj) {
         g gVar;
-        return (obj instanceof b) && (gVar = this.f29534a) != null && gVar.equals(((b) obj).a());
+        return (obj instanceof b) && (gVar = this.f29637a) != null && gVar.equals(((b) obj).a());
     }
 
     public int hashCode() {
-        return this.f29534a.hashCode();
+        return this.f29637a.hashCode();
     }
 
     @Override // java.lang.Runnable
     public void run() {
         long uptimeMillis = SystemClock.uptimeMillis();
-        long j = uptimeMillis - this.f29536c;
-        this.f29537d = Thread.currentThread();
-        g gVar = this.f29534a;
+        long j = uptimeMillis - this.f29639c;
+        this.f29640d = Thread.currentThread();
+        g gVar = this.f29637a;
         if (gVar != null) {
             gVar.run();
         }
         long uptimeMillis2 = SystemClock.uptimeMillis() - uptimeMillis;
-        a aVar = this.f29535b;
+        a aVar = this.f29638b;
         if (aVar != null) {
             d.a(aVar, j, uptimeMillis2);
         }
         Object[] objArr = new Object[8];
         objArr[0] = "run: pool  = ";
-        a aVar2 = this.f29535b;
+        a aVar2 = this.f29638b;
         String str = StringUtil.NULL_STRING;
         objArr[1] = aVar2 != null ? aVar2.a() : StringUtil.NULL_STRING;
         objArr[2] = " waitTime =";
@@ -72,7 +72,7 @@ public class b implements Comparable, Runnable {
         objArr[4] = " taskCost = ";
         objArr[5] = Long.valueOf(uptimeMillis2);
         objArr[6] = " name=";
-        g gVar2 = this.f29534a;
+        g gVar2 = this.f29637a;
         if (gVar2 != null) {
             str = gVar2.h();
         }

@@ -10,7 +10,7 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f28061a = "a";
+    public static final String f28164a = "a";
 
     public static boolean a(Context context, String str) {
         if (Build.VERSION.SDK_INT >= 19) {
@@ -39,7 +39,7 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean b(Context context, String str) {
-        String str2 = f28061a;
+        String str2 = f28164a;
         u.f(str2, "checkPermissinKITKATNew，permission：" + str);
         char c2 = 65535;
         boolean z = false;
@@ -58,16 +58,16 @@ public class a {
             }
             String str3 = "android:coarse_location";
             int checkOp = ((AppOpsManager) context.getSystemService("appops")).checkOp(str3, Binder.getCallingUid(), context.getPackageName());
-            String str4 = f28061a;
+            String str4 = f28164a;
             u.f(str4, "checkPermissinKITKATNew，locationOp,permission：" + checkOp + "," + str3);
             if (checkOp != 0) {
                 try {
-                    String str5 = f28061a;
+                    String str5 = f28164a;
                     u.f(str5, "checkPermissinKITKATNew，false,permission：" + str3);
                     return false;
                 } catch (Exception e2) {
                     e = e2;
-                    String str6 = f28061a;
+                    String str6 = f28164a;
                     u.f(str6, "权限检查出错时默认返回有权限，异常代码：" + e);
                     return z;
                 }

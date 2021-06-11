@@ -50,31 +50,31 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     public static final jg f476a = new jg("ClientUploadDataItem");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f37732a = new iy("", (byte) 11, 1);
+    public static final iy f41411a = new iy("", (byte) 11, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f37733b = new iy("", (byte) 11, 2);
+    public static final iy f41412b = new iy("", (byte) 11, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f37734c = new iy("", (byte) 11, 3);
+    public static final iy f41413c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f37735d = new iy("", (byte) 10, 4);
+    public static final iy f41414d = new iy("", (byte) 10, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f37736e = new iy("", (byte) 10, 5);
+    public static final iy f41415e = new iy("", (byte) 10, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f37737f = new iy("", (byte) 2, 6);
+    public static final iy f41416f = new iy("", (byte) 2, 6);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f37738g = new iy("", (byte) 11, 7);
+    public static final iy f41417g = new iy("", (byte) 11, 7);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f37739h = new iy("", (byte) 11, 8);
+    public static final iy f41418h = new iy("", (byte) 11, 8);
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f37740i = new iy("", (byte) 11, 9);
+    public static final iy f41419i = new iy("", (byte) 11, 9);
     public static final iy j = new iy("", (byte) 13, 10);
     public static final iy k = new iy("", (byte) 11, 11);
 
@@ -94,31 +94,31 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
         int a11;
         int a12;
         if (hj.class.equals(hjVar.getClass())) {
-            int compareTo = Boolean.valueOf(m366a()).compareTo(Boolean.valueOf(hjVar.m366a()));
+            int compareTo = Boolean.valueOf(m365a()).compareTo(Boolean.valueOf(hjVar.m365a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m366a() || (a12 = ir.a(this.f478a, hjVar.f478a)) == 0) {
-                int compareTo2 = Boolean.valueOf(m368b()).compareTo(Boolean.valueOf(hjVar.m368b()));
+            if (!m365a() || (a12 = ir.a(this.f478a, hjVar.f478a)) == 0) {
+                int compareTo2 = Boolean.valueOf(m367b()).compareTo(Boolean.valueOf(hjVar.m367b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
                 }
-                if (!m368b() || (a11 = ir.a(this.f483b, hjVar.f483b)) == 0) {
-                    int compareTo3 = Boolean.valueOf(m369c()).compareTo(Boolean.valueOf(hjVar.m369c()));
+                if (!m367b() || (a11 = ir.a(this.f483b, hjVar.f483b)) == 0) {
+                    int compareTo3 = Boolean.valueOf(m368c()).compareTo(Boolean.valueOf(hjVar.m368c()));
                     if (compareTo3 != 0) {
                         return compareTo3;
                     }
-                    if (!m369c() || (a10 = ir.a(this.f484c, hjVar.f484c)) == 0) {
-                        int compareTo4 = Boolean.valueOf(m370d()).compareTo(Boolean.valueOf(hjVar.m370d()));
+                    if (!m368c() || (a10 = ir.a(this.f484c, hjVar.f484c)) == 0) {
+                        int compareTo4 = Boolean.valueOf(m369d()).compareTo(Boolean.valueOf(hjVar.m369d()));
                         if (compareTo4 != 0) {
                             return compareTo4;
                         }
-                        if (!m370d() || (a9 = ir.a(this.f477a, hjVar.f477a)) == 0) {
-                            int compareTo5 = Boolean.valueOf(m371e()).compareTo(Boolean.valueOf(hjVar.m371e()));
+                        if (!m369d() || (a9 = ir.a(this.f477a, hjVar.f477a)) == 0) {
+                            int compareTo5 = Boolean.valueOf(m370e()).compareTo(Boolean.valueOf(hjVar.m370e()));
                             if (compareTo5 != 0) {
                                 return compareTo5;
                             }
-                            if (!m371e() || (a8 = ir.a(this.f482b, hjVar.f482b)) == 0) {
+                            if (!m370e() || (a8 = ir.a(this.f482b, hjVar.f482b)) == 0) {
                                 int compareTo6 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(hjVar.f()));
                                 if (compareTo6 != 0) {
                                     return compareTo6;
@@ -182,7 +182,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
 
     public hj a(long j2) {
         this.f477a = j2;
-        m365a(true);
+        m364a(true);
         return this;
     }
 
@@ -203,63 +203,63 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m362a() {
+    public String m361a() {
         return this.f478a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, String> m363a() {
+    public Map<String, String> m362a() {
         return this.f480a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m364a() {
+    public void m363a() {
     }
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m511a();
+        jbVar.m510a();
         while (true) {
-            iy m507a = jbVar.m507a();
-            byte b2 = m507a.f37969a;
+            iy m506a = jbVar.m506a();
+            byte b2 = m506a.f41648a;
             if (b2 == 0) {
                 jbVar.f();
-                m364a();
+                m363a();
                 return;
             }
-            switch (m507a.f807a) {
+            switch (m506a.f807a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f478a = jbVar.m512a();
+                        this.f478a = jbVar.m511a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 2:
                     if (b2 == 11) {
-                        this.f483b = jbVar.m512a();
+                        this.f483b = jbVar.m511a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f484c = jbVar.m512a();
+                        this.f484c = jbVar.m511a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 10) {
-                        this.f477a = jbVar.m506a();
-                        m365a(true);
+                        this.f477a = jbVar.m505a();
+                        m364a(true);
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 10) {
-                        this.f482b = jbVar.m506a();
+                        this.f482b = jbVar.m505a();
                         b(true);
                         continue;
                         jbVar.g();
@@ -267,7 +267,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
                     break;
                 case 6:
                     if (b2 == 2) {
-                        this.f481a = jbVar.m516a();
+                        this.f481a = jbVar.m515a();
                         c(true);
                         continue;
                         jbVar.g();
@@ -275,31 +275,31 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f485d = jbVar.m512a();
+                        this.f485d = jbVar.m511a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f486e = jbVar.m512a();
+                        this.f486e = jbVar.m511a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 11) {
-                        this.f487f = jbVar.m512a();
+                        this.f487f = jbVar.m511a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 10:
                     if (b2 == 13) {
-                        ja m509a = jbVar.m509a();
-                        this.f480a = new HashMap(m509a.f811a * 2);
-                        for (int i2 = 0; i2 < m509a.f811a; i2++) {
-                            this.f480a.put(jbVar.m512a(), jbVar.m512a());
+                        ja m508a = jbVar.m508a();
+                        this.f480a = new HashMap(m508a.f811a * 2);
+                        for (int i2 = 0; i2 < m508a.f811a; i2++) {
+                            this.f480a.put(jbVar.m511a(), jbVar.m511a());
                         }
                         jbVar.h();
                         continue;
@@ -308,7 +308,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
                     break;
                 case 11:
                     if (b2 == 11) {
-                        this.f488g = jbVar.m512a();
+                        this.f488g = jbVar.m511a();
                         continue;
                         jbVar.g();
                     }
@@ -327,43 +327,43 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m365a(boolean z) {
+    public void m364a(boolean z) {
         this.f479a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m366a() {
+    public boolean m365a() {
         return this.f478a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m367a(hj hjVar) {
+    public boolean m366a(hj hjVar) {
         if (hjVar == null) {
             return false;
         }
-        boolean m366a = m366a();
-        boolean m366a2 = hjVar.m366a();
-        if ((m366a || m366a2) && !(m366a && m366a2 && this.f478a.equals(hjVar.f478a))) {
+        boolean m365a = m365a();
+        boolean m365a2 = hjVar.m365a();
+        if ((m365a || m365a2) && !(m365a && m365a2 && this.f478a.equals(hjVar.f478a))) {
             return false;
         }
-        boolean m368b = m368b();
-        boolean m368b2 = hjVar.m368b();
-        if ((m368b || m368b2) && !(m368b && m368b2 && this.f483b.equals(hjVar.f483b))) {
+        boolean m367b = m367b();
+        boolean m367b2 = hjVar.m367b();
+        if ((m367b || m367b2) && !(m367b && m367b2 && this.f483b.equals(hjVar.f483b))) {
             return false;
         }
-        boolean m369c = m369c();
-        boolean m369c2 = hjVar.m369c();
-        if ((m369c || m369c2) && !(m369c && m369c2 && this.f484c.equals(hjVar.f484c))) {
+        boolean m368c = m368c();
+        boolean m368c2 = hjVar.m368c();
+        if ((m368c || m368c2) && !(m368c && m368c2 && this.f484c.equals(hjVar.f484c))) {
             return false;
         }
-        boolean m370d = m370d();
-        boolean m370d2 = hjVar.m370d();
-        if ((m370d || m370d2) && !(m370d && m370d2 && this.f477a == hjVar.f477a)) {
+        boolean m369d = m369d();
+        boolean m369d2 = hjVar.m369d();
+        if ((m369d || m369d2) && !(m369d && m369d2 && this.f477a == hjVar.f477a)) {
             return false;
         }
-        boolean m371e = m371e();
-        boolean m371e2 = hjVar.m371e();
-        if ((m371e || m371e2) && !(m371e && m371e2 && this.f482b == hjVar.f482b)) {
+        boolean m370e = m370e();
+        boolean m370e2 = hjVar.m370e();
+        if ((m370e || m370e2) && !(m370e && m370e2 && this.f482b == hjVar.f482b)) {
             return false;
         }
         boolean f2 = f();
@@ -416,50 +416,50 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void b(jb jbVar) {
-        m364a();
+        m363a();
         jbVar.a(f476a);
-        if (this.f478a != null && m366a()) {
-            jbVar.a(f37732a);
+        if (this.f478a != null && m365a()) {
+            jbVar.a(f41411a);
             jbVar.a(this.f478a);
             jbVar.b();
         }
-        if (this.f483b != null && m368b()) {
-            jbVar.a(f37733b);
+        if (this.f483b != null && m367b()) {
+            jbVar.a(f41412b);
             jbVar.a(this.f483b);
             jbVar.b();
         }
-        if (this.f484c != null && m369c()) {
-            jbVar.a(f37734c);
+        if (this.f484c != null && m368c()) {
+            jbVar.a(f41413c);
             jbVar.a(this.f484c);
             jbVar.b();
         }
-        if (m370d()) {
-            jbVar.a(f37735d);
+        if (m369d()) {
+            jbVar.a(f41414d);
             jbVar.a(this.f477a);
             jbVar.b();
         }
-        if (m371e()) {
-            jbVar.a(f37736e);
+        if (m370e()) {
+            jbVar.a(f41415e);
             jbVar.a(this.f482b);
             jbVar.b();
         }
         if (f()) {
-            jbVar.a(f37737f);
+            jbVar.a(f41416f);
             jbVar.a(this.f481a);
             jbVar.b();
         }
         if (this.f485d != null && g()) {
-            jbVar.a(f37738g);
+            jbVar.a(f41417g);
             jbVar.a(this.f485d);
             jbVar.b();
         }
         if (this.f486e != null && h()) {
-            jbVar.a(f37739h);
+            jbVar.a(f41418h);
             jbVar.a(this.f486e);
             jbVar.b();
         }
         if (this.f487f != null && i()) {
-            jbVar.a(f37740i);
+            jbVar.a(f41419i);
             jbVar.a(this.f487f);
             jbVar.b();
         }
@@ -479,7 +479,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m515a();
+        jbVar.m514a();
     }
 
     public void b(boolean z) {
@@ -487,7 +487,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m368b() {
+    public boolean m367b() {
         return this.f483b != null;
     }
 
@@ -505,7 +505,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m369c() {
+    public boolean m368c() {
         return this.f484c != null;
     }
 
@@ -519,7 +519,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public boolean m370d() {
+    public boolean m369d() {
         return this.f479a.get(0);
     }
 
@@ -533,13 +533,13 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public boolean m371e() {
+    public boolean m370e() {
         return this.f479a.get(1);
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hj)) {
-            return m367a((hj) obj);
+            return m366a((hj) obj);
         }
         return false;
     }
@@ -586,7 +586,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
         boolean z;
         StringBuilder sb = new StringBuilder("ClientUploadDataItem(");
         boolean z2 = false;
-        if (m366a()) {
+        if (m365a()) {
             sb.append("channel:");
             String str = this.f478a;
             if (str == null) {
@@ -598,7 +598,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
         } else {
             z = true;
         }
-        if (m368b()) {
+        if (m367b()) {
             if (!z) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
@@ -611,7 +611,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
             }
             z = false;
         }
-        if (m369c()) {
+        if (m368c()) {
             if (!z) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
@@ -624,7 +624,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
             }
             z = false;
         }
-        if (m370d()) {
+        if (m369d()) {
             if (!z) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
@@ -632,7 +632,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
             sb.append(this.f477a);
             z = false;
         }
-        if (m371e()) {
+        if (m370e()) {
             if (!z) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }

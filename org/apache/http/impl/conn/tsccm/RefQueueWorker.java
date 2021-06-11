@@ -2,7 +2,7 @@ package org.apache.http.impl.conn.tsccm;
 
 import java.lang.ref.ReferenceQueue;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RefQueueWorker implements Runnable {
     public final RefQueueHandler refHandler;
     public final ReferenceQueue<?> refQueue;

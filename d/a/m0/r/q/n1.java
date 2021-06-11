@@ -6,10 +6,10 @@ import tbclient.RecommendForumInfo;
 public class n1 extends w implements d.a.m0.g0.b.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public long f50088h;
+    public long f53764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f50089i;
+    public String f53765i;
     public String j;
     public boolean k;
     public int l;
@@ -21,11 +21,11 @@ public class n1 extends w implements d.a.m0.g0.b.a {
     }
 
     public String B() {
-        return this.f50089i;
+        return this.f53765i;
     }
 
     public long C() {
-        return this.f50088h;
+        return this.f53764h;
     }
 
     public String D() {
@@ -53,8 +53,8 @@ public class n1 extends w implements d.a.m0.g0.b.a {
             return;
         }
         try {
-            this.f50088h = recommendForumInfo.forum_id.longValue();
-            this.f50089i = recommendForumInfo.avatar;
+            this.f53764h = recommendForumInfo.forum_id.longValue();
+            this.f53765i = recommendForumInfo.avatar;
             this.j = recommendForumInfo.forum_name;
             boolean z = true;
             if (recommendForumInfo.is_like.intValue() != 1) {
@@ -86,11 +86,11 @@ public class n1 extends w implements d.a.m0.g0.b.a {
     }
 
     public void N(String str) {
-        this.f50089i = str;
+        this.f53765i = str;
     }
 
     public void O(long j) {
-        this.f50088h = j;
+        this.f53764h = j;
     }
 
     public void P(String str) {

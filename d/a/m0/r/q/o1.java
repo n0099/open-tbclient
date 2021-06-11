@@ -10,10 +10,10 @@ import tbclient.RecommendForumInfo;
 public class o1 extends w {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50090h;
+    public String f53766h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50091i;
+    public int f53767i;
     public String j;
     public ArrayList<n1> k;
 
@@ -50,18 +50,18 @@ public class o1 extends w {
         this.k.addAll(ListUtils.trimToSize(arrayList, 15));
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
-    public BdUniqueId getType() {
-        return w.f50154f;
-    }
-
     @Override // d.a.m0.r.q.w, d.a.m0.r.q.a
-    public v0 h() {
+    public v0 c() {
         return new v0();
     }
 
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
+    public BdUniqueId getType() {
+        return w.f53830f;
+    }
+
     @Override // d.a.m0.r.q.w, d.a.m0.r.q.a
-    public a2 m() {
+    public a2 i() {
         return null;
     }
 }

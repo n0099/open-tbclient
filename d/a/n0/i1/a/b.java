@@ -18,61 +18,61 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public LabelSettingView f55677e;
+    public LabelSettingView f59366e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.i1.b.b f55678f;
+    public d.a.n0.i1.b.b f59367f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<d.a.n0.i1.b.a> f55679g;
+    public List<d.a.n0.i1.b.a> f59368g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Integer> f55680h = new ArrayList();
+    public List<Integer> f59369h = new ArrayList();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f55681e;
+        public int f59370e;
 
         public a(int i2) {
-            this.f55681e = i2;
+            this.f59370e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.n0.i1.b.a item = b.this.getItem(this.f55681e);
+            d.a.n0.i1.b.a item = b.this.getItem(this.f59370e);
             if (item == null) {
                 return;
             }
-            item.f55686c = !item.f55686c;
+            item.f59375c = !item.f59375c;
             if (view instanceof TextView) {
                 b.this.d((TextView) view, item);
             }
-            if (item.f55686c) {
-                b.this.f55680h.add(Integer.valueOf(item.f55684a));
+            if (item.f59375c) {
+                b.this.f59369h.add(Integer.valueOf(item.f59373a));
             } else {
-                b.this.f55680h.remove(Integer.valueOf(item.f55684a));
+                b.this.f59369h.remove(Integer.valueOf(item.f59373a));
             }
-            if (b.this.f55677e != null) {
-                b.this.f55677e.d(ListUtils.getCount(b.this.f55680h) > 0);
+            if (b.this.f59366e != null) {
+                b.this.f59366e.d(ListUtils.getCount(b.this.f59369h) > 0);
             }
         }
     }
 
     /* renamed from: d.a.n0.i1.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1370b {
+    public class C1426b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f55683a;
+        public TextView f59372a;
 
-        public C1370b(b bVar) {
+        public C1426b(b bVar) {
         }
     }
 
     public b(LabelSettingView labelSettingView) {
-        this.f55677e = labelSettingView;
+        this.f59366e = labelSettingView;
     }
 
     public final void d(TextView textView, d.a.n0.i1.b.a aVar) {
@@ -80,12 +80,12 @@ public class b extends BaseAdapter {
         if (aVar == null) {
             return;
         }
-        String str = aVar.f55685b;
-        if (!StringUtils.isNull(str) && aVar.f55685b.length() > 4) {
-            str = aVar.f55685b.substring(0, 3) + StringHelper.STRING_MORE;
+        String str = aVar.f59374b;
+        if (!StringUtils.isNull(str) && aVar.f59374b.length() > 4) {
+            str = aVar.f59374b.substring(0, 3) + StringHelper.STRING_MORE;
         }
         textView.setText(str);
-        if (aVar.f55686c) {
+        if (aVar.f59375c) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0302);
             drawable = SkinManager.getDrawable(R.drawable.icon_lable_confirm_s);
         } else {
@@ -99,21 +99,21 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: e */
     public d.a.n0.i1.b.a getItem(int i2) {
-        return (d.a.n0.i1.b.a) ListUtils.getItem(this.f55679g, i2);
+        return (d.a.n0.i1.b.a) ListUtils.getItem(this.f59368g, i2);
     }
 
     public List<Integer> f() {
-        d.a.n0.i1.b.b bVar = this.f55678f;
+        d.a.n0.i1.b.b bVar = this.f59367f;
         return bVar == null ? new ArrayList() : bVar.a();
     }
 
     public List<Integer> g() {
-        return this.f55680h;
+        return this.f59369h;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.f55679g);
+        return ListUtils.getCount(this.f59368g);
     }
 
     @Override // android.widget.Adapter
@@ -122,22 +122,22 @@ public class b extends BaseAdapter {
         if (item == null) {
             return 0L;
         }
-        return item.f55684a;
+        return item.f59373a;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
-        C1370b c1370b;
+        C1426b c1426b;
         if (view == null) {
-            view = LayoutInflater.from(this.f55677e.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            c1370b = new C1370b(this);
-            c1370b.f55683a = (TextView) view;
-            view.setTag(c1370b);
+            view = LayoutInflater.from(this.f59366e.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            c1426b = new C1426b(this);
+            c1426b.f59372a = (TextView) view;
+            view.setTag(c1426b);
         } else {
-            c1370b = (C1370b) view.getTag();
+            c1426b = (C1426b) view.getTag();
         }
-        c1370b.f55683a.setOnClickListener(new a(i2));
-        d(c1370b.f55683a, getItem(i2));
+        c1426b.f59372a.setOnClickListener(new a(i2));
+        d(c1426b.f59372a, getItem(i2));
         return view;
     }
 
@@ -145,11 +145,11 @@ public class b extends BaseAdapter {
         if (bVar == null || ListUtils.isEmpty(bVar.b())) {
             return;
         }
-        this.f55678f = bVar;
-        this.f55679g = bVar.b();
+        this.f59367f = bVar;
+        this.f59368g = bVar.b();
         if (ListUtils.isEmpty(bVar.a())) {
             return;
         }
-        this.f55680h = new ArrayList(bVar.a());
+        this.f59369h = new ArrayList(bVar.a());
     }
 }

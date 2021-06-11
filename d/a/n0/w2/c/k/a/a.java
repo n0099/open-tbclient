@@ -5,11 +5,11 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f62639a = false;
+    public boolean f66354a = false;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null && "ok".equals(jSONObject.optString("status"))) {
-            this.f62639a = true;
+            this.f66354a = true;
         }
     }
 }

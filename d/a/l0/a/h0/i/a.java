@@ -8,47 +8,47 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<C0666a> f42155a = new ArrayList();
+    public List<C0722a> f45831a = new ArrayList();
 
     /* renamed from: d.a.l0.a.h0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0666a {
+    public static final class C0722a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42156a;
+        public String f45832a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42157b;
+        public String f45833b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42158c;
+        public String f45834c;
 
-        public C0666a(String str, String str2, String str3) {
-            this.f42156a = str;
-            this.f42157b = str2;
-            this.f42158c = str3;
+        public C0722a(String str, String str2, String str3) {
+            this.f45832a = str;
+            this.f45833b = str2;
+            this.f45834c = str3;
         }
 
-        public static C0666a a(String str, String str2, String str3) {
-            return new C0666a(str, str2, str3);
+        public static C0722a a(String str, String str2, String str3) {
+            return new C0722a(str, str2, str3);
         }
 
         public boolean b() {
-            return "1".equals(this.f42156a);
+            return "1".equals(this.f45832a);
         }
 
         public boolean c() {
-            return "1".equals(this.f42158c);
+            return "1".equals(this.f45834c);
         }
 
         public String toString() {
-            return "JSErrorModel{mType='" + this.f42156a + "', mContent='" + this.f42157b + "', mSource='" + this.f42158c + "'}";
+            return "JSErrorModel{mType='" + this.f45832a + "', mContent='" + this.f45833b + "', mSource='" + this.f45834c + "'}";
         }
     }
 
-    public synchronized boolean a(C0666a c0666a) {
-        if (c0666a != null) {
-            return this.f42155a.add(c0666a);
+    public synchronized boolean a(C0722a c0722a) {
+        if (c0722a != null) {
+            return this.f45831a.add(c0722a);
         }
         return false;
     }
@@ -61,10 +61,10 @@ public class a {
         int i2 = 0;
         int i3 = 0;
         int i4 = 0;
-        for (C0666a c0666a : this.f42155a) {
-            if (c0666a.b()) {
+        for (C0722a c0722a : this.f45831a) {
+            if (c0722a.b()) {
                 i2++;
-                if (c0666a.c()) {
+                if (c0722a.c()) {
                     i4++;
                 } else {
                     i3++;
@@ -77,7 +77,7 @@ public class a {
     public synchronized boolean c() {
         boolean z;
         z = false;
-        Iterator<C0666a> it = this.f42155a.iterator();
+        Iterator<C0722a> it = this.f45831a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -90,10 +90,10 @@ public class a {
     }
 
     public synchronized boolean d() {
-        return this.f42155a.isEmpty();
+        return this.f45831a.isEmpty();
     }
 
     public synchronized int e() {
-        return this.f42155a.size();
+        return this.f45831a.size();
     }
 }

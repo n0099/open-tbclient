@@ -1,7 +1,6 @@
 package d.o.a.d.f.d;
 
 import android.content.Context;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.d.f.n;
 import d.o.a.d.n.k;
@@ -19,7 +18,7 @@ public class c {
             DownloadInfo downloadInfo = h2.get(i2);
             File file = new File(downloadInfo.N0(), downloadInfo.M0());
             long lastModified = file.lastModified();
-            long b2 = d.o.a.e.b.j.a.d(downloadInfo.c0()).b("download_file_expire_hours", 0) * VideoCloudSetting.HOUR_MILLISECOND;
+            long b2 = d.o.a.e.b.j.a.d(downloadInfo.c0()).b("download_file_expire_hours", 0) * 3600000;
             if (b2 <= 0) {
                 b2 = 604800000;
             }
@@ -131,7 +130,7 @@ public class c {
                 File file = new File(str);
                 if (file.exists()) {
                     long currentTimeMillis = System.currentTimeMillis() - file.lastModified();
-                    long b2 = d.o.a.e.b.j.a.d(downloadInfo.c0()).b("download_complete_file_expire_hours", 0) * VideoCloudSetting.HOUR_MILLISECOND;
+                    long b2 = d.o.a.e.b.j.a.d(downloadInfo.c0()).b("download_complete_file_expire_hours", 0) * 3600000;
                     if (b2 <= 0) {
                         b2 = 604800000;
                     }

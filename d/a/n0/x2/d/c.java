@@ -40,7 +40,7 @@ public class c extends b {
     public c(Context context) {
         super(context);
         this.o = new a();
-        this.f63307i = 4;
+        this.f67022i = 4;
     }
 
     public final void F(ShareEntity shareEntity) {
@@ -56,7 +56,7 @@ public class c extends b {
         bundle.putStringArrayList("imageUrl", arrayList);
         IUiListener iUiListener = this.n;
         if (iUiListener != null) {
-            this.f63306h.shareToQzone((Activity) this.f63303b, bundle, iUiListener);
+            this.f67021h.shareToQzone((Activity) this.f67018b, bundle, iUiListener);
         }
     }
 
@@ -67,7 +67,7 @@ public class c extends b {
         bundle.putInt("cflag", 1);
         IUiListener iUiListener = this.n;
         if (iUiListener != null) {
-            this.f63306h.shareToQQ((Activity) this.f63303b, bundle, iUiListener);
+            this.f67021h.shareToQQ((Activity) this.f67018b, bundle, iUiListener);
         }
     }
 
@@ -83,8 +83,8 @@ public class c extends b {
 
     @Override // d.a.n0.x2.d.b, d.a.n0.x2.e.a
     public void a(ShareEntity shareEntity, d.a.n0.x2.e.b bVar) {
-        if (shareEntity != null && this.f63306h != null) {
-            Context context = this.f63303b;
+        if (shareEntity != null && this.f67021h != null) {
+            Context context = this.f67018b;
             if (context != null && (context instanceof Activity)) {
                 this.n = new b.c(bVar);
                 if (shareEntity.k() != 0) {

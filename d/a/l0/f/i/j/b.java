@@ -7,31 +7,31 @@ public class b {
     public boolean t;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46697a = "";
+    public String f50371a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f46698b = false;
+    public boolean f50372b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46699c = "";
+    public String f50373c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public int f46700d = 0;
+    public int f50374d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46701e = 0;
+    public int f50375e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f46702f = false;
+    public boolean f50376f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f46703g = false;
+    public boolean f50377g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f46704h = "";
+    public String f50378h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46705i = 0;
+    public int f50379i = 0;
     public String k = "";
     public String l = "";
     public boolean m = false;
@@ -47,6 +47,6 @@ public class b {
     public boolean z = true;
 
     public String toString() {
-        return "VideoPlayerParams{mPlayerId='" + this.f46697a + "', mMute=" + this.f46698b + ", mPoster='" + this.f46699c + "', mInitialTime=" + this.f46700d + ", duration=" + this.f46701e + ", mAutoPlay=" + this.f46702f + ", mLoop=" + this.f46703g + ", mObjectFit='" + this.f46704h + "', mPos=" + this.f46705i + ", mFullScreen=" + this.j + ", mDanmu='" + this.k + "', mDanmuList='" + this.l + "', mEnableDanmu=" + this.m + ", mShowDanmuBtn=" + this.n + ", mShowControlPanel=" + this.o + ", mSrc='" + this.p + "', mSanId='" + this.q + "', mShowPlayBtn=" + this.r + ", mShowMuteBtn=" + this.s + ", mShowCenterPlayBtn=" + this.t + ", mPageGesture=" + this.u + ", mShowProgress=" + this.v + ", mDirection=" + this.w + ", mShowFullscreenBtn=" + this.x + ", mEnableProgressGesture=" + this.y + ", mIsRemoteFile=" + this.z + '}';
+        return "VideoPlayerParams{mPlayerId='" + this.f50371a + "', mMute=" + this.f50372b + ", mPoster='" + this.f50373c + "', mInitialTime=" + this.f50374d + ", duration=" + this.f50375e + ", mAutoPlay=" + this.f50376f + ", mLoop=" + this.f50377g + ", mObjectFit='" + this.f50378h + "', mPos=" + this.f50379i + ", mFullScreen=" + this.j + ", mDanmu='" + this.k + "', mDanmuList='" + this.l + "', mEnableDanmu=" + this.m + ", mShowDanmuBtn=" + this.n + ", mShowControlPanel=" + this.o + ", mSrc='" + this.p + "', mSanId='" + this.q + "', mShowPlayBtn=" + this.r + ", mShowMuteBtn=" + this.s + ", mShowCenterPlayBtn=" + this.t + ", mPageGesture=" + this.u + ", mShowProgress=" + this.v + ", mDirection=" + this.w + ", mShowFullscreenBtn=" + this.x + ", mEnableProgressGesture=" + this.y + ", mIsRemoteFile=" + this.z + '}';
     }
 }

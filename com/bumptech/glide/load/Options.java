@@ -6,7 +6,7 @@ import androidx.collection.ArrayMap;
 import androidx.collection.SimpleArrayMap;
 import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Options implements Key {
     public final ArrayMap<Option<?>, Object> values = new CachedHashCodeArrayMap();
 

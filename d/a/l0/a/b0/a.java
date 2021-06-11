@@ -17,27 +17,27 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40801a = k.f43199a;
+    public static final boolean f44477a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f40802b = 0;
+    public static int f44478b = 0;
 
     /* renamed from: d.a.l0.a.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0567a extends ResponseCallback<CommonSyncServerData> {
+    public static class C0623a extends ResponseCallback<CommonSyncServerData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.b0.c.a f40803a;
+        public final /* synthetic */ d.a.l0.a.b0.c.a f44479a;
 
-        public C0567a(d.a.l0.a.b0.c.a aVar) {
-            this.f40803a = aVar;
+        public C0623a(d.a.l0.a.b0.c.a aVar) {
+            this.f44479a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(CommonSyncServerData commonSyncServerData, int i2) {
-            d.a.l0.a.b0.c.a aVar = this.f40803a;
+            d.a.l0.a.b0.c.a aVar = this.f44479a;
             if (aVar != null) {
                 aVar.a(commonSyncServerData);
             }
@@ -55,7 +55,7 @@ public class a {
                 JSONObject jSONObject = new JSONObject(string);
                 int optInt = jSONObject.optInt("errno");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optInt == a.f40802b && optJSONObject != null) {
+                if (optInt == a.f44478b && optJSONObject != null) {
                     return (CommonSyncServerData) new Gson().fromJson(optJSONObject.toString(), (Class<Object>) CommonSyncServerData.class);
                 }
             }
@@ -64,7 +64,7 @@ public class a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            d.a.l0.a.b0.c.a aVar = this.f40803a;
+            d.a.l0.a.b0.c.a aVar = this.f44479a;
             if (aVar != null) {
                 aVar.onFail();
             }
@@ -79,7 +79,7 @@ public class a {
             }
             return;
         }
-        d.a.l0.m.e.a.g().getRequest().cookieManager(d.a.l0.a.c1.a.p().a()).url(d.a.l0.a.c1.a.l().processUrl(b.a())).build().executeAsync(new C0567a(aVar));
+        d.a.l0.m.e.a.g().getRequest().cookieManager(d.a.l0.a.c1.a.p().a()).url(d.a.l0.a.c1.a.l().processUrl(b.a())).build().executeAsync(new C0623a(aVar));
     }
 
     public static RequestBody c(Map<String, Object> map) {
@@ -89,13 +89,13 @@ public class a {
                 try {
                     jSONObject.put(str, map.get(str));
                 } catch (JSONException e2) {
-                    if (f40801a) {
+                    if (f44477a) {
                         e2.printStackTrace();
                     }
                 }
             }
         }
-        return RequestBody.create(f.f43693a, jSONObject.toString());
+        return RequestBody.create(f.f47369a, jSONObject.toString());
     }
 
     public static void d(Map<String, Object> map) {

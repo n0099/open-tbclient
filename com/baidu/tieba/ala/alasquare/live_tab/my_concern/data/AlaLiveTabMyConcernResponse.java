@@ -47,7 +47,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                 if (optJSONObject2 != null) {
                     a2 a2Var = new a2();
-                    a2Var.T2(optJSONObject2);
+                    a2Var.U2(optJSONObject2);
                     this.followList.add(a2Var);
                 }
             }
@@ -58,7 +58,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                 if (optJSONObject3 != null) {
                     b bVar = new b();
-                    bVar.h(optJSONObject3);
+                    bVar.c(optJSONObject3);
                     this.followCloseList.add(bVar);
                 }
             }
@@ -69,7 +69,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                 if (optJSONObject4 != null) {
                     a2 a2Var2 = new a2();
-                    a2Var2.T2(optJSONObject4);
+                    a2Var2.U2(optJSONObject4);
                     this.recommendList.add(a2Var2);
                 }
             }

@@ -6,30 +6,30 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f67178a = "";
+    public static volatile String f70964a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f67179b = "";
+    public static volatile String f70965b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f67180c = "";
+    public static volatile String f70966c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f67181d = 512000;
+    public static long f70967d = 512000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f67182e = 50;
+    public static long f70968e = 50;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f67183f = 5242880;
+    public static long f70969f = 5242880;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final JSONObject f67184g = new JSONObject();
+    public static final JSONObject f70970g = new JSONObject();
 
     public static void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        f67178a = str;
+        f70964a = str;
     }
 }

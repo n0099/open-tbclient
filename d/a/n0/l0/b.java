@@ -24,99 +24,99 @@ import java.util.regex.Pattern;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final KeyEvent f57155a = new KeyEvent(0, 67);
+    public static final KeyEvent f60844a = new KeyEvent(0, 67);
 
     /* loaded from: classes4.dex */
-    public static class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public static class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f57156a;
+        public final /* synthetic */ EditText f60845a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f57157b;
+        public final /* synthetic */ Context f60846b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ v f57158c;
+        public final /* synthetic */ v f60847c;
 
         public a(EditText editText, Context context, v vVar) {
-            this.f57156a = editText;
-            this.f57157b = context;
-            this.f57158c = vVar;
+            this.f60845a = editText;
+            this.f60846b = context;
+            this.f60847c = vVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             if (aVar != null) {
-                int selectionStart = this.f57156a.getSelectionStart();
-                b.e(this.f57157b, this.f57156a, new SpannableStringBuilder(this.f57158c.c()), selectionStart < 0 ? 0 : selectionStart, aVar, this.f57158c.f());
+                int selectionStart = this.f60845a.getSelectionStart();
+                b.e(this.f60846b, this.f60845a, new SpannableStringBuilder(this.f60847c.c()), selectionStart < 0 ? 0 : selectionStart, aVar, this.f60847c.f());
             }
         }
     }
 
     /* renamed from: d.a.n0.l0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1428b extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public static class C1484b extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f57159a;
+        public final /* synthetic */ EditText f60848a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f57160b;
+        public final /* synthetic */ Context f60849b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f57161c;
+        public final /* synthetic */ SpannableStringBuilder f60850c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ EmotionGroupType f57162d;
+        public final /* synthetic */ EmotionGroupType f60851d;
 
-        public C1428b(EditText editText, Context context, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-            this.f57159a = editText;
-            this.f57160b = context;
-            this.f57161c = spannableStringBuilder;
-            this.f57162d = emotionGroupType;
+        public C1484b(EditText editText, Context context, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
+            this.f60848a = editText;
+            this.f60849b = context;
+            this.f60850c = spannableStringBuilder;
+            this.f60851d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
-            super.onLoaded((C1428b) aVar, str, i2);
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
+            super.onLoaded((C1484b) aVar, str, i2);
             if (aVar != null) {
-                int selectionStart = this.f57159a.getSelectionStart();
-                b.e(this.f57160b, this.f57159a, this.f57161c, selectionStart < 0 ? 0 : selectionStart, aVar, this.f57162d);
+                int selectionStart = this.f60848a.getSelectionStart();
+                b.e(this.f60849b, this.f60848a, this.f60850c, selectionStart < 0 ? 0 : selectionStart, aVar, this.f60851d);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class c extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public static class c extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f57163a;
+        public final /* synthetic */ SpannableStringBuilder f60852a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f57164b;
+        public final /* synthetic */ int f60853b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f57165c;
+        public final /* synthetic */ int f60854c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int[] f57166d;
+        public final /* synthetic */ int[] f60855d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f57167e;
+        public final /* synthetic */ f f60856e;
 
         public c(SpannableStringBuilder spannableStringBuilder, int i2, int i3, int[] iArr, f fVar) {
-            this.f57163a = spannableStringBuilder;
-            this.f57164b = i2;
-            this.f57165c = i3;
-            this.f57166d = iArr;
-            this.f57167e = fVar;
+            this.f60852a = spannableStringBuilder;
+            this.f60853b = i2;
+            this.f60854c = i3;
+            this.f60855d = iArr;
+            this.f60856e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             f fVar;
             f fVar2;
             super.onLoaded((c) aVar, str, i2);
@@ -126,158 +126,158 @@ public class b {
                 int width = (int) (p.getWidth() * (d.a.m0.b.d.G() ? 0.4d : 0.5d));
                 bitmapDrawable.setBounds(0, 0, width, width);
                 bitmapDrawable.setGravity(119);
-                this.f57163a.setSpan(new d.a.c.j.b(bitmapDrawable, 1), this.f57164b, this.f57165c, 33);
-                int[] iArr = this.f57166d;
+                this.f60852a.setSpan(new d.a.c.k.b(bitmapDrawable, 1), this.f60853b, this.f60854c, 33);
+                int[] iArr = this.f60855d;
                 int i3 = iArr[0] - 1;
                 iArr[0] = i3;
-                if (i3 != 0 || (fVar2 = this.f57167e) == null) {
+                if (i3 != 0 || (fVar2 = this.f60856e) == null) {
                     return;
                 }
-                fVar2.a(this.f57163a);
+                fVar2.a(this.f60852a);
                 return;
             }
-            this.f57163a.setSpan("", this.f57164b, this.f57165c, 33);
-            int[] iArr2 = this.f57166d;
+            this.f60852a.setSpan("", this.f60853b, this.f60854c, 33);
+            int[] iArr2 = this.f60855d;
             int i4 = iArr2[0] - 1;
             iArr2[0] = i4;
-            if (i4 != 0 || (fVar = this.f57167e) == null) {
+            if (i4 != 0 || (fVar = this.f60856e) == null) {
                 return;
             }
-            fVar.a(this.f57163a);
+            fVar.a(this.f60852a);
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class d extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public static class d extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f57168a;
+        public final /* synthetic */ Context f60857a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f57169b;
+        public final /* synthetic */ SpannableStringBuilder f60858b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f57170c;
+        public final /* synthetic */ int f60859c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f57171d;
+        public final /* synthetic */ int f60860d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f57172e;
+        public final /* synthetic */ int[] f60861e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f57173f;
+        public final /* synthetic */ f f60862f;
 
         public d(Context context, SpannableStringBuilder spannableStringBuilder, int i2, int i3, int[] iArr, f fVar) {
-            this.f57168a = context;
-            this.f57169b = spannableStringBuilder;
-            this.f57170c = i2;
-            this.f57171d = i3;
-            this.f57172e = iArr;
-            this.f57173f = fVar;
+            this.f60857a = context;
+            this.f60858b = spannableStringBuilder;
+            this.f60859c = i2;
+            this.f60860d = i3;
+            this.f60861e = iArr;
+            this.f60862f = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             f fVar;
             Bitmap p;
             f fVar2;
             super.onLoaded((d) aVar, str, i2);
             if (aVar != null) {
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.p());
-                int dimensionPixelSize = this.f57168a.getResources().getDimensionPixelSize(R.dimen.ds80);
+                int dimensionPixelSize = this.f60857a.getResources().getDimensionPixelSize(R.dimen.ds80);
                 int width = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
-                if (width > l.k(this.f57168a) * 0.6d) {
+                if (width > l.k(this.f60857a) * 0.6d) {
                     width = (int) (p.getWidth() * 0.5d);
                 }
                 bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                 bitmapDrawable.setGravity(119);
-                this.f57169b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f57170c, this.f57171d, 33);
-                int[] iArr = this.f57172e;
+                this.f60858b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f60859c, this.f60860d, 33);
+                int[] iArr = this.f60861e;
                 int i3 = iArr[0] - 1;
                 iArr[0] = i3;
-                if (i3 != 0 || (fVar2 = this.f57173f) == null) {
+                if (i3 != 0 || (fVar2 = this.f60862f) == null) {
                     return;
                 }
-                fVar2.a(this.f57169b);
+                fVar2.a(this.f60858b);
                 return;
             }
-            this.f57169b.setSpan("", this.f57170c, this.f57171d, 33);
-            int[] iArr2 = this.f57172e;
+            this.f60858b.setSpan("", this.f60859c, this.f60860d, 33);
+            int[] iArr2 = this.f60861e;
             int i4 = iArr2[0] - 1;
             iArr2[0] = i4;
-            if (i4 != 0 || (fVar = this.f57173f) == null) {
+            if (i4 != 0 || (fVar = this.f60862f) == null) {
                 return;
             }
-            fVar.a(this.f57169b);
+            fVar.a(this.f60858b);
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class e extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public static class e extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f57174a;
+        public final /* synthetic */ Context f60863a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f57175b;
+        public final /* synthetic */ SpannableStringBuilder f60864b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f57176c;
+        public final /* synthetic */ int f60865c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f57177d;
+        public final /* synthetic */ int f60866d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f57178e;
+        public final /* synthetic */ int[] f60867e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f57179f;
+        public final /* synthetic */ f f60868f;
 
         public e(Context context, SpannableStringBuilder spannableStringBuilder, int i2, int i3, int[] iArr, f fVar) {
-            this.f57174a = context;
-            this.f57175b = spannableStringBuilder;
-            this.f57176c = i2;
-            this.f57177d = i3;
-            this.f57178e = iArr;
-            this.f57179f = fVar;
+            this.f60863a = context;
+            this.f60864b = spannableStringBuilder;
+            this.f60865c = i2;
+            this.f60866d = i3;
+            this.f60867e = iArr;
+            this.f60868f = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             f fVar;
             Bitmap p;
             f fVar2;
             super.onLoaded((e) aVar, str, i2);
             if (aVar != null) {
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.p());
-                int dimensionPixelSize = this.f57174a.getResources().getDimensionPixelSize(R.dimen.ds80);
+                int dimensionPixelSize = this.f60863a.getResources().getDimensionPixelSize(R.dimen.ds80);
                 int width = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
-                if (width > l.k(this.f57174a) * 0.6d) {
+                if (width > l.k(this.f60863a) * 0.6d) {
                     width = (int) (p.getWidth() * 0.5d);
                 }
                 bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                 bitmapDrawable.setGravity(119);
-                this.f57175b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f57176c, this.f57177d, 33);
-                int[] iArr = this.f57178e;
+                this.f60864b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f60865c, this.f60866d, 33);
+                int[] iArr = this.f60867e;
                 int i3 = iArr[0] - 1;
                 iArr[0] = i3;
-                if (i3 != 0 || (fVar2 = this.f57179f) == null) {
+                if (i3 != 0 || (fVar2 = this.f60868f) == null) {
                     return;
                 }
-                fVar2.a(this.f57175b);
+                fVar2.a(this.f60864b);
                 return;
             }
-            this.f57175b.setSpan("", this.f57176c, this.f57177d, 33);
-            int[] iArr2 = this.f57178e;
+            this.f60864b.setSpan("", this.f60865c, this.f60866d, 33);
+            int[] iArr2 = this.f60867e;
             int i4 = iArr2[0] - 1;
             iArr2[0] = i4;
-            if (i4 != 0 || (fVar = this.f57179f) == null) {
+            if (i4 != 0 || (fVar = this.f60868f) == null) {
                 return;
             }
-            fVar.a(this.f57175b);
+            fVar.a(this.f60864b);
         }
     }
 
@@ -293,9 +293,9 @@ public class b {
         }
         int selectionStart = editText.getSelectionStart() - 1;
         if (selectionStart > 0 && selectionStart < text.length() && text.charAt(selectionStart) == 0) {
-            editText.onKeyDown(67, f57155a);
+            editText.onKeyDown(67, f60844a);
         }
-        editText.onKeyDown(67, f57155a);
+        editText.onKeyDown(67, f60844a);
         int selectionStart2 = editText.getSelectionStart();
         if (text != null) {
             editText.setSelection(selectionStart2);
@@ -311,7 +311,7 @@ public class b {
         if (f2 != EmotionGroupType.LOCAL && f2 != EmotionGroupType.USER_COLLECT && !c2.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
             editText.getText().insert(editText.getSelectionStart(), c2);
         } else if (c2 != null) {
-            d.a.c.e.l.d.h().k(c2, 20, new C1428b(editText, context, new SpannableStringBuilder(c2), f2), 0, 0, BdUniqueId.gen(), null, c2, Boolean.FALSE, null);
+            d.a.c.e.l.d.h().k(c2, 20, new C1484b(editText, context, new SpannableStringBuilder(c2), f2), 0, 0, BdUniqueId.gen(), null, c2, Boolean.FALSE, null);
         }
     }
 
@@ -338,7 +338,7 @@ public class b {
             }
             return;
         }
-        Matcher matcher = d.a.n0.l0.a.f57153a.matcher(spannableStringBuilder);
+        Matcher matcher = d.a.n0.l0.a.f60842a.matcher(spannableStringBuilder);
         while (matcher.find()) {
             String group = matcher.group();
             int start = matcher.start();
@@ -373,7 +373,7 @@ public class b {
         }
     }
 
-    public static void e(Context context, EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, d.a.c.j.d.a aVar, EmotionGroupType emotionGroupType) {
+    public static void e(Context context, EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, d.a.c.k.d.a aVar, EmotionGroupType emotionGroupType) {
         if (context == null || editText == null || TextUtils.isEmpty(spannableStringBuilder) || aVar == null) {
             return;
         }

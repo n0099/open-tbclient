@@ -10,34 +10,34 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27986a;
+    public String f28089a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27987b;
+    public String f28090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27988c;
+    public String f28091c;
 
     public a(@NonNull l lVar) {
         if (lVar == null) {
             return;
         }
-        this.f27986a = lVar.am();
-        this.f27987b = lVar.ap();
-        this.f27988c = ak.i(lVar);
+        this.f28089a = lVar.am();
+        this.f28090b = lVar.ap();
+        this.f28091c = ak.i(lVar);
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(this.f27986a)) {
-                jSONObject.put(IAdRequestParam.CELL_ID, this.f27986a);
+            if (!TextUtils.isEmpty(this.f28089a)) {
+                jSONObject.put(IAdRequestParam.CELL_ID, this.f28089a);
             }
-            if (!TextUtils.isEmpty(this.f27987b)) {
-                jSONObject.put("log_extra", this.f27987b);
+            if (!TextUtils.isEmpty(this.f28090b)) {
+                jSONObject.put("log_extra", this.f28090b);
             }
-            if (!TextUtils.isEmpty(this.f27988c)) {
-                jSONObject.put("download_url", this.f27988c);
+            if (!TextUtils.isEmpty(this.f28091c)) {
+                jSONObject.put("download_url", this.f28091c);
             }
         } catch (Exception unused) {
         }

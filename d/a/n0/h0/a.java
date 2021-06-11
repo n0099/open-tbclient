@@ -29,35 +29,35 @@ import d.a.c.e.p.l;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public PopupWindow f55342a;
+    public PopupWindow f59031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f55343b;
+    public Handler f59032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.n0.e3.l0.a f55344c;
+    public d.a.n0.e3.l0.a f59033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ActivityLifeCycleListener f55345d;
+    public ActivityLifeCycleListener f59034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseWebView f55346e;
+    public BaseWebView f59035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.e3.l0.c f55347f;
+    public d.a.n0.e3.l0.c f59036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f55348g;
+    public Runnable f59037g;
 
     /* renamed from: d.a.n0.h0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1359a implements d.a.n0.e3.l0.c {
-        public C1359a() {
+    public class C1415a implements d.a.n0.e3.l0.c {
+        public C1415a() {
         }
 
         @Override // d.a.n0.e3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            return a.this.f55344c != null && a.this.f55344c.b(a.this.f55346e, str, jsPromptResult);
+            return a.this.f59033c != null && a.this.f59033c.b(a.this.f59035e, str, jsPromptResult);
         }
     }
 
@@ -68,7 +68,7 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f55343b.removeCallbacksAndMessages(null);
+            a.this.f59032b.removeCallbacksAndMessages(null);
             a.this.e();
         }
     }
@@ -80,7 +80,7 @@ public class a {
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            a.this.f55342a = null;
+            a.this.f59031a = null;
         }
     }
 
@@ -88,16 +88,16 @@ public class a {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f55352e;
+        public final /* synthetic */ String f59041e;
 
         public d(String str) {
-            this.f55352e = str;
+            this.f59041e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                a.this.h(this.f55352e);
+                a.this.h(this.f59041e);
             } catch (Throwable unused) {
                 a.this.e();
             }
@@ -111,7 +111,7 @@ public class a {
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
         public void onPageFinished(WebView webView, String str) {
-            a.this.f55343b.removeCallbacksAndMessages(null);
+            a.this.f59032b.removeCallbacksAndMessages(null);
         }
     }
 
@@ -122,7 +122,7 @@ public class a {
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
         public void a(WebView webView, int i2, String str, String str2) {
-            a.this.f55343b.removeCallbacksAndMessages(null);
+            a.this.f59032b.removeCallbacksAndMessages(null);
             a.this.e();
         }
     }
@@ -131,20 +131,20 @@ public class a {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f55356e;
+        public final /* synthetic */ String f59045e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f55357f;
+        public final /* synthetic */ String f59046f;
 
         public g(String str, String str2) {
-            this.f55356e = str;
-            this.f55357f = str2;
+            this.f59045e = str;
+            this.f59046f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                a.this.i(this.f55356e, this.f55357f);
+                a.this.i(this.f59045e, this.f59046f);
             } catch (Throwable unused) {
                 a.this.e();
             }
@@ -155,17 +155,17 @@ public class a {
     public class h implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f55359e;
+        public final /* synthetic */ String f59048e;
 
         public h(String str) {
-            this.f55359e = str;
+            this.f59048e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!k.isEmpty(this.f55359e) && (view.getContext() instanceof TbPageContextSupport)) {
+            if (!k.isEmpty(this.f59048e) && (view.getContext() instanceof TbPageContextSupport)) {
                 TiebaStatic.log(new StatisticItem("c13451").param("obj_type", 1));
-                UrlManager.getInstance().dealOneLink(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{this.f55359e});
+                UrlManager.getInstance().dealOneLink(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{this.f59048e});
                 return;
             }
             TiebaStatic.log(new StatisticItem("c13451").param("obj_type", 2));
@@ -193,7 +193,7 @@ public class a {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            a.this.f55343b.removeCallbacksAndMessages(null);
+            a.this.f59032b.removeCallbacksAndMessages(null);
         }
     }
 
@@ -201,24 +201,24 @@ public class a {
     public static class j {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f55362a = new a(null);
+        public static a f59051a = new a(null);
     }
 
-    public /* synthetic */ a(C1359a c1359a) {
+    public /* synthetic */ a(C1415a c1415a) {
         this();
     }
 
     public static a f() {
-        return j.f55362a;
+        return j.f59051a;
     }
 
     public void e() {
-        PopupWindow popupWindow = this.f55342a;
+        PopupWindow popupWindow = this.f59031a;
         if (popupWindow == null || !popupWindow.isShowing()) {
             return;
         }
         try {
-            this.f55342a.dismiss();
+            this.f59031a.dismiss();
         } catch (Throwable unused) {
         }
     }
@@ -233,12 +233,12 @@ public class a {
             return;
         }
         if (g(b2)) {
-            this.f55343b.postDelayed(new d(str), 1000L);
+            this.f59032b.postDelayed(new d(str), 1000L);
             return;
         }
-        PopupWindow popupWindow = this.f55342a;
+        PopupWindow popupWindow = this.f59031a;
         if (popupWindow != null && popupWindow.isShowing()) {
-            if (this.f55342a.getContentView() != null && this.f55342a.getContentView().getContext() == b2) {
+            if (this.f59031a.getContentView() != null && this.f59031a.getContentView().getContext() == b2) {
                 return;
             }
             e();
@@ -246,12 +246,12 @@ public class a {
         View inflate = LayoutInflater.from(b2).inflate(R.layout.easter_egg_dialog_h5_layout, (ViewGroup) null);
         inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         BaseWebView baseWebView = (BaseWebView) inflate.findViewById(R.id.dialog_webview);
-        this.f55346e = baseWebView;
+        this.f59035e = baseWebView;
         baseWebView.loadUrl(str);
-        this.f55346e.setOnPageFinishedListener(new e());
-        this.f55346e.setOnReceivedErrorListener(new f());
-        this.f55346e.setBackgroundColor(0);
-        this.f55346e.setOnJsPromptCallback(this.f55347f);
+        this.f59035e.setOnPageFinishedListener(new e());
+        this.f59035e.setOnReceivedErrorListener(new f());
+        this.f59035e.setBackgroundColor(0);
+        this.f59035e.setOnJsPromptCallback(this.f59036f);
         j(b2, inflate);
     }
 
@@ -260,10 +260,10 @@ public class a {
         if (k.isEmpty(str)) {
             return;
         }
-        PopupWindow popupWindow = this.f55342a;
+        PopupWindow popupWindow = this.f59031a;
         if ((popupWindow == null || !popupWindow.isShowing()) && (b2 = d.a.c.a.b.f().b()) != null && PermissionUtil.checkWriteExternalStorage(b2)) {
             if (g(b2)) {
-                this.f55343b.postDelayed(new g(str, str2), 1000L);
+                this.f59032b.postDelayed(new g(str, str2), 1000L);
                 return;
             }
             View inflate = LayoutInflater.from(b2).inflate(R.layout.easter_egg_dialog_lottie_layout, (ViewGroup) null);
@@ -282,32 +282,32 @@ public class a {
 
     public final void j(Activity activity, View view) {
         PopupWindow popupWindow = new PopupWindow(activity);
-        this.f55342a = popupWindow;
+        this.f59031a = popupWindow;
         popupWindow.setBackgroundDrawable(new ColorDrawable(0));
-        this.f55342a.setWidth(l.k(activity));
-        this.f55342a.setHeight(l.i(activity));
+        this.f59031a.setWidth(l.k(activity));
+        this.f59031a.setHeight(l.i(activity));
         view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.f55342a.setContentView(view);
-        this.f55343b.removeCallbacksAndMessages(null);
-        this.f55343b.postDelayed(this.f55348g, 5000L);
+        this.f59031a.setContentView(view);
+        this.f59032b.removeCallbacksAndMessages(null);
+        this.f59032b.postDelayed(this.f59037g, 5000L);
         FragmentManager fragmentManager = activity.getFragmentManager();
-        if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null && !this.f55345d.isAdded()) {
-            fragmentManager.beginTransaction().add(this.f55345d, "LIFE_CYCLE").commitAllowingStateLoss();
+        if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null && !this.f59034d.isAdded()) {
+            fragmentManager.beginTransaction().add(this.f59034d, "LIFE_CYCLE").commitAllowingStateLoss();
         }
-        this.f55342a.setOnDismissListener(new c());
+        this.f59031a.setOnDismissListener(new c());
         try {
-            this.f55342a.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
+            this.f59031a.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
             TiebaStatic.log(new StatisticItem("c13126"));
         } catch (Throwable unused) {
         }
     }
 
     public a() {
-        this.f55343b = new Handler();
-        this.f55347f = new C1359a();
-        this.f55348g = new b();
-        this.f55344c = new d.a.n0.e3.l0.a();
-        this.f55344c.a(new EasterEggBridge());
-        this.f55345d = new ActivityLifeCycleListener();
+        this.f59032b = new Handler();
+        this.f59036f = new C1415a();
+        this.f59037g = new b();
+        this.f59033c = new d.a.n0.e3.l0.a();
+        this.f59033c.a(new EasterEggBridge());
+        this.f59034d = new ActivityLifeCycleListener();
     }
 }

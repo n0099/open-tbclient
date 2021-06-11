@@ -1,7 +1,9 @@
 package com.cmic.sso.sdk.c;
 
+import android.text.TextUtils;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.wallet.api.IWalletLoginListener;
+import com.cmic.sso.sdk.auth.AuthnHelper;
 import com.cmic.sso.sdk.b.b.g;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
@@ -11,43 +13,42 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a extends g {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static CopyOnWriteArrayList<Throwable> f30553a = new CopyOnWriteArrayList<>();
     public String A;
     public String B;
     public String C;
-    public JSONArray p;
+    public String D;
+    public JSONArray o;
+    public String z;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30554b = null;
+    public String f30648b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30555c = null;
+    public String f30649c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30556d = null;
+    public String f30650d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30557e = null;
+    public String f30651e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30558f = null;
+    public String f30652f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30559g = null;
+    public String f30653g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30560h = null;
+    public String f30654h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30561i = null;
+    public String f30655i = null;
     public String j = null;
-    public String k = null;
-    public String l = "";
+    public String k = "";
+    public String l = null;
     public String m = null;
     public String n = null;
-    public String o = null;
+    public String p = null;
     public String q = null;
     public String r = null;
     public String s = null;
@@ -57,14 +58,24 @@ public class a extends g {
     public String w = null;
     public String x = null;
     public String y = null;
-    public String z = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public CopyOnWriteArrayList<Throwable> f30647a = new CopyOnWriteArrayList<>();
 
     public void A(String str) {
-        this.B = str;
+        this.A = str;
     }
 
     public void B(String str) {
+        this.B = str;
+    }
+
+    public void C(String str) {
         this.C = str;
+    }
+
+    public void D(String str) {
+        this.D = str;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
@@ -72,32 +83,37 @@ public class a extends g {
         return null;
     }
 
-    public void a(String str) {
-        this.f30554b = str;
+    @Override // com.cmic.sso.sdk.b.b.g
+    public String a(String str) {
+        return null;
+    }
+
+    public void a(JSONArray jSONArray) {
+        this.o = jSONArray;
     }
 
     public void b(String str) {
-        this.A = str;
+        this.f30648b = str;
     }
 
     public void c(String str) {
-        this.x = str;
-    }
-
-    public void d(String str) {
-        this.y = str;
-    }
-
-    public void e(String str) {
         this.z = str;
     }
 
+    public void d(String str) {
+        this.w = str;
+    }
+
+    public void e(String str) {
+        this.x = str;
+    }
+
     public void f(String str) {
-        this.t = str;
+        this.y = str;
     }
 
     public void g(String str) {
-        this.n = str;
+        this.s = str;
     }
 
     public void h(String str) {
@@ -109,106 +125,106 @@ public class a extends g {
     }
 
     public void j(String str) {
-        this.f30556d = str;
-    }
-
-    public void k(String str) {
-        this.f30557e = str;
-    }
-
-    public void l(String str) {
-        this.f30559g = str;
-    }
-
-    public void m(String str) {
-        this.j = str;
-    }
-
-    public void o(String str) {
-        this.w = str;
-    }
-
-    public void p(String str) {
-        this.q = str;
-    }
-
-    public void q(String str) {
-        this.u = str;
-    }
-
-    public void r(String str) {
-        this.v = str;
-    }
-
-    public void s(String str) {
-        this.o = str;
-    }
-
-    public void t(String str) {
-        this.f30555c = str;
-    }
-
-    public void u(String str) {
-        this.f30560h = str;
-    }
-
-    public void v(String str) {
-        this.s = str;
-    }
-
-    public void w(String str) {
-        this.f30561i = str;
-    }
-
-    public void x(String str) {
         this.k = str;
     }
 
-    public void y(String str) {
-        this.f30558f = str;
+    public void k(String str) {
+        this.f30650d = str;
     }
 
-    public void z(String str) {
+    public void l(String str) {
+        this.f30651e = str;
+    }
+
+    public void m(String str) {
+        this.f30652f = str;
+    }
+
+    public void n(String str) {
+        this.f30655i = str;
+    }
+
+    public void o(String str) {
+        this.v = str;
+    }
+
+    public void p(String str) {
+        this.p = str;
+    }
+
+    public void q(String str) {
+        this.t = str;
+    }
+
+    public void r(String str) {
+        this.u = str;
+    }
+
+    public void s(String str) {
+        this.n = str;
+    }
+
+    public void t(String str) {
+        this.f30649c = str;
+    }
+
+    public void u(String str) {
+        this.f30653g = str;
+    }
+
+    public void v(String str) {
         this.r = str;
     }
 
-    public void a(JSONArray jSONArray) {
-        this.p = jSONArray;
+    public void x(String str) {
+        this.f30654h = str;
+    }
+
+    public void y(String str) {
+        this.j = str;
+    }
+
+    public void z(String str) {
+        this.q = str;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("appid", this.f30554b);
-            jSONObject.put("traceId", this.f30555c);
-            jSONObject.put("appName", this.f30556d);
-            jSONObject.put("appVersion", this.f30557e);
-            jSONObject.put(CommandMessage.SDK_VERSION, this.f30558f);
+            jSONObject.put("appid", this.f30648b);
+            jSONObject.put("traceId", this.f30649c);
+            jSONObject.put("appName", this.f30650d);
+            jSONObject.put("appVersion", this.f30651e);
+            jSONObject.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
             jSONObject.put("clientType", "android");
-            jSONObject.put("timeOut", this.f30559g);
-            jSONObject.put("requestTime", this.f30560h);
-            jSONObject.put("responseTime", this.f30561i);
-            jSONObject.put("elapsedTime", this.j);
-            jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.k);
-            jSONObject.put("interfaceType", this.l);
-            jSONObject.put("interfaceCode", this.m);
-            jSONObject.put("interfaceElasped", this.n);
-            jSONObject.put(IWalletLoginListener.KEY_LOGIN_TYPE, this.o);
-            jSONObject.put("exceptionStackTrace", this.p);
-            jSONObject.put("operatorType", this.q);
-            jSONObject.put("networkType", this.r);
-            jSONObject.put("networkClass", this.s);
-            jSONObject.put("brand", this.t);
-            jSONObject.put("reqDevice", this.u);
-            jSONObject.put("reqSystem", this.v);
-            jSONObject.put("simCardNum", this.w);
-            jSONObject.put("imsiState", this.x);
-            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, this.y);
-            jSONObject.put("is_root", this.z);
-            jSONObject.put("is_phoneStatePermission", this.A);
-            jSONObject.put("AID", this.B);
-            jSONObject.put("sysOperType", this.C);
+            jSONObject.put("timeOut", this.f30652f);
+            jSONObject.put("requestTime", this.f30653g);
+            jSONObject.put("responseTime", this.f30654h);
+            jSONObject.put("elapsedTime", this.f30655i);
+            jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.j);
+            jSONObject.put("interfaceType", this.k);
+            jSONObject.put("interfaceCode", this.l);
+            jSONObject.put("interfaceElasped", this.m);
+            jSONObject.put(IWalletLoginListener.KEY_LOGIN_TYPE, this.n);
+            jSONObject.put("exceptionStackTrace", this.o);
+            jSONObject.put("operatorType", this.p);
+            jSONObject.put("networkType", this.q);
+            jSONObject.put("networkClass", this.r);
+            jSONObject.put("brand", this.s);
+            jSONObject.put("reqDevice", this.t);
+            jSONObject.put("reqSystem", this.u);
+            jSONObject.put("simCardNum", this.v);
+            jSONObject.put("imsiState", this.w);
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, this.x);
+            jSONObject.put("is_root", this.y);
+            jSONObject.put("is_phoneStatePermission", this.z);
+            jSONObject.put("AID", this.A);
+            jSONObject.put("sysOperType", this.B);
+            jSONObject.put("scripType", this.C);
+            if (!TextUtils.isEmpty(this.D)) {
+                jSONObject.put("eip", this.D);
+            }
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

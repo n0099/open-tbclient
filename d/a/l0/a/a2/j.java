@@ -22,7 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class j extends d {
-    public static final boolean t = d.a.l0.a.k.f43199a;
+    public static final boolean t = d.a.l0.a.k.f46875a;
     public volatile e p;
     public SwanAppActivity r;
     public final d.a.l0.a.v1.c.e.a q = new d.a.l0.a.v1.c.e.a(this);
@@ -65,7 +65,7 @@ public final class j extends d {
     }
 
     public final boolean H(String str) {
-        return h.I0.contains(str);
+        return h.K0.contains(str);
     }
 
     public final boolean I(String str) {

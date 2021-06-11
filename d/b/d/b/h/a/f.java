@@ -12,10 +12,10 @@ public class f extends c {
     @Override // d.b.d.b.h.a.c
     public d.b.d.b.e.a a(d.b.d.b.e.a aVar) {
         d.b.d.b.e.a a2 = super.a(aVar);
-        d.b.d.b.e.b a3 = d.b.d.b.e.b.a(this.f65912b);
+        d.b.d.b.e.b a3 = d.b.d.b.e.b.a(this.f69643b);
         a3.d(m.a().a());
         a3.c(m.d().a());
-        a3.g(this.f65913c.c());
+        a3.g(this.f69644c.c());
         a2.d(a3);
         return a2;
     }

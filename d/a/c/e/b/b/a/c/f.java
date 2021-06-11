@@ -7,20 +7,20 @@ import java.util.Set;
 public class f implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f38473a;
+    public Map<String, Object> f42126a;
 
     public f(Map<String, Object> map) {
-        this.f38473a = map;
+        this.f42126a = map;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public Set<String> a() {
-        return this.f38473a.keySet();
+        return this.f42126a.keySet();
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
-        this.f38473a.put(str, obj);
+        this.f42126a.put(str, obj);
     }
 
     @Override // d.a.c.e.b.b.a.c.c
@@ -35,6 +35,6 @@ public class f implements c {
     }
 
     public Object d(String str) {
-        return this.f38473a.get(str);
+        return this.f42126a.get(str);
     }
 }

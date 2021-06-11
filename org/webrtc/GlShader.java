@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GlShader {
     public static final String TAG = "GlShader";
     public int program;

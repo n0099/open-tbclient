@@ -5,14 +5,14 @@ import android.util.SparseArray;
 public class t implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<Object> f38494a;
+    public SparseArray<Object> f42147a;
 
     public t(SparseArray<Object> sparseArray) {
-        this.f38494a = sparseArray;
+        this.f42147a = sparseArray;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
-        return d.a.c.e.b.b.a.e.b.f(this.f38494a, cVar);
+        return d.a.c.e.b.b.a.e.b.f(this.f42147a, cVar);
     }
 }

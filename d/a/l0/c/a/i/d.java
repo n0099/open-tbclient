@@ -10,33 +10,33 @@ import kotlin.jvm.internal.Intrinsics;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bdtls$ClientHello f46469a;
+    public Bdtls$ClientHello f50143a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bdtls$ServerHello f46470b;
+    public Bdtls$ServerHello f50144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f46471c;
+    public byte[] f50145c;
 
     public d() {
         this(null, null, null, 7, null);
     }
 
     public d(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr) {
-        this.f46469a = bdtls$ClientHello;
-        this.f46470b = bdtls$ServerHello;
-        this.f46471c = bArr;
+        this.f50143a = bdtls$ClientHello;
+        this.f50144b = bdtls$ServerHello;
+        this.f50145c = bArr;
     }
 
     public final void a(Bdtls$ServerHello bdtls$ServerHello) {
-        this.f46470b = bdtls$ServerHello;
+        this.f50144b = bdtls$ServerHello;
     }
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                return Intrinsics.areEqual(this.f46469a, dVar.f46469a) && Intrinsics.areEqual(this.f46470b, dVar.f46470b) && Intrinsics.areEqual(this.f46471c, dVar.f46471c);
+                return Intrinsics.areEqual(this.f50143a, dVar.f50143a) && Intrinsics.areEqual(this.f50144b, dVar.f50144b) && Intrinsics.areEqual(this.f50145c, dVar.f50145c);
             }
             return false;
         }
@@ -44,16 +44,16 @@ public final class d {
     }
 
     public int hashCode() {
-        Bdtls$ClientHello bdtls$ClientHello = this.f46469a;
+        Bdtls$ClientHello bdtls$ClientHello = this.f50143a;
         int hashCode = (bdtls$ClientHello != null ? bdtls$ClientHello.hashCode() : 0) * 31;
-        Bdtls$ServerHello bdtls$ServerHello = this.f46470b;
+        Bdtls$ServerHello bdtls$ServerHello = this.f50144b;
         int hashCode2 = (hashCode + (bdtls$ServerHello != null ? bdtls$ServerHello.hashCode() : 0)) * 31;
-        byte[] bArr = this.f46471c;
+        byte[] bArr = this.f50145c;
         return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
     }
 
     public String toString() {
-        return "HandshakeParams(clientHello=" + this.f46469a + ", serverHello=" + this.f46470b + ", encodeDHPublicKey=" + Arrays.toString(this.f46471c) + SmallTailInfo.EMOTION_SUFFIX;
+        return "HandshakeParams(clientHello=" + this.f50143a + ", serverHello=" + this.f50144b + ", encodeDHPublicKey=" + Arrays.toString(this.f50145c) + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public /* synthetic */ d(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr, int i2, DefaultConstructorMarker defaultConstructorMarker) {

@@ -41,30 +41,30 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public class a implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f17535e;
+        public final /* synthetic */ j f17611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f17536f;
+        public final /* synthetic */ int f17612f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f17537g;
+        public final /* synthetic */ ImMessageCenterShowItemData f17613g;
 
         public a(j jVar, int i2, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-            this.f17535e = jVar;
-            this.f17536f = i2;
-            this.f17537g = imMessageCenterShowItemData;
+            this.f17611e = jVar;
+            this.f17612f = i2;
+            this.f17613g = imMessageCenterShowItemData;
         }
 
         @Override // d.a.m0.r.s.l.e
         public void onItemClick(l lVar, int i2, View view) {
-            j jVar = this.f17535e;
+            j jVar = this.f17611e;
             if (jVar != null && jVar.isShowing()) {
-                this.f17535e.dismiss();
+                this.f17611e.dismiss();
             }
-            if (this.f17536f == 1) {
-                StrangerListActivity.this.mModel.s(StrangerListActivity.this.IProcessImpl);
+            if (this.f17612f == 1) {
+                StrangerListActivity.this.mModel.w(StrangerListActivity.this.IProcessImpl);
             } else {
-                StrangerListActivity.this.mModel.asyncDeleteItem(this.f17537g, StrangerListActivity.this.IProcessImpl);
+                StrangerListActivity.this.mModel.asyncDeleteItem(this.f17613g, StrangerListActivity.this.IProcessImpl);
             }
         }
     }
@@ -77,7 +77,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             StrangerListActivity.this.mDelAllDialog.dismiss();
-            StrangerListActivity.this.mModel.s(StrangerListActivity.this.IProcessImpl);
+            StrangerListActivity.this.mModel.w(StrangerListActivity.this.IProcessImpl);
         }
     }
 

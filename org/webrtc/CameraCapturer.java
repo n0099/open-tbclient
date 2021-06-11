@@ -8,7 +8,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class CameraCapturer implements CameraVideoCapturer {
     public static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
     public static final int OPEN_CAMERA_DELAY_MS = 500;
@@ -172,7 +172,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     public final Object stateLock = new Object();
     public SwitchState switchState = SwitchState.IDLE;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum SwitchState {
         IDLE,
         PENDING,

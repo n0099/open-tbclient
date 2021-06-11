@@ -10,31 +10,31 @@ import java.util.Iterator;
 public class S {
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f36932a;
+    public int[] f40611a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f36933b;
+    public final int[] f40612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer f36934c;
+    public ByteBuffer f40613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f36935d;
+    public byte[] f40614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f36936e;
+    public byte[] f40615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36937f;
+    public int f40616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36938g;
+    public int f40617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public V f36939h;
+    public V f40618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public short[] f36940i;
+    public short[] f40619i;
     public byte[] j;
     public byte[] k;
     public byte[] l;
@@ -53,9 +53,9 @@ public class S {
 
     public S() {
         b0 b0Var = new b0();
-        this.f36933b = new int[256];
-        this.f36937f = 0;
-        this.f36938g = 0;
+        this.f40612b = new int[256];
+        this.f40616f = 0;
+        this.f40617g = 0;
         this.q = b0Var;
         this.p = new U();
     }
@@ -77,12 +77,12 @@ public class S {
     }
 
     public final void a(int[] iArr, T t, int i2) {
-        int i3 = t.f36946d;
+        int i3 = t.f40625d;
         int i4 = this.u;
         int i5 = i3 / i4;
-        int i6 = t.f36944b / i4;
-        int i7 = t.f36945c / i4;
-        int i8 = t.f36943a / i4;
+        int i6 = t.f40623b / i4;
+        int i7 = t.f40624c / i4;
+        int i8 = t.f40622a / i4;
         int i9 = this.w;
         int i10 = (i6 * i9) + i8;
         int i11 = (i5 * i9) + i10;
@@ -117,41 +117,41 @@ public class S {
         int i11;
         int i12;
         int i13 = 1;
-        if (this.p.f36955c <= 0 || this.n < 0) {
+        if (this.p.f40634c <= 0 || this.n < 0) {
             this.t = 1;
         }
         int i14 = this.t;
         if (i14 != 1 && i14 != 2) {
             int i15 = 0;
             this.t = 0;
-            T t = (T) this.p.f36957e.get(this.n);
+            T t = (T) this.p.f40636e.get(this.n);
             int i16 = this.n - 1;
-            T t2 = i16 >= 0 ? (T) this.p.f36957e.get(i16) : null;
+            T t2 = i16 >= 0 ? (T) this.p.f40636e.get(i16) : null;
             int[] iArr = t.k;
             if (iArr == null) {
-                iArr = this.p.f36953a;
+                iArr = this.p.f40632a;
             }
-            this.f36932a = iArr;
+            this.f40611a = iArr;
             if (iArr == null) {
                 this.t = 1;
                 return null;
             }
-            if (t.f36948f) {
-                System.arraycopy(iArr, 0, this.f36933b, 0, iArr.length);
-                int[] iArr2 = this.f36933b;
-                this.f36932a = iArr2;
-                iArr2[t.f36950h] = 0;
+            if (t.f40627f) {
+                System.arraycopy(iArr, 0, this.f40612b, 0, iArr.length);
+                int[] iArr2 = this.f40612b;
+                this.f40611a = iArr2;
+                iArr2[t.f40629h] = 0;
             }
             int[] iArr3 = this.m;
             if (t2 == null) {
                 Arrays.fill(iArr3, 0);
             }
-            if (t2 != null && (i11 = t2.f36949g) > 0) {
+            if (t2 != null && (i11 = t2.f40628g) > 0) {
                 if (i11 == 2) {
-                    if (!t.f36948f) {
+                    if (!t.f40627f) {
                         U u = this.p;
                         i12 = u.l;
-                        if (t.k != null && u.j == t.f36950h) {
+                        if (t.k != null && u.j == t.f40629h) {
                         }
                         a(iArr3, t2, i12);
                     } else if (this.n == 0) {
@@ -164,26 +164,26 @@ public class S {
                     if (bitmap == null) {
                         a(iArr3, t2, 0);
                     } else {
-                        int i17 = t2.f36946d;
+                        int i17 = t2.f40625d;
                         int i18 = this.u;
-                        int i19 = t2.f36944b / i18;
-                        int i20 = t2.f36945c / i18;
-                        int i21 = t2.f36943a / i18;
+                        int i19 = t2.f40623b / i18;
+                        int i20 = t2.f40624c / i18;
+                        int i21 = t2.f40622a / i18;
                         int i22 = this.w;
                         bitmap.getPixels(iArr3, (i19 * i22) + i21, i22, i21, i19, i20, i17 / i18);
                     }
                 }
             }
-            this.f36937f = 0;
-            this.f36938g = 0;
-            this.f36934c.position(t.j);
-            int i23 = t.f36945c * t.f36946d;
+            this.f40616f = 0;
+            this.f40617g = 0;
+            this.f40613c.position(t.j);
+            int i23 = t.f40624c * t.f40625d;
             byte[] bArr = this.l;
             if (bArr == null || bArr.length < i23) {
                 this.l = this.q.a(i23);
             }
-            if (this.f36940i == null) {
-                this.f36940i = new short[4096];
+            if (this.f40619i == null) {
+                this.f40619i = new short[4096];
             }
             if (this.j == null) {
                 this.j = new byte[4096];
@@ -198,7 +198,7 @@ public class S {
             int i27 = c2 + 1;
             int i28 = (1 << i27) - 1;
             for (int i29 = 0; i29 < i24; i29++) {
-                this.f36940i[i29] = 0;
+                this.f40619i[i29] = 0;
                 this.j[i29] = (byte) i29;
             }
             int i30 = i27;
@@ -221,21 +221,21 @@ public class S {
                     i34 = c();
                     if (i34 > 0) {
                         try {
-                            if (this.f36935d == null) {
-                                this.f36935d = this.q.a(255);
+                            if (this.f40614d == null) {
+                                this.f40614d = this.q.a(255);
                             }
-                            int i42 = this.f36937f - this.f36938g;
+                            int i42 = this.f40616f - this.f40617g;
                             if (i42 >= i34) {
-                                System.arraycopy(this.f36936e, this.f36938g, this.f36935d, i15, i34);
-                                i10 = this.f36938g + i34;
-                            } else if (this.f36934c.remaining() + i42 >= i34) {
+                                System.arraycopy(this.f40615e, this.f40617g, this.f40614d, i15, i34);
+                                i10 = this.f40617g + i34;
+                            } else if (this.f40613c.remaining() + i42 >= i34) {
                                 try {
-                                    System.arraycopy(this.f36936e, this.f36938g, this.f36935d, i15, i42);
-                                    this.f36938g = this.f36937f;
+                                    System.arraycopy(this.f40615e, this.f40617g, this.f40614d, i15, i42);
+                                    this.f40617g = this.f40616f;
                                     d();
                                     int i43 = i34 - i42;
-                                    System.arraycopy(this.f36936e, i15, this.f36935d, i42, i43);
-                                    i10 = this.f36938g + i43;
+                                    System.arraycopy(this.f40615e, i15, this.f40614d, i42, i43);
+                                    i10 = this.f40617g + i43;
                                 } catch (Exception unused) {
                                     i13 = 1;
                                     this.t = i13;
@@ -245,7 +245,7 @@ public class S {
                             } else {
                                 this.t = i13;
                             }
-                            this.f36938g = i10;
+                            this.f40617g = i10;
                         } catch (Exception unused2) {
                         }
                     }
@@ -255,7 +255,7 @@ public class S {
                     }
                     i36 = 0;
                 }
-                i35 += (this.f36935d[i36] & 255) << i37;
+                i35 += (this.f40614d[i36] & 255) << i37;
                 i36++;
                 i34--;
                 int i44 = i37 + 8;
@@ -292,7 +292,7 @@ public class S {
                                     }
                                     while (s >= i24) {
                                         this.k[i40] = this.j[s];
-                                        s = this.f36940i[s];
+                                        s = this.f40619i[s];
                                         i40++;
                                         i50 = i50;
                                     }
@@ -304,7 +304,7 @@ public class S {
                                     byte b2 = (byte) i52;
                                     this.k[i40] = b2;
                                     if (i46 < 4096) {
-                                        this.f36940i[i46] = (short) i48;
+                                        this.f40619i[i46] = (short) i48;
                                         bArr2[i46] = b2;
                                         i46++;
                                         if ((i46 & i32) == 0 && i46 < 4096) {
@@ -354,19 +354,19 @@ public class S {
             for (int i55 = i38; i55 < i23; i55++) {
                 this.l[i55] = 0;
             }
-            int i56 = t.f36946d;
+            int i56 = t.f40625d;
             int i57 = this.u;
             int i58 = i56 / i57;
-            int i59 = t.f36944b / i57;
-            int i60 = t.f36945c / i57;
-            int i61 = t.f36943a / i57;
+            int i59 = t.f40623b / i57;
+            int i60 = t.f40624c / i57;
+            int i61 = t.f40622a / i57;
             boolean z = this.n == 0;
             int i62 = 0;
             int i63 = 1;
             int i64 = 0;
             int i65 = 8;
             while (i64 < i58) {
-                if (t.f36947e) {
+                if (t.f40626e) {
                     if (i62 >= i58) {
                         i63++;
                         if (i63 == 2) {
@@ -395,19 +395,19 @@ public class S {
                         i70 = i71;
                     }
                     int i72 = this.u;
-                    int i73 = i64 * i72 * t.f36945c;
+                    int i73 = i64 * i72 * t.f40624c;
                     int i74 = ((i70 - i69) * i72) + i73;
                     int i75 = i69;
                     while (i75 < i70) {
                         int i76 = i58;
                         int i77 = i59;
                         if (this.u == 1) {
-                            i7 = this.f36932a[this.l[i73] & 255];
+                            i7 = this.f40611a[this.l[i73] & 255];
                             i4 = i60;
                             i5 = i61;
                             i6 = i63;
                         } else {
-                            int i78 = t.f36945c;
+                            int i78 = t.f40624c;
                             i4 = i60;
                             int i79 = i73;
                             int i80 = 0;
@@ -425,7 +425,7 @@ public class S {
                                 if (i79 >= bArr3.length || i79 >= i74) {
                                     break;
                                 }
-                                int i85 = this.f36932a[bArr3[i79] & 255];
+                                int i85 = this.f40611a[bArr3[i79] & 255];
                                 if (i85 != 0) {
                                     i8 = i63;
                                     i83 += (i85 >> 24) & 255;
@@ -447,7 +447,7 @@ public class S {
                                 if (i87 >= bArr4.length || i87 >= i74) {
                                     break;
                                 }
-                                int i88 = this.f36932a[bArr4[i87] & 255];
+                                int i88 = this.f40611a[bArr4[i87] & 255];
                                 if (i88 != 0) {
                                     i83 += (i88 >> 24) & 255;
                                     i82 += (i88 >> 16) & 255;
@@ -480,7 +480,7 @@ public class S {
                 i61 = i61;
                 i63 = i63;
             }
-            if (this.s && ((i2 = t.f36949g) == 0 || i2 == 1)) {
+            if (this.s && ((i2 = t.f40628g) == 0 || i2 == 1)) {
                 if (this.r == null) {
                     this.r = a();
                 }
@@ -499,9 +499,9 @@ public class S {
     public final int c() {
         try {
             d();
-            byte[] bArr = this.f36936e;
-            int i2 = this.f36938g;
-            this.f36938g = i2 + 1;
+            byte[] bArr = this.f40615e;
+            int i2 = this.f40617g;
+            this.f40617g = i2 + 1;
             return bArr[i2] & 255;
         } catch (Exception unused) {
             this.t = 1;
@@ -510,92 +510,92 @@ public class S {
     }
 
     public final void d() {
-        if (this.f36937f > this.f36938g) {
+        if (this.f40616f > this.f40617g) {
             return;
         }
-        if (this.f36936e == null) {
-            this.f36936e = this.q.a(16384);
+        if (this.f40615e == null) {
+            this.f40615e = this.q.a(16384);
         }
-        this.f36938g = 0;
-        int min = Math.min(this.f36934c.remaining(), 16384);
-        this.f36937f = min;
-        this.f36934c.get(this.f36936e, 0, min);
+        this.f40617g = 0;
+        int min = Math.min(this.f40613c.remaining(), 16384);
+        this.f40616f = min;
+        this.f40613c.get(this.f40615e, 0, min);
     }
 
     public synchronized int a(byte[] bArr) {
-        if (this.f36939h == null) {
-            this.f36939h = new V();
+        if (this.f40618h == null) {
+            this.f40618h = new V();
         }
-        V a2 = this.f36939h.a(bArr);
-        if (a2.f36965b != null) {
+        V a2 = this.f40618h.a(bArr);
+        if (a2.f40644b != null) {
             if (!a2.a()) {
                 String str = "";
                 for (int i2 = 0; i2 < 6; i2++) {
                     str = str + ((char) a2.b());
                 }
                 if (str.startsWith("GIF")) {
-                    a2.f36966c.f36958f = a2.f36965b.getShort();
-                    a2.f36966c.f36959g = a2.f36965b.getShort();
+                    a2.f40645c.f40637f = a2.f40644b.getShort();
+                    a2.f40645c.f40638g = a2.f40644b.getShort();
                     int b2 = a2.b();
-                    a2.f36966c.f36960h = (b2 & 128) != 0;
-                    U u = a2.f36966c;
-                    u.f36961i = 2 << (b2 & 7);
+                    a2.f40645c.f40639h = (b2 & 128) != 0;
+                    U u = a2.f40645c;
+                    u.f40640i = 2 << (b2 & 7);
                     u.j = a2.b();
-                    a2.f36966c.k = a2.b();
-                    if (a2.f36966c.f36960h && !a2.a()) {
-                        U u2 = a2.f36966c;
-                        u2.f36953a = a2.a(u2.f36961i);
-                        U u3 = a2.f36966c;
-                        u3.l = u3.f36953a[u3.j];
+                    a2.f40645c.k = a2.b();
+                    if (a2.f40645c.f40639h && !a2.a()) {
+                        U u2 = a2.f40645c;
+                        u2.f40632a = a2.a(u2.f40640i);
+                        U u3 = a2.f40645c;
+                        u3.l = u3.f40632a[u3.j];
                     }
                 } else {
-                    a2.f36966c.f36954b = 1;
+                    a2.f40645c.f40633b = 1;
                 }
                 if (!a2.a()) {
                     boolean z = false;
-                    while (!z && !a2.a() && a2.f36966c.f36955c <= Integer.MAX_VALUE) {
+                    while (!z && !a2.a() && a2.f40645c.f40634c <= Integer.MAX_VALUE) {
                         int b3 = a2.b();
                         if (b3 == 33) {
                             int b4 = a2.b();
                             if (b4 != 1) {
                                 if (b4 == 249) {
-                                    a2.f36966c.f36956d = new T();
+                                    a2.f40645c.f40635d = new T();
                                     a2.b();
                                     int b5 = a2.b();
-                                    T t = a2.f36966c.f36956d;
+                                    T t = a2.f40645c.f40635d;
                                     int i3 = (b5 & 28) >> 2;
-                                    t.f36949g = i3;
+                                    t.f40628g = i3;
                                     if (i3 == 0) {
-                                        t.f36949g = 1;
+                                        t.f40628g = 1;
                                     }
-                                    a2.f36966c.f36956d.f36948f = (b5 & 1) != 0;
-                                    short s = a2.f36965b.getShort();
+                                    a2.f40645c.f40635d.f40627f = (b5 & 1) != 0;
+                                    short s = a2.f40644b.getShort();
                                     if (s < 2) {
                                         s = 10;
                                     }
-                                    T t2 = a2.f36966c.f36956d;
-                                    t2.f36951i = s * 10;
-                                    t2.f36950h = a2.b();
+                                    T t2 = a2.f40645c.f40635d;
+                                    t2.f40630i = s * 10;
+                                    t2.f40629h = a2.b();
                                     a2.b();
                                 } else if (b4 != 254 && b4 == 255) {
                                     a2.c();
                                     String str2 = "";
                                     for (int i4 = 0; i4 < 11; i4++) {
-                                        str2 = str2 + ((char) a2.f36964a[i4]);
+                                        str2 = str2 + ((char) a2.f40643a[i4]);
                                     }
                                     if (str2.equals("NETSCAPE2.0")) {
                                         do {
                                             a2.c();
-                                            byte[] bArr2 = a2.f36964a;
+                                            byte[] bArr2 = a2.f40643a;
                                             if (bArr2[0] == 1) {
-                                                U u4 = a2.f36966c;
+                                                U u4 = a2.f40645c;
                                                 int i5 = ((bArr2[2] & 255) << 8) | (bArr2[1] & 255);
                                                 u4.m = i5;
                                                 if (i5 == 0) {
                                                     u4.m = -1;
                                                 }
                                             }
-                                            if (a2.f36967d > 0) {
+                                            if (a2.f40646d > 0) {
                                             }
                                         } while (!a2.a());
                                     }
@@ -603,44 +603,44 @@ public class S {
                             }
                             a2.d();
                         } else if (b3 == 44) {
-                            U u5 = a2.f36966c;
-                            if (u5.f36956d == null) {
-                                u5.f36956d = new T();
+                            U u5 = a2.f40645c;
+                            if (u5.f40635d == null) {
+                                u5.f40635d = new T();
                             }
-                            a2.f36966c.f36956d.f36943a = a2.f36965b.getShort();
-                            a2.f36966c.f36956d.f36944b = a2.f36965b.getShort();
-                            a2.f36966c.f36956d.f36945c = a2.f36965b.getShort();
-                            a2.f36966c.f36956d.f36946d = a2.f36965b.getShort();
+                            a2.f40645c.f40635d.f40622a = a2.f40644b.getShort();
+                            a2.f40645c.f40635d.f40623b = a2.f40644b.getShort();
+                            a2.f40645c.f40635d.f40624c = a2.f40644b.getShort();
+                            a2.f40645c.f40635d.f40625d = a2.f40644b.getShort();
                             int b6 = a2.b();
                             boolean z2 = (b6 & 128) != 0;
                             int pow = (int) Math.pow(2.0d, (b6 & 7) + 1);
-                            a2.f36966c.f36956d.f36947e = (b6 & 64) != 0;
+                            a2.f40645c.f40635d.f40626e = (b6 & 64) != 0;
                             if (z2) {
-                                a2.f36966c.f36956d.k = a2.a(pow);
+                                a2.f40645c.f40635d.k = a2.a(pow);
                             } else {
-                                a2.f36966c.f36956d.k = null;
+                                a2.f40645c.f40635d.k = null;
                             }
-                            a2.f36966c.f36956d.j = a2.f36965b.position();
+                            a2.f40645c.f40635d.j = a2.f40644b.position();
                             a2.b();
                             a2.d();
                             if (!a2.a()) {
-                                U u6 = a2.f36966c;
-                                u6.f36955c++;
-                                u6.f36957e.add(u6.f36956d);
+                                U u6 = a2.f40645c;
+                                u6.f40634c++;
+                                u6.f40636e.add(u6.f40635d);
                             }
                         } else if (b3 != 59) {
-                            a2.f36966c.f36954b = 1;
+                            a2.f40645c.f40633b = 1;
                         } else {
                             z = true;
                         }
                     }
-                    U u7 = a2.f36966c;
-                    if (u7.f36955c < 0) {
-                        u7.f36954b = 1;
+                    U u7 = a2.f40645c;
+                    if (u7.f40634c < 0) {
+                        u7.f40633b = 1;
                     }
                 }
             }
-            U u8 = a2.f36966c;
+            U u8 = a2.f40645c;
             this.p = u8;
             if (bArr != null) {
                 a(u8, bArr);
@@ -662,30 +662,30 @@ public class S {
         this.n = -1;
         this.o = 0;
         ByteBuffer asReadOnlyBuffer = byteBuffer.asReadOnlyBuffer();
-        this.f36934c = asReadOnlyBuffer;
+        this.f40613c = asReadOnlyBuffer;
         asReadOnlyBuffer.position(0);
-        this.f36934c.order(ByteOrder.LITTLE_ENDIAN);
+        this.f40613c.order(ByteOrder.LITTLE_ENDIAN);
         this.s = false;
-        Iterator it = u.f36957e.iterator();
+        Iterator it = u.f40636e.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
-            } else if (((T) it.next()).f36949g == 3) {
+            } else if (((T) it.next()).f40628g == 3) {
                 this.s = true;
                 break;
             }
         }
         this.u = highestOneBit;
-        int i3 = u.f36958f;
+        int i3 = u.f40637f;
         this.w = i3 / highestOneBit;
-        int i4 = u.f36959g;
+        int i4 = u.f40638g;
         this.v = i4 / highestOneBit;
         this.l = this.q.a(i3 * i4);
         this.m = this.q.b(this.w * this.v);
     }
 
     public boolean a(int i2) {
-        if (i2 < -1 || i2 >= this.p.f36955c) {
+        if (i2 < -1 || i2 >= this.p.f40634c) {
             return false;
         }
         this.n = i2;

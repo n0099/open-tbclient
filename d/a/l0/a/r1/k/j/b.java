@@ -50,7 +50,7 @@ public class b implements c {
     }
 
     public final void c(String str) {
-        if (c.f44515a) {
+        if (c.f48189a) {
             Log.d("Api-Parser", str);
         }
     }

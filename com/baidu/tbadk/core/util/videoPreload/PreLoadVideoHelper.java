@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.bumptech.glide.load.engine.GlideException;
-import d.a.c.j.e.o;
-import d.a.c.j.e.q;
+import d.a.c.k.e.o;
+import d.a.c.k.e.q;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PreLoadVideoHelper {

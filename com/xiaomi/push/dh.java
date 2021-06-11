@@ -5,22 +5,21 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.FieldBuilder;
 /* loaded from: classes7.dex */
 public class dh implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37438a;
+    public Context f41117a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37439b;
+    public String f41118b;
 
     public dh(Context context, String str) {
         this.f234a = "";
-        this.f37438a = context;
+        this.f41117a = context;
         this.f234a = str;
     }
 
@@ -29,7 +28,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
         hnVar.a(str);
         hnVar.a(System.currentTimeMillis());
         hnVar.a(hh.ActivityActiveTimeStamp);
-        dq.a(this.f37438a, hnVar);
+        dq.a(this.f41117a, hnVar);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -46,20 +45,20 @@ public class dh implements Application.ActivityLifecycleCallbacks {
         if (TextUtils.isEmpty(this.f234a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
-        this.f37439b = "";
-        if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f37439b, localClassName)) {
+        this.f41118b = "";
+        if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f41118b, localClassName)) {
             this.f234a = "";
             return;
         }
-        a(this.f37438a.getPackageName() + FieldBuilder.SE + localClassName + ":" + this.f234a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+        a(this.f41117a.getPackageName() + "|" + localClassName + ":" + this.f234a + "," + String.valueOf(System.currentTimeMillis() / 1000));
         this.f234a = "";
-        this.f37439b = "";
+        this.f41118b = "";
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        if (TextUtils.isEmpty(this.f37439b)) {
-            this.f37439b = activity.getLocalClassName();
+        if (TextUtils.isEmpty(this.f41118b)) {
+            this.f41118b = activity.getLocalClassName();
         }
         this.f234a = String.valueOf(System.currentTimeMillis() / 1000);
     }

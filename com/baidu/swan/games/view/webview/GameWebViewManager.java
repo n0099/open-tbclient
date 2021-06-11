@@ -24,7 +24,7 @@ import d.a.l0.a.w2.c;
 import d.a.l0.f.d;
 /* loaded from: classes3.dex */
 public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWebView>, c {
-    public static final boolean F = k.f43199a;
+    public static final boolean F = k.f46875a;
     public FrameLayout A;
     public View.OnClickListener B;
     public NetworkErrorView C;
@@ -97,7 +97,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (SwanAppNetworkUtils.i(GameWebViewManager.this.f10703e) && d.a.l0.a.b2.a.b.h(GameWebViewManager.this.u().getUrl())) {
+            if (SwanAppNetworkUtils.i(GameWebViewManager.this.f10765e) && d.a.l0.a.b2.a.b.h(GameWebViewManager.this.u().getUrl())) {
                 GameWebViewManager.this.u().reload();
                 GameWebViewManager.this.C.setVisibility(8);
             }
@@ -196,8 +196,8 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         if (this.E != null) {
             return;
         }
-        this.E = new ImageView(this.f10703e.getBaseContext());
-        Resources resources = this.f10703e.getResources();
+        this.E = new ImageView(this.f10765e.getBaseContext());
+        Resources resources = this.f10765e.getResources();
         int dimension = (int) resources.getDimension(d.a.l0.f.c.swangame_webview_button_size);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
         layoutParams.topMargin = (int) resources.getDimension(d.a.l0.f.c.swangame_webview_button_top_margin);
@@ -211,9 +211,9 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     }
 
     public final void l1() {
-        NetworkErrorView networkErrorView = new NetworkErrorView(this.f10703e.getBaseContext());
+        NetworkErrorView networkErrorView = new NetworkErrorView(this.f10765e.getBaseContext());
         this.C = networkErrorView;
-        networkErrorView.setBackgroundColor(this.f10703e.getResources().getColor(d.a.l0.f.b.aiapps_game_white));
+        networkErrorView.setBackgroundColor(this.f10765e.getResources().getColor(d.a.l0.f.b.aiapps_game_white));
         u().addView(this.C, -1, -1);
         this.C.setVisibility(8);
         b bVar = new b();
@@ -233,8 +233,8 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     }
 
     public final void m1() {
-        this.D = new ImageView(this.f10703e.getBaseContext());
-        int dimension = (int) this.f10703e.getResources().getDimension(d.a.l0.f.c.swangame_webview_loading_size);
+        this.D = new ImageView(this.f10765e.getBaseContext());
+        int dimension = (int) this.f10765e.getResources().getDimension(d.a.l0.f.c.swangame_webview_loading_size);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
         layoutParams.gravity = 17;
         this.D.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -248,7 +248,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     }
 
     public final void n1() {
-        FrameLayout frameLayout = new FrameLayout(this.f10703e.getBaseContext());
+        FrameLayout frameLayout = new FrameLayout(this.f10765e.getBaseContext());
         this.A = frameLayout;
         frameLayout.addView(u(), -1, -1);
         k1();
@@ -261,7 +261,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     }
 
     public final void p1() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f10703e, d.a.l0.f.a.swangame_webview_loading);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f10765e, d.a.l0.f.a.swangame_webview_loading);
         this.D.setVisibility(0);
         this.D.startAnimation(loadAnimation);
     }

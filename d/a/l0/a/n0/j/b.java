@@ -5,11 +5,11 @@ import androidx.annotation.NonNull;
 import d.a.l0.a.n0.j.g.d;
 import d.a.l0.a.n0.j.g.e;
 import d.a.l0.a.n0.j.g.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     @SuppressLint({"SwitchIntDef"})
     public static d.a.l0.a.n0.j.g.b a(@NonNull d.a.l0.a.n0.j.f.a aVar) {
-        int i2 = aVar.f43626a;
+        int i2 = aVar.f47302a;
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {

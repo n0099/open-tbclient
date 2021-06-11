@@ -5,31 +5,31 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50446a;
+    public String f54122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50447b;
+    public String f54123b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50448c;
+    public String f54124c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50449d;
+    public String f54125d;
 
     public String a() {
-        return this.f50447b;
+        return this.f54123b;
     }
 
     public String b() {
-        return this.f50446a;
+        return this.f54122a;
     }
 
     public String c() {
-        return this.f50449d;
+        return this.f54125d;
     }
 
     public String d() {
-        return this.f50448c;
+        return this.f54124c;
     }
 
     public void e(JSONObject jSONObject) {
@@ -38,13 +38,13 @@ public class f {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("homepage");
         if (optJSONObject != null) {
-            this.f50446a = optJSONObject.optString("url");
-            this.f50447b = optJSONObject.optString("icon_url");
+            this.f54122a = optJSONObject.optString("url");
+            this.f54123b = optJSONObject.optString("icon_url");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
         if (optJSONObject2 != null) {
-            this.f50448c = optJSONObject2.optString("url");
-            this.f50449d = optJSONObject2.optString("icon_url");
+            this.f54124c = optJSONObject2.optString("url");
+            this.f54125d = optJSONObject2.optString("icon_url");
         }
     }
 }

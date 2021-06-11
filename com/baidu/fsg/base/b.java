@@ -5,15 +5,15 @@ import com.baidu.fsg.base.InitDelayThread;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ InitDelayThread f5070a;
+    public final /* synthetic */ InitDelayThread f5113a;
 
     public b(InitDelayThread initDelayThread) {
-        this.f5070a = initDelayThread;
+        this.f5113a = initDelayThread;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        InitDelayThread.InitDelayCallback initDelayCallback = this.f5070a.mCallback;
+        InitDelayThread.InitDelayCallback initDelayCallback = this.f5113a.mCallback;
         if (initDelayCallback != null) {
             initDelayCallback.callBack();
         }

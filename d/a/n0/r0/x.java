@@ -9,72 +9,72 @@ import java.util.List;
 import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes4.dex */
-public class x implements d.a.c.j.e.n {
+public class x implements d.a.c.k.e.n {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f59802i = BdUniqueId.gen();
+    public static final BdUniqueId f63493i = BdUniqueId.gen();
 
     /* renamed from: f  reason: collision with root package name */
-    public List<MetaData> f59804f;
+    public List<MetaData> f63495f;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59803e = 0;
+    public int f63494e = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f59805g = "本吧都在关注";
+    public String f63496g = "本吧都在关注";
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59806h = false;
+    public boolean f63497h = false;
 
-    public int c() {
-        return this.f59803e;
+    public int b() {
+        return this.f63494e;
     }
 
-    public String e() {
-        return this.f59805g;
+    public String c() {
+        return this.f63496g;
     }
 
-    public List<MetaData> f() {
-        return this.f59804f;
+    public List<MetaData> e() {
+        return this.f63495f;
     }
 
-    @Override // d.a.c.j.e.n
+    public boolean g() {
+        return this.f63497h;
+    }
+
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f59802i;
+        return f63493i;
     }
 
-    public boolean h() {
-        return this.f59806h;
-    }
-
-    public void i(FeatureCardGod featureCardGod) {
+    public void h(FeatureCardGod featureCardGod) {
         if (featureCardGod == null || ListUtils.isEmpty(featureCardGod.sub_nodes)) {
             return;
         }
-        this.f59803e = featureCardGod.floor.intValue();
-        this.f59804f = featureCardGod.sub_nodes;
-        this.f59805g = featureCardGod.title;
+        this.f63494e = featureCardGod.floor.intValue();
+        this.f63495f = featureCardGod.sub_nodes;
+        this.f63496g = featureCardGod.title;
     }
 
-    public void k(FrsPageUserExtend frsPageUserExtend) {
+    public void i(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend == null || ListUtils.isEmpty(frsPageUserExtend.data)) {
             return;
         }
         List<User> list = frsPageUserExtend.data;
-        this.f59803e = frsPageUserExtend.user_extend_storey.intValue();
-        this.f59804f = new ArrayList(list.size());
+        this.f63494e = frsPageUserExtend.user_extend_storey.intValue();
+        this.f63495f = new ArrayList(list.size());
         for (int i2 = 0; i2 < list.size(); i2++) {
             User user = list.get(i2);
             if (user != null && user.id.longValue() != 0) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i2));
-                this.f59804f.add(metaData);
+                this.f63495f.add(metaData);
             }
         }
-        this.f59805g = frsPageUserExtend.tips;
+        this.f63496g = frsPageUserExtend.tips;
     }
 
-    public void l(boolean z) {
-        this.f59806h = z;
+    public void k(boolean z) {
+        this.f63497h = z;
     }
 }

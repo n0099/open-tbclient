@@ -3,9 +3,8 @@ package com.meizu.cloud.pushsdk.handler.a.d;
 import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
     public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -40,7 +39,7 @@ public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
     /* renamed from: j */
     public SubAliasStatus c(Intent intent) {
         SubAliasStatus subAliasStatus = (SubAliasStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_SUBALIAS_STATUS);
-        if (BasicPushStatus.SUCCESS_CODE.equals(subAliasStatus.getCode())) {
+        if ("200".equals(subAliasStatus.getCode())) {
             c(subAliasStatus.getAlias());
         }
         return subAliasStatus;

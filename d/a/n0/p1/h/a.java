@@ -26,63 +26,63 @@ import tbclient.SearchSug.ForumInfo;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f58073e;
+    public final Context f61764e;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<ForumInfo> f58075g;
+    public List<ForumInfo> f61766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<Object> f58076h;
+    public ArrayList<Object> f61767h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f58077i;
+    public String f61768i;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f58074f = true;
+    public final boolean f61765f = true;
     public LikeModel j = new LikeModel(null);
 
     /* renamed from: d.a.n0.p1.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1465a implements View.OnClickListener {
+    public class View$OnClickListenerC1521a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumInfo f58078e;
+        public final /* synthetic */ ForumInfo f61769e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f58079f;
+        public final /* synthetic */ b f61770f;
 
         /* renamed from: d.a.n0.p1.h.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1466a extends e {
-            public C1466a() {
+        public class C1522a extends e {
+            public C1522a() {
             }
 
             @Override // d.a.c.a.e
             public void c(Object obj) {
                 if (a.this.j.getErrorCode() != 0) {
-                    l.L(a.this.f58073e, R.string.attention_fail);
+                    l.L(a.this.f61764e, R.string.attention_fail);
                     return;
                 }
-                View$OnClickListenerC1465a.this.f58079f.f58086e.setText(R.string.followed);
-                l.L(a.this.f58073e, R.string.attention_success);
-                View$OnClickListenerC1465a.this.f58079f.f58086e.setBackgroundDrawable(null);
-                SkinManager.setViewTextColor(View$OnClickListenerC1465a.this.f58079f.f58086e, R.color.CAM_X0109);
-                View$OnClickListenerC1465a.this.f58079f.f58086e.setOnClickListener(null);
+                View$OnClickListenerC1521a.this.f61770f.f61777e.setText(R.string.followed);
+                l.L(a.this.f61764e, R.string.attention_success);
+                View$OnClickListenerC1521a.this.f61770f.f61777e.setBackgroundDrawable(null);
+                SkinManager.setViewTextColor(View$OnClickListenerC1521a.this.f61770f.f61777e, R.color.CAM_X0109);
+                View$OnClickListenerC1521a.this.f61770f.f61777e.setOnClickListener(null);
             }
         }
 
-        public View$OnClickListenerC1465a(ForumInfo forumInfo, b bVar) {
-            this.f58078e = forumInfo;
-            this.f58079f = bVar;
+        public View$OnClickListenerC1521a(ForumInfo forumInfo, b bVar) {
+            this.f61769e = forumInfo;
+            this.f61770f = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTER_FORUM_SUG_SHOW).param("obj_type", "3").param("fid", this.f58078e.forum_id.intValue()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTER_FORUM_SUG_SHOW).param("obj_type", "3").param("fid", this.f61769e.forum_id.intValue()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
             LikeModel likeModel = a.this.j;
-            ForumInfo forumInfo = this.f58078e;
-            likeModel.H(forumInfo.forum_name, String.valueOf(forumInfo.forum_id));
-            a.this.j.setLoadDataCallBack(new C1466a());
+            ForumInfo forumInfo = this.f61769e;
+            likeModel.L(forumInfo.forum_name, String.valueOf(forumInfo.forum_id));
+            a.this.j.setLoadDataCallBack(new C1522a());
         }
     }
 
@@ -90,39 +90,39 @@ public class a extends BaseAdapter {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f58082a;
+        public TextView f61773a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BarImageView f58083b;
+        public BarImageView f61774b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f58084c;
+        public TextView f61775c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f58085d;
+        public TextView f61776d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f58086e;
+        public TextView f61777e;
 
         public b(a aVar) {
         }
 
-        public /* synthetic */ b(a aVar, View$OnClickListenerC1465a view$OnClickListenerC1465a) {
+        public /* synthetic */ b(a aVar, View$OnClickListenerC1521a view$OnClickListenerC1521a) {
             this(aVar);
         }
     }
 
     public a(Context context, ArrayList<ForumInfo> arrayList) {
-        this.f58073e = context;
-        this.f58075g = arrayList;
+        this.f61764e = context;
+        this.f61766g = arrayList;
     }
 
     public void c(TextView textView, String str) {
-        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f58077i)) {
+        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f61768i)) {
             return;
         }
         String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.f58077i.toLowerCase();
+        String lowerCase2 = this.f61768i.toLowerCase();
         if (!lowerCase.contains(lowerCase2)) {
             textView.setText(str);
             return;
@@ -130,44 +130,44 @@ public class a extends BaseAdapter {
         int indexOf = lowerCase.indexOf(lowerCase2);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f58077i.length() + indexOf, 33);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f61768i.length() + indexOf, 33);
         textView.setText(spannableStringBuilder);
     }
 
     public void d(List<ForumInfo> list) {
-        this.f58075g = list;
-        this.f58076h = new ArrayList<>();
+        this.f61766g = list;
+        this.f61767h = new ArrayList<>();
         int i2 = 0;
         int i3 = 0;
         while (true) {
-            if (i3 >= this.f58075g.size()) {
+            if (i3 >= this.f61766g.size()) {
                 break;
-            } else if (this.f58075g.get(i3).has_concerned.intValue() == 0) {
+            } else if (this.f61766g.get(i3).has_concerned.intValue() == 0) {
                 i2 = i3;
                 break;
             } else {
                 i3++;
             }
         }
-        this.f58076h.addAll(this.f58075g);
+        this.f61767h.addAll(this.f61766g);
         if (i2 > 0) {
-            this.f58076h.add(i2, "divider");
+            this.f61767h.add(i2, "divider");
         }
-        if (this.f58075g != null) {
+        if (this.f61766g != null) {
             notifyDataSetChanged();
         }
     }
 
     public void e(String str) {
-        this.f58077i = str;
+        this.f61768i = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f58076h == null || TextUtils.isEmpty(this.f58077i)) {
+        if (this.f61767h == null || TextUtils.isEmpty(this.f61768i)) {
             return 0;
         }
-        return this.f58076h.size();
+        return this.f61767h.size();
     }
 
     @Override // android.widget.Adapter
@@ -176,7 +176,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i2 >= count) {
             return null;
         }
-        return this.f58076h.get(i2);
+        return this.f61767h.get(i2);
     }
 
     @Override // android.widget.Adapter
@@ -192,15 +192,15 @@ public class a extends BaseAdapter {
         if (item instanceof ForumInfo) {
             ForumInfo forumInfo = (ForumInfo) item;
             if (view == null) {
-                view = LayoutInflater.from(this.f58073e).inflate(R.layout.forum_search_sug_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f61764e).inflate(R.layout.forum_search_sug_item, (ViewGroup) null);
                 bVar = new b(this, null);
                 BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-                bVar.f58083b = barImageView;
+                bVar.f61774b = barImageView;
                 barImageView.setGifIconSupport(false);
-                bVar.f58082a = (TextView) view.findViewById(R.id.name);
-                bVar.f58084c = (TextView) view.findViewById(R.id.forum_member_count);
-                bVar.f58085d = (TextView) view.findViewById(R.id.forum_thread_count);
-                bVar.f58086e = (TextView) view.findViewById(R.id.follow_text_view);
+                bVar.f61773a = (TextView) view.findViewById(R.id.name);
+                bVar.f61775c = (TextView) view.findViewById(R.id.forum_member_count);
+                bVar.f61776d = (TextView) view.findViewById(R.id.forum_thread_count);
+                bVar.f61777e = (TextView) view.findViewById(R.id.follow_text_view);
                 view.setTag(bVar);
             } else {
                 bVar = (b) view.getTag();
@@ -209,37 +209,37 @@ public class a extends BaseAdapter {
                 return view;
             }
             String str2 = forumInfo.avatar;
-            bVar.f58083b.setTag(str2);
-            bVar.f58083b.V(str2, 15, false);
-            bVar.f58083b.invalidate();
-            if (this.f58074f) {
-                str = this.f58073e.getString(R.string.chosen_pb_original_bar, forumInfo.forum_name);
+            bVar.f61774b.setTag(str2);
+            bVar.f61774b.U(str2, 15, false);
+            bVar.f61774b.invalidate();
+            if (this.f61765f) {
+                str = this.f61764e.getString(R.string.chosen_pb_original_bar, forumInfo.forum_name);
             } else {
                 str = forumInfo.forum_name;
             }
-            c(bVar.f58082a, str);
-            bVar.f58083b.setTag(forumInfo.avatar);
-            TextView textView = bVar.f58084c;
-            textView.setText(this.f58073e.getString(R.string.attention) + " " + forumInfo.concern_num);
-            TextView textView2 = bVar.f58085d;
-            textView2.setText(this.f58073e.getString(R.string.text_post) + " " + forumInfo.post_num);
-            SkinManager.setViewTextColor(bVar.f58084c, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(bVar.f58085d, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(bVar.f58082a, R.color.CAM_X0105);
+            c(bVar.f61773a, str);
+            bVar.f61774b.setTag(forumInfo.avatar);
+            TextView textView = bVar.f61775c;
+            textView.setText(this.f61764e.getString(R.string.attention) + " " + forumInfo.concern_num);
+            TextView textView2 = bVar.f61776d;
+            textView2.setText(this.f61764e.getString(R.string.text_post) + " " + forumInfo.post_num);
+            SkinManager.setViewTextColor(bVar.f61775c, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(bVar.f61776d, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(bVar.f61773a, R.color.CAM_X0105);
             if (forumInfo.has_concerned.intValue() > 0) {
-                bVar.f58086e.setText(R.string.followed);
-                SkinManager.setBackgroundResource(bVar.f58086e, 0);
-                SkinManager.setViewTextColor(bVar.f58086e, R.color.CAM_X0109);
-                bVar.f58086e.setOnClickListener(null);
+                bVar.f61777e.setText(R.string.followed);
+                SkinManager.setBackgroundResource(bVar.f61777e, 0);
+                SkinManager.setViewTextColor(bVar.f61777e, R.color.CAM_X0109);
+                bVar.f61777e.setOnClickListener(null);
                 return view;
             }
-            bVar.f58086e.setText(R.string.attention);
-            SkinManager.setBackgroundResource(bVar.f58086e, R.drawable.search_like_btn_bg);
-            SkinManager.setViewTextColor(bVar.f58086e, R.color.CAM_X0302);
-            bVar.f58086e.setOnClickListener(new View$OnClickListenerC1465a(forumInfo, bVar));
+            bVar.f61777e.setText(R.string.attention);
+            SkinManager.setBackgroundResource(bVar.f61777e, R.drawable.search_like_btn_bg);
+            SkinManager.setViewTextColor(bVar.f61777e, R.color.CAM_X0302);
+            bVar.f61777e.setOnClickListener(new View$OnClickListenerC1521a(forumInfo, bVar));
             return view;
         } else if (item instanceof String) {
-            View inflate = LayoutInflater.from(this.f58073e).inflate(R.layout.forum_search_divider_view, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f61764e).inflate(R.layout.forum_search_divider_view, (ViewGroup) null);
             SkinManager.setBackgroundColor(inflate.findViewById(R.id.card_divider_top_margin), R.color.CAM_X0204);
             return inflate;
         } else {

@@ -9,7 +9,7 @@ import com.baidu.wallet.personal.PersonWalletSmsActivity;
 public class PersonalController {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f26239a;
+    public a f26342a;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -22,36 +22,36 @@ public class PersonalController {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PersonalController f26240a = new PersonalController();
+        public static PersonalController f26343a = new PersonalController();
     }
 
     public static PersonalController getInstance() {
-        return b.f26240a;
+        return b.f26343a;
     }
 
     public void onReceiveFailed(String str) {
-        a aVar = this.f26239a;
+        a aVar = this.f26342a;
         if (aVar != null) {
             aVar.a(str);
         }
     }
 
     public void onReceiveSuccess(boolean z) {
-        a aVar = this.f26239a;
+        a aVar = this.f26342a;
         if (aVar != null) {
             aVar.a(z);
         }
     }
 
     public void receive(Context context, a aVar) {
-        this.f26239a = aVar;
+        this.f26342a = aVar;
         Intent intent = new Intent(context, WalletPayResultCommonActivity.class);
         intent.putExtra(BeanConstants.KEY_PAY_RESULT_TYPE, 3);
         context.startActivity(intent);
     }
 
     public void receiveWithSms(Context context, a aVar) {
-        this.f26239a = aVar;
+        this.f26342a = aVar;
         Intent intent = new Intent();
         intent.putExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, 3);
         intent.setClass(context, PersonWalletSmsActivity.class);
@@ -59,7 +59,7 @@ public class PersonalController {
     }
 
     public void removeCallBack() {
-        this.f26239a = null;
+        this.f26342a = null;
     }
 
     public PersonalController() {

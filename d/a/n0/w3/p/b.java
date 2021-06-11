@@ -17,13 +17,13 @@ import com.baidu.tieba.write.share.CheckResponse;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f62890a;
+    public BdUniqueId f66605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.w3.p.a f62891b;
+    public d.a.n0.w3.p.a f66606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f62892c = new a(CmdConfigHttp.CMD_CHECK_SHARE_SDK);
+    public HttpMessageListener f66607c = new a(CmdConfigHttp.CMD_CHECK_SHARE_SDK);
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -39,23 +39,23 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.share_sdk_check_no_resp));
                 }
-                if (b.this.f62891b != null) {
-                    b.this.f62891b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (b.this.f66606b != null) {
+                    b.this.f66606b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     }
 
     public b(BdUniqueId bdUniqueId) {
-        this.f62890a = bdUniqueId;
+        this.f66605a = bdUniqueId;
         b();
     }
 
     public final void b() {
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.registerTask(c());
-        this.f62892c.setTag(this.f62890a);
-        messageManager.registerListener(this.f62892c);
+        this.f66607c.setTag(this.f66605a);
+        messageManager.registerListener(this.f66607c);
     }
 
     public final HttpMessageTask c() {
@@ -68,22 +68,22 @@ public class b {
 
     public void d(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            d.a.n0.w3.p.a aVar = this.f62891b;
+            d.a.n0.w3.p.a aVar = this.f66606b;
             if (aVar != null) {
                 aVar.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
                 return;
             }
             return;
         }
-        MessageManager.getInstance().removeHttpMessage(this.f62890a);
+        MessageManager.getInstance().removeHttpMessage(this.f66605a);
         CheckRequest checkRequest = new CheckRequest();
-        checkRequest.setTag(this.f62890a);
+        checkRequest.setTag(this.f66605a);
         checkRequest.setAppkey(str);
         checkRequest.setAppletsKey(str2);
         MessageManager.getInstance().sendMessage(checkRequest);
     }
 
     public void e(d.a.n0.w3.p.a aVar) {
-        this.f62891b = aVar;
+        this.f66606b = aVar;
     }
 }

@@ -18,34 +18,34 @@ import java.util.Iterator;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f54765c = new a();
+    public static a f58454c = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public HashSet<String> f54766a = new HashSet<>();
+    public HashSet<String> f58455a = new HashSet<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuilder f54767b = new StringBuilder();
+    public StringBuilder f58456b = new StringBuilder();
 
     public static a c() {
-        return f54765c;
+        return f58454c;
     }
 
     public void a(String str) {
         if (str == null || str.length() <= 0) {
             return;
         }
-        StringBuilder sb = this.f54767b;
+        StringBuilder sb = this.f58456b;
         sb.append(str);
         sb.append(",");
     }
 
     public void b() {
-        StringBuilder sb = this.f54767b;
+        StringBuilder sb = this.f58456b;
         if (sb != null && sb.length() > 0) {
-            StringBuilder sb2 = this.f54767b;
+            StringBuilder sb2 = this.f58456b;
             sb2.delete(0, sb2.length());
         }
-        HashSet<String> hashSet = this.f54766a;
+        HashSet<String> hashSet = this.f58455a;
         if (hashSet != null) {
             hashSet.clear();
         }
@@ -57,8 +57,8 @@ public class a {
         if (chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null) {
             return;
         }
-        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (k = c.k(chatMessage.getContent())) != null && !TextUtils.isEmpty(k.f54467b) && this.f54766a.add(k.f54467b)) {
-            TiebaStatic.eventStat(context, "message_open", PrefetchEvent.STATE_CLICK, 1, "task_type", k.f54466a, "task_id", k.f54467b);
+        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (k = c.k(chatMessage.getContent())) != null && !TextUtils.isEmpty(k.f58156b) && this.f58455a.add(k.f58156b)) {
+            TiebaStatic.eventStat(context, "message_open", PrefetchEvent.STATE_CLICK, 1, "task_type", k.f58155a, "task_id", k.f58156b);
         }
     }
 
@@ -79,9 +79,9 @@ public class a {
         StringBuilder sb;
         StringBuilder sb2;
         String str2 = null;
-        if (this.f54766a != null) {
+        if (this.f58455a != null) {
             StringBuilder sb3 = new StringBuilder();
-            Iterator<String> it = this.f54766a.iterator();
+            Iterator<String> it = this.f58455a.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (next != null && next.length() > 0) {
@@ -93,20 +93,20 @@ public class a {
                 sb3.deleteCharAt(sb3.length() - 1);
                 if (sb3.length() > 0) {
                     str = sb3.toString();
-                    sb = this.f54767b;
+                    sb = this.f58456b;
                     if (sb != null && sb.length() > 0) {
-                        this.f54767b.deleteCharAt(sb2.length() - 1);
-                        str2 = this.f54767b.toString();
+                        this.f58456b.deleteCharAt(sb2.length() - 1);
+                        str2 = this.f58456b.toString();
                     }
                     new AddMsgRecordModel().reqViewAndClick(str, str2);
                 }
             }
         }
         str = null;
-        sb = this.f54767b;
+        sb = this.f58456b;
         if (sb != null) {
-            this.f54767b.deleteCharAt(sb2.length() - 1);
-            str2 = this.f54767b.toString();
+            this.f58456b.deleteCharAt(sb2.length() - 1);
+            str2 = this.f58456b.toString();
         }
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }

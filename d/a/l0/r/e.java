@@ -21,26 +21,26 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile IRemoteUBCService f48379a;
+    public static volatile IRemoteUBCService f52053a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, Integer> f48380b = new HashMap();
+    public static final Map<String, Integer> f52054b = new HashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f48381c;
+    public static final Set<String> f52055c;
 
     static {
         HashSet hashSet = new HashSet();
-        f48381c = hashSet;
+        f52055c = hashSet;
         hashSet.add("606");
-        f48381c.add("671");
-        f48380b.put("606", -1);
-        f48380b.put("671", -1);
+        f52055c.add("671");
+        f52054b.put("606", -1);
+        f52054b.put("671", -1);
     }
 
     public static int a(String str, String str2) {
         int intValue;
-        Integer num = f48380b.get(str);
+        Integer num = f52054b.get(str);
         if (num == null) {
             num = -1;
         }
@@ -58,7 +58,7 @@ public class e {
 
     public static String b(String str, String str2) {
         l h2;
-        if (f48381c.contains(str) && (h2 = h()) != null && h2.q()) {
+        if (f52055c.contains(str) && (h2 = h()) != null && h2.q()) {
             synchronized (e.class) {
                 String str3 = "ubc_counter" + str;
                 int a2 = a(str, str3);
@@ -67,7 +67,7 @@ public class e {
                     jSONObject.put("counter", a2);
                     str2 = jSONObject.toString();
                     t.g().putInt(str3, a2);
-                    f48380b.put(str, Integer.valueOf(a2));
+                    f52054b.put(str, Integer.valueOf(a2));
                 } catch (JSONException unused) {
                 }
             }
@@ -78,14 +78,14 @@ public class e {
 
     public static JSONObject c(String str, JSONObject jSONObject) {
         l h2;
-        if (f48381c.contains(str) && (h2 = h()) != null && h2.q()) {
+        if (f52055c.contains(str) && (h2 = h()) != null && h2.q()) {
             synchronized (e.class) {
                 String str2 = "ubc_counter" + str;
                 int a2 = a(str, str2);
                 try {
                     jSONObject.put("counter", a2);
                     t.g().putInt(str2, a2);
-                    f48380b.put(str, Integer.valueOf(a2));
+                    f52054b.put(str, Integer.valueOf(a2));
                 } catch (JSONException unused) {
                 }
             }
@@ -108,20 +108,20 @@ public class e {
 
     @SuppressLint({"BDThrowableCheck"})
     public static IRemoteUBCService g() throws RemoteException {
-        if (f48379a == null) {
+        if (f52053a == null) {
             synchronized (e.class) {
-                if (f48379a == null) {
+                if (f52053a == null) {
                     IBinder f2 = IPCServiceManager.f("open_log", true);
                     if (f2 == null) {
                         throw new RemoteException("Ceres get remote service empty !");
                     }
                     if (f2 != null) {
-                        f48379a = IRemoteUBCService.Stub.asInterface(f2);
+                        f52053a = IRemoteUBCService.Stub.asInterface(f2);
                     }
                 }
             }
         }
-        return f48379a;
+        return f52053a;
     }
 
     @Inject

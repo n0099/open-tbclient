@@ -6,29 +6,29 @@ import com.qq.e.comm.util.StringUtil;
 public class APPStatus {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35466a;
+    public String f39145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35467b;
+    public Context f39146b;
 
     public APPStatus(String str, Context context) {
-        this.f35466a = str;
-        this.f35467b = context;
+        this.f39145a = str;
+        this.f39146b = context;
     }
 
     public String getAPPID() {
-        return this.f35466a;
+        return this.f39145a;
     }
 
     public String getAPPName() {
-        return this.f35467b.getPackageName();
+        return this.f39146b.getPackageName();
     }
 
     public String getAPPRealName() {
         String aPPName = getAPPName();
         if (!StringUtil.isEmpty(aPPName)) {
             try {
-                return this.f35467b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f35467b.getPackageManager()).toString();
+                return this.f39146b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f39146b.getPackageManager()).toString();
             } catch (Exception unused) {
             }
         }
@@ -39,7 +39,7 @@ public class APPStatus {
         String aPPName = getAPPName();
         if (!StringUtil.isEmpty(aPPName)) {
             try {
-                return this.f35467b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
+                return this.f39146b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
             } catch (Exception unused) {
             }
         }

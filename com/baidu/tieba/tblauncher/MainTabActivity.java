@@ -40,11 +40,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
@@ -104,7 +102,7 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.view.Thread2GroupShareView;
 import com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog;
 import com.baidu.tieba.wallet.CurrencySwitchUtil;
-import d.a.m0.a.f;
+import d.a.m0.a.g;
 import d.a.m0.r.q.l1;
 import d.a.m0.r.s.a;
 import java.lang.ref.WeakReference;
@@ -139,7 +137,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     public static boolean syncHasFinish;
     public String lastDay;
     public d.a.n0.b mAppEntranceModel;
-    public d.a.m0.a.d mBdTokenController;
+    public d.a.m0.a.e mBdTokenController;
     public d.a.n0.m3.b mCancelController;
     public d.a.n0.d0.e mCategoryTipController;
     public CheckRealNameModel mCheckRealNameModel;
@@ -202,8 +200,8 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     public CustomMessageListener mShowGoBackShouBaiListener = new h(2921380);
     public d.a.c.c.g.a mPersonInfoMsgListener = new n(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
     public CustomMessageListener updateMainTabProfileListener = new o(2921504);
-    public BroadcastReceiver jumpAlaLiveRoomReceiver = new p();
-    public CustomMessageListener mCategoryUpdateListener = new q(2921491);
+    public CustomMessageListener mCategoryUpdateListener = new p(2921491);
+    public CustomMessageListener mVideoChannelNoticeListener = new q(2921566);
     public CustomMessageListener mMyCreateCenterListener = new r(2921538);
     public CheckRealNameModel.b checkRealNameCallBack = new s();
     public CustomMessageListener networkChangedListener = new t(2000994);
@@ -343,15 +341,15 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f20942e;
+            public final /* synthetic */ CustomDialogData f21019e;
 
             public a(CustomDialogData customDialogData) {
-                this.f20942e = customDialogData;
+                this.f21019e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.n0.e2.j.c.a(MainTabActivity.this.getPageContext(), this.f20942e).show();
+                d.a.n0.e2.j.c.a(MainTabActivity.this.getPageContext(), this.f21019e).show();
             }
         }
 
@@ -412,6 +410,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             MainTabActivity.this.mViewController.Q();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921566, null));
         }
     }
 
@@ -419,34 +418,34 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     public class c0 implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f20945e;
+        public final /* synthetic */ Thread2GroupShareView f21022e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f20946f;
+        public final /* synthetic */ long f21023f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f20947g;
+        public final /* synthetic */ String f21024g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f20948h;
+        public final /* synthetic */ String f21025h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f20949i;
+        public final /* synthetic */ String f21026i;
         public final /* synthetic */ ShareFromPBMsgData j;
 
         public c0(Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
-            this.f20945e = thread2GroupShareView;
-            this.f20946f = j;
-            this.f20947g = str;
-            this.f20948h = str2;
-            this.f20949i = str3;
+            this.f21022e = thread2GroupShareView;
+            this.f21023f = j;
+            this.f21024g = str;
+            this.f21025h = str2;
+            this.f21026i = str3;
             this.j = shareFromPBMsgData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            MainTabActivity.this.HidenSoftKeyPad((InputMethodManager) MainTabActivity.this.getSystemService("input_method"), this.f20945e.getChatMsgView());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(MainTabActivity.this.getPageContext().getPageActivity(), this.f20946f, this.f20947g, this.f20948h, this.f20949i, 0, this.f20945e.getLeaveMsg(), this.j.toChatMessageContent())));
+            MainTabActivity.this.HidenSoftKeyPad((InputMethodManager) MainTabActivity.this.getSystemService("input_method"), this.f21022e.getChatMsgView());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(MainTabActivity.this.getPageContext().getPageActivity(), this.f21023f, this.f21024g, this.f21025h, this.f21026i, 0, this.f21022e.getLeaveMsg(), this.j.toChatMessageContent())));
             aVar.dismiss();
             ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
             if (shareItem == null || shareItem.e() == null) {
@@ -481,15 +480,15 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     public class d0 implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f20951e;
+        public final /* synthetic */ Thread2GroupShareView f21028e;
 
         public d0(Thread2GroupShareView thread2GroupShareView) {
-            this.f20951e = thread2GroupShareView;
+            this.f21028e = thread2GroupShareView;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            MainTabActivity.this.HidenSoftKeyPad((InputMethodManager) MainTabActivity.this.getSystemService("input_method"), this.f20951e.getChatMsgView());
+            MainTabActivity.this.HidenSoftKeyPad((InputMethodManager) MainTabActivity.this.getSystemService("input_method"), this.f21028e.getChatMsgView());
             aVar.dismiss();
         }
     }
@@ -513,7 +512,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
                 if (MainTabActivity.this.mIsAdd || MainTabActivity.this.mRecomPostTopic == null || !TbadkCoreApplication.isLogin()) {
                     return;
                 }
-                MainTabActivity.this.mMainTabTopicTipController.j(MainTabActivity.this.mRecomPostTopic.f50075a, MainTabActivity.this.mRecomPostTopic.f50076b, MainTabActivity.this.mRecomPostTopic.f50077c);
+                MainTabActivity.this.mMainTabTopicTipController.j(MainTabActivity.this.mRecomPostTopic.f53751a, MainTabActivity.this.mRecomPostTopic.f53752b, MainTabActivity.this.mRecomPostTopic.f53753c);
             }
         }
     }
@@ -838,11 +837,11 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             if (MainTabActivity.this.mCancelController == null) {
                 MainTabActivity.this.mCancelController = new d.a.n0.m3.b();
             }
-            MainTabActivity.this.mCancelController.c(MainTabActivity.this.mCancelController.f57465c);
-            MainTabActivity.this.mCancelController.f57465c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+            MainTabActivity.this.mCancelController.c(MainTabActivity.this.mCancelController.f61154c);
+            MainTabActivity.this.mCancelController.f61154c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
             if (d.a.m0.c1.b.e.d()) {
                 int i2 = Calendar.getInstance().get(11);
-                d.a.m0.c1.b.e.f49258a = (i2 >= 23 || i2 < 7) ? true : true;
+                d.a.m0.c1.b.e.f52932a = (i2 >= 23 || i2 < 7) ? true : true;
                 MainTabActivity.this.stopYoungsterUseTimeTask();
                 MainTabActivity.this.startYoungsterUseTimeTask();
             }
@@ -981,7 +980,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            d.a.m0.c1.b.e.f49258a = true;
+            d.a.m0.c1.b.e.f52932a = true;
             MainTabActivity.this.stopYoungsterUseTimeTask();
             MainTabActivity.this.startYoungsterUseTimePeriodTask();
             MainTabActivity.this.youngsterNightTimer.cancel();
@@ -990,17 +989,38 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     }
 
     /* loaded from: classes5.dex */
-    public class p extends BroadcastReceiver {
-        public p() {
+    public class p extends CustomMessageListener {
+        public p(int i2) {
+            super(i2);
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Bundle bundleExtra;
-            if (intent == null || (bundleExtra = intent.getBundleExtra(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_DATA)) == null || !TbadkCoreApplication.getInst().isMainProcess(false)) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || MainTabActivity.this.mViewController == null || MainTabActivity.this.mViewController.C() == null || MainTabActivity.this.mViewController.C().getCurrentTabType() == 21) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, (AlaLiveInfoCoreData) bundleExtra.getSerializable(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_DATA_CORE), bundleExtra.getString(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_DATA_FROM), null, bundleExtra.getBoolean(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_DATA_HOST), "")));
+            String str = (String) customResponsedMessage.getData();
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            FragmentTabWidget fragmentTabWidget = MainTabActivity.this.mViewController.C().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
+            }
+            MainTabActivity mainTabActivity = MainTabActivity.this;
+            mainTabActivity.mCategoryTipController = new d.a.n0.d0.e(mainTabActivity.getPageContext(), fragmentTabWidget.getChildAt(2));
+            MainTabActivity.this.mCategoryTipController.g0(R.drawable.bg_tip_blue_down);
+            MainTabActivity.this.mCategoryTipController.L(2);
+            MainTabActivity.this.mCategoryTipController.O(32);
+            MainTabActivity.this.mCategoryTipController.h0(true);
+            MainTabActivity.this.mCategoryTipController.k0(-d.a.c.e.p.l.g(MainTabActivity.this, R.dimen.tbds10));
+            MainTabActivity.this.mCategoryTipController.X(R.color.CAM_X0101);
+            MainTabActivity.this.mCategoryTipController.P(R.dimen.tbds54);
+            MainTabActivity.this.mCategoryTipController.T(999);
+            MainTabActivity.this.mCategoryTipController.N(5000);
+            MainTabActivity.this.mCategoryTipController.a0(d.a.c.e.p.l.g(MainTabActivity.this, R.dimen.tbds44));
+            MainTabActivity.this.mCategoryTipController.o0(str, "categoryUpdate", false, true);
         }
     }
 
@@ -1040,11 +1060,11 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || MainTabActivity.this.mViewController == null || MainTabActivity.this.mViewController.C() == null || MainTabActivity.this.mViewController.C().getCurrentTabType() == 21) {
+            if (customResponsedMessage == null || MainTabActivity.this.mViewController == null || MainTabActivity.this.mViewController.C() == null || MainTabActivity.this.mViewController.C().getCurrentTabType() == 22) {
                 return;
             }
-            String str = (String) customResponsedMessage.getData();
-            if (TextUtils.isEmpty(str)) {
+            String string = MainTabActivity.this.getString(R.string.tieba_video_channel_is_comming);
+            if (TextUtils.isEmpty(string)) {
                 return;
             }
             FragmentTabWidget fragmentTabWidget = MainTabActivity.this.mViewController.C().getFragmentTabWidget();
@@ -1053,17 +1073,17 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             }
             MainTabActivity mainTabActivity = MainTabActivity.this;
             mainTabActivity.mCategoryTipController = new d.a.n0.d0.e(mainTabActivity.getPageContext(), fragmentTabWidget.getChildAt(2));
-            MainTabActivity.this.mCategoryTipController.g0(R.drawable.bg_tip_blue_down);
+            MainTabActivity.this.mCategoryTipController.g0(R.drawable.bg_tip_blue_left);
             MainTabActivity.this.mCategoryTipController.L(2);
             MainTabActivity.this.mCategoryTipController.O(32);
             MainTabActivity.this.mCategoryTipController.h0(true);
             MainTabActivity.this.mCategoryTipController.k0(-d.a.c.e.p.l.g(MainTabActivity.this, R.dimen.tbds10));
             MainTabActivity.this.mCategoryTipController.X(R.color.CAM_X0101);
-            MainTabActivity.this.mCategoryTipController.P(R.dimen.tbds54);
-            MainTabActivity.this.mCategoryTipController.T(999);
-            MainTabActivity.this.mCategoryTipController.N(5000);
+            MainTabActivity.this.mCategoryTipController.P(R.dimen.tbds109);
+            MainTabActivity.this.mCategoryTipController.T(1);
+            MainTabActivity.this.mCategoryTipController.N(3000);
             MainTabActivity.this.mCategoryTipController.a0(d.a.c.e.p.l.g(MainTabActivity.this, R.dimen.tbds44));
-            MainTabActivity.this.mCategoryTipController.o0(str, "categoryUpdate", false, true);
+            MainTabActivity.this.mCategoryTipController.o0(string, "videoChannelComming", true, false);
         }
     }
 
@@ -1172,14 +1192,14 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             d.a.m0.t.m mVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.m0.t.m) || (mVar = (d.a.m0.t.m) customResponsedMessage.getData()) == null || StringUtils.isNull(mVar.f50797a)) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.m0.t.m) || (mVar = (d.a.m0.t.m) customResponsedMessage.getData()) == null || StringUtils.isNull(mVar.f54474a)) {
                 return;
             }
             d.a.m0.p0.b.i(mVar);
-            if (StringUtils.isNull(mVar.f50799c)) {
-                UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{mVar.f50797a});
+            if (StringUtils.isNull(mVar.f54476c)) {
+                UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{mVar.f54474a});
             } else {
-                UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{mVar.f50797a, mVar.f50799c});
+                UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{mVar.f54474a, mVar.f54476c});
             }
         }
     }
@@ -1219,42 +1239,42 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     }
 
     /* loaded from: classes5.dex */
-    public class u implements f.b {
+    public class u implements g.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Intent f20986a;
+        public final /* synthetic */ Intent f21064a;
 
         public u(Intent intent) {
-            this.f20986a = intent;
+            this.f21064a = intent;
         }
 
-        @Override // d.a.m0.a.f.b
+        @Override // d.a.m0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
-            if (hashMap == null || this.f20986a == null) {
+            if (hashMap == null || this.f21064a == null) {
                 return;
             }
-            Object obj = hashMap.get(d.a.m0.a.f.A);
+            Object obj = hashMap.get(d.a.m0.a.g.A);
             int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : -1;
-            Object obj2 = hashMap.get(d.a.m0.a.f.B);
+            Object obj2 = hashMap.get(d.a.m0.a.g.B);
             String str = obj2 instanceof String ? (String) obj2 : null;
-            Object obj3 = hashMap.get(d.a.m0.a.f.z);
+            Object obj3 = hashMap.get(d.a.m0.a.g.z);
             String str2 = obj3 instanceof String ? (String) obj3 : null;
             if (intValue != -1) {
-                this.f20986a.putExtra("is_from_scheme", true);
-                this.f20986a.putExtra("locate_type", intValue);
-                this.f20986a.putExtra("sub_locate_type", str);
-                this.f20986a.putExtra("sub_tab_name", str2);
-                d.a.m0.r.a0.b.f49636b = intValue;
-                Object obj4 = hashMap.get(d.a.m0.a.f.C);
+                this.f21064a.putExtra("is_from_scheme", true);
+                this.f21064a.putExtra("locate_type", intValue);
+                this.f21064a.putExtra("sub_locate_type", str);
+                this.f21064a.putExtra("sub_tab_name", str2);
+                d.a.m0.r.a0.b.f53311b = intValue;
+                Object obj4 = hashMap.get(d.a.m0.a.g.C);
                 String str3 = obj4 instanceof String ? (String) obj4 : null;
-                Object obj5 = hashMap.get(d.a.m0.a.f.D);
+                Object obj5 = hashMap.get(d.a.m0.a.g.D);
                 String str4 = obj5 instanceof String ? (String) obj5 : null;
-                this.f20986a.putExtra(d.a.m0.a.f.C, str3);
-                this.f20986a.putExtra(d.a.m0.a.f.D, str4);
+                this.f21064a.putExtra(d.a.m0.a.g.C, str3);
+                this.f21064a.putExtra(d.a.m0.a.g.D, str4);
             }
-            d.a.m0.a.c.y().L(true);
+            d.a.m0.a.d.y().L(true);
             if (intValue == 1 && "ForumSquare".equals(str)) {
-                d.a.m0.r.a0.b.f49637c = d.a.m0.r.a0.b.f49639e;
+                d.a.m0.r.a0.b.f53312c = d.a.m0.r.a0.b.f53314e;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
             }
         }
@@ -1310,15 +1330,15 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     public class w implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20991e;
+        public final /* synthetic */ String f21069e;
 
         public w(String str) {
-            this.f20991e = str;
+            this.f21069e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{this.f20991e});
+            UrlManager.getInstance().dealOneLink(MainTabActivity.this.getPageContext(), new String[]{this.f21069e});
         }
     }
 
@@ -1357,7 +1377,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.a.n0.e3.q0.e) && ((d.a.n0.e3.q0.e) customResponsedMessage.getData()).f54224b && MainTabActivity.this.mLikeForumNum == 0) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.a.n0.e3.q0.e) && ((d.a.n0.e3.q0.e) customResponsedMessage.getData()).f57913b && MainTabActivity.this.mLikeForumNum == 0) {
                 MainTabActivity.this.createLikeFirstForumTips();
             }
         }
@@ -1515,7 +1535,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     public void checkRealName() {
         String str = "check_real_name" + TbConfig.getVersion();
         if (d.a.m0.r.d0.b.j().g(str, true) && !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && d.a.c.e.p.l.D()) {
-            this.mCheckRealNameModel.t(CheckRealNameModel.TYPE_APP_FIRST_START);
+            this.mCheckRealNameModel.x(CheckRealNameModel.TYPE_APP_FIRST_START);
             d.a.m0.r.d0.b.j().t(str, false);
         }
     }
@@ -1530,7 +1550,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             String decode = Uri.decode(intent.getData().getEncodedPath());
             if (StringUtils.isNull(decode)) {
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_type", 1).param(TiebaStatic.Params.OBJ_TO, 1).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                d.a.m0.a.w.a(param, decode);
+                d.a.m0.a.x.a(param, decode);
                 TiebaStatic.log(param);
                 return;
             }
@@ -1544,7 +1564,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             String str = paramPair.get("fr");
             if (!"mpush".equals(str) && "bpush".equals(str)) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                d.a.m0.a.w.b(statisticItem, paramPair);
+                d.a.m0.a.x.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("obj_source", paramPair.get("obj_source"));
@@ -1570,15 +1590,15 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
                 httpMessage.addParam("call_url", dataString);
                 MessageManager.getInstance().sendMessage(httpMessage);
             }
-            d.a.m0.a.c.y().L(true);
+            d.a.m0.a.d.y().L(true);
         } else if (!StringUtils.isNull(dataString) && (dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK))) {
             String dataString2 = intent.getDataString();
             if (!StringUtils.isNull(dataString2) && PermissionUtil.isAgreePrivacyPolicy()) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{dataString2});
-                d.a.m0.a.c.y().L(true);
+                d.a.m0.a.d.y().L(true);
             }
-        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(d.a.m0.a.f.f48709a)) {
-            d.a.m0.a.f.b().e(intent.getData(), new u(intent));
+        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(d.a.m0.a.g.f52385a)) {
+            d.a.m0.a.g.b().e(intent.getData(), new u(intent));
         }
         String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME);
         if (StringUtils.isNull(stringExtra)) {
@@ -1733,7 +1753,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     public boolean handlerYoungsterNightTask() {
         int i2 = Calendar.getInstance().get(11);
         if (i2 < 23 && i2 >= 7) {
-            d.a.m0.c1.b.e.f49258a = false;
+            d.a.m0.c1.b.e.f52932a = false;
             Timer timer = this.youngsterNightTimer;
             if (timer != null) {
                 timer.cancel();
@@ -1749,7 +1769,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             timer2.schedule(new o0(), time, 1000L);
             return false;
         }
-        d.a.m0.c1.b.e.f49258a = true;
+        d.a.m0.c1.b.e.f52932a = true;
         stopYoungsterUseTimeTask();
         startYoungsterUseTimePeriodTask();
         return true;
@@ -1817,11 +1837,9 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         registerListener(this.mEnterForumTabClickListener);
         registerListener(this.mPersonInfoMsgListener);
         registerListener(this.mCategoryUpdateListener);
+        registerListener(this.mVideoChannelNoticeListener);
         registerListener(this.mMyCreateCenterListener);
         registerListener(this.updateMainTabProfileListener);
-        IntentFilter intentFilter2 = new IntentFilter();
-        intentFilter2.addAction(AlaLiveRoomActivityConfig.JUMP_ALA_LIVE_ROOM_BROADCAST);
-        registerReceiver(this.jumpAlaLiveRoomReceiver, intentFilter2);
         registerListener(this.showNewUserRedPackageListener);
     }
 
@@ -1918,10 +1936,6 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         b1 b1Var = this.mUpdateReceiver;
         if (b1Var != null) {
             unregisterReceiver(b1Var);
-        }
-        BroadcastReceiver broadcastReceiver = this.jumpAlaLiveRoomReceiver;
-        if (broadcastReceiver != null) {
-            unregisterReceiver(broadcastReceiver);
         }
     }
 
@@ -2144,7 +2158,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             }
         } else if (i2 == 25046) {
             if (TbadkCoreApplication.isLogin()) {
-                d.a.m0.a.r.g().l(getPageContext());
+                d.a.m0.a.s.g().l(getPageContext());
             }
         } else if (i2 == 11001) {
             gotoFeedback();
@@ -2161,7 +2175,14 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
                 d.a.n0.s2.a.g().m(getPageContext());
                 ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
-                statisticItem.param("obj_locate", 5);
+                if (shareItem != null) {
+                    int i4 = shareItem.I;
+                    if (i4 == 0) {
+                        statisticItem.param("obj_locate", 5);
+                    } else {
+                        statisticItem.param("obj_locate", i4);
+                    }
+                }
                 if (shareItem != null) {
                     statisticItem.param("tid", shareItem.K);
                 }
@@ -2170,7 +2191,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
                 if (shareItem == null || (str = shareItem.t) == null || (shareSuccessReplyToServerModel = this.mShareSuccessReplyToServerModel) == null) {
                     return;
                 }
-                shareSuccessReplyToServerModel.s(str, intExtra2, new b0());
+                shareSuccessReplyToServerModel.w(str, intExtra2, new b0());
             }
         } else if (i2 == 25059) {
             if (d.a.m0.b.d.k()) {
@@ -2234,7 +2255,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             return;
         }
         int i2 = -1;
-        d.a.m0.r.a0.b.f49637c = d.a.m0.r.a0.b.f49638d;
+        d.a.m0.r.a0.b.f53312c = d.a.m0.r.a0.b.f53313d;
         if (getIntent() != null) {
             d.a.n0.h3.e eVar = new d.a.n0.h3.e(getPageContext());
             this.mPushInsertThreadController = eVar;
@@ -2265,7 +2286,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         checkPluginEntranceState();
         regReceiver();
         d.a.n0.h3.f.b.i().e(this);
-        d.a.m0.a.c.y().q();
+        d.a.m0.a.d.y().q();
         this.mAppEntranceModel = new d.a.n0.b();
         initTabsOnActivityCreated();
         registerNavigationBarEditStateListener();
@@ -2325,12 +2346,12 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         d.a.m0.r.d0.b.j().v("app_restart_times", d.a.m0.r.d0.b.j().k("app_restart_times", 0) + 1);
         CheckRealNameModel checkRealNameModel = new CheckRealNameModel(getPageContext());
         this.mCheckRealNameModel = checkRealNameModel;
-        checkRealNameModel.w(this.checkRealNameCallBack);
+        checkRealNameModel.A(this.checkRealNameCallBack);
         checkRealName();
         this.mNEGFeedBackManager = new d.a.n0.h.a(getPageContext(), "homepage");
         this.mShareSuccessReplyToServerModel = new ShareSuccessReplyToServerModel();
         this.mUegForwardCheckController = new d.a.n0.m3.d(getPageContext());
-        this.mBdTokenController = d.a.m0.a.d.y();
+        this.mBdTokenController = d.a.m0.a.e.y();
         int loadInt = TbadkSettings.getInst().loadInt("skin_", 0);
         if (loadInt != 1) {
             SkinManager.setDayOrDarkSkinTypeWithSystemMode(false, true);
@@ -2354,12 +2375,12 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         }
         updateProfileInfo();
         if (d.a.m0.b.d.C()) {
-            d.a.n0.s0.a.h().p(this, "6051001980-1210572494", d.a.n0.s0.a.a("personalize", "1"));
+            d.a.n0.s0.a.h().q(this, "6051001980-1210572494", d.a.n0.s0.a.a("personalize", "1"));
         }
         TbSingleton.getInstance().getChannelConfigModel().e();
         TbSingleton.getInstance().setActiveTimeStamp();
         if (d.a.m0.c1.b.e.d()) {
-            d.a.m0.c1.b.d.f49241a = false;
+            d.a.m0.c1.b.d.f52915a = false;
             d.a.m0.c1.b.c.a();
             if (!handlerYoungsterNightTask()) {
                 startYoungsterUseTimeTask();
@@ -2367,6 +2388,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         }
         this.isCreated = true;
         d.a.c.e.m.e.a().postDelayed(new m(), 1000L);
+        Thread.setDefaultUncaughtExceptionHandler(new d.a.c.j.c(Thread.getDefaultUncaughtExceptionHandler()));
         d.a.m0.m0.l.b().y(System.currentTimeMillis());
     }
 
@@ -2432,7 +2454,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
         }
         d.a.n0.h3.d dVar2 = this.mViewController;
         if (dVar2 != null && dVar2.B() != null) {
-            this.mViewController.B().r();
+            this.mViewController.B().t();
         }
         d.a.n0.j1.c.b().c();
         d.a.c.e.m.e.a().removeCallbacks(this.mCheckNewUserRedPackageRunnable);
@@ -2527,9 +2549,9 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             }
             d.a.n0.h3.d dVar3 = this.mViewController;
             if (dVar3 != null && dVar3.C() != null && (g2 = this.mViewController.C().g(intExtra)) != null) {
-                Fragment fragment = g2.f12151c;
+                Fragment fragment = g2.f12213c;
                 if (fragment instanceof d.a.m0.r.g) {
-                    ((d.a.m0.r.g) fragment).u0(intent);
+                    ((d.a.m0.r.g) fragment).x0(intent);
                 }
             }
             dealIntent(getPageContext().getPageActivity(), TbadkCoreApplication.getIntent());
@@ -2566,7 +2588,7 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, d.a.c.a.i
-    public void onPreLoad(d.a.c.j.e.q qVar) {
+    public void onPreLoad(d.a.c.k.e.q qVar) {
         super.onPreLoad(qVar);
         PreLoadImageHelper.load(qVar, getUniqueId());
         PreLoadVideoHelper.load(qVar, getUniqueId(), this);
@@ -2616,8 +2638,8 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
             d.a.c.e.m.e.a().postDelayed(new x(), 3000L);
         }
         d.a.m0.m0.l.b().f();
-        if (d.a.m0.a.r.g().c() != null && d.a.m0.a.r.g().i() != null && d.a.m0.a.r.g().c().getCurTaskType() == 6) {
-            d.a.m0.a.r.g().i().a();
+        if (d.a.m0.a.s.g().c() != null && d.a.m0.a.s.g().i() != null && d.a.m0.a.s.g().c().getCurTaskType() == 6) {
+            d.a.m0.a.s.g().i().a();
         }
         showLikeFirstForumTips();
         if (this.mCurrentTabIndex.intValue() != 1) {
@@ -2704,20 +2726,20 @@ public class MainTabActivity extends BaseFragmentActivity implements d.a.n0.h3.a
 
     public void showMemberTip(PayMemberInfoData payMemberInfoData) {
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && payMemberInfoData != null) {
-            if ((payMemberInfoData.u() == 1 || payMemberInfoData.u() == 2) && d.a.m0.r.d0.b.j().g("show_member_deid_line", true)) {
-                long s2 = payMemberInfoData.s() * 1000;
-                if (s2 < System.currentTimeMillis()) {
-                    if (StringUtils.isNull(payMemberInfoData.t())) {
-                        payMemberInfoData.w(getPageContext().getString(R.string.member));
+            if ((payMemberInfoData.y() == 1 || payMemberInfoData.y() == 2) && d.a.m0.r.d0.b.j().g("show_member_deid_line", true)) {
+                long w2 = payMemberInfoData.w() * 1000;
+                if (w2 < System.currentTimeMillis()) {
+                    if (StringUtils.isNull(payMemberInfoData.x())) {
+                        payMemberInfoData.A(getPageContext().getString(R.string.member));
                     } else {
-                        payMemberInfoData.w(payMemberInfoData.t() + getPageContext().getString(R.string.member_already_Expire));
+                        payMemberInfoData.A(payMemberInfoData.x() + getPageContext().getString(R.string.member_already_Expire));
                     }
                     this.mViewController.X(payMemberInfoData, 0);
-                } else if (s2 - System.currentTimeMillis() < 259200000) {
-                    if (StringUtils.isNull(payMemberInfoData.t())) {
-                        payMemberInfoData.w(getPageContext().getString(R.string.member));
+                } else if (w2 - System.currentTimeMillis() < 259200000) {
+                    if (StringUtils.isNull(payMemberInfoData.x())) {
+                        payMemberInfoData.A(getPageContext().getString(R.string.member));
                     } else {
-                        payMemberInfoData.w(payMemberInfoData.t() + getPageContext().getString(R.string.member_will_Expire));
+                        payMemberInfoData.A(payMemberInfoData.x() + getPageContext().getString(R.string.member_will_Expire));
                     }
                     this.mViewController.X(payMemberInfoData, 1);
                 }

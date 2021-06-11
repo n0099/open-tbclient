@@ -20,19 +20,19 @@ public class VideoPasterOverlayView extends FrameLayout {
     public static final int w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds22);
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f2529e;
+    public TextView f2548e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f2530f;
+    public TextView f2549f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f2531g;
+    public TextView f2550g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f2532h;
+    public View f2551h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f2533i;
+    public View f2552i;
     public ImageView j;
     public boolean k;
     public boolean l;
@@ -103,17 +103,17 @@ public class VideoPasterOverlayView extends FrameLayout {
         this.n = context;
         this.o = e(context);
         View inflate = LayoutInflater.from(context).inflate(R.layout.video_paster_overlay_layout, (ViewGroup) null);
-        this.f2533i = inflate;
-        this.f2532h = inflate.findViewById(R.id.video_paster_mask_wrapper);
-        this.f2529e = (TextView) this.f2533i.findViewById(R.id.video_paster_overlay_title);
-        this.f2530f = (TextView) this.f2533i.findViewById(R.id.video_paster_overlay_time_and_close);
-        this.f2531g = (TextView) this.f2533i.findViewById(R.id.video_paster_overlay_detail);
-        this.j = (ImageView) this.f2533i.findViewById(R.id.video_paster_mask_back);
-        this.f2531g.setOnClickListener(this.v);
-        this.f2530f.setOnClickListener(this.v);
-        this.f2532h.setOnClickListener(this.v);
+        this.f2552i = inflate;
+        this.f2551h = inflate.findViewById(R.id.video_paster_mask_wrapper);
+        this.f2548e = (TextView) this.f2552i.findViewById(R.id.video_paster_overlay_title);
+        this.f2549f = (TextView) this.f2552i.findViewById(R.id.video_paster_overlay_time_and_close);
+        this.f2550g = (TextView) this.f2552i.findViewById(R.id.video_paster_overlay_detail);
+        this.j = (ImageView) this.f2552i.findViewById(R.id.video_paster_mask_back);
+        this.f2550g.setOnClickListener(this.v);
+        this.f2549f.setOnClickListener(this.v);
+        this.f2551h.setOnClickListener(this.v);
         this.j.setOnClickListener(this.v);
-        this.f2529e.setOnClickListener(this.v);
+        this.f2548e.setOnClickListener(this.v);
     }
 
     private String getNavBarOverride() {
@@ -128,21 +128,21 @@ public class VideoPasterOverlayView extends FrameLayout {
 
     public final void c() {
         this.j.setVisibility(0);
-        this.f2530f.setPadding(w, 0, 0, 0);
-        this.f2531g.setPadding(0, 0, w, 0);
-        this.f2533i.setPadding(0, 0, 0, 0);
+        this.f2549f.setPadding(w, 0, 0, 0);
+        this.f2550g.setPadding(0, 0, w, 0);
+        this.f2552i.setPadding(0, 0, 0, 0);
         p();
     }
 
     public final void d() {
         this.j.setVisibility(8);
-        this.f2530f.setPadding(0, 0, 0, 0);
-        this.f2531g.setPadding(0, 0, 0, 0);
+        this.f2549f.setPadding(0, 0, 0, 0);
+        this.f2550g.setPadding(0, 0, 0, 0);
         boolean f2 = f(this.n);
         if (this.k && this.l && f2) {
-            this.f2533i.setPadding(0, 0, 0, this.o);
+            this.f2552i.setPadding(0, 0, 0, this.o);
         } else {
-            this.f2533i.setPadding(0, 0, 0, 0);
+            this.f2552i.setPadding(0, 0, 0, 0);
         }
         p();
     }
@@ -183,7 +183,7 @@ public class VideoPasterOverlayView extends FrameLayout {
 
     @Override // android.view.View
     public View getRootView() {
-        return this.f2533i;
+        return this.f2552i;
     }
 
     public void h() {
@@ -228,10 +228,10 @@ public class VideoPasterOverlayView extends FrameLayout {
         if (i4 <= 0) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2533i.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2552i.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = i4;
-        this.f2533i.setLayoutParams(layoutParams);
+        this.f2552i.setLayoutParams(layoutParams);
     }
 
     public void k(int i2) {
@@ -250,8 +250,8 @@ public class VideoPasterOverlayView extends FrameLayout {
         this.u = aVar;
         this.k = z;
         this.l = z2;
-        this.f2529e.setText(aVar.f39567h);
-        this.f2531g.setText(aVar.b());
+        this.f2548e.setText(aVar.f43248h);
+        this.f2550g.setText(aVar.b());
         if (z && !z2) {
             c();
         } else {
@@ -265,10 +265,10 @@ public class VideoPasterOverlayView extends FrameLayout {
         this.r = i3;
         this.s = str;
         if (this.k) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2533i.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2552i.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -1;
-            this.f2533i.setLayoutParams(layoutParams);
+            this.f2552i.setLayoutParams(layoutParams);
             return;
         }
         j(i2, i3, str);
@@ -276,10 +276,10 @@ public class VideoPasterOverlayView extends FrameLayout {
 
     public final void p() {
         Context context = this.n;
-        if (context == null || this.f2532h == null || !f(context)) {
+        if (context == null || this.f2551h == null || !f(context)) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2532h.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2551h.getLayoutParams();
         if (this.k) {
             if (this.l) {
                 layoutParams.setMargins(0, 0, 0, this.o);
@@ -290,18 +290,18 @@ public class VideoPasterOverlayView extends FrameLayout {
         } else {
             layoutParams.setMargins(0, 0, 0, 0);
         }
-        this.f2532h.setLayoutParams(layoutParams);
+        this.f2551h.setLayoutParams(layoutParams);
     }
 
     public void setCountDownNum(int i2) {
         String str;
-        if (this.f2530f != null && i2 > 0) {
+        if (this.f2549f != null && i2 > 0) {
             if (i2 < 10) {
                 str = "0" + i2;
             } else {
                 str = "" + i2;
             }
-            this.f2530f.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.video_paster_close_ad));
+            this.f2549f.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.video_paster_close_ad));
         }
     }
 

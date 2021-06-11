@@ -5,7 +5,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestDate implements HttpRequestInterceptor {
     public RequestDate() {
         throw new RuntimeException("Stub!");

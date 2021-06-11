@@ -5,33 +5,33 @@ import com.baidu.tbadk.TbPageContext;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f52748a;
+    public int f56437a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f52749b;
+    public TbPageContext f56438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f52750c;
+    public b f56439c;
 
     public g(TbPageContext tbPageContext, int i2) {
-        this.f52749b = tbPageContext;
-        this.f52748a = i2;
+        this.f56438b = tbPageContext;
+        this.f56437a = i2;
     }
 
     public int a() {
-        return this.f52748a;
+        return this.f56437a;
     }
 
     public TbPageContext b() {
-        return this.f52749b;
+        return this.f56438b;
     }
 
     public b c() {
-        return this.f52750c;
+        return this.f56439c;
     }
 
     public g(b bVar, int i2) {
-        this.f52750c = bVar;
-        this.f52748a = i2;
+        this.f56439c = bVar;
+        this.f56437a = i2;
     }
 }

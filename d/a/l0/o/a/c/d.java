@@ -6,13 +6,13 @@ import java.io.Writer;
 public class d extends Writer {
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f48285e;
+    public final String f51959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public StringBuilder f48286f = new StringBuilder(128);
+    public StringBuilder f51960f = new StringBuilder(128);
 
     public d(String str) {
-        this.f48285e = str;
+        this.f51959e = str;
     }
 
     @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -26,9 +26,9 @@ public class d extends Writer {
     }
 
     public final void n() {
-        if (this.f48286f.length() > 0) {
-            Log.d(this.f48285e, this.f48286f.toString());
-            StringBuilder sb = this.f48286f;
+        if (this.f51960f.length() > 0) {
+            Log.d(this.f51959e, this.f51960f.toString());
+            StringBuilder sb = this.f51960f;
             sb.delete(0, sb.length());
         }
     }
@@ -40,7 +40,7 @@ public class d extends Writer {
             if (c2 == '\n') {
                 n();
             } else {
-                this.f48286f.append(c2);
+                this.f51960f.append(c2);
             }
         }
     }

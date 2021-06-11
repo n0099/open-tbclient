@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class h implements k {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<k> f68684e;
+    public List<k> f71940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f68685f;
+    public volatile boolean f71941f;
 
     public h() {
     }
@@ -40,13 +40,13 @@ public final class h implements k {
         if (kVar.isUnsubscribed()) {
             return;
         }
-        if (!this.f68685f) {
+        if (!this.f71941f) {
             synchronized (this) {
-                if (!this.f68685f) {
-                    List list = this.f68684e;
+                if (!this.f71941f) {
+                    List list = this.f71940e;
                     if (list == null) {
                         list = new LinkedList();
-                        this.f68684e = list;
+                        this.f71940e = list;
                     }
                     list.add(kVar);
                     return;
@@ -57,12 +57,12 @@ public final class h implements k {
     }
 
     public void b(k kVar) {
-        if (this.f68685f) {
+        if (this.f71941f) {
             return;
         }
         synchronized (this) {
-            List<k> list = this.f68684e;
-            if (!this.f68685f && list != null) {
+            List<k> list = this.f71940e;
+            if (!this.f71941f && list != null) {
                 boolean remove = list.remove(kVar);
                 if (remove) {
                     kVar.unsubscribe();
@@ -73,32 +73,32 @@ public final class h implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68685f;
+        return this.f71941f;
     }
 
     @Override // h.k
     public void unsubscribe() {
-        if (this.f68685f) {
+        if (this.f71941f) {
             return;
         }
         synchronized (this) {
-            if (this.f68685f) {
+            if (this.f71941f) {
                 return;
             }
-            this.f68685f = true;
-            List<k> list = this.f68684e;
-            this.f68684e = null;
+            this.f71941f = true;
+            List<k> list = this.f71940e;
+            this.f71940e = null;
             c(list);
         }
     }
 
     public h(k... kVarArr) {
-        this.f68684e = new LinkedList(Arrays.asList(kVarArr));
+        this.f71940e = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public h(k kVar) {
         LinkedList linkedList = new LinkedList();
-        this.f68684e = linkedList;
+        this.f71940e = linkedList;
         linkedList.add(kVar);
     }
 }

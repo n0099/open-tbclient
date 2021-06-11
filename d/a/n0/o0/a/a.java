@@ -5,24 +5,24 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f57759a;
+    public long f61448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57760b;
+    public String f61449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57761c;
+    public String f61450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57762d;
+    public String f61451d;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f57759a = jSONObject.optLong("id");
-        this.f57760b = jSONObject.optString("name");
-        this.f57761c = jSONObject.optString("name_show");
-        this.f57762d = jSONObject.optString("portrait");
+        this.f61448a = jSONObject.optLong("id");
+        this.f61449b = jSONObject.optString("name");
+        this.f61450c = jSONObject.optString("name_show");
+        this.f61451d = jSONObject.optString("portrait");
     }
 }

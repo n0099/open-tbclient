@@ -9,7 +9,7 @@ import java.util.List;
 public class dg implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f37437a;
+    public final /* synthetic */ df f41116a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f232a;
@@ -18,7 +18,7 @@ public class dg implements Runnable {
     public final /* synthetic */ Throwable f233a;
 
     public dg(df dfVar, String str, Throwable th) {
-        this.f37437a = dfVar;
+        this.f41116a = dfVar;
         this.f232a = str;
         this.f233a = th;
     }
@@ -39,7 +39,7 @@ public class dg implements Runnable {
         List list6;
         list = df.f229a;
         simpleDateFormat = df.f228a;
-        str = this.f37437a.f37435b;
+        str = this.f41116a.f41114b;
         list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f232a), this.f233a));
         list2 = df.f229a;
         if (list2.size() > 20000) {
@@ -57,18 +57,18 @@ public class dg implements Runnable {
             }
             list4 = df.f229a;
             simpleDateFormat2 = df.f228a;
-            str4 = this.f37437a.f37435b;
+            str4 = this.f41116a.f41114b;
             list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
         }
         try {
             if (aa.d()) {
-                this.f37437a.m231a();
+                this.f41116a.m230a();
                 return;
             }
-            str3 = this.f37437a.f37435b;
+            str3 = this.f41116a.f41114b;
             Log.w(str3, "SDCard is unavailable.");
         } catch (Exception e2) {
-            str2 = this.f37437a.f37435b;
+            str2 = this.f41116a.f41114b;
             Log.e(str2, "", e2);
         }
     }

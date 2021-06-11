@@ -11,26 +11,26 @@ import d.a.l0.a.e2.c.j.b;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
 
     /* renamed from: d.a.l0.a.p0.f.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0796a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
+    /* loaded from: classes3.dex */
+    public class C0852a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44031e;
+        public final /* synthetic */ CallbackHandler f47705e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44032f;
+        public final /* synthetic */ String f47706f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f44033g;
+        public final /* synthetic */ String f47707g;
 
-        public C0796a(CallbackHandler callbackHandler, String str, String str2) {
-            this.f44031e = callbackHandler;
-            this.f44032f = str;
-            this.f44033g = str2;
+        public C0852a(CallbackHandler callbackHandler, String str, String str2) {
+            this.f47705e = callbackHandler;
+            this.f47706f = str;
+            this.f47707g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,29 +38,29 @@ public class a extends a0 {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                a.this.k(this.f44033g, this.f44032f, this.f44031e);
+                a.this.k(this.f47707g, this.f47706f, this.f47705e);
             } else {
-                d.a.l0.a.e2.c.d.p(iVar, this.f44031e, this.f44032f);
+                d.a.l0.a.e2.c.d.p(iVar, this.f47705e, this.f47706f);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements e.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44035a;
+        public final /* synthetic */ CallbackHandler f47709a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f44036b;
+        public final /* synthetic */ JSONObject f47710b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f44037c;
+        public final /* synthetic */ String f47711c;
 
         public b(a aVar, CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
-            this.f44035a = callbackHandler;
-            this.f44036b = jSONObject;
-            this.f44037c = str;
+            this.f47709a = callbackHandler;
+            this.f47710b = jSONObject;
+            this.f47711c = str;
         }
 
         @Override // d.a.l0.a.a1.e.c
@@ -69,23 +69,23 @@ public class a extends a0 {
 
         @Override // d.a.l0.a.a1.e.c
         public void onFailed() {
-            if (this.f44035a == null) {
+            if (this.f47709a == null) {
                 d.a.l0.a.e0.d.l("ExtCore-DebugDownload", "handler is null");
                 return;
             }
             try {
                 d.a.l0.a.e0.d.b("ExtCore-DebugDownload", "download failed");
                 d.a.l0.a.z1.b.f.e.f(d.a.l0.a.c1.a.b(), d.a.l0.a.h.aiapps_debug_extension_core_download_failed).F();
-                this.f44036b.put("status", -1);
+                this.f47710b.put("status", -1);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.f44035a.handleSchemeDispatchCallback(this.f44037c, UnitedSchemeUtility.wrapCallbackParams(this.f44036b, 1001).toString());
+            this.f47709a.handleSchemeDispatchCallback(this.f47711c, UnitedSchemeUtility.wrapCallbackParams(this.f47710b, 1001).toString());
         }
 
         @Override // d.a.l0.a.a1.e.c
         public void onSuccess() {
-            if (this.f44035a == null) {
+            if (this.f47709a == null) {
                 d.a.l0.a.e0.d.l("ExtCore-DebugDownload", "handler is null");
                 return;
             }
@@ -95,18 +95,18 @@ public class a extends a0 {
                 if (c2.exists() && d.a.l0.t.d.T(c2.getPath(), b2.getPath())) {
                     d.a.l0.a.e0.d.b("ExtCore-DebugDownload", "download success");
                     d.a.l0.a.z1.b.f.e.f(d.a.l0.a.c1.a.b(), d.a.l0.a.h.aiapps_debug_extension_core_download_success).F();
-                    this.f44036b.put("status", 0);
-                    this.f44035a.handleSchemeDispatchCallback(this.f44037c, UnitedSchemeUtility.wrapCallbackParams(this.f44036b, 0).toString());
+                    this.f47710b.put("status", 0);
+                    this.f47709a.handleSchemeDispatchCallback(this.f47711c, UnitedSchemeUtility.wrapCallbackParams(this.f47710b, 0).toString());
                 } else {
                     d.a.l0.a.e0.d.b("ExtCore-DebugDownload", "download failed");
                     d.a.l0.a.z1.b.f.e.f(d.a.l0.a.c1.a.b(), d.a.l0.a.h.aiapps_debug_extension_core_download_failed).F();
-                    this.f44036b.put("status", -1);
-                    this.f44035a.handleSchemeDispatchCallback(this.f44037c, UnitedSchemeUtility.wrapCallbackParams(this.f44036b, 1001).toString());
+                    this.f47710b.put("status", -1);
+                    this.f47709a.handleSchemeDispatchCallback(this.f47711c, UnitedSchemeUtility.wrapCallbackParams(this.f47710b, 1001).toString());
                 }
             } catch (JSONException e2) {
                 d.a.l0.a.e0.d.c("ExtCore-DebugDownload", "build result with exception", e2);
                 e2.printStackTrace();
-                this.f44035a.handleSchemeDispatchCallback(this.f44037c, UnitedSchemeUtility.wrapCallbackParams(this.f44036b, 1001).toString());
+                this.f47709a.handleSchemeDispatchCallback(this.f47711c, UnitedSchemeUtility.wrapCallbackParams(this.f47710b, 1001).toString());
             }
         }
     }
@@ -138,7 +138,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
             return false;
         }
-        eVar.T().g(context, "mapp_cts_debug", new C0796a(callbackHandler, optString2, optString));
+        eVar.T().g(context, "mapp_cts_debug", new C0852a(callbackHandler, optString2, optString));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }

@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class TransferRecvResultAdapter extends BasePayResultAdapter {
 
     /* renamed from: d  reason: collision with root package name */
-    public TransfRecvRequest f25313d;
+    public TransfRecvRequest f25416d;
 
     public TransferRecvResultAdapter(BaseActivity baseActivity) {
         super(baseActivity);
@@ -22,16 +22,16 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPaySuccessContents() {
         this.contents.clear();
-        TransfRecvRequest transfRecvRequest = this.f25313d;
+        TransfRecvRequest transfRecvRequest = this.f25416d;
         if (transfRecvRequest == null) {
             return null;
         }
         if (transfRecvRequest.isGatheringSuccess) {
             this.contents.put("mainTip", "ebpay_pay_success");
-            this.contents.put("mainTipExt", this.f25313d.recvAmount);
+            this.contents.put("mainTipExt", this.f25416d.recvAmount);
             this.contents.put("statusDrawableName", "wallet_base_result_main_success");
             this.contents.put("okBtnText", "ebpay_confirm");
-            this.contents.put("payDetailInfo", this.f25310c.pay_detail_info);
+            this.contents.put("payDetailInfo", this.f25413c.pay_detail_info);
         }
         return this.contents;
     }
@@ -39,16 +39,16 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public HashMap<String, String> getPayingContents() {
         this.contents.clear();
-        if (this.f25313d == null || this.f25309b == null) {
+        if (this.f25416d == null || this.f25412b == null) {
             return null;
         }
-        if (!this.f25310c.isPaySuccess) {
+        if (!this.f25413c.isPaySuccess) {
             this.contents.put("statusDrawableName", "wallet_base_result_paying");
             this.contents.put("mainTip", "bd_wallet_gathering_failed");
-            this.contents.put("errorMsg", this.f25310c.mErrorMsg);
-            TransfRecvRequest transfRecvRequest = this.f25313d;
+            this.contents.put("errorMsg", this.f25413c.mErrorMsg);
+            TransfRecvRequest transfRecvRequest = this.f25416d;
             if (transfRecvRequest != null && !TextUtils.isEmpty(transfRecvRequest.errMsg)) {
-                this.contents.put("payDetailInfo", this.f25310c.mErrorMsg);
+                this.contents.put("payDetailInfo", this.f25413c.mErrorMsg);
             }
             this.contents.put("okBtnText", "ebpay_know");
         }
@@ -57,13 +57,13 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void handleOKBtnOnclick() {
-        PayCallBackManager.callBackClientSuccess(this.f25308a.get().getActivity(), "");
+        PayCallBackManager.callBackClientSuccess(this.f25411a.get().getActivity(), "");
         a(BeanConstants.EV_RECEIVE_MONEY_EXIT);
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean isPaySuccess() {
-        TransfRecvRequest transfRecvRequest = this.f25313d;
+        TransfRecvRequest transfRecvRequest = this.f25416d;
         return transfRecvRequest != null && transfRecvRequest.isGatheringSuccess;
     }
 
@@ -79,14 +79,14 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
         if (beanRequestFromCache == null || !(beanRequestFromCache instanceof TransfRecvRequest)) {
             return false;
         }
-        this.f25313d = (TransfRecvRequest) beanRequestFromCache;
+        this.f25416d = (TransfRecvRequest) beanRequestFromCache;
         return true;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        TransfRecvRequest transfRecvRequest = this.f25313d;
+        TransfRecvRequest transfRecvRequest = this.f25416d;
         if (transfRecvRequest != null) {
             bundle.putSerializable("mTransferRecvRequest", transfRecvRequest);
         }

@@ -18,33 +18,33 @@ import tbclient.PbPage.PbSortType;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f53885a;
+    public View f57574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f53886b;
+    public TextView f57575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f53887c;
+    public TextView f57576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SortSwitchButton f53888d;
+    public SortSwitchButton f57577d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SortSwitchButton.f f53889e;
+    public SortSwitchButton.f f57578e;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f53891g;
+    public View.OnClickListener f57580g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53892h;
+    public int f57581h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f53893i;
+    public int f57582i;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53890f = 0;
+    public int f57579f = 0;
     public SortSwitchButton.f j = new a();
-    public View.OnClickListener k = new View$OnClickListenerC1292b();
+    public View.OnClickListener k = new View$OnClickListenerC1348b();
 
     /* loaded from: classes5.dex */
     public class a implements SortSwitchButton.f {
@@ -53,8 +53,8 @@ public class b {
 
         @Override // com.baidu.tieba.view.SortSwitchButton.f
         public boolean a(int i2) {
-            if (b.this.f53889e != null) {
-                return b.this.f53889e.a(i2);
+            if (b.this.f57578e != null) {
+                return b.this.f57578e.a(i2);
             }
             return true;
         }
@@ -62,19 +62,19 @@ public class b {
 
     /* renamed from: d.a.n0.e2.o.r.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1292b implements View.OnClickListener {
-        public View$OnClickListenerC1292b() {
+    public class View$OnClickListenerC1348b implements View.OnClickListener {
+        public View$OnClickListenerC1348b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.f53891g != null) {
-                b.this.f53891g.onClick(view);
+            if (b.this.f57580g != null) {
+                b.this.f57580g.onClick(view);
             }
             if (j.z()) {
                 if (view == null || !(view.getTag() instanceof Boolean) || ((Boolean) view.getTag()).booleanValue()) {
-                    if (view != b.this.f53886b) {
-                        if (view == b.this.f53887c) {
+                    if (view != b.this.f57575b) {
+                        if (view == b.this.f57576c) {
                             b.this.k(1);
                             return;
                         }
@@ -90,17 +90,17 @@ public class b {
         if (view == null) {
             return;
         }
-        this.f53885a = view;
+        this.f57574a = view;
         TextView textView = (TextView) view.findViewById(R.id.all_reply);
-        this.f53886b = textView;
+        this.f57575b = textView;
         textView.setOnClickListener(this.k);
-        TextView textView2 = (TextView) this.f53885a.findViewById(R.id.owner_reply);
-        this.f53887c = textView2;
+        TextView textView2 = (TextView) this.f57574a.findViewById(R.id.owner_reply);
+        this.f57576c = textView2;
         textView2.setOnClickListener(this.k);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.f53885a.findViewById(R.id.video_pb_sort_switch_btn);
-        this.f53888d = sortSwitchButton;
+        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.f57574a.findViewById(R.id.video_pb_sort_switch_btn);
+        this.f57577d = sortSwitchButton;
         sortSwitchButton.setOnSwitchChangeListener(this.j);
-        this.f53888d.u(2);
+        this.f57577d.u(2);
         h(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -109,26 +109,26 @@ public class b {
             return;
         }
         int i2 = 0;
-        if (oVar.f52956f == o.l) {
-            this.f53886b.setClickable(true);
-            this.f53886b.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-            this.f53887c.setVisibility(0);
-            f(oVar.f52958h);
+        if (oVar.f56645f == o.l) {
+            this.f57575b.setClickable(true);
+            this.f57575b.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+            this.f57576c.setVisibility(0);
+            f(oVar.f56647h);
         }
-        if (oVar.f52959i) {
-            this.f53887c.setVisibility(8);
-            this.f53888d.setVisibility(8);
+        if (oVar.f56648i) {
+            this.f57576c.setVisibility(8);
+            this.f57577d.setVisibility(8);
         } else if (oVar.j) {
-            this.f53887c.setVisibility(8);
+            this.f57576c.setVisibility(8);
         } else {
-            this.f53887c.setVisibility(0);
+            this.f57576c.setVisibility(0);
         }
-        if (!oVar.f52959i && oVar.k != null) {
-            this.f53888d.setVisibility(0);
+        if (!oVar.f56648i && oVar.k != null) {
+            this.f57577d.setVisibility(0);
             int i3 = 0;
             while (true) {
                 if (i3 < oVar.k.size()) {
-                    if (oVar.k.get(i3) != null && oVar.f52957g == oVar.k.get(i3).sort_type.intValue()) {
+                    if (oVar.k.get(i3) != null && oVar.f56646g == oVar.k.get(i3).sort_type.intValue()) {
                         i2 = i3;
                         break;
                     }
@@ -152,7 +152,7 @@ public class b {
 
     public void g(List<PbSortType> list, int i2) {
         if (ListUtils.isEmpty(list)) {
-            this.f53888d.setVisibility(8);
+            this.f57577d.setVisibility(8);
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -162,38 +162,38 @@ public class b {
             rVar.d(pbSortType.sort_name);
             arrayList.add(rVar);
         }
-        this.f53888d.setVisibility(0);
-        this.f53888d.setData(arrayList, i2);
+        this.f57577d.setVisibility(0);
+        this.f57577d.setData(arrayList, i2);
     }
 
     public void h(int i2) {
-        SkinManager.setBackgroundColor(this.f53885a, R.color.CAM_X0205);
-        this.f53893i = SkinManager.getColor(R.color.CAM_X0105);
-        this.f53892h = SkinManager.getColor(R.color.CAM_X0107);
-        k(this.f53890f);
-        this.f53888d.F();
+        SkinManager.setBackgroundColor(this.f57574a, R.color.CAM_X0205);
+        this.f57582i = SkinManager.getColor(R.color.CAM_X0105);
+        this.f57581h = SkinManager.getColor(R.color.CAM_X0107);
+        k(this.f57579f);
+        this.f57577d.F();
     }
 
     public void i(View.OnClickListener onClickListener) {
-        this.f53891g = onClickListener;
+        this.f57580g = onClickListener;
     }
 
     public void j(SortSwitchButton.f fVar) {
-        this.f53889e = fVar;
+        this.f57578e = fVar;
     }
 
     public void k(int i2) {
-        this.f53890f = i2;
+        this.f57579f = i2;
         if (i2 == 0) {
-            this.f53886b.setTypeface(Typeface.defaultFromStyle(1));
-            this.f53887c.setTypeface(Typeface.defaultFromStyle(0));
-            this.f53886b.setTextColor(this.f53893i);
-            this.f53887c.setTextColor(this.f53892h);
+            this.f57575b.setTypeface(Typeface.defaultFromStyle(1));
+            this.f57576c.setTypeface(Typeface.defaultFromStyle(0));
+            this.f57575b.setTextColor(this.f57582i);
+            this.f57576c.setTextColor(this.f57581h);
         } else if (i2 == 1) {
-            this.f53886b.setTypeface(Typeface.defaultFromStyle(0));
-            this.f53887c.setTypeface(Typeface.defaultFromStyle(1));
-            this.f53886b.setTextColor(this.f53892h);
-            this.f53887c.setTextColor(this.f53893i);
+            this.f57575b.setTypeface(Typeface.defaultFromStyle(0));
+            this.f57576c.setTypeface(Typeface.defaultFromStyle(1));
+            this.f57575b.setTextColor(this.f57581h);
+            this.f57576c.setTextColor(this.f57582i);
         }
     }
 }

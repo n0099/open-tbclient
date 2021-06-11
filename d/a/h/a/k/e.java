@@ -6,33 +6,33 @@ import java.util.Map;
 public class e<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f39965a;
+    public final LinkedHashMap<K, V> f43646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39966b;
+    public int f43647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39967c;
+    public int f43648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39968d;
+    public int f43649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39969e;
+    public int f43650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39970f;
+    public int f43651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39971g;
+    public int f43652g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39972h;
+    public int f43653h;
 
     public e(int i2) {
         if (i2 > 0) {
-            this.f39967c = i2;
-            this.f39965a = new LinkedHashMap<>(0, 0.75f, true);
+            this.f43648c = i2;
+            this.f43646a = new LinkedHashMap<>(0, 0.75f, true);
             return;
         }
         throw new IllegalArgumentException("maxSize <= 0");
@@ -49,30 +49,30 @@ public class e<K, V> {
         V put;
         if (k != null) {
             synchronized (this) {
-                V v = this.f39965a.get(k);
+                V v = this.f43646a.get(k);
                 if (v != null) {
-                    this.f39971g++;
+                    this.f43652g++;
                     return v;
                 }
-                this.f39972h++;
+                this.f43653h++;
                 V a2 = a(k);
                 if (a2 == null) {
                     return null;
                 }
                 synchronized (this) {
-                    this.f39969e++;
-                    put = this.f39965a.put(k, a2);
+                    this.f43650e++;
+                    put = this.f43646a.put(k, a2);
                     if (put != null) {
-                        this.f39965a.put(k, put);
+                        this.f43646a.put(k, put);
                     } else {
-                        this.f39966b += e(k, a2);
+                        this.f43647b += e(k, a2);
                     }
                 }
                 if (put != null) {
                     b(false, k, a2, put);
                     return put;
                 }
-                g(this.f39967c);
+                g(this.f43648c);
                 return a2;
             }
         }
@@ -83,17 +83,17 @@ public class e<K, V> {
         V put;
         if (k != null && v != null) {
             synchronized (this) {
-                this.f39968d++;
-                this.f39966b += e(k, v);
-                put = this.f39965a.put(k, v);
+                this.f43649d++;
+                this.f43647b += e(k, v);
+                put = this.f43646a.put(k, v);
                 if (put != null) {
-                    this.f39966b -= e(k, put);
+                    this.f43647b -= e(k, put);
                 }
             }
             if (put != null) {
                 b(false, k, put, v);
             }
-            g(this.f39967c);
+            g(this.f43648c);
             return put;
         }
         throw new NullPointerException("key == null || value == null");
@@ -122,16 +122,16 @@ public class e<K, V> {
         V value;
         while (true) {
             synchronized (this) {
-                if (this.f39966b >= 0 && (!this.f39965a.isEmpty() || this.f39966b == 0)) {
-                    if (this.f39966b <= i2 || this.f39965a.isEmpty()) {
+                if (this.f43647b >= 0 && (!this.f43646a.isEmpty() || this.f43647b == 0)) {
+                    if (this.f43647b <= i2 || this.f43646a.isEmpty()) {
                         break;
                     }
-                    Map.Entry<K, V> next = this.f39965a.entrySet().iterator().next();
+                    Map.Entry<K, V> next = this.f43646a.entrySet().iterator().next();
                     key = next.getKey();
                     value = next.getValue();
-                    this.f39965a.remove(key);
-                    this.f39966b -= e(key, value);
-                    this.f39970f++;
+                    this.f43646a.remove(key);
+                    this.f43647b -= e(key, value);
+                    this.f43651f++;
                 } else {
                     break;
                 }
@@ -142,7 +142,7 @@ public class e<K, V> {
 
     public final synchronized String toString() {
         int i2;
-        i2 = this.f39971g + this.f39972h;
-        return String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f39967c), Integer.valueOf(this.f39971g), Integer.valueOf(this.f39972h), Integer.valueOf(i2 != 0 ? (this.f39971g * 100) / i2 : 0));
+        i2 = this.f43652g + this.f43653h;
+        return String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f43648c), Integer.valueOf(this.f43652g), Integer.valueOf(this.f43653h), Integer.valueOf(i2 != 0 ? (this.f43652g * 100) / i2 : 0));
     }
 }

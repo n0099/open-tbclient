@@ -6,46 +6,43 @@ import org.json.JSONObject;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30496a;
+    public String f30598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30497b;
+    public String f30599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30498c;
+    public String f30600c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30499d;
+    public String f30601d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30500e;
+    public String f30602e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30501f;
+    public String f30603f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30502g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f30503h;
+    public String f30604g;
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30501f;
+        return this.f30603f;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f30496a);
-            jSONObject.put("apptype", this.f30497b);
-            jSONObject.put("phone_ID", this.f30498c);
-            jSONObject.put("certflag", this.f30499d);
-            jSONObject.put("sdkversion", this.f30500e);
-            jSONObject.put("appid", this.f30501f);
-            jSONObject.put("expandparams", this.f30502g);
-            jSONObject.put("sign", this.f30503h);
+            jSONObject.put("version", this.f30598a);
+            jSONObject.put("apptype", this.f30599b);
+            jSONObject.put("phone_ID", this.f30600c);
+            jSONObject.put("certflag", this.f30601d);
+            jSONObject.put("sdkversion", this.f30602e);
+            jSONObject.put("appid", this.f30603f);
+            jSONObject.put("expandparams", "");
+            jSONObject.put("sign", this.f30604g);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -53,34 +50,35 @@ public class b extends g {
     }
 
     public void c(String str) {
-        this.f30498c = str;
+        this.f30599b = str;
     }
 
     public void d(String str) {
-        this.f30499d = str;
+        this.f30600c = str;
     }
 
     public void e(String str) {
-        this.f30500e = str;
+        this.f30601d = str;
     }
 
     public void f(String str) {
-        this.f30501f = str;
+        this.f30602e = str;
     }
 
     public void g(String str) {
-        this.f30503h = str;
+        this.f30603f = str;
     }
 
-    public void a(String str) {
-        this.f30496a = str;
+    public void h(String str) {
+        this.f30604g = str;
     }
 
-    public String c() {
-        return n(this.f30496a + this.f30500e + this.f30501f + "iYm0HAnkxQtpvN44").toLowerCase();
+    @Override // com.cmic.sso.sdk.b.b.g
+    public String a(String str) {
+        return this.f30598a + this.f30602e + this.f30603f + "iYm0HAnkxQtpvN44";
     }
 
     public void b(String str) {
-        this.f30497b = str;
+        this.f30598a = str;
     }
 }

@@ -21,7 +21,6 @@ import com.baidu.mobstat.Config;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import d.a.c.e.n.d;
 import d.a.c.e.n.e;
 import d.a.c.e.n.f;
@@ -387,7 +386,7 @@ public class BdStatisticsManager {
         d.a.c.e.n.l.b.m().n(cVar, str4, str5);
         g.h().k(cVar);
         if (cVar != null) {
-            this.mAppVersion = cVar.f38737c;
+            this.mAppVersion = cVar.f42390c;
         }
         if (TextUtils.isEmpty(this.mProcessNameMd5)) {
             String processNameMd5 = getProcessNameMd5();
@@ -421,7 +420,7 @@ public class BdStatisticsManager {
             if (BdBaseApplication.getInst().checkNewUser()) {
                 return;
             }
-            this.mUploadInterval = VideoCloudSetting.HOUR_MILLISECOND;
+            this.mUploadInterval = 3600000L;
             startOrNextUploadTimer();
         } else {
             startOrNextUploadTimer();

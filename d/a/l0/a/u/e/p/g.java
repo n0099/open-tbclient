@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.kwai.video.player.KsMediaMeta;
 import com.tencent.connect.common.Constants;
 import d.a.l0.a.k;
 import d.a.l0.a.l;
@@ -22,13 +23,13 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45205a = k.f43199a;
+    public static final boolean f48879a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f45206b;
+    public static JSONObject f48880b;
 
     public static JSONObject a(@NonNull Context context) {
-        if (f45205a) {
+        if (f48879a) {
             Log.d("SystemInfoCacheHelper", "start create System Info");
         }
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
@@ -43,7 +44,7 @@ public class g {
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("pixelRatio", displayMetrics.density);
             jSONObject.put("devicePixelRatio", displayMetrics.density);
-            jSONObject.put("language", c(configuration));
+            jSONObject.put(KsMediaMeta.KSM_KEY_LANGUAGE, c(configuration));
             jSONObject.put("version", q0.D());
             jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
             jSONObject.put(Constants.PARAM_PLATFORM, "android");
@@ -52,12 +53,12 @@ public class g {
             jSONObject.put("host", d.a.l0.a.c1.a.m().a());
             jSONObject.put("statusBarHeight", n0.K(n0.u()));
             jSONObject.put("navigationBarHeight", n0.K(n0.j()));
-            if (f45205a) {
+            if (f48879a) {
                 Log.d("SystemInfoCacheHelper", "end create System Info");
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (f45205a) {
+            if (f48879a) {
                 Log.d("SystemInfoCacheHelper", "crate system info error : ");
                 e2.printStackTrace();
                 return null;
@@ -70,16 +71,16 @@ public class g {
     public static synchronized JSONObject b(Context context) {
         JSONObject jSONObject;
         synchronized (g.class) {
-            if (f45206b == null && context != null) {
-                if (f45205a) {
+            if (f48880b == null && context != null) {
+                if (f48879a) {
                     Log.d("SystemInfoCacheHelper", "need create system info");
                 }
-                f45206b = a(context);
+                f48880b = a(context);
             }
-            if (f45205a) {
+            if (f48879a) {
                 Log.d("SystemInfoCacheHelper", "return cache system info");
             }
-            jSONObject = f45206b;
+            jSONObject = f48880b;
         }
         return jSONObject;
     }
@@ -99,17 +100,17 @@ public class g {
     @Nullable
     public static synchronized void d(Context context) {
         synchronized (g.class) {
-            if (f45205a) {
+            if (f48879a) {
                 Log.d("SystemInfoCacheHelper", "start pre cache system info");
             }
             if (d.a.l0.a.c1.a.Z().v()) {
-                if (f45206b == null && context != null) {
-                    if (f45205a) {
+                if (f48880b == null && context != null) {
+                    if (f48879a) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
                     }
-                    f45206b = a(context);
+                    f48880b = a(context);
                 }
-                if (f45205a) {
+                if (f48879a) {
                     Log.d("SystemInfoCacheHelper", "end pre cache system info");
                 }
             }
@@ -118,10 +119,10 @@ public class g {
 
     public static synchronized void e() {
         synchronized (g.class) {
-            if (f45205a) {
+            if (f48879a) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
             }
-            f45206b = null;
+            f48880b = null;
         }
     }
 }

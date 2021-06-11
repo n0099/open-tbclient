@@ -1,12 +1,10 @@
 package com.baidu.mobstat;
-
-import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class cf extends ce {
     @Override // com.baidu.mobstat.ce, com.baidu.mobstat.cd
     public ct a(ct ctVar) {
         super.a(ctVar);
-        ctVar.a("Sec-WebSocket-Version", Constants.VIA_REPORT_TYPE_JOININ_GROUP);
+        ctVar.a("Sec-WebSocket-Version", "13");
         return ctVar;
     }
 

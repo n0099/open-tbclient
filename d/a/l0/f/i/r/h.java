@@ -16,7 +16,7 @@ import java.util.Locale;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static DisplayMetrics f46833a;
+    public static DisplayMetrics f50507a;
 
     public static int a(float f2) {
         return (int) (f2 * d(AppRuntime.getAppContext()));
@@ -48,7 +48,7 @@ public class h {
 
     public static float d(Context context) {
         n(AppRuntime.getAppContext());
-        DisplayMetrics displayMetrics = f46833a;
+        DisplayMetrics displayMetrics = f50507a;
         if (displayMetrics != null) {
             return displayMetrics.density;
         }
@@ -72,7 +72,7 @@ public class h {
 
     public static int h(Context context) {
         n(AppRuntime.getAppContext());
-        DisplayMetrics displayMetrics = f46833a;
+        DisplayMetrics displayMetrics = f50507a;
         if (displayMetrics != null) {
             return displayMetrics.heightPixels;
         }
@@ -81,7 +81,7 @@ public class h {
 
     public static int i(@Nullable Context context) {
         n(AppRuntime.getAppContext());
-        DisplayMetrics displayMetrics = f46833a;
+        DisplayMetrics displayMetrics = f50507a;
         if (displayMetrics != null) {
             return displayMetrics.widthPixels;
         }
@@ -111,7 +111,7 @@ public class h {
     }
 
     public static void n(Context context) {
-        if (f46833a == null) {
+        if (f50507a == null) {
             Context appContext = AppRuntime.getAppContext();
             if (appContext != null) {
                 context = appContext;
@@ -119,7 +119,7 @@ public class h {
             if (context == null) {
                 return;
             }
-            f46833a = context.getResources().getDisplayMetrics();
+            f50507a = context.getResources().getDisplayMetrics();
         }
     }
 

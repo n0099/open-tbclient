@@ -21,8 +21,8 @@ public class a extends d.a.l0.a.u.c.d {
 
     /* renamed from: d.a.l0.a.u.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0833a implements d.b {
-        public C0833a() {
+    public class C0889a implements d.b {
+        public C0889a() {
         }
 
         @Override // d.a.l0.a.u.c.d.b
@@ -57,68 +57,68 @@ public class a extends d.a.l0.a.u.c.d {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f44841e;
+        public final /* synthetic */ d.a.l0.a.a2.e f48515e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44842f;
+        public final /* synthetic */ String f48516f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f44843g;
+        public final /* synthetic */ JSONArray f48517g;
 
         /* renamed from: d.a.l0.a.u.e.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0834a implements g.d {
+        public class C0890a implements g.d {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CountDownLatch f44845a;
+            public final /* synthetic */ CountDownLatch f48519a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ List f44846b;
+            public final /* synthetic */ List f48520b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f44847c;
+            public final /* synthetic */ String f48521c;
 
-            public C0834a(c cVar, CountDownLatch countDownLatch, List list, String str) {
-                this.f44845a = countDownLatch;
-                this.f44846b = list;
-                this.f44847c = str;
+            public C0890a(c cVar, CountDownLatch countDownLatch, List list, String str) {
+                this.f48519a = countDownLatch;
+                this.f48520b = list;
+                this.f48521c = str;
             }
 
             @Override // d.a.l0.a.c2.f.p0.g.d
             public void a(String str) {
-                this.f44845a.countDown();
-                this.f44846b.add(this.f44847c);
+                this.f48519a.countDown();
+                this.f48520b.add(this.f48521c);
             }
 
             @Override // d.a.l0.a.c2.f.p0.g.d
             public void b(int i2) {
-                this.f44845a.countDown();
+                this.f48519a.countDown();
                 d.a.l0.a.e0.d.l("Api-LoadSubPackage", "downloadSubPackage fail, code=" + i2);
             }
         }
 
         public c(d.a.l0.a.a2.e eVar, String str, JSONArray jSONArray) {
-            this.f44841e = eVar;
-            this.f44842f = str;
-            this.f44843g = jSONArray;
+            this.f48515e = eVar;
+            this.f48516f = str;
+            this.f48517g = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String Z = this.f44841e.Z();
+            String Z = this.f48515e.Z();
             if (!TextUtils.isDigitsOnly(Z)) {
                 a aVar = a.this;
-                String str = this.f44842f;
+                String str = this.f48516f;
                 aVar.d(str, new d.a.l0.a.u.h.b(202, "current version error:" + Z));
                 return;
             }
-            List<d.a.l0.n.h.g> j = d.a.l0.n.g.a.h().j(this.f44841e.f40749f, Integer.parseInt(Z));
+            List<d.a.l0.n.h.g> j = d.a.l0.n.g.a.h().j(this.f48515e.f44425f, Integer.parseInt(Z));
             ArraySet<String> arraySet = new ArraySet();
             List synchronizedList = Collections.synchronizedList(new ArrayList());
-            for (int i2 = 0; i2 < this.f44843g.length(); i2++) {
-                String optString = this.f44843g.optString(i2);
+            for (int i2 = 0; i2 < this.f48517g.length(); i2++) {
+                String optString = this.f48517g.optString(i2);
                 if (!TextUtils.isEmpty(optString)) {
-                    if (a.y(optString, j) && this.f44841e.k0(optString)) {
+                    if (a.y(optString, j) && this.f48515e.k0(optString)) {
                         synchronizedList.add(optString);
                     } else {
                         arraySet.add(optString);
@@ -128,12 +128,12 @@ public class a extends d.a.l0.a.u.c.d {
             if (!arraySet.isEmpty()) {
                 CountDownLatch countDownLatch = new CountDownLatch(arraySet.size());
                 for (String str2 : arraySet) {
-                    String G = this.f44841e.G(str2);
+                    String G = this.f48515e.G(str2);
                     if (TextUtils.isEmpty(G)) {
                         countDownLatch.countDown();
                     } else {
-                        d.a.l0.a.a2.e eVar = this.f44841e;
-                        g.k(eVar.f40749f, eVar.Z(), "1", str2, G, null, new C0834a(this, countDownLatch, synchronizedList, str2));
+                        d.a.l0.a.a2.e eVar = this.f48515e;
+                        g.k(eVar.f44425f, eVar.Z(), "1", str2, G, null, new C0890a(this, countDownLatch, synchronizedList, str2));
                     }
                 }
                 try {
@@ -143,16 +143,16 @@ public class a extends d.a.l0.a.u.c.d {
                 }
             }
             JSONObject jSONObject = new JSONObject();
-            for (int i3 = 0; i3 < this.f44843g.length(); i3++) {
+            for (int i3 = 0; i3 < this.f48517g.length(); i3++) {
                 try {
-                    jSONObject.put(this.f44843g.optString(i3), synchronizedList.contains(this.f44843g.optString(i3)) ? 0 : 1001);
+                    jSONObject.put(this.f48517g.optString(i3), synchronizedList.contains(this.f48517g.optString(i3)) ? 0 : 1001);
                 } catch (Exception e3) {
-                    if (d.a.l0.a.u.c.d.f44812c) {
+                    if (d.a.l0.a.u.c.d.f48486c) {
                         e3.printStackTrace();
                     }
                 }
             }
-            a.this.d(this.f44842f, new d.a.l0.a.u.h.b(0, jSONObject));
+            a.this.d(this.f48516f, new d.a.l0.a.u.h.b(0, jSONObject));
         }
     }
 
@@ -160,34 +160,34 @@ public class a extends d.a.l0.a.u.c.d {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f44848e;
+        public final /* synthetic */ d.a.l0.a.a2.e f48522e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44849f;
+        public final /* synthetic */ String f48523f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f44850g;
+        public final /* synthetic */ String f48524g;
 
         public d(d.a.l0.a.a2.e eVar, String str, String str2) {
-            this.f44848e = eVar;
-            this.f44849f = str;
-            this.f44850g = str2;
+            this.f48522e = eVar;
+            this.f48523f = str;
+            this.f48524g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f44848e.l0(this.f44849f) && this.f44848e.k0(this.f44849f)) {
+            if (this.f48522e.l0(this.f48523f) && this.f48522e.k0(this.f48523f)) {
                 d.a.l0.a.e0.d.g("Api-LoadSubPackage", "subPackage have existed");
-                a.this.d(this.f44850g, new d.a.l0.a.u.h.b(1001, "subPackage have existed"));
+                a.this.d(this.f48524g, new d.a.l0.a.u.h.b(1001, "subPackage have existed"));
                 return;
             }
-            String G = this.f44848e.G(this.f44849f);
+            String G = this.f48522e.G(this.f48523f);
             if (!TextUtils.isEmpty(G)) {
-                a.this.w(this.f44848e, this.f44849f, G, this.f44850g);
+                a.this.w(this.f48522e, this.f48523f, G, this.f48524g);
                 return;
             }
             d.a.l0.a.e0.d.g("Api-LoadSubPackage", "subPackage cannot find aps key");
-            a.this.d(this.f44850g, new d.a.l0.a.u.h.b(202));
+            a.this.d(this.f48524g, new d.a.l0.a.u.h.b(202));
         }
     }
 
@@ -195,22 +195,22 @@ public class a extends d.a.l0.a.u.c.d {
     public class e implements g.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f44852a;
+        public final /* synthetic */ String f48526a;
 
         public e(String str) {
-            this.f44852a = str;
+            this.f48526a = str;
         }
 
         @Override // d.a.l0.a.c2.f.p0.g.d
         public void a(String str) {
             d.a.l0.a.e0.d.g("Api-LoadSubPackage", "preload subPackage success");
-            a.this.d(this.f44852a, new d.a.l0.a.u.h.b(0, "preload subPackage success"));
+            a.this.d(this.f48526a, new d.a.l0.a.u.h.b(0, "preload subPackage success"));
         }
 
         @Override // d.a.l0.a.c2.f.p0.g.d
         public void b(int i2) {
             d.a.l0.a.e0.d.b("Api-LoadSubPackage", "preload subPackage failed");
-            a.this.d(this.f44852a, new d.a.l0.a.u.h.b(202, "No SubPackage"));
+            a.this.d(this.f48526a, new d.a.l0.a.u.h.b(202, "No SubPackage"));
         }
     }
 
@@ -238,7 +238,7 @@ public class a extends d.a.l0.a.u.c.d {
     }
 
     public final void w(d.a.l0.a.a2.e eVar, String str, String str2, @Nullable String str3) {
-        g.k(eVar.f40749f, eVar.Z(), "1", str, str2, null, new e(str3));
+        g.k(eVar.f44425f, eVar.Z(), "1", str, str2, null, new e(str3));
     }
 
     public final void x(d.a.l0.a.a2.e eVar, String str, @Nullable String str2) {
@@ -246,9 +246,9 @@ public class a extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b z(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-LoadSubPackage", "start pre load sub package");
         }
-        return j(str, true, new C0833a());
+        return j(str, true, new C0889a());
     }
 }

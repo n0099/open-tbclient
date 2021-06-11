@@ -14,10 +14,10 @@ import java.util.List;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45438a = d.a.l0.a.k.f43199a;
+    public static final boolean f49112a = d.a.l0.a.k.f46875a;
 
     public static String a(int i2, boolean z) {
-        if (f45438a) {
+        if (f49112a) {
             return d.a.l0.a.u1.a.a.p() ? j.d(i2, true) : "";
         }
         return j.d(i2, z);
@@ -195,7 +195,7 @@ public class p {
         try {
             str = h(activity);
         } catch (Exception e2) {
-            if (!f45438a) {
+            if (!f49112a) {
                 d.a.l0.a.e0.d.i("SwanAppEnvironmentUtils", "getExtraInfo error", e2);
                 str = "";
             } else {

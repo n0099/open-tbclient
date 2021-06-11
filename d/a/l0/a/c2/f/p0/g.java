@@ -18,65 +18,65 @@ import java.io.File;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41183a = d.a.l0.a.k.f43199a;
+    public static final boolean f44859a = d.a.l0.a.k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f41184a;
+        public final /* synthetic */ boolean f44860a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.a2.e f41185b;
+        public final /* synthetic */ d.a.l0.a.a2.e f44861b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f41186c;
+        public final /* synthetic */ d f44862c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f41187d;
+        public final /* synthetic */ String f44863d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41188e;
+        public final /* synthetic */ String f44864e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41189f;
+        public final /* synthetic */ String f44865f;
 
         public a(boolean z, d.a.l0.a.a2.e eVar, d dVar, String str, String str2, String str3) {
-            this.f41184a = z;
-            this.f41185b = eVar;
-            this.f41186c = dVar;
-            this.f41187d = str;
-            this.f41188e = str2;
-            this.f41189f = str3;
+            this.f44860a = z;
+            this.f44861b = eVar;
+            this.f44862c = dVar;
+            this.f44863d = str;
+            this.f44864e = str2;
+            this.f44865f = str3;
         }
 
         @Override // d.a.l0.a.h0.m.o.a.b
         public void a() {
-            g.h(this.f41184a, this.f41185b.f40749f, "pkg_retry_fail", String.valueOf(2113));
-            this.f41186c.b(2113);
+            g.h(this.f44860a, this.f44861b.f44425f, "pkg_retry_fail", String.valueOf(2113));
+            this.f44862c.b(2113);
         }
 
         @Override // d.a.l0.a.h0.m.o.a.b
         public void b(d.a.l0.a.q2.a aVar) {
-            boolean n = g.n(this.f41185b.f40749f, aVar);
-            if (g.f41183a) {
-                Log.d("PagesRoute", "getAppPackage-isNeedGetPkgRetry:" + n + ",isRetry:" + this.f41184a + ",pmsErrorCode:" + aVar);
+            boolean n = g.n(this.f44861b.f44425f, aVar);
+            if (g.f44859a) {
+                Log.d("PagesRoute", "getAppPackage-isNeedGetPkgRetry:" + n + ",isRetry:" + this.f44860a + ",pmsErrorCode:" + aVar);
             }
             if (n) {
-                g.i(this.f41185b.f40749f, aVar);
-                d.a.l0.a.f1.d.b.a.b().a(this.f41185b.f40749f);
-                g.j(this.f41185b, this.f41188e, this.f41187d, this.f41186c, this.f41189f, true);
+                g.i(this.f44861b.f44425f, aVar);
+                d.a.l0.a.f1.d.b.a.b().a(this.f44861b.f44425f);
+                g.j(this.f44861b, this.f44864e, this.f44863d, this.f44862c, this.f44865f, true);
                 return;
             }
             d.a.l0.a.z1.b.f.e.f(AppRuntime.getAppContext(), d.a.l0.a.h.swanapp_tip_package_unavailable).F();
-            g.h(this.f41184a, this.f41185b.f40749f, "pkg_retry_fail", String.valueOf(aVar == null ? 0L : aVar.a()));
-            this.f41186c.b(2113);
+            g.h(this.f44860a, this.f44861b.f44425f, "pkg_retry_fail", String.valueOf(aVar == null ? 0L : aVar.a()));
+            this.f44862c.b(2113);
         }
 
         @Override // d.a.l0.a.h0.m.o.a.b
         public void onSuccess() {
-            g.h(this.f41184a, this.f41185b.f40749f, "pkg_retry_success", "");
-            this.f41186c.a(this.f41187d);
+            g.h(this.f44860a, this.f44861b.f44425f, "pkg_retry_success", "");
+            this.f44862c.a(this.f44863d);
         }
     }
 
@@ -84,32 +84,32 @@ public class g {
     public static class b implements d.a.l0.a.h0.m.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41190a;
+        public final /* synthetic */ String f44866a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f41191b;
+        public final /* synthetic */ d f44867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f41192c;
+        public final /* synthetic */ String f44868c;
 
         public b(String str, d dVar, String str2) {
-            this.f41190a = str;
-            this.f41191b = dVar;
-            this.f41192c = str2;
+            this.f44866a = str;
+            this.f44867b = dVar;
+            this.f44868c = str2;
         }
 
         @Override // d.a.l0.a.h0.m.b
         public void a() {
             d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
             if (i2 != null) {
-                i2.y0(this.f41190a, true);
+                i2.y0(this.f44866a, true);
             }
-            this.f41191b.a(this.f41192c);
+            this.f44867b.a(this.f44868c);
         }
 
         @Override // d.a.l0.a.h0.m.b
         public void b(int i2, d.a.l0.a.q2.a aVar) {
-            this.f41191b.b(i2);
+            this.f44867b.b(i2);
         }
     }
 
@@ -117,65 +117,65 @@ public class g {
     public static class c implements d.a.l0.a.h0.m.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41193a;
+        public final /* synthetic */ String f44869a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f41194b;
+        public final /* synthetic */ boolean f44870b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f41195c;
+        public final /* synthetic */ String f44871c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d f41196d;
+        public final /* synthetic */ d f44872d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41197e;
+        public final /* synthetic */ String f44873e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41198f;
+        public final /* synthetic */ String f44874f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41199g;
+        public final /* synthetic */ String f44875g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f41200h;
+        public final /* synthetic */ String f44876h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f41201i;
+        public final /* synthetic */ String f44877i;
 
         public c(String str, boolean z, String str2, d dVar, String str3, String str4, String str5, String str6, String str7) {
-            this.f41193a = str;
-            this.f41194b = z;
-            this.f41195c = str2;
-            this.f41196d = dVar;
-            this.f41197e = str3;
-            this.f41198f = str4;
-            this.f41199g = str5;
-            this.f41200h = str6;
-            this.f41201i = str7;
+            this.f44869a = str;
+            this.f44870b = z;
+            this.f44871c = str2;
+            this.f44872d = dVar;
+            this.f44873e = str3;
+            this.f44874f = str4;
+            this.f44875g = str5;
+            this.f44876h = str6;
+            this.f44877i = str7;
         }
 
         @Override // d.a.l0.a.h0.m.b
         public void a() {
-            d.a.l0.a.a2.d.g().r().y0(this.f41193a, true);
-            g.h(this.f41194b, this.f41195c, "sub_pkg_retry_success", "");
-            this.f41196d.a(this.f41197e);
+            d.a.l0.a.a2.d.g().r().y0(this.f44869a, true);
+            g.h(this.f44870b, this.f44871c, "sub_pkg_retry_success", "");
+            this.f44872d.a(this.f44873e);
         }
 
         @Override // d.a.l0.a.h0.m.b
         public void b(int i2, d.a.l0.a.q2.a aVar) {
-            boolean n = g.n(this.f41195c, aVar);
-            if (g.f41183a) {
-                Log.d("PagesRoute", "isNeedGetPkgRetry:" + n + ",isRetry:" + this.f41194b + ",pmsErrorCode:" + aVar);
+            boolean n = g.n(this.f44871c, aVar);
+            if (g.f44859a) {
+                Log.d("PagesRoute", "isNeedGetPkgRetry:" + n + ",isRetry:" + this.f44870b + ",pmsErrorCode:" + aVar);
             }
             if (n) {
-                g.i(this.f41198f, aVar);
-                d.a.l0.a.f1.d.b.a.b().a(this.f41195c);
-                g.m(this.f41198f, this.f41199g, this.f41200h, this.f41193a, this.f41201i, this.f41197e, this.f41196d, true);
+                g.i(this.f44874f, aVar);
+                d.a.l0.a.f1.d.b.a.b().a(this.f44871c);
+                g.m(this.f44874f, this.f44875g, this.f44876h, this.f44869a, this.f44877i, this.f44873e, this.f44872d, true);
                 return;
             }
-            g.h(this.f41194b, this.f41195c, "sub_pkg_retry_fail", String.valueOf(aVar == null ? 0L : aVar.a()));
-            this.f41196d.b(i2);
+            g.h(this.f44870b, this.f44871c, "sub_pkg_retry_fail", String.valueOf(aVar == null ? 0L : aVar.a()));
+            this.f44872d.b(i2);
         }
     }
 
@@ -190,24 +190,24 @@ public class g {
     public static class e implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d f41202a;
+        public final d f44878a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f41203b;
+        public final boolean f44879b;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f41204e;
+            public final /* synthetic */ String f44880e;
 
             public a(String str) {
-                this.f41204e = str;
+                this.f44880e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                e.this.f41202a.a(this.f41204e);
+                e.this.f44878a.a(this.f44880e);
             }
         }
 
@@ -215,24 +215,24 @@ public class g {
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f41206e;
+            public final /* synthetic */ int f44882e;
 
             public b(int i2) {
-                this.f41206e = i2;
+                this.f44882e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (e.this.f41203b) {
+                if (e.this.f44879b) {
                     d.a.l0.a.z1.b.f.e.f(AppRuntime.getAppContext(), d.a.l0.a.h.swanapp_tip_package_unavailable).F();
                 }
-                e.this.f41202a.b(this.f41206e);
+                e.this.f44878a.b(this.f44882e);
             }
         }
 
         public e(@NonNull d dVar, boolean z) {
-            this.f41202a = dVar;
-            this.f41203b = z;
+            this.f44878a = dVar;
+            this.f44879b = z;
         }
 
         @Override // d.a.l0.a.c2.f.p0.g.d
@@ -253,17 +253,17 @@ public class g {
         if (dVar == null) {
             return;
         }
-        if (eVar != null && bVar != null && !TextUtils.isEmpty(bVar.f43357e) && !TextUtils.isEmpty(bVar.f43360h)) {
-            String str3 = bVar.f43360h;
-            String R = eVar.R(bVar.f43357e);
+        if (eVar != null && bVar != null && !TextUtils.isEmpty(bVar.f47033e) && !TextUtils.isEmpty(bVar.f47036h)) {
+            String str3 = bVar.f47036h;
+            String R = eVar.R(bVar.f47033e);
             boolean h0 = eVar.h0(str3);
             if (!d.a.l0.a.e0.f.e.e.d() && !d.a.l0.a.u1.a.a.G() && !d.a.l0.a.u1.a.a.C()) {
-                if (d.a.l0.a.t1.b.a.e(bVar.f43357e)) {
+                if (d.a.l0.a.t1.b.a.e(bVar.f47033e)) {
                     dVar.a(str);
                     return;
                 }
                 if (h0) {
-                    if (d.a.l0.a.a1.e.A(eVar.f40749f, eVar.Z())) {
+                    if (d.a.l0.a.a1.e.A(eVar.f44425f, eVar.Z())) {
                         dVar.a(str);
                         return;
                     } else if (eVar.e0()) {
@@ -288,14 +288,14 @@ public class g {
                         return;
                     }
                     boolean g0 = eVar.g0(str3);
-                    if (!d.a.l0.a.a1.e.A(eVar.f40749f, eVar.Z()) && !g0) {
+                    if (!d.a.l0.a.a1.e.A(eVar.f44425f, eVar.Z()) && !g0) {
                         j(eVar, str3, str, dVar, str2, false);
                         return;
                     }
                     HybridUbcFlow q = d.a.l0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str2);
                     q.C(new UbcFlowEvent("na_start_sub_package_download"));
                     q.A("sub_state", "1");
-                    l(eVar.f40749f, eVar.Z(), "3", R, G, str, new e(dVar, true));
+                    l(eVar.f44425f, eVar.Z(), "3", R, G, str, new e(dVar, true));
                     return;
                 }
             } else if (!h0 && TextUtils.isEmpty(R)) {
@@ -333,10 +333,10 @@ public class g {
         HybridUbcFlow q = d.a.l0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str3);
         q.C(new UbcFlowEvent("na_start_sub_package_download"));
         q.A("sub_state", "1");
-        d.a.l0.n.i.m.c cVar = new d.a.l0.n.i.m.c(eVar.f40749f, d.a.l0.a.a2.d.g().l());
+        d.a.l0.n.i.m.c cVar = new d.a.l0.n.i.m.c(eVar.f44425f, d.a.l0.a.a2.d.g().l());
         cVar.o(q0.o(eVar.Z()));
         cVar.r(str);
-        d.a.l0.n.b.b(cVar, new d.a.l0.a.h0.m.o.a(eVar.f40749f, new a(z, eVar, dVar, str2, str, str3)));
+        d.a.l0.n.b.b(cVar, new d.a.l0.a.h0.m.o.a(eVar.f44425f, new a(z, eVar, dVar, str2, str, str3)));
     }
 
     public static void k(String str, String str2, String str3, String str4, String str5, String str6, d dVar) {
@@ -371,7 +371,7 @@ public class g {
         if (gVar == null) {
             return false;
         }
-        return p(bVar, gVar.f40692b);
+        return p(bVar, gVar.f44368b);
     }
 
     public static boolean p(d.a.l0.a.f1.e.b bVar, SwanAppConfigData swanAppConfigData) {
@@ -380,15 +380,15 @@ public class g {
             if (!TextUtils.isEmpty(f2) && f2.startsWith(File.separator)) {
                 f2 = f2.substring(1);
             }
-            if (swanAppConfigData != null && swanAppConfigData.f11246b != null) {
+            if (swanAppConfigData != null && swanAppConfigData.f11308b != null) {
                 String c2 = j.c(f2, swanAppConfigData);
-                if (swanAppConfigData.f11246b.c(c2)) {
+                if (swanAppConfigData.f11308b.c(c2)) {
                     return false;
                 }
-                String str = swanAppConfigData.f11247c.f11282c.get(c2);
+                String str = swanAppConfigData.f11309c.f11344c.get(c2);
                 if (!TextUtils.isEmpty(str)) {
                     if (d.a.l0.n.g.a.h().m(bVar.H(), bVar.u1(), str)) {
-                        return !new File(e.C0561e.i(bVar.H(), bVar.u1()), str).exists();
+                        return !new File(e.C0617e.i(bVar.H(), bVar.u1()), str).exists();
                     }
                     return true;
                 }

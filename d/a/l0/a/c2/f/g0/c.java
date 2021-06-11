@@ -10,7 +10,7 @@ public class c extends a {
 
     @Override // d.a.l0.a.c2.f.g0.a
     public void e(String str) {
-        d.a.l0.a.v1.b.b v = d.a.l0.a.v1.b.c.E("swan_forbidden_kill_on_client").y("mAppId", str).v("ipc_forbidden_flag", this.f41030f);
+        d.a.l0.a.v1.b.b v = d.a.l0.a.v1.b.c.E("swan_forbidden_kill_on_client").y("mAppId", str).v("ipc_forbidden_flag", this.f44706f);
         v.J(str);
         v.L();
     }
@@ -20,7 +20,7 @@ public class c extends a {
     /* renamed from: i */
     public void onCallback(i.a aVar) {
         if (d.a.l0.a.v1.b.c.f(aVar.C(), "swan_forbidden_kill_on_server")) {
-            this.f41030f = aVar.j("ipc_forbidden_flag", 1);
+            this.f44706f = aVar.j("ipc_forbidden_flag", 1);
             e(aVar.o("mAppId", d.a.l0.a.a2.d.g().getAppId()));
         }
     }

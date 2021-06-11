@@ -12,16 +12,16 @@ import org.json.JSONObject;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41385a = k.f43199a;
+    public static final boolean f45061a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f41386b;
+    public static volatile d f45062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d.a.l0.a.j2.a f41387c;
+    public static d.a.l0.a.j2.a f45063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Timer f41388d;
+    public static Timer f45064d;
 
     /* loaded from: classes2.dex */
     public class a extends TimerTask {
@@ -30,7 +30,7 @@ public abstract class d {
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            if (d.f41385a) {
+            if (d.f45061a) {
                 Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
             }
             d.this.c();
@@ -49,7 +49,7 @@ public abstract class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            if (d.f41385a) {
+            if (d.f45061a) {
                 Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
             }
             char c2 = 65535;
@@ -67,20 +67,20 @@ public abstract class d {
             }
             if (c2 == 0) {
                 i();
-                d.a.l0.a.j2.b.d(d.f41387c, str, d());
+                d.a.l0.a.j2.b.d(d.f45063c, str, d());
             } else if (c2 == 1) {
-                if (d.f41387c != null) {
-                    d.a.l0.a.j2.b.d(d.f41387c, "downloadsuccess", d());
+                if (d.f45063c != null) {
+                    d.a.l0.a.j2.b.d(d.f45063c, "downloadsuccess", d());
                 }
                 c();
                 h();
             } else if (c2 != 2) {
-                if (d.f41387c != null) {
-                    d.a.l0.a.j2.b.d(d.f41387c, str, d());
+                if (d.f45063c != null) {
+                    d.a.l0.a.j2.b.d(d.f45063c, str, d());
                 }
             } else {
-                if (d.f41387c != null) {
-                    d.a.l0.a.j2.b.d(d.f41387c, "downloadfail", d());
+                if (d.f45063c != null) {
+                    d.a.l0.a.j2.b.d(d.f45063c, "downloadfail", d());
                 }
                 c();
                 h();
@@ -103,7 +103,7 @@ public abstract class d {
             if (TextUtils.isEmpty(str) || f.k().m()) {
                 return;
             }
-            if (d.f41385a) {
+            if (d.f45061a) {
                 Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
             }
             char c2 = 65535;
@@ -117,13 +117,13 @@ public abstract class d {
             }
             if (c2 == 0) {
                 i();
-                d.a.l0.a.j2.b.d(d.f41387c, str, d());
+                d.a.l0.a.j2.b.d(d.f45063c, str, d());
             } else if (c2 != 1) {
-                if (d.f41387c != null) {
-                    d.a.l0.a.j2.b.d(d.f41387c, str, d());
+                if (d.f45063c != null) {
+                    d.a.l0.a.j2.b.d(d.f45063c, str, d());
                 }
-            } else if (d.f41387c != null) {
-                d.a.l0.a.j2.b.d(d.f41387c, str, d());
+            } else if (d.f45063c != null) {
+                d.a.l0.a.j2.b.d(d.f45063c, str, d());
                 c();
                 h();
             }
@@ -139,18 +139,18 @@ public abstract class d {
     }
 
     public static d e() {
-        if (f41386b == null) {
+        if (f45062b == null) {
             synchronized (d.a.l0.a.g1.f.class) {
-                if (f41386b == null) {
+                if (f45062b == null) {
                     if (d.a.e0.b.a.a.g()) {
-                        f41386b = new b(null);
+                        f45062b = new b(null);
                     } else {
-                        f41386b = new c(null);
+                        f45062b = new c(null);
                     }
                 }
             }
         }
-        return f41386b;
+        return f45062b;
     }
 
     public static void g(JSONArray jSONArray) {
@@ -159,14 +159,14 @@ public abstract class d {
         }
         JSONObject optJSONObject = jSONArray.optJSONObject(0);
         String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
-        if (TextUtils.isEmpty(optString) || f41386b == null) {
+        if (TextUtils.isEmpty(optString) || f45062b == null) {
             return;
         }
-        f41386b.f(optString);
+        f45062b.f(optString);
     }
 
     public void c() {
-        if (f41387c == null) {
+        if (f45063c == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -178,12 +178,12 @@ public abstract class d {
             jSONObject.putOpt("from", "swan");
             jSONObject.putOpt("ext", jSONObject2);
         } catch (JSONException unused) {
-            if (f41385a) {
+            if (f45061a) {
                 Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
             }
         }
-        d.a.l0.a.j2.b.f(f41387c, jSONObject.toString());
-        d.a.l0.a.j2.b.c(f41387c);
+        d.a.l0.a.j2.b.f(f45063c, jSONObject.toString());
+        d.a.l0.a.j2.b.c(f45063c);
     }
 
     public String d() {
@@ -191,7 +191,7 @@ public abstract class d {
         try {
             jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
         } catch (JSONException e2) {
-            if (f41385a) {
+            if (f45061a) {
                 Log.d("LocalDebugStatistic", "add event content fail", e2);
             }
         }
@@ -201,27 +201,27 @@ public abstract class d {
     public abstract void f(String str);
 
     public void h() {
-        Timer timer = f41388d;
+        Timer timer = f45064d;
         if (timer != null) {
             timer.cancel();
-            f41388d = null;
+            f45064d = null;
         }
-        f41386b = null;
-        f41387c = null;
+        f45062b = null;
+        f45063c = null;
     }
 
     public void i() {
-        if (f41387c != null) {
+        if (f45063c != null) {
             return;
         }
-        f41387c = d.a.l0.a.j2.k.c("1153");
+        f45063c = d.a.l0.a.j2.k.c("1153");
         a aVar = new a();
         Timer timer = new Timer();
-        f41388d = timer;
+        f45064d = timer;
         try {
             timer.schedule(aVar, 40000L);
         } catch (Exception e2) {
-            if (f41385a) {
+            if (f45061a) {
                 e2.printStackTrace();
             }
         }

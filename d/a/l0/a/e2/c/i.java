@@ -6,20 +6,20 @@ import com.baidu.swan.apps.setting.oauth.TaskState;
 public class i<ResultDataT> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ResultDataT f41736a;
+    public ResultDataT f45412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TaskState f41737b = TaskState.INIT;
+    public TaskState f45413b = TaskState.INIT;
 
     /* renamed from: c  reason: collision with root package name */
-    public OAuthException f41738c;
+    public OAuthException f45414c;
 
     public OAuthException a() {
-        return this.f41738c;
+        return this.f45414c;
     }
 
     public int b() {
-        OAuthException oAuthException = this.f41738c;
+        OAuthException oAuthException = this.f45414c;
         if (oAuthException == null) {
             return 0;
         }
@@ -27,15 +27,15 @@ public class i<ResultDataT> {
     }
 
     public boolean c() {
-        return TaskState.FINISHED == this.f41737b && this.f41738c == null;
+        return TaskState.FINISHED == this.f45413b && this.f45414c == null;
     }
 
     public void d(OAuthException oAuthException) {
-        this.f41738c = oAuthException;
+        this.f45414c = oAuthException;
     }
 
     public void e() {
-        this.f41737b = TaskState.FINISHED;
-        this.f41738c = null;
+        this.f45413b = TaskState.FINISHED;
+        this.f45414c = null;
     }
 }

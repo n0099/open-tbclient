@@ -8,11 +8,11 @@ public class a implements d.a.n0.c3.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f58244a = new a();
+        public static a f61935a = new a();
     }
 
     public static a g() {
-        return b.f58244a;
+        return b.f61935a;
     }
 
     @Override // d.a.n0.c3.a

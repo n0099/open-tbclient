@@ -17,14 +17,14 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47070a = k.f43199a;
+    public static final boolean f50744a = k.f46875a;
 
     public static void a(String str, String str2, String str3, String str4, a aVar) {
         String l = b.l(str2);
         if (TextUtils.isEmpty(l)) {
             return;
         }
-        if (f47070a) {
+        if (f50744a) {
             Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
         }
         if (TextUtils.isEmpty(str)) {
@@ -32,15 +32,15 @@ public class c {
         }
         b bVar = new b();
         bVar.m(aVar);
-        bVar.f43186b = l;
-        bVar.f43189e = str3;
+        bVar.f46862b = l;
+        bVar.f46865e = str3;
         bVar.v = str;
         bVar.l = q0.D();
         if (e.Q() != null) {
             b.a L = e.Q().L();
-            bVar.f43185a = d.a.l0.a.j2.k.m(L.G());
-            bVar.f43190f = L.H();
-            bVar.f43187c = L.T();
+            bVar.f46861a = d.a.l0.a.j2.k.m(L.G());
+            bVar.f46866f = L.H();
+            bVar.f46863c = L.T();
         }
         bVar.t = str4;
         d.a.l0.a.j2.k.u("1245", bVar);
@@ -56,7 +56,7 @@ public class c {
             return;
         }
         b bVar = new b();
-        bVar.f43186b = l;
+        bVar.f46862b = l;
         bVar.a(InstallNotifyReceiver.OPPORTUNITY, str2);
         if (str3 == null) {
             str3 = "";

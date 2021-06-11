@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.k3.a f21140e;
+    public d.a.n0.k3.a f21218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f21141f;
+    public b f21219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f21142g = new a(CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
+    public d.a.c.c.g.a f21220g = new a(CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
 
     /* loaded from: classes5.dex */
     public class a extends d.a.c.c.g.a {
@@ -31,12 +31,12 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             boolean z = responsedMessage instanceof PersonalCardDetailHttpReponse;
             if (z || (responsedMessage instanceof PersonalCardDetailSocketReponse)) {
                 if (z) {
-                    PersonalCardDetailModel.this.f21140e = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
+                    PersonalCardDetailModel.this.f21218e = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
                 } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
-                    PersonalCardDetailModel.this.f21140e = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
+                    PersonalCardDetailModel.this.f21218e = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
                 }
-                if (PersonalCardDetailModel.this.f21141f != null) {
-                    PersonalCardDetailModel.this.f21141f.a(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardDetailModel.this.f21140e);
+                if (PersonalCardDetailModel.this.f21219f != null) {
+                    PersonalCardDetailModel.this.f21219f.a(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardDetailModel.this.f21218e);
                 }
             }
         }
@@ -50,7 +50,11 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     public PersonalCardDetailModel() {
         d.a.n0.e3.d0.a.h(309333, PersonalCardDetailSocketReponse.class, false, false);
         d.a.n0.e3.d0.a.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
-        registerListener(this.f21142g);
+        registerListener(this.f21220g);
+    }
+
+    public void A(b bVar) {
+        this.f21219f = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -64,16 +68,12 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f21142g);
+        MessageManager.getInstance().unRegisterListener(this.f21220g);
     }
 
-    public void v(long j) {
+    public void z(long j) {
         PersonalCardDetailRequest personalCardDetailRequest = new PersonalCardDetailRequest();
         personalCardDetailRequest.setCardId(j);
         sendMessage(personalCardDetailRequest);
-    }
-
-    public void w(b bVar) {
-        this.f21141f = bVar;
     }
 }

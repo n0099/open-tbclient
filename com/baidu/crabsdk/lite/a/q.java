@@ -1,7 +1,7 @@
 package com.baidu.crabsdk.lite.a;
 
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class q {
     public static String a(Thread thread) {
         StringBuilder sb = new StringBuilder();

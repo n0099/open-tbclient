@@ -29,52 +29,52 @@ import org.json.JSONObject;
 public class a extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41246c;
+    public String f44922c;
 
     /* renamed from: d.a.l0.a.c2.f.q0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0589a implements Runnable {
+    public class RunnableC0645a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f41247e;
+        public final /* synthetic */ UnitedSchemeEntity f44923e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41248f;
+        public final /* synthetic */ CallbackHandler f44924f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f41249g;
+        public final /* synthetic */ e f44925g;
 
         /* renamed from: d.a.l0.a.c2.f.q0.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0590a implements Runnable {
+        public class RunnableC0646a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f41251e;
+            public final /* synthetic */ Bitmap f44927e;
 
-            public RunnableC0590a(Bitmap bitmap) {
-                this.f41251e = bitmap;
+            public RunnableC0646a(Bitmap bitmap) {
+                this.f44927e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                RunnableC0589a runnableC0589a = RunnableC0589a.this;
-                a.this.o(this.f41251e, runnableC0589a.f41247e, runnableC0589a.f41248f, runnableC0589a.f41249g);
+                RunnableC0645a runnableC0645a = RunnableC0645a.this;
+                a.this.o(this.f44927e, runnableC0645a.f44923e, runnableC0645a.f44924f, runnableC0645a.f44925g);
             }
         }
 
-        public RunnableC0589a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-            this.f41247e = unitedSchemeEntity;
-            this.f41248f = callbackHandler;
-            this.f41249g = eVar;
+        public RunnableC0645a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
+            this.f44923e = unitedSchemeEntity;
+            this.f44924f = callbackHandler;
+            this.f44925g = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Bitmap z = n0.z();
             if (z == null) {
-                a.this.n(this.f41247e, this.f41248f, "can't get screenshot");
+                a.this.n(this.f44923e, this.f44924f, "can't get screenshot");
             } else {
-                q.j(new RunnableC0590a(z), "savescreenshot");
+                q.j(new RunnableC0646a(z), "savescreenshot");
             }
         }
     }
@@ -91,7 +91,7 @@ public class a extends a0 {
             return false;
         }
         String optString = w.d(unitedSchemeEntity.getParam("params")).optString("name");
-        this.f41246c = optString;
+        this.f44922c = optString;
         if (TextUtils.isEmpty(optString)) {
             d.b("Screenshot", "invalid params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -104,7 +104,7 @@ public class a extends a0 {
     public final JSONObject l(boolean z, String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("name", this.f41246c);
+            jSONObject.put("name", this.f44922c);
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("message", str2);
             }
@@ -118,7 +118,7 @@ public class a extends a0 {
     }
 
     public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
-        q0.b0(new RunnableC0589a(unitedSchemeEntity, callbackHandler, eVar));
+        q0.b0(new RunnableC0645a(unitedSchemeEntity, callbackHandler, eVar));
     }
 
     public final void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
@@ -133,7 +133,7 @@ public class a extends a0 {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:29:0x00c4 -> B:37:0x00d9). Please submit an issue!!! */
     public final void o(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String x = b.x(eVar.f40749f);
+        String x = b.x(eVar.f44425f);
         if (x != null) {
             String str = x + File.separator + "screenshot";
             File file = new File(str);
@@ -145,7 +145,7 @@ public class a extends a0 {
                 }
             }
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault());
-            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.f41246c + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
+            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.f44922c + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
             FileOutputStream fileOutputStream2 = null;
             FileOutputStream fileOutputStream3 = null;
             fileOutputStream2 = null;
@@ -168,7 +168,7 @@ public class a extends a0 {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                 String str3 = "save screenshot to " + str2;
                 d.g("Screenshot", str3);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, b.J(str2, eVar.f40749f), "success"), 0));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, b.J(str2, eVar.f44425f), "success"), 0));
                 fileOutputStream.close();
                 fileOutputStream2 = str3;
             } catch (FileNotFoundException e4) {

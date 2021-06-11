@@ -24,7 +24,7 @@ public class UserCollectModel extends FaceBaseModel {
     public static final String ALL_DELETE = "all_delete";
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f14762e = new b(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+    public final HttpMessageListener f14819e = new b(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -41,7 +41,7 @@ public class UserCollectModel extends FaceBaseModel {
             JSONArray jSONArray = new JSONArray();
             try {
                 for (CollectEmotionData collectEmotionData : n) {
-                    if (!d.f48816d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                    if (!d.f52490d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                         jSONArray.put(collectEmotionData.toJSON());
                         hashSet.add(collectEmotionData.sharpText);
                     }
@@ -97,9 +97,9 @@ public class UserCollectModel extends FaceBaseModel {
     public UserCollectModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f14762e.setTag(getUniqueId());
-        this.f14762e.setSelfListener(true);
-        registerListener(this.f14762e);
+        this.f14819e.setTag(getUniqueId());
+        this.f14819e.setSelfListener(true);
+        registerListener(this.f14819e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -109,7 +109,7 @@ public class UserCollectModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f14762e);
+        MessageManager.getInstance().unRegisterListener(this.f14819e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         return true;
     }
@@ -120,7 +120,7 @@ public class UserCollectModel extends FaceBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void s() {
+    public void w() {
         new Thread(new a()).start();
     }
 }

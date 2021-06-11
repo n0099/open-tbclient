@@ -11,31 +11,31 @@ import java.util.regex.Pattern;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f48813a = "add_user_collect_emotoin";
+    public static String f52487a = "add_user_collect_emotoin";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f48814b = "image_url";
+    public static String f52488b = "image_url";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f48815c = "package_id";
+    public static String f52489c = "package_id";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f48816d = "#(meme,setting)";
+    public static String f52490d = "#(meme,setting)";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f48817e = "#(meme,collect_";
+    public static String f52491e = "#(meme,collect_";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f48818f = "meme,collect_";
+    public static String f52492f = "meme,collect_";
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48819a;
+        public String f52493a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48820b;
+        public String f52494b;
     }
 
     public static String a() {

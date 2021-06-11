@@ -1,30 +1,78 @@
 package com.kwad.sdk.utils;
 
-import androidx.annotation.RequiresApi;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.mobads.container.util.EncryptUtils;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.api.loader.Loader;
+import java.io.InputStream;
+/* loaded from: classes7.dex */
 public class j {
-    @RequiresApi(api = 19)
-    public static byte[] a(byte[] bArr) {
-        byte[] bArr2 = null;
-        if (bArr != null) {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f37536a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f37537b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f37538c = "";
+
+    public static String a(int i2) {
+        String str;
+        String str2;
+        Context context = KsAdSDKImpl.get().getContext();
+        if (context == null) {
+            com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey context is null");
+            return "";
+        }
+        if (i2 == 0) {
+            str = f37536a;
+            str2 = "aes_key";
+        } else if (i2 == 1) {
+            str = f37537b;
+            str2 = "rsa_public_key";
+        } else if (i2 != 2) {
+            str = "";
+            str2 = str;
+        } else {
+            str = f37538c;
+            str2 = "rsa_private_key";
+        }
+        if (TextUtils.isEmpty(str)) {
+            if (TextUtils.isEmpty(str2)) {
+                com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey get id is error ");
+            }
             try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(bArr.length);
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.flush();
-                gZIPOutputStream.close();
-                byteArrayOutputStream.flush();
-                byteArrayOutputStream.close();
-                bArr2 = byteArrayOutputStream.toByteArray();
-                gZIPOutputStream.close();
-                byteArrayOutputStream.close();
-            } catch (IOException e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+                InputStream open = Loader.get().getExternalResource().getAssets().open("ksad_common_encrypt_image.png");
+                if (open == null) {
+                    open = context.getAssets().open("ksad_common_encrypt_image.png");
+                }
+                String a2 = a(str2, open);
+                if (TextUtils.isEmpty(a2)) {
+                    com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey get encryptedKey is invalid ");
+                }
+                if (i2 == 0) {
+                    f37536a = a2;
+                } else if (i2 == 1) {
+                    f37537b = a2;
+                } else if (i2 == 2) {
+                    f37538c = a2;
+                }
+                return a2;
             }
         }
-        return bArr2;
+        return str;
+    }
+
+    public static String a(String str, InputStream inputStream) {
+        String b2;
+        synchronized (j.class) {
+            com.kwad.sdk.pngencrypt.o oVar = new com.kwad.sdk.pngencrypt.o(inputStream, true);
+            oVar.c();
+            b2 = oVar.b().b(str);
+            oVar.d();
+        }
+        return b2;
     }
 }

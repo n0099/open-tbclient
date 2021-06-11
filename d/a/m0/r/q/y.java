@@ -5,25 +5,25 @@ import tbclient.FrsPage.ForumBookInfo;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50176a;
+    public String f53852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50177b;
+    public int f53853b;
 
     public String a() {
-        return this.f50176a;
+        return this.f53852a;
     }
 
     public int b() {
-        return this.f50177b;
+        return this.f53853b;
     }
 
     public void c(ForumBookInfo forumBookInfo) {
         if (forumBookInfo == null) {
             return;
         }
-        this.f50176a = forumBookInfo.book_id;
-        this.f50177b = forumBookInfo.book_type.intValue();
+        this.f53852a = forumBookInfo.book_id;
+        this.f53853b = forumBookInfo.book_type.intValue();
         String str = forumBookInfo.book_title;
         String str2 = forumBookInfo.book_cover;
         String str3 = forumBookInfo.author;

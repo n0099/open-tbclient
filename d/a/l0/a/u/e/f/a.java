@@ -3,7 +3,6 @@ package d.a.l0.a.u.e.f;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.swan.apps.storage.PathType;
 import d.a.l0.a.a2.e;
 import d.a.l0.a.u.c.d;
@@ -18,42 +17,42 @@ public class a extends d {
 
     /* renamed from: d.a.l0.a.u.e.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0839a implements Runnable {
+    public class RunnableC0895a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ File f44908e;
+        public final /* synthetic */ File f48582e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44909f;
+        public final /* synthetic */ int f48583f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f44910g;
+        public final /* synthetic */ String f48584g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f44911h;
+        public final /* synthetic */ e f48585h;
 
-        public RunnableC0839a(File file, int i2, String str, e eVar) {
-            this.f44908e = file;
-            this.f44909f = i2;
-            this.f44910g = str;
-            this.f44911h = eVar;
+        public RunnableC0895a(File file, int i2, String str, e eVar) {
+            this.f48582e = file;
+            this.f48583f = i2;
+            this.f48584g = str;
+            this.f48585h = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            File k = u.k(this.f44908e.getName());
-            if (!u.b(this.f44908e, k, this.f44909f)) {
+            File k = u.k(this.f48582e.getName());
+            if (!u.b(this.f48582e, k, this.f48583f)) {
                 d.a.l0.a.e0.d.b("Api-Image", "compress image failed");
-                a.this.d(this.f44910g, new b(1001, "compress image failed"));
+                a.this.d(this.f48584g, new b(1001, "compress image failed"));
                 return;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("tempFilePath", d.a.l0.a.k2.b.J(k.getAbsolutePath(), this.f44911h.f40749f));
+                jSONObject.put("tempFilePath", d.a.l0.a.k2.b.J(k.getAbsolutePath(), this.f48585h.f44425f));
             } catch (JSONException e2) {
                 d.a.l0.a.e0.d.b("Api-Image", e2.toString());
             }
-            a.this.d(this.f44910g, new b(0, jSONObject));
+            a.this.d(this.f48584g, new b(0, jSONObject));
         }
     }
 
@@ -64,7 +63,7 @@ public class a extends d {
     public b r(String str) {
         Pair<b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Image", str);
         b bVar = (b) b2.first;
-        if (!bVar.a()) {
+        if (!bVar.isSuccess()) {
             d.a.l0.a.e0.d.b("Api-Image", "parse fail");
             return bVar;
         }
@@ -74,7 +73,7 @@ public class a extends d {
             d.a.l0.a.e0.d.b("Api-Image", "empty cb");
             return new b(202, "empty cb");
         }
-        return s(optString, jSONObject.optString(UserAccountActionItem.KEY_SRC), jSONObject.optInt("quality", 80));
+        return s(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
     }
 
     public final b s(String str, String str2, int i2) {
@@ -90,7 +89,7 @@ public class a extends d {
         PathType s = d.a.l0.a.k2.b.s(str2);
         String str3 = null;
         if (s == PathType.BD_FILE) {
-            str3 = d.a.l0.a.k2.b.M(str2, i3.f40749f);
+            str3 = d.a.l0.a.k2.b.M(str2, i3.f44425f);
         } else if (s == PathType.RELATIVE) {
             str3 = d.a.l0.a.k2.b.L(str2, i3, i3.Z());
         }
@@ -103,7 +102,7 @@ public class a extends d {
             d.a.l0.a.e0.d.b("Api-Image", "file does not exist");
             return new b(2001, "file does not exist");
         }
-        q.j(new RunnableC0839a(file, i4, str, i3), "compressImage");
+        q.j(new RunnableC0895a(file, i4, str, i3), "compressImage");
         return new b(0);
     }
 }

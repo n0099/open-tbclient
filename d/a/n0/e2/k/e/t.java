@@ -16,25 +16,25 @@ import d.a.m0.r.q.b1;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f53432a;
+    public View f57121a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStub f53433b;
+    public ViewStub f57122b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PbGiftListView f53434c;
+    public PbGiftListView f57123c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewStub f53435d;
+    public ViewStub f57124d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f53436e;
+    public LinearLayout f57125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f53437f;
+    public View f57126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseWebView f53438g;
+    public BaseWebView f57127g;
 
     /* loaded from: classes5.dex */
     public class a implements BaseWebView.d {
@@ -66,9 +66,9 @@ public class t {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                if (t.this.f53438g != null) {
-                    t.this.f53438g.destroy();
-                    t.this.f53438g = null;
+                if (t.this.f57127g != null) {
+                    t.this.f57127g.destroy();
+                    t.this.f57127g = null;
                 }
             } catch (Throwable th) {
                 BdLog.e(th);
@@ -77,33 +77,33 @@ public class t {
     }
 
     public t(View view) {
-        this.f53432a = view;
-        this.f53433b = (ViewStub) view.findViewById(R.id.gift_list_viewStub);
-        this.f53435d = (ViewStub) view.findViewById(R.id.link_thread_viewStub);
+        this.f57121a = view;
+        this.f57122b = (ViewStub) view.findViewById(R.id.gift_list_viewStub);
+        this.f57124d = (ViewStub) view.findViewById(R.id.link_thread_viewStub);
     }
 
     public void a() {
-        BaseWebView baseWebView = this.f53438g;
+        BaseWebView baseWebView = this.f57127g;
         if (baseWebView != null) {
             baseWebView.removeAllViews();
-            this.f53438g.getSettings().setBuiltInZoomControls(true);
-            this.f53438g.setVisibility(8);
+            this.f57127g.getSettings().setBuiltInZoomControls(true);
+            this.f57127g.setVisibility(8);
             d.a.c.e.m.e.a().postDelayed(new c(), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
     public void b(b1 b1Var, String str, String str2, long j, long j2, long j3) {
         ViewStub viewStub;
-        if (b1Var != null && !ListUtils.isEmpty(b1Var.a()) && (viewStub = this.f53433b) != null) {
-            if (this.f53434c == null) {
-                this.f53434c = (PbGiftListView) viewStub.inflate();
+        if (b1Var != null && !ListUtils.isEmpty(b1Var.a()) && (viewStub = this.f57122b) != null) {
+            if (this.f57123c == null) {
+                this.f57123c = (PbGiftListView) viewStub.inflate();
             }
-            this.f53434c.setVisibility(0);
-            this.f53434c.g(b1Var, str, str2, j, j2, j3);
-            this.f53434c.i();
+            this.f57123c.setVisibility(0);
+            this.f57123c.g(b1Var, str, str2, j, j2, j3);
+            this.f57123c.i();
             return;
         }
-        PbGiftListView pbGiftListView = this.f53434c;
+        PbGiftListView pbGiftListView = this.f57123c;
         if (pbGiftListView != null) {
             pbGiftListView.setVisibility(8);
         }
@@ -113,42 +113,42 @@ public class t {
         if (p0Var == null || d.a.c.e.p.k.isEmpty(p0Var.e())) {
             return;
         }
-        BaseWebView baseWebView = this.f53438g;
-        if ((baseWebView == null || !baseWebView.getIsLoaded()) && p0Var.c() == d.a.m0.r.q.p0.f50092g && this.f53435d != null) {
+        BaseWebView baseWebView = this.f57127g;
+        if ((baseWebView == null || !baseWebView.getIsLoaded()) && p0Var.c() == d.a.m0.r.q.p0.f53768g && this.f57124d != null) {
             if (p0Var.f()) {
-                LinearLayout linearLayout = this.f53436e;
+                LinearLayout linearLayout = this.f57125e;
                 if (linearLayout != null) {
                     linearLayout.setVisibility(8);
                     return;
                 }
                 return;
             }
-            if (this.f53436e == null) {
-                LinearLayout linearLayout2 = (LinearLayout) this.f53435d.inflate();
-                this.f53436e = linearLayout2;
-                this.f53437f = linearLayout2.findViewById(R.id.link_thread_divider);
-                this.f53438g = (BaseWebView) this.f53436e.findViewById(R.id.link_thread_webview);
+            if (this.f57125e == null) {
+                LinearLayout linearLayout2 = (LinearLayout) this.f57124d.inflate();
+                this.f57125e = linearLayout2;
+                this.f57126f = linearLayout2.findViewById(R.id.link_thread_divider);
+                this.f57127g = (BaseWebView) this.f57125e.findViewById(R.id.link_thread_webview);
             }
-            this.f53437f.setVisibility(0);
-            SkinManager.setBackgroundColor(this.f53437f, R.color.CAM_X0204);
-            this.f53438g.setVisibility(0);
-            this.f53438g.setFocusable(false);
-            this.f53438g.setBackgroundColor(0);
-            this.f53438g.getSettings().setCacheMode(-1);
-            this.f53438g.setVerticalScrollBarEnabled(false);
-            this.f53438g.setHorizontalScrollBarEnabled(false);
-            this.f53438g.getSettings().setAllowFileAccess(true);
-            this.f53438g.getSettings().setAppCacheEnabled(true);
-            this.f53438g.getSettings().setDomStorageEnabled(true);
-            this.f53438g.getSettings().setDatabaseEnabled(true);
-            this.f53438g.setOnLoadUrlListener(new a(this));
-            this.f53438g.setOnPageFinishedListener(new b(this));
-            this.f53438g.loadUrl(p0Var.e());
+            this.f57126f.setVisibility(0);
+            SkinManager.setBackgroundColor(this.f57126f, R.color.CAM_X0204);
+            this.f57127g.setVisibility(0);
+            this.f57127g.setFocusable(false);
+            this.f57127g.setBackgroundColor(0);
+            this.f57127g.getSettings().setCacheMode(-1);
+            this.f57127g.setVerticalScrollBarEnabled(false);
+            this.f57127g.setHorizontalScrollBarEnabled(false);
+            this.f57127g.getSettings().setAllowFileAccess(true);
+            this.f57127g.getSettings().setAppCacheEnabled(true);
+            this.f57127g.getSettings().setDomStorageEnabled(true);
+            this.f57127g.getSettings().setDatabaseEnabled(true);
+            this.f57127g.setOnLoadUrlListener(new a(this));
+            this.f57127g.setOnPageFinishedListener(new b(this));
+            this.f57127g.loadUrl(p0Var.e());
         }
     }
 
     public void d() {
-        BaseWebView baseWebView = this.f53438g;
+        BaseWebView baseWebView = this.f57127g;
         if (baseWebView != null) {
             try {
                 baseWebView.onPause();
@@ -159,7 +159,7 @@ public class t {
     }
 
     public void e() {
-        BaseWebView baseWebView = this.f53438g;
+        BaseWebView baseWebView = this.f57127g;
         if (baseWebView != null) {
             try {
                 baseWebView.onResume();

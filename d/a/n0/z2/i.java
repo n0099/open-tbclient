@@ -20,19 +20,19 @@ import okhttp3.Request;
 public class i implements IHttpContext {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f63798b;
+    public static boolean f67516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f63799c;
+    public static final String f67517c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f63800a = AppRuntime.getAppContext();
+    public Context f67518a = AppRuntime.getAppContext();
 
     static {
         boolean isDebug = AppConfig.isDebug();
-        f63798b = isDebug;
-        f63798b = isDebug;
-        f63799c = i.class.getSimpleName();
+        f67516b = isDebug;
+        f67516b = isDebug;
+        f67517c = i.class.getSimpleName();
     }
 
     @Override // com.baidu.searchbox.http.IHttpContext
@@ -57,8 +57,8 @@ public class i implements IHttpContext {
 
     @Override // com.baidu.searchbox.http.IHttpContext
     public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
-        if (f63798b) {
-            String str = f63799c;
+        if (f67516b) {
+            String str = f67517c;
             Log.i(str, "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest);
             return null;
         }
@@ -67,8 +67,8 @@ public class i implements IHttpContext {
 
     @Override // com.baidu.searchbox.http.IHttpContext
     public IHttpDns getNewHttpDns() {
-        if (f63798b) {
-            Log.i(f63799c, "baidunetwork HttpContext getNewHttpDns!");
+        if (f67516b) {
+            Log.i(f67517c, "baidunetwork HttpContext getNewHttpDns!");
             return null;
         }
         return null;
@@ -81,8 +81,8 @@ public class i implements IHttpContext {
 
     @Override // com.baidu.searchbox.http.IHttpContext
     public void init() {
-        if (f63798b) {
-            Log.i(f63799c, "baidunetwork HttpContext init!");
+        if (f67516b) {
+            Log.i(f67517c, "baidunetwork HttpContext init!");
         }
     }
 

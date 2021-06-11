@@ -11,28 +11,28 @@ import d.a.m0.r.q.a;
 public abstract class a<T extends d.a.m0.r.q.a> implements q, p<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public l0 f40007e;
+    public l0 f43688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f40008f;
+    public Context f43689f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Boolean f40009g = Boolean.FALSE;
+    public Boolean f43690g = Boolean.FALSE;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.z.b0<T> f40010h;
+    public d.a.n0.z.b0<T> f43691h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0542a f40011i;
+    public InterfaceC0598a f43692i;
 
     /* renamed from: d.a.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0542a {
+    public interface InterfaceC0598a {
         void a(d.a.m0.r.q.a aVar);
     }
 
     public a(Context context) {
-        this.f40008f = context;
+        this.f43689f = context;
     }
 
     public void b(int i2) {
@@ -42,7 +42,7 @@ public abstract class a<T extends d.a.m0.r.q.a> implements q, p<T> {
     }
 
     public d.a.n0.z.b0<T> d() {
-        return this.f40010h;
+        return this.f43691h;
     }
 
     public final ThreadCardView e(View view, int i2) {
@@ -56,7 +56,7 @@ public abstract class a<T extends d.a.m0.r.q.a> implements q, p<T> {
     }
 
     public Boolean f() {
-        return this.f40009g;
+        return this.f43690g;
     }
 
     public abstract View g();
@@ -65,11 +65,11 @@ public abstract class a<T extends d.a.m0.r.q.a> implements q, p<T> {
     }
 
     public void i(int i2, a.b bVar) {
-        this.f40007e.m(i2, bVar);
+        this.f43688e.m(i2, bVar);
     }
 
     public void j(l0 l0Var) {
-        this.f40007e = l0Var;
+        this.f43688e = l0Var;
     }
 
     public void k(View view, int i2) {
@@ -83,7 +83,7 @@ public abstract class a<T extends d.a.m0.r.q.a> implements q, p<T> {
     }
 
     public void l(d.a.n0.z.b0<T> b0Var) {
-        this.f40010h = b0Var;
+        this.f43691h = b0Var;
     }
 
     public void m(View view, int i2) {
@@ -96,6 +96,6 @@ public abstract class a<T extends d.a.m0.r.q.a> implements q, p<T> {
     }
 
     public void n(Boolean bool) {
-        this.f40009g = bool;
+        this.f43690g = bool;
     }
 }

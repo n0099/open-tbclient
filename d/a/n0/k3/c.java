@@ -3,11 +3,11 @@ package d.a.n0.k3;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f56957a = 0;
+    public static int f60646a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f56958b = 1;
+    public static int f60647b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f56959c = 235004;
+    public static int f60648c = 235004;
 }

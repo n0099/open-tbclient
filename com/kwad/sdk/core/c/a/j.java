@@ -1,35 +1,29 @@
 package com.kwad.sdk.core.c.a;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.sdk.emotion.model.CDNUrl;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j implements com.kwad.sdk.core.c<AdStyleInfo> {
+public class j implements com.kwad.sdk.core.c<CDNUrl> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(AdStyleInfo adStyleInfo, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        AdStyleInfo.PlayDetailInfo playDetailInfo = new AdStyleInfo.PlayDetailInfo();
-        adStyleInfo.playDetailInfo = playDetailInfo;
-        playDetailInfo.parseJson(jSONObject.optJSONObject("playDetailInfo"));
-        AdStyleInfo.PlayEndInfo playEndInfo = new AdStyleInfo.PlayEndInfo();
-        adStyleInfo.playEndInfo = playEndInfo;
-        playEndInfo.parseJson(jSONObject.optJSONObject("playEndInfo"));
-        AdStyleInfo.FeedAdInfo feedAdInfo = new AdStyleInfo.FeedAdInfo();
-        adStyleInfo.feedAdInfo = feedAdInfo;
-        feedAdInfo.parseJson(jSONObject.optJSONObject("feedAdInfo"));
+    public JSONObject a(CDNUrl cDNUrl) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, "cdn", cDNUrl.cdn);
+        com.kwad.sdk.utils.o.a(jSONObject, "url", cDNUrl.url);
+        com.kwad.sdk.utils.o.a(jSONObject, "ip", cDNUrl.ip);
+        com.kwad.sdk.utils.o.a(jSONObject, "urlPattern", cDNUrl.urlPattern);
+        return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject b(AdStyleInfo adStyleInfo, JSONObject jSONObject) {
+    public void a(CDNUrl cDNUrl, JSONObject jSONObject) {
         if (jSONObject == null) {
-            jSONObject = new JSONObject();
+            return;
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "playDetailInfo", adStyleInfo.playDetailInfo);
-        com.kwad.sdk.utils.o.a(jSONObject, "playEndInfo", adStyleInfo.playEndInfo);
-        com.kwad.sdk.utils.o.a(jSONObject, "feedAdInfo", adStyleInfo.feedAdInfo);
-        return jSONObject;
+        cDNUrl.cdn = jSONObject.optString("cdn");
+        cDNUrl.url = jSONObject.optString("url");
+        cDNUrl.ip = jSONObject.optString("ip");
+        cDNUrl.urlPattern = jSONObject.optString("urlPattern");
     }
 }

@@ -17,31 +17,31 @@ import org.apache.http.protocol.HTTP;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpURLConnection f39834a;
+    public HttpURLConnection f43515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.f0.a.k.b f39835b;
+    public d.a.f0.a.k.b f43516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f39836c;
+    public b f43517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f39837d;
+    public c f43518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39838e;
+    public String f43519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f39839f;
+    public String f43520f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f39840g;
+    public String f43521g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39841h;
+    public String f43522h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39842i;
+    public int f43523i;
     public int j;
     public boolean k;
     public Uri.Builder l;
@@ -49,8 +49,8 @@ public class a {
 
     /* renamed from: d.a.f0.a.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0534a extends d.a.f0.a.l.b {
-        public C0534a() {
+    public class C0590a extends d.a.f0.a.l.b {
+        public C0590a() {
         }
 
         @Override // d.a.f0.a.l.b
@@ -80,15 +80,15 @@ public class a {
     }
 
     public void c(c cVar) {
-        this.f39837d = cVar;
+        this.f43518d = cVar;
     }
 
     public void d() {
         try {
             if (this.m == 1) {
-                d.a.f0.a.l.c.a().c(new C0534a());
+                d.a.f0.a.l.c.a().c(new C0590a());
             } else {
-                d.a.f0.a.l.c.a().c(new C0534a());
+                d.a.f0.a.l.c.a().c(new C0590a());
             }
         } catch (Exception unused) {
         }
@@ -99,53 +99,53 @@ public class a {
         HttpURLConnection httpURLConnection;
         try {
             try {
-                this.f39834a.connect();
-                d.a.f0.a.k.b bVar = this.f39835b;
-                bVar.b(OAdURLConnection.TAG, this.f39834a.getRequestMethod() + " connect code :" + this.f39834a.getResponseCode());
-                int responseCode = this.f39834a.getResponseCode();
+                this.f43515a.connect();
+                d.a.f0.a.k.b bVar = this.f43516b;
+                bVar.b(OAdURLConnection.TAG, this.f43515a.getRequestMethod() + " connect code :" + this.f43515a.getResponseCode());
+                int responseCode = this.f43515a.getResponseCode();
                 if (responseCode == 302 || responseCode == 301) {
-                    this.f39834a.setInstanceFollowRedirects(false);
-                    HttpURLConnection g2 = g(this.f39834a);
-                    this.f39834a = g2;
+                    this.f43515a.setInstanceFollowRedirects(false);
+                    HttpURLConnection g2 = g(this.f43515a);
+                    this.f43515a = g2;
                     responseCode = g2.getResponseCode();
                 }
                 if (responseCode / 100 != 2) {
-                    if (this.f39836c != null) {
-                        this.f39836c.onFail(this.f39834a.getResponseMessage(), responseCode);
+                    if (this.f43517c != null) {
+                        this.f43517c.onFail(this.f43515a.getResponseMessage(), responseCode);
                     }
-                    if (this.f39837d != null) {
-                        this.f39837d.onFail(this.f39834a.getResponseMessage(), responseCode);
+                    if (this.f43518d != null) {
+                        this.f43518d.onFail(this.f43515a.getResponseMessage(), responseCode);
                     }
                 } else {
-                    String a2 = d.a.f0.a.l.a.a(this.f39838e);
-                    if (this.f39836c != null) {
-                        this.f39836c.onSuccess(f(), a2);
+                    String a2 = d.a.f0.a.l.a.a(this.f43519e);
+                    if (this.f43517c != null) {
+                        this.f43517c.onSuccess(f(), a2);
                     }
-                    if (this.f39837d != null) {
-                        this.f39837d.onSuccess(this.f39834a.getInputStream(), a2);
+                    if (this.f43518d != null) {
+                        this.f43518d.onSuccess(this.f43515a.getInputStream(), a2);
                     }
                 }
-                httpURLConnection = this.f39834a;
+                httpURLConnection = this.f43515a;
                 if (httpURLConnection == null) {
                     return;
                 }
             } catch (Exception e2) {
-                if (this.f39836c != null) {
-                    b bVar2 = this.f39836c;
+                if (this.f43517c != null) {
+                    b bVar2 = this.f43517c;
                     bVar2.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
                 }
-                if (this.f39837d != null) {
-                    c cVar = this.f39837d;
+                if (this.f43518d != null) {
+                    c cVar = this.f43518d;
                     cVar.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
                 }
-                httpURLConnection = this.f39834a;
+                httpURLConnection = this.f43515a;
                 if (httpURLConnection == null) {
                     return;
                 }
             }
             httpURLConnection.disconnect();
         } catch (Throwable th) {
-            HttpURLConnection httpURLConnection2 = this.f39834a;
+            HttpURLConnection httpURLConnection2 = this.f43515a;
             if (httpURLConnection2 != null) {
                 httpURLConnection2.disconnect();
             }
@@ -156,7 +156,7 @@ public class a {
     public String f() throws Exception {
         InputStream inputStream = null;
         try {
-            inputStream = this.f39834a.getInputStream();
+            inputStream = this.f43515a.getInputStream();
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             byte[] bArr = new byte[128];
             while (true) {
@@ -232,47 +232,47 @@ public class a {
     }
 
     public final void i() {
-        if (TextUtils.isEmpty(this.f39838e)) {
+        if (TextUtils.isEmpty(this.f43519e)) {
             return;
         }
         try {
-            HttpURLConnection b2 = d.a.f0.a.l.a.b(new URL(this.f39838e));
-            this.f39834a = b2;
-            b2.setConnectTimeout(this.f39842i);
-            this.f39834a.setReadTimeout(this.j);
+            HttpURLConnection b2 = d.a.f0.a.l.a.b(new URL(this.f43519e));
+            this.f43515a = b2;
+            b2.setConnectTimeout(this.f43523i);
+            this.f43515a.setReadTimeout(this.j);
             if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                 System.setProperty("http.keepAlive", "false");
             }
-            this.f39834a.setRequestMethod(this.f39839f);
-            this.f39834a.setUseCaches(this.k);
-            if (!TextUtils.isEmpty(this.f39840g)) {
-                this.f39834a.setRequestProperty("User-Agent", this.f39840g);
+            this.f43515a.setRequestMethod(this.f43520f);
+            this.f43515a.setUseCaches(this.k);
+            if (!TextUtils.isEmpty(this.f43521g)) {
+                this.f43515a.setRequestProperty("User-Agent", this.f43521g);
             }
-            this.f39834a.setRequestProperty("Content-type", this.f39841h);
-            this.f39834a.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-            this.f39834a.setRequestProperty("Cache-Control", "no-cache");
-            if (this.f39839f.equals("POST")) {
-                this.f39834a.setDoInput(true);
-                this.f39834a.setDoOutput(true);
+            this.f43515a.setRequestProperty("Content-type", this.f43522h);
+            this.f43515a.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+            this.f43515a.setRequestProperty("Cache-Control", "no-cache");
+            if (this.f43520f.equals("POST")) {
+                this.f43515a.setDoInput(true);
+                this.f43515a.setDoOutput(true);
                 if (this.l != null) {
-                    h(this.l.build().getEncodedQuery(), this.f39834a);
+                    h(this.l.build().getEncodedQuery(), this.f43515a);
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e2) {
-            b bVar = this.f39836c;
+            b bVar = this.f43517c;
             if (bVar != null) {
                 bVar.onFail("Net Create RuntimeError: " + e2.toString(), 0);
             }
-            c cVar = this.f39837d;
+            c cVar = this.f43518d;
             if (cVar != null) {
                 cVar.onFail("Net Create RuntimeError: " + e2.toString(), 0);
             }
         } catch (Throwable th) {
-            b bVar2 = this.f39836c;
+            b bVar2 = this.f43517c;
             if (bVar2 != null) {
                 bVar2.onFail("Net Create RuntimeError: " + th.toString(), 0);
             }
-            c cVar2 = this.f39837d;
+            c cVar2 = this.f43518d;
             if (cVar2 != null) {
                 cVar2.onFail("Net Create RuntimeError: " + th.toString(), 0);
             }
@@ -280,16 +280,16 @@ public class a {
     }
 
     public a(int i2, String str, String str2) {
-        this.f39835b = d.a.f0.a.k.b.i();
-        this.f39836c = null;
-        this.f39837d = null;
-        this.f39841h = "text/plain";
-        this.f39842i = 10000;
+        this.f43516b = d.a.f0.a.k.b.i();
+        this.f43517c = null;
+        this.f43518d = null;
+        this.f43522h = "text/plain";
+        this.f43523i = 10000;
         this.j = 10000;
         this.k = false;
         this.l = null;
         this.m = i2;
-        this.f39838e = str;
-        this.f39839f = str2;
+        this.f43519e = str;
+        this.f43520f = str2;
     }
 }

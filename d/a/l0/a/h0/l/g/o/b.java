@@ -7,7 +7,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import d.a.l0.a.k;
 /* loaded from: classes2.dex */
 public class b extends d.a.l0.a.h0.l.g.a {
-    public static final boolean l = k.f43199a;
+    public static final boolean l = k.f46875a;
 
     public b(boolean z, boolean z2) {
         super(z, z2);
@@ -17,9 +17,9 @@ public class b extends d.a.l0.a.h0.l.g.a {
     }
 
     public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
-        if (this.f42245e == null || this.f42245e.f42264b == null) {
+        if (this.f45921e == null || this.f45921e.f45940b == null) {
             return false;
         }
-        return (pMSAppInfo.versionCode == this.f42245e.f42264b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.f42245e.f42263a) && !m(cVar, this.f42245e.f42265c)) ? false : true;
+        return (pMSAppInfo.versionCode == this.f45921e.f45940b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.f45921e.f45939a) && !m(cVar, this.f45921e.f45941c)) ? false : true;
     }
 }

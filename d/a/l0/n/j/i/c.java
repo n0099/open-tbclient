@@ -26,9 +26,9 @@ public class c extends d.a.l0.n.j.b {
             JSONObject jSONObject7 = new JSONObject();
             jSONObject7.put("version", i.b().d());
             jSONObject.put("page_tips", jSONObject7);
-            if (l.f48154a) {
+            if (l.f51828a) {
                 JSONObject jSONObject8 = new JSONObject();
-                jSONObject8.put("version", l.f48155b);
+                jSONObject8.put("version", l.f51829b);
                 jSONObject.put("heartbeat", jSONObject8);
             }
             JSONObject jSONObject9 = new JSONObject();
@@ -46,7 +46,7 @@ public class c extends d.a.l0.n.j.b {
             jSONObject12.put("version", n.b().c());
             jSONObject.put("tts", jSONObject12);
         } catch (JSONException e2) {
-            if (d.a.l0.n.c.f47984a) {
+            if (d.a.l0.n.c.f51658a) {
                 e2.printStackTrace();
             }
         }

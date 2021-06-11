@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f51188a = -1;
+    public int f54865a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51189b = null;
+    public String f54866b = null;
 
     public int a() {
-        return this.f51188a;
+        return this.f54865a;
     }
 
     public String b() {
-        return this.f51189b;
+        return this.f54866b;
     }
 
     public void c(JSONObject jSONObject) {
@@ -25,9 +25,9 @@ public class a {
             return;
         }
         try {
-            this.f51188a = jSONObject.optInt("errno");
+            this.f54865a = jSONObject.optInt("errno");
             jSONObject.optString("errmsg");
-            this.f51189b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.f54866b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

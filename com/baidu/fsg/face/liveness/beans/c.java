@@ -14,37 +14,37 @@ import org.json.JSONException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5836a = "request_data";
+    public static final String f5879a = "request_data";
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f5837b = null;
+    public static c f5880b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5838d = "RIM_LIVENESS_VIDEO_PREFERENCE";
+    public static final String f5881d = "RIM_LIVENESS_VIDEO_PREFERENCE";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5839e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";
+    public static final String f5882e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, SapiBiometricDto> f5840c = new HashMap<>();
+    public HashMap<String, SapiBiometricDto> f5883c = new HashMap<>();
 
     public static c a() {
-        if (f5837b == null) {
-            f5837b = new c();
+        if (f5880b == null) {
+            f5880b = new c();
         }
-        return f5837b;
+        return f5880b;
     }
 
     public void b() {
-        HashMap<String, SapiBiometricDto> hashMap = this.f5840c;
+        HashMap<String, SapiBiometricDto> hashMap = this.f5883c;
         if (hashMap != null) {
             hashMap.clear();
-            this.f5840c = null;
+            this.f5883c = null;
         }
     }
 
     public SapiBiometricDto a(String str) {
-        HashMap<String, SapiBiometricDto> hashMap = this.f5840c;
+        HashMap<String, SapiBiometricDto> hashMap = this.f5883c;
         if (hashMap != null) {
             return hashMap.get(str);
         }
@@ -52,7 +52,7 @@ public class c {
     }
 
     public int b(Context context) {
-        String localDecryptProxy = RimArmor.getInstance().localDecryptProxy((String) SharedPreferencesUtils.getParam(context, f5838d, f5839e, ""));
+        String localDecryptProxy = RimArmor.getInstance().localDecryptProxy((String) SharedPreferencesUtils.getParam(context, f5881d, f5882e, ""));
         try {
             if (TextUtils.isEmpty(localDecryptProxy)) {
                 return 1048576;
@@ -65,10 +65,10 @@ public class c {
     }
 
     public void a(String str, SapiBiometricDto sapiBiometricDto) {
-        if (this.f5840c == null) {
-            this.f5840c = new HashMap<>();
+        if (this.f5883c == null) {
+            this.f5883c = new HashMap<>();
         }
-        this.f5840c.put(str, sapiBiometricDto);
+        this.f5883c.put(str, sapiBiometricDto);
     }
 
     public GetFPResponse.LivenessConfig a(Context context) {
@@ -88,7 +88,7 @@ public class c {
 
     public void a(Context context, int i2) {
         if (i2 > 0) {
-            SharedPreferencesUtils.setParam(context, f5838d, f5839e, RimArmor.getInstance().localEncryptProxy(String.valueOf(i2)));
+            SharedPreferencesUtils.setParam(context, f5881d, f5882e, RimArmor.getInstance().localEncryptProxy(String.valueOf(i2)));
         }
     }
 }

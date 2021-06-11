@@ -18,19 +18,19 @@ import com.baidu.apollon.NoProguard;
 public class SafeWebView extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4146a = ApollonConstants.DEBUG & true;
+    public static final boolean f4165a = ApollonConstants.DEBUG & true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f4147b = "SafeWebView";
+    public static final String f4166b = "SafeWebView";
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile b f4148c;
+    public volatile b f4167c;
 
     /* loaded from: classes.dex */
     public static class SafeChromeClient extends WebChromeClient implements NoProguard {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f4149a;
+        public boolean f4168a;
 
         private void a(WebView webView) {
             if (webView instanceof SafeWebView) {
@@ -40,10 +40,10 @@ public class SafeWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            if (SafeWebView.f4146a) {
-                Log.i(SafeWebView.f4147b, "onJsPrompt: " + str);
-                Log.i(SafeWebView.f4147b, "msg: " + str2);
-                Log.i(SafeWebView.f4147b, "defaultValue" + str3);
+            if (SafeWebView.f4165a) {
+                Log.i(SafeWebView.f4166b, "onJsPrompt: " + str);
+                Log.i(SafeWebView.f4166b, "msg: " + str2);
+                Log.i(SafeWebView.f4166b, "defaultValue" + str3);
             }
             if ((webView instanceof SafeWebView) && ((SafeWebView) webView).jsCallJava(str, str2, str3, jsPromptResult)) {
                 return true;
@@ -54,12 +54,12 @@ public class SafeWebView extends WebView {
         @Override // android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i2) {
             if (i2 <= 25) {
-                this.f4149a = false;
-            } else if (!this.f4149a) {
+                this.f4168a = false;
+            } else if (!this.f4168a) {
                 a(webView);
-                this.f4149a = true;
-                if (SafeWebView.f4146a) {
-                    Log.d(SafeWebView.f4147b, " inject js interface completely on progress " + i2);
+                this.f4168a = true;
+                if (SafeWebView.f4165a) {
+                    Log.d(SafeWebView.f4166b, " inject js interface completely on progress " + i2);
                 }
             }
             super.onProgressChanged(webView, i2);
@@ -67,16 +67,16 @@ public class SafeWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
-            if (this.f4149a) {
+            if (this.f4168a) {
                 return;
             }
-            this.f4149a = false;
-            if (SafeWebView.f4146a) {
-                Log.i(SafeWebView.f4147b, "onReceivedTitle: " + str);
+            this.f4168a = false;
+            if (SafeWebView.f4165a) {
+                Log.i(SafeWebView.f4166b, "onReceivedTitle: " + str);
             }
             a(webView);
             super.onReceivedTitle(webView, str);
-            this.f4149a = true;
+            this.f4168a = true;
         }
     }
 
@@ -84,7 +84,7 @@ public class SafeWebView extends WebView {
     public static class SafeWebViewClient extends WebViewClient implements NoProguard {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f4150a;
+        public boolean f4169a;
 
         private void a(WebView webView) {
             if (webView instanceof SafeWebView) {
@@ -94,57 +94,57 @@ public class SafeWebView extends WebView {
 
         @Override // android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-            if (this.f4150a) {
+            if (this.f4169a) {
                 return;
             }
-            this.f4150a = false;
-            if (SafeWebView.f4146a) {
-                Log.i(SafeWebView.f4147b, "doUpdateVisitedHistory: " + str);
+            this.f4169a = false;
+            if (SafeWebView.f4165a) {
+                Log.i(SafeWebView.f4166b, "doUpdateVisitedHistory: " + str);
             }
             a(webView);
             super.doUpdateVisitedHistory(webView, str, z);
-            this.f4150a = true;
+            this.f4169a = true;
         }
 
         @Override // android.webkit.WebViewClient
         public void onLoadResource(WebView webView, String str) {
-            if (this.f4150a) {
+            if (this.f4169a) {
                 return;
             }
-            this.f4150a = false;
-            if (SafeWebView.f4146a) {
-                Log.i(SafeWebView.f4147b, "onLoadResource: " + str);
+            this.f4169a = false;
+            if (SafeWebView.f4165a) {
+                Log.i(SafeWebView.f4166b, "onLoadResource: " + str);
             }
             super.onLoadResource(webView, str);
-            this.f4150a = true;
+            this.f4169a = true;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            if (this.f4150a) {
+            if (this.f4169a) {
                 return;
             }
-            this.f4150a = false;
-            if (SafeWebView.f4146a) {
-                Log.i(SafeWebView.f4147b, "onPageFinished: " + str);
+            this.f4169a = false;
+            if (SafeWebView.f4165a) {
+                Log.i(SafeWebView.f4166b, "onPageFinished: " + str);
             }
             a(webView);
             super.onPageFinished(webView, str);
-            this.f4150a = false;
+            this.f4169a = false;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            if (this.f4150a) {
+            if (this.f4169a) {
                 return;
             }
-            this.f4150a = false;
-            if (SafeWebView.f4146a) {
-                Log.i(SafeWebView.f4147b, "onPageStarted: " + str);
+            this.f4169a = false;
+            if (SafeWebView.f4165a) {
+                Log.i(SafeWebView.f4166b, "onPageStarted: " + str);
             }
             a(webView);
             super.onPageStarted(webView, str, bitmap);
-            this.f4150a = true;
+            this.f4169a = true;
         }
 
         @Override // android.webkit.WebViewClient
@@ -175,7 +175,7 @@ public class SafeWebView extends WebView {
     @SuppressLint({"NewApi"})
     public SafeWebView(Context context, AttributeSet attributeSet, int i2, boolean z) {
         super(context, attributeSet, i2, z);
-        this.f4148c = null;
+        this.f4167c = null;
         a(context);
     }
 
@@ -215,14 +215,14 @@ public class SafeWebView extends WebView {
     }
 
     public b getJsBridge() {
-        if (this.f4148c == null) {
+        if (this.f4167c == null) {
             synchronized (this) {
-                if (this.f4148c == null) {
-                    this.f4148c = new b();
+                if (this.f4167c == null) {
+                    this.f4167c = new b();
                 }
             }
         }
-        return this.f4148c;
+        return this.f4167c;
     }
 
     public void impactJavascriptInterfaces() {
@@ -235,8 +235,8 @@ public class SafeWebView extends WebView {
             }
         } catch (Throwable unused) {
         }
-        if (f4146a) {
-            Log.i(f4147b, "impactJavascriptInterfaces done!");
+        if (f4165a) {
+            Log.i(f4166b, "impactJavascriptInterfaces done!");
         }
     }
 
@@ -287,19 +287,19 @@ public class SafeWebView extends WebView {
 
     public SafeWebView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f4148c = null;
+        this.f4167c = null;
         a(context);
     }
 
     public SafeWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4148c = null;
+        this.f4167c = null;
         a(context);
     }
 
     public SafeWebView(Context context) {
         super(context);
-        this.f4148c = null;
+        this.f4167c = null;
         a(context);
     }
 }

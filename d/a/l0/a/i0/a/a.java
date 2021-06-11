@@ -11,7 +11,7 @@ import d.a.l0.a.v2.h;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends a0 {
     public a(e eVar) {
         super(eVar, "/swanAPI/getRegionData");
@@ -35,7 +35,7 @@ public class a extends a0 {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         } catch (JSONException e2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exec fail");

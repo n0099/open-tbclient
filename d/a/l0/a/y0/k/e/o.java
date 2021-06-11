@@ -23,7 +23,7 @@ public class o extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
         boolean z = command.arg1 != 0;
         String str = (String) arrayList.get(0);
         String f2 = d.a.l0.a.l2.b.l().f(str, (String) arrayList.get(1));
-        command.ret = aVar.R(str, f2, (String) arrayList.get(2), z) ? 1 : 0;
+        command.ret = aVar.O(str, f2, (String) arrayList.get(2), z) ? 1 : 0;
         String str2 = command.what;
         d(aVar, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f2 + ";hideUrlLog: " + z, true);
     }

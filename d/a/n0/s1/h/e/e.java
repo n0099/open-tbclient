@@ -15,62 +15,62 @@ import com.baidu.tieba.memberCenter.tail.data.TailData;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f60713a;
+    public View f64404a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f60714b;
+    public Context f64405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f60715c;
+    public TextView f64406c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f60716d;
+    public ImageView f64407d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TailData f60717e;
+    public TailData f64408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f60718f;
+    public View f64409f;
 
     public View a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.tail_tool_item, (ViewGroup) null);
-        this.f60713a = inflate;
-        this.f60714b = context;
+        this.f64404a = inflate;
+        this.f64405b = context;
         inflate.setTag(this);
-        this.f60715c = (TextView) this.f60713a.findViewById(R.id.tail_tool_item_text);
-        this.f60716d = (ImageView) this.f60713a.findViewById(R.id.tail_tool_item_selected);
-        View findViewById = this.f60713a.findViewById(R.id.tail_tool_item_scope);
-        this.f60718f = findViewById;
+        this.f64406c = (TextView) this.f64404a.findViewById(R.id.tail_tool_item_text);
+        this.f64407d = (ImageView) this.f64404a.findViewById(R.id.tail_tool_item_selected);
+        View findViewById = this.f64404a.findViewById(R.id.tail_tool_item_scope);
+        this.f64409f = findViewById;
         findViewById.setTag(this);
-        return this.f60713a;
+        return this.f64404a;
     }
 
     public TailData b() {
-        return this.f60717e;
+        return this.f64408e;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void c() {
-        SkinManager.setBackgroundResource(this.f60718f, R.drawable.tail_item_bg);
-        SkinManager.setViewTextColor(this.f60715c, R.color.CAM_X0106, 1);
-        SkinManager.setBackgroundResource(this.f60716d, R.drawable.tail_tool_list_item_checkbox_bg);
-        SkinManager.setImageResource(this.f60716d, R.drawable.tail_tool_list_item_checkbox_selector);
+        SkinManager.setBackgroundResource(this.f64409f, R.drawable.tail_item_bg);
+        SkinManager.setViewTextColor(this.f64406c, R.color.CAM_X0106, 1);
+        SkinManager.setBackgroundResource(this.f64407d, R.drawable.tail_tool_list_item_checkbox_bg);
+        SkinManager.setImageResource(this.f64407d, R.drawable.tail_tool_list_item_checkbox_selector);
     }
 
     public void d(String str) {
-        this.f60715c.setTextColor(d.a.n0.s1.h.f.c.a(str));
+        this.f64406c.setTextColor(d.a.n0.s1.h.f.c.a(str));
     }
 
     public void e(View.OnClickListener onClickListener) {
-        this.f60718f.setOnClickListener(onClickListener);
+        this.f64409f.setOnClickListener(onClickListener);
     }
 
     public void f(TailData tailData) {
-        this.f60717e = tailData;
+        this.f64408e = tailData;
     }
 
     public void g(String str) {
-        this.f60715c.setText(TbFaceManager.e().l(this.f60714b, d.a.n0.s1.h.f.d.a(str), null));
+        this.f64406c.setText(TbFaceManager.e().l(this.f64405b, d.a.n0.s1.h.f.d.a(str), null));
     }
 
     public void h(TailData tailData) {
@@ -79,6 +79,6 @@ public class e {
         }
         g(tailData.getContent());
         d(tailData.getFontColor());
-        this.f60716d.setSelected(tailData.isSelected());
+        this.f64407d.setSelected(tailData.isSelected());
     }
 }

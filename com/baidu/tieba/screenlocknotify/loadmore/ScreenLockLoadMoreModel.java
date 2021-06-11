@@ -27,7 +27,7 @@ public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
         a.c(309420, CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void s() {
+    public void w() {
         sendMessage(new ScreenLockLoadMoreMessage());
     }
 }

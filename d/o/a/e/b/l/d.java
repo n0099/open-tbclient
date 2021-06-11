@@ -3,31 +3,31 @@ package d.o.a.e.b.l;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f67345a;
+    public b f71131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f67346b;
+    public b f71132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67347c;
+    public int f71133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67348d = 10;
+    public int f71134d = 10;
 
     /* loaded from: classes7.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f67349a;
+        public long f71135a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f67350b;
+        public long f71136b;
 
         /* renamed from: c  reason: collision with root package name */
-        public b f67351c;
+        public b f71137c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b f67352d;
+        public b f71138d;
 
         public b() {
         }
@@ -35,58 +35,58 @@ public class d {
 
     public final b a() {
         b bVar;
-        if (this.f67347c >= this.f67348d && (bVar = this.f67346b) != null) {
-            b bVar2 = bVar.f67352d;
-            bVar.f67352d = null;
-            this.f67346b = bVar2;
+        if (this.f71133c >= this.f71134d && (bVar = this.f71132b) != null) {
+            b bVar2 = bVar.f71138d;
+            bVar.f71138d = null;
+            this.f71132b = bVar2;
             if (bVar2 != null) {
-                bVar2.f67351c = null;
+                bVar2.f71137c = null;
             }
             return bVar;
         }
-        this.f67347c++;
+        this.f71133c++;
         return new b();
     }
 
     public final b b(long j) {
-        b bVar = this.f67345a;
+        b bVar = this.f71131a;
         b bVar2 = null;
-        while (bVar != null && bVar.f67350b > j) {
+        while (bVar != null && bVar.f71136b > j) {
             bVar2 = bVar;
-            bVar = bVar.f67351c;
+            bVar = bVar.f71137c;
         }
-        return (bVar == null || bVar2 == null || bVar == bVar2 || j - bVar.f67350b >= bVar2.f67350b - j) ? bVar2 : bVar;
+        return (bVar == null || bVar2 == null || bVar == bVar2 || j - bVar.f71136b >= bVar2.f71136b - j) ? bVar2 : bVar;
     }
 
     public boolean c(long j, long j2) {
         synchronized (this) {
-            b bVar = this.f67345a;
+            b bVar = this.f71131a;
             if (bVar != null) {
-                if (j >= bVar.f67349a && j2 >= bVar.f67350b) {
-                    b bVar2 = bVar.f67351c;
-                    if (bVar2 != null && j2 - bVar2.f67350b < 1000) {
-                        bVar.f67349a = j;
-                        bVar.f67350b = j2;
+                if (j >= bVar.f71135a && j2 >= bVar.f71136b) {
+                    b bVar2 = bVar.f71137c;
+                    if (bVar2 != null && j2 - bVar2.f71136b < 1000) {
+                        bVar.f71135a = j;
+                        bVar.f71136b = j2;
                         return true;
                     }
                 }
                 return false;
             }
             b a2 = a();
-            a2.f67349a = j;
-            a2.f67350b = j2;
+            a2.f71135a = j;
+            a2.f71136b = j2;
             if (bVar != null) {
-                a2.f67351c = bVar;
-                bVar.f67352d = a2;
+                a2.f71137c = bVar;
+                bVar.f71138d = a2;
             }
-            this.f67345a = a2;
+            this.f71131a = a2;
             return true;
         }
     }
 
     public long d(long j, long j2) {
         synchronized (this) {
-            b bVar = this.f67345a;
+            b bVar = this.f71131a;
             if (bVar == null) {
                 return -1L;
             }
@@ -94,8 +94,8 @@ public class d {
             if (b2 == null) {
                 return -1L;
             }
-            long j3 = bVar.f67349a - b2.f67349a;
-            long j4 = j2 - b2.f67350b;
+            long j3 = bVar.f71135a - b2.f71135a;
+            long j4 = j2 - b2.f71136b;
             if (j3 < 0 || j4 <= 0) {
                 return -1L;
             }

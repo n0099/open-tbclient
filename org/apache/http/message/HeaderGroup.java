@@ -3,7 +3,7 @@ package org.apache.http.message;
 import org.apache.http.Header;
 import org.apache.http.HeaderIterator;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HeaderGroup {
     public HeaderGroup() {
         throw new RuntimeException("Stub!");

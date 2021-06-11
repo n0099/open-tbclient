@@ -1,38 +1,31 @@
 package com.kwad.sdk.core.c.a;
 
-import com.baidu.tbadk.core.util.TbEnum;
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.emotion.model.EmotionAuthor;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class n implements com.kwad.sdk.core.c<AdInfo.AdvertiserInfo> {
+public class n implements com.kwad.sdk.core.c<EmotionAuthor> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        advertiserInfo.userId = jSONObject.optLong("userId");
-        advertiserInfo.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-        advertiserInfo.rawUserName = jSONObject.optString("rawUserName");
-        advertiserInfo.userGender = jSONObject.optString("userGender");
-        advertiserInfo.portraitUrl = jSONObject.optString("portraitUrl");
-        advertiserInfo.adAuthorText = jSONObject.optString("adAuthorText");
-        advertiserInfo.authorIconGuide = jSONObject.optString("authorIconGuide");
+    public JSONObject a(EmotionAuthor emotionAuthor) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, "id", emotionAuthor.id);
+        com.kwad.sdk.utils.o.a(jSONObject, "name", emotionAuthor.name);
+        com.kwad.sdk.utils.o.a(jSONObject, "userHead", emotionAuthor.userHead);
+        com.kwad.sdk.utils.o.a(jSONObject, "userDesc", emotionAuthor.userDesc);
+        com.kwad.sdk.utils.o.a(jSONObject, "followed", emotionAuthor.followed);
+        return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject b(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
+    public void a(EmotionAuthor emotionAuthor, JSONObject jSONObject) {
         if (jSONObject == null) {
-            jSONObject = new JSONObject();
+            return;
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "userId", advertiserInfo.userId);
-        com.kwad.sdk.utils.o.a(jSONObject, TbEnum.SystemMessage.KEY_USER_NAME, advertiserInfo.userName);
-        com.kwad.sdk.utils.o.a(jSONObject, "rawUserName", advertiserInfo.rawUserName);
-        com.kwad.sdk.utils.o.a(jSONObject, "userGender", advertiserInfo.userGender);
-        com.kwad.sdk.utils.o.a(jSONObject, "portraitUrl", advertiserInfo.portraitUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "adAuthorText", advertiserInfo.adAuthorText);
-        com.kwad.sdk.utils.o.a(jSONObject, "authorIconGuide", advertiserInfo.authorIconGuide);
-        return jSONObject;
+        emotionAuthor.id = jSONObject.optString("id");
+        emotionAuthor.name = jSONObject.optString("name");
+        emotionAuthor.userHead = jSONObject.optString("userHead");
+        emotionAuthor.userDesc = jSONObject.optString("userDesc");
+        emotionAuthor.followed = jSONObject.optString("followed");
     }
 }

@@ -9,39 +9,39 @@ import java.util.ArrayList;
 public class f extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f48841c = BdUniqueId.gen();
+    public static final BdUniqueId f52515c = BdUniqueId.gen();
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<String> f48842a;
+    public final ArrayList<String> f52516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.m0.b.e f48843b;
+    public d.a.m0.b.e f52517b;
 
     public f() {
         ArrayList<String> arrayList = new ArrayList<>(2);
-        this.f48842a = arrayList;
+        this.f52516a = arrayList;
         arrayList.add("11_9_frs_page_guide");
-        this.f48842a.add("11_9_frs_page_guide_a");
+        this.f52516a.add("11_9_frs_page_guide_a");
     }
 
     @Override // d.a.m0.b.f.a
     public ArrayList<String> a() {
-        return this.f48842a;
+        return this.f52516a;
     }
 
     @Override // d.a.m0.b.f.a
     @UbsTest(description = "frs引导弹窗的abtest，FRS页引导关注")
     public d.a.m0.b.e b() {
-        return this.f48843b;
+        return this.f52517b;
     }
 
     @Override // d.a.m0.b.f.a
     public BdUniqueId c() {
-        return f48841c;
+        return f52515c;
     }
 
     @Override // d.a.m0.b.f.a
     public void f(d.a.m0.b.e eVar) {
-        this.f48843b = eVar;
+        this.f52517b = eVar;
     }
 }

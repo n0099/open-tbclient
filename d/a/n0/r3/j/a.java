@@ -1,25 +1,66 @@
 package d.a.n0.r3.j;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.video.editvideo.data.PendantData;
+import android.content.Context;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.R;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.TimeZone;
 /* loaded from: classes5.dex */
-public interface a {
-    void clearFinalVideoPath();
+public class a extends BdAsyncTask<Void, Void, List<b>> {
 
-    void finishPage();
+    /* renamed from: a  reason: collision with root package name */
+    public InterfaceC1636a f63885a;
 
-    void onCheckUegFail(String str);
+    /* renamed from: b  reason: collision with root package name */
+    public Context f63886b;
 
-    void onCheckUegSuccess();
+    /* renamed from: c  reason: collision with root package name */
+    public int f63887c;
 
-    void onGetCoverBitmap(Bitmap bitmap);
+    /* renamed from: e  reason: collision with root package name */
+    public SimpleDateFormat f63889e = new SimpleDateFormat("mm:ss");
 
-    void onNext();
+    /* renamed from: d  reason: collision with root package name */
+    public SimpleDateFormat f63888d = new SimpleDateFormat("HH:mm:ss");
 
-    void onSave();
+    /* renamed from: d.a.n0.r3.j.a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public interface InterfaceC1636a {
+        void a(List<b> list);
+    }
 
-    void onSaveCover(String str);
+    public a(Context context) {
+        this.f63886b = context;
+        this.f63887c = context.getResources().getDimensionPixelSize(R.dimen.ds220);
+        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
+        this.f63889e.setTimeZone(timeZone);
+        this.f63888d.setTimeZone(timeZone);
+    }
 
-    void setPendantData(List<PendantData> list);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public List<b> doInBackground(Void... voidArr) {
+        List<b> a2 = c.a(this.f63886b);
+        c.d("/sdcard", a2, false);
+        c.d("/sdcard/DCIM", a2, true);
+        c.e(a2);
+        return a2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public void onPostExecute(List<b> list) {
+        super.onPostExecute(list);
+        InterfaceC1636a interfaceC1636a = this.f63885a;
+        if (interfaceC1636a != null) {
+            interfaceC1636a.a(list);
+        }
+    }
+
+    public void d(InterfaceC1636a interfaceC1636a) {
+        this.f63885a = interfaceC1636a;
+    }
 }

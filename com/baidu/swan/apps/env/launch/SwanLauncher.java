@@ -27,19 +27,19 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SwanLauncher {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10766a = k.f43199a;
+    public static final boolean f10828a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f10767b = new h(0);
+    public static final f f10829b = new h(0);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final f f10768c = new h(1);
+    public static final f f10830c = new h(1);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class T7CheckException extends Exception {
         public T7CheckException() {
         }
@@ -49,31 +49,31 @@ public final class SwanLauncher {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements h.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v1.c.f.c f10769e;
+        public final /* synthetic */ d.a.l0.a.v1.c.f.c f10831e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f10770f;
+        public final /* synthetic */ Bundle f10832f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f10771g;
+        public final /* synthetic */ int f10833g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f10772h;
+        public final /* synthetic */ String f10834h;
 
         public a(d.a.l0.a.v1.c.f.c cVar, Bundle bundle, int i2, String str) {
-            this.f10769e = cVar;
-            this.f10770f = bundle;
-            this.f10771g = i2;
-            this.f10772h = str;
+            this.f10831e = cVar;
+            this.f10832f = bundle;
+            this.f10833g = i2;
+            this.f10834h = str;
         }
 
         @Override // h.c
         public void onCompleted() {
-            SwanLauncher.this.o(this.f10769e, this.f10770f, this.f10771g);
+            SwanLauncher.this.o(this.f10831e, this.f10832f, this.f10833g);
             d.a.l0.a.a2.d.g().q("event_launch_swan");
         }
 
@@ -83,7 +83,7 @@ public final class SwanLauncher {
                 return;
             }
             d.a.l0.a.a2.d.g().q("event_launch_swan");
-            SwanLauncher.this.k(th, this.f10771g, this.f10772h, this.f10770f);
+            SwanLauncher.this.k(th, this.f10833g, this.f10834h, this.f10832f);
         }
 
         @Override // h.c
@@ -91,70 +91,70 @@ public final class SwanLauncher {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v1.c.f.c f10774e;
+        public final /* synthetic */ d.a.l0.a.v1.c.f.c f10836e;
 
         public b(SwanLauncher swanLauncher, d.a.l0.a.v1.c.f.c cVar) {
-            this.f10774e = cVar;
+            this.f10836e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f10774e.Z();
+            this.f10836e.Z();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements d.a.l0.a.v1.c.f.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v1.c.f.c f10775a;
+        public final /* synthetic */ d.a.l0.a.v1.c.f.c f10837a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10776b;
+        public final /* synthetic */ String f10838b;
 
         public c(SwanLauncher swanLauncher, d.a.l0.a.v1.c.f.c cVar, String str) {
-            this.f10775a = cVar;
-            this.f10776b = str;
+            this.f10837a = cVar;
+            this.f10838b = str;
         }
 
         @Override // d.a.l0.a.v1.c.f.a
         public void a(String str, d.a.l0.a.v1.c.f.c cVar) {
-            if (cVar != this.f10775a) {
+            if (cVar != this.f10837a) {
                 return;
             }
-            if ("event_puppet_fmp_launch_finish".equals(str) && cVar.C() && TextUtils.equals(this.f10776b, cVar.getAppId())) {
+            if ("event_puppet_fmp_launch_finish".equals(str) && cVar.C() && TextUtils.equals(this.f10838b, cVar.getAppId())) {
                 d.a.l0.a.v1.c.f.e.k().h(this);
-                d.a.l0.a.f1.b.l(this.f10776b);
+                d.a.l0.a.f1.b.l(this.f10838b);
             } else if ("event_puppet_unload_app".equals(str) || "event_puppet_offline".equals(str)) {
                 d.a.l0.a.v1.c.f.e.k().h(this);
-                d.a.l0.a.f1.b.k(this.f10776b);
+                d.a.l0.a.f1.b.k(this.f10838b);
             }
         }
 
         @Override // d.a.l0.a.v1.c.f.a
         public void timeout() {
-            d.a.l0.a.f1.b.k(this.f10776b);
+            d.a.l0.a.f1.b.k(this.f10838b);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements h.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f10777e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f10839e;
 
         public d(SwanLauncher swanLauncher, d.a.l0.a.v2.e1.b bVar) {
-            this.f10777e = bVar;
+            this.f10839e = bVar;
         }
 
         @Override // h.c
         public void onCompleted() {
             d.a.l0.a.e0.d.h("SwanLauncher", "init onCompleted");
-            d.a.l0.a.v2.e1.b bVar = this.f10777e;
+            d.a.l0.a.v2.e1.b bVar = this.f10839e;
             if (bVar != null) {
                 bVar.onCallback(null);
             }
@@ -163,7 +163,7 @@ public final class SwanLauncher {
         @Override // h.c
         public void onError(Throwable th) {
             d.a.l0.a.e0.d.i("SwanLauncher", "initEnv onError: ", th);
-            d.a.l0.a.v2.e1.b bVar = this.f10777e;
+            d.a.l0.a.v2.e1.b bVar = this.f10839e;
             if (bVar != null) {
                 bVar.onCallback(new Exception("initEnv failed", th));
             }
@@ -171,46 +171,46 @@ public final class SwanLauncher {
 
         @Override // h.c
         public void onSubscribe(h.k kVar) {
-            if (SwanLauncher.f10766a) {
+            if (SwanLauncher.f10828a) {
                 Log.i("SwanLauncher", "init onSubscribe: " + kVar);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f10778a;
+        public int f10840a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10779b;
+        public int f10841b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Bundle f10780c;
+        public Bundle f10842c;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public e f10781a = new e(null);
+            public e f10843a = new e(null);
 
             public e a() {
-                return this.f10781a;
+                return this.f10843a;
             }
 
             public a b(int i2) {
-                this.f10781a.f10778a = i2;
+                this.f10843a.f10840a = i2;
                 return this;
             }
 
             public a c(Bundle bundle) {
-                this.f10781a.f10780c = bundle;
+                this.f10843a.f10842c = bundle;
                 return this;
             }
 
             public a d(int i2) {
-                this.f10781a.f10779b = i2;
+                this.f10843a.f10841b = i2;
                 return this;
             }
         }
@@ -220,32 +220,32 @@ public final class SwanLauncher {
         }
 
         public e() {
-            this.f10778a = -1;
-            this.f10779b = -1;
+            this.f10840a = -1;
+            this.f10841b = -1;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final SwanLauncher f10783a = new SwanLauncher(null);
+        public static final SwanLauncher f10845a = new SwanLauncher(null);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class h extends f {
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f10784f;
+        public final int f10846f;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements d.a.l0.a.v2.e1.b<Exception> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.c f10785e;
+            public final /* synthetic */ h.c f10847e;
 
             public a(h.c cVar) {
-                this.f10785e = cVar;
+                this.f10847e = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -254,17 +254,17 @@ public final class SwanLauncher {
             public void onCallback(Exception exc) {
                 if (exc == null) {
                     h.this.b();
-                    this.f10785e.onCompleted();
+                    this.f10847e.onCompleted();
                     return;
                 }
-                h.c cVar = this.f10785e;
-                cVar.onError(new Exception("SwanJsUpdater fail frame type = " + h.this.f10784f, exc));
+                h.c cVar = this.f10847e;
+                cVar.onError(new Exception("SwanJsUpdater fail frame type = " + h.this.f10846f, exc));
             }
         }
 
         public h(int i2) {
             super(null);
-            this.f10784f = i2;
+            this.f10846f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -274,51 +274,51 @@ public final class SwanLauncher {
             if (a()) {
                 cVar.onCompleted();
             } else {
-                d.a.l0.a.p0.e.a.d().c(new a(cVar), this.f10784f);
+                d.a.l0.a.p0.e.a.d().c(new a(cVar), this.f10846f);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class i extends f {
 
         /* renamed from: f  reason: collision with root package name */
-        public final e f10787f;
+        public final e f10849f;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements d.a.l0.a.h0.s.c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.a.l0.a.h0.s.e f10788a;
+            public final /* synthetic */ d.a.l0.a.h0.s.e f10850a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ h.c f10789b;
+            public final /* synthetic */ h.c f10851b;
 
             public a(d.a.l0.a.h0.s.e eVar, h.c cVar) {
-                this.f10788a = eVar;
-                this.f10789b = cVar;
+                this.f10850a = eVar;
+                this.f10851b = cVar;
             }
 
             @Override // d.a.l0.a.h0.s.c
             public void onFail() {
-                if (this.f10788a.f42572b) {
-                    this.f10789b.onError(new T7CheckException(null));
+                if (this.f10850a.f46248b) {
+                    this.f10851b.onError(new T7CheckException(null));
                 }
             }
 
             @Override // d.a.l0.a.h0.s.c
             public void onSuccess() {
                 i.this.g();
-                if (this.f10788a.f42572b) {
+                if (this.f10850a.f46248b) {
                     i.this.b();
-                    this.f10789b.onCompleted();
+                    this.f10851b.onCompleted();
                 }
             }
         }
 
         public i(@NonNull e eVar) {
             super(null);
-            this.f10787f = eVar;
+            this.f10849f = eVar;
         }
 
         @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f
@@ -337,12 +337,12 @@ public final class SwanLauncher {
                 b();
                 cVar.onCompleted();
             } else {
-                e eVar = this.f10787f;
-                if (eVar.f10779b != 1) {
+                e eVar = this.f10849f;
+                if (eVar.f10841b != 1) {
                     cVar.onError(new T7CheckException(null));
                     return;
                 }
-                if (eVar.f10778a == 0 && !BdZeusUtil.isZeusSupported()) {
+                if (eVar.f10840a == 0 && !BdZeusUtil.isZeusSupported()) {
                     b();
                     cVar.onCompleted();
                 }
@@ -352,10 +352,10 @@ public final class SwanLauncher {
 
         public final d.a.l0.a.h0.s.e e(e eVar, boolean z) {
             d.a.l0.a.h0.s.e eVar2 = new d.a.l0.a.h0.s.e();
-            eVar2.f42571a = "by_click";
-            int i2 = this.f10787f.f10778a;
-            eVar2.f42572b = z;
-            Bundle bundle = eVar.f10780c;
+            eVar2.f46247a = "by_click";
+            int i2 = this.f10849f.f10840a;
+            eVar2.f46248b = z;
+            Bundle bundle = eVar.f10842c;
             if (bundle != null) {
                 bundle.getString("mFrom", "unknown");
             }
@@ -363,7 +363,7 @@ public final class SwanLauncher {
         }
 
         public final void f(h.c cVar) {
-            Bundle bundle = this.f10787f.f10780c;
+            Bundle bundle = this.f10849f.f10842c;
             if (bundle == null) {
                 cVar.onError(new T7CheckException(null));
                 return;
@@ -379,7 +379,7 @@ public final class SwanLauncher {
                 return;
             }
             boolean z = true;
-            if (!"1".equals(build.getQueryParameter("dependOnT7")) && this.f10787f.f10778a != 1 && !d.a.l0.a.c1.a.w().g()) {
+            if (!"1".equals(build.getQueryParameter("dependOnT7")) && this.f10849f.f10840a != 1 && !d.a.l0.a.c1.a.w().g()) {
                 z = false;
             }
             if (!z) {
@@ -387,12 +387,12 @@ public final class SwanLauncher {
                 cVar.onCompleted();
             }
             h();
-            d.a.l0.a.h0.s.e e2 = e(this.f10787f, z);
+            d.a.l0.a.h0.s.e e2 = e(this.f10849f, z);
             d.a.l0.a.c1.a.n0().b(e2, new a(e2, cVar));
         }
 
         public final void g() {
-            Bundle bundle = this.f10787f.f10780c;
+            Bundle bundle = this.f10849f.f10842c;
             if (bundle != null) {
                 bundle.putLong("t7_loading_end", System.currentTimeMillis());
                 d.a.l0.a.e0.d.h("SwanLauncher", "swanSailor loadingEnd");
@@ -400,7 +400,7 @@ public final class SwanLauncher {
         }
 
         public final void h() {
-            Bundle bundle = this.f10787f.f10780c;
+            Bundle bundle = this.f10849f.f10842c;
             if (bundle != null) {
                 bundle.putLong("t7_loading_start", System.currentTimeMillis());
                 d.a.l0.a.e0.d.h("SwanLauncher", "swanSailor loadingStart");
@@ -431,7 +431,7 @@ public final class SwanLauncher {
     }
 
     public static SwanLauncher j() {
-        return g.f10783a;
+        return g.f10845a;
     }
 
     public final void d(String str, d.a.l0.a.v1.c.f.c cVar) {
@@ -442,13 +442,13 @@ public final class SwanLauncher {
     }
 
     public final void e(@NonNull h.c cVar, f... fVarArr) {
-        if (f10766a) {
+        if (f10828a) {
             Log.i("SwanLauncher", "checkEnv: checkers=" + fVarArr);
         }
         if (fVarArr != null && fVarArr.length >= 1) {
             ArrayList arrayList = null;
             for (f fVar : fVarArr) {
-                if (f10766a) {
+                if (f10828a) {
                     Log.i("SwanLauncher", "checkEnv: checker=" + fVar);
                 }
                 if (fVar != null && !fVar.a()) {
@@ -458,7 +458,7 @@ public final class SwanLauncher {
                     arrayList.add(h.b.b(fVar));
                 }
             }
-            if (f10766a) {
+            if (f10828a) {
                 Log.i("SwanLauncher", "checkEnv: list=" + arrayList);
             }
             if (arrayList != null && !arrayList.isEmpty()) {
@@ -494,7 +494,7 @@ public final class SwanLauncher {
         e.a aVar = new e.a();
         aVar.b(-1);
         aVar.d(0);
-        e(new d(this, bVar), new i(aVar.a()), f10767b, f10768c);
+        e(new d(this, bVar), new i(aVar.a()), f10829b, f10830c);
     }
 
     public void m(Bundle bundle) {
@@ -528,7 +528,7 @@ public final class SwanLauncher {
         }
         d.a.l0.a.n0.i.b.e(string, string2);
         d.a.l0.a.n0.i.b.c();
-        if (f10766a) {
+        if (f10828a) {
             boolean F = r.F();
             Log.d("SwanPerformance", "app is cold boot = " + F);
         }
@@ -537,8 +537,8 @@ public final class SwanLauncher {
         g(bundle);
         bundle.putLong("launch_time_on_main", System.currentTimeMillis());
         bundle.putInt("main_pid", Process.myPid());
-        if (f10766a) {
-            Log.d("SwanLauncher", "onReady processId: " + r.f45331f + " ,client:" + r.toString());
+        if (f10828a) {
+            Log.d("SwanLauncher", "onReady processId: " + r.f49005f + " ,client:" + r.toString());
         }
         e.a aVar = new e.a();
         aVar.b(i2);
@@ -548,7 +548,7 @@ public final class SwanLauncher {
         a aVar2 = new a(r, bundle, i2, string);
         f[] fVarArr = new f[2];
         fVarArr[0] = iVar;
-        fVarArr[1] = 1 == i2 ? f10768c : f10767b;
+        fVarArr[1] = 1 == i2 ? f10830c : f10829b;
         e(aVar2, fVarArr);
         d.a.l0.a.n0.i.a.c(i2);
     }
@@ -577,7 +577,7 @@ public final class SwanLauncher {
         bundle.putParcelable("swanCoreVersion", e2);
         ExtensionCore c2 = d.a.l0.a.p0.b.c(i2);
         bundle.putParcelable("extensionCore", c2);
-        if (f10766a) {
+        if (f10828a) {
             Log.d("SwanLauncher", "onUpdateFinished() SwanCoreVersion: " + e2);
             Log.d("SwanLauncher", "onUpdateFinished() ExtensionCoreVersion: " + c2);
         }
@@ -600,7 +600,7 @@ public final class SwanLauncher {
                 jSONObject = new JSONObject(string);
             } catch (JSONException e3) {
                 jSONObject = new JSONObject();
-                if (f10766a) {
+                if (f10828a) {
                     e3.printStackTrace();
                 }
             }
@@ -618,7 +618,7 @@ public final class SwanLauncher {
         try {
             appContext.startActivity(intent);
         } catch (Exception e4) {
-            if (f10766a) {
+            if (f10828a) {
                 e4.printStackTrace();
             }
         }
@@ -633,9 +633,9 @@ public final class SwanLauncher {
         int i2;
         boolean e2;
         long currentTimeMillis = System.currentTimeMillis();
-        PMSAppInfo s = d.a.l0.n.g.a.h().s(cVar.f45332g);
+        PMSAppInfo s = d.a.l0.n.g.a.h().s(cVar.f49006g);
         if (s != null && !s.m()) {
-            if (a.C0694a.b()) {
+            if (a.C0750a.b()) {
                 e2 = d.a.l0.a.f1.h.a.b(s, bundle);
             } else {
                 e2 = d.a.l0.a.f1.h.a.e(s);
@@ -652,34 +652,34 @@ public final class SwanLauncher {
         } else {
             i2 = s.m() ? 3 : 0;
         }
-        if (f10766a) {
+        if (f10828a) {
             long currentTimeMillis2 = System.currentTimeMillis();
             Log.d("SwanPerformance", "sendAppLaunch cost " + (currentTimeMillis2 - currentTimeMillis) + "ms, is cold boot = " + cVar.F());
         }
         return i2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class f implements b.f {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f10782e;
+        public boolean f10844e;
 
         public f() {
-            this.f10782e = false;
+            this.f10844e = false;
         }
 
         public boolean a() {
-            return this.f10782e;
+            return this.f10844e;
         }
 
         public void b() {
-            this.f10782e = true;
+            this.f10844e = true;
         }
 
         @NonNull
         public String toString() {
-            return super.toString() + " checked=" + this.f10782e;
+            return super.toString() + " checked=" + this.f10844e;
         }
 
         public /* synthetic */ f(a aVar) {

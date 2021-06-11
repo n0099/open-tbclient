@@ -5,21 +5,21 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
 import d.a.c.e.p.j;
-import d.a.n0.b1.j.b.a;
+import d.a.n0.b1.k.b.a;
 /* loaded from: classes4.dex */
 public class TopicModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f16622e;
+    public a f16698e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f16623f;
+    public d.a.c.c.g.a f16699f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16624g;
+    public d.a.c.c.g.a f16700g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16625h;
+    public boolean f16701h;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
@@ -33,39 +33,39 @@ public class TopicModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f16623f);
-        MessageManager.getInstance().unRegisterListener(this.f16624g);
-        this.f16625h = false;
+        MessageManager.getInstance().unRegisterListener(this.f16699f);
+        MessageManager.getInstance().unRegisterListener(this.f16700g);
+        this.f16701h = false;
     }
 
-    public void s() {
+    @Override // com.baidu.adp.base.BdBaseModel
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        super.setUniqueId(bdUniqueId);
+        this.f16699f.setTag(bdUniqueId);
+        registerListener(this.f16699f);
+        this.f16700g.setTag(bdUniqueId);
+        registerListener(this.f16700g);
+    }
+
+    public void w() {
         if (!j.A()) {
-            a aVar = this.f16622e;
+            a aVar = this.f16698e;
             if (aVar != null) {
                 aVar.netCallback(-1, null);
             }
-        } else if (this.f16625h) {
+        } else if (this.f16701h) {
         } else {
             cancelLoadData();
             RequestGetTopicListMessage requestGetTopicListMessage = new RequestGetTopicListMessage();
             requestGetTopicListMessage.setCallFrom("topic_tab");
             requestGetTopicListMessage.setTag(this.unique_id);
             if (MessageManager.getInstance().sendMessage(requestGetTopicListMessage)) {
-                this.f16625h = true;
+                this.f16701h = true;
             }
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        super.setUniqueId(bdUniqueId);
-        this.f16623f.setTag(bdUniqueId);
-        registerListener(this.f16623f);
-        this.f16624g.setTag(bdUniqueId);
-        registerListener(this.f16624g);
-    }
-
-    public void t(a aVar) {
-        this.f16622e = aVar;
+    public void x(a aVar) {
+        this.f16698e = aVar;
     }
 }

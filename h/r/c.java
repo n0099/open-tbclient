@@ -7,35 +7,35 @@ import h.o.a.a0;
 import h.o.a.x;
 import java.io.PrintStream;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h.n.b<Throwable> f68731a;
+    public static volatile h.n.b<Throwable> f71987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile h.n.f<d.a, d.a> f68732b;
+    public static volatile h.n.f<d.a, d.a> f71988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile h.n.f<h.c, h.c> f68733c;
+    public static volatile h.n.f<h.c, h.c> f71989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile h.n.f<b.f, b.f> f68734d;
+    public static volatile h.n.f<b.f, b.f> f71990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile h.n.g<h.d, d.a, d.a> f68735e;
+    public static volatile h.n.g<h.d, d.a, d.a> f71991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile h.n.g<h.h, h.c, h.c> f68736f;
+    public static volatile h.n.g<h.h, h.c, h.c> f71992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile h.n.g<h.b, b.f, b.f> f68737g;
+    public static volatile h.n.g<h.b, b.f, b.f> f71993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile h.n.f<h.g, h.g> f68738h;
+    public static volatile h.n.f<h.g, h.g> f71994h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile h.n.f<h.g, h.g> f68739i;
+    public static volatile h.n.f<h.g, h.g> f71995i;
     public static volatile h.n.f<h.g, h.g> j;
     public static volatile h.n.f<h.n.a, h.n.a> k;
     public static volatile h.n.f<h.k, h.k> l;
@@ -46,7 +46,7 @@ public final class c {
     public static volatile h.n.f<Throwable, Throwable> q;
     public static volatile h.n.f<d.b, d.b> r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements h.n.f<Throwable, Throwable> {
         public Throwable a(Throwable th) {
             h.r.f.c().g().b(th);
@@ -63,7 +63,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b implements h.n.f<Throwable, Throwable> {
         public Throwable a(Throwable th) {
             h.r.f.c().a().b(th);
@@ -81,8 +81,8 @@ public final class c {
     }
 
     /* renamed from: h.r.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1938c implements h.n.f<d.a, d.a> {
+    /* loaded from: classes8.dex */
+    public static class C1987c implements h.n.f<d.a, d.a> {
         public d.a a(d.a aVar) {
             h.r.f.c().d().a(aVar);
             return aVar;
@@ -98,7 +98,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d implements h.n.f<h.c, h.c> {
         public h.c a(h.c cVar) {
             h.r.f.c().g().a(cVar);
@@ -115,7 +115,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class e implements h.n.f<b.f, b.f> {
         public b.f a(b.f fVar) {
             h.r.f.c().a().a(fVar);
@@ -132,7 +132,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class f implements h.n.b<Throwable> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
@@ -142,7 +142,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class g implements h.n.g<h.d, d.a, d.a> {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -159,7 +159,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class h implements h.n.f<h.k, h.k> {
         public h.k a(h.k kVar) {
             h.r.f.c().d().d(kVar);
@@ -176,7 +176,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class i implements h.n.g<h.h, h.c, h.c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.g
@@ -192,7 +192,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class j implements h.n.f<h.k, h.k> {
         public h.k a(h.k kVar) {
             h.r.f.c().g().c(kVar);
@@ -209,7 +209,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class k implements h.n.g<h.b, b.f, b.f> {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -226,7 +226,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class l implements h.n.f<h.n.a, h.n.a> {
         public h.n.a a(h.n.a aVar) {
             h.r.f.c().f().k(aVar);
@@ -243,7 +243,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class m implements h.n.f<Throwable, Throwable> {
         public Throwable a(Throwable th) {
             h.r.f.c().d().c(th);
@@ -260,7 +260,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class n implements h.n.f<d.b, d.b> {
         public d.b a(d.b bVar) {
             h.r.f.c().d().b(bVar);
@@ -286,12 +286,12 @@ public final class c {
     }
 
     public static void b() {
-        f68731a = new f();
-        f68735e = new g();
+        f71987a = new f();
+        f71991e = new g();
         l = new h();
-        f68736f = new i();
+        f71992f = new i();
         m = new j();
-        f68737g = new k();
+        f71993g = new k();
         k = new l();
         o = new m();
         r = new n();
@@ -301,9 +301,9 @@ public final class c {
     }
 
     public static void c() {
-        f68732b = new C1938c();
-        f68733c = new d();
-        f68734d = new e();
+        f71988b = new C1987c();
+        f71989c = new d();
+        f71990d = new e();
     }
 
     public static Throwable d(Throwable th) {
@@ -312,32 +312,32 @@ public final class c {
     }
 
     public static <T> b.f e(h.b bVar, b.f fVar) {
-        h.n.g<h.b, b.f, b.f> gVar = f68737g;
+        h.n.g<h.b, b.f, b.f> gVar = f71993g;
         return gVar != null ? gVar.a(bVar, fVar) : fVar;
     }
 
     public static h.g f(h.g gVar) {
-        h.n.f<h.g, h.g> fVar = f68738h;
+        h.n.f<h.g, h.g> fVar = f71994h;
         return fVar != null ? fVar.call(gVar) : gVar;
     }
 
     public static b.f g(b.f fVar) {
-        h.n.f<b.f, b.f> fVar2 = f68734d;
+        h.n.f<b.f, b.f> fVar2 = f71990d;
         return fVar2 != null ? fVar2.call(fVar) : fVar;
     }
 
     public static <T> d.a<T> h(d.a<T> aVar) {
-        h.n.f<d.a, d.a> fVar = f68732b;
+        h.n.f<d.a, d.a> fVar = f71988b;
         return fVar != null ? fVar.call(aVar) : aVar;
     }
 
     public static <T> h.c<T> i(h.c<T> cVar) {
-        h.n.f<h.c, h.c> fVar = f68733c;
+        h.n.f<h.c, h.c> fVar = f71989c;
         return fVar != null ? fVar.call(cVar) : cVar;
     }
 
     public static void j(Throwable th) {
-        h.n.b<Throwable> bVar = f68731a;
+        h.n.b<Throwable> bVar = f71987a;
         if (bVar != null) {
             try {
                 bVar.call(th);
@@ -353,7 +353,7 @@ public final class c {
     }
 
     public static h.g k(h.g gVar) {
-        h.n.f<h.g, h.g> fVar = f68739i;
+        h.n.f<h.g, h.g> fVar = f71995i;
         return fVar != null ? fVar.call(gVar) : gVar;
     }
 
@@ -378,7 +378,7 @@ public final class c {
     }
 
     public static <T> d.a<T> p(h.d<T> dVar, d.a<T> aVar) {
-        h.n.g<h.d, d.a, d.a> gVar = f68735e;
+        h.n.g<h.d, d.a, d.a> gVar = f71991e;
         return gVar != null ? gVar.a(dVar, aVar) : aVar;
     }
 
@@ -398,7 +398,7 @@ public final class c {
     }
 
     public static <T> h.c<T> t(h.h<T> hVar, h.c<T> cVar) {
-        h.n.g<h.h, h.c, h.c> gVar = f68736f;
+        h.n.g<h.h, h.c, h.c> gVar = f71992f;
         return gVar != null ? gVar.a(hVar, cVar) : cVar;
     }
 

@@ -8,19 +8,19 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final View f53317a;
+    public final View f57006a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f53318b;
+    public final View f57007b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TextView f53319c;
+    public final TextView f57008c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PbFragment f53320d;
+    public PbFragment f57009d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f53321e = new a();
+    public View.OnClickListener f57010e = new a();
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -30,26 +30,26 @@ public class b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar = b.this;
-            if (view != bVar.f53318b || bVar.f53320d == null || b.this.f53320d.getBaseFragmentActivity() == null) {
+            if (view != bVar.f57007b || bVar.f57009d == null || b.this.f57009d.getBaseFragmentActivity() == null) {
                 return;
             }
-            b.this.f53320d.getBaseFragmentActivity().finish();
+            b.this.f57009d.getBaseFragmentActivity().finish();
         }
     }
 
     public b(PbFragment pbFragment) {
-        this.f53320d = pbFragment;
-        this.f53318b = pbFragment.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_back);
-        this.f53319c = (TextView) this.f53320d.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_title);
-        this.f53317a = this.f53320d.getBaseFragmentActivity().findViewById(R.id.manga_browser_navigation_bar);
-        this.f53318b.setOnClickListener(this.f53321e);
+        this.f57009d = pbFragment;
+        this.f57007b = pbFragment.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_back);
+        this.f57008c = (TextView) this.f57009d.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_title);
+        this.f57006a = this.f57009d.getBaseFragmentActivity().findViewById(R.id.manga_browser_navigation_bar);
+        this.f57007b.setOnClickListener(this.f57010e);
     }
 
     public void b(String str) {
-        this.f53319c.setText(str);
+        this.f57008c.setText(str);
     }
 
     public void c() {
-        this.f53317a.setVisibility(0);
+        this.f57006a.setVisibility(0);
     }
 }

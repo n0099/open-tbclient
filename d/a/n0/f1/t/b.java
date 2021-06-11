@@ -13,33 +13,33 @@ import d.a.m0.z0.n;
 public class b extends d.a.n0.f1.t.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f54743b = new b();
+    public static b f58432b = new b();
 
     /* loaded from: classes4.dex */
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54744a;
+        public final /* synthetic */ String f58433a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54745b;
+        public final /* synthetic */ String f58434b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f54746c;
+        public final /* synthetic */ long f58435c;
 
         public a(String str, String str2, long j) {
-            this.f54744a = str;
-            this.f54745b = str2;
-            this.f54746c = j;
+            this.f58433a = str;
+            this.f58434b = str2;
+            this.f58435c = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            GroupSettingItemData a2 = b.this.a(this.f54744a, this.f54745b);
+            GroupSettingItemData a2 = b.this.a(this.f58433a, this.f58434b);
             if (a2 != null && a2.isAlreadyApply()) {
-                if (System.currentTimeMillis() - a2.getLastApplyTimeStamp() <= this.f54746c) {
+                if (System.currentTimeMillis() - a2.getLastApplyTimeStamp() <= this.f58435c) {
                     return Boolean.FALSE;
                 }
             }
@@ -49,24 +49,24 @@ public class b extends d.a.n0.f1.t.a {
 
     /* renamed from: d.a.n0.f1.t.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1329b extends f0<Void> {
+    public class C1385b extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupSettingItemData f54748a;
+        public final /* synthetic */ GroupSettingItemData f58437a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54749b;
+        public final /* synthetic */ String f58438b;
 
-        public C1329b(GroupSettingItemData groupSettingItemData, String str) {
-            this.f54748a = groupSettingItemData;
-            this.f54749b = str;
+        public C1385b(GroupSettingItemData groupSettingItemData, String str) {
+            this.f58437a = groupSettingItemData;
+            this.f58438b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            b.this.b().g(this.f54749b, OrmObject.jsonStrWithObject(this.f54748a));
+            b.this.b().g(this.f58438b, OrmObject.jsonStrWithObject(this.f58437a));
             return null;
         }
     }
@@ -75,23 +75,23 @@ public class b extends d.a.n0.f1.t.a {
     public class c extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f54751a;
+        public final /* synthetic */ String f58440a;
 
         public c(String str) {
-            this.f54751a = str;
+            this.f58440a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            b.this.b().remove(this.f54751a);
+            b.this.b().remove(this.f58440a);
             return null;
         }
     }
 
     public static b k() {
-        return f54743b;
+        return f58432b;
     }
 
     @Override // d.a.n0.f1.t.a
@@ -111,8 +111,8 @@ public class b extends d.a.n0.f1.t.a {
             l<String> b2 = b();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.f54739a) {
-                this.f54739a.put(str, groupSettingItemData);
+            synchronized (this.f58428a) {
+                this.f58428a.put(str, groupSettingItemData);
             }
             b2.g(str, jsonStrWithObject);
         } else if (TbConfig.getDebugSwitch()) {
@@ -130,10 +130,10 @@ public class b extends d.a.n0.f1.t.a {
         String gid = groupSettingItemData.getGid();
         if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
             String str = uid + "@" + gid;
-            synchronized (this.f54739a) {
-                this.f54739a.put(str, groupSettingItemData);
+            synchronized (this.f58428a) {
+                this.f58428a.put(str, groupSettingItemData);
             }
-            h0.c(new C1329b(groupSettingItemData, str), nVar);
+            h0.c(new C1385b(groupSettingItemData, str), nVar);
         } else if (TbConfig.getDebugSwitch()) {
             throw new RuntimeException("key param is null");
         }
@@ -144,8 +144,8 @@ public class b extends d.a.n0.f1.t.a {
             return;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.f54739a) {
-            this.f54739a.remove(str3);
+        synchronized (this.f58428a) {
+            this.f58428a.remove(str3);
         }
         h0.c(new c(str3), nVar);
     }
@@ -159,8 +159,8 @@ public class b extends d.a.n0.f1.t.a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.f54739a) {
-            ChatSetting chatSetting = this.f54739a.get(str3);
+        synchronized (this.f58428a) {
+            ChatSetting chatSetting = this.f58428a.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {

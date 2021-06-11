@@ -18,7 +18,7 @@ public class b extends d {
     }
 
     public d.a.l0.a.u.h.b r(String str) {
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-callImageMenu", "handle: callImageMenu");
         }
         if (e.Q() == null) {
@@ -26,8 +26,8 @@ public class b extends d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-callImageMenu", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-callImageMenu", "parse fail");
             }
             return bVar;

@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import d.a.n0.r0.c1;
 import java.util.ArrayList;
@@ -35,12 +35,12 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject = jSONObject.optJSONObject("page");
         c1 c1Var = new c1();
         this.pageInfo = c1Var;
-        c1Var.f58409g = optJSONObject.optInt("has_more") == 1;
-        this.pageInfo.f59871c = optJSONObject.optInt(Config.PACKAGE_NAME);
+        c1Var.f62100g = optJSONObject.optInt("has_more") == 1;
+        this.pageInfo.f63562c = optJSONObject.optInt(Config.PACKAGE_NAME);
         if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
             FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
-            this.pageInfo.f59869a = frsPageAlaTabRequestMessage.getForumName();
-            this.pageInfo.f59870b = frsPageAlaTabRequestMessage.getForumId();
+            this.pageInfo.f63560a = frsPageAlaTabRequestMessage.getForumName();
+            this.pageInfo.f63561b = frsPageAlaTabRequestMessage.getForumId();
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
         if (optJSONArray.length() > 0) {
@@ -48,8 +48,8 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
                 a2 a2Var = new a2();
-                a2Var.E3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                a2Var.T2(jSONObject2);
+                a2Var.F3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                a2Var.U2(jSONObject2);
                 this.mThreadList.add(a2Var);
             }
         }
@@ -59,8 +59,8 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                 JSONObject jSONObject3 = optJSONArray2.getJSONObject(i4);
                 a2 a2Var2 = new a2();
-                a2Var2.E3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                a2Var2.T2(jSONObject3);
+                a2Var2.F3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                a2Var2.U2(jSONObject3);
                 this.mAltList.add(a2Var2);
             }
         }

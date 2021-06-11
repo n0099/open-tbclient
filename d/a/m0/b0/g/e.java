@@ -9,7 +9,7 @@ import d.a.c.e.p.l;
 public class e extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f48942a = 0;
+    public int f52616a = 0;
 
     public static ImageOperation e(int i2) {
         ImageOperation imageOperation = new ImageOperation();
@@ -29,11 +29,11 @@ public class e extends b {
             return null;
         }
         d.a.m0.a0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-        int i2 = this.f48942a;
+        int i2 = this.f52616a;
         if (i2 == 0 || i2 == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.f48942a);
+            return BitmapHelper.rotateBitmap(bitmap, this.f52616a);
         }
-        return (i2 == 2 || i2 == 3) ? BitmapHelper.reversalBitmap(bitmap, this.f48942a) : bitmap;
+        return (i2 == 2 || i2 == 3) ? BitmapHelper.reversalBitmap(bitmap, this.f52616a) : bitmap;
     }
 
     @Override // d.a.m0.b0.g.b
@@ -47,6 +47,6 @@ public class e extends b {
         if (str == null) {
             return;
         }
-        this.f48942a = Integer.parseInt(str);
+        this.f52616a = Integer.parseInt(str);
     }
 }

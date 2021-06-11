@@ -6,19 +6,19 @@ import java.io.IOException;
 public class h implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f67275a;
+    public final e f71061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f67276b;
+    public final e f71062b;
 
     public h(e eVar, e eVar2) {
-        this.f67275a = eVar;
-        this.f67276b = eVar2;
+        this.f71061a = eVar;
+        this.f71062b = eVar2;
     }
 
     @Override // d.o.a.e.b.i.e
     public void b(@NonNull a aVar) throws IOException {
-        aVar.f67254b = this.f67276b;
-        this.f67275a.b(aVar);
+        aVar.f71040b = this.f71062b;
+        this.f71061a.b(aVar);
     }
 }

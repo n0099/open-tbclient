@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43235a = k.f43199a;
+    public static final boolean f46911a = k.f46875a;
 
     public static boolean a() {
         String W;
@@ -21,7 +21,7 @@ public class d {
         }
         try {
         } catch (JSONException e2) {
-            if (f43235a) {
+            if (f46911a) {
                 e2.printStackTrace();
             }
         }

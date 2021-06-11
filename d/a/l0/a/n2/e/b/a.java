@@ -13,15 +13,15 @@ public class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43795a = new a();
+        public static final a f47471a = new a();
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public static a b() {
-        return b.f43795a;
+        return b.f47471a;
     }
 
     public static float c(Context context) {

@@ -1,56 +1,74 @@
 package a.a.a.a.w;
 
-import a.a.a.a.u.e;
-import android.util.Pair;
-import com.baidu.mobstat.Config;
-import java.lang.reflect.Field;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e extends b {
-    public e(e.a aVar) {
-        super(aVar);
+public class e {
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f1357a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final a f1358b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Map<String, Object> f1359c;
+
+    public e(String str, a aVar) {
+        this.f1357a = str;
+        this.f1358b = aVar;
     }
 
-    @Override // a.a.a.a.w.b
-    public Pair<p, JSONObject> c(Object obj) {
-        if (obj == null) {
+    public e(Map<String, Object> map) {
+        this.f1358b = a.f1351c;
+        HashMap hashMap = new HashMap();
+        this.f1359c = hashMap;
+        hashMap.putAll(map);
+    }
+
+    public e(JSONObject jSONObject) {
+        this(jSONObject.toString(), a.f1350b);
+    }
+
+    public byte[] a() {
+        String str = this.f1357a;
+        if (str == null) {
             return null;
         }
-        try {
-            Field declaredField = obj.getClass().getDeclaredField("a");
-            declaredField.setAccessible(true);
-            Object obj2 = declaredField.get(obj);
-            if (obj2 == null) {
-                return null;
-            }
-            Field declaredField2 = obj2.getClass().getDeclaredField("a");
-            declaredField2.setAccessible(true);
-            Object obj3 = declaredField2.get(obj2);
-            if (obj3 == null) {
-                return null;
-            }
-            Field declaredField3 = obj3.getClass().getDeclaredField("c");
-            declaredField3.setAccessible(true);
-            Object obj4 = declaredField3.get(obj3);
-            if (obj4 == null) {
-                return null;
-            }
-            Field declaredField4 = obj4.getClass().getDeclaredField(Config.APP_KEY);
-            declaredField4.setAccessible(true);
-            Object obj5 = declaredField4.get(obj4);
-            if (obj5 == null) {
-                return null;
-            }
-            Field declaredField5 = obj5.getClass().getSuperclass().getDeclaredField("E");
-            declaredField5.setAccessible(true);
-            JSONObject jSONObject = (JSONObject) declaredField5.get(obj5);
-            if (jSONObject == null) {
-                return null;
-            }
-            return new Pair<>(a.a.a.a.a.a(jSONObject), jSONObject);
-        } catch (Exception e2) {
-            a.a.a.a.x.d.a(e2);
-            return null;
+        return str.getBytes(Charset.forName("UTF-8"));
+    }
+
+    public String b() {
+        String str = this.f1357a;
+        if (str != null) {
+            return str;
         }
+        if (this.f1359c != null) {
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : this.f1359c.keySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                sb.append(str2);
+                Object obj = this.f1359c.get(str2);
+                if (obj != null) {
+                    sb.append("=");
+                    try {
+                        sb.append(URLEncoder.encode(obj.toString(), "UTF-8"));
+                    } catch (UnsupportedEncodingException unused) {
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        throw new IllegalStateException();
+    }
+
+    public String c() {
+        return this.f1358b.f1352a;
     }
 }

@@ -2,7 +2,7 @@ package d.a.n0.e2.k.c;
 
 import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface a {
     void c(boolean z);
 
@@ -12,17 +12,17 @@ public interface a {
 
     void f(boolean z);
 
-    void l(View.OnClickListener onClickListener);
+    void m(View.OnClickListener onClickListener);
 
-    void m(int i2);
+    void n(int i2);
 
-    void o(TbRichTextView.x xVar);
+    void p(TbRichTextView.x xVar);
 
-    void p(String str);
+    void q(String str);
 
-    void r(boolean z);
-
-    void s(d.a.n0.e2.h.e eVar);
+    void s(boolean z);
 
     void setFromCDN(boolean z);
+
+    void t(d.a.n0.e2.h.e eVar);
 }

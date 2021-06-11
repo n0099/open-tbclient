@@ -6,10 +6,10 @@ import android.content.Context;
 public class CommonParam {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2552a = false;
+    public static final boolean f2571a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2553b = "CommonParam";
+    public static final String f2572b = "CommonParam";
 
     @Deprecated
     public static String getCUID(Context context) {

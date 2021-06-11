@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f15260a;
+    public T f15322a;
 
     public RelationBarHolder(T t) {
         super(t);
-        this.f15260a = t;
+        this.f15322a = t;
     }
 
     public T a() {
-        return this.f15260a;
+        return this.f15322a;
     }
 }

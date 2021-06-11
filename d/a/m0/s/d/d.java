@@ -11,31 +11,31 @@ public class d {
     public static d n = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50570a = 300;
+    public int f54247a = 300;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f50571b = true;
+    public boolean f54248b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50572c = false;
+    public boolean f54249c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f50573d = true;
+    public boolean f54250d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50574e = true;
+    public boolean f54251e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50575f = true;
+    public boolean f54252f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50576g = true;
+    public boolean f54253g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50577h = false;
+    public boolean f54254h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f50578i = true;
+    public boolean f54255i = true;
     public boolean j = true;
     public boolean k = false;
     public String l = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
@@ -55,22 +55,22 @@ public class d {
     }
 
     public void C(boolean z) {
-        this.f50573d = z;
+        this.f54250d = z;
         b();
     }
 
     public void D(boolean z) {
-        this.f50571b = z;
+        this.f54248b = z;
         b();
     }
 
     public void E(int i2) {
         if (i2 == 0) {
-            this.f50570a = i2;
+            this.f54247a = i2;
             b.g0().a0(0);
             b.g0().d0(0);
         } else {
-            this.f50570a = 300;
+            this.f54247a = 300;
         }
         b();
     }
@@ -80,25 +80,25 @@ public class d {
     }
 
     public void G(boolean z) {
-        this.f50576g = z;
+        this.f54253g = z;
         b();
     }
 
     public void H(boolean z) {
-        this.f50574e = z;
+        this.f54251e = z;
         b();
     }
 
     public void I(boolean z) {
-        this.f50578i = z;
+        this.f54255i = z;
     }
 
     public void J(boolean z) {
-        this.f50577h = z;
+        this.f54254h = z;
     }
 
     public void K(boolean z) {
-        this.f50575f = z;
+        this.f54252f = z;
         b();
     }
 
@@ -135,7 +135,7 @@ public class d {
     }
 
     public void T(boolean z) {
-        this.f50572c = z;
+        this.f54249c = z;
     }
 
     public void U() {
@@ -163,9 +163,9 @@ public class d {
     }
 
     public int c() {
-        if (this.f50578i || this.f50577h) {
-            if (!this.f50578i || this.f50577h) {
-                return (this.f50578i || !this.f50577h) ? 3 : 2;
+        if (this.f54255i || this.f54254h) {
+            if (!this.f54255i || this.f54254h) {
+                return (this.f54255i || !this.f54254h) ? 3 : 2;
             }
             return 1;
         }
@@ -173,7 +173,7 @@ public class d {
     }
 
     public int e() {
-        return this.f50570a;
+        return this.f54247a;
     }
 
     public String f() {
@@ -214,11 +214,11 @@ public class d {
     }
 
     public boolean o() {
-        return this.f50573d;
+        return this.f54250d;
     }
 
     public boolean p() {
-        return this.f50571b;
+        return this.f54248b;
     }
 
     public boolean q() {
@@ -226,27 +226,27 @@ public class d {
     }
 
     public boolean r() {
-        return this.f50576g;
+        return this.f54253g;
     }
 
     public boolean s() {
-        return this.f50570a > 0;
+        return this.f54247a > 0;
     }
 
     public boolean t() {
-        return this.f50574e;
+        return this.f54251e;
     }
 
     public boolean u() {
-        return this.f50578i;
+        return this.f54255i;
     }
 
     public boolean v() {
-        return this.f50577h;
+        return this.f54254h;
     }
 
     public boolean w() {
-        return this.f50575f;
+        return this.f54252f;
     }
 
     public boolean x() {
@@ -258,6 +258,6 @@ public class d {
     }
 
     public boolean z() {
-        return this.f50572c;
+        return this.f54249c;
     }
 }

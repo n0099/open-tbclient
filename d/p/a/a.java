@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.UnsupportedEncodingException;
 import java.net.NetworkInterface;
 import java.util.Collections;
@@ -31,26 +32,26 @@ public class a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f67522a;
+        public Intent f71308a;
 
         public final int e() {
-            return this.f67522a.getIntExtra("level", 0);
+            return this.f71308a.getIntExtra("level", 0);
         }
 
         public final int f() {
-            return this.f67522a.getIntExtra("scale", 0);
+            return this.f71308a.getIntExtra("scale", 0);
         }
 
         public final int g() {
-            return this.f67522a.getIntExtra("temperature", 0);
+            return this.f71308a.getIntExtra("temperature", 0);
         }
 
         public final int h() {
-            return this.f67522a.getIntExtra("voltage", 0);
+            return this.f71308a.getIntExtra("voltage", 0);
         }
 
         public b(Context context) {
-            this.f67522a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f71308a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
     }
 
@@ -72,11 +73,11 @@ public class a {
             }
             String j = j(context);
             if (!TextUtils.isEmpty(j)) {
-                jSONObject.put("imsi", j);
+                jSONObject.put(BaseStatisContent.IMSI, j);
             }
             String k = k(context);
             if (!TextUtils.isEmpty(k)) {
-                jSONObject.put(IAdRequestParam.MAC, k);
+                jSONObject.put("mac", k);
             }
             String h2 = h(context);
             if (!TextUtils.isEmpty(h2)) {
@@ -216,7 +217,7 @@ public class a {
                     case 12:
                     case 14:
                     case 15:
-                        str = g.f3966b;
+                        str = g.f3985b;
                         str2 = str;
                         break;
                     case 13:

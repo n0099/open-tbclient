@@ -30,8 +30,8 @@ public class a extends d.a.m0.g0.f.a<FeedData, d.a.m0.g0.d.b> {
 
     /* renamed from: d.a.n0.g1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1345a implements View.OnClickListener {
-        public View$OnClickListenerC1345a() {
+    public class View$OnClickListenerC1401a implements View.OnClickListener {
+        public View$OnClickListenerC1401a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -83,7 +83,7 @@ public class a extends d.a.m0.g0.f.a<FeedData, d.a.m0.g0.d.b> {
         this.n = (TextView) view.findViewById(R.id.time);
         this.o = (TextView) view.findViewById(R.id.content);
         this.p = view.findViewById(R.id.line);
-        this.k.setOnClickListener(new View$OnClickListenerC1345a());
+        this.k.setOnClickListener(new View$OnClickListenerC1401a());
         view.setOnClickListener(new b());
         view.setOnLongClickListener(new c());
     }
@@ -121,7 +121,7 @@ public class a extends d.a.m0.g0.f.a<FeedData, d.a.m0.g0.d.b> {
             this.k.setTag(null);
             String avater = feedData.getReplyer().getAvater();
             if (avater != null && avater.length() > 0) {
-                this.k.V(avater, 12, false);
+                this.k.U(avater, 12, false);
             } else {
                 this.k.setImageResource(R.drawable.photo);
             }

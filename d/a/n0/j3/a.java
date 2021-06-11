@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes5.dex */
 public class a {
     public static a mInstance;
-    public InterfaceC1407a mICrabSdk = getCrabSdk();
+    public InterfaceC1463a mICrabSdk = getCrabSdk();
 
     /* renamed from: d.a.n0.j3.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1407a {
+    public interface InterfaceC1463a {
         void a(Application application);
 
         void b(Exception exc);
@@ -30,12 +30,12 @@ public class a {
         void onResume(Activity activity);
     }
 
-    private InterfaceC1407a getCrabSdk() {
+    private InterfaceC1463a getCrabSdk() {
         CustomResponsedMessage runTask;
-        if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC1407a.class)) == null) {
+        if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC1463a.class)) == null) {
             return null;
         }
-        return (InterfaceC1407a) runTask.getData();
+        return (InterfaceC1463a) runTask.getData();
     }
 
     public static a getInstance() {
@@ -54,58 +54,58 @@ public class a {
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        InterfaceC1407a interfaceC1407a = this.mICrabSdk;
-        if (interfaceC1407a != null) {
-            interfaceC1407a.f(motionEvent, activity);
+        InterfaceC1463a interfaceC1463a = this.mICrabSdk;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.f(motionEvent, activity);
         }
     }
 
     public void initSdk(Application application) {
-        InterfaceC1407a interfaceC1407a = this.mICrabSdk;
-        if (interfaceC1407a != null) {
-            interfaceC1407a.a(application);
+        InterfaceC1463a interfaceC1463a = this.mICrabSdk;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.a(application);
         }
     }
 
     public void onPause(Activity activity) {
-        InterfaceC1407a interfaceC1407a = this.mICrabSdk;
-        if (interfaceC1407a != null) {
-            interfaceC1407a.onPause(activity);
+        InterfaceC1463a interfaceC1463a = this.mICrabSdk;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        InterfaceC1407a interfaceC1407a = this.mICrabSdk;
-        if (interfaceC1407a != null) {
-            interfaceC1407a.onResume(activity);
+        InterfaceC1463a interfaceC1463a = this.mICrabSdk;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.onResume(activity);
         }
     }
 
     public void setFlutterPath(String str) {
-        InterfaceC1407a interfaceC1407a = this.mICrabSdk;
-        if (interfaceC1407a != null) {
-            interfaceC1407a.c(str);
+        InterfaceC1463a interfaceC1463a = this.mICrabSdk;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.c(str);
         }
     }
 
     public void setLastFlutterPage(String str) {
-        InterfaceC1407a interfaceC1407a = this.mICrabSdk;
-        if (interfaceC1407a != null) {
-            interfaceC1407a.e(str);
+        InterfaceC1463a interfaceC1463a = this.mICrabSdk;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.e(str);
         }
     }
 
     public void setOpenFlutterPage(String str) {
-        InterfaceC1407a interfaceC1407a = this.mICrabSdk;
-        if (interfaceC1407a != null) {
-            interfaceC1407a.d(str);
+        InterfaceC1463a interfaceC1463a = this.mICrabSdk;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.d(str);
         }
     }
 
     public void uploadException(Exception exc) {
-        InterfaceC1407a interfaceC1407a = this.mICrabSdk;
-        if (interfaceC1407a != null) {
-            interfaceC1407a.b(exc);
+        InterfaceC1463a interfaceC1463a = this.mICrabSdk;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.b(exc);
         }
     }
 }

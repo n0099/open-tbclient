@@ -6,101 +6,101 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes5.dex */
-public class k implements d.a.c.j.e.n {
+public class k implements d.a.c.k.e.n {
     public static final String l = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54091e;
+    public String f57780e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54092f;
+    public int f57781f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54093g;
+    public String f57782g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f54094h;
+    public String f57783h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f54095i;
+    public String f57784i;
     public int j;
     public int k;
 
-    public int c() {
+    public int b() {
         return this.k;
     }
 
-    public String e() {
-        return this.f54094h;
+    public String c() {
+        return this.f57783h;
     }
 
-    public int f() {
+    public int e() {
         return this.j;
     }
 
-    @Override // d.a.c.j.e.n
+    public String g() {
+        return this.f57780e;
+    }
+
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return BdUniqueId.gen();
     }
 
     public String h() {
-        return this.f54091e;
+        return this.f57784i;
     }
 
     public String i() {
-        return this.f54095i;
+        return this.f57782g;
     }
 
-    public String k() {
-        return this.f54093g;
+    public int k() {
+        return this.f57781f;
     }
 
-    public int l() {
-        return this.f54092f;
-    }
-
-    public void m(StarEnter starEnter) {
-        p(starEnter.icon);
-        r(starEnter.time.intValue());
+    public void l(StarEnter starEnter) {
+        o(starEnter.icon);
+        q(starEnter.time.intValue());
         s(starEnter.title);
         v(starEnter.type.intValue());
         t(starEnter.url);
         u(starEnter.weight.intValue());
-        q(starEnter.rank_num.intValue());
-        o(starEnter.bazhu_mark.intValue());
-        if (StringUtils.isNull(this.f54091e) && this.k == 1) {
-            this.f54091e = l;
+        p(starEnter.rank_num.intValue());
+        n(starEnter.bazhu_mark.intValue());
+        if (StringUtils.isNull(this.f57780e) && this.k == 1) {
+            this.f57780e = l;
         }
-        this.f54094h = starEnter.obj_id;
-        this.f54095i = starEnter.text;
+        this.f57783h = starEnter.obj_id;
+        this.f57784i = starEnter.text;
     }
 
-    public void o(int i2) {
+    public void n(int i2) {
         this.k = i2;
     }
 
-    public void p(String str) {
+    public void o(String str) {
     }
 
-    public void q(int i2) {
+    public void p(int i2) {
         this.j = i2;
     }
 
-    public void r(int i2) {
+    public void q(int i2) {
     }
 
     public void s(String str) {
-        this.f54091e = str;
+        this.f57780e = str;
     }
 
     public void t(String str) {
-        this.f54093g = str;
+        this.f57782g = str;
     }
 
     public void u(int i2) {
     }
 
     public void v(int i2) {
-        this.f54092f = i2;
+        this.f57781f = i2;
     }
 }

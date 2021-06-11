@@ -26,10 +26,10 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f3084a;
+    public static b f3103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f3085b;
+    public static volatile c f3104b;
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str) {
@@ -43,14 +43,14 @@ public class c {
     }
 
     public static c a() {
-        if (f3085b == null) {
+        if (f3104b == null) {
             synchronized (c.class) {
-                if (f3085b == null) {
-                    f3085b = new c();
+                if (f3104b == null) {
+                    f3104b = new c();
                 }
             }
         }
-        return f3085b;
+        return f3104b;
     }
 
     private String a(String str, String str2, HashMap<String, String> hashMap) {
@@ -70,7 +70,7 @@ public class c {
         hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         hashMap.put("timestamp", currentTimeMillis + "");
-        hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, f3084a.a() + "");
+        hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, f3103a.a() + "");
         JSONArray jSONArray = new JSONArray();
         jSONArray.put(DeviceId.getCUID(context));
         hashMap.put("cuids", jSONArray.toString());
@@ -95,20 +95,20 @@ public class c {
         if (context == null) {
             return;
         }
-        if (f3084a == null) {
+        if (f3103a == null) {
             b(context);
         }
-        if (f3084a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
+        if (f3103a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
             return;
         }
-        f3084a.a(context, launchIntentForPackage.getComponent(), i2);
+        f3103a.a(context, launchIntentForPackage.getComponent(), i2);
     }
 
     private void b(Context context) {
         if (Build.VERSION.SDK_INT < 26 || !d.l(context)) {
             return;
         }
-        f3084a = new a();
+        f3103a = new a();
     }
 
     private void c(final Context context) {

@@ -14,19 +14,19 @@ import tbclient.ThemeColorInfo;
 public class VisitedForumData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12722e;
+    public String f12787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12723f;
+    public boolean f12788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12724g;
+    public int f12789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12725h;
+    public String f12790h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12726i;
+    public String f12791i;
     public boolean isForumBusinessAccount;
     public String j;
     public ThemeColorInfo k;
@@ -40,11 +40,11 @@ public class VisitedForumData extends OrmObject {
     public PostPrefixData s;
 
     public VisitedForumData() {
-        this.f12722e = "";
-        this.f12723f = false;
-        this.f12724g = 0;
-        this.f12725h = "";
-        this.f12726i = "";
+        this.f12787e = "";
+        this.f12788f = false;
+        this.f12789g = 0;
+        this.f12790h = "";
+        this.f12791i = "";
         this.j = "";
         this.k = null;
         this.l = 0;
@@ -54,31 +54,47 @@ public class VisitedForumData extends OrmObject {
         this.q = "";
     }
 
-    public String A() {
+    public PostPrefixData A() {
+        return this.s;
+    }
+
+    public int B() {
+        return this.f12789g;
+    }
+
+    public List<FrsTabItemData> C() {
+        return this.r;
+    }
+
+    public ThemeColorInfo D() {
+        return this.k;
+    }
+
+    public String E() {
         return this.j;
     }
 
-    public boolean B() {
-        return this.f12723f;
+    public boolean F() {
+        return this.f12788f;
     }
 
-    public boolean C() {
+    public boolean G() {
         return this.p;
     }
 
-    public boolean D() {
+    public boolean H() {
         return this.o;
     }
 
-    public void E(HistoryForumInfo historyForumInfo) {
+    public void I(HistoryForumInfo historyForumInfo) {
         if (historyForumInfo == null) {
             return;
         }
-        this.f12722e = historyForumInfo.avatar;
-        this.f12726i = String.valueOf(historyForumInfo.forum_id);
-        this.f12725h = historyForumInfo.forum_name;
-        this.f12723f = historyForumInfo.is_liveforum.intValue() == 1;
-        this.f12724g = historyForumInfo.unread_num.intValue();
+        this.f12787e = historyForumInfo.avatar;
+        this.f12791i = String.valueOf(historyForumInfo.forum_id);
+        this.f12790h = historyForumInfo.forum_name;
+        this.f12788f = historyForumInfo.is_liveforum.intValue() == 1;
+        this.f12789g = historyForumInfo.unread_num.intValue();
         this.j = historyForumInfo.visit_time;
         this.k = historyForumInfo.theme_color;
         this.l = historyForumInfo.follow_num.intValue();
@@ -105,65 +121,49 @@ public class VisitedForumData extends OrmObject {
         this.isForumBusinessAccount = historyForumInfo.is_forum_business_account.intValue() == 1;
     }
 
-    public void F(boolean z) {
+    public void J(boolean z) {
         this.o = z;
     }
 
     public String getForumId() {
-        return this.f12726i;
+        return this.f12791i;
     }
 
     public String getForumName() {
-        return this.f12725h;
+        return this.f12790h;
     }
 
     public int getLevel() {
         return this.n;
     }
 
-    public String s() {
+    public void setForumId(String str) {
+        this.f12791i = str;
+    }
+
+    public String w() {
         return this.q;
     }
 
-    public void setForumId(String str) {
-        this.f12726i = str;
-    }
-
-    public int t() {
+    public int x() {
         return this.l;
     }
 
-    public String u() {
-        return this.f12722e;
+    public String y() {
+        return this.f12787e;
     }
 
-    public boolean v() {
+    public boolean z() {
         return this.m;
     }
 
-    public PostPrefixData w() {
-        return this.s;
-    }
-
-    public int x() {
-        return this.f12724g;
-    }
-
-    public List<FrsTabItemData> y() {
-        return this.r;
-    }
-
-    public ThemeColorInfo z() {
-        return this.k;
-    }
-
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i2) {
-        this.f12722e = str3;
-        this.f12723f = z;
-        this.f12725h = str2;
-        this.f12726i = str;
+        this.f12787e = str3;
+        this.f12788f = z;
+        this.f12790h = str2;
+        this.f12791i = str;
         this.j = str4;
-        this.f12724g = 0;
+        this.f12789g = 0;
         this.k = themeColorInfo;
         this.l = i2;
     }

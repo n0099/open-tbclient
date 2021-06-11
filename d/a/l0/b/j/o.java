@@ -28,7 +28,7 @@ public class o extends d.a.l0.a.e2.c.j.b {
             @Override // d.a.l0.a.v2.e1.b
             /* renamed from: a */
             public void onCallback(d.a.l0.a.e2.c.f fVar) {
-                if (d.a.l0.a.e2.c.c.f41674f) {
+                if (d.a.l0.a.e2.c.c.f45350f) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("ListPreparation result: ");
                     sb.append(fVar == null ? StringUtil.NULL_STRING : fVar);
@@ -44,7 +44,7 @@ public class o extends d.a.l0.a.e2.c.j.b {
                     oVar.i(new c());
                 } else {
                     o oVar2 = o.this;
-                    oVar2.i(new b.C0622b());
+                    oVar2.i(new b.C0678b());
                 }
                 b.this.d();
             }
@@ -172,7 +172,7 @@ public class o extends d.a.l0.a.e2.c.j.b {
         Context context = this.n;
         if (context instanceof Activity) {
             d.a.l0.b.j.a.E((Activity) context, jSONObject);
-        } else if (d.a.l0.a.e2.c.c.f41674f) {
+        } else if (d.a.l0.a.e2.c.c.f45350f) {
             Log.d("SearchBoxAuthorize", Log.getStackTraceString(new Exception("context is not activity.")));
         }
         return super.n(jSONObject);

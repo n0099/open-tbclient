@@ -8,19 +8,19 @@ public interface b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26427a;
+        public String f26530a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26428b;
+        public String f26531b;
 
         /* renamed from: c  reason: collision with root package name */
-        public JSONObject f26429c;
+        public JSONObject f26532c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f26430d;
+        public JSONObject f26533d;
 
         public String toString() {
-            return "ScannerResult [type=" + this.f26427a + ", linkaddr=" + this.f26428b + ", extJson=" + this.f26429c + "]";
+            return "ScannerResult [type=" + this.f26530a + ", linkaddr=" + this.f26531b + ", extJson=" + this.f26532c + "]";
         }
     }
 

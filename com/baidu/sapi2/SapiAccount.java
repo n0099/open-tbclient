@@ -82,6 +82,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         public static final String EXTRA_IS_GUEST_ACCOUNT = "is_guest_account";
         public static final String EXTRA_IS_SOCIAL_ACCOUNT = "is_social_account";
         public static final String EXTRA_PKG = "pkg";
+        public static final String EXTRA_SOCIAL_NICKNAME = "social_nickname";
         public static final String EXTRA_SOCIAL_PORTRAIT = "social_portrait";
         public static final String EXTRA_SOCIAL_TYPE = "social_type";
         public static final String EXTRA_TPL = "tpl";
@@ -232,9 +233,10 @@ public class SapiAccount implements Parcelable, Cloneable {
         putExtra(ExtraProperty.EXTRA_IS_GUEST_ACCOUNT, str);
     }
 
-    public void addSocialInfo(SocialType socialType, String str) {
+    public void addSocialInfo(SocialType socialType, String str, String str2) {
         putExtra(ExtraProperty.EXTRA_IS_SOCIAL_ACCOUNT, Boolean.TRUE);
         putExtra("social_type", Integer.valueOf(socialType.getType()));
+        putExtra(ExtraProperty.EXTRA_SOCIAL_NICKNAME, str2);
         putExtra(ExtraProperty.EXTRA_SOCIAL_PORTRAIT, str);
     }
 
@@ -333,6 +335,10 @@ public class SapiAccount implements Parcelable, Cloneable {
 
     public String getShareAccountTpl() {
         return getStringExtra("tpl", "");
+    }
+
+    public String getSocialNickname() {
+        return getStringExtra(ExtraProperty.EXTRA_SOCIAL_NICKNAME, null);
     }
 
     public String getSocialPortrait() {

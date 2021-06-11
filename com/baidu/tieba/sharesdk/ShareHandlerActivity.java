@@ -35,7 +35,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         if (this.mShareReportModel == null) {
             this.mShareReportModel = new ShareReportModel(getPageContext());
         }
-        this.mShareReportModel.t(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
+        this.mShareReportModel.x(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
     }
 
     @Override // com.baidu.tbadk.BaseActivity

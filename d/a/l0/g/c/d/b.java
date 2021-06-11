@@ -6,32 +6,32 @@ import com.baidu.android.util.KVStorageFactory;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f47005b = "wifi_resume_download_flag";
+    public static String f50679b = "wifi_resume_download_flag";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f47006c;
+    public static volatile b f50680c;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f47007a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
+    public SharedPreferences f50681a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
 
     public static b a() {
-        if (f47006c == null) {
+        if (f50680c == null) {
             synchronized (b.class) {
-                if (f47006c == null) {
-                    f47006c = new b();
+                if (f50680c == null) {
+                    f50680c = new b();
                 }
             }
         }
-        return f47006c;
+        return f50680c;
     }
 
     public boolean b() {
-        return this.f47007a.getBoolean(f47005b, true);
+        return this.f50681a.getBoolean(f50679b, true);
     }
 
     public void c(boolean z) {
-        SharedPreferences.Editor edit = this.f47007a.edit();
-        edit.putBoolean(f47005b, z);
+        SharedPreferences.Editor edit = this.f50681a.edit();
+        edit.putBoolean(f50679b, z);
         edit.apply();
     }
 }

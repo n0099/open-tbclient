@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.yy.gslbsdk.db.ResultTB;
 import d.a.m0.r.q.o;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -73,7 +74,7 @@ public class PollData extends o implements Serializable {
             this.optionsCount = jSONObject.optInt("options_count", 0);
             this.isPolled = jSONObject.optInt("is_polled", 0);
             this.polledValue = jSONObject.optString("polled_value", "");
-            this.endTime = jSONObject.optInt("end_time", 0);
+            this.endTime = jSONObject.optInt(ResultTB.ENDTIME, 0);
             this.totalPoll = jSONObject.optLong("total_poll", 0L);
             this.title = jSONObject.optString("title", "");
             this.lastTime = jSONObject.optInt("last_time", 0);

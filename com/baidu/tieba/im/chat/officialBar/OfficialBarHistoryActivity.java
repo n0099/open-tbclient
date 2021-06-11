@@ -52,22 +52,22 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
             OfficialBarHistoryActivity.this.isRefreshing = false;
             if (socketResponsedMessage == null) {
                 OfficialBarHistoryActivity.this.showToast(R.string.neterror);
-                OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getError() != 0) {
                 OfficialBarHistoryActivity.this.showToast(socketResponsedMessage.getErrorString());
-                OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
                 OfficialBarHistoryActivity.this.showToast(R.string.neterror);
             } else {
                 ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                 if (responseHistoryMessage.getMsg().isEmpty()) {
-                    OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                 if (requestHistoryMessage == null) {
-                    OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 if (requestHistoryMessage.getRequestId() != 0) {
@@ -77,7 +77,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 }
                 OfficialBarHistoryActivity.this.mView.g(OfficialBarHistoryActivity.this.mDataList);
                 if (responseHistoryMessage.getMsg().size() == 0) {
-                    OfficialBarHistoryActivity.this.mView.j(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.mView.i(OfficialBarHistoryActivity.this.mDataList);
                 } else {
                     new Handler().post(new RunnableC0182a());
                 }
@@ -116,7 +116,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
             i2 = 0;
         } else {
             List<ResponseHistoryMessage.a> list2 = this.mDataList;
-            i2 = list2.get(list2.size() - 1).f17113d;
+            i2 = list2.get(list2.size() - 1).f17189d;
         }
         this.isRefreshing = true;
         MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), i2));

@@ -17,6 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
@@ -45,16 +46,16 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.j0.d.f f56160e;
+        public final /* synthetic */ d.a.n0.j0.d.f f59849e;
 
         public a(d.a.n0.j0.d.f fVar) {
-            this.f56160e = fVar;
+            this.f59849e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TiebaStatic.log("c13386");
-            c.this.v.dispatchMvcEvent(new d.a.m0.g0.c.b(15, this.f56160e, null, null));
+            c.this.v.dispatchMvcEvent(new d.a.m0.g0.c.b(15, this.f59849e, null, null));
         }
     }
 
@@ -62,10 +63,10 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ w f56162e;
+        public final /* synthetic */ w f59851e;
 
         public b(w wVar) {
-            this.f56162e = wVar;
+            this.f59851e = wVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -73,7 +74,7 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
             Bundle bundle = new Bundle();
             bundle.putParcelable("info_forum_image_rect", c.this.r());
             bundle.putParcelable("info_forum_name_rect", c.this.s());
-            d.a.m0.g0.c.b bVar = new d.a.m0.g0.c.b(1, this.f56162e, null, null);
+            d.a.m0.g0.c.b bVar = new d.a.m0.g0.c.b(1, this.f59851e, null, null);
             bVar.g(bundle);
             c.this.v.dispatchMvcEvent(bVar);
         }
@@ -81,18 +82,18 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
 
     /* renamed from: d.a.n0.j0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnLongClickListenerC1388c implements View.OnLongClickListener {
+    public class View$OnLongClickListenerC1444c implements View.OnLongClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ w f56164e;
+        public final /* synthetic */ w f59853e;
 
-        public View$OnLongClickListenerC1388c(w wVar) {
-            this.f56164e = wVar;
+        public View$OnLongClickListenerC1444c(w wVar) {
+            this.f59853e = wVar;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            c.this.v.dispatchMvcEvent(new d.a.m0.g0.c.b(12, this.f56164e, null, null));
+            c.this.v.dispatchMvcEvent(new d.a.m0.g0.c.b(12, this.f59853e, null, null));
             return true;
         }
     }
@@ -101,25 +102,25 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
     public class d implements ViewTreeObserver.OnGlobalLayoutListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f56166e;
+        public final /* synthetic */ TextView f59855e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f56167f;
+        public final /* synthetic */ int f59856f;
 
         public d(TextView textView, int i2) {
-            this.f56166e = textView;
-            this.f56167f = i2;
+            this.f59855e = textView;
+            this.f59856f = i2;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int k;
-            if (!(this.f56166e.getParent() instanceof ViewGroup) || (k = l.k(c.this.b())) == 0) {
+            if (!(this.f59855e.getParent() instanceof ViewGroup) || (k = l.k(c.this.b())) == 0) {
                 return;
             }
-            this.f56166e.setMaxWidth(k - (this.f56167f + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds452)));
-            this.f56166e.postInvalidate();
-            this.f56166e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            this.f59855e.setMaxWidth(k - (this.f59856f + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds452)));
+            this.f59855e.postInvalidate();
+            this.f59855e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
         }
     }
 
@@ -217,7 +218,7 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
                 SkinManager.setImageResource(this.r, BitmapHelper.getGradeResourceIdInEnterForum(fVar.F()));
             }
             this.t.setShowOval(true);
-            this.t.V(fVar.B(), 10, false);
+            this.t.U(fVar.B(), 10, false);
             this.t.setShowOuterBorder(false);
             this.t.setShowInnerBorder(true);
             this.t.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
@@ -232,7 +233,9 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
             }
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0109);
             if (f().getString(R.string.ala_follow_live_enter_live_square_txt).equals(fVar.G())) {
-                TiebaStatic.log(new StatisticItem("c12887"));
+                StatisticItem statisticItem = new StatisticItem("c12887");
+                TiebaStaticHelper.addYYParam(statisticItem);
+                TiebaStatic.log(statisticItem);
             }
             this.s.setVisibility((fVar.O() == 1 && fVar.P() == 1) ? 0 : 8);
             if (fVar.M() == 1) {
@@ -274,7 +277,9 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
             this.q.setVisibility(8);
             this.r.setVisibility(8);
             if (f().getString(R.string.ala_follow_live_enter_live_square_txt).equals(n1Var.D())) {
-                TiebaStatic.log(new StatisticItem("c12887"));
+                StatisticItem statisticItem2 = new StatisticItem("c12887");
+                TiebaStaticHelper.addYYParam(statisticItem2);
+                TiebaStatic.log(statisticItem2);
             }
         }
         SkinManager.setBackgroundResource(this.s, R.drawable.icon_owner_bg);
@@ -282,7 +287,7 @@ public class c extends d.a.m0.g0.f.a<w, d.a.n0.j0.d.c> {
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0105);
         this.x.setVisibility(8);
         this.k.setOnClickListener(new b(wVar));
-        this.k.setOnLongClickListener(new View$OnLongClickListenerC1388c(wVar));
+        this.k.setOnLongClickListener(new View$OnLongClickListenerC1444c(wVar));
         u(this.l, i3);
     }
 }

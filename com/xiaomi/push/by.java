@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public class by {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37375a = 200;
+    public static int f41054a = 200;
 
     /* renamed from: a  reason: collision with other field name */
     public static long f164a = 52428800;

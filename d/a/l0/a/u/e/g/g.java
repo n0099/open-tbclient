@@ -14,18 +14,18 @@ public class g extends d.a.l0.a.u.c.d {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44976e;
+        public final /* synthetic */ String f48650e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f44977f;
+        public final /* synthetic */ boolean f48651f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f44978g;
+        public final /* synthetic */ boolean f48652g;
 
         public a(String str, boolean z, boolean z2) {
-            this.f44976e = str;
-            this.f44977f = z;
-            this.f44978g = z2;
+            this.f48650e = str;
+            this.f48651f = z;
+            this.f48652g = z2;
         }
 
         @Override // java.lang.Runnable
@@ -34,22 +34,22 @@ public class g extends d.a.l0.a.u.c.d {
             d.a.l0.a.o2.b.a t = g.t();
             if (t == null) {
                 d.a.l0.a.e0.d.b("Api-TabBar", "tabBarViewController is null");
-                g.this.d(this.f44976e, new d.a.l0.a.u.h.b(1001));
+                g.this.d(this.f48650e, new d.a.l0.a.u.h.b(1001));
                 return;
             }
-            if (this.f44977f) {
-                j = t.r(this.f44978g);
+            if (this.f48651f) {
+                j = t.r(this.f48652g);
             } else {
-                j = t.j(this.f44978g);
+                j = t.j(this.f48652g);
             }
             if (!j) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f44977f ? "open" : IntentConfig.CLOSE);
+                sb.append(this.f48651f ? "open" : IntentConfig.CLOSE);
                 sb.append("bottom bar fail");
                 d.a.l0.a.e0.d.b("Api-TabBar", sb.toString());
-                g.this.d(this.f44976e, new d.a.l0.a.u.h.b(1001));
+                g.this.d(this.f48650e, new d.a.l0.a.u.h.b(1001));
             }
-            g.this.d(this.f44976e, new d.a.l0.a.u.h.b(0));
+            g.this.d(this.f48650e, new d.a.l0.a.u.h.b(0));
         }
     }
 
@@ -72,20 +72,20 @@ public class g extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b r(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-TabBar", "start close tab bar");
         }
         return u(str, false);
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-TabBar", "handle: " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-TabBar", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-TabBar", "parse fail");
             }
             return bVar;
@@ -114,8 +114,8 @@ public class g extends d.a.l0.a.u.c.d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-TabBar", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-TabBar", "parse fail");
             }
             return bVar;
@@ -131,20 +131,20 @@ public class g extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b w(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-TabBar", "start open tab bar");
         }
         return u(str, true);
     }
 
     public d.a.l0.a.u.h.b x(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-TabBar", "handle: " + str);
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-TabBar", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-TabBar", "parse fail");
             }
             return bVar;

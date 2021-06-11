@@ -2,7 +2,9 @@ package com.baidu.cyberplayer.sdk.statistics;
 
 import android.content.Context;
 import android.os.Build;
-import com.baidu.cyberplayer.sdk.n;
+import com.baidu.cyberplayer.sdk.CyberLog;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.o;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,29 +15,29 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<c> f4986a = new ArrayList<>();
+    public ArrayList<c> f5002a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public c f4987b;
+    public c f5003b;
 
     public b(Context context) {
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
         c cVar = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
-        this.f4987b = cVar;
+        this.f5003b = cVar;
         cVar.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
-        this.f4987b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", n.g()));
-        this.f4987b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
-        this.f4987b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
-        this.f4987b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
+        this.f5003b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", o.g()));
+        this.f5003b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
+        this.f5003b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
+        this.f5003b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
     }
 
     private JSONObject a(JSONObject jSONObject) throws JSONException {
-        this.f4987b.a(jSONObject);
+        this.f5003b.a(jSONObject);
         JSONArray jSONArray = new JSONArray();
-        int size = this.f4986a.size();
+        int size = this.f5002a.size();
         for (int i2 = 0; i2 < size; i2++) {
             JSONObject jSONObject2 = new JSONObject();
-            this.f4986a.get(i2).a(jSONObject2);
+            this.f5002a.get(i2).a(jSONObject2);
             jSONArray.put(jSONObject2);
         }
         jSONObject.put("data", jSONArray);
@@ -57,13 +59,13 @@ public class b {
 
     public void a(int i2, String str, String str2) {
         if (24323 == i2) {
-            this.f4987b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
+            this.f5003b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
             return;
         }
         e eVar = new e(i2, str, str2);
-        int size = this.f4986a.size();
+        int size = this.f5002a.size();
         for (int i3 = 0; i3 < size; i3++) {
-            c cVar = this.f4986a.get(i3);
+            c cVar = this.f5002a.get(i3);
             if (cVar != null && cVar.a() == i2) {
                 cVar.a(eVar);
                 return;
@@ -71,7 +73,7 @@ public class b {
         }
         c cVar2 = new c(i2);
         cVar2.a(eVar);
-        this.f4986a.add(cVar2);
+        this.f5002a.add(cVar2);
     }
 
     public void a(int i2, HashMap<String, String> hashMap) {
@@ -87,12 +89,16 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             a.a().a(jSONObject);
+            jSONObject.put(DpStatConstants.KEY_CORE_VERSION, CyberPlayerManager.getCoreVersion());
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject2 = new JSONObject();
             a(jSONObject2);
             jSONArray.put(jSONObject2);
             jSONObject.put("items", jSONArray);
-            return jSONObject.toString();
+            String jSONObject3 = jSONObject.toString();
+            jSONObject.remove("cuid");
+            CyberLog.i("DpLibsInitSession", "session=" + jSONObject.toString());
+            return jSONObject3;
         } catch (JSONException e2) {
             e2.printStackTrace();
             return null;

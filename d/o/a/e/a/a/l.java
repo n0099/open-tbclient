@@ -12,13 +12,13 @@ public class l extends a {
 
     @Override // d.o.a.e.a.a.e
     public Intent b() {
-        String t = this.f67010b.t("s");
-        String b2 = d.o.a.e.a.h.b.b(this.f67010b.t(ag.f7600h), t);
-        String b3 = d.o.a.e.a.h.b.b(this.f67010b.t("ah"), t);
-        String b4 = d.o.a.e.a.h.b.b(this.f67010b.t("ai"), t);
-        String b5 = d.o.a.e.a.h.b.b(this.f67010b.t("aj"), t);
+        String t = this.f70796b.t("s");
+        String b2 = d.o.a.e.a.h.b.b(this.f70796b.t(ag.f7643h), t);
+        String b3 = d.o.a.e.a.h.b.b(this.f70796b.t("ah"), t);
+        String b4 = d.o.a.e.a.h.b.b(this.f70796b.t("ai"), t);
+        String b5 = d.o.a.e.a.h.b.b(this.f70796b.t("aj"), t);
         Intent intent = new Intent();
-        intent.putExtra(b2, this.f67011c);
+        intent.putExtra(b2, this.f70797c);
         intent.putExtra(b3, "*/*");
         intent.putExtra(b4, true);
         intent.setAction(b5);

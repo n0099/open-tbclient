@@ -51,7 +51,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 NewVcodeActivity.this.mWriteData.setVcodeMD5(i0Var.b());
                 NewVcodeActivity.this.mWriteData.setVcodeUrl(i0Var.c());
                 NewVcodeActivity.this.mWriteData.setVcodeExtra(i0Var.a());
-                NewVcodeActivity.this.mWriteModel.f0(NewVcodeActivity.this.mWriteData);
+                NewVcodeActivity.this.mWriteModel.j0(NewVcodeActivity.this.mWriteData);
                 NewVcodeActivity newVcodeActivity = NewVcodeActivity.this;
                 newVcodeActivity.mPresenter = newVcodeActivity.getVcodePresenterFromType();
                 NewVcodeActivity.this.mPresenter.e(true, postWriteCallBackData.getErrorString());
@@ -123,9 +123,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
         NewWriteModel newWriteModel = new NewWriteModel(this);
         this.mWriteModel = newWriteModel;
-        newWriteModel.f0(this.mWriteData);
+        newWriteModel.j0(this.mWriteData);
         if (this.mWriteData.getWriteImagesInfo() != null) {
-            this.mWriteModel.Z(this.mWriteData.getWriteImagesInfo().size() > 0);
+            this.mWriteModel.d0(this.mWriteData.getWriteImagesInfo().size() > 0);
         }
         b vcodePresenterFromType = getVcodePresenterFromType();
         this.mPresenter = vcodePresenterFromType;

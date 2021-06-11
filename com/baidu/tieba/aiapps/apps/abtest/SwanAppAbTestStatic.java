@@ -43,10 +43,10 @@ import java.util.List;
 public class SwanAppAbTestStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13644a = false;
+    public static boolean f13709a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f13645b = new a();
+    public static i f13710b = new a();
 
     /* loaded from: classes4.dex */
     public static class a extends i<PrivacyPolicyEvent> {
@@ -104,7 +104,7 @@ public class SwanAppAbTestStatic {
         public void onMessage2(CustomResponsedMessage customResponsedMessage) {
             PopupWindow a2;
             Activity b2;
-            if ((customResponsedMessage.getData() instanceof d.a.m0.a.h) && (a2 = d.a.n0.u.b.a.a((d.a.m0.a.h) customResponsedMessage.getData())) != null && (b2 = d.a.c.a.b.f().b()) != null && b2.getWindow() != null) {
+            if ((customResponsedMessage.getData() instanceof d.a.m0.a.i) && (a2 = d.a.n0.u.b.a.a((d.a.m0.a.i) customResponsedMessage.getData())) != null && (b2 = d.a.c.a.b.f().b()) != null && b2.getWindow() != null) {
                 try {
                     a2.showAtLocation(b2.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -249,7 +249,7 @@ public class SwanAppAbTestStatic {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             c();
         } else {
-            d.a.m0.f0.h.f().m(PrivacyPolicyEvent.class, f13645b, BdUniqueId.gen());
+            d.a.m0.f0.h.f().m(PrivacyPolicyEvent.class, f13710b, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -265,10 +265,10 @@ public class SwanAppAbTestStatic {
     }
 
     public static void c() {
-        if (f13644a) {
+        if (f13709a) {
             return;
         }
-        f13644a = true;
+        f13709a = true;
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;

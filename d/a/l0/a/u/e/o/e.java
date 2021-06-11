@@ -17,14 +17,14 @@ public class e extends d.a.l0.a.u.c.d {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45159e;
+        public final /* synthetic */ Context f48833e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45160f;
+        public final /* synthetic */ String f48834f;
 
         public a(Context context, String str) {
-            this.f45159e = context;
-            this.f45160f = str;
+            this.f48833e = context;
+            this.f48834f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -32,15 +32,15 @@ public class e extends d.a.l0.a.u.c.d {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (d.a.l0.a.e2.c.d.h(iVar)) {
-                e.this.d(this.f45160f, new d.a.l0.a.u.h.b(0, e.this.t(this.f45159e)));
+                e.this.d(this.f48834f, new d.a.l0.a.u.h.b(0, e.this.t(this.f48833e)));
                 return;
             }
             int b2 = iVar.b();
             String f2 = d.a.l0.a.e2.c.d.f(b2);
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 Log.e("Api-DeviceInfo", "getDeviceInfo auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX);
             }
-            e.this.d(this.f45160f, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
+            e.this.d(this.f48834f, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
         }
     }
 
@@ -49,7 +49,7 @@ public class e extends d.a.l0.a.u.c.d {
     }
 
     public d.a.l0.a.u.h.b s(String str) {
-        if (d.a.l0.a.u.c.d.f44812c) {
+        if (d.a.l0.a.u.c.d.f48486c) {
             Log.d("Api-DeviceInfo", "start get device info");
         }
         d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
@@ -58,8 +58,8 @@ public class e extends d.a.l0.a.u.c.d {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-DeviceInfo", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-DeviceInfo", "parse fail");
             }
             return bVar;
@@ -79,7 +79,7 @@ public class e extends d.a.l0.a.u.c.d {
             jSONObject.put("oaid", d.a.l0.a.c1.a.q().b(context));
             jSONObject.put("androidId", d.a.l0.a.c1.a.q().a(context));
         } catch (JSONException e2) {
-            if (d.a.l0.a.u.c.d.f44812c) {
+            if (d.a.l0.a.u.c.d.f48486c) {
                 e2.printStackTrace();
             }
         }

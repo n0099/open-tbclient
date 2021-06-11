@@ -6,16 +6,16 @@ import d.a.c.e.q.h;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f49820a = null;
+    public String f53495a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49821b = null;
+    public String f53496b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49822c = 0;
+    public int f53497c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f49823d = null;
+    public String f53498d = null;
 
     public static String a(int i2) {
         switch (i2) {

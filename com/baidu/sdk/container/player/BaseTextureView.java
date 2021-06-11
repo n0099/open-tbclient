@@ -13,24 +13,24 @@ import d.a.f0.a.i.d;
 public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, c {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f9972e;
+    public int f10034e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9973f;
+    public int f10035f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9974g;
+    public int f10036g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f9975h;
+    public d f10037h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SurfaceTexture f9976i;
+    public SurfaceTexture f10038i;
 
     public BaseTextureView(Context context, d dVar) {
         super(context);
-        this.f9972e = 1;
-        this.f9975h = dVar;
+        this.f10034e = 1;
+        this.f10037h = dVar;
         setSurfaceTextureListener(this);
     }
 
@@ -40,17 +40,17 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
     }
 
     public int getDisplayMode() {
-        return this.f9972e;
+        return this.f10034e;
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         int i4;
-        int defaultSize = TextureView.getDefaultSize(this.f9973f, i2);
-        int defaultSize2 = TextureView.getDefaultSize(this.f9974g, i3);
-        int i5 = this.f9973f;
-        if (i5 > 0 && (i4 = this.f9974g) > 0) {
-            int i6 = this.f9972e;
+        int defaultSize = TextureView.getDefaultSize(this.f10035f, i2);
+        int defaultSize2 = TextureView.getDefaultSize(this.f10036g, i3);
+        int i5 = this.f10035f;
+        if (i5 > 0 && (i4 = this.f10036g) > 0) {
+            int i6 = this.f10034e;
             if (i6 != 0) {
                 if (i6 != 1) {
                     if (i6 == 3) {
@@ -90,13 +90,13 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
                 defaultSize2 = (i4 * defaultSize) / i5;
             }
         }
-        Log.i("BaseTextureView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f9973f), Integer.valueOf(this.f9974g)));
+        Log.i("BaseTextureView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f10035f), Integer.valueOf(this.f10036g)));
         setMeasuredDimension(defaultSize, defaultSize2);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        d dVar = this.f9975h;
+        d dVar = this.f10037h;
         if (dVar != null) {
             dVar.surfaceCreated(new Surface(surfaceTexture));
         }
@@ -104,11 +104,11 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        d dVar = this.f9975h;
+        d dVar = this.f10037h;
         if (dVar != null) {
             dVar.surfaceDestroy();
         }
-        this.f9976i = surfaceTexture;
+        this.f10038i = surfaceTexture;
         return false;
     }
 
@@ -122,8 +122,8 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
 
     @Override // d.a.f0.a.i.c
     public void onVideoSizeChanged(int i2, int i3) {
-        this.f9973f = i2;
-        this.f9974g = i3;
+        this.f10035f = i2;
+        this.f10036g = i3;
         if (i2 == 0 || i3 == 0) {
             return;
         }
@@ -132,12 +132,12 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
 
     @Override // d.a.f0.a.i.c
     public void setDisplayMode(int i2) {
-        this.f9972e = i2;
+        this.f10034e = i2;
     }
 
     @TargetApi(16)
     public void setEndSurface() {
-        SurfaceTexture surfaceTexture = this.f9976i;
+        SurfaceTexture surfaceTexture = this.f10038i;
         if (surfaceTexture != null) {
             setSurfaceTexture(surfaceTexture);
         }

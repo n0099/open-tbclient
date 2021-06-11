@@ -1,27 +1,34 @@
 package com.kwad.sdk.core.c.a;
 
-import com.kwad.sdk.core.webview.jshandler.l;
+import com.kwad.sdk.emotion.model.EmotionCode;
+import com.kwai.video.player.KsMediaMeta;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o implements com.kwad.sdk.core.c<l.a> {
+public class o implements com.kwad.sdk.core.c<EmotionCode> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(l.a aVar, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        aVar.f32899a = jSONObject.optDouble("progress");
-        aVar.f32900b = jSONObject.optInt("status");
+    public JSONObject a(EmotionCode emotionCode) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, KsMediaMeta.KSM_KEY_LANGUAGE, emotionCode.language);
+        com.kwad.sdk.utils.o.a(jSONObject, "codes", emotionCode.codes);
+        return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject b(l.a aVar, JSONObject jSONObject) {
+    public void a(EmotionCode emotionCode, JSONObject jSONObject) {
         if (jSONObject == null) {
-            jSONObject = new JSONObject();
+            return;
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "progress", aVar.f32899a);
-        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f32900b);
-        return jSONObject;
+        emotionCode.language = jSONObject.optString(KsMediaMeta.KSM_KEY_LANGUAGE);
+        emotionCode.codes = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("codes");
+        if (optJSONArray != null) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                emotionCode.codes.add((String) optJSONArray.opt(i2));
+            }
+        }
     }
 }

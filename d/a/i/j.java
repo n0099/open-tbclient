@@ -12,14 +12,14 @@ import d.a.m0.r.q.a2;
 public class j extends c implements p<a2>, q {
 
     /* renamed from: i  reason: collision with root package name */
-    public FollowUserDecorView f40028i;
+    public FollowUserDecorView f43709i;
     public boolean j = true;
     public int k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
     public int l = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
 
     public j(TbPageContext tbPageContext, boolean z) {
         FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.f40028i = followUserDecorView;
+        this.f43709i = followUserDecorView;
         followUserDecorView.setUseNewStyle(z);
         h(-1);
         m(z);
@@ -48,7 +48,7 @@ public class j extends c implements p<a2>, q {
             layoutParams.topMargin = l(R.dimen.tbds52);
         }
         i(layoutParams);
-        g(this.f40028i);
+        g(this.f43709i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,39 +57,39 @@ public class j extends c implements p<a2>, q {
     public void a(a2 a2Var) {
         if (a2Var != null && a2Var.T() != null) {
             p(l(this.j ? R.dimen.tbds120 : R.dimen.tbds44));
-            this.f40028i.setVisibility(0);
-            this.f40028i.setData(a2Var);
-            this.f40028i.setTag(a2Var);
+            this.f43709i.setVisibility(0);
+            this.f43709i.setData(a2Var);
+            this.f43709i.setTag(a2Var);
             return;
         }
-        this.f40028i.setVisibility(8);
+        this.f43709i.setVisibility(8);
     }
 
     public void o(boolean z) {
-        this.f40028i.setClickableUnLike(z);
+        this.f43709i.setClickableUnLike(z);
     }
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        this.f40028i.r(i2);
+        this.f43709i.r(i2);
     }
 
     public void p(int i2) {
         if (d() != null) {
             d().rightMargin = i2;
         }
-        this.f40028i.setLayoutParams(d());
+        this.f43709i.setLayoutParams(d());
     }
 
     public void q(FollowUserButton.a aVar) {
-        this.f40028i.setOnClickEvent(aVar);
+        this.f43709i.setOnClickEvent(aVar);
     }
 
     public void r(BdUniqueId bdUniqueId) {
-        this.f40028i.setPageUniqueId(bdUniqueId);
+        this.f43709i.setPageUniqueId(bdUniqueId);
     }
 
     public void s(int i2) {
-        this.f40028i.setSvgIconResId(i2);
+        this.f43709i.setSvgIconResId(i2);
     }
 }

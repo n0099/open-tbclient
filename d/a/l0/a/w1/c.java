@@ -31,14 +31,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a.i1.d.d.c<MediaModel>, e.b {
-    public static final boolean X0 = d.a.l0.a.k.f43199a;
+    public static final boolean X0 = d.a.l0.a.k.f46875a;
     public TextView A0;
     public ImageView B0;
     public PhotoChooseView C0;
     public ImageView D0;
     public TextView E0;
-    public TextView K0;
-    public ImageView L0;
+    public TextView F0;
+    public ImageView G0;
     public View M0;
     public PublishParams N0;
     public DraftData P0;
@@ -104,8 +104,8 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
 
     /* renamed from: d.a.l0.a.w1.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnClickListenerC0890c implements DialogInterface.OnClickListener {
-        public DialogInterface$OnClickListenerC0890c() {
+    public class DialogInterface$OnClickListenerC0946c implements DialogInterface.OnClickListener {
+        public DialogInterface$OnClickListenerC0946c() {
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -235,16 +235,16 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
     public class l implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f45539e;
+        public final /* synthetic */ List f49213e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45540f;
+        public final /* synthetic */ String f49214f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f45541g;
+        public final /* synthetic */ String f49215g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f45542h;
+        public final /* synthetic */ ViewGroup f49216h;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -253,37 +253,37 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
 
             @Override // java.lang.Runnable
             public void run() {
-                d.a.l0.a.z1.b.d.a.c(l.this.f45542h);
+                d.a.l0.a.z1.b.d.a.c(l.this.f49216h);
             }
         }
 
         public l(List list, String str, String str2, ViewGroup viewGroup) {
-            this.f45539e = list;
-            this.f45540f = str;
-            this.f45541g = str2;
-            this.f45542h = viewGroup;
+            this.f49213e = list;
+            this.f49214f = str;
+            this.f49215g = str2;
+            this.f49216h = viewGroup;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                JSONObject a2 = d.a.l0.a.w1.j.a.a(this.f45539e, c.this.N0.g());
+                JSONObject a2 = d.a.l0.a.w1.j.a.a(this.f49213e, c.this.N0.g());
                 if (a2 == null) {
                     if (c.X0) {
                         Log.d("SwanAppPublisher", "图片解析失败");
                     }
                     a2 = new JSONObject();
                 }
-                if (!this.f45540f.isEmpty()) {
+                if (!this.f49214f.isEmpty()) {
                     a2.put("title", c.this.y0.getText().toString());
                 }
-                if (!this.f45541g.isEmpty()) {
+                if (!this.f49215g.isEmpty()) {
                     a2.put("content", c.this.z0.getText().toString());
                 }
                 if (c.X0) {
                     Log.d("SwanAppPublisher", "publish result " + a2.toString());
                 }
-                this.f45542h.post(new a());
+                this.f49216h.post(new a());
                 d.a.l0.a.w1.g.a.a();
                 c.this.Q0.a(a2);
             } catch (JSONException e2) {
@@ -310,9 +310,9 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
         public void b(int i2) {
             c.this.S0 = i2;
             if (i2 == 0) {
-                c.this.L0.setVisibility(8);
+                c.this.G0.setVisibility(8);
             } else {
-                c.this.L0.setVisibility(0);
+                c.this.G0.setVisibility(0);
             }
             c.this.c3();
         }
@@ -398,13 +398,13 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
         int i2;
         List<String> j3 = j3();
         boolean z = !this.N0.s().booleanValue() ? ((i2 = this.T0) <= 0 || i2 > 4999) && (j3 == null || j3.size() <= 0) : this.S0 <= 0 || (this.T0 <= 0 && (j3 == null || j3.size() <= 0));
-        if (z && !this.K0.isClickable()) {
-            this.K0.setClickable(true);
-            this.K0.setTextColor(this.N0.m());
-        } else if (z || !this.K0.isClickable()) {
+        if (z && !this.F0.isClickable()) {
+            this.F0.setClickable(true);
+            this.F0.setTextColor(this.N0.m());
+        } else if (z || !this.F0.isClickable()) {
         } else {
-            this.K0.setClickable(false);
-            this.K0.setTextColor(z().getColor(d.a.l0.a.c.swanapp_ugc_publish_no_able_color));
+            this.F0.setClickable(false);
+            this.F0.setTextColor(z().getColor(d.a.l0.a.c.swanapp_ugc_publish_no_able_color));
         }
     }
 
@@ -463,7 +463,7 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
 
     public final void i3() {
         g.b i2 = d.a.l0.a.g1.f.V().W().i("navigateBack");
-        i2.n(d.a.l0.a.h0.g.g.f42078i, d.a.l0.a.h0.g.g.f42077h);
+        i2.n(d.a.l0.a.h0.g.g.f45754i, d.a.l0.a.h0.g.g.f45753h);
         i2.g();
         i2.a();
     }
@@ -493,8 +493,8 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
             } else if (j3 != null && j3.size() > 0) {
                 ViewGroup viewGroup = (ViewGroup) h().findViewById(16908290);
                 d.a.l0.a.z1.b.d.a.f(q(), viewGroup, z().getString(d.a.l0.a.h.swanapp_publisher_handling_pictures));
-                this.K0.setClickable(false);
-                this.K0.setTextColor(z().getColor(d.a.l0.a.c.swanapp_ugc_publish_no_able_color));
+                this.F0.setClickable(false);
+                this.F0.setTextColor(z().getColor(d.a.l0.a.c.swanapp_ugc_publish_no_able_color));
                 q.e().execute(new l(j3, obj, obj2, viewGroup));
             } else {
                 try {
@@ -588,7 +588,7 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
         textView.setText(this.N0.k());
         textView.setTextColor(this.N0.j());
         ImageView imageView = (ImageView) view.findViewById(d.a.l0.a.f.clear_title);
-        this.L0 = imageView;
+        this.G0 = imageView;
         imageView.setOnClickListener(this);
         this.A0 = (TextView) view.findViewById(d.a.l0.a.f.post_target);
         if (this.N0.r().booleanValue() && !TextUtils.isEmpty(this.N0.n().trim())) {
@@ -607,10 +607,10 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
         this.z0.setOnFocusChangeListener(new h());
         view.findViewById(d.a.l0.a.f.content_scroll_layout).setOnTouchListener(new i());
         TextView textView3 = (TextView) view.findViewById(d.a.l0.a.f.publish_button);
-        this.K0 = textView3;
+        this.F0 = textView3;
         textView3.setText(this.N0.l());
-        this.K0.setOnClickListener(this);
-        this.K0.setClickable(false);
+        this.F0.setOnClickListener(this);
+        this.F0.setClickable(false);
         TextView textView4 = (TextView) view.findViewById(d.a.l0.a.f.cancel_button);
         textView4.setText(this.N0.c());
         textView4.setTextColor(this.N0.d());
@@ -744,7 +744,7 @@ public class c extends d.a.l0.a.h0.g.d implements View.OnClickListener, d.a.l0.a
         aVar.U(d.a.l0.a.h.swanapp_save_draft_dialog_title);
         aVar.B(d.a.l0.a.h.swanapp_save_draft_dialog_btn_negative, new d());
         aVar.v(d.a.l0.a.h.swanapp_save_draft_dialog_message);
-        aVar.O(d.a.l0.a.h.swanapp_save_draft_dialog_btn_positive, new DialogInterface$OnClickListenerC0890c());
+        aVar.O(d.a.l0.a.h.swanapp_save_draft_dialog_btn_positive, new DialogInterface$OnClickListenerC0946c());
         aVar.X();
     }
 }

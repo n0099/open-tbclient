@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.tbadk.core.view.FollowUserButton;
 /* loaded from: classes4.dex */
-public abstract class a<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a<T, V> {
+public abstract class a<T, V extends TypeAdapter.ViewHolder> extends d.a.c.k.e.a<T, V> {
     public FollowUserButton.a m;
 
     public a(Context context, BdUniqueId bdUniqueId) {

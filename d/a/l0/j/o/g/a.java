@@ -46,7 +46,7 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
     public LocationDetailAdapter B0;
     public LinearLayoutManager C0;
     public List<c> D0;
-    public InputMethodManager K0;
+    public InputMethodManager F0;
     public String N0;
     public boolean O0;
     public boolean P0;
@@ -54,14 +54,14 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
     public View y0;
     public TextView z0;
     public PoiSearch E0 = null;
-    public int L0 = 0;
+    public int G0 = 0;
     public int M0 = 0;
     public String Q0 = Address.Builder.BEI_JING;
 
     /* renamed from: d.a.l0.j.o.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1072a extends RecyclerView.OnScrollListener {
-        public C1072a() {
+    public class C1128a extends RecyclerView.OnScrollListener {
+        public C1128a() {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -139,7 +139,7 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
         if (this.O0) {
             return;
         }
-        if (this.L0 < this.M0) {
+        if (this.G0 < this.M0) {
             W2(this.N0);
             this.O0 = true;
             return;
@@ -177,7 +177,7 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
         this.x0.setOnFocusChangeListener(this);
         this.x0.setOnKeyListener(this);
         this.x0.requestFocus();
-        this.A0.addOnScrollListener(new C1072a());
+        this.A0.addOnScrollListener(new C1128a());
         this.x0.postDelayed(new b(), 100L);
     }
 
@@ -200,7 +200,7 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
         if (TextUtils.isEmpty(this.N0)) {
             return;
         }
-        this.L0 = 0;
+        this.G0 = 0;
         W2(this.N0);
         T2(this.x0, false);
     }
@@ -213,10 +213,10 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
     }
 
     public void T2(View view, boolean z) {
-        if (this.K0 == null) {
-            this.K0 = (InputMethodManager) d.a.l0.a.g1.f.V().getActivity().getApplicationContext().getSystemService("input_method");
+        if (this.F0 == null) {
+            this.F0 = (InputMethodManager) d.a.l0.a.g1.f.V().getActivity().getApplicationContext().getSystemService("input_method");
         }
-        InputMethodManager inputMethodManager = this.K0;
+        InputMethodManager inputMethodManager = this.F0;
         if (inputMethodManager == null) {
             return;
         }
@@ -235,14 +235,14 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
         g W = d.a.l0.a.g1.f.V().W();
         if (W != null) {
             g.b i2 = W.i("navigateTo");
-            i2.n(g.f42076g, g.f42078i);
+            i2.n(g.f45752g, g.f45754i);
             i2.j(this);
             i2.b();
         }
     }
 
     public final void W2(String str) {
-        this.E0.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.Q0).keyword(str).pageCapacity(13).pageNum(this.L0));
+        this.E0.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.Q0).keyword(str).pageCapacity(13).pageNum(this.G0));
     }
 
     @Override // d.a.l0.a.h0.g.d
@@ -259,7 +259,7 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
     public void afterTextChanged(Editable editable) {
         if (editable != null && editable.length() > 0) {
             this.P0 = false;
-            this.L0 = 0;
+            this.G0 = 0;
             this.M0 = 0;
             String obj = editable.toString();
             this.N0 = obj;
@@ -269,7 +269,7 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
         this.D0.clear();
         this.B0.setData(this.D0);
         this.N0 = "";
-        this.L0 = 0;
+        this.G0 = 0;
         this.M0 = 0;
         this.P0 = true;
     }
@@ -281,7 +281,7 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
     @Override // d.a.l0.j.o.b
     public void c(c cVar) {
         Intent intent = new Intent();
-        PoiInfo poiInfo = cVar.f47895a;
+        PoiInfo poiInfo = cVar.f51569a;
         if (poiInfo != null && poiInfo.location != null) {
             intent.putExtra(SelectedLocationInfo.LOCATION_KEY, new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
         }
@@ -337,21 +337,21 @@ public class a extends d implements d.a.l0.j.o.b, OnGetPoiSearchResultListener, 
         }
         if (poiResult.error == SearchResult.ERRORNO.NO_ERROR) {
             this.M0 = poiResult.getTotalPageNum();
-            if (this.L0 == 0) {
+            if (this.G0 == 0) {
                 this.D0.clear();
             }
             this.D0.addAll(c.a(poiResult.getAllPoi()));
-            this.B0.f(this.D0, this.N0);
-            this.L0++;
+            this.B0.p(this.D0, this.N0);
+            this.G0++;
         } else {
-            if (this.L0 == 0) {
+            if (this.G0 == 0) {
                 this.M0 = 0;
                 this.D0.clear();
                 this.B0.setData(this.D0);
             }
             Q2();
         }
-        if (this.L0 == 0 && this.D0.size() == 0) {
+        if (this.G0 == 0 && this.D0.size() == 0) {
             z = true;
         }
         U2(z);

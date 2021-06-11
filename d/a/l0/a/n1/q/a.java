@@ -33,49 +33,49 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f43734d = k.f43199a;
+    public static final boolean f47410d = k.f46875a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f43735e;
+    public static volatile a f47411e;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d.a.l0.a.n1.q.c.b> f43736a;
+    public List<d.a.l0.a.n1.q.c.b> f47412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f43737b;
+    public AtomicInteger f47413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CopyOnWriteArrayList<d.a.l0.a.n1.q.b.a> f43738c;
+    public CopyOnWriteArrayList<d.a.l0.a.n1.q.b.a> f47414c;
 
     /* renamed from: d.a.l0.a.n1.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0765a extends ResponseCallback {
+    public class C0821a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43739a;
+        public final /* synthetic */ String f47415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f43740b;
+        public final /* synthetic */ List f47416b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ArrayMap f43741c;
+        public final /* synthetic */ ArrayMap f47417c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f43742d;
+        public final /* synthetic */ String f47418d;
 
-        public C0765a(String str, List list, ArrayMap arrayMap, String str2) {
-            this.f43739a = str;
-            this.f43740b = list;
-            this.f43741c = arrayMap;
-            this.f43742d = str2;
+        public C0821a(String str, List list, ArrayMap arrayMap, String str2) {
+            this.f47415a = str;
+            this.f47416b = list;
+            this.f47417c = arrayMap;
+            this.f47418d = str2;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            a.this.d(this.f43740b);
+            a.this.d(this.f47416b);
             d.i("SwanAppUpdateManager", "update request failure: ", exc);
-            d.a.l0.a.j2.k.w(this.f43742d, -1, exc.toString());
-            d.a.l0.a.j2.q.a.b(SwanInterfaceType.UPDATE, 2101, this.f43742d, null, exc.getMessage());
+            d.a.l0.a.j2.k.w(this.f47418d, -1, exc.toString());
+            d.a.l0.a.j2.q.a.b(SwanInterfaceType.UPDATE, 2101, this.f47418d, null, exc.getMessage());
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -85,17 +85,17 @@ public final class a {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) throws Exception {
             String appId = d.a.l0.a.a2.d.g().getAppId();
-            if (TextUtils.equals(this.f43739a, appId)) {
-                a.this.s(this.f43739a, response, this.f43740b, this.f43741c);
+            if (TextUtils.equals(this.f47415a, appId)) {
+                a.this.s(this.f47415a, response, this.f47416b, this.f47417c);
                 d.h("SwanAppUpdateManager", "response code = " + response.code());
                 if (!response.isSuccessful()) {
-                    d.a.l0.a.j2.k.w(this.f43742d, response.code(), response.message());
+                    d.a.l0.a.j2.k.w(this.f47418d, response.code(), response.message());
                 }
                 return response;
             }
-            d.h("SwanAppUpdateManager", "invalid response requestAppId:" + this.f43739a + ";currentAppId:" + appId);
-            a.this.d(this.f43740b);
-            a.x(this.f43739a);
+            d.h("SwanAppUpdateManager", "invalid response requestAppId:" + this.f47415a + ";currentAppId:" + appId);
+            a.this.d(this.f47416b);
+            a.x(this.f47415a);
             return response;
         }
     }
@@ -104,15 +104,15 @@ public final class a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.n1.q.b.a f43744e;
+        public final /* synthetic */ d.a.l0.a.n1.q.b.a f47420e;
 
         public b(a aVar, d.a.l0.a.n1.q.b.a aVar2) {
-            this.f43744e = aVar2;
+            this.f47420e = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f43744e.a();
+            this.f47420e.a();
         }
     }
 
@@ -121,14 +121,14 @@ public final class a {
     }
 
     public static a g() {
-        if (f43735e == null) {
+        if (f47411e == null) {
             synchronized (a.class) {
-                if (f43735e == null) {
-                    f43735e = new a();
+                if (f47411e == null) {
+                    f47411e = new a();
                 }
             }
         }
-        return f43735e;
+        return f47411e;
     }
 
     public static void x(String str) {
@@ -154,9 +154,9 @@ public final class a {
 
     public void B(@Nullable d.a.l0.a.n1.q.b.a aVar) {
         if (aVar != null) {
-            this.f43738c.add(aVar);
+            this.f47414c.add(aVar);
         }
-        f(this.f43736a);
+        f(this.f47412a);
     }
 
     public final void C(@NonNull List<d.a.l0.a.n1.q.c.b> list, @NonNull ArrayMap<String, String> arrayMap) {
@@ -170,7 +170,7 @@ public final class a {
             try {
                 jSONObject = new JSONObject(q);
             } catch (JSONException e2) {
-                if (f43734d) {
+                if (f47410d) {
                     e2.printStackTrace();
                 }
             }
@@ -181,12 +181,12 @@ public final class a {
                 str = "";
             }
             try {
-                if (f43734d) {
+                if (f47410d) {
                     Log.d("SwanAppUpdateManager", "updateNodeVersions: update node => " + bVar.a() + " , version => " + str);
                 }
                 jSONObject.put(bVar.a(), str);
             } catch (JSONException e3) {
-                if (f43734d) {
+                if (f47410d) {
                     e3.printStackTrace();
                 }
             }
@@ -212,7 +212,7 @@ public final class a {
             jSONObject.put("ma_id", D);
             jSONObject.put("source", T);
         } catch (JSONException e2) {
-            if (f43734d) {
+            if (f47410d) {
                 e2.printStackTrace();
             }
         }
@@ -220,13 +220,13 @@ public final class a {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 String str = arrayMap.containsKey(bVar.a()) ? arrayMap.get(bVar.a()) : "";
-                if (f43734d) {
+                if (f47410d) {
                     Log.d("SwanAppUpdateManager", "buildRequestParams: node => " + bVar.a() + " , version => " + str);
                 }
                 jSONObject2.put("version", str);
                 jSONObject.put(bVar.a(), jSONObject2);
             } catch (JSONException e3) {
-                if (f43734d) {
+                if (f47410d) {
                     e3.printStackTrace();
                 }
             }
@@ -235,7 +235,7 @@ public final class a {
     }
 
     public final void d(@NonNull List<d.a.l0.a.n1.q.c.b> list) {
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "doRequestFail: ");
         }
         n(list);
@@ -243,7 +243,7 @@ public final class a {
     }
 
     public final void e(String str, @NonNull JSONObject jSONObject, @NonNull List<d.a.l0.a.n1.q.c.b> list, @NonNull ArrayMap<String, String> arrayMap, String str2) {
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "doRequestSuccess: start");
         }
         t();
@@ -259,13 +259,13 @@ public final class a {
                 if (optJSONObject2 == null) {
                     bVar.c();
                 } else {
-                    if (f43734d) {
+                    if (f47410d) {
                         Log.d("SwanAppUpdateManager", "doRequestSuccess: node => " + bVar.a() + " update");
                     }
                     bVar.d(str, optJSONObject2, str2);
                     String optString = optJSONObject.optString("version", "");
                     if (!TextUtils.isEmpty(optString)) {
-                        if (f43734d) {
+                        if (f47410d) {
                             Log.d("SwanAppUpdateManager", "doRequestSuccess: " + bVar.a() + " update , version " + optString);
                         }
                         arrayMap.put(bVar.a(), optString);
@@ -286,21 +286,21 @@ public final class a {
             p();
             return;
         }
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "doUpdate: start => nodes size " + list.size());
         }
-        if (this.f43737b.incrementAndGet() > 1) {
+        if (this.f47413b.incrementAndGet() > 1) {
             d.h("SwanAppUpdateManager", "doUpdate: pending => wait previous request");
             return;
         }
-        ArrayMap<String, String> i2 = i(this.f43736a);
+        ArrayMap<String, String> i2 = i(this.f47412a);
         JSONObject c2 = c(list, i2);
         if (c2 == null) {
             d.h("SwanAppUpdateManager", "doUpdate: finish => build params is null");
             p();
             return;
         }
-        if (f43734d) {
+        if (f47410d) {
             Log.w("SwanAppUpdateManager", "doUpdate: start to request update data");
         }
         FormBody build = new FormBody.Builder().add("data", c2.toString()).build();
@@ -339,7 +339,7 @@ public final class a {
                 arrayMap.put(bVar2.a(), jSONObject.optString(bVar2.a(), ""));
             }
         } catch (JSONException e2) {
-            if (f43734d) {
+            if (f47410d) {
                 e2.printStackTrace();
             }
         }
@@ -347,10 +347,10 @@ public final class a {
     }
 
     public final void j(String str, String str2, RequestBody requestBody, List<d.a.l0.a.n1.q.c.b> list, ArrayMap<String, String> arrayMap) {
-        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(str2, requestBody, new C0765a(str, list, arrayMap, str2));
-        aVar.f47974f = true;
-        aVar.f47975g = true;
-        aVar.f47976h = false;
+        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(str2, requestBody, new C0821a(str, list, arrayMap, str2));
+        aVar.f51648f = true;
+        aVar.f51649g = true;
+        aVar.f51650h = false;
         aVar.k = 20;
         d.a.l0.m.e.a.g().e(aVar);
         d.a.l0.a.j2.q.a.a(SwanInterfaceType.UPDATE);
@@ -358,15 +358,15 @@ public final class a {
 
     public final void k() {
         l();
-        this.f43737b = new AtomicInteger(0);
-        this.f43738c = new CopyOnWriteArrayList<>();
+        this.f47413b = new AtomicInteger(0);
+        this.f47414c = new CopyOnWriteArrayList<>();
     }
 
     public final void l() {
         ArrayList arrayList = new ArrayList();
-        this.f43736a = arrayList;
+        this.f47412a = arrayList;
         arrayList.add(new d.a.l0.a.n1.q.c.a());
-        this.f43736a.add(new c());
+        this.f47412a.add(new c());
     }
 
     public final boolean m() {
@@ -384,14 +384,14 @@ public final class a {
     }
 
     public final void o(boolean z) {
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "onRequestFinish: request finish");
         }
-        if (this.f43737b.decrementAndGet() > 0) {
-            if (f43734d) {
+        if (this.f47413b.decrementAndGet() > 0) {
+            if (f47410d) {
                 Log.d("SwanAppUpdateManager", "onRequestFinish: do pending request");
             }
-            this.f43737b.set(0);
+            this.f47413b.set(0);
             if (!z) {
                 A();
                 return;
@@ -404,22 +404,22 @@ public final class a {
     }
 
     public final void p() {
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "onUpdateFinish: real finish update");
         }
-        this.f43737b.set(0);
-        Iterator<d.a.l0.a.n1.q.b.a> it = this.f43738c.iterator();
+        this.f47413b.set(0);
+        Iterator<d.a.l0.a.n1.q.b.a> it = this.f47414c.iterator();
         while (it.hasNext()) {
             d.a.l0.a.e2.c.d.k(new b(this, it.next()));
         }
-        this.f43738c.clear();
+        this.f47414c.clear();
     }
 
     public void q(@NonNull d.a.l0.a.k2.g.b bVar, @NonNull JSONObject jSONObject) {
         int length;
         JSONObject jSONObject2;
         long currentTimeMillis = System.currentTimeMillis();
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "parse increment accredit node start");
         }
         String string = bVar.getString("node_data_accredit_list", "");
@@ -430,7 +430,7 @@ public final class a {
             String jSONObject4 = jSONObject3.toString();
             bVar.putString("node_data_accredit_list", jSONObject4);
             bVar.putString("cur_request_id", "pkgInfo:" + System.currentTimeMillis());
-            if (f43734d) {
+            if (f47410d) {
                 Log.d("SwanAppUpdateManager", "local has no cache data, write directly. pending data = " + jSONObject4);
             }
         } else {
@@ -465,7 +465,7 @@ public final class a {
                 return;
             }
         }
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "parse increment accredit node end, cost = " + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
@@ -484,7 +484,7 @@ public final class a {
     }
 
     public final void s(String str, Response response, @NonNull List<d.a.l0.a.n1.q.c.b> list, @NonNull ArrayMap<String, String> arrayMap) {
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "onResponse: update request return");
         }
         String str2 = null;
@@ -502,7 +502,7 @@ public final class a {
         try {
             str2 = body.string();
         } catch (IOException e2) {
-            if (f43734d) {
+            if (f47410d) {
                 e2.printStackTrace();
             }
         }
@@ -528,7 +528,7 @@ public final class a {
                 e(str, optJSONObject, list, arrayMap, optString);
             }
         } catch (JSONException e3) {
-            if (f43734d) {
+            if (f47410d) {
                 e3.printStackTrace();
             }
             d(list);
@@ -543,14 +543,14 @@ public final class a {
     }
 
     public void u() {
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "release: ");
         }
-        if (f43735e == null) {
+        if (f47411e == null) {
             return;
         }
-        this.f43738c.clear();
-        f43735e = null;
+        this.f47414c.clear();
+        f47411e = null;
     }
 
     public void v() {
@@ -562,13 +562,13 @@ public final class a {
 
     public void w(d.a.l0.a.n1.q.c.b bVar) {
         if (bVar == null) {
-            if (f43734d) {
+            if (f47410d) {
                 Log.w("SwanAppUpdateManager", "resetNodeVersion: node is null");
                 return;
             }
             return;
         }
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "resetNodeVersion: " + bVar.a());
         }
         ArrayList arrayList = new ArrayList();
@@ -589,13 +589,13 @@ public final class a {
 
     public void z(@Nullable d.a.l0.a.n1.q.b.a aVar) {
         if (m()) {
-            if (f43734d) {
+            if (f47410d) {
                 Log.d("SwanAppUpdateManager", "tryUpdate: start => cache data invalid");
             }
             B(aVar);
             return;
         }
-        if (f43734d) {
+        if (f47410d) {
             Log.d("SwanAppUpdateManager", "tryUpdate: finish => cache data valid");
         }
         if (aVar != null) {

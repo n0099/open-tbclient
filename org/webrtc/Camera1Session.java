@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.Camera1Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Camera1Session implements CameraSession {
     public static final int NUMBER_OF_CAPTURE_BUFFERS = 3;
     public static final String TAG = "Camera1Session";
@@ -32,7 +32,7 @@ public class Camera1Session implements CameraSession {
     public static final Histogram camera1ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera1.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
 
     /* renamed from: org.webrtc.Camera1Session$2  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass2 implements Camera.PreviewCallback {
         public AnonymousClass2() {
         }
@@ -73,7 +73,7 @@ public class Camera1Session implements CameraSession {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum SessionState {
         RUNNING,
         STOPPED

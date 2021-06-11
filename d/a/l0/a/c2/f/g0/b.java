@@ -8,7 +8,7 @@ import d.a.l0.a.a2.k;
 public class b extends a {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f41032h;
+    public String f44708h;
 
     public b(h hVar) {
         super(hVar);
@@ -17,7 +17,7 @@ public class b extends a {
     @Override // d.a.l0.a.c2.f.g0.a
     public void e(String str) {
         String str2;
-        if (i() && (str2 = this.f41032h) != null && str2.equals(str)) {
+        if (i() && (str2 = this.f44708h) != null && str2.equals(str)) {
             d.a.l0.a.a2.d g2 = d.a.l0.a.a2.d.g();
             if (g2.C()) {
                 if (g2.r().d0()) {
@@ -34,7 +34,7 @@ public class b extends a {
     }
 
     public boolean i() {
-        return (e.Q() == null || this.f41030f == 0) ? false : true;
+        return (e.Q() == null || this.f44706f == 0) ? false : true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,8 +42,8 @@ public class b extends a {
     /* renamed from: j */
     public void onCallback(i.a aVar) {
         if (d.a.l0.a.v1.b.c.f(aVar.C(), "swan_forbidden_kill_on_client")) {
-            this.f41030f = aVar.j("ipc_forbidden_flag", 1);
-            this.f41032h = aVar.o("mAppId", d.a.l0.a.a2.d.g().getAppId());
+            this.f44706f = aVar.j("ipc_forbidden_flag", 1);
+            this.f44708h = aVar.o("mAppId", d.a.l0.a.a2.d.g().getAppId());
         }
         if (d.a.l0.a.v1.b.c.f(aVar.C(), "swan_kill_to_client")) {
             d.a.l0.a.a2.d.g().o("flag_finish_activity", "flag_remove_task");

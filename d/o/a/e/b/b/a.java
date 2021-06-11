@@ -9,38 +9,38 @@ import java.io.File;
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f67160b;
+    public static volatile a f70946b;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f67161a;
+    public boolean f70947a;
 
     public a() {
         super(d.l(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 14);
-        this.f67161a = false;
+        this.f70947a = false;
     }
 
     public static a a() {
-        if (f67160b == null) {
+        if (f70946b == null) {
             synchronized (a.class) {
-                if (f67160b == null) {
-                    f67160b = new a();
+                if (f70946b == null) {
+                    f70946b = new a();
                 }
             }
         }
-        return f67160b;
+        return f70946b;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public SQLiteDatabase getReadableDatabase() {
         Context l = d.l();
-        if (!this.f67161a && l != null) {
+        if (!this.f70947a && l != null) {
             try {
                 File file = new File("/data/data/" + l.getPackageName() + "/database/main/");
                 if (!file.exists()) {
                     file.mkdir();
                 }
                 super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                this.f67161a = true;
+                this.f70947a = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

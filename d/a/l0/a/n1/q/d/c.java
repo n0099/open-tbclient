@@ -9,20 +9,20 @@ import d.a.l0.a.k;
 public class c implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43762e = k.f43199a;
+    public static final boolean f47438e = k.f46875a;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.n1.q.d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UbcFlowEvent f43763a;
+        public final /* synthetic */ UbcFlowEvent f47439a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UbcFlowEvent f43764b;
+        public final /* synthetic */ UbcFlowEvent f47440b;
 
         public a(UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
-            this.f43763a = ubcFlowEvent;
-            this.f43764b = ubcFlowEvent2;
+            this.f47439a = ubcFlowEvent;
+            this.f47440b = ubcFlowEvent2;
         }
 
         @Override // d.a.l0.a.n1.q.d.a
@@ -30,13 +30,13 @@ public class c implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
             if (dVar == null) {
                 return false;
             }
-            return c.this.b(dVar, this.f43763a, this.f43764b);
+            return c.this.b(dVar, this.f47439a, this.f47440b);
         }
     }
 
     public c() {
         b.f().g();
-        if (f43762e) {
+        if (f47438e) {
             Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
         }
     }
@@ -50,7 +50,7 @@ public class c implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
     @Override // d.a.l0.a.v2.e1.b
     /* renamed from: c */
     public void onCallback(HybridUbcFlow hybridUbcFlow) {
-        if (f43762e) {
+        if (f47438e) {
             Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
         }
         if (hybridUbcFlow == null) {
@@ -61,14 +61,14 @@ public class c implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
         if (f2 != null && f3 != null) {
             b.f().h(new a(f2, f3));
             b.f().a(hybridUbcFlow);
-            if (f43762e) {
+            if (f47438e) {
                 Log.d("MaUpdateReporter", "na_start ts - " + f2.g());
                 Log.d("MaUpdateReporter", "fmp_end ts - " + f3.g());
                 return;
             }
             return;
         }
-        if (f43762e) {
+        if (f47438e) {
             if (f2 == null) {
                 Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
             } else {

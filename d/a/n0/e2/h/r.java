@@ -12,39 +12,39 @@ import tbclient.Error;
 import tbclient.Page;
 import tbclient.PbFloor.DataRes;
 import tbclient.SubPostList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumData f52966a;
+    public ForumData f56655a;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52970e;
+    public int f56659e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52972g;
+    public int f56661g;
 
     /* renamed from: i  reason: collision with root package name */
-    public AntiData f52974i;
+    public AntiData f56663i;
     public a2 j;
     public boolean l;
     public Error m;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52971f = 20;
+    public int f56660f = 20;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52973h = -1;
+    public int f56662h = -1;
     public boolean k = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public PostData f52967b = null;
+    public PostData f56656b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<PostData> f52968c = new ArrayList<>();
+    public ArrayList<PostData> f56657c = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52969d = 1;
+    public int f56658d = 1;
 
     public static r w(DataRes dataRes, Context context) {
         if (dataRes == null) {
@@ -56,7 +56,7 @@ public class r {
             antiData.parserProtobuf(dataRes.anti);
             rVar.x(antiData);
             a2 a2Var = new a2();
-            a2Var.U2(dataRes.thread);
+            a2Var.V2(dataRes.thread);
             rVar.E(a2Var);
             ForumData forumData = new ForumData();
             forumData.parserProtobuf(dataRes.forum);
@@ -72,8 +72,8 @@ public class r {
                 PostData postData2 = new PostData();
                 postData2.j0(forumData.isBrandForum);
                 postData2.c0(list.get(i2), context);
-                if (postData2.r() != null && postData2.r().baijiahaoData == null && a2Var.V() != null) {
-                    postData2.r().baijiahaoData = a2Var.V();
+                if (postData2.q() != null && postData2.q().baijiahaoData == null && a2Var.V() != null) {
+                    postData2.q().baijiahaoData = a2Var.V();
                 }
                 arrayList.add(postData2);
             }
@@ -101,21 +101,21 @@ public class r {
     }
 
     public void A(ForumData forumData) {
-        this.f52966a = forumData;
+        this.f56655a = forumData;
     }
 
     public void B(int i2) {
         if (i2 != 0) {
-            this.f52971f = i2;
+            this.f56660f = i2;
         }
     }
 
     public void C(PostData postData) {
-        this.f52967b = postData;
+        this.f56656b = postData;
     }
 
     public void D(ArrayList<PostData> arrayList) {
-        this.f52968c = arrayList;
+        this.f56657c = arrayList;
     }
 
     public void E(a2 a2Var) {
@@ -123,31 +123,31 @@ public class r {
     }
 
     public void F(int i2) {
-        this.f52970e = i2;
+        this.f56659e = i2;
     }
 
     public void G(int i2) {
-        this.f52969d = i2;
+        this.f56658d = i2;
     }
 
     public void H() {
-        int i2 = this.f52973h;
+        int i2 = this.f56662h;
         if (i2 < 0) {
-            this.f52973h = this.f52972g;
+            this.f56662h = this.f56661g;
             return;
         }
-        int i3 = this.f52972g;
+        int i3 = this.f56661g;
         if (i2 > i3) {
-            this.f52973h = i3;
+            this.f56662h = i3;
         }
     }
 
     public AntiData a() {
-        return this.f52974i;
+        return this.f56663i;
     }
 
     public int b() {
-        return this.f52972g;
+        return this.f56661g;
     }
 
     public Error c() {
@@ -155,12 +155,12 @@ public class r {
     }
 
     public ForumData d() {
-        return this.f52966a;
+        return this.f56655a;
     }
 
     public boolean e() {
         a2 a2Var = this.j;
-        return (a2Var == null || this.f52967b == null || a2Var.T() == null || this.j.T().getUserId() == null || this.f52967b.t() == null || this.f52967b.t().getUserId() == null || !this.j.T().getUserId().equals(this.f52967b.t().getUserId())) ? false : true;
+        return (a2Var == null || this.f56656b == null || a2Var.T() == null || this.j.T().getUserId() == null || this.f56656b.t() == null || this.f56656b.t().getUserId() == null || !this.j.T().getUserId().equals(this.f56656b.t().getUserId())) ? false : true;
     }
 
     public boolean f() {
@@ -168,26 +168,26 @@ public class r {
     }
 
     public int g() {
-        return this.f52971f;
+        return this.f56660f;
     }
 
     public int h() {
-        return this.f52973h;
+        return this.f56662h;
     }
 
     public PostData i() {
-        return this.f52967b;
+        return this.f56656b;
     }
 
     public int j() {
-        if (this.f52973h == -1) {
-            this.f52973h = this.f52972g;
+        if (this.f56662h == -1) {
+            this.f56662h = this.f56661g;
         }
-        return this.f52973h;
+        return this.f56662h;
     }
 
     public ArrayList<PostData> k() {
-        return this.f52968c;
+        return this.f56657c;
     }
 
     public a2 l() {
@@ -195,20 +195,20 @@ public class r {
     }
 
     public int m() {
-        return this.f52970e;
+        return this.f56659e;
     }
 
     public int n() {
-        return this.f52969d;
+        return this.f56658d;
     }
 
     public boolean o() {
-        return this.f52972g < this.f52969d;
+        return this.f56661g < this.f56658d;
     }
 
     public boolean p() {
         a2 a2Var = this.j;
-        return a2Var != null && a2Var.B2();
+        return a2Var != null && a2Var.C2();
     }
 
     public boolean q() {
@@ -230,14 +230,14 @@ public class r {
             F(rVar.m());
             G(rVar.n());
         }
-        int size = this.f52968c.size();
-        if (z && size % this.f52971f != 0) {
-            for (int i2 = 0; i2 < size % this.f52971f; i2++) {
-                ArrayList<PostData> arrayList = this.f52968c;
+        int size = this.f56657c.size();
+        if (z && size % this.f56660f != 0) {
+            for (int i2 = 0; i2 < size % this.f56660f; i2++) {
+                ArrayList<PostData> arrayList = this.f56657c;
                 arrayList.remove(arrayList.size() - 1);
             }
         }
-        this.f52968c.addAll(rVar.k());
+        this.f56657c.addAll(rVar.k());
     }
 
     public void s(r rVar) {
@@ -254,14 +254,14 @@ public class r {
             B(rVar.g());
             F(rVar.m());
             G(rVar.n());
-            int i2 = this.f52971f;
-            int size = (this.f52972g - (((rVar.k().size() - 1) + i2) / i2)) + 1;
-            this.f52973h = size;
+            int i2 = this.f56660f;
+            int size = (this.f56661g - (((rVar.k().size() - 1) + i2) / i2)) + 1;
+            this.f56662h = size;
             if (size < 0) {
-                this.f52973h = 0;
+                this.f56662h = 0;
             }
         }
-        this.f52968c.addAll(rVar.k());
+        this.f56657c.addAll(rVar.k());
     }
 
     public void t(r rVar, boolean z) {
@@ -279,14 +279,14 @@ public class r {
             F(rVar.m());
             G(rVar.n());
         }
-        int size = this.f52968c.size();
-        if (z && size % this.f52971f != 0) {
-            for (int i2 = 0; i2 < size % this.f52971f; i2++) {
-                ArrayList<PostData> arrayList = this.f52968c;
+        int size = this.f56657c.size();
+        if (z && size % this.f56660f != 0) {
+            for (int i2 = 0; i2 < size % this.f56660f; i2++) {
+                ArrayList<PostData> arrayList = this.f56657c;
                 arrayList.remove(arrayList.size() - 1);
             }
         }
-        this.f52968c.addAll(rVar.k());
+        this.f56657c.addAll(rVar.k());
         H();
     }
 
@@ -299,18 +299,18 @@ public class r {
             return;
         }
         x(rVar.a());
-        this.f52973h = rVar.b();
+        this.f56662h = rVar.b();
         A(rVar.d());
         B(rVar.g());
         E(rVar.l());
         F(rVar.m());
         G(rVar.n());
         y(rVar.q());
-        this.f52968c.addAll(0, rVar.k());
+        this.f56657c.addAll(0, rVar.k());
     }
 
     public void x(AntiData antiData) {
-        this.f52974i = antiData;
+        this.f56663i = antiData;
     }
 
     public void y(boolean z) {
@@ -318,6 +318,6 @@ public class r {
     }
 
     public void z(int i2) {
-        this.f52972g = i2;
+        this.f56661g = i2;
     }
 }

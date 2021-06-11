@@ -7,28 +7,28 @@ import java.io.OutputStream;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f3464a = new byte[8];
+    public byte[] f3483a = new byte[8];
 
     /* renamed from: b  reason: collision with root package name */
-    public DataOutputStream f3465b;
+    public DataOutputStream f3484b;
 
     public e(OutputStream outputStream) {
-        this.f3465b = new DataOutputStream(outputStream);
+        this.f3484b = new DataOutputStream(outputStream);
     }
 
     public void a() throws IOException {
-        this.f3465b.close();
+        this.f3484b.close();
     }
 
     public final void a(int i2) throws Exception {
-        byte[] bArr = this.f3464a;
+        byte[] bArr = this.f3483a;
         bArr[1] = (byte) (i2 >> 8);
         bArr[0] = (byte) i2;
-        this.f3465b.write(bArr, 0, 2);
+        this.f3484b.write(bArr, 0, 2);
     }
 
     public final void a(long j) throws Exception {
-        byte[] bArr = this.f3464a;
+        byte[] bArr = this.f3483a;
         bArr[7] = (byte) (j >> 56);
         bArr[6] = (byte) (j >> 48);
         bArr[5] = (byte) (j >> 40);
@@ -37,19 +37,19 @@ public class e {
         bArr[2] = (byte) (j >> 16);
         bArr[1] = (byte) (j >> 8);
         bArr[0] = (byte) j;
-        this.f3465b.write(bArr, 0, 8);
+        this.f3484b.write(bArr, 0, 8);
     }
 
     public void a(byte[] bArr) throws Exception {
-        this.f3465b.write(bArr);
+        this.f3484b.write(bArr);
     }
 
     public final void b(int i2) throws Exception {
-        byte[] bArr = this.f3464a;
+        byte[] bArr = this.f3483a;
         bArr[3] = (byte) (i2 >> 24);
         bArr[2] = (byte) (i2 >> 16);
         bArr[1] = (byte) (i2 >> 8);
         bArr[0] = (byte) i2;
-        this.f3465b.write(bArr, 0, 4);
+        this.f3484b.write(bArr, 0, 4);
     }
 }

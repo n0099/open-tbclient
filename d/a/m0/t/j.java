@@ -7,30 +7,30 @@ import java.util.List;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f50785a;
+    public String f54462a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50786b;
+    public String f54463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50787c;
+    public String f54464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50788d;
+    public int f54465d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50789e;
+    public boolean f54466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50790f;
+    public boolean f54467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50791g;
+    public String f54468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<FrsTabItemData> f50792h;
+    public List<FrsTabItemData> f54469h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PostPrefixData f50793i;
+    public PostPrefixData f54470i;
     public boolean j;
 }

@@ -16,26 +16,26 @@ public final class s0 extends o<d.a.n0.e2.h.q, PbVideoDetailBrowseModeEmotionHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public PbVideoDetailBrowseModeEmotionHolder P(ViewGroup viewGroup) {
-        View view = LayoutInflater.from(this.f39228e).inflate(R.layout.video_detail_pb_browse_mode_emotion, viewGroup, false);
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public PbVideoDetailBrowseModeEmotionHolder Q(ViewGroup viewGroup) {
+        View view = LayoutInflater.from(this.f42909e).inflate(R.layout.video_detail_pb_browse_mode_emotion, viewGroup, false);
         Intrinsics.checkExpressionValueIsNotNull(view, "view");
         return new PbVideoDetailBrowseModeEmotionHolder(view);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public void X(int i2, ViewGroup viewGroup, PbVideoDetailBrowseModeEmotionHolder pbVideoDetailBrowseModeEmotionHolder, d.a.n0.e2.h.q qVar) {
-        super.X(i2, viewGroup, pbVideoDetailBrowseModeEmotionHolder, qVar);
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public void Y(int i2, ViewGroup viewGroup, PbVideoDetailBrowseModeEmotionHolder pbVideoDetailBrowseModeEmotionHolder, d.a.n0.e2.h.q qVar) {
+        super.Y(i2, viewGroup, pbVideoDetailBrowseModeEmotionHolder, qVar);
         if (pbVideoDetailBrowseModeEmotionHolder != null) {
             pbVideoDetailBrowseModeEmotionHolder.b();
             pbVideoDetailBrowseModeEmotionHolder.c(this.s);
         }
     }
 
-    public final void i0(View.OnClickListener onClickListener) {
+    public final void j0(View.OnClickListener onClickListener) {
         this.s = onClickListener;
     }
 }

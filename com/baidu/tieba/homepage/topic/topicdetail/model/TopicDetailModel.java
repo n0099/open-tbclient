@@ -14,19 +14,19 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopic
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
 import com.baidu.tieba.message.RequestBlessMessage;
 import d.a.c.e.p.j;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TopicDetailModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.b1.j.a.a f16569e;
+    public d.a.n0.b1.k.a.a f16645e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.b1.j.a.c.a f16570f;
+    public d.a.n0.b1.k.a.c.a f16646f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16571g;
+    public d.a.c.c.g.a f16647g;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -56,10 +56,10 @@ public class TopicDetailModel extends BdBaseModel {
             if (j2 == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                 j2 = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
             }
-            if (j2 == 0 || TopicDetailModel.this.f16570f == null || TopicDetailModel.this.f16570f.f51935e == null || TopicDetailModel.this.f16570f.f51935e.f51944e == null || TopicDetailModel.this.f16570f.f51935e.f51944e.f51985b != j2) {
+            if (j2 == 0 || TopicDetailModel.this.f16646f == null || TopicDetailModel.this.f16646f.f55624e == null || TopicDetailModel.this.f16646f.f55624e.f55633e == null || TopicDetailModel.this.f16646f.f55624e.f55633e.f55674b != j2) {
                 return;
             }
-            TopicDetailModel.this.f16570f.f51935e.f51944e.f51986c = j;
+            TopicDetailModel.this.f16646f.f55624e.f55633e.f55675c = j;
         }
     }
 
@@ -71,16 +71,16 @@ public class TopicDetailModel extends BdBaseModel {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f16569e == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f16645e == null) {
                 return;
             }
             if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                TopicDetailModel.this.f16570f = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                TopicDetailModel.this.f16646f = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
             if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                TopicDetailModel.this.f16570f = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                TopicDetailModel.this.f16646f = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
-            TopicDetailModel.this.f16569e.netCallback(responsedMessage.getError(), TopicDetailModel.this.f16570f);
+            TopicDetailModel.this.f16645e.netCallback(responsedMessage.getError(), TopicDetailModel.this.f16646f);
         }
     }
 
@@ -92,7 +92,7 @@ public class TopicDetailModel extends BdBaseModel {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f16569e == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || TopicDetailModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || TopicDetailModel.this.f16645e == null) {
                 return;
             }
             List<n> list = null;
@@ -109,32 +109,21 @@ public class TopicDetailModel extends BdBaseModel {
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
-            TopicDetailModel.this.f16569e.netThreadCallback(responsedMessage.getError(), z, list);
+            TopicDetailModel.this.f16645e.netThreadCallback(responsedMessage.getError(), z, list);
         }
     }
 
     public TopicDetailModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.f16571g = new a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
+        this.f16647g = new a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
         registerListener(new b(CmdConfigHttp.CMD_TOPIC_DETAIL, 309629));
         registerListener(new c(CmdConfigHttp.CMD_TOPIC_THREAD, 309631));
-        registerListener(this.f16571g);
+        registerListener(this.f16647g);
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        return true;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
-    }
-
-    public void x(long j) {
+    public void B(long j) {
         if (!j.A()) {
-            d.a.n0.b1.j.a.a aVar = this.f16569e;
+            d.a.n0.b1.k.a.a aVar = this.f16645e;
             if (aVar != null) {
                 aVar.netCallback(-1, null);
                 return;
@@ -148,9 +137,9 @@ public class TopicDetailModel extends BdBaseModel {
         sendMessage(requestGetTopicDetailMessage);
     }
 
-    public void y(long j, long j2, long j3) {
+    public void C(long j, long j2, long j3) {
         if (!j.A()) {
-            d.a.n0.b1.j.a.a aVar = this.f16569e;
+            d.a.n0.b1.k.a.a aVar = this.f16645e;
             if (aVar != null) {
                 aVar.netThreadCallback(-1, false, null);
                 return;
@@ -166,7 +155,18 @@ public class TopicDetailModel extends BdBaseModel {
         sendMessage(requestGetTopicThreadMessage);
     }
 
-    public void z(d.a.n0.b1.j.a.a aVar) {
-        this.f16569e = aVar;
+    public void D(d.a.n0.b1.k.a.a aVar) {
+        this.f16645e = aVar;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return true;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        cancelMessage();
+        return false;
     }
 }

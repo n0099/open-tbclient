@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b;
 
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayOutputStream;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -21,7 +22,7 @@ public class h {
     }
 
     public static byte[] a(byte[] bArr, String str) {
-        return a(bArr, str, "RSA/ECB/PKCS1Padding");
+        return a(bArr, str, RsaCipher.RSA_PADDING);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:41:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -99,7 +100,7 @@ public class h {
     }
 
     public static String b(byte[] bArr, String str) {
-        return new String(b(bArr, str, "RSA/ECB/PKCS1Padding"), "UTF-8");
+        return new String(b(bArr, str, RsaCipher.RSA_PADDING), "UTF-8");
     }
 
     public static byte[] b(byte[] bArr, String str, String str2) {

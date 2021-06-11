@@ -8,7 +8,7 @@ import org.apache.http.HttpMessage;
 import org.apache.http.entity.ContentLengthStrategy;
 import org.apache.http.io.SessionOutputBuffer;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EntitySerializer {
     public EntitySerializer(ContentLengthStrategy contentLengthStrategy) {
         throw new RuntimeException("Stub!");

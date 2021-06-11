@@ -57,25 +57,25 @@ public class MsgActivityView extends e {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f16978e;
+        public final /* synthetic */ String f17054e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f16979f;
+        public final /* synthetic */ String f17055f;
 
         public c(String str, String str2) {
-            this.f16978e = str;
-            this.f16979f = str2;
+            this.f17054e = str;
+            this.f17055f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f16978e, this.f16979f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f17054e, this.f17055f)));
         }
     }
 
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgactivity_view);
-        this.f54344h = (TextView) d(R.id.tex_msgitem_time);
+        this.f58033h = (TextView) d(R.id.tex_msgitem_time);
         this.u = (TextView) d(R.id.msg_msgactivity_title);
         this.v = (TextView) d(R.id.msg_msgactivity_time);
         this.w = (TextView) d(R.id.msg_msgactivity_address);
@@ -87,12 +87,12 @@ public class MsgActivityView extends e {
         e().setOnLongClickListener(new b());
     }
 
-    public void H(ChatMessage chatMessage) {
+    public void I(ChatMessage chatMessage) {
         String string;
         if (chatMessage == null) {
             return;
         }
-        w(chatMessage);
+        x(chatMessage);
         try {
             JSONObject optJSONObject = new JSONObject(chatMessage.getContent()).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject != null) {
@@ -150,7 +150,7 @@ public class MsgActivityView extends e {
                 }
                 this.t.setTag(optString4);
                 this.t.setOnClickListener(new c(optString5, optString6));
-                this.t.V(optString4, 12, false);
+                this.t.U(optString4, 12, false);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -158,17 +158,17 @@ public class MsgActivityView extends e {
     }
 
     @Override // d.a.n0.f1.f.e
-    public void p(d.a.c.e.h.a aVar) {
+    public void q(d.a.c.e.h.a aVar) {
         this.y = aVar;
     }
 
     @Override // d.a.n0.f1.f.e
-    public void q(d.a.c.e.h.b bVar) {
+    public void r(d.a.c.e.h.b bVar) {
         this.z = bVar;
     }
 
     @Override // d.a.n0.f1.f.e
-    public void r(int i2) {
+    public void s(int i2) {
         this.x = i2;
     }
 }

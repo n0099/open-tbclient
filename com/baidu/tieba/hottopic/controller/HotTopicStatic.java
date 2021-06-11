@@ -65,7 +65,7 @@ public class HotTopicStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.a.n0.d1.d.c(null, a2.q3));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new d.a.n0.d1.d.c(null, a2.t3));
             }
         }
     }
@@ -88,23 +88,23 @@ public class HotTopicStatic {
         public class a extends d.a.m0.e0.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f16761a;
+            public final /* synthetic */ g f16837a;
 
             public a(d dVar, g gVar) {
-                this.f16761a = gVar;
+                this.f16837a = gVar;
             }
 
             @Override // d.a.m0.e0.b
             public d.a.m0.e0.c createFragmentTabStructure() {
                 FrsHottopicFragment frsHottopicFragment = new FrsHottopicFragment();
                 Bundle bundle = new Bundle();
-                bundle.putString("fid", this.f16761a.b());
-                bundle.putString("from", this.f16761a.d());
+                bundle.putString("fid", this.f16837a.b());
+                bundle.putString("from", this.f16837a.d());
                 frsHottopicFragment.setArguments(bundle);
                 d.a.m0.e0.c cVar = new d.a.m0.e0.c();
-                cVar.f49334a = frsHottopicFragment;
-                cVar.f49338e = 401;
-                cVar.f49342i = d.a.m0.e0.c.k;
+                cVar.f53008a = frsHottopicFragment;
+                cVar.f53012e = 401;
+                cVar.f53016i = d.a.m0.e0.c.k;
                 return cVar;
             }
 

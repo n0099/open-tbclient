@@ -24,19 +24,19 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int RN = 20;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.j2.e.a f19855e;
+    public d.a.n0.j2.e.a f19932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19856f;
+    public int f19933f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19857g;
+    public String f19934g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.j2.h.b f19858h;
+    public d.a.n0.j2.h.b f19935h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.j2.h.a f19859i;
+    public d.a.n0.j2.h.a f19936i;
     public boolean j;
     public d.a.c.c.g.a k;
     public CustomMessageListener l;
@@ -61,13 +61,13 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                     cVar = (ProfileHttpResponseMessage) responsedMessage;
                 }
                 if (cVar.getErrorCode() == 0) {
-                    PersonPolymericModel.this.f19855e.v(cVar);
+                    PersonPolymericModel.this.f19932e.v(cVar);
                 }
                 d.a.n0.j2.b.d().n(System.currentTimeMillis() - d.a.n0.j2.b.d().e());
                 if (responsedMessage.getError() == 0) {
-                    PersonPolymericModel.this.f19858h.b(PersonPolymericModel.this.f19855e);
+                    PersonPolymericModel.this.f19935h.b(PersonPolymericModel.this.f19932e);
                 } else {
-                    PersonPolymericModel.this.f19858h.b(null);
+                    PersonPolymericModel.this.f19935h.b(null);
                 }
             }
         }
@@ -84,20 +84,20 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof d.a.n0.p3.a) && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
                 d.a.n0.p3.a aVar = (d.a.n0.p3.a) customResponsedMessage.getData();
-                DataRes dataRes = aVar.f58160a;
-                if (aVar.f58162c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
+                DataRes dataRes = aVar.f61851a;
+                if (aVar.f61853c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
                     return;
                 }
                 if (dataRes.is_mute.equals("0")) {
-                    PersonPolymericModel.this.f19856f = 0;
-                    PersonPolymericModel.this.f19857g = dataRes.mute_confirm;
-                    if (k.isEmpty(PersonPolymericModel.this.f19857g)) {
-                        PersonPolymericModel.this.f19857g = "确定禁言？";
+                    PersonPolymericModel.this.f19933f = 0;
+                    PersonPolymericModel.this.f19934g = dataRes.mute_confirm;
+                    if (k.isEmpty(PersonPolymericModel.this.f19934g)) {
+                        PersonPolymericModel.this.f19934g = "确定禁言？";
                     }
                 } else if (dataRes.is_mute.equals("1")) {
-                    PersonPolymericModel.this.f19856f = 1;
+                    PersonPolymericModel.this.f19933f = 1;
                 }
-                PersonPolymericModel.this.f19859i.a(0, PersonPolymericModel.this.f19856f, PersonPolymericModel.this.f19857g, aVar.f58162c, aVar.f58161b);
+                PersonPolymericModel.this.f19936i.a(0, PersonPolymericModel.this.f19933f, PersonPolymericModel.this.f19934g, aVar.f61853c, aVar.f61852b);
             }
         }
     }
@@ -116,9 +116,9 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             }
             UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
             if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                PersonPolymericModel.this.f19856f = 1;
+                PersonPolymericModel.this.f19933f = 1;
             }
-            PersonPolymericModel.this.f19859i.a(1, PersonPolymericModel.this.f19856f, PersonPolymericModel.this.f19857g, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
+            PersonPolymericModel.this.f19936i.a(1, PersonPolymericModel.this.f19933f, PersonPolymericModel.this.f19934g, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
         }
     }
 
@@ -134,16 +134,16 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             if (customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() != PersonPolymericModel.this.unique_id) {
                 return;
             }
-            PersonPolymericModel.this.f19856f = 0;
+            PersonPolymericModel.this.f19933f = 0;
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
-            PersonPolymericModel.this.f19859i.a(2, PersonPolymericModel.this.f19856f, PersonPolymericModel.this.f19857g, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
+            PersonPolymericModel.this.f19936i.a(2, PersonPolymericModel.this.f19933f, PersonPolymericModel.this.f19934g, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
         }
     }
 
     public PersonPolymericModel(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, boolean z) {
         super(baseFragmentActivity.getPageContext());
-        this.f19856f = -1;
-        this.f19857g = "";
+        this.f19933f = -1;
+        this.f19934g = "";
         this.k = new a(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         this.l = new b(2001426);
         this.m = new c(2001427);
@@ -158,11 +158,11 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         registerListener(this.k);
     }
 
-    public d.a.n0.j2.e.a D() {
-        return this.f19855e;
+    public d.a.n0.j2.e.a H() {
+        return this.f19932e;
     }
 
-    public void E(long j, String str) {
+    public void I(long j, String str) {
         if (j.A()) {
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -187,7 +187,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void F(long j) {
+    public void J(long j) {
         if (j.A()) {
             long f2 = d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (j == f2 || !TbadkCoreApplication.isLogin()) {
@@ -203,25 +203,25 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void G() {
-        this.f19855e.w();
+    public void K() {
+        this.f19932e.w();
     }
 
-    public void H(d.a.n0.j2.h.b bVar) {
-        this.f19858h = bVar;
-    }
-
-    public void I(d.a.n0.j2.h.a aVar) {
-        this.f19859i = aVar;
-    }
-
-    public void J(d.a.n0.j2.e.a aVar) {
-        this.f19855e = aVar;
+    public void L(d.a.n0.j2.h.b bVar) {
+        this.f19935h = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         return true;
+    }
+
+    public void M(d.a.n0.j2.h.a aVar) {
+        this.f19936i = aVar;
+    }
+
+    public void N(d.a.n0.j2.e.a aVar) {
+        this.f19932e = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

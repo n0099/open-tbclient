@@ -13,37 +13,37 @@ import com.baidu.SplashAdFacade;
 public class f implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f39633h;
+    public static final boolean f43314h;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39634e;
+    public int f43315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39635f = true;
+    public boolean f43316f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39636g = 0;
+    public int f43317g = 0;
 
     static {
-        f39633h = d.a.d0.a.b.a.f39590a.get() == null || d.a.d0.a.b.a.f39590a.get().s();
+        f43314h = d.a.d0.a.b.a.f43271a.get() == null || d.a.d0.a.b.a.f43271a.get().s();
     }
 
     public void a(Activity activity) {
-        if (f39633h) {
-            Log.d("PrologueActivityLifecycle", "进前台--启动类型： " + this.f39636g);
+        if (f43314h) {
+            Log.d("PrologueActivityLifecycle", "进前台--启动类型： " + this.f43317g);
         }
-        if (this.f39635f) {
-            this.f39636g = 0;
-            this.f39635f = false;
+        if (this.f43316f) {
+            this.f43317g = 0;
+            this.f43316f = false;
         }
-        SplashAdFacade.e().h(this.f39636g);
+        SplashAdFacade.e().h(this.f43317g);
     }
 
     public void b(Activity activity) {
-        if (f39633h) {
+        if (f43314h) {
             Log.d("PrologueActivityLifecycle", "退后台");
         }
-        this.f39636g = 1;
+        this.f43317g = 1;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -68,8 +68,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(@NonNull Activity activity) {
-        int i2 = this.f39634e + 1;
-        this.f39634e = i2;
+        int i2 = this.f43315e + 1;
+        this.f43315e = i2;
         if (i2 == 1) {
             a(activity);
         }
@@ -77,8 +77,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(@NonNull Activity activity) {
-        int i2 = this.f39634e - 1;
-        this.f39634e = i2;
+        int i2 = this.f43315e - 1;
+        this.f43315e = i2;
         if (i2 == 0) {
             b(activity);
         }

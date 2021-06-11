@@ -42,75 +42,75 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class e {
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile e f63663e;
+    public static volatile e f67381e;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f63664a = new Handler(Looper.getMainLooper());
+    public Handler f67382a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public BlockingQueue<d.a.m0.b0.f> f63665b = new LinkedBlockingQueue(4);
+    public BlockingQueue<d.a.m0.b0.f> f67383b = new LinkedBlockingQueue(4);
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f63666c;
+    public boolean f67384c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FaceGroupDraft f63667d;
+    public FaceGroupDraft f67385d;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<FaceData> f63668e = new CopyOnWriteArrayList();
+        public List<FaceData> f67386e = new CopyOnWriteArrayList();
 
         /* renamed from: f  reason: collision with root package name */
-        public List<String> f63669f = new ArrayList();
+        public List<String> f67387f = new ArrayList();
 
         /* renamed from: g  reason: collision with root package name */
-        public Map<String, Integer> f63670g = new HashMap();
+        public Map<String, Integer> f67388g = new HashMap();
 
         /* renamed from: h  reason: collision with root package name */
-        public List<FaceData> f63671h = new CopyOnWriteArrayList();
+        public List<FaceData> f67389h = new CopyOnWriteArrayList();
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ List f63672i;
+        public final /* synthetic */ List f67390i;
         public final /* synthetic */ l j;
         public final /* synthetic */ String k;
         public final /* synthetic */ int l;
 
         /* renamed from: d.a.n0.z1.g.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1762a implements m {
+        public class C1820a implements m {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.a.n0.z1.g.a f63673a;
+            public final /* synthetic */ d.a.n0.z1.g.a f67391a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ FaceData f63674b;
+            public final /* synthetic */ FaceData f67392b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ AtomicInteger f63675c;
+            public final /* synthetic */ AtomicInteger f67393c;
 
-            public C1762a(d.a.n0.z1.g.a aVar, FaceData faceData, AtomicInteger atomicInteger) {
-                this.f63673a = aVar;
-                this.f63674b = faceData;
-                this.f63675c = atomicInteger;
+            public C1820a(d.a.n0.z1.g.a aVar, FaceData faceData, AtomicInteger atomicInteger) {
+                this.f67391a = aVar;
+                this.f67392b = faceData;
+                this.f67393c = atomicInteger;
             }
 
             @Override // d.a.n0.z1.g.e.m
             public void a(ImageUploadResult imageUploadResult) {
-                if (this.f63673a.a()) {
+                if (this.f67391a.a()) {
                     if (imageUploadResult != null && imageUploadResult.error_code == 0) {
-                        this.f63674b.pid = String.valueOf(imageUploadResult.picId);
-                        FaceData faceData = this.f63674b;
+                        this.f67392b.pid = String.valueOf(imageUploadResult.picId);
+                        FaceData faceData = this.f67392b;
                         ImageUploadResult.PicDetailedInfo picDetailedInfo = imageUploadResult.picInfo.bigPic;
                         faceData.width = picDetailedInfo.width;
                         faceData.height = picDetailedInfo.height;
-                        a.this.f63668e.add(faceData);
-                        if (this.f63675c.decrementAndGet() == 0) {
+                        a.this.f67386e.add(faceData);
+                        if (this.f67393c.decrementAndGet() == 0) {
                             a.this.b();
                         }
-                    } else if (this.f63673a.a()) {
-                        this.f63673a.b(false);
+                    } else if (this.f67391a.a()) {
+                        this.f67391a.b(false);
                         a aVar = a.this;
                         e.this.t(aVar.j, "failed to upload image");
                     }
@@ -123,8 +123,8 @@ public class e {
 
             /* renamed from: d.a.n0.z1.g.e$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C1763a implements GetEmotionInfosModel.b {
-                public C1763a() {
+            public class C1821a implements GetEmotionInfosModel.b {
+                public C1821a() {
                 }
 
                 @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
@@ -139,23 +139,23 @@ public class e {
                         if (cVar != null) {
                             FaceData faceData = new FaceData();
                             faceData.type = 2;
-                            faceData.index = a.this.f63670g.get(cVar.f48916g).intValue();
-                            faceData.pid = cVar.f48910a;
-                            faceData.width = cVar.f48911b;
-                            faceData.height = cVar.f48912c;
+                            faceData.index = a.this.f67388g.get(cVar.f52590g).intValue();
+                            faceData.pid = cVar.f52584a;
+                            faceData.width = cVar.f52585b;
+                            faceData.height = cVar.f52586c;
                             EmotionImageData emotionImageData = new EmotionImageData();
-                            emotionImageData.setPicId(cVar.f48910a);
-                            emotionImageData.setThumbUrl(cVar.f48914e);
-                            emotionImageData.setPicUrl(cVar.f48913d);
-                            emotionImageData.setWidth(cVar.f48911b);
-                            emotionImageData.setHeight(cVar.f48912c);
+                            emotionImageData.setPicId(cVar.f52584a);
+                            emotionImageData.setThumbUrl(cVar.f52588e);
+                            emotionImageData.setPicUrl(cVar.f52587d);
+                            emotionImageData.setWidth(cVar.f52585b);
+                            emotionImageData.setHeight(cVar.f52586c);
                             faceData.emotionImageData = emotionImageData;
-                            a.this.f63668e.add(faceData);
+                            a.this.f67386e.add(faceData);
                         }
                     }
                     UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
                     a aVar = a.this;
-                    uploadFaceGroupModel.u(aVar.k, aVar.f63668e, aVar.j, aVar.l);
+                    uploadFaceGroupModel.y(aVar.k, aVar.f67386e, aVar.j, aVar.l);
                 }
             }
 
@@ -164,18 +164,18 @@ public class e {
 
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f63669f.size() > 0) {
-                    new GetEmotionInfosModel().u(a.this.f63669f, new C1763a());
+                if (a.this.f67387f.size() > 0) {
+                    new GetEmotionInfosModel().y(a.this.f67387f, new C1821a());
                     return;
                 }
                 UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
                 a aVar = a.this;
-                uploadFaceGroupModel.u(aVar.k, aVar.f63668e, aVar.j, aVar.l);
+                uploadFaceGroupModel.y(aVar.k, aVar.f67386e, aVar.j, aVar.l);
             }
         }
 
         public a(List list, l lVar, String str, int i2) {
-            this.f63672i = list;
+            this.f67390i = list;
             this.j = lVar;
             this.k = str;
             this.l = i2;
@@ -188,8 +188,8 @@ public class e {
         @Override // java.lang.Runnable
         public void run() {
             EmotionImageData emotionImageData;
-            for (int i2 = 0; i2 < this.f63672i.size(); i2++) {
-                FaceData faceData = (FaceData) this.f63672i.get(i2);
+            for (int i2 = 0; i2 < this.f67390i.size(); i2++) {
+                FaceData faceData = (FaceData) this.f67390i.get(i2);
                 faceData.index = i2;
                 int i3 = faceData.type;
                 if (i3 == 2) {
@@ -199,30 +199,30 @@ public class e {
                             faceData.pid = emotionImageData2.getPicId();
                             faceData.width = emotionImageData2.getWidth();
                             faceData.height = emotionImageData2.getHeight();
-                            this.f63668e.add(faceData);
+                            this.f67386e.add(faceData);
                         } else {
-                            this.f63669f.add(faceData.emotionImageData.getPicUrl());
-                            this.f63670g.put(faceData.emotionImageData.getPicUrl(), Integer.valueOf(faceData.index));
+                            this.f67387f.add(faceData.emotionImageData.getPicUrl());
+                            this.f67388g.put(faceData.emotionImageData.getPicUrl(), Integer.valueOf(faceData.index));
                         }
                     }
                 } else if (i3 == 3) {
-                    this.f63671h.add(faceData);
+                    this.f67389h.add(faceData);
                 } else if (i3 == 1 && (emotionImageData = faceData.emotionImageData) != null) {
                     faceData.pid = emotionImageData.getPicId();
                     faceData.width = emotionImageData.getWidth();
                     faceData.height = emotionImageData.getHeight();
-                    this.f63668e.add(faceData);
+                    this.f67386e.add(faceData);
                 }
             }
-            if (this.f63671h.size() > 0) {
-                AtomicInteger atomicInteger = new AtomicInteger(this.f63671h.size());
+            if (this.f67389h.size() > 0) {
+                AtomicInteger atomicInteger = new AtomicInteger(this.f67389h.size());
                 d.a.n0.z1.g.a aVar = new d.a.n0.z1.g.a(Boolean.TRUE);
-                for (int i4 = 0; i4 < Math.min(this.f63671h.size(), 4); i4++) {
-                    e.this.f63665b.offer(new d.a.m0.b0.f("face group"));
+                for (int i4 = 0; i4 < Math.min(this.f67389h.size(), 4); i4++) {
+                    e.this.f67383b.offer(new d.a.m0.b0.f("face group"));
                 }
-                for (int i5 = 0; i5 < this.f63671h.size() && aVar.a(); i5++) {
-                    FaceData faceData2 = this.f63671h.get(i5);
-                    e.this.B(faceData2.imageFileInfo, new C1762a(aVar, faceData2, atomicInteger));
+                for (int i5 = 0; i5 < this.f67389h.size() && aVar.a(); i5++) {
+                    FaceData faceData2 = this.f67389h.get(i5);
+                    e.this.B(faceData2.imageFileInfo, new C1820a(aVar, faceData2, atomicInteger));
                 }
                 return;
             }
@@ -234,14 +234,14 @@ public class e {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageFileInfo f63679e;
+        public final /* synthetic */ ImageFileInfo f67397e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f63680f;
+        public final /* synthetic */ m f67398f;
 
         public b(ImageFileInfo imageFileInfo, m mVar) {
-            this.f63679e = imageFileInfo;
-            this.f63680f = mVar;
+            this.f67397e = imageFileInfo;
+            this.f67398f = mVar;
         }
 
         public final void a(m mVar, ImageUploadResult imageUploadResult) {
@@ -253,37 +253,37 @@ public class e {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                String filePath = this.f63679e.getFilePath();
-                if (this.f63679e.isGif()) {
-                    d.a.m0.b0.f fVar = (d.a.m0.b0.f) e.this.f63665b.poll(10L, TimeUnit.SECONDS);
+                String filePath = this.f67397e.getFilePath();
+                if (this.f67397e.isGif()) {
+                    d.a.m0.b0.f fVar = (d.a.m0.b0.f) e.this.f67383b.poll(10L, TimeUnit.SECONDS);
                     if (fVar != null) {
-                        a(this.f63680f, fVar.k(filePath, true, false));
+                        a(this.f67398f, fVar.k(filePath, true, false));
                         e.this.v(fVar);
                         return;
                     }
-                    a(this.f63680f, null);
+                    a(this.f67398f, null);
                     return;
                 }
-                Bitmap b2 = d.a.n0.z1.g.b.b(this.f63679e);
+                Bitmap b2 = d.a.n0.z1.g.b.b(this.f67397e);
                 if (b2 == null) {
-                    this.f63680f.a(null);
+                    this.f67398f.a(null);
                     return;
                 }
                 String y = e.y("face_" + Math.abs(filePath.hashCode()), b2, 60);
                 b2.recycle();
                 if (!TextUtils.isEmpty(y)) {
-                    d.a.m0.b0.f fVar2 = (d.a.m0.b0.f) e.this.f63665b.poll(10L, TimeUnit.SECONDS);
+                    d.a.m0.b0.f fVar2 = (d.a.m0.b0.f) e.this.f67383b.poll(10L, TimeUnit.SECONDS);
                     if (fVar2 != null) {
                         ImageUploadResult k = fVar2.k(y, false, false);
                         FileHelper.deleteFile(new File(y));
-                        a(this.f63680f, k);
+                        a(this.f67398f, k);
                         e.this.v(fVar2);
                         return;
                     }
-                    a(this.f63680f, null);
+                    a(this.f67398f, null);
                     return;
                 }
-                a(this.f63680f, null);
+                a(this.f67398f, null);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
@@ -294,59 +294,59 @@ public class e {
     public class c implements j {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.z1.g.a f63682a;
+        public final /* synthetic */ d.a.n0.z1.g.a f67400a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f63683b;
+        public final /* synthetic */ List f67401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f63684c;
+        public final /* synthetic */ List f67402c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.z1.f.a f63685d;
+        public final /* synthetic */ d.a.n0.z1.f.a f67403d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f63686e;
+        public final /* synthetic */ String f67404e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f63687f;
+        public final /* synthetic */ k f67405f;
 
         public c(d.a.n0.z1.g.a aVar, List list, List list2, d.a.n0.z1.f.a aVar2, String str, k kVar) {
-            this.f63682a = aVar;
-            this.f63683b = list;
-            this.f63684c = list2;
-            this.f63685d = aVar2;
-            this.f63686e = str;
-            this.f63687f = kVar;
+            this.f67400a = aVar;
+            this.f67401b = list;
+            this.f67402c = list2;
+            this.f67403d = aVar2;
+            this.f67404e = str;
+            this.f67405f = kVar;
         }
 
         @Override // d.a.n0.z1.g.e.j
-        public void a(String str) {
-            if (this.f63682a.a()) {
-                this.f63682a.b(false);
-                e.this.s(this.f63687f, false);
-                if (TextUtils.isEmpty(str)) {
-                    return;
+        public void a(d.a.n0.z1.f.b bVar) {
+            if (this.f67400a.a()) {
+                this.f67401b.add(bVar);
+                if (this.f67401b.size() == this.f67402c.size()) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.addAll(this.f67401b);
+                    Collections.sort(arrayList);
+                    this.f67403d.f67359e = arrayList;
+                    if (e.this.j(this.f67404e + ((d.a.n0.z1.f.b) arrayList.get(0)).f67363h, this.f67404e)) {
+                        e.this.o(this.f67403d, this.f67405f);
+                    } else {
+                        onFail("face group:fail to create panel");
+                    }
                 }
-                BdLog.e(str);
             }
         }
 
         @Override // d.a.n0.z1.g.e.j
-        public void b(d.a.n0.z1.f.b bVar) {
-            if (this.f63682a.a()) {
-                this.f63683b.add(bVar);
-                if (this.f63683b.size() == this.f63684c.size()) {
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.addAll(this.f63683b);
-                    Collections.sort(arrayList);
-                    this.f63685d.f63641e = arrayList;
-                    if (e.this.j(this.f63686e + ((d.a.n0.z1.f.b) arrayList.get(0)).f63645h, this.f63686e)) {
-                        e.this.o(this.f63685d, this.f63687f);
-                    } else {
-                        a("face group:fail to create panel");
-                    }
+        public void onFail(String str) {
+            if (this.f67400a.a()) {
+                this.f67400a.b(false);
+                e.this.s(this.f67405f, false);
+                if (TextUtils.isEmpty(str)) {
+                    return;
                 }
+                BdLog.e(str);
             }
         }
     }
@@ -355,110 +355,110 @@ public class e {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceData f63689e;
+        public final /* synthetic */ FaceData f67407e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f63690f;
+        public final /* synthetic */ String f67408f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f63691g;
+        public final /* synthetic */ j f67409g;
 
         public d(e eVar, FaceData faceData, String str, j jVar) {
-            this.f63689e = faceData;
-            this.f63690f = str;
-            this.f63691g = jVar;
+            this.f67407e = faceData;
+            this.f67408f = str;
+            this.f67409g = jVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Bitmap resizeBitmap;
-            ImageFileInfo imageFileInfo = this.f63689e.imageFileInfo;
+            ImageFileInfo imageFileInfo = this.f67407e.imageFileInfo;
             String filePath = imageFileInfo.getFilePath();
             String substring = filePath.substring(filePath.lastIndexOf("/") + 1);
             if (TextUtils.isEmpty(substring)) {
                 substring = TbadkCoreApplication.getCurrentAccount() + System.currentTimeMillis() + ".jpg";
             }
             String str = "t_" + substring;
-            if (FileHelper.copyFile(filePath, this.f63690f + substring)) {
+            if (FileHelper.copyFile(filePath, this.f67408f + substring)) {
                 Bitmap b2 = d.a.n0.z1.g.b.b(imageFileInfo);
                 if (b2 == null) {
-                    this.f63691g.a("face group: fail to get origin bitmap when install album emotion");
+                    this.f67409g.onFail("face group: fail to get origin bitmap when install album emotion");
                     return;
                 }
                 if (!imageFileInfo.isGif() && (resizeBitmap = BitmapHelper.resizeBitmap(b2, 240, 240, false)) != null) {
-                    d.a.n0.z1.b.e(this.f63690f, substring, resizeBitmap, 100);
+                    d.a.n0.z1.b.e(this.f67408f, substring, resizeBitmap, 100);
                     if (resizeBitmap != b2) {
                         resizeBitmap.recycle();
                     }
                 }
                 Bitmap resizeBitmap2 = BitmapHelper.resizeBitmap(b2, 150, 150, false);
                 if (resizeBitmap2 == null) {
-                    this.f63691g.a("face group: fail to create small file when install album emotion");
+                    this.f67409g.onFail("face group: fail to create small file when install album emotion");
                     return;
                 }
-                d.a.n0.z1.b.e(this.f63690f, str, resizeBitmap2, 100);
+                d.a.n0.z1.b.e(this.f67408f, str, resizeBitmap2, 100);
                 if (resizeBitmap2 != b2) {
                     resizeBitmap2.recycle();
                 }
                 b2.recycle();
                 d.a.n0.z1.f.b bVar = new d.a.n0.z1.f.b();
-                FaceData faceData = this.f63689e;
-                bVar.f63642e = faceData.index;
-                bVar.f63643f = faceData.pid;
-                bVar.f63644g = substring;
-                bVar.f63645h = str;
+                FaceData faceData = this.f67407e;
+                bVar.f67360e = faceData.index;
+                bVar.f67361f = faceData.pid;
+                bVar.f67362g = substring;
+                bVar.f67363h = str;
                 bVar.j = faceData.width;
-                bVar.f63646i = faceData.height;
-                this.f63691g.b(bVar);
+                bVar.f67364i = faceData.height;
+                this.f67409g.a(bVar);
                 return;
             }
-            this.f63691g.a("face group: fail to copy file when install album emotion");
+            this.f67409g.onFail("face group: fail to copy file when install album emotion");
         }
     }
 
     /* renamed from: d.a.n0.z1.g.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1764e implements Runnable {
+    public class RunnableC1822e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceData f63692e;
+        public final /* synthetic */ FaceData f67410e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f63693f;
+        public final /* synthetic */ String f67411f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f63694g;
+        public final /* synthetic */ j f67412g;
 
-        public RunnableC1764e(e eVar, FaceData faceData, String str, j jVar) {
-            this.f63692e = faceData;
-            this.f63693f = str;
-            this.f63694g = jVar;
+        public RunnableC1822e(e eVar, FaceData faceData, String str, j jVar) {
+            this.f67410e = faceData;
+            this.f67411f = str;
+            this.f67412g = jVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            EmotionImageData emotionImageData = this.f63692e.emotionImageData;
+            EmotionImageData emotionImageData = this.f67410e.emotionImageData;
             String str = TbadkCoreApplication.getCurrentAccount() + System.currentTimeMillis();
             String str2 = "t_" + str;
-            String o = u.o(this.f63692e.pid, true);
-            String o2 = u.o(this.f63692e.pid, false);
-            if (!FileHelper.copyFile(o, this.f63693f + str)) {
-                this.f63694g.a("face group: fail to copy big file when install collect emotion");
+            String o = u.o(this.f67410e.pid, true);
+            String o2 = u.o(this.f67410e.pid, false);
+            if (!FileHelper.copyFile(o, this.f67411f + str)) {
+                this.f67412g.onFail("face group: fail to copy big file when install collect emotion");
                 return;
             }
-            if (!FileHelper.copyFile(o2, this.f63693f + str2)) {
-                this.f63694g.a("face group: fail to copy small file when install collect emotion");
+            if (!FileHelper.copyFile(o2, this.f67411f + str2)) {
+                this.f67412g.onFail("face group: fail to copy small file when install collect emotion");
                 return;
             }
             d.a.n0.z1.f.b bVar = new d.a.n0.z1.f.b();
-            FaceData faceData = this.f63692e;
-            bVar.f63642e = faceData.index;
-            bVar.f63643f = faceData.pid;
-            bVar.f63644g = str;
-            bVar.f63645h = str2;
+            FaceData faceData = this.f67410e;
+            bVar.f67360e = faceData.index;
+            bVar.f67361f = faceData.pid;
+            bVar.f67362g = str;
+            bVar.f67363h = str2;
             bVar.j = faceData.width;
-            bVar.f63646i = faceData.height;
-            this.f63694g.b(bVar);
+            bVar.f67364i = faceData.height;
+            this.f67412g.a(bVar);
         }
     }
 
@@ -466,47 +466,47 @@ public class e {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceData f63695e;
+        public final /* synthetic */ FaceData f67413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f63696f;
+        public final /* synthetic */ j f67414f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f63697g;
+        public final /* synthetic */ String f67415g;
 
         public f(FaceData faceData, j jVar, String str) {
-            this.f63695e = faceData;
-            this.f63696f = jVar;
-            this.f63697g = str;
+            this.f67413e = faceData;
+            this.f67414f = jVar;
+            this.f67415g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            EmotionImageData emotionImageData = this.f63695e.emotionImageData;
+            EmotionImageData emotionImageData = this.f67413e.emotionImageData;
             String substring = emotionImageData.getPicUrl().substring(emotionImageData.getPicUrl().lastIndexOf(IStringUtil.WINDOWS_FOLDER_SEPARATOR) + 1);
             String str = "t_" + substring;
             WebClient webClient = new WebClient();
             byte[] downloadImageBytes = webClient.downloadImageBytes(emotionImageData.getPicUrl(), false);
             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
-                e.this.x(this.f63697g, substring, downloadImageBytes);
+                e.this.x(this.f67415g, substring, downloadImageBytes);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(emotionImageData.getThumbUrl(), false);
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
-                    e.this.x(this.f63697g, str, downloadImageBytes2);
+                    e.this.x(this.f67415g, str, downloadImageBytes2);
                     d.a.n0.z1.f.b bVar = new d.a.n0.z1.f.b();
-                    FaceData faceData = this.f63695e;
-                    bVar.f63642e = faceData.index;
-                    bVar.f63643f = faceData.pid;
-                    bVar.f63644g = substring;
-                    bVar.f63645h = str;
+                    FaceData faceData = this.f67413e;
+                    bVar.f67360e = faceData.index;
+                    bVar.f67361f = faceData.pid;
+                    bVar.f67362g = substring;
+                    bVar.f67363h = str;
                     bVar.j = faceData.width;
-                    bVar.f63646i = faceData.height;
-                    this.f63696f.b(bVar);
+                    bVar.f67364i = faceData.height;
+                    this.f67414f.a(bVar);
                     return;
                 }
-                this.f63696f.a("face group: fail to download small file when install search emotion");
+                this.f67414f.onFail("face group: fail to download small file when install search emotion");
                 return;
             }
-            this.f63696f.a("face group: fail to download big file when install search emotion");
+            this.f67414f.onFail("face group: fail to download big file when install search emotion");
         }
     }
 
@@ -514,27 +514,27 @@ public class e {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f63699e;
+        public final /* synthetic */ k f67417e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f63700f;
+        public final /* synthetic */ boolean f67418f;
 
         public g(e eVar, k kVar, boolean z) {
-            this.f63699e = kVar;
-            this.f63700f = z;
+            this.f67417e = kVar;
+            this.f67418f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k kVar = this.f63699e;
+            k kVar = this.f67417e;
             if (kVar != null) {
-                if (this.f63700f) {
+                if (this.f67418f) {
                     kVar.onSuccess();
                 } else {
                     kVar.onFail();
                 }
             }
-            if (this.f63700f) {
+            if (this.f67418f) {
                 d.a.n0.z1.d.m().w();
                 MessageManager.getInstance().runTask(2004603, (Class) null);
             }
@@ -548,24 +548,24 @@ public class e {
     public class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f63701e;
+        public final /* synthetic */ l f67419e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f63702f;
+        public final /* synthetic */ String f67420f;
 
         public h(l lVar, String str) {
-            this.f63701e = lVar;
-            this.f63702f = str;
+            this.f67419e = lVar;
+            this.f67420f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            l lVar = this.f63701e;
+            l lVar = this.f67419e;
             if (lVar != null) {
-                lVar.a(this.f63702f);
+                lVar.onFail(this.f67420f);
             }
-            if (this.f63702f != null) {
-                BdLog.e("face group:" + this.f63702f);
+            if (this.f67420f != null) {
+                BdLog.e("face group:" + this.f67420f);
             }
             e.this.u(false, null);
         }
@@ -575,23 +575,23 @@ public class e {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HashMap f63704e;
+        public final /* synthetic */ HashMap f67422e;
 
         public i(e eVar, HashMap hashMap) {
-            this.f63704e = hashMap;
+            this.f67422e = hashMap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921040, this.f63704e));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921040, this.f67422e));
         }
     }
 
     /* loaded from: classes4.dex */
     public interface j {
-        void a(String str);
+        void a(d.a.n0.z1.f.b bVar);
 
-        void b(d.a.n0.z1.f.b bVar);
+        void onFail(String str);
     }
 
     /* loaded from: classes4.dex */
@@ -603,9 +603,9 @@ public class e {
 
     /* loaded from: classes4.dex */
     public interface l {
-        void a(String str);
+        void a(String str, List<FaceData> list);
 
-        void b(String str, List<FaceData> list);
+        void onFail(String str);
     }
 
     /* loaded from: classes4.dex */
@@ -614,14 +614,14 @@ public class e {
     }
 
     public static e l() {
-        if (f63663e == null) {
+        if (f67381e == null) {
             synchronized (e.class) {
-                if (f63663e == null) {
-                    f63663e = new e();
+                if (f67381e == null) {
+                    f67381e = new e();
                 }
             }
         }
-        return f63663e;
+        return f67381e;
     }
 
     public static String y(String str, Bitmap bitmap, int i2) {
@@ -653,7 +653,7 @@ public class e {
     }
 
     public void A(String str, List<FaceData> list, l lVar, int i2) {
-        this.f63666c = true;
+        this.f67384c = true;
         w(str, list, i2);
         if (TextUtils.isEmpty(str)) {
             t(lVar, "name empty");
@@ -670,7 +670,7 @@ public class e {
     }
 
     public void i() {
-        this.f63667d = null;
+        this.f67385d = null;
         d.a.n0.z1.g.c.a();
     }
 
@@ -691,10 +691,10 @@ public class e {
     }
 
     public FaceGroupDraft k() {
-        if (this.f63667d == null) {
-            this.f63667d = d.a.n0.z1.g.c.b();
+        if (this.f67385d == null) {
+            this.f67385d = d.a.n0.z1.g.c.b();
         }
-        return this.f63667d;
+        return this.f67385d;
     }
 
     public final void m(FaceData faceData, String str, j jVar) {
@@ -702,7 +702,7 @@ public class e {
     }
 
     public final void n(FaceData faceData, String str, j jVar) {
-        d.a.n0.z1.a.b().a(new RunnableC1764e(this, faceData, str, jVar));
+        d.a.n0.z1.a.b().a(new RunnableC1822e(this, faceData, str, jVar));
     }
 
     public final void o(d.a.n0.z1.f.a aVar, k kVar) {
@@ -713,12 +713,12 @@ public class e {
             return;
         }
         EmotionGroupData emotionGroupData = new EmotionGroupData();
-        emotionGroupData.setGroupId(aVar.f63637a);
+        emotionGroupData.setGroupId(aVar.f67355a);
         emotionGroupData.setEmotionsCount(f2);
-        emotionGroupData.setHeight(aVar.f63641e.get(0).f63646i);
-        emotionGroupData.setWidth(aVar.f63641e.get(0).j);
+        emotionGroupData.setHeight(aVar.f67359e.get(0).f67364i);
+        emotionGroupData.setWidth(aVar.f67359e.get(0).j);
         emotionGroupData.setDownloadTime(System.currentTimeMillis());
-        emotionGroupData.setGroupName(aVar.f63638b);
+        emotionGroupData.setGroupName(aVar.f67356b);
         emotionGroupData.setStatus(1);
         d.a.n0.m0.g.k().e(emotionGroupData);
         d.a.n0.m0.g.k().f(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
@@ -726,12 +726,12 @@ public class e {
     }
 
     public void p(String str, List<FaceData> list, k kVar) {
-        String str2 = d.a.n0.z1.c.f63608c + str + "/";
+        String str2 = d.a.n0.z1.c.f67326c + str + "/";
         new File(str2).mkdirs();
         d.a.n0.z1.f.a aVar = new d.a.n0.z1.f.a();
         TbadkCoreApplication.getCurrentAccount();
         TbadkCoreApplication.getCurrentAccountName();
-        aVar.f63637a = str;
+        aVar.f67355a = str;
         String.valueOf(System.currentTimeMillis());
         CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
         d.a.n0.z1.g.a aVar2 = new d.a.n0.z1.g.a(Boolean.TRUE);
@@ -748,7 +748,7 @@ public class e {
             } else if (i2 == 2) {
                 q(faceData, str2, cVar);
             } else {
-                cVar.a("facegroup:un support type in list");
+                cVar.onFail("facegroup:un support type in list");
                 return;
             }
         }
@@ -759,20 +759,20 @@ public class e {
     }
 
     public boolean r() {
-        return this.f63666c;
+        return this.f67384c;
     }
 
     public final void s(k kVar, boolean z) {
-        this.f63664a.post(new g(this, kVar, z));
+        this.f67382a.post(new g(this, kVar, z));
     }
 
     public final void t(l lVar, String str) {
-        this.f63664a.post(new h(lVar, str));
+        this.f67382a.post(new h(lVar, str));
     }
 
     public void u(boolean z, String str) {
-        if (this.f63666c) {
-            this.f63666c = false;
+        if (this.f67384c) {
+            this.f67384c = false;
         }
         if (z) {
             i();
@@ -782,25 +782,25 @@ public class e {
         hashMap.put("upload_result", new Boolean(false));
         if (!TextUtils.isEmpty(str)) {
             hashMap.put("upload_msg", str);
-            FaceGroupDraft faceGroupDraft = this.f63667d;
+            FaceGroupDraft faceGroupDraft = this.f67385d;
             if (faceGroupDraft != null) {
                 faceGroupDraft.setFailMsg(str);
             }
         }
-        d.a.n0.z1.g.c.c(this.f63667d);
-        this.f63664a.postDelayed(new i(this, hashMap), 1000L);
+        d.a.n0.z1.g.c.c(this.f67385d);
+        this.f67382a.postDelayed(new i(this, hashMap), 1000L);
     }
 
     public final void v(d.a.m0.b0.f fVar) {
-        this.f63665b.offer(fVar);
+        this.f67383b.offer(fVar);
     }
 
     public void w(String str, List<FaceData> list, int i2) {
         FaceGroupDraft faceGroupDraft = new FaceGroupDraft();
-        this.f63667d = faceGroupDraft;
+        this.f67385d = faceGroupDraft;
         faceGroupDraft.setName(str);
-        this.f63667d.setList(list);
-        this.f63667d.setForumId(i2);
+        this.f67385d.setList(list);
+        this.f67385d.setForumId(i2);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */

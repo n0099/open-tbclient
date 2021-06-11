@@ -32,11 +32,11 @@ public class n extends d.a.n0.r0.k<z1, CardViewHolder<d.a.n0.z.w>> implements d.
         public void b(View view, BaseCardInfo baseCardInfo, Object obj) {
             if (baseCardInfo instanceof a2) {
                 if (n.this.u != null) {
-                    n.this.u.b(view, baseCardInfo, a2.q3);
+                    n.this.u.b(view, baseCardInfo, a2.t3);
                 }
                 a2 a2Var = (a2) baseCardInfo;
                 d.a.n0.r0.j2.c.j().g(n.this.y, a2Var, 1);
-                d.a.n0.r0.j2.a.c(a2Var, 1, n.this.f39232i, n.this.y, n.this.f0());
+                d.a.n0.r0.j2.a.c(a2Var, 1, n.this.f42913i, n.this.y, n.this.g0());
             }
         }
     }
@@ -159,45 +159,45 @@ public class n extends d.a.n0.r0.k<z1, CardViewHolder<d.a.n0.z.w>> implements d.
     }
 
     @Override // d.a.n0.r0.j2.d
-    public d.a.n0.r0.j2.b i() {
+    public d.a.n0.r0.j2.b j() {
         return this.y;
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: x0 */
-    public CardViewHolder<d.a.n0.z.w> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: y0 */
+    public CardViewHolder<d.a.n0.z.w> Q(ViewGroup viewGroup) {
         d.a.n0.z.w wVar = new d.a.n0.z.w(this.w, viewGroup);
         CardViewHolder<d.a.n0.z.w> cardViewHolder = new CardViewHolder<>(wVar);
-        wVar.u(this.B);
-        wVar.v(this.A);
-        wVar.o(this.z);
+        wVar.v(this.B);
+        wVar.w(this.A);
+        wVar.p(this.z);
         return cardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: y0 */
-    public View W(int i2, View view, ViewGroup viewGroup, z1 z1Var, CardViewHolder<d.a.n0.z.w> cardViewHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: z0 */
+    public View X(int i2, View view, ViewGroup viewGroup, z1 z1Var, CardViewHolder<d.a.n0.z.w> cardViewHolder) {
         if (cardViewHolder == null || cardViewHolder.b() == null) {
             return null;
         }
         if (cardViewHolder.b() instanceof d.a.n0.o.e) {
             cardViewHolder.b().setPage(this.x);
         }
-        super.W(i2, view, viewGroup, z1Var, cardViewHolder);
+        super.X(i2, view, viewGroup, z1Var, cardViewHolder);
         if (this.y != null) {
             FrsViewData frsViewData = this.n;
-            z1Var.w.N1 = (z1Var.position + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
+            z1Var.w.O1 = (z1Var.position + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
         }
-        d.a.n0.r0.j2.a.j(z1Var.w, this.f39232i, this.y, f0());
+        d.a.n0.r0.j2.a.j(z1Var.w, this.f42913i, this.y, g0());
         d.a.n0.r0.j2.c.j().c(this.y, z1Var.w);
-        cardViewHolder.b().o(this.z);
-        cardViewHolder.b().m(z1Var.w);
+        cardViewHolder.b().p(this.z);
+        cardViewHolder.b().n(z1Var.w);
         return cardViewHolder.a();
     }
 }

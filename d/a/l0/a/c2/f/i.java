@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.media.ExifInterface;
 import android.text.TextUtils;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -26,7 +25,7 @@ public class i extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        String optString = d.a.l0.a.v2.w.d(unitedSchemeEntity.getParam("params")).optString(UserAccountActionItem.KEY_SRC);
+        String optString = d.a.l0.a.v2.w.d(unitedSchemeEntity.getParam("params")).optString("src");
         if (TextUtils.isEmpty(optString)) {
             d.a.l0.a.e0.d.b("getImageInfo", "path null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -34,7 +33,7 @@ public class i extends a0 {
         }
         JSONObject jSONObject = null;
         if (d.a.l0.a.k2.b.s(optString) == PathType.BD_FILE) {
-            jSONObject = k(d.a.l0.a.k2.b.M(optString, eVar.f40749f), optString);
+            jSONObject = k(d.a.l0.a.k2.b.M(optString, eVar.f44425f), optString);
         } else if (d.a.l0.a.k2.b.s(optString) == PathType.RELATIVE) {
             jSONObject = k(d.a.l0.a.k2.b.L(optString, eVar, eVar.Z()), optString);
         }
@@ -93,7 +92,7 @@ public class i extends a0 {
             jSONObject.put("type", str3);
         } catch (JSONException e2) {
             d.a.l0.a.e0.d.b("getImageInfo", "getImgInfo failed by json exception");
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 e2.printStackTrace();
             }
         }

@@ -14,27 +14,27 @@ public class ReplyMeNetModel extends NetAutoModel<l, m, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int F() {
+    public int J() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcProtobufHttpResponsedMessage> H() {
+    public Class<? extends MvcProtobufHttpResponsedMessage> L() {
         return ReplyMeHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String I() {
+    public String M() {
         return "c/u/feed/replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int J() {
+    public int N() {
         return 303007;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcSocketResponsedMessage> K() {
+    public Class<? extends MvcSocketResponsedMessage> O() {
         return ReplyMeSocketResponseMessage.class;
     }
 

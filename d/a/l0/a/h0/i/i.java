@@ -20,27 +20,27 @@ import java.util.TreeMap;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42177a = k.f43199a;
+    public static final boolean f45853a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f42178b;
+    public static c f45854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static LinkedHashMap<String, String> f42179c;
+    public static LinkedHashMap<String, String> f45855c;
 
     /* loaded from: classes2.dex */
     public static class a implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g.a f42180a;
+        public final /* synthetic */ g.a f45856a;
 
         public a(g.a aVar) {
-            this.f42180a = aVar;
+            this.f45856a = aVar;
         }
 
         @Override // d.a.l0.a.h0.i.g.a
         public void a(@NonNull g gVar) {
-            this.f42180a.a(gVar);
+            this.f45856a.a(gVar);
             i.r(gVar);
         }
     }
@@ -49,23 +49,23 @@ public final class i {
     public static class b implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f42181a;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f45857a;
 
         public b(d.a.l0.a.v2.e1.b bVar) {
-            this.f42181a = bVar;
+            this.f45857a = bVar;
         }
 
         @Override // d.a.l0.a.h0.i.g.a
         public void a(@NonNull g gVar) {
-            if (TextUtils.isEmpty(i.f42178b.f42187f)) {
-                i.f42178b.f42187f = d.a.l0.a.h0.i.c.b("", gVar);
+            if (TextUtils.isEmpty(i.f45854b.f45863f)) {
+                i.f45854b.f45863f = d.a.l0.a.h0.i.c.b("", gVar);
             }
-            d.a.l0.a.v2.e1.b bVar = this.f42181a;
+            d.a.l0.a.v2.e1.b bVar = this.f45857a;
             if (bVar != null) {
-                bVar.onCallback(i.f42178b.r(i.f42178b.f42187f));
+                bVar.onCallback(i.f45854b.r(i.f45854b.f45863f));
             }
-            if (i.f42177a) {
-                Log.d("SwanAppLaunchTips", String.format("getLaunchInfo by click, consume time: %d ms，detail:%s", Long.valueOf(System.currentTimeMillis() - i.f42178b.s()), i.f42178b.f42187f));
+            if (i.f45853a) {
+                Log.d("SwanAppLaunchTips", String.format("getLaunchInfo by click, consume time: %d ms，detail:%s", Long.valueOf(System.currentTimeMillis() - i.f45854b.s()), i.f45854b.f45863f));
             }
         }
     }
@@ -74,34 +74,34 @@ public final class i {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42200a;
+        public String f45876a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f42201b;
+        public long f45877b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f42202c;
+        public int f45878c;
 
         public d(String str, long j, long j2) {
             this(str, j, j2, 200);
         }
 
         public d(String str, long j, long j2, int i2) {
-            this.f42200a = str;
-            this.f42201b = j2;
-            this.f42202c = i2;
+            this.f45876a = str;
+            this.f45877b = j2;
+            this.f45878c = i2;
         }
     }
 
     public static void c() {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.o();
         }
     }
 
     public static void d(g.a aVar) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.q(aVar);
         }
@@ -109,42 +109,42 @@ public final class i {
 
     public static synchronized void e() {
         synchronized (i.class) {
-            if (f42178b != null) {
+            if (f45854b != null) {
                 e.e();
-                f42178b.n();
+                f45854b.n();
             }
-            f42178b = new c(null);
-            if (f42179c != null) {
-                for (Map.Entry<String, String> entry : f42179c.entrySet()) {
-                    f42178b.w(entry.getKey(), entry.getValue());
+            f45854b = new c(null);
+            if (f45855c != null) {
+                for (Map.Entry<String, String> entry : f45855c.entrySet()) {
+                    f45854b.w(entry.getKey(), entry.getValue());
                 }
-                f42178b.K(true);
-                f42179c = null;
+                f45854b.K(true);
+                f45855c = null;
             }
         }
     }
 
     public static void f(d.a.l0.a.v2.e1.b<String> bVar) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar == null) {
             if (bVar != null) {
                 bVar.onCallback("");
             }
-        } else if (cVar.v() && !TextUtils.isEmpty(f42178b.f42187f)) {
+        } else if (cVar.v() && !TextUtils.isEmpty(f45854b.f45863f)) {
             if (bVar != null) {
-                c cVar2 = f42178b;
-                bVar.onCallback(cVar2.r(cVar2.f42187f));
+                c cVar2 = f45854b;
+                bVar.onCallback(cVar2.r(cVar2.f45863f));
             }
-        } else if (!f42178b.u() || TextUtils.isEmpty(f42178b.f42187f)) {
-            f42178b.q(new b(bVar));
+        } else if (!f45854b.u() || TextUtils.isEmpty(f45854b.f45863f)) {
+            f45854b.q(new b(bVar));
         } else if (bVar != null) {
-            c cVar3 = f42178b;
-            bVar.onCallback(cVar3.r(cVar3.f42187f));
+            c cVar3 = f45854b;
+            bVar.onCallback(cVar3.r(cVar3.f45863f));
         }
     }
 
     public static boolean g() {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar == null) {
             return false;
         }
@@ -168,61 +168,61 @@ public final class i {
     }
 
     public static void j(String str, String str2) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.w(str, str2);
             return;
         }
-        if (f42179c == null) {
-            f42179c = new LinkedHashMap<>();
+        if (f45855c == null) {
+            f45855c = new LinkedHashMap<>();
         }
-        f42179c.put(str, str2);
+        f45855c.put(str, str2);
     }
 
     public static void k() {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.x();
         }
     }
 
     public static void l(long j) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.y(j);
         }
     }
 
-    public static void m(a.C0666a c0666a) {
-        c cVar = f42178b;
+    public static void m(a.C0722a c0722a) {
+        c cVar = f45854b;
         if (cVar != null) {
-            cVar.z(c0666a);
+            cVar.z(c0722a);
         }
     }
 
     public static void n(String str, int i2) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.A(str, i2);
         }
     }
 
     public static void o(String str) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.B(str);
         }
     }
 
     public static void p(String str, long j) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.C(str, j);
         }
     }
 
     public static void q(int i2) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.J(i2);
         }
@@ -251,7 +251,7 @@ public final class i {
     }
 
     public static void s(g.a aVar) {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar == null) {
             return;
         }
@@ -259,14 +259,14 @@ public final class i {
     }
 
     public static void t() {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.L();
         }
     }
 
     public static void u() {
-        c cVar = f42178b;
+        c cVar = f45854b;
         if (cVar != null) {
             cVar.M();
         }
@@ -274,8 +274,8 @@ public final class i {
 
     public static synchronized void v() {
         synchronized (i.class) {
-            if (f42178b != null) {
-                f42178b.N();
+            if (f45854b != null) {
+                f45854b.N();
             }
         }
     }
@@ -285,31 +285,31 @@ public final class i {
         public static final long p = d.a.l0.a.c1.a.Z().o();
 
         /* renamed from: a  reason: collision with root package name */
-        public long f42182a;
+        public long f45858a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<d> f42183b;
+        public List<d> f45859b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<d> f42184c;
+        public List<d> f45860c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<d> f42185d;
+        public List<d> f45861d;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile boolean f42186e;
+        public volatile boolean f45862e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f42187f;
+        public String f45863f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f42188g;
+        public boolean f45864g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Timer f42189h;
+        public Timer f45865h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Timer f42190i;
+        public Timer f45866i;
         public Timer j;
         public long k;
         public int l;
@@ -324,7 +324,7 @@ public final class i {
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                c.this.f42186e = false;
+                c.this.f45862e = false;
                 c.this.H();
             }
         }
@@ -333,62 +333,62 @@ public final class i {
         public class b extends d.a.l0.a.t0.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SwanAppActivity f42192a;
+            public final /* synthetic */ SwanAppActivity f45868a;
 
             public b(SwanAppActivity swanAppActivity) {
-                this.f42192a = swanAppActivity;
+                this.f45868a = swanAppActivity;
             }
 
             @Override // d.a.l0.a.t0.a, d.a.l0.a.t0.b
             public void f() {
                 if (c.this.I()) {
-                    this.f42192a.unregisterCallback(this);
+                    this.f45868a.unregisterCallback(this);
                 }
             }
         }
 
         /* renamed from: d.a.l0.a.h0.i.i$c$c  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0668c implements SwanAppNetworkUtils.b {
+        public class C0724c implements SwanAppNetworkUtils.b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f42194a;
+            public final /* synthetic */ g f45870a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ g.a f42195b;
+            public final /* synthetic */ g.a f45871b;
 
-            public C0668c(g gVar, g.a aVar) {
-                this.f42194a = gVar;
-                this.f42195b = aVar;
+            public C0724c(g gVar, g.a aVar) {
+                this.f45870a = gVar;
+                this.f45871b = aVar;
             }
 
             @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
             public void onResult(int i2) {
                 if (i2 == 1) {
-                    this.f42194a.j(0);
+                    this.f45870a.j(0);
                 } else if (i2 == 2) {
-                    this.f42194a.j(1);
+                    this.f45870a.j(1);
                 } else if (i2 != 3) {
-                    this.f42194a.j(3);
+                    this.f45870a.j(3);
                 } else {
-                    this.f42194a.j(2);
+                    this.f45870a.j(2);
                 }
-                if (c.this.f42184c.size() + c.this.f42183b.size() + c.this.f42185d.size() > 2 && System.currentTimeMillis() - c.this.k >= 3000) {
-                    if (!c.this.E(this.f42194a)) {
-                        if (c.this.F(this.f42194a)) {
-                            this.f42194a.k(8);
-                            this.f42195b.a(this.f42194a);
+                if (c.this.f45860c.size() + c.this.f45859b.size() + c.this.f45861d.size() > 2 && System.currentTimeMillis() - c.this.k >= 3000) {
+                    if (!c.this.E(this.f45870a)) {
+                        if (c.this.F(this.f45870a)) {
+                            this.f45870a.k(8);
+                            this.f45871b.a(this.f45870a);
                             return;
                         }
-                        this.f42195b.a(this.f42194a);
+                        this.f45871b.a(this.f45870a);
                         return;
                     }
-                    this.f42194a.k(4);
-                    this.f42195b.a(this.f42194a);
+                    this.f45870a.k(4);
+                    this.f45871b.a(this.f45870a);
                     return;
                 }
-                this.f42194a.k(12);
-                this.f42195b.a(this.f42194a);
+                this.f45870a.k(12);
+                this.f45871b.a(this.f45870a);
             }
         }
 
@@ -406,12 +406,12 @@ public final class i {
                         f.c("fcp_timeout", gVar);
                         int d2 = gVar.d();
                         if (d2 == 1) {
-                            i.i(d.a.l0.a.h0.i.c.b(d.a.l0.a.h0.i.c.f42162a, gVar));
+                            i.i(d.a.l0.a.h0.i.c.b(d.a.l0.a.h0.i.c.f45838a, gVar));
                             d.a.l0.a.h0.i.e.f(d.a.l0.a.h.swanapp_tip_net_unavailable);
                         } else if (d2 != 2) {
-                            i.i(d.a.l0.a.h0.i.c.b(d.a.l0.a.h0.i.c.f42162a, gVar));
+                            i.i(d.a.l0.a.h0.i.c.b(d.a.l0.a.h0.i.c.f45838a, gVar));
                         } else {
-                            i.i(d.a.l0.a.h0.i.c.b(d.a.l0.a.h0.i.c.f42162a, gVar));
+                            i.i(d.a.l0.a.h0.i.c.b(d.a.l0.a.h0.i.c.f45838a, gVar));
                             d.a.l0.a.h0.i.e.f(d.a.l0.a.h.swanapp_tip_net_unavailable);
                         }
                     }
@@ -423,7 +423,7 @@ public final class i {
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                if (c.this.f42182a == 0 && d.a.l0.a.m1.g.f().e() == 0) {
+                if (c.this.f45858a == 0 && d.a.l0.a.m1.g.f().e() == 0) {
                     c.this.q(new a(this));
                 }
             }
@@ -439,10 +439,10 @@ public final class i {
 
                 @Override // d.a.l0.a.h0.i.g.a
                 public void a(@NonNull g gVar) {
-                    if (TextUtils.isEmpty(c.this.f42187f)) {
-                        c.this.f42187f = d.a.l0.a.h0.i.c.b("", gVar);
-                        if (i.f42177a) {
-                            Log.d("SwanAppLaunchTips", String.format("%d ms countdown end，collect launchInfo：%s", 6000L, c.this.f42187f));
+                    if (TextUtils.isEmpty(c.this.f45863f)) {
+                        c.this.f45863f = d.a.l0.a.h0.i.c.b("", gVar);
+                        if (i.f45853a) {
+                            Log.d("SwanAppLaunchTips", String.format("%d ms countdown end，collect launchInfo：%s", 6000L, c.this.f45863f));
                         }
                     }
                 }
@@ -453,7 +453,7 @@ public final class i {
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                if (c.this.u() || !TextUtils.isEmpty(c.this.f42187f)) {
+                if (c.this.u() || !TextUtils.isEmpty(c.this.f45863f)) {
                     return;
                 }
                 c.this.q(new a());
@@ -461,13 +461,13 @@ public final class i {
         }
 
         public c() {
-            this.f42182a = 0L;
-            this.f42183b = new ArrayList();
-            this.f42184c = new ArrayList();
-            this.f42185d = new ArrayList();
-            this.f42186e = true;
-            this.f42187f = "";
-            this.f42188g = false;
+            this.f45858a = 0L;
+            this.f45859b = new ArrayList();
+            this.f45860c = new ArrayList();
+            this.f45861d = new ArrayList();
+            this.f45862e = true;
+            this.f45863f = "";
+            this.f45864g = false;
             this.k = 0L;
             this.l = 0;
             this.m = new d.a.l0.a.h0.i.a();
@@ -476,29 +476,29 @@ public final class i {
         }
 
         public synchronized void A(String str, int i2) {
-            if (this.f42186e) {
-                this.f42185d.add(new d(str, 0L, 0L, i2));
+            if (this.f45862e) {
+                this.f45861d.add(new d(str, 0L, 0L, i2));
                 D(str);
             }
         }
 
         public synchronized void B(String str) {
-            if (this.f42186e) {
-                this.f42183b.add(new d(str, System.currentTimeMillis(), 0L));
+            if (this.f45862e) {
+                this.f45859b.add(new d(str, System.currentTimeMillis(), 0L));
             }
         }
 
         public synchronized void C(String str, long j) {
-            if (this.f42186e) {
-                this.f42184c.add(new d(str, 0L, j));
+            if (this.f45862e) {
+                this.f45860c.add(new d(str, 0L, j));
                 D(str);
             }
         }
 
         public final void D(String str) {
-            for (int i2 = 0; i2 < this.f42183b.size(); i2++) {
-                if (TextUtils.equals(this.f42183b.get(i2).f42200a, str)) {
-                    List<d> list = this.f42183b;
+            for (int i2 = 0; i2 < this.f45859b.size(); i2++) {
+                if (TextUtils.equals(this.f45859b.get(i2).f45876a, str)) {
+                    List<d> list = this.f45859b;
                     list.remove(list.get(i2));
                     return;
                 }
@@ -508,60 +508,60 @@ public final class i {
         public final boolean E(g gVar) {
             int i2;
             ArrayList arrayList = new ArrayList();
-            int size = this.f42185d.size();
+            int size = this.f45861d.size();
             int i3 = 0;
             for (int i4 = 0; i4 < size; i4++) {
-                d dVar = this.f42185d.get(i4);
-                if (dVar != null && (i2 = dVar.f42202c) >= 400 && i2 < 600) {
+                d dVar = this.f45861d.get(i4);
+                if (dVar != null && (i2 = dVar.f45878c) >= 400 && i2 < 600) {
                     i3++;
-                    arrayList.add(dVar.f42200a);
+                    arrayList.add(dVar.f45876a);
                 }
             }
-            int size2 = this.f42184c.size() + i3 + this.f42183b.size();
-            gVar.f42173c = arrayList;
-            gVar.f42172b = size2;
+            int size2 = this.f45860c.size() + i3 + this.f45859b.size();
+            gVar.f45849c = arrayList;
+            gVar.f45848b = size2;
             return ((double) i3) / ((double) size2) >= 0.5d;
         }
 
         public final boolean F(g gVar) {
             TreeMap treeMap = new TreeMap();
-            int size = this.f42184c.size();
+            int size = this.f45860c.size();
             int i2 = 0;
             for (int i3 = 0; i3 < size; i3++) {
-                d dVar = this.f42184c.get(i3);
-                long j = dVar.f42201b;
+                d dVar = this.f45860c.get(i3);
+                long j = dVar.f45877b;
                 if (j > 3000) {
                     i2++;
-                    treeMap.put(dVar.f42200a, Integer.valueOf((int) j));
+                    treeMap.put(dVar.f45876a, Integer.valueOf((int) j));
                 }
             }
-            gVar.f42174d = treeMap;
+            gVar.f45850d = treeMap;
             return i2 >= 2;
         }
 
         public void G() {
-            Timer timer = this.f42189h;
+            Timer timer = this.f45865h;
             if (timer != null) {
                 timer.cancel();
-                this.f42189h = null;
+                this.f45865h = null;
             }
-            this.f42182a = 0L;
+            this.f45858a = 0L;
         }
 
         public final void H() {
-            Timer timer = this.f42190i;
+            Timer timer = this.f45866i;
             if (timer != null) {
                 timer.cancel();
-                this.f42190i = null;
+                this.f45866i = null;
             }
         }
 
         public final boolean I() {
-            if (!this.f42188g || TextUtils.isEmpty(this.f42187f)) {
+            if (!this.f45864g || TextUtils.isEmpty(this.f45863f)) {
                 return false;
             }
-            d.a.l0.a.h0.i.b.h(s(), this.f42187f);
-            this.f42188g = false;
+            d.a.l0.a.h0.i.b.h(s(), this.f45863f);
+            this.f45864g = false;
             return true;
         }
 
@@ -570,13 +570,13 @@ public final class i {
         }
 
         public void K(boolean z) {
-            this.f42188g = z;
+            this.f45864g = z;
         }
 
         public void L() {
             G();
             Timer timer = new Timer();
-            this.f42189h = timer;
+            this.f45865h = timer;
             timer.schedule(new d(), 3000L);
         }
 
@@ -592,10 +592,10 @@ public final class i {
         }
 
         public void N() {
-            if (this.f42186e) {
+            if (this.f45862e) {
                 this.k = System.currentTimeMillis();
                 Timer timer = new Timer();
-                this.f42190i = timer;
+                this.f45866i = timer;
                 timer.schedule(new a(), 6000L);
                 SwanAppActivity activity = d.a.l0.a.g1.f.V().getActivity();
                 if (activity == null || activity.isFinishing()) {
@@ -612,7 +612,7 @@ public final class i {
         public void o() {
             if (this.l == 1) {
                 if (!TextUtils.equals(d.a.l0.a.g1.f.V().U(), d.a.l0.a.h0.i.d.a())) {
-                    if (i.f42177a) {
+                    if (i.f45853a) {
                         Log.d("SwanAppLaunchTips", "current page is not skeleton error first page");
                         Log.d("SwanAppLaunchTips", "current page: " + d.a.l0.a.g1.f.V().U());
                         String a2 = d.a.l0.a.h0.i.d.a();
@@ -636,7 +636,7 @@ public final class i {
         }
 
         public void p(SwanAppNetworkUtils.b bVar) {
-            this.f42188g = true;
+            this.f45864g = true;
             SwanAppNetworkUtils.b(bVar);
         }
 
@@ -644,7 +644,7 @@ public final class i {
             g gVar = new g();
             gVar.h(System.currentTimeMillis() - this.k);
             gVar.i(this.m);
-            p(new C0668c(gVar, aVar));
+            p(new C0724c(gVar, aVar));
         }
 
         public String r(String str) {
@@ -683,11 +683,11 @@ public final class i {
                 return;
             }
             String str3 = "\n" + str2 + str;
-            if (!TextUtils.isEmpty(this.f42187f)) {
-                str3 = this.f42187f + str3;
+            if (!TextUtils.isEmpty(this.f45863f)) {
+                str3 = this.f45863f + str3;
             }
-            this.f42187f = str3;
-            if (i.f42177a) {
+            this.f45863f = str3;
+            if (i.f45853a) {
                 Log.d("SwanAppLaunchTips", str);
             }
             d.a.l0.a.e0.d.h("SwanAppLaunchTips", str2 + str);
@@ -698,20 +698,20 @@ public final class i {
         }
 
         public void y(long j) {
-            if (this.f42182a == 0) {
-                this.f42182a = j;
+            if (this.f45858a == 0) {
+                this.f45858a = j;
             }
         }
 
-        public void z(@NonNull a.C0666a c0666a) {
+        public void z(@NonNull a.C0722a c0722a) {
             boolean z = u() || v();
-            if (i.f42177a) {
-                Log.d("SwanAppLaunchTips", String.format("onJsError needFilter ?: %s, content:%s", Boolean.valueOf(z), c0666a.toString()));
+            if (i.f45853a) {
+                Log.d("SwanAppLaunchTips", String.format("onJsError needFilter ?: %s, content:%s", Boolean.valueOf(z), c0722a.toString()));
             }
             if (z) {
                 return;
             }
-            this.m.a(c0666a);
+            this.m.a(c0722a);
         }
 
         public /* synthetic */ c(h hVar) {

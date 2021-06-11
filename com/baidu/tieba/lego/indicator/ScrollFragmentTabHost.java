@@ -24,25 +24,25 @@ import tbclient.Lego.DataRes;
 public class ScrollFragmentTabHost extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17976e;
+    public Context f18052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomViewPager f17977f;
+    public CustomViewPager f18053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.n0.k1.q.a f17978g;
+    public d.a.n0.k1.q.a f18054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoNetworkView f17979h;
+    public NoNetworkView f18055h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScrollFragmentAdapter f17980i;
+    public ScrollFragmentAdapter f18056i;
     public List<e> j;
     public FrameLayout k;
     public c l;
     public BdUniqueId m;
     public View.OnClickListener n;
-    public c.InterfaceC1414c o;
+    public c.InterfaceC1470c o;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -60,14 +60,14 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements c.InterfaceC1414c {
+    public class b implements c.InterfaceC1470c {
         public b() {
         }
 
-        @Override // d.a.n0.k1.q.c.InterfaceC1414c
+        @Override // d.a.n0.k1.q.c.InterfaceC1470c
         public void a() {
-            if (ScrollFragmentTabHost.this.f17978g != null) {
-                ScrollFragmentTabHost.this.f17978g.d();
+            if (ScrollFragmentTabHost.this.f18054g != null) {
+                ScrollFragmentTabHost.this.f18054g.d();
             }
             if (ScrollFragmentTabHost.this.l != null) {
                 ScrollFragmentTabHost.this.l.l(null);
@@ -94,12 +94,12 @@ public class ScrollFragmentTabHost extends LinearLayout {
             }
         }
         this.j = list;
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f17980i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
         if (scrollFragmentAdapter != null) {
-            scrollFragmentAdapter.l(arrayList);
-            d.a.n0.k1.q.a aVar = this.f17978g;
+            scrollFragmentAdapter.p(arrayList);
+            d.a.n0.k1.q.a aVar = this.f18054g;
             if (aVar != null) {
-                aVar.i(this.f17977f, i2);
+                aVar.i(this.f18053f, i2);
             }
         }
     }
@@ -107,30 +107,30 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public void e() {
         c cVar = this.l;
         if (cVar != null) {
-            cVar.f(this.f17976e);
+            cVar.f(this.f18052e);
         }
     }
 
     public boolean f() {
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f17980i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
         return scrollFragmentAdapter != null && scrollFragmentAdapter.getCount() > 0;
     }
 
     public final void g(Context context) {
-        this.f17976e = context;
+        this.f18052e = context;
         LayoutInflater.from(context).inflate(R.layout.lego_scroll_fragment_tabhost, (ViewGroup) this, true);
-        this.f17979h = (NoNetworkView) findViewById(R.id.view_no_network);
+        this.f18055h = (NoNetworkView) findViewById(R.id.view_no_network);
         d.a.n0.k1.q.a aVar = new d.a.n0.k1.q.a(context, findViewById(R.id.tab_container));
-        this.f17978g = aVar;
+        this.f18054g = aVar;
         aVar.h(this.n);
         this.k = (FrameLayout) findViewById(R.id.tab_widget_content_container);
     }
 
     public void h(d dVar, d.a.n0.k1.c cVar) {
-        this.f17977f = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
-        ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.f17976e, dVar, cVar, this.m);
-        this.f17980i = scrollFragmentAdapter;
-        this.f17977f.setAdapter(scrollFragmentAdapter);
+        this.f18053f = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
+        ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.f18052e, dVar, cVar, this.m);
+        this.f18056i = scrollFragmentAdapter;
+        this.f18053f.setAdapter(scrollFragmentAdapter);
     }
 
     public boolean i() {
@@ -143,17 +143,17 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     public void k(int i2) {
-        d.a.n0.k1.q.a aVar = this.f17978g;
+        d.a.n0.k1.q.a aVar = this.f18054g;
         if (aVar != null) {
             aVar.g(i2);
         }
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f17980i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
         if (scrollFragmentAdapter != null) {
-            scrollFragmentAdapter.e(i2);
+            scrollFragmentAdapter.i(i2);
         }
-        if (this.f17979h != null) {
-            this.f17979h.c(j.a(getContext()), i2);
+        if (this.f18055h != null) {
+            this.f18055h.c(j.a(getContext()), i2);
         }
         c cVar = this.l;
         if (cVar != null) {
@@ -170,51 +170,51 @@ public class ScrollFragmentTabHost extends LinearLayout {
         if (this.l.j()) {
             return;
         }
-        this.l.m(this.f17976e, this.j, this.f17977f.getCurrentItem());
-        d.a.n0.k1.q.a aVar = this.f17978g;
+        this.l.m(this.f18052e, this.j, this.f18053f.getCurrentItem());
+        d.a.n0.k1.q.a aVar = this.f18054g;
         if (aVar != null) {
             aVar.j();
         }
     }
 
     public void m(long j, String str) {
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f17980i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
         if (scrollFragmentAdapter != null) {
-            scrollFragmentAdapter.h(j, str);
+            scrollFragmentAdapter.l(j, str);
         }
     }
 
     public void n(boolean z, long j, String str, DataRes dataRes, boolean z2, int i2) {
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f17980i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
         if (scrollFragmentAdapter == null) {
             return;
         }
-        scrollFragmentAdapter.k(z, j, str, dataRes, z2, i2);
+        scrollFragmentAdapter.o(z, j, str, dataRes, z2, i2);
     }
 
     public void o(long j, String str, String str2, int i2) {
-        if (this.f17977f == null) {
+        if (this.f18053f == null) {
             return;
         }
-        this.f17980i.i(j, str, str2, i2);
+        this.f18056i.m(j, str, str2, i2);
     }
 
     public void p(long j, String str, DataRes dataRes, boolean z) {
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f17980i;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f18056i;
         if (scrollFragmentAdapter != null) {
-            scrollFragmentAdapter.j(j, str, dataRes, z);
+            scrollFragmentAdapter.n(j, str, dataRes, z);
         }
     }
 
     public void setCurrentTab(int i2) {
-        if (i2 < 0 || i2 >= this.f17980i.getCount()) {
+        if (i2 < 0 || i2 >= this.f18056i.getCount()) {
             return;
         }
-        this.f17977f.setCurrentItem(i2, false);
+        this.f18053f.setCurrentItem(i2, false);
     }
 
     public void setFirstPosition(int i2) {
-        this.f17980i.g(i2);
+        this.f18056i.k(i2);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

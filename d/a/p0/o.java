@@ -6,60 +6,60 @@ import org.json.JSONObject;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63995a;
+    public String f67713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63996b;
+    public String f67714b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63997c;
+    public int f67715c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63998d;
+    public String f67716d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f63999e;
+    public JSONObject f67717e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64000f;
+    public long f67718f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64001g;
+    public int f67719g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f64002h;
+    public String f67720h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f64003i;
+    public String f67721i;
     public boolean j;
     public String k;
     public String l;
 
     public o(String str, String str2, int i2) {
-        this.f63998d = "";
+        this.f67716d = "";
         this.j = false;
         this.k = "";
         this.l = "0";
-        this.f63995a = str;
-        this.f63996b = str;
-        this.f63997c = -1;
-        this.f63998d = str2;
-        this.f64001g = i2;
+        this.f67713a = str;
+        this.f67714b = str;
+        this.f67715c = -1;
+        this.f67716d = str2;
+        this.f67719g = i2;
         if ((i2 & 2) == 0) {
-            this.f64000f = System.currentTimeMillis();
+            this.f67718f = System.currentTimeMillis();
         }
     }
 
     public String a() {
-        return this.f64003i;
+        return this.f67721i;
     }
 
     public String b() {
-        return this.f63998d;
+        return this.f67716d;
     }
 
     public String c() {
-        return this.f64002h;
+        return this.f67720h;
     }
 
     public String d() {
@@ -67,23 +67,23 @@ public class o {
     }
 
     public int e() {
-        return this.f63997c;
+        return this.f67715c;
     }
 
     public String f() {
-        return this.f63996b;
+        return this.f67714b;
     }
 
     public String g() {
-        return this.f63995a;
+        return this.f67713a;
     }
 
     public JSONObject h() {
-        return this.f63999e;
+        return this.f67717e;
     }
 
     public int i() {
-        return this.f64001g;
+        return this.f67719g;
     }
 
     public String j() {
@@ -91,7 +91,7 @@ public class o {
     }
 
     public long k() {
-        return this.f64000f;
+        return this.f67718f;
     }
 
     public boolean l() {
@@ -99,7 +99,7 @@ public class o {
     }
 
     public void m(String str) {
-        this.f64003i = str;
+        this.f67721i = str;
     }
 
     public void n(boolean z) {
@@ -107,9 +107,9 @@ public class o {
     }
 
     public void o() {
-        String str = this.f63995a;
-        if (str != null && str.equals(this.f63996b) && g.m().a(this.f63995a)) {
-            this.f64002h = UBC.getUBCContext().h();
+        String str = this.f67713a;
+        if (str != null && str.equals(this.f67714b) && g.m().a(this.f67713a)) {
+            this.f67720h = UBC.getUBCContext().h();
         }
     }
 
@@ -122,50 +122,50 @@ public class o {
     }
 
     public o(String str, JSONObject jSONObject, int i2) {
-        this.f63998d = "";
+        this.f67716d = "";
         this.j = false;
         this.k = "";
         this.l = "0";
-        this.f63995a = str;
-        this.f63996b = str;
-        this.f63997c = -1;
-        this.f63999e = jSONObject;
-        this.f64001g = i2;
+        this.f67713a = str;
+        this.f67714b = str;
+        this.f67715c = -1;
+        this.f67717e = jSONObject;
+        this.f67719g = i2;
         if ((i2 & 2) == 0) {
-            this.f64000f = System.currentTimeMillis();
+            this.f67718f = System.currentTimeMillis();
         }
     }
 
     public o(String str, String str2, int i2, String str3, int i3) {
-        this.f63998d = "";
+        this.f67716d = "";
         this.j = false;
         this.k = "";
         this.l = "0";
-        this.f63995a = str2;
-        this.f63996b = str;
-        this.f63997c = i2;
-        this.f63998d = str3;
-        this.f64001g = i3;
+        this.f67713a = str2;
+        this.f67714b = str;
+        this.f67715c = i2;
+        this.f67716d = str3;
+        this.f67719g = i3;
         if ((i3 & 2) == 0) {
-            this.f64000f = System.currentTimeMillis();
+            this.f67718f = System.currentTimeMillis();
         }
     }
 
     public o(String str, String str2, int i2, String str3, long j, int i3) {
-        this.f63998d = "";
+        this.f67716d = "";
         this.j = false;
         this.k = "";
         this.l = "0";
-        this.f63995a = str2;
-        this.f63996b = str;
-        this.f63997c = i2;
-        this.f63998d = str3;
-        this.f64001g = i3;
+        this.f67713a = str2;
+        this.f67714b = str;
+        this.f67715c = i2;
+        this.f67716d = str3;
+        this.f67719g = i3;
         if ((i3 & 2) == 0) {
             if (j > 0) {
-                this.f64000f = j;
+                this.f67718f = j;
             } else {
-                this.f64000f = System.currentTimeMillis();
+                this.f67718f = System.currentTimeMillis();
             }
         }
     }

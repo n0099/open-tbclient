@@ -1,10 +1,10 @@
 package protobuf.PushMessage;
 
 import com.squareup.wire.Message;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class PushMessageReqIdl extends Message {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<PushMessageReqIdl> {
         public Builder() {
         }

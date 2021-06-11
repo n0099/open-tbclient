@@ -7,6 +7,6 @@ import d.a.n0.a2.e.b;
 public class InterestGuideActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(InterestGuideActivityConfig.class, InterestGuideActivity.class);
-        b.l();
+        b.n();
     }
 }

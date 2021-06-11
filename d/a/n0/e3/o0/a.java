@@ -11,50 +11,50 @@ import d.a.n0.u1.g;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f54153c = 524288;
+    public static int f57842c = 524288;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f54154d = 6144000;
+    public static int f57843d = 6144000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f54155e = 524288;
+    public static int f57844e = 524288;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.n0.e3.o0.d.b f54156a;
+    public d.a.n0.e3.o0.d.b f57845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f54157b;
+    public g f57846b;
 
     public a(g gVar) {
-        this.f54157b = gVar;
+        this.f57846b = gVar;
     }
 
     public static void b(int i2) {
         if (i2 <= 0) {
-            f54154d = 6144000;
+            f57843d = 6144000;
         } else {
-            f54154d = i2;
+            f57843d = i2;
         }
     }
 
     public static void c(int i2) {
         if (i2 <= 0) {
-            f54153c = 524288;
+            f57842c = 524288;
         } else {
-            f54153c = i2;
+            f57842c = i2;
         }
     }
 
     public static void d(int i2) {
         if (i2 <= 0) {
-            f54155e = 524288;
+            f57844e = 524288;
         } else {
-            f54155e = i2;
+            f57844e = i2;
         }
     }
 
     public void a() {
-        d.a.n0.e3.o0.d.b bVar = this.f54156a;
+        d.a.n0.e3.o0.d.b bVar = this.f57845a;
         if (bVar != null) {
             bVar.cancel();
         }
@@ -63,15 +63,15 @@ public class a {
     public VideoFinishResult e(String str, String str2, int i2, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.f54156a = new d(str2, f54155e, this.f54157b);
+                this.f57845a = new d(str2, f57844e, this.f57846b);
             } else {
-                this.f54156a = new d.a.n0.e3.o0.d.c(str, f54153c, f54154d, this.f54157b);
+                this.f57845a = new d.a.n0.e3.o0.d.c(str, f57842c, f57843d, this.f57846b);
             }
-            this.f54156a.a(eVar);
-            return this.f54156a.b(str2, i2);
+            this.f57845a.a(eVar);
+            return this.f57845a.b(str2, i2);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
-            g gVar = this.f54157b;
+            g gVar = this.f57846b;
             if (gVar != null) {
                 gVar.f(306, -4399, d.a.n0.u1.a.a(e2));
                 return null;

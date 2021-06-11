@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class b {
     public static long a(File file) {
         StatFs statFs = new StatFs(file.getPath());
@@ -17,8 +17,8 @@ public final class b {
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x011e  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0138  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0218  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x021a  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x021a  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x021c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

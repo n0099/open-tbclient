@@ -13,14 +13,14 @@ import com.baidu.wallet.lightapp.base.LightappWebViewCenter;
 public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappBrowserWebView f24536a;
+    public LightappBrowserWebView f24639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f24537b;
+    public boolean f24640b;
 
     public LangBrigdeSlideLayout(Context context) {
         super(context);
-        this.f24537b = true;
+        this.f24640b = true;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -47,7 +47,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public boolean isReadyForPullDown() {
-        return this.f24536a.isTop && this.f24537b;
+        return this.f24639a.isTop && this.f24640b;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -56,7 +56,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     }
 
     public void setSupportPullDown(boolean z) {
-        this.f24537b = z;
+        this.f24640b = z;
         if (z) {
             return;
         }
@@ -71,15 +71,15 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public LightappWebView createRefreshableView(Context context, AttributeSet attributeSet) {
         LightappBrowserWebView lightappWebView = LightappWebViewCenter.getInstance().getLightappWebView(context);
-        this.f24536a = lightappWebView;
+        this.f24639a = lightappWebView;
         if (lightappWebView != null) {
             lightappWebView.setId(ResUtils.id(context, "cust_webview"));
         }
-        return this.f24536a;
+        return this.f24639a;
     }
 
     public LangBrigdeSlideLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24537b = true;
+        this.f24640b = true;
     }
 }

@@ -5,19 +5,19 @@ import d.a.l0.a.k;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41673a;
+    public static int f45349a;
 
     static {
-        boolean z = k.f43199a;
-        f41673a = -1;
+        boolean z = k.f46875a;
+        f45349a = -1;
     }
 
     public static int a() {
-        if (f41673a < 0) {
+        if (f45349a < 0) {
             d.a.l0.a.c1.a.Z().getSwitch("swan_app_request_opendata_retry", 0);
-            f41673a = 0;
+            f45349a = 0;
         }
-        return f41673a;
+        return f45349a;
     }
 
     public static boolean b() {

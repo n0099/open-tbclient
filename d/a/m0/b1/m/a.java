@@ -17,31 +17,31 @@ public class a {
     public boolean s;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f49093a = 0.0f;
+    public float f52767a = 0.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f49094b = 0.0f;
+    public float f52768b = 0.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49095c = 0;
+    public int f52769c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f49096d = 0;
+    public int f52770d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f49097e = 15.0f;
+    public float f52771e = 15.0f;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49098f = false;
+    public boolean f52772f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49099g = -1;
+    public int f52773g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49100h = -1;
+    public int f52774h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49101i = -16777216;
+    public int f52775i = -16777216;
     public int j = 200;
     public int k = 200;
     public int l = 0;
@@ -65,14 +65,14 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.f49093a = aVar.f49093a;
-        this.f49094b = aVar.f49094b;
-        this.f49095c = aVar.f49095c;
-        this.f49096d = aVar.f49096d;
-        this.f49097e = aVar.f49097e;
-        this.f49099g = aVar.f49099g;
-        this.f49100h = aVar.f49100h;
-        this.f49101i = aVar.f49101i;
+        this.f52767a = aVar.f52767a;
+        this.f52768b = aVar.f52768b;
+        this.f52769c = aVar.f52769c;
+        this.f52770d = aVar.f52770d;
+        this.f52771e = aVar.f52771e;
+        this.f52773g = aVar.f52773g;
+        this.f52774h = aVar.f52774h;
+        this.f52775i = aVar.f52775i;
         this.j = aVar.j;
         this.k = aVar.k;
         this.l = aVar.l;
@@ -87,25 +87,25 @@ public class a {
         this.w = aVar.w;
         this.x = aVar.x;
         this.y = aVar.y;
-        this.z = aVar.f49096d;
+        this.z = aVar.f52770d;
         this.A = aVar.A;
         this.C = aVar.C;
     }
 
     public void b(TypedArray typedArray) {
-        this.f49096d = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_segmentMargin, 0);
-        this.f49095c = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textPadding, 0);
-        this.f49093a = typedArray.getFloat(R$styleable.TbRichTextView_tbLineSpacing, 1.12f);
-        this.f49097e = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textSize, (int) this.f49097e);
-        this.f49101i = typedArray.getColor(R$styleable.TbRichTextView_textColor, this.f49101i);
+        this.f52770d = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_segmentMargin, 0);
+        this.f52769c = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textPadding, 0);
+        this.f52767a = typedArray.getFloat(R$styleable.TbRichTextView_tbLineSpacing, 1.12f);
+        this.f52771e = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textSize, (int) this.f52771e);
+        this.f52775i = typedArray.getColor(R$styleable.TbRichTextView_textColor, this.f52775i);
         this.j = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_maxImageWidth, this.j);
         this.k = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_maxImageHeight, this.k);
         this.l = typedArray.getResourceId(R$styleable.TbRichTextView_defaultImage, 0);
-        this.f49099g = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceWidth, this.f49099g);
-        this.f49100h = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceHeight, this.f49100h);
+        this.f52773g = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceWidth, this.f52773g);
+        this.f52774h = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceHeight, this.f52774h);
         this.m = typedArray.getResourceId(R$styleable.TbRichTextView_videoImage, 0);
         this.n = typedArray.getBoolean(R$styleable.TbRichTextView_singleLine, false);
-        this.z = this.f49096d;
+        this.z = this.f52770d;
     }
 
     public boolean c() {
@@ -154,8 +154,8 @@ public class a {
     }
 
     public void i(int i2, int i3) {
-        this.f49099g = i2;
-        this.f49100h = i3;
+        this.f52773g = i2;
+        this.f52774h = i3;
     }
 
     public void j(int i2) {
@@ -175,12 +175,12 @@ public class a {
     }
 
     public void n(float f2) {
-        this.f49093a = f2;
+        this.f52767a = f2;
     }
 
     public void o(float f2, float f3) {
-        this.f49093a = f3;
-        this.f49094b = f2;
+        this.f52767a = f3;
+        this.f52768b = f2;
     }
 
     public void p(int i2) {
@@ -197,7 +197,7 @@ public class a {
     }
 
     public void s(int i2) {
-        this.f49096d = i2;
+        this.f52770d = i2;
     }
 
     public void t() {
@@ -209,7 +209,7 @@ public class a {
     }
 
     public void v(int i2) {
-        this.f49097e = i2;
+        this.f52771e = i2;
     }
 
     public void w(boolean z) {

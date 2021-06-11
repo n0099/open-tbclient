@@ -1,13 +1,19 @@
 package d.a.n0.r3;
-
-import com.baidu.tieba.video.VideoItemData;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class g {
+    public static void a() {
+        d.a.m0.r.d0.b.j().v("key_video_guide_count", d.a.m0.r.d0.b.j().k("key_video_guide_count", 0) + 1);
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    public List<VideoItemData> f60019a;
+    public static void b() {
+        d.a.m0.r.d0.b.j().v("key_no_behavior_count", d.a.m0.r.d0.b.j().k("key_no_behavior_count", 0) + 1);
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f60020b;
+    public static void c() {
+        d.a.m0.r.d0.b.j().v("key_no_behavior_count", 0);
+    }
+
+    public static boolean d() {
+        return d.a.m0.r.d0.b.j().k("key_video_guide_count", 0) < d.a.m0.r.d0.b.j().k("key_video_guide_max_count", 0) && d.a.m0.r.d0.b.j().k("key_no_behavior_count", 0) >= 2;
+    }
 }

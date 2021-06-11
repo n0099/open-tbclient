@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -403,7 +402,7 @@ public class AdElementInfo implements Parcelable {
                 this.mFallback = jSONObject.optString("fallback", "");
                 this.mFbAct = jSONObject.optString("fb_act", "");
             }
-            this.mUniqueId = this.mQueryKey + "_" + new Random().nextLong() + System.currentTimeMillis() + FieldBuilder.SE;
+            this.mUniqueId = this.mQueryKey + "_" + new Random().nextLong() + System.currentTimeMillis() + "|";
             this.mGdtAd = false;
         } catch (Exception unused) {
         }
@@ -474,7 +473,7 @@ public class AdElementInfo implements Parcelable {
                 }
             }
             this.mExpire = jSONObject.optInt("expiration", 0);
-            this.mUniqueId = this.mAdId + "_" + new Random().nextLong() + System.currentTimeMillis() + FieldBuilder.SE;
+            this.mUniqueId = this.mAdId + "_" + new Random().nextLong() + System.currentTimeMillis() + "|";
         } catch (Exception unused) {
         }
     }

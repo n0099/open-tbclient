@@ -33,13 +33,13 @@ public class b {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            aVar.f47606a = a(optJSONObject);
+            aVar.f51280a = a(optJSONObject);
         }
-        aVar.f47607b = new ArrayList();
+        aVar.f51281b = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                aVar.f47607b.add(a(optJSONArray.optJSONObject(i2)));
+                aVar.f51281b.add(a(optJSONArray.optJSONObject(i2)));
             }
         }
         return aVar;
@@ -50,14 +50,14 @@ public class b {
         c cVar = new c();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            cVar.f47608a = jSONObject.getInt("errno");
-            cVar.f47609b = jSONObject.optString("errmsg");
-            cVar.f47610c = jSONObject.optJSONObject("data");
+            cVar.f51282a = jSONObject.getInt("errno");
+            cVar.f51283b = jSONObject.optString("errmsg");
+            cVar.f51284c = jSONObject.optJSONObject("data");
             return cVar;
         } catch (JSONException e2) {
-            cVar.f47608a = -1;
-            cVar.f47609b = "network error: response parse failed.";
-            if (k.f43199a) {
+            cVar.f51282a = -1;
+            cVar.f51283b = "network error: response parse failed.";
+            if (k.f46875a) {
                 Log.e("RecommendModelParser", "parseResponseModel error:" + e2);
             }
             return cVar;

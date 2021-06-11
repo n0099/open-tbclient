@@ -27,33 +27,33 @@ public abstract class a extends a0 {
 
     /* renamed from: d.a.l0.b.n.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0958a implements h.n.b<d.a.l0.b.n.i.b.b> {
+    public class C1014a implements h.n.b<d.a.l0.b.n.i.b.b> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.b.n.i.b.a f46407e;
+        public final /* synthetic */ d.a.l0.b.n.i.b.a f50081e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f46408f;
+        public final /* synthetic */ Context f50082f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46409g;
+        public final /* synthetic */ CallbackHandler f50083g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46410h;
+        public final /* synthetic */ String f50084h;
 
-        public C0958a(d.a.l0.b.n.i.b.a aVar, Context context, CallbackHandler callbackHandler, String str) {
-            this.f46407e = aVar;
-            this.f46408f = context;
-            this.f46409g = callbackHandler;
-            this.f46410h = str;
+        public C1014a(d.a.l0.b.n.i.b.a aVar, Context context, CallbackHandler callbackHandler, String str) {
+            this.f50081e = aVar;
+            this.f50082f = context;
+            this.f50083g = callbackHandler;
+            this.f50084h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(d.a.l0.b.n.i.b.b bVar) {
-            d.a.l0.b.n.i.c.a.b(this.f46407e, bVar);
-            a.this.t(this.f46408f, this.f46409g, this.f46410h, this.f46407e);
+            d.a.l0.b.n.i.c.a.b(this.f50081e, bVar);
+            a.this.t(this.f50082f, this.f50083g, this.f50084h, this.f50081e);
         }
     }
 
@@ -61,22 +61,22 @@ public abstract class a extends a0 {
     public class b implements h.n.b<Throwable> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46412e;
+        public final /* synthetic */ Context f50086e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46413f;
+        public final /* synthetic */ CallbackHandler f50087f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46414g;
+        public final /* synthetic */ String f50088g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.b.n.i.b.a f46415h;
+        public final /* synthetic */ d.a.l0.b.n.i.b.a f50089h;
 
         public b(Context context, CallbackHandler callbackHandler, String str, d.a.l0.b.n.i.b.a aVar) {
-            this.f46412e = context;
-            this.f46413f = callbackHandler;
-            this.f46414g = str;
-            this.f46415h = aVar;
+            this.f50086e = context;
+            this.f50087f = callbackHandler;
+            this.f50088g = str;
+            this.f50089h = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,7 +84,7 @@ public abstract class a extends a0 {
         /* renamed from: a */
         public void call(Throwable th) {
             d.a.l0.a.e0.d.l("recommend", "get param(l) info fail: " + th.getMessage());
-            a.this.t(this.f46412e, this.f46413f, this.f46414g, this.f46415h);
+            a.this.t(this.f50086e, this.f50087f, this.f50088g, this.f50089h);
         }
     }
 
@@ -93,32 +93,32 @@ public abstract class a extends a0 {
 
         /* renamed from: d.a.l0.b.n.i.a.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0959a implements d.a {
+        public class C1015a implements d.a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ j f46417a;
+            public final /* synthetic */ j f50091a;
 
-            public C0959a(c cVar, j jVar) {
-                this.f46417a = jVar;
+            public C1015a(c cVar, j jVar) {
+                this.f50091a = jVar;
             }
 
             @Override // d.a.l0.a.c1.d.d.a
             public void a(d.a.l0.a.c2.f.k0.b bVar) {
                 d.a.l0.b.n.i.b.b bVar2 = new d.a.l0.b.n.i.b.b();
-                if (bVar != null && !TextUtils.isEmpty(bVar.f41127a)) {
-                    bVar2.f46440a = bVar.f41127a;
-                    bVar2.f46441b = bVar.f41129c;
-                    bVar2.f46442c = bVar.f41128b;
+                if (bVar != null && !TextUtils.isEmpty(bVar.f44803a)) {
+                    bVar2.f50114a = bVar.f44803a;
+                    bVar2.f50115b = bVar.f44805c;
+                    bVar2.f50116c = bVar.f44804b;
                 } else {
-                    bVar2.f46440a = "unknown";
+                    bVar2.f50114a = "unknown";
                 }
-                this.f46417a.onNext(bVar2);
-                this.f46417a.onCompleted();
+                this.f50091a.onNext(bVar2);
+                this.f50091a.onCompleted();
             }
 
             @Override // d.a.l0.a.c1.d.d.a
             public void onFailed(int i2) {
-                this.f46417a.onError(new Throwable());
+                this.f50091a.onError(new Throwable());
             }
         }
 
@@ -129,7 +129,7 @@ public abstract class a extends a0 {
         @Override // h.n.b
         /* renamed from: a */
         public void call(j<? super d.a.l0.b.n.i.b.b> jVar) {
-            d.a.l0.a.c1.a.E().b(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new C0959a(this, jVar));
+            d.a.l0.a.c1.a.E().b(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new C1015a(this, jVar));
         }
     }
 
@@ -137,14 +137,14 @@ public abstract class a extends a0 {
     public class d implements d.a.l0.a.v2.e1.b<JSONObject> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46418e;
+        public final /* synthetic */ CallbackHandler f50092e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46419f;
+        public final /* synthetic */ String f50093f;
 
         public d(a aVar, CallbackHandler callbackHandler, String str) {
-            this.f46418e = callbackHandler;
-            this.f46419f = str;
+            this.f50092e = callbackHandler;
+            this.f50093f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,11 +153,11 @@ public abstract class a extends a0 {
         public void onCallback(JSONObject jSONObject) {
             if (jSONObject == null) {
                 d.a.l0.a.e0.d.b("recommend", "response is null");
-                this.f46418e.handleSchemeDispatchCallback(this.f46419f, UnitedSchemeUtility.wrapCallbackParams(1001, "response is null").toString());
+                this.f50092e.handleSchemeDispatchCallback(this.f50093f, UnitedSchemeUtility.wrapCallbackParams(1001, "response is null").toString());
                 return;
             }
             d.a.l0.a.e0.d.g("recommend", "recommend action execute success");
-            this.f46418e.handleSchemeDispatchCallback(this.f46419f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+            this.f50092e.handleSchemeDispatchCallback(this.f50093f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         }
     }
 
@@ -165,10 +165,10 @@ public abstract class a extends a0 {
     public class e extends ResponseCallback<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f46420a;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f50094a;
 
         public e(a aVar, d.a.l0.a.v2.e1.b bVar) {
-            this.f46420a = bVar;
+            this.f50094a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -181,13 +181,13 @@ public abstract class a extends a0 {
                     jSONObject2.put("info", "on success but jsonObject is null");
                     jSONObject2.put("statusCode", i2);
                 } catch (JSONException e2) {
-                    if (a0.f40949b) {
+                    if (a0.f44625b) {
                         e2.printStackTrace();
                     }
                 }
                 d.a.l0.b.n.i.c.a.f(jSONObject2.toString());
             }
-            this.f46420a.onCallback(jSONObject);
+            this.f50094a.onCallback(jSONObject);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -208,7 +208,7 @@ public abstract class a extends a0 {
                         }
                         jSONObject.put("response body", str);
                     } catch (JSONException e2) {
-                        if (a0.f40949b) {
+                        if (a0.f44625b) {
                             e2.printStackTrace();
                         }
                     }
@@ -231,7 +231,7 @@ public abstract class a extends a0 {
                     }
                 }
             } catch (JSONException e3) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e3.printStackTrace();
                 }
             }
@@ -242,12 +242,12 @@ public abstract class a extends a0 {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             d.a.l0.a.e0.d.c("recommend", "http response with exception:", exc);
-            this.f46420a.onCallback(null);
+            this.f50094a.onCallback(null);
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("info", "http request fail with exception : " + exc.getMessage());
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e2.printStackTrace();
                 }
             }
@@ -261,7 +261,7 @@ public abstract class a extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("BaseRecommendAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         if (eVar == null) {
@@ -321,7 +321,7 @@ public abstract class a extends a0 {
         d.a.l0.b.n.i.b.a aVar = new d.a.l0.b.n.i.b.a(context, jSONObject);
         h.d<d.a.l0.b.n.i.b.b> q = q(context);
         if (q != null) {
-            q.E(60L, TimeUnit.MILLISECONDS).C(new C0958a(aVar, context, callbackHandler, str), new b(context, callbackHandler, str, aVar));
+            q.E(60L, TimeUnit.MILLISECONDS).C(new C1014a(aVar, context, callbackHandler, str), new b(context, callbackHandler, str, aVar));
             return;
         }
         d.a.l0.a.e0.d.l("recommend", "get param(l) is null");
@@ -343,7 +343,7 @@ public abstract class a extends a0 {
             try {
                 jSONObject.put("info", "encrypt request param fail");
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e2.printStackTrace();
                 }
             }

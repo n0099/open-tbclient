@@ -16,7 +16,7 @@ import d.a.c.e.m.b;
 import d.a.c.e.p.l;
 import d.a.n0.e3.j0.a;
 import tbclient.SkinInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ThreadSkinView extends TbImageView {
     public TbPageContext w0;
     public SkinInfo x0;
@@ -77,7 +77,7 @@ public class ThreadSkinView extends TbImageView {
                 layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.ds80);
             }
             setLayoutParams(layoutParams);
-            V(skinInfo.skin, 10, false);
+            U(skinInfo.skin, 10, false);
             setOnClickListener(this);
             setScaleType(ImageView.ScaleType.CENTER_CROP);
             setVisibility(0);

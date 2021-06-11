@@ -21,7 +21,6 @@ import d.a.c.e.p.k;
 import d.a.c.e.q.h;
 import d.a.m0.s.d.b;
 import d.a.m0.s.d.d;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class NotificationHelper {
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
@@ -115,7 +114,7 @@ public class NotificationHelper {
         if (!b.M() && b.R()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
-                AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
                 if (d.d().u()) {

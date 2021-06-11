@@ -9,7 +9,7 @@ import java.util.Random;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.message.BasicHeader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultipartEntity implements HttpEntity {
     public static final char[] MULTIPART_CHARS = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     public final org.apache.http.Header contentType;

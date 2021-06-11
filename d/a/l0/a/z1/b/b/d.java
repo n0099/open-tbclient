@@ -12,13 +12,13 @@ import java.util.Date;
 public class d extends i {
 
     /* renamed from: g  reason: collision with root package name */
-    public BdDatePicker f46063g;
+    public BdDatePicker f49737g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46064h;
+    public int f49738h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46065i;
+    public int f49739i;
     public int j;
     public String k;
     public boolean l;
@@ -29,19 +29,19 @@ public class d extends i {
     public static class a extends i.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public Date f46066e;
+        public Date f49740e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Date f46067f;
+        public Date f49741f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Date f46068g;
+        public Date f49742g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f46069h;
+        public String f49743h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f46070i;
+        public boolean f49744i;
 
         public a(Context context) {
             super(context);
@@ -50,19 +50,19 @@ public class d extends i {
         @Override // d.a.l0.a.z1.b.b.i.a
         public i a() {
             d dVar = (d) super.a();
-            dVar.n(this.f46069h);
-            dVar.l(this.f46070i);
-            Date date = this.f46068g;
+            dVar.n(this.f49743h);
+            dVar.l(this.f49744i);
+            Date date = this.f49742g;
             if (date != null) {
                 dVar.q(date.getYear() + 1900);
-                dVar.o(this.f46068g.getMonth() + 1);
-                dVar.k(this.f46068g.getDate());
+                dVar.o(this.f49742g.getMonth() + 1);
+                dVar.k(this.f49742g.getDate());
             }
-            Date date2 = this.f46066e;
+            Date date2 = this.f49740e;
             if (date2 != null) {
                 dVar.p(date2);
             }
-            Date date3 = this.f46067f;
+            Date date3 = this.f49741f;
             if (date3 != null) {
                 dVar.m(date3);
             }
@@ -75,27 +75,27 @@ public class d extends i {
         }
 
         public a l(boolean z) {
-            this.f46070i = z;
+            this.f49744i = z;
             return this;
         }
 
         public a m(Date date) {
-            this.f46067f = date;
+            this.f49741f = date;
             return this;
         }
 
         public a n(String str) {
-            this.f46069h = str;
+            this.f49743h = str;
             return this;
         }
 
         public a o(Date date) {
-            this.f46068g = date;
+            this.f49742g = date;
             return this;
         }
 
         public a p(Date date) {
-            this.f46066e = date;
+            this.f49740e = date;
             return this;
         }
     }
@@ -105,27 +105,27 @@ public class d extends i {
     }
 
     public final void e() {
-        this.f46063g = new BdDatePicker(getContext());
+        this.f49737g = new BdDatePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.f46063g.setLayoutParams(layoutParams);
-        this.f46063g.setScrollCycle(true);
-        this.f46063g.setStartDate(this.m);
-        this.f46063g.setEndDate(this.n);
-        this.f46063g.setYear(this.f46064h);
-        this.f46063g.setMonth(this.f46065i);
-        this.f46063g.setDay(this.j);
-        this.f46063g.n();
-        this.f46063g.setFields(this.k);
-        this.f46063g.setDisabled(this.l);
+        this.f49737g.setLayoutParams(layoutParams);
+        this.f49737g.setScrollCycle(true);
+        this.f49737g.setStartDate(this.m);
+        this.f49737g.setEndDate(this.n);
+        this.f49737g.setYear(this.f49738h);
+        this.f49737g.setMonth(this.f49739i);
+        this.f49737g.setDay(this.j);
+        this.f49737g.n();
+        this.f49737g.setFields(this.k);
+        this.f49737g.setDisabled(this.l);
     }
 
     public int f() {
-        return this.f46063g.getDay();
+        return this.f49737g.getDay();
     }
 
     public int g() {
-        return this.f46063g.getMonth();
+        return this.f49737g.getMonth();
     }
 
     public String h() {
@@ -144,11 +144,11 @@ public class d extends i {
     }
 
     public int i() {
-        return this.f46063g.getYear();
+        return this.f49737g.getYear();
     }
 
     public final boolean j(String str) {
-        return this.f46063g.l(str);
+        return this.f49737g.l(str);
     }
 
     public void k(int i2) {
@@ -168,13 +168,13 @@ public class d extends i {
     }
 
     public void o(int i2) {
-        this.f46065i = i2;
+        this.f49739i = i2;
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         e();
-        b().j(this.f46063g);
+        b().j(this.f49737g);
     }
 
     public void p(Date date) {
@@ -182,7 +182,7 @@ public class d extends i {
     }
 
     public void q(int i2) {
-        this.f46064h = i2;
+        this.f49738h = i2;
     }
 
     @Override // d.a.l0.a.z1.b.b.c, android.app.Dialog

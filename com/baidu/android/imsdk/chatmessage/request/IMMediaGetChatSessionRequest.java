@@ -6,6 +6,7 @@ import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.yy.gslbsdk.db.ResultTB;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
@@ -70,7 +71,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                 }
             }
             if (this.mEndTime > 0) {
-                jSONObject.put("end_time", this.mEndTime);
+                jSONObject.put(ResultTB.ENDTIME, this.mEndTime);
             }
             if (this.mContactorType >= 0) {
                 jSONObject.put("contacter_type", this.mContactorType);

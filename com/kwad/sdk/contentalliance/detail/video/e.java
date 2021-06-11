@@ -1,43 +1,23 @@
 package com.kwad.sdk.contentalliance.detail.video;
 /* loaded from: classes6.dex */
-public class e implements d {
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void a() {
-    }
+public interface e {
+    void a();
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void a(int i2, int i3) {
-    }
+    void a(int i2, int i3);
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void a(long j, long j2) {
-    }
+    void a(long j, long j2);
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void b() {
-    }
+    void b();
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void c() {
-    }
+    void c();
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void d() {
-    }
+    void d();
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void e() {
-    }
+    void e();
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void f() {
-    }
+    void f();
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void g() {
-    }
+    void g();
 
-    @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void h() {
-    }
+    void h();
 }

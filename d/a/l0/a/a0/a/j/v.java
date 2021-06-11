@@ -10,7 +10,7 @@ public class v extends a {
             bVar.g();
             canvas.save();
         } catch (CloneNotSupportedException e2) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e2.printStackTrace();
             }
         }

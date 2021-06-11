@@ -11,14 +11,14 @@ import java.util.LinkedList;
 public abstract class c implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.f1.h.a f54772e;
+    public d.a.n0.f1.h.a f58461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54773f;
+    public int f58462f;
 
     public c(d.a.n0.f1.h.a aVar, int i2) {
-        this.f54772e = aVar;
-        this.f54773f = i2;
+        this.f58461e = aVar;
+        this.f58462f = i2;
     }
 
     public final LoadHistoryResponsedMessage a(int i2) {
@@ -29,21 +29,21 @@ public abstract class c implements CustomMessageTask.CustomRunnable<LoadHistoryM
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
-        if (customMessage != null && (customMessage instanceof LoadHistoryMessage) && this.f54772e != null) {
+        if (customMessage != null && (customMessage instanceof LoadHistoryMessage) && this.f58461e != null) {
             LoadHistoryMessage.a data = customMessage.getData();
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.f54773f);
-            LinkedList<ChatMessage> g2 = this.f54772e.g(d.a.c.e.m.b.f(data.f17279d, 0L), data.f17276a, data.f17277b, data.f17278c);
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.f58462f);
+            LinkedList<ChatMessage> g2 = this.f58461e.g(d.a.c.e.m.b.f(data.f17355d, 0L), data.f17352a, data.f17353b, data.f17354c);
             if (g2 == null) {
-                return a(this.f54773f);
+                return a(this.f58462f);
             }
             LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-            if (data.f17276a == null) {
-                aVar.f17282c = true;
+            if (data.f17352a == null) {
+                aVar.f17358c = true;
             } else {
-                aVar.f17282c = false;
+                aVar.f17358c = false;
             }
-            aVar.f17280a = data.f17279d;
-            aVar.f17281b = g2;
+            aVar.f17356a = data.f17355d;
+            aVar.f17357b = g2;
             try {
                 loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
             } catch (Exception e2) {
@@ -51,6 +51,6 @@ public abstract class c implements CustomMessageTask.CustomRunnable<LoadHistoryM
             }
             return loadHistoryResponsedMessage;
         }
-        return a(this.f54773f);
+        return a(this.f58462f);
     }
 }

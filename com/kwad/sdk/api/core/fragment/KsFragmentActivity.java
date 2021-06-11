@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
@@ -46,6 +47,7 @@ public class KsFragmentActivity extends FragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
+        ComponentDestroyer.destroyActivity(this);
     }
 
     @Override // androidx.fragment.app.FragmentActivity

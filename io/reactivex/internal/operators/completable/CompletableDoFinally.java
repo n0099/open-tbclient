@@ -22,7 +22,7 @@ public final class CompletableDoFinally extends Completable {
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68961d;
+        public Disposable f72270d;
         public final Action onFinally;
 
         public DoFinallyObserver(CompletableObserver completableObserver, Action action) {
@@ -32,13 +32,13 @@ public final class CompletableDoFinally extends Completable {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68961d.dispose();
+            this.f72270d.dispose();
             runFinally();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68961d.isDisposed();
+            return this.f72270d.isDisposed();
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
@@ -55,8 +55,8 @@ public final class CompletableDoFinally extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68961d, disposable)) {
-                this.f68961d = disposable;
+            if (DisposableHelper.validate(this.f72270d, disposable)) {
+                this.f72270d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

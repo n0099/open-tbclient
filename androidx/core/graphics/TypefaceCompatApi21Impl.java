@@ -136,7 +136,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
         }
         FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i2);
         try {
-            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f7672a, cancellationSignal);
+            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f7715a, cancellationSignal);
             if (openFileDescriptor == null) {
                 if (openFileDescriptor != null) {
                     openFileDescriptor.close();

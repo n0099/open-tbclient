@@ -9,31 +9,31 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f45748a = e.g();
+    public static File f49422a = e.g();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f45749b = "swan_core";
+    public static String f49423b = "swan_core";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f45750c = "extension_core";
+    public static String f49424c = "extension_core";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f45751d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+    public static String f49425d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f45752e = "cloneFolder_";
+    public static String f49426e = "cloneFolder_";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f45753f = f45751d + File.separator + f45752e;
+    public static String f49427f = f49425d + File.separator + f49426e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f45754g = "clone_pkg_folder";
+    public static String f49428g = "clone_pkg_folder";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f45755h = "clone_core_folder";
+    public static String f49429h = "clone_core_folder";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f45756i = "clone_dynamic_lib_folder";
+    public static String f49430i = "clone_dynamic_lib_folder";
     public static String j = "clone_sp_folder";
     public static String k = "clone_db_folder";
     public static String l = "cloneZip.zip";

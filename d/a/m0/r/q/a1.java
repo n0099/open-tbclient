@@ -1,7 +1,8 @@
 package d.a.m0.r.q;
 
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +26,7 @@ public class a1 {
                 builder.big_src = jSONObject.optString("big_src");
                 builder.bsize = jSONObject.optString("bsize");
                 builder.btn_type = Integer.valueOf(jSONObject.optInt("btn_type"));
-                builder.f69486c = jSONObject.optString("c");
+                builder.f72797c = jSONObject.optString("c");
                 builder.cdn_src = jSONObject.optString("cdn_src");
                 builder.cdn_src_active = jSONObject.optString("cdn_src_active");
                 builder.count = Integer.valueOf(jSONObject.optInt("count"));
@@ -45,7 +46,7 @@ public class a1 {
                     TogetherHi.Builder builder3 = new TogetherHi.Builder();
                     builder3.album_id = Long.valueOf(optJSONObject2.optLong("album_id"));
                     builder3.album_name = optJSONObject2.optString("album_name");
-                    builder3.end_time = Integer.valueOf(optJSONObject2.optInt("end_time"));
+                    builder3.end_time = Integer.valueOf(optJSONObject2.optInt(ResultTB.ENDTIME));
                     builder3.location = optJSONObject2.optString("location");
                     builder3.num_join = Integer.valueOf(optJSONObject2.optInt("num_join"));
                     builder3.num_signup = Integer.valueOf(optJSONObject2.optInt("num_signup"));
@@ -98,7 +99,7 @@ public class a1 {
                 builder.packet_name = jSONObject.optString("packet_name");
                 builder.phonetype = jSONObject.optString("phonetype");
                 builder.show_original_btn = Integer.valueOf(jSONObject.optInt("show_original_btn"));
-                builder.src = jSONObject.optString(UserAccountActionItem.KEY_SRC);
+                builder.src = jSONObject.optString("src");
                 builder.text = jSONObject.optString("text");
                 builder.uid = Long.valueOf(jSONObject.optLong("uid"));
                 builder.type = Integer.valueOf(jSONObject.optInt("type"));
@@ -106,6 +107,7 @@ public class a1 {
                 builder.voice_md5 = jSONObject.optString("voice_md5");
                 builder.width = Integer.valueOf(jSONObject.optInt("width"));
                 builder._static = jSONObject.optString("_static");
+                builder.item_id = Long.valueOf(jSONObject.optLong(LegoListActivityConfig.ITEM_ID));
                 arrayList.add(builder.build(true));
             }
             return arrayList;

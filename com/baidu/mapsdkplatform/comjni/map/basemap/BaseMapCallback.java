@@ -6,12 +6,12 @@ import android.util.LongSparseArray;
 public class BaseMapCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static LongSparseArray<b> f7930a = new LongSparseArray<>();
+    public static LongSparseArray<b> f7973a = new LongSparseArray<>();
 
     public static int ReqLayerData(Bundle bundle, long j, int i2, Bundle bundle2) {
-        int size = f7930a.size();
+        int size = f7973a.size();
         for (int i3 = 0; i3 < size; i3++) {
-            b valueAt = f7930a.valueAt(i3);
+            b valueAt = f7973a.valueAt(i3);
             if (valueAt != null && valueAt.a(j)) {
                 return valueAt.a(bundle, j, i2, bundle2);
             }
@@ -20,10 +20,10 @@ public class BaseMapCallback {
     }
 
     public static void addLayerDataInterface(long j, b bVar) {
-        f7930a.put(j, bVar);
+        f7973a.put(j, bVar);
     }
 
     public static void removeLayerDataInterface(long j) {
-        f7930a.remove(j);
+        f7973a.remove(j);
     }
 }

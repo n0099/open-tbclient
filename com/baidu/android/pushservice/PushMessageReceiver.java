@@ -14,7 +14,6 @@ import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.l;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
@@ -33,11 +32,11 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static class a extends Handler {
 
         /* renamed from: d  reason: collision with root package name */
-        public final WeakReference<Context> f2682d;
+        public final WeakReference<Context> f2701d;
 
         public a(Context context) {
             super(context.getMainLooper());
-            this.f2682d = new WeakReference<>(context);
+            this.f2701d = new WeakReference<>(context);
         }
     }
 
@@ -49,15 +48,15 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2687d;
+        public int f2706d;
 
         b(int i2) {
-            this.f2687d = i2;
+            this.f2706d = i2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2687d;
+            return this.f2706d;
         }
     }
 
@@ -582,7 +581,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         return;
                     } else {
                         String stringExtra12 = intent.getStringExtra("mz_register_errorcode");
-                        if (TextUtils.isEmpty(stringExtra12) || !stringExtra12.equals(BasicPushStatus.SUCCESS_CODE)) {
+                        if (TextUtils.isEmpty(stringExtra12) || !stringExtra12.equals("200")) {
                             f.j(context);
                             return;
                         } else if (!intent.hasExtra("mz_pushid")) {
@@ -635,8 +634,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     final a aVar = new a(context) { // from class: com.baidu.android.pushservice.PushMessageReceiver.1
                         @Override // android.os.Handler
                         public void handleMessage(Message message) {
-                            if (this.f2682d.get() != null) {
-                                PushMessageReceiver.this.onMessage(this.f2682d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                            if (this.f2701d.get() != null) {
+                                PushMessageReceiver.this.onMessage(this.f2701d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
                                 PushMessageReceiver.sendCallback(context, intent, 10, false);
                             }
                         }

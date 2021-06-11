@@ -11,7 +11,7 @@ public class d {
     }
 
     public static byte[] b(String str) {
-        return a(str, c.f64494a);
+        return a(str, c.f68212a);
     }
 
     public static String c(byte[] bArr, Charset charset) {
@@ -22,6 +22,6 @@ public class d {
     }
 
     public static String d(byte[] bArr) {
-        return c(bArr, c.f64494a);
+        return c(bArr, c.f68212a);
     }
 }

@@ -24,42 +24,42 @@ import d.a.c.e.p.l;
 import d.a.m0.r.f0.g;
 import d.a.m0.r.s.a;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f63253a;
+    public BaseFragmentActivity f66968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBarShadowView f63254b;
+    public NavigationBarShadowView f66969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f63255c;
+    public BdListView f66970c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f63256d;
+    public View f66971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f63257e;
+    public g f66972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f63258f;
+    public NoDataView f66973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f63259g;
+    public e f66974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f63260h;
+    public RelativeLayout f66975h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ProgressBar f63261i;
+    public ProgressBar f66976i;
     public c l;
     public d.a.m0.r.s.a j = null;
     public a.e k = null;
     public boolean m = false;
     public AbsListView.OnScrollListener n = new a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AbsListView.OnScrollListener {
         public a() {
         }
@@ -68,16 +68,16 @@ public class f {
         public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
             if (i2 == 0) {
                 View childAt = absListView.getChildAt(0);
-                if (f.this.f63254b == null || childAt == null || childAt.getTop() != 0) {
+                if (f.this.f66969b == null || childAt == null || childAt.getTop() != 0) {
                     return;
                 }
-                f.this.f63254b.a();
+                f.this.f66969b.a();
             }
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i2) {
-            NavigationBarShadowView navigationBarShadowView = f.this.f63254b;
+            NavigationBarShadowView navigationBarShadowView = f.this.f66969b;
             if (navigationBarShadowView == null || i2 != 1) {
                 return;
             }
@@ -85,7 +85,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.e {
         public b(f fVar) {
         }
@@ -96,19 +96,19 @@ public class f {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.n0.x1.g.a f63263e;
+        public d.a.n0.x1.g.a f66978e;
 
         public c(d.a.n0.x1.g.a aVar) {
-            this.f63263e = aVar;
+            this.f66978e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.n0.x1.g.a aVar = this.f63263e;
+            d.a.n0.x1.g.a aVar = this.f66978e;
             if (aVar != null) {
                 aVar.w(Boolean.TRUE);
             }
@@ -116,49 +116,49 @@ public class f {
     }
 
     public f(ThreadFragment threadFragment, View view) {
-        this.f63253a = null;
-        this.f63255c = null;
-        this.f63256d = null;
-        this.f63258f = null;
-        this.f63259g = null;
-        this.f63260h = null;
-        this.f63261i = null;
-        this.f63253a = threadFragment.getBaseFragmentActivity();
-        this.f63254b = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_collect);
-        this.f63261i = (ProgressBar) view.findViewById(R.id.progress);
-        this.f63260h = (RelativeLayout) view.findViewById(R.id.parent);
-        this.f63258f = NoDataViewFactory.a(this.f63253a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, l.g(this.f63253a.getPageContext().getPageActivity(), R.dimen.ds222)), NoDataViewFactory.e.b(R.string.mark_nodata, R.string.mark_nodata_2), null);
+        this.f66968a = null;
+        this.f66970c = null;
+        this.f66971d = null;
+        this.f66973f = null;
+        this.f66974g = null;
+        this.f66975h = null;
+        this.f66976i = null;
+        this.f66968a = threadFragment.getBaseFragmentActivity();
+        this.f66969b = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_collect);
+        this.f66976i = (ProgressBar) view.findViewById(R.id.progress);
+        this.f66975h = (RelativeLayout) view.findViewById(R.id.parent);
+        this.f66973f = NoDataViewFactory.a(this.f66968a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, l.g(this.f66968a.getPageContext().getPageActivity(), R.dimen.ds222)), NoDataViewFactory.e.b(R.string.mark_nodata, R.string.mark_nodata_2), null);
         e eVar = new e(threadFragment.getPageContext());
-        this.f63259g = eVar;
+        this.f66974g = eVar;
         eVar.notifyDataSetChanged();
-        this.f63257e = new g(threadFragment.getPageContext());
+        this.f66972e = new g(threadFragment.getPageContext());
         BdListView bdListView = (BdListView) view.findViewById(R.id.list);
-        this.f63255c = bdListView;
-        bdListView.setPullRefresh(this.f63257e);
-        this.f63257e.a(threadFragment);
-        this.f63256d = new TextView(this.f63253a.getActivity());
-        this.f63256d.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(this.f63253a.getActivity(), R.dimen.ds88)));
-        this.f63255c.x(this.f63256d, 0);
-        this.f63255c.setAdapter((ListAdapter) this.f63259g);
-        this.f63255c.setOnSrollToBottomListener(threadFragment);
-        this.f63255c.setOnItemClickListener(threadFragment);
-        this.f63255c.setOnScrollListener(this.n);
-        this.f63259g.k(threadFragment);
-        this.f63259g.r(threadFragment);
-        this.f63259g.q(threadFragment);
+        this.f66970c = bdListView;
+        bdListView.setPullRefresh(this.f66972e);
+        this.f66972e.a(threadFragment);
+        this.f66971d = new TextView(this.f66968a.getActivity());
+        this.f66971d.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(this.f66968a.getActivity(), R.dimen.ds88)));
+        this.f66970c.x(this.f66971d, 0);
+        this.f66970c.setAdapter((ListAdapter) this.f66974g);
+        this.f66970c.setOnSrollToBottomListener(threadFragment);
+        this.f66970c.setOnItemClickListener(threadFragment);
+        this.f66970c.setOnScrollListener(this.n);
+        this.f66974g.k(threadFragment);
+        this.f66974g.r(threadFragment);
+        this.f66974g.q(threadFragment);
     }
 
     public void a(boolean z) {
-        this.f63259g.l(z);
-        this.f63259g.notifyDataSetChanged();
+        this.f66974g.l(z);
+        this.f66974g.notifyDataSetChanged();
     }
 
     public void b(boolean z) {
-        BdListViewHelper.c(this.f63256d, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.c(this.f66971d, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void c() {
-        BdListView bdListView = this.f63255c;
+        BdListView bdListView = this.f66970c;
         if (bdListView != null) {
             bdListView.A(0L);
         }
@@ -166,10 +166,10 @@ public class f {
 
     public void d(boolean z, String str, d.a.n0.x1.g.a aVar) {
         if (z) {
-            BaseFragmentActivity baseFragmentActivity = this.f63253a;
+            BaseFragmentActivity baseFragmentActivity = this.f66968a;
             baseFragmentActivity.showToast(baseFragmentActivity.getPageContext().getString(R.string.delete_success));
             if (aVar != null && aVar.n() != null) {
-                this.f63259g.j(aVar.n());
+                this.f66974g.j(aVar.n());
                 if (aVar.n().size() == 0) {
                     if (this.l == null) {
                         this.l = new c(aVar);
@@ -179,51 +179,51 @@ public class f {
                     d.a.c.e.m.e.a().postDelayed(this.l, 600L);
                 }
             } else {
-                this.f63261i.setVisibility(8);
+                this.f66976i.setVisibility(8);
                 return;
             }
         } else {
-            this.f63253a.showToast(str);
+            this.f66968a.showToast(str);
         }
-        this.f63259g.m(false);
-        this.f63261i.setVisibility(8);
+        this.f66974g.m(false);
+        this.f66976i.setVisibility(8);
     }
 
     public void e(String str, d.a.n0.x1.g.a aVar, boolean z) {
-        this.f63259g.p(true);
+        this.f66974g.p(true);
         if (str != null) {
-            this.f63253a.showToast(str);
+            this.f66968a.showToast(str);
         }
         if (aVar != null) {
             if (aVar.p() == 0 && !z) {
                 aVar.m();
             }
             if (aVar.p() < 20) {
-                this.f63259g.n(false);
-                this.f63259g.m(true);
+                this.f66974g.n(false);
+                this.f66974g.m(true);
             } else {
-                this.f63259g.n(true);
-                this.f63259g.m(true);
+                this.f66974g.n(true);
+                this.f66974g.m(true);
             }
-            this.f63259g.j(aVar.n());
+            this.f66974g.j(aVar.n());
             p(aVar, z);
         }
-        this.f63259g.p(false);
-        this.f63259g.notifyDataSetChanged();
+        this.f66974g.p(false);
+        this.f66974g.notifyDataSetChanged();
         if (k()) {
             r(false);
         }
     }
 
     public void f(boolean z, String str, boolean z2) {
-        this.f63253a.closeLoadingDialog();
+        this.f66968a.closeLoadingDialog();
         if (str != null) {
-            this.f63253a.showToast(str);
+            this.f66968a.showToast(str);
         }
         if (z2) {
             t();
         }
-        this.f63259g.notifyDataSetChanged();
+        this.f66974g.notifyDataSetChanged();
     }
 
     public int g(boolean z) {
@@ -248,7 +248,7 @@ public class f {
     }
 
     public void j() {
-        this.f63261i.setVisibility(8);
+        this.f66976i.setVisibility(8);
     }
 
     public boolean k() {
@@ -257,25 +257,25 @@ public class f {
 
     public void l(MarkData markData) {
         if (markData != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f63253a.getPageContext().getPageActivity()).createNormalConfig(d.a.c.e.m.b.f(markData.getUesrId(), 0L), false, markData.isGod())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f66968a.getPageContext().getPageActivity()).createNormalConfig(d.a.c.e.m.b.f(markData.getUesrId(), 0L), false, markData.isGod())));
         }
     }
 
     public void m() {
-        this.f63259g.notifyDataSetChanged();
+        this.f66974g.notifyDataSetChanged();
     }
 
     public void n(int i2) {
-        SkinManager.setBackgroundColor(this.f63260h, R.color.CAM_X0201);
-        g gVar = this.f63257e;
+        SkinManager.setBackgroundColor(this.f66975h, R.color.CAM_X0201);
+        g gVar = this.f66972e;
         if (gVar != null) {
             gVar.I(i2);
         }
         m();
-        NoDataView noDataView = this.f63258f;
+        NoDataView noDataView = this.f66973f;
         if (noDataView != null) {
-            noDataView.f(this.f63253a.getPageContext(), i2);
-            SkinManager.setBackgroundColor(this.f63258f, R.color.CAM_X0201);
+            noDataView.f(this.f66968a.getPageContext(), i2);
+            SkinManager.setBackgroundColor(this.f66973f, R.color.CAM_X0201);
         }
     }
 
@@ -285,14 +285,14 @@ public class f {
             aVar.dismiss();
             this.j = null;
         }
-        ProgressBar progressBar = this.f63261i;
+        ProgressBar progressBar = this.f66976i;
         if (progressBar != null) {
             progressBar.setVisibility(8);
         }
         if (this.l != null) {
             d.a.c.e.m.e.a().removeCallbacks(this.l);
         }
-        e eVar = this.f63259g;
+        e eVar = this.f66974g;
         if (eVar != null) {
             eVar.i();
         }
@@ -302,9 +302,9 @@ public class f {
         if (aVar == null) {
             s();
         } else if (aVar.m() > 0) {
-            this.f63258f.setVisibility(8);
-            this.f63255c.removeHeaderView(this.f63258f);
-            this.f63259g.notifyDataSetChanged();
+            this.f66973f.setVisibility(8);
+            this.f66970c.removeHeaderView(this.f66973f);
+            this.f66974g.notifyDataSetChanged();
         } else if (aVar.m() != 0 || z) {
         } else {
             s();
@@ -320,48 +320,48 @@ public class f {
     }
 
     public void s() {
-        this.f63258f.d(this.f63253a.getPageContext());
-        this.f63255c.removeHeaderView(this.f63258f);
-        this.f63255c.addHeaderView(this.f63258f);
-        this.f63258f.setVisibility(0);
+        this.f66973f.d(this.f66968a.getPageContext());
+        this.f66970c.removeHeaderView(this.f66973f);
+        this.f66970c.addHeaderView(this.f66973f);
+        this.f66973f.setVisibility(0);
     }
 
     public final void t() {
         if (this.j == null) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f63253a.getPageContext().getPageActivity());
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f66968a.getPageContext().getPageActivity());
             this.j = aVar;
-            aVar.setTitle(this.f63253a.getPageContext().getString(R.string.sync_mark_fail));
-            this.j.setMessage(this.f63253a.getPageContext().getString(R.string.neterror));
+            aVar.setTitle(this.f66968a.getPageContext().getString(R.string.sync_mark_fail));
+            this.j.setMessage(this.f66968a.getPageContext().getString(R.string.neterror));
             if (this.k != null) {
-                this.j.setPositiveButton(this.f63253a.getPageContext().getString(R.string.retry_rightnow), this.k);
+                this.j.setPositiveButton(this.f66968a.getPageContext().getString(R.string.retry_rightnow), this.k);
             }
-            this.j.setNegativeButton(this.f63253a.getPageContext().getString(R.string.confirm), new b(this));
-            this.j.create(this.f63253a.getPageContext());
+            this.j.setNegativeButton(this.f66968a.getPageContext().getString(R.string.confirm), new b(this));
+            this.j.create(this.f66968a.getPageContext());
             this.j.setCanceledOnTouchOutside(true);
         }
         this.j.show();
     }
 
     public void u() {
-        this.f63261i.setVisibility(0);
+        this.f66976i.setVisibility(0);
     }
 
     public void v(int i2) {
         if (i2 == 0) {
-            this.f63255c.F();
+            this.f66970c.F();
             return;
         }
-        this.f63259g.p(true);
-        this.f63259g.notifyDataSetChanged();
+        this.f66974g.p(true);
+        this.f66974g.notifyDataSetChanged();
     }
 
     public void w(ArrayList<MarkData> arrayList) {
-        this.f63259g.j(arrayList);
+        this.f66974g.j(arrayList);
     }
 
     public void x() {
-        if (this.f63258f.isShown()) {
-            this.f63258f.d(this.f63253a.getPageContext());
+        if (this.f66973f.isShown()) {
+            this.f66973f.d(this.f66968a.getPageContext());
         }
     }
 }

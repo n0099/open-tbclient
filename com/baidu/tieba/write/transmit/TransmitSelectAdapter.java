@@ -21,15 +21,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.e.n;
-import d.a.c.j.e.w;
+import d.a.c.k.e.n;
+import d.a.c.k.e.w;
 import d.a.n0.m1.a;
 import d.a.n0.w3.q.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes5.dex */
-public class TransmitSelectAdapter extends d.a.c.j.e.a<c, TransmitSelectViewHolder> {
+public class TransmitSelectAdapter extends d.a.c.k.e.a<c, TransmitSelectViewHolder> {
     public d.a.n0.m1.a m;
     public ArrayList<HotTopicBussinessData> n;
     public List<TransmitForumData> o;
@@ -40,15 +40,15 @@ public class TransmitSelectAdapter extends d.a.c.j.e.a<c, TransmitSelectViewHold
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f21865a;
+        public TextView f21968a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f21866b;
+        public ImageView f21969b;
 
         public TransmitSelectViewHolder(View view) {
             super(view);
-            this.f21865a = (TextView) view.findViewById(R.id.select_by_self);
-            this.f21866b = (ImageView) view.findViewById(R.id.add_icon);
+            this.f21968a = (TextView) view.findViewById(R.id.select_by_self);
+            this.f21969b = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
@@ -57,18 +57,18 @@ public class TransmitSelectAdapter extends d.a.c.j.e.a<c, TransmitSelectViewHold
         public a() {
         }
 
-        @Override // d.a.c.j.e.w
+        @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if (!j.z()) {
-                l.L(TransmitSelectAdapter.this.f39228e, R.string.neterror);
+                l.L(TransmitSelectAdapter.this.f42909e, R.string.neterror);
             }
             TiebaStatic.log(new StatisticItem("c12053"));
             if (!ListUtils.isEmpty(TransmitSelectAdapter.this.n)) {
-                TransmitSelectAdapter.this.u0();
+                TransmitSelectAdapter.this.v0();
                 return;
             }
             TransmitSelectAdapter transmitSelectAdapter = TransmitSelectAdapter.this;
-            transmitSelectAdapter.m = new d.a.n0.m1.a(transmitSelectAdapter.f39232i);
+            transmitSelectAdapter.m = new d.a.n0.m1.a(transmitSelectAdapter.f42913i);
             TransmitSelectAdapter.this.m.g(TransmitSelectAdapter.this.q);
             TransmitSelectAdapter.this.m.f();
         }
@@ -92,7 +92,7 @@ public class TransmitSelectAdapter extends d.a.c.j.e.a<c, TransmitSelectViewHold
                 }
                 if (TransmitSelectAdapter.this.n == null) {
                     TransmitSelectAdapter.this.n = arrayList;
-                    TransmitSelectAdapter.this.u0();
+                    TransmitSelectAdapter.this.v0();
                 }
             }
         }
@@ -102,14 +102,14 @@ public class TransmitSelectAdapter extends d.a.c.j.e.a<c, TransmitSelectViewHold
         super(context, bdUniqueId, bdUniqueId2);
         this.p = new a();
         this.q = new b();
-        Z(this.p);
+        a0(this.p);
         this.o = list;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        w0(i2, view, viewGroup, cVar, transmitSelectViewHolder);
+    @Override // d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
+        x0(i2, view, viewGroup, cVar, transmitSelectViewHolder);
         return view;
     }
 
@@ -140,22 +140,22 @@ public class TransmitSelectAdapter extends d.a.c.j.e.a<c, TransmitSelectViewHold
         return false;
     }
 
-    public final void u0() {
-        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f39228e, 25005, this.n);
+    public final void v0() {
+        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f42909e, 25005, this.n);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: v0 */
-    public TransmitSelectViewHolder P(ViewGroup viewGroup) {
-        return new TransmitSelectViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.transmit_select_layout, (ViewGroup) null));
+    @Override // d.a.c.k.e.a
+    /* renamed from: w0 */
+    public TransmitSelectViewHolder Q(ViewGroup viewGroup) {
+        return new TransmitSelectViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.transmit_select_layout, (ViewGroup) null));
     }
 
-    public View w0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        SkinManager.setViewTextColor(transmitSelectViewHolder.f21865a, R.color.CAM_X0302);
-        SkinManager.setImageResource(transmitSelectViewHolder.f21866b, R.drawable.icon_post_add_ba_n);
+    public View x0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
+        SkinManager.setViewTextColor(transmitSelectViewHolder.f21968a, R.color.CAM_X0302);
+        SkinManager.setImageResource(transmitSelectViewHolder.f21969b, R.drawable.icon_post_add_ba_n);
         return view;
     }
 }

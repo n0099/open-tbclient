@@ -21,42 +21,42 @@ import org.json.JSONObject;
 public final class c extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f45565c = k.f43199a;
+    public static final boolean f49239c = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static final class a implements d.a.l0.a.w1.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f45566a;
+        public final /* synthetic */ String f49240a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f45567b;
+        public final /* synthetic */ UnitedSchemeEntity f49241b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f45568c;
+        public final /* synthetic */ CallbackHandler f49242c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Context f45569d;
+        public final /* synthetic */ Context f49243d;
 
         public a(String str, c cVar, e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
-            this.f45566a = str;
-            this.f45567b = unitedSchemeEntity;
-            this.f45568c = callbackHandler;
-            this.f45569d = context;
+            this.f49240a = str;
+            this.f49241b = unitedSchemeEntity;
+            this.f49242c = callbackHandler;
+            this.f49243d = context;
         }
 
         @Override // d.a.l0.a.w1.a
         public void a(JSONObject jSONObject) {
             if (jSONObject != null) {
-                UnitedSchemeUtility.safeCallback(this.f45568c, this.f45567b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f45566a);
+                UnitedSchemeUtility.safeCallback(this.f49242c, this.f49241b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f49240a);
             } else {
-                UnitedSchemeUtility.safeCallback(this.f45568c, this.f45567b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f45566a);
+                UnitedSchemeUtility.safeCallback(this.f49242c, this.f49241b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f49240a);
             }
         }
 
         @Override // d.a.l0.a.w1.a
         public void onCancel() {
-            UnitedSchemeUtility.safeCallback(this.f45568c, this.f45567b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f45566a);
+            UnitedSchemeUtility.safeCallback(this.f49242c, this.f49241b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f49240a);
         }
     }
 
@@ -64,7 +64,7 @@ public final class c extends a0 {
     public static final class b implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f45570e = new b();
+        public static final b f49244e = new b();
 
         @Override // android.content.DialogInterface.OnClickListener
         public final void onClick(DialogInterface dialogInterface, int i2) {
@@ -83,7 +83,7 @@ public final class c extends a0 {
         Intrinsics.checkNotNullParameter(entity, "entity");
         if (eVar != null) {
             if (eVar.d0()) {
-                if (f45565c) {
+                if (f49239c) {
                     Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
@@ -103,7 +103,7 @@ public final class c extends a0 {
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            if (f45565c) {
+            if (f49239c) {
                 Log.d("OpenPublisherAction", "调起参数:" + d2);
             }
             a aVar = new a(optString, this, eVar, entity, callbackHandler, context);
@@ -119,7 +119,7 @@ public final class c extends a0 {
                 g W2 = controller.W();
                 if (W2 != null) {
                     g.b i2 = W2.i("navigateTo");
-                    i2.n(g.f42076g, g.f42078i);
+                    i2.n(g.f45752g, g.f45754i);
                     i2.j(cVar);
                     i2.a();
                     UnitedSchemeUtility.callCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -128,7 +128,7 @@ public final class c extends a0 {
                 UnitedSchemeUtility.safeCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(1, "can get fragment manager").toString(), optString);
                 return false;
             }
-            if (f45565c) {
+            if (f49239c) {
                 Log.d("OpenPublisherAction", "解析调起参数失败");
             }
             j(context);
@@ -143,7 +143,7 @@ public final class c extends a0 {
         aVar.m(false);
         aVar.U(d.a.l0.a.h.swanapp_publisher_error_title);
         aVar.v(d.a.l0.a.h.swanapp_publisher_params_error);
-        aVar.O(d.a.l0.a.h.aiapps_confirm, b.f45570e);
+        aVar.O(d.a.l0.a.h.aiapps_confirm, b.f49244e);
         aVar.X();
     }
 }

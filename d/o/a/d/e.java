@@ -7,9 +7,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.o.a.d.f.c;
@@ -33,42 +31,42 @@ import org.json.JSONObject;
 public class e implements d.o.a.b.a.b, c.e, a.b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f66666g = "e";
+    public static String f70452g = "e";
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile e f66667h;
+    public static volatile e f70453h;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f66668e;
+    public long f70454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RunnableC1864e f66669f;
+    public RunnableC1924e f70455f;
 
     /* loaded from: classes7.dex */
     public class a implements g.h {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.b.a.c.b f66684a;
+        public final /* synthetic */ d.o.a.b.a.c.b f70470a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f66685b;
+        public final /* synthetic */ String f70471b;
 
         public a(e eVar, d.o.a.b.a.c.b bVar, String str) {
-            this.f66684a = bVar;
-            this.f66685b = str;
+            this.f70470a = bVar;
+            this.f70471b = str;
         }
 
         @Override // d.o.a.d.g.h
         public void a(boolean z) {
-            String str = e.f66666g;
+            String str = e.f70452g;
             d.o.a.e.b.c.a.g(str, "appBackForeground->" + z);
             if (z) {
-                if (!(g.C1873g.f(this.f66684a) ? g.b.i(this.f66685b, this.f66684a) : false) && g.C1873g.g(this.f66684a) && this.f66684a.F() == 4) {
-                    d.o.a.d.f.a.a.a().f(this.f66684a);
+                if (!(g.C1933g.f(this.f70470a) ? g.b.i(this.f70471b, this.f70470a) : false) && g.C1933g.g(this.f70470a) && this.f70470a.F() == 4) {
+                    d.o.a.d.f.a.a.a().f(this.f70470a);
                 }
-            } else if (g.b.i(this.f66685b, this.f66684a) || this.f66684a.F() != 4) {
+            } else if (g.b.i(this.f70471b, this.f70470a) || this.f70470a.F() != 4) {
             } else {
-                d.o.a.d.f.a.a.a().f(this.f66684a);
+                d.o.a.d.f.a.a.a().f(this.f70470a);
             }
         }
     }
@@ -77,15 +75,15 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f66686e;
+        public final /* synthetic */ long f70472e;
 
         public b(e eVar, long j) {
-            this.f66686e = j;
+            this.f70472e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            e.d().h(this.f66686e);
+            e.d().h(this.f70472e);
         }
     }
 
@@ -93,23 +91,23 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f66687e;
+        public final /* synthetic */ String f70473e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.b.a.c.b f66688f;
+        public final /* synthetic */ d.o.a.b.a.c.b f70474f;
 
         public c(e eVar, String str, d.o.a.b.a.c.b bVar) {
-            this.f66687e = str;
-            this.f66688f = bVar;
+            this.f70473e = str;
+            this.f70474f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String b2 = d.o.a.d.n.a.b(this.f66687e);
+            String b2 = d.o.a.d.n.a.b(this.f70473e);
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            n.a().getSharedPreferences("sp_ttdownloader_md5", 0).edit().putString(String.valueOf(this.f66688f.b()), b2).apply();
+            n.a().getSharedPreferences("sp_ttdownloader_md5", 0).edit().putString(String.valueOf(this.f70474f.b()), b2).apply();
         }
     }
 
@@ -118,10 +116,10 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f66689e;
+        public final int f70475e;
 
         public d(int i2) {
-            this.f66689e = i2;
+            this.f70475e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -132,7 +130,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
                 if (t == null || t.isEmpty()) {
                     return;
                 }
-                e.this.r(t, this.f66689e);
+                e.this.r(t, this.f70475e);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -141,24 +139,24 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
 
     /* renamed from: d.o.a.d.e$e  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class RunnableC1864e implements Runnable {
+    public static class RunnableC1924e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public long f66691e;
+        public long f70477e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f66692f;
+        public int f70478f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f66693g;
+        public long f70479g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f66694h;
+        public int f70480h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f66695i;
+        public long f70481i;
 
-        public /* synthetic */ RunnableC1864e(long j, int i2, long j2, int i3, a aVar) {
+        public /* synthetic */ RunnableC1924e(long j, int i2, long j2, int i3, a aVar) {
             this(j, i2, j2, i3);
         }
 
@@ -175,7 +173,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
                     return 2005;
                 }
             }
-            int i4 = this.f66694h;
+            int i4 = this.f70480h;
             if (i4 != 2000) {
                 return i4;
             }
@@ -185,12 +183,12 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
                 }
             }
             if (z) {
-                long j = this.f66695i;
-                long j2 = this.f66693g;
+                long j = this.f70481i;
+                long j2 = this.f70479g;
                 if (j > j2) {
                     try {
                         jSONObject.put("install_time", j - j2);
-                        if (bVar.x() <= this.f66693g) {
+                        if (bVar.x() <= this.f70479g) {
                             i2 = 0;
                         }
                         jSONObject.put("install_again", i2);
@@ -213,7 +211,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
             DownloadInfo f2;
             double d2;
             JSONObject jSONObject;
-            d.o.a.b.a.c.b u = c.g.e().u(this.f66691e);
+            d.o.a.b.a.c.b u = c.g.e().u(this.f70477e);
             boolean z = false;
             if (u == null || d.o.a.d.n.k.D(u) || u.K.get() || (f2 = d.o.a.e.b.g.a.l(n.a()).f(u.s())) == null) {
                 return false;
@@ -233,7 +231,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
             boolean l = d.o.a.e.a.c.l(n.a());
             JSONObject jSONObject2 = new JSONObject();
             int a2 = a(z, u, f2, l, jSONObject2);
-            this.f66694h = a2;
+            this.f70480h = a2;
             try {
                 jSONObject = jSONObject2;
             } catch (Exception e3) {
@@ -265,25 +263,25 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
         }
 
         public final void d() {
-            this.f66695i = System.currentTimeMillis();
+            this.f70481i = System.currentTimeMillis();
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
                 if (c()) {
-                    e.d().i(this.f66691e, this.f66692f);
+                    e.d().i(this.f70477e, this.f70478f);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
 
-        public RunnableC1864e(long j, int i2, long j2, int i3) {
-            this.f66691e = j;
-            this.f66692f = i2;
-            this.f66693g = j2;
-            this.f66694h = i3;
+        public RunnableC1924e(long j, int i2, long j2, int i3) {
+            this.f70477e = j;
+            this.f70478f = i2;
+            this.f70479g = j2;
+            this.f70480h = i3;
         }
     }
 
@@ -291,23 +289,23 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.o.a.b.a.c.b f66696e;
+        public final d.o.a.b.a.c.b f70482e;
 
         public f(d.o.a.b.a.c.b bVar) {
-            this.f66696e = bVar;
+            this.f70482e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
                 try {
-                    this.f66696e.R0(true);
-                    e.this.x(this.f66696e);
+                    this.f70482e.R0(true);
+                    e.this.x(this.f70482e);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             } finally {
-                this.f66696e.R0(false);
+                this.f70482e.R0(false);
             }
         }
     }
@@ -338,14 +336,14 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
     }
 
     public static e d() {
-        if (f66667h == null) {
+        if (f70453h == null) {
             synchronized (e.class) {
-                if (f66667h == null) {
-                    f66667h = new e();
+                if (f70453h == null) {
+                    f70453h = new e();
                 }
             }
         }
-        return f66667h;
+        return f70453h;
     }
 
     public static DownloadInfo e(List<DownloadInfo> list, String str) {
@@ -374,7 +372,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
                 jSONObject.put("download_id", downloadInfo.c0());
                 jSONObject.put("name", downloadInfo.q0());
                 jSONObject.put("cur_bytes", downloadInfo.E());
-                jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.Q0());
+                jSONObject.put("total_bytes", downloadInfo.Q0());
                 jSONObject.put("network_quality", downloadInfo.r0());
                 jSONObject.put("current_network_quality", m.a().d().name());
                 jSONObject.put("only_wifi", downloadInfo.K1() ? 1 : 0);
@@ -410,7 +408,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
                         jSONObject.put("download_speed", d2);
                     } catch (Exception unused) {
                     }
-                    String str = f66666g;
+                    String str = f70452g;
                     d.o.a.e.b.c.a.g(str, "download speed : " + d2 + "MB/s");
                 }
                 try {
@@ -444,7 +442,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
                 if (bVar.B() != 1) {
                     return;
                 }
-                i.C1876i.a().k(bVar);
+                i.C1936i.a().k(bVar);
                 String w = w(downloadInfo, bVar);
                 c.g.e().r(downloadInfo.T0(), w);
                 Map<Long, d.o.a.b.a.c.b> f2 = c.g.e().f(downloadInfo.T0(), w);
@@ -557,11 +555,11 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
     @Override // d.o.a.b.a.b
     public void a(int i2) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f66668e < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+        if (currentTimeMillis - this.f70454e < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             return;
         }
-        i.a().c(new d(i2), this.f66668e > 0 ? 2000L : 8000L);
-        this.f66668e = currentTimeMillis;
+        i.a().c(new d(i2), this.f70454e > 0 ? 2000L : 8000L);
+        this.f70454e = currentTimeMillis;
     }
 
     public final int b(d.o.a.b.a.c.b bVar, DownloadInfo downloadInfo, String str, JSONObject jSONObject) {
@@ -590,7 +588,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
 
     @Override // d.o.a.e.b.a.a.b
     public void c() {
-        d.o.a.e.b.c.a.g(f66666g, "onAppBackground()");
+        d.o.a.e.b.c.a.g(f70452g, "onAppBackground()");
         a(6);
     }
 
@@ -651,10 +649,10 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
                 if (a2 == null) {
                     return;
                 }
-                c.e.b().g(a2.f66753a);
+                c.e.b().g(a2.f70539a);
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("installed_app_name", a2.f66756d);
-                jSONObject.put("installed_pkg_name", a2.f66753a);
+                jSONObject.put("installed_app_name", a2.f70542d);
+                jSONObject.put("installed_pkg_name", a2.f70539a);
                 if (i2 != -1) {
                     jSONObject.put("error_code", i2);
                     d.o.a.d.n.f.d(jSONObject, u.s());
@@ -718,12 +716,12 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
             if (c2 < 0) {
                 return;
             }
-            max = Math.max(c2, (long) StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+            max = Math.max(c2, 30000L);
         }
         long j = max;
-        RunnableC1864e runnableC1864e = new RunnableC1864e(bVar.b(), downloadInfo.c0(), currentTimeMillis, i2, null);
-        i.a().c(runnableC1864e, j);
-        this.f66669f = runnableC1864e;
+        RunnableC1924e runnableC1924e = new RunnableC1924e(bVar.b(), downloadInfo.c0(), currentTimeMillis, i2, null);
+        i.a().c(runnableC1924e, j);
+        this.f70455f = runnableC1924e;
         c.j.b().c(bVar);
     }
 
@@ -749,7 +747,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
                 d.o.a.e.b.p.b.a().m(d2.s());
             }
             new g.c().a(d2, new a(this, d2, str), d.o.a.d.n.e.c(d2).b("try_applink_delay_after_installed", 0));
-            i.C1876i.a().m(d2);
+            i.C1936i.a().m(d2);
             q(str, d2);
             d.o.a.d.f.a.a.a().j(str);
             DownloadInfo e2 = e(d.o.a.e.b.g.a.l(n.a()).o("application/vnd.android.package-archive"), str);
@@ -893,10 +891,10 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
     }
 
     public synchronized void z() {
-        RunnableC1864e runnableC1864e = this.f66669f;
-        if (runnableC1864e != null) {
-            runnableC1864e.d();
-            this.f66669f = null;
+        RunnableC1924e runnableC1924e = this.f70455f;
+        if (runnableC1924e != null) {
+            runnableC1924e.d();
+            this.f70455f = null;
         }
     }
 
@@ -910,7 +908,7 @@ public class e implements d.o.a.b.a.b, c.e, a.b {
 
     @Override // d.o.a.e.b.a.a.b
     public void b() {
-        d.o.a.e.b.c.a.g(f66666g, "onAppForeground()");
+        d.o.a.e.b.c.a.g(f70452g, "onAppForeground()");
         z();
         a(5);
     }

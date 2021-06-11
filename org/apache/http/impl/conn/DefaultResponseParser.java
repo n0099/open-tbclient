@@ -9,7 +9,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.message.LineParser;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultResponseParser extends AbstractMessageParser {
     public DefaultResponseParser(SessionInputBuffer sessionInputBuffer, LineParser lineParser, HttpResponseFactory httpResponseFactory, HttpParams httpParams) {
         super(null, null, null);

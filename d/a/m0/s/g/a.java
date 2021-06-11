@@ -19,28 +19,28 @@ public class a {
 
     /* renamed from: d.a.m0.s.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1155a implements a.e {
+    public static class C1211a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f50665e;
+        public final /* synthetic */ int f54342e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f50666f;
+        public final /* synthetic */ Context f54343f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f50667g;
+        public final /* synthetic */ DialogInterface.OnCancelListener f54344g;
 
-        public C1155a(int i2, Context context, DialogInterface.OnCancelListener onCancelListener) {
-            this.f50665e = i2;
-            this.f50666f = context;
-            this.f50667g = onCancelListener;
+        public C1211a(int i2, Context context, DialogInterface.OnCancelListener onCancelListener) {
+            this.f54342e = i2;
+            this.f54343f = context;
+            this.f54344g = onCancelListener;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            a.d(this.f50665e, this.f50666f);
+            a.d(this.f54342e, this.f54343f);
             aVar.dismiss();
-            DialogInterface.OnCancelListener onCancelListener = this.f50667g;
+            DialogInterface.OnCancelListener onCancelListener = this.f54344g;
             if (onCancelListener != null) {
                 onCancelListener.onCancel(aVar.getDialog());
             }
@@ -51,16 +51,16 @@ public class a {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f50668e;
+        public final /* synthetic */ DialogInterface.OnCancelListener f54345e;
 
         public b(DialogInterface.OnCancelListener onCancelListener) {
-            this.f50668e = onCancelListener;
+            this.f54345e = onCancelListener;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            DialogInterface.OnCancelListener onCancelListener = this.f50668e;
+            DialogInterface.OnCancelListener onCancelListener = this.f54345e;
             if (onCancelListener != null) {
                 onCancelListener.onCancel(aVar.getDialog());
             }
@@ -143,7 +143,7 @@ public class a {
         aVar.setAutoNight(false);
         aVar.setCancelable(true);
         aVar.setTitleShowCenter(true);
-        aVar.setPositiveButton(c(i2, context), new C1155a(i2, context, onCancelListener));
+        aVar.setPositiveButton(c(i2, context), new C1211a(i2, context, onCancelListener));
         aVar.setNegativeButton(R.string.cancel, new b(onCancelListener)).create(j.a(activity));
         if (onCancelListener != null) {
             aVar.setOnCalcelListener(onCancelListener);

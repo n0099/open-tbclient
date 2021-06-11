@@ -37,47 +37,47 @@ import java.util.Date;
 public class e implements d.a.m0.s.d.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f50579b = StringHelper.MS_TO_MIN * 1;
+    public static final long f54256b = StringHelper.MS_TO_MIN * 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.m0.b1.o.a.f.b f50580a;
+    public d.a.m0.b1.o.a.f.b f54257a;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.m0.b1.o.a.d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f50581a;
+        public final /* synthetic */ Activity f54258a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f50582b;
+        public final /* synthetic */ TbPageContext f54259b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f50583c;
+        public final /* synthetic */ ViewGroup f54260c;
 
         public a(Activity activity, TbPageContext tbPageContext, ViewGroup viewGroup) {
-            this.f50581a = activity;
-            this.f50582b = tbPageContext;
-            this.f50583c = viewGroup;
+            this.f54258a = activity;
+            this.f54259b = tbPageContext;
+            this.f54260c = viewGroup;
         }
 
         @Override // d.a.m0.b1.o.a.d.e
         public void a(Date date, View view) {
             if (date != null) {
                 boolean z = false;
-                if ("frs.FrsActivity".equals(this.f50581a.getLocalClassName()) && d.a.m0.r.d0.b.j().g("first_call_attention", true)) {
+                if ("frs.FrsActivity".equals(this.f54258a.getLocalClassName()) && d.a.m0.r.d0.b.j().g("first_call_attention", true)) {
                     d.a.m0.r.d0.b.j().t("first_call_attention", false);
-                    if (!NotificationManagerCompat.from(this.f50582b.getPageActivity()).areNotificationsEnabled()) {
+                    if (!NotificationManagerCompat.from(this.f54259b.getPageActivity()).areNotificationsEnabled()) {
                         z = true;
                     }
                 }
                 if (z) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001223, date));
-                    d.a.m0.s.h.a.f(this.f50582b, new boolean[]{true, false}, 2);
+                    d.a.m0.s.h.a.f(this.f54259b, new boolean[]{true, false}, 2);
                     return;
                 }
                 e.this.i(true);
                 d.d().S(date.getHours(), date.getMinutes());
-                e.this.e(this.f50581a, this.f50583c);
+                e.this.e(this.f54258a, this.f54260c);
             }
         }
     }
@@ -86,7 +86,7 @@ public class e implements d.a.m0.s.d.a {
     public class b implements d.a.m0.b1.o.a.d.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f50585a;
+        public final /* synthetic */ TbPageContext f54262a;
 
         /* loaded from: classes3.dex */
         public class a implements View.OnTouchListener {
@@ -101,21 +101,21 @@ public class e implements d.a.m0.s.d.a {
 
         /* renamed from: d.a.m0.s.d.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC1152b implements View.OnClickListener {
-            public View$OnClickListenerC1152b() {
+        public class View$OnClickListenerC1208b implements View.OnClickListener {
+            public View$OnClickListenerC1208b() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.f50580a != null) {
-                    e.this.f50580a.A();
-                    e.this.f50580a.f();
+                if (e.this.f54257a != null) {
+                    e.this.f54257a.B();
+                    e.this.f54257a.f();
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_OK_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 TiebaStatic.log(statisticItem);
                 if (d.a.m0.s.h.a.e(TbadkCoreApplication.getInst(), 0)) {
-                    d.a.m0.s.h.a.g(b.this.f50585a, 5, 0L);
+                    d.a.m0.s.h.a.g(b.this.f54262a, 5, 0L);
                 }
             }
         }
@@ -127,8 +127,8 @@ public class e implements d.a.m0.s.d.a {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.f50580a != null) {
-                    e.this.f50580a.f();
+                if (e.this.f54257a != null) {
+                    e.this.f54257a.f();
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_CLOSE_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -137,7 +137,7 @@ public class e implements d.a.m0.s.d.a {
         }
 
         public b(TbPageContext tbPageContext) {
-            this.f50585a = tbPageContext;
+            this.f54262a = tbPageContext;
         }
 
         @Override // d.a.m0.b1.o.a.d.a
@@ -160,7 +160,7 @@ public class e implements d.a.m0.s.d.a {
             a aVar = new a(this);
             findViewById.setOnTouchListener(aVar);
             findViewById4.setOnTouchListener(aVar);
-            textView.setOnClickListener(new View$OnClickListenerC1152b());
+            textView.setOnClickListener(new View$OnClickListenerC1208b());
             imageView.setOnClickListener(new c());
         }
     }
@@ -219,7 +219,7 @@ public class e implements d.a.m0.s.d.a {
         if (i2 > 0 && j > 0) {
             calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), i2, j);
         } else {
-            calendar.setTimeInMillis(System.currentTimeMillis() + f50579b);
+            calendar.setTimeInMillis(System.currentTimeMillis() + f54256b);
         }
         d.a.m0.b1.o.a.b.a aVar = new d.a.m0.b1.o.a.b.a(pageActivity, eVar);
         aVar.g(calendar);
@@ -236,12 +236,12 @@ public class e implements d.a.m0.s.d.a {
         aVar.d(SkinManager.getColor(R.color.black_alpha30));
         aVar.e(SkinManager.getColor(R.color.CAM_X0211));
         d.a.m0.b1.o.a.f.b a2 = aVar.a();
-        this.f50580a = a2;
-        a2.u();
+        this.f54257a = a2;
+        a2.v();
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SHOW);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(statisticItem);
-        return this.f50580a.j();
+        return this.f54257a.k();
     }
 
     @Override // d.a.m0.s.d.a
@@ -317,7 +317,7 @@ public class e implements d.a.m0.s.d.a {
 
     public final void m() {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis() + f50579b);
+        calendar.setTimeInMillis(System.currentTimeMillis() + f54256b);
         g(calendar.get(11), calendar.get(12));
     }
 }

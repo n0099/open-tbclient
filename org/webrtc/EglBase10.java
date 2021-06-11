@@ -13,7 +13,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import org.webrtc.EglBase;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EglBase10 implements EglBase {
     public static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
     @Nullable
@@ -23,7 +23,7 @@ public class EglBase10 implements EglBase {
     public EGLSurface eglSurface = EGL10.EGL_NO_SURFACE;
     public final EGL10 egl = (EGL10) EGLContext.getEGL();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Context implements EglBase.Context {
         public final EGLContext eglContext;
 

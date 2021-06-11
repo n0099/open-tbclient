@@ -5,25 +5,25 @@ import java.util.ArrayList;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7667a;
+    public int f7710a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7668b;
+    public String f7711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7669c;
+    public int f7712c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7670d;
+    public int f7713d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<q> f7671e;
+    public ArrayList<q> f7714e;
 
     public ArrayList<q> a() {
-        return this.f7671e;
+        return this.f7714e;
     }
 
     public void a(ArrayList<q> arrayList) {
-        this.f7671e = arrayList;
+        this.f7714e = arrayList;
     }
 }

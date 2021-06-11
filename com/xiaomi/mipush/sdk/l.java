@@ -6,20 +6,20 @@ import java.util.HashMap;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<e, a> f37272a = new HashMap<>();
+    public static HashMap<e, a> f40951a = new HashMap<>();
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37273a;
+        public String f40952a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37274b;
+        public String f40953b;
 
         public a(String str, String str2) {
-            this.f37273a = str;
-            this.f37274b = str2;
+            this.f40952a = str;
+            this.f40953b = str2;
         }
     }
 
@@ -31,7 +31,7 @@ public class l {
     }
 
     public static at a(e eVar) {
-        int i2 = m.f37275a[eVar.ordinal()];
+        int i2 = m.f40954a[eVar.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {
@@ -48,18 +48,18 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m121a(e eVar) {
-        return f37272a.get(eVar);
+    public static a m120a(e eVar) {
+        return f40951a.get(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hk m122a(e eVar) {
+    public static hk m121a(e eVar) {
         return hk.AggregatePushSwitch;
     }
 
     public static void a(e eVar, a aVar) {
         if (aVar != null) {
-            f37272a.put(eVar, aVar);
+            f40951a.put(eVar, aVar);
         }
     }
 }

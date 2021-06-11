@@ -12,9 +12,8 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
 import org.webrtc.ThreadUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioTrack {
     public static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
     public static final int BITS_PER_SAMPLE = 16;
@@ -39,13 +38,13 @@ public class WebRtcAudioTrack {
     public final long nativeAudioTrack;
     public final ThreadUtils.ThreadChecker threadChecker;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum AudioTrackStartErrorCode {
         AUDIO_TRACK_START_EXCEPTION,
         AUDIO_TRACK_START_STATE_MISMATCH
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AudioTrackThread extends Thread {
         public volatile boolean keepAlive;
 
@@ -101,7 +100,7 @@ public class WebRtcAudioTrack {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -111,7 +110,7 @@ public class WebRtcAudioTrack {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface WebRtcAudioTrackErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -132,7 +131,7 @@ public class WebRtcAudioTrack {
         threadChecker.checkIsOnValidThread();
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
         this.nativeAudioTrack = j;
-        this.audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
     }
 
     public static void assertTrue(boolean z) {

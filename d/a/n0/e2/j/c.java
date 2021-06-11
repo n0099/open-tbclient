@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import d.a.n0.e2.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static f a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
         if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
             return null;
         }
-        StatisticItem statisticItem = new StatisticItem(b.a.f52803a);
+        StatisticItem statisticItem = new StatisticItem(b.a.f56492a);
         int i2 = 0;
         int from = iBaseDialogData.getFrom();
         if (from == 0) {

@@ -5,12 +5,11 @@ import android.media.AudioManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
 import java.lang.ref.WeakReference;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class m0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f51060a = false;
+    public static boolean f54737a = false;
 
     public static boolean a(int i2) {
         if (i2 == 2) {
@@ -38,7 +37,7 @@ public class m0 {
     }
 
     public static boolean c() {
-        return f51060a;
+        return f54737a;
     }
 
     public static boolean d() {
@@ -52,7 +51,7 @@ public class m0 {
         if (weakReference == null || weakReference.get() == null) {
             return false;
         }
-        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
         if (z) {
             if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
                 return false;
@@ -67,6 +66,6 @@ public class m0 {
         if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        f51060a = ((AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).isMusicActive();
+        f54737a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
     }
 }

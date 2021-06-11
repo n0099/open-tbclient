@@ -14,63 +14,63 @@ import java.util.Set;
 public class b extends g {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43243e = k.f43199a;
+    public static final boolean f46919e = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SharedPreferences$EditorC0728b f43244b;
+    public final SharedPreferences$EditorC0784b f46920b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f43245c;
+    public final boolean f46921c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f43246d;
+    public final String f46922d;
 
     /* renamed from: d.a.l0.a.k2.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class SharedPreferences$EditorC0728b implements SharedPreferences.Editor {
+    public class SharedPreferences$EditorC0784b implements SharedPreferences.Editor {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Deque<Runnable> f43247a;
+        public final Deque<Runnable> f46923a;
 
         /* renamed from: d.a.l0.a.k2.g.b$b$a */
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43249e;
+            public final /* synthetic */ String f46925e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f43250f;
+            public final /* synthetic */ String f46926f;
 
             public a(String str, String str2) {
-                this.f43249e = str;
-                this.f43250f = str2;
+                this.f46925e = str;
+                this.f46926f = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.putString(this.f43249e, this.f43250f);
+                b.this.putString(this.f46925e, this.f46926f);
             }
         }
 
         /* renamed from: d.a.l0.a.k2.g.b$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0729b implements Runnable {
+        public class RunnableC0785b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43252e;
+            public final /* synthetic */ String f46928e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Set f43253f;
+            public final /* synthetic */ Set f46929f;
 
-            public RunnableC0729b(String str, Set set) {
-                this.f43252e = str;
-                this.f43253f = set;
+            public RunnableC0785b(String str, Set set) {
+                this.f46928e = str;
+                this.f46929f = set;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.putStringSet(this.f43252e, this.f43253f);
+                b.this.putStringSet(this.f46928e, this.f46929f);
             }
         }
 
@@ -79,19 +79,19 @@ public class b extends g {
         public class c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43255e;
+            public final /* synthetic */ String f46931e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f43256f;
+            public final /* synthetic */ int f46932f;
 
             public c(String str, int i2) {
-                this.f43255e = str;
-                this.f43256f = i2;
+                this.f46931e = str;
+                this.f46932f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.putInt(this.f43255e, this.f43256f);
+                b.this.putInt(this.f46931e, this.f46932f);
             }
         }
 
@@ -100,19 +100,19 @@ public class b extends g {
         public class d implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43258e;
+            public final /* synthetic */ String f46934e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f43259f;
+            public final /* synthetic */ long f46935f;
 
             public d(String str, long j) {
-                this.f43258e = str;
-                this.f43259f = j;
+                this.f46934e = str;
+                this.f46935f = j;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.putLong(this.f43258e, this.f43259f);
+                b.this.putLong(this.f46934e, this.f46935f);
             }
         }
 
@@ -121,19 +121,19 @@ public class b extends g {
         public class e implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43261e;
+            public final /* synthetic */ String f46937e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ float f43262f;
+            public final /* synthetic */ float f46938f;
 
             public e(String str, float f2) {
-                this.f43261e = str;
-                this.f43262f = f2;
+                this.f46937e = str;
+                this.f46938f = f2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.putFloat(this.f43261e, this.f43262f);
+                b.this.putFloat(this.f46937e, this.f46938f);
             }
         }
 
@@ -142,19 +142,19 @@ public class b extends g {
         public class f implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43264e;
+            public final /* synthetic */ String f46940e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ boolean f43265f;
+            public final /* synthetic */ boolean f46941f;
 
             public f(String str, boolean z) {
-                this.f43264e = str;
-                this.f43265f = z;
+                this.f46940e = str;
+                this.f46941f = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.putBoolean(this.f43264e, this.f43265f);
+                b.this.putBoolean(this.f46940e, this.f46941f);
             }
         }
 
@@ -163,15 +163,15 @@ public class b extends g {
         public class g implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f43267e;
+            public final /* synthetic */ String f46943e;
 
             public g(String str) {
-                this.f43267e = str;
+                this.f46943e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.remove(this.f43267e);
+                b.this.remove(this.f46943e);
             }
         }
 
@@ -187,8 +187,8 @@ public class b extends g {
             }
         }
 
-        public SharedPreferences$EditorC0728b() {
-            this.f43247a = new ArrayDeque();
+        public SharedPreferences$EditorC0784b() {
+            this.f46923a = new ArrayDeque();
         }
 
         @Override // android.content.SharedPreferences.Editor
@@ -204,9 +204,9 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public boolean commit() {
-            synchronized (this.f43247a) {
-                while (!this.f43247a.isEmpty()) {
-                    Runnable poll = this.f43247a.poll();
+            synchronized (this.f46923a) {
+                while (!this.f46923a.isEmpty()) {
+                    Runnable poll = this.f46923a.poll();
                     if (poll != null) {
                         poll.run();
                     }
@@ -215,9 +215,9 @@ public class b extends g {
             return true;
         }
 
-        public final SharedPreferences$EditorC0728b e(Runnable runnable) {
-            synchronized (this.f43247a) {
-                this.f43247a.offer(runnable);
+        public final SharedPreferences$EditorC0784b e(Runnable runnable) {
+            synchronized (this.f46923a) {
+                this.f46923a.offer(runnable);
             }
             return this;
         }
@@ -254,7 +254,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
-            e(new RunnableC0729b(str, set));
+            e(new RunnableC0785b(str, set));
             return this;
         }
 
@@ -267,14 +267,14 @@ public class b extends g {
 
     public b(String str) {
         super(str);
-        this.f43244b = new SharedPreferences$EditorC0728b();
-        this.f43246d = str;
-        this.f43245c = ProcessUtils.isMainProcess() || b();
+        this.f46920b = new SharedPreferences$EditorC0784b();
+        this.f46922d = str;
+        this.f46921c = ProcessUtils.isMainProcess() || b();
     }
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor clear() {
-        if (this.f43245c) {
+        if (this.f46921c) {
             super.clear();
         } else {
             d.a.l0.a.v1.b.d.b(f.class, c.a(i(), 100, "", ""));
@@ -288,7 +288,7 @@ public class b extends g {
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
-        return this.f43245c ? super.edit() : this.f43244b;
+        return this.f46921c ? super.edit() : this.f46920b;
     }
 
     public float f(String str, float f2) {
@@ -307,14 +307,14 @@ public class b extends g {
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
         try {
-            if (this.f43245c) {
+            if (this.f46921c) {
                 return e(str, z);
             }
             d.a.l0.a.v1.b.f b2 = d.a.l0.a.v1.b.d.b(e.class, c.a(i(), 3, str, String.valueOf(z)));
-            if (f43243e) {
-                Log.d("IpcSp", "getBoolean processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f45297a.getBoolean("result_value"));
+            if (f46919e) {
+                Log.d("IpcSp", "getBoolean processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f48971a.getBoolean("result_value"));
             }
-            return b2.f45297a.getBoolean("result_value");
+            return b2.f48971a.getBoolean("result_value");
         } catch (ClassCastException e2) {
             Log.e("IpcSp", "getBoolean", e2);
             return false;
@@ -323,50 +323,50 @@ public class b extends g {
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences
     public float getFloat(String str, float f2) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             return f(str, f2);
         }
         d.a.l0.a.v1.b.f b2 = d.a.l0.a.v1.b.d.b(e.class, c.a(i(), 5, str, String.valueOf(f2)));
-        if (f43243e) {
-            Log.d("IpcSp", "getFloat processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f45297a.getFloat("result_value"));
+        if (f46919e) {
+            Log.d("IpcSp", "getFloat processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f48971a.getFloat("result_value"));
         }
-        return b2.f45297a.getFloat("result_value");
+        return b2.f48971a.getFloat("result_value");
     }
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences
     public int getInt(String str, int i2) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             return g(str, i2);
         }
         d.a.l0.a.v1.b.f b2 = d.a.l0.a.v1.b.d.b(e.class, c.a(i(), 1, str, String.valueOf(i2)));
-        if (f43243e) {
-            Log.d("IpcSp", "getInt processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f45297a.getInt("result_value"));
+        if (f46919e) {
+            Log.d("IpcSp", "getInt processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f48971a.getInt("result_value"));
         }
-        return b2.f45297a.getInt("result_value");
+        return b2.f48971a.getInt("result_value");
     }
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences
     public long getLong(String str, long j) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             return h(str, j);
         }
         d.a.l0.a.v1.b.f b2 = d.a.l0.a.v1.b.d.b(e.class, c.a(i(), 2, str, String.valueOf(j)));
-        if (f43243e) {
-            Log.d("IpcSp", "getLong processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f45297a.getLong("result_value"));
+        if (f46919e) {
+            Log.d("IpcSp", "getLong processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f48971a.getLong("result_value"));
         }
-        return b2.f45297a.getLong("result_value");
+        return b2.f48971a.getLong("result_value");
     }
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences
     public String getString(String str, String str2) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             return j(str, str2);
         }
         d.a.l0.a.v1.b.f b2 = d.a.l0.a.v1.b.d.b(e.class, c.a(i(), 4, str, str2));
-        if (f43243e) {
-            Log.d("IpcSp", "getString processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f45297a.getString("result_value"));
+        if (f46919e) {
+            Log.d("IpcSp", "getString processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f48971a.getString("result_value"));
         }
-        return b2.f45297a.getString("result_value");
+        return b2.f48971a.getString("result_value");
     }
 
     public long h(String str, long j) {
@@ -374,7 +374,7 @@ public class b extends g {
     }
 
     public String i() {
-        return this.f43246d;
+        return this.f46922d;
     }
 
     public String j(String str, String str2) {
@@ -382,12 +382,12 @@ public class b extends g {
     }
 
     public boolean k() {
-        return this.f43245c;
+        return this.f46921c;
     }
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             super.putBoolean(str, z);
         } else {
             d.a.l0.a.v1.b.d.b(f.class, c.a(i(), 3, str, String.valueOf(z)));
@@ -397,7 +397,7 @@ public class b extends g {
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putFloat(String str, float f2) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             super.putFloat(str, f2);
         } else {
             d.a.l0.a.v1.b.d.b(f.class, c.a(i(), 5, str, String.valueOf(f2)));
@@ -407,7 +407,7 @@ public class b extends g {
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putInt(String str, int i2) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             super.putInt(str, i2);
         } else {
             d.a.l0.a.v1.b.d.b(f.class, c.a(i(), 1, str, String.valueOf(i2)));
@@ -417,7 +417,7 @@ public class b extends g {
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putLong(String str, long j) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             super.edit().putLong(str, j).commit();
         } else {
             d.a.l0.a.v1.b.d.b(f.class, c.a(i(), 2, str, String.valueOf(j)));
@@ -427,7 +427,7 @@ public class b extends g {
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putString(String str, String str2) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             super.putString(str, str2);
         } else {
             d.a.l0.a.v1.b.d.b(f.class, c.a(i(), 4, str, str2));
@@ -437,7 +437,7 @@ public class b extends g {
 
     @Override // d.a.l0.a.k2.g.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor remove(String str) {
-        if (this.f43245c) {
+        if (this.f46921c) {
             super.remove(str);
         } else {
             d.a.l0.a.v1.b.d.b(f.class, c.a(i(), 101, str, ""));

@@ -12,37 +12,37 @@ import d.a.c.e.p.l;
 public class b extends d.a.n0.z1.h.f.g.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f63766a;
+    public View f67484a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f63767b;
+    public TextView f67485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f63768c;
+    public ImageView f67486c;
 
     public b(View view, String str) {
-        this.f63766a = view;
+        this.f67484a = view;
         TextView textView = (TextView) view.findViewById(R.id.emotion_empty_content);
-        this.f63767b = textView;
+        this.f67485b = textView;
         textView.setText(str);
-        this.f63768c = (ImageView) view.findViewById(R.id.emotion_empty_icon);
+        this.f67486c = (ImageView) view.findViewById(R.id.emotion_empty_icon);
         c();
     }
 
     public View a() {
-        return this.f63766a;
+        return this.f67484a;
     }
 
     public void b(int i2) {
-        TextView textView = this.f63767b;
+        TextView textView = this.f67485b;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
         }
-        ImageView imageView = this.f63768c;
+        ImageView imageView = this.f67486c;
         if (imageView != null) {
             SkinManager.setImageResource(imageView, R.drawable.new_pic_emotion_02, i2);
         }
-        View view = this.f63766a;
+        View view = this.f67484a;
         if (view != null) {
             SkinManager.setBackgroundColor(view, R.color.CAM_X0201, i2);
         }
@@ -51,11 +51,11 @@ public class b extends d.a.n0.z1.h.f.g.a {
     public final void c() {
         int i2 = l.i(TbadkCoreApplication.getInst());
         int dimensionPixelSize = i2 <= 0 ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200) : (int) (i2 * 0.11d);
-        ViewGroup.LayoutParams layoutParams = this.f63768c.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f67486c.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = dimensionPixelSize;
-            this.f63768c.setLayoutParams(marginLayoutParams);
+            this.f67486c.setLayoutParams(marginLayoutParams);
         }
     }
 }

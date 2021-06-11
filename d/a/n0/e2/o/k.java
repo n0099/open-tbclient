@@ -9,33 +9,33 @@ import java.util.LinkedList;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.n0.e2.h.e f53762a;
+    public d.a.n0.e2.h.e f57451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.e2.h.e f53763b;
+    public d.a.n0.e2.h.e f57452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53764c;
+    public boolean f57453c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Rect f53766e;
+    public Rect f57455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f53767f;
+    public boolean f57456f;
     public MutableLiveData<Boolean> l;
     public MutableLiveData<Integer> m;
 
     /* renamed from: d  reason: collision with root package name */
-    public MutableLiveData<a2> f53765d = new MutableLiveData<>();
+    public MutableLiveData<a2> f57454d = new MutableLiveData<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<d.a.n0.e2.h.e> f53768g = new LinkedList<>();
+    public LinkedList<d.a.n0.e2.h.e> f57457g = new LinkedList<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public MutableLiveData<a2> f53769h = new MutableLiveData<>();
+    public MutableLiveData<a2> f57458h = new MutableLiveData<>();
 
     /* renamed from: i  reason: collision with root package name */
-    public MutableLiveData<a2> f53770i = new MutableLiveData<>();
+    public MutableLiveData<a2> f57459i = new MutableLiveData<>();
     public MutableLiveData<Boolean> j = new MutableLiveData<>();
     public MutableLiveData<Boolean> k = new MutableLiveData<>();
 
@@ -50,11 +50,11 @@ public class k {
     }
 
     public d.a.n0.e2.h.e b() {
-        return this.f53763b;
+        return this.f57452b;
     }
 
     public d.a.n0.e2.h.e c() {
-        return this.f53762a;
+        return this.f57451a;
     }
 
     public MutableLiveData<Boolean> d() {
@@ -66,31 +66,31 @@ public class k {
     }
 
     public MutableLiveData<a2> f() {
-        return this.f53770i;
+        return this.f57459i;
     }
 
     public Rect g() {
-        return this.f53766e;
+        return this.f57455e;
     }
 
     public MutableLiveData<a2> h() {
-        return this.f53769h;
+        return this.f57458h;
     }
 
     public MutableLiveData<a2> i() {
-        return this.f53765d;
+        return this.f57454d;
     }
 
     public LinkedList<d.a.n0.e2.h.e> j() {
-        return this.f53768g;
+        return this.f57457g;
     }
 
     public boolean k() {
-        return this.f53764c;
+        return this.f57453c;
     }
 
     public boolean l() {
-        return this.f53767f;
+        return this.f57456f;
     }
 
     public MutableLiveData<Boolean> m() {
@@ -98,9 +98,9 @@ public class k {
     }
 
     public void n(d.a.n0.e2.h.e eVar) {
-        this.f53763b = eVar;
+        this.f57452b = eVar;
         if (eVar != null) {
-            this.f53765d.setValue(eVar.L());
+            this.f57454d.setValue(eVar.L());
             if (ListUtils.isEmpty(eVar.f())) {
                 return;
             }
@@ -109,14 +109,14 @@ public class k {
     }
 
     public void o(d.a.n0.e2.h.e eVar) {
-        this.f53762a = eVar;
+        this.f57451a = eVar;
         n(eVar);
-        this.f53769h.setValue(null);
-        this.f53765d.setValue(eVar.L());
+        this.f57458h.setValue(null);
+        this.f57454d.setValue(eVar.L());
     }
 
     public void p(boolean z) {
-        this.f53764c = z;
+        this.f57453c = z;
     }
 
     public void q(boolean z) {
@@ -132,18 +132,18 @@ public class k {
     }
 
     public void t(boolean z) {
-        this.f53767f = z;
+        this.f57456f = z;
     }
 
     public void u(a2 a2Var) {
-        this.f53770i.setValue(a2Var);
+        this.f57459i.setValue(a2Var);
     }
 
     public void v(Rect rect) {
-        this.f53766e = rect;
+        this.f57455e = rect;
     }
 
     public void w(a2 a2Var) {
-        this.f53769h.setValue(a2Var);
+        this.f57458h.setValue(a2Var);
     }
 }

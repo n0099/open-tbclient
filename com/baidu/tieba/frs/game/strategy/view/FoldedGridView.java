@@ -20,19 +20,19 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     public static final int m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds48);
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15426e;
+    public View f15488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15427f;
+    public int f15489f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15428g;
+    public int f15490g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f15429h;
+    public boolean f15491h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.r0.s1.a.e.a f15430i;
+    public d.a.n0.r0.s1.a.e.a f15492i;
     public a j;
     public int k;
     public Drawable l;
@@ -44,9 +44,9 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
 
     public FoldedGridView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f15427f = 0;
-        this.f15428g = 0;
-        this.f15429h = true;
+        this.f15489f = 0;
+        this.f15490g = 0;
+        this.f15491h = true;
         this.k = 0;
         c();
     }
@@ -59,10 +59,10 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
                 return;
             }
             ImageView imageView = (ImageView) frameLayout.getChildAt(0);
-            if (this.f15429h) {
-                imageView.setImageDrawable(SkinManager.getDrawable(this.f15427f));
+            if (this.f15491h) {
+                imageView.setImageDrawable(SkinManager.getDrawable(this.f15489f));
             } else {
-                imageView.setImageDrawable(SkinManager.getDrawable(this.f15428g));
+                imageView.setImageDrawable(SkinManager.getDrawable(this.f15490g));
             }
         }
     }
@@ -78,7 +78,7 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     }
 
     public void d(int i2) {
-        View view = this.f15426e;
+        View view = this.f15488e;
         if (view != null) {
             a(view);
         }
@@ -93,7 +93,7 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
         Drawable drawable;
         super.dispatchDraw(canvas);
         int height = getHeight();
-        if (this.f15429h || (drawable = this.l) == null) {
+        if (this.f15491h || (drawable = this.l) == null) {
             return;
         }
         drawable.setBounds(0, (height - m) - getPaddingBottom(), getWidth(), height - getPaddingBottom());
@@ -101,12 +101,12 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     }
 
     public final void e() {
-        this.f15429h = !this.f15429h;
-        a(this.f15426e);
-        d.a.n0.r0.s1.a.e.a aVar = this.f15430i;
+        this.f15491h = !this.f15491h;
+        a(this.f15488e);
+        d.a.n0.r0.s1.a.e.a aVar = this.f15492i;
         if (aVar != null) {
-            aVar.k(this.f15429h);
-            this.f15430i.notifyDataSetChanged();
+            aVar.k(this.f15491h);
+            this.f15492i.notifyDataSetChanged();
             invalidate();
         }
     }
@@ -121,37 +121,37 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
 
     @Override // d.a.n0.r0.s1.a.e.e
     public View getArrowView() {
-        if (this.f15426e == null) {
+        if (this.f15488e == null) {
             FrameLayout frameLayout = new FrameLayout(getContext());
             ImageView imageView = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 21;
             frameLayout.addView(imageView, layoutParams);
-            this.f15426e = frameLayout;
+            this.f15488e = frameLayout;
         }
-        return this.f15426e;
+        return this.f15488e;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
         d.a.n0.r0.s1.a.e.a aVar;
-        if (view == this.f15426e) {
-            d.a.n0.r0.s1.a.e.a aVar2 = this.f15430i;
+        if (view == this.f15488e) {
+            d.a.n0.r0.s1.a.e.a aVar2 = this.f15492i;
             if (aVar2 == null || !aVar2.h()) {
                 return;
             }
             e();
-        } else if (this.j == null || (aVar = this.f15430i) == null) {
+        } else if (this.j == null || (aVar = this.f15492i) == null) {
         } else {
             int f2 = aVar.f(i2);
-            this.f15430i.j(f2);
-            this.j.a(f2, this.f15430i.getItem(i2));
+            this.f15492i.j(f2);
+            this.j.a(f2, this.f15492i.getItem(i2));
         }
     }
 
     public void setArrowResouceId(int i2, int i3) {
-        this.f15427f = i2;
-        this.f15428g = i3;
+        this.f15489f = i2;
+        this.f15490g = i3;
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -165,7 +165,7 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     }
 
     public void setFoldAdapter(d.a.n0.r0.s1.a.e.a aVar) {
-        this.f15430i = aVar;
+        this.f15492i = aVar;
         if (aVar != null) {
             aVar.i(this);
         }
@@ -178,18 +178,18 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
 
     public FoldedGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15427f = 0;
-        this.f15428g = 0;
-        this.f15429h = true;
+        this.f15489f = 0;
+        this.f15490g = 0;
+        this.f15491h = true;
         this.k = 0;
         c();
     }
 
     public FoldedGridView(Context context) {
         super(context);
-        this.f15427f = 0;
-        this.f15428g = 0;
-        this.f15429h = true;
+        this.f15489f = 0;
+        this.f15490g = 0;
+        this.f15491h = true;
         this.k = 0;
         c();
     }

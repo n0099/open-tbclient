@@ -29,9 +29,9 @@ public class n0 extends o<d.a.n0.e2.h.o, PbReplyTitleViewHolder> {
         this.v = BdUniqueId.gen();
     }
 
-    @Override // d.a.n0.e2.k.e.o, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        j0(i2, view, viewGroup, (d.a.n0.e2.h.o) obj, (PbReplyTitleViewHolder) viewHolder);
+    @Override // d.a.n0.e2.k.e.o, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        k0(i2, view, viewGroup, (d.a.n0.e2.h.o) obj, (PbReplyTitleViewHolder) viewHolder);
         return view;
     }
 
@@ -39,32 +39,32 @@ public class n0 extends o<d.a.n0.e2.h.o, PbReplyTitleViewHolder> {
         this.s = onClickListener;
     }
 
-    public final void g0() {
+    public final void h0() {
         d.a.n0.e2.h.e eVar = this.x;
         if (eVar == null || eVar.L() == null || this.x.h() == null) {
             return;
         }
         d.a.n0.e2.h.e eVar2 = this.x;
-        if (eVar2.f52927i && !this.w) {
+        if (eVar2.f56616i && !this.w) {
             this.w = true;
             boolean isLike = eVar2.h().getIsLike();
-            TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 9).param("obj_id", this.x.h().h()).param("thread_type", this.x.L().u1()).param("tid", this.x.L().o0()));
+            TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 9).param("obj_id", this.x.h().i()).param("thread_type", this.x.L().v1()).param("tid", this.x.L().o0()));
             if (isLike) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 10).param("obj_id", this.x.h().h()).param("thread_type", this.x.L().u1()).param("tid", this.x.L().o0()));
+            TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 10).param("obj_id", this.x.h().i()).param("thread_type", this.x.L().v1()).param("tid", this.x.L().o0()));
         }
     }
 
-    public View h0() {
+    public View i0() {
         return this.y;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: i0 */
-    public PbReplyTitleViewHolder P(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f39228e).inflate(R.layout.pb_reply_title_layout, viewGroup, false);
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public PbReplyTitleViewHolder Q(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.f42909e).inflate(R.layout.pb_reply_title_layout, viewGroup, false);
         this.y = inflate;
         PbReplyTitleViewHolder pbReplyTitleViewHolder = new PbReplyTitleViewHolder(this.m.getPageContext(), inflate);
         PbFragment pbFragment = this.n;
@@ -74,25 +74,25 @@ public class n0 extends o<d.a.n0.e2.h.o, PbReplyTitleViewHolder> {
         pbReplyTitleViewHolder.u = false;
         pbReplyTitleViewHolder.p(this.s);
         pbReplyTitleViewHolder.o(this.t);
-        if (G() == d.a.n0.e2.h.o.l) {
+        if (H() == d.a.n0.e2.h.o.l) {
             pbReplyTitleViewHolder.n(this.u);
-        } else if (G() == d.a.n0.e2.h.o.m) {
+        } else if (H() == d.a.n0.e2.h.o.m) {
             pbReplyTitleViewHolder.m(this.v);
         }
         return pbReplyTitleViewHolder;
     }
 
-    public View j0(int i2, View view, ViewGroup viewGroup, d.a.n0.e2.h.o oVar, PbReplyTitleViewHolder pbReplyTitleViewHolder) {
-        super.W(i2, view, viewGroup, oVar, pbReplyTitleViewHolder);
+    public View k0(int i2, View view, ViewGroup viewGroup, d.a.n0.e2.h.o oVar, PbReplyTitleViewHolder pbReplyTitleViewHolder) {
+        super.X(i2, view, viewGroup, oVar, pbReplyTitleViewHolder);
         if (pbReplyTitleViewHolder != null) {
-            g0();
-            oVar.k = this.x.f52924f;
+            h0();
+            oVar.k = this.x.f56613f;
             pbReplyTitleViewHolder.h(oVar);
         }
         return view;
     }
 
-    public void m0(SortSwitchButton.f fVar) {
+    public void l0(SortSwitchButton.f fVar) {
         this.t = fVar;
     }
 
@@ -102,7 +102,7 @@ public class n0 extends o<d.a.n0.e2.h.o, PbReplyTitleViewHolder> {
         MessageManager.getInstance().unRegisterListener(this.v);
     }
 
-    public void s(d.a.n0.e2.h.e eVar) {
+    public void t(d.a.n0.e2.h.e eVar) {
         this.x = eVar;
     }
 }

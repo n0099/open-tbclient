@@ -12,19 +12,19 @@ import d.a.c.e.p.l;
 public class f {
 
     /* renamed from: e  reason: collision with root package name */
-    public static f f60012e;
+    public static f f63703e;
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoHolyCardModel f60013a;
+    public VideoHolyCardModel f63704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60014b;
+    public boolean f63705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60015c;
+    public boolean f63706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoHolyCardModel.b f60016d = new b();
+    public VideoHolyCardModel.b f63707d = new b();
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -48,7 +48,7 @@ public class f {
 
         @Override // com.baidu.tieba.model.VideoHolyCardModel.b
         public void onResult(boolean z) {
-            f.this.f60014b = z;
+            f.this.f63705b = z;
         }
     }
 
@@ -58,27 +58,27 @@ public class f {
     }
 
     public static f d() {
-        if (f60012e == null) {
+        if (f63703e == null) {
             synchronized (f.class) {
-                if (f60012e == null) {
-                    f60012e = new f();
+                if (f63703e == null) {
+                    f63703e = new f();
                 }
             }
         }
-        return f60012e;
+        return f63703e;
     }
 
     public final void c() {
-        if (this.f60013a == null) {
+        if (this.f63704a == null) {
             VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
-            this.f60013a = videoHolyCardModel;
-            videoHolyCardModel.v(this.f60016d);
+            this.f63704a = videoHolyCardModel;
+            videoHolyCardModel.z(this.f63707d);
         }
-        this.f60013a.t();
+        this.f63704a.x();
     }
 
     public boolean e() {
-        return this.f60014b;
+        return this.f63705b;
     }
 
     public final void f() {
@@ -86,9 +86,9 @@ public class f {
     }
 
     public void g(Context context) {
-        if (this.f60014b && !this.f60015c) {
+        if (this.f63705b && !this.f63706c) {
             l.L(context, R.string.free_data_tips);
-            this.f60015c = true;
+            this.f63706c = true;
         }
     }
 }

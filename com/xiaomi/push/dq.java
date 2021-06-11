@@ -14,19 +14,19 @@ import java.nio.channels.FileLock;
 public abstract class dq extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37446a;
+    public int f41125a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f238a;
 
     public dq(Context context, int i2) {
-        this.f37446a = i2;
+        this.f41125a = i2;
         this.f238a = context;
     }
 
     public static void a(Context context, hn hnVar) {
-        di m233a = dj.a().m233a();
-        String a2 = m233a == null ? "" : m233a.a();
+        di m232a = dj.a().m232a();
+        String a2 = m232a == null ? "" : m232a.a();
         if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(hnVar.a())) {
             return;
         }
@@ -40,12 +40,12 @@ public abstract class dq extends ai.a {
         if (b2 == null || b2.length == 0) {
             return;
         }
-        synchronized (dm.f37441a) {
+        synchronized (dm.f41120a) {
             FileLock fileLock = null;
             try {
                 try {
                     File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                    y.m630a(file);
+                    y.m629a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -128,32 +128,32 @@ public abstract class dq extends ai.a {
     }
 
     private String c() {
-        return "dc_job_result_time_" + mo171a();
+        return "dc_job_result_time_" + mo170a();
     }
 
     private String d() {
-        return "dc_job_result_" + mo171a();
+        return "dc_job_result_" + mo170a();
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract hh mo171a();
+    public abstract hh mo170a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo171a() {
-        return dl.a(this.f238a, String.valueOf(mo171a()), this.f37446a);
+    public boolean mo170a() {
+        return dl.a(this.f238a, String.valueOf(mo170a()), this.f41125a);
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m235b() {
+    public boolean m234b() {
         return true;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m236c() {
+    public boolean m235c() {
         return false;
     }
 
@@ -163,19 +163,19 @@ public abstract class dq extends ai.a {
         if (TextUtils.isEmpty(b2)) {
             return;
         }
-        if (mo171a()) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("DC run job mutual: " + mo171a());
+        if (mo170a()) {
+            com.xiaomi.channel.commonutils.logger.b.m56a("DC run job mutual: " + mo170a());
             return;
         }
-        di m233a = dj.a().m233a();
-        String a2 = m233a == null ? "" : m233a.a();
-        if (!TextUtils.isEmpty(a2) && m235b()) {
-            if (m236c()) {
+        di m232a = dj.a().m232a();
+        String a2 = m232a == null ? "" : m232a.a();
+        if (!TextUtils.isEmpty(a2) && m234b()) {
+            if (m235c()) {
                 SharedPreferences sharedPreferences = this.f238a.getSharedPreferences("mipush_extra", 0);
                 if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
                     long j = sharedPreferences.getLong(c(), 0L);
                     int a3 = com.xiaomi.push.service.aq.a(this.f238a).a(hk.DCJobUploadRepeatedInterval.a(), 604800);
-                    if ((System.currentTimeMillis() - j) / 1000 < this.f37446a) {
+                    if ((System.currentTimeMillis() - j) / 1000 < this.f41125a) {
                         return;
                     }
                     if ((System.currentTimeMillis() - j) / 1000 < a3) {
@@ -186,7 +186,7 @@ public abstract class dq extends ai.a {
             hn hnVar = new hn();
             hnVar.a(b2);
             hnVar.a(System.currentTimeMillis());
-            hnVar.a(mo171a());
+            hnVar.a(mo170a());
             a(this.f238a, hnVar, a2);
         }
     }

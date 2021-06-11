@@ -13,11 +13,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -62,8 +62,8 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.h() != null) {
-                c.this.h().a(view, c.this.o);
+            if (c.this.i() != null) {
+                c.this.i().a(view, c.this.o);
             }
         }
     }
@@ -71,39 +71,39 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
         this.L = new a();
-        p(bdUniqueId);
+        q(bdUniqueId);
         this.m = tbPageContext;
-        View l = l();
-        RelativeLayout relativeLayout = (RelativeLayout) l.findViewById(R.id.layout_root);
+        View m = m();
+        RelativeLayout relativeLayout = (RelativeLayout) m.findViewById(R.id.layout_root);
         this.x = relativeLayout;
         relativeLayout.setOnClickListener(this);
-        LinearLayout linearLayout = (LinearLayout) l.findViewById(R.id.video_card_content_layout);
+        LinearLayout linearLayout = (LinearLayout) m.findViewById(R.id.video_card_content_layout);
         this.w = linearLayout;
         linearLayout.setOnClickListener(this);
-        RelativeLayout relativeLayout2 = (RelativeLayout) l.findViewById(R.id.ala_share_container);
+        RelativeLayout relativeLayout2 = (RelativeLayout) m.findViewById(R.id.ala_share_container);
         this.E = relativeLayout2;
         this.F = (LinearLayout) relativeLayout2.findViewById(R.id.challenge_root);
-        CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) l.findViewById(R.id.card_ala_video_user_info_layout);
+        CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) m.findViewById(R.id.card_ala_video_user_info_layout);
         this.y = cardUserInfoLayout;
         cardUserInfoLayout.setShowFlag(6141);
-        HeadImageView headImageView = (HeadImageView) l.findViewById(R.id.ala_share_live_user_pendant_header);
+        HeadImageView headImageView = (HeadImageView) m.findViewById(R.id.ala_share_live_user_pendant_header);
         this.B = headImageView;
         headImageView.setIsRound(true);
         this.B.setDrawBorder(false);
         this.B.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.B.setAutoChangeStyle(false);
-        this.C = (TextView) l.findViewById(R.id.ala_share_live_username_text);
-        this.z = (TextView) l.findViewById(R.id.text_title);
-        this.A = (TextView) l.findViewById(R.id.ala_live_room_title);
-        AlaVideoContainer alaVideoContainer = (AlaVideoContainer) l.findViewById(R.id.ala_video_container);
+        this.C = (TextView) m.findViewById(R.id.ala_share_live_username_text);
+        this.z = (TextView) m.findViewById(R.id.text_title);
+        this.A = (TextView) m.findViewById(R.id.ala_live_room_title);
+        AlaVideoContainer alaVideoContainer = (AlaVideoContainer) m.findViewById(R.id.ala_video_container);
         this.D = alaVideoContainer;
         alaVideoContainer.setOnVideoClickListener(this);
-        View findViewById = l.findViewById(R.id.thread_multi_del_mask_view);
+        View findViewById = m.findViewById(R.id.thread_multi_del_mask_view);
         this.K = findViewById;
         findViewById.setClickable(true);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) l.findViewById(R.id.text_bottom);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) m.findViewById(R.id.text_bottom);
         this.p = threadCommentAndPraiseInfoLayout;
-        u(threadCommentAndPraiseInfoLayout);
+        v(threadCommentAndPraiseInfoLayout);
         this.p.setSelectVisible(false);
         this.p.setIsBarViewVisible(false);
         this.p.setCommentNumEnable(true);
@@ -113,28 +113,28 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         this.p.hideDisagree();
         this.p.setShareReportFrom(1);
         d.a.m0.r.q.e eVar = new d.a.m0.r.q.e();
-        eVar.f49994b = 2;
-        eVar.f50000h = 2;
+        eVar.f53670b = 2;
+        eVar.f53676h = 2;
         this.p.setAgreeStatisticData(eVar);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) l.findViewById(R.id.card_bottom_op_weight_layout);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) m.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
-        u(threadCommentAndPraiseInfoLayout2);
+        v(threadCommentAndPraiseInfoLayout2);
         this.q.setFrom(2);
         this.q.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) l.findViewById(R.id.text_bottom_2);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m.findViewById(R.id.text_bottom_2);
         this.G = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f12401f.setOnClickListener(this);
-        this.G.f12401f.getCommentContainer().setOnClickListener(this);
+        threadSourceShareAndPraiseLayout.f12463f.setOnClickListener(this);
+        this.G.f12463f.getCommentContainer().setOnClickListener(this);
         this.G.setFrom(2);
         this.G.setShareReportFrom(1);
         this.G.setSourceFromForPb(3);
         this.G.setStType("frs_page");
         this.G.setHideBarName(true);
-        this.H = l.findViewById(R.id.divider_below_reply_number_layout);
+        this.H = m.findViewById(R.id.divider_below_reply_number_layout);
         this.D.setLigvingLogLayoutVisible(8);
     }
 
-    public final void L() {
+    public final void M() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.E.getLayoutParams();
         if (this.z.getVisibility() == 0) {
             layoutParams.topMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
@@ -144,70 +144,68 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         this.E.setLayoutParams(layoutParams);
     }
 
-    public ThreadCommentAndPraiseInfoLayout M() {
+    public ThreadCommentAndPraiseInfoLayout N() {
         return this.p;
     }
 
-    public int N(int i2) {
+    public int O(int i2) {
         return d.a.n0.o.d.c().b(this.J, i2);
     }
 
-    public ThreadCommentAndPraiseInfoLayout O() {
+    public ThreadCommentAndPraiseInfoLayout P() {
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.G;
         if (threadSourceShareAndPraiseLayout != null) {
-            return threadSourceShareAndPraiseLayout.f12401f;
+            return threadSourceShareAndPraiseLayout.f12463f;
         }
         return null;
     }
 
-    public void P(TbPageContext<?> tbPageContext) {
+    public void Q(TbPageContext<?> tbPageContext) {
         T t;
-        if (tbPageContext == null || (t = this.o) == 0 || ((a2) t).r1() == null) {
+        if (tbPageContext == null || (t = this.o) == 0 || ((a2) t).s1() == null) {
             return;
         }
         if (!j.z()) {
             l.L(tbPageContext.getPageActivity(), R.string.no_network_guide);
             return;
         }
-        AlaInfoData r1 = ((a2) this.o).r1();
-        if (r1.isLegalYYLiveData()) {
-            YYLiveUtil.jumpYYLiveRoom(this.m, r1);
-            return;
+        AlaInfoData s1 = ((a2) this.o).s1();
+        if (s1.isLegalYYLiveData()) {
+            TbPageContext<?> tbPageContext2 = this.m;
+            YyExtData yyExtData = s1.mYyExtData;
+            String str = yyExtData.mSid;
+            String str2 = yyExtData.mSsid;
+            String str3 = yyExtData.mTemplateId;
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext2, str, str2, str3, "" + s1.roomId, YYLiveUtil.SOURCE_FRS_LIVE_CARD_ + TbSingleton.getInstance().getFrsCurTabType());
         }
-        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(r1);
-        if (((a2) this.o).r1().user_info != null) {
-            alaLiveInfoCoreData.userName = r1.user_info.user_name;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_FRS_SHARE_LIVE, "", false, this.I)));
     }
 
-    public final void Q(TbPageContext<?> tbPageContext) {
+    public final void R(TbPageContext<?> tbPageContext) {
         T t = this.o;
-        if (t == 0 || ((a2) t).r1() == null || ((a2) this.o).r1().share_info == null) {
+        if (t == 0 || ((a2) t).s1() == null || ((a2) this.o).s1().share_info == null) {
             return;
         }
-        if (((a2) this.o).r1().share_info.record_tid <= 0) {
-            P(this.f63441f);
+        if (((a2) this.o).s1().share_info.record_tid <= 0) {
+            Q(this.f67159f);
             return;
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((a2) this.o).r1().share_info.record_tid), null, "frs_page");
-        createNormalCfg.setVideo_source(((a2) this.o).Z1() ? "floor5" : "frs");
-        createNormalCfg.setFromSmartFrs(((a2) this.o).w2());
-        createNormalCfg.setSmartFrsPosition(((a2) this.o).l1());
+        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((a2) this.o).s1().share_info.record_tid), null, "frs_page");
+        createNormalCfg.setVideo_source(((a2) this.o).a2() ? "floor5" : "frs");
+        createNormalCfg.setFromSmartFrs(((a2) this.o).x2());
+        createNormalCfg.setSmartFrsPosition(((a2) this.o).m1());
         createNormalCfg.setStartFrom(3);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: R */
-    public void m(a2 a2Var) {
+    /* renamed from: S */
+    public void n(a2 a2Var) {
         this.o = a2Var;
-        S();
+        T();
     }
 
-    public final void S() {
+    public final void T() {
         T t = this.o;
         int i2 = 8;
         if (t != 0 && ((a2) t).T() != null) {
@@ -219,47 +217,47 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
             this.y.setUserAfterClickListener(this.L);
             this.D.getController().d((a2) this.o, this.I, "", false);
             this.D.getController().c();
-            if (((a2) this.o).r1() != null && ((a2) this.o).r1().share_info != null && !StringUtils.isNull(((a2) this.o).r1().share_info.content)) {
+            if (((a2) this.o).s1() != null && ((a2) this.o).s1().share_info != null && !StringUtils.isNull(((a2) this.o).s1().share_info.content)) {
                 this.z.setVisibility(0);
-                this.z.setText(((a2) this.o).r1().share_info.content);
+                this.z.setText(((a2) this.o).s1().share_info.content);
             } else {
                 this.z.setVisibility(8);
             }
-            if (((a2) this.o).r1() != null && ((a2) this.o).r1().user_info != null) {
-                String str = ((a2) this.o).r1().user_info.user_name;
+            if (((a2) this.o).s1() != null && ((a2) this.o).s1().user_info != null) {
+                String str = ((a2) this.o).s1().user_info.user_name;
                 if (i0.d(str) > 14) {
                     str = i0.m(str, 14) + StringHelper.STRING_MORE;
                 }
                 this.C.setText(str + ":");
-                if (TextUtils.isEmpty(((a2) this.o).r1().user_info.portrait)) {
+                if (TextUtils.isEmpty(((a2) this.o).s1().user_info.portrait)) {
                     this.B.setPlaceHolder(1);
                 } else {
-                    this.B.W(((a2) this.o).r1().user_info.portrait, 10, false, false);
+                    this.B.V(((a2) this.o).s1().user_info.portrait, 10, false, false);
                 }
             }
-            String z1 = ((a2) this.o).z1();
-            if (!StringUtils.isNull(z1)) {
-                this.A.setText(z1);
+            String A1 = ((a2) this.o).A1();
+            if (!StringUtils.isNull(A1)) {
+                this.A.setText(A1);
                 this.A.setVisibility(0);
             } else {
                 this.A.setVisibility(8);
             }
-            V(N(1));
-            if (((a2) this.o).r1().mChallengeInfoData != null && ((a2) this.o).r1().mChallengeInfoData.challenge_id > 0) {
+            V(O(1));
+            if (((a2) this.o).s1().mChallengeInfoData != null && ((a2) this.o).s1().mChallengeInfoData.challenge_id > 0) {
                 this.F.setVisibility(0);
             } else {
                 this.F.setVisibility(8);
             }
             this.K.setVisibility((d.a.n0.r0.b.e().g() || d.a.n0.r0.a.h().j()) ? 0 : 0);
-            B(this.x);
-            n(k(), TbadkCoreApplication.getInst().getSkinType());
-            L();
+            F(this.x);
+            o(k(), TbadkCoreApplication.getInst().getSkinType());
+            M();
             return;
         }
         this.x.setVisibility(8);
     }
 
-    public void T(BdUniqueId bdUniqueId) {
+    public void U(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null || this.p == null) {
             return;
         }
@@ -267,8 +265,8 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         if (cardUserInfoLayout != null) {
             cardUserInfoLayout.setPageUniqueId(bdUniqueId);
         }
-        p(bdUniqueId);
-        x(bdUniqueId);
+        q(bdUniqueId);
+        y(bdUniqueId);
     }
 
     public void V(int i2) {
@@ -291,14 +289,14 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.frs_ala_share_live_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
-            w(tbPageContext, i2);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
+            x(tbPageContext, i2);
             d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.x);
             d2.m(R.string.J_X06);
             d2.h(R.color.CAM_X0205, R.color.CAM_X0206);
@@ -309,7 +307,7 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
             }
             this.y.onChangeSkinType(k(), TbadkCoreApplication.getInst().getSkinType());
             this.p.onChangeSkinType();
-            this.f63440e = i2;
+            this.f67158e = i2;
             HeadImageView headImageView = this.B;
             if (headImageView != null) {
                 headImageView.setPlaceHolder(1);
@@ -338,17 +336,17 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
             return;
         }
         int i2 = 1;
-        if (view != this.x && view != this.p.getCommentContainer() && this.w != view && view != this.G.f12401f.getCommentContainer() && view != this.q.getCommentContainer()) {
+        if (view != this.x && view != this.p.getCommentContainer() && this.w != view && view != this.G.f12463f.getCommentContainer() && view != this.q.getCommentContainer()) {
             if (view.getId() == R.id.video_container) {
-                if (h() != null) {
-                    h().a(view, this.o);
+                if (i() != null) {
+                    i().a(view, this.o);
                 }
                 TiebaStatic.log(new StatisticItem("c12323"));
-                if (((a2) this.o).r1().live_status == 1) {
-                    P(this.f63441f);
+                if (((a2) this.o).s1().live_status == 1) {
+                    Q(this.f67159f);
                     return;
                 } else {
-                    Q(this.f63441f);
+                    R(this.f67159f);
                     return;
                 }
             }
@@ -358,20 +356,20 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
         if (t != 0) {
             m.a(((a2) t).o0());
         }
-        if (h() != null) {
-            h().a(this.x, this.o);
+        if (i() != null) {
+            i().a(this.x, this.o);
         }
         TiebaStatic.log(new StatisticItem("c12323"));
-        if (((a2) this.o).r1().live_status == 1) {
-            P(this.f63441f);
+        if (((a2) this.o).s1().live_status == 1) {
+            Q(this.f67159f);
             i2 = 5;
         } else {
-            Q(this.f63441f);
+            R(this.f67159f);
         }
-        if (view == this.p.getCommentContainer() || view == this.G.f12401f.getCommentContainer()) {
+        if (view == this.p.getCommentContainer() || view == this.G.f12463f.getCommentContainer()) {
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 2);
-            statisticItem.param("tid", ((a2) this.o).y1());
+            statisticItem.param("tid", ((a2) this.o).z1());
             statisticItem.param("obj_type", i2);
             statisticItem.param("nid", ((a2) this.o).M0());
             d.a.m0.i0.c f2 = TbPageExtraHelper.f(view);
@@ -386,7 +384,7 @@ public class c extends d.a.n0.z.a<a2> implements z, d.a.n0.o.e {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     @Override // d.a.n0.o.e

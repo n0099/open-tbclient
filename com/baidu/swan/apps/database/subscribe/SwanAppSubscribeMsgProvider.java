@@ -9,7 +9,7 @@ import android.net.Uri;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import d.a.l0.a.c1.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public static final String CONTENT_AUTHORITY = a.b().getPackageName() + ".swan.subscribe_msg";
     public static final Uri CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);

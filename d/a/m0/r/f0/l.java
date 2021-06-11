@@ -10,18 +10,18 @@ import java.lang.ref.WeakReference;
 public class l extends ImageSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Drawable> f49745e;
+    public WeakReference<Drawable> f53420e;
 
     public l(Drawable drawable) {
         super(drawable);
     }
 
     public final Drawable a() {
-        WeakReference<Drawable> weakReference = this.f49745e;
+        WeakReference<Drawable> weakReference = this.f53420e;
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.f49745e = new WeakReference<>(drawable2);
+            this.f53420e = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

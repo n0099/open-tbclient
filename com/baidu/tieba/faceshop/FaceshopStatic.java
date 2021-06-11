@@ -54,27 +54,27 @@ public class FaceshopStatic {
         public class RunnableC0170a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f14740e;
+            public final /* synthetic */ int f14797e;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
             public class RunnableC0171a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ StringBuilder f14741e;
+                public final /* synthetic */ StringBuilder f14798e;
 
                 public RunnableC0171a(StringBuilder sb) {
-                    this.f14741e = sb;
+                    this.f14798e = sb;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(RunnableC0170a.this.f14740e, this.f14741e.toString()));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(RunnableC0170a.this.f14797e, this.f14798e.toString()));
                 }
             }
 
             public RunnableC0170a(a aVar, int i2) {
-                this.f14740e = i2;
+                this.f14797e = i2;
             }
 
             @Override // java.lang.Runnable
@@ -167,7 +167,7 @@ public class FaceshopStatic {
                 u.s().g((String) customResponsedMessage.getData(), null);
             } else if (customResponsedMessage.getData() instanceof d.a) {
                 d.a aVar = (d.a) customResponsedMessage.getData();
-                u.s().g(aVar.f48819a, aVar.f48820b);
+                u.s().g(aVar.f52493a, aVar.f52494b);
             }
         }
     }
@@ -176,10 +176,10 @@ public class FaceshopStatic {
     public static class f extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent == null || TextUtils.isEmpty(intent.getStringExtra(d.a.m0.a0.d.f48814b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
+            if (intent == null || TextUtils.isEmpty(intent.getStringExtra(d.a.m0.a0.d.f52488b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            u.s().g(intent.getStringExtra(d.a.m0.a0.d.f48814b), intent.getStringExtra(d.a.m0.a0.d.f48815c));
+            u.s().g(intent.getStringExtra(d.a.m0.a0.d.f52488b), intent.getStringExtra(d.a.m0.a0.d.f52489c));
         }
     }
 
@@ -254,7 +254,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerListener(new e(2004610));
         f fVar = new f();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(d.a.m0.a0.d.f48813a);
+        intentFilter.addAction(d.a.m0.a0.d.f52487a);
         TbadkCoreApplication.getInst().registerReceiver(fVar, intentFilter);
         CustomMessageTask customMessageTask = new CustomMessageTask(2004611, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

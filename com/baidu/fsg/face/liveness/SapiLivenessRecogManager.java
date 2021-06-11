@@ -23,16 +23,16 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static final String TAG = "SapiLivenessRecog";
 
     /* renamed from: a  reason: collision with root package name */
-    public static SapiLivenessRecogManager f5601a;
+    public static SapiLivenessRecogManager f5644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LivenessRecogCallback f5602b;
+    public LivenessRecogCallback f5645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f5603c;
+    public long f5646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f5604d;
+    public long f5647d;
 
     private void a(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
         LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
@@ -95,7 +95,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.f5602b = livenessRecogCallback;
+        this.f5645b = livenessRecogCallback;
         if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
             if (livenessRecogDTO.showGuidePage) {
                 Intent intent = new Intent(context, LivenessRecogGuidActivity.class);
@@ -108,7 +108,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             context.startActivity(intent2);
             return;
         }
-        this.f5604d = System.currentTimeMillis();
+        this.f5647d = System.currentTimeMillis();
         Intent intent3 = new Intent(context, LivenessLoadingActivity.class);
         intent3.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent3);
@@ -119,16 +119,16 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     private void c(Context context) {
-        this.f5603c = System.currentTimeMillis();
+        this.f5646c = System.currentTimeMillis();
     }
 
     public static synchronized SapiLivenessRecogManager getInstance() {
         SapiLivenessRecogManager sapiLivenessRecogManager;
         synchronized (SapiLivenessRecogManager.class) {
-            if (f5601a == null) {
-                f5601a = new SapiLivenessRecogManager();
+            if (f5644a == null) {
+                f5644a = new SapiLivenessRecogManager();
             }
-            sapiLivenessRecogManager = f5601a;
+            sapiLivenessRecogManager = f5644a;
         }
         return sapiLivenessRecogManager;
     }
@@ -138,7 +138,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     public void cleanLivenessRecogCallback() {
-        this.f5602b = null;
+        this.f5645b = null;
     }
 
     @Override // com.baidu.fsg.face.base.b
@@ -167,7 +167,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     public LivenessRecogCallback getLivenessRecogCallback() {
-        return this.f5602b;
+        return this.f5645b;
     }
 
     private void b(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
@@ -221,7 +221,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.f5602b = livenessRecogCallback;
+        this.f5645b = livenessRecogCallback;
         Intent intent = new Intent(context, LivenessVideoLoadingActivity.class);
         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         context.startActivity(intent);
@@ -235,10 +235,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 intent.setAction(LivenessLoadingActivity.CLOSE_LOADING_ACTION);
                 context.sendBroadcast(intent);
             }
-        }, System.currentTimeMillis() - this.f5604d >= 1000 ? 0L : 1000L);
+        }, System.currentTimeMillis() - this.f5647d >= 1000 ? 0L : 1000L);
     }
 
     private boolean a() {
-        return System.currentTimeMillis() - this.f5603c < 300;
+        return System.currentTimeMillis() - this.f5646c < 300;
     }
 }

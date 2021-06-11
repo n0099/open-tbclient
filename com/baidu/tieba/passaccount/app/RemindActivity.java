@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.FaceFeedbackEnableSwitch;
 import com.baidu.tieba.R;
 import d.a.n0.c2.d.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RemindActivity extends BaseActivity<RemindActivity> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0197a implements c.e {
-            public C0197a() {
+        /* loaded from: classes5.dex */
+        public class C0198a implements c.e {
+            public C0198a() {
             }
 
             @Override // d.a.n0.c2.d.c.e
@@ -52,11 +52,11 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.i().g(RemindActivity.this, new C0197a());
+            c.i().g(RemindActivity.this, new C0198a());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public b() {
         }

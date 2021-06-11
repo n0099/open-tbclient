@@ -1,5 +1,5 @@
 package com.baidu.crabsdk.lite.sender;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NativeCrashHandler {
     private native boolean nClearVarParams();
 

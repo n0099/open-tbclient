@@ -44,36 +44,36 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g implements r {
-    public static final boolean l = k.f43199a;
+    public static final boolean l = k.f46875a;
     public static final int[] m = {d.a.l0.a.f.agreement_first, d.a.l0.a.f.agreement_second, d.a.l0.a.f.agreement_third, d.a.l0.a.f.agreement_forth};
     public static final int[] n = {d.a.l0.a.f.agreement_layout_first, d.a.l0.a.f.agreement_layout_second, d.a.l0.a.f.agreement_layout_third, d.a.l0.a.f.agreement_layout_forth};
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41709a;
+    public Context f45385a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.a.a2.e f41710b;
+    public d.a.l0.a.a2.e f45386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DialogInterface.OnClickListener f41711c;
+    public DialogInterface.OnClickListener f45387c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.l0.a.e2.c.f f41712d;
+    public d.a.l0.a.e2.c.f f45388d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f41713e;
+    public JSONObject f45389e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h.a f41714f;
+    public h.a f45390f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f41715g;
+    public View f45391g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f41716h;
+    public TextView f45392h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f41717i;
+    public View f45393i;
     public TextView j;
     public TextView k;
 
@@ -110,23 +110,23 @@ public class g implements r {
     public class c extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f41718e;
+        public final /* synthetic */ TextView f45394e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f41719f;
+        public final /* synthetic */ View f45395f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.c.f f41720g;
+        public final /* synthetic */ d.a.l0.a.e2.c.f f45396g;
 
         public c(TextView textView, View view, d.a.l0.a.e2.c.f fVar) {
-            this.f41718e = textView;
-            this.f41719f = view;
-            this.f41720g = fVar;
+            this.f45394e = textView;
+            this.f45395f = view;
+            this.f45396g = fVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            g.this.v(!this.f41718e.isEnabled(), this.f41719f, this.f41718e, this.f41720g);
+            g.this.v(!this.f45394e.isEnabled(), this.f45395f, this.f45394e, this.f45396g);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -140,19 +140,19 @@ public class g implements r {
     public class d extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f41722e;
+        public final /* synthetic */ View f45398e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f.a f41723f;
+        public final /* synthetic */ f.a f45399f;
 
         public d(View view, f.a aVar) {
-            this.f41722e = view;
-            this.f41723f = aVar;
+            this.f45398e = view;
+            this.f45399f = aVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            g.this.C(this.f41722e.getContext(), this.f41723f.f41705c);
+            g.this.C(this.f45398e.getContext(), this.f45399f.f45381c);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -166,19 +166,19 @@ public class g implements r {
     public class e extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41725e;
+        public final /* synthetic */ String f45401e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41726f;
+        public final /* synthetic */ String f45402f;
 
         public e(String str, String str2) {
-            this.f41725e = str;
-            this.f41726f = str2;
+            this.f45401e = str;
+            this.f45402f = str2;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            g.this.C(d.a.l0.a.a2.d.g().x(), this.f41726f);
+            g.this.C(d.a.l0.a.a2.d.g().x(), this.f45402f);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -186,7 +186,7 @@ public class g implements r {
         public void updateDrawState(@NonNull TextPaint textPaint) {
             super.updateDrawState(textPaint);
             textPaint.setUnderlineText(false);
-            textPaint.setColor(Color.parseColor(this.f41725e));
+            textPaint.setColor(Color.parseColor(this.f45401e));
         }
     }
 
@@ -194,16 +194,16 @@ public class g implements r {
     public class f extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f41728e;
+        public final /* synthetic */ TextView f45404e;
 
         public f(TextView textView) {
-            this.f41728e = textView;
+            this.f45404e = textView;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             g gVar = g.this;
-            gVar.B(gVar.f41712d, g.this.f41716h, g.this.f41715g, this.f41728e, g.this.f41713e, g.this.f41717i);
+            gVar.B(gVar.f45388d, g.this.f45392h, g.this.f45391g, this.f45404e, g.this.f45389e, g.this.f45393i);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -215,28 +215,28 @@ public class g implements r {
 
     /* renamed from: d.a.l0.a.e2.c.g$g  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0620g implements t.b {
+    public class C0676g implements t.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f41730a;
+        public final /* synthetic */ Context f45406a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppRoundedImageView f41731b;
+        public final /* synthetic */ SwanAppRoundedImageView f45407b;
 
-        public C0620g(g gVar, Context context, SwanAppRoundedImageView swanAppRoundedImageView) {
-            this.f41730a = context;
-            this.f41731b = swanAppRoundedImageView;
+        public C0676g(g gVar, Context context, SwanAppRoundedImageView swanAppRoundedImageView) {
+            this.f45406a = context;
+            this.f45407b = swanAppRoundedImageView;
         }
 
         @Override // d.a.l0.a.v2.t.b
         public void a(String str, Bitmap bitmap) {
             if (bitmap == null) {
-                bitmap = BitmapFactory.decodeResource(this.f41730a.getResources(), d.a.l0.a.e.swan_app_user_portrait_pressed);
+                bitmap = BitmapFactory.decodeResource(this.f45406a.getResources(), d.a.l0.a.e.swan_app_user_portrait_pressed);
             }
-            SwanAppRoundedImageView swanAppRoundedImageView = this.f41731b;
+            SwanAppRoundedImageView swanAppRoundedImageView = this.f45407b;
             if (swanAppRoundedImageView != null) {
                 swanAppRoundedImageView.setImageBitmap(bitmap);
-                this.f41731b.setBorderColor(this.f41730a.getResources().getColor(d.a.l0.a.c.swan_app_auth_icon_border));
+                this.f45407b.setBorderColor(this.f45406a.getResources().getColor(d.a.l0.a.c.swan_app_auth_icon_border));
             }
         }
     }
@@ -262,23 +262,23 @@ public class g implements r {
     public class i extends ClickableSpan {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f41732e;
+        public final /* synthetic */ TextView f45408e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f41733f;
+        public final /* synthetic */ View f45409f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.c.f f41734g;
+        public final /* synthetic */ d.a.l0.a.e2.c.f f45410g;
 
         public i(TextView textView, View view, d.a.l0.a.e2.c.f fVar) {
-            this.f41732e = textView;
-            this.f41733f = view;
-            this.f41734g = fVar;
+            this.f45408e = textView;
+            this.f45409f = view;
+            this.f45410g = fVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            g.this.y(!this.f41732e.isEnabled(), this.f41733f, this.f41732e, this.f41734g);
+            g.this.y(!this.f45408e.isEnabled(), this.f45409f, this.f45408e, this.f45410g);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -296,7 +296,7 @@ public class g implements r {
         TextView textView = (TextView) view.findViewById(d.a.l0.a.f.user_name);
         Pair<String, String> o = o(jSONObject);
         if (o != null) {
-            t.e((String) o.second, new C0620g(this, context, swanAppRoundedImageView));
+            t.e((String) o.second, new C0676g(this, context, swanAppRoundedImageView));
             if (textView != null) {
                 textView.setText((CharSequence) o.first);
             }
@@ -311,9 +311,9 @@ public class g implements r {
         if (str != null) {
             textView2.setText(Html.fromHtml(str));
         }
-        textView.setText(fVar.f41699f);
+        textView.setText(fVar.f45375f);
         ((LinearLayout) view.findViewById(d.a.l0.a.f.permission_detail_layout)).setVisibility(0);
-        if (((!TextUtils.equals(fVar.f41695b, "snsapi_userinfo") || jSONObject == null) && !TextUtils.equals(fVar.f41695b, "mobile")) || view2 == null) {
+        if (((!TextUtils.equals(fVar.f45371b, "snsapi_userinfo") || jSONObject == null) && !TextUtils.equals(fVar.f45371b, "mobile")) || view2 == null) {
             return;
         }
         view2.findViewById(d.a.l0.a.f.auth_divider1).setVisibility(8);
@@ -338,55 +338,55 @@ public class g implements r {
             return null;
         }
         h.a aVar = new h.a(context);
-        this.f41714f = aVar;
-        this.f41709a = context;
-        this.f41710b = eVar;
-        this.f41712d = fVar;
-        this.f41713e = jSONObject;
-        this.f41711c = onClickListener;
+        this.f45390f = aVar;
+        this.f45385a = context;
+        this.f45386b = eVar;
+        this.f45388d = fVar;
+        this.f45389e = jSONObject;
+        this.f45387c = onClickListener;
         aVar.f(true);
-        this.f41714f.W(n());
-        this.f41714f.n(new d.a.l0.a.w2.h.a());
-        this.f41714f.p(d.a.l0.a.e.aiapps_action_sheet_bg);
-        this.f41714f.k(false);
-        this.f41714f.j();
-        this.f41714f.t(false);
-        return this.f41714f;
+        this.f45390f.W(n());
+        this.f45390f.n(new d.a.l0.a.w2.h.a());
+        this.f45390f.p(d.a.l0.a.e.aiapps_action_sheet_bg);
+        this.f45390f.k(false);
+        this.f45390f.j();
+        this.f45390f.t(false);
+        return this.f45390f;
     }
 
     public final void k() {
-        FrameLayout frameLayout = (FrameLayout) this.f41715g.findViewById(d.a.l0.a.f.auth_custom_layout);
+        FrameLayout frameLayout = (FrameLayout) this.f45391g.findViewById(d.a.l0.a.f.auth_custom_layout);
         if (frameLayout == null) {
             return;
         }
-        this.f41715g.findViewById(d.a.l0.a.f.multi_auth_custom_layout).setVisibility(8);
-        this.f41715g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout).setVisibility(8);
-        this.f41715g.findViewById(d.a.l0.a.f.auth_custom_layout).setVisibility(0);
-        this.f41717i = View.inflate(this.f41709a, d.a.l0.a.g.swan_app_auth_scope_detail, null);
-        this.f41712d.f();
-        v(false, this.f41717i, this.k, this.f41712d);
-        frameLayout.addView(this.f41717i);
+        this.f45391g.findViewById(d.a.l0.a.f.multi_auth_custom_layout).setVisibility(8);
+        this.f45391g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout).setVisibility(8);
+        this.f45391g.findViewById(d.a.l0.a.f.auth_custom_layout).setVisibility(0);
+        this.f45393i = View.inflate(this.f45385a, d.a.l0.a.g.swan_app_auth_scope_detail, null);
+        this.f45388d.f();
+        v(false, this.f45393i, this.k, this.f45388d);
+        frameLayout.addView(this.f45393i);
     }
 
     public final void l() {
         int i2;
-        if (((FrameLayout) this.f41715g.findViewById(d.a.l0.a.f.multi_auth_custom_layout)) == null) {
+        if (((FrameLayout) this.f45391g.findViewById(d.a.l0.a.f.multi_auth_custom_layout)) == null) {
             return;
         }
-        this.f41715g.findViewById(d.a.l0.a.f.multi_auth_custom_layout).setVisibility(0);
-        this.f41715g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout).setVisibility(0);
-        this.f41715g.findViewById(d.a.l0.a.f.auth_custom_layout).setVisibility(8);
-        this.f41712d.f();
-        y(true, this.f41715g.findViewById(d.a.l0.a.f.auth_scope_detail_layout), this.k, this.f41712d);
-        TextView textView = (TextView) this.f41715g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout);
+        this.f45391g.findViewById(d.a.l0.a.f.multi_auth_custom_layout).setVisibility(0);
+        this.f45391g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout).setVisibility(0);
+        this.f45391g.findViewById(d.a.l0.a.f.auth_custom_layout).setVisibility(8);
+        this.f45388d.f();
+        y(true, this.f45391g.findViewById(d.a.l0.a.f.auth_scope_detail_layout), this.k, this.f45388d);
+        TextView textView = (TextView) this.f45391g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout);
         textView.setVisibility(0);
-        f.a aVar = this.f41712d.n;
-        String str = aVar.f41707e;
-        JSONArray jSONArray = aVar.f41708f;
+        f.a aVar = this.f45388d.n;
+        String str = aVar.f45383e;
+        JSONArray jSONArray = aVar.f45384f;
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f41709a.getString(d.a.l0.a.h.aiapps_check_action_text));
-        if (!TextUtils.isEmpty(aVar.f41706d)) {
-            sb.append(aVar.f41706d);
+        sb.append(this.f45385a.getString(d.a.l0.a.h.aiapps_check_action_text));
+        if (!TextUtils.isEmpty(aVar.f45382d)) {
+            sb.append(aVar.f45382d);
         }
         if (jSONArray != null && jSONArray.length() > 0) {
             int length = jSONArray.length();
@@ -400,8 +400,8 @@ public class g implements r {
             }
         }
         SpannableString spannableString = new SpannableString(sb.toString());
-        if (!TextUtils.isEmpty(aVar.f41706d)) {
-            z(spannableString, sb, aVar.f41706d, aVar.f41705c, str);
+        if (!TextUtils.isEmpty(aVar.f45382d)) {
+            z(spannableString, sb, aVar.f45382d, aVar.f45381c, str);
         }
         if (jSONArray != null && jSONArray.length() > 0) {
             int i4 = 0;
@@ -431,17 +431,17 @@ public class g implements r {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void m() {
-        FrameLayout frameLayout = (FrameLayout) this.f41715g.findViewById(d.a.l0.a.f.auth_custom_layout);
+        FrameLayout frameLayout = (FrameLayout) this.f45391g.findViewById(d.a.l0.a.f.auth_custom_layout);
         if (frameLayout == null) {
             return;
         }
-        this.f41715g.findViewById(d.a.l0.a.f.multi_auth_custom_layout).setVisibility(8);
-        this.f41715g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout).setVisibility(8);
+        this.f45391g.findViewById(d.a.l0.a.f.multi_auth_custom_layout).setVisibility(8);
+        this.f45391g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout).setVisibility(8);
         char c2 = 0;
-        this.f41715g.findViewById(d.a.l0.a.f.auth_custom_layout).setVisibility(0);
-        ((TextView) this.f41715g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout)).setVisibility(8);
-        this.f41717i = p(this.f41709a, this.f41712d, this.f41713e);
-        String str = this.f41712d.f41695b;
+        this.f45391g.findViewById(d.a.l0.a.f.auth_custom_layout).setVisibility(0);
+        ((TextView) this.f45391g.findViewById(d.a.l0.a.f.multi_auth_agreement_layout)).setVisibility(8);
+        this.f45393i = p(this.f45385a, this.f45388d, this.f45389e);
+        String str = this.f45388d.f45371b;
         int hashCode = str.hashCode();
         if (hashCode != -1068855134) {
             if (hashCode == -977063690) {
@@ -454,26 +454,26 @@ public class g implements r {
             c2 = 65535;
         }
         if (c2 == 0) {
-            JSONObject jSONObject = this.f41713e;
+            JSONObject jSONObject = this.f45389e;
             if (jSONObject != null) {
-                A(this.f41709a, this.f41717i, jSONObject);
+                A(this.f45385a, this.f45393i, jSONObject);
             } else {
-                x(this.f41717i, this.f41712d);
+                x(this.f45393i, this.f45388d);
             }
         } else if (c2 != 1) {
-            x(this.f41717i, this.f41712d);
+            x(this.f45393i, this.f45388d);
         } else {
-            w(this.f41717i, this.f41712d);
+            w(this.f45393i, this.f45388d);
         }
-        frameLayout.addView(this.f41717i);
+        frameLayout.addView(this.f45393i);
     }
 
     public View n() {
-        this.f41715g = View.inflate(this.f41709a, d.a.l0.a.g.swan_app_auth_dialog_content_common, null);
+        this.f45391g = View.inflate(this.f45385a, d.a.l0.a.g.swan_app_auth_dialog_content_common, null);
         q();
         r();
         s();
-        return this.f41715g;
+        return this.f45391g;
     }
 
     public Pair<String, String> o(JSONObject jSONObject) {
@@ -486,10 +486,10 @@ public class g implements r {
 
     public final View p(Context context, d.a.l0.a.e2.c.f fVar, JSONObject jSONObject) {
         int i2;
-        if (context == null || fVar == null || TextUtils.isEmpty(fVar.f41695b)) {
+        if (context == null || fVar == null || TextUtils.isEmpty(fVar.f45371b)) {
             return null;
         }
-        String str = fVar.f41695b;
+        String str = fVar.f45371b;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != -1068855134) {
@@ -516,50 +516,50 @@ public class g implements r {
     public void q() {
         List<d.a.l0.a.e2.c.f> list;
         Bitmap i2;
-        boolean z = (TextUtils.isEmpty(this.f41712d.p) || TextUtils.isEmpty(this.f41712d.q)) ? false : true;
-        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.f41715g.findViewById(d.a.l0.a.f.swan_app_icon);
+        boolean z = (TextUtils.isEmpty(this.f45388d.p) || TextUtils.isEmpty(this.f45388d.q)) ? false : true;
+        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.f45391g.findViewById(d.a.l0.a.f.swan_app_icon);
         if (swanAppRoundedImageView != null) {
             if (z) {
-                i2 = q0.j(this.f41712d.q, "SwanAppAuthDialog", false);
+                i2 = q0.j(this.f45388d.q, "SwanAppAuthDialog", false);
             } else {
-                i2 = q0.i(this.f41710b.N(), "SwanAppAuthDialog", false);
+                i2 = q0.i(this.f45386b.N(), "SwanAppAuthDialog", false);
             }
-            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.f41709a.getResources(), i2));
-            swanAppRoundedImageView.setBorderColor(this.f41709a.getResources().getColor(d.a.l0.a.c.swan_app_auth_icon_border));
+            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.f45385a.getResources(), i2));
+            swanAppRoundedImageView.setBorderColor(this.f45385a.getResources().getColor(d.a.l0.a.c.swan_app_auth_icon_border));
         }
-        ((TextView) this.f41715g.findViewById(d.a.l0.a.f.swan_app_name)).setText(z ? this.f41712d.p : this.f41710b.O());
-        TextView textView = (TextView) this.f41715g.findViewById(d.a.l0.a.f.permission_name);
-        this.f41716h = textView;
+        ((TextView) this.f45391g.findViewById(d.a.l0.a.f.swan_app_name)).setText(z ? this.f45388d.p : this.f45386b.O());
+        TextView textView = (TextView) this.f45391g.findViewById(d.a.l0.a.f.permission_name);
+        this.f45392h = textView;
         if (textView != null) {
-            if (u(this.f41712d)) {
-                View findViewById = this.f41715g.findViewById(d.a.l0.a.f.swan_app_action_text);
+            if (u(this.f45388d)) {
+                View findViewById = this.f45391g.findViewById(d.a.l0.a.f.swan_app_action_text);
                 if (findViewById != null) {
                     findViewById.setVisibility(8);
                 }
-                this.f41716h.setText(this.f41712d.r);
+                this.f45392h.setText(this.f45388d.r);
             } else {
-                this.f41716h.setText(this.f41712d.f41699f);
+                this.f45392h.setText(this.f45388d.f45375f);
             }
         }
-        if (u(this.f41712d) && (list = this.f41712d.s) != null && list.size() > 0) {
+        if (u(this.f45388d) && (list = this.f45388d.s) != null && list.size() > 0) {
             for (int i3 = 0; i3 < list.size() && i3 <= 3; i3++) {
                 d.a.l0.a.e2.c.f fVar = list.get(i3);
                 if (fVar != null) {
-                    this.f41715g.findViewById(n[i3]).setVisibility(0);
-                    ((TextView) this.f41715g.findViewById(m[i3])).setText(fVar.f41700g);
+                    this.f45391g.findViewById(n[i3]).setVisibility(0);
+                    ((TextView) this.f45391g.findViewById(m[i3])).setText(fVar.f45376g);
                 }
             }
         }
-        this.j = (TextView) this.f41715g.findViewById(d.a.l0.a.f.auth_negative_button);
-        this.k = (TextView) this.f41715g.findViewById(d.a.l0.a.f.auth_positive_button);
-        this.f41714f.l(this.j, -2, this.f41711c);
-        this.f41714f.l(this.k, -1, this.f41711c);
+        this.j = (TextView) this.f45391g.findViewById(d.a.l0.a.f.auth_negative_button);
+        this.k = (TextView) this.f45391g.findViewById(d.a.l0.a.f.auth_positive_button);
+        this.f45390f.l(this.j, -2, this.f45387c);
+        this.f45390f.l(this.k, -1, this.f45387c);
     }
 
     public void r() {
-        if (u(this.f41712d)) {
+        if (u(this.f45388d)) {
             l();
-        } else if (t(this.f41712d)) {
+        } else if (t(this.f45388d)) {
             k();
         } else {
             m();
@@ -568,54 +568,54 @@ public class g implements r {
 
     public void s() {
         TextView textView;
-        if (TextUtils.isEmpty(this.f41712d.l) || (textView = (TextView) this.f41715g.findViewById(d.a.l0.a.f.permission_detail)) == null) {
+        if (TextUtils.isEmpty(this.f45388d.l) || (textView = (TextView) this.f45391g.findViewById(d.a.l0.a.f.permission_detail)) == null) {
             return;
         }
-        d.a.l0.a.a2.e eVar = this.f41710b;
-        if (eVar != null && eVar.N() != null && TextUtils.equals(this.f41710b.N().T(), "11010020") && TextUtils.equals(this.f41712d.f41695b, "mobile")) {
-            B(this.f41712d, this.f41716h, this.f41715g, textView, this.f41713e, this.f41717i);
+        d.a.l0.a.a2.e eVar = this.f45386b;
+        if (eVar != null && eVar.N() != null && TextUtils.equals(this.f45386b.N().T(), "11010020") && TextUtils.equals(this.f45388d.f45371b, "mobile")) {
+            B(this.f45388d, this.f45392h, this.f45391g, textView, this.f45389e, this.f45393i);
             textView.setTextColor(-16777216);
             return;
         }
-        if (!u(this.f41712d)) {
-            d.a.l0.a.w2.b bVar = new d.a.l0.a.w2.b(this.f41709a, d.a.l0.a.e.swan_app_auth_question_mark_pressed);
+        if (!u(this.f45388d)) {
+            d.a.l0.a.w2.b bVar = new d.a.l0.a.w2.b(this.f45385a, d.a.l0.a.e.swan_app_auth_question_mark_pressed);
             SpannableString spannableString = new SpannableString(" # ");
             spannableString.setSpan(bVar, 1, 2, 33);
             spannableString.setSpan(new f(textView), 0, spannableString.length(), 33);
-            this.f41716h.append(spannableString);
+            this.f45392h.append(spannableString);
         }
-        this.f41716h.setHighlightColor(0);
-        this.f41716h.setMovementMethod(LinkMovementMethod.getInstance());
-        this.f41716h.setLongClickable(false);
+        this.f45392h.setHighlightColor(0);
+        this.f45392h.setMovementMethod(LinkMovementMethod.getInstance());
+        this.f45392h.setLongClickable(false);
     }
 
     public boolean t(d.a.l0.a.e2.c.f fVar) {
         if (fVar == null) {
             return false;
         }
-        return TextUtils.equals(fVar.f41695b, "ppcert") || TextUtils.equals(fVar.f41695b, "mapp_i_face_verify");
+        return TextUtils.equals(fVar.f45371b, "ppcert") || TextUtils.equals(fVar.f45371b, "mapp_i_face_verify");
     }
 
     public boolean u(d.a.l0.a.e2.c.f fVar) {
         if (fVar == null) {
             return false;
         }
-        return TextUtils.equals(fVar.f41695b, "scope_multi_authorize");
+        return TextUtils.equals(fVar.f45371b, "scope_multi_authorize");
     }
 
     public final void v(boolean z, View view, TextView textView, d.a.l0.a.e2.c.f fVar) {
         f.a aVar;
         TextView textView2;
         Drawable drawable;
-        if (view == null || fVar == null || (aVar = fVar.n) == null || (textView2 = (TextView) view.findViewById(d.a.l0.a.f.auth_scope_detail)) == null || TextUtils.isEmpty(aVar.f41703a)) {
+        if (view == null || fVar == null || (aVar = fVar.n) == null || (textView2 = (TextView) view.findViewById(d.a.l0.a.f.auth_scope_detail)) == null || TextUtils.isEmpty(aVar.f45379a)) {
             return;
         }
-        if (!aVar.f41703a.startsWith("XXXX   ")) {
-            aVar.f41703a = "XXXX   " + aVar.f41703a;
+        if (!aVar.f45379a.startsWith("XXXX   ")) {
+            aVar.f45379a = "XXXX   " + aVar.f45379a;
         }
-        textView2.setText(aVar.f41703a);
+        textView2.setText(aVar.f45379a);
         try {
-            textView2.setTextColor(Color.parseColor(aVar.f41704b));
+            textView2.setTextColor(Color.parseColor(aVar.f45380b));
         } catch (RuntimeException e2) {
             if (l) {
                 throw e2;
@@ -631,11 +631,11 @@ public class g implements r {
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         spannableString.setSpan(new b(this, drawable), 0, 4, 33);
         spannableString.setSpan(new c(textView, view, fVar), 0, 7, 33);
-        int length = TextUtils.isEmpty(aVar.f41706d) ? 0 : aVar.f41706d.length();
-        int indexOf = aVar.f41703a.indexOf(aVar.f41706d);
+        int length = TextUtils.isEmpty(aVar.f45382d) ? 0 : aVar.f45382d.length();
+        int indexOf = aVar.f45379a.indexOf(aVar.f45382d);
         int i2 = length + indexOf;
         try {
-            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(aVar.f41707e)), indexOf, i2, 33);
+            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(aVar.f45383e)), indexOf, i2, 33);
         } catch (RuntimeException e3) {
             if (l) {
                 throw e3;
@@ -653,7 +653,7 @@ public class g implements r {
         }
         TextView textView = (TextView) view.findViewById(d.a.l0.a.f.user_phone_number);
         StringBuilder sb = new StringBuilder();
-        for (String str : fVar.f41702i) {
+        for (String str : fVar.f45378i) {
             sb.append(str);
         }
         if (textView != null) {
@@ -669,7 +669,7 @@ public class g implements r {
         if (view == null || fVar == null || (textView = (TextView) view.findViewById(d.a.l0.a.f.permission_function)) == null) {
             return;
         }
-        if (TextUtils.equals(fVar.f41695b, "mapp_location") && (s = d.a.l0.a.g1.f.V().s()) != null && (eVar = s.o) != null && (map = eVar.f11262a.get("scope.userLocation")) != null) {
+        if (TextUtils.equals(fVar.f45371b, "mapp_location") && (s = d.a.l0.a.g1.f.V().s()) != null && (eVar = s.o) != null && (map = eVar.f11324a.get("scope.userLocation")) != null) {
             String str = map.get("desc");
             if (!TextUtils.isEmpty(str)) {
                 fVar.m = str;
@@ -684,7 +684,7 @@ public class g implements r {
         if (view == null || fVar == null || fVar.n == null || (textView2 = (TextView) view.findViewById(d.a.l0.a.f.auth_scope_detail)) == null) {
             return;
         }
-        textView2.setText("XXXX   " + this.f41709a.getString(d.a.l0.a.h.swanapp_multi_auth_agreement_desc));
+        textView2.setText("XXXX   " + this.f45385a.getString(d.a.l0.a.h.swanapp_multi_auth_agreement_desc));
         textView.setEnabled(z);
         if (z) {
             drawable = view.getResources().getDrawable(d.a.l0.a.e.swanapp_scope_selected);

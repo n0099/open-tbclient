@@ -9,16 +9,16 @@ import java.util.concurrent.ConcurrentHashMap;
 public class c implements d.a.l0.a.f1.f.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f44507e = e.k();
+    public static final int f48181e = e.k();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44508b;
+    public boolean f48182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Runnable, String> f44509c;
+    public Map<Runnable, String> f48183c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.l0.a.r1.r.c.a f44510d;
+    public d.a.l0.a.r1.r.c.a f48184d;
 
     /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.r1.r.c.a {
@@ -31,17 +31,17 @@ public class c implements d.a.l0.a.f1.f.a {
 
         @Override // d.a.l0.a.r1.r.c.a
         public void b() {
-            c.this.f44508b = false;
+            c.this.f48182b = false;
             c.this.d();
         }
 
         @Override // d.a.l0.a.r1.r.c.a
         public void c(boolean z) {
-            c.this.f44508b = false;
+            c.this.f48182b = false;
             long currentTimeMillis = System.currentTimeMillis();
-            int size = c.this.f44509c.size();
+            int size = c.this.f48183c.size();
             c.this.d();
-            if (d.a.l0.a.f1.f.a.f41852a) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 Log.d("SwanPerformance", "thread dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + size);
             }
@@ -49,7 +49,7 @@ public class c implements d.a.l0.a.f1.f.a {
 
         @Override // d.a.l0.a.r1.r.c.a
         public void d(String str) {
-            c.this.f44508b = true;
+            c.this.f48182b = true;
         }
 
         @Override // d.a.l0.a.r1.r.c.a
@@ -62,7 +62,7 @@ public class c implements d.a.l0.a.f1.f.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f44512a = new c(null);
+        public static final c f48186a = new c(null);
     }
 
     public /* synthetic */ c(a aVar) {
@@ -70,27 +70,27 @@ public class c implements d.a.l0.a.f1.f.a {
     }
 
     public static c f() {
-        return b.f44512a;
+        return b.f48186a;
     }
 
     public final void d() {
-        if (this.f44509c.isEmpty()) {
+        if (this.f48183c.isEmpty()) {
             return;
         }
-        for (Map.Entry<Runnable, String> entry : this.f44509c.entrySet()) {
+        for (Map.Entry<Runnable, String> entry : this.f48183c.entrySet()) {
             if (entry != null) {
                 q.k(entry.getKey(), entry.getValue());
             }
         }
-        this.f44509c.clear();
+        this.f48183c.clear();
     }
 
     public boolean e(Runnable runnable, String str) {
         if (runnable == null) {
             return false;
         }
-        if (f44507e > 0 && this.f44508b) {
-            this.f44509c.put(runnable, str);
+        if (f48181e > 0 && this.f48182b) {
+            this.f48183c.put(runnable, str);
             return true;
         }
         q.k(runnable, str);
@@ -98,19 +98,19 @@ public class c implements d.a.l0.a.f1.f.a {
     }
 
     public void g() {
-        if (f44507e <= 0) {
-            if (d.a.l0.a.f1.f.a.f41852a) {
+        if (f48181e <= 0) {
+            if (d.a.l0.a.f1.f.a.f45528a) {
                 Log.e("SwanPerformance", "thread dispatch can't register. ab is closed");
                 return;
             }
             return;
         }
-        d.a.l0.a.r1.r.a.f().h(this.f44510d, f44507e);
+        d.a.l0.a.r1.r.a.f().h(this.f48184d, f48181e);
     }
 
     public c() {
-        this.f44508b = false;
-        this.f44509c = new ConcurrentHashMap();
-        this.f44510d = new a();
+        this.f48182b = false;
+        this.f48183c = new ConcurrentHashMap();
+        this.f48184d = new a();
     }
 }

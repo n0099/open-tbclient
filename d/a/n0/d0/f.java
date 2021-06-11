@@ -20,31 +20,31 @@ public class f implements c.a {
     public static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f52430a;
+    public c f56119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f52431b;
+    public c f56120b;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f52433d;
+    public ArrayList<TransmitForumData> f56122d;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f52435f;
+    public ArrayList<TransmitForumData> f56124f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52437h;
+    public int f56126h;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f52432c = new ArrayList<>();
+    public ArrayList<TransmitForumData> f56121c = new ArrayList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f52434e = false;
+    public boolean f56123e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f52436g = false;
+    public boolean f56125g = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f52438i = false;
+    public boolean f56127i = false;
 
     public f() {
         d();
@@ -65,15 +65,15 @@ public class f implements c.a {
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i2, int i3) {
         if (i2 == 1) {
             if (z) {
-                this.f52435f = arrayList;
+                this.f56124f = arrayList;
             }
-            this.f52436g = true;
+            this.f56125g = true;
         } else if (i2 == 2) {
             if (z) {
-                this.f52433d = arrayList;
-                this.f52437h = i3;
+                this.f56122d = arrayList;
+                this.f56126h = i3;
             }
-            this.f52434e = true;
+            this.f56123e = true;
         }
         i();
     }
@@ -99,15 +99,15 @@ public class f implements c.a {
     public final void d() {
         f();
         e();
-        this.f52438i = false;
+        this.f56127i = false;
     }
 
     public final void e() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), c.class);
         if (runTask != null) {
-            this.f52431b = (c) runTask.getData();
+            this.f56120b = (c) runTask.getData();
         }
-        c cVar = this.f52431b;
+        c cVar = this.f56120b;
         if (cVar != null) {
             cVar.a(this);
         }
@@ -116,16 +116,16 @@ public class f implements c.a {
     public final void f() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), c.class);
         if (runTask != null) {
-            this.f52430a = (c) runTask.getData();
+            this.f56119a = (c) runTask.getData();
         }
-        c cVar = this.f52430a;
+        c cVar = this.f56119a;
         if (cVar != null) {
             cVar.a(this);
         }
     }
 
     public final boolean g(long j2) {
-        ArrayList<TransmitForumData> arrayList = this.f52432c;
+        ArrayList<TransmitForumData> arrayList = this.f56121c;
         if (arrayList == null) {
             return false;
         }
@@ -140,51 +140,51 @@ public class f implements c.a {
     }
 
     public void h() {
-        this.f52438i = true;
-        c cVar = this.f52430a;
+        this.f56127i = true;
+        c cVar = this.f56119a;
         if (cVar != null) {
             cVar.b();
         }
-        c cVar2 = this.f52431b;
+        c cVar2 = this.f56120b;
         if (cVar2 != null) {
             cVar2.b();
         }
     }
 
     public final void i() {
-        if (this.f52430a == null || this.f52434e) {
-            if (this.f52431b == null || this.f52436g) {
-                this.f52434e = false;
-                this.f52436g = false;
-                this.f52438i = false;
-                this.f52432c.clear();
-                if (!ListUtils.isEmpty(this.f52433d)) {
-                    Iterator<TransmitForumData> it = this.f52433d.iterator();
+        if (this.f56119a == null || this.f56123e) {
+            if (this.f56120b == null || this.f56125g) {
+                this.f56123e = false;
+                this.f56125g = false;
+                this.f56127i = false;
+                this.f56121c.clear();
+                if (!ListUtils.isEmpty(this.f56122d)) {
+                    Iterator<TransmitForumData> it = this.f56122d.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!g(next.forumId)) {
-                            this.f52432c.add(next);
+                            this.f56121c.add(next);
                         }
                     }
                 }
-                if (!ListUtils.isEmpty(this.f52435f)) {
-                    Iterator<TransmitForumData> it2 = this.f52435f.iterator();
+                if (!ListUtils.isEmpty(this.f56124f)) {
+                    Iterator<TransmitForumData> it2 = this.f56124f.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!g(next2.forumId)) {
-                            this.f52432c.add(next2);
+                            this.f56121c.add(next2);
                         }
                     }
                 }
-                this.f52433d = null;
-                this.f52435f = null;
+                this.f56122d = null;
+                this.f56124f = null;
                 j();
             }
         }
     }
 
     public final void j() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.f52432c));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.f56121c));
     }
 
     public void k(ShareDialogConfig shareDialogConfig) {
@@ -194,12 +194,12 @@ public class f implements c.a {
         if (shareDialogConfig.showLocation) {
             shareDialogConfig.shareItem.B = c();
         }
-        if (d.a.c.e.p.l.D() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.f52438i && !shareDialogConfig.shareItem.f()) {
+        if (d.a.c.e.p.l.D() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.f56127i && !shareDialogConfig.shareItem.f()) {
             h();
         }
         shareDialogConfig.setIsShowTransmitShare(true);
-        shareDialogConfig.setTransmitForumList(this.f52432c);
-        shareDialogConfig.setPrivateThread(this.f52437h);
+        shareDialogConfig.setTransmitForumList(this.f56121c);
+        shareDialogConfig.setPrivateThread(this.f56126h);
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

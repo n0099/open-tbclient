@@ -12,14 +12,14 @@ import java.util.concurrent.ConcurrentHashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<ServiceReference, b<?>> f39722a = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<ServiceReference, b<?>> f43403a = new ConcurrentHashMap<>();
 
     static {
         d();
     }
 
     public static <T> T a(ServiceReference serviceReference) {
-        b<?> bVar = f39722a.get(serviceReference);
+        b<?> bVar = f43403a.get(serviceReference);
         if (bVar != null) {
             return (T) bVar.getService();
         }
@@ -27,7 +27,7 @@ public class c {
     }
 
     public static <T> void b(ServiceReference serviceReference, b<T> bVar) {
-        f39722a.put(serviceReference, bVar);
+        f43403a.put(serviceReference, bVar);
     }
 
     public static <T> void c(String str, String str2, Class<? extends b<T>> cls) {

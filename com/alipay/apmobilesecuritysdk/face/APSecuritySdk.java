@@ -15,13 +15,13 @@ import java.util.Map;
 public class APSecuritySdk {
 
     /* renamed from: a  reason: collision with root package name */
-    public static APSecuritySdk f1711a;
+    public static APSecuritySdk f1724a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f1712c = new Object();
+    public static Object f1725c = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1713b;
+    public Context f1726b;
 
     /* loaded from: classes.dex */
     public interface InitResultListener {
@@ -40,18 +40,18 @@ public class APSecuritySdk {
     }
 
     public APSecuritySdk(Context context) {
-        this.f1713b = context;
+        this.f1726b = context;
     }
 
     public static APSecuritySdk getInstance(Context context) {
-        if (f1711a == null) {
-            synchronized (f1712c) {
-                if (f1711a == null) {
-                    f1711a = new APSecuritySdk(context);
+        if (f1724a == null) {
+            synchronized (f1725c) {
+                if (f1724a == null) {
+                    f1724a = new APSecuritySdk(context);
                 }
             }
         }
-        return f1711a;
+        return f1724a;
     }
 
     public static String getUtdid(Context context) {
@@ -59,7 +59,7 @@ public class APSecuritySdk {
     }
 
     public String getApdidToken() {
-        String a2 = a.a(this.f1713b, "");
+        String a2 = a.a(this.f1726b, "");
         if (com.alipay.security.mobile.module.a.a.a(a2)) {
             initToken(0, new HashMap(), null);
         }
@@ -78,10 +78,10 @@ public class APSecuritySdk {
         TokenResult tokenResult;
         tokenResult = new TokenResult();
         try {
-            tokenResult.apdidToken = a.a(this.f1713b, "");
-            tokenResult.clientKey = h.f(this.f1713b);
-            tokenResult.apdid = a.a(this.f1713b);
-            tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f1713b);
+            tokenResult.apdidToken = a.a(this.f1726b, "");
+            tokenResult.clientKey = h.f(this.f1726b);
+            tokenResult.apdid = a.a(this.f1726b);
+            tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f1726b);
             if (com.alipay.security.mobile.module.a.a.a(tokenResult.apdid) || com.alipay.security.mobile.module.a.a.a(tokenResult.apdidToken) || com.alipay.security.mobile.module.a.a.a(tokenResult.clientKey)) {
                 initToken(0, new HashMap(), null);
             }
@@ -92,25 +92,25 @@ public class APSecuritySdk {
 
     public void initToken(int i2, Map<String, String> map, final InitResultListener initResultListener) {
         com.alipay.apmobilesecuritysdk.b.a.a().a(i2);
-        String b2 = h.b(this.f1713b);
+        String b2 = h.b(this.f1726b);
         String c2 = com.alipay.apmobilesecuritysdk.b.a.a().c();
         if (com.alipay.security.mobile.module.a.a.b(b2) && !com.alipay.security.mobile.module.a.a.a(b2, c2)) {
-            com.alipay.apmobilesecuritysdk.e.a.a(this.f1713b);
-            d.a(this.f1713b);
-            g.a(this.f1713b);
+            com.alipay.apmobilesecuritysdk.e.a.a(this.f1726b);
+            d.a(this.f1726b);
+            g.a(this.f1726b);
             i.h();
         }
         if (!com.alipay.security.mobile.module.a.a.a(b2, c2)) {
-            h.c(this.f1713b, c2);
+            h.c(this.f1726b, c2);
         }
-        String a2 = com.alipay.security.mobile.module.a.a.a(map, b.f1830g, "");
+        String a2 = com.alipay.security.mobile.module.a.a.a(map, b.f1843g, "");
         String a3 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
         String a4 = com.alipay.security.mobile.module.a.a.a(map, "userId", "");
         if (com.alipay.security.mobile.module.a.a.a(a2)) {
-            a2 = UtdidWrapper.getUtdid(this.f1713b);
+            a2 = UtdidWrapper.getUtdid(this.f1726b);
         }
         final HashMap hashMap = new HashMap();
-        hashMap.put(b.f1830g, a2);
+        hashMap.put(b.f1843g, a2);
         hashMap.put("tid", a3);
         hashMap.put("userId", a4);
         hashMap.put("appName", "");
@@ -120,7 +120,7 @@ public class APSecuritySdk {
         com.alipay.apmobilesecuritysdk.f.b.a().a(new Runnable() { // from class: com.alipay.apmobilesecuritysdk.face.APSecuritySdk.1
             @Override // java.lang.Runnable
             public void run() {
-                new a(APSecuritySdk.this.f1713b).a(hashMap);
+                new a(APSecuritySdk.this.f1726b).a(hashMap);
                 InitResultListener initResultListener2 = initResultListener;
                 if (initResultListener2 != null) {
                     initResultListener2.onResult(APSecuritySdk.this.getTokenResult());

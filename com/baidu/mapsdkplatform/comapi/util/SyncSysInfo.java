@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comapi.util;
 /* loaded from: classes2.dex */
 public class SyncSysInfo {
     public static String getAuthToken() {
-        return i.f7922d;
+        return i.f7965d;
     }
 
     public static String getPhoneInfo() {

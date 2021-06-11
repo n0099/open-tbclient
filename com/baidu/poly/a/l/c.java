@@ -16,16 +16,16 @@ import d.a.c0.g;
 public class c extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9290e;
+    public ImageView f9347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9291f;
+    public TextView f9348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f9292g;
+    public Animation f9349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f9293h;
+    public boolean f9350h;
 
     public c(Context context) {
         this(context, null);
@@ -33,9 +33,9 @@ public class c extends FrameLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(g.view_toast_loading, (ViewGroup) this, true);
-        this.f9290e = (ImageView) findViewById(f.toast_loading_view);
-        this.f9291f = (TextView) findViewById(f.toast_text_view);
-        this.f9292g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+        this.f9347e = (ImageView) findViewById(f.toast_loading_view);
+        this.f9348f = (TextView) findViewById(f.toast_text_view);
+        this.f9349g = AnimationUtils.loadAnimation(context, b.loading_rotate);
         setClickable(true);
     }
 
@@ -50,23 +50,23 @@ public class c extends FrameLayout {
     }
 
     public boolean getIsLoading() {
-        return this.f9293h;
+        return this.f9350h;
     }
 
     public void setLoading(boolean z) {
         b();
-        this.f9293h = z;
+        this.f9350h = z;
         if (z) {
             setVisibility(0);
-            this.f9290e.startAnimation(this.f9292g);
+            this.f9347e.startAnimation(this.f9349g);
             return;
         }
-        this.f9290e.clearAnimation();
+        this.f9347e.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.f9291f.setText(str);
+        this.f9348f.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

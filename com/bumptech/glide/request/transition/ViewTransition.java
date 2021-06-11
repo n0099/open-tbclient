@@ -4,11 +4,11 @@ import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ViewTransition<R> implements Transition<R> {
     public final ViewTransitionAnimationFactory viewTransitionAnimationFactory;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface ViewTransitionAnimationFactory {
         Animation build(Context context);
     }

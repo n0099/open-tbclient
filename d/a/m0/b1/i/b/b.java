@@ -28,31 +28,31 @@ public class b implements d.a.m0.b1.i.b.a {
     public static final int z = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f49046a;
+    public final Context f52720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f49047b;
+    public final View f52721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GestureDetector f49048c;
+    public GestureDetector f52722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ScaleGestureDetector f49049d;
+    public ScaleGestureDetector f52723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BitmapRegionDecoder f49050e;
+    public BitmapRegionDecoder f52724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.m0.b1.i.a.b f49051f;
+    public d.a.m0.b1.i.a.b f52725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.m0.b1.i.c.a f49052g;
+    public d.a.m0.b1.i.c.a f52726g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f49053h;
+    public float f52727h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f49054i;
+    public float f52728i;
     public Bitmap l;
     public int m;
     public c n;
@@ -68,20 +68,20 @@ public class b implements d.a.m0.b1.i.b.a {
     public boolean v = true;
     public boolean w = false;
     public boolean x = false;
-    public BdAsyncTask<String, String, String> y = new C1109b();
+    public BdAsyncTask<String, String, String> y = new C1165b();
 
     /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f49055e;
+        public final /* synthetic */ float f52729e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float f49056f;
+        public final /* synthetic */ float f52730f;
 
         public a(float f2, float f3) {
-            this.f49055e = f2;
-            this.f49056f = f3;
+            this.f52729e = f2;
+            this.f52730f = f3;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -89,26 +89,26 @@ public class b implements d.a.m0.b1.i.b.a {
             if (valueAnimator == null || !(valueAnimator.getAnimatedValue() instanceof Float)) {
                 return;
             }
-            b.this.L(((Float) valueAnimator.getAnimatedValue()).floatValue() / b.this.f49054i, this.f49055e, this.f49056f);
+            b.this.L(((Float) valueAnimator.getAnimatedValue()).floatValue() / b.this.f52728i, this.f52729e, this.f52730f);
         }
     }
 
     /* renamed from: d.a.m0.b1.i.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1109b extends BdAsyncTask<String, String, String> {
-        public C1109b() {
+    public class C1165b extends BdAsyncTask<String, String, String> {
+        public C1165b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             double d2;
-            if (b.this.f49051f != null && b.this.f49050e != null) {
-                int[] b2 = b.this.f49052g.b();
+            if (b.this.f52725f != null && b.this.f52724e != null) {
+                int[] b2 = b.this.f52726g.b();
                 int i2 = 1;
                 while (true) {
                     d2 = i2;
-                    if (Math.max(b2[0] / b.this.f49051f.i(), b2[1] / b.this.f49051f.h()) <= Math.pow(2.0d, d2)) {
+                    if (Math.max(b2[0] / b.this.f52725f.i(), b2[1] / b.this.f52725f.h()) <= Math.pow(2.0d, d2)) {
                         break;
                     }
                     i2++;
@@ -118,20 +118,20 @@ public class b implements d.a.m0.b1.i.b.a {
                 options.inSampleSize = pow;
                 Rect rect = new Rect(0, 0, b2[0], b2[1]);
                 try {
-                    b.this.s = b.this.f49050e.decodeRegion(rect, options);
+                    b.this.s = b.this.f52724e.decodeRegion(rect, options);
                 } catch (Throwable unused) {
                     TbadkCoreApplication.getInst().onAppMemoryLow();
                     System.gc();
                     try {
-                        b.this.s = b.this.f49050e.decodeRegion(rect, options);
+                        b.this.s = b.this.f52724e.decodeRegion(rect, options);
                     } catch (Throwable unused2) {
                         b.this.s = null;
                     }
                 }
-                d.a.m0.a0.c.k().d("long_img_mThumb" + System.currentTimeMillis(), new d.a.c.j.d.a(b.this.s, false));
+                d.a.m0.a0.c.k().d("long_img_mThumb" + System.currentTimeMillis(), new d.a.c.k.d.a(b.this.s, false));
                 b bVar = b.this;
-                bVar.B(bVar.s, bVar.f49051f, pow);
-                b.this.f49051f.t(b.this.s);
+                bVar.B(bVar.s, bVar.f52725f, pow);
+                b.this.f52725f.t(b.this.s);
                 b.this.C();
             }
             return null;
@@ -144,7 +144,7 @@ public class b implements d.a.m0.b1.i.b.a {
                 b.this.t.onLoadFinished();
             }
             b.this.u();
-            b.this.f49047b.invalidate();
+            b.this.f52721b.invalidate();
         }
     }
 
@@ -152,37 +152,37 @@ public class b implements d.a.m0.b1.i.b.a {
     public class c extends Scroller {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49059a;
+        public int f52733a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f49060b;
+        public int f52734b;
 
         public c(b bVar, Context context) {
             super(context);
-            this.f49059a = 0;
-            this.f49060b = 0;
+            this.f52733a = 0;
+            this.f52734b = 0;
         }
 
         public int a() {
-            return this.f49059a;
+            return this.f52733a;
         }
 
         public int b() {
-            return this.f49060b;
+            return this.f52734b;
         }
 
         public void c(int i2) {
-            this.f49059a = i2;
+            this.f52733a = i2;
         }
 
         public void d(int i2) {
-            this.f49060b = i2;
+            this.f52734b = i2;
         }
 
         @Override // android.widget.Scroller
         public void fling(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-            this.f49059a = 0;
-            this.f49060b = 0;
+            this.f52733a = 0;
+            this.f52734b = 0;
             super.fling(i2, i3, i4, i5, i6, i7, i8, i9);
         }
     }
@@ -194,18 +194,18 @@ public class b implements d.a.m0.b1.i.b.a {
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onDoubleTap(MotionEvent motionEvent) {
-            b.this.U(b.this.f49054i == b.this.j ? b.this.k : b.this.j, motionEvent.getX(), motionEvent.getY(), 400);
+            b.this.U(b.this.f52728i == b.this.j ? b.this.k : b.this.j, motionEvent.getX(), motionEvent.getY(), 400);
             return true;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-            Rect o = b.this.f49051f.o();
-            Rect f4 = b.this.f49051f.f();
+            Rect o = b.this.f52725f.o();
+            Rect f4 = b.this.f52725f.f();
             b.this.n.forceFinished(true);
             int i2 = (int) 0.0f;
             b.this.n.fling(i2, i2, (int) f2, (int) f3, o.right - f4.right, o.left - f4.left, o.bottom - f4.bottom, o.top - f4.top);
-            b.this.f49047b.invalidate();
+            b.this.f52721b.invalidate();
             if (Math.abs(f3) > b.z) {
                 b.this.x = true;
             }
@@ -217,7 +217,7 @@ public class b implements d.a.m0.b1.i.b.a {
             if (b.this.x || b.this.r == null) {
                 b.this.x = false;
             } else {
-                b.this.r.onLongClick(b.this.f49047b);
+                b.this.r.onLongClick(b.this.f52721b);
             }
             super.onLongPress(motionEvent);
         }
@@ -228,8 +228,8 @@ public class b implements d.a.m0.b1.i.b.a {
             if (Math.abs(f3) > b.z) {
                 b.this.x = true;
             }
-            if (b.this.f49047b != null && b.this.f49054i != b.this.k) {
-                b.this.f49047b.getParent().requestDisallowInterceptTouchEvent(true);
+            if (b.this.f52721b != null && b.this.f52728i != b.this.k) {
+                b.this.f52721b.getParent().requestDisallowInterceptTouchEvent(true);
             }
             return true;
         }
@@ -239,7 +239,7 @@ public class b implements d.a.m0.b1.i.b.a {
             if (b.this.x || b.this.q == null) {
                 b.this.x = false;
             } else {
-                b.this.q.onClick(b.this.f49047b);
+                b.this.q.onClick(b.this.f52721b);
             }
             return super.onSingleTapConfirmed(motionEvent);
         }
@@ -267,24 +267,24 @@ public class b implements d.a.m0.b1.i.b.a {
 
     public b(View view) {
         this.m = 1;
-        this.f49047b = view;
-        this.f49046a = view.getContext();
-        this.f49048c = new GestureDetector(this.f49046a, new d(this, null));
-        this.f49049d = new ScaleGestureDetector(this.f49046a, new e(this, null));
-        this.n = new c(this, this.f49046a);
+        this.f52721b = view;
+        this.f52720a = view.getContext();
+        this.f52722c = new GestureDetector(this.f52720a, new d(this, null));
+        this.f52723d = new ScaleGestureDetector(this.f52720a, new e(this, null));
+        this.n = new c(this, this.f52720a);
         this.m = 0;
     }
 
     public final float[] A(float f2, float f3) {
         float[] fArr = new float[2];
-        Rect o = this.f49051f.o();
-        int[] b2 = this.f49052g.b();
+        Rect o = this.f52725f.o();
+        int[] b2 = this.f52726g.b();
         if (o.top + f3 < 0.0f) {
             f3 = 0.0f;
         }
         int i2 = o.bottom;
         if (i2 + f3 > b2[1]) {
-            f3 = (b2[1] - i2) * this.f49054i;
+            f3 = (b2[1] - i2) * this.f52728i;
         }
         if (o.bottom - o.top > b2[1]) {
             f3 = 0.0f;
@@ -304,19 +304,19 @@ public class b implements d.a.m0.b1.i.b.a {
         float max = Math.max((bVar.i() * 1.0f) / bitmap.getWidth(), (bVar.h() * 1.0f) / bitmap.getHeight());
         this.p.postScale(max, max);
         float f2 = (1.0f / i2) * max;
-        this.f49053h = f2;
+        this.f52727h = f2;
         this.k = f2;
-        this.f49054i = f2;
+        this.f52728i = f2;
         this.j = f2 * 2.0f;
-        float i3 = (bVar.i() * 1.0f) / this.f49050e.getWidth();
+        float i3 = (bVar.i() * 1.0f) / this.f52724e.getWidth();
         if (i3 > 1.0f) {
-            this.f49053h /= i3;
+            this.f52727h /= i3;
         }
-        bVar.s(1.0f / this.f49054i);
+        bVar.s(1.0f / this.f52728i);
     }
 
     public final void C() {
-        d.a.m0.b1.i.a.b bVar = this.f49051f;
+        d.a.m0.b1.i.a.b bVar = this.f52725f;
         if (bVar != null) {
             bVar.q(1.0f / this.k);
         }
@@ -324,17 +324,17 @@ public class b implements d.a.m0.b1.i.b.a {
 
     public boolean D() {
         Rect o;
-        d.a.m0.b1.i.a.b bVar = this.f49051f;
+        d.a.m0.b1.i.a.b bVar = this.f52725f;
         return (bVar == null || (o = bVar.o()) == null || o.top > 10) ? false : true;
     }
 
     public final boolean E() {
-        d.a.m0.b1.i.a.b bVar = this.f49051f;
-        return (bVar == null || bVar.n() == null || this.f49051f.n().b() == null || this.f49051f.n().b().isRecycled()) ? false : true;
+        d.a.m0.b1.i.a.b bVar = this.f52725f;
+        return (bVar == null || bVar.n() == null || this.f52725f.n().b() == null || this.f52725f.n().b().isRecycled()) ? false : true;
     }
 
     public boolean F() {
-        return Math.floor((double) (this.k * 10000.0f)) == Math.floor((double) (this.f49054i * 10000.0f));
+        return Math.floor((double) (this.k * 10000.0f)) == Math.floor((double) (this.f52728i * 10000.0f));
     }
 
     public boolean G() {
@@ -346,33 +346,33 @@ public class b implements d.a.m0.b1.i.b.a {
     }
 
     public void I(float f2, float f3) {
-        if (this.f49051f != null) {
+        if (this.f52725f != null) {
             float[] A = A(f2, f3);
             float f4 = A[0];
             float f5 = A[1];
             this.p.postTranslate(-f4, -f5);
-            d.a.m0.b1.i.a.b bVar = this.f49051f;
-            float f6 = this.f49054i;
+            d.a.m0.b1.i.a.b bVar = this.f52725f;
+            float f6 = this.f52728i;
             bVar.p((f4 * 1.0f) / f6, (f5 * 1.0f) / f6);
             u();
-            this.f49047b.invalidate();
+            this.f52721b.invalidate();
         }
     }
 
     public boolean J(Canvas canvas) {
         if (this.m != 1 || this.l == null) {
-            d.a.m0.b1.i.a.b bVar = this.f49051f;
+            d.a.m0.b1.i.a.b bVar = this.f52725f;
             if (bVar != null) {
                 bVar.o();
                 if (E()) {
-                    canvas.drawBitmap(this.f49051f.n().b(), this.p, null);
+                    canvas.drawBitmap(this.f52725f.n().b(), this.p, null);
                 }
-                w(this.f49051f, false);
+                w(this.f52725f, false);
                 X();
                 canvas.save();
-                float k = (this.f49051f.k() * 1.0f) / this.f49051f.l();
+                float k = (this.f52725f.k() * 1.0f) / this.f52725f.l();
                 canvas.scale(k, k);
-                List<d.a.m0.b1.i.a.a> d2 = this.f49051f.d();
+                List<d.a.m0.b1.i.a.a> d2 = this.f52725f.d();
                 if (d2 != null) {
                     for (d.a.m0.b1.i.a.a aVar : d2) {
                         canvas.drawBitmap(aVar.b(), aVar.f(), aVar.c(), (Paint) null);
@@ -390,8 +390,8 @@ public class b implements d.a.m0.b1.i.b.a {
             Matrix matrix = new Matrix();
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            int width2 = (this.f49047b.getWidth() - this.f49047b.getPaddingLeft()) - this.f49047b.getPaddingRight();
-            int height2 = (this.f49047b.getHeight() - this.f49047b.getPaddingTop()) - this.f49047b.getPaddingBottom();
+            int width2 = (this.f52721b.getWidth() - this.f52721b.getPaddingLeft()) - this.f52721b.getPaddingRight();
+            int height2 = (this.f52721b.getHeight() - this.f52721b.getPaddingTop()) - this.f52721b.getPaddingBottom();
             float f2 = width * height2 > width2 * height ? height2 / height : width2 / width;
             matrix.setScale(f2, f2);
             matrix.postTranslate(0.0f, 0.0f);
@@ -402,33 +402,33 @@ public class b implements d.a.m0.b1.i.b.a {
     }
 
     public void L(float f2, float f3, float f4) {
-        float f5 = this.f49054i;
-        float f6 = this.f49053h;
+        float f5 = this.f52728i;
+        float f6 = this.f52727h;
         if (f5 * f2 < f6) {
             f2 = f6 / f5;
         }
-        float f7 = this.f49054i;
+        float f7 = this.f52728i;
         float f8 = this.j;
         if (f7 * f2 > f8) {
             f2 = f8 / f7;
         }
-        Rect o = this.f49051f.o();
+        Rect o = this.f52725f.o();
         float f9 = ((o.left + o.right) * 1.0f) / 2.0f;
         float f10 = ((o.top + o.bottom) * 1.0f) / 2.0f;
-        d.a.m0.b1.i.a.b bVar = this.f49051f;
+        d.a.m0.b1.i.a.b bVar = this.f52725f;
         if (bVar != null) {
-            this.p.postScale(f2, f2, bVar.i() / 2, this.f49051f.h() / 2);
-            this.f49051f.r(1.0f / f2, f9, f10);
-            float f11 = this.f49054i * f2;
-            this.f49054i = f11;
-            this.f49051f.s(1.0f / f11);
+            this.p.postScale(f2, f2, bVar.i() / 2, this.f52725f.h() / 2);
+            this.f52725f.r(1.0f / f2, f9, f10);
+            float f11 = this.f52728i * f2;
+            this.f52728i = f11;
+            this.f52725f.s(1.0f / f11);
             float[] s = s();
             this.p.postTranslate(-s[0], -s[1]);
-            d.a.m0.b1.i.a.b bVar2 = this.f49051f;
-            float f12 = this.f49054i;
+            d.a.m0.b1.i.a.b bVar2 = this.f52725f;
+            float f12 = this.f52728i;
             bVar2.p((s[0] * 1.0f) / f12, (s[1] * 1.0f) / f12);
             u();
-            this.f49047b.invalidate();
+            this.f52721b.invalidate();
         }
     }
 
@@ -451,9 +451,9 @@ public class b implements d.a.m0.b1.i.b.a {
             }
             r();
             this.n.forceFinished(true);
-            this.f49049d.onTouchEvent(motionEvent);
-            if (!this.f49049d.isInProgress()) {
-                this.f49048c.onTouchEvent(motionEvent);
+            this.f52723d.onTouchEvent(motionEvent);
+            if (!this.f52723d.isInProgress()) {
+                this.f52722c.onTouchEvent(motionEvent);
             }
             return true;
         }
@@ -477,9 +477,9 @@ public class b implements d.a.m0.b1.i.b.a {
         if (cVar != null) {
             cVar.g();
         }
-        d.a.m0.b1.i.a.b bVar = this.f49051f;
+        d.a.m0.b1.i.a.b bVar = this.f52725f;
         if (bVar != null && bVar.d() != null) {
-            this.f49051f.d().clear();
+            this.f52725f.d().clear();
         }
         Bitmap bitmap = this.s;
         if (bitmap != null) {
@@ -519,19 +519,19 @@ public class b implements d.a.m0.b1.i.b.a {
     }
 
     public void Q(Bitmap bitmap, byte[] bArr) {
-        if (bArr == null || bArr.length == 0 || this.f49052g != null) {
+        if (bArr == null || bArr.length == 0 || this.f52726g != null) {
             return;
         }
         this.l = bitmap;
-        d.a.m0.b1.i.c.a aVar = new d.a.m0.b1.i.c.a(this.f49046a);
-        this.f49052g = aVar;
+        d.a.m0.b1.i.c.a aVar = new d.a.m0.b1.i.c.a(this.f52720a);
+        this.f52726g = aVar;
         try {
-            this.f49050e = aVar.a(bArr);
+            this.f52724e = aVar.a(bArr);
         } catch (Throwable unused) {
             TbadkCoreApplication.getInst().onAppMemoryLow();
             System.gc();
             try {
-                this.f49050e = this.f49052g.a(bArr);
+                this.f52724e = this.f52726g.a(bArr);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -557,7 +557,7 @@ public class b implements d.a.m0.b1.i.b.a {
         if (valueAnimator != null) {
             valueAnimator.cancel();
         }
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f49054i, f2);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f52728i, f2);
         this.u = ofFloat;
         ofFloat.setDuration(i2);
         this.u.addUpdateListener(new a(f3, f4));
@@ -565,10 +565,10 @@ public class b implements d.a.m0.b1.i.b.a {
     }
 
     public void V() {
-        if (this.m != 2 || this.f49052g == null || this.y.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING || this.f49051f != null || this.f49047b.getMeasuredWidth() <= 0 || this.f49047b.getMeasuredHeight() <= 0 || this.f49052g.b()[0] <= 0 || this.f49052g.b()[1] <= 0) {
+        if (this.m != 2 || this.f52726g == null || this.y.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING || this.f52725f != null || this.f52721b.getMeasuredWidth() <= 0 || this.f52721b.getMeasuredHeight() <= 0 || this.f52726g.b()[0] <= 0 || this.f52726g.b()[1] <= 0) {
             return;
         }
-        this.f49051f = new d.a.m0.b1.i.a.b(this.f49047b.getMeasuredWidth(), this.f49047b.getMeasuredHeight(), this.f49052g.b());
+        this.f52725f = new d.a.m0.b1.i.a.b(this.f52721b.getMeasuredWidth(), this.f52721b.getMeasuredHeight(), this.f52726g.b());
         this.y.setPriority(3);
         this.y.execute(new String[0]);
     }
@@ -580,10 +580,10 @@ public class b implements d.a.m0.b1.i.b.a {
     }
 
     public final void X() {
-        List<d.a.m0.b1.i.a.a> d2 = this.f49051f.d();
+        List<d.a.m0.b1.i.a.a> d2 = this.f52725f.d();
         if (d2 != null) {
             for (d.a.m0.b1.i.a.a aVar : d2) {
-                Y(aVar, this.f49051f);
+                Y(aVar, this.f52725f);
             }
         }
     }
@@ -597,11 +597,11 @@ public class b implements d.a.m0.b1.i.b.a {
 
     @Override // d.a.m0.b1.i.b.a
     public void onLoadFinished() {
-        this.f49047b.postInvalidate();
+        this.f52721b.postInvalidate();
     }
 
     public void r() {
-        float f2 = this.f49054i;
+        float f2 = this.f52728i;
         float f3 = this.k;
         if (f2 / f3 < 1.0f) {
             U(f3, 0.0f, 0.0f, 400);
@@ -609,8 +609,8 @@ public class b implements d.a.m0.b1.i.b.a {
     }
 
     public final float[] s() {
-        Rect o = this.f49051f.o();
-        int[] b2 = this.f49052g.b();
+        Rect o = this.f52725f.o();
+        int[] b2 = this.f52726g.b();
         float[] fArr = {(b2[0] / 2) - (((o.left + o.right) * 1.0f) / 2.0f)};
         int i2 = o.top;
         if (i2 < 0) {
@@ -626,7 +626,7 @@ public class b implements d.a.m0.b1.i.b.a {
             fArr[1] = (b2[1] / 2) - (((i5 + i4) * 1.0f) / 2.0f);
         }
         float f2 = fArr[0];
-        float f3 = this.f49054i;
+        float f3 = this.f52728i;
         fArr[0] = f2 * f3;
         fArr[1] = fArr[1] * f3;
         return fArr;
@@ -644,13 +644,13 @@ public class b implements d.a.m0.b1.i.b.a {
             int i2 = l.i(TbadkCoreApplication.getInst());
             if (b2 >= 0.0f && Math.abs(b2) <= 20.0f && currX < i2) {
                 I(0.0f, -20.0f);
-                this.f49047b.invalidate();
+                this.f52721b.invalidate();
                 return true;
             }
             this.n.c(currX);
             this.n.d(currY);
             I(-a2, -b2);
-            this.f49047b.invalidate();
+            this.f52721b.invalidate();
         }
         return true;
     }
@@ -659,12 +659,12 @@ public class b implements d.a.m0.b1.i.b.a {
         if (this.m == 1) {
             return;
         }
-        w(this.f49051f, true);
+        w(this.f52725f, true);
     }
 
     public final void v(Point[] pointArr, int i2, boolean z2) {
         if (this.o == null) {
-            this.o = new d.a.m0.b1.i.c.c(this.f49051f, this.f49050e);
+            this.o = new d.a.m0.b1.i.c.c(this.f52725f, this.f52724e);
         }
         int i3 = pointArr[0].x;
         boolean z3 = true;
@@ -672,7 +672,7 @@ public class b implements d.a.m0.b1.i.b.a {
         int i5 = pointArr[1].x;
         List<d.a.m0.b1.i.a.a> list = null;
         if (!z2) {
-            list = this.f49051f.d();
+            list = this.f52725f.d();
             list.clear();
         }
         for (int i6 = pointArr[0].y; i6 < i4; i6++) {
@@ -699,12 +699,12 @@ public class b implements d.a.m0.b1.i.b.a {
 
     public final d.a.m0.b1.i.a.a x(int i2, int i3, int i4) {
         d.a.m0.b1.i.a.a f2;
-        a.C1108a c1108a = new a.C1108a(i2, i3, i4);
-        if (this.o.e() != null && (f2 = this.o.e().f(c1108a)) != null) {
+        a.C1164a c1164a = new a.C1164a(i2, i3, i4);
+        if (this.o.e() != null && (f2 = this.o.e().f(c1164a)) != null) {
             if (f2.b() != null && !f2.b().isRecycled()) {
                 return f2;
             }
-            this.o.e().i(c1108a);
+            this.o.e().i(c1164a);
         }
         return null;
     }

@@ -13,22 +13,22 @@ import d.a.m0.d0.h;
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13698e;
+    public Context f13763e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f13699f;
+    public LinearLayout f13764f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h f13700g;
+    public h f13765g;
     public int j;
     public String k;
     public String l;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13701h = false;
+    public boolean f13766h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13702i = false;
+    public boolean f13767i = false;
     public CustomMessageListener m = new a(2921442);
 
     /* loaded from: classes4.dex */
@@ -42,45 +42,45 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean bool = (Boolean) customResponsedMessage.getData();
             if (bool != null && bool.booleanValue()) {
-                LiveTabBaseSubFragment.this.f13702i = false;
+                LiveTabBaseSubFragment.this.f13767i = false;
             }
         }
     }
 
-    public void D0() {
-        this.f13699f.setVisibility(8);
+    public void G0() {
+        this.f13764f.setVisibility(8);
     }
 
-    public void E0() {
+    public void H0() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
-        this.f13702i = true;
+        this.f13767i = true;
     }
 
-    public boolean F0() {
+    public boolean I0() {
         return (k.isEmpty(this.k) || k.isEmpty(this.l)) ? false : true;
     }
 
-    public abstract void G0();
+    public abstract void J0();
 
-    public void H0(String str, String str2) {
+    public void K0(String str, String str2) {
         this.k = str;
         this.l = str2;
     }
 
-    public void I0() {
-        this.f13699f.setVisibility(0);
-        if (this.f13700g == null) {
-            this.f13700g = new h(this.f13698e, null);
+    public void L0() {
+        this.f13764f.setVisibility(0);
+        if (this.f13765g == null) {
+            this.f13765g = new h(this.f13763e, null);
         }
-        this.f13700g.e();
-        this.f13700g.i(R.drawable.new_pic_emotion_03);
-        this.f13700g.n(this.f13698e.getResources().getString(R.string.no_data_common_txt));
-        this.f13700g.onChangeSkinType();
+        this.f13765g.e();
+        this.f13765g.i(R.drawable.new_pic_emotion_03);
+        this.f13765g.n(this.f13763e.getResources().getString(R.string.no_data_common_txt));
+        this.f13765g.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.f13700g.b() == null || this.f13700g.b().getParent() != null) {
+        if (this.f13765g.b() == null || this.f13765g.b().getParent() != null) {
             return;
         }
-        this.f13699f.addView(this.f13700g.b(), layoutParams);
+        this.f13764f.addView(this.f13765g.b(), layoutParams);
     }
 
     public abstract void loadData();
@@ -88,11 +88,11 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        h hVar = this.f13700g;
+        h hVar = this.f13765g;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
     }
 
-    public abstract void p();
+    public abstract void r();
 }

@@ -15,7 +15,7 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public static final int DEQUEUE_INPUT_TIMEOUT_US = 500000;
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
@@ -60,7 +60,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public final Object dimensionLock = new Object();
     public final Object renderedTextureMetadataLock = new Object();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class DecodedTextureMetadata {
         public final Integer decodeTimeMs;
         public final long presentationTimestampUs;
@@ -71,7 +71,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FrameInfo {
         public final long decodeStartTimeMs;
         public final int rotation;

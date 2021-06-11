@@ -12,15 +12,15 @@ public class d implements d.a.l0.a.p.d.t {
     public class a implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.c f43954a;
+        public final /* synthetic */ a.c f47637a;
 
         public a(d dVar, a.c cVar) {
-            this.f43954a = cVar;
+            this.f47637a = cVar;
         }
 
         @Override // d.a.l0.a.h0.s.b.c
         public void a() {
-            a.c cVar = this.f43954a;
+            a.c cVar = this.f47637a;
             if (cVar != null) {
                 cVar.a();
             }

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.datamodel.CalcPaymentResponse;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import java.io.Serializable;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -176,7 +177,7 @@ public class PayData implements NoProguard {
             Map<String, String> map = this.post_info;
             if (map != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if ("amount".equals(entry.getKey())) {
+                    if (PayUiEventContent.AMOUNT.equals(entry.getKey())) {
                         return entry.getValue();
                     }
                 }

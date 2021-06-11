@@ -163,7 +163,7 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
             gifView.setTag(null);
             gifView.setOnClickListener(null);
             gifView.setDefaultBgResource(R.color.common_color_10220);
-            gifView.n0();
+            gifView.l0();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -185,10 +185,10 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
         }
 
         public GifView h(GifView gifView) {
-            gifView.s0();
-            gifView.n0();
+            gifView.q0();
+            gifView.l0();
             gifView.setImageDrawable(null);
-            gifView.t0();
+            gifView.s0();
             gifView.setBackgroundDrawable(null);
             gifView.setTag(null);
             gifView.setOnClickListener(null);
@@ -199,8 +199,8 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
 
     /* renamed from: d.a.n0.r0.n1.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1517c extends d.a.n0.z.b0<a2> {
-        public C1517c(c cVar) {
+    public class C1573c extends d.a.n0.z.b0<a2> {
+        public C1573c(c cVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -215,12 +215,12 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.a.c.j.e.w {
+    public class d implements d.a.c.k.e.w {
         public d() {
         }
 
-        @Override // d.a.c.j.e.w
-        public void b(View view, d.a.c.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+        @Override // d.a.c.k.e.w
+        public void b(View view, d.a.c.k.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             if ((nVar instanceof z1) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 a2 a2Var = ((z1) nVar).w;
@@ -229,7 +229,7 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
                     c.this.B.a(threadCardViewHolder.a(), a2Var);
                 }
                 ThreadCardUtils.jumpToPB((d.a.m0.r.q.a) a2Var, view.getContext(), c.this.w, false);
-                threadCardViewHolder.b().o(new a.C0544a(1));
+                threadCardViewHolder.b().o(new a.C0600a(1));
             }
         }
     }
@@ -240,7 +240,7 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
         this.x = true;
         this.z = new d.a.c.e.k.b<>(new a(), 12, 0);
         this.A = new d.a.c.e.k.b<>(new b(), 20, 0);
-        this.B = new C1517c(this);
+        this.B = new C1573c(this);
         this.o = tbPageContext;
     }
 
@@ -254,12 +254,12 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
     }
 
     @Override // d.a.n0.r0.j2.d
-    public d.a.n0.r0.j2.b i() {
-        return d.a.n0.r0.j2.d.J0;
+    public d.a.n0.r0.j2.b j() {
+        return d.a.n0.r0.j2.d.L0;
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
         this.w = i2;
     }
 
@@ -269,15 +269,15 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: w0 */
-    public ThreadCardViewHolder<a2> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: x0 */
+    public ThreadCardViewHolder<a2> Q(ViewGroup viewGroup) {
         l0.b bVar = new l0.b(this.o.getPageActivity(), false);
         d.a.i.o oVar = new d.a.i.o(this.o.getPageActivity());
         oVar.x("frs");
         oVar.z(2);
         oVar.D(this.z, this.A);
-        oVar.F(0, d.a.c.e.p.l.g(this.f39228e, R.dimen.tbds44), 0, 0);
+        oVar.F(0, d.a.c.e.p.l.g(this.f42909e, R.dimen.tbds44), 0, 0);
         oVar.y(this.x);
         oVar.w(1);
         if (this.w == 502) {
@@ -289,17 +289,17 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
         l0 k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.q);
         k.r(3);
         ThreadCardViewHolder<a2> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-        threadCardViewHolder.j(this.f39232i);
-        threadCardViewHolder.n(false);
-        Z(new d());
+        threadCardViewHolder.k(this.f42913i);
+        threadCardViewHolder.o(false);
+        a0(new d());
         return threadCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: x0 */
-    public View W(int i2, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder<a2> threadCardViewHolder) {
-        super.W(i2, view, viewGroup, z1Var, threadCardViewHolder);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: y0 */
+    public View X(int i2, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder<a2> threadCardViewHolder) {
+        super.X(i2, view, viewGroup, z1Var, threadCardViewHolder);
         if (z1Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || z1Var.w == null) {
             return null;
         }
@@ -308,12 +308,12 @@ public class c extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
         d.a.n0.r0.j.g(threadCardViewHolder.b().e(), this.n);
         FrsViewData frsViewData = this.n;
         if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.n.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.n.getForum().getTopic_special_icon_right())) {
-            z1Var.w.l4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
+            z1Var.w.m4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
         }
         threadCardViewHolder.f(z1Var.w);
         threadCardViewHolder.b().onChangeSkinType(this.o, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.b().p(this.B);
-        z1Var.w.B4();
+        z1Var.w.C4();
         return threadCardViewHolder.a();
     }
 }

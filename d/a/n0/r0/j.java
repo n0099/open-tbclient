@@ -9,15 +9,15 @@ import tbclient.ForumToolPerm;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static UserData f58758a;
+    public static UserData f62449a;
 
     public static UserData a() {
-        return f58758a;
+        return f62449a;
     }
 
     public static UserData b(FrsViewData frsViewData) {
         UserData userData = frsViewData != null ? frsViewData.getUserData() : null;
-        f58758a = userData;
+        f62449a = userData;
         return userData;
     }
 

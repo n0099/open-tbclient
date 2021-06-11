@@ -12,7 +12,7 @@ public class SecurityClientMobile {
         String a2;
         synchronized (SecurityClientMobile.class) {
             HashMap hashMap = new HashMap();
-            hashMap.put(b.f1830g, a.a(map, b.f1830g, ""));
+            hashMap.put(b.f1843g, a.a(map, b.f1843g, ""));
             hashMap.put("tid", a.a(map, "tid", ""));
             hashMap.put("userId", a.a(map, "userId", ""));
             APSecuritySdk.getInstance(context).initToken(0, hashMap, null);

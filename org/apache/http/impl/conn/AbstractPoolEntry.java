@@ -9,7 +9,7 @@ import org.apache.http.conn.routing.RouteTracker;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractPoolEntry {
     public final ClientConnectionOperator connOperator;
     public final OperatedClientConnection connection;

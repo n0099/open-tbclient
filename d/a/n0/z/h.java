@@ -28,36 +28,36 @@ public class h extends b<d.a.n0.e0.g> {
 
     public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        s(l());
+        t(m());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_frs_game_score_view_item;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
-            SkinManager.setBackgroundResource(l(), R.color.CAM_X0201);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
+            SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.z, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0107, 1);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0106, 1);
             SkinManager.setViewTextColor(this.x, R.color.CAM_X0107, 1);
-            u(this.y);
+            v(this.y);
         }
-        this.f63440e = i2;
+        this.f67158e = i2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (h() != null) {
-            h().a(l(), this.y);
+        if (i() != null) {
+            i().a(m(), this.y);
         }
     }
 
-    public final void s(View view) {
+    public final void t(View view) {
         this.m = (TbImageView) view.findViewById(R.id.card_frs_game_score_img);
         this.n = (LinearLayout) view.findViewById(R.id.card_frs_game_score_info);
         this.o = (TextView) view.findViewById(R.id.card_frs_game_score_title);
@@ -74,29 +74,29 @@ public class h extends b<d.a.n0.e0.g> {
         this.m.setDefaultBgResource(R.color.CAM_X0205);
         this.m.setDrawBorder(true);
         this.m.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.m.setBorderWidth(this.f63442g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.m.setBorderWidth(this.f67160g.getResources().getDimensionPixelSize(R.dimen.tbds1));
         this.m.setRadius(b().getResources().getDimensionPixelSize(R.dimen.tbds26));
-        l().setOnClickListener(this);
+        m().setOnClickListener(this);
         this.z = view.findViewById(R.id.divider_line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(d.a.n0.e0.g gVar) {
-        if (gVar == null || gVar.h() == null) {
+    /* renamed from: u */
+    public void n(d.a.n0.e0.g gVar) {
+        if (gVar == null || gVar.c() == null) {
             return;
         }
         this.y = gVar;
-        this.m.V(gVar.h().avatar, 10, false);
-        this.o.setText(gVar.h().game_name);
-        this.p.setText(gVar.h().title_small);
-        this.q.setText(String.valueOf(gVar.h().game_score));
-        u(gVar);
-        this.x.setText(this.f63442g.getResources().getString(R.string.frs_game_score_user_score_num, StringHelper.numberUniform(gVar.h().game_score_num)));
+        this.m.U(gVar.c().avatar, 10, false);
+        this.o.setText(gVar.c().game_name);
+        this.p.setText(gVar.c().title_small);
+        this.q.setText(String.valueOf(gVar.c().game_score));
+        v(gVar);
+        this.x.setText(this.f67160g.getResources().getString(R.string.frs_game_score_user_score_num, StringHelper.numberUniform(gVar.c().game_score_num)));
     }
 
-    public final void u(d.a.n0.e0.g gVar) {
+    public final void v(d.a.n0.e0.g gVar) {
         if (gVar == null) {
             return;
         }
@@ -105,42 +105,42 @@ public class h extends b<d.a.n0.e0.g> {
         SkinManager.setImageResource(this.u, R.drawable.game_comment_score_btn_small_empty_bg);
         SkinManager.setImageResource(this.v, R.drawable.game_comment_score_btn_small_empty_bg);
         SkinManager.setImageResource(this.w, R.drawable.game_comment_score_btn_small_empty_bg);
-        if (gVar.h().game_score > 0.0d) {
-            if (gVar.h().game_score < 2.0d) {
+        if (gVar.c().game_score > 0.0d) {
+            if (gVar.c().game_score < 2.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (gVar.h().game_score == 2.0d) {
+            } else if (gVar.c().game_score == 2.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (gVar.h().game_score < 4.0d) {
+            } else if (gVar.c().game_score < 4.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.t, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (gVar.h().game_score == 4.0d) {
+            } else if (gVar.c().game_score == 4.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.t, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (gVar.h().game_score < 6.0d) {
+            } else if (gVar.c().game_score < 6.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.t, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.u, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (gVar.h().game_score == 6.0d) {
+            } else if (gVar.c().game_score == 6.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.t, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.u, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (gVar.h().game_score < 8.0d) {
+            } else if (gVar.c().game_score < 8.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.t, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.u, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.v, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (gVar.h().game_score == 8.0d) {
+            } else if (gVar.c().game_score == 8.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.t, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.u, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.v, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (gVar.h().game_score < 10.0d) {
+            } else if (gVar.c().game_score < 10.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.t, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.u, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.v, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.w, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (gVar.h().game_score == 10.0d) {
+            } else if (gVar.c().game_score == 10.0d) {
                 SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.t, R.drawable.game_comment_score_btn_small_full_bg);
                 SkinManager.setImageResource(this.u, R.drawable.game_comment_score_btn_small_full_bg);

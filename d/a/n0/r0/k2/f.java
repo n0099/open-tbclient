@@ -20,25 +20,25 @@ import java.util.List;
 public class f implements d.a.n0.r0.k2.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f58831a;
+    public BdListView f62522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e.InterfaceC1504e f58832b;
+    public e.InterfaceC1560e f62523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f58833c;
+    public Context f62524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<e1> f58834d;
+    public List<e1> f62525d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f58835e;
+    public e f62526e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final BaseAdapter f58836f = new a();
+    public final BaseAdapter f62527f = new a();
 
     /* renamed from: g  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f58837g = new b();
+    public AdapterView.OnItemClickListener f62528g = new b();
 
     /* loaded from: classes4.dex */
     public class a extends BaseAdapter {
@@ -49,18 +49,18 @@ public class f implements d.a.n0.r0.k2.a {
         @Override // android.widget.Adapter
         /* renamed from: a */
         public e1 getItem(int i2) {
-            if (f.this.f58834d == null) {
+            if (f.this.f62525d == null) {
                 return null;
             }
-            return (e1) f.this.f58834d.get(i2);
+            return (e1) f.this.f62525d.get(i2);
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (f.this.f58834d == null) {
+            if (f.this.f62525d == null) {
                 return 0;
             }
-            return f.this.f58834d.size();
+            return f.this.f62525d.size();
         }
 
         @Override // android.widget.Adapter
@@ -74,10 +74,10 @@ public class f implements d.a.n0.r0.k2.a {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.tab_item_menu_item_view, (ViewGroup) null);
                 view.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.ds80)));
                 e.f fVar = new e.f();
-                fVar.f58827a = (TextView) view.findViewById(R.id.tab_menu_name);
-                fVar.f58828b = (ImageView) view.findViewById(R.id.tab_menu_check);
-                fVar.f58829c = view.findViewById(R.id.tab_menu_line_s);
-                fVar.f58830d = view.findViewById(R.id.tab_menu_line_f);
+                fVar.f62518a = (TextView) view.findViewById(R.id.tab_menu_name);
+                fVar.f62519b = (ImageView) view.findViewById(R.id.tab_menu_check);
+                fVar.f62520c = view.findViewById(R.id.tab_menu_line_s);
+                fVar.f62521d = view.findViewById(R.id.tab_menu_line_f);
                 view.setTag(fVar);
             }
             SkinManager.setBackgroundResource(view, R.color.CAM_X0201);
@@ -86,23 +86,23 @@ public class f implements d.a.n0.r0.k2.a {
             if (item == null) {
                 return view;
             }
-            fVar2.f58827a.setText(item.f58448a);
-            if (item.f58450c) {
-                SkinManager.setViewTextColor(fVar2.f58827a, R.color.CAM_X0302, 1);
-                SkinManager.setImageResource(fVar2.f58828b, R.drawable.chx_tips_list_ok);
-                fVar2.f58828b.setVisibility(0);
+            fVar2.f62518a.setText(item.f62139a);
+            if (item.f62141c) {
+                SkinManager.setViewTextColor(fVar2.f62518a, R.color.CAM_X0302, 1);
+                SkinManager.setImageResource(fVar2.f62519b, R.drawable.chx_tips_list_ok);
+                fVar2.f62519b.setVisibility(0);
             } else {
-                SkinManager.setViewTextColor(fVar2.f58827a, R.color.CAM_X0108, 1);
-                fVar2.f58828b.setVisibility(8);
+                SkinManager.setViewTextColor(fVar2.f62518a, R.color.CAM_X0108, 1);
+                fVar2.f62519b.setVisibility(8);
             }
             if (i2 >= 0 && i2 == getCount() - 1) {
-                fVar2.f58830d.setVisibility(0);
-                fVar2.f58829c.setVisibility(8);
-                SkinManager.setBackgroundColor(fVar2.f58830d, R.color.CAM_X0204);
+                fVar2.f62521d.setVisibility(0);
+                fVar2.f62520c.setVisibility(8);
+                SkinManager.setBackgroundColor(fVar2.f62521d, R.color.CAM_X0204);
             } else {
-                fVar2.f58829c.setVisibility(0);
-                fVar2.f58830d.setVisibility(8);
-                SkinManager.setBackgroundColor(fVar2.f58829c, R.color.CAM_X0204);
+                fVar2.f62520c.setVisibility(0);
+                fVar2.f62521d.setVisibility(8);
+                SkinManager.setBackgroundColor(fVar2.f62520c, R.color.CAM_X0204);
             }
             return view;
         }
@@ -115,21 +115,21 @@ public class f implements d.a.n0.r0.k2.a {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            if (f.this.f58835e != null) {
-                f.this.f58835e.c();
+            if (f.this.f62526e != null) {
+                f.this.f62526e.c();
             }
-            if (f.this.f58836f == null || f.this.f58832b == null) {
+            if (f.this.f62527f == null || f.this.f62523b == null) {
                 return;
             }
-            for (e1 e1Var : f.this.f58834d) {
+            for (e1 e1Var : f.this.f62525d) {
                 if (e1Var != null) {
-                    e1Var.f58450c = false;
+                    e1Var.f62141c = false;
                 }
             }
-            e1 e1Var2 = (e1) f.this.f58836f.getItem(i2);
+            e1 e1Var2 = (e1) f.this.f62527f.getItem(i2);
             if (e1Var2 != null) {
-                e1Var2.f58450c = true;
-                f.this.f58832b.a(e1Var2.f58449b);
+                e1Var2.f62141c = true;
+                f.this.f62523b.a(e1Var2.f62140b);
             }
         }
     }
@@ -139,9 +139,9 @@ public class f implements d.a.n0.r0.k2.a {
         if (context == null || eVar == null) {
             return;
         }
-        this.f58833c = context;
-        this.f58835e = eVar;
-        this.f58832b = eVar.d();
+        this.f62524c = context;
+        this.f62526e = eVar;
+        this.f62523b = eVar.d();
         g();
     }
 
@@ -151,25 +151,25 @@ public class f implements d.a.n0.r0.k2.a {
     }
 
     public final void g() {
-        BdListView bdListView = new BdListView(this.f58833c);
-        this.f58831a = bdListView;
+        BdListView bdListView = new BdListView(this.f62524c);
+        this.f62522a = bdListView;
         bdListView.setAlwaysDrawnWithCacheEnabled(false);
-        this.f58831a.setDivider(null);
-        this.f58831a.setDividerHeight(0);
-        this.f58831a.setSelector(17170445);
-        this.f58831a.setCacheColorHint(this.f58833c.getResources().getColor(17170445));
-        this.f58831a.setOnItemClickListener(this.f58837g);
-        this.f58831a.setAdapter((ListAdapter) this.f58836f);
+        this.f62522a.setDivider(null);
+        this.f62522a.setDividerHeight(0);
+        this.f62522a.setSelector(17170445);
+        this.f62522a.setCacheColorHint(this.f62524c.getResources().getColor(17170445));
+        this.f62522a.setOnItemClickListener(this.f62528g);
+        this.f62522a.setAdapter((ListAdapter) this.f62527f);
     }
 
     @Override // d.a.n0.r0.k2.a
     public View getView() {
-        return this.f58831a;
+        return this.f62522a;
     }
 
     @Override // d.a.n0.r0.k2.a
     public void setData(List<e1> list) {
-        this.f58834d = list;
-        this.f58836f.notifyDataSetChanged();
+        this.f62525d = list;
+        this.f62527f.notifyDataSetChanged();
     }
 }

@@ -15,12 +15,12 @@ import java.util.List;
 public class l extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f25157a;
+    public BindFastRequest f25260a;
 
     public <T> l(Context context) {
         super(context);
-        this.f25157a = null;
-        this.f25157a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
+        this.f25260a = null;
+        this.f25260a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -31,8 +31,8 @@ public class l extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25157a.getmBankCard())));
-        arrayList.add(new RestNameValuePair("sms_vcode", this.f25157a.mSmsVCode));
+        arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25260a.getmBankCard())));
+        arrayList.add(new RestNameValuePair("sms_vcode", this.f25260a.mSmsVCode));
         arrayList.add(new RestNameValuePair("key", SafePay.getInstance().getpwProxy()));
         return arrayList;
     }

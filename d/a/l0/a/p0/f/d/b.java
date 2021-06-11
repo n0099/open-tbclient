@@ -9,29 +9,29 @@ import d.a.l0.a.e2.c.j.b;
 import d.a.l0.a.h0.u.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a0 {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f44038e;
+        public final /* synthetic */ CallbackHandler f47712e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f44039f;
+        public final /* synthetic */ UnitedSchemeEntity f47713f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f44040g;
+        public final /* synthetic */ JSONObject f47714g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f44041h;
+        public final /* synthetic */ Context f47715h;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
-            this.f44038e = callbackHandler;
-            this.f44039f = unitedSchemeEntity;
-            this.f44040g = jSONObject;
-            this.f44041h = context;
+            this.f47712e = callbackHandler;
+            this.f47713f = unitedSchemeEntity;
+            this.f47714g = jSONObject;
+            this.f47715h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,87 +42,87 @@ public class b extends a0 {
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.i<b.e> iVar) {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
-                d.a.l0.a.e2.c.d.o(iVar, this.f44038e, this.f44039f);
+                d.a.l0.a.e2.c.d.o(iVar, this.f47712e, this.f47713f);
                 return;
             }
             try {
-                JSONObject jSONObject = this.f44040g;
+                JSONObject jSONObject = this.f47714g;
                 b bVar = b.this;
-                String string = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_load_cts);
+                String string = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_load_cts);
                 boolean s = d.a.l0.a.u1.a.a.s();
                 d.a.l0.a.p0.f.a.a(s);
                 jSONObject.put("loadCts", bVar.k(string, Integer.valueOf(s ? 1 : 0)));
-                JSONObject jSONObject2 = this.f44040g;
+                JSONObject jSONObject2 = this.f47714g;
                 b bVar2 = b.this;
-                String string2 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_live);
+                String string2 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_live);
                 boolean r = d.a.l0.a.u1.a.a.r();
                 d.a.l0.a.p0.f.a.a(r);
                 jSONObject2.put("emitLive", bVar2.k(string2, Integer.valueOf(r ? 1 : 0)));
-                JSONObject jSONObject3 = this.f44040g;
+                JSONObject jSONObject3 = this.f47714g;
                 b bVar3 = b.this;
-                String string3 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_https);
+                String string3 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_https);
                 boolean o = d.a.l0.a.u1.a.a.o();
                 d.a.l0.a.p0.f.a.a(o);
                 jSONObject3.put("emitHttps", bVar3.k(string3, Integer.valueOf(o ? 1 : 0)));
-                JSONObject jSONObject4 = this.f44040g;
+                JSONObject jSONObject4 = this.f47714g;
                 b bVar4 = b.this;
-                String string4 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_use_extension);
+                String string4 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_use_extension);
                 boolean x = d.a.l0.a.u1.a.a.x();
                 d.a.l0.a.p0.f.a.a(x);
                 jSONObject4.put("useExtension", bVar4.k(string4, Integer.valueOf(x ? 1 : 0)));
-                JSONObject jSONObject5 = this.f44040g;
+                JSONObject jSONObject5 = this.f47714g;
                 b bVar5 = b.this;
-                String string5 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_domain);
+                String string5 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_domain);
                 ?? r3 = (d.a.l0.a.u1.a.a.v() || d.a.l0.a.u1.a.a.z()) ? 0 : 1;
                 d.a.l0.a.p0.f.a.a(r3);
                 jSONObject5.put("emitDomain", bVar5.k(string5, Integer.valueOf((int) r3)));
-                JSONObject jSONObject6 = this.f44040g;
+                JSONObject jSONObject6 = this.f47714g;
                 b bVar6 = b.this;
-                String string6 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_wss);
+                String string6 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_wss);
                 boolean q = d.a.l0.a.u1.a.a.q();
                 d.a.l0.a.p0.f.a.a(q);
                 jSONObject6.put("emitWss", bVar6.k(string6, Integer.valueOf(q ? 1 : 0)));
-                JSONObject jSONObject7 = this.f44040g;
+                JSONObject jSONObject7 = this.f47714g;
                 b bVar7 = b.this;
-                String string7 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_launch_mode);
+                String string7 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_launch_mode);
                 boolean w = d.a.l0.a.u1.a.a.w();
                 d.a.l0.a.p0.f.a.a(w);
                 jSONObject7.put("emitLaunchMode", bVar7.k(string7, Integer.valueOf(w ? 1 : 0)));
-                this.f44040g.put("debugEnvData", b.this.k(this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_game_extra_data), d.a.l0.a.u1.a.a.g()));
-                JSONObject jSONObject8 = this.f44040g;
+                this.f47714g.put("debugEnvData", b.this.k(this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_game_extra_data), d.a.l0.a.u1.a.a.g()));
+                JSONObject jSONObject8 = this.f47714g;
                 b bVar8 = b.this;
-                String string8 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_swan_core);
+                String string8 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_swan_core);
                 boolean k = d.a.l0.a.u1.a.a.k();
                 d.a.l0.a.p0.f.a.a(k);
                 jSONObject8.put("emitReplaceSwanCore", bVar8.k(string8, Integer.valueOf(k ? 1 : 0)));
-                JSONObject jSONObject9 = this.f44040g;
+                JSONObject jSONObject9 = this.f47714g;
                 b bVar9 = b.this;
-                String string9 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_game_core);
+                String string9 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_game_core);
                 boolean h2 = d.a.l0.a.u1.a.a.h();
                 d.a.l0.a.p0.f.a.a(h2);
                 jSONObject9.put("emitReplaceGameCore", bVar9.k(string9, Integer.valueOf(h2 ? 1 : 0)));
-                JSONObject jSONObject10 = this.f44040g;
+                JSONObject jSONObject10 = this.f47714g;
                 b bVar10 = b.this;
-                String string10 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_js_native);
+                String string10 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_js_native);
                 boolean p = d.a.l0.a.u1.a.a.p();
                 d.a.l0.a.p0.f.a.a(p);
                 jSONObject10.put("emitReplaceJsNative", bVar10.k(string10, Integer.valueOf(p ? 1 : 0)));
                 boolean d2 = g.t.d();
-                JSONObject jSONObject11 = this.f44040g;
+                JSONObject jSONObject11 = this.f47714g;
                 b bVar11 = b.this;
-                String string11 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_v8_core);
+                String string11 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_v8_core);
                 d.a.l0.a.p0.f.a.a(d2);
                 jSONObject11.put("emitReplaceV8Core", bVar11.k(string11, Integer.valueOf(d2 ? 1 : 0)));
                 boolean m = d.a.l0.a.p0.f.b.m();
-                JSONObject jSONObject12 = this.f44040g;
+                JSONObject jSONObject12 = this.f47714g;
                 b bVar12 = b.this;
-                String string12 = this.f44041h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_dynamic_lib);
+                String string12 = this.f47715h.getResources().getString(d.a.l0.a.h.aiapps_debug_emit_replace_dynamic_lib);
                 d.a.l0.a.p0.f.a.a(m);
                 jSONObject12.put("emitReplaceDynamicLib", bVar12.k(string12, Integer.valueOf(m ? 1 : 0)));
-                UnitedSchemeUtility.callCallback(this.f44038e, this.f44039f, UnitedSchemeUtility.wrapCallbackParams(this.f44040g, 0));
+                UnitedSchemeUtility.callCallback(this.f47712e, this.f47713f, UnitedSchemeUtility.wrapCallbackParams(this.f47714g, 0));
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                this.f44039f.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                this.f47713f.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
             }
         }
     }
@@ -139,7 +139,7 @@ public class b extends a0 {
             eVar.T().g(context, "mapp_cts_debug", new a(callbackHandler, unitedSchemeEntity, jSONObject, context));
         } else if (d.a.l0.a.a2.d.g().l() == 1) {
             d.a.l0.a.e0.d.g("getDebugConfig", "swangame getDebugConfig");
-            if (!a0.f40949b) {
+            if (!a0.f44625b) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
             }

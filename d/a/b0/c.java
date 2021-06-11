@@ -8,19 +8,19 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f38293a;
+    public static volatile c f41946a;
 
     public static synchronized c e() {
         c cVar;
         synchronized (c.class) {
-            if (f38293a == null) {
+            if (f41946a == null) {
                 synchronized (c.class) {
-                    if (f38293a == null) {
-                        f38293a = new c();
+                    if (f41946a == null) {
+                        f41946a = new c();
                     }
                 }
             }
-            cVar = f38293a;
+            cVar = f41946a;
         }
         return cVar;
     }

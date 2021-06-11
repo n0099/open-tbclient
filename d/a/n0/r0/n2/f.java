@@ -8,7 +8,7 @@ import java.util.Set;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SharedPreferences f59150a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+    public final SharedPreferences f62841a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
 
     public final boolean a(String str, String str2) {
         return (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true;
@@ -17,8 +17,8 @@ public class f {
     public void b(String str, String str2) {
         if (a(str, str2)) {
             String str3 = str + '_' + str2;
-            Set<String> keySet = this.f59150a.getAll().keySet();
-            SharedPreferences.Editor edit = this.f59150a.edit();
+            Set<String> keySet = this.f62841a.getAll().keySet();
+            SharedPreferences.Editor edit = this.f62841a.edit();
             for (String str4 : keySet) {
                 if (str4.startsWith(str3)) {
                     edit.remove(str4);
@@ -30,28 +30,28 @@ public class f {
 
     public long c(String str, String str2) {
         if (a(str, str2)) {
-            return this.f59150a.getLong(str + '_' + str2 + "_visit_time", 0L);
+            return this.f62841a.getLong(str + '_' + str2 + "_visit_time", 0L);
         }
         return 0L;
     }
 
     public boolean d(String str, String str2) {
         if (a(str, str2)) {
-            return this.f59150a.getBoolean(str + '_' + str2 + "_show", false);
+            return this.f62841a.getBoolean(str + '_' + str2 + "_show", false);
         }
         return false;
     }
 
     public int e(String str, String str2) {
         if (a(str, str2)) {
-            return this.f59150a.getInt(str + '_' + str2 + "_show_cnt", 0);
+            return this.f62841a.getInt(str + '_' + str2 + "_show_cnt", 0);
         }
         return 0;
     }
 
     public long f(String str, String str2) {
         if (a(str, str2)) {
-            return this.f59150a.getLong(str + '_' + str2 + "_show_time", 0L);
+            return this.f62841a.getLong(str + '_' + str2 + "_show_time", 0L);
         }
         return 0L;
     }
@@ -60,8 +60,8 @@ public class f {
         if (a(str, str2)) {
             String str3 = str + '_' + str2 + "_show_time";
             String str4 = str + '_' + str2 + "_show_cnt";
-            int i2 = this.f59150a.getInt(str4, 0);
-            SharedPreferences.Editor edit = this.f59150a.edit();
+            int i2 = this.f62841a.getInt(str4, 0);
+            SharedPreferences.Editor edit = this.f62841a.edit();
             if (i2 > 3) {
                 edit.putInt(str4, i2 + 1);
             }
@@ -76,7 +76,7 @@ public class f {
     public void h(String str, String str2, long j) {
         if (a(str, str2)) {
             String str3 = str + '_' + str2 + "_visit_time";
-            SharedPreferences.Editor edit = this.f59150a.edit();
+            SharedPreferences.Editor edit = this.f62841a.edit();
             edit.putLong(str3, j);
             edit.apply();
         }

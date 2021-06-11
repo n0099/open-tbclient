@@ -12,21 +12,21 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45266a = k.f43199a;
+    public static final boolean f48940a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45267e;
+        public final /* synthetic */ String f48941e;
 
         public a(String str) {
-            this.f45267e = str;
+            this.f48941e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            h.a().putString("swan_guide_toast", this.f45267e);
+            h.a().putString("swan_guide_toast", this.f48941e);
         }
     }
 
@@ -52,7 +52,7 @@ public class d {
             jSONObject.put("bbaspg_guide_shown_count", jSONObject2.optString("bbaspg_guide_shown_count", "0"));
             jSONObject.put("bbaspg_guide_last_time", jSONObject2.optString("bbaspg_guide_last_time", "0"));
         } catch (JSONException e2) {
-            if (f45266a) {
+            if (f48940a) {
                 e2.printStackTrace();
             }
         }
@@ -88,7 +88,7 @@ public class d {
                                 optJSONObject.put("image_index", jSONObject2.optString("image_index", "0"));
                             }
                         } catch (JSONException e2) {
-                            if (f45266a) {
+                            if (f48940a) {
                                 e2.printStackTrace();
                             }
                         }
@@ -112,7 +112,7 @@ public class d {
         try {
             return new JSONObject(string);
         } catch (JSONException e2) {
-            if (f45266a) {
+            if (f48940a) {
                 e2.printStackTrace();
             }
             return null;
@@ -121,14 +121,14 @@ public class d {
 
     public static String e() {
         String string = h.a().getString("guide_toast_version", "0");
-        if (f45266a) {
+        if (f48940a) {
             Log.d("SwanAppGuideToast", "version = " + string);
         }
         return string;
     }
 
     public static void f(JSONObject jSONObject) {
-        if (f45266a) {
+        if (f48940a) {
             Log.d("SwanAppGuideToast", "processGuide guideObject = " + jSONObject);
         }
         if (jSONObject == null) {

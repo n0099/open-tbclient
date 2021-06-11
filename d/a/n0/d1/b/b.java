@@ -25,59 +25,59 @@ import java.net.URLEncoder;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity<?> f52517a;
+    public BaseActivity<?> f56206a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<String> f52518b = null;
+    public SparseArray<String> f56207b = null;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f52519e;
+        public final /* synthetic */ ShareItem f56208e;
 
         public a(ShareItem shareItem) {
-            this.f52519e = shareItem;
+            this.f56208e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.c.e.p.a.a(this.f52519e.t);
-            l.M(b.this.f52517a.getActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+            d.a.c.e.p.a.a(this.f56208e.t);
+            l.M(b.this.f56206a.getActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
     /* renamed from: d.a.n0.d1.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1238b implements a.e {
+    public class C1294b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareCardView f52521e;
+        public final /* synthetic */ ShareCardView f56210e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f52522f;
+        public final /* synthetic */ long f56211f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f52523g;
+        public final /* synthetic */ String f56212g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f52524h;
+        public final /* synthetic */ long f56213h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ShareFromTopicMsgData f52525i;
+        public final /* synthetic */ ShareFromTopicMsgData f56214i;
 
-        public C1238b(ShareCardView shareCardView, long j, String str, long j2, ShareFromTopicMsgData shareFromTopicMsgData) {
-            this.f52521e = shareCardView;
-            this.f52522f = j;
-            this.f52523g = str;
-            this.f52524h = j2;
-            this.f52525i = shareFromTopicMsgData;
+        public C1294b(ShareCardView shareCardView, long j, String str, long j2, ShareFromTopicMsgData shareFromTopicMsgData) {
+            this.f56210e = shareCardView;
+            this.f56211f = j;
+            this.f56212g = str;
+            this.f56213h = j2;
+            this.f56214i = shareFromTopicMsgData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            ((InputMethodManager) b.this.f52517a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f52521e.getChatMsgView().getWindowToken(), 2);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(b.this.f52517a.getActivity(), this.f52522f, this.f52523g, this.f52524h, "from_share", this.f52521e.getLeaveMsg(), this.f52525i.toChatMessageContent())));
+            ((InputMethodManager) b.this.f56206a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f56210e.getChatMsgView().getWindowToken(), 2);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(b.this.f56206a.getActivity(), this.f56211f, this.f56212g, this.f56213h, "from_share", this.f56210e.getLeaveMsg(), this.f56214i.toChatMessageContent())));
             aVar.dismiss();
         }
     }
@@ -86,15 +86,15 @@ public class b {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareCardView f52526e;
+        public final /* synthetic */ ShareCardView f56215e;
 
         public c(ShareCardView shareCardView) {
-            this.f52526e = shareCardView;
+            this.f56215e = shareCardView;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            ((InputMethodManager) b.this.f52517a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f52526e.getChatMsgView().getWindowToken(), 2);
+            ((InputMethodManager) b.this.f56206a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f56215e.getChatMsgView().getWindowToken(), 2);
             aVar.dismiss();
         }
     }
@@ -103,34 +103,34 @@ public class b {
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareCardView f52528e;
+        public final /* synthetic */ ShareCardView f56217e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f52529f;
+        public final /* synthetic */ long f56218f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f52530g;
+        public final /* synthetic */ String f56219g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f52531h;
+        public final /* synthetic */ String f56220h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f52532i;
+        public final /* synthetic */ String f56221i;
         public final /* synthetic */ ShareFromTopicMsgData j;
 
         public d(ShareCardView shareCardView, long j, String str, String str2, String str3, ShareFromTopicMsgData shareFromTopicMsgData) {
-            this.f52528e = shareCardView;
-            this.f52529f = j;
-            this.f52530g = str;
-            this.f52531h = str2;
-            this.f52532i = str3;
+            this.f56217e = shareCardView;
+            this.f56218f = j;
+            this.f56219g = str;
+            this.f56220h = str2;
+            this.f56221i = str3;
             this.j = shareFromTopicMsgData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            ((InputMethodManager) b.this.f52517a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f52528e.getChatMsgView().getWindowToken(), 2);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(b.this.f52517a.getActivity(), this.f52529f, this.f52530g, this.f52531h, this.f52532i, 0, this.f52528e.getLeaveMsg(), this.j.toChatMessageContent())));
+            ((InputMethodManager) b.this.f56206a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f56217e.getChatMsgView().getWindowToken(), 2);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(b.this.f56206a.getActivity(), this.f56218f, this.f56219g, this.f56220h, this.f56221i, 0, this.f56217e.getLeaveMsg(), this.j.toChatMessageContent())));
             aVar.dismiss();
         }
     }
@@ -139,48 +139,48 @@ public class b {
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareCardView f52533e;
+        public final /* synthetic */ ShareCardView f56222e;
 
         public e(ShareCardView shareCardView) {
-            this.f52533e = shareCardView;
+            this.f56222e = shareCardView;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            ((InputMethodManager) b.this.f52517a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f52533e.getChatMsgView().getWindowToken(), 2);
+            ((InputMethodManager) b.this.f56206a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f56222e.getChatMsgView().getWindowToken(), 2);
             aVar.dismiss();
         }
     }
 
     public b(BaseActivity<?> baseActivity) {
-        this.f52517a = baseActivity;
+        this.f56206a = baseActivity;
     }
 
     public final SparseArray<String> b() {
-        if (this.f52518b == null) {
+        if (this.f56207b == null) {
             SparseArray<String> sparseArray = new SparseArray<>(8);
-            this.f52518b = sparseArray;
+            this.f56207b = sparseArray;
             sparseArray.put(2, "topic_wx_timeline");
-            this.f52518b.put(3, "topic_wx_friend");
-            this.f52518b.put(4, "topic_qq_zone");
-            this.f52518b.put(5, "topic_tencent_weibo");
-            this.f52518b.put(6, "topic_sina_weibo");
+            this.f56207b.put(3, "topic_wx_friend");
+            this.f56207b.put(4, "topic_qq_zone");
+            this.f56207b.put(5, "topic_tencent_weibo");
+            this.f56207b.put(6, "topic_sina_weibo");
         }
-        return this.f52518b;
+        return this.f56207b;
     }
 
     public void c(ShareFromTopicMsgData shareFromTopicMsgData, long j, String str, long j2, d.a.n0.d1.c.e eVar) {
         if (eVar == null || eVar.h() == null) {
             return;
         }
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f52517a.getActivity());
-        ShareCardView shareCardView = new ShareCardView(this.f52517a.getActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f56206a.getActivity());
+        ShareCardView shareCardView = new ShareCardView(this.f56206a.getActivity());
         shareCardView.setData(shareFromTopicMsgData);
         aVar.setContentViewSize(1);
         aVar.setContentView(shareCardView);
-        aVar.setPositiveButton(R.string.share, new C1238b(shareCardView, j, str, j2, shareFromTopicMsgData));
+        aVar.setPositiveButton(R.string.share, new C1294b(shareCardView, j, str, j2, shareFromTopicMsgData));
         aVar.setNegativeButton(R.string.cancel, new c(shareCardView));
-        aVar.create(this.f52517a.getPageContext()).show();
+        aVar.create(this.f56206a.getPageContext()).show();
         if (k.isEmpty(shareFromTopicMsgData.getImageUrl())) {
             return;
         }
@@ -191,14 +191,14 @@ public class b {
         if (eVar == null || eVar.h() == null) {
             return;
         }
-        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f52517a.getActivity());
-        ShareCardView shareCardView = new ShareCardView(this.f52517a.getActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f56206a.getActivity());
+        ShareCardView shareCardView = new ShareCardView(this.f56206a.getActivity());
         shareCardView.setData(shareFromTopicMsgData);
         aVar.setContentViewSize(1);
         aVar.setContentView(shareCardView);
         aVar.setPositiveButton(R.string.share, new d(shareCardView, j, str, str2, str3, shareFromTopicMsgData));
         aVar.setNegativeButton(R.string.cancel, new e(shareCardView));
-        aVar.create(this.f52517a.getPageContext()).show();
+        aVar.create(this.f56206a.getPageContext()).show();
         if (k.isEmpty(shareFromTopicMsgData.getImageUrl())) {
             return;
         }
@@ -207,7 +207,7 @@ public class b {
 
     public void e(String str, String str2, String str3, String str4, String str5, boolean z) {
         if (TextUtils.isEmpty(str) && z) {
-            BaseActivity<?> baseActivity = this.f52517a;
+            BaseActivity<?> baseActivity = this.f56206a;
             baseActivity.showToast(baseActivity.getActivity().getString(R.string.no_hot_topic_data));
             return;
         }
@@ -219,12 +219,12 @@ public class b {
         shareItem.r = str2;
         shareItem.s = str5;
         shareItem.t = str3;
-        shareItem.f12596b = true;
+        shareItem.f12658b = true;
         shareItem.q = str;
         shareItem.v = parse;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.f52517a.getActivity(), shareItem, true, b());
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.f56206a.getActivity(), shareItem, true, b());
         shareDialogConfig.setCopyLinkListener(new a(shareItem));
         shareDialogConfig.setIsCopyLink(true);
-        this.f52517a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        this.f56206a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

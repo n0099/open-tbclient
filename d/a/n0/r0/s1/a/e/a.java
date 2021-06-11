@@ -8,23 +8,23 @@ import android.widget.BaseAdapter;
 public abstract class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public e f59635e;
+    public e f63326e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59636f = true;
+    public boolean f63327f = true;
 
     public final View a(View view) {
-        e eVar = this.f59635e;
+        e eVar = this.f63326e;
         if (eVar == null) {
             return view;
         }
         if (view == null || view != eVar.getArrowView()) {
-            view = this.f59635e.getArrowView();
+            view = this.f63326e.getArrowView();
             if (view.getLayoutParams() == null) {
                 view.setLayoutParams(new AbsListView.LayoutParams(-1, d()));
             }
         }
-        this.f59635e.a(view);
+        this.f63326e.a(view);
         return view;
     }
 
@@ -38,8 +38,8 @@ public abstract class a extends BaseAdapter {
 
     public int f(int i2) {
         int arrowIndex;
-        e eVar = this.f59635e;
-        if (eVar == null || !eVar.b() || i2 < (arrowIndex = this.f59635e.getArrowIndex())) {
+        e eVar = this.f63326e;
+        if (eVar == null || !eVar.b() || i2 < (arrowIndex = this.f63326e.getArrowIndex())) {
             return i2;
         }
         if (i2 == arrowIndex) {
@@ -54,10 +54,10 @@ public abstract class a extends BaseAdapter {
     public int getCount() {
         int b2;
         if (h()) {
-            if (this.f59636f) {
-                b2 = this.f59635e.getArrowIndex();
+            if (this.f63327f) {
+                b2 = this.f63326e.getArrowIndex();
             } else {
-                e eVar = this.f59635e;
+                e eVar = this.f63326e;
                 if (eVar != null && eVar.b()) {
                     b2 = b();
                 } else {
@@ -96,7 +96,7 @@ public abstract class a extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
         int arrowIndex;
-        return (h() && (arrowIndex = this.f59635e.getArrowIndex()) > 0 && i2 == arrowIndex) ? 1 : 0;
+        return (h() && (arrowIndex = this.f63326e.getArrowIndex()) > 0 && i2 == arrowIndex) ? 1 : 0;
     }
 
     @Override // android.widget.Adapter
@@ -113,17 +113,17 @@ public abstract class a extends BaseAdapter {
     }
 
     public boolean h() {
-        e eVar = this.f59635e;
-        return eVar != null && eVar.b() && b() - 1 > this.f59635e.getArrowIndex();
+        e eVar = this.f63326e;
+        return eVar != null && eVar.b() && b() - 1 > this.f63326e.getArrowIndex();
     }
 
     public void i(e eVar) {
-        this.f59635e = eVar;
+        this.f63326e = eVar;
     }
 
     public abstract void j(int i2);
 
     public void k(boolean z) {
-        this.f59636f = z;
+        this.f63327f = z;
     }
 }

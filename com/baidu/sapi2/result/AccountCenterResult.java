@@ -12,7 +12,7 @@ public class AccountCenterResult extends SapiResult {
 
     public AccountCenterResult() {
         this.msgMap.put(-10001, "请登录");
-        this.msgMap.put(ERROR_CODE_LOGIN_SUCCESS, ERROR_MSG_LOGIN_SUCCESS);
+        this.msgMap.put(-10002, ERROR_MSG_LOGIN_SUCCESS);
     }
 
     public void loginSuc() {

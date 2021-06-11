@@ -9,7 +9,7 @@ public class t extends d.a.l0.t.j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final t f48480a = new t();
+        public static final t f52154a = new t();
     }
 
     public t() {
@@ -17,6 +17,6 @@ public class t extends d.a.l0.t.j {
     }
 
     public static t g() {
-        return a.f48480a;
+        return a.f52154a;
     }
 }

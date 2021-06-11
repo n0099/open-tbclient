@@ -45,16 +45,16 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
             for (PresentGiftListByCategoryId1 presentGiftListByCategoryId1 : getGiftListByCategoryIdResIdl.data.gift_list) {
                 if (presentGiftListByCategoryId1 != null) {
                     i0 i0Var = new i0();
-                    i0Var.f50043a = presentGiftListByCategoryId1.gift_id.intValue();
-                    i0Var.f50044b = presentGiftListByCategoryId1.gift_name;
-                    i0Var.f50045c = presentGiftListByCategoryId1.price.intValue();
-                    i0Var.f50046d = presentGiftListByCategoryId1.thumbnail_url;
+                    i0Var.f53719a = presentGiftListByCategoryId1.gift_id.intValue();
+                    i0Var.f53720b = presentGiftListByCategoryId1.gift_name;
+                    i0Var.f53721c = presentGiftListByCategoryId1.price.intValue();
+                    i0Var.f53722d = presentGiftListByCategoryId1.thumbnail_url;
                     presentGiftListByCategoryId1.ios_price.intValue();
-                    i0Var.f50047e = presentGiftListByCategoryId1.gift_desc;
-                    i0Var.f50048f = presentGiftListByCategoryId1.activity_type.intValue();
-                    i0Var.f50049g = presentGiftListByCategoryId1.mark_url;
-                    i0Var.f50050h = presentGiftListByCategoryId1.begin_time.intValue();
-                    i0Var.f50051i = presentGiftListByCategoryId1.end_time.intValue();
+                    i0Var.f53723e = presentGiftListByCategoryId1.gift_desc;
+                    i0Var.f53724f = presentGiftListByCategoryId1.activity_type.intValue();
+                    i0Var.f53725g = presentGiftListByCategoryId1.mark_url;
+                    i0Var.f53726h = presentGiftListByCategoryId1.begin_time.intValue();
+                    i0Var.f53727i = presentGiftListByCategoryId1.end_time.intValue();
                     i0Var.j = presentGiftListByCategoryId1.discount.intValue();
                     presentGiftListByCategoryId1.ios_discount.intValue();
                     presentGiftListByCategoryId1.proportion.intValue();

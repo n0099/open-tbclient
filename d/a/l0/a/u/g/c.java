@@ -8,58 +8,58 @@ import java.util.List;
 public class c implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f45234b = k.f43199a;
+    public static final boolean f48908b = k.f46875a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f45235c;
+    public static volatile c f48909c;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f45236a;
+    public List<a> f48910a;
 
     public c() {
         ArrayList arrayList = new ArrayList();
-        this.f45236a = arrayList;
+        this.f48910a = arrayList;
         arrayList.add(new b());
     }
 
     public static c c() {
-        if (f45235c == null) {
+        if (f48909c == null) {
             synchronized (c.class) {
-                if (f45235c == null) {
-                    f45235c = new c();
+                if (f48909c == null) {
+                    f48909c = new c();
                 }
             }
         }
-        return f45235c;
+        return f48909c;
     }
 
     @Override // d.a.l0.a.u.g.a
     public void a(String str) {
-        if (f45234b) {
+        if (f48908b) {
             Log.d("Api-Marker", "markStart: " + str);
         }
-        for (int i2 = 0; i2 < this.f45236a.size(); i2++) {
-            this.f45236a.get(i2).a(str);
+        for (int i2 = 0; i2 < this.f48910a.size(); i2++) {
+            this.f48910a.get(i2).a(str);
         }
     }
 
     @Override // d.a.l0.a.u.g.a
     public void b(String str) {
-        if (f45234b) {
+        if (f48908b) {
             Log.d("Api-Marker", "markEnd: " + str);
         }
-        for (int i2 = 0; i2 < this.f45236a.size(); i2++) {
-            this.f45236a.get(i2).b(str);
+        for (int i2 = 0; i2 < this.f48910a.size(); i2++) {
+            this.f48910a.get(i2).b(str);
         }
     }
 
     public synchronized void d() {
-        if (f45234b) {
+        if (f48908b) {
             Log.d("Api-Marker", "release: ");
         }
-        if (f45235c == null) {
+        if (f48909c == null) {
             return;
         }
-        f45235c = null;
+        f48909c = null;
     }
 }

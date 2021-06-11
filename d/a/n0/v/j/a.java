@@ -14,10 +14,10 @@ import d.a.n0.r0.j0;
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaPersonCenterFragment f62011a = new AlaPersonCenterFragment();
+    public AlaPersonCenterFragment f65726a = new AlaPersonCenterFragment();
 
     public a() {
-        getFragmentTabStructure().f49334a = this.f62011a;
+        getFragmentTabStructure().f53008a = this.f65726a;
     }
 
     public void a(j0 j0Var) {
@@ -27,39 +27,39 @@ public class a extends b {
     }
 
     public void b(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f62011a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f65726a;
         if (alaPersonCenterFragment != null) {
-            alaPersonCenterFragment.D0(str);
+            alaPersonCenterFragment.G0(str);
         }
     }
 
     public void c(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f62011a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f65726a;
         if (alaPersonCenterFragment != null) {
-            alaPersonCenterFragment.E0(str);
+            alaPersonCenterFragment.H0(str);
         }
     }
 
     @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49338e = 5;
-        cVar.f49335b = R.string.ala_live;
-        cVar.f49342i = c.k;
+        cVar.f53012e = 5;
+        cVar.f53009b = R.string.ala_live;
+        cVar.f53016i = c.k;
         return cVar;
     }
 
     public void d(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f62011a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f65726a;
         if (alaPersonCenterFragment != null) {
-            alaPersonCenterFragment.F0(str);
+            alaPersonCenterFragment.I0(str);
         }
     }
 
     public void e(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment = this.f62011a;
+        AlaPersonCenterFragment alaPersonCenterFragment = this.f65726a;
         if (alaPersonCenterFragment != null) {
-            alaPersonCenterFragment.G0(str);
+            alaPersonCenterFragment.J0(str);
         }
     }
 

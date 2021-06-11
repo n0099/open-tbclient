@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class c extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f47057d = k.f43199a;
+    public static final boolean f50731d = k.f46875a;
 
     public c(String str) {
         super("onSuccess", 0, g(null, str));
@@ -45,7 +45,7 @@ public class c extends b {
             jSONObject.put("total", download.getTotalbytes());
             jSONObject.put("fileExist", d.a.l0.g.c.d.c.j(download) ? "1" : "0");
         } catch (JSONException e2) {
-            if (f47057d) {
+            if (f50731d) {
                 e2.printStackTrace();
             }
         }
@@ -58,7 +58,7 @@ public class c extends b {
             jSONObject.put("data", obj);
             jSONObject.put("message", str);
         } catch (JSONException e2) {
-            if (f47057d) {
+            if (f50731d) {
                 e2.printStackTrace();
             }
         }

@@ -11,12 +11,12 @@ import d.a.l0.a.p.e.i;
 public class a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public g f43997a = new C0790a(this);
+    public g f47671a = new C0846a(this);
 
     /* renamed from: d.a.l0.a.p.e.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0790a implements g {
-        public C0790a(a aVar) {
+    public class C0846a implements g {
+        public C0846a(a aVar) {
         }
 
         @Override // d.a.l0.a.p.e.g
@@ -26,7 +26,7 @@ public class a implements i {
     }
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     @Override // d.a.l0.a.p.e.i
@@ -36,6 +36,6 @@ public class a implements i {
 
     @Override // d.a.l0.a.p.e.i
     public g b() {
-        return this.f43997a;
+        return this.f47671a;
     }
 }

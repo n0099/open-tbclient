@@ -15,6 +15,8 @@ public interface b {
 
     String getAppId();
 
+    String getAppKey();
+
     String getSdkVersion();
 
     String k();
@@ -39,7 +41,5 @@ public interface b {
 
     JSONObject u();
 
-    String v();
-
-    boolean w(View view);
+    boolean v(View view);
 }

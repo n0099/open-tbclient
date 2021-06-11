@@ -191,7 +191,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             if (absListView.getLastVisiblePosition() == absListView.getCount() - 1) {
-                UserMuteListActivity.this.mUserMuteQueryModel.u(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), UserMuteListActivity.this.page, UserMuteListActivity.this.rN);
+                UserMuteListActivity.this.mUserMuteQueryModel.y(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L), UserMuteListActivity.this.page, UserMuteListActivity.this.rN);
             }
         }
     }
@@ -214,16 +214,16 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     public class j implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f20515e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f20592e;
 
         public j(UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-            this.f20515e = userMuteAddAndDelCustomMessage;
+            this.f20592e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             UserMuteListActivity.this.showLoadingDialog();
-            MessageManager.getInstance().sendMessage(this.f20515e);
+            MessageManager.getInstance().sendMessage(this.f20592e);
             aVar.dismiss();
         }
     }
@@ -237,7 +237,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingDialog() {
         if (!d.a.c.e.p.j.z()) {
-            this.mView.g();
+            this.mView.h();
             return;
         }
         if (this.mWaitingDialog == null) {
@@ -278,11 +278,11 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         showLoadingDialog();
         registerListener(this.mRemoveItemListener);
         registerListener(this.mNeedRefreshListener);
-        this.mUserMuteQueryModel.t(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
+        this.mUserMuteQueryModel.x(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
         this.mCtx = getPageContext();
         d.a.m0.r.f0.c cVar = new d.a.m0.r.f0.c();
         this.mToastMute = cVar;
-        cVar.f49709a = 1000L;
+        cVar.f53384a = 1000L;
         registerListener(this.mUserMuteDelListener);
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
         BdUniqueId bdUniqueId = MESSAGE_ID_USER_MUTE_LIST;
@@ -306,7 +306,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         if (this.isNeedRefresh) {
             this.isNeedRefresh = false;
             showLoadingDialog();
-            this.mUserMuteQueryModel.t(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
+            this.mUserMuteQueryModel.x(d.a.c.e.m.b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
         }
     }
 }

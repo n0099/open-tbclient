@@ -31,7 +31,7 @@ public enum ResType {
             }
             i2++;
         }
-        if (k.f43199a) {
+        if (k.f46875a) {
             Log.d("ResType", "res type - " + resType.name());
         }
         return resType;

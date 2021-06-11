@@ -11,27 +11,27 @@ import d.a.l0.a.k;
 public final class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42434c = k.f43199a;
+    public static final boolean f46110c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.h0.o.a f42435a;
+    public d.a.l0.a.h0.o.a f46111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.l0.a.h0.o.b f42436b;
+    public d.a.l0.a.h0.o.b f46112b;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f42437e;
+        public final /* synthetic */ PrefetchEvent f46113e;
 
         public a(PrefetchEvent prefetchEvent) {
-            this.f42437e = prefetchEvent;
+            this.f46113e = prefetchEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.c(this.f42437e);
+            d.this.c(this.f46113e);
         }
     }
 
@@ -39,15 +39,15 @@ public final class d {
     public class b implements a.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f42439a;
+        public final /* synthetic */ PrefetchEvent f46115a;
 
         public b(PrefetchEvent prefetchEvent) {
-            this.f42439a = prefetchEvent;
+            this.f46115a = prefetchEvent;
         }
 
         @Override // d.a.l0.a.h0.o.a.e
         public void a(d.a.l0.a.v1.c.f.c cVar, PMSAppInfo pMSAppInfo) {
-            d.this.f42436b.b(this.f42439a, cVar, pMSAppInfo);
+            d.this.f46112b.b(this.f46115a, cVar, pMSAppInfo);
         }
     }
 
@@ -55,7 +55,7 @@ public final class d {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f42441a = new d(null);
+        public static final d f46117a = new d(null);
     }
 
     public /* synthetic */ d(a aVar) {
@@ -63,21 +63,21 @@ public final class d {
     }
 
     public static d e() {
-        return c.f42441a;
+        return c.f46117a;
     }
 
     public final void c(PrefetchEvent prefetchEvent) {
-        this.f42435a.g(prefetchEvent, new b(prefetchEvent));
+        this.f46111a.g(prefetchEvent, new b(prefetchEvent));
     }
 
     public void d(PrefetchEvent prefetchEvent) {
-        if (f42434c) {
+        if (f46110c) {
             Log.d("SwanAppPrefetchManager", "fire preloadEvent abSwitch: " + d.a.l0.a.h0.o.e.a.f());
         }
         if (f(prefetchEvent)) {
             return;
         }
-        if (f42434c) {
+        if (f46110c) {
             Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
         }
         ExecutorUtilsExt.postOnSerial(new a(prefetchEvent), "prefetch-event-thread");
@@ -88,7 +88,7 @@ public final class d {
     }
 
     public d() {
-        this.f42435a = new d.a.l0.a.h0.o.a();
-        this.f42436b = new d.a.l0.a.h0.o.b();
+        this.f46111a = new d.a.l0.a.h0.o.a();
+        this.f46112b = new d.a.l0.a.h0.o.b();
     }
 }

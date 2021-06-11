@@ -23,53 +23,53 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f49480a;
+    public final Context f53154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f49481b;
+    public final View f53155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadAchievementShareInfo.ParamBean f49482c;
+    public final ThreadAchievementShareInfo.ParamBean f53156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbRichTextView f49483d;
+    public TbRichTextView f53157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.m0.b1.m.a f49484e;
+    public d.a.m0.b1.m.a f53158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f49485f;
+    public TbImageView f53159f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49486g;
+    public TextView f53160g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49487h;
+    public TextView f53161h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49488i;
+    public TextView f53162i;
     public TextView j;
     public TextView k;
 
     public b(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
-        this.f49480a = context;
-        this.f49481b = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
-        this.f49482c = threadAchievementShareInfo.getParams();
+        this.f53154a = context;
+        this.f53155b = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
+        this.f53156c = threadAchievementShareInfo.getParams();
         c();
         b();
     }
 
     public View a() {
-        return this.f49481b;
+        return this.f53155b;
     }
 
     public final void b() {
-        if (this.f49482c.getContent() == null || this.f49482c.getContent().size() == 0) {
+        if (this.f53156c.getContent() == null || this.f53156c.getContent().size() == 0) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
         ThreadAchievementShareInfo.ContentBean contentBean = null;
-        for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.f49482c.getContent()) {
+        for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.f53156c.getContent()) {
             if (contentBean2.getType() == 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -83,57 +83,57 @@ public class b {
                 contentBean = contentBean2;
             }
         }
-        if (!TextUtils.isEmpty(this.f49482c.getThread_title())) {
-            this.f49486g.setText(this.f49482c.getThread_title());
-            this.f49486g.setVisibility(0);
-            this.f49483d.setMaxLines(6);
+        if (!TextUtils.isEmpty(this.f53156c.getThread_title())) {
+            this.f53160g.setText(this.f53156c.getThread_title());
+            this.f53160g.setVisibility(0);
+            this.f53157d.setMaxLines(6);
         } else {
-            ((LinearLayout.LayoutParams) this.f49483d.getLayoutParams()).topMargin = l.g(this.f49480a, R.dimen.tbds20);
-            this.f49483d.setMaxLines(8);
+            ((LinearLayout.LayoutParams) this.f53157d.getLayoutParams()).topMargin = l.g(this.f53154a, R.dimen.tbds20);
+            this.f53157d.setMaxLines(8);
         }
-        this.f49483d.setTextEllipsize(TextUtils.TruncateAt.END);
-        this.f49483d.setMinimumHeight(l.g(this.f49480a, R.dimen.tbds516));
-        if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.f49482c.getThread_type().contains("pic")) {
-            this.f49485f.setVisibility(0);
-            this.f49485f.setDefaultBgResource(R.color.transparent);
-            this.f49485f.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f49485f.setPlaceHolder(2);
-            this.f49485f.V(contentBean.getSrc(), 10, false);
-            if (!TextUtils.isEmpty(this.f49482c.getThread_title())) {
-                this.f49483d.setVisibility(8);
+        this.f53157d.setTextEllipsize(TextUtils.TruncateAt.END);
+        this.f53157d.setMinimumHeight(l.g(this.f53154a, R.dimen.tbds516));
+        if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.f53156c.getThread_type().contains("pic")) {
+            this.f53159f.setVisibility(0);
+            this.f53159f.setDefaultBgResource(R.color.transparent);
+            this.f53159f.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f53159f.setPlaceHolder(2);
+            this.f53159f.U(contentBean.getSrc(), 10, false);
+            if (!TextUtils.isEmpty(this.f53156c.getThread_title())) {
+                this.f53157d.setVisibility(8);
             } else {
-                this.f49483d.setMaxLines(2);
-                this.f49483d.setTextEllipsize(TextUtils.TruncateAt.END);
-                this.f49483d.setLayoutStrategy(this.f49484e);
-                this.f49483d.setMinimumHeight(l.g(this.f49480a, R.dimen.tbds0));
+                this.f53157d.setMaxLines(2);
+                this.f53157d.setTextEllipsize(TextUtils.TruncateAt.END);
+                this.f53157d.setLayoutStrategy(this.f53158e);
+                this.f53157d.setMinimumHeight(l.g(this.f53154a, R.dimen.tbds0));
             }
         }
-        this.f49483d.setText(TbRichTextView.S(this.f49480a, jSONArray, false));
-        this.k.setText(StringHelper.numFormatOverWanWithNegative(this.f49482c.getAgree_num()));
-        this.f49487h.setText(StringHelper.numFormatOverWanWithNegative(this.f49482c.getPost_num()));
+        this.f53157d.setText(TbRichTextView.S(this.f53154a, jSONArray, false));
+        this.k.setText(StringHelper.numFormatOverWanWithNegative(this.f53156c.getAgree_num()));
+        this.f53161h.setText(StringHelper.numFormatOverWanWithNegative(this.f53156c.getPost_num()));
     }
 
     public final void c() {
-        this.f49487h = (TextView) this.f49481b.findViewById(R.id.comment_num);
-        this.f49488i = (TextView) this.f49481b.findViewById(R.id.comment_desc);
-        this.j = (TextView) this.f49481b.findViewById(R.id.praise_desc);
-        this.k = (TextView) this.f49481b.findViewById(R.id.praise_num);
-        this.f49486g = (TextView) this.f49481b.findViewById(R.id.thread_title);
-        this.f49485f = (TbImageView) this.f49481b.findViewById(R.id.main_img);
-        this.f49483d = (TbRichTextView) this.f49481b.findViewById(R.id.rich_text);
+        this.f53161h = (TextView) this.f53155b.findViewById(R.id.comment_num);
+        this.f53162i = (TextView) this.f53155b.findViewById(R.id.comment_desc);
+        this.j = (TextView) this.f53155b.findViewById(R.id.praise_desc);
+        this.k = (TextView) this.f53155b.findViewById(R.id.praise_num);
+        this.f53160g = (TextView) this.f53155b.findViewById(R.id.thread_title);
+        this.f53159f = (TbImageView) this.f53155b.findViewById(R.id.main_img);
+        this.f53157d = (TbRichTextView) this.f53155b.findViewById(R.id.rich_text);
         this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-        this.f49487h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+        this.f53161h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        this.f49488i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        this.f49486g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f53162i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f53160g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         d.a.m0.b1.m.a aVar = new d.a.m0.b1.m.a();
-        this.f49484e = aVar;
-        aVar.s(l.g(this.f49480a, R.dimen.tbds38));
-        this.f49484e.v(l.g(this.f49480a, R.dimen.tbds42));
-        this.f49484e.j(l.g(this.f49480a, R.dimen.tbds23));
-        this.f49484e.o(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
-        this.f49484e.i(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        this.f49483d.setLayoutStrategy(this.f49484e);
-        this.f49483d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f53158e = aVar;
+        aVar.s(l.g(this.f53154a, R.dimen.tbds38));
+        this.f53158e.v(l.g(this.f53154a, R.dimen.tbds42));
+        this.f53158e.j(l.g(this.f53154a, R.dimen.tbds23));
+        this.f53158e.o(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
+        this.f53158e.i(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        this.f53157d.setLayoutStrategy(this.f53158e);
+        this.f53157d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
     }
 }

@@ -9,31 +9,31 @@ public final class e {
     public static final a j = new a(null);
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f46472a;
+    public byte[] f50146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f46473b;
+    public byte[] f50147b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte f46474c;
+    public byte f50148c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte f46475d;
+    public byte f50149d;
 
     /* renamed from: e  reason: collision with root package name */
-    public short f46476e;
+    public short f50150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46477f;
+    public int f50151f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f46478g;
+    public long f50152g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f46479h;
+    public byte[] f50153h;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f46480i;
+    public byte[] f50154i;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -73,42 +73,42 @@ public final class e {
     }
 
     public e(byte[] bArr, byte[] bArr2, byte b2, byte b3, short s, int i2, long j2, byte[] bArr3, byte[] bArr4) {
-        this.f46472a = bArr;
-        this.f46473b = bArr2;
-        this.f46474c = b2;
-        this.f46475d = b3;
-        this.f46476e = s;
-        this.f46477f = i2;
-        this.f46478g = j2;
-        this.f46479h = bArr3;
-        this.f46480i = bArr4;
+        this.f50146a = bArr;
+        this.f50147b = bArr2;
+        this.f50148c = b2;
+        this.f50149d = b3;
+        this.f50150e = s;
+        this.f50151f = i2;
+        this.f50152g = j2;
+        this.f50153h = bArr3;
+        this.f50154i = bArr4;
     }
 
     public final byte[] a() {
-        return this.f46480i;
+        return this.f50154i;
     }
 
     public final int b() {
-        return this.f46477f;
+        return this.f50151f;
     }
 
     public final long c() {
-        return this.f46478g;
+        return this.f50152g;
     }
 
     public final byte[] d() {
-        return this.f46473b;
+        return this.f50147b;
     }
 
     public final byte[] e() {
-        return this.f46472a;
+        return this.f50146a;
     }
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof e) {
                 e eVar = (e) obj;
-                return Intrinsics.areEqual(this.f46472a, eVar.f46472a) && Intrinsics.areEqual(this.f46473b, eVar.f46473b) && this.f46474c == eVar.f46474c && this.f46475d == eVar.f46475d && this.f46476e == eVar.f46476e && this.f46477f == eVar.f46477f && this.f46478g == eVar.f46478g && Intrinsics.areEqual(this.f46479h, eVar.f46479h) && Intrinsics.areEqual(this.f46480i, eVar.f46480i);
+                return Intrinsics.areEqual(this.f50146a, eVar.f50146a) && Intrinsics.areEqual(this.f50147b, eVar.f50147b) && this.f50148c == eVar.f50148c && this.f50149d == eVar.f50149d && this.f50150e == eVar.f50150e && this.f50151f == eVar.f50151f && this.f50152g == eVar.f50152g && Intrinsics.areEqual(this.f50153h, eVar.f50153h) && Intrinsics.areEqual(this.f50154i, eVar.f50154i);
             }
             return false;
         }
@@ -116,72 +116,72 @@ public final class e {
     }
 
     public final byte[] f() {
-        return this.f46479h;
+        return this.f50153h;
     }
 
     public final byte g() {
-        return this.f46475d;
+        return this.f50149d;
     }
 
     public final short h() {
-        return this.f46476e;
+        return this.f50150e;
     }
 
     public int hashCode() {
-        byte[] bArr = this.f46472a;
+        byte[] bArr = this.f50146a;
         int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-        byte[] bArr2 = this.f46473b;
+        byte[] bArr2 = this.f50147b;
         int hashCode2 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-        long j2 = this.f46478g;
-        int i2 = (((((((((((hashCode + hashCode2) * 31) + this.f46474c) * 31) + this.f46475d) * 31) + this.f46476e) * 31) + this.f46477f) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
-        byte[] bArr3 = this.f46479h;
+        long j2 = this.f50152g;
+        int i2 = (((((((((((hashCode + hashCode2) * 31) + this.f50148c) * 31) + this.f50149d) * 31) + this.f50150e) * 31) + this.f50151f) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
+        byte[] bArr3 = this.f50153h;
         int hashCode3 = (i2 + (bArr3 != null ? Arrays.hashCode(bArr3) : 0)) * 31;
-        byte[] bArr4 = this.f46480i;
+        byte[] bArr4 = this.f50154i;
         return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
     }
 
     public final byte i() {
-        return this.f46474c;
+        return this.f50148c;
     }
 
     public final void j(byte[] bArr) {
-        this.f46480i = bArr;
+        this.f50154i = bArr;
     }
 
     public final void k(int i2) {
-        this.f46477f = i2;
+        this.f50151f = i2;
     }
 
     public final void l(long j2) {
-        this.f46478g = j2;
+        this.f50152g = j2;
     }
 
     public final void m(byte[] bArr) {
-        this.f46473b = bArr;
+        this.f50147b = bArr;
     }
 
     public final void n(byte[] bArr) {
-        this.f46472a = bArr;
+        this.f50146a = bArr;
     }
 
     public final void o(byte[] bArr) {
-        this.f46479h = bArr;
+        this.f50153h = bArr;
     }
 
     public final void p(byte b2) {
-        this.f46475d = b2;
+        this.f50149d = b2;
     }
 
     public final void q(short s) {
-        this.f46476e = s;
+        this.f50150e = s;
     }
 
     public final void r(byte b2) {
-        this.f46474c = b2;
+        this.f50148c = b2;
     }
 
     public String toString() {
-        return "RecordParams(protocolVersion=" + Arrays.toString(this.f46472a) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeType=" + ((int) this.f46474c) + ", schemeExtType=" + ((int) this.f46475d) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeLen=" + ((int) this.f46476e) + ", contentLen=" + this.f46477f + StringUtil.ARRAY_ELEMENT_SEPARATOR + "identity=" + this.f46478g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "scheme=" + Arrays.toString(this.f46479h) + ')';
+        return "RecordParams(protocolVersion=" + Arrays.toString(this.f50146a) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeType=" + ((int) this.f50148c) + ", schemeExtType=" + ((int) this.f50149d) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeLen=" + ((int) this.f50150e) + ", contentLen=" + this.f50151f + StringUtil.ARRAY_ELEMENT_SEPARATOR + "identity=" + this.f50152g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "scheme=" + Arrays.toString(this.f50153h) + ')';
     }
 
     public /* synthetic */ e(byte[] bArr, byte[] bArr2, byte b2, byte b3, short s, int i2, long j2, byte[] bArr3, byte[] bArr4, int i3, DefaultConstructorMarker defaultConstructorMarker) {

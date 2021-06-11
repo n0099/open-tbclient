@@ -11,11 +11,11 @@ import java.util.Map;
 public class b extends d.a.l0.a.h0.o.h.g.a implements d.a.l0.a.h0.o.h.e.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.a.h0.o.h.d.b.a f42452e;
+    public d.a.l0.a.h0.o.h.d.b.a f46128e;
 
     public b(@NonNull Context context, d.a.l0.a.h0.o.h.c.a aVar) {
         super(context, aVar);
-        this.f42452e = d.a.l0.a.h0.o.h.d.a.a().f();
+        this.f46128e = d.a.l0.a.h0.o.h.d.a.a().f();
     }
 
     @Override // d.a.l0.a.h0.o.h.g.a
@@ -32,7 +32,7 @@ public class b extends d.a.l0.a.h0.o.h.g.a implements d.a.l0.a.h0.o.h.e.a {
         String f2 = d.a.l0.a.l2.b.l().f(e(gVar.d()), requestHeaders.get("Cookie"));
         if (!TextUtils.isEmpty(f2)) {
             requestHeaders.put("Cookie", f2);
-            if (d.a.l0.a.h0.o.h.e.a.f42466a) {
+            if (d.a.l0.a.h0.o.h.e.a.f46142a) {
                 Log.d("HybridIntercept", "addCookiesToHeader cookie: " + f2);
             }
         }
@@ -44,7 +44,7 @@ public class b extends d.a.l0.a.h0.o.h.g.a implements d.a.l0.a.h0.o.h.e.a {
         Map<String, String> requestHeaders;
         String str;
         if (gVar.c()) {
-            return this.f42452e.a(gVar) && (requestHeaders = gVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
+            return this.f46128e.a(gVar) && (requestHeaders = gVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
         }
         return true;
     }

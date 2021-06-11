@@ -10,14 +10,14 @@ import java.util.TreeMap;
 public class d extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f27224a;
+    public long f27327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f27225b;
+    public volatile boolean f27328b;
 
     public d() {
-        this.f27224a = 83886080L;
-        this.f27225b = false;
+        this.f27327a = 83886080L;
+        this.f27328b = false;
     }
 
     private void c(List<File> list) {
@@ -46,7 +46,7 @@ public class d extends b {
                 }
                 boolean a3 = a(file, b2, size);
                 if (a3) {
-                    u.c("TotalSizeLruDiskUsage", "当前总大小totalSize：" + ((b2 / 1024) / 1024) + "MB，最大值存储上限maxSize=" + ((this.f27224a / 1024) / 1024) + "MB，当前文件的总大小totalSize已小于等于maxSize一半，停止删除操作：minStopDeleteCondition=" + a3);
+                    u.c("TotalSizeLruDiskUsage", "当前总大小totalSize：" + ((b2 / 1024) / 1024) + "MB，最大值存储上限maxSize=" + ((this.f27327a / 1024) / 1024) + "MB，当前文件的总大小totalSize已小于等于maxSize一半，停止删除操作：minStopDeleteCondition=" + a3);
                     return;
                 }
             }
@@ -83,7 +83,7 @@ public class d extends b {
                         }
                         boolean a3 = a(b2);
                         if (a3) {
-                            u.c("splashLoadAd", "当前总大小totalSize：" + ((((float) b2) / 1024.0f) / 1024.0f) + "MB，最大值存储上限maxSize=" + ((((float) this.f27224a) / 1024.0f) / 1024.0f) + "MB，当前文件的总大小totalSize已小于等于maxSize的80%，停止删除操作：minStopDeleteCondition=" + a3);
+                            u.c("splashLoadAd", "当前总大小totalSize：" + ((((float) b2) / 1024.0f) / 1024.0f) + "MB，最大值存储上限maxSize=" + ((((float) this.f27327a) / 1024.0f) / 1024.0f) + "MB，当前文件的总大小totalSize已小于等于maxSize的80%，停止删除操作：minStopDeleteCondition=" + a3);
                             return;
                         }
                     }
@@ -100,26 +100,26 @@ public class d extends b {
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(long j, int i2) {
-        return j < this.f27224a;
+        return j < this.f27327a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(File file, long j, int i2) {
-        u.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f27224a);
-        return j < this.f27224a / 2;
+        u.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f27327a);
+        return j < this.f27327a / 2;
     }
 
     public d(long j, boolean z) {
-        this.f27224a = j;
+        this.f27327a = j;
         if (j <= 0) {
-            this.f27224a = 83886080L;
+            this.f27327a = 83886080L;
         }
-        this.f27225b = z;
+        this.f27328b = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
     public void a(List<File> list) {
-        if (this.f27225b) {
+        if (this.f27328b) {
             d(list);
         } else {
             c(list);
@@ -127,7 +127,7 @@ public class d extends b {
     }
 
     public boolean a(long j) {
-        u.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f27224a + " 最小内存 minSize 18874368");
+        u.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f27327a + " 最小内存 minSize 18874368");
         return j <= 18874368;
     }
 }

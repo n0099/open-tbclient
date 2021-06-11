@@ -15,16 +15,16 @@ import d.a.l0.a.g;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45804e;
+    public Context f49478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f45805f;
+    public String[] f49479f;
 
     /* loaded from: classes3.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f45806a;
+        public ImageView f49480a;
 
         public b() {
         }
@@ -34,25 +34,25 @@ public class a extends BaseAdapter {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f45807a;
+        public TextView f49481a;
 
         public c() {
         }
     }
 
     public a(Context context, @NonNull String[] strArr) {
-        this.f45804e = context;
-        this.f45805f = strArr;
+        this.f49478e = context;
+        this.f49479f = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f45805f.length;
+        return this.f49479f.length;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
-        return this.f45805f[i2];
+        return this.f49479f[i2];
     }
 
     @Override // android.widget.Adapter
@@ -69,18 +69,18 @@ public class a extends BaseAdapter {
         c cVar2;
         if (view == null) {
             if (i2 == 11) {
-                inflate = View.inflate(this.f45804e, g.aiapps_keyboard_img_item, null);
+                inflate = View.inflate(this.f49478e, g.aiapps_keyboard_img_item, null);
                 b bVar = new b();
-                bVar.f45806a = (ImageView) inflate.findViewById(f.delete_key_img_view);
+                bVar.f49480a = (ImageView) inflate.findViewById(f.delete_key_img_view);
                 cVar2 = bVar;
             } else {
-                inflate = View.inflate(this.f45804e, g.aiapps_keyboard_text_item, null);
+                inflate = View.inflate(this.f49478e, g.aiapps_keyboard_text_item, null);
                 c cVar3 = new c();
-                cVar3.f45807a = (TextView) inflate.findViewById(f.key_text_view);
+                cVar3.f49481a = (TextView) inflate.findViewById(f.key_text_view);
                 cVar2 = cVar3;
                 if (i2 == 9) {
-                    if (TextUtils.isEmpty(this.f45805f[9])) {
-                        inflate.setBackgroundColor(this.f45804e.getResources().getColor(d.a.l0.a.c.aiapps_keyboard_non_number_item_background_normal));
+                    if (TextUtils.isEmpty(this.f49479f[9])) {
+                        inflate.setBackgroundColor(this.f49478e.getResources().getColor(d.a.l0.a.c.aiapps_keyboard_non_number_item_background_normal));
                         cVar2 = cVar3;
                     } else {
                         inflate.setBackgroundResource(e.aiapps_keyboard_non_number_item_selector);
@@ -95,7 +95,7 @@ public class a extends BaseAdapter {
             cVar = view.getTag();
         }
         if (i2 != 11 && (cVar instanceof c)) {
-            ((c) cVar).f45807a.setText(this.f45805f[i2]);
+            ((c) cVar).f49481a.setText(this.f49479f[i2]);
         }
         return view;
     }

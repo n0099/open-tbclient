@@ -2,7 +2,6 @@ package com.baidu.ufosdk.f;
 
 import android.annotation.SuppressLint;
 import android.util.Base64;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -17,7 +16,7 @@ public final class k {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(a("W", false));
-        stringBuffer.append(a(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, true));
+        stringBuffer.append(a("9", true));
         stringBuffer.append(random.nextInt(1) + 1);
         stringBuffer.append(a("Y", true));
         stringBuffer.append("abe");

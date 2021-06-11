@@ -30,41 +30,41 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<MediaModel> f42867a = null;
+    public static ArrayList<MediaModel> f46543a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42868b = "album";
+    public static String f46544b = "album";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f42869c = 9;
+    public static int f46545c = 9;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f42870d = "single";
+    public static String f46546d = "single";
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f42871e = false;
+    public static boolean f46547e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f42872f = null;
+    public static String f46548f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f42873g = 0;
+    public static int f46549g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f42874h = true;
+    public static boolean f46550h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f42875i = false;
+    public static boolean f46551i = false;
     public static String j;
 
     /* loaded from: classes3.dex */
     public static class a implements ActivityResultConsumer {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.i1.d.d.c f42876a;
+        public final /* synthetic */ d.a.l0.a.i1.d.d.c f46552a;
 
         public a(d.a.l0.a.i1.d.d.c cVar) {
-            this.f42876a = cVar;
+            this.f46552a = cVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
@@ -72,15 +72,15 @@ public class d {
             d.a.l0.a.g1.f.V().b();
             if (i2 != -1) {
                 if (i2 == 0) {
-                    this.f42876a.e("选择文件失败：用户取消操作");
+                    this.f46552a.e("选择文件失败：用户取消操作");
                     return true;
                 }
                 return true;
             } else if (intent == null) {
-                this.f42876a.e("choose: Selected data is null");
+                this.f46552a.e("choose: Selected data is null");
                 return true;
             } else {
-                this.f42876a.f(intent.getParcelableArrayListExtra("mediaModels"));
+                this.f46552a.f(intent.getParcelableArrayListExtra("mediaModels"));
                 return true;
             }
         }
@@ -90,17 +90,17 @@ public class d {
     public static class b implements d.a.l0.a.i1.d.d.d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f42877a;
+        public final /* synthetic */ Activity f46553a;
 
         public b(Activity activity) {
-            this.f42877a = activity;
+            this.f46553a = activity;
         }
 
         @Override // d.a.l0.a.i1.d.d.d
         public void a(boolean z, String str, Object obj) {
             if (z && (obj instanceof ArrayList)) {
                 ArrayList<? extends Parcelable> arrayList = (ArrayList) obj;
-                if (c.f42863a) {
+                if (c.f46539a) {
                     Iterator<? extends Parcelable> it = arrayList.iterator();
                     while (it.hasNext()) {
                         Log.d("SwanAppChooseHelper", "tempPath = " + ((MediaModel) it.next()).d());
@@ -108,17 +108,17 @@ public class d {
                 }
                 Intent intent = new Intent();
                 intent.putParcelableArrayListExtra("mediaModels", arrayList);
-                this.f42877a.setResult(-1, intent);
-                this.f42877a.finish();
+                this.f46553a.setResult(-1, intent);
+                this.f46553a.finish();
             }
         }
     }
 
     public static void a() {
-        ArrayList<MediaModel> arrayList = f42867a;
+        ArrayList<MediaModel> arrayList = f46543a;
         if (arrayList != null) {
             arrayList.clear();
-            f42867a = null;
+            f46543a = null;
         }
     }
 
@@ -155,7 +155,7 @@ public class d {
     }
 
     public static ArrayList<MediaModel> c() {
-        return f42867a;
+        return f46543a;
     }
 
     public static boolean d(String str) {
@@ -173,10 +173,10 @@ public class d {
         float f2 = options.outWidth;
         float f3 = options.outHeight;
         if (!d(str)) {
-            float f4 = c.f42865c;
+            float f4 = c.f46541c;
             if (f2 > f4 && f3 > f4) {
                 float f5 = f2 / f3;
-                float f6 = c.f42864b;
+                float f6 = c.f46540b;
                 return f5 > f6 || 1.0f / f5 > f6;
             }
         }
@@ -184,14 +184,14 @@ public class d {
     }
 
     public static boolean f(String str, MediaModel mediaModel) {
-        if (e.d() < f42869c || e.g(mediaModel)) {
+        if (e.d() < f46545c || e.g(mediaModel)) {
             return TextUtils.equals(str, "single") && e.d() > 0 && !TextUtils.equals(e.b(), mediaModel.e());
         }
         return true;
     }
 
     public static void g(Activity activity, Bundle bundle) {
-        if (c.f42863a) {
+        if (c.f46539a) {
             Log.d("SwanAppChooseHelper", "selectCompleted");
         }
         if (e.d() <= 0) {
@@ -201,7 +201,7 @@ public class d {
     }
 
     public static void h(Activity activity, Bundle bundle, d.a.l0.a.i1.d.d.d dVar) {
-        if (c.f42863a) {
+        if (c.f46539a) {
             Log.d("SwanAppChooseHelper", "selectCompleted");
         }
         if (e.d() <= 0) {
@@ -211,11 +211,11 @@ public class d {
     }
 
     public static void i(ArrayList<MediaModel> arrayList) {
-        if (f42867a == null) {
-            f42867a = new ArrayList<>();
+        if (f46543a == null) {
+            f46543a = new ArrayList<>();
         }
-        f42867a.clear();
-        f42867a.addAll(arrayList);
+        f46543a.clear();
+        f46543a.addAll(arrayList);
     }
 
     public static void j(String str) {
@@ -223,15 +223,15 @@ public class d {
             return;
         }
         Context appContext = AppRuntime.getAppContext();
-        String string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f42869c));
+        String string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f46545c));
         if (TextUtils.equals(str, "single")) {
             if (e.e().get(0) instanceof ImageModel) {
-                string = appContext.getString(h.swanapp_album_selected_max_photos, Integer.valueOf(f42869c));
+                string = appContext.getString(h.swanapp_album_selected_max_photos, Integer.valueOf(f46545c));
             } else {
-                string = appContext.getString(h.swanapp_album_selected_max_videos, Integer.valueOf(f42869c));
+                string = appContext.getString(h.swanapp_album_selected_max_videos, Integer.valueOf(f46545c));
             }
         } else if (TextUtils.equals(str, ShareDirectionType.BOTH)) {
-            string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f42869c));
+            string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f46545c));
         }
         d.a.l0.a.z1.b.f.e.g(appContext, string).F();
     }
@@ -275,7 +275,7 @@ public class d {
                             str2 = m.h(mediaModel.d());
                         }
                     } else {
-                        str2 = d.a.l0.a.k2.b.J(mediaModel.d(), eVar.f40749f);
+                        str2 = d.a.l0.a.k2.b.J(mediaModel.d(), eVar.f44425f);
                     }
                     jSONArray.put(str2);
                     JSONObject jSONObject2 = new JSONObject();
@@ -296,11 +296,11 @@ public class d {
             jSONObject.put("tempFilePaths", jSONArray);
             jSONObject.put("tempFiles", jSONArray2);
         } catch (JSONException e2) {
-            if (c.f42863a) {
+            if (c.f46539a) {
                 e2.printStackTrace();
             }
         }
-        if (c.f42863a) {
+        if (c.f46539a) {
             Log.d("SwanAppChooseHelper", jSONObject.toString());
         }
         return jSONObject;
@@ -318,7 +318,7 @@ public class d {
                 str = m.h(videoModel.d());
             }
         } else {
-            str = d.a.l0.a.k2.b.J(videoModel.d(), eVar.f40749f);
+            str = d.a.l0.a.k2.b.J(videoModel.d(), eVar.f44425f);
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -328,11 +328,11 @@ public class d {
             jSONObject.put("width", videoModel.l());
             jSONObject.put("size", videoModel.c());
         } catch (JSONException e2) {
-            if (c.f42863a) {
+            if (c.f46539a) {
                 e2.printStackTrace();
             }
         }
-        if (c.f42863a) {
+        if (c.f46539a) {
             Log.d("SwanAppChooseHelper", jSONObject.toString());
         }
         return jSONObject;

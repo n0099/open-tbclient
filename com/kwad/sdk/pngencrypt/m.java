@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class m<T> {
     public static i<l> a() {
         return a(l.a());

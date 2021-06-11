@@ -19,25 +19,25 @@ import tbclient.User;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f55973a;
+    public a f59662a;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f55975c;
+    public b f59664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55976d;
+    public String f59665d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55977e;
+    public String f59666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f55978f;
+    public long f59667f;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f55974b = new ArrayList();
+    public List<b> f59663b = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f55979g = true;
+    public boolean f59668g = true;
 
     public final b a(User user) {
         NewGodInfo newGodInfo;
@@ -45,23 +45,23 @@ public class c {
             return null;
         }
         b bVar = new b();
-        bVar.f55965a = user.level_influence;
-        bVar.f55967c = b(user);
+        bVar.f59654a = user.level_influence;
+        bVar.f59656c = b(user);
         BaijiahaoInfo baijiahaoInfo = user.baijiahao_info;
         boolean z = false;
         if (baijiahaoInfo != null) {
-            bVar.f55968d = baijiahaoInfo.auth_desc;
+            bVar.f59657d = baijiahaoInfo.auth_desc;
             Integer num = baijiahaoInfo.auth_id;
-            bVar.f55971g = (num == null || num.intValue() == 0) ? false : true;
+            bVar.f59660g = (num == null || num.intValue() == 0) ? false : true;
         }
-        if (!bVar.f55971g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
-            bVar.f55968d = user.new_god_data.field_name + l0.c(user.new_god_data);
-            bVar.f55972h = true;
+        if (!bVar.f59660g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
+            bVar.f59657d = user.new_god_data.field_name + l0.c(user.new_god_data);
+            bVar.f59661h = true;
         }
         if (user.influence == null) {
-            bVar.f55969e = "";
+            bVar.f59658e = "";
         } else {
-            bVar.f55969e = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), StringHelper.numFormatOverWanNa(user.influence.intValue()));
+            bVar.f59658e = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), StringHelper.numFormatOverWanNa(user.influence.intValue()));
         }
         MetaData metaData = new MetaData();
         metaData.parserProtobuf(user);
@@ -70,11 +70,11 @@ public class c {
             z = true;
         }
         metaData.setIsLike(z);
-        bVar.f55970f = metaData;
+        bVar.f59659f = metaData;
         if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
-            bVar.f55966b = metaData.getAvater();
+            bVar.f59655b = metaData.getAvater();
         } else {
-            bVar.f55966b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
+            bVar.f59655b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
         }
         return bVar;
     }
@@ -95,43 +95,43 @@ public class c {
         if (dataRes == null) {
             return;
         }
-        this.f55973a = new a();
+        this.f59662a = new a();
         if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-            this.f55973a.f55960b = b(dataRes.user_rank.get(0));
+            this.f59662a.f59649b = b(dataRes.user_rank.get(0));
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(dataRes.user_rank.get(0));
-            this.f55973a.f55961c = metaData;
+            this.f59662a.f59650c = metaData;
             String avatarH = metaData.getAvatarH();
             if (TextUtils.isEmpty(avatarH)) {
                 avatarH = metaData.getAvater();
             }
             if (avatarH != null && avatarH.startsWith("http")) {
-                this.f55973a.f55963e = avatarH;
+                this.f59662a.f59652e = avatarH;
             } else {
-                a aVar = this.f55973a;
-                aVar.f55963e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
+                a aVar = this.f59662a;
+                aVar.f59652e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
             }
         }
-        a aVar2 = this.f55973a;
+        a aVar2 = this.f59662a;
         Long l = dataRes.timestamp;
-        aVar2.f55962d = l == null ? 0L : l.longValue();
-        this.f55973a.f55964f = dataRes.field_info;
+        aVar2.f59651d = l == null ? 0L : l.longValue();
+        this.f59662a.f59653f = dataRes.field_info;
         if (!ListUtils.isEmpty(dataRes.user_rank)) {
             for (User user : dataRes.user_rank) {
                 if (user != null) {
-                    this.f55974b.add(a(user));
+                    this.f59663b.add(a(user));
                 }
             }
         }
-        this.f55975c = a(dataRes.current_user);
+        this.f59664c = a(dataRes.current_user);
         RankRuler rankRuler = dataRes.rank_description;
         if (rankRuler != null) {
-            this.f55976d = rankRuler.top_link;
-            this.f55977e = rankRuler.bottom_link;
+            this.f59665d = rankRuler.top_link;
+            this.f59666e = rankRuler.bottom_link;
         }
         Long l2 = dataRes.timestamp;
-        this.f55978f = l2 != null ? l2.longValue() : 0L;
+        this.f59667f = l2 != null ? l2.longValue() : 0L;
         Boolean bool = dataRes.has_more;
-        this.f55979g = bool != null ? bool.booleanValue() : false;
+        this.f59668g = bool != null ? bool.booleanValue() : false;
     }
 }

@@ -8,36 +8,36 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f49954a;
+    public boolean f53630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49955b;
+    public String f53631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f49956c;
+    public String f53632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f49957d = -1.0f;
+    public float f53633d = -1.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f49958e;
+    public String f53634e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49959f;
+    public b f53635f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public a f49960g;
+    public a f53636g;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f49961a;
+        public String f53637a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49962b;
+        public String f53638b;
 
         @Nullable
         public static a a(JSONObject jSONObject) {
@@ -45,8 +45,8 @@ public class c {
                 return null;
             }
             a aVar = new a();
-            aVar.f49961a = jSONObject.optString("desc", DisplayInfoView.AUTH_TEXT);
-            aVar.f49962b = jSONObject.optString("url");
+            aVar.f53637a = jSONObject.optString("desc", DisplayInfoView.AUTH_TEXT);
+            aVar.f53638b = jSONObject.optString("url");
             return aVar;
         }
     }
@@ -55,10 +55,10 @@ public class c {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f49963a;
+        public String f53639a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49964b;
+        public String f53640b;
 
         @Nullable
         public static b a(JSONObject jSONObject) {
@@ -66,8 +66,8 @@ public class c {
                 return null;
             }
             b bVar = new b();
-            bVar.f49963a = jSONObject.optString("desc", DisplayInfoView.PRI_TEXT);
-            bVar.f49964b = jSONObject.optString("url");
+            bVar.f53639a = jSONObject.optString("desc", DisplayInfoView.PRI_TEXT);
+            bVar.f53640b = jSONObject.optString("url");
             return bVar;
         }
     }
@@ -78,7 +78,7 @@ public class c {
         if (cVar == null) {
             return false;
         }
-        return (TextUtils.isEmpty(cVar.f49958e) && TextUtils.isEmpty(cVar.f49956c) && ((bVar = cVar.f49959f) == null || TextUtils.isEmpty(bVar.f49963a)) && ((aVar = cVar.f49960g) == null || TextUtils.isEmpty(aVar.f49961a))) ? false : true;
+        return (TextUtils.isEmpty(cVar.f53634e) && TextUtils.isEmpty(cVar.f53632c) && ((bVar = cVar.f53635f) == null || TextUtils.isEmpty(bVar.f53639a)) && ((aVar = cVar.f53636g) == null || TextUtils.isEmpty(aVar.f53637a))) ? false : true;
     }
 
     @Nullable
@@ -87,22 +87,22 @@ public class c {
             return null;
         }
         c cVar = new c();
-        cVar.f49954a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
+        cVar.f53630a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
         jSONObject.optString("app_icon");
-        cVar.f49955b = jSONObject.optString("app_name");
-        cVar.f49956c = jSONObject.optString("developer_name");
-        cVar.f49958e = jSONObject.optString("version");
-        cVar.f49959f = b.a(jSONObject.optJSONObject("privacy"));
-        cVar.f49960g = a.a(jSONObject.optJSONObject("permission"));
+        cVar.f53631b = jSONObject.optString("app_name");
+        cVar.f53632c = jSONObject.optString("developer_name");
+        cVar.f53634e = jSONObject.optString("version");
+        cVar.f53635f = b.a(jSONObject.optJSONObject("privacy"));
+        cVar.f53636g = a.a(jSONObject.optJSONObject("permission"));
         try {
             float parseFloat = Float.parseFloat(jSONObject.optString("score"));
             if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                cVar.f49957d = parseFloat;
+                cVar.f53633d = parseFloat;
             } else {
-                cVar.f49957d = -1.0f;
+                cVar.f53633d = -1.0f;
             }
         } catch (NumberFormatException unused) {
-            cVar.f49957d = -1.0f;
+            cVar.f53633d = -1.0f;
         }
         return cVar;
     }
@@ -110,8 +110,8 @@ public class c {
     public static boolean c(c cVar) {
         b bVar;
         a aVar;
-        if (cVar != null && cVar.f49954a) {
-            return (TextUtils.isEmpty(cVar.f49958e) || TextUtils.isEmpty(cVar.f49956c) || (bVar = cVar.f49959f) == null || TextUtils.isEmpty(bVar.f49964b) || (aVar = cVar.f49960g) == null || TextUtils.isEmpty(aVar.f49962b)) ? false : true;
+        if (cVar != null && cVar.f53630a) {
+            return (TextUtils.isEmpty(cVar.f53634e) || TextUtils.isEmpty(cVar.f53632c) || (bVar = cVar.f53635f) == null || TextUtils.isEmpty(bVar.f53640b) || (aVar = cVar.f53636g) == null || TextUtils.isEmpty(aVar.f53638b)) ? false : true;
         }
         return true;
     }

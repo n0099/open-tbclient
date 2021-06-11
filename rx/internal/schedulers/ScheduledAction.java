@@ -8,13 +8,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, k {
     public static final long serialVersionUID = -3962399486978279857L;
     public final h.n.a action;
     public final h cancel;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Remover extends AtomicBoolean implements k {
         public static final long serialVersionUID = 247232374289553518L;
         public final b parent;
@@ -38,7 +38,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Remover2 extends AtomicBoolean implements k {
         public static final long serialVersionUID = 247232374289553518L;
         public final h parent;
@@ -62,27 +62,27 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class a implements k {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Future<?> f69146e;
+        public final Future<?> f72455e;
 
         public a(Future<?> future) {
-            this.f69146e = future;
+            this.f72455e = future;
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f69146e.isCancelled();
+            return this.f72455e.isCancelled();
         }
 
         @Override // h.k
         public void unsubscribe() {
             if (ScheduledAction.this.get() != Thread.currentThread()) {
-                this.f69146e.cancel(true);
+                this.f72455e.cancel(true);
             } else {
-                this.f69146e.cancel(false);
+                this.f72455e.cancel(false);
             }
         }
     }

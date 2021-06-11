@@ -24,7 +24,7 @@ import java.io.File;
 public class VideoContainerManager extends a<VideoHolderWrapper, c> {
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f11894i;
+    public Context f11956i;
     public SwanAppComponentContainerView j;
     public VideoHolderWrapper k;
 
@@ -32,13 +32,13 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
     public class VideoHolderWrapper extends FrameLayout {
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout f11895e;
+        public FrameLayout f11957e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f11896f;
+        public ImageView f11958f;
 
         /* renamed from: g  reason: collision with root package name */
-        public SimpleDraweeView f11897g;
+        public SimpleDraweeView f11959g;
 
         public VideoHolderWrapper(@NonNull Context context) {
             super(context);
@@ -76,36 +76,36 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         }
 
         public final void c() {
-            ImageView imageView = new ImageView(VideoContainerManager.this.f11894i);
-            this.f11896f = imageView;
+            ImageView imageView = new ImageView(VideoContainerManager.this.f11956i);
+            this.f11958f = imageView;
             imageView.setImageResource(d.a.l0.v.c.btn_play);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.f11896f, layoutParams);
+            addView(this.f11958f, layoutParams);
         }
 
         public final void d() {
-            this.f11897g = new SimpleDraweeView(getContext());
+            this.f11959g = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.f11897g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
-            addView(this.f11897g, layoutParams);
+            this.f11959g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+            addView(this.f11959g, layoutParams);
         }
 
         public final void e() {
-            this.f11895e = new FrameLayout(getContext());
-            addView(this.f11895e, new FrameLayout.LayoutParams(-1, -1));
+            this.f11957e = new FrameLayout(getContext());
+            addView(this.f11957e, new FrameLayout.LayoutParams(-1, -1));
         }
 
         public View getPlayerIcon() {
-            return this.f11896f;
+            return this.f11958f;
         }
 
         public FrameLayout getVideoHolder() {
-            return this.f11895e;
+            return this.f11957e;
         }
 
         public SimpleDraweeView getVideoPoster() {
-            return this.f11897g;
+            return this.f11959g;
         }
 
         public void setPoster(String str) {
@@ -140,15 +140,15 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             } else if (c2 == 2) {
                 ScalingUtils.ScaleType scaleType4 = ScalingUtils.ScaleType.FIT_XY;
             }
-            this.f11897g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
-            a(str, this.f11897g);
+            this.f11959g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+            a(str, this.f11959g);
         }
     }
 
     public VideoContainerManager(@NonNull Context context, @NonNull c cVar) {
         super(context, cVar);
-        this.f11894i = context;
-        SwanAppComponentContainerView swanAppComponentContainerView = new SwanAppComponentContainerView(this.f11894i);
+        this.f11956i = context;
+        SwanAppComponentContainerView swanAppComponentContainerView = new SwanAppComponentContainerView(this.f11956i);
         this.j = swanAppComponentContainerView;
         swanAppComponentContainerView.setBackgroundColor(Color.parseColor("#666666"));
         g(1);
@@ -164,7 +164,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
 
     public final VideoHolderWrapper K() {
         if (this.k == null) {
-            this.k = new VideoHolderWrapper(this.f11894i);
+            this.k = new VideoHolderWrapper(this.f11956i);
         }
         return this.k;
     }
@@ -217,7 +217,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             return;
         }
         c n = n();
-        if (!TextUtils.equals(cVar.f40845f, n.f40845f) || !TextUtils.equals(cVar.f40846g, n.f40846g) || !TextUtils.equals(cVar.f40847h, n.f40847h)) {
+        if (!TextUtils.equals(cVar.f44521f, n.f44521f) || !TextUtils.equals(cVar.f44522g, n.f44522g) || !TextUtils.equals(cVar.f44523h, n.f44523h)) {
             d.a.l0.a.c0.g.a.a("video", "updateCoverContainerPosition with different id");
         }
         d.a.l0.a.c0.b.c G = G(cVar);

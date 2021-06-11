@@ -9,29 +9,29 @@ import java.io.RandomAccessFile;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final RandomAccessFile f66659a;
+    public final RandomAccessFile f70445a;
 
     public a(File file) throws FileNotFoundException {
-        this.f66659a = new RandomAccessFile(file, r.f7672a);
+        this.f70445a = new RandomAccessFile(file, r.f7715a);
     }
 
     @Override // d.o.a.c.b
     public long a() throws IOException {
-        return this.f66659a.length();
+        return this.f70445a.length();
     }
 
     @Override // d.o.a.c.b
     public void b() throws IOException {
-        this.f66659a.close();
+        this.f70445a.close();
     }
 
     @Override // d.o.a.c.b
     public int a(byte[] bArr, int i2, int i3) throws IOException {
-        return this.f66659a.read(bArr, i2, i3);
+        return this.f70445a.read(bArr, i2, i3);
     }
 
     @Override // d.o.a.c.b
     public void a(long j, long j2) throws IOException {
-        this.f66659a.seek(j);
+        this.f70445a.seek(j);
     }
 }

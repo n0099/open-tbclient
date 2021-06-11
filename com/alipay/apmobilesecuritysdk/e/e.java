@@ -1,7 +1,7 @@
 package com.alipay.apmobilesecuritysdk.e;
 
 import android.content.Context;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class e {
@@ -20,8 +20,8 @@ public final class e {
             JSONObject jSONObject = new JSONObject(a2);
             f fVar = new f();
             fVar.a(jSONObject.getString("imei"));
-            fVar.b(jSONObject.getString("imsi"));
-            fVar.c(jSONObject.getString(IAdRequestParam.MAC));
+            fVar.b(jSONObject.getString(BaseStatisContent.IMSI));
+            fVar.c(jSONObject.getString("mac"));
             fVar.d(jSONObject.getString("bluetoothmac"));
             fVar.e(jSONObject.getString("gsi"));
             return fVar;

@@ -8,7 +8,7 @@ import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f46456a;
+    public static volatile e f50130a;
 
     public static int a(byte[] bArr) {
         if (bArr != null) {
@@ -33,14 +33,14 @@ public class e {
     }
 
     public static e f() {
-        if (f46456a == null) {
+        if (f50130a == null) {
             synchronized (e.class) {
-                if (f46456a == null) {
-                    f46456a = new e();
+                if (f50130a == null) {
+                    f50130a = new e();
                 }
             }
         }
-        return f46456a;
+        return f50130a;
     }
 
     public static byte[] g(int i2) {
@@ -67,7 +67,7 @@ public class e {
             a2.l(d.a.l0.n.j.j.b.c().b().longValue());
             return d.a.l0.c.a.j.b.b(a2);
         } catch (Exception e2) {
-            if (a.f46449a) {
+            if (a.f50123a) {
                 e2.printStackTrace();
                 Log.d("BDTLS", "exception=" + e2.getMessage());
                 return null;
@@ -85,7 +85,7 @@ public class e {
                 Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
                 if (parseFrom != null) {
                     String str = new String(parseFrom.getDescription().toByteArray());
-                    if (a.f46449a) {
+                    if (a.f50123a) {
                         Log.d("BDTLS", "bdtls ubc application alert : " + str);
                     }
                     f.b(gVar, parseFrom);
@@ -96,12 +96,12 @@ public class e {
                     } else {
                         fVar.d(-1);
                     }
-                    if (a.f46449a) {
+                    if (a.f50123a) {
                         if (parseFrom.getDescription() != null) {
-                            if (a.f46449a) {
+                            if (a.f50123a) {
                                 Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
                             }
-                        } else if (a.f46449a) {
+                        } else if (a.f50123a) {
                             Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
                         }
                     }
@@ -113,7 +113,7 @@ public class e {
                 fVar.d(1);
             }
         } catch (Exception e2) {
-            if (a.f46449a) {
+            if (a.f50123a) {
                 e2.printStackTrace();
                 Log.d("BDTLS", "exception=" + e2.getMessage());
             }
@@ -138,7 +138,7 @@ public class e {
             a2.o(b2);
             return d.a.l0.c.a.j.b.b(a2);
         } catch (Exception e2) {
-            if (a.f46449a) {
+            if (a.f50123a) {
                 e2.printStackTrace();
                 Log.d("BDTLS", "exception=" + e2.getMessage());
             }

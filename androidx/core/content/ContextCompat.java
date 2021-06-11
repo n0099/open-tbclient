@@ -76,7 +76,6 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class ContextCompat {
     public static final String TAG = "ContextCompat";
@@ -126,7 +125,7 @@ public class ContextCompat {
             SERVICES.put(AccountManager.class, "account");
             SERVICES.put(ActivityManager.class, "activity");
             SERVICES.put(AlarmManager.class, NotificationCompat.CATEGORY_ALARM);
-            SERVICES.put(AudioManager.class, MediaStreamTrack.AUDIO_TRACK_KIND);
+            SERVICES.put(AudioManager.class, "audio");
             SERVICES.put(ClipboardManager.class, "clipboard");
             SERVICES.put(ConnectivityManager.class, "connectivity");
             SERVICES.put(DevicePolicyManager.class, "device_policy");

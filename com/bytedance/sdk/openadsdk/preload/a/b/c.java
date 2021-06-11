@@ -25,26 +25,26 @@ import java.util.concurrent.ConcurrentSkipListMap;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Type, com.bytedance.sdk.openadsdk.preload.a.h<?>> f29781a;
+    public final Map<Type, com.bytedance.sdk.openadsdk.preload.a.h<?>> f29884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.b.b f29782b = com.bytedance.sdk.openadsdk.preload.a.b.b.b.a();
+    public final com.bytedance.sdk.openadsdk.preload.a.b.b.b f29885b = com.bytedance.sdk.openadsdk.preload.a.b.b.b.a();
 
     public c(Map<Type, com.bytedance.sdk.openadsdk.preload.a.h<?>> map) {
-        this.f29781a = map;
+        this.f29884a = map;
     }
 
     private <T> i<T> b(final Type type, final Class<? super T> cls) {
         return new i<T>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.c.6
 
             /* renamed from: d  reason: collision with root package name */
-            public final m f29799d = m.a();
+            public final m f29902d = m.a();
 
             /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
             @Override // com.bytedance.sdk.openadsdk.preload.a.b.i
             public T a() {
                 try {
-                    return this.f29799d.a(cls);
+                    return this.f29902d.a(cls);
                 } catch (Exception e2) {
                     throw new RuntimeException("Unable to invoke no-args constructor for " + type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e2);
                 }
@@ -55,7 +55,7 @@ public final class c {
     public <T> i<T> a(com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
         final Type b2 = aVar.b();
         Class<? super T> a2 = aVar.a();
-        final com.bytedance.sdk.openadsdk.preload.a.h<?> hVar = this.f29781a.get(b2);
+        final com.bytedance.sdk.openadsdk.preload.a.h<?> hVar = this.f29884a.get(b2);
         if (hVar != null) {
             return new i<T>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.c.1
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
@@ -65,7 +65,7 @@ public final class c {
                 }
             };
         }
-        final com.bytedance.sdk.openadsdk.preload.a.h<?> hVar2 = this.f29781a.get(a2);
+        final com.bytedance.sdk.openadsdk.preload.a.h<?> hVar2 = this.f29884a.get(a2);
         if (hVar2 != null) {
             return new i<T>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.c.7
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
@@ -84,14 +84,14 @@ public final class c {
     }
 
     public String toString() {
-        return this.f29781a.toString();
+        return this.f29884a.toString();
     }
 
     private <T> i<T> a(Class<? super T> cls) {
         try {
             final Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
             if (!declaredConstructor.isAccessible()) {
-                this.f29782b.a(declaredConstructor);
+                this.f29885b.a(declaredConstructor);
             }
             return new i<T>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.c.8
                 /* JADX WARN: Type inference failed for: r0v6, types: [T, java.lang.Object] */

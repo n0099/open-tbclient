@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class a extends d.a.l0.g.f.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f47098c = k.f43199a;
+    public static final boolean f50772c = k.f46875a;
 
     public a() {
         super("getSid");
@@ -21,11 +21,11 @@ public class a extends d.a.l0.g.f.a {
         try {
             jSONObject2.put("sid", k);
         } catch (JSONException e2) {
-            if (f47098c) {
+            if (f50772c) {
                 e2.printStackTrace();
             }
         }
-        bVar.b(jSONObject2);
+        bVar.a(jSONObject2);
         return null;
     }
 }

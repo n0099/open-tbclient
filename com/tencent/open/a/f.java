@@ -9,27 +9,27 @@ import java.io.File;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f36371a = null;
+    public static f f40050a = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f36372c = new b(c(), c.m, c.f36364g, c.f36365h, c.f36360c, c.f36366i, 10, c.f36362e, c.n);
+    public static final b f40051c = new b(c(), c.m, c.f40043g, c.f40044h, c.f40039c, c.f40045i, 10, c.f40041e, c.n);
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f36373d = false;
+    public static boolean f40052d = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f36374b = new a(f36372c);
+    public a f40053b = new a(f40051c);
 
     public static f a() {
-        if (f36371a == null) {
+        if (f40050a == null) {
             synchronized (f.class) {
-                if (f36371a == null) {
-                    f36371a = new f();
-                    f36373d = true;
+                if (f40050a == null) {
+                    f40050a = new f();
+                    f40052d = true;
                 }
             }
         }
-        return f36371a;
+        return f40050a;
     }
 
     public static final void b(String str, String str2) {
@@ -53,12 +53,12 @@ public class f {
     }
 
     public static File c() {
-        String str = c.f36361d;
+        String str = c.f40040d;
         boolean z = false;
         try {
             d.c b2 = d.b.b();
             if (b2 != null) {
-                if (b2.c() > c.f36363f) {
+                if (b2.c() > c.f40042f) {
                     z = true;
                 }
             }
@@ -72,39 +72,39 @@ public class f {
     }
 
     public void d() {
-        a aVar = this.f36374b;
+        a aVar = this.f40053b;
         if (aVar != null) {
             aVar.a();
-            this.f36374b.b();
-            this.f36374b = null;
+            this.f40053b.b();
+            this.f40053b = null;
         }
     }
 
     public static void b() {
         synchronized (f.class) {
             a().d();
-            if (f36371a != null) {
-                f36371a = null;
+            if (f40050a != null) {
+                f40050a = null;
             }
         }
     }
 
     public void a(int i2, String str, String str2, Throwable th) {
         a aVar;
-        if (f36373d) {
+        if (f40052d) {
             String b2 = com.tencent.open.utils.e.b();
             if (!TextUtils.isEmpty(b2)) {
                 String str3 = b2 + " SDK_VERSION:" + Constants.SDK_VERSION;
-                if (this.f36374b == null) {
+                if (this.f40053b == null) {
                     return;
                 }
-                e.f36370a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                this.f36374b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                f36373d = false;
+                e.f40049a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                this.f40053b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                f40052d = false;
             }
         }
-        e.f36370a.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-        if (!d.a.a(c.f36359b, i2) || (aVar = this.f36374b) == null) {
+        e.f40049a.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        if (!d.a.a(c.f40038b, i2) || (aVar = this.f40053b) == null) {
             return;
         }
         aVar.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);

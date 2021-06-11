@@ -3,11 +3,11 @@ package d.a.n0.u.b.d;
 import androidx.annotation.Nullable;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import d.a.l0.a.p.c.p;
+import d.a.l0.a.p.c.o;
 @Singleton
 @Service
 /* loaded from: classes4.dex */
-public class a extends p {
+public class a extends o {
     @Override // d.a.l0.a.p.d.a0
     public boolean K() {
         return isDebug();

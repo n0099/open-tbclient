@@ -9,14 +9,14 @@ import d.a.l0.a.k;
 public class d implements d.a.l0.a.v2.e1.b<HybridUbcFlow> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44434e = k.f43199a;
+    public static final boolean f48108e = k.f46875a;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.l0.a.v2.e1.b
     /* renamed from: a */
     public void onCallback(HybridUbcFlow hybridUbcFlow) {
         PMSAppInfo s;
-        if (f44434e) {
+        if (f48108e) {
             Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
         }
         if (hybridUbcFlow == null || (s = d.a.l0.n.g.a.h().s(d.a.l0.a.a2.d.g().getAppId())) == null) {

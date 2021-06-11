@@ -30,6 +30,7 @@ public class SocialResponse extends SapiAccountResponse {
         socialResponse.socialType = SocialType.getSocialType(jSONObject.optInt(SearchJsBridge.COOKIE_OS_TYPE));
         socialResponse.bduss = jSONObject.optString("bduss");
         socialResponse.socialPortraitUrl = jSONObject.optString("os_headurl");
+        socialResponse.socialNickname = jSONObject.optString("os_name");
         String optString = jSONObject.optString("incomplete_user");
         if ("0".equals(optString)) {
             socialResponse.accountType = AccountType.NORMAL;

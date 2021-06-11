@@ -19,117 +19,117 @@ import java.lang.ref.WeakReference;
 public class c implements d.a.n0.t.a.h.b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f60778g = "6021002119-1732188456";
+    public static String f64469g = "6021002119-1732188456";
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<ViewGroup> f60779b;
+    public WeakReference<ViewGroup> f64470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f60780c;
+    public ViewGroup f64471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdLoadState f60781d = AdLoadState.INIT;
+    public AdLoadState f64472d = AdLoadState.INIT;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.m0.k.a f60782e = null;
+    public d.a.m0.k.a f64473e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public final a.f f60783f = new a();
+    public final a.g f64474f = new a();
 
     /* loaded from: classes4.dex */
-    public class a extends a.g {
+    public class a extends a.h {
         public a() {
         }
 
-        @Override // d.a.n0.s0.a.f
+        @Override // d.a.n0.s0.a.g
         public void onAdClicked(String str) {
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "BEAR ad onAdClicked : " + str);
             }
             FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.CLICK_AD_RECORD, "a064", "0", null, null, null, null, null, null, null);
-            if (c.this.f60782e != null) {
-                c.this.f60782e.b(false, false, 6);
+            if (c.this.f64473e != null) {
+                c.this.f64473e.b(false, false, 6);
             }
         }
 
-        @Override // d.a.n0.s0.a.f
+        @Override // d.a.n0.s0.a.g
         public void onAdClose(String str) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_SPLASH_SKIP).param("obj_source", 6).param("obj_type", 1));
             FunAdRecordHttpMessage.uploadSplashSkipRecord("1");
-            if (c.this.f60782e != null) {
-                c.this.f60782e.onAdDismiss();
+            if (c.this.f64473e != null) {
+                c.this.f64473e.onAdDismiss();
             }
         }
 
-        @Override // d.a.n0.s0.a.f
+        @Override // d.a.n0.s0.a.g
         public void onAdError(String str) {
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "BEAR ad onAdError : " + str);
             }
-            d.a.n0.t.a.j.a.k(d.a.n0.t.a.j.a.f60828d, "1");
+            d.a.n0.t.a.j.a.k(d.a.n0.t.a.j.a.f64519d, "1");
             FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a064", "1", null, null, null, null, null, null, null);
-            if (c.this.f60782e != null) {
-                c.this.f60782e.onAdDismiss();
+            if (c.this.f64473e != null) {
+                c.this.f64473e.onAdDismiss();
             }
         }
 
-        @Override // d.a.n0.s0.a.f
+        @Override // d.a.n0.s0.a.g
         public void onAdShow(String str) {
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "BEAR ad onAdshow");
             }
-            c.this.f60782e.c(false, false, 6);
-            d.a.n0.t.a.j.a.k(d.a.n0.t.a.j.a.f60828d, "0");
+            c.this.f64473e.c(false, false, 6);
+            d.a.n0.t.a.j.a.k(d.a.n0.t.a.j.a.f64519d, "0");
             FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a064", "0", null, null, null, null, null, null, null);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements a.e {
+    public class b implements a.f {
         public b() {
         }
 
-        @Override // d.a.n0.s0.a.e
+        @Override // d.a.n0.s0.a.f
         public void a(String str, int i2) {
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "BEAR ad onAdLoaded successed: " + str);
             }
             FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
-            d.a.n0.t.a.j.a.j(d.a.n0.t.a.j.a.f60828d, "0", i2);
+            d.a.n0.t.a.j.a.j(d.a.n0.t.a.j.a.f64519d, "0", i2);
             if (d.a.n0.s0.a.h().k(str)) {
-                c.this.f60781d = AdLoadState.SUCCEED;
+                c.this.f64472d = AdLoadState.SUCCEED;
             } else {
-                c.this.f60781d = AdLoadState.FAILED;
-                ((ViewGroup) c.this.f60779b.get()).removeView(c.this.f60780c);
+                c.this.f64472d = AdLoadState.FAILED;
+                ((ViewGroup) c.this.f64470b.get()).removeView(c.this.f64471c);
             }
-            d.a.n0.t.a.h.a.c().g(c.this.f60782e);
+            d.a.n0.t.a.h.a.c().g(c.this.f64473e);
         }
 
-        @Override // d.a.n0.s0.a.e
+        @Override // d.a.n0.s0.a.f
         public void onError(String str) {
-            if (d.a.n0.t.a.h.b.f60817a) {
+            if (d.a.n0.t.a.h.b.f64508a) {
                 Log.d("IAdSdkSplash", "BEAR ad onLoadError: " + str);
             }
             FunAdRecordHttpMessage.uploadRequestRecord("a064", "1", null, null, "0");
-            d.a.n0.t.a.j.a.j(d.a.n0.t.a.j.a.f60828d, str, 0);
-            c.this.f60781d = AdLoadState.FAILED;
-            ((ViewGroup) c.this.f60779b.get()).removeView(c.this.f60780c);
-            d.a.n0.t.a.h.a.c().g(c.this.f60782e);
+            d.a.n0.t.a.j.a.j(d.a.n0.t.a.j.a.f64519d, str, 0);
+            c.this.f64472d = AdLoadState.FAILED;
+            ((ViewGroup) c.this.f64470b.get()).removeView(c.this.f64471c);
+            d.a.n0.t.a.h.a.c().g(c.this.f64473e);
         }
     }
 
     public c() {
-        f60778g = d.a.m0.r.d0.b.j().k("splash_bear_sid_type_key", 0) == 1 ? "6021002118-283136489" : "6021002119-1732188456";
+        f64469g = d.a.m0.r.d0.b.j().k("splash_bear_sid_type_key", 0) == 1 ? "6021002118-283136489" : "6021002119-1732188456";
     }
 
     public static void i(int i2) {
-        f60778g = i2 == 1 ? "6021002118-283136489" : "6021002119-1732188456";
+        f64469g = i2 == 1 ? "6021002118-283136489" : "6021002119-1732188456";
         d.a.m0.r.d0.b.j().v("splash_bear_sid_type_key", i2);
     }
 
     @Override // d.a.n0.t.a.h.b
     public AdLoadState a() {
-        return this.f60781d;
+        return this.f64472d;
     }
 
     @Override // d.a.n0.t.a.h.b
@@ -138,26 +138,26 @@ public class c implements d.a.n0.t.a.h.b {
         if (!(context instanceof Activity) || dVar.b() == null) {
             return;
         }
-        this.f60779b = new WeakReference<>(dVar.b());
+        this.f64470b = new WeakReference<>(dVar.b());
         Activity activity = (Activity) context;
-        ViewGroup g2 = d.a.n0.s0.a.h().g(activity, f60778g);
-        this.f60780c = g2;
+        ViewGroup g2 = d.a.n0.s0.a.h().g(activity, f64469g);
+        this.f64471c = g2;
         if (g2 == null) {
             return;
         }
-        this.f60782e = dVar.a();
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.k(context), (int) (l.i(this.f60779b.get().getContext()) * 0.8125d));
+        this.f64473e = dVar.a();
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.k(context), (int) (l.i(this.f64470b.get().getContext()) * 0.8125d));
         layoutParams.addRule(14, -1);
-        this.f60779b.get().addView(this.f60780c, layoutParams);
-        if (d.a.n0.t.a.h.b.f60817a) {
+        this.f64470b.get().addView(this.f64471c, layoutParams);
+        if (d.a.n0.t.a.h.b.f64508a) {
             Log.d("IAdSdkSplash", "BEAR ad start load");
         }
         d.a.n0.s0.a h2 = d.a.n0.s0.a.h();
-        String str = f60778g;
+        String str = f64469g;
         b bVar = new b();
         h2.l(activity, str, bVar, d.a.n0.s0.a.a("spalsh", d.a.n0.t.a.h.a.c().b() + ""));
-        this.f60781d = AdLoadState.LOADING;
-        d.a.n0.t.a.j.a.i(d.a.n0.t.a.j.a.f60828d);
+        this.f64472d = AdLoadState.LOADING;
+        d.a.n0.t.a.j.a.i(d.a.n0.t.a.j.a.f64519d);
         FunAdRecordHttpMessage.uploadRequestRecord("a064", null, null, null, null);
     }
 
@@ -168,32 +168,32 @@ public class c implements d.a.n0.t.a.h.b {
 
     @Override // d.a.n0.t.a.h.b
     public void destroy() {
-        d.a.n0.s0.a.h().c(f60778g);
+        d.a.n0.s0.a.h().c(f64469g);
     }
 
     public final void h() {
-        WeakReference<ViewGroup> weakReference = this.f60779b;
+        WeakReference<ViewGroup> weakReference = this.f64470b;
         if (weakReference == null || weakReference.get().getParent() == null) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f60779b.get().getLayoutParams();
-        layoutParams.width = l.k(this.f60779b.get().getContext());
-        layoutParams.height = (int) (l.i(this.f60779b.get().getContext()) * 0.8125d);
-        this.f60779b.get().setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f64470b.get().getLayoutParams();
+        layoutParams.width = l.k(this.f64470b.get().getContext());
+        layoutParams.height = (int) (l.i(this.f64470b.get().getContext()) * 0.8125d);
+        this.f64470b.get().setLayoutParams(layoutParams);
     }
 
     public boolean j() {
-        if (this.f60780c != null && this.f60779b.get() != null) {
-            Context context = this.f60779b.get().getContext();
+        if (this.f64471c != null && this.f64470b.get() != null) {
+            Context context = this.f64470b.get().getContext();
             if (context instanceof Activity) {
                 d.a.m0.r.z.a.a("homePage", -1L, 0, "logo_splash", 0, "", "bear show");
                 d.a.n0.s0.a h2 = d.a.n0.s0.a.h();
                 Activity activity = (Activity) context;
-                String str = f60778g;
-                ViewGroup viewGroup = this.f60780c;
-                a.f fVar = this.f60783f;
-                h2.n(activity, str, viewGroup, fVar, d.a.n0.s0.a.a("spalsh", d.a.n0.t.a.h.a.c().b() + ""));
-                SkinManager.setBackgroundColor(this.f60780c, R.color.CAM_X0101, 0);
+                String str = f64469g;
+                ViewGroup viewGroup = this.f64471c;
+                a.g gVar = this.f64474f;
+                h2.o(activity, str, viewGroup, gVar, d.a.n0.s0.a.a("spalsh", d.a.n0.t.a.h.a.c().b() + ""));
+                SkinManager.setBackgroundColor(this.f64471c, R.color.CAM_X0101, 0);
                 return true;
             }
         }
@@ -202,9 +202,9 @@ public class c implements d.a.n0.t.a.h.b {
 
     @Override // d.a.n0.t.a.h.b
     public void show() {
-        if (this.f60779b != null && this.f60781d == AdLoadState.SUCCEED) {
+        if (this.f64470b != null && this.f64472d == AdLoadState.SUCCEED) {
             h();
-            this.f60781d = AdLoadState.SHOWED;
+            this.f64472d = AdLoadState.SHOWED;
             j();
         }
     }

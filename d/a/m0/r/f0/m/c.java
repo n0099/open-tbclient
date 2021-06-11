@@ -14,7 +14,7 @@ public class c extends TBSpecificationButtonConfig {
     public boolean t;
 
     public c() {
-        this.f12480b = R.color.CAM_X0302;
+        this.f12542b = R.color.CAM_X0302;
         this.t = false;
     }
 
@@ -24,7 +24,7 @@ public class c extends TBSpecificationButtonConfig {
     }
 
     public void o(@ColorRes int i2) {
-        this.f12480b = i2;
+        this.f12542b = i2;
         this.t = false;
         this.p = true;
         TBSpecificationButtonConfig.a aVar = this.s;
@@ -34,7 +34,7 @@ public class c extends TBSpecificationButtonConfig {
     }
 
     public void p(@ColorInt int i2) {
-        this.f12480b = i2;
+        this.f12542b = i2;
         this.t = false;
         this.p = false;
         TBSpecificationButtonConfig.a aVar = this.s;
@@ -44,8 +44,8 @@ public class c extends TBSpecificationButtonConfig {
     }
 
     public void q(@ColorRes int i2) {
-        this.f12480b = i2;
-        this.f12481c = R.color.CAM_X0902;
+        this.f12542b = i2;
+        this.f12543c = R.color.CAM_X0902;
         this.t = true;
         this.p = true;
         TBSpecificationButtonConfig.a aVar = this.s;
@@ -55,7 +55,7 @@ public class c extends TBSpecificationButtonConfig {
     }
 
     public void r() {
-        this.f12480b = R.color.CAM_X0101;
+        this.f12542b = R.color.CAM_X0101;
         this.t = false;
         this.p = true;
         TBSpecificationButtonConfig.a aVar = this.s;
@@ -67,9 +67,9 @@ public class c extends TBSpecificationButtonConfig {
     public final Drawable s(float f2) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         if (this.t) {
-            gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), SkinManager.getColor(this.q, this.f12481c));
+            gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), SkinManager.getColor(this.q, this.f12543c));
         } else {
-            gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), d.a.n0.e3.c.a(this.p ? SkinManager.getColor(this.q, this.f12480b) : this.f12480b, d.a.m0.r.u.a.a(R.string.A_X07)));
+            gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), d.a.n0.e3.c.a(this.p ? SkinManager.getColor(this.q, this.f12542b) : this.f12542b, d.a.m0.r.u.a.a(R.string.A_X07)));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f2);

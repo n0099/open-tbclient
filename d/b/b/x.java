@@ -7,9 +7,8 @@ import android.util.Pair;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.webkit.internal.ETAG;
 import com.baidubce.AbstractBceClient;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -30,22 +29,22 @@ import org.json.JSONObject;
 public class x {
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f65125b;
+    public static JSONObject f68856b;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f65124a = {"GET", "POST"};
+    public static final String[] f68855a = {"GET", "POST"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f65126c = {"aid", "app_version", "tt_data"};
+    public static final String[] f68857c = {"aid", "app_version", "tt_data"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f65127d = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", CommonUrlParamManager.PARAM_IID, "device_platform"};
+    public static final String[] f68858d = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", CommonUrlParamManager.PARAM_IID, "device_platform"};
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f65128e = {"tt_data", "device_platform"};
+    public static final String[] f68859e = {"tt_data", "device_platform"};
 
     /* renamed from: f  reason: collision with root package name */
-    public static d.b.b.c2.a f65129f = d.b.b.c2.a.a(0);
+    public static d.b.b.c2.a f68860f = d.b.b.c2.a.a(0);
 
     /* JADX WARN: Removed duplicated region for block: B:66:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -81,12 +80,12 @@ public class x {
         }
         jSONObject = new JSONObject(str);
         try {
-            i2 = jSONObject.optInt(ETAG.KEY_HTTP_CODE);
+            i2 = jSONObject.optInt("http_code");
             if (i2 == 200) {
                 if ("ss_app_log".equals(jSONObject.optString("magic_tag"))) {
                     i2 = "success".equals(jSONObject.optString("message")) ? 200 : Integer.valueOf("101").intValue();
                 } else {
-                    i2 = Integer.valueOf(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY).intValue();
+                    i2 = Integer.valueOf("102").intValue();
                 }
             }
         } catch (JSONException e3) {
@@ -104,7 +103,7 @@ public class x {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("server_time", optLong);
                     jSONObject2.put("local_time", System.currentTimeMillis() / 1000);
-                    f65125b = jSONObject2;
+                    f68856b = jSONObject2;
                 }
             } catch (Exception e4) {
                 r0.b(e4);
@@ -136,7 +135,7 @@ public class x {
     }
 
     public static d.b.b.c2.a b() {
-        return f65129f;
+        return f68860f;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:104:0x01d5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -154,7 +153,7 @@ public class x {
         BufferedReader bufferedReader2;
         BufferedReader bufferedReader3;
         String str4;
-        if (r0.f65092b) {
+        if (r0.f68823b) {
             r0.a("http: " + str, null);
             if (hashMap != null) {
                 for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -176,7 +175,7 @@ public class x {
             } else {
                 r0.b(null);
             }
-            httpURLConnection.setRequestMethod(f65124a[i2]);
+            httpURLConnection.setRequestMethod(f68855a[i2]);
             if (hashMap != null && !hashMap.isEmpty()) {
                 for (Map.Entry<String, String> entry2 : hashMap.entrySet()) {
                     if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
@@ -203,7 +202,7 @@ public class x {
                     try {
                         r0.b(th);
                         str3 = str2;
-                        if (r0.f65092b) {
+                        if (r0.f68823b) {
                         }
                         return str3;
                     } finally {
@@ -243,7 +242,7 @@ public class x {
                         }
                         try {
                             JSONObject jSONObject = new JSONObject(sb.toString());
-                            jSONObject.put(ETAG.KEY_HTTP_CODE, 200);
+                            jSONObject.put("http_code", 200);
                             str3 = jSONObject.toString();
                         } catch (Throwable th2) {
                             bufferedReader3 = bufferedReader2;
@@ -259,7 +258,7 @@ public class x {
                                 }
                             }
                             str3 = str2;
-                            if (r0.f65092b) {
+                            if (r0.f68823b) {
                             }
                             return str3;
                         }
@@ -275,7 +274,7 @@ public class x {
                     str3 = null;
                 }
             } else {
-                String jSONObject2 = new JSONObject().put(ETAG.KEY_HTTP_CODE, responseCode).toString();
+                String jSONObject2 = new JSONObject().put("http_code", responseCode).toString();
                 try {
                     new RuntimeException("HttpCode:" + responseCode).printStackTrace();
                     str3 = jSONObject2;
@@ -287,7 +286,7 @@ public class x {
                     bufferedReader = null;
                     r0.b(th);
                     str3 = str2;
-                    if (r0.f65092b) {
+                    if (r0.f68823b) {
                     }
                     return str3;
                 }
@@ -310,7 +309,7 @@ public class x {
             bufferedReader = null;
             str2 = null;
         }
-        if (r0.f65092b) {
+        if (r0.f68823b) {
             r0.a("http response: " + str3, null);
         }
         return str3;
@@ -322,7 +321,7 @@ public class x {
             Uri parse = Uri.parse(str);
             String query = parse.getQuery();
             ArrayList<Pair> arrayList = new ArrayList();
-            for (String str2 : f65126c) {
+            for (String str2 : f68857c) {
                 String queryParameter = parse.getQueryParameter(str2);
                 if (!TextUtils.isEmpty(queryParameter)) {
                     arrayList.add(new Pair(str2, queryParameter));
@@ -379,7 +378,7 @@ public class x {
     }
 
     public static void g(int i2) {
-        f65129f = d.b.b.c2.a.a(i2);
+        f68860f = d.b.b.c2.a.a(i2);
     }
 
     public static void h(StringBuilder sb, String str, String str2) {
@@ -405,7 +404,7 @@ public class x {
         if (rawOffset > 12.0f) {
             rawOffset = 12.0f;
         }
-        h(sb, "timezone", rawOffset + "");
+        h(sb, BaseStatisContent.TIMEZONE, rawOffset + "");
         JSONArray optJSONArray = jSONObject.optJSONArray("sim_serial_number");
         if (optJSONArray != null) {
             try {

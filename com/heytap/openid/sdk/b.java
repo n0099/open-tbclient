@@ -5,10 +5,10 @@ import android.content.Context;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31516a = false;
+    public static boolean f31607a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31517b = false;
+    public static boolean f31608b = false;
 
     public static Context a(Context context) {
         return (context == null || context.getApplicationContext() == null) ? context : context.getApplicationContext();

@@ -37,10 +37,10 @@ public class b extends d.a.n0.z.b<a2> implements z {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.o == null || b.this.h() == null) {
+            if (b.this.o == null || b.this.i() == null) {
                 return;
             }
-            b.this.h().a(view, b.this.o);
+            b.this.i().a(view, b.this.o);
             TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", b.this.o.c0()));
         }
     }
@@ -49,15 +49,15 @@ public class b extends d.a.n0.z.b<a2> implements z {
         super(tbPageContext);
         this.w = new a();
         this.m = tbPageContext;
-        View l = l();
-        this.p = l.findViewById(R.id.divider);
-        this.q = l.findViewById(R.id.recommend_left_line);
-        this.r = l.findViewById(R.id.recommend_right_line);
-        this.n = (RelativeLayout) l.findViewById(R.id.ala_live_empty_layout_root);
-        this.s = (TextView) l.findViewById(R.id.ala_live_title);
-        this.t = (TextView) l.findViewById(R.id.start_live_btn);
-        this.v = (RelativeLayout) l.findViewById(R.id.ala_bottom_container);
-        this.u = (TextView) l.findViewById(R.id.ala_recommend_live);
+        View m = m();
+        this.p = m.findViewById(R.id.divider);
+        this.q = m.findViewById(R.id.recommend_left_line);
+        this.r = m.findViewById(R.id.recommend_right_line);
+        this.n = (RelativeLayout) m.findViewById(R.id.ala_live_empty_layout_root);
+        this.s = (TextView) m.findViewById(R.id.ala_live_title);
+        this.t = (TextView) m.findViewById(R.id.start_live_btn);
+        this.v = (RelativeLayout) m.findViewById(R.id.ala_bottom_container);
+        this.u = (TextView) m.findViewById(R.id.ala_recommend_live);
     }
 
     @Override // d.a.n0.z.z
@@ -65,13 +65,13 @@ public class b extends d.a.n0.z.b<a2> implements z {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.frs_ala_video_empty_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
             SkinManager.setBackgroundResource(this.t, R.drawable.ala_live_card_start_live_selector);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0101);
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0201);
@@ -81,7 +81,7 @@ public class b extends d.a.n0.z.b<a2> implements z {
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.v, R.color.CAM_X0201);
-            this.f63440e = i2;
+            this.f67158e = i2;
         }
     }
 
@@ -90,19 +90,19 @@ public class b extends d.a.n0.z.b<a2> implements z {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(a2 a2Var) {
+    /* renamed from: u */
+    public void n(a2 a2Var) {
         this.o = a2Var;
-        u();
+        v();
     }
 
-    public final void u() {
-        if (!this.o.c1) {
+    public final void v() {
+        if (!this.o.d1) {
             this.u.setVisibility(8);
             this.q.setVisibility(8);
             this.r.setVisibility(8);
@@ -117,10 +117,10 @@ public class b extends d.a.n0.z.b<a2> implements z {
             layoutParams2.height = this.m.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds30);
             this.v.setLayoutParams(layoutParams2);
         }
-        n(this.m, TbadkCoreApplication.getInst().getSkinType());
+        o(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void v(BdUniqueId bdUniqueId) {
+    public void w(BdUniqueId bdUniqueId) {
         this.t.setOnClickListener(this.w);
     }
 }

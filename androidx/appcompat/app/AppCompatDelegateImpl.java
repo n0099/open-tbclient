@@ -96,7 +96,6 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import java.lang.Thread;
 import java.util.List;
-import org.webrtc.MediaStreamTrack;
 import org.xmlpull.v1.XmlPullParser;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
@@ -1237,7 +1236,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             z2 = z3;
         }
         if (z2) {
-            AudioManager audioManager = (AudioManager) this.mContext.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            AudioManager audioManager = (AudioManager) this.mContext.getApplicationContext().getSystemService("audio");
             if (audioManager != null) {
                 audioManager.playSoundEffect(0);
             } else {

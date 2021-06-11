@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l implements d.a.l0.a.k2.f.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.k2.f.e f44407a;
+    public d.a.l0.a.k2.f.e f48081a;
 
     public l() {
         n.T(n.n(), n.r());
@@ -39,10 +39,10 @@ public class l implements d.a.l0.a.k2.f.d {
     @Override // d.a.l0.a.k2.f.d
     @NonNull
     public synchronized d.a.l0.a.k2.f.e d() {
-        if (this.f44407a == null) {
-            this.f44407a = new m();
+        if (this.f48081a == null) {
+            this.f48081a = new m();
         }
-        return this.f44407a;
+        return this.f48081a;
     }
 
     @Override // d.a.l0.a.k2.f.d

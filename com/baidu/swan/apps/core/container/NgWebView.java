@@ -35,7 +35,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
     public static final String APP_CACHE_PATH = "appcache";
     public static final String APP_DATABASE_PATH = "databases";
     public static final String APP_GEO_PATH = "geolocation";
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final String TAG = "NgWebView";
     public b mCommonEventHandler;
     public SwanAppSelectPopView mSelectPopWindow;

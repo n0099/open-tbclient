@@ -8,7 +8,7 @@ import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.squareup.wire.Wire;
 import tbclient.ExcPbPage.DataRes;
 import tbclient.ExcPbPage.ExcPbPageResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

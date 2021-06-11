@@ -14,7 +14,7 @@ import d.a.l0.g.c.d.b;
 import d.a.l0.g.c.d.e;
 /* loaded from: classes3.dex */
 public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final String KEY_OPERATION = "operation";
 
     @Override // android.content.BroadcastReceiver

@@ -1,6 +1,7 @@
 package d.a.m0.s.c;
 
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,62 +11,62 @@ import org.json.JSONObject;
 public class f0 {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<ShareDialogConfig.From, Integer> f50450f;
+    public static final Map<ShareDialogConfig.From, Integer> f54126f;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50451a;
+    public int f54127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50452b;
+    public int f54128b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50453c;
+    public String f54129c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50454d;
+    public int f54130d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Integer> f50455e;
+    public List<Integer> f54131e;
 
     static {
         HashMap hashMap = new HashMap();
-        f50450f = hashMap;
+        f54126f = hashMap;
         hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        f50450f.put(ShareDialogConfig.From.Concern, 2);
-        f50450f.put(ShareDialogConfig.From.PB, 3);
-        f50450f.put(ShareDialogConfig.From.FRS, 4);
-        f50450f.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        f50450f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        f50450f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        f50450f.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        f50450f.put(ShareDialogConfig.From.HomeGameTab, 9);
+        f54126f.put(ShareDialogConfig.From.Concern, 2);
+        f54126f.put(ShareDialogConfig.From.PB, 3);
+        f54126f.put(ShareDialogConfig.From.FRS, 4);
+        f54126f.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        f54126f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        f54126f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        f54126f.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        f54126f.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public int a() {
-        return this.f50454d;
+        return this.f54130d;
     }
 
     public String b() {
-        return this.f50453c;
+        return this.f54129c;
     }
 
     public boolean c() {
-        return System.currentTimeMillis() / 1000 >= ((long) this.f50451a) && System.currentTimeMillis() / 1000 <= ((long) this.f50452b);
+        return System.currentTimeMillis() / 1000 >= ((long) this.f54127a) && System.currentTimeMillis() / 1000 <= ((long) this.f54128b);
     }
 
     public boolean d(ShareDialogConfig.From from) {
         Integer num;
-        return (this.f50455e == null || (num = f50450f.get(from)) == null || !this.f50455e.contains(num)) ? false : true;
+        return (this.f54131e == null || (num = f54126f.get(from)) == null || !this.f54131e.contains(num)) ? false : true;
     }
 
     public void e(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f50451a = jSONObject.optInt("begin_time");
-        this.f50452b = jSONObject.optInt("end_time");
-        this.f50453c = jSONObject.optString("text");
-        this.f50454d = jSONObject.optInt("icon_exp");
+        this.f54127a = jSONObject.optInt("begin_time");
+        this.f54128b = jSONObject.optInt(ResultTB.ENDTIME);
+        this.f54129c = jSONObject.optString("text");
+        this.f54130d = jSONObject.optInt("icon_exp");
         f(jSONObject.optString("page_list"));
     }
 
@@ -77,10 +78,10 @@ public class f0 {
         for (String str2 : split) {
             int d2 = d.a.c.e.m.b.d(str2, -1);
             if (d2 != -1) {
-                if (this.f50455e == null) {
-                    this.f50455e = new ArrayList();
+                if (this.f54131e == null) {
+                    this.f54131e = new ArrayList();
                 }
-                this.f50455e.add(Integer.valueOf(d2));
+                this.f54131e.add(Integer.valueOf(d2));
             }
         }
     }

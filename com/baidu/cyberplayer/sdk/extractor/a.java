@@ -3,15 +3,15 @@ package com.baidu.cyberplayer.sdk.extractor;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f4842a;
+    public static a f4851a;
 
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f4842a == null) {
-                f4842a = new a();
+            if (f4851a == null) {
+                f4851a = new a();
             }
-            aVar = f4842a;
+            aVar = f4851a;
         }
         return aVar;
     }

@@ -9,24 +9,24 @@ import tbclient.PrivatePopInfo;
 public class h1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public PrivatePopInfo f50039a = null;
+    public PrivatePopInfo f53715a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrivateForumInfo f50040b = null;
+    public PrivateForumInfo f53716b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f50041c = null;
+    public Integer f53717c = null;
 
     public PrivateForumInfo a() {
-        return this.f50040b;
+        return this.f53716b;
     }
 
     public Integer b() {
-        return this.f50041c;
+        return this.f53717c;
     }
 
     public PrivatePopInfo c() {
-        return this.f50039a;
+        return this.f53715a;
     }
 
     public void d(PrivateForumTotalInfo privateForumTotalInfo) {
@@ -35,9 +35,9 @@ public class h1 {
         }
         try {
             PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
-            this.f50040b = privateForumTotalInfo.private_forum_info;
-            this.f50041c = privateForumTotalInfo.private_forum_taskpercent;
-            this.f50039a = privateForumTotalInfo.private_forum_popinfo;
+            this.f53716b = privateForumTotalInfo.private_forum_info;
+            this.f53717c = privateForumTotalInfo.private_forum_taskpercent;
+            this.f53715a = privateForumTotalInfo.private_forum_popinfo;
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

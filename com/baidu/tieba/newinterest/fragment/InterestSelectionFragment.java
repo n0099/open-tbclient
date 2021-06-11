@@ -22,19 +22,19 @@ import java.util.List;
 public class InterestSelectionFragment extends BaseFragment implements a.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f18704e;
+    public View f18780e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f18705f;
+    public TBSpecificationBtn f18781f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f18706g;
+    public FrameLayout f18782g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18707h;
+    public TextView f18783h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18708i;
+    public TextView f18784i;
     public d.a.n0.a2.e.a j;
     public NoScrollGridView k;
     public d.a.n0.a2.a.a l;
@@ -46,7 +46,7 @@ public class InterestSelectionFragment extends BaseFragment implements a.c {
         void a(List<b> list);
     }
 
-    public static InterestSelectionFragment D0(int i2) {
+    public static InterestSelectionFragment G0(int i2) {
         Bundle bundle = new Bundle();
         bundle.putInt("scene", i2);
         InterestSelectionFragment interestSelectionFragment = new InterestSelectionFragment();
@@ -55,50 +55,50 @@ public class InterestSelectionFragment extends BaseFragment implements a.c {
     }
 
     @Override // d.a.n0.a2.a.a.c
-    public void C0(int i2) {
-        if (i2 > 0 && !this.f18705f.isEnabled()) {
-            this.f18705f.setEnabled(true);
-            this.f18705f.setText(getString(R.string.next_step));
+    public void F0(int i2) {
+        if (i2 > 0 && !this.f18781f.isEnabled()) {
+            this.f18781f.setEnabled(true);
+            this.f18781f.setText(getString(R.string.next_step));
         } else if (i2 == 0) {
-            this.f18705f.setEnabled(false);
-            this.f18705f.setText(getResources().getString(R.string.select_interest_introduce));
+            this.f18781f.setEnabled(false);
+            this.f18781f.setText(getResources().getString(R.string.select_interest_introduce));
         }
     }
 
-    public final void E0() {
-        this.k = (NoScrollGridView) this.f18704e.findViewById(R.id.interest_selection_grid_view);
-        this.f18705f = (TBSpecificationBtn) this.f18704e.findViewById(R.id.interest_selected_btn);
-        TextView textView = (TextView) this.f18704e.findViewById(R.id.interest_selection_title);
-        this.f18707h = textView;
+    public final void H0() {
+        this.k = (NoScrollGridView) this.f18780e.findViewById(R.id.interest_selection_grid_view);
+        this.f18781f = (TBSpecificationBtn) this.f18780e.findViewById(R.id.interest_selected_btn);
+        TextView textView = (TextView) this.f18780e.findViewById(R.id.interest_selection_title);
+        this.f18783h = textView;
         textView.setTypeface(Typeface.DEFAULT_BOLD);
-        this.f18708i = (TextView) this.f18704e.findViewById(R.id.interest_selection_desc);
-        this.f18706g = (FrameLayout) this.f18704e.findViewById(R.id.bottom_select_layout);
+        this.f18784i = (TextView) this.f18780e.findViewById(R.id.interest_selection_desc);
+        this.f18782g = (FrameLayout) this.f18780e.findViewById(R.id.bottom_select_layout);
         d.a.m0.r.f0.m.a aVar = new d.a.m0.r.f0.m.a();
-        this.f18705f.setTextSize(R.dimen.tbds42);
-        this.f18705f.setConfig(aVar);
-        this.f18705f.setText(getResources().getString(R.string.select_interest_introduce));
-        this.f18705f.setEnabled(false);
-        this.f18705f.setOnClickListener(this);
+        this.f18781f.setTextSize(R.dimen.tbds42);
+        this.f18781f.setConfig(aVar);
+        this.f18781f.setText(getResources().getString(R.string.select_interest_introduce));
+        this.f18781f.setEnabled(false);
+        this.f18781f.setOnClickListener(this);
         d.a.n0.a2.a.a aVar2 = new d.a.n0.a2.a.a(this.j.c(), getContext());
         this.l = aVar2;
         this.k.setAdapter((ListAdapter) aVar2);
     }
 
-    public final void F0() {
+    public final void I0() {
         this.l.g(this);
     }
 
-    public void G0(a aVar) {
+    public void J0(a aVar) {
         this.m = aVar;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        SkinManager.setBackgroundColor(this.f18704e, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f18707h, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f18708i, R.color.CAM_X0107);
-        SkinManager.setBackgroundColor(this.f18706g, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f18780e, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.f18783h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f18784i, R.color.CAM_X0107);
+        SkinManager.setBackgroundColor(this.f18782g, R.color.CAM_X0201);
         this.l.notifyDataSetChanged();
     }
 
@@ -122,13 +122,13 @@ public class InterestSelectionFragment extends BaseFragment implements a.c {
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f18704e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interest_selection_layout, viewGroup, false);
-        E0();
-        F0();
+        this.f18780e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interest_selection_layout, viewGroup, false);
+        H0();
+        I0();
         if (getArguments() != null) {
             this.n = getArguments().getInt("scene");
         }
-        return this.f18704e;
+        return this.f18780e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

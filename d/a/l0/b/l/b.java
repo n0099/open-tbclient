@@ -22,14 +22,14 @@ public class b extends d {
     public class a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46276e;
+        public final /* synthetic */ String f49950e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46277f;
+        public final /* synthetic */ JSONObject f49951f;
 
         public a(String str, JSONObject jSONObject) {
-            this.f46276e = str;
-            this.f46277f = jSONObject;
+            this.f49950e = str;
+            this.f49951f = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,40 +39,40 @@ public class b extends d {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
                 int b2 = iVar.b();
                 String f2 = d.a.l0.a.e2.c.d.f(b2);
-                if (d.f44812c) {
+                if (d.f48486c) {
                     Log.e("getOpenBduss", "getOpenBduss failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                b.this.d(this.f46276e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
+                b.this.d(this.f49950e, new d.a.l0.a.u.h.b(b2, d.a.l0.a.e2.c.d.f(b2)));
                 return;
             }
-            JSONArray optJSONArray = this.f46277f.optJSONArray("tpls");
+            JSONArray optJSONArray = this.f49951f.optJSONArray("tpls");
             ArrayList arrayList = new ArrayList();
             int length = optJSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 arrayList.add(optJSONArray.optString(i2));
             }
-            b.this.t(this.f46277f.optString("clientId"), arrayList, this.f46276e);
+            b.this.t(this.f49951f.optString("clientId"), arrayList, this.f49950e);
         }
     }
 
     /* renamed from: d.a.l0.b.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0945b implements c {
+    public class C1001b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46279a;
+        public final /* synthetic */ String f49953a;
 
-        public C0945b(String str) {
-            this.f46279a = str;
+        public C1001b(String str) {
+            this.f49953a = str;
         }
 
         @Override // d.a.l0.b.l.b.c
         public void a(String str) {
             try {
-                b.this.d(this.f46279a, new d.a.l0.a.u.h.b(0, new JSONObject(str)));
+                b.this.d(this.f49953a, new d.a.l0.a.u.h.b(0, new JSONObject(str)));
             } catch (JSONException e2) {
-                b.this.d(this.f46279a, new d.a.l0.a.u.h.b(10001, "internal error"));
-                if (d.f44812c) {
+                b.this.d(this.f49953a, new d.a.l0.a.u.h.b(10001, "internal error"));
+                if (d.f48486c) {
                     e2.printStackTrace();
                 }
             }
@@ -92,15 +92,15 @@ public class b extends d {
     public d.a.l0.a.u.h.b s(String str) {
         e Q = e.Q();
         if (Q == null) {
-            if (d.f44812c) {
+            if (d.f48486c) {
                 Log.e("getOpenBduss", "getOpenBduss failed: null swan runtime");
             }
             return new d.a.l0.a.u.h.b(1001, "null swan runtime");
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (d.f44812c) {
+        if (!bVar.isSuccess()) {
+            if (d.f48486c) {
                 d.a.l0.a.e0.d.b("Api-Base", "parse fail");
             }
             return bVar;
@@ -118,7 +118,7 @@ public class b extends d {
         if (!d.a.l0.b.j.a.G(d.a.l0.a.a2.d.g())) {
             d(str2, new d.a.l0.a.u.h.b(202, "user is not logged in or the params are invalid"));
         } else {
-            d.a.l0.b.j.a.o(d.a.l0.a.a2.d.g(), str, arrayList, new C0945b(str2));
+            d.a.l0.b.j.a.o(d.a.l0.a.a2.d.g(), str, arrayList, new C1001b(str2));
         }
     }
 }

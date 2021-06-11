@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class f extends a0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.l0.a.p.e.e f41265c;
+    public d.a.l0.a.p.e.e f44941c;
 
     public f(d.a.l0.a.c2.e eVar) {
         super(eVar, "/swanAPI/webviewPostMessage");
@@ -21,11 +21,11 @@ public class f extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         d.a.l0.a.e0.d.g("webviewPostMsg", "start post webview msg");
-        d.a.l0.a.p.e.e eVar2 = this.f41265c;
+        d.a.l0.a.p.e.e eVar2 = this.f44941c;
         if (eVar2 == null) {
             d.a.l0.a.e0.d.b("webviewPostMsg", "none webview widget");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
@@ -52,15 +52,15 @@ public class f extends a0 {
             try {
                 jSONObject.put("data", optString);
                 jSONObject.put("eventType", "message");
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.f40846g);
-                jSONObject.put("webviewId", params.f40845f);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.f44522g);
+                jSONObject.put("webviewId", params.f44521f);
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e2.printStackTrace();
                 }
                 d.a.l0.a.e0.d.b("webviewPostMsg", "meet json exception");
             }
-            d.a.l0.a.w2.g.c.a.c(params.f40846g, params.f40845f, "webview", "message", jSONObject);
+            d.a.l0.a.w2.g.c.a.c(params.f44522g, params.f44521f, "webview", "message", jSONObject);
             d.a.l0.a.e0.d.g("webviewPostMsg", "post webview msg success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
@@ -68,6 +68,6 @@ public class f extends a0 {
     }
 
     public void j(d.a.l0.a.p.e.e eVar) {
-        this.f41265c = eVar;
+        this.f44941c = eVar;
     }
 }

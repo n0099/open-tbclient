@@ -10,23 +10,23 @@ import java.util.HashMap;
 public class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42550c = k.f43199a;
+    public static final boolean f46226c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.h0.r.b f42551a;
+    public d.a.l0.a.h0.r.b f46227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f42552b;
+    public HashMap<String, c> f46228b;
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f42553a = new f();
+        public static final f f46229a = new f();
     }
 
     public static f b() {
-        return b.f42553a;
+        return b.f46229a;
     }
 
     public static boolean d() {
@@ -34,7 +34,7 @@ public class f {
     }
 
     public final d.a.l0.a.h0.r.b a() {
-        if (f42550c && d()) {
+        if (f46226c && d()) {
             return new e();
         }
         return new d.a.l0.a.h0.r.a();
@@ -42,7 +42,7 @@ public class f {
 
     @Nullable
     public c c(String str) {
-        HashMap<String, c> hashMap = this.f42552b;
+        HashMap<String, c> hashMap = this.f46228b;
         if (hashMap != null) {
             return hashMap.get(str);
         }
@@ -50,15 +50,15 @@ public class f {
     }
 
     public void e(c cVar, d dVar) {
-        this.f42551a.k(cVar, dVar);
+        this.f46227a.k(cVar, dVar);
     }
 
     public f() {
         long currentTimeMillis = System.currentTimeMillis();
         d.a.l0.a.h0.r.b a2 = a();
-        this.f42551a = a2;
-        this.f42552b = a2.h();
-        if (f42550c) {
+        this.f46227a = a2;
+        this.f46228b = a2.h();
+        if (f46226c) {
             Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }

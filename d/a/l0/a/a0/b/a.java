@@ -9,7 +9,7 @@ public class a extends d.a.l0.a.c0.b.b {
     public boolean n;
 
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public a(String str) {
@@ -32,6 +32,6 @@ public class a extends d.a.l0.a.c0.b.b {
 
     @Override // d.a.l0.a.c0.b.b, d.a.l0.a.l1.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f40845f) || TextUtils.isEmpty(this.f40846g)) ? false : true;
+        return (TextUtils.isEmpty(this.f44521f) || TextUtils.isEmpty(this.f44522g)) ? false : true;
     }
 }

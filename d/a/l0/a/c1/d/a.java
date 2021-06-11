@@ -17,7 +17,7 @@ public abstract class a implements a0 {
 
     @Override // d.a.l0.a.p.d.a0
     public String F() {
-        return d.a.l0.a.d0.c.w(String.format("%s/ma/navigate", d.a.l0.a.d0.c.f41309a), true);
+        return d.a.l0.a.d0.c.w(String.format("%s/ma/navigate", d.a.l0.a.d0.c.f44985a), true);
     }
 
     @Override // d.a.l0.a.p.d.a0
@@ -60,7 +60,7 @@ public abstract class a implements a0 {
 
     @Override // d.a.l0.a.p.d.a0
     public String n() {
-        return d.a.l0.a.d0.c.v(String.format("%s/ma/customer/checknewmess", d.a.l0.a.d0.c.f41309a));
+        return d.a.l0.a.d0.c.v(String.format("%s/ma/customer/checknewmess", d.a.l0.a.d0.c.f44985a));
     }
 
     @Override // d.a.l0.a.p.d.a0

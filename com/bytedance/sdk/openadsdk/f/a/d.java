@@ -7,13 +7,13 @@ import androidx.annotation.Nullable;
 public abstract class d<P, R> extends com.bytedance.sdk.openadsdk.f.a.b<P, R> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f29053a = true;
+    public boolean f29156a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f29054b;
+    public a f29157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f29055c;
+    public f f29158c;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -28,7 +28,7 @@ public abstract class d<P, R> extends com.bytedance.sdk.openadsdk.f.a.b<P, R> {
     }
 
     private boolean e() {
-        if (this.f29053a) {
+        if (this.f29156a) {
             return true;
         }
         i.a(new IllegalStateException("Jsb async call already finished: " + a() + ", hashcode: " + hashCode()));
@@ -48,27 +48,27 @@ public abstract class d<P, R> extends com.bytedance.sdk.openadsdk.f.a.b<P, R> {
 
     @CallSuper
     public void d() {
-        this.f29053a = false;
-        this.f29055c = null;
+        this.f29156a = false;
+        this.f29158c = null;
     }
 
     public final void a(@Nullable R r) {
         if (e()) {
-            this.f29054b.a(r);
+            this.f29157b.a(r);
             d();
         }
     }
 
     public final void a(Throwable th) {
         if (e()) {
-            this.f29054b.a(th);
+            this.f29157b.a(th);
             d();
         }
     }
 
     public void a(@NonNull P p, @NonNull f fVar, @NonNull a aVar) throws Exception {
-        this.f29055c = fVar;
-        this.f29054b = aVar;
+        this.f29158c = fVar;
+        this.f29157b = aVar;
         a(p, fVar);
     }
 }

@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.util.SvgManager;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f53928a;
+    public ImageView f57617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueAnimator f53929b;
+    public ValueAnimator f57618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53930c = false;
+    public boolean f57619c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public Runnable f53931d = new a();
+    public Runnable f57620d = new a();
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -28,12 +28,12 @@ public class h {
 
         @Override // java.lang.Runnable
         public void run() {
-            h.this.f53930c = true;
+            h.this.f57619c = true;
             int b2 = d.a.m0.s.g.f.b();
             if (b2 > 0) {
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(h.this.f53928a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                if (h.this.f53929b != null) {
-                    h.this.f53929b.start();
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(h.this.f57617a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                if (h.this.f57618b != null) {
+                    h.this.f57618b.start();
                 }
             }
         }
@@ -57,58 +57,58 @@ public class h {
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            if (h.this.f53928a != null) {
-                h.this.f53928a.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                h.this.f53928a.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            if (h.this.f57617a != null) {
+                h.this.f57617a.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                h.this.f57617a.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
 
     public h(ImageView imageView) {
-        this.f53928a = imageView;
+        this.f57617a = imageView;
         ValueAnimator valueAnimator = new ValueAnimator();
-        this.f53929b = valueAnimator;
+        this.f57618b = valueAnimator;
         valueAnimator.setDuration(PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
-        this.f53929b.setFloatValues(0.0f, 1.0f);
-        this.f53929b.setInterpolator(new b(this));
-        this.f53929b.addUpdateListener(new c());
+        this.f57618b.setFloatValues(0.0f, 1.0f);
+        this.f57618b.setInterpolator(new b(this));
+        this.f57618b.addUpdateListener(new c());
     }
 
     public void d() {
         if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().c()) {
             return;
         }
-        d.a.c.e.m.e.a().removeCallbacks(this.f53931d);
+        d.a.c.e.m.e.a().removeCallbacks(this.f57620d);
         long a2 = TbSingleton.getInstance().getSharePanelConfData().a() * 1000;
         if (a2 <= 0) {
             a2 = 3000;
         }
-        d.a.c.e.m.e.a().postDelayed(this.f53931d, a2);
+        d.a.c.e.m.e.a().postDelayed(this.f57620d, a2);
     }
 
     public boolean e() {
-        return this.f53930c;
+        return this.f57619c;
     }
 
     public void f() {
         int b2;
-        if (!this.f53930c || TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().c() || (b2 = d.a.m0.s.g.f.b()) <= 0) {
+        if (!this.f57619c || TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().c() || (b2 = d.a.m0.s.g.f.b()) <= 0) {
             return;
         }
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f53928a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f57617a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void g() {
-        d.a.c.e.m.e.a().removeCallbacks(this.f53931d);
-        ValueAnimator valueAnimator = this.f53929b;
+        d.a.c.e.m.e.a().removeCallbacks(this.f57620d);
+        ValueAnimator valueAnimator = this.f57618b;
         if (valueAnimator != null) {
             valueAnimator.removeAllListeners();
-            this.f53929b.removeAllUpdateListeners();
-            this.f53929b.cancel();
+            this.f57618b.removeAllUpdateListeners();
+            this.f57618b.cancel();
         }
     }
 
     public void h(boolean z) {
-        this.f53930c = z;
+        this.f57619c = z;
     }
 }

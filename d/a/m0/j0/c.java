@@ -104,11 +104,11 @@ public class c {
             return null;
         }
         StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("tid", a2Var.o0()).param("fid", a2Var.c0()).param("card_type", a2Var.V0()).param("nid", a2Var.M0());
+        statisticItem.param("tid", a2Var.o0()).param("fid", a2Var.c0()).param("card_type", a2Var.W0()).param("nid", a2Var.M0());
         if (a2Var.V() != null && !k.isEmpty(a2Var.V().oriUgcVid)) {
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, a2Var.V().oriUgcVid);
         }
-        statisticItem.param("weight", a2Var.T0).param("ab_tag", a2Var.U0).param("extra", a2Var.V0).param("obj_type", a2Var.A2 ? "2" : "1").param("source", a2Var.S0);
+        statisticItem.param("weight", a2Var.U0).param("ab_tag", a2Var.V0).param("extra", a2Var.W0).param("obj_type", a2Var.C2 ? "2" : "1").param("source", a2Var.T0);
         h(context, statisticItem);
         return statisticItem;
     }

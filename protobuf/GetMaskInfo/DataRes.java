@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataRes extends Message {
     public static final String DEFAULT_LIST = "";
     @ProtoField(tag = 1, type = Message.Datatype.UINT32)
@@ -16,7 +16,7 @@ public final class DataRes extends Message {
     public static final Integer DEFAULT_ISMASK = 0;
     public static final List<UserInfo> DEFAULT_USERS = Collections.emptyList();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer isMask;
         public String list;

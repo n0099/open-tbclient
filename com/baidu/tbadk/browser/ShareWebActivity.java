@@ -10,7 +10,7 @@ public class ShareWebActivity extends TbWebViewActivity {
         ImageView imageView;
         super.onCreate(bundle);
         e eVar = this.mView;
-        if (eVar == null || (imageView = eVar.f49464i) == null) {
+        if (eVar == null || (imageView = eVar.f53138i) == null) {
             return;
         }
         imageView.setVisibility(8);

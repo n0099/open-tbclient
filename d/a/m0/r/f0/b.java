@@ -20,13 +20,13 @@ import java.util.Arrays;
 public class b extends ReplacementSpan {
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49705f;
+    public int f53380f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49707h;
+    public int f53382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49708i;
+    public int f53383i;
     public int j;
     public int k;
     public int l;
@@ -37,10 +37,10 @@ public class b extends ReplacementSpan {
     public boolean q;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f49704e = new float[8];
+    public float[] f53379e = new float[8];
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f49706g = new RectF();
+    public RectF f53381g = new RectF();
     public int r = 255;
     public boolean s = false;
     public int t = 0;
@@ -49,16 +49,16 @@ public class b extends ReplacementSpan {
         if (i3 > 0) {
             c(i3);
         }
-        this.f49705f = i4;
-        this.f49707h = i5;
-        this.f49708i = i6;
+        this.f53380f = i4;
+        this.f53382h = i5;
+        this.f53383i = i6;
         this.j = i7;
         this.l = i8;
         Paint paint = new Paint();
         this.m = paint;
         paint.setAntiAlias(true);
         this.m.setStyle(Paint.Style.STROKE);
-        this.m.setTextSize(this.f49707h);
+        this.m.setTextSize(this.f53382h);
     }
 
     public void a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
@@ -66,15 +66,15 @@ public class b extends ReplacementSpan {
     }
 
     public void b(int i2) {
-        Arrays.fill(this.f49704e, i2);
+        Arrays.fill(this.f53379e, i2);
     }
 
     public void c(int i2) {
         float[] v = d.a.m0.r.u.a.v(i2);
-        if (Arrays.equals(this.f49704e, v)) {
+        if (Arrays.equals(this.f53379e, v)) {
             return;
         }
-        this.f49704e = v;
+        this.f53379e = v;
     }
 
     public void d(int i2) {
@@ -86,7 +86,7 @@ public class b extends ReplacementSpan {
         int dimenPixelSize;
         int color;
         int color2;
-        this.m.setColor(SkinManager.getColor(this.f49705f));
+        this.m.setColor(SkinManager.getColor(this.f53380f));
         this.m.setAlpha(this.r);
         if (this.q) {
             this.m.setStyle(Paint.Style.FILL);
@@ -94,7 +94,7 @@ public class b extends ReplacementSpan {
             this.m.setStyle(Paint.Style.STROKE);
         }
         if (this.s) {
-            RectF rectF = this.f49706g;
+            RectF rectF = this.f53381g;
             int i7 = this.o;
             rectF.left = f2 + i7;
             int i8 = this.t;
@@ -110,7 +110,7 @@ public class b extends ReplacementSpan {
                 dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
             }
             int i9 = dimenPixelSize + i5 + fontMetricsInt.ascent;
-            RectF rectF2 = this.f49706g;
+            RectF rectF2 = this.f53381g;
             int i10 = this.o;
             rectF2.left = f2 + i10;
             rectF2.top = i9;
@@ -134,11 +134,11 @@ public class b extends ReplacementSpan {
             }
             int i11 = color;
             int i12 = color2;
-            RectF rectF3 = this.f49706g;
+            RectF rectF3 = this.f53381g;
             this.m.setShader(new LinearGradient(rectF3.left, rectF3.top, rectF3.right, rectF3.bottom, i11, i12, Shader.TileMode.CLAMP));
         }
         Path path = new Path();
-        path.addRoundRect(this.f49706g, this.f49704e, Path.Direction.CW);
+        path.addRoundRect(this.f53381g, this.f53379e, Path.Direction.CW);
         canvas.drawPath(path, this.m);
         this.m.setShader(null);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -150,18 +150,18 @@ public class b extends ReplacementSpan {
                 this.m.setStyle(Paint.Style.STROKE);
             }
             Path path2 = new Path();
-            path2.addRoundRect(this.f49706g, this.f49704e, Path.Direction.CW);
+            path2.addRoundRect(this.f53381g, this.f53379e, Path.Direction.CW);
             canvas.drawPath(path2, this.m);
         }
         Paint.FontMetricsInt fontMetricsInt2 = this.m.getFontMetricsInt();
-        int i13 = this.f49708i;
+        int i13 = this.f53383i;
         if (i13 != 0) {
             this.m.setColor(SkinManager.getColor(i13));
         } else {
             this.m.setColor(SelectorHelper.getResources().getColor(R.color.CAM_X0201));
         }
         this.m.setStyle(Paint.Style.FILL);
-        float centerY = this.f49706g.centerY();
+        float centerY = this.f53381g.centerY();
         int i14 = fontMetricsInt2.bottom;
         canvas.drawText(charSequence, i2, i3, f2 + this.j + this.o, (int) ((centerY + ((i14 - fontMetricsInt2.top) / 2)) - i14), this.m);
     }

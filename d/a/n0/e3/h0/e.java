@@ -6,8 +6,8 @@ import com.baidu.tieba.tbadkCore.data.AgreeData;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f53996a = null;
+    public BdUniqueId f57685a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public AgreeData f53997b = null;
+    public AgreeData f57686b = null;
 }

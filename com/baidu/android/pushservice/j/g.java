@@ -7,7 +7,6 @@ import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import com.baidu.android.pushservice.i.a.b;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -16,10 +15,10 @@ import java.util.Enumeration;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConnectivityManager f3466a;
+    public static ConnectivityManager f3485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f3467b;
+    public static TelephonyManager f3486b;
 
     public static boolean a(Context context) {
         NetworkInfo c2 = c(context);
@@ -100,7 +99,7 @@ public class g {
                 case 14:
                 case 15:
                 case 17:
-                    str = com.baidu.apollon.statistics.g.f3966b;
+                    str = com.baidu.apollon.statistics.g.f3985b;
                     break;
                 case 13:
                 case 18:
@@ -126,9 +125,9 @@ public class g {
             } else {
                 sb = new StringBuilder();
                 sb.append(d(context));
-                sb.append(FieldBuilder.SE);
+                sb.append("|");
                 sb.append(f(context));
-                sb.append(FieldBuilder.SE);
+                sb.append("|");
                 g2 = g(context);
             }
             sb.append(g2);
@@ -164,23 +163,23 @@ public class g {
 
     public static ConnectivityManager j(Context context) {
         if (context == null) {
-            return f3466a;
+            return f3485a;
         }
-        if (f3466a == null) {
-            f3466a = (ConnectivityManager) context.getSystemService("connectivity");
+        if (f3485a == null) {
+            f3485a = (ConnectivityManager) context.getSystemService("connectivity");
         }
-        return f3466a;
+        return f3485a;
     }
 
     public static TelephonyManager k(Context context) {
         if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
             if (context == null) {
-                return f3467b;
+                return f3486b;
             }
-            if (f3467b == null) {
-                f3467b = (TelephonyManager) context.getSystemService("phone");
+            if (f3486b == null) {
+                f3486b = (TelephonyManager) context.getSystemService("phone");
             }
         }
-        return f3467b;
+        return f3486b;
     }
 }

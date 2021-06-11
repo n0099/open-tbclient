@@ -6,25 +6,25 @@ import java.util.Set;
 public final class o extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> f29918a = new com.bytedance.sdk.openadsdk.preload.a.b.h<>();
+    public final com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> f30021a = new com.bytedance.sdk.openadsdk.preload.a.b.h<>();
 
     public void a(String str, l lVar) {
-        com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> hVar = this.f29918a;
+        com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> hVar = this.f30021a;
         if (lVar == null) {
-            lVar = n.f29917a;
+            lVar = n.f30020a;
         }
         hVar.put(str, lVar);
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof o) && ((o) obj).f29918a.equals(this.f29918a));
+        return obj == this || ((obj instanceof o) && ((o) obj).f30021a.equals(this.f30021a));
     }
 
     public int hashCode() {
-        return this.f29918a.hashCode();
+        return this.f30021a.hashCode();
     }
 
     public Set<Map.Entry<String, l>> n() {
-        return this.f29918a.entrySet();
+        return this.f30021a.entrySet();
     }
 }

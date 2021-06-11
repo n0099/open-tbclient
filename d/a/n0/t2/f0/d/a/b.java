@@ -72,8 +72,8 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
 
     /* renamed from: d.a.n0.t2.f0.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1620b implements DragImageView.h {
-        public C1620b() {
+    public class C1676b implements DragImageView.h {
+        public C1676b() {
         }
 
         @Override // com.baidu.tbadk.widget.DragImageView.h
@@ -107,10 +107,10 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
             b.this.p.setVisibility(0);
             b.this.t.setVisibility(0);
             b bVar = b.this;
-            AdvertAppInfo advertAppInfo = bVar.f61087f;
+            AdvertAppInfo advertAppInfo = bVar.f64779f;
             if (advertAppInfo != null) {
-                bVar.v.setVisibility(advertAppInfo.I4() ? 0 : 8);
-                if (b.this.f61087f.G4()) {
+                bVar.v.setVisibility(advertAppInfo.J4() ? 0 : 8);
+                if (b.this.f64779f.H4()) {
                     b.this.m.setVisibility(0);
                 } else {
                     b.this.w.setVisibility(0);
@@ -123,19 +123,19 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
     public class c implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public float f61093e = 0.0f;
+        public float f64785e = 0.0f;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f61094f = 0.0f;
+        public float f64786f = 0.0f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f61095g = 0.0f;
+        public float f64787g = 0.0f;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f61096h;
+        public final /* synthetic */ View.OnClickListener f64788h;
 
         public c(View.OnClickListener onClickListener) {
-            this.f61096h = onClickListener;
+            this.f64788h = onClickListener;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -143,23 +143,23 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action == 1) {
-                    b.this.q = 10.0f < this.f61095g;
+                    b.this.q = 10.0f < this.f64787g;
                     b bVar = b.this;
                     if (!bVar.q) {
-                        this.f61096h.onClick(bVar.l);
+                        this.f64788h.onClick(bVar.l);
                     }
                 } else if (action == 2) {
-                    float x = motionEvent.getX() - this.f61093e;
-                    float y = motionEvent.getY() - this.f61094f;
-                    this.f61095g = (float) (this.f61095g + Math.sqrt((x * x) + (y * y)));
-                    this.f61093e = motionEvent.getX();
-                    this.f61094f = motionEvent.getY();
+                    float x = motionEvent.getX() - this.f64785e;
+                    float y = motionEvent.getY() - this.f64786f;
+                    this.f64787g = (float) (this.f64787g + Math.sqrt((x * x) + (y * y)));
+                    this.f64785e = motionEvent.getX();
+                    this.f64786f = motionEvent.getY();
                 }
             } else {
                 b.this.q = false;
-                this.f61093e = motionEvent.getX();
-                this.f61094f = motionEvent.getY();
-                this.f61095g = 0.0f;
+                this.f64785e = motionEvent.getX();
+                this.f64786f = motionEvent.getY();
+                this.f64787g = 0.0f;
             }
             return false;
         }
@@ -175,7 +175,7 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
             int w;
             String str;
             b bVar = b.this;
-            if (bVar.f61087f == null || bVar.f61086e == null) {
+            if (bVar.f64779f == null || bVar.f64778e == null) {
                 return;
             }
             if (bVar.q && view.getId() == R.id.big_image_ad_image) {
@@ -190,7 +190,7 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
                 str = "title";
             } else {
                 w = b.this.w();
-                str = b.this.f61087f.F4() ? "image" : "video";
+                str = b.this.f64779f.G4() ? "image" : "video";
             }
             hashMap.put("da_area", str);
             b.this.j.a(w, hashMap);
@@ -204,16 +204,16 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
 
         @Override // d.a.n0.q.d.g.b.a
         public boolean b(View view) {
-            d.a.n0.k1.o.h.c.h(d.a.n0.k1.o.h.c.e(b.this.f61087f));
+            d.a.n0.k1.o.h.c.h(d.a.n0.k1.o.h.c.e(b.this.f64779f));
             b bVar = b.this;
-            if (bVar.f61089h != null && y.o(bVar.f61086e.getScheme()) && y.q(b.this.f61087f.Y3)) {
+            if (bVar.f64781h != null && y.o(bVar.f64778e.getScheme()) && y.q(b.this.f64779f.b4)) {
                 b bVar2 = b.this;
-                y.d(bVar2.f61089h, bVar2.f61086e.getScheme(), b.this.f61087f.getDownloadId(), b.this.f61087f.N3);
+                y.d(bVar2.f64781h, bVar2.f64778e.getScheme(), b.this.f64779f.getDownloadId(), b.this.f64779f.Q3);
                 return true;
-            } else if (b.this.f61089h == null || d.a.n0.a.h().r() || z.a((Activity) b.this.f61089h)) {
+            } else if (b.this.f64781h == null || d.a.n0.a.h().r() || z.a((Activity) b.this.f64781h)) {
                 return false;
             } else {
-                l.L((Activity) b.this.f61089h, R.string.write_external_storage_permission_denied_fun_disable);
+                l.L((Activity) b.this.f64781h, R.string.write_external_storage_permission_denied_fun_disable);
                 return false;
             }
         }
@@ -227,22 +227,22 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
     }
 
     public final int A() {
-        return y.d(this.f61089h, this.f61086e.getScheme(), this.f61086e.getDownloadId(), this.f61087f.N3);
+        return y.d(this.f64781h, this.f64778e.getScheme(), this.f64778e.getDownloadId(), this.f64779f.Q3);
     }
 
     public final void B() {
         String picUrl;
         VideoInfo videoInfo;
-        if (this.f61087f.I4() && (videoInfo = this.x) != null) {
+        if (this.f64779f.J4() && (videoInfo = this.x) != null) {
             picUrl = videoInfo.thumbnail_url;
         } else {
-            picUrl = this.f61086e.getPicUrl();
+            picUrl = this.f64778e.getPicUrl();
         }
         this.l.setEvent(new a());
-        this.l.R(picUrl, this.f61088g ? 30 : 31, PeerConnectionClient.HD_VIDEO_HEIGHT, PeerConnectionClient.HD_VIDEO_HEIGHT, false);
+        this.l.R(picUrl, this.f64780g ? 30 : 31, PeerConnectionClient.HD_VIDEO_HEIGHT, PeerConnectionClient.HD_VIDEO_HEIGHT, false);
         UrlDragImageView urlDragImageView = this.r;
         if (urlDragImageView != null) {
-            urlDragImageView.setIsCdn(this.f61088g);
+            urlDragImageView.setIsCdn(this.f64780g);
             this.r.setUrl(picUrl, true);
         }
     }
@@ -286,10 +286,10 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
             return new DownloadData();
         }
         DownloadData downloadData = new DownloadData(advertAppInfo.getDownloadId());
-        downloadData.setUrl(advertAppInfo.X3);
-        downloadData.setName(advertAppInfo.T3);
+        downloadData.setUrl(advertAppInfo.a4);
+        downloadData.setName(advertAppInfo.W3);
         downloadData.setPosition(i2);
-        downloadData.setNotifyId(d.a.c.e.m.b.d(advertAppInfo.G3, 0));
+        downloadData.setNotifyId(d.a.c.e.m.b.d(advertAppInfo.J3, 0));
         return downloadData;
     }
 
@@ -301,7 +301,7 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
     }
 
     public void H() {
-        WindowManager windowManager = (WindowManager) this.f61089h.getSystemService("window");
+        WindowManager windowManager = (WindowManager) this.f64781h.getSystemService("window");
         if (windowManager == null) {
             return;
         }
@@ -329,11 +329,11 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
     }
 
     @Override // d.a.n0.t2.f0.d.a.a
-    public void c() {
-        if (this.f61090i == null) {
+    public void d() {
+        if (this.f64782i == null) {
             return;
         }
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f61089h).inflate(R.layout.ad_pic_page_layout, (ViewGroup) null);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f64781h).inflate(R.layout.ad_pic_page_layout, (ViewGroup) null);
         this.k = relativeLayout;
         this.l = (TbImageView) relativeLayout.findViewById(R.id.big_image_ad_image);
         this.m = (TBSpecificationBtn) this.k.findViewById(R.id.image_ad_button);
@@ -351,7 +351,7 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
         imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), null));
         ApkDownloadView apkDownloadView = (ApkDownloadView) this.k.findViewById(R.id.image_download_button);
         this.w = apkDownloadView;
-        TbPageContext tbPageContext = this.f61090i;
+        TbPageContext tbPageContext = this.f64782i;
         if (tbPageContext != null) {
             apkDownloadView.j(tbPageContext.getUniqueId());
         }
@@ -364,22 +364,22 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
     }
 
     @Override // d.a.n0.t2.f0.d.a.a
-    public void d(AdCard adCard) {
-        super.d(adCard);
-        if (this.f61087f == null) {
+    public void e(AdCard adCard) {
+        super.e(adCard);
+        if (this.f64779f == null) {
             return;
         }
-        this.x = this.f61086e.videoInfo;
+        this.x = this.f64778e.videoInfo;
         B();
-        y(this.f61087f, this.f61086e);
-        if (!TextUtils.isEmpty(this.f61087f.T3)) {
-            this.o.setText(this.f61087f.T3);
-            this.p.setText(this.f61089h.getString(R.string.advert_label));
+        y(this.f64779f, this.f64778e);
+        if (!TextUtils.isEmpty(this.f64779f.W3)) {
+            this.o.setText(this.f64779f.W3);
+            this.p.setText(this.f64781h.getString(R.string.advert_label));
         }
         if (!TextUtils.isEmpty(adCard.threadTitle)) {
             this.n.setText(adCard.threadTitle);
         }
-        this.v.setVisibility(this.f61087f.I4() ? 0 : 8);
+        this.v.setVisibility(this.f64779f.J4() ? 0 : 8);
         E(this.A);
     }
 
@@ -390,12 +390,12 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
 
     public void s() {
         this.l.setVisibility(4);
-        UrlDragImageView urlDragImageView = new UrlDragImageView(this.f61089h);
+        UrlDragImageView urlDragImageView = new UrlDragImageView(this.f64781h);
         this.r = urlDragImageView;
         urlDragImageView.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.r.setIsCanDrag(true);
         this.r.setCanScale(false);
-        this.r.setDragToExitListener(new C1620b());
+        this.r.setDragToExitListener(new C1676b());
         this.k.addView(this.r, 0);
     }
 
@@ -407,14 +407,14 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
         G();
         this.z = null;
         AdDownloadData b2 = d.a.n0.q.d.e.c().b(downloadCacheKey);
-        AdCard adCard = this.f61086e;
+        AdCard adCard = this.f64778e;
         if (adCard != null && adCard.getAdvertAppInfo() != null) {
-            String str = this.f61086e.getAdvertAppInfo().Q3;
-            b2.setExtInfo(this.f61086e.getAdvertAppInfo().N3);
-            b2.setDownloadKey(this.f61086e.getDownloadKey());
-            b2.setAppJson(App.toJson(this.f61086e.getAdvertAppInfo().S3).toString());
+            String str = this.f64778e.getAdvertAppInfo().T3;
+            b2.setExtInfo(this.f64778e.getAdvertAppInfo().Q3);
+            b2.setDownloadKey(this.f64778e.getDownloadKey());
+            b2.setAppJson(App.toJson(this.f64778e.getAdvertAppInfo().V3).toString());
             b2.setPage(str);
-            b2.setDeeplinkUrl(this.f61086e.scheme);
+            b2.setDeeplinkUrl(this.f64778e.scheme);
         }
         d.a.n0.q.c.b.d.a aVar = new d.a.n0.q.c.b.d.a(this.w, b2);
         this.z = new d.a.n0.q.d.h.b(aVar);
@@ -434,7 +434,7 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
     }
 
     public final int w() {
-        if (this.f61087f.F4()) {
+        if (this.f64779f.G4()) {
             return A();
         }
         return x();
@@ -442,19 +442,19 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
 
     public final int x() {
         AdCard adCard;
-        if (this.f61087f == null || (adCard = this.f61086e) == null || this.x == null) {
+        if (this.f64779f == null || (adCard = this.f64778e) == null || this.x == null) {
             return 0;
         }
-        return y.g(this.f61089h, adCard.getScheme(), this.f61087f);
+        return y.g(this.f64781h, adCard.getScheme(), this.f64779f);
     }
 
     public void y(AdvertAppInfo advertAppInfo, AdCard adCard) {
         if (advertAppInfo == null || adCard == null) {
             return;
         }
-        this.f61087f = advertAppInfo;
-        this.f61086e = adCard;
-        if (advertAppInfo.G4()) {
+        this.f64779f = advertAppInfo;
+        this.f64778e = adCard;
+        if (advertAppInfo.H4()) {
             this.m.setText(adCard.getButtonText());
             this.w.setVisibility(8);
             this.m.setVisibility(0);
@@ -463,7 +463,7 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
         this.w.setClickable(true);
         this.w.setInitText(adCard.getButtonText());
         this.w.setOnClickInterceptListener(new e());
-        DownloadData F = F(this.f61087f, d.a.c.e.m.b.d(this.f61087f.M3, -1));
+        DownloadData F = F(this.f64779f, d.a.c.e.m.b.d(this.f64779f.P3, -1));
         D(F);
         this.w.setData(F);
         this.w.setVisibility(0);
@@ -473,7 +473,7 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
 
     public final void z(AdCard adCard, AdvertAppInfo advertAppInfo) {
         DownloadCacheKey h2;
-        if (advertAppInfo == null || !advertAppInfo.E4() || adCard == null) {
+        if (advertAppInfo == null || !advertAppInfo.F4() || adCard == null) {
             return;
         }
         String scheme = adCard.getScheme();
@@ -484,7 +484,7 @@ public class b extends d.a.n0.t2.f0.d.a.a implements j {
             h2 = d.a.n0.q.d.e.c().h(scheme);
         }
         if (h2 == null) {
-            h2 = DownloadCacheKey.create(downloadId, advertAppInfo.X3, advertAppInfo.Y3);
+            h2 = DownloadCacheKey.create(downloadId, advertAppInfo.a4, advertAppInfo.b4);
             d.a.n0.q.d.e.c().i(h2, null);
         }
         t(h2);

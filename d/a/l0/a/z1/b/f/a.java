@@ -31,49 +31,49 @@ import java.lang.ref.WeakReference;
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<d.a.l0.a.z1.b.f.c> f46171b;
+    public static WeakReference<d.a.l0.a.z1.b.f.c> f49845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Toast f46172c;
+    public static Toast f49846c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static e.b f46174e;
+    public static e.b f49848e;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f46170a = k.f43199a;
+    public static boolean f49844a = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Handler f46173d = new Handler(Looper.getMainLooper());
+    public static Handler f49847d = new Handler(Looper.getMainLooper());
 
     /* renamed from: d.a.l0.a.z1.b.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0937a implements Runnable {
+    public static class RunnableC0993a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46175e;
+        public final /* synthetic */ Context f49849e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RelativeLayout f46176f;
+        public final /* synthetic */ RelativeLayout f49850f;
 
-        public RunnableC0937a(Context context, RelativeLayout relativeLayout) {
-            this.f46175e = context;
-            this.f46176f = relativeLayout;
+        public RunnableC0993a(Context context, RelativeLayout relativeLayout) {
+            this.f49849e = context;
+            this.f49850f = relativeLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Toast unused = a.f46172c = new Toast(this.f46175e);
-            a.f46172c.setView(this.f46176f);
-            a.f46172c.setGravity(17, 0, 0);
-            d.a.l0.a.z1.b.f.d.k(a.f46172c, i.toast_animation);
+            Toast unused = a.f49846c = new Toast(this.f49849e);
+            a.f49846c.setView(this.f49850f);
+            a.f49846c.setGravity(17, 0, 0);
+            d.a.l0.a.z1.b.f.d.k(a.f49846c, i.toast_animation);
             try {
-                a.f46172c.show();
+                a.f49846c.show();
             } catch (NullPointerException e2) {
-                if (a.f46170a) {
+                if (a.f49844a) {
                     e2.printStackTrace();
                 }
             }
-            if (a.f46170a) {
+            if (a.f49844a) {
                 Log.d("SingleToast", "mSystemToast.show() invoked in show");
             }
         }
@@ -83,23 +83,23 @@ public final class a {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46177e;
+        public final /* synthetic */ Context f49851e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LinearLayout f46178f;
+        public final /* synthetic */ LinearLayout f49852f;
 
         public b(Context context, LinearLayout linearLayout) {
-            this.f46177e = context;
-            this.f46178f = linearLayout;
+            this.f49851e = context;
+            this.f49852f = linearLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Toast unused = a.f46172c = new Toast(this.f46177e);
-            a.f46172c.setView(this.f46178f);
-            a.f46172c.setGravity(17, 0, 0);
-            d.a.l0.a.z1.b.f.d.k(a.f46172c, i.highlight_toast_animation);
-            a.f46172c.show();
+            Toast unused = a.f49846c = new Toast(this.f49851e);
+            a.f49846c.setView(this.f49852f);
+            a.f49846c.setGravity(17, 0, 0);
+            d.a.l0.a.z1.b.f.d.k(a.f49846c, i.highlight_toast_animation);
+            a.f49846c.show();
         }
     }
 
@@ -107,23 +107,23 @@ public final class a {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46179e;
+        public final /* synthetic */ Context f49853e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LinearLayout f46180f;
+        public final /* synthetic */ LinearLayout f49854f;
 
         public c(Context context, LinearLayout linearLayout) {
-            this.f46179e = context;
-            this.f46180f = linearLayout;
+            this.f49853e = context;
+            this.f49854f = linearLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Toast unused = a.f46172c = new Toast(this.f46179e);
-            a.f46172c.setView(this.f46180f);
-            a.f46172c.setGravity(17, 0, 0);
-            d.a.l0.a.z1.b.f.d.k(a.f46172c, i.highlight_toast_animation);
-            a.f46172c.show();
+            Toast unused = a.f49846c = new Toast(this.f49853e);
+            a.f49846c.setView(this.f49854f);
+            a.f49846c.setGravity(17, 0, 0);
+            d.a.l0.a.z1.b.f.d.k(a.f49846c, i.highlight_toast_animation);
+            a.f49846c.show();
         }
     }
 
@@ -131,15 +131,15 @@ public final class a {
     public static class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f46181e;
+        public final /* synthetic */ e.c f49855e;
 
         public d(e.c cVar) {
-            this.f46181e = cVar;
+            this.f49855e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.c cVar = this.f46181e;
+            e.c cVar = this.f49855e;
             if (cVar != null) {
                 cVar.a();
             }
@@ -151,77 +151,77 @@ public final class a {
     public static class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ToastLocation f46182e;
+        public final /* synthetic */ ToastLocation f49856e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Resources f46183f;
+        public final /* synthetic */ Resources f49857f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f46184g;
+        public final /* synthetic */ Context f49858g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ LinearLayout f46185h;
+        public final /* synthetic */ LinearLayout f49859h;
 
         public e(ToastLocation toastLocation, Resources resources, Context context, LinearLayout linearLayout) {
-            this.f46182e = toastLocation;
-            this.f46183f = resources;
-            this.f46184g = context;
-            this.f46185h = linearLayout;
+            this.f49856e = toastLocation;
+            this.f49857f = resources;
+            this.f49858g = context;
+            this.f49859h = linearLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int i2;
             int i3;
-            if (ToastLocation.BOTTOM == this.f46182e) {
+            if (ToastLocation.BOTTOM == this.f49856e) {
                 i2 = 81;
-                i3 = (int) this.f46183f.getDimension(d.a.l0.a.d.aiapps_clickable_toast_view_margin_bottom);
+                i3 = (int) this.f49857f.getDimension(d.a.l0.a.d.aiapps_clickable_toast_view_margin_bottom);
             } else {
                 i2 = 17;
                 i3 = 0;
             }
-            Toast unused = a.f46172c = new Toast(this.f46184g);
-            a.f46172c.setView(this.f46185h);
-            a.f46172c.setGravity(i2, 0, i3);
-            d.a.l0.a.z1.b.f.d.k(a.f46172c, i.highlight_toast_animation);
-            a.f46172c.show();
+            Toast unused = a.f49846c = new Toast(this.f49858g);
+            a.f49846c.setView(this.f49859h);
+            a.f49846c.setGravity(i2, 0, i3);
+            d.a.l0.a.z1.b.f.d.k(a.f49846c, i.highlight_toast_animation);
+            a.f49846c.show();
         }
     }
 
     public static void d() {
         d.a.l0.a.z1.b.f.c cVar;
-        WeakReference<d.a.l0.a.z1.b.f.c> weakReference = f46171b;
+        WeakReference<d.a.l0.a.z1.b.f.c> weakReference = f49845b;
         if (weakReference != null && (cVar = weakReference.get()) != null) {
             cVar.s();
         }
-        Toast toast = f46172c;
+        Toast toast = f49846c;
         if (toast != null) {
             toast.cancel();
         }
-        e.b bVar = f46174e;
+        e.b bVar = f49848e;
         if (bVar != null) {
             bVar.onDismiss();
-            f46174e = null;
+            f49848e = null;
         }
     }
 
     public static boolean e() {
-        WeakReference<d.a.l0.a.z1.b.f.c> weakReference = f46171b;
+        WeakReference<d.a.l0.a.z1.b.f.c> weakReference = f49845b;
         d.a.l0.a.z1.b.f.c cVar = weakReference != null ? weakReference.get() : null;
-        Toast toast = f46172c;
+        Toast toast = f49846c;
         return (cVar != null && cVar.u()) || (toast != null && toast.getView() != null && toast.getView().getParent() != null);
     }
 
     public static void f(e.b bVar) {
-        f46174e = bVar;
+        f49848e = bVar;
     }
 
     public static void g(d.a.l0.a.z1.b.f.c cVar) {
-        WeakReference<d.a.l0.a.z1.b.f.c> weakReference = f46171b;
+        WeakReference<d.a.l0.a.z1.b.f.c> weakReference = f49845b;
         if (weakReference != null) {
             weakReference.clear();
         }
-        f46171b = new WeakReference<>(cVar);
+        f49845b = new WeakReference<>(cVar);
     }
 
     public static void h(@NonNull Context context, @NonNull CharSequence charSequence, int i2, boolean z, int i3, boolean z2) {
@@ -243,7 +243,7 @@ public final class a {
             }
         }
         if (d.a.l0.a.z1.b.f.d.n(applicationContext)) {
-            f46173d.post(new RunnableC0937a(applicationContext, relativeLayout));
+            f49847d.post(new RunnableC0993a(applicationContext, relativeLayout));
             return;
         }
         d.a.l0.a.z1.b.f.c cVar = new d.a.l0.a.z1.b.f.c(applicationContext);
@@ -253,8 +253,8 @@ public final class a {
         cVar.w(17, 0, 0);
         cVar.v(i2);
         cVar.A(i.toast_animation);
-        cVar.y(f46174e);
-        f46174e = null;
+        cVar.y(f49848e);
+        f49848e = null;
         cVar.B();
     }
 
@@ -274,7 +274,7 @@ public final class a {
             textView.setTextColor(resources.getColor(d.a.l0.a.c.GC6));
         }
         if (d.a.l0.a.z1.b.f.d.n(applicationContext)) {
-            f46173d.post(new c(context, linearLayout));
+            f49847d.post(new c(context, linearLayout));
             return;
         }
         d.a.l0.a.z1.b.f.c cVar = new d.a.l0.a.z1.b.f.c(applicationContext);
@@ -314,7 +314,7 @@ public final class a {
             }
         }
         if (d.a.l0.a.z1.b.f.d.n(applicationContext)) {
-            f46173d.post(new b(context, linearLayout));
+            f49847d.post(new b(context, linearLayout));
             return;
         }
         d.a.l0.a.z1.b.f.c cVar = new d.a.l0.a.z1.b.f.c(applicationContext);
@@ -351,7 +351,7 @@ public final class a {
         TextView textView2 = (TextView) linearLayout.findViewById(d.a.l0.a.f.right_toast_jump_text);
         View findViewById = linearLayout.findViewById(d.a.l0.a.f.right_toast_vertical_line);
         if (!TextUtils.isEmpty(charSequence)) {
-            textView.setTextColor(d.a.l0.a.z1.b.f.b.f46186a);
+            textView.setTextColor(d.a.l0.a.z1.b.f.b.f49860a);
             if (uri == null && drawable == null && view == null && TextUtils.isEmpty(charSequence2)) {
                 simpleDraweeView.setVisibility(8);
                 linearLayout2.setVisibility(8);
@@ -377,14 +377,14 @@ public final class a {
                         linearLayout2.setVisibility(0);
                         ((ImageView) linearLayout.findViewById(d.a.l0.a.f.right_jump_img)).setImageDrawable(resources.getDrawable(d.a.l0.a.e.aiapps_toast_right_jump_d20));
                         textView2.setText(charSequence2);
-                        textView2.setTextColor(d.a.l0.a.z1.b.f.b.f46186a);
+                        textView2.setTextColor(d.a.l0.a.z1.b.f.b.f49860a);
                         findViewById.setBackground(resources.getDrawable(d.a.l0.a.c.GC36));
                         if (linearLayout2 != null) {
                             linearLayout2.setOnClickListener(new d(cVar));
                             d.a.l0.a.z1.b.f.d.i(linearLayout2);
                         }
                         if (!d.a.l0.a.z1.b.f.d.n(applicationContext)) {
-                            f46173d.post(new e(toastLocation2, resources, context, linearLayout));
+                            f49847d.post(new e(toastLocation2, resources, context, linearLayout));
                             return;
                         }
                         d.a.l0.a.z1.b.f.c cVar2 = new d.a.l0.a.z1.b.f.c(applicationContext);

@@ -158,7 +158,14 @@ public class SapiDeviceInfo implements NoProguard {
             localIpAddress = "";
         }
         arrayList.add(localIpAddress);
-        arrayList.add(diExceptIndex.contains(27) ? "" : SapiUtils.getBlueToothDeviceName(context));
+        String deviceName = SapiUtils.getDeviceName();
+        if (TextUtils.isEmpty(deviceName)) {
+            deviceName = SapiUtils.getBlueToothDeviceName(context);
+        }
+        if (diExceptIndex.contains(27)) {
+            deviceName = "";
+        }
+        arrayList.add(deviceName);
         diExceptIndex.contains(28);
         arrayList.add("");
         arrayList.add("");

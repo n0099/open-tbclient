@@ -6,7 +6,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultProxyAuthenticationHandler extends AbstractAuthenticationHandler {
     public DefaultProxyAuthenticationHandler() {
         throw new RuntimeException("Stub!");

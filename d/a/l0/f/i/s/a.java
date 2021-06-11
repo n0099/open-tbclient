@@ -24,37 +24,36 @@ import com.baidu.swan.game.ad.view.RewardLoadWebView;
 import com.baidu.swan.game.ad.view.RewardVideoView;
 import d.a.l0.f.i.r.h;
 import d.a.l0.f.i.r.i;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public abstract class a {
     public d.a.l0.f.i.o.b A;
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f46834a;
+    public RelativeLayout f50508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f46835b;
+    public View f50509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RewardVideoView f46836c;
+    public RewardVideoView f50510c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.l0.f.i.m.b.c f46837d;
+    public d.a.l0.f.i.m.b.c f50511d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46838e;
+    public int f50512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f46839f;
+    public ProgressBar f50513f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f46840g;
+    public LinearLayout f50514g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f46841h;
+    public ImageView f50515h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f46842i;
+    public TextView f50516i;
     public TextView j;
     public View k;
     public TextView l;
@@ -80,8 +79,8 @@ public abstract class a {
 
     /* renamed from: d.a.l0.f.i.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnTouchListenerC0988a implements View.OnTouchListener {
-        public View$OnTouchListenerC0988a(a aVar) {
+    public class View$OnTouchListenerC1044a implements View.OnTouchListener {
+        public View$OnTouchListenerC1044a(a aVar) {
         }
 
         @Override // android.view.View.OnTouchListener
@@ -97,14 +96,14 @@ public abstract class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f46837d != null) {
+            if (a.this.f50511d != null) {
                 a.this.K();
-                int currentPosition = a.this.f46837d.getCurrentPosition();
+                int currentPosition = a.this.f50511d.getCurrentPosition();
                 a aVar = a.this;
-                aVar.J(aVar.f46838e, currentPosition);
-                int min = Math.min(currentPosition + 1000, a.this.f46838e);
-                a.this.f46839f.setProgress(min / 1000);
-                if (min < a.this.f46838e) {
+                aVar.J(aVar.f50512e, currentPosition);
+                int min = Math.min(currentPosition + 1000, a.this.f50512e);
+                a.this.f50513f.setProgress(min / 1000);
+                if (min < a.this.f50512e) {
                     a.this.r.postDelayed(a.this.C, 100L);
                 }
             }
@@ -118,16 +117,16 @@ public abstract class a {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f46836c == null) {
+            if (a.this.f50510c == null) {
                 return;
             }
-            if (a.this.f46836c.d()) {
-                a.this.f46841h.setImageResource(d.a.l0.f.i.d.ng_game_vol_open);
-                a.this.f46836c.e(false);
+            if (a.this.f50510c.d()) {
+                a.this.f50515h.setImageResource(d.a.l0.f.i.d.ng_game_vol_open);
+                a.this.f50510c.e(false);
                 return;
             }
-            a.this.f46841h.setImageResource(d.a.l0.f.i.d.ng_game_vol_close);
-            a.this.f46836c.e(true);
+            a.this.f50515h.setImageResource(d.a.l0.f.i.d.ng_game_vol_close);
+            a.this.f50510c.e(true);
         }
     }
 
@@ -164,17 +163,17 @@ public abstract class a {
 
         @Override // com.baidu.swan.game.ad.view.RewardVideoView.a
         public void onVolumeChanged(int i2) {
-            int streamMinVolume = Build.VERSION.SDK_INT >= 28 ? ((AudioManager) a.this.p.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamMinVolume(3) : 0;
-            if (i2 <= streamMinVolume || !a.this.f46836c.d()) {
-                if (i2 > streamMinVolume || a.this.f46836c.d()) {
+            int streamMinVolume = Build.VERSION.SDK_INT >= 28 ? ((AudioManager) a.this.p.getSystemService("audio")).getStreamMinVolume(3) : 0;
+            if (i2 <= streamMinVolume || !a.this.f50510c.d()) {
+                if (i2 > streamMinVolume || a.this.f50510c.d()) {
                     return;
                 }
-                a.this.f46841h.setImageResource(d.a.l0.f.i.d.ng_game_vol_close);
-                a.this.f46836c.e(true);
+                a.this.f50515h.setImageResource(d.a.l0.f.i.d.ng_game_vol_close);
+                a.this.f50510c.e(true);
                 return;
             }
-            a.this.f46841h.setImageResource(d.a.l0.f.i.d.ng_game_vol_open);
-            a.this.f46836c.e(false);
+            a.this.f50515h.setImageResource(d.a.l0.f.i.d.ng_game_vol_open);
+            a.this.f50510c.e(false);
         }
     }
 
@@ -182,19 +181,19 @@ public abstract class a {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f46848e;
+        public final /* synthetic */ View f50522e;
 
         public g(a aVar, View view) {
-            this.f46848e = view;
+            this.f50522e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int n = d.a.l0.f.i.m.a.b().n();
-            if (d.a.l0.f.i.m.a.b().w(this.f46848e)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f46848e.getLayoutParams();
-                layoutParams.topMargin = this.f46848e.getTop() + n;
-                this.f46848e.setLayoutParams(layoutParams);
+            if (d.a.l0.f.i.m.a.b().v(this.f50522e)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f50522e.getLayoutParams();
+                layoutParams.topMargin = this.f50522e.getTop() + n;
+                this.f50522e.setLayoutParams(layoutParams);
             }
         }
     }
@@ -206,7 +205,7 @@ public abstract class a {
         this.x = aVar;
         w();
         this.A = new d.a.l0.f.i.o.b(this.p);
-        x(this.f46840g);
+        x(this.f50514g);
     }
 
     public void A() {
@@ -234,21 +233,21 @@ public abstract class a {
     }
 
     public void G(String str) {
-        RewardVideoView rewardVideoView = this.f46836c;
+        RewardVideoView rewardVideoView = this.f50510c;
         if (rewardVideoView != null) {
             rewardVideoView.f(str);
         }
     }
 
     public final void H() {
-        if (this.f46839f != null) {
+        if (this.f50513f != null) {
             this.r.removeCallbacksAndMessages(null);
             this.r.postDelayed(this.C, 0L);
         }
     }
 
     public final void I() {
-        if (this.f46839f != null) {
+        if (this.f50513f != null) {
             this.r.removeCallbacksAndMessages(null);
         }
     }
@@ -257,50 +256,50 @@ public abstract class a {
         if (this.y) {
             if (j <= 15000 || i2 > 15000) {
                 this.j.setText(d.a.l0.f.i.g.swangame_game_ad_reward_tip);
-                this.f46842i.setVisibility(0);
+                this.f50516i.setVisibility(0);
                 this.k.setVisibility(0);
                 this.j.setVisibility(0);
             } else if (i2 < 5000) {
-                this.f46840g.setVisibility(8);
+                this.f50514g.setVisibility(8);
                 this.j.setVisibility(8);
                 this.k.setVisibility(8);
-                this.f46842i.setVisibility(8);
+                this.f50516i.setVisibility(8);
             } else if (i2 < 10000) {
-                this.f46840g.setVisibility(0);
+                this.f50514g.setVisibility(0);
                 this.j.setVisibility(0);
                 this.k.setVisibility(8);
-                this.f46842i.setVisibility(8);
+                this.f50516i.setVisibility(8);
             } else {
-                this.f46840g.setVisibility(0);
+                this.f50514g.setVisibility(0);
                 this.j.setVisibility(0);
                 this.k.setVisibility(0);
-                this.f46842i.setVisibility(0);
+                this.f50516i.setVisibility(0);
             }
         }
     }
 
     public final void K() {
         d.a.l0.f.i.m.b.c cVar;
-        if (this.q == null || (cVar = this.f46837d) == null) {
+        if (this.q == null || (cVar = this.f50511d) == null) {
             return;
         }
-        this.f46838e = cVar.getDuration();
-        int min = Math.min(this.q.A(), this.f46838e / 1000);
+        this.f50512e = cVar.getDuration();
+        int min = Math.min(this.q.A(), this.f50512e / 1000);
         int B = this.q.B();
-        int currentPosition = this.f46837d.getCurrentPosition() / 1000;
+        int currentPosition = this.f50511d.getCurrentPosition() / 1000;
         String string = this.p.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_video_reward_time_surplus);
         String string2 = this.p.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_video_time_surplus);
         if (currentPosition <= min) {
             this.j.setText(String.format(string, Integer.valueOf(min - currentPosition)));
         } else {
-            this.j.setText(String.format(string2, Integer.valueOf((this.f46838e / 1000) - currentPosition)));
+            this.j.setText(String.format(string2, Integer.valueOf((this.f50512e / 1000) - currentPosition)));
         }
         if (currentPosition <= B) {
-            this.f46842i.setVisibility(8);
+            this.f50516i.setVisibility(8);
             this.k.setVisibility(8);
             return;
         }
-        this.f46842i.setVisibility(0);
+        this.f50516i.setVisibility(0);
         this.k.setVisibility(0);
     }
 
@@ -317,32 +316,32 @@ public abstract class a {
         layoutParams.addRule(10);
         layoutParams.addRule(13);
         this.l.setGravity(17);
-        layoutParams.setMargins(0, this.f46840g.getTop(), this.w.getDimensionPixelSize(d.a.l0.f.i.c.include_land_close_ad_margin), 0);
-        this.f46834a.addView(this.l, layoutParams);
+        layoutParams.setMargins(0, this.f50514g.getTop(), this.w.getDimensionPixelSize(d.a.l0.f.i.c.include_land_close_ad_margin), 0);
+        this.f50508a.addView(this.l, layoutParams);
         x(this.l);
     }
 
     public final void m() {
-        if (this.f46834a != null) {
+        if (this.f50508a != null) {
             this.B = true;
-            this.f46840g.setVisibility(4);
+            this.f50514g.setVisibility(4);
             this.m.setVisibility(4);
-            this.f46842i.setVisibility(4);
+            this.f50516i.setVisibility(4);
             if (!TextUtils.isEmpty(this.q.t())) {
                 InteractiveEndFrameView interactiveEndFrameView = new InteractiveEndFrameView(this.p);
                 this.v = interactiveEndFrameView;
-                interactiveEndFrameView.s(this.q, this.f46834a);
-                this.f46834a.addView(this.v, new RelativeLayout.LayoutParams(-1, -1));
+                interactiveEndFrameView.s(this.q, this.f50508a);
+                this.f50508a.addView(this.v, new RelativeLayout.LayoutParams(-1, -1));
                 d.a.l0.f.i.q.b.i(this.q, this.A);
             } else if (!TextUtils.isEmpty(this.q.s())) {
                 RewardLoadWebView rewardLoadWebView = new RewardLoadWebView(this.p);
                 this.u = rewardLoadWebView;
                 rewardLoadWebView.b("reward_end_frame_html", this.q, this.x);
-                this.f46834a.addView(this.u, new RelativeLayout.LayoutParams(-1, -1));
+                this.f50508a.addView(this.u, new RelativeLayout.LayoutParams(-1, -1));
                 d.a.l0.f.i.q.b.i(this.q, this.A);
             } else {
                 View inflate = LayoutInflater.from(this.p).inflate(d.a.l0.f.i.f.ng_game_reward_close_banner, (ViewGroup) null);
-                this.f46834a.addView(inflate, new RelativeLayout.LayoutParams(-1, -1));
+                this.f50508a.addView(inflate, new RelativeLayout.LayoutParams(-1, -1));
                 ((AdImageVIew) inflate.findViewById(d.a.l0.f.i.e.reward_icon)).setImageUrl(this.q.v());
                 ((TextView) inflate.findViewById(d.a.l0.f.i.e.title)).setText(this.q.G());
                 ((TextView) inflate.findViewById(d.a.l0.f.i.e.desc)).setText(this.q.q());
@@ -387,39 +386,39 @@ public abstract class a {
         AdElementInfo adElementInfo;
         d.a.l0.f.i.m.b.c cVar;
         H();
-        ProgressBar progressBar = this.f46839f;
-        if (progressBar != null && (cVar = this.f46837d) != null) {
+        ProgressBar progressBar = this.f50513f;
+        if (progressBar != null && (cVar = this.f50511d) != null) {
             progressBar.setMax(cVar.getDuration() / 1000);
-            this.f46839f.setVisibility(4);
+            this.f50513f.setVisibility(4);
         }
-        if (this.j != null && this.f46837d != null && (adElementInfo = this.q) != null) {
-            this.j.setText(String.format(this.p.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_video_reward_time_surplus), Integer.valueOf(Math.max(this.q.B(), Math.min(adElementInfo.A(), this.f46837d.getDuration())) / 1000)));
+        if (this.j != null && this.f50511d != null && (adElementInfo = this.q) != null) {
+            this.j.setText(String.format(this.p.getResources().getString(d.a.l0.f.i.g.swangame_game_ad_video_reward_time_surplus), Integer.valueOf(Math.max(this.q.B(), Math.min(adElementInfo.A(), this.f50511d.getDuration())) / 1000)));
             if (this.q.B() >= 0) {
-                this.f46842i.setVisibility(8);
+                this.f50516i.setVisibility(8);
                 this.k.setVisibility(8);
             }
         }
-        if (this.f46840g.getVisibility() != 0) {
-            this.f46840g.setVisibility(0);
+        if (this.f50514g.getVisibility() != 0) {
+            this.f50514g.setVisibility(0);
         }
         if (this.m.getVisibility() != 0) {
             this.m.setAnimation(AnimationUtils.loadAnimation(this.p, d.a.l0.f.i.a.ng_game_ad_open));
             this.m.setVisibility(0);
         }
-        d.a.l0.f.i.m.b.c cVar2 = this.f46837d;
+        d.a.l0.f.i.m.b.c cVar2 = this.f50511d;
         if (cVar2 != null) {
-            J(cVar2.getDuration(), this.f46837d.getCurrentPosition());
+            J(cVar2.getDuration(), this.f50511d.getCurrentPosition());
         }
     }
 
     public abstract String q();
 
     public View r() {
-        return this.f46835b;
+        return this.f50509b;
     }
 
     public d.a.l0.f.i.m.b.c s() {
-        RewardVideoView rewardVideoView = this.f46836c;
+        RewardVideoView rewardVideoView = this.f50510c;
         if (rewardVideoView != null) {
             return rewardVideoView.getPlayer();
         }
@@ -433,31 +432,31 @@ public abstract class a {
     public abstract View u();
 
     public final void v() {
-        this.f46834a.setOnTouchListener(new View$OnTouchListenerC0988a(this));
-        this.f46841h.setOnClickListener(this.D);
-        this.f46842i.setOnClickListener(this.E);
+        this.f50508a.setOnTouchListener(new View$OnTouchListenerC1044a(this));
+        this.f50515h.setOnClickListener(this.D);
+        this.f50516i.setOnClickListener(this.E);
     }
 
     public final void w() {
-        this.f46835b = u();
-        this.f46835b.setLayoutParams(new RelativeLayout.LayoutParams(this.n, this.o));
-        this.f46834a = (RelativeLayout) this.f46835b.findViewById(d.a.l0.f.i.e.reward_relative);
-        RewardVideoView rewardVideoView = (RewardVideoView) this.f46835b.findViewById(d.a.l0.f.i.e.video_view);
-        this.f46836c = rewardVideoView;
+        this.f50509b = u();
+        this.f50509b.setLayoutParams(new RelativeLayout.LayoutParams(this.n, this.o));
+        this.f50508a = (RelativeLayout) this.f50509b.findViewById(d.a.l0.f.i.e.reward_relative);
+        RewardVideoView rewardVideoView = (RewardVideoView) this.f50509b.findViewById(d.a.l0.f.i.e.video_view);
+        this.f50510c = rewardVideoView;
         rewardVideoView.setVolumeChangeListener(o());
         if (this.y) {
-            this.f46836c.setOnClickListener(this.F);
+            this.f50510c.setOnClickListener(this.F);
         }
-        this.f46839f = (ProgressBar) this.f46835b.findViewById(d.a.l0.f.i.e.swangame_game_ad_video_progress_horizontal);
-        this.f46840g = (LinearLayout) this.f46835b.findViewById(d.a.l0.f.i.e.vol_clo);
-        this.f46841h = (ImageView) this.f46835b.findViewById(d.a.l0.f.i.e.volume);
-        if (this.f46836c.d()) {
-            this.f46841h.setImageResource(d.a.l0.f.i.d.ng_game_vol_close);
+        this.f50513f = (ProgressBar) this.f50509b.findViewById(d.a.l0.f.i.e.swangame_game_ad_video_progress_horizontal);
+        this.f50514g = (LinearLayout) this.f50509b.findViewById(d.a.l0.f.i.e.vol_clo);
+        this.f50515h = (ImageView) this.f50509b.findViewById(d.a.l0.f.i.e.volume);
+        if (this.f50510c.d()) {
+            this.f50515h.setImageResource(d.a.l0.f.i.d.ng_game_vol_close);
         }
-        this.f46842i = (TextView) this.f46835b.findViewById(d.a.l0.f.i.e.close_ad);
-        this.j = (TextView) this.f46835b.findViewById(d.a.l0.f.i.e.close_ad_header);
-        this.k = this.f46835b.findViewById(d.a.l0.f.i.e.close_ad_middle);
-        this.m = (RelativeLayout) this.f46835b.findViewById(d.a.l0.f.i.e.banner);
+        this.f50516i = (TextView) this.f50509b.findViewById(d.a.l0.f.i.e.close_ad);
+        this.j = (TextView) this.f50509b.findViewById(d.a.l0.f.i.e.close_ad_header);
+        this.k = this.f50509b.findViewById(d.a.l0.f.i.e.close_ad_middle);
+        this.m = (RelativeLayout) this.f50509b.findViewById(d.a.l0.f.i.e.banner);
         if (!TextUtils.isEmpty(this.q.k())) {
             this.t = new RewardLoadWebView(this.p);
             this.m.addView(this.t, new RelativeLayout.LayoutParams(-1, -1));
@@ -479,7 +478,7 @@ public abstract class a {
             this.m.setOnClickListener(this.F);
             button.setOnClickListener(this.F);
         }
-        this.f46837d = this.f46836c.getPlayer();
+        this.f50511d = this.f50510c.getPlayer();
         v();
     }
 
@@ -488,9 +487,9 @@ public abstract class a {
     }
 
     public void y() {
-        d.a.l0.f.i.m.b.c cVar = this.f46837d;
+        d.a.l0.f.i.m.b.c cVar = this.f50511d;
         if (cVar != null) {
-            this.f46838e = cVar.getDuration();
+            this.f50512e = cVar.getDuration();
         }
     }
 

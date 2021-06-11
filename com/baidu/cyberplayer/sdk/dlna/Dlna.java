@@ -1,6 +1,8 @@
 package com.baidu.cyberplayer.sdk.dlna;
 
+import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
+import com.baidu.cyberplayer.sdk.d;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 @Keep
 /* loaded from: classes2.dex */
@@ -23,56 +25,50 @@ public class Dlna {
     public static int DLNA_ERROR_SET_VOLUME_ACTION_NOT_FOUND = -1013;
     public static int DLNA_ERROR_STOP_ACTION_NOT_FOUND = -1012;
     public static int DLNA_ERROR_STOP_SPCE_INVALIDATE = -1018;
+    public static String TAG = "DLNA";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4828a = "com.baidu.media.dlna.DlnaProviderImpl";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static DlnaProvider f4829b;
+    public DlnaProvider f4817a;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Dlna f4830a = new Dlna();
+        public static final Dlna f4818a = new Dlna();
     }
 
     public Dlna() {
+        this.f4817a = null;
     }
 
     public static Dlna getInstance() {
-        return a.f4830a;
+        return a.f4818a;
     }
 
-    public static void init(ClassLoader classLoader) {
-        try {
-            f4829b = (DlnaProvider) Class.forName(f4828a, true, classLoader).newInstance();
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            f4829b = null;
+    public synchronized PnPController getCtrlPoint(String str) {
+        if (this.f4817a != null && str != null) {
+            return new PnPController(str, this.f4817a);
+        }
+        return null;
+    }
+
+    public synchronized void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
+        if (this.f4817a == null) {
+            this.f4817a = d.f();
+        }
+        if (this.f4817a != null) {
+            this.f4817a.stop();
+            if (dlnaSearchListener != null) {
+                this.f4817a.search(dlnaSearchListener);
+            }
         }
     }
 
-    public PnPController getCtrlPoint(String str) {
-        DlnaProvider dlnaProvider = f4829b;
-        if (dlnaProvider == null || str == null) {
-            return null;
-        }
-        return new PnPController(str, dlnaProvider);
-    }
-
-    public void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        DlnaProvider dlnaProvider = f4829b;
-        if (dlnaProvider != null) {
-            dlnaProvider.stop();
-            f4829b.search(dlnaSearchListener);
-        }
-    }
-
-    public void stop() {
-        DlnaProvider dlnaProvider = f4829b;
-        if (dlnaProvider != null) {
-            dlnaProvider.stop();
+    public synchronized void stop() {
+        if (this.f4817a != null) {
+            this.f4817a.stop();
+        } else {
+            CyberLog.d(TAG, "Dlna: provider == null");
         }
     }
 }

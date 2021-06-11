@@ -11,63 +11,63 @@ import java.util.concurrent.Executor;
 public class e<TResult> {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Executor f1468i;
+    public static final Executor f1481i;
     public static volatile f j;
     public static e<?> k;
     public static e<Boolean> l;
     public static e<Boolean> m;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1470b;
+    public boolean f1483b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f1471c;
+    public boolean f1484c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TResult f1472d;
+    public TResult f1485d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Exception f1473e;
+    public Exception f1486e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1474f;
+    public boolean f1487f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f1475g;
+    public g f1488g;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f1469a = new Object();
+    public final Object f1482a = new Object();
 
     /* renamed from: h  reason: collision with root package name */
-    public List<c.d<TResult, Void>> f1476h = new ArrayList();
+    public List<c.d<TResult, Void>> f1489h = new ArrayList();
 
     /* loaded from: classes.dex */
     public class a implements c.d<TResult, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.f f1477a;
+        public final /* synthetic */ c.f f1490a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.d f1478b;
+        public final /* synthetic */ c.d f1491b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Executor f1479c;
+        public final /* synthetic */ Executor f1492c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.c f1480d;
+        public final /* synthetic */ c.c f1493d;
 
         public a(e eVar, c.f fVar, c.d dVar, Executor executor, c.c cVar) {
-            this.f1477a = fVar;
-            this.f1478b = dVar;
-            this.f1479c = executor;
-            this.f1480d = cVar;
+            this.f1490a = fVar;
+            this.f1491b = dVar;
+            this.f1492c = executor;
+            this.f1493d = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.d
         /* renamed from: a */
         public Void then(e<TResult> eVar) {
-            e.f(this.f1477a, this.f1478b, eVar, this.f1479c, this.f1480d);
+            e.f(this.f1490a, this.f1491b, eVar, this.f1492c, this.f1493d);
             return null;
         }
     }
@@ -76,29 +76,29 @@ public class e<TResult> {
     public class b implements c.d<TResult, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.f f1481a;
+        public final /* synthetic */ c.f f1494a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.d f1482b;
+        public final /* synthetic */ c.d f1495b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Executor f1483c;
+        public final /* synthetic */ Executor f1496c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.c f1484d;
+        public final /* synthetic */ c.c f1497d;
 
         public b(e eVar, c.f fVar, c.d dVar, Executor executor, c.c cVar) {
-            this.f1481a = fVar;
-            this.f1482b = dVar;
-            this.f1483c = executor;
-            this.f1484d = cVar;
+            this.f1494a = fVar;
+            this.f1495b = dVar;
+            this.f1496c = executor;
+            this.f1497d = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.d
         /* renamed from: a */
         public Void then(e<TResult> eVar) {
-            e.e(this.f1481a, this.f1482b, eVar, this.f1483c, this.f1484d);
+            e.e(this.f1494a, this.f1495b, eVar, this.f1496c, this.f1497d);
             return null;
         }
     }
@@ -107,39 +107,39 @@ public class e<TResult> {
     public static class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.c f1485e;
+        public final /* synthetic */ c.c f1498e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.f f1486f;
+        public final /* synthetic */ c.f f1499f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.d f1487g;
+        public final /* synthetic */ c.d f1500g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f1488h;
+        public final /* synthetic */ e f1501h;
 
         public c(c.c cVar, c.f fVar, c.d dVar, e eVar) {
-            this.f1485e = cVar;
-            this.f1486f = fVar;
-            this.f1487g = dVar;
-            this.f1488h = eVar;
+            this.f1498e = cVar;
+            this.f1499f = fVar;
+            this.f1500g = dVar;
+            this.f1501h = eVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: c.f */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
-            c.c cVar = this.f1485e;
+            c.c cVar = this.f1498e;
             if (cVar != null && cVar.a()) {
-                this.f1486f.b();
+                this.f1499f.b();
                 return;
             }
             try {
-                this.f1486f.d(this.f1487g.then(this.f1488h));
+                this.f1499f.d(this.f1500g.then(this.f1501h));
             } catch (CancellationException unused) {
-                this.f1486f.b();
+                this.f1499f.b();
             } catch (Exception e2) {
-                this.f1486f.c(e2);
+                this.f1499f.c(e2);
             }
         }
     }
@@ -148,16 +148,16 @@ public class e<TResult> {
     public static class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.c f1489e;
+        public final /* synthetic */ c.c f1502e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.f f1490f;
+        public final /* synthetic */ c.f f1503f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.d f1491g;
+        public final /* synthetic */ c.d f1504g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f1492h;
+        public final /* synthetic */ e f1505h;
 
         /* loaded from: classes.dex */
         public class a implements c.d<TContinuationResult, Void> {
@@ -170,85 +170,85 @@ public class e<TResult> {
             @Override // c.d
             /* renamed from: a */
             public Void then(e<TContinuationResult> eVar) {
-                c.c cVar = d.this.f1489e;
+                c.c cVar = d.this.f1502e;
                 if (cVar != null && cVar.a()) {
-                    d.this.f1490f.b();
+                    d.this.f1503f.b();
                     return null;
                 }
                 if (eVar.p()) {
-                    d.this.f1490f.b();
+                    d.this.f1503f.b();
                 } else if (eVar.r()) {
-                    d.this.f1490f.c(eVar.m());
+                    d.this.f1503f.c(eVar.m());
                 } else {
-                    d.this.f1490f.d(eVar.n());
+                    d.this.f1503f.d(eVar.n());
                 }
                 return null;
             }
         }
 
         public d(c.c cVar, c.f fVar, c.d dVar, e eVar) {
-            this.f1489e = cVar;
-            this.f1490f = fVar;
-            this.f1491g = dVar;
-            this.f1492h = eVar;
+            this.f1502e = cVar;
+            this.f1503f = fVar;
+            this.f1504g = dVar;
+            this.f1505h = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.c cVar = this.f1489e;
+            c.c cVar = this.f1502e;
             if (cVar != null && cVar.a()) {
-                this.f1490f.b();
+                this.f1503f.b();
                 return;
             }
             try {
-                e eVar = (e) this.f1491g.then(this.f1492h);
+                e eVar = (e) this.f1504g.then(this.f1505h);
                 if (eVar == null) {
-                    this.f1490f.d(null);
+                    this.f1503f.d(null);
                 } else {
                     eVar.g(new a());
                 }
             } catch (CancellationException unused) {
-                this.f1490f.b();
+                this.f1503f.b();
             } catch (Exception e2) {
-                this.f1490f.c(e2);
+                this.f1503f.c(e2);
             }
         }
     }
 
     /* renamed from: c.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0013e implements Runnable {
+    public static class RunnableC0014e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.c f1494e;
+        public final /* synthetic */ c.c f1507e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.f f1495f;
+        public final /* synthetic */ c.f f1508f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Callable f1496g;
+        public final /* synthetic */ Callable f1509g;
 
-        public RunnableC0013e(c.c cVar, c.f fVar, Callable callable) {
-            this.f1494e = cVar;
-            this.f1495f = fVar;
-            this.f1496g = callable;
+        public RunnableC0014e(c.c cVar, c.f fVar, Callable callable) {
+            this.f1507e = cVar;
+            this.f1508f = fVar;
+            this.f1509g = callable;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: c.f */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
-            c.c cVar = this.f1494e;
+            c.c cVar = this.f1507e;
             if (cVar != null && cVar.a()) {
-                this.f1495f.b();
+                this.f1508f.b();
                 return;
             }
             try {
-                this.f1495f.d(this.f1496g.call());
+                this.f1508f.d(this.f1509g.call());
             } catch (CancellationException unused) {
-                this.f1495f.b();
+                this.f1508f.b();
             } catch (Exception e2) {
-                this.f1495f.c(e2);
+                this.f1508f.c(e2);
             }
         }
     }
@@ -260,7 +260,7 @@ public class e<TResult> {
 
     static {
         c.b.a();
-        f1468i = c.b.b();
+        f1481i = c.b.b();
         c.a.c();
         k = new e<>((Object) null);
         l = new e<>(Boolean.TRUE);
@@ -278,7 +278,7 @@ public class e<TResult> {
     public static <TResult> e<TResult> d(Callable<TResult> callable, Executor executor, c.c cVar) {
         c.f fVar = new c.f();
         try {
-            executor.execute(new RunnableC0013e(cVar, fVar, callable));
+            executor.execute(new RunnableC0014e(cVar, fVar, callable));
         } catch (Exception e2) {
             fVar.c(new ExecutorException(e2));
         }
@@ -324,16 +324,16 @@ public class e<TResult> {
     }
 
     public <TContinuationResult> e<TContinuationResult> g(c.d<TResult, TContinuationResult> dVar) {
-        return h(dVar, f1468i, null);
+        return h(dVar, f1481i, null);
     }
 
     public <TContinuationResult> e<TContinuationResult> h(c.d<TResult, TContinuationResult> dVar, Executor executor, c.c cVar) {
         boolean q;
         c.f fVar = new c.f();
-        synchronized (this.f1469a) {
+        synchronized (this.f1482a) {
             q = q();
             if (!q) {
-                this.f1476h.add(new a(this, fVar, dVar, executor, cVar));
+                this.f1489h.add(new a(this, fVar, dVar, executor, cVar));
             }
         }
         if (q) {
@@ -343,16 +343,16 @@ public class e<TResult> {
     }
 
     public <TContinuationResult> e<TContinuationResult> i(c.d<TResult, e<TContinuationResult>> dVar) {
-        return j(dVar, f1468i, null);
+        return j(dVar, f1481i, null);
     }
 
     public <TContinuationResult> e<TContinuationResult> j(c.d<TResult, e<TContinuationResult>> dVar, Executor executor, c.c cVar) {
         boolean q;
         c.f fVar = new c.f();
-        synchronized (this.f1469a) {
+        synchronized (this.f1482a) {
             q = q();
             if (!q) {
-                this.f1476h.add(new b(this, fVar, dVar, executor, cVar));
+                this.f1489h.add(new b(this, fVar, dVar, executor, cVar));
             }
         }
         if (q) {
@@ -363,54 +363,54 @@ public class e<TResult> {
 
     public Exception m() {
         Exception exc;
-        synchronized (this.f1469a) {
-            if (this.f1473e != null) {
-                this.f1474f = true;
-                if (this.f1475g != null) {
-                    this.f1475g.a();
-                    this.f1475g = null;
+        synchronized (this.f1482a) {
+            if (this.f1486e != null) {
+                this.f1487f = true;
+                if (this.f1488g != null) {
+                    this.f1488g.a();
+                    this.f1488g = null;
                 }
             }
-            exc = this.f1473e;
+            exc = this.f1486e;
         }
         return exc;
     }
 
     public TResult n() {
         TResult tresult;
-        synchronized (this.f1469a) {
-            tresult = this.f1472d;
+        synchronized (this.f1482a) {
+            tresult = this.f1485d;
         }
         return tresult;
     }
 
     public boolean p() {
         boolean z;
-        synchronized (this.f1469a) {
-            z = this.f1471c;
+        synchronized (this.f1482a) {
+            z = this.f1484c;
         }
         return z;
     }
 
     public boolean q() {
         boolean z;
-        synchronized (this.f1469a) {
-            z = this.f1470b;
+        synchronized (this.f1482a) {
+            z = this.f1483b;
         }
         return z;
     }
 
     public boolean r() {
         boolean z;
-        synchronized (this.f1469a) {
+        synchronized (this.f1482a) {
             z = m() != null;
         }
         return z;
     }
 
     public final void s() {
-        synchronized (this.f1469a) {
-            for (c.d<TResult, Void> dVar : this.f1476h) {
+        synchronized (this.f1482a) {
+            for (c.d<TResult, Void> dVar : this.f1489h) {
                 try {
                     dVar.then(this);
                 } catch (RuntimeException e2) {
@@ -419,48 +419,48 @@ public class e<TResult> {
                     throw new RuntimeException(e3);
                 }
             }
-            this.f1476h = null;
+            this.f1489h = null;
         }
     }
 
     public boolean t() {
-        synchronized (this.f1469a) {
-            if (this.f1470b) {
+        synchronized (this.f1482a) {
+            if (this.f1483b) {
                 return false;
             }
-            this.f1470b = true;
-            this.f1471c = true;
-            this.f1469a.notifyAll();
+            this.f1483b = true;
+            this.f1484c = true;
+            this.f1482a.notifyAll();
             s();
             return true;
         }
     }
 
     public boolean u(Exception exc) {
-        synchronized (this.f1469a) {
-            if (this.f1470b) {
+        synchronized (this.f1482a) {
+            if (this.f1483b) {
                 return false;
             }
-            this.f1470b = true;
-            this.f1473e = exc;
-            this.f1474f = false;
-            this.f1469a.notifyAll();
+            this.f1483b = true;
+            this.f1486e = exc;
+            this.f1487f = false;
+            this.f1482a.notifyAll();
             s();
-            if (!this.f1474f && o() != null) {
-                this.f1475g = new g(this);
+            if (!this.f1487f && o() != null) {
+                this.f1488g = new g(this);
             }
             return true;
         }
     }
 
     public boolean v(TResult tresult) {
-        synchronized (this.f1469a) {
-            if (this.f1470b) {
+        synchronized (this.f1482a) {
+            if (this.f1483b) {
                 return false;
             }
-            this.f1470b = true;
-            this.f1472d = tresult;
-            this.f1469a.notifyAll();
+            this.f1483b = true;
+            this.f1485d = tresult;
+            this.f1482a.notifyAll();
             s();
             return true;
         }

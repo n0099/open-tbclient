@@ -38,7 +38,7 @@ public class MoreDeskView extends CommonTabHost {
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.a.m0.w.b
     public void onAction(a aVar) {
         super.onAction(aVar);
-        if (aVar == null || aVar.f50841a != 2 || aVar.f50842b == 5) {
+        if (aVar == null || aVar.f54518a != 2 || aVar.f54519b == 5) {
             return;
         }
         r(aVar);
@@ -66,9 +66,9 @@ public class MoreDeskView extends CommonTabHost {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void r(a aVar) {
-        Integer valueOf = Integer.valueOf(this.r.get(aVar.f50842b));
+        Integer valueOf = Integer.valueOf(this.r.get(aVar.f54519b));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
-        Object obj = aVar.f50843c;
+        Object obj = aVar.f54520c;
         if (obj != null) {
             if (obj instanceof String) {
                 String str = (String) obj;
@@ -76,10 +76,10 @@ public class MoreDeskView extends CommonTabHost {
                     intValue = TextUtils.isEmpty(str.trim()) ? 1 : b.d(str, 1);
                 }
             }
-            this.r.put(aVar.f50842b, intValue >= 0 ? intValue : 0);
+            this.r.put(aVar.f54519b, intValue >= 0 ? intValue : 0);
         }
         intValue = 0;
-        this.r.put(aVar.f50842b, intValue >= 0 ? intValue : 0);
+        this.r.put(aVar.f54519b, intValue >= 0 ? intValue : 0);
     }
 
     public MoreDeskView(Context context, boolean z) {

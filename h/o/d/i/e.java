@@ -1,7 +1,7 @@
 package h.o.d.i;
 
 import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e<E> extends b<E> {
     public e() {
         LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();

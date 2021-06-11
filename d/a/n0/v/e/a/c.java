@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsGameLiveDoubleView;
 import d.a.m0.r.q.a2;
 /* loaded from: classes4.dex */
-public class c extends d.a.c.j.e.a<d.a.n0.v.h.b.a, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
+public class c extends d.a.c.k.e.a<d.a.n0.v.h.b.a, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
     public TbPageContext<?> m;
     public d.a.n0.v.c n;
     public String o;
@@ -21,29 +21,29 @@ public class c extends d.a.c.j.e.a<d.a.n0.v.h.b.a, AlaGameFrsGameLiveDoubleView.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder P(ViewGroup viewGroup) {
+    public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder Q(ViewGroup viewGroup) {
         AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView = new AlaGameFrsGameLiveDoubleView(this.m);
-        alaGameFrsGameLiveDoubleView.u(this.o);
+        alaGameFrsGameLiveDoubleView.v(this.o);
         return new AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder(alaGameFrsGameLiveDoubleView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.v.h.b.a aVar, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
-        alaGameFrsGameLiveDoubleViewHolder.f13961a.m(aVar);
-        alaGameFrsGameLiveDoubleViewHolder.f13961a.v(this.n);
-        d.a.n0.v.b.b().a(new StatisticItem("c12115").param("obj_id", aVar.f61966e.r1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f61966e.r1().appId) ? aVar.f61966e.r1().appId : ""));
-        a2 a2Var = aVar.f61967f;
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.v.h.b.a aVar, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
+        alaGameFrsGameLiveDoubleViewHolder.f14018a.n(aVar);
+        alaGameFrsGameLiveDoubleViewHolder.f14018a.w(this.n);
+        d.a.n0.v.b.b().a(new StatisticItem("c12115").param("obj_id", aVar.f65681e.s1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f65681e.s1().appId) ? aVar.f65681e.s1().appId : ""));
+        a2 a2Var = aVar.f65682f;
         if (a2Var != null) {
-            d.a.n0.v.b.b().a(new StatisticItem("c12115").param("obj_id", aVar.f61967f.r1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(a2Var.r1().appId) ? "" : aVar.f61967f.r1().appId));
+            d.a.n0.v.b.b().a(new StatisticItem("c12115").param("obj_id", aVar.f65682f.s1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(a2Var.s1().appId) ? "" : aVar.f65682f.s1().appId));
         }
         return alaGameFrsGameLiveDoubleViewHolder.a();
     }
 
-    public void g0(d.a.n0.v.c cVar) {
+    public void h0(d.a.n0.v.c cVar) {
         this.n = cVar;
     }
 }

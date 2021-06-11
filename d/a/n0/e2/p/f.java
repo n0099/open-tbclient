@@ -15,7 +15,7 @@ import d.a.c.e.p.l;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SparseIntArray f53921a = new SparseIntArray();
+    public static SparseIntArray f57610a = new SparseIntArray();
 
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo == null || textView == null) {
@@ -47,10 +47,10 @@ public class f {
     }
 
     public static int b(int i2) {
-        int i3 = f53921a.get(i2, -1);
+        int i3 = f57610a.get(i2, -1);
         if (i3 == -1) {
             int g2 = l.g(TbadkCoreApplication.getInst().getContext(), i2);
-            f53921a.put(i2, g2);
+            f57610a.put(i2, g2);
             return g2;
         }
         return i3;

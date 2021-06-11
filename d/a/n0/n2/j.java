@@ -7,107 +7,107 @@ import java.util.UUID;
 public class j implements d.a.n0.u1.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f57717a;
+    public String f61406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57718b;
+    public String f61407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, d.a.n0.u1.e> f57719c;
+    public HashMap<String, d.a.n0.u1.e> f61408c;
 
     /* loaded from: classes5.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d.a.n0.u1.g f57720a = new j();
+        public static final d.a.n0.u1.g f61409a = new j();
     }
 
     public static d.a.n0.u1.g m() {
-        return b.f57720a;
+        return b.f61409a;
     }
 
     @Override // d.a.n0.u1.g
     public void a(int i2, String str) {
-        n().c(this.f57717a, i2, str);
+        n().c(this.f61406a, i2, str);
     }
 
     @Override // d.a.n0.u1.g
     public void b(int i2, String str) {
-        n().f(this.f57717a, i2, str);
+        n().f(this.f61406a, i2, str);
     }
 
     @Override // d.a.n0.u1.g
     public void c() {
-        n().k(this.f57717a);
-        q(this.f57717a);
+        n().k(this.f61406a);
+        q(this.f61406a);
     }
 
     @Override // d.a.n0.u1.g
     public void d() {
-        this.f57718b = this.f57717a;
+        this.f61407b = this.f61406a;
     }
 
     @Override // d.a.n0.u1.g
     public void e(String str) {
-        if (StringUtils.isNull(this.f57718b)) {
+        if (StringUtils.isNull(this.f61407b)) {
             return;
         }
-        if (!o(this.f57718b) && !p(this.f57718b)) {
-            d.a.n0.u1.d.b(this.f57718b);
-            this.f57719c.remove(this.f57717a);
+        if (!o(this.f61407b) && !p(this.f61407b)) {
+            d.a.n0.u1.d.b(this.f61407b);
+            this.f61408c.remove(this.f61406a);
         } else {
-            q(this.f57718b);
+            q(this.f61407b);
         }
         g();
-        n().h(this.f57718b, str);
-        this.f57718b = null;
+        n().h(this.f61407b, str);
+        this.f61407b = null;
     }
 
     @Override // d.a.n0.u1.g
     public void f(int i2, int i3, String str) {
-        n().b(this.f57717a, i2, i3, str);
+        n().b(this.f61406a, i2, i3, str);
     }
 
     @Override // d.a.n0.u1.g
     public void g() {
-        this.f57717a = UUID.randomUUID().toString();
+        this.f61406a = UUID.randomUUID().toString();
     }
 
     @Override // d.a.n0.u1.g
     public void h(int i2, String str) {
-        n().g(this.f57717a, i2, str);
+        n().g(this.f61406a, i2, str);
     }
 
     @Override // d.a.n0.u1.g
     public void i(int i2, String str) {
-        n().l(this.f57717a, i2, str);
+        n().l(this.f61406a, i2, str);
     }
 
     @Override // d.a.n0.u1.g
     public void j() {
-        n().j(this.f57717a);
+        n().j(this.f61406a);
     }
 
     @Override // d.a.n0.u1.g
     public void k(String str) {
-        n().i(this.f57717a, str);
-        if (!o(this.f57717a) && !p(this.f57717a)) {
-            d.a.n0.u1.d.b(this.f57717a);
-            this.f57719c.remove(this.f57717a);
+        n().i(this.f61406a, str);
+        if (!o(this.f61406a) && !p(this.f61406a)) {
+            d.a.n0.u1.d.b(this.f61406a);
+            this.f61408c.remove(this.f61406a);
         } else {
-            q(this.f57717a);
+            q(this.f61406a);
         }
-        this.f57717a = null;
+        this.f61406a = null;
     }
 
     public final d.a.n0.u1.e l() {
-        i iVar = new i(this.f57717a);
-        this.f57719c.put(this.f57717a, iVar);
+        i iVar = new i(this.f61406a);
+        this.f61408c.put(this.f61406a, iVar);
         return iVar;
     }
 
     public final d.a.n0.u1.e n() {
-        d.a.n0.u1.e eVar = this.f57719c.get(this.f57717a);
+        d.a.n0.u1.e eVar = this.f61408c.get(this.f61406a);
         return eVar == null ? l() : eVar;
     }
 
@@ -120,15 +120,15 @@ public class j implements d.a.n0.u1.g {
     }
 
     public void q(String str) {
-        d.a.n0.u1.e eVar = this.f57719c.get(str);
+        d.a.n0.u1.e eVar = this.f61408c.get(str);
         if (eVar == null) {
             return;
         }
         eVar.a(str);
-        this.f57719c.remove(str);
+        this.f61408c.remove(str);
     }
 
     public j() {
-        this.f57719c = new HashMap<>();
+        this.f61408c = new HashMap<>();
     }
 }

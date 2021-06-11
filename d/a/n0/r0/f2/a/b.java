@@ -11,19 +11,19 @@ import tbclient.ZoneRight.ZoneRightResIdl;
 public class b implements h {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58562e;
+    public boolean f62253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58563f;
+    public int f62254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58564g;
+    public String f62255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58565h;
+    public int f62256h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f58566i;
+    public String f62257i;
 
     @Override // d.a.m0.g0.b.h
     public void initByJson(JSONObject jSONObject) {
@@ -35,16 +35,16 @@ public class b implements h {
             ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) message;
             Error error = zoneRightResIdl.error;
             if (error != null) {
-                this.f58563f = error.errorno.intValue();
-                this.f58564g = zoneRightResIdl.error.usermsg;
+                this.f62254f = error.errorno.intValue();
+                this.f62255g = zoneRightResIdl.error.usermsg;
             }
             DataRes dataRes = zoneRightResIdl.data;
             if (dataRes != null) {
-                this.f58562e = dataRes.has_right.intValue() == 1;
+                this.f62253e = dataRes.has_right.intValue() == 1;
                 Toast toast = zoneRightResIdl.data.toast;
                 if (toast != null) {
-                    this.f58565h = toast.type.intValue();
-                    this.f58566i = zoneRightResIdl.data.toast.content;
+                    this.f62256h = toast.type.intValue();
+                    this.f62257i = zoneRightResIdl.data.toast.content;
                 }
             }
         }

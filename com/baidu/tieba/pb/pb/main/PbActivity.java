@@ -61,7 +61,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     public static final String PB_FRAGMENT_TAG = "pb_fragment_tag";
     public static final String VIDEO_PB_FRAGMENT_TAG = "video_pb_fragment_tag";
     public boolean hasRemindedEditorTips;
-    public a.e loadListener;
+    public a.f loadListener;
     public d.a.n0.e2.k.e.c mBackController;
     public Fragment mCurrentFragment;
     public boolean mIsHasCache;
@@ -81,28 +81,28 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
 
         /* renamed from: com.baidu.tieba.pb.pb.main.PbActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0203a implements Runnable {
+        public class RunnableC0205a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f18848e;
+            public final /* synthetic */ String f18925e;
 
-            public RunnableC0203a(String str) {
-                this.f18848e = str;
+            public RunnableC0205a(String str) {
+                this.f18925e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (!(PbActivity.this.mCurrentFragment instanceof PbFragment) || ((PbFragment) PbActivity.this.mCurrentFragment).K4() == null || ((PbFragment) PbActivity.this.mCurrentFragment).K4().m0() == null) {
-                    if (!(PbActivity.this.mCurrentFragment instanceof VideoPbFragment) || ((VideoPbFragment) PbActivity.this.mCurrentFragment).P2() == null) {
+                if (!(PbActivity.this.mCurrentFragment instanceof PbFragment) || ((PbFragment) PbActivity.this.mCurrentFragment).N4() == null || ((PbFragment) PbActivity.this.mCurrentFragment).N4().m0() == null) {
+                    if (!(PbActivity.this.mCurrentFragment instanceof VideoPbFragment) || ((VideoPbFragment) PbActivity.this.mCurrentFragment).S2() == null) {
                         return;
                     }
                     PbActivity pbActivity = PbActivity.this;
-                    pbActivity.isShowDeleteResumeEditorTips(((VideoPbFragment) pbActivity.mCurrentFragment).P2(), ((VideoPbFragment) PbActivity.this.mCurrentFragment).c3(), this.f18848e);
+                    pbActivity.isShowDeleteResumeEditorTips(((VideoPbFragment) pbActivity.mCurrentFragment).S2(), ((VideoPbFragment) PbActivity.this.mCurrentFragment).f3(), this.f18925e);
                     PbActivity.this.hasRemindedEditorTips = true;
                     return;
                 }
                 PbActivity pbActivity2 = PbActivity.this;
-                pbActivity2.isShowDeleteResumeEditorTips(((PbFragment) pbActivity2.mCurrentFragment).K4().m0(), ((PbFragment) PbActivity.this.mCurrentFragment).H4(), this.f18848e);
+                pbActivity2.isShowDeleteResumeEditorTips(((PbFragment) pbActivity2.mCurrentFragment).N4().m0(), ((PbFragment) PbActivity.this.mCurrentFragment).K4(), this.f18925e);
                 PbActivity.this.hasRemindedEditorTips = true;
             }
         }
@@ -115,8 +115,8 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
             Fragment findFragment = PbActivity.this.findFragment();
             if (findFragment instanceof i) {
                 i iVar = (i) findFragment;
-                if (iVar.W() != null) {
-                    iVar.W().a(i2, z, responsedMessage, z2, j);
+                if (iVar.Y() != null) {
+                    iVar.Y().a(i2, z, responsedMessage, z2, j);
                 }
             }
         }
@@ -126,8 +126,8 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
             Fragment findFragment = PbActivity.this.findFragment();
             if (findFragment instanceof i) {
                 i iVar = (i) findFragment;
-                if (iVar.W() != null) {
-                    iVar.W().b(eVar);
+                if (iVar.Y() != null) {
+                    iVar.Y().b(eVar);
                 }
             }
         }
@@ -142,7 +142,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
                     PbActivity pbActivity2 = PbActivity.this;
                     pbActivity2.hideNetRefreshView(pbActivity2.mRootView);
                 }
-            } else if (!PbActivity.this.mIsHasCache && !PbActivity.this.mPbModel.a1()) {
+            } else if (!PbActivity.this.mIsHasCache && !PbActivity.this.mPbModel.d1()) {
                 PbActivity pbActivity3 = PbActivity.this;
                 pbActivity3.showNetRefreshView(pbActivity3.mRootView, PbActivity.this.getPageContext().getResources().getString(R.string.net_error_text, str, Integer.valueOf(i2)), true);
                 PbActivity pbActivity4 = PbActivity.this;
@@ -158,15 +158,15 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
                 }
             } else if (findFragment instanceof i) {
                 i iVar = (i) findFragment;
-                if (iVar.W() != null) {
-                    iVar.W().c(z, i2, i3, i4, eVar, str, i5);
+                if (iVar.Y() != null) {
+                    iVar.Y().c(z, i2, i3, i4, eVar, str, i5);
                 }
             }
             String stringExtra = PbActivity.this.getIntent().getStringExtra("key_open_editor_tips");
             if (TextUtils.isEmpty(stringExtra) || PbActivity.this.hasRemindedEditorTips) {
                 return;
             }
-            d.a.c.e.m.e.a().postDelayed(new RunnableC0203a(stringExtra), 100L);
+            d.a.c.e.m.e.a().postDelayed(new RunnableC0205a(stringExtra), 100L);
         }
     }
 
@@ -197,7 +197,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
                     PbActivity.this.fillFragment(pbData);
                 }
             } else if (findFragment instanceof PbFragment) {
-                PbActivity.this.mPbModel.r1(pbData, pbPageReadLocalResponseMessage.getUpdateType(), pbPageReadLocalResponseMessage.getErrorString());
+                PbActivity.this.mPbModel.u1(pbData, pbPageReadLocalResponseMessage.getUpdateType(), pbPageReadLocalResponseMessage.getErrorString());
             }
         }
     }
@@ -206,49 +206,49 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     public class c implements WriteTipBubbleController.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View f18851a;
+        public final /* synthetic */ View f18928a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.w.w.e f18852b;
+        public final /* synthetic */ d.a.m0.w.w.e f18929b;
 
         public c(View view, d.a.m0.w.w.e eVar) {
-            this.f18851a = view;
-            this.f18852b = eVar;
+            this.f18928a = view;
+            this.f18929b = eVar;
         }
 
         @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
         public void a(View view, String str) {
-            this.f18851a.performClick();
-            this.f18852b.l();
-            this.f18852b.v().i().setText(str);
-            Editable text = this.f18852b.v().i().getText();
+            this.f18928a.performClick();
+            this.f18929b.l();
+            this.f18929b.v().i().setText(str);
+            Editable text = this.f18929b.v().i().getText();
             if (TextUtils.isEmpty(text)) {
                 return;
             }
-            this.f18852b.v().i().setSelection(text.length());
+            this.f18929b.v().i().setSelection(text.length());
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements a.e {
+    public class d implements a.f {
         public d() {
         }
 
-        @Override // d.a.n0.s0.a.e
+        @Override // d.a.n0.s0.a.f
         public void a(String str, int i2) {
             if (PbActivity.this.mCurrentFragment instanceof PbFragment) {
                 PbFragment pbFragment = (PbFragment) PbActivity.this.mCurrentFragment;
-                if (pbFragment.K4() != null && pbFragment.K4().l0() != null) {
-                    pbFragment.K4().l0().r0();
+                if (pbFragment.N4() != null && pbFragment.N4().l0() != null) {
+                    pbFragment.N4().l0().r0();
                 }
             }
-            FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", PbActivity.this.mPbModel.y0().N(), PbActivity.this.mPbModel.y0().m(), null);
+            FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", PbActivity.this.mPbModel.C0().N(), PbActivity.this.mPbModel.C0().m(), null);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 0).param(TiebaStatic.Params.RESOURCE_ID, i2));
         }
 
-        @Override // d.a.n0.s0.a.e
+        @Override // d.a.n0.s0.a.f
         public void onError(String str) {
-            FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", PbActivity.this.mPbModel.y0().N(), PbActivity.this.mPbModel.y0().m(), "0");
+            FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", PbActivity.this.mPbModel.C0().N(), PbActivity.this.mPbModel.C0().m(), "0");
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
         }
     }
@@ -257,39 +257,39 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f18855a;
+        public ArrayList<String> f18932a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ConcurrentHashMap<String, ImageUrlData> f18856b;
+        public ConcurrentHashMap<String, ImageUrlData> f18933b;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f18862h;
+        public boolean f18939h;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18857c = null;
+        public String f18934c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f18858d = null;
+        public String f18935d = null;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18859e = null;
+        public String f18936e = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18860f = null;
+        public String f18937f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f18861g = false;
+        public boolean f18938g = false;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f18863i = "";
+        public String f18940i = "";
         public int j = 0;
     }
 
     private Fragment createFragment(String str) {
         if (VIDEO_PB_FRAGMENT_TAG.equals(str)) {
-            return VideoPbFragment.U3();
+            return VideoPbFragment.X3();
         }
-        return PbFragment.s5();
+        return PbFragment.v5();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -308,21 +308,21 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
 
     private void initData(Bundle bundle) {
         this.mVideoPbViewModel.a(this.mPbModel);
-        m0.b().p(this.mPbModel.N(), this.mPbModel.i0());
-        this.mPbModel.M1(new a());
+        m0.b().p(this.mPbModel.R(), this.mPbModel.m0());
+        this.mPbModel.P1(new a());
         registerListener(new b(2004003));
-        this.mPbModel.n1();
-        if (this.mPbModel.a1()) {
-            d.a.n0.e2.h.e M = this.mPbModel.M(d.a.n0.r0.l.a());
-            if (M != null) {
-                if (this.mPbModel.y0() != null) {
-                    this.mPbModel.y0().v0(M.L());
+        this.mPbModel.q1();
+        if (this.mPbModel.d1()) {
+            d.a.n0.e2.h.e Q = this.mPbModel.Q(d.a.n0.r0.l.a());
+            if (Q != null) {
+                if (this.mPbModel.C0() != null) {
+                    this.mPbModel.C0().v0(Q.L());
                 }
-                M.k0(3);
+                Q.k0(3);
                 if (findFragment() == null) {
-                    this.mVideoPbViewModel.r(M, 1);
+                    this.mVideoPbViewModel.r(Q, 1);
                     if (this.mCurrentFragment == null) {
-                        fillFragment(M);
+                        fillFragment(Q);
                     }
                 }
             }
@@ -367,8 +367,8 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
         if (this.loadListener == null) {
             this.loadListener = new d();
         }
-        FunAdRecordHttpMessage.uploadRequestRecord("a005", null, this.mPbModel.y0().N(), this.mPbModel.y0().m(), null);
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("tid", this.mPbModel.y0().N()).param("fid", this.mPbModel.y0().m()).param("obj_type", "a005"));
+        FunAdRecordHttpMessage.uploadRequestRecord("a005", null, this.mPbModel.C0().N(), this.mPbModel.C0().m(), null);
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("tid", this.mPbModel.C0().N()).param("fid", this.mPbModel.C0().m()).param("obj_type", "a005"));
         String d2 = d.a.n0.s0.d.c.e().d("pb_banner");
         d.a.n0.s0.a h2 = d.a.n0.s0.a.h();
         if (e2 == null) {
@@ -430,7 +430,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     public String getFromForumName() {
         PbModel pbModel = this.mPbModel;
         if (pbModel != null) {
-            return pbModel.a0();
+            return pbModel.e0();
         }
         return null;
     }
@@ -451,12 +451,12 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
         if (pageStayDurationItem != null) {
             PbModel pbModel = this.mPbModel;
             if (pbModel != null) {
-                if (pbModel.y0() != null) {
-                    pageStayDurationItem.q(d.a.c.e.m.b.f(this.mPbModel.y0().m(), 0L));
+                if (pbModel.C0() != null) {
+                    pageStayDurationItem.q(d.a.c.e.m.b.f(this.mPbModel.C0().m(), 0L));
                 }
-                pageStayDurationItem.y(d.a.c.e.m.b.f(this.mPbModel.O0(), 0L));
-                if (this.mPbModel.y0() != null && this.mPbModel.y0().L() != null) {
-                    pageStayDurationItem.r(this.mPbModel.y0().L().M0());
+                pageStayDurationItem.y(d.a.c.e.m.b.f(this.mPbModel.S0(), 0L));
+                if (this.mPbModel.C0() != null && this.mPbModel.C0().L() != null) {
+                    pageStayDurationItem.r(this.mPbModel.C0().L().M0());
                 }
             }
             if (!k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
@@ -496,10 +496,10 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     @Override // d.a.n0.e2.k.a
     public int getUserIdentify() {
         PbModel pbModel = this.mPbModel;
-        if (pbModel == null || pbModel.y0() == null) {
+        if (pbModel == null || pbModel.C0() == null) {
             return 0;
         }
-        return this.mPbModel.y0().S();
+        return this.mPbModel.C0().S();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
@@ -510,7 +510,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     @Override // d.a.n0.e2.k.a
     public boolean isHost(String str) {
         PbModel pbModel = this.mPbModel;
-        return pbModel != null && pbModel.f1(str);
+        return pbModel != null && pbModel.i1(str);
     }
 
     public boolean isImage(View view) {
@@ -523,7 +523,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
         if (pbModel == null) {
             return false;
         }
-        return pbModel.e1();
+        return pbModel.h1();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -625,7 +625,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
         super.onKeyboardVisibilityChanged(z);
         Fragment findFragment = findFragment();
         if (findFragment instanceof VideoPbFragment) {
-            ((VideoPbFragment) findFragment).V3(z);
+            ((VideoPbFragment) findFragment).Y3(z);
         }
     }
 
@@ -635,7 +635,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
         if (this.mPbModel != null) {
             this.mVideoPbViewModel.u(true);
             showLoadingView(this.mRootView);
-            this.mPbModel.n1();
+            this.mPbModel.q1();
         }
     }
 
@@ -652,15 +652,15 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (i2 == 0) {
             Fragment fragment = this.mCurrentFragment;
-            if ((fragment instanceof PbFragment) && ((PbFragment) fragment).H4() != null) {
-                ((PbFragment) this.mCurrentFragment).H4().v0();
+            if ((fragment instanceof PbFragment) && ((PbFragment) fragment).K4() != null) {
+                ((PbFragment) this.mCurrentFragment).K4().v0();
                 return;
             }
             Fragment fragment2 = this.mCurrentFragment;
-            if (!(fragment2 instanceof VideoPbFragment) || ((VideoPbFragment) fragment2).c3() == null) {
+            if (!(fragment2 instanceof VideoPbFragment) || ((VideoPbFragment) fragment2).f3() == null) {
                 return;
             }
-            ((VideoPbFragment) this.mCurrentFragment).c3().v0();
+            ((VideoPbFragment) this.mCurrentFragment).f3().v0();
             return;
         }
         super.onRequestPermissionsResult(i2, strArr, iArr);
@@ -670,7 +670,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     public void onResume() {
         super.onResume();
         if (this.mPbModel != null) {
-            m0.b().p(this.mPbModel.N(), this.mPbModel.i0());
+            m0.b().p(this.mPbModel.R(), this.mPbModel.m0());
         }
         VoiceManager voiceManager = this.mVoiceManager;
         if (voiceManager != null) {
@@ -687,7 +687,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
         super.onSaveInstanceState(bundle);
         PbModel pbModel = this.mPbModel;
         if (pbModel != null) {
-            pbModel.E1(bundle);
+            pbModel.H1(bundle);
         }
         VoiceManager voiceManager = this.mVoiceManager;
         if (voiceManager != null) {
@@ -699,13 +699,13 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
     public void onScreenShot(String str) {
         super.onScreenShot(str);
         PbModel pbModel = this.mPbModel;
-        if (pbModel == null || pbModel.y0() == null) {
+        if (pbModel == null || pbModel.C0() == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("tid", this.mPbModel.O0());
-        statisticItem.param("fid", this.mPbModel.y0().m());
+        statisticItem.param("tid", this.mPbModel.S0());
+        statisticItem.param("fid", this.mPbModel.C0().m());
         statisticItem.param("obj_type", 3);
         TiebaStatic.log(statisticItem);
     }
@@ -737,7 +737,7 @@ public class PbActivity extends BaseFragmentActivity implements d.a.n0.e2.k.a<Pb
         super.onWindowFocusChanged(z);
         Fragment fragment = this.mCurrentFragment;
         if (fragment instanceof VideoPbFragment) {
-            ((VideoPbFragment) fragment).Y3(z);
+            ((VideoPbFragment) fragment).b4(z);
         }
     }
 

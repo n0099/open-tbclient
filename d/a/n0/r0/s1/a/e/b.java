@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemView;
 /* loaded from: classes4.dex */
-public class b extends d.a.c.j.e.a<d.a.n0.r0.s1.a.a.b, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder> {
+public class b extends d.a.c.k.e.a<d.a.n0.r0.s1.a.a.b, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder> {
     public TbPageContext m;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -15,17 +15,17 @@ public class b extends d.a.c.j.e.a<d.a.n0.r0.s1.a.a.b, FrsGameStrategyItemView.F
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public FrsGameStrategyItemView.FrsGameStrategyItemViewHolder P(ViewGroup viewGroup) {
+    public FrsGameStrategyItemView.FrsGameStrategyItemViewHolder Q(ViewGroup viewGroup) {
         return new FrsGameStrategyItemView.FrsGameStrategyItemViewHolder(new FrsGameStrategyItemView(this.m));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.r0.s1.a.a.b bVar, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder frsGameStrategyItemViewHolder) {
-        frsGameStrategyItemViewHolder.f15442a.m(bVar);
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.r0.s1.a.a.b bVar, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder frsGameStrategyItemViewHolder) {
+        frsGameStrategyItemViewHolder.f15504a.n(bVar);
         return frsGameStrategyItemViewHolder.a();
     }
 }

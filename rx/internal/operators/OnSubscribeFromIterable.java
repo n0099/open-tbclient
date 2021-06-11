@@ -6,13 +6,13 @@ import h.j;
 import h.m.a;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends T> f69070e;
+    public final Iterable<? extends T> f72379e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class IterableProducer<T> extends AtomicLong implements f {
         public static final long serialVersionUID = -8730475647105475802L;
         public final Iterator<? extends T> it;
@@ -111,7 +111,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
 
     public OnSubscribeFromIterable(Iterable<? extends T> iterable) {
         if (iterable != null) {
-            this.f69070e = iterable;
+            this.f72379e = iterable;
             return;
         }
         throw new NullPointerException("iterable must not be null");
@@ -122,7 +122,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
     /* renamed from: a */
     public void call(j<? super T> jVar) {
         try {
-            Iterator<? extends T> it = this.f69070e.iterator();
+            Iterator<? extends T> it = this.f72379e.iterator();
             boolean hasNext = it.hasNext();
             if (jVar.isUnsubscribed()) {
                 return;

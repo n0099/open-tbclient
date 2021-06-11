@@ -2,7 +2,7 @@ package rx.internal.operators;
 
 import h.j;
 import h.o.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 4127754106204442833L;
 

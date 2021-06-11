@@ -19,11 +19,6 @@ public class a implements AdHttpProxy<c> {
     }
 
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public c doGetWithoutResponse(String str, Map<String, String> map) {
-        return com.kwad.sdk.core.network.a.a.b(str, map);
-    }
-
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
     public c doPost(String str, Map<String, String> map, Map<String, String> map2) {
         return com.kwad.sdk.core.network.a.a.a(str, map, map2);
     }

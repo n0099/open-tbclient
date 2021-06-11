@@ -12,7 +12,7 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f56648a;
+    public String f60337a;
 
     /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<String, Void, Void> {
@@ -24,7 +24,7 @@ public class c {
         public Void doInBackground(String... strArr) {
             HashMap c2 = c.this.c();
             e eVar = new e();
-            eVar.b().s(c.this.f56648a);
+            eVar.b().s(c.this.f60337a);
             eVar.b().q(HttpMessageTask.HTTP_METHOD.GET);
             if (c2 != null && !c2.isEmpty()) {
                 eVar.b().p(c.this.c());
@@ -36,12 +36,12 @@ public class c {
     }
 
     public c(String str) {
-        this.f56648a = str;
+        this.f60337a = str;
     }
 
     public static b e(AdvertAppInfo advertAppInfo) {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.O3) == null || !(iLegoAdvert instanceof b)) {
+        if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.R3) == null || !(iLegoAdvert instanceof b)) {
             return null;
         }
         return (b) iLegoAdvert;
@@ -58,8 +58,8 @@ public class c {
         if (bVar == null || bVar.getParallelCharge() == null) {
             return;
         }
-        f(bVar.getParallelCharge().f56645b);
-        Iterator<String> it = bVar.getParallelCharge().f56646c.iterator();
+        f(bVar.getParallelCharge().f60334b);
+        Iterator<String> it = bVar.getParallelCharge().f60335c.iterator();
         while (it.hasNext()) {
             f(it.next());
         }
@@ -69,10 +69,10 @@ public class c {
         if (bVar == null || bVar.getParallelCharge() == null) {
             return false;
         }
-        String str = bVar.getParallelCharge().f56644a;
+        String str = bVar.getParallelCharge().f60333a;
         f(str);
         boolean z = !TextUtils.isEmpty(str);
-        Iterator<String> it = bVar.getParallelCharge().f56647d.iterator();
+        Iterator<String> it = bVar.getParallelCharge().f60336d.iterator();
         while (it.hasNext()) {
             String next = it.next();
             z = z || !TextUtils.isEmpty(next);
@@ -84,7 +84,7 @@ public class c {
     public final HashMap<String, String> c() {
         String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
         if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-            cookie = d.a.m0.l.a.f49450a;
+            cookie = d.a.m0.l.a.f53124a;
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("Cookie", cookie);

@@ -18,38 +18,38 @@ import kotlin.text.StringsKt__StringsJVMKt;
 public final class LiveNetwork {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6386a;
+    public String f6429a;
 
     /* renamed from: b  reason: collision with root package name */
-    public INetWork f6387b;
+    public INetWork f6430b;
 
     /* loaded from: classes2.dex */
     public static final class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final NetResponse f6388a;
+        public final NetResponse f6431a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f6389b;
+        public final T f6432b;
 
         public a(NetResponse netResponse, T t) {
-            this.f6388a = netResponse;
-            this.f6389b = t;
+            this.f6431a = netResponse;
+            this.f6432b = t;
         }
 
         public final T a() {
-            return this.f6389b;
+            return this.f6432b;
         }
 
         public final NetResponse b() {
-            return this.f6388a;
+            return this.f6431a;
         }
 
         public boolean equals(Object obj) {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.f6388a, aVar.f6388a) && Intrinsics.areEqual(this.f6389b, aVar.f6389b);
+                    return Intrinsics.areEqual(this.f6431a, aVar.f6431a) && Intrinsics.areEqual(this.f6432b, aVar.f6432b);
                 }
                 return false;
             }
@@ -57,14 +57,14 @@ public final class LiveNetwork {
         }
 
         public int hashCode() {
-            NetResponse netResponse = this.f6388a;
+            NetResponse netResponse = this.f6431a;
             int hashCode = (netResponse != null ? netResponse.hashCode() : 0) * 31;
-            T t = this.f6389b;
+            T t = this.f6432b;
             return hashCode + (t != null ? t.hashCode() : 0);
         }
 
         public String toString() {
-            return "Response(response=" + this.f6388a + ", data=" + this.f6389b + SmallTailInfo.EMOTION_SUFFIX;
+            return "Response(response=" + this.f6431a + ", data=" + this.f6432b + SmallTailInfo.EMOTION_SUFFIX;
         }
     }
 
@@ -72,28 +72,28 @@ public final class LiveNetwork {
     public static final class b<T> implements d.a.v.d.b<a<ResponseDataT>> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f6391b;
+        public final /* synthetic */ Map f6434b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.v.b.a f6392c;
+        public final /* synthetic */ d.a.v.b.a f6435c;
 
         public b(Map map, d.a.v.b.a aVar) {
-            this.f6391b = map;
-            this.f6392c = aVar;
+            this.f6434b = map;
+            this.f6435c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.v.d.b
         /* renamed from: b */
         public final a<ResponseDataT> a() {
-            INetWork iNetWork = LiveNetwork.this.f6387b;
+            INetWork iNetWork = LiveNetwork.this.f6430b;
             if (iNetWork == null) {
                 Intrinsics.throwNpe();
             }
-            NetResponse res = iNetWork.postSync(this.f6391b);
+            NetResponse res = iNetWork.postSync(this.f6434b);
             Object obj = null;
             try {
-                d.a.v.b.a aVar = this.f6392c;
+                d.a.v.b.a aVar = this.f6435c;
                 if (aVar != null) {
                     obj = aVar.onParseResponseInBackground(res);
                 }
@@ -109,10 +109,10 @@ public final class LiveNetwork {
     public static final class c<T> implements d.a.v.d.c<a<ResponseDataT>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.v.b.a f6393a;
+        public final /* synthetic */ d.a.v.b.a f6436a;
 
         public c(d.a.v.b.a aVar) {
-            this.f6393a = aVar;
+            this.f6436a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -121,7 +121,7 @@ public final class LiveNetwork {
         @Override // d.a.v.d.c
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
-            d.a.v.b.a aVar2 = this.f6393a;
+            d.a.v.b.a aVar2 = this.f6436a;
             if (aVar2 != 0) {
                 aVar2.onNetResponse(aVar != 0 ? aVar.b() : null, aVar != 0 ? aVar.a() : null);
             }
@@ -135,34 +135,34 @@ public final class LiveNetwork {
     public LiveNetwork() {
         LazyKt__LazyJVMKt.lazy(LiveNetwork$handler$2.INSTANCE);
         NetworkAgentService networkAgentService = (NetworkAgentService) ServiceManager.getService(NetworkAgentService.SERVICE_REFERENCE);
-        this.f6387b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
+        this.f6430b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
     }
 
     public final <ResponseDataT> void b(Map<String, ? extends Object> map, d.a.v.b.a<ResponseDataT> aVar) {
-        String str = this.f6386a;
-        if (str == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f6387b == null) {
+        String str = this.f6429a;
+        if (str == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f6430b == null) {
             return;
         }
         d.a.v.d.a.a(new b(map, aVar), new c(aVar));
     }
 
     public final void c(Map<String, ? extends Object> map) {
-        INetWork iNetWork = this.f6387b;
+        INetWork iNetWork = this.f6430b;
         if (iNetWork != null) {
             iNetWork.setExtra(map);
         }
     }
 
     public final void d(int i2) {
-        INetWork iNetWork = this.f6387b;
+        INetWork iNetWork = this.f6430b;
         if (iNetWork != null) {
             iNetWork.setRetryCount(i2);
         }
     }
 
     public final void e(String str) {
-        this.f6386a = str;
-        INetWork iNetWork = this.f6387b;
+        this.f6429a = str;
+        INetWork iNetWork = this.f6430b;
         if (iNetWork != null) {
             iNetWork.setUrl(str);
         }

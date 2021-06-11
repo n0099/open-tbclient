@@ -17,7 +17,7 @@ import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import d.a.m0.r.k;
 /* loaded from: classes3.dex */
 public class MemeLoaderProc2 implements e<a> {
@@ -81,7 +81,7 @@ public class MemeLoaderProc2 implements e<a> {
                 if (bVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(cVar);
-                    bVar.f38695a = diskCancelWorker;
+                    bVar.f42348a = diskCancelWorker;
                 }
             }
         }
@@ -119,7 +119,7 @@ public class MemeLoaderProc2 implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
         if (d.g().a(cVar)) {
             int i4 = j.H() ? 300 : 2000;
@@ -174,11 +174,11 @@ public class MemeLoaderProc2 implements e<a> {
         String str4 = str3;
         WebClient webClient = new WebClient();
         if (bVar != null) {
-            bVar.f38695a = webClient;
+            bVar.f42348a = webClient;
         }
         byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
         boolean needCache = webClient.needCache();
-        if (downloadImageBytes != null || webClient.getResponse().f38641a) {
+        if (downloadImageBytes != null || webClient.getResponse().f42294a) {
             d.a.m0.a0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
             return storeBitmap(str4, str2, bVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), e2, e3), (webClient.isGif || l.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
         }

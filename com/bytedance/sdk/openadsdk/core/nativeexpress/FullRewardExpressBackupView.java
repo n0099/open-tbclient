@@ -19,30 +19,30 @@ public class FullRewardExpressBackupView extends BackupView {
 
     public FullRewardExpressBackupView(@NonNull Context context) {
         super(context);
-        this.f28208a = context;
+        this.f28311a = context;
     }
 
     private void b() {
-        this.f28213f = al.c(this.f28208a, this.l.getExpectExpressWidth());
-        this.f28214g = al.c(this.f28208a, this.l.getExpectExpressWidth());
+        this.f28316f = al.c(this.f28311a, this.l.getExpectExpressWidth());
+        this.f28317g = al.c(this.f28311a, this.l.getExpectExpressWidth());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.f28213f, this.f28214g);
+            layoutParams = new ViewGroup.LayoutParams(this.f28316f, this.f28317g);
         }
-        layoutParams.width = this.f28213f;
-        layoutParams.height = this.f28214g;
+        layoutParams.width = this.f28316f;
+        layoutParams.height = this.f28317g;
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
         }
         setLayoutParams(layoutParams);
-        this.f28209b.n();
+        this.f28312b.n();
         c();
     }
 
     private void c() {
-        View inflate = LayoutInflater.from(this.f28208a).inflate(ad.f(this.f28208a, "tt_backup_full_reward"), (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(this.f28311a).inflate(ad.f(this.f28311a, "tt_backup_full_reward"), (ViewGroup) this, true);
         this.k = inflate;
-        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28208a, "tt_bu_video_container"));
+        FrameLayout frameLayout = (FrameLayout) inflate.findViewById(ad.e(this.f28311a, "tt_bu_video_container"));
         this.m = frameLayout;
         frameLayout.removeAllViews();
     }
@@ -50,13 +50,13 @@ public class FullRewardExpressBackupView extends BackupView {
     public void a(com.bytedance.sdk.openadsdk.core.d.l lVar, NativeExpressView nativeExpressView, com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
         u.b("FullRewardExpressBackupView", "show backup view");
         setBackgroundColor(-1);
-        this.f28209b = lVar;
+        this.f28312b = lVar;
         this.l = nativeExpressView;
         this.n = aVar;
         if (ak.c(lVar.ap()) == 7) {
-            this.f28212e = "rewarded_video";
+            this.f28315e = "rewarded_video";
         } else {
-            this.f28212e = "fullscreen_interstitial_ad";
+            this.f28315e = "fullscreen_interstitial_ad";
         }
         b();
         this.l.addView(this, new ViewGroup.LayoutParams(-2, -2));

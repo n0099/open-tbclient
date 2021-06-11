@@ -8,16 +8,16 @@ import org.json.JSONStringer;
 public class x0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f37172a = {"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
+    public static final String[] f40851a = {"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f37173b = {"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
+    public static final String[] f40852b = {"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f37174c = {"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
+    public static final String[] f40853c = {"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f37175d = {"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
+    public static final String[] f40854d = {"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
 
     public static w0 a(Context context) {
         return new w0(new x0(), context);
@@ -27,21 +27,21 @@ public class x0 {
         JSONStringer d2 = d();
         d2.key("e").value(str).key("timeis").value(c());
         if (y0Var != null) {
-            d2.key("pid").value(y0Var.f37183a);
-            if (y0Var.f37184b != null) {
+            d2.key("pid").value(y0Var.f40862a);
+            if (y0Var.f40863b != null) {
                 JSONStringer key = d2.key("traceid");
-                String traceid = y0Var.f37184b.getTraceid();
+                String traceid = y0Var.f40863b.getTraceid();
                 try {
                     traceid = z.a(traceid);
                 } catch (Exception unused) {
                 }
                 JSONStringer key2 = key.value(traceid).key(IAdRequestParam.CELL_ID);
-                String id = y0Var.f37184b.getId();
+                String id = y0Var.f40863b.getId();
                 try {
                     id = z.a(id);
                 } catch (Exception unused2) {
                 }
-                key2.value(id).key("type").value(y0Var.f37184b.getType());
+                key2.value(id).key("type").value(y0Var.f40863b.getType());
             }
         }
         return d2;

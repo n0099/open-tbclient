@@ -13,15 +13,15 @@ import d.a.c.e.m.e;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f49917b;
+    public static a f53593b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Runnable f49918a = new RunnableC1145a();
+    public Runnable f53594a = new RunnableC1201a();
 
     /* renamed from: d.a.m0.r.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1145a implements Runnable {
-        public RunnableC1145a() {
+    public class RunnableC1201a implements Runnable {
+        public RunnableC1201a() {
         }
 
         @Override // java.lang.Runnable
@@ -31,14 +31,14 @@ public class a {
     }
 
     public static a c() {
-        if (f49917b == null) {
+        if (f53593b == null) {
             synchronized (a.class) {
-                if (f49917b == null) {
-                    f49917b = new a();
+                if (f53593b == null) {
+                    f53593b = new a();
                 }
             }
         }
-        return f49917b;
+        return f53593b;
     }
 
     public boolean a() {
@@ -48,7 +48,7 @@ public class a {
     public void b() {
         if (a() || DeviceInfoUtil.isHonor()) {
             d(1);
-            e.a().postDelayed(this.f49918a, 500L);
+            e.a().postDelayed(this.f53594a, 500L);
         }
     }
 

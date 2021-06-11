@@ -4,29 +4,29 @@ import android.text.TextUtils;
 import com.kwai.filedownloader.download.DownloadLaunchRunnable;
 import com.kwai.filedownloader.x;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g implements x {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwai.filedownloader.b.a f34395a;
+    public final com.kwai.filedownloader.b.a f37879a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final h f34396b;
+    public final h f37880b;
 
     public g() {
         com.kwai.filedownloader.download.b a2 = com.kwai.filedownloader.download.b.a();
-        this.f34395a = a2.c();
-        this.f34396b = new h(a2.d());
+        this.f37879a = a2.c();
+        this.f37880b = new h(a2.d());
     }
 
     @Override // com.kwai.filedownloader.x
     public int a(String str, int i2) {
-        return this.f34396b.a(str, i2);
+        return this.f37880b.a(str, i2);
     }
 
     public void a() {
-        List<Integer> b2 = this.f34396b.b();
-        if (com.kwai.filedownloader.f.d.f34292a) {
+        List<Integer> b2 = this.f37880b.b();
+        if (com.kwai.filedownloader.f.d.f37776a) {
             com.kwai.filedownloader.f.d.c(this, "pause all tasks %d", Integer.valueOf(b2.size()));
         }
         for (Integer num : b2) {
@@ -42,46 +42,46 @@ public class g implements x {
         com.kwai.filedownloader.d.c cVar;
         List<com.kwai.filedownloader.d.a> list;
         boolean z4 = false;
-        if (com.kwai.filedownloader.f.d.f34292a) {
+        if (com.kwai.filedownloader.f.d.f37776a) {
             com.kwai.filedownloader.f.d.c(this, "request start the task with url(%s) path(%s) isDirectory(%B)", str, str2, Boolean.valueOf(z));
         }
         int a2 = com.kwai.filedownloader.f.f.a(str, str2, z);
-        com.kwai.filedownloader.d.c b2 = this.f34395a.b(a2);
+        com.kwai.filedownloader.d.c b2 = this.f37879a.b(a2);
         if (z || b2 != null) {
             cVar = b2;
             list = null;
         } else {
             int a3 = com.kwai.filedownloader.f.f.a(str, com.kwai.filedownloader.f.f.h(str2), true);
-            com.kwai.filedownloader.d.c b3 = this.f34395a.b(a3);
+            com.kwai.filedownloader.d.c b3 = this.f37879a.b(a3);
             if (b3 == null || !str2.equals(b3.d())) {
                 list = null;
             } else {
-                if (com.kwai.filedownloader.f.d.f34292a) {
+                if (com.kwai.filedownloader.f.d.f37776a) {
                     com.kwai.filedownloader.f.d.c(this, "task[%d] find model by dirCaseId[%d]", Integer.valueOf(a2), Integer.valueOf(a3));
                 }
-                list = this.f34395a.c(a3);
+                list = this.f37879a.c(a3);
             }
             cVar = b3;
         }
         if (com.kwai.filedownloader.f.c.a(a2, cVar, (x) this, true)) {
-            if (com.kwai.filedownloader.f.d.f34292a) {
+            if (com.kwai.filedownloader.f.d.f37776a) {
                 com.kwai.filedownloader.f.d.c(this, "has already started download %d", Integer.valueOf(a2));
             }
             return;
         }
         String d2 = cVar != null ? cVar.d() : com.kwai.filedownloader.f.f.a(str2, z, (String) null);
         if (com.kwai.filedownloader.f.c.a(a2, d2, z2, true)) {
-            if (com.kwai.filedownloader.f.d.f34292a) {
+            if (com.kwai.filedownloader.f.d.f37776a) {
                 com.kwai.filedownloader.f.d.c(this, "has already completed downloading %d", Integer.valueOf(a2));
             }
             return;
         }
         if (com.kwai.filedownloader.f.c.a(a2, cVar != null ? cVar.g() : 0L, cVar != null ? cVar.e() : com.kwai.filedownloader.f.f.d(d2), d2, this)) {
-            if (com.kwai.filedownloader.f.d.f34292a) {
+            if (com.kwai.filedownloader.f.d.f37776a) {
                 com.kwai.filedownloader.f.d.c(this, "there is an another task with the same target-file-path %d %s", Integer.valueOf(a2), d2);
                 if (cVar != null) {
-                    this.f34395a.e(a2);
-                    this.f34395a.d(a2);
+                    this.f37879a.e(a2);
+                    this.f37879a.d(a2);
                 }
             }
             return;
@@ -102,29 +102,29 @@ public class g implements x {
                 cVar.a(str);
             }
             if (z4) {
-                this.f34395a.a(cVar);
+                this.f37879a.a(cVar);
             }
-            this.f34396b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
+            this.f37880b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
         } else {
-            this.f34395a.e(cVar.a());
-            this.f34395a.d(cVar.a());
+            this.f37879a.e(cVar.a());
+            this.f37879a.d(cVar.a());
             cVar.a(a2);
             cVar.a(str2, z);
             if (list != null) {
                 for (com.kwai.filedownloader.d.a aVar : list) {
                     aVar.a(a2);
-                    this.f34395a.a(aVar);
+                    this.f37879a.a(aVar);
                 }
             }
         }
         z4 = true;
         if (z4) {
         }
-        this.f34396b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
+        this.f37880b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
     }
 
     public boolean a(int i2) {
-        return a(this.f34395a.b(i2));
+        return a(this.f37879a.b(i2));
     }
 
     @Override // com.kwai.filedownloader.x
@@ -132,7 +132,7 @@ public class g implements x {
         if (cVar == null) {
             return false;
         }
-        boolean c2 = this.f34396b.c(cVar.a());
+        boolean c2 = this.f37880b.c(cVar.a());
         if (com.kwai.filedownloader.d.d.a(cVar.f())) {
             if (!c2) {
                 return false;
@@ -149,24 +149,24 @@ public class g implements x {
     }
 
     public boolean b() {
-        return this.f34396b.a() <= 0;
+        return this.f37880b.a() <= 0;
     }
 
     public boolean b(int i2) {
-        if (com.kwai.filedownloader.f.d.f34292a) {
+        if (com.kwai.filedownloader.f.d.f37776a) {
             com.kwai.filedownloader.f.d.c(this, "request pause the task %d", Integer.valueOf(i2));
         }
-        com.kwai.filedownloader.d.c b2 = this.f34395a.b(i2);
+        com.kwai.filedownloader.d.c b2 = this.f37879a.b(i2);
         if (b2 == null) {
             return false;
         }
         b2.a((byte) -2);
-        this.f34396b.b(i2);
+        this.f37880b.b(i2);
         return true;
     }
 
     public long c(int i2) {
-        com.kwai.filedownloader.d.c b2 = this.f34395a.b(i2);
+        com.kwai.filedownloader.d.c b2 = this.f37879a.b(i2);
         if (b2 == null) {
             return 0L;
         }
@@ -174,7 +174,7 @@ public class g implements x {
         if (n <= 1) {
             return b2.g();
         }
-        List<com.kwai.filedownloader.d.a> c2 = this.f34395a.c(i2);
+        List<com.kwai.filedownloader.d.a> c2 = this.f37879a.c(i2);
         if (c2 == null || c2.size() != n) {
             return 0L;
         }
@@ -182,11 +182,11 @@ public class g implements x {
     }
 
     public void c() {
-        this.f34395a.a();
+        this.f37879a.a();
     }
 
     public long d(int i2) {
-        com.kwai.filedownloader.d.c b2 = this.f34395a.b(i2);
+        com.kwai.filedownloader.d.c b2 = this.f37879a.b(i2);
         if (b2 == null) {
             return 0L;
         }
@@ -194,7 +194,7 @@ public class g implements x {
     }
 
     public byte e(int i2) {
-        com.kwai.filedownloader.d.c b2 = this.f34395a.b(i2);
+        com.kwai.filedownloader.d.c b2 = this.f37879a.b(i2);
         if (b2 == null) {
             return (byte) 0;
         }
@@ -202,7 +202,7 @@ public class g implements x {
     }
 
     public synchronized boolean f(int i2) {
-        return this.f34396b.a(i2);
+        return this.f37880b.a(i2);
     }
 
     public boolean g(int i2) {
@@ -213,8 +213,8 @@ public class g implements x {
             com.kwai.filedownloader.f.d.d(this, "The task[%d] is downloading, can't clear it.", Integer.valueOf(i2));
             return false;
         } else {
-            this.f34395a.e(i2);
-            this.f34395a.d(i2);
+            this.f37879a.e(i2);
+            this.f37879a.d(i2);
             return true;
         }
     }

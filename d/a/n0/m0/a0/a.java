@@ -3,8 +3,8 @@ package d.a.n0.m0.a0;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f57202a = -1;
+    public int f60891a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57203b;
+    public int f60892b;
 }

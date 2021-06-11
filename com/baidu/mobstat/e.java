@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.mobstat.bm;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f8819a = new e();
+    public static final e f8881a = new e();
 
     private void b(Context context, boolean z) {
         String str;
@@ -47,7 +46,7 @@ public class e {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(System.currentTimeMillis() + FieldBuilder.SE);
+        sb.append(System.currentTimeMillis() + "|");
         sb.append(z ? 1 : 0);
         try {
             JSONObject jSONObject = new JSONObject();

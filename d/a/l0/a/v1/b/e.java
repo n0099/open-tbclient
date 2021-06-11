@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, ProviderDelegation> f45296a = new ConcurrentHashMap();
+    public static final Map<String, ProviderDelegation> f48970a = new ConcurrentHashMap();
 
     static {
         c(d.a.l0.a.u.b.a());
@@ -18,12 +18,12 @@ public class e {
 
     @Nullable
     public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
-        return f45296a.get(cls.getName());
+        return f48970a.get(cls.getName());
     }
 
     @Nullable
     public static ProviderDelegation b(@NonNull String str) {
-        return f45296a.get(str);
+        return f48970a.get(str);
     }
 
     public static void c(@Nullable Map<Class, Object> map) {
@@ -32,7 +32,7 @@ public class e {
                 if (cls != null) {
                     Object obj = map.get(cls);
                     if (obj instanceof ProviderDelegation) {
-                        f45296a.put(cls.getName(), (ProviderDelegation) obj);
+                        f48970a.put(cls.getName(), (ProviderDelegation) obj);
                     }
                 }
             }

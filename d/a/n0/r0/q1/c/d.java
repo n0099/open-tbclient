@@ -1,7 +1,7 @@
 package d.a.n0.r0.q1.c;
 
 import com.baidu.adp.BdUniqueId;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import tbclient.BaijiahaoInfo;
 import tbclient.BawuRoleInfoPub;
 import tbclient.ForumRuleDetail.DataRes;
@@ -9,9 +9,9 @@ import tbclient.ForumRuleDetail.DataRes;
 public class d implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdUniqueId f59422e = BdUniqueId.gen();
+    public static BdUniqueId f63113e = BdUniqueId.gen();
 
-    public void c(DataRes dataRes) {
+    public void b(DataRes dataRes) {
         BawuRoleInfoPub bawuRoleInfoPub = dataRes.bazhu;
         String str = bawuRoleInfoPub.name_show;
         String str2 = bawuRoleInfoPub.portrait;
@@ -25,8 +25,8 @@ public class d implements n {
         dataRes.audit_status.intValue();
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f59422e;
+        return f63113e;
     }
 }

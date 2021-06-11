@@ -51,21 +51,21 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public final class a extends d.a.l0.a.v1.c.b {
-    public static final boolean l = k.f43199a;
+    public static final boolean l = k.f46875a;
     public static final long m = TimeUnit.MINUTES.toMillis(5);
     public static final Object n = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f45311f;
+    public final e f48985f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IProcessBridge f45312g;
+    public IProcessBridge f48986g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f45313h;
+    public d f48987h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ServiceConnection f45314i;
+    public ServiceConnection f48988i;
     public final Deque<Long> j;
     public List<Runnable> k;
 
@@ -86,11 +86,11 @@ public final class a extends d.a.l0.a.v1.c.b {
                 }
                 return;
             }
-            a.this.f45312g = IProcessBridge.Stub.asInterface(iBinder);
+            a.this.f48986g = IProcessBridge.Stub.asInterface(iBinder);
             a aVar = a.this;
             aVar.N(13, aVar.D());
-            if (a.this.f45313h != null) {
-                a.this.f45313h.a();
+            if (a.this.f48987h != null) {
+                a.this.f48987h.a();
             }
             d.a.l0.a.v1.c.a.e().c();
         }
@@ -120,12 +120,12 @@ public final class a extends d.a.l0.a.v1.c.b {
     public static class e extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<c> f45316a;
+        public WeakReference<c> f48990a;
 
         /* renamed from: d.a.l0.a.v1.c.e.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0880a implements Runnable {
-            public RunnableC0880a(e eVar) {
+        public class RunnableC0936a implements Runnable {
+            public RunnableC0936a(e eVar) {
             }
 
             @Override // java.lang.Runnable
@@ -140,7 +140,7 @@ public final class a extends d.a.l0.a.v1.c.b {
         }
 
         public final boolean a(Message message) {
-            WeakReference<c> weakReference = this.f45316a;
+            WeakReference<c> weakReference = this.f48990a;
             c cVar = weakReference != null ? weakReference.get() : null;
             if ((cVar == null || !cVar.a(message)) && !e(message)) {
                 return d.a.l0.a.c1.a.h0().a(message);
@@ -159,8 +159,8 @@ public final class a extends d.a.l0.a.v1.c.b {
             }
             String l1 = d.a.l0.a.f1.e.b.l1(prefetchEvent.schema, F);
             if (TextUtils.isEmpty(l1)) {
-                if (aVar.f42508b) {
-                    return F.f(aVar.f42509c);
+                if (aVar.f46184b) {
+                    return F.f(aVar.f46185c);
                 }
                 return F.e();
             }
@@ -205,7 +205,7 @@ public final class a extends d.a.l0.a.v1.c.b {
                         }
                     }
                     d.a.l0.a.h0.u.b.c(16);
-                    if (!a.C0694a.c()) {
+                    if (!a.C0750a.c()) {
                         return;
                     }
                 }
@@ -302,7 +302,7 @@ public final class a extends d.a.l0.a.v1.c.b {
             d.a.l0.a.e0.d.h("SwanAppMessengerClient", "Recovery killProcess hasAppOccupied: " + d.a.l0.a.a2.d.g().C());
             if (d.a.l0.a.a2.d.g().C()) {
                 d.a.l0.a.a2.d.g().o("flag_finish_activity", "flag_remove_task");
-                q0.X(new RunnableC0880a(this));
+                q0.X(new RunnableC0936a(this));
                 return;
             }
             d.a.l0.a.e0.d.h("SwanAppMessengerClient", "Recovery kill self");
@@ -418,8 +418,8 @@ public final class a extends d.a.l0.a.v1.c.b {
                 if (a2 == null || !a2.a()) {
                     return;
                 }
-                File file = new File(a2.f42507a, "app.json");
-                if ((r.F() == null || z) && !d.a.l0.a.a1.e.N(r, a2.f42507a)) {
+                File file = new File(a2.f46183a, "app.json");
+                if ((r.F() == null || z) && !d.a.l0.a.a1.e.N(r, a2.f46183a)) {
                     if (a.l) {
                         Log.w("SwanAppMessengerClient", "can not find app config file");
                         return;
@@ -429,7 +429,7 @@ public final class a extends d.a.l0.a.v1.c.b {
                     return;
                 } else {
                     prefetchEvent.appConfig = d.a.l0.a.a1.e.m(file);
-                    prefetchEvent.appPath = e.C0561e.i(prefetchEvent.appId, String.valueOf(f0.versionCode)).getPath() + File.separator;
+                    prefetchEvent.appPath = e.C0617e.i(prefetchEvent.appId, String.valueOf(f0.versionCode)).getPath() + File.separator;
                     String b2 = b(prefetchEvent, r, a2);
                     prefetchEvent.pageUrl = b2;
                     prefetchEvent.rootPath = d.a.l0.a.h0.u.a.c(r, b2);
@@ -540,14 +540,14 @@ public final class a extends d.a.l0.a.v1.c.b {
         public final void n(Message message) {
             Bundle bundle;
             d.a.b0.e.a aVar;
-            if (message == null || (bundle = (Bundle) message.obj) == null || (aVar = d.a.l0.a.q1.a.b().f44171d) == null) {
+            if (message == null || (bundle = (Bundle) message.obj) == null || (aVar = d.a.l0.a.q1.a.b().f47845d) == null) {
                 return;
             }
             aVar.onPayResult(d.a.l0.a.q1.a.a(bundle.getInt(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE)), bundle.getString(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR));
         }
 
         public void o(c cVar) {
-            this.f45316a = new WeakReference<>(cVar);
+            this.f48990a = new WeakReference<>(cVar);
         }
 
         public final boolean p(PrefetchEvent prefetchEvent, Bundle bundle) {
@@ -581,7 +581,7 @@ public final class a extends d.a.l0.a.v1.c.b {
 
     public a(d.a.l0.a.a2.h hVar) {
         super(hVar);
-        this.f45311f = new e();
+        this.f48985f = new e();
         this.j = new ArrayDeque();
     }
 
@@ -599,11 +599,11 @@ public final class a extends d.a.l0.a.v1.c.b {
     }
 
     public Handler F() {
-        return this.f45311f;
+        return this.f48985f;
     }
 
     public IProcessBridge G() {
-        return this.f45312g;
+        return this.f48986g;
     }
 
     public final void H(String str) {
@@ -618,10 +618,10 @@ public final class a extends d.a.l0.a.v1.c.b {
     }
 
     public synchronized void I() {
-        this.f45314i = null;
-        this.f45312g = null;
-        if (this.f45313h != null) {
-            this.f45313h.b();
+        this.f48988i = null;
+        this.f48986g = null;
+        if (this.f48987h != null) {
+            this.f48987h.b();
         }
         R();
         if (this.k != null) {
@@ -725,11 +725,11 @@ public final class a extends d.a.l0.a.v1.c.b {
         if (l) {
             Log.i("SwanAppMessengerClient", "tryBindRemoteMsgService");
         }
-        if (this.f45314i == null) {
-            this.f45314i = new b();
+        if (this.f48988i == null) {
+            this.f48988i = new b();
             Application b2 = d.a.l0.a.c1.a.b();
             try {
-                b2.bindService(new Intent(b2, SwanAppMessengerService.class), this.f45314i, 1);
+                b2.bindService(new Intent(b2, SwanAppMessengerService.class), this.f48988i, 1);
             } catch (Exception e2) {
                 if (l) {
                     e2.printStackTrace();
@@ -752,13 +752,13 @@ public final class a extends d.a.l0.a.v1.c.b {
     }
 
     public void i(d dVar, c cVar) {
-        this.f45313h = dVar;
-        this.f45311f.o(cVar);
+        this.f48987h = dVar;
+        this.f48985f.o(cVar);
         N(1, D());
-        if (this.f45313h == null || !k()) {
+        if (this.f48987h == null || !k()) {
             return;
         }
-        this.f45313h.a();
+        this.f48987h.a();
     }
 
     public final boolean j() {
@@ -789,6 +789,6 @@ public final class a extends d.a.l0.a.v1.c.b {
     }
 
     public boolean k() {
-        return this.f45312g != null;
+        return this.f48986g != null;
     }
 }

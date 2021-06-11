@@ -47,7 +47,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
         this.s.y(immersiveVideoCardEx.getShowExtra(), "feed");
         this.s.x(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
-        boolean z = immersiveVideoCardEx.getVideoInfo().f17888i;
+        boolean z = immersiveVideoCardEx.getVideoInfo().f17964i;
         this.s.u(z);
         this.s.t(z);
         this.t.u(z);
@@ -64,7 +64,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     }
 
     @Override // d.a.n0.k2.d
-    public void c() {
+    public void d() {
         a aVar = this.t;
         if (aVar != null) {
             aVar.k();
@@ -72,7 +72,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     }
 
     @Override // d.a.n0.k2.d
-    public void d() {
+    public void e() {
         a aVar = this.t;
         if (aVar != null) {
             aVar.m();

@@ -3,8 +3,8 @@ package d.a.l0.a;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43199a = d.a.l0.a.c1.a.n().isDebug();
+    public static final boolean f46875a = d.a.l0.a.c1.a.n().isDebug();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f43200b = d.a.l0.a.c1.a.n().G();
+    public static final boolean f46876b = d.a.l0.a.c1.a.n().G();
 }

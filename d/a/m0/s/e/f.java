@@ -14,31 +14,31 @@ public class f {
     public String x;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50629a = 0;
+    public int f54306a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50630b = 0;
+    public int f54307b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50631c = 0;
+    public int f54308c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50632d = 0;
+    public int f54309d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50633e = 0;
+    public int f54310e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50634f = 0;
+    public int f54311f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50635g = 0;
+    public int f54312g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50636h = 0;
+    public int f54313h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50637i = 0;
+    public int f54314i = 0;
     public int j = 0;
     public int k = 0;
     public int l = 0;
@@ -54,31 +54,31 @@ public class f {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f50638a;
+        public String f54315a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50639b;
+        public String f54316b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f50640c;
+        public String f54317c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f50641d;
+        public String f54318d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f50642e;
+        public String f54319e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f50643f;
+        public int f54320f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f50644g;
+        public int f54321g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f50645h;
+        public int f54322h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f50646i;
+        public String f54323i;
     }
 
     public void A(String str) {
@@ -134,31 +134,31 @@ public class f {
     }
 
     public void L(int i2) {
-        this.f50629a = i2;
+        this.f54306a = i2;
     }
 
     public void M(int i2) {
-        this.f50631c = i2;
+        this.f54308c = i2;
     }
 
     public void N(int i2) {
-        this.f50630b = i2;
+        this.f54307b = i2;
     }
 
     public void O(int i2) {
-        this.f50632d = i2;
+        this.f54309d = i2;
     }
 
     public void P(int i2) {
-        this.f50634f = i2;
+        this.f54311f = i2;
     }
 
     public void Q(int i2) {
-        this.f50635g = i2;
+        this.f54312g = i2;
     }
 
     public void R(int i2) {
-        this.f50636h = i2;
+        this.f54313h = i2;
     }
 
     public void S(int i2) {
@@ -178,7 +178,7 @@ public class f {
     }
 
     public void W(int i2) {
-        this.f50637i = i2;
+        this.f54314i = i2;
     }
 
     public void X(int i2) {
@@ -226,39 +226,39 @@ public class f {
     }
 
     public int j() {
-        return this.f50629a;
+        return this.f54306a;
     }
 
     public int k() {
-        return this.f50629a;
+        return this.f54306a;
     }
 
     public int l() {
-        return this.f50631c;
+        return this.f54308c;
     }
 
     public int m() {
-        return this.f50630b;
+        return this.f54307b;
     }
 
     public int n() {
-        return this.f50632d;
+        return this.f54309d;
     }
 
     public int o() {
-        return this.f50633e;
+        return this.f54310e;
     }
 
     public int p() {
-        return this.f50634f;
+        return this.f54311f;
     }
 
     public int q() {
-        return this.f50635g;
+        return this.f54312g;
     }
 
     public int r() {
-        return this.f50636h;
+        return this.f54313h;
     }
 
     public int s() {
@@ -278,7 +278,7 @@ public class f {
     }
 
     public int w() {
-        return this.f50637i;
+        return this.f54314i;
     }
 
     public int x() {

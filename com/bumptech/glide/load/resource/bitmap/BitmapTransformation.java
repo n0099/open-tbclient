@@ -8,7 +8,7 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BitmapTransformation implements Transformation<Bitmap> {
     public abstract Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3);
 

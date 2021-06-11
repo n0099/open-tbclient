@@ -13,56 +13,56 @@ import d.a.n0.e3.t;
 public abstract class e<D, S extends d.a.m0.g0.d.b> implements t {
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewEventCenter f49411e;
+    public final ViewEventCenter f53085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public D f49412f;
+    public D f53086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public S f49413g;
+    public S f53087g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f49414h;
+    public final View f53088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f49415i;
+    public TbPageContext<?> f53089i;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
-        this.f49415i = tbPageContext;
-        this.f49414h = view;
-        this.f49411e = viewEventCenter;
+        this.f53089i = tbPageContext;
+        this.f53088h = view;
+        this.f53085e = viewEventCenter;
     }
 
     public Activity a() {
-        return this.f49415i.getPageActivity();
+        return this.f53089i.getPageActivity();
     }
 
     public Context b() {
-        return this.f49415i.getContext();
+        return this.f53089i.getContext();
     }
 
     public D c() {
-        return this.f49412f;
+        return this.f53086f;
     }
 
     public ViewEventCenter d() {
-        return this.f49411e;
+        return this.f53085e;
     }
 
     public TbPageContext<?> e() {
-        return this.f49415i;
+        return this.f53089i;
     }
 
     public Resources f() {
-        return this.f49415i.getResources();
+        return this.f53089i.getResources();
     }
 
     public View g() {
-        return this.f49414h;
+        return this.f53088h;
     }
 
     public S h() {
-        return this.f49413g;
+        return this.f53087g;
     }
 
     public String i(int i2) {
@@ -70,11 +70,11 @@ public abstract class e<D, S extends d.a.m0.g0.d.b> implements t {
     }
 
     public BdUniqueId j() {
-        return this.f49415i.getUniqueId();
+        return this.f53089i.getUniqueId();
     }
 
     public void k(D d2) {
-        this.f49412f = d2;
+        this.f53086f = d2;
     }
 
     public void l(D d2, S s) {
@@ -83,6 +83,6 @@ public abstract class e<D, S extends d.a.m0.g0.d.b> implements t {
     }
 
     public void m(S s) {
-        this.f49413g = s;
+        this.f53087g = s;
     }
 }

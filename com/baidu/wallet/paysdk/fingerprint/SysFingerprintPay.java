@@ -14,7 +14,6 @@ import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.beans.IBeanResponseCallback;
 import com.baidu.apollon.permission.PermissionManager;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.wallet.base.controllers.PasswordController;
 import com.baidu.wallet.base.nopassauth.OtpTokenUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
@@ -194,7 +193,7 @@ public class SysFingerprintPay implements IFingerprintPay {
                             }
                             String safeSavedDataByUnionId = OtpTokenUtils.toSafeSavedDataByUnionId(SafePay.getInstance().decryptProxy(openFingerprintResponse.token_info), activity.getApplicationContext());
                             String localEncrypt1 = SafePay.getInstance().localEncrypt1(OtpTokenUtils.getSN(openFingerprintResponse.token_info));
-                            SysFingerprintPay.this.saveOTPTokenByFingerprint(activity, localEncrypt1 + FieldBuilder.SE + safeSavedDataByUnionId, fingerprintCallback);
+                            SysFingerprintPay.this.saveOTPTokenByFingerprint(activity, localEncrypt1 + "|" + safeSavedDataByUnionId, fingerprintCallback);
                         }
                     });
                     bVar.execBean();

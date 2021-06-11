@@ -6,35 +6,35 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48910a;
+    public String f52584a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48911b;
+    public int f52585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48912c;
+    public int f52586c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f48913d;
+    public String f52587d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f48914e;
+    public String f52588e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48915f;
+    public String f52589f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48916g;
+    public String f52590g;
 
     public static c a(JSONObject jSONObject) {
         try {
             c cVar = new c();
-            cVar.f48910a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
-            cVar.f48911b = jSONObject.optInt("width");
-            cVar.f48912c = jSONObject.optInt("height");
-            cVar.f48913d = jSONObject.optString("pic_url");
-            cVar.f48914e = jSONObject.optString("thumbnail");
-            cVar.f48916g = jSONObject.optString("origin_url");
+            cVar.f52584a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+            cVar.f52585b = jSONObject.optInt("width");
+            cVar.f52586c = jSONObject.optInt("height");
+            cVar.f52587d = jSONObject.optString("pic_url");
+            cVar.f52588e = jSONObject.optString("thumbnail");
+            cVar.f52590g = jSONObject.optString("origin_url");
             return cVar;
         } catch (Exception unused) {
             return null;

@@ -15,15 +15,15 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48360a;
+    public Context f52034a;
 
     public b(Context context) {
-        this.f48360a = context;
+        this.f52034a = context;
     }
 
     public final boolean a(u uVar) {
         File[] listFiles;
-        File file = new File(this.f48360a.getFilesDir() + File.separator + "ubcdir", "proc");
+        File file = new File(this.f52034a.getFilesDir() + File.separator + "ubcdir", "proc");
         if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
             return false;
         }
@@ -43,7 +43,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                uVar.f48486f = "1";
+                                uVar.f52160f = "1";
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -85,7 +85,7 @@ public class b {
 
     public void b(boolean z) {
         File[] listFiles;
-        File file = new File(this.f48360a.getFilesDir(), "ubcdir");
+        File file = new File(this.f52034a.getFilesDir(), "ubcdir");
         if (file.exists()) {
             File file2 = new File(file, z ? "filereal" : "filedata");
             if (file2.exists()) {
@@ -104,7 +104,7 @@ public class b {
     }
 
     public boolean c(u uVar, boolean z) {
-        File file = new File(this.f48360a.getFilesDir(), "ubcdir");
+        File file = new File(this.f52034a.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdir();
         }
@@ -124,7 +124,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has("abtest")) {
-                            uVar.f48486f = "1";
+                            uVar.f52160f = "1";
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -161,7 +161,7 @@ public class b {
     public void d(i iVar, boolean z) {
         File file;
         FileOutputStream fileOutputStream;
-        File file2 = new File(this.f48360a.getFilesDir(), "ubcdir");
+        File file2 = new File(this.f52034a.getFilesDir(), "ubcdir");
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -176,8 +176,8 @@ public class b {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (iVar.f48402e != null) {
-                JSONObject jSONObject2 = iVar.f48402e;
+            if (iVar.f52076e != null) {
+                JSONObject jSONObject2 = iVar.f52076e;
                 if (jSONObject2.has("bizId")) {
                     try {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
@@ -193,22 +193,22 @@ public class b {
                 } else {
                     jSONObject.put("content", jSONObject2);
                 }
-            } else if (!TextUtils.isEmpty(iVar.f48401d)) {
-                jSONObject.put("content", iVar.f48401d);
+            } else if (!TextUtils.isEmpty(iVar.f52075d)) {
+                jSONObject.put("content", iVar.f52075d);
             }
-            jSONObject.put("bizId", iVar.f48398a);
-            jSONObject.put("timestamp", iVar.f48403f);
+            jSONObject.put("bizId", iVar.f52072a);
+            jSONObject.put("timestamp", iVar.f52077f);
             jSONObject.put("eventType", "0");
-            if (!TextUtils.isEmpty(iVar.f48405h)) {
-                jSONObject.put("abtest", iVar.f48405h);
+            if (!TextUtils.isEmpty(iVar.f52079h)) {
+                jSONObject.put("abtest", iVar.f52079h);
             }
-            if (!TextUtils.isEmpty(iVar.f48406i)) {
-                jSONObject.put("c", iVar.f48406i);
+            if (!TextUtils.isEmpty(iVar.f52080i)) {
+                jSONObject.put("c", iVar.f52080i);
             }
             if (iVar.j) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put(Constant.ID_TYPE, d.g().j(iVar.f48398a));
+            jSONObject.put(Constant.ID_TYPE, d.g().j(iVar.f52072a));
         } catch (JSONException unused2) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);

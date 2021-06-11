@@ -42,7 +42,7 @@ import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import d.a.c.a.g;
 import d.a.c.a.h;
 import d.a.c.e.p.l;
-import d.a.m0.a.s;
+import d.a.m0.a.t;
 import d.a.m0.k0.a;
 import d.a.m0.k0.b;
 import d.a.m0.k0.d;
@@ -95,7 +95,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        s.a(motionEvent, getPageId(), 0L);
+        t.a(motionEvent, getPageId(), 0L);
         d.a.n0.j3.a.getInstance().behaviorRecordEvent(motionEvent, this);
         try {
             return super.dispatchTouchEvent(motionEvent);
@@ -338,7 +338,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, this));
         }
         TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
-        s.h(getPageId(), 0L);
+        t.h(getPageId(), 0L);
         TbSingleton.getInstance().getClass();
         if (!"FlutterPageActivity".equals(TbSingleton.getInstance().isSwitchActivity)) {
             TbSingleton tbSingleton = TbSingleton.getInstance();

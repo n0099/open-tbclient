@@ -9,13 +9,13 @@ import d.a.c.e.p.j;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c.e.n.a f54077a;
+    public d.a.c.e.n.a f57766a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54078b = null;
+    public String f57767b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54079c = false;
+    public boolean f57768c = false;
 
     public b(String str) {
         e(str, false);
@@ -23,54 +23,54 @@ public class b {
 
     public void a() {
         e c2;
-        if (this.f54077a == null || (c2 = c()) == null || c2.f54090f == null) {
+        if (this.f57766a == null || (c2 = c()) == null || c2.f57779f == null) {
             return;
         }
-        long e2 = this.f54077a.e();
+        long e2 = this.f57766a.e();
         if (e2 > 3000) {
-            d dVar = c2.f54090f;
-            dVar.f54081a += e2;
-            dVar.f54082b++;
+            d dVar = c2.f57779f;
+            dVar.f57770a += e2;
+            dVar.f57771b++;
             c.b(c2, 10);
         }
     }
 
     public void b(boolean z, boolean z2, int i2, String str, long j, long j2, long j3) {
         e c2;
-        if (this.f54077a == null || (c2 = c()) == null) {
+        if (this.f57766a == null || (c2 = c()) == null) {
             return;
         }
         if (z) {
-            d dVar = c2.f54088d;
+            d dVar = c2.f57777d;
             if (dVar == null) {
                 return;
             }
-            dVar.f54082b++;
+            dVar.f57771b++;
             if (z2) {
-                dVar.f54081a += j2;
-                dVar.f54084d += j;
+                dVar.f57770a += j2;
+                dVar.f57773d += j;
             } else {
-                dVar.f54083c++;
+                dVar.f57772c++;
             }
         } else {
-            d dVar2 = c2.f54089e;
+            d dVar2 = c2.f57778e;
             if (dVar2 == null) {
                 return;
             }
-            dVar2.f54082b++;
+            dVar2.f57771b++;
             if (z2) {
-                dVar2.f54081a += j3;
-                dVar2.f54084d += j;
+                dVar2.f57770a += j3;
+                dVar2.f57773d += j;
             } else {
-                dVar2.f54083c++;
+                dVar2.f57772c++;
             }
             j2 = j3;
         }
-        this.f54077a = null;
+        this.f57766a = null;
         if (z2) {
             c.b(c2, 10);
         }
-        if (this.f54078b == "frsStat") {
+        if (this.f57767b == "frsStat") {
             if (!z2 || j2 > 3000) {
                 d.a.c.e.n.a aVar = new d.a.c.e.n.a("dbg");
                 aVar.b("act", "frs");
@@ -86,22 +86,22 @@ public class b {
     }
 
     public final e c() {
-        return c.e(this.f54078b, d(), this.f54079c);
+        return c.e(this.f57767b, d(), this.f57768c);
     }
 
     public final String d() {
         int I = j.I();
-        return I == 0 ? "N" : I == 1 ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : I == 3 ? g.f3966b : I == 2 ? "2G" : "N";
+        return I == 0 ? "N" : I == 1 ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : I == 3 ? g.f3985b : I == 2 ? "2G" : "N";
     }
 
     public void e(String str, boolean z) {
-        this.f54078b = str;
-        this.f54079c = z;
-        this.f54077a = new d.a.c.e.n.a("dbg");
+        this.f57767b = str;
+        this.f57768c = z;
+        this.f57766a = new d.a.c.e.n.a("dbg");
         c.c(str, d(), z);
     }
 
     public void f() {
-        this.f54077a.g();
+        this.f57766a.g();
     }
 }

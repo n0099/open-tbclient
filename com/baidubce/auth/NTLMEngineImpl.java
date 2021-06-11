@@ -4,6 +4,7 @@ import android.util.Base64;
 import androidx.core.view.DisplayCompat;
 import com.baidu.mobads.container.widget.player.PlayerEvent;
 import com.baidu.webkit.internal.RC4;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.security.Key;
@@ -432,7 +433,7 @@ public final class NTLMEngineImpl {
             addUShort(length6);
             addULong(i6);
             int i7 = this.type2Flags;
-            addULong((i7 & 4) | (i7 & 128) | (i7 & 512) | (524288 & i7) | NTLMEngineImpl.FLAG_REQUEST_VERSION | (32768 & i7) | (i7 & 32) | (i7 & 16) | (536870912 & i7) | (Integer.MIN_VALUE & i7) | (1073741824 & i7) | (8388608 & i7) | (i7 & 1));
+            addULong((i7 & 4) | (i7 & 128) | (i7 & 512) | (524288 & i7) | 33554432 | (32768 & i7) | (i7 & 32) | (i7 & 16) | (536870912 & i7) | (Integer.MIN_VALUE & i7) | (1073741824 & i7) | (8388608 & i7) | (i7 & 1));
             addUShort(PlayerEvent.PLAY_LOADING_START);
             addULong(2600);
             addUShort(DisplayCompat.DISPLAY_SIZE_4K_WIDTH);
@@ -515,7 +516,7 @@ public final class NTLMEngineImpl {
         System.arraycopy(bArr, i2, bArr2, 0, 7);
         byte[] bArr3 = {bArr2[0], (byte) ((bArr2[0] << 7) | ((bArr2[1] & 255) >>> 1)), (byte) ((bArr2[1] << 6) | ((bArr2[2] & 255) >>> 2)), (byte) ((bArr2[2] << 5) | ((bArr2[3] & 255) >>> 3)), (byte) ((bArr2[3] << 4) | ((bArr2[4] & 255) >>> 4)), (byte) ((bArr2[4] << 3) | ((bArr2[5] & 255) >>> 5)), (byte) ((bArr2[5] << 2) | ((bArr2[6] & 255) >>> 6)), (byte) (bArr2[6] << 1)};
         oddParity(bArr3);
-        return new SecretKeySpec(bArr3, "DES");
+        return new SecretKeySpec(bArr3, Coder.KEY_DES);
     }
 
     public static String getResponseFor(String str, String str2, String str3, String str4, String str5) throws NTLMEngineException {

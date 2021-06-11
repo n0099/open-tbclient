@@ -23,64 +23,64 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f61968e;
+    public TbPageContext<?> f65683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a2> f61969f;
+    public List<a2> f65684f;
 
     /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f61970a;
+        public View f65685a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f61971b;
+        public TbImageView f65686b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AlaCardBottomUserInfoLayout f61972c;
+        public AlaCardBottomUserInfoLayout f65687c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RelativeLayout f61973d;
+        public RelativeLayout f65688d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f61974e;
+        public TextView f65689e;
 
         public a(View view) {
-            this.f61970a = view;
-            this.f61971b = (TbImageView) view.findViewById(R.id.img_thumbnail);
-            this.f61972c = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
-            this.f61973d = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
-            this.f61974e = (TextView) view.findViewById(R.id.ala_card_live_title);
+            this.f65685a = view;
+            this.f65686b = (TbImageView) view.findViewById(R.id.img_thumbnail);
+            this.f65687c = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
+            this.f65688d = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
+            this.f65689e = (TextView) view.findViewById(R.id.ala_card_live_title);
         }
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.f61968e = tbPageContext;
+        this.f65683e = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
     public a2 getItem(int i2) {
-        List<a2> list = this.f61969f;
+        List<a2> list = this.f65684f;
         if (list != null && i2 >= 0 && i2 <= list.size()) {
-            return this.f61969f.get(i2);
+            return this.f65684f.get(i2);
         }
         return null;
     }
 
     public void b(List<a2> list) {
-        this.f61969f = list;
+        this.f65684f = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (ListUtils.isEmpty(this.f61969f)) {
+        if (ListUtils.isEmpty(this.f65684f)) {
             return 0;
         }
-        return this.f61969f.size();
+        return this.f65684f.size();
     }
 
     @Override // android.widget.Adapter
@@ -91,20 +91,20 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         a aVar;
-        AlaInfoData r1;
+        AlaInfoData s1;
         if (view == null) {
-            view = LayoutInflater.from(this.f61968e.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f65683e.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
             aVar = new a(view);
-            aVar.f61971b.setIsRound(true);
-            aVar.f61971b.setDrawBorder(false);
-            aVar.f61971b.setAutoChangeStyle(true);
-            aVar.f61971b.setGifIconSupport(false);
-            int k = (l.k(this.f61968e.getPageActivity()) - this.f61968e.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
+            aVar.f65686b.setIsRound(true);
+            aVar.f65686b.setDrawBorder(false);
+            aVar.f65686b.setAutoChangeStyle(true);
+            aVar.f65686b.setGifIconSupport(false);
+            int k = (l.k(this.f65683e.getPageActivity()) - this.f65683e.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
             int i3 = (k * 16) / 9;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f61973d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f65688d.getLayoutParams();
             layoutParams.height = k;
             layoutParams.width = i3;
-            aVar.f61973d.setLayoutParams(layoutParams);
+            aVar.f65688d.setLayoutParams(layoutParams);
             AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
             ((ViewGroup.LayoutParams) layoutParams2).width = i3;
             view.setLayoutParams(layoutParams2);
@@ -113,15 +113,15 @@ public class b extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         a2 item = getItem(i2);
-        if (item == null || (r1 = item.r1()) == null) {
+        if (item == null || (s1 = item.s1()) == null) {
             return null;
         }
-        aVar.f61971b.V(r1.cover, 10, false);
-        aVar.f61972c.setData(item);
-        aVar.f61972c.setUserHeadImgVisible(8);
-        aVar.f61974e.setText(item.z1());
-        aVar.f61972c.onChangeSkinType(this.f61968e);
-        SkinManager.setViewTextColor(aVar.f61974e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
+        aVar.f65686b.U(s1.cover, 10, false);
+        aVar.f65687c.setData(item);
+        aVar.f65687c.setUserHeadImgVisible(8);
+        aVar.f65689e.setText(item.A1());
+        aVar.f65687c.onChangeSkinType(this.f65683e);
+        SkinManager.setViewTextColor(aVar.f65689e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
         SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         return view;
     }

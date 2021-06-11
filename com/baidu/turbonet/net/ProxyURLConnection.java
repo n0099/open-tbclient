@@ -24,57 +24,57 @@ import javax.net.ssl.SSLSocketFactory;
 public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f22378a;
+    public a f22481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpURLConnection f22379b;
+    public HttpURLConnection f22482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f22380c;
+    public d f22483c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TurbonetEngine f22381d;
+    public TurbonetEngine f22484d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ProxyConfig f22382e;
+    public ProxyConfig f22485e;
 
     @Override // d.a.o0.b.d.b
     public void a(long j) {
-        a aVar = this.f22378a;
-        aVar.f63841e = j;
+        a aVar = this.f22481a;
+        aVar.f67559e = j;
         aVar.c();
-        a aVar2 = this.f22378a;
-        aVar2.f63839c = -12;
-        aVar2.d(this.f22381d);
+        a aVar2 = this.f22481a;
+        aVar2.f67557c = -12;
+        aVar2.d(this.f22484d);
     }
 
     @Override // java.net.URLConnection
     public final void addRequestProperty(String str, String str2) {
-        if (!this.f22382e.a()) {
-            this.f22380c.addRequestProperty(str, str2);
+        if (!this.f22485e.a()) {
+            this.f22483c.addRequestProperty(str, str2);
         } else {
-            this.f22379b.addRequestProperty(str, str2);
+            this.f22482b.addRequestProperty(str, str2);
         }
     }
 
     @Override // d.a.o0.b.d.b
     public void b(Exception exc, long j) {
-        a aVar = this.f22378a;
-        aVar.f63841e = j;
+        a aVar = this.f22481a;
+        aVar.f67559e = j;
         aVar.c();
-        this.f22378a.a(exc);
-        this.f22378a.d(this.f22381d);
+        this.f22481a.a(exc);
+        this.f22481a.d(this.f22484d);
     }
 
     @Override // java.net.URLConnection
     public void connect() throws IOException {
-        d.a.o0.a.a.a("ProxyURLConn", "connect by libtype: " + this.f22382e.toString());
-        if (!this.f22382e.a()) {
-            this.f22380c.connect();
+        d.a.o0.a.a.a("ProxyURLConn", "connect by libtype: " + this.f22485e.toString());
+        if (!this.f22485e.a()) {
+            this.f22483c.connect();
             return;
         }
         try {
-            this.f22379b.connect();
+            this.f22482b.connect();
         } catch (IOException e2) {
             b(e2, 0L);
             throw e2;
@@ -83,17 +83,17 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.HttpURLConnection
     public void disconnect() {
-        d.a.o0.a.a.a("ProxyURLConn", "disconnect by libtype: " + this.f22382e.toString());
-        if (!this.f22382e.a()) {
-            this.f22380c.disconnect();
+        d.a.o0.a.a.a("ProxyURLConn", "disconnect by libtype: " + this.f22485e.toString());
+        if (!this.f22485e.a()) {
+            this.f22483c.disconnect();
         } else {
-            this.f22379b.disconnect();
+            this.f22482b.disconnect();
         }
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public String getCipherSuite() {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             return ((HttpsURLConnection) httpURLConnection).getCipherSuite();
         }
@@ -102,22 +102,22 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.URLConnection
     public int getConnectTimeout() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getConnectTimeout();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getConnectTimeout();
         }
-        return this.f22379b.getConnectTimeout();
+        return this.f22482b.getConnectTimeout();
     }
 
     @Override // java.net.URLConnection
     public Object getContent() throws IOException {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getContent();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getContent();
         }
         try {
-            long contentLength = this.f22379b.getContentLength();
-            this.f22378a.f63841e = contentLength;
+            long contentLength = this.f22482b.getContentLength();
+            this.f22481a.f67559e = contentLength;
             onComplete(contentLength);
-            return this.f22379b.getContent();
+            return this.f22482b.getContent();
         } catch (IOException e2) {
             b(e2, 0L);
             throw e2;
@@ -126,121 +126,121 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.URLConnection
     public String getContentEncoding() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getContentEncoding();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getContentEncoding();
         }
-        return this.f22379b.getContentEncoding();
+        return this.f22482b.getContentEncoding();
     }
 
     @Override // java.net.URLConnection
     public int getContentLength() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getContentLength();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getContentLength();
         }
-        return this.f22379b.getContentLength();
+        return this.f22482b.getContentLength();
     }
 
     @Override // java.net.URLConnection
     public String getContentType() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getContentType();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getContentType();
         }
-        return this.f22379b.getContentType();
+        return this.f22482b.getContentType();
     }
 
     @Override // java.net.URLConnection
     public long getDate() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getDate();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getDate();
         }
-        return this.f22379b.getDate();
+        return this.f22482b.getDate();
     }
 
     @Override // java.net.URLConnection
     public boolean getDefaultUseCaches() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getDefaultUseCaches();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getDefaultUseCaches();
         }
-        return this.f22379b.getDefaultUseCaches();
+        return this.f22482b.getDefaultUseCaches();
     }
 
     @Override // java.net.URLConnection
     public boolean getDoInput() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getDoInput();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getDoInput();
         }
-        return this.f22379b.getDoInput();
+        return this.f22482b.getDoInput();
     }
 
     @Override // java.net.URLConnection
     public boolean getDoOutput() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getDoOutput();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getDoOutput();
         }
-        return this.f22379b.getDoOutput();
+        return this.f22482b.getDoOutput();
     }
 
     @Override // java.net.HttpURLConnection
     public InputStream getErrorStream() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getErrorStream();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getErrorStream();
         }
-        return this.f22379b.getErrorStream();
+        return this.f22482b.getErrorStream();
     }
 
     @Override // java.net.URLConnection
     public long getExpiration() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getExpiration();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getExpiration();
         }
-        return this.f22379b.getExpiration();
+        return this.f22482b.getExpiration();
     }
 
     @Override // java.net.URLConnection
     public final String getHeaderField(String str) {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getHeaderField(str);
+        if (!this.f22485e.a()) {
+            return this.f22483c.getHeaderField(str);
         }
-        String headerField = this.f22379b.getHeaderField(str);
-        this.f22378a.b();
+        String headerField = this.f22482b.getHeaderField(str);
+        this.f22481a.b();
         return headerField;
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public long getHeaderFieldDate(String str, long j) {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getHeaderFieldDate(str, j);
+        if (!this.f22485e.a()) {
+            return this.f22483c.getHeaderFieldDate(str, j);
         }
-        return this.f22379b.getHeaderFieldDate(str, j);
+        return this.f22482b.getHeaderFieldDate(str, j);
     }
 
     @Override // java.net.URLConnection
     public int getHeaderFieldInt(String str, int i2) {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getHeaderFieldInt(str, i2);
+        if (!this.f22485e.a()) {
+            return this.f22483c.getHeaderFieldInt(str, i2);
         }
-        return this.f22379b.getHeaderFieldInt(str, i2);
+        return this.f22482b.getHeaderFieldInt(str, i2);
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderFieldKey(int i2) {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getHeaderFieldKey(i2);
+        if (!this.f22485e.a()) {
+            return this.f22483c.getHeaderFieldKey(i2);
         }
-        return this.f22379b.getHeaderFieldKey(i2);
+        return this.f22482b.getHeaderFieldKey(i2);
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getHeaderFields() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getHeaderFields();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getHeaderFields();
         }
-        return this.f22379b.getHeaderFields();
+        return this.f22482b.getHeaderFields();
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public HostnameVerifier getHostnameVerifier() {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             return ((HttpsURLConnection) httpURLConnection).getHostnameVerifier();
         }
@@ -249,20 +249,20 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.URLConnection
     public long getIfModifiedSince() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getIfModifiedSince();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getIfModifiedSince();
         }
-        return this.f22379b.getIfModifiedSince();
+        return this.f22482b.getIfModifiedSince();
     }
 
     @Override // java.net.URLConnection
     public InputStream getInputStream() throws IOException {
-        d.a.o0.a.a.a("ProxyURLConn", "getInputStream by libtype: " + this.f22382e.toString());
-        if (!this.f22382e.a()) {
-            return this.f22380c.getInputStream();
+        d.a.o0.a.a.a("ProxyURLConn", "getInputStream by libtype: " + this.f22485e.toString());
+        if (!this.f22485e.a()) {
+            return this.f22483c.getInputStream();
         }
         try {
-            return new d.a.o0.b.d.a(this.f22379b.getInputStream(), this);
+            return new d.a.o0.b.d.a(this.f22482b.getInputStream(), this);
         } catch (IOException e2) {
             b(e2, 0L);
             throw e2;
@@ -271,23 +271,23 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.HttpURLConnection
     public boolean getInstanceFollowRedirects() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getInstanceFollowRedirects();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getInstanceFollowRedirects();
         }
-        return this.f22379b.getInstanceFollowRedirects();
+        return this.f22482b.getInstanceFollowRedirects();
     }
 
     @Override // java.net.URLConnection
     public long getLastModified() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getLastModified();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getLastModified();
         }
-        return this.f22379b.getLastModified();
+        return this.f22482b.getLastModified();
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Certificate[] getLocalCertificates() {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             return ((HttpsURLConnection) httpURLConnection).getLocalCertificates();
         }
@@ -296,7 +296,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Principal getLocalPrincipal() {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             return ((HttpsURLConnection) httpURLConnection).getLocalPrincipal();
         }
@@ -305,15 +305,15 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.URLConnection
     public OutputStream getOutputStream() throws IOException {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getOutputStream();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getOutputStream();
         }
-        return this.f22379b.getOutputStream();
+        return this.f22482b.getOutputStream();
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             return ((HttpsURLConnection) httpURLConnection).getPeerPrincipal();
         }
@@ -322,54 +322,54 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public Permission getPermission() throws IOException {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getPermission();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getPermission();
         }
-        return this.f22379b.getPermission();
+        return this.f22482b.getPermission();
     }
 
     @Override // java.net.URLConnection
     public int getReadTimeout() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getReadTimeout();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getReadTimeout();
         }
-        return this.f22379b.getReadTimeout();
+        return this.f22482b.getReadTimeout();
     }
 
     @Override // java.net.HttpURLConnection
     public String getRequestMethod() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getRequestMethod();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getRequestMethod();
         }
-        return this.f22379b.getRequestMethod();
+        return this.f22482b.getRequestMethod();
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getRequestProperties() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getRequestProperties();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getRequestProperties();
         }
-        return this.f22379b.getRequestProperties();
+        return this.f22482b.getRequestProperties();
     }
 
     @Override // java.net.URLConnection
     public String getRequestProperty(String str) {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getRequestProperty(str);
+        if (!this.f22485e.a()) {
+            return this.f22483c.getRequestProperty(str);
         }
-        return this.f22379b.getRequestProperty(str);
+        return this.f22482b.getRequestProperty(str);
     }
 
     @Override // java.net.HttpURLConnection
     public int getResponseCode() throws IOException {
         int i2;
-        if (!this.f22382e.a()) {
-            i2 = this.f22380c.getResponseCode();
+        if (!this.f22485e.a()) {
+            i2 = this.f22483c.getResponseCode();
         } else {
             try {
-                int responseCode = this.f22379b.getResponseCode();
-                this.f22378a.f63840d = responseCode;
-                this.f22378a.b();
+                int responseCode = this.f22482b.getResponseCode();
+                this.f22481a.f67558d = responseCode;
+                this.f22481a.b();
                 if (responseCode != 200) {
                     onComplete(0L);
                 }
@@ -379,25 +379,25 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
                 throw e2;
             }
         }
-        d.a.o0.a.a.a("ProxyURLConn", "getResponseCode: " + i2 + " by libtype: " + this.f22382e.toString());
+        d.a.o0.a.a.a("ProxyURLConn", "getResponseCode: " + i2 + " by libtype: " + this.f22485e.toString());
         return i2;
     }
 
     @Override // java.net.HttpURLConnection
     public String getResponseMessage() throws IOException {
         String responseMessage;
-        if (!this.f22382e.a()) {
-            responseMessage = this.f22380c.getResponseMessage();
+        if (!this.f22485e.a()) {
+            responseMessage = this.f22483c.getResponseMessage();
         } else {
-            responseMessage = this.f22379b.getResponseMessage();
+            responseMessage = this.f22482b.getResponseMessage();
         }
-        d.a.o0.a.a.a("ProxyURLConn", "getResponseMessage by libtype: " + this.f22382e.toString() + " Message: " + responseMessage);
+        d.a.o0.a.a.a("ProxyURLConn", "getResponseMessage by libtype: " + this.f22485e.toString() + " Message: " + responseMessage);
         return responseMessage;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public SSLSocketFactory getSSLSocketFactory() {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             return ((HttpsURLConnection) httpURLConnection).getSSLSocketFactory();
         }
@@ -406,7 +406,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Certificate[] getServerCertificates() throws SSLPeerUnverifiedException {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             return ((HttpsURLConnection) httpURLConnection).getServerCertificates();
         }
@@ -415,87 +415,87 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.URLConnection
     public URL getURL() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getURL();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getURL();
         }
-        return this.f22379b.getURL();
+        return this.f22482b.getURL();
     }
 
     @Override // java.net.URLConnection
     public boolean getUseCaches() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getUseCaches();
+        if (!this.f22485e.a()) {
+            return this.f22483c.getUseCaches();
         }
-        return this.f22379b.getUseCaches();
+        return this.f22482b.getUseCaches();
     }
 
     @Override // d.a.o0.b.d.b
     public void onComplete(long j) {
-        a aVar = this.f22378a;
-        aVar.f63841e = j;
+        a aVar = this.f22481a;
+        aVar.f67559e = j;
         aVar.c();
-        a aVar2 = this.f22378a;
-        aVar2.f63839c = 0;
-        aVar2.d(this.f22381d);
+        a aVar2 = this.f22481a;
+        aVar2.f67557c = 0;
+        aVar2.d(this.f22484d);
     }
 
     @Override // java.net.HttpURLConnection
     public void setChunkedStreamingMode(int i2) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setChunkedStreamingMode(i2);
+        if (!this.f22485e.a()) {
+            this.f22483c.setChunkedStreamingMode(i2);
         } else {
-            this.f22379b.setChunkedStreamingMode(i2);
+            this.f22482b.setChunkedStreamingMode(i2);
         }
     }
 
     @Override // java.net.URLConnection
     public void setConnectTimeout(int i2) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setConnectTimeout(i2);
+        if (!this.f22485e.a()) {
+            this.f22483c.setConnectTimeout(i2);
         } else {
-            this.f22379b.setConnectTimeout(i2);
+            this.f22482b.setConnectTimeout(i2);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDefaultUseCaches(boolean z) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setDefaultUseCaches(z);
+        if (!this.f22485e.a()) {
+            this.f22483c.setDefaultUseCaches(z);
         } else {
-            this.f22379b.setDefaultUseCaches(z);
+            this.f22482b.setDefaultUseCaches(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDoInput(boolean z) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setDoInput(z);
+        if (!this.f22485e.a()) {
+            this.f22483c.setDoInput(z);
         } else {
-            this.f22379b.setDoInput(z);
+            this.f22482b.setDoInput(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDoOutput(boolean z) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setDoOutput(z);
+        if (!this.f22485e.a()) {
+            this.f22483c.setDoOutput(z);
         } else {
-            this.f22379b.setDoOutput(z);
+            this.f22482b.setDoOutput(z);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setFixedLengthStreamingMode(int i2) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setFixedLengthStreamingMode(i2);
+        if (!this.f22485e.a()) {
+            this.f22483c.setFixedLengthStreamingMode(i2);
         } else {
-            this.f22379b.setFixedLengthStreamingMode(i2);
+            this.f22482b.setFixedLengthStreamingMode(i2);
         }
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public void setHostnameVerifier(HostnameVerifier hostnameVerifier) {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(hostnameVerifier);
         }
@@ -503,53 +503,53 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.URLConnection
     public void setIfModifiedSince(long j) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setIfModifiedSince(j);
+        if (!this.f22485e.a()) {
+            this.f22483c.setIfModifiedSince(j);
         } else {
-            this.f22379b.setIfModifiedSince(j);
+            this.f22482b.setIfModifiedSince(j);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setInstanceFollowRedirects(boolean z) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setInstanceFollowRedirects(z);
+        if (!this.f22485e.a()) {
+            this.f22483c.setInstanceFollowRedirects(z);
         } else {
-            this.f22379b.setInstanceFollowRedirects(z);
+            this.f22482b.setInstanceFollowRedirects(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setReadTimeout(int i2) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setReadTimeout(i2);
+        if (!this.f22485e.a()) {
+            this.f22483c.setReadTimeout(i2);
         } else {
-            this.f22379b.setReadTimeout(i2);
+            this.f22482b.setReadTimeout(i2);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setRequestMethod(String str) throws ProtocolException {
-        if (!this.f22382e.a()) {
-            this.f22380c.setRequestMethod(str);
+        if (!this.f22485e.a()) {
+            this.f22483c.setRequestMethod(str);
             return;
         }
-        this.f22379b.setRequestMethod(str);
-        this.f22378a.f63838b = str;
+        this.f22482b.setRequestMethod(str);
+        this.f22481a.f67556b = str;
     }
 
     @Override // java.net.URLConnection
     public final void setRequestProperty(String str, String str2) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setRequestProperty(str, str2);
+        if (!this.f22485e.a()) {
+            this.f22483c.setRequestProperty(str, str2);
         } else {
-            this.f22379b.setRequestProperty(str, str2);
+            this.f22482b.setRequestProperty(str, str2);
         }
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public void setSSLSocketFactory(SSLSocketFactory sSLSocketFactory) {
-        HttpURLConnection httpURLConnection = this.f22379b;
+        HttpURLConnection httpURLConnection = this.f22482b;
         if (httpURLConnection instanceof HttpsURLConnection) {
             ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(sSLSocketFactory);
         }
@@ -557,49 +557,49 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
 
     @Override // java.net.URLConnection
     public void setUseCaches(boolean z) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setUseCaches(z);
+        if (!this.f22485e.a()) {
+            this.f22483c.setUseCaches(z);
         } else {
-            this.f22379b.setUseCaches(z);
+            this.f22482b.setUseCaches(z);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public boolean usingProxy() {
-        if (!this.f22382e.a()) {
-            return this.f22380c.usingProxy();
+        if (!this.f22485e.a()) {
+            return this.f22483c.usingProxy();
         }
-        return this.f22379b.usingProxy();
+        return this.f22482b.usingProxy();
     }
 
     @Override // java.net.HttpURLConnection
     @TargetApi(19)
     public void setFixedLengthStreamingMode(long j) {
-        if (!this.f22382e.a()) {
-            this.f22380c.setFixedLengthStreamingMode(j);
+        if (!this.f22485e.a()) {
+            this.f22483c.setFixedLengthStreamingMode(j);
         } else {
-            this.f22379b.setFixedLengthStreamingMode(j);
+            this.f22482b.setFixedLengthStreamingMode(j);
         }
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderField(int i2) {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getHeaderField(i2);
+        if (!this.f22485e.a()) {
+            return this.f22483c.getHeaderField(i2);
         }
-        return this.f22379b.getHeaderField(i2);
+        return this.f22482b.getHeaderField(i2);
     }
 
     @Override // java.net.URLConnection
     public Object getContent(Class[] clsArr) throws IOException {
-        if (!this.f22382e.a()) {
-            return this.f22380c.getContent(clsArr);
+        if (!this.f22485e.a()) {
+            return this.f22483c.getContent(clsArr);
         }
         try {
-            long contentLength = this.f22379b.getContentLength();
-            this.f22378a.f63841e = contentLength;
+            long contentLength = this.f22482b.getContentLength();
+            this.f22481a.f67559e = contentLength;
             onComplete(contentLength);
-            return this.f22379b.getContent(clsArr);
+            return this.f22482b.getContent(clsArr);
         } catch (IOException e2) {
             b(e2, 0L);
             throw e2;

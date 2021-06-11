@@ -48,22 +48,22 @@ import org.apache.http.protocol.HttpContext;
 public final class b implements HttpClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f1610a = 160;
+    public static long f1623a = 160;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String[] f1611b = {"text/", "application/xml", "application/json"};
+    public static String[] f1624b = {"text/", "application/xml", "application/json"};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HttpRequestInterceptor f1612c = new c();
+    public static final HttpRequestInterceptor f1625c = new c();
 
     /* renamed from: d  reason: collision with root package name */
-    public final HttpClient f1613d;
+    public final HttpClient f1626d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RuntimeException f1614e = new IllegalStateException("AndroidHttpClient created and never closed");
+    public RuntimeException f1627e = new IllegalStateException("AndroidHttpClient created and never closed");
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile C0014b f1615f;
+    public volatile C0015b f1628f;
 
     /* loaded from: classes.dex */
     public class a implements HttpRequestInterceptor {
@@ -76,34 +76,34 @@ public final class b implements HttpClient {
 
         @Override // org.apache.http.HttpRequestInterceptor
         public final void process(HttpRequest httpRequest, HttpContext httpContext) {
-            C0014b c0014b = b.this.f1615f;
-            if (c0014b != null && C0014b.a(c0014b) && (httpRequest instanceof HttpUriRequest)) {
-                C0014b.a(c0014b, b.a((HttpUriRequest) httpRequest));
+            C0015b c0015b = b.this.f1628f;
+            if (c0015b != null && C0015b.a(c0015b) && (httpRequest instanceof HttpUriRequest)) {
+                C0015b.a(c0015b, b.a((HttpUriRequest) httpRequest));
             }
         }
     }
 
     /* renamed from: com.alipay.android.phone.mrpc.core.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0014b {
+    public static class C0015b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1617a;
+        public final String f1630a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f1618b;
+        public final int f1631b;
 
-        public static /* synthetic */ void a(C0014b c0014b, String str) {
-            Log.println(c0014b.f1618b, c0014b.f1617a, str);
+        public static /* synthetic */ void a(C0015b c0015b, String str) {
+            Log.println(c0015b.f1631b, c0015b.f1630a, str);
         }
 
-        public static /* synthetic */ boolean a(C0014b c0014b) {
-            return Log.isLoggable(c0014b.f1617a, c0014b.f1618b);
+        public static /* synthetic */ boolean a(C0015b c0015b) {
+            return Log.isLoggable(c0015b.f1630a, c0015b.f1631b);
         }
     }
 
     public b(ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
-        this.f1613d = new d(this, clientConnectionManager, httpParams);
+        this.f1626d = new d(this, clientConnectionManager, httpParams);
     }
 
     public static b a(String str) {
@@ -181,7 +181,7 @@ public final class b implements HttpClient {
     }
 
     public static AbstractHttpEntity a(byte[] bArr) {
-        if (bArr.length < f1610a) {
+        if (bArr.length < f1623a) {
             return new ByteArrayEntity(bArr);
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -221,7 +221,7 @@ public final class b implements HttpClient {
         Header[] headers2 = httpUriRequest.getHeaders("content-type");
         if (headers2 != null) {
             for (Header header2 : headers2) {
-                for (String str : f1611b) {
+                for (String str : f1624b) {
                     if (header2.getValue().startsWith(str)) {
                         return false;
                     }
@@ -232,56 +232,56 @@ public final class b implements HttpClient {
     }
 
     public final void a(HttpRequestRetryHandler httpRequestRetryHandler) {
-        ((DefaultHttpClient) this.f1613d).setHttpRequestRetryHandler(httpRequestRetryHandler);
+        ((DefaultHttpClient) this.f1626d).setHttpRequestRetryHandler(httpRequestRetryHandler);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler) {
-        return (T) this.f1613d.execute(httpHost, httpRequest, responseHandler);
+        return (T) this.f1626d.execute(httpHost, httpRequest, responseHandler);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) {
-        return (T) this.f1613d.execute(httpHost, httpRequest, responseHandler, httpContext);
+        return (T) this.f1626d.execute(httpHost, httpRequest, responseHandler, httpContext);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler) {
-        return (T) this.f1613d.execute(httpUriRequest, responseHandler);
+        return (T) this.f1626d.execute(httpUriRequest, responseHandler);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) {
-        return (T) this.f1613d.execute(httpUriRequest, responseHandler, httpContext);
+        return (T) this.f1626d.execute(httpUriRequest, responseHandler, httpContext);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest) {
-        return this.f1613d.execute(httpHost, httpRequest);
+        return this.f1626d.execute(httpHost, httpRequest);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
-        return this.f1613d.execute(httpHost, httpRequest, httpContext);
+        return this.f1626d.execute(httpHost, httpRequest, httpContext);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpUriRequest httpUriRequest) {
-        return this.f1613d.execute(httpUriRequest);
+        return this.f1626d.execute(httpUriRequest);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpResponse execute(HttpUriRequest httpUriRequest, HttpContext httpContext) {
-        return this.f1613d.execute(httpUriRequest, httpContext);
+        return this.f1626d.execute(httpUriRequest, httpContext);
     }
 
     @Override // org.apache.http.client.HttpClient
     public final ClientConnectionManager getConnectionManager() {
-        return this.f1613d.getConnectionManager();
+        return this.f1626d.getConnectionManager();
     }
 
     @Override // org.apache.http.client.HttpClient
     public final HttpParams getParams() {
-        return this.f1613d.getParams();
+        return this.f1626d.getParams();
     }
 }

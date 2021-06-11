@@ -5,14 +5,14 @@ import java.util.TimerTask;
 public class c extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f5093a;
+    public final /* synthetic */ a f5136a;
 
     public c(a aVar) {
-        this.f5093a = aVar;
+        this.f5136a = aVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        this.f5093a.a();
+        this.f5136a.a();
     }
 }

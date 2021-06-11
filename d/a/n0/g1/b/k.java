@@ -16,20 +16,20 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 public class k implements d.a.m0.g0.b.h {
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<FeedData> f55070e = new ArrayList<>();
+    public ArrayList<FeedData> f58759e = new ArrayList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public z0 f55071f = new z0();
+    public z0 f58760f = new z0();
 
     /* renamed from: g  reason: collision with root package name */
-    public i f55072g = new i();
+    public i f58761g = new i();
 
     public ArrayList<FeedData> a() {
-        return this.f55070e;
+        return this.f58759e;
     }
 
     public z0 b() {
-        return this.f55071f;
+        return this.f58760f;
     }
 
     @Override // d.a.m0.g0.b.h
@@ -43,14 +43,14 @@ public class k implements d.a.m0.g0.b.h {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray.optJSONObject(i2));
-                    this.f55070e.add(feedData);
+                    this.f58759e.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
-                        this.f55070e.remove(feedData);
+                        this.f58759e.remove(feedData);
                     }
                 }
             }
-            this.f55072g.f(jSONObject.optJSONObject("message"));
-            this.f55071f.i(jSONObject.optJSONObject("page"));
+            this.f58761g.f(jSONObject.optJSONObject("message"));
+            this.f58760f.i(jSONObject.optJSONObject("page"));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -66,13 +66,13 @@ public class k implements d.a.m0.g0.b.h {
                     for (int i2 = 0; i2 < list.size(); i2++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i2));
-                        this.f55070e.add(feedData);
+                        this.f58759e.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
-                            this.f55070e.remove(feedData);
+                            this.f58759e.remove(feedData);
                         }
                     }
                 }
-                this.f55071f.j(dataRes.page);
+                this.f58760f.j(dataRes.page);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

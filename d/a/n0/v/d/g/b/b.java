@@ -6,16 +6,16 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public class b extends BaseCardInfo {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f61786g = BdUniqueId.gen();
+    public static final BdUniqueId f65501g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.v.d.a.c f61787e;
+    public d.a.n0.v.d.a.c f65502e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.v.d.a.c f61788f;
+    public d.a.n0.v.d.a.c f65503f;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f61786g;
+        return f65501g;
     }
 }

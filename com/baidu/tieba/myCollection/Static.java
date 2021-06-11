@@ -20,10 +20,10 @@ import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.history.PbHistoryActivity;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Static {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<IntentConfig> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
@@ -34,7 +34,7 @@ public class Static {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends CustomMessageListener {
         public b(int i2) {
             super(i2);
@@ -61,12 +61,12 @@ public class Static {
                 aVar.F(historyMessage.liveId);
                 aVar.M(historyMessage.userName);
                 aVar.A(historyMessage.description);
-                pbHistoryCacheModel.w(aVar);
+                pbHistoryCacheModel.A(aVar);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c implements CustomMessageTask.CustomRunnable<BaseActivity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<d.a.m0.h.a> run(CustomMessage<BaseActivity> customMessage) {
@@ -74,7 +74,7 @@ public class Static {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d implements CustomMessageTask.CustomRunnable<BaseFragmentActivity> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<d.a.m0.h.a> run(CustomMessage<BaseFragmentActivity> customMessage) {
@@ -82,7 +82,7 @@ public class Static {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e extends CustomMessageListener {
         public e(int i2) {
             super(i2);
@@ -103,7 +103,7 @@ public class Static {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class f extends CustomMessageListener {
         public f(int i2) {
             super(i2);
@@ -120,7 +120,7 @@ public class Static {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class g extends CustomMessageListener {
         public g(int i2) {
             super(i2);

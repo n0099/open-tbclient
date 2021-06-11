@@ -120,8 +120,8 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
 
     /* renamed from: d.a.n0.r0.n1.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1520a implements TbImageView.f {
-        public C1520a() {
+    public class C1576a implements TbImageView.f {
+        public C1576a() {
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
@@ -162,16 +162,16 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a2 f59104e;
+        public final /* synthetic */ a2 f62795e;
 
         public c(a2 a2Var) {
-            this.f59104e = a2Var;
+            this.f62795e = a2Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.A != null) {
-                a.this.f63441f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(a.this.f63441f.getContext(), "", this.f59104e.v1, true)));
+                a.this.f67159f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(a.this.f67159f.getContext(), "", this.f62795e.w1, true)));
             }
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_STAR_PIC_CLICK));
         }
@@ -211,7 +211,7 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
             if (a.this.G == null || a.this.G.isPlaying()) {
                 return;
             }
-            a.this.f0(true, 1);
+            a.this.g0(true, 1);
         }
     }
 
@@ -222,8 +222,8 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.a0();
-            a.this.f0(true, 4);
+            a.this.b0();
+            a.this.g0(true, 4);
         }
     }
 
@@ -262,8 +262,8 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.h() != null) {
-                a.this.h().a(view, a.this.K);
+            if (a.this.i() != null) {
+                a.this.i().a(view, a.this.K);
             }
         }
     }
@@ -275,10 +275,10 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.K == null || a.this.h() == null) {
+            if (a.this.K == null || a.this.i() == null) {
                 return;
             }
-            a.this.h().a(view, a.this.K);
+            a.this.i().a(view, a.this.K);
         }
     }
 
@@ -292,10 +292,10 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         public void handleMessage(Message message) {
             int i2 = message.what;
             if (i2 == 202) {
-                a.this.Q();
+                a.this.R();
             } else if (i2 != 203) {
             } else {
-                a.this.P();
+                a.this.Q();
             }
         }
     }
@@ -343,7 +343,7 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
             if (a.this.G != null) {
                 a.this.G.setVolume(0.0f, 0.0f);
             }
-            a.this.j0();
+            a.this.k0();
         }
     }
 
@@ -355,7 +355,7 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
         public boolean onInfo(int i2, int i3, Object obj) {
             if (i2 == 3) {
-                a.this.f0(false, 3);
+                a.this.g0(false, 3);
             }
             return false;
         }
@@ -379,8 +379,8 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
         public boolean onError(int i2, int i3, Object obj) {
-            a.this.a0();
-            a.this.f0(true, 4);
+            a.this.b0();
+            a.this.g0(true, 4);
             a.this.Q = false;
             return true;
         }
@@ -393,7 +393,7 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
 
         @Override // com.baidu.tieba.play.VideoLoadingProgressView.c
         public void onAnimationEnd() {
-            a.this.j0();
+            a.this.k0();
         }
     }
 
@@ -458,7 +458,7 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         this.f0 = new p();
         this.g0 = new q();
         this.h0 = new r();
-        this.j0 = new C1520a();
+        this.j0 = new C1576a();
         this.k0 = new b();
         this.l0 = new e();
         this.m0 = new f();
@@ -468,14 +468,14 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         this.q0 = new j();
         this.r0 = new l();
         this.s0 = new m();
-        p(bdUniqueId);
+        q(bdUniqueId);
         this.l = 3;
         this.A = tbPageContext;
-        View l2 = l();
-        this.y = l2.findViewById(R.id.divider_line);
-        this.B = (RelativeLayout) l2.findViewById(R.id.layout_root);
-        this.V = (TbImageView) l2.findViewById(R.id.frs_normal_item_star_view);
-        this.C = (LinearLayout) l2.findViewById(R.id.video_card_content_layout);
+        View m2 = m();
+        this.y = m2.findViewById(R.id.divider_line);
+        this.B = (RelativeLayout) m2.findViewById(R.id.layout_root);
+        this.V = (TbImageView) m2.findViewById(R.id.frs_normal_item_star_view);
+        this.C = (LinearLayout) m2.findViewById(R.id.video_card_content_layout);
         this.B.setOnClickListener(this);
         HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) this.B.findViewById(R.id.card_home_page_video_user_pendant_header);
         this.q = headPendantClickableView;
@@ -490,21 +490,21 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
             this.q.getPendantView().setIsRound(true);
             this.q.getPendantView().setDrawBorder(false);
         }
-        TextView textView = (TextView) l2.findViewById(R.id.thread_info_bar_name);
+        TextView textView = (TextView) m2.findViewById(R.id.thread_info_bar_name);
         this.s = textView;
         textView.setVisibility(8);
         this.s.setOnClickListener(this.o0);
-        d.a.n0.k2.m mVar = new d.a.n0.k2.m((ViewGroup) l2.findViewById(R.id.auto_video_loading_container));
+        d.a.n0.k2.m mVar = new d.a.n0.k2.m((ViewGroup) m2.findViewById(R.id.auto_video_loading_container));
         this.J = mVar;
         mVar.f(this.h0);
-        this.D = (TextView) l2.findViewById(R.id.text_title);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) l2.findViewById(R.id.text_bottom);
+        this.D = (TextView) m2.findViewById(R.id.text_title);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) m2.findViewById(R.id.text_bottom);
         this.m = threadCommentAndPraiseInfoLayout;
         threadCommentAndPraiseInfoLayout.setForumAfterClickListener(this.q0);
-        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) l2.findViewById(R.id.card_home_page_auto_video_user_info_layout);
+        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) m2.findViewById(R.id.card_home_page_auto_video_user_info_layout);
         this.o = threadUserInfoLayout;
         threadUserInfoLayout.setFrom(3);
-        this.r = l2.findViewById(R.id.divider_below_reply_number_layout);
+        this.r = m2.findViewById(R.id.divider_below_reply_number_layout);
         if (this.m.getLayoutParams() instanceof LinearLayout.LayoutParams) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
             layoutParams.rightMargin = 0;
@@ -521,26 +521,26 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         this.m.setStType("frs_page");
         this.m.setFrom(2);
         this.m.R = 3;
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) l2.findViewById(R.id.text_bottom_threaad);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) m2.findViewById(R.id.text_bottom_threaad);
         this.n = threadSourceShareAndPraiseLayout;
-        threadSourceShareAndPraiseLayout.f12401f.setOnClickListener(this);
+        threadSourceShareAndPraiseLayout.f12463f.setOnClickListener(this);
         this.n.setFrom(2);
         this.n.setShareReportFrom(1);
         this.n.setSourceFromForPb(3);
         this.n.setStType("frs_page");
         this.n.setHideBarName(true);
-        FrameLayout frameLayout = (FrameLayout) l2.findViewById(R.id.frame_video);
+        FrameLayout frameLayout = (FrameLayout) m2.findViewById(R.id.frame_video);
         this.t = frameLayout;
         frameLayout.setOnClickListener(this);
         this.t.addOnAttachStateChangeListener(new s());
-        TbImageView tbImageView = (TbImageView) l2.findViewById(R.id.image_video);
+        TbImageView tbImageView = (TbImageView) m2.findViewById(R.id.image_video);
         this.E = tbImageView;
-        tbImageView.setPageId(i());
+        tbImageView.setPageId(j());
         this.E.setDrawCorner(true);
         this.E.setPlaceHolder(3);
         this.E.setEvent(this.j0);
         this.E.setGifIconSupport(false);
-        this.F = (ImageView) l2.findViewById(R.id.image_video_play);
+        this.F = (ImageView) m2.findViewById(R.id.image_video_play);
         TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(b());
         this.G = tbCyberVideoView;
         tbCyberVideoView.setStageType("2003");
@@ -555,50 +555,50 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         this.S = fVar;
         fVar.l(this.G);
         this.S.i(this.r0);
-        this.L = l2.findViewById(R.id.auto_video_black_mask);
-        this.H = (TextView) l2.findViewById(R.id.auto_video_error_tips);
-        this.I = l2.findViewById(R.id.auto_video_error_background);
-        this.u = (LinearLayout) l2.findViewById(R.id.video_card_content_layout);
-        this.v = (ThreadSkinView) l2.findViewById(R.id.frs_thread_skin);
+        this.L = m2.findViewById(R.id.auto_video_black_mask);
+        this.H = (TextView) m2.findViewById(R.id.auto_video_error_tips);
+        this.I = m2.findViewById(R.id.auto_video_error_background);
+        this.u = (LinearLayout) m2.findViewById(R.id.video_card_content_layout);
+        this.v = (ThreadSkinView) m2.findViewById(R.id.frs_thread_skin);
         Animation loadAnimation = AnimationUtils.loadAnimation(this.A.getPageActivity(), R.anim.fade_out_video_cover);
         this.T = loadAnimation;
         loadAnimation.setAnimationListener(this.s0);
-        this.w = (TextView) l2.findViewById(R.id.text_video_duration);
-        this.M = (TextView) l2.findViewById(R.id.text_video_play_count);
-        this.x = (LinearLayout) l2.findViewById(R.id.duration_container);
+        this.w = (TextView) m2.findViewById(R.id.text_video_duration);
+        this.M = (TextView) m2.findViewById(R.id.text_video_play_count);
+        this.x = (LinearLayout) m2.findViewById(R.id.duration_container);
         d.a.n0.r0.o2.i iVar = new d.a.n0.r0.o2.i(tbPageContext, this.B);
         this.U = iVar;
-        iVar.d(i());
-        ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) l2.findViewById(R.id.card_god_reply_layout);
+        iVar.d(j());
+        ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) m2.findViewById(R.id.card_god_reply_layout);
         this.p = threadGodReplyLayout;
         threadGodReplyLayout.setOnClickListener(this);
-        View findViewById = l2.findViewById(R.id.thread_multi_del_mask_view);
+        View findViewById = m2.findViewById(R.id.thread_multi_del_mask_view);
         this.Z = findViewById;
         findViewById.setOnClickListener(new t());
         this.m.setOnSelectStatusChangeListener(new u());
-        this.z = (TextView) l2.findViewById(R.id.nani_video_icon);
+        this.z = (TextView) m2.findViewById(R.id.nani_video_icon);
     }
 
-    public int K(int i2) {
+    public int L(int i2) {
         return d.a.n0.o.d.c().b(this.X, i2);
     }
 
-    public String L() {
+    public String M() {
         return this.R;
     }
 
-    public View M() {
+    public View N() {
         return this.t;
     }
 
-    public final void N() {
+    public final void O() {
         if (this.K != null) {
             String str = this.b0 == 501 ? "frs_tab" : "frs";
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.buildWithThreadData(this.K);
             arrayList.add(videoItemData);
-            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f63441f.getPageActivity(), arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, str);
+            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f67159f.getPageActivity(), arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "frs_page", null, str);
             if (this.K.V() != null) {
                 videoPlayActivityConfig.setNid(this.K.V().oriUgcNid);
             }
@@ -606,24 +606,24 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         }
     }
 
-    public final void O() {
+    public final void P() {
         VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
         videoSerializeVideoThreadInfo.copyFromThreadInfo(this.K);
         VideoSerializeVideoThreadInfo.VideoCardViewInfo videoCardViewInfo = new VideoSerializeVideoThreadInfo.VideoCardViewInfo();
-        videoCardViewInfo.cardViewX = (int) (l().getX() + M().getX() + this.u.getX());
-        videoCardViewInfo.cardViewY = (int) (l().getY() + M().getY() + this.u.getY());
-        videoCardViewInfo.cardViewWidth = M().getWidth();
-        videoCardViewInfo.cardViewHeight = M().getHeight();
+        videoCardViewInfo.cardViewX = (int) (m().getX() + N().getX() + this.u.getX());
+        videoCardViewInfo.cardViewY = (int) (m().getY() + N().getY() + this.u.getY());
+        videoCardViewInfo.cardViewWidth = N().getWidth();
+        videoCardViewInfo.cardViewHeight = N().getHeight();
         videoSerializeVideoThreadInfo.mVideoCardViewInfo = videoCardViewInfo;
-        VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.A.getPageActivity(), this.b0 == 501 ? "frs_tab" : "frs", this.K.y1(), d.a.n0.z.m.g(), "", videoSerializeVideoThreadInfo);
+        VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.A.getPageActivity(), this.b0 == 501 ? "frs_tab" : "frs", this.K.z1(), d.a.n0.z.m.g(), "", videoSerializeVideoThreadInfo);
         if (this.K.V() != null) {
             videoMiddlePageActivityConfig.setNid(this.K.V().oriUgcNid);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoMiddlePageActivityConfig));
     }
 
-    public final void P() {
-        if (l().getParent() == null) {
+    public final void Q() {
+        if (m().getParent() == null) {
             stopPlay();
             return;
         }
@@ -631,57 +631,57 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         int currentPosition = this.G.getCurrentPosition();
         if (currentPosition != this.O) {
             this.O = currentPosition;
-            f0(false, 3);
+            g0(false, 3);
         } else {
-            f0(false, 2);
+            g0(false, 2);
         }
         this.c0.sendEmptyMessageDelayed(203, 3000L);
     }
 
-    public final void Q() {
+    public final void R() {
         this.c0.removeMessages(202);
         if (this.G.getCurrentPosition() > 0) {
-            f0(false, 3);
+            g0(false, 3);
             this.c0.sendEmptyMessageDelayed(203, 3000L);
             return;
         }
         this.c0.sendEmptyMessageDelayed(202, 20L);
     }
 
-    public final void R(View view) {
+    public final void S(View view) {
         if (this.K != null) {
             StatisticItem statisticItem = new StatisticItem("c11100");
             statisticItem.param("tid", this.K.o0());
             statisticItem.param("fid", this.K.c0() + "");
             TiebaStatic.log(statisticItem);
         }
-        if (h() != null) {
-            h().a(view, this.K);
+        if (i() != null) {
+            i().a(view, this.K);
         }
         if (view == this.t) {
             if (!d.a.c.e.p.j.z()) {
                 d.a.c.e.p.l.L(this.A.getPageActivity(), R.string.no_network_guide);
             } else {
-                O();
+                P();
             }
         }
     }
 
-    public final void S(View view) {
-        if (h() != null) {
-            h().a(view, this.K);
+    public final void T(View view) {
+        if (i() != null) {
+            i().a(view, this.K);
         }
         if (!d.a.c.e.p.j.z()) {
             d.a.c.e.p.l.L(this.A.getPageActivity(), R.string.no_network_guide);
         } else {
-            N();
+            O();
         }
     }
 
-    public final void T(View view) {
+    public final void U(View view) {
         a2 a2Var = this.K;
         if (a2Var != null) {
-            if (a2Var.Z1()) {
+            if (a2Var.a2()) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_PHOTO_LIVE_VIEW_PAGER_ITEM).param("fid", String.valueOf(this.K.c0())).param("obj_type", 2));
             } else {
                 StatisticItem statisticItem = new StatisticItem("c11100");
@@ -693,8 +693,8 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
                 TiebaStatic.log(new StatisticItem("c10806").param("obj_locate", 3).param("tid", this.K.o0()));
             }
         }
-        if (h() != null) {
-            h().a(view, this.K);
+        if (i() != null) {
+            i().a(view, this.K);
         }
         a2 a2Var2 = this.K;
         if (a2Var2 != null) {
@@ -703,22 +703,22 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
             c0.b(this.K.o0());
             String str = null;
             String valueOf = String.valueOf(this.K.c0());
-            OriginalForumInfo originalForumInfo = this.K.D1;
+            OriginalForumInfo originalForumInfo = this.K.E1;
             if (originalForumInfo != null) {
                 valueOf = originalForumInfo.id;
                 str = valueOf;
             }
             String str2 = "floor5";
             if (this.K.B0() > 0 && d.a.n0.e3.n0.e.c()) {
-                PbActivityConfig createHistoryCfg = new PbActivityConfig(this.A.getPageActivity()).createHistoryCfg(this.K.y1(), String.valueOf(this.K.B0()), false, true, "frs_page");
+                PbActivityConfig createHistoryCfg = new PbActivityConfig(this.A.getPageActivity()).createHistoryCfg(this.K.z1(), String.valueOf(this.K.B0()), false, true, "frs_page");
                 if (this.b0 == 501) {
                     str2 = "frs_tab";
-                } else if (!this.K.Z1()) {
+                } else if (!this.K.a2()) {
                     str2 = "frs";
                 }
                 createHistoryCfg.setVideo_source(str2);
-                createHistoryCfg.setFromSmartFrs(this.K.w2());
-                createHistoryCfg.setSmartFrsPosition(this.K.l1());
+                createHistoryCfg.setFromSmartFrs(this.K.x2());
+                createHistoryCfg.setSmartFrsPosition(this.K.m1());
                 createHistoryCfg.setForumId(valueOf);
                 createHistoryCfg.setFromForumId(str);
                 createHistoryCfg.setStartFrom(this.l);
@@ -731,12 +731,12 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.A.getPageActivity()).createFromThreadCfg(this.K, this.i0, "frs_page", 18003, true, false, false);
             if (this.b0 == 501) {
                 str2 = "frs_tab";
-            } else if (!this.K.Z1()) {
+            } else if (!this.K.a2()) {
                 str2 = "frs";
             }
             createFromThreadCfg.setVideo_source(str2);
-            createFromThreadCfg.setFromSmartFrs(this.K.w2());
-            createFromThreadCfg.setSmartFrsPosition(this.K.l1());
+            createFromThreadCfg.setFromSmartFrs(this.K.x2());
+            createFromThreadCfg.setSmartFrsPosition(this.K.m1());
             createFromThreadCfg.setForumId(valueOf);
             createFromThreadCfg.setFromForumId(str);
             createFromThreadCfg.setStartFrom(this.l);
@@ -749,20 +749,20 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
 
     public final void V() {
         a2 a2Var;
+        c0();
         b0();
-        a0();
         if (this.E == null || this.t == null || this.G == null) {
             return;
         }
-        if (d.a.m0.r.k.c().g() && (a2Var = this.K) != null && a2Var.w1() != null) {
+        if (d.a.m0.r.k.c().g() && (a2Var = this.K) != null && a2Var.x1() != null) {
             this.t.setVisibility(0);
             this.E.setPlaceHolder(3);
-            this.E.V(this.K.w1().thumbnail_url, 10, false);
+            this.E.U(this.K.x1().thumbnail_url, 10, false);
             stopPlay();
-            String str = this.K.w1().video_url;
+            String str = this.K.x1().video_url;
             this.R = str;
             if (StringUtils.isNull(str)) {
-                f0(true, 4);
+                g0(true, 4);
                 TiebaStatic.log(new StatisticItem("c12026").param("tid", this.K.o0()));
             }
             this.G.setThreadDataForStatistic(this.K);
@@ -771,38 +771,38 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         this.t.setVisibility(8);
     }
 
-    public boolean W() {
+    public boolean X() {
         return this.Q;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: X */
-    public void m(a2 a2Var) {
+    /* renamed from: Y */
+    public void n(a2 a2Var) {
         this.K = a2Var;
-        Y();
+        Z();
     }
 
-    public final void Y() {
+    public final void Z() {
         a2 a2Var = this.K;
         if (a2Var != null && a2Var.T() != null) {
             this.B.setVisibility(0);
             this.B.setOnClickListener(this);
             V();
             if (!StringUtils.isNull(this.W) && !StringUtils.isNull(this.Y)) {
-                this.K.l4(this.W, this.Y);
+                this.K.m4(this.W, this.Y);
             }
             boolean z = true;
-            this.K.V2(false, true);
-            SpannableStringBuilder m1 = this.K.m1();
-            if (this.K.A() && !StringUtils.isNull(this.K.y1())) {
-                String str = d.a.m0.r.d0.b.j().p("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.K.y1();
-                m1.append((CharSequence) this.K.B(new d(this, 2, str, str)));
+            this.K.W2(false, true);
+            SpannableStringBuilder n1 = this.K.n1();
+            if (this.K.A() && !StringUtils.isNull(this.K.z1())) {
+                String str = d.a.m0.r.d0.b.j().p("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.K.z1();
+                n1.append((CharSequence) this.K.B(new d(this, 2, str, str)));
             }
-            this.D.setOnTouchListener(new d.a.n0.v3.i(m1));
-            this.D.setText(m1);
+            this.D.setOnTouchListener(new d.a.n0.v3.i(n1));
+            this.D.setText(n1);
             this.U.a(this.K);
-            i0(this.K);
+            j0(this.K);
             this.o.j(this.K);
             if (this.o.getHeaderImg() != null) {
                 if (this.o.getIsSimpleThread()) {
@@ -822,11 +822,11 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
             layoutParams.rightMargin = 0;
             this.m.setLayoutParams(layoutParams);
             this.o.setUserAfterClickListener(this.p0);
-            h0(K(1));
-            this.w.setText(StringHelper.stringForVideoTime(this.K.w1().video_duration.intValue() * 1000));
-            this.M.setText(String.format(this.A.getResources().getString(R.string.play_count), StringHelper.numFormatOverWan(this.K.w1().play_count.intValue())));
-            this.p.setData(this.K.B1());
-            this.p.k();
+            i0(L(1));
+            this.w.setText(StringHelper.stringForVideoTime(this.K.x1().video_duration.intValue() * 1000));
+            this.M.setText(String.format(this.A.getResources().getString(R.string.play_count), StringHelper.numFormatOverWan(this.K.x1().play_count.intValue())));
+            this.p.setData(this.K.C1());
+            this.p.l();
             if (d.a.n0.z.m.k(this.K.o0())) {
                 SkinManager.setViewTextColor(this.D, R.color.CAM_X0109, 1);
                 d.a.n0.z.m.l(this.p.getGodReplyContent(), this.K.o0(), R.color.CAM_X0106, R.color.CAM_X0109);
@@ -834,14 +834,14 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
                 SkinManager.setViewTextColor(this.D, R.color.CAM_X0105, 1);
             }
             a2 a2Var2 = this.K;
-            if ((a2Var2 == null || a2Var2.w1() == null || this.K.w1().is_vertical.intValue() != 1) ? false : false) {
+            if ((a2Var2 == null || a2Var2.x1() == null || this.K.x1().is_vertical.intValue() != 1) ? false : false) {
                 this.z.setVisibility(0);
             } else {
                 this.z.setVisibility(8);
             }
             if ((d.a.n0.r0.b.e().g() || d.a.n0.r0.a.h().j()) && this.m.isInFrsAllThread()) {
                 this.Z.setVisibility(0);
-                if (!this.K.l2() && !this.K.m2() && !this.K.A2()) {
+                if (!this.K.m2() && !this.K.n2() && !this.K.B2()) {
                     this.Z.setBackgroundResource(R.color.transparent);
                 } else {
                     SkinManager.setBackgroundColor(this.Z, R.color.CAM_X0201);
@@ -849,18 +849,10 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
             } else {
                 this.Z.setVisibility(8);
             }
-            n(this.A, TbadkCoreApplication.getInst().getSkinType());
+            o(this.A, TbadkCoreApplication.getInst().getSkinType());
             return;
         }
         this.B.setVisibility(8);
-    }
-
-    public void Z(BdUniqueId bdUniqueId) {
-        ThreadUserInfoLayout threadUserInfoLayout;
-        if (bdUniqueId == null || this.m == null || (threadUserInfoLayout = this.o) == null) {
-            return;
-        }
-        threadUserInfoLayout.setPageUniqueId(bdUniqueId);
     }
 
     @Override // d.a.n0.z.z
@@ -868,39 +860,47 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         this.i0 = str;
     }
 
-    public final void a0() {
+    public void a0(BdUniqueId bdUniqueId) {
+        ThreadUserInfoLayout threadUserInfoLayout;
+        if (bdUniqueId == null || this.m == null || (threadUserInfoLayout = this.o) == null) {
+            return;
+        }
+        threadUserInfoLayout.setPageUniqueId(bdUniqueId);
+    }
+
+    public final void b0() {
         this.c0.removeMessages(202);
         this.c0.removeMessages(203);
     }
 
-    public final void b0() {
+    public final void c0() {
         d.a.c.e.m.e.a().removeCallbacks(this.l0);
         d.a.c.e.m.e.a().removeCallbacks(this.m0);
     }
 
     public final void d0() {
         a2 a2Var = this.K;
-        if (a2Var == null || a2Var.w1() == null) {
+        if (a2Var == null || a2Var.x1() == null) {
             return;
         }
-        String str = this.K.Z1() ? "floor5" : "frs";
+        String str = this.K.a2() ? "floor5" : "frs";
         if (this.b0 == 501) {
             str = "frs_tab";
         }
         d.a.n0.k2.o oVar = new d.a.n0.k2.o();
-        oVar.f56898a = str;
-        oVar.f56900c = this.K.y1();
-        oVar.f56901d = this.K.c0() + "";
-        oVar.f56902e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f60587a = str;
+        oVar.f60589c = this.K.z1();
+        oVar.f60590d = this.K.c0() + "";
+        oVar.f60591e = TbadkCoreApplication.getCurrentAccount();
         a2 a2Var2 = this.K;
-        oVar.f56903f = a2Var2.S0;
-        String str2 = a2Var2.U0;
+        oVar.f60592f = a2Var2.T0;
+        String str2 = a2Var2.V0;
         oVar.l = str2;
-        oVar.f56904g = str2;
-        oVar.f56905h = a2Var2.T0;
-        oVar.f56906i = "";
-        oVar.m = a2Var2.w1().video_md5;
-        d.a.n0.k2.h.e(this.K.w1().video_md5, "", "1", oVar, this.G.getPcdnState());
+        oVar.f60593g = str2;
+        oVar.f60594h = a2Var2.U0;
+        oVar.f60595i = "";
+        oVar.m = a2Var2.x1().video_md5;
+        d.a.n0.k2.h.e(this.K.x1().video_md5, "", "1", oVar, this.G.getPcdnState());
     }
 
     public final void e0() {
@@ -914,7 +914,7 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         this.G.getView().setLayoutParams(layoutParams);
     }
 
-    public final void f0(boolean z, int i2) {
+    public final void g0(boolean z, int i2) {
         if (this.F == null || this.E == null || this.L == null || this.J == null || this.I == null || this.H == null) {
             return;
         }
@@ -942,12 +942,12 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
                 this.I.setVisibility(8);
                 this.H.setVisibility(8);
                 a2 a2Var = this.K;
-                if (a2Var == null || a2Var.w1() == null) {
+                if (a2Var == null || a2Var.x1() == null) {
                     return;
                 }
-                this.K.w1().video_length.intValue();
-                this.K.w1().video_duration.intValue();
-                this.K.y1();
+                this.K.x1().video_length.intValue();
+                this.K.x1().video_duration.intValue();
+                this.K.z1();
             } else if (i2 == 4) {
                 this.F.setVisibility(8);
                 this.E.startAnimation(this.T);
@@ -970,18 +970,6 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         }
     }
 
-    @Override // d.a.n0.z.b
-    public int g() {
-        return R.layout.card_home_page_auto_video_view_new;
-    }
-
-    public void g0(d.a.n0.k2.o oVar) {
-        TbCyberVideoView tbCyberVideoView = this.G;
-        if (tbCyberVideoView != null) {
-            tbCyberVideoView.setVideoStatData(oVar);
-        }
-    }
-
     public int getCurrentPosition() {
         TbCyberVideoView tbCyberVideoView = this.G;
         if (tbCyberVideoView == null) {
@@ -990,7 +978,19 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         return tbCyberVideoView.getCurrentPosition();
     }
 
-    public void h0(int i2) {
+    @Override // d.a.n0.z.b
+    public int h() {
+        return R.layout.card_home_page_auto_video_view_new;
+    }
+
+    public void h0(d.a.n0.k2.o oVar) {
+        TbCyberVideoView tbCyberVideoView = this.G;
+        if (tbCyberVideoView != null) {
+            tbCyberVideoView.setVideoStatData(oVar);
+        }
+    }
+
+    public void i0(int i2) {
         a2 a2Var = this.K;
         if (a2Var == null) {
             return;
@@ -1006,29 +1006,6 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         this.n.setVisibility(8);
     }
 
-    public final void i0(a2 a2Var) {
-        TbImageView tbImageView = this.V;
-        if (tbImageView == null) {
-            return;
-        }
-        if (a2Var == null) {
-            tbImageView.setVisibility(8);
-        } else if (!StringUtils.isNull(a2Var.u1)) {
-            d.a.n0.r0.o2.i iVar = this.U;
-            if (iVar != null && iVar.b() && (this.V.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.V.getLayoutParams();
-                layoutParams.rightMargin = d.a.c.e.p.l.g(this.A.getContext(), R.dimen.tbds106);
-                this.V.setLayoutParams(layoutParams);
-            }
-            this.V.setVisibility(0);
-            this.V.setImageDrawable(null);
-            this.V.V(a2Var.u1, 10, false);
-            this.V.setOnClickListener(new c(a2Var));
-        } else {
-            this.V.setVisibility(8);
-        }
-    }
-
     public boolean isPlaying() {
         TbCyberVideoView tbCyberVideoView = this.G;
         if (tbCyberVideoView == null) {
@@ -1037,7 +1014,30 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
         return tbCyberVideoView.isPlaying();
     }
 
-    public final void j0() {
+    public final void j0(a2 a2Var) {
+        TbImageView tbImageView = this.V;
+        if (tbImageView == null) {
+            return;
+        }
+        if (a2Var == null) {
+            tbImageView.setVisibility(8);
+        } else if (!StringUtils.isNull(a2Var.v1)) {
+            d.a.n0.r0.o2.i iVar = this.U;
+            if (iVar != null && iVar.b() && (this.V.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.V.getLayoutParams();
+                layoutParams.rightMargin = d.a.c.e.p.l.g(this.A.getContext(), R.dimen.tbds106);
+                this.V.setLayoutParams(layoutParams);
+            }
+            this.V.setVisibility(0);
+            this.V.setImageDrawable(null);
+            this.V.U(a2Var.v1, 10, false);
+            this.V.setOnClickListener(new c(a2Var));
+        } else {
+            this.V.setVisibility(8);
+        }
+    }
+
+    public final void k0() {
         TbCyberVideoView tbCyberVideoView = this.G;
         if (tbCyberVideoView == null || !this.Q) {
             return;
@@ -1051,7 +1051,7 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.N != i2) {
             SkinManager.setBackgroundResource(this.B, R.drawable.addresslist_item_bg);
             SkinManager.setImageResource(this.F, R.drawable.btn_icon_play_video_n);
@@ -1085,24 +1085,24 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
             if (view == this.t) {
                 a2 a2Var = this.K;
                 boolean z = false;
-                if (a2Var != null && a2Var.w1() != null && this.K.w1().is_vertical.intValue() == 1) {
+                if (a2Var != null && a2Var.x1() != null && this.K.x1().is_vertical.intValue() == 1) {
                     z = true;
                 }
                 if (z) {
-                    S(view);
+                    T(view);
                 } else if (UtilHelper.isGotoVideoMiddlePage()) {
-                    R(this.t);
+                    S(this.t);
                 } else {
-                    T(this.t);
+                    U(this.t);
                 }
             } else {
                 ThreadGodReplyLayout threadGodReplyLayout = this.p;
                 if (view == threadGodReplyLayout) {
-                    T(threadGodReplyLayout);
+                    U(threadGodReplyLayout);
                 }
             }
         } else {
-            T(this.B);
+            U(this.B);
         }
         a2 a2Var2 = this.K;
         if (a2Var2 != null) {
@@ -1111,7 +1111,7 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
         this.l = i2;
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.m;
         if (threadCommentAndPraiseInfoLayout != null) {
@@ -1131,16 +1131,16 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
     public void startPlay() {
         a2 a2Var;
         TbCyberVideoView tbCyberVideoView;
-        if (this.Q || (a2Var = this.K) == null || a2Var.w1() == null || (tbCyberVideoView = this.G) == null) {
+        if (this.Q || (a2Var = this.K) == null || a2Var.x1() == null || (tbCyberVideoView = this.G) == null) {
             return;
         }
         tbCyberVideoView.stopPlayback();
         if (m0.d()) {
             if (this.a0 || d.a.m0.r.d0.b.j().k("auto_play_video_frs", 0) == 1) {
-                f0(true, 2);
+                g0(true, 2);
                 if (StringUtils.isNull(this.R)) {
                     TiebaStatic.log(new StatisticItem("c12619").param("obj_locate", "frs").param("tid", this.K.o0()));
-                    this.R = this.K.w1().video_url;
+                    this.R = this.K.x1().video_url;
                 }
                 this.Q = true;
                 this.G.setVideoPath(this.R, this.K.o0());
@@ -1154,9 +1154,9 @@ public class a extends d.a.n0.z.b<a2> implements z, Object {
     }
 
     public void stopPlay() {
+        c0();
         b0();
-        a0();
-        f0(true, 1);
+        g0(true, 1);
         TbCyberVideoView tbCyberVideoView = this.G;
         if (tbCyberVideoView != null) {
             tbCyberVideoView.stopPlayback();

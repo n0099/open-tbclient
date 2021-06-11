@@ -29,7 +29,7 @@ public class e extends d.a.m0.b1.m.a {
                 return;
             }
             Matrix imageMatrix = tbImageView.getImageMatrix();
-            d.a.c.j.d.a m = d.a.m0.a0.c.k().m(d.a.c.e.l.d.h().g(tbImageView.getUrl(), e.this.r ? 17 : 18));
+            d.a.c.k.d.a m = d.a.m0.a0.c.k().m(d.a.c.e.l.d.h().g(tbImageView.getUrl(), e.this.r ? 17 : 18));
             int i3 = 0;
             if (m != null) {
                 i3 = m.r();

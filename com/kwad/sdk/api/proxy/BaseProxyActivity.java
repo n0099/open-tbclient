@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes6.dex */
@@ -79,6 +80,7 @@ public abstract class BaseProxyActivity extends Activity {
         this.mDelegate.onPreDestroy();
         super.onDestroy();
         this.mDelegate.onDestroy();
+        ComponentDestroyer.destroyActivity(this);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

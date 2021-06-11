@@ -26,13 +26,13 @@ import org.json.JSONObject;
 public class a implements u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46524a = k.f43199a;
+    public static final boolean f50198a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d.a.l0.e.s.c<JSONObject> f46525b = new d.a.l0.e.s.c<>();
+    public static final d.a.l0.e.s.c<JSONObject> f50199b = new d.a.l0.e.s.c<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f46526c = TimeUnit.MINUTES.toMillis(2);
+    public static final long f50200c = TimeUnit.MINUTES.toMillis(2);
 
     @Override // d.a.l0.a.p.d.u
     public void a(String str, String str2) {
@@ -45,16 +45,16 @@ public class a implements u {
 
     @Override // d.a.l0.a.p.d.u
     public JSONObject c(Context context, String str) {
-        if (f46524a) {
+        if (f50198a) {
             Log.i("BoxPrivateBehavior", "getIMUnReadMessageList params=" + str);
         }
         String str2 = d.a.l0.a.a2.d.g().getAppId() + d.a.l0.a.a2.d.g().r().j().c(context);
-        JSONObject c2 = f46525b.c(str2);
-        if (f46524a) {
+        JSONObject c2 = f50199b.c(str2);
+        if (f50198a) {
             Log.i("BoxPrivateBehavior", "getIMUnReadMessageList k=" + str2);
         }
         if (c2 != null) {
-            if (f46524a) {
+            if (f50198a) {
                 Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with cache=" + c2);
             }
             return c2;
@@ -62,16 +62,16 @@ public class a implements u {
             return null;
         } else {
             JSONObject f2 = f(context, str);
-            if (f46524a) {
+            if (f50198a) {
                 Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with request=" + f2);
             }
-            return f46525b.a(str2, f2, f46526c);
+            return f50199b.a(str2, f2, f50200c);
         }
     }
 
     @Override // d.a.l0.a.p.d.u
     public void d() {
-        f46525b.b();
+        f50199b.b();
     }
 
     public final JSONObject e(int i2) {
@@ -120,10 +120,10 @@ public class a implements u {
             }
             String n = d.a.l0.a.c1.a.n().n();
             d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", Q.D()).add(com.alipay.sdk.cons.b.k, str2).build()).build().body(), null);
-            aVar.f47974f = true;
-            aVar.f47975g = true;
-            aVar.f47976h = true;
-            aVar.f47970b = "POST";
+            aVar.f51648f = true;
+            aVar.f51649g = true;
+            aVar.f51650h = true;
+            aVar.f51644b = "POST";
             HttpRequestBuilder a2 = d.a.l0.m.e.b.a(aVar);
             d.a.l0.m.e.a.g().t(a2, aVar);
             try {

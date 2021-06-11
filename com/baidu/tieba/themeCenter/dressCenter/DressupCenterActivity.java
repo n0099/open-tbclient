@@ -23,7 +23,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
             DressupCenterActivity dressupCenterActivity = DressupCenterActivity.this;
             dressupCenterActivity.hideLoadingView(dressupCenterActivity.mView.e());
             if (i2 == 0) {
-                DressupCenterActivity.this.mView.m(list, eVar, list2, DressupCenterActivity.this.mModel.z());
+                DressupCenterActivity.this.mView.m(list, eVar, list2, DressupCenterActivity.this.mModel.D());
                 return;
             }
             DressupCenterActivity.this.showToast(str);
@@ -40,7 +40,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public d.a.m0.k0.d getPageStayDurationItem() {
         d.a.m0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }
@@ -59,7 +59,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         super.onCreate(bundle);
         DressupCenterModel dressupCenterModel = new DressupCenterModel(this);
         this.mModel = dressupCenterModel;
-        dressupCenterModel.A(this.mCallback);
+        dressupCenterModel.E(this.mCallback);
         c cVar = new c(this);
         this.mView = cVar;
         showLoadingView(cVar.e());

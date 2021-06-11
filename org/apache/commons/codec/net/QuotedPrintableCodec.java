@@ -9,7 +9,7 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QuotedPrintableCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, StringDecoder {
     public QuotedPrintableCodec() {
         throw new RuntimeException("Stub!");

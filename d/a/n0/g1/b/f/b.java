@@ -17,25 +17,25 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public j f55044a;
+    public j f58733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f55045b;
+    public l f58734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<h> f55046c;
+    public List<h> f58735c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f55047d;
+    public h f58736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.g1.b.f.a f55048e;
+    public d.a.n0.g1.b.f.a f58737e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f55049f;
+    public c f58738f;
 
     /* renamed from: g  reason: collision with root package name */
-    public l.d f55050g = new C1348b();
+    public l.d f58739g = new C1404b();
 
     /* loaded from: classes4.dex */
     public class a implements l.c {
@@ -50,15 +50,15 @@ public class b {
 
     /* renamed from: d.a.n0.g1.b.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1348b implements l.d {
-        public C1348b() {
+    public class C1404b implements l.d {
+        public C1404b() {
         }
 
         @Override // d.a.m0.r.s.l.d
         public void onClick() {
             b.this.c();
-            if (b.this.f55049f != null) {
-                b.this.f55049f.a();
+            if (b.this.f58738f != null) {
+                b.this.f58738f.a();
             }
             b.this.d();
         }
@@ -70,42 +70,42 @@ public class b {
     }
 
     public b(f fVar) {
-        this.f55045b = new l(fVar.getPageActivity());
-        h hVar = new h(fVar.getString(R.string.delete), this.f55045b);
-        this.f55047d = hVar;
-        hVar.m(this.f55050g);
+        this.f58734b = new l(fVar.getPageActivity());
+        h hVar = new h(fVar.getString(R.string.delete), this.f58734b);
+        this.f58736d = hVar;
+        hVar.m(this.f58739g);
         ArrayList arrayList = new ArrayList();
-        this.f55046c = arrayList;
-        arrayList.add(this.f55047d);
-        this.f55045b.m(new a());
-        this.f55045b.k(this.f55046c);
-        this.f55044a = new j(fVar, this.f55045b);
+        this.f58735c = arrayList;
+        arrayList.add(this.f58736d);
+        this.f58734b.m(new a());
+        this.f58734b.k(this.f58735c);
+        this.f58733a = new j(fVar, this.f58734b);
         e();
         f();
     }
 
     public final void c() {
-        if (this.f55048e == null) {
+        if (this.f58737e == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-        httpMessage.addParam("type", this.f55048e.f55040a);
-        httpMessage.addParam("thread_id", this.f55048e.f55041b);
-        httpMessage.addParam("post_id", this.f55048e.f55042c);
-        httpMessage.addParam("ori_ugc_nid", this.f55048e.f55043d);
+        httpMessage.addParam("type", this.f58737e.f58729a);
+        httpMessage.addParam("thread_id", this.f58737e.f58730b);
+        httpMessage.addParam("post_id", this.f58737e.f58731c);
+        httpMessage.addParam("ori_ugc_nid", this.f58737e.f58732d);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void d() {
-        j jVar = this.f55044a;
+        j jVar = this.f58733a;
         if (jVar == null || !jVar.isShowing()) {
             return;
         }
-        this.f55044a.dismiss();
+        this.f58733a.dismiss();
     }
 
     public void e() {
-        l lVar = this.f55045b;
+        l lVar = this.f58734b;
         if (lVar != null) {
             lVar.j();
         }
@@ -120,15 +120,15 @@ public class b {
     }
 
     public void g(d.a.n0.g1.b.f.a aVar) {
-        this.f55048e = aVar;
+        this.f58737e = aVar;
     }
 
     public void h(c cVar) {
-        this.f55049f = cVar;
+        this.f58738f = cVar;
     }
 
     public void i() {
-        j jVar = this.f55044a;
+        j jVar = this.f58733a;
         if (jVar != null) {
             jVar.show();
         }

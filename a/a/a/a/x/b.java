@@ -1,37 +1,63 @@
 package a.a.a.a.x;
 
-import android.content.SharedPreferences;
-import android.util.Base64;
-import com.fun.ad.sdk.FunAdSdk;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import a.a.a.a.v.e;
+import java.util.HashMap;
+import java.util.Random;
 /* loaded from: classes.dex */
-public class b {
+public abstract class b implements a {
+
+    /* renamed from: c  reason: collision with root package name */
+    public static a f1362c = new d();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Random f1363d = new Random();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SharedPreferences f1360a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+    public final e.a f1364a;
 
-    public static int a(String str) {
-        return f1360a.getInt("key_sid_c_pre_" + str, 0);
+    /* renamed from: b  reason: collision with root package name */
+    public final HashMap<Object, p> f1365b = new HashMap<>();
+
+    public b(e.a aVar) {
+        this.f1364a = aVar;
     }
 
-    public static void a(long j, int i2, int i3, a.a.a.a.u.a aVar) {
-        byte[] bArr;
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            objectOutputStream.writeInt(aVar.f1341a);
-            aVar.a(objectOutputStream);
-            objectOutputStream.flush();
-            bArr = byteArrayOutputStream.toByteArray();
-        } catch (IOException unused) {
-            bArr = null;
+    @Override // a.a.a.a.x.a
+    public final void a(Object obj) {
+        synchronized (this.f1365b) {
+            this.f1365b.remove(obj);
         }
-        String encodeToString = bArr != null ? Base64.encodeToString(bArr, 0) : null;
-        Object[] objArr = new Object[1];
-        objArr[0] = Integer.valueOf(encodeToString == null ? -1 : encodeToString.length());
-        d.c("sspsUTF len:%d", objArr);
-        f1360a.edit().putLong("key_config_v", j).putInt("key_config_interval", i2).putInt("key_V", i3).putString("key_adcfg", encodeToString).apply();
     }
+
+    @Override // a.a.a.a.x.a
+    public void a(Object obj, String str) {
+    }
+
+    @Override // a.a.a.a.x.a
+    public final p b(Object obj) {
+        synchronized (this.f1365b) {
+            p pVar = this.f1365b.get(obj);
+            if (pVar != null) {
+                return pVar;
+            }
+            p c2 = c(obj);
+            if (c2 == null) {
+                return null;
+            }
+            this.f1365b.put(obj, c2);
+            return c2;
+        }
+    }
+
+    @Override // a.a.a.a.x.a
+    public final void b(Object obj, String str) {
+        p c2;
+        if (a.a.a.a.d.f1017a.booleanValue() && obj != null && f1363d.nextFloat() < this.f1364a.f1345f && (c2 = c(obj)) != null) {
+            synchronized (this.f1365b) {
+                this.f1365b.put(obj, c2);
+            }
+        }
+    }
+
+    public abstract p c(Object obj);
 }

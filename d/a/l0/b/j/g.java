@@ -15,7 +15,7 @@ public class g extends d.a.l0.a.v1.a.a.a {
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(Bundle bundle) {
-            g.this.f45272d.putBundle("key_result_stokent", bundle);
+            g.this.f48946d.putBundle("key_result_stokent", bundle);
             g.this.c();
         }
     }

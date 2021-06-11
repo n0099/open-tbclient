@@ -18,23 +18,23 @@ public class b extends a0 {
     public class a implements d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f43783a;
+        public final /* synthetic */ CallbackHandler f47459a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f43784b;
+        public final /* synthetic */ UnitedSchemeEntity f47460b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f43785c;
+        public final /* synthetic */ String f47461c;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            this.f43783a = callbackHandler;
-            this.f43784b = unitedSchemeEntity;
-            this.f43785c = str;
+            this.f47459a = callbackHandler;
+            this.f47460b = unitedSchemeEntity;
+            this.f47461c = str;
         }
 
         @Override // d.a.l0.a.n2.b.d.b
         public void a(int i2) {
-            b.this.k(i2, this.f43783a, this.f43784b, this.f43785c);
+            b.this.k(i2, this.f47459a, this.f47460b, this.f47461c);
         }
     }
 
@@ -88,7 +88,7 @@ public class b extends a0 {
         }
         try {
             jSONObject.put("volume", f2);
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("startMediaVolumeListen", "NewVolume: " + f2);
             }
             UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);

@@ -1,427 +1,160 @@
 package d.a.m0.a;
 
-import android.util.Pair;
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import d.a.m0.a.d0.d;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Calendar;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.MissionInfo;
 /* loaded from: classes3.dex */
 public class c {
+    public static String C = "activityid";
+    public static String D = "missionid";
+    public static String E = "activitysource";
+    public static String F = "source";
+    public static String G = "tab";
+    public static String H = "calltype";
+    public static String I = "tasktype";
+    public static String J = "browsetimepage";
+    public static String K = "browsetime";
+    public static String L = "threadnum";
+    public static String M = "forumnum";
+    public static String N = "cleartype";
+    public static String O = "cleartime";
+    public static String P = "tid";
+    public static String Q = "fid";
+    public static String R = "threadtext";
+    public static String S = "threadimg";
+    public static String T = "threadforum";
+    public static String U = "total_limit";
+    public static int V = -1;
+    public static int W = 1;
+    public static int X = 2;
+    public static int Y = 3;
+    public static int Z = 8;
+    public static int a0 = 9;
+    public static int b0 = -1;
+    public static int c0 = 0;
+    public static int d0 = 1;
+    public static int e0 = 2;
+    public static int f0 = 3;
+    public String A;
+    public final ArrayList<j> B;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ScheduledExecutorService f48632a;
+    public int f52287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<List<d.a.m0.a.b>> f48633b;
+    public int f52288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<d.a.m0.a.b> f48634c;
+    public int f52289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f48635d;
+    public long f52290d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f48636e;
+    public String f52291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48637f;
+    public int f52292f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48638g;
+    public int f52293g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f48639h;
+    public long f52294h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.a.d0.d f48640i;
-    public d.a.m0.a.b0.c j;
-    public d.a.m0.a.c0.b k;
-    public int l;
-    public long m;
-    public int n;
+    public long f52295i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
     public long o;
-    public boolean p;
-    public CustomMessageListener q;
-    public CustomMessageListener r;
-    public CustomMessageListener s;
-    public d.a.m0.a.b0.a<d.a.m0.a.b0.b> t;
-    public d.a.m0.m.b u;
+    public int p;
+    public long q;
+    public int[] r;
+    public long s;
+    public int t;
+    public volatile int u;
+    public volatile int v;
+    public boolean w;
+    public int x;
+    public volatile int y;
+    public boolean z;
 
-    /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
-        public a(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.f48637f = true;
-            if (c.this.f48634c.isEmpty()) {
-                return;
-            }
-            Iterator it = c.this.f48634c.iterator();
-            while (it.hasNext()) {
-                c.this.m((d.a.m0.a.b) it.next());
-            }
-            c.this.f48634c.clear();
-        }
+    public c() {
+        this.p = b0;
+        this.u = 0;
+        this.v = 0;
+        this.w = false;
+        this.x = 1;
+        this.y = 0;
+        this.z = false;
+        this.B = new ArrayList<>();
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends CustomMessageListener {
-        public b(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage instanceof BackgroundSwitchMessage) {
-                ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue();
-                c.this.q();
-            }
-        }
+    public int A() {
+        return this.f52292f;
     }
 
-    /* renamed from: d.a.m0.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C1096c extends CustomMessageListener {
-        public C1096c(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371) {
-                return;
-            }
-            c.this.f48638g = true;
-            c.this.q();
-        }
+    public String B() {
+        return this.m;
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements d.a.m0.a.b0.a<d.a.m0.a.b0.b> {
-        public d() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.a.b0.a
-        /* renamed from: b */
-        public void a(d.a.m0.a.b0.b bVar) {
-            ActiveCenterData activeCenterData;
-            if (bVar == null || (activeCenterData = bVar.f48626g) == null || activeCenterData.mission == null) {
-                return;
-            }
-            d.a.m0.a.b bVar2 = new d.a.m0.a.b();
-            bVar2.O(bVar.f48626g.mission);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(bVar2);
-            c.this.n(arrayList);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.m.a
-        /* renamed from: c */
-        public void onSuccess(d.a.m0.a.b0.b bVar) {
-            if (bVar != null) {
-                c.this.n(bVar.b());
-            }
-        }
-
-        @Override // d.a.m0.m.a
-        public void onError(int i2, String str) {
-        }
+    public long C() {
+        return this.f52294h;
     }
 
-    /* loaded from: classes3.dex */
-    public class e implements d.a.m0.m.b<d.a.m0.a.b> {
-        public e() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.m0.m.b
-        /* renamed from: b */
-        public void a(d.a.m0.a.b bVar) {
-            if (bVar == null) {
-                return;
-            }
-            d.a.m0.a.b w = c.this.w(bVar);
-            if (w != null && w.z) {
-                w.R();
-                c.this.S(w);
-                return;
-            }
-            o.b().h(w);
-            if (w != null && w.x() == 7) {
-                w.H();
-                int F = w.F();
-                int w2 = w.w();
-                if (F <= 1 || F <= w2) {
-                    c.this.G(w);
-                } else {
-                    c.this.S(w);
-                }
-            } else if (w == null || w.x() != 8) {
-                c.this.G(bVar);
-            } else {
-                c.this.G(w);
-            }
-        }
+    public final long D(int i2) {
+        long u = u();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(11, i2);
+        calendar.set(12, 0);
+        calendar.set(13, 0);
+        calendar.set(14, 0);
+        return calendar.getTimeInMillis() - u;
     }
 
-    /* loaded from: classes3.dex */
-    public class g extends BdAsyncTask<d.a.m0.a.b, Integer, Void> {
-        public g(c cVar) {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(d.a.m0.a.b... bVarArr) {
-            if (bVarArr == null || bVarArr.length <= 0 || bVarArr[0] == null) {
-                return null;
-            }
-            d.a.m0.a.a.g().a(bVarArr[0]);
-            return null;
-        }
-
-        public /* synthetic */ g(c cVar, a aVar) {
-            this(cVar);
-        }
+    public String E() {
+        return this.A;
     }
 
-    /* loaded from: classes3.dex */
-    public class h extends BdAsyncTask<List<d.a.m0.a.b>, Integer, Void> {
-        public h(c cVar) {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(List<d.a.m0.a.b>... listArr) {
-            if (listArr == null || listArr.length <= 0 || listArr[0] == null) {
-                return null;
-            }
-            d.a.m0.a.a.g().b(listArr[0]);
-            return null;
-        }
-
-        public /* synthetic */ h(c cVar, a aVar) {
-            this(cVar);
-        }
+    public int F() {
+        return this.x;
     }
 
-    /* loaded from: classes3.dex */
-    public class i extends BdAsyncTask<d.a.m0.a.b, Integer, Void> {
-        public i(c cVar) {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(d.a.m0.a.b... bVarArr) {
-            if (bVarArr == null || bVarArr.length <= 0 || bVarArr[0] == null) {
-                return null;
-            }
-            d.a.m0.a.a.g().e(bVarArr[0]);
-            return null;
-        }
-
-        public /* synthetic */ i(c cVar, a aVar) {
-            this(cVar);
-        }
+    public synchronized int G() {
+        int i2;
+        i2 = this.v + 1;
+        this.v = i2;
+        return i2;
     }
 
-    /* loaded from: classes3.dex */
-    public class j extends BdAsyncTask<Pair<d.a.m0.a.b, d.a.m0.a.b>, Integer, Pair<d.a.m0.a.b, d.a.m0.a.b>> {
-        public j() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Pair<d.a.m0.a.b, d.a.m0.a.b> doInBackground(Pair<d.a.m0.a.b, d.a.m0.a.b>... pairArr) {
-            if (pairArr == null || pairArr.length <= 0 || pairArr[0] == null) {
-                return null;
-            }
-            Pair<d.a.m0.a.b, d.a.m0.a.b> pair = pairArr[0];
-            d.a.m0.a.b bVar = (d.a.m0.a.b) pair.first;
-            d.a.m0.a.b bVar2 = (d.a.m0.a.b) pair.second;
-            if (bVar2 != null) {
-                d.a.m0.a.a.g().e(bVar2);
-            }
-            if (bVar != null) {
-                d.a.m0.a.a.g().a(bVar);
-                return pair;
-            }
-            return pair;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(Pair<d.a.m0.a.b, d.a.m0.a.b> pair) {
-            if (pair != null) {
-                d.a.m0.a.b bVar = (d.a.m0.a.b) pair.first;
-                d.a.m0.a.b bVar2 = (d.a.m0.a.b) pair.second;
-                if (bVar2 != null) {
-                    c.this.v(bVar2);
-                }
-                if (bVar != null) {
-                    c.this.J(bVar);
-                }
-            }
-        }
-
-        public /* synthetic */ j(c cVar, a aVar) {
-            this();
-        }
+    public synchronized int H() {
+        int i2;
+        i2 = this.y + 1;
+        this.y = i2;
+        return i2;
     }
 
-    /* loaded from: classes3.dex */
-    public class k extends BdAsyncTask<Void, Integer, LinkedList<d.a.m0.a.b>> {
-        public k() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public LinkedList<d.a.m0.a.b> doInBackground(Void... voidArr) {
-            LinkedList<d.a.m0.a.b> linkedList = new LinkedList<>();
-            linkedList.addAll(d.a.m0.a.a.g().f());
-            Iterator<d.a.m0.a.b> it = linkedList.iterator();
-            while (it.hasNext()) {
-                d.a.m0.a.b next = it.next();
-                if (next != null && next.M()) {
-                    d.a.m0.a.a.g().e(next);
-                    it.remove();
-                } else if (next.x() == 7) {
-                    next.n0();
-                    d.a.m0.a.a.g().i(next);
-                }
-            }
-            return linkedList;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(LinkedList<d.a.m0.a.b> linkedList) {
-            super.onPostExecute(linkedList);
-            if (linkedList == null) {
-                return;
-            }
-            if (!linkedList.isEmpty()) {
-                Iterator<d.a.m0.a.b> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    d.a.m0.a.b next = it.next();
-                    if (next.h() != null) {
-                        c.this.J(next);
-                    }
-                }
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921391));
-        }
-
-        public /* synthetic */ k(c cVar, a aVar) {
-            this();
-        }
+    public synchronized int I() {
+        int i2;
+        i2 = this.u + 1;
+        this.u = i2;
+        return i2;
     }
 
-    /* loaded from: classes3.dex */
-    public static class l {
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final c f48653a = new c(null);
-    }
-
-    /* loaded from: classes3.dex */
-    public class m extends BdAsyncTask<d.a.m0.a.b, Integer, d.a.m0.a.b> {
-        public m() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public d.a.m0.a.b doInBackground(d.a.m0.a.b... bVarArr) {
-            if (bVarArr == null || bVarArr.length <= 0 || bVarArr[0] == null) {
-                return null;
-            }
-            d.a.m0.a.b bVar = bVarArr[0];
-            d.a.m0.a.a.g().i(bVar);
-            return bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(d.a.m0.a.b bVar) {
-            if (bVar == null || !bVar.z) {
-                return;
-            }
-            bVar.z = false;
-            c cVar = c.this;
-            cVar.P(cVar.l, c.this.m);
-        }
-
-        public /* synthetic */ m(c cVar, a aVar) {
-            this();
-        }
-    }
-
-    public /* synthetic */ c(a aVar) {
-        this();
-    }
-
-    public static final c y() {
-        return l.f48653a;
-    }
-
-    public boolean A() {
-        return !s();
-    }
-
-    public final boolean B() {
-        return TbadkCoreApplication.getInst().isMainProcess(true);
-    }
-
-    public final boolean C(d.a.m0.a.b bVar) {
-        if (bVar == null) {
-            return false;
-        }
-        int[] h2 = bVar.h();
-        if (h2 == null) {
-            return true;
-        }
-        for (int i2 : h2) {
-            List<d.a.m0.a.b> list = this.f48633b.get(i2);
-            if (list == null) {
-                return false;
-            }
-            for (d.a.m0.a.b bVar2 : list) {
-                if (bVar2 != null && bVar2.d() == bVar.d() && bVar2.q() == bVar.q()) {
-                    if (bVar2.M()) {
-                        H(bVar, bVar2);
-                    }
+    public boolean J(long j) {
+        for (int i2 = 0; i2 < this.B.size(); i2++) {
+            j jVar = (j) ListUtils.getItem(this.B, i2);
+            if (jVar != null) {
+                long m = m(jVar);
+                if (m > 0 && m == j && jVar.e()) {
                     return true;
                 }
             }
@@ -429,677 +162,506 @@ public class c {
         return false;
     }
 
-    public boolean D() {
+    public boolean K() {
+        return this.f52287a > 0 && this.f52288b > 0 && this.f52289c > 0 && this.f52290d > 0;
+    }
+
+    public boolean L() {
+        return this.w;
+    }
+
+    public boolean M() {
+        return System.currentTimeMillis() > t() * 1000;
+    }
+
+    public boolean N(String str) {
+        if (d.a.c.e.p.k.isEmpty(str)) {
+            return false;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.f52287a = jSONObject.optInt(C);
+            this.f52288b = jSONObject.optInt(D);
+            this.j = jSONObject.optString(E);
+            this.l = jSONObject.optString(F);
+            this.k = jSONObject.optString(G);
+            this.t = jSONObject.optInt(H);
+            this.f52289c = jSONObject.optInt(I);
+            String optString = jSONObject.optString(J);
+            this.f52291e = optString;
+            this.r = Q(optString);
+            this.f52290d = jSONObject.optLong(K);
+            this.f52292f = jSONObject.optInt(L);
+            this.f52293g = jSONObject.optInt(M);
+            this.p = jSONObject.optInt(N);
+            this.q = jSONObject.optLong(O);
+            this.s = c();
+            this.f52294h = jSONObject.optLong(P);
+            this.f52295i = jSONObject.optLong(Q);
+            this.m = jSONObject.optString(R);
+            this.n = jSONObject.optString(S);
+            this.o = jSONObject.optLong(T);
+            int optInt = jSONObject.optInt(U);
+            if (optInt > 0) {
+                this.x = optInt;
+                return true;
+            }
+            return true;
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+            return false;
+        }
+    }
+
+    public void O(ActiveCenterData.ActiveCenterMissionData activeCenterMissionData) {
+        if (activeCenterMissionData != null) {
+            b0(activeCenterMissionData.mission_id);
+            m0(activeCenterMissionData.total_limit);
+            f0(activeCenterMissionData.task_type);
+            S(activeCenterMissionData.active_id);
+            Y(activeCenterMissionData.cleartype);
+            X(activeCenterMissionData.cleartime);
+        }
+    }
+
+    public void P(int i2, String str) {
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i3);
+                long optLong = jSONObject.optLong("i");
+                long optLong2 = jSONObject.optLong("t");
+                boolean optBoolean = jSONObject.optBoolean("c");
+                int optInt = jSONObject.optInt("a");
+                if (i2 == 7) {
+                    if (optLong > 0) {
+                        m mVar = new m(this, optLong);
+                        mVar.f(optBoolean);
+                        mVar.g(optLong2);
+                        mVar.h(optInt);
+                        a(mVar);
+                    }
+                } else if (i2 == 1) {
+                    if (optLong > 0) {
+                        o oVar = new o(this, optLong);
+                        oVar.f(optBoolean);
+                        oVar.g(optLong2);
+                        oVar.h(optInt);
+                        a(oVar);
+                    }
+                } else if (i2 == 2) {
+                    if (optLong > 0) {
+                        l lVar = new l(this, optLong);
+                        lVar.f(optBoolean);
+                        lVar.g(optLong2);
+                        lVar.h(optInt);
+                        a(lVar);
+                    }
+                } else if (i2 == 4) {
+                    k kVar = new k(this);
+                    kVar.f(optBoolean);
+                    kVar.g(optLong2);
+                    kVar.h(optInt);
+                    a(kVar);
+                } else if (i2 == 8) {
+                    n nVar = new n(this);
+                    nVar.f(optBoolean);
+                    nVar.g(optLong2);
+                    nVar.h(optInt);
+                    a(nVar);
+                }
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public final int[] Q(String str) {
+        int i2 = this.f52289c;
+        if (i2 == 8) {
+            return new int[]{V};
+        }
+        if (i2 == 7) {
+            return new int[]{W, Z, a0};
+        }
+        if (str == null) {
+            return null;
+        }
+        String[] split = str.split(",");
+        int[] iArr = new int[split.length];
+        for (int i3 = 0; i3 < split.length; i3++) {
+            int d2 = d.a.c.e.m.b.d(split[i3], 0);
+            if (d2 > 0) {
+                iArr[i3] = d2;
+            }
+        }
+        return iArr;
+    }
+
+    public void R() {
+        this.B.clear();
+        this.u = 0;
+        this.v = 0;
+        this.y = 0;
+    }
+
+    public void S(int i2) {
+        this.f52287a = i2;
+    }
+
+    public void T(String str) {
+        this.j = str;
+    }
+
+    public void U(long j) {
+        this.f52290d = j;
+    }
+
+    public void V(String str) {
+        this.f52291e = str;
+        this.r = Q(str);
+    }
+
+    public void W(int i2) {
+        this.t = i2;
+    }
+
+    public void X(long j) {
+        this.q = j;
+    }
+
+    public void Y(int i2) {
+        this.p = i2;
+    }
+
+    public void Z(long j) {
+        this.f52295i = j;
+    }
+
+    public void a(j jVar) {
+        if (this.f52289c == 7 && (jVar instanceof m)) {
+            if (this.B.contains(jVar)) {
+                return;
+            }
+            this.B.add(jVar);
+        } else if (this.f52289c == 1 && (jVar instanceof o)) {
+            if (this.B.contains(jVar)) {
+                return;
+            }
+            this.B.add(jVar);
+        } else if (this.f52289c == 2 && (jVar instanceof l)) {
+            if (this.B.contains(jVar)) {
+                return;
+            }
+            this.B.add(jVar);
+        } else if (this.f52289c == 4 && (jVar instanceof k)) {
+            if (this.B.contains(jVar)) {
+                return;
+            }
+            this.B.add(jVar);
+        } else if (this.f52289c == 8 && (jVar instanceof n) && !this.B.contains(jVar)) {
+            this.B.add(jVar);
+        }
+    }
+
+    public void a0(int i2) {
+        this.f52293g = i2;
+    }
+
+    public String b() {
+        try {
+            ArrayList<j> arrayList = this.B;
+            JSONArray jSONArray = new JSONArray();
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                j jVar = (j) ListUtils.getItem(arrayList, i2);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("i", m(jVar));
+                jSONObject.put("t", jVar.b());
+                jSONObject.put("c", jVar.e());
+                jSONObject.put("a", jVar.d());
+                jSONArray.put(jSONObject);
+            }
+            return jSONArray.toString();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+            return "[]";
+        }
+    }
+
+    public void b0(int i2) {
+        this.f52288b = i2;
+    }
+
+    public long c() {
+        int i2 = this.p;
+        if (i2 == b0) {
+            return 0L;
+        }
+        if (i2 == c0) {
+            return this.q + (System.currentTimeMillis() / 1000);
+        } else if (i2 == d0) {
+            long u = this.q + (u() / 1000);
+            return System.currentTimeMillis() > u ? u + 86400 : u;
+        } else if (i2 == e0) {
+            return r((int) this.q, D(4)) / 1000;
+        } else {
+            if (i2 == f0) {
+                return this.q / 1000;
+            }
+            return 0L;
+        }
+    }
+
+    public void c0(boolean z) {
+        this.w = z;
+    }
+
+    public int d() {
+        return this.f52287a;
+    }
+
+    public void d0(long j) {
+        this.s = j;
+    }
+
+    public String e() {
+        return this.j;
+    }
+
+    public void e0(int i2) {
+        this.y = i2;
+    }
+
+    public long f() {
+        return this.f52290d;
+    }
+
+    public void f0(int i2) {
+        this.f52289c = i2;
+    }
+
+    public String g() {
+        return this.f52291e;
+    }
+
+    public void g0(long j) {
+        this.o = j;
+    }
+
+    public int[] h() {
+        return this.r;
+    }
+
+    public void h0(String str) {
+        this.n = str;
+    }
+
+    public int i() {
+        return this.t;
+    }
+
+    public void i0(int i2) {
+        this.f52292f = i2;
+    }
+
+    public long j() {
+        return this.q;
+    }
+
+    public void j0(String str) {
+        this.m = str;
+    }
+
+    public int k() {
         return this.p;
     }
 
-    public void E() {
-        this.f48636e.compareAndSet(true, false);
-        this.f48635d.f(0);
-        this.f48635d.h(0L);
-        this.f48635d.g(0L);
-        d.a.m0.a.d0.d dVar = this.f48640i;
-        if (dVar != null) {
-            dVar.m();
-        }
+    public void k0(long j) {
+        this.f52294h = j;
     }
 
-    public void F() {
-        List<d.a.m0.a.b> list = this.f48633b.get(d.a.m0.a.b.V);
-        if (ListUtils.isEmpty(list)) {
-            return;
-        }
-        boolean z = false;
-        for (d.a.m0.a.b bVar : list) {
-            Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-            while (it.hasNext()) {
-                d.a.m0.a.i next = it.next();
-                if (next instanceof d.a.m0.a.m) {
-                    d.a.m0.a.m mVar = (d.a.m0.a.m) next;
-                    if (!next.e()) {
-                        mVar.i();
-                        z = true;
-                    }
-                }
+    public int l() {
+        int size = this.B.size();
+        int i2 = 0;
+        for (int i3 = 0; i3 < size; i3++) {
+            j jVar = (j) ListUtils.getItem(this.B, i3);
+            if ((jVar instanceof m) && ((m) jVar).d() == w()) {
+                i2++;
             }
         }
-        if (!z || this.f48636e.get()) {
-            return;
+        return i2;
+    }
+
+    public void l0(String str) {
+        this.A = str;
+    }
+
+    public long m(j jVar) {
+        if (jVar == null) {
+            return 0L;
         }
-        this.f48635d.f(d.a.m0.a.b.V);
-        this.f48636e.compareAndSet(false, true);
-        synchronized (this.f48636e) {
-            this.f48636e.notify();
+        if (this.f52289c == 7 && (jVar instanceof m)) {
+            return ((m) jVar).i();
         }
-    }
-
-    public final void G(d.a.m0.a.b bVar) {
-        v(bVar);
-        new i(this, null).execute(bVar);
-    }
-
-    public final void H(d.a.m0.a.b bVar, d.a.m0.a.b bVar2) {
-        v(bVar2);
-        new j(this, null).execute(new Pair(bVar, bVar2));
-    }
-
-    public boolean I() {
-        if (this.j != null && B()) {
-            this.j.f(A(), D(), 1);
-            return true;
+        if (this.f52289c == 1 && (jVar instanceof o)) {
+            return ((o) jVar).i();
         }
-        return false;
+        if (this.f52289c == 2 && (jVar instanceof l)) {
+            return ((l) jVar).i();
+        }
+        return 0L;
     }
 
-    public final void J(d.a.m0.a.b bVar) {
-        int[] h2;
-        for (int i2 : bVar.h()) {
-            List<d.a.m0.a.b> list = this.f48633b.get(i2);
-            if (list == null) {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add(bVar);
-                this.f48633b.put(i2, linkedList);
-            } else {
-                list.add(bVar);
+    public void m0(int i2) {
+        this.x = i2;
+    }
+
+    public ArrayList<j> n() {
+        return this.B;
+    }
+
+    public void n0() {
+        int size = this.B.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            j jVar = (j) ListUtils.getItem(this.B, i2);
+            if (jVar != null) {
+                jVar.f(true);
             }
         }
     }
 
-    public void K(int i2, long j2) {
-        if (B()) {
-            this.n = i2;
-            long j3 = this.m;
-            if (j3 > 0 && this.l > 0 && (j2 == 0 || j2 != j3)) {
-                R(this.l, this.m);
-                this.m = 0L;
-                this.l = 0;
-            }
-            M();
-        }
+    public long o() {
+        return this.f52295i;
     }
 
-    public void L(boolean z) {
-        this.p = z;
+    public int p() {
+        return this.f52293g;
     }
 
-    public void M() {
-        int i2;
-        List<d.a.m0.a.b> list;
-        if (B() && this.f48637f && (list = this.f48633b.get((i2 = d.a.m0.a.b.V))) != null && !list.isEmpty()) {
-            boolean z = false;
-            for (d.a.m0.a.b bVar : list) {
-                if (bVar.x() == 8) {
-                    Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        d.a.m0.a.i next = it.next();
-                        d.a.m0.a.b c2 = next.c();
-                        if (c2 != null && (next instanceof d.a.m0.a.m) && c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                            ((d.a.m0.a.m) next).i();
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        d.a.m0.a.m mVar = new d.a.m0.a.m(bVar);
-                        mVar.g(0L);
-                        mVar.f(false);
-                        bVar.a(mVar);
-                    }
-                }
-            }
-            this.f48635d.f(i2);
-            this.f48636e.compareAndSet(false, true);
-            synchronized (this.f48636e) {
-                this.f48636e.notify();
-            }
-        }
+    public int q() {
+        return this.f52288b;
     }
 
-    public void N(int i2) {
-        if (B() && i2 != 0 && this.f48637f) {
-            this.l = i2;
-            List<d.a.m0.a.b> list = this.f48633b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            boolean z = false;
-            for (d.a.m0.a.b bVar : list) {
-                if (bVar.x() == 4) {
-                    Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        d.a.m0.a.i next = it.next();
-                        if ((next instanceof d.a.m0.a.j) && next.c().d() == bVar.d() && next.c().q() == bVar.q()) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        d.a.m0.a.j jVar = new d.a.m0.a.j(bVar);
-                        jVar.g(0L);
-                        jVar.f(false);
-                        bVar.a(jVar);
-                    }
-                }
-            }
-            this.f48635d.f(i2);
-            this.f48636e.compareAndSet(false, true);
-            synchronized (this.f48636e) {
-                this.f48636e.notify();
-            }
+    public final long r(int i2, long j) {
+        long timeInMillis;
+        switch (i2) {
+            case 1:
+                i2 = 2;
+                break;
+            case 2:
+                i2 = 3;
+                break;
+            case 3:
+                i2 = 4;
+                break;
+            case 4:
+                i2 = 5;
+                break;
+            case 5:
+                i2 = 6;
+                break;
+            case 6:
+                i2 = 7;
+                break;
+            case 7:
+                i2 = 1;
+                break;
         }
-    }
-
-    public void O(int i2, long j2) {
-        if (B() && i2 != 0 && j2 != 0 && this.f48637f) {
-            this.l = i2;
-            List<d.a.m0.a.b> list = this.f48633b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            boolean z = false;
-            for (d.a.m0.a.b bVar : list) {
-                if (bVar.x() == 2) {
-                    Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        d.a.m0.a.i next = it.next();
-                        if ((next instanceof d.a.m0.a.k) && next.c().d() == bVar.d() && next.c().q() == bVar.q() && ((d.a.m0.a.k) next).i() == j2) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (!z) {
-                        d.a.m0.a.k kVar = new d.a.m0.a.k(bVar, j2);
-                        kVar.g(0L);
-                        kVar.f(false);
-                        kVar.h(bVar.w());
-                        bVar.a(kVar);
-                    }
-                }
-            }
-            this.f48635d.f(i2);
-            this.f48635d.g(j2);
-            this.f48636e.compareAndSet(false, true);
-            synchronized (this.f48636e) {
-                this.f48636e.notify();
-            }
-        }
-    }
-
-    public void P(int i2, long j2) {
-        if (B() && i2 != 0 && j2 != 0 && this.f48637f) {
-            this.l = i2;
-            List<d.a.m0.a.b> list = this.f48633b.get(i2);
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            for (d.a.m0.a.b bVar : list) {
-                if (bVar.x() == 1) {
-                    p(bVar, j2);
-                } else if (bVar.x() != 7) {
-                    continue;
-                } else if (bVar.J(j2)) {
-                    break;
-                } else {
-                    o(bVar, j2);
-                }
-            }
-            this.f48635d.f(i2);
-            this.f48635d.h(j2);
-            this.m = j2;
-            this.f48636e.compareAndSet(false, true);
-            synchronized (this.f48636e) {
-                this.f48636e.notify();
-            }
-        }
-    }
-
-    public final void Q() {
-        this.f48632a.scheduleWithFixedDelay(this.f48635d, 0L, 1L, TimeUnit.SECONDS);
-    }
-
-    public void R(int i2, long j2) {
-        d.a.m0.a.l lVar;
-        d.a.m0.a.b c2;
-        List<d.a.m0.a.b> list = this.f48633b.get(i2);
-        if (list == null || list.isEmpty()) {
-            return;
-        }
-        for (d.a.m0.a.b bVar : list) {
-            if (bVar.x() == 7) {
-                Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        d.a.m0.a.i next = it.next();
-                        if ((next instanceof d.a.m0.a.l) && (c2 = (lVar = (d.a.m0.a.l) next).c()) != null && lVar.i() == j2 && c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                            next.f(true);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final void S(d.a.m0.a.b bVar) {
-        T(bVar);
-        new m(this, null).execute(bVar);
-    }
-
-    public final void T(d.a.m0.a.b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        int x = bVar.x();
-        Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-        while (it.hasNext()) {
-            d.a.m0.a.i next = it.next();
-            if (next != null && next.c() != null) {
-                d.a.m0.a.b c2 = next.c();
-                if (c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                    if (x == 7 && (next instanceof d.a.m0.a.l)) {
-                        ((d.a.m0.a.l) next).f(true);
-                    } else if (x == 1 && (next instanceof n)) {
-                        ((n) next).f(true);
-                    }
-                }
-            }
-        }
-        bVar.c0(false);
-    }
-
-    public void m(d.a.m0.a.b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        if (bVar.x() == 9) {
-            q.c().f(bVar);
-        } else if (!this.f48637f) {
-            this.f48634c.add(bVar);
-        } else if (C(bVar)) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(11, 0);
+        calendar.set(12, 0);
+        calendar.set(13, 0);
+        calendar.set(14, 0);
+        long timeInMillis2 = calendar.getTimeInMillis();
+        if (calendar.get(7) == i2 && System.currentTimeMillis() - timeInMillis2 < j) {
+            timeInMillis = calendar.getTimeInMillis();
         } else {
-            J(bVar);
-            new g(this, null).execute(bVar);
+            do {
+                calendar.add(5, 1);
+            } while (calendar.get(7) != i2);
+            timeInMillis = calendar.getTimeInMillis();
         }
+        return timeInMillis + j;
     }
 
-    public void n(List<d.a.m0.a.b> list) {
-        if (ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (!this.f48637f) {
-            this.f48634c.addAll(list);
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (d.a.m0.a.b bVar : list) {
-            if (bVar != null) {
-                if (bVar.x() == 9) {
-                    q.c().f(bVar);
-                } else if (!C(bVar)) {
-                    J(bVar);
-                    arrayList.add(bVar);
-                }
-            }
-        }
-        new h(this, null).execute(arrayList);
+    public String s() {
+        return this.l;
     }
 
-    public final void o(d.a.m0.a.b bVar, long j2) {
-        boolean z;
-        d.a.m0.a.l lVar;
-        d.a.m0.a.b c2;
-        Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z = false;
-                break;
-            }
-            d.a.m0.a.i next = it.next();
-            if ((next instanceof d.a.m0.a.l) && (c2 = (lVar = (d.a.m0.a.l) next).c()) != null && lVar.i() == j2 && c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                z = true;
-                break;
-            }
-        }
-        if (z) {
-            return;
-        }
-        d.a.m0.a.l lVar2 = new d.a.m0.a.l(bVar, j2);
-        lVar2.g(0L);
-        lVar2.f(false);
-        lVar2.h(bVar.w());
-        bVar.a(lVar2);
+    public long t() {
+        return this.s;
     }
 
-    public final void p(d.a.m0.a.b bVar, long j2) {
-        boolean z;
-        n nVar;
-        d.a.m0.a.b c2;
-        Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z = false;
-                break;
-            }
-            d.a.m0.a.i next = it.next();
-            if ((next instanceof n) && (c2 = (nVar = (n) next).c()) != null && nVar.i() == j2 && c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                z = true;
-                break;
-            }
-        }
-        if (z) {
-            return;
-        }
-        n nVar2 = new n(bVar, j2);
-        nVar2.g(0L);
-        nVar2.f(false);
-        nVar2.h(bVar.w());
-        bVar.a(nVar2);
+    public final long u() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(11, 0);
+        calendar.set(12, 0);
+        calendar.set(13, 0);
+        calendar.set(14, 0);
+        return calendar.getTimeInMillis();
     }
 
-    public void q() {
-        if (this.j != null && B() && this.f48638g && !t()) {
-            this.j.f(A(), D(), 0);
-        }
+    public String v() {
+        return this.k;
     }
 
-    public void r() {
-        if (this.k != null && B()) {
-            this.k.d();
-        }
-    }
-
-    public boolean s() {
-        return UtilHelper.isSameDay(d.a.m0.r.d0.b.j().l("pref_key_last_active_config", 0L), System.currentTimeMillis());
-    }
-
-    public boolean t() {
-        return UtilHelper.isSameDay(z(), System.currentTimeMillis());
-    }
-
-    public boolean u() {
-        return UtilHelper.isSameDay(d.a.m0.r.d0.b.j().l("pref_key_last_popup_time", 0L), System.currentTimeMillis());
-    }
-
-    public final void v(d.a.m0.a.b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        Iterator<d.a.m0.a.i> it = bVar.n().iterator();
-        while (it.hasNext()) {
-            d.a.m0.a.i next = it.next();
-            if (next != null && next.c() != null) {
-                d.a.m0.a.b c2 = next.c();
-                if (c2.d() == bVar.d() && c2.q() == bVar.q()) {
-                    it.remove();
-                }
-            }
-        }
-        for (int i2 = 0; i2 < this.f48633b.size(); i2++) {
-            List<d.a.m0.a.b> valueAt = this.f48633b.valueAt(i2);
-            if (valueAt != null && !valueAt.isEmpty()) {
-                Iterator<d.a.m0.a.b> it2 = valueAt.iterator();
-                while (it2.hasNext()) {
-                    d.a.m0.a.b next2 = it2.next();
-                    if (next2 != null && next2.d() == bVar.d() && next2.q() == bVar.q()) {
-                        it2.remove();
-                    }
-                }
-            }
-        }
-    }
-
-    public final d.a.m0.a.b w(d.a.m0.a.b bVar) {
-        if (bVar == null) {
-            return null;
-        }
-        for (int i2 = 0; i2 < this.f48633b.size(); i2++) {
-            List<d.a.m0.a.b> valueAt = this.f48633b.valueAt(i2);
-            if (valueAt != null && !valueAt.isEmpty()) {
-                for (d.a.m0.a.b bVar2 : valueAt) {
-                    if (bVar2 != null && bVar2.d() == bVar.d() && bVar2.q() == bVar.q()) {
-                        return bVar2;
-                    }
-                }
-                continue;
-            }
-        }
-        return null;
+    public int w() {
+        return this.y;
     }
 
     public int x() {
+        return this.f52289c;
+    }
+
+    public long y() {
+        return this.o;
+    }
+
+    public String z() {
         return this.n;
     }
 
-    public final long z() {
-        long l2 = d.a.m0.r.d0.b.j().l("pref_key_active_config_info", 0L);
-        this.o = l2;
-        return l2;
+    public c(String str) {
+        this.p = b0;
+        this.u = 0;
+        this.v = 0;
+        this.w = false;
+        this.x = 1;
+        this.y = 0;
+        this.z = false;
+        this.B = new ArrayList<>();
+        N(str);
     }
 
-    /* loaded from: classes3.dex */
-    public class f implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public volatile int f48646e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public volatile long f48647f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public volatile long f48648g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public volatile boolean f48649h;
-
-        public f() {
-            this.f48649h = false;
+    public c(MissionInfo missionInfo) {
+        this.p = b0;
+        this.u = 0;
+        this.v = 0;
+        this.w = false;
+        this.x = 1;
+        this.y = 0;
+        this.z = false;
+        this.B = new ArrayList<>();
+        if (missionInfo == null) {
+            return;
         }
-
-        public final void a(d.a.m0.a.b bVar, d.C1098d c1098d) {
-            ArrayList<d.a.m0.a.i> n;
-            if (bVar == null || c1098d == null || (n = bVar.n()) == null) {
-                return;
-            }
-            Iterator<d.a.m0.a.i> it = n.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                d.a.m0.a.i next = it.next();
-                if (next instanceof n) {
-                    n nVar = (n) next;
-                    if (this.f48647f != 0 && nVar.i() == this.f48647f && !next.e()) {
-                        this.f48649h = false;
-                        next.a(1);
-                        if (next.b() >= next.c().f()) {
-                            next.f(true);
-                            if (next.c().I() >= next.c().A()) {
-                                c1098d.b(next);
-                            }
-                        }
-                        c1098d.c(bVar);
-                    }
-                } else if (next instanceof d.a.m0.a.l) {
-                    d.a.m0.a.l lVar = (d.a.m0.a.l) next;
-                    if (!bVar.L() && lVar.d() == bVar.w()) {
-                        if (this.f48647f != 0 && lVar.i() == this.f48647f && !next.e()) {
-                            this.f48649h = false;
-                            next.a(1);
-                        }
-                        i2 = (int) (i2 + next.b());
-                        if (this.f48647f != 0 && lVar.i() == this.f48647f && !next.e()) {
-                            if (next.b() >= bVar.f()) {
-                                next.f(true);
-                                bVar.I();
-                            }
-                            c1098d.c(bVar);
-                        }
-                        int l = bVar.l();
-                        int A = bVar.A();
-                        if (i2 >= bVar.f() * bVar.A() && l >= A) {
-                            c1098d.a(bVar);
-                            bVar.c0(true);
-                        }
-                    }
-                } else if (next instanceof d.a.m0.a.k) {
-                    if (this.f48648g != 0 && ((d.a.m0.a.k) next).i() == this.f48648g && !next.e()) {
-                        this.f48649h = false;
-                        next.a(1);
-                        if (next.b() >= next.c().f()) {
-                            next.f(true);
-                            if (next.c().G() >= next.c().p()) {
-                                c1098d.b(next);
-                            }
-                        }
-                    }
-                } else if ((next instanceof d.a.m0.a.j) && !next.e()) {
-                    this.f48649h = false;
-                    next.a(1);
-                    if (next.b() >= next.c().f()) {
-                        next.f(true);
-                        c1098d.b(next);
-                    }
-                }
-            }
+        this.f52287a = missionInfo.activityid.intValue();
+        this.f52288b = missionInfo.missionid.intValue();
+        this.f52289c = missionInfo.tasktype.intValue();
+        this.p = missionInfo.cleartype.intValue();
+        this.q = missionInfo.cleartime.intValue();
+        this.s = c();
+        String str = missionInfo.browsetimepage;
+        this.f52291e = str;
+        this.r = Q(str);
+        if (missionInfo.threadnum.intValue() > 0) {
+            this.f52292f = missionInfo.threadnum.intValue();
         }
-
-        public final void b(d.a.m0.a.b bVar, d.C1098d c1098d) {
-            ArrayList<d.a.m0.a.i> n;
-            if (bVar == null || c1098d == null || (n = bVar.n()) == null) {
-                return;
-            }
-            Iterator<d.a.m0.a.i> it = n.iterator();
-            while (it.hasNext()) {
-                d.a.m0.a.i next = it.next();
-                if ((next instanceof d.a.m0.a.m) && !((d.a.m0.a.m) next).j() && !next.e()) {
-                    this.f48649h = false;
-                    next.a(1);
-                    if (next.b() >= next.c().f()) {
-                        next.f(true);
-                        c1098d.a(bVar);
-                    }
-                    c1098d.c(bVar);
-                }
-            }
+        if (missionInfo.browsetime.intValue() > 0) {
+            this.f52290d = missionInfo.browsetime.intValue();
         }
-
-        public final void c() {
-            this.f48649h = true;
-            List<d.a.m0.a.b> list = (List) c.this.f48633b.get(d.a.m0.a.b.V);
-            List<d.a.m0.a.b> list2 = (List) c.this.f48633b.get(this.f48646e);
-            if (ListUtils.isEmpty(list) && ListUtils.isEmpty(list2)) {
-                c.this.f48636e.compareAndSet(true, false);
-                return;
-            }
-            d.C1098d c1098d = new d.C1098d();
-            c1098d.f48699a = new LinkedList();
-            c1098d.f48700b = new LinkedList();
-            c1098d.f48701c = new LinkedList();
-            d(list, c1098d);
-            e(list2, c1098d);
-            if (this.f48649h) {
-                c.this.f48636e.compareAndSet(true, false);
-            }
-            if (!ListUtils.isEmpty(c1098d.f48701c)) {
-                d.a.m0.a.a.g().k(c1098d.f48701c);
-            }
-            if (ListUtils.isEmpty(c1098d.f48699a) && ListUtils.isEmpty(c1098d.f48700b)) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921379, c1098d));
-        }
-
-        public final void d(List<d.a.m0.a.b> list, d.C1098d c1098d) {
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (d.a.m0.a.b bVar : list) {
-                b(bVar, c1098d);
-            }
-        }
-
-        public final void e(List<d.a.m0.a.b> list, d.C1098d c1098d) {
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (d.a.m0.a.b bVar : list) {
-                a(bVar, c1098d);
-            }
-        }
-
-        public synchronized void f(int i2) {
-            this.f48646e = i2;
-        }
-
-        public synchronized void g(long j) {
-            this.f48648g = j;
-        }
-
-        public synchronized void h(long j) {
-            this.f48647f = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (this.f48646e == 0 || !c.this.f48636e.get()) {
-                synchronized (c.this.f48636e) {
-                    try {
-                        c.this.f48636e.wait();
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            c();
-        }
-
-        public /* synthetic */ f(c cVar, a aVar) {
-            this();
-        }
-    }
-
-    public c() {
-        this.f48632a = Executors.newSingleThreadScheduledExecutor();
-        this.f48633b = new SparseArray<>();
-        this.f48634c = new LinkedList<>();
-        this.f48635d = new f(this, null);
-        this.f48636e = new AtomicBoolean(false);
-        this.f48637f = false;
-        this.f48638g = false;
-        this.p = false;
-        this.q = new a(2921391);
-        this.r = new b(2001011);
-        this.s = new C1096c(2001371);
-        this.t = new d();
-        this.u = new e();
-        BdUniqueId gen = BdUniqueId.gen();
-        this.f48639h = gen;
-        d.a.m0.a.d0.d dVar = new d.a.m0.a.d0.d(gen);
-        this.f48640i = dVar;
-        dVar.w(this.u);
-        d.a.m0.a.b0.c cVar = new d.a.m0.a.b0.c(this.f48639h);
-        this.j = cVar;
-        cVar.g(this.t);
-        this.k = new d.a.m0.a.c0.b(this.f48639h);
-        this.s.setTag(this.f48639h);
-        MessageManager.getInstance().registerListener(this.s);
-        this.r.setTag(this.f48639h);
-        MessageManager.getInstance().registerListener(this.r);
-        this.q.setPriority(Integer.MIN_VALUE);
-        this.q.setTag(this.f48639h);
-        MessageManager.getInstance().registerListener(this.q);
-        d.a.m0.r.c0.a.e().f();
-        q.c().d(this.f48639h);
-        Q();
-        if (B()) {
-            new k(this, null).execute(new Void[0]);
+        if (missionInfo.total_limit.intValue() > 0) {
+            this.x = missionInfo.total_limit.intValue();
         }
     }
 }

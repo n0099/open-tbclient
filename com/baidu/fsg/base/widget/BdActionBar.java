@@ -20,31 +20,31 @@ public class BdActionBar extends RelativeLayout {
     public static final int TEXT_ALIGN_RIGHT = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5397a;
+    public String f5440a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f5398b;
+    public View f5441b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f5399c;
+    public View f5442c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f5400d;
+    public ImageView f5443d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f5401e;
+    public TextView f5444e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f5402f;
+    public TextView f5445f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f5403g;
+    public View f5446g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f5404h;
+    public View f5447h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f5405i;
+    public ImageView f5448i;
     public View j;
     public ImageView k;
     public TextView l;
@@ -56,7 +56,7 @@ public class BdActionBar extends RelativeLayout {
 
     public BdActionBar(Context context) {
         super(context);
-        this.f5397a = "";
+        this.f5440a = "";
         a();
     }
 
@@ -65,7 +65,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public View getRightImgZone1ImgView() {
-        return this.f5405i;
+        return this.f5448i;
     }
 
     public View getRightImgZone2ImgView() {
@@ -81,7 +81,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public View getRightZone1View() {
-        return this.f5404h;
+        return this.f5447h;
     }
 
     public View getRightZoneView() {
@@ -89,15 +89,15 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public String getTitle() {
-        return this.f5397a;
+        return this.f5440a;
     }
 
     public void hideLeftZone() {
-        this.f5399c.setVisibility(8);
+        this.f5442c.setVisibility(8);
     }
 
     public boolean isLeftZoneImageSelected() {
-        return this.f5399c.isSelected();
+        return this.f5442c.isSelected();
     }
 
     public void setBottomSeperatorvisible(boolean z) {
@@ -109,33 +109,33 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public void setCloseOnClickListener(View.OnClickListener onClickListener) {
-        this.f5403g.setVisibility(0);
-        this.f5403g.setOnClickListener(onClickListener);
+        this.f5446g.setVisibility(0);
+        this.f5446g.setOnClickListener(onClickListener);
         this.mTitleCenterText.setMaxEms(ResUtils.getInteger(getContext(), "wallet_base_titlebar_centertext_maxems_1"));
     }
 
     public void setImgZoneBackgroundResource(int i2) {
-        this.f5404h.setBackgroundResource(i2);
+        this.f5447h.setBackgroundResource(i2);
         this.j.setBackgroundResource(i2);
     }
 
     public void setLeftImgZone2NotifyText(String str, float f2) {
         if (!TextUtils.isEmpty(str)) {
-            this.f5401e.setVisibility(0);
+            this.f5444e.setVisibility(0);
         }
         if (f2 < 0.0f) {
             return;
         }
-        this.f5401e.setText(str);
-        this.f5401e.setTextSize(f2);
+        this.f5444e.setText(str);
+        this.f5444e.setTextSize(f2);
     }
 
     public void setLeftImgZone2NotifyTextColor(int i2) {
-        this.f5401e.setTextColor(i2);
+        this.f5444e.setTextColor(i2);
     }
 
     public void setLeftImgZone2NotifyTextColorStateList(ColorStateList colorStateList) {
-        this.f5401e.setTextColor(colorStateList);
+        this.f5444e.setTextColor(colorStateList);
     }
 
     public void setLeftZoneImageSelected(boolean z) {
@@ -146,31 +146,31 @@ public class BdActionBar extends RelativeLayout {
         if (drawable != null) {
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         }
-        this.f5400d.setImageDrawable(drawable);
+        this.f5443d.setImageDrawable(drawable);
     }
 
     public void setLeftZoneOnClickListener(View.OnClickListener onClickListener) {
-        this.f5399c.setVisibility(0);
-        this.f5399c.setOnClickListener(onClickListener);
+        this.f5442c.setVisibility(0);
+        this.f5442c.setOnClickListener(onClickListener);
     }
 
     public void setRightImgZone1Enable(boolean z) {
-        this.f5405i.setEnabled(z);
-        this.f5404h.setEnabled(z);
+        this.f5448i.setEnabled(z);
+        this.f5447h.setEnabled(z);
     }
 
     public void setRightImgZone1OnClickListener(View.OnClickListener onClickListener) {
-        this.f5404h.setOnClickListener(onClickListener);
+        this.f5447h.setOnClickListener(onClickListener);
     }
 
     public void setRightImgZone1Src(int i2) {
-        this.f5404h.setVisibility(0);
-        this.f5405i.setVisibility(0);
-        this.f5405i.setImageResource(i2);
+        this.f5447h.setVisibility(0);
+        this.f5448i.setVisibility(0);
+        this.f5448i.setImageResource(i2);
     }
 
     public void setRightImgZone1Visibility(int i2) {
-        this.f5404h.setVisibility(i2);
+        this.f5447h.setVisibility(i2);
     }
 
     public void setRightImgZone2Enable(boolean z) {
@@ -263,7 +263,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public void setTitlebgColor(int i2) {
-        View view = this.f5398b;
+        View view = this.f5441b;
         if (view == null) {
             return;
         }
@@ -271,37 +271,37 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public void setbackBg(Drawable drawable) {
-        this.f5399c.setBackgroundDrawable(drawable);
+        this.f5442c.setBackgroundDrawable(drawable);
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), getLayoutId()), this);
-        this.f5398b = findViewById(ResUtils.id(getContext(), "title"));
-        this.f5399c = findViewById(ResUtils.id(getContext(), "title_left_imgzone2"));
-        this.f5400d = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
-        this.f5402f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
-        this.f5401e = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
-        this.f5399c.setOnTouchListener(new a(this));
+        this.f5441b = findViewById(ResUtils.id(getContext(), "title"));
+        this.f5442c = findViewById(ResUtils.id(getContext(), "title_left_imgzone2"));
+        this.f5443d = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
+        this.f5445f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
+        this.f5444e = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
+        this.f5442c.setOnTouchListener(new a(this));
         View findViewById = findViewById(ResUtils.id(getContext(), "title_close"));
-        this.f5403g = findViewById;
+        this.f5446g = findViewById;
         findViewById.setOnTouchListener(new b(this));
         this.mTitleCenterText = (TextView) findViewById(ResUtils.id(getContext(), "title_center_text"));
         this.m = findViewById(ResUtils.id(getContext(), "title_center_safe_layout"));
         this.n = (TextView) findViewById(ResUtils.id(getContext(), "title_center_safe_tip"));
         this.o = (ImageView) findViewById(ResUtils.id(getContext(), "safe_icon"));
-        this.f5404h = findViewById(ResUtils.id(getContext(), "title_right_imgzone1"));
-        this.f5405i = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img1"));
+        this.f5447h = findViewById(ResUtils.id(getContext(), "title_right_imgzone1"));
+        this.f5448i = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img1"));
         this.j = findViewById(ResUtils.id(getContext(), "title_right_imgzone2"));
         this.k = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img"));
         this.l = (TextView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify"));
-        if (!TextUtils.isEmpty(this.f5397a)) {
-            setTitle(this.f5397a);
+        if (!TextUtils.isEmpty(this.f5440a)) {
+            setTitle(this.f5440a);
         }
         this.p = (ImageView) findViewById(ResUtils.id(getContext(), "title_bottom_seperator"));
     }
 
     public void setTitle(String str) {
-        this.f5397a = str;
+        this.f5440a = str;
         this.mTitleCenterText.setText(str);
     }
 
@@ -311,7 +311,7 @@ public class BdActionBar extends RelativeLayout {
 
     public BdActionBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f5397a = "";
+        this.f5440a = "";
         a();
     }
 
@@ -319,17 +319,17 @@ public class BdActionBar extends RelativeLayout {
         if (drawable != null) {
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         }
-        this.f5400d.setImageDrawable(drawable);
+        this.f5443d.setImageDrawable(drawable);
     }
 
     public void setRightImgZone1Src(String str) {
-        this.f5404h.setVisibility(0);
-        this.f5405i.setVisibility(0);
+        this.f5447h.setVisibility(0);
+        this.f5448i.setVisibility(0);
     }
 
     public BdActionBar(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f5397a = "";
+        this.f5440a = "";
         a();
     }
 }

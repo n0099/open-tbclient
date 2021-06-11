@@ -11,7 +11,7 @@ import java.util.List;
 import tbclient.App;
 /* loaded from: classes5.dex */
 public interface v {
-    d.a.c.j.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+    d.a.c.k.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
     q b();
 
@@ -25,7 +25,7 @@ public interface v {
 
     m g();
 
-    d.a.c.j.e.a<?, ?> h(u uVar, BdUniqueId bdUniqueId);
+    d.a.c.k.e.a<?, ?> h(u uVar, BdUniqueId bdUniqueId);
 
     void i();
 
@@ -33,7 +33,7 @@ public interface v {
 
     void k(AdvertAppInfo advertAppInfo, Context context);
 
-    d.a.c.j.e.a<?, ?> l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+    d.a.c.k.e.a<?, ?> l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
 
     d.a.n0.c3.a m();
 

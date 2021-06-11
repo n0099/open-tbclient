@@ -12,7 +12,7 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import d.a.n0.z.b0;
 import d.a.n0.z.m;
 /* loaded from: classes4.dex */
-public class b extends d.a.c.j.e.a<d.a.n0.e0.a, CardViewHolder<d.a.n0.z.d>> {
+public class b extends d.a.c.k.e.a<d.a.n0.e0.a, CardViewHolder<d.a.n0.z.d>> {
     public TbPageContext<?> m;
     public d.a.n0.z.d n;
     public String o;
@@ -29,23 +29,23 @@ public class b extends d.a.c.j.e.a<d.a.n0.e0.a, CardViewHolder<d.a.n0.z.d>> {
         /* renamed from: d */
         public void a(View view, d.a.n0.e0.a aVar) {
             TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 2).param("fid", b.this.o));
-            b.this.g0(view, aVar);
+            b.this.h0(view, aVar);
         }
     }
 
     public b(TbPageContext tbPageContext, String str, String str2) {
-        super(tbPageContext.getPageActivity(), d.a.n0.e0.a.f52762f);
+        super(tbPageContext.getPageActivity(), d.a.n0.e0.a.f56451f);
         this.o = str;
         this.p = str2;
         this.m = tbPageContext;
     }
 
-    public final void g0(View view, d.a.n0.e0.a aVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.m.getPageActivity()).createFromThreadCfg(aVar.h(), null, m.g(), 18003, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(aVar.h().c0()));
-        createFromThreadCfg.setForumName(aVar.h().i0());
+    public final void h0(View view, d.a.n0.e0.a aVar) {
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.m.getPageActivity()).createFromThreadCfg(aVar.c(), null, m.g(), 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(aVar.c().c0()));
+        createFromThreadCfg.setForumName(aVar.c().i0());
         createFromThreadCfg.setStartFrom(0);
-        m.a(aVar.h().y1());
+        m.a(aVar.c().z1());
         this.m.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         b0 b0Var = this.q;
         if (b0Var != null) {
@@ -54,27 +54,27 @@ public class b extends d.a.c.j.e.a<d.a.n0.e0.a, CardViewHolder<d.a.n0.z.d>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public CardViewHolder<d.a.n0.z.d> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public CardViewHolder<d.a.n0.z.d> Q(ViewGroup viewGroup) {
         this.n = new d.a.n0.z.d(this.m, this.o, this.p);
         return new CardViewHolder<>(this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: i0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.e0.a aVar, CardViewHolder<d.a.n0.z.d> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: j0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.e0.a aVar, CardViewHolder<d.a.n0.z.d> cardViewHolder) {
         if (cardViewHolder.b() == null) {
             return null;
         }
-        cardViewHolder.b().m(aVar);
-        cardViewHolder.b().n(this.m, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.b().o(new a());
-        return cardViewHolder.b().l();
+        cardViewHolder.b().n(aVar);
+        cardViewHolder.b().o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.b().p(new a());
+        return cardViewHolder.b().m();
     }
 
-    public void j0(b0 b0Var) {
+    public void k0(b0 b0Var) {
         this.q = b0Var;
     }
 }

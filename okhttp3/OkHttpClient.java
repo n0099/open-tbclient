@@ -32,7 +32,7 @@ import okhttp3.internal.platform.Platform;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.internal.ws.RealWebSocket;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
     public final Authenticator authenticator;
     @Nullable
@@ -331,7 +331,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         throw new IllegalStateException("Null interceptor: " + this.interceptors);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public Authenticator authenticator;
         @Nullable

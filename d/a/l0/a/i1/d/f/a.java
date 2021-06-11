@@ -6,62 +6,62 @@ import java.util.ArrayList;
 public class a implements Comparable<Object> {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42888e;
+    public String f46564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42889f;
+    public String f46565f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f42890g;
+    public long f46566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<MediaModel> f42891h;
+    public ArrayList<MediaModel> f46567h;
 
     public void a(MediaModel mediaModel) {
-        if (this.f42891h == null) {
-            this.f42891h = new ArrayList<>();
+        if (this.f46567h == null) {
+            this.f46567h = new ArrayList<>();
         }
-        this.f42891h.add(mediaModel);
+        this.f46567h.add(mediaModel);
     }
 
     public String b() {
-        return this.f42889f;
+        return this.f46565f;
     }
 
     public String c() {
-        return this.f42888e;
+        return this.f46564e;
     }
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
-        return Long.valueOf(((a) obj).e()).compareTo(Long.valueOf(this.f42890g));
+        return Long.valueOf(((a) obj).e()).compareTo(Long.valueOf(this.f46566g));
     }
 
     public int d() {
-        return this.f42891h.size();
+        return this.f46567h.size();
     }
 
     public long e() {
-        return this.f42890g;
+        return this.f46566g;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
-            return this.f42888e.equals(((a) obj).f42888e);
+            return this.f46564e.equals(((a) obj).f46564e);
         }
         return false;
     }
 
     public ArrayList<MediaModel> f() {
-        return this.f42891h;
+        return this.f46567h;
     }
 
     public void g(String str) {
-        this.f42889f = str;
+        this.f46565f = str;
     }
 
     public void h(String str) {
-        this.f42888e = str;
+        this.f46564e = str;
     }
 
     public int hashCode() {
@@ -69,10 +69,10 @@ public class a implements Comparable<Object> {
     }
 
     public void i(long j) {
-        this.f42890g = j;
+        this.f46566g = j;
     }
 
     public String toString() {
-        return "MediaDir [firstImgPath=, dirName=" + this.f42888e + ", imageCount=" + d() + "]";
+        return "MediaDir [firstImgPath=, dirName=" + this.f46564e + ", imageCount=" + d() + "]";
     }
 }

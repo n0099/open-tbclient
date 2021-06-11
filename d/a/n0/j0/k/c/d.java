@@ -9,106 +9,106 @@ public class d extends BaseCardInfo {
     public static final BdUniqueId j = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56014e;
+    public String f59703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56015f;
+    public int f59704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56016g = 0;
+    public int f59705g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<b> f56017h;
+    public List<b> f59706h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<c> f56018i;
+    public List<c> f59707i;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    public final c c() {
+        if (g().size() <= 0) {
+            return null;
+        }
+        b i2 = i();
+        b i3 = i();
+        if (i2 == null && i3 == null) {
+            return null;
+        }
+        c cVar = new c();
+        cVar.c(i2);
+        cVar.g(i3);
+        return cVar;
+    }
+
+    public List<b> g() {
+        return this.f59706h;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         return j;
     }
 
-    public final c h() {
-        if (l().size() <= 0) {
-            return null;
-        }
-        b m = m();
-        b m2 = m();
-        if (m == null && m2 == null) {
-            return null;
-        }
-        c cVar = new c();
-        cVar.h(m);
-        cVar.l(m2);
-        return cVar;
-    }
-
-    public List<b> l() {
-        return this.f56017h;
-    }
-
-    public final b m() {
+    public final b i() {
         b bVar;
-        if (this.f56016g < l().size()) {
-            bVar = l().get(this.f56016g);
-        } else if (this.f56015f >= l().size()) {
+        if (this.f59705g < g().size()) {
+            bVar = g().get(this.f59705g);
+        } else if (this.f59704f >= g().size()) {
             return null;
         } else {
-            this.f56016g = 0;
-            bVar = l().get(this.f56016g);
+            this.f59705g = 0;
+            bVar = g().get(this.f59705g);
         }
-        this.f56016g++;
+        this.f59705g++;
         return bVar;
     }
 
-    public int p() {
-        return this.f56015f;
+    public int k() {
+        return this.f59704f;
     }
 
-    public List<c> s() {
-        return this.f56018i;
+    public List<c> o() {
+        return this.f59707i;
     }
 
-    public List<c> t() {
-        if (l().size() <= 0) {
+    public List<c> p() {
+        if (g().size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.f56015f == 2) {
-            if (h() != null) {
-                arrayList.add(h());
+        if (this.f59704f == 2) {
+            if (c() != null) {
+                arrayList.add(c());
             }
         } else {
-            c h2 = h();
-            c h3 = h();
-            if (h2 != null) {
-                arrayList.add(h2);
+            c c2 = c();
+            c c3 = c();
+            if (c2 != null) {
+                arrayList.add(c2);
             }
-            if (h3 != null) {
-                arrayList.add(h3);
+            if (c3 != null) {
+                arrayList.add(c3);
             }
         }
         x(arrayList);
         return arrayList;
     }
 
-    public String u() {
-        return this.f56014e;
+    public String q() {
+        return this.f59703e;
     }
 
-    public void v(List<b> list) {
-        this.f56017h = list;
+    public void t(List<b> list) {
+        this.f59706h = list;
     }
 
     public void w(int i2) {
-        this.f56015f = i2;
+        this.f59704f = i2;
     }
 
     public final void x(List<c> list) {
-        this.f56018i = list;
+        this.f59707i = list;
     }
 
     public void y(String str) {
-        this.f56014e = str;
+        this.f59703e = str;
     }
 }

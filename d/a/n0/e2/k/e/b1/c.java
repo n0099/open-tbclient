@@ -26,22 +26,22 @@ import d.a.m0.s.c.v;
 import d.a.n0.e2.k.e.b1.b;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionView.c {
+public class c implements QueryMatchEmotionModel.b, b.InterfaceC1315b, EmotionView.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public f f53137e;
+    public f f56826e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f53138f;
+    public List<String> f56827f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HListView f53139g;
+    public HListView f56828g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.n0.e2.k.e.b1.b f53140h;
+    public d.a.n0.e2.k.e.b1.b f56829h;
 
     /* renamed from: i  reason: collision with root package name */
-    public QueryMatchEmotionModel f53141i;
+    public QueryMatchEmotionModel f56830i;
     public String j;
     public ViewGroup l;
     public ViewGroup.LayoutParams m;
@@ -58,7 +58,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionVi
         @Override // java.lang.Runnable
         public void run() {
             c.this.j = "";
-            c.this.f53139g.setVisibility(8);
+            c.this.f56828g.setVisibility(8);
         }
     }
 
@@ -85,22 +85,22 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionVi
 
     /* renamed from: d.a.n0.e2.k.e.b1.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1260c implements GetEmotionPidModel.b {
+    public class C1316c implements GetEmotionPidModel.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageData f53144a;
+        public final /* synthetic */ EmotionImageData f56833a;
 
-        public C1260c(EmotionImageData emotionImageData) {
-            this.f53144a = emotionImageData;
+        public C1316c(EmotionImageData emotionImageData) {
+            this.f56833a = emotionImageData;
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
         public void a(d.a.m0.b0.c cVar) {
-            if (cVar == null || TextUtils.isEmpty(cVar.f48910a)) {
+            if (cVar == null || TextUtils.isEmpty(cVar.f52584a)) {
                 return;
             }
-            this.f53144a.setPicId(cVar.f48910a);
-            c.this.n(this.f53144a);
+            this.f56833a.setPicId(cVar.f52584a);
+            c.this.n(this.f56833a);
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
@@ -109,7 +109,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionVi
     }
 
     public c(f fVar, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        this.f53137e = fVar;
+        this.f56826e = fVar;
         this.l = viewGroup;
         this.m = layoutParams;
     }
@@ -127,31 +127,31 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionVi
                 list = list.subList(0, 10);
             }
             TiebaStatic.log("c12488");
-            HListView hListView = this.f53139g;
+            HListView hListView = this.f56828g;
             if (hListView == null || hListView.getParent() == null) {
-                HListView hListView2 = new HListView(this.f53137e.getContext());
-                this.f53139g = hListView2;
+                HListView hListView2 = new HListView(this.f56826e.getContext());
+                this.f56828g = hListView2;
                 SkinManager.setBackgroundColor(hListView2, R.color.CAM_X0201);
-                this.f53139g.setDividerWidth(l.g(this.f53137e.getPageActivity(), R.dimen.ds7));
-                this.f53139g.setClipToPadding(false);
-                int g2 = l.g(this.f53137e.getPageActivity(), R.dimen.ds10);
-                this.f53139g.setPadding(g2, g2, g2, g2);
-                this.f53139g.setSelector(R.drawable.list_selector_transparent);
-                this.m.height = l.g(this.f53137e.getPageActivity(), R.dimen.ds136);
-                this.l.addView(this.f53139g, this.m);
-                if (this.f53140h == null) {
+                this.f56828g.setDividerWidth(l.g(this.f56826e.getPageActivity(), R.dimen.ds7));
+                this.f56828g.setClipToPadding(false);
+                int g2 = l.g(this.f56826e.getPageActivity(), R.dimen.ds10);
+                this.f56828g.setPadding(g2, g2, g2, g2);
+                this.f56828g.setSelector(R.drawable.list_selector_transparent);
+                this.m.height = l.g(this.f56826e.getPageActivity(), R.dimen.ds136);
+                this.l.addView(this.f56828g, this.m);
+                if (this.f56829h == null) {
                     d.a.n0.e2.k.e.b1.b bVar = new d.a.n0.e2.k.e.b1.b();
-                    this.f53140h = bVar;
+                    this.f56829h = bVar;
                     bVar.d(this);
-                    this.f53140h.c(this);
-                    this.f53139g.setAdapter((ListAdapter) this.f53140h);
-                    this.f53139g.setOnScrollListener(new b());
+                    this.f56829h.c(this);
+                    this.f56828g.setAdapter((ListAdapter) this.f56829h);
+                    this.f56828g.setOnScrollListener(new b());
                 }
             }
-            this.f53139g.setVisibility(0);
-            this.f53140h.b(list);
-            this.f53140h.notifyDataSetChanged();
-            this.f53139g.setSelection(0);
+            this.f56828g.setVisibility(0);
+            this.f56829h.b(list);
+            this.f56829h.notifyDataSetChanged();
+            this.f56828g.setSelection(0);
             this.k.removeCallbacks(this.p);
             this.k.postDelayed(this.p, 5000L);
         }
@@ -178,7 +178,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionVi
         return true;
     }
 
-    @Override // d.a.n0.e2.k.e.b1.b.InterfaceC1259b
+    @Override // d.a.n0.e2.k.e.b1.b.InterfaceC1315b
     public void f(EmotionImageData emotionImageData) {
         this.k.removeCallbacks(this.p);
         this.k.postDelayed(this.p, 5000L);
@@ -192,18 +192,18 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionVi
         if (this.o == null) {
             this.o = new GetEmotionPidModel();
         }
-        this.o.t(emotionImageData.getPicUrl(), new C1260c(emotionImageData));
+        this.o.x(emotionImageData.getPicUrl(), new C1316c(emotionImageData));
     }
 
     public void l() {
-        QueryMatchEmotionModel queryMatchEmotionModel = this.f53141i;
+        QueryMatchEmotionModel queryMatchEmotionModel = this.f56830i;
         if (queryMatchEmotionModel != null) {
             queryMatchEmotionModel.cancelLoadData();
         }
     }
 
     public void m() {
-        HListView hListView = this.f53139g;
+        HListView hListView = this.f56828g;
         if (hListView != null) {
             hListView.setVisibility(8);
         }
@@ -235,10 +235,10 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionVi
             return;
         }
         this.j = str;
-        if (this.f53141i == null) {
-            this.f53141i = new QueryMatchEmotionModel(this.f53137e);
+        if (this.f56830i == null) {
+            this.f56830i = new QueryMatchEmotionModel(this.f56826e);
         }
-        this.f53141i.v(str, this);
+        this.f56830i.z(str, this);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.b
@@ -246,14 +246,14 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC1259b, EmotionVi
     }
 
     public void p(String str) {
-        if (TextUtils.isEmpty(str) || ListUtils.isEmpty(this.f53138f) || !this.f53138f.contains(str)) {
+        if (TextUtils.isEmpty(str) || ListUtils.isEmpty(this.f56827f) || !this.f56827f.contains(str)) {
             return;
         }
         o(str);
     }
 
     public void q(List<String> list) {
-        this.f53138f = list;
+        this.f56827f = list;
     }
 
     public void r(EditorTools editorTools) {

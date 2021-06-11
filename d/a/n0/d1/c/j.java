@@ -13,34 +13,34 @@ import tbclient.TopicList.TopicListModule;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52586a;
+    public String f56275a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<p> f52587b;
+    public List<p> f56276b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f52588c;
+    public o f56277c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c> f52589d;
+    public List<c> f56278d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f52590e;
+    public List<b> f56279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<TopicList> f52591f;
+    public List<TopicList> f56280f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<d.a.c.j.e.n> f52592g = null;
+    public ArrayList<d.a.c.k.e.n> f56281g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<NewTopicList> f52593h;
+    public List<NewTopicList> f56282h;
 
     public List<TopicList> a() {
-        return this.f52591f;
+        return this.f56280f;
     }
 
-    public ArrayList<d.a.c.j.e.n> b() {
+    public ArrayList<d.a.c.k.e.n> b() {
         return d();
     }
 
@@ -52,69 +52,69 @@ public class j {
         }
         List<TabList> list3 = dataRes.tab_list;
         if (list3 != null && !ListUtils.isEmpty(list3)) {
-            this.f52587b = new ArrayList();
+            this.f56276b = new ArrayList();
             for (TabList tabList : dataRes.tab_list) {
                 p pVar = new p();
-                pVar.c(tabList);
-                this.f52587b.add(pVar);
+                pVar.b(tabList);
+                this.f56276b.add(pVar);
             }
         }
         if (dataRes.media_topic != null) {
             o oVar = new o();
-            this.f52588c = oVar;
-            oVar.c(dataRes.media_topic);
+            this.f56277c = oVar;
+            oVar.b(dataRes.media_topic);
         }
         TopicListModule topicListModule = dataRes.topic_manual;
         if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
-            this.f52590e = new ArrayList();
+            this.f56279e = new ArrayList();
             for (int i2 = 0; i2 < dataRes.topic_manual.topic_list.size(); i2++) {
                 b bVar = new b();
-                bVar.l(dataRes.topic_manual);
-                bVar.k(dataRes.topic_manual.topic_list.get(i2));
-                this.f52590e.add(bVar);
+                bVar.k(dataRes.topic_manual);
+                bVar.i(dataRes.topic_manual.topic_list.get(i2));
+                this.f56279e.add(bVar);
             }
         }
         TopicListModule topicListModule2 = dataRes.topic_bang;
         if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
-            this.f52589d = new ArrayList();
+            this.f56278d = new ArrayList();
             for (int i3 = 0; i3 < dataRes.topic_bang.topic_list.size(); i3++) {
                 c cVar = new c();
-                cVar.p(dataRes.topic_bang);
-                cVar.o(dataRes.topic_bang.topic_list.get(i3));
-                this.f52589d.add(cVar);
+                cVar.o(dataRes.topic_bang);
+                cVar.n(dataRes.topic_bang.topic_list.get(i3));
+                this.f56278d.add(cVar);
             }
         }
-        this.f52591f = dataRes.frs_tab_topic;
-        this.f52593h = dataRes.topic_list;
+        this.f56280f = dataRes.frs_tab_topic;
+        this.f56282h = dataRes.topic_list;
     }
 
-    public final ArrayList<d.a.c.j.e.n> d() {
-        this.f52592g = new ArrayList<>();
-        o oVar = this.f52588c;
-        if (oVar != null && (!StringUtils.isNull(oVar.f52608g) || !StringUtils.isNull(this.f52588c.f52609h))) {
-            this.f52592g.add(this.f52588c);
+    public final ArrayList<d.a.c.k.e.n> d() {
+        this.f56281g = new ArrayList<>();
+        o oVar = this.f56277c;
+        if (oVar != null && (!StringUtils.isNull(oVar.f56297g) || !StringUtils.isNull(this.f56277c.f56298h))) {
+            this.f56281g.add(this.f56277c);
         }
-        List<b> list = this.f52590e;
+        List<b> list = this.f56279e;
         int i2 = 0;
         if (list != null && list.size() > 0) {
-            int size = this.f52590e.size() == 1 ? this.f52590e.size() : 1;
+            int size = this.f56279e.size() == 1 ? this.f56279e.size() : 1;
             for (int i3 = 0; i3 < size; i3++) {
-                b bVar = this.f52590e.get(i3);
-                if (bVar != null && (!StringUtils.isNull(bVar.i()) || !StringUtils.isNull(bVar.h()) || !StringUtils.isNull(bVar.f()))) {
-                    this.f52592g.add(this.f52590e.get(i3));
+                b bVar = this.f56279e.get(i3);
+                if (bVar != null && (!StringUtils.isNull(bVar.h()) || !StringUtils.isNull(bVar.g()) || !StringUtils.isNull(bVar.e()))) {
+                    this.f56281g.add(this.f56279e.get(i3));
                 }
             }
         }
-        List<c> list2 = this.f52589d;
+        List<c> list2 = this.f56278d;
         if (list2 != null && list2.size() > 0) {
-            int size2 = this.f52589d.size() <= 20 ? this.f52589d.size() : 20;
+            int size2 = this.f56278d.size() <= 20 ? this.f56278d.size() : 20;
             while (i2 < size2) {
-                c cVar = this.f52589d.get(i2);
+                c cVar = this.f56278d.get(i2);
                 i2++;
-                cVar.q(i2);
-                this.f52592g.add(cVar);
+                cVar.p(i2);
+                this.f56281g.add(cVar);
             }
         }
-        return this.f52592g;
+        return this.f56281g;
     }
 }

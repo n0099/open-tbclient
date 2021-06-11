@@ -5,13 +5,13 @@ import com.baidu.searchbox.v8engine.JsFunction;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public JsFunction f47445a;
+    public JsFunction f51119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JsFunction f47446b;
+    public JsFunction f51120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JsFunction f47447c;
+    public JsFunction f51121c;
 
     public static b d(d.a.l0.a.y.b.a aVar) {
         if (aVar == null) {
@@ -19,17 +19,17 @@ public class b {
         }
         b bVar = new b();
         JsFunction v = aVar.v("onCheckForUpdate");
-        bVar.f47445a = v;
+        bVar.f51119a = v;
         if (v != null) {
             v.setReleaseMode(false);
         }
         JsFunction v2 = aVar.v("onUpdateReady");
-        bVar.f47446b = v2;
+        bVar.f51120b = v2;
         if (v2 != null) {
             v2.setReleaseMode(false);
         }
         JsFunction v3 = aVar.v("onUpdateFailed");
-        bVar.f47447c = v3;
+        bVar.f51121c = v3;
         if (v3 != null) {
             v3.setReleaseMode(false);
         }
@@ -37,21 +37,21 @@ public class b {
     }
 
     public void a(c cVar) {
-        JsFunction jsFunction = this.f47445a;
+        JsFunction jsFunction = this.f51119a;
         if (jsFunction != null) {
             jsFunction.call(cVar);
         }
     }
 
     public void b() {
-        JsFunction jsFunction = this.f47447c;
+        JsFunction jsFunction = this.f51121c;
         if (jsFunction != null) {
             jsFunction.call();
         }
     }
 
     public void c() {
-        JsFunction jsFunction = this.f47446b;
+        JsFunction jsFunction = this.f51120b;
         if (jsFunction != null) {
             jsFunction.call();
         }

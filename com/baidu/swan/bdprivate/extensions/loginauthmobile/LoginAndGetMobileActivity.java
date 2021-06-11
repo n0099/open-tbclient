@@ -62,8 +62,8 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
             str = "swan_quick_login";
             str2 = "quickLogin";
         }
-        this.mGetMobileDialog.J0(this);
-        this.mGetMobileDialog.L0(this);
+        this.mGetMobileDialog.M0(this);
+        this.mGetMobileDialog.O0(this);
         this.mGetMobileDialog.show(getSupportFragmentManager(), str);
         d.a("show", str2, null, this.mLaunchFrom, this.mAppId);
     }
@@ -130,7 +130,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         if (this.mIsNightMode != a2) {
             SwanAppLoginAndGetMobileDialog swanAppLoginAndGetMobileDialog = this.mGetMobileDialog;
             if (swanAppLoginAndGetMobileDialog != null) {
-                swanAppLoginAndGetMobileDialog.H0(a2);
+                swanAppLoginAndGetMobileDialog.K0(a2);
             }
             this.mIsNightMode = a2;
         }

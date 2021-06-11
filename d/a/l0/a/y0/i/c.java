@@ -18,56 +18,56 @@ import d.a.l0.a.y0.d;
 public final class c implements d.a.l0.a.y0.d {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f45845g = k.f43199a;
+    public static final boolean f49519g = k.f46875a;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f45846h = n0.g(38.0f);
+    public static final int f49520h = n0.g(38.0f);
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45847a;
+    public String f49521a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45848b;
+    public String f49522b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.l0.a.h0.g.f f45849c;
+    public d.a.l0.a.h0.g.f f49523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45850d;
+    public int f49524d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ShowConfirmBarLayout f45851e;
+    public ShowConfirmBarLayout f49525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f45852f;
+    public f f49526f;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f45853e;
+        public final /* synthetic */ int f49527e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f45854f;
+        public final /* synthetic */ int f49528f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f45855g;
+        public final /* synthetic */ int f49529g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f45856h;
+        public final /* synthetic */ int f49530h;
 
         public a(int i2, int i3, int i4, int i5) {
-            this.f45853e = i2;
-            this.f45854f = i3;
-            this.f45855g = i4;
-            this.f45856h = i5;
+            this.f49527e = i2;
+            this.f49528f = i3;
+            this.f49529g = i4;
+            this.f49530h = i5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.G0(this.f45853e, this.f45854f, this.f45855g, this.f45856h);
+            c.this.D0(this.f49527e, this.f49528f, this.f49529g, this.f49530h);
         }
     }
 
@@ -78,24 +78,24 @@ public final class c implements d.a.l0.a.y0.d {
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.F0();
+            c.this.C0();
         }
     }
 
     /* renamed from: d.a.l0.a.y0.i.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0916c implements Runnable {
+    public class RunnableC0972c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f45859e;
+        public final /* synthetic */ int f49533e;
 
-        public RunnableC0916c(int i2) {
-            this.f45859e = i2;
+        public RunnableC0972c(int i2) {
+            this.f49533e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.I0(this.f45859e);
+            c.this.F0(this.f49533e);
         }
     }
 
@@ -106,9 +106,9 @@ public final class c implements d.a.l0.a.y0.d {
 
         @Override // com.baidu.swan.apps.textarea.ShowConfirmBarLayout.b
         public void onClick(View view) {
-            c.this.E0("onConfirmBtnClick", null);
-            if (c.this.f45852f != null) {
-                c.this.f45852f.a();
+            c.this.B0("onConfirmBtnClick", null);
+            if (c.this.f49526f != null) {
+                c.this.f49526f.a();
             }
         }
     }
@@ -120,7 +120,7 @@ public final class c implements d.a.l0.a.y0.d {
 
         @Override // java.lang.Runnable
         public void run() {
-            c.this.z0();
+            c.this.w0();
         }
     }
 
@@ -131,18 +131,14 @@ public final class c implements d.a.l0.a.y0.d {
 
     public c(ZeusPluginFactory.Invoker invoker, String str) {
         if (invoker != null) {
-            this.f45848b = (String) invoker.get("id");
+            this.f49522b = (String) invoker.get("id");
         }
-        this.f45847a = str;
-        this.f45849c = x0();
-    }
-
-    public void A0() {
-        q0.X(new e());
+        this.f49521a = str;
+        this.f49523c = u0();
     }
 
     @Override // d.a.l0.a.y0.d
-    public void B(@NonNull d.a aVar) {
+    public void A(@NonNull d.a aVar) {
         if (d.a.l0.a.a2.e.i() == null) {
             aVar.a(false);
         } else {
@@ -150,21 +146,13 @@ public final class c implements d.a.l0.a.y0.d {
         }
     }
 
-    public void B0() {
-        q0.X(new b());
+    public void A0(int i2) {
+        q0.X(new RunnableC0972c(i2));
     }
 
-    public void C0(int i2, int i3, int i4, int i5) {
-        q0.X(new a(i2, i3, i4, i5));
-    }
-
-    public void D0(int i2) {
-        q0.X(new RunnableC0916c(i2));
-    }
-
-    public final void E0(String str, @Nullable String str2) {
-        if (f45845g) {
-            String str3 = (" <<" + n0() + "-" + hashCode() + ">> \t") + " <<" + str + ">> ";
+    public final void B0(String str, @Nullable String str2) {
+        if (f49519g) {
+            String str3 = (" <<" + k0() + "-" + hashCode() + ">> \t") + " <<" + str + ">> ";
             if (!TextUtils.isEmpty(str2)) {
                 str3 = str3 + str2;
             }
@@ -172,75 +160,75 @@ public final class c implements d.a.l0.a.y0.d {
         }
     }
 
-    public final void F0() {
-        d.a.l0.a.h0.g.f fVar = this.f45849c;
-        if (fVar == null || this.f45850d == 0) {
+    public final void C0() {
+        d.a.l0.a.h0.g.f fVar = this.f49523c;
+        if (fVar == null || this.f49524d == 0) {
             return;
         }
-        this.f45850d = 0;
+        this.f49524d = 0;
         if (fVar.k3().getScrollY() > 0) {
-            this.f45849c.k3().setScrollY(0);
+            this.f49523c.k3().setScrollY(0);
         }
     }
 
-    public final void G0(int i2, int i3, int i4, int i5) {
-        if (this.f45849c == null) {
+    public final void D0(int i2, int i3, int i4, int i5) {
+        if (this.f49523c == null) {
             return;
         }
         d.a.l0.a.p.e.c h2 = d.a.l0.a.g1.f.V().h();
-        if (this.f45850d == i4 || h2 == null) {
+        if (this.f49524d == i4 || h2 == null) {
             return;
         }
-        this.f45850d = i4;
-        int i6 = this.f45851e == null ? 0 : f45846h;
-        int height = ((this.f45849c.k3().getHeight() - i2) - i3) + h2.getWebViewScrollY();
+        this.f49524d = i4;
+        int i6 = this.f49525e == null ? 0 : f49520h;
+        int height = ((this.f49523c.k3().getHeight() - i2) - i3) + h2.getWebViewScrollY();
         if (height - i5 < i4) {
             if (i5 > height) {
-                this.f45849c.k3().setScrollY(i4 + i6);
+                this.f49523c.k3().setScrollY(i4 + i6);
             } else {
-                this.f45849c.k3().setScrollY((i4 - height) + i5 + i6);
+                this.f49523c.k3().setScrollY((i4 - height) + i5 + i6);
             }
         }
     }
 
-    public void H0(@NonNull f fVar) {
-        this.f45852f = fVar;
+    public void E0(@NonNull f fVar) {
+        this.f49526f = fVar;
     }
 
-    public final void I0(int i2) {
-        Activity y0 = y0();
-        if (y0 == null) {
+    public final void F0(int i2) {
+        Activity v0 = v0();
+        if (v0 == null) {
             return;
         }
-        View decorView = y0.getWindow().getDecorView();
+        View decorView = v0.getWindow().getDecorView();
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-        if (this.f45851e == null) {
-            ShowConfirmBarLayout showConfirmBarLayout = new ShowConfirmBarLayout(y0);
-            this.f45851e = showConfirmBarLayout;
+        if (this.f49525e == null) {
+            ShowConfirmBarLayout showConfirmBarLayout = new ShowConfirmBarLayout(v0);
+            this.f49525e = showConfirmBarLayout;
             showConfirmBarLayout.setOnConfirmButtonClickListener(new d());
             FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-            layoutParams.topMargin = (frameLayout.getHeight() - i2) - f45846h;
-            frameLayout.addView(this.f45851e, layoutParams);
+            layoutParams.topMargin = (frameLayout.getHeight() - i2) - f49520h;
+            frameLayout.addView(this.f49525e, layoutParams);
         }
     }
 
     @Override // d.a.l0.a.y0.d
     @Nullable
     public String b() {
-        return this.f45847a;
+        return this.f49521a;
     }
 
     @Override // d.a.l0.a.y0.d
     @Nullable
-    public String n0() {
-        return this.f45848b;
+    public String k0() {
+        return this.f49522b;
     }
 
     public void release() {
     }
 
     @Nullable
-    public final d.a.l0.a.h0.g.f x0() {
+    public final d.a.l0.a.h0.g.f u0() {
         g W = d.a.l0.a.g1.f.V().W();
         if (W == null) {
             return null;
@@ -250,7 +238,7 @@ public final class c implements d.a.l0.a.y0.d {
             d.a.l0.a.h0.g.d j = W.j(i2);
             if (j instanceof d.a.l0.a.h0.g.f) {
                 d.a.l0.a.h0.g.f fVar = (d.a.l0.a.h0.g.f) j;
-                if (TextUtils.equals(fVar.g3(), this.f45847a)) {
+                if (TextUtils.equals(fVar.g3(), this.f49521a)) {
                     return fVar;
                 }
             }
@@ -259,7 +247,7 @@ public final class c implements d.a.l0.a.y0.d {
     }
 
     @Nullable
-    public final Activity y0() {
+    public final Activity v0() {
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
         if (i2 == null) {
             return null;
@@ -267,17 +255,29 @@ public final class c implements d.a.l0.a.y0.d {
         return i2.k();
     }
 
-    public final void z0() {
-        Activity y0 = y0();
-        if (y0 == null) {
+    public final void w0() {
+        Activity v0 = v0();
+        if (v0 == null) {
             return;
         }
-        View decorView = y0.getWindow().getDecorView();
-        ShowConfirmBarLayout showConfirmBarLayout = this.f45851e;
+        View decorView = v0.getWindow().getDecorView();
+        ShowConfirmBarLayout showConfirmBarLayout = this.f49525e;
         if (showConfirmBarLayout == null || showConfirmBarLayout.getVisibility() != 0) {
             return;
         }
-        ((FrameLayout) decorView.findViewById(16908290)).removeView(this.f45851e);
-        this.f45851e = null;
+        ((FrameLayout) decorView.findViewById(16908290)).removeView(this.f49525e);
+        this.f49525e = null;
+    }
+
+    public void x0() {
+        q0.X(new e());
+    }
+
+    public void y0() {
+        q0.X(new b());
+    }
+
+    public void z0(int i2, int i3, int i4, int i5) {
+        q0.X(new a(i2, i3, i4, i5));
     }
 }

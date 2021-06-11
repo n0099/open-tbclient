@@ -9,18 +9,19 @@ import android.text.TextUtils;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.g.t;
+import com.yy.gslbsdk.db.DelayTB;
 /* loaded from: classes2.dex */
 public class MyService extends Service {
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f10067b;
+    public static long f10129b;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f10068a = 0;
+    public volatile int f10130a = 0;
 
     public static /* synthetic */ int a(MyService myService) {
-        int i2 = myService.f10068a;
-        myService.f10068a = i2 + 1;
+        int i2 = myService.f10130a;
+        myService.f10130a = i2 + 1;
         return i2;
     }
 
@@ -42,7 +43,7 @@ public class MyService extends Service {
         if (bundleExtra != null) {
             String[] stringArray = bundleExtra.getStringArray("appkey");
             int[] intArray = bundleExtra.getIntArray("key");
-            int i4 = bundleExtra.getInt("delay");
+            int i4 = bundleExtra.getInt(DelayTB.DELAY);
             if (stringArray != null && stringArray.length == 2 && !TextUtils.isEmpty(stringArray[0]) && !TextUtils.isEmpty(stringArray[1])) {
                 com.baidu.sofire.core.d.a(getApplicationContext(), i4, stringArray[0], stringArray[1], intArray);
                 return super.onStartCommand(intent, i2, i3);
@@ -52,15 +53,15 @@ public class MyService extends Service {
         if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
             a();
         } else {
-            long j = f10067b;
+            long j = f10129b;
             if ("teac".equals(intent.getAction())) {
-                f10067b = System.currentTimeMillis();
+                f10129b = System.currentTimeMillis();
                 if (System.currentTimeMillis() - j < 3000) {
                     return super.onStartCommand(intent, i2, i3);
                 }
-                if (com.baidu.sofire.g.d.j != 0 && f10067b - com.baidu.sofire.g.d.j > 5000) {
+                if (com.baidu.sofire.g.d.j != 0 && f10129b - com.baidu.sofire.g.d.j > 5000) {
                     StringBuilder sb = new StringBuilder("persist process alive now:");
-                    sb.append(f10067b);
+                    sb.append(f10129b);
                     sb.append("init:");
                     sb.append(com.baidu.sofire.g.d.j);
                     b.b();
@@ -123,9 +124,9 @@ public class MyService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.f10068a--;
-            if (this.f10068a <= 0) {
-                this.f10068a = 0;
+            this.f10130a--;
+            if (this.f10130a <= 0) {
+                this.f10130a = 0;
                 b.a();
                 stopSelf();
             }

@@ -20,7 +20,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f49436a = true;
+            pageStayDurationItem.f53110a = true;
         }
         return pageStayDurationItem;
     }
@@ -35,7 +35,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
         String stringExtra = getIntent().getStringExtra("key_url");
         MemberCenterFragment memberCenterFragment = new MemberCenterFragment();
         this.mFragment = memberCenterFragment;
-        memberCenterFragment.I0(stringExtra);
+        memberCenterFragment.L0(stringExtra);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         this.mFragmentManager = supportFragmentManager;
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();

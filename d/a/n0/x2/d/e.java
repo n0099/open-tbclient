@@ -21,40 +21,40 @@ import com.sina.weibo.sdk.utils.Utility;
 public class e extends d.a.n0.x2.d.a {
 
     /* renamed from: h  reason: collision with root package name */
-    public ShareEntity f63314h;
+    public ShareEntity f67029h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.x2.e.b f63315i;
+    public d.a.n0.x2.e.b f67030i;
     public WbShareHandler j;
     public WbShareCallback k;
-    public final d.a.c.e.l.c<d.a.c.j.d.a> l;
+    public final d.a.c.e.l.c<d.a.c.k.d.a> l;
 
     /* loaded from: classes5.dex */
-    public class a extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public a() {
         }
 
         @Override // d.a.c.e.l.c
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (e.this.f63315i != null) {
-                e.this.f63315i.onShare(6, 3);
+            if (e.this.f67030i != null) {
+                e.this.f67030i.onShare(6, 3);
             }
             e.this.w(3, 6);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((a) aVar, str, i2);
             if (aVar != null) {
                 Bitmap p = aVar.p();
                 e eVar = e.this;
-                eVar.L(eVar.f63314h, p);
+                eVar.L(eVar.f67029h, p);
                 return;
             }
             e eVar2 = e.this;
-            eVar2.L(eVar2.f63314h, null);
+            eVar2.L(eVar2.f67029h, null);
         }
     }
 
@@ -66,8 +66,8 @@ public class e extends d.a.n0.x2.d.a {
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        this.f63303b = activity;
-        this.f63315i = bVar;
+        this.f67018b = activity;
+        this.f67030i = bVar;
         this.k = wbShareCallback;
         WbShareHandler wbShareHandler = new WbShareHandler(activity);
         this.j = wbShareHandler;
@@ -114,12 +114,12 @@ public class e extends d.a.n0.x2.d.a {
     }
 
     public final TextObject G() {
-        if (this.f63314h == null) {
+        if (this.f67029h == null) {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = C(this.f63314h.n());
-        textObject.text = C(this.f63314h.topic) + C(this.f63314h.b());
+        textObject.title = C(this.f67029h.n());
+        textObject.text = C(this.f67029h.topic) + C(this.f67029h.b());
         return textObject;
     }
 
@@ -147,7 +147,7 @@ public class e extends d.a.n0.x2.d.a {
     }
 
     public void I() {
-        d.a.n0.x2.e.b bVar = this.f63315i;
+        d.a.n0.x2.e.b bVar = this.f67030i;
         if (bVar != null) {
             bVar.onShare(6, 3);
         }
@@ -155,7 +155,7 @@ public class e extends d.a.n0.x2.d.a {
     }
 
     public void J() {
-        d.a.n0.x2.e.b bVar = this.f63315i;
+        d.a.n0.x2.e.b bVar = this.f67030i;
         if (bVar != null) {
             bVar.onShare(6, 2);
         }
@@ -163,7 +163,7 @@ public class e extends d.a.n0.x2.d.a {
     }
 
     public void K() {
-        d.a.n0.x2.e.b bVar = this.f63315i;
+        d.a.n0.x2.e.b bVar = this.f67030i;
         if (bVar != null) {
             bVar.onShare(6, 1);
         }
@@ -171,7 +171,7 @@ public class e extends d.a.n0.x2.d.a {
     }
 
     public final void L(ShareEntity shareEntity, Bitmap bitmap) {
-        if (this.f63314h != null && this.j != null && (this.f63303b instanceof Activity)) {
+        if (this.f67029h != null && this.j != null && (this.f67018b instanceof Activity)) {
             WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
             if (!TextUtils.isEmpty(shareEntity.b()) || !TextUtils.isEmpty(shareEntity.topic)) {
                 weiboMultiMessage.textObject = G();
@@ -186,7 +186,7 @@ public class e extends d.a.n0.x2.d.a {
             this.j.shareMessage(weiboMultiMessage, false);
             return;
         }
-        d.a.n0.x2.e.b bVar = this.f63315i;
+        d.a.n0.x2.e.b bVar = this.f67030i;
         if (bVar != null) {
             bVar.onShare(6, 2);
         }
@@ -196,25 +196,25 @@ public class e extends d.a.n0.x2.d.a {
     @Override // d.a.n0.x2.e.a
     public void a(ShareEntity shareEntity, d.a.n0.x2.e.b bVar) {
         if (shareEntity != null && this.j != null) {
-            this.f63314h = shareEntity;
-            this.f63315i = bVar;
-            d.a.c.j.d.a o = o(shareEntity);
+            this.f67029h = shareEntity;
+            this.f67030i = bVar;
+            d.a.c.k.d.a o = o(shareEntity);
             if (o != null && o.p() != null) {
-                L(this.f63314h, o.p());
+                L(this.f67029h, o.p());
                 return;
             }
             String e2 = shareEntity.e();
             if (n(shareEntity.h())) {
-                L(this.f63314h, g(shareEntity.h()));
+                L(this.f67029h, g(shareEntity.h()));
                 return;
             } else if (!TextUtils.isEmpty(e2) && (e2.startsWith("http://") || e2.startsWith("https://"))) {
                 d.a.c.e.l.d.h().k(e2, 10, this.l, 0, 0, h(), new Object[0]);
                 return;
             } else if (m(shareEntity.d())) {
-                L(this.f63314h, f(shareEntity.d()));
+                L(this.f67029h, f(shareEntity.d()));
                 return;
             } else {
-                L(this.f63314h, d());
+                L(this.f67029h, d());
                 return;
             }
         }

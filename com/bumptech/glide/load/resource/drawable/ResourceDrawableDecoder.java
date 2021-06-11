@@ -12,7 +12,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.facebook.common.util.UriUtil;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
     public static final int ID_PATH_SEGMENTS = 1;
     public static final int NAME_PATH_SEGMENT_INDEX = 1;

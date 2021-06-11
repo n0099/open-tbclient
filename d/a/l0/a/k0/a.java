@@ -9,27 +9,27 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: d.a.l0.a.k0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0726a extends ResponseCallback {
+    /* loaded from: classes3.dex */
+    public class C0782a extends ResponseCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e.c f43201a;
+        public final /* synthetic */ e.c f46877a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f43202b;
+        public final /* synthetic */ File f46878b;
 
-        public C0726a(e.c cVar, File file) {
-            this.f43201a = cVar;
-            this.f43202b = file;
+        public C0782a(e.c cVar, File file) {
+            this.f46877a = cVar;
+            this.f46878b = file;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            a.this.c(this.f43201a, 1, 0);
+            a.this.c(this.f46877a, 1, 0);
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -38,60 +38,60 @@ public class a {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public Object parseResponse(Response response, int i2) throws Exception {
-            a.this.d(response, this.f43201a, this.f43202b);
+            a.this.d(response, this.f46877a, this.f46878b);
             return response;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f43204e;
+        public final /* synthetic */ e.c f46880e;
 
         public b(a aVar, e.c cVar) {
-            this.f43204e = cVar;
+            this.f46880e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f43204e.onSuccess();
+            this.f46880e.onSuccess();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f43205e;
+        public final /* synthetic */ e.c f46881e;
 
         public c(a aVar, e.c cVar) {
-            this.f43205e = cVar;
+            this.f46881e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f43205e.onFailed();
+            this.f46881e.onFailed();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f43206e;
+        public final /* synthetic */ e.c f46882e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f43207f;
+        public final /* synthetic */ int f46883f;
 
         public d(a aVar, e.c cVar, int i2) {
-            this.f43206e = cVar;
-            this.f43207f = i2;
+            this.f46882e = cVar;
+            this.f46883f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f43206e.a(this.f43207f);
+            this.f46882e.a(this.f46883f);
         }
     }
 
@@ -180,10 +180,10 @@ public class a {
     }
 
     public void e(e.d dVar, String str, e.c cVar) {
-        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(dVar.f40690a, new C0726a(cVar, new File(str)));
-        aVar.f47974f = false;
-        aVar.f47975g = false;
-        aVar.f47976h = false;
+        d.a.l0.m.d.a aVar = new d.a.l0.m.d.a(dVar.f44366a, new C0782a(cVar, new File(str)));
+        aVar.f51648f = false;
+        aVar.f51649g = false;
+        aVar.f51650h = false;
         d.a.l0.m.e.a.g().d(aVar);
     }
 }

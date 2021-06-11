@@ -23,16 +23,16 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class f implements e.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f41922b = k.f43199a;
+    public static final boolean f45598b = k.f46875a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicLong f41923c = new AtomicLong(0);
+    public static AtomicLong f45599c = new AtomicLong(0);
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile f f41924d;
+    public static volatile f f45600d;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f41925a = new b();
+    public d f45601a = new b();
 
     /* loaded from: classes3.dex */
     public class b extends d.a.l0.a.g1.b {
@@ -46,84 +46,84 @@ public final class f implements e.b {
 
         @Override // d.a.l0.a.g1.d
         public boolean j() {
-            return this.f41896h;
+            return this.f45572h;
         }
     }
 
     public static f V() {
-        if (f41924d == null) {
+        if (f45600d == null) {
             synchronized (f.class) {
-                if (f41924d == null) {
-                    f41924d = new f();
+                if (f45600d == null) {
+                    f45600d = new f();
                 }
             }
         }
-        return f41924d;
+        return f45600d;
     }
 
     public static synchronized void c0() {
         synchronized (f.class) {
-            if (f41924d == null) {
+            if (f45600d == null) {
                 return;
             }
-            if (f41924d.f41925a != null) {
-                f41924d.f41925a.P();
+            if (f45600d.f45601a != null) {
+                f45600d.f45601a.P();
             }
-            f41924d = null;
+            f45600d = null;
         }
     }
 
     public String A() {
-        return this.f41925a.A();
+        return this.f45601a.A();
     }
 
     public d.a.l0.a.p.e.d B(String str) {
-        return this.f41925a.B(str);
+        return this.f45601a.B(str);
     }
 
     public AbsoluteLayout C(String str) {
-        return this.f41925a.C(str);
+        return this.f45601a.C(str);
     }
 
     public String D() {
-        return this.f41925a.D();
+        return this.f45601a.D();
     }
 
     public void E(Context context) {
-        this.f41925a.E(context);
+        this.f45601a.E(context);
     }
 
     @Nullable
     public d.a.l0.a.a2.e F() {
-        return this.f41925a.F();
+        return this.f45601a.F();
     }
 
     public void G(d.a.l0.a.f1.e.b bVar, d.a.l0.a.a1.b bVar2) {
-        this.f41925a.G(bVar, bVar2);
+        this.f45601a.G(bVar, bVar2);
     }
 
     public d.a.l0.a.p.b.a.k H() {
-        return this.f41925a.H();
+        return this.f45601a.H();
     }
 
     public d.a.l0.a.k2.f.d I() {
-        return this.f41925a.I();
+        return this.f45601a.I();
     }
 
     public d.a.l0.a.h0.g.f J() {
-        return this.f41925a.J();
+        return this.f45601a.J();
     }
 
     public SwanAppPropertyWindow L(Activity activity) {
-        return this.f41925a.L(activity);
+        return this.f45601a.L(activity);
     }
 
     public SwanCoreVersion N() {
-        return this.f41925a.N();
+        return this.f45601a.N();
     }
 
     public boolean O() {
-        return this.f41925a.O();
+        return this.f45601a.O();
     }
 
     public void R(int i2) {
@@ -131,20 +131,20 @@ public final class f implements e.b {
             return;
         }
         if (i2 == 0) {
-            this.f41925a = new c();
+            this.f45601a = new c();
         } else if (i2 != 1) {
         } else {
-            this.f41925a = d.a.l0.a.c1.b.a();
+            this.f45601a = d.a.l0.a.c1.b.a();
         }
     }
 
     public void S() {
-        long decrementAndGet = f41923c.decrementAndGet();
+        long decrementAndGet = f45599c.decrementAndGet();
         SwanAppActivity x = d.a.l0.a.a2.d.g().x();
         if (decrementAndGet <= 0 && x != null && x.isBackground()) {
-            this.f41925a.K();
+            this.f45601a.K();
         }
-        if (f41922b) {
+        if (f45598b) {
             StringBuilder sb = new StringBuilder();
             sb.append("decrementBgThreadAliveCount: count = ");
             sb.append(decrementAndGet);
@@ -155,7 +155,7 @@ public final class f implements e.b {
     }
 
     public long T() {
-        return f41923c.get();
+        return f45599c.get();
     }
 
     public String U() {
@@ -172,78 +172,78 @@ public final class f implements e.b {
     }
 
     public n X() {
-        return this.f41925a.Q();
+        return this.f45601a.Q();
     }
 
     public n Y() {
-        return this.f41925a.M();
+        return this.f45601a.M();
     }
 
     public boolean Z() {
-        return a0() && this.f41925a.getActivity() != null;
+        return a0() && this.f45601a.getActivity() != null;
     }
 
     public String a() {
-        return this.f41925a.a();
+        return this.f45601a.a();
     }
 
     public boolean a0() {
-        d dVar = this.f41925a;
+        d dVar = this.f45601a;
         return (dVar == null || (dVar instanceof b)) ? false : true;
     }
 
     public void b() {
-        this.f41925a.b();
+        this.f45601a.b();
     }
 
     public void b0() {
-        long incrementAndGet = f41923c.incrementAndGet();
-        if (f41922b) {
+        long incrementAndGet = f45599c.incrementAndGet();
+        if (f45598b) {
             Log.i("SwanAppController", "incrementBgThreadAliveCount: " + incrementAndGet);
         }
     }
 
     public void c(d.a.l0.a.f1.e.b bVar, d.a.l0.a.a1.b bVar2) {
-        this.f41925a.c(bVar, bVar2);
+        this.f45601a.c(bVar, bVar2);
     }
 
     @NonNull
     public d.a.l0.a.a2.n.g d(String str, SwanAppConfigData swanAppConfigData, String str2) {
-        return this.f41925a.d(str, swanAppConfigData, str2);
+        return this.f45601a.d(str, swanAppConfigData, str2);
     }
 
     @NonNull
     public d.a.l0.a.a2.n.g e(String str) {
-        return this.f41925a.e(str);
+        return this.f45601a.e(str);
     }
 
     public void exit() {
-        this.f41925a.exit();
+        this.f45601a.exit();
     }
 
     public String f() {
-        return this.f41925a.f();
+        return this.f45601a.f();
     }
 
     @Override // d.a.l0.a.g1.e.b
     public void g(int i2) {
-        this.f41925a.g(i2);
+        this.f45601a.g(i2);
     }
 
     public SwanAppActivity getActivity() {
-        return this.f41925a.getActivity();
+        return this.f45601a.getActivity();
     }
 
     public d.a.l0.a.p.e.c h() {
-        return this.f41925a.h();
+        return this.f45601a.h();
     }
 
     public d.a.l0.a.a2.n.g i(String str) {
-        return this.f41925a.i(str);
+        return this.f45601a.i(str);
     }
 
     public void k(Context context) {
-        this.f41925a.k(context);
+        this.f45601a.k(context);
     }
 
     public void l(SwanAppActivity swanAppActivity) {
@@ -251,66 +251,66 @@ public final class f implements e.b {
             R(swanAppActivity.getFrameType());
         }
         if (a0()) {
-            this.f41925a.l(swanAppActivity);
+            this.f45601a.l(swanAppActivity);
         }
     }
 
     public void m(String str, d.a.l0.a.o0.d.a aVar) {
-        this.f41925a.m(str, aVar);
+        this.f45601a.m(str, aVar);
     }
 
     public FullScreenFloatView n(Activity activity) {
-        return this.f41925a.n(activity);
+        return this.f45601a.n(activity);
     }
 
     public void o() {
-        this.f41925a.o();
+        this.f45601a.o();
     }
 
     public void p() {
-        this.f41925a.p();
+        this.f45601a.p();
     }
 
     @DebugTrace
     public d.a.l0.a.p.e.a q() {
-        return this.f41925a.q();
+        return this.f45601a.q();
     }
 
     @NonNull
     public Pair<Integer, Integer> r() {
-        return this.f41925a.r();
+        return this.f45601a.r();
     }
 
     public SwanAppConfigData s() {
-        return this.f41925a.s();
+        return this.f45601a.s();
     }
 
     public void t(Intent intent) {
-        this.f41925a.t(intent);
+        this.f45601a.t(intent);
     }
 
     public void u() {
-        this.f41925a.u();
+        this.f45601a.u();
     }
 
     public void v(d.a.l0.a.o0.d.a aVar) {
-        this.f41925a.v(aVar);
+        this.f45601a.v(aVar);
     }
 
     public void w() {
-        this.f41925a.w();
+        this.f45601a.w();
     }
 
     public void x() {
-        this.f41925a.x();
+        this.f45601a.x();
     }
 
     @NonNull
     public Pair<Integer, Integer> y() {
-        return this.f41925a.y();
+        return this.f45601a.y();
     }
 
     public void z(d.a.l0.a.o0.d.d dVar, boolean z) {
-        this.f41925a.z(dVar, z);
+        this.f45601a.z(dVar, z);
     }
 }

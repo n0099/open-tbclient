@@ -16,6 +16,6 @@ public class q extends d.a.l0.a.y0.a<d.a.l0.a.y0.g.h.b> {
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.g.h.b bVar) {
         String str = command.what;
         d(bVar, str, "" + command.obj, true);
-        bVar.F();
+        bVar.E();
     }
 }

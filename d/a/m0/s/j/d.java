@@ -10,28 +10,28 @@ import java.lang.ref.WeakReference;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerC1163d f50730a;
+    public HandlerC1219d f54407a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f50731b;
+    public c f54408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f50732c;
+    public b f54409c;
 
     /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<String, Void, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Process f50733a;
+        public Process f54410a;
 
         public b() {
-            this.f50733a = null;
+            this.f54410a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            Process process = this.f50733a;
+            Process process = this.f54410a;
             if (process != null) {
                 try {
                     process.destroy();
@@ -39,11 +39,11 @@ public class d {
                     th.printStackTrace();
                 }
             }
-            if (d.this.f50731b != null) {
-                d.this.f50731b.a(false);
+            if (d.this.f54408b != null) {
+                d.this.f54408b.a(false);
             }
-            if (d.this.f50730a != null) {
-                d.this.f50730a.removeMessages(0);
+            if (d.this.f54407a != null) {
+                d.this.f54407a.removeMessages(0);
             }
         }
 
@@ -56,7 +56,7 @@ public class d {
                     try {
                         try {
                             Process exec = Runtime.getRuntime().exec(strArr[0]);
-                            this.f50733a = exec;
+                            this.f54410a = exec;
                             if (exec.waitFor() == 0) {
                                 z = true;
                             }
@@ -67,7 +67,7 @@ public class d {
                         e3.printStackTrace();
                     }
                 } finally {
-                    this.f50733a.destroy();
+                    this.f54410a.destroy();
                 }
             }
             return Boolean.valueOf(z);
@@ -76,11 +76,11 @@ public class d {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (d.this.f50731b != null) {
-                d.this.f50731b.a(bool == null ? false : bool.booleanValue());
+            if (d.this.f54408b != null) {
+                d.this.f54408b.a(bool == null ? false : bool.booleanValue());
             }
-            if (d.this.f50730a != null) {
-                d.this.f50730a.removeMessages(0);
+            if (d.this.f54407a != null) {
+                d.this.f54407a.removeMessages(0);
             }
         }
     }
@@ -92,20 +92,20 @@ public class d {
 
     /* renamed from: d.a.m0.s.j.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC1163d extends Handler {
+    public static class HandlerC1219d extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<d> f50735a;
+        public final WeakReference<d> f54412a;
 
-        public HandlerC1163d(d dVar) {
-            this.f50735a = new WeakReference<>(dVar);
+        public HandlerC1219d(d dVar) {
+            this.f54412a = new WeakReference<>(dVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             d dVar;
             super.handleMessage(message);
-            if (message.what != 0 || (dVar = this.f50735a.get()) == null) {
+            if (message.what != 0 || (dVar = this.f54412a.get()) == null) {
                 return;
             }
             dVar.e();
@@ -113,17 +113,17 @@ public class d {
     }
 
     public d(String str, c cVar) {
-        this.f50730a = null;
-        this.f50731b = null;
-        this.f50732c = null;
-        HandlerC1163d handlerC1163d = new HandlerC1163d(this);
-        this.f50730a = handlerC1163d;
-        this.f50731b = cVar;
-        handlerC1163d.sendEmptyMessageDelayed(0, 50000L);
+        this.f54407a = null;
+        this.f54408b = null;
+        this.f54409c = null;
+        HandlerC1219d handlerC1219d = new HandlerC1219d(this);
+        this.f54407a = handlerC1219d;
+        this.f54408b = cVar;
+        handlerC1219d.sendEmptyMessageDelayed(0, 50000L);
         b bVar = new b();
-        this.f50732c = bVar;
+        this.f54409c = bVar;
         bVar.setSelfExecute(true);
-        b bVar2 = this.f50732c;
+        b bVar2 = this.f54409c;
         bVar2.execute(d() + str);
     }
 
@@ -133,13 +133,13 @@ public class d {
     }
 
     public final void e() {
-        b bVar = this.f50732c;
+        b bVar = this.f54409c;
         if (bVar != null) {
             bVar.cancel(true);
         }
-        HandlerC1163d handlerC1163d = this.f50730a;
-        if (handlerC1163d != null) {
-            handlerC1163d.removeMessages(0);
+        HandlerC1219d handlerC1219d = this.f54407a;
+        if (handlerC1219d != null) {
+            handlerC1219d.removeMessages(0);
         }
     }
 }

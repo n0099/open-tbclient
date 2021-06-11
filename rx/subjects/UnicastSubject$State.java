@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>, d.a<T>, k {
     public static final long serialVersionUID = -9044104859202255786L;
     public volatile boolean caughtUp;

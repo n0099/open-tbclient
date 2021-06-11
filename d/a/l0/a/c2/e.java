@@ -36,7 +36,7 @@ import java.util.Map;
 public class e extends UnitedSchemeBaseDispatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a0> f40948a = new HashMap();
+    public final Map<String, a0> f44624a = new HashMap();
 
     public e() {
         a();
@@ -44,7 +44,7 @@ public class e extends UnitedSchemeBaseDispatcher {
 
     public void a() {
         List<a0> c2;
-        this.f40948a.clear();
+        this.f44624a.clear();
         b(new u(this));
         b(new i(this));
         b(new d0(this));
@@ -120,7 +120,7 @@ public class e extends UnitedSchemeBaseDispatcher {
     }
 
     public void b(a0 a0Var) {
-        this.f40948a.put(a0Var.f40951a, a0Var);
+        this.f44624a.put(a0Var.f44627a, a0Var);
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -151,7 +151,7 @@ public class e extends UnitedSchemeBaseDispatcher {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
                         return false;
                     }
-                    a0 a0Var = this.f40948a.get(str);
+                    a0 a0Var = this.f44624a.get(str);
                     if (a0Var != null) {
                         if (unitedSchemeEntity.isOnlyVerify()) {
                             return true;

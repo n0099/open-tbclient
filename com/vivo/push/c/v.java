@@ -7,22 +7,22 @@ import com.vivo.push.sdk.PushMessageCallback;
 public final class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ UPSNotificationMessage f36607a;
+    public final /* synthetic */ UPSNotificationMessage f40286a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f36608b;
+    public final /* synthetic */ t f40287b;
 
     public v(t tVar, UPSNotificationMessage uPSNotificationMessage) {
-        this.f36608b = tVar;
-        this.f36607a = uPSNotificationMessage;
+        this.f40287b = tVar;
+        this.f40286a = uPSNotificationMessage;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        t tVar = this.f36608b;
-        PushMessageCallback pushMessageCallback = ((ab) tVar).f36570b;
-        context = tVar.f36752a;
-        pushMessageCallback.onNotificationMessageClicked(context, this.f36607a);
+        t tVar = this.f40287b;
+        PushMessageCallback pushMessageCallback = ((ab) tVar).f40249b;
+        context = tVar.f40431a;
+        pushMessageCallback.onNotificationMessageClicked(context, this.f40286a);
     }
 }

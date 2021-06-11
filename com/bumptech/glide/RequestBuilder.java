@@ -30,7 +30,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<RequestBuilder<TranscodeType>> {
     public static final RequestOptions DOWNLOAD_ONLY_OPTIONS = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA).priority(Priority.LOW).skipMemoryCache(true);
     public final Context context;
@@ -58,7 +58,7 @@ public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<Requ
     public TransitionOptions<?, ? super TranscodeType> transitionOptions;
 
     /* renamed from: com.bumptech.glide.RequestBuilder$2  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$Priority;

@@ -1,28 +1,28 @@
 package d.a.n0.e.f;
 
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.e.e.g;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends g {
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f52756d;
+    public Object f56445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f52757e;
+    public List<n> f56446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f52758f;
+    public List<n> f56447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Object> f52759g;
+    public List<Object> f56448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52760h;
+    public boolean f56449h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f52761i;
+    public boolean f56450i;
     public int j;
     public int k;
     public boolean l;
@@ -34,8 +34,8 @@ public class b extends g {
 
     public b(d.a.n0.e.e.b bVar, int i2) {
         super(bVar, i2);
-        this.f52760h = false;
-        this.f52761i = false;
+        this.f56449h = false;
+        this.f56450i = false;
         this.j = 0;
         this.l = false;
     }
@@ -45,7 +45,7 @@ public class b extends g {
     }
 
     public void B(List<n> list) {
-        this.f52758f = list;
+        this.f56447f = list;
     }
 
     public void C(String str) {
@@ -57,11 +57,11 @@ public class b extends g {
     }
 
     public void E(List<n> list) {
-        this.f52757e = list;
+        this.f56446e = list;
     }
 
     public List<Object> d() {
-        return this.f52759g;
+        return this.f56448g;
     }
 
     public int e() {
@@ -69,7 +69,7 @@ public class b extends g {
     }
 
     public Object f() {
-        return this.f52756d;
+        return this.f56445d;
     }
 
     public String g() {
@@ -89,7 +89,7 @@ public class b extends g {
     }
 
     public List<n> k() {
-        return this.f52758f;
+        return this.f56447f;
     }
 
     public String l() {
@@ -101,15 +101,15 @@ public class b extends g {
     }
 
     public List<n> n() {
-        return this.f52757e;
+        return this.f56446e;
     }
 
     public boolean o() {
-        return this.f52761i;
+        return this.f56450i;
     }
 
     public boolean p() {
-        return this.f52760h;
+        return this.f56449h;
     }
 
     public boolean q() {
@@ -117,7 +117,7 @@ public class b extends g {
     }
 
     public void r(List<Object> list) {
-        this.f52759g = list;
+        this.f56448g = list;
     }
 
     public void s(int i2) {
@@ -125,7 +125,7 @@ public class b extends g {
     }
 
     public void t(Object obj) {
-        this.f52756d = obj;
+        this.f56445d = obj;
     }
 
     public void u(String str) {
@@ -137,11 +137,11 @@ public class b extends g {
     }
 
     public void w(boolean z) {
-        this.f52761i = z;
+        this.f56450i = z;
     }
 
     public void x(boolean z) {
-        this.f52760h = z;
+        this.f56449h = z;
     }
 
     public void y(boolean z) {

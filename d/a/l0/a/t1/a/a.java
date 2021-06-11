@@ -16,27 +16,27 @@ import java.util.Set;
 public class a extends j {
 
     /* renamed from: g  reason: collision with root package name */
-    public b<Boolean> f44735g;
+    public b<Boolean> f48409g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f44736h;
+    public String f48410h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f44737i;
+    public String f48411i;
     public long j;
-    public c<h> k = new C0824a();
+    public c<h> k = new C0880a();
 
     /* renamed from: d.a.l0.a.t1.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0824a extends d.a.l0.n.f.b<h> {
-        public C0824a() {
+    public class C0880a extends d.a.l0.n.f.b<h> {
+        public C0880a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.n.f.c
         /* renamed from: l */
         public String d(h hVar) {
-            return e.C0561e.h().getAbsolutePath();
+            return e.C0617e.h().getAbsolutePath();
         }
 
         @Override // d.a.l0.n.f.e
@@ -53,7 +53,7 @@ public class a extends j {
             if (aVar != null) {
                 d.a.l0.a.t1.d.a.a("plugin download error: " + aVar.toString());
             }
-            a.this.f44735g.a(Boolean.FALSE);
+            a.this.f48409g.a(Boolean.FALSE);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,25 +63,25 @@ public class a extends j {
             super.i(hVar);
             if (hVar == null) {
                 d.a.l0.a.t1.d.a.a("download finish, plugin is null");
-                a.this.f44735g.a(Boolean.FALSE);
-            } else if (!j0.a(new File(hVar.f48006a), hVar.m)) {
+                a.this.f48409g.a(Boolean.FALSE);
+            } else if (!j0.a(new File(hVar.f51680a), hVar.m)) {
                 d.a.l0.a.t1.d.a.a("download finish, check zip sign failure");
-                a.this.f44735g.a(Boolean.FALSE);
+                a.this.f48409g.a(Boolean.FALSE);
             } else {
-                File t = e.t(hVar.f48012g, String.valueOf(hVar.f48014i));
+                File t = e.t(hVar.f51686g, String.valueOf(hVar.f51688i));
                 d.k(t);
                 if (t != null && t.exists()) {
-                    boolean T = d.T(hVar.f48006a, t.getAbsolutePath());
-                    hVar.f48008c = hVar.b();
-                    hVar.f48009d = hVar.b();
+                    boolean T = d.T(hVar.f51680a, t.getAbsolutePath());
+                    hVar.f51682c = hVar.b();
+                    hVar.f51683d = hVar.b();
                     d.a.l0.n.g.a.h().l(hVar);
-                    d.j(hVar.f48006a);
+                    d.j(hVar.f51680a);
                     d.a.l0.a.t1.d.a.a("download finish, unZipSuccess = " + T);
-                    a.this.f44735g.a(Boolean.valueOf(T));
+                    a.this.f48409g.a(Boolean.valueOf(T));
                     return;
                 }
-                d.a.l0.a.t1.d.a.a("download finish, create file failure, name = " + hVar.f48012g + " ; version = " + hVar.f48014i);
-                a.this.f44735g.a(Boolean.FALSE);
+                d.a.l0.a.t1.d.a.a("download finish, create file failure, name = " + hVar.f51686g + " ; version = " + hVar.f51688i);
+                a.this.f48409g.a(Boolean.FALSE);
             }
         }
 
@@ -91,7 +91,7 @@ public class a extends j {
         public void c(h hVar) {
             super.c(hVar);
             if (hVar != null) {
-                d.a.l0.a.t1.d.a.a("plugin download start: bundleId = " + hVar.f48012g);
+                d.a.l0.a.t1.d.a.a("plugin download start: bundleId = " + hVar.f51686g);
             }
         }
 
@@ -104,9 +104,9 @@ public class a extends j {
     }
 
     public a(String str, String str2, long j, b<Boolean> bVar) {
-        this.f44735g = bVar;
-        this.f44736h = str;
-        this.f44737i = str2;
+        this.f48409g = bVar;
+        this.f48410h = str;
+        this.f48411i = str2;
         this.j = j;
     }
 
@@ -115,15 +115,15 @@ public class a extends j {
         h i2;
         super.B(aVar);
         if (aVar != null) {
-            if (aVar.f48002a == 1010 && (i2 = d.a.l0.a.t1.b.a.i(this.f44736h, this.f44737i, this.j)) != null) {
-                i2.f48009d = i2.b();
+            if (aVar.f51676a == 1010 && (i2 = d.a.l0.a.t1.b.a.i(this.f48410h, this.f48411i, this.j)) != null) {
+                i2.f51683d = i2.b();
                 d.a.l0.n.g.a.h().v(i2);
             }
             d.a.l0.a.t1.d.a.a("fetch plugin error: " + aVar.toString());
         } else {
             d.a.l0.a.t1.d.a.a("fetch plugin error");
         }
-        this.f44735g.a(Boolean.FALSE);
+        this.f48409g.a(Boolean.FALSE);
     }
 
     @Override // d.a.l0.n.f.g
@@ -136,7 +136,7 @@ public class a extends j {
     public void E() {
         super.E();
         d.a.l0.a.t1.d.a.a("no package");
-        this.f44735g.a(Boolean.FALSE);
+        this.f48409g.a(Boolean.FALSE);
     }
 
     @Override // d.a.l0.n.f.g

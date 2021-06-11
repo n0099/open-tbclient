@@ -8,22 +8,22 @@ import d.a.l0.a.q.e.a;
 public class CustomerAdScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f10390e;
+    public boolean f10452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f10391f;
+    public boolean f10453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f10392g;
+    public float f10454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f10393h;
+    public a f10455h;
 
     public CustomerAdScrollView(Context context) {
         super(context);
-        this.f10390e = false;
-        this.f10391f = false;
-        this.f10393h = null;
+        this.f10452e = false;
+        this.f10453f = false;
+        this.f10455h = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -32,13 +32,13 @@ public class CustomerAdScrollView extends ScrollView {
         float y = motionEvent.getY();
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f10392g = y;
+            this.f10454g = y;
         } else if (action == 2) {
-            if (y - this.f10392g < 0.0f) {
-                if (!this.f10390e || this.f10391f) {
+            if (y - this.f10454g < 0.0f) {
+                if (!this.f10452e || this.f10453f) {
                     return false;
                 }
-            } else if (!this.f10391f) {
+            } else if (!this.f10453f) {
                 return false;
             }
         }
@@ -48,21 +48,21 @@ public class CustomerAdScrollView extends ScrollView {
     @Override // android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         super.onScrollChanged(i2, i3, i4, i5);
-        a aVar = this.f10393h;
+        a aVar = this.f10455h;
         if (aVar != null) {
             aVar.onScrollChanged(i2, i3, i4, i5);
         }
     }
 
     public void setIsFooterLayoutShow(boolean z) {
-        this.f10391f = z;
+        this.f10453f = z;
     }
 
     public void setIsWebViewOnBottom(boolean z) {
-        this.f10390e = z;
+        this.f10452e = z;
     }
 
     public void setScrollViewListener(a aVar) {
-        this.f10393h = aVar;
+        this.f10455h = aVar;
     }
 }

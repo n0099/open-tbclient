@@ -7,36 +7,36 @@ import java.util.Map;
 public class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61020c;
+    public int f64712c;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, List<String>> f61023f;
+    public Map<String, List<String>> f64715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f61024g;
+    public byte[] f64716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61025h;
+    public int f64717h;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f61018a = false;
+    public volatile boolean f64710a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61019b = -1;
+    public int f64711b = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61021d = "";
+    public String f64713d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61022e = "";
+    public String f64714e = "";
 
     public void a(HttpURLConnection httpURLConnection) throws Exception {
         if (httpURLConnection != null) {
-            this.f61019b = httpURLConnection.getResponseCode();
-            this.f61021d = httpURLConnection.getContentEncoding();
+            this.f64711b = httpURLConnection.getResponseCode();
+            this.f64713d = httpURLConnection.getContentEncoding();
             httpURLConnection.getContentType();
-            this.f61022e = httpURLConnection.getContentLength() + "";
-            this.f61023f = httpURLConnection.getHeaderFields();
+            this.f64714e = httpURLConnection.getContentLength() + "";
+            this.f64715f = httpURLConnection.getHeaderFields();
         }
     }
 }

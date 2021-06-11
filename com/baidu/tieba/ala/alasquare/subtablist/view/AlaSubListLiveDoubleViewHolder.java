@@ -6,10 +6,10 @@ import d.a.n0.v.d.g.d.d;
 public class AlaSubListLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f13902a;
+    public d f13959a;
 
     public AlaSubListLiveDoubleViewHolder(d dVar) {
-        super(dVar.l());
-        this.f13902a = dVar;
+        super(dVar.m());
+        this.f13959a = dVar;
     }
 }

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Surface;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.kwai.video.player.KsMediaMeta;
 import d.a.n0.u1.g;
 import d.a.n0.u1.k;
 import java.io.IOException;
@@ -17,31 +18,31 @@ import java.nio.ByteBuffer;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Surface f66108a;
+    public Surface f69839a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f66109b;
+    public c f69840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaCodec f66110c;
+    public MediaCodec f69841c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaCodec.BufferInfo f66111d;
+    public MediaCodec.BufferInfo f69842d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66112e;
+    public int f69843e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f66113f;
+    public boolean f69844f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bundle f66114g = new Bundle();
+    public Bundle f69845g = new Bundle();
 
     /* renamed from: h  reason: collision with root package name */
-    public long f66115h = 0;
+    public long f69846h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f66116i = false;
+    public boolean f69847i = false;
     public g j;
 
     public e(int i2, int i3, int i4, c cVar) throws IOException {
@@ -50,59 +51,59 @@ public class e {
         if (kVar != null) {
             this.j = kVar.get();
         }
-        this.f66111d = new MediaCodec.BufferInfo();
+        this.f69842d = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i2, i3);
         createVideoFormat.setInteger("color-format", 2130708361);
-        createVideoFormat.setInteger("bitrate", i4);
+        createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i4);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType("video/avc");
-        this.f66110c = createEncoderByType;
+        this.f69841c = createEncoderByType;
         createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.f66108a = this.f66110c.createInputSurface();
-        this.f66110c.start();
+        this.f69839a = this.f69841c.createInputSurface();
+        this.f69841c.start();
         if (Build.VERSION.SDK_INT >= 19) {
-            this.f66114g.putInt("request-sync", 0);
-            this.f66110c.setParameters(this.f66114g);
+            this.f69845g.putInt("request-sync", 0);
+            this.f69841c.setParameters(this.f69845g);
         }
-        this.f66112e = -1;
-        this.f66113f = false;
-        this.f66109b = cVar;
+        this.f69843e = -1;
+        this.f69844f = false;
+        this.f69840b = cVar;
     }
 
     public void a(boolean z) throws Exception {
         if (z) {
-            this.f66110c.signalEndOfInputStream();
+            this.f69841c.signalEndOfInputStream();
         }
-        ByteBuffer[] outputBuffers = this.f66110c.getOutputBuffers();
+        ByteBuffer[] outputBuffers = this.f69841c.getOutputBuffers();
         while (true) {
-            int dequeueOutputBuffer = this.f66110c.dequeueOutputBuffer(this.f66111d, 10000L);
+            int dequeueOutputBuffer = this.f69841c.dequeueOutputBuffer(this.f69842d, 10000L);
             if (dequeueOutputBuffer == -1) {
                 if (!z) {
                     return;
                 }
             } else if (dequeueOutputBuffer == -3) {
-                outputBuffers = this.f66110c.getOutputBuffers();
+                outputBuffers = this.f69841c.getOutputBuffers();
             } else if (dequeueOutputBuffer == -2) {
-                if (!this.f66113f) {
-                    MediaFormat outputFormat = this.f66110c.getOutputFormat();
+                if (!this.f69844f) {
+                    MediaFormat outputFormat = this.f69841c.getOutputFormat();
                     Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                    this.f66112e = this.f66109b.a(outputFormat);
-                    if (!this.f66109b.c()) {
-                        synchronized (this.f66109b) {
-                            while (!this.f66109b.b() && !this.f66116i) {
+                    this.f69843e = this.f69840b.a(outputFormat);
+                    if (!this.f69840b.c()) {
+                        synchronized (this.f69840b) {
+                            while (!this.f69840b.b() && !this.f69847i) {
                                 try {
-                                    this.f66109b.wait(100L);
+                                    this.f69840b.wait(100L);
                                 } catch (InterruptedException e2) {
                                     e2.printStackTrace();
                                 }
                             }
                         }
                     }
-                    if (this.f66116i) {
+                    if (this.f69847i) {
                         return;
                     }
-                    this.f66113f = true;
+                    this.f69844f = true;
                 } else {
                     throw new RuntimeException("format changed twice");
                 }
@@ -111,27 +112,27 @@ public class e {
             } else {
                 ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
                 if (byteBuffer != null) {
-                    MediaCodec.BufferInfo bufferInfo = this.f66111d;
+                    MediaCodec.BufferInfo bufferInfo = this.f69842d;
                     if ((bufferInfo.flags & 2) != 0) {
                         bufferInfo.size = 0;
                     }
-                    MediaCodec.BufferInfo bufferInfo2 = this.f66111d;
+                    MediaCodec.BufferInfo bufferInfo2 = this.f69842d;
                     if (bufferInfo2.size != 0) {
-                        if (this.f66113f) {
+                        if (this.f69844f) {
                             byteBuffer.position(bufferInfo2.offset);
-                            MediaCodec.BufferInfo bufferInfo3 = this.f66111d;
+                            MediaCodec.BufferInfo bufferInfo3 = this.f69842d;
                             byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                            this.f66109b.e(this.f66112e, byteBuffer, this.f66111d);
+                            this.f69840b.e(this.f69843e, byteBuffer, this.f69842d);
                         } else {
                             throw new RuntimeException("muxer hasn't started");
                         }
                     }
-                    this.f66110c.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.f66115h >= 500) {
-                        this.f66110c.setParameters(this.f66114g);
-                        this.f66115h = System.currentTimeMillis();
+                    this.f69841c.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.f69846h >= 500) {
+                        this.f69841c.setParameters(this.f69845g);
+                        this.f69846h = System.currentTimeMillis();
                     }
-                    if ((this.f66111d.flags & 4) != 0) {
+                    if ((this.f69842d.flags & 4) != 0) {
                         if (z) {
                             return;
                         }
@@ -146,17 +147,17 @@ public class e {
     }
 
     public Surface b() {
-        return this.f66108a;
+        return this.f69839a;
     }
 
     public void c() {
-        MediaCodec mediaCodec = this.f66110c;
+        MediaCodec mediaCodec = this.f69841c;
         if (mediaCodec != null) {
             mediaCodec.stop();
-            this.f66110c.release();
-            this.f66110c = null;
+            this.f69841c.release();
+            this.f69841c = null;
         }
-        c cVar = this.f66109b;
+        c cVar = this.f69840b;
         if (cVar != null) {
             try {
                 cVar.d();
@@ -166,11 +167,11 @@ public class e {
                     gVar.b(17, d.a.n0.u1.a.a(e2));
                 }
             }
-            this.f66109b = null;
+            this.f69840b = null;
         }
     }
 
     public synchronized void d() {
-        this.f66116i = true;
+        this.f69847i = true;
     }
 }

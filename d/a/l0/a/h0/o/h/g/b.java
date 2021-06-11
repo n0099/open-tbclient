@@ -6,29 +6,29 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42480a;
+    public int f46156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42481b;
+    public String f46157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f42482c;
+    public Map<String, String> f46158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42483d;
+    public String f46159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42484e;
+    public String f46160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f42485f;
+    public InputStream f46161f;
 
     public b(int i2, String str, InputStream inputStream, Map<String, String> map, String str2, String str3) {
-        this.f42480a = i2;
-        this.f42481b = str;
-        this.f42485f = inputStream;
-        this.f42482c = map;
-        this.f42483d = str2;
-        this.f42484e = str3;
+        this.f46156a = i2;
+        this.f46157b = str;
+        this.f46161f = inputStream;
+        this.f46158c = map;
+        this.f46159d = str2;
+        this.f46160e = str3;
     }
 }

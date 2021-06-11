@@ -37,7 +37,7 @@ public class d {
     }
 
     public static boolean e(String str) {
-        Matcher matcher = Pattern.compile(TbFaceManager.f12845d).matcher(str);
+        Matcher matcher = Pattern.compile(TbFaceManager.f12910d).matcher(str);
         while (matcher.find()) {
             if (TbFaceManager.e().g(matcher.group()) <= 0) {
                 return false;

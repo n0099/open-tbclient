@@ -7,7 +7,7 @@ import h.o.d.j.f0;
 import h.o.d.j.z;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 2427151001689639875L;
     public volatile boolean done;

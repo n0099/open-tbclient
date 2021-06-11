@@ -10,12 +10,12 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEmotionInfo;
 import d.a.c.e.l.d;
 import d.a.c.e.p.j;
-import d.a.c.j.c.c;
-import d.a.c.j.e.a;
-import d.a.c.j.e.n;
-import d.a.c.j.e.o;
-import d.a.c.j.e.q;
-import d.a.c.j.e.r;
+import d.a.c.k.c.c;
+import d.a.c.k.e.a;
+import d.a.c.k.e.n;
+import d.a.c.k.e.o;
+import d.a.c.k.e.q;
+import d.a.c.k.e.r;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -24,7 +24,7 @@ public class PreLoadImageHelper {
 
     public static void addPreloadSuggestSize(o oVar, Object obj, PreLoadImageInfo preLoadImageInfo) {
         a<n, TypeAdapter.ViewHolder> b2;
-        c F;
+        c G;
         if (oVar == null || obj == null || preLoadImageInfo == null) {
             return;
         }
@@ -34,15 +34,15 @@ public class PreLoadImageHelper {
                 rVar = (r) oVar;
             } else if (oVar instanceof BdRecyclerAdapter) {
                 BdRecyclerAdapter bdRecyclerAdapter = (BdRecyclerAdapter) oVar;
-                if (bdRecyclerAdapter.o() instanceof r) {
-                    rVar = (r) bdRecyclerAdapter.o();
+                if (bdRecyclerAdapter.p() instanceof r) {
+                    rVar = (r) bdRecyclerAdapter.p();
                 }
             }
-            if (rVar == null || !(obj instanceof n) || (b2 = rVar.b((n) obj)) == null || (F = b2.F(preLoadImageInfo.preloadType)) == null || F.b() <= 0 || F.a() <= 0) {
+            if (rVar == null || !(obj instanceof n) || (b2 = rVar.b((n) obj)) == null || (G = b2.G(preLoadImageInfo.preloadType)) == null || G.b() <= 0 || G.a() <= 0) {
                 return;
             }
-            preLoadImageInfo.width = F.b();
-            preLoadImageInfo.height = F.a();
+            preLoadImageInfo.width = G.b();
+            preLoadImageInfo.height = G.a();
         }
     }
 

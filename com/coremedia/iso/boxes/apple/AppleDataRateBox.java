@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class AppleDataRateBox extends AbstractFullBox {
     public static final String TYPE = "rmdr";
-    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1962a ajc$tjp_0 = null;
     public long dataRate;
 
     static {

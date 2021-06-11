@@ -15,7 +15,7 @@ import com.kwad.sdk.crash.e;
 import com.kwad.sdk.crash.f;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.d;
-import com.kwad.sdk.utils.ai;
+import com.kwad.sdk.utils.ah;
 import com.kwai.CpuMemoryProfiler;
 import java.io.File;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0361a {
+    public static class C0376a {
         public static String a(Context context) {
             File file = new File(b(context), "kwad_ex");
             if (!file.exists()) {
@@ -63,10 +63,9 @@ public class a {
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("崩溃收集是否打开：");
-            sb.append(c.l());
+            sb.append(c.E());
             com.kwad.sdk.core.d.a.a("KsAdExceptionCollectorHelper", sb.toString());
-            com.kwad.sdk.core.d.a.a("ec init s=" + c.l());
-            if (c.l()) {
+            if (c.E()) {
                 com.kwad.sdk.crash.a.a(b(context, sdkConfig));
             }
         } catch (Throwable th) {
@@ -75,7 +74,7 @@ public class a {
     }
 
     public static void a(Throwable th) {
-        if (c.l()) {
+        if (c.E()) {
             com.kwad.sdk.crash.a.a(th);
         }
     }
@@ -98,7 +97,7 @@ public class a {
     @NonNull
     public static b b(@NonNull Context context, @NonNull final SdkConfig sdkConfig) {
         final Context applicationContext = context.getApplicationContext();
-        return new b.a().a(applicationContext).f("3.3.8.3").a(3030803).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f33038a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ai.n(applicationContext)).b(ai.n()).a("Android").c(sdkConfig.appId).d(C0361a.a(applicationContext)).a(new f() { // from class: com.kwad.sdk.core.a.a.2
+        return new b.a().a(applicationContext).f("3.3.9").a(3030900).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f35162a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ah.l(applicationContext)).b(ah.m()).a("Android").c(sdkConfig.appId).d(C0376a.a(applicationContext)).a(new f() { // from class: com.kwad.sdk.core.a.a.2
             @Override // com.kwad.sdk.crash.f
             public com.kwad.sdk.crash.model.message.a a(int i2) {
                 com.kwad.sdk.crash.model.message.a aVar = new com.kwad.sdk.crash.model.message.a();
@@ -106,13 +105,13 @@ public class a {
                 aVar.a("mKsadAppId", SdkConfig.this.appId);
                 aVar.a("mKsadAppName", SdkConfig.this.appName);
                 aVar.a("mKsadAppPackageName", applicationContext.getPackageName());
-                aVar.a("mKsadAppVersion", ai.n(applicationContext));
+                aVar.a("mKsadAppVersion", ah.l(applicationContext));
                 aVar.a("mKsadSdkName", "com.kwad.sdk");
-                aVar.a("mKsadSdkVersion", "3.3.8.3");
-                aVar.a("mKsadSdKVersionCode", 3030803);
+                aVar.a("mKsadSdkVersion", "3.3.9");
+                aVar.a("mKsadSdKVersionCode", 3030900);
                 aVar.a("mKsadSdkApiVersion", KsAdSDKImpl.get().getApiVersion());
                 aVar.a("mKsadSdKApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-                aVar.a("mKsadSdkType", d.f33038a);
+                aVar.a("mKsadSdkType", d.f35162a);
                 return aVar;
             }
         }).a(new e() { // from class: com.kwad.sdk.core.a.a.1

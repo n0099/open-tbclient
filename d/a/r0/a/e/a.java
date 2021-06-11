@@ -10,17 +10,17 @@ import java.util.Set;
 public final class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f64406c = new a();
+    public static final a f68124c = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<InterfaceC1801a> f64407a = new LinkedHashSet();
+    public final Set<InterfaceC1859a> f68125a = new LinkedHashSet();
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64408b;
+    public boolean f68126b;
 
     /* renamed from: d.a.r0.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1801a {
+    public interface InterfaceC1859a {
         void T();
 
         void U();
@@ -31,27 +31,27 @@ public final class a {
     }
 
     public static a a() {
-        return f64406c;
+        return f68124c;
     }
 
-    public final Set<InterfaceC1801a> b() {
-        return this.f64407a;
+    public final Set<InterfaceC1859a> b() {
+        return this.f68125a;
     }
 
     public final void c() {
-        synchronized (this.f64407a) {
-            this.f64407a.clear();
+        synchronized (this.f68125a) {
+            this.f68125a.clear();
         }
     }
 
-    public final void d(InterfaceC1801a interfaceC1801a) {
-        synchronized (this.f64407a) {
-            this.f64407a.add(interfaceC1801a);
+    public final void d(InterfaceC1859a interfaceC1859a) {
+        synchronized (this.f68125a) {
+            this.f68125a.add(interfaceC1859a);
         }
     }
 
     public final void e(Context context) {
-        if (this.f64408b || Build.VERSION.SDK_INT < 14) {
+        if (this.f68126b || Build.VERSION.SDK_INT < 14) {
             return;
         }
         try {
@@ -59,6 +59,6 @@ public final class a {
         } catch (Exception unused) {
             d.a.r0.a.f.i.b("registerActivityLifecycleCallbacks encounter exception");
         }
-        this.f64408b = true;
+        this.f68126b = true;
     }
 }

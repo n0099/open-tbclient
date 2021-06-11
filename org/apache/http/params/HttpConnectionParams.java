@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class HttpConnectionParams implements CoreConnectionPNames {
     public HttpConnectionParams() {
         throw new RuntimeException("Stub!");

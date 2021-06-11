@@ -7,11 +7,11 @@ import java.util.HashSet;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f43132a;
+    public static int f46808a;
 
     static {
-        boolean z = d.a.l0.a.k.f43199a;
-        f43132a = 0;
+        boolean z = d.a.l0.a.k.f46875a;
+        f46808a = 0;
     }
 
     public static String a(String str) {
@@ -31,11 +31,11 @@ public final class j {
     }
 
     public static int b() {
-        return f43132a;
+        return f46808a;
     }
 
     public static void c(int i2) {
-        f43132a = i2;
+        f46808a = i2;
     }
 
     public static <EvenT extends d.a.l0.a.j2.p.e> EvenT d(EvenT event, String str, Object obj) {

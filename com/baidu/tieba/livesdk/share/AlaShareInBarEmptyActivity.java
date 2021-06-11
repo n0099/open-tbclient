@@ -59,7 +59,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     private void initData(Bundle bundle) {
         AlaShareInBarModel alaShareInBarModel = new AlaShareInBarModel();
         this.mPostModel = alaShareInBarModel;
-        alaShareInBarModel.v(this.mOnPostDataCallBack);
+        alaShareInBarModel.z(this.mOnPostDataCallBack);
         Intent intent = getIntent();
         if (intent != null) {
             this.mLiveId = intent.getStringExtra("extra_key_live_id");
@@ -82,7 +82,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
             showLoadingDialog((String) null, new a());
             TransmitForumData transmitForumData = this.mTransmitForumDataList.get(0);
             if (transmitForumData != null) {
-                this.mPostModel.u(this.mLiveId, this.mYyAnchorBdUid, String.valueOf(transmitForumData.forumId), "");
+                this.mPostModel.y(this.mLiveId, this.mYyAnchorBdUid, String.valueOf(transmitForumData.forumId), "");
             }
         }
     }

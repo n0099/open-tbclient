@@ -15,54 +15,54 @@ import tbclient.Lego.DataRes;
 public class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f56741a;
+    public final e f60430a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56743c;
+    public String f60432c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56744d;
+    public String f60433d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56745e;
+    public String f60434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d> f56746f;
+    public List<d> f60435f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56747g;
+    public boolean f60436g;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f56749i;
+    public String f60438i;
     public int j;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<ICardInfo> f56742b = new ArrayList();
+    public List<ICardInfo> f60431b = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56748h = 1;
+    public int f60437h = 1;
     public boolean k = false;
     public boolean l = false;
     public boolean m = false;
 
     public c(e eVar) {
-        this.f56741a = eVar;
+        this.f60430a = eVar;
     }
 
     @Override // d.a.n0.k1.p.a
     public boolean a() {
-        return this.f56747g;
+        return this.f60436g;
     }
 
     @Override // d.a.n0.k1.p.a
     public boolean b() {
-        List<ICardInfo> list = this.f56742b;
+        List<ICardInfo> list = this.f60431b;
         return list != null && list.size() > 0;
     }
 
     @Override // d.a.n0.k1.p.a
     public int c() {
-        return this.f56748h;
+        return this.f60437h;
     }
 
     @Override // d.a.n0.k1.p.a
@@ -76,22 +76,22 @@ public class c implements a {
         if (dataRes == null) {
             return;
         }
-        this.f56747g = dataRes.has_more.intValue() == 1;
+        this.f60436g = dataRes.has_more.intValue() == 1;
         if (!TextUtils.isEmpty(dataRes.page_info)) {
             try {
                 JSONObject jSONObject = new JSONObject(dataRes.page_info);
                 JSONObject optJSONObject = jSONObject.optJSONObject("title");
                 if (optJSONObject != null) {
-                    this.f56743c = optJSONObject.optString("name");
-                    this.f56744d = optJSONObject.optString("url");
-                    this.f56745e = optJSONObject.optString("urlNight");
+                    this.f60432c = optJSONObject.optString("name");
+                    this.f60433d = optJSONObject.optString("url");
+                    this.f60434e = optJSONObject.optString("urlNight");
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("buttons");
                 if (optJSONArray != null) {
-                    if (this.f56746f == null) {
-                        this.f56746f = new ArrayList();
+                    if (this.f60435f == null) {
+                        this.f60435f = new ArrayList();
                     } else {
-                        this.f56746f.clear();
+                        this.f60435f.clear();
                     }
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
@@ -99,7 +99,7 @@ public class c implements a {
                             d dVar = new d();
                             dVar.b(optJSONObject2);
                             if (dVar.a()) {
-                                this.f56746f.add(dVar);
+                                this.f60435f.add(dVar);
                             }
                         }
                     }
@@ -121,25 +121,25 @@ public class c implements a {
             }
         }
         if (z2) {
-            this.f56742b.addAll(arrayList);
-            this.f56748h = i2;
+            this.f60431b.addAll(arrayList);
+            this.f60437h = i2;
             return;
         }
-        this.f56748h = 1;
-        this.f56742b = arrayList;
+        this.f60437h = 1;
+        this.f60431b = arrayList;
     }
 
     @Override // d.a.n0.k1.p.a
     public List<ICardInfo> e() {
-        return this.f56742b;
+        return this.f60431b;
     }
 
     public List<d> f() {
-        return this.f56746f;
+        return this.f60435f;
     }
 
     public String g() {
-        return this.f56749i;
+        return this.f60438i;
     }
 
     public int h() {
@@ -147,19 +147,19 @@ public class c implements a {
     }
 
     public e i() {
-        return this.f56741a;
+        return this.f60430a;
     }
 
     public String j() {
-        return this.f56743c;
+        return this.f60432c;
     }
 
     public String k() {
-        return this.f56744d;
+        return this.f60433d;
     }
 
     public String l() {
-        return this.f56745e;
+        return this.f60434e;
     }
 
     public boolean m() {
@@ -175,7 +175,7 @@ public class c implements a {
     }
 
     public void p(String str) {
-        this.f56749i = str;
+        this.f60438i = str;
     }
 
     public void q(int i2) {
@@ -191,16 +191,16 @@ public class c implements a {
                 JSONObject jSONObject2 = new JSONObject(optString);
                 JSONObject optJSONObject = jSONObject2.optJSONObject("title");
                 if (optJSONObject != null) {
-                    this.f56743c = optJSONObject.optString("name");
-                    this.f56744d = optJSONObject.optString("url");
-                    this.f56745e = optJSONObject.optString("urlNight");
+                    this.f60432c = optJSONObject.optString("name");
+                    this.f60433d = optJSONObject.optString("url");
+                    this.f60434e = optJSONObject.optString("urlNight");
                 }
                 JSONArray optJSONArray = jSONObject2.optJSONArray("buttons");
                 if (optJSONArray != null) {
-                    if (this.f56746f == null) {
-                        this.f56746f = new ArrayList();
+                    if (this.f60435f == null) {
+                        this.f60435f = new ArrayList();
                     } else {
-                        this.f56746f.clear();
+                        this.f60435f.clear();
                     }
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
@@ -208,7 +208,7 @@ public class c implements a {
                             d dVar = new d();
                             dVar.b(optJSONObject2);
                             if (dVar.a()) {
-                                this.f56746f.add(dVar);
+                                this.f60435f.add(dVar);
                             }
                         }
                     }
@@ -227,7 +227,7 @@ public class c implements a {
                     }
                 }
             }
-            this.f56742b = arrayList;
+            this.f60431b = arrayList;
             if (b()) {
                 this.m = true;
             } else {

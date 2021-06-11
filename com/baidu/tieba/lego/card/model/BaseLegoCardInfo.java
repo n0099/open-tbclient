@@ -156,7 +156,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return this.statistics;
     }
 
-    @Override // com.baidu.tieba.lego.card.model.ICardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         return this.mBdUniqueId;
     }

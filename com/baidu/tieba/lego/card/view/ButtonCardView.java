@@ -29,16 +29,16 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f17911e;
+        public final /* synthetic */ ButtonCard f17987e;
 
         public a(ButtonCard buttonCard) {
-            this.f17911e = buttonCard;
+            this.f17987e = buttonCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ButtonCardView.this.setDialog(this.f17911e);
-            x.p().m().c(this.f17911e.getsExtras(), ButtonCardView.this.f17906e);
+            ButtonCardView.this.setDialog(this.f17987e);
+            x.p().m().c(this.f17987e.getsExtras(), ButtonCardView.this.f17982e);
         }
     }
 
@@ -46,16 +46,16 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f17913e;
+        public final /* synthetic */ ButtonCard f17989e;
 
         public b(ButtonCard buttonCard) {
-            this.f17913e = buttonCard;
+            this.f17989e = buttonCard;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            UrlManager.getInstance().dealOneLink(ButtonCardView.this.m, new String[]{this.f17913e.getBtnScheme()});
-            x.p().m().e(ButtonCardView.this.f17906e, "yes", this.f17913e.getsExtras());
+            UrlManager.getInstance().dealOneLink(ButtonCardView.this.m, new String[]{this.f17989e.getBtnScheme()});
+            x.p().m().e(ButtonCardView.this.f17982e, "yes", this.f17989e.getsExtras());
             aVar.dismiss();
         }
     }
@@ -64,15 +64,15 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f17915e;
+        public final /* synthetic */ ButtonCard f17991e;
 
         public c(ButtonCard buttonCard) {
-            this.f17915e = buttonCard;
+            this.f17991e = buttonCard;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            x.p().m().e(ButtonCardView.this.f17906e, "no", this.f17915e.getsExtras());
+            x.p().m().e(ButtonCardView.this.f17982e, "no", this.f17991e.getsExtras());
             aVar.dismiss();
         }
     }
@@ -114,7 +114,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         int bgColor = buttonCard.getBgColor();
         this.s.setDefaultBgResource(R.color.transparent);
         if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
-            this.s.V(buttonCard.getPicUrl(), 17, false);
+            this.s.U(buttonCard.getPicUrl(), 17, false);
         } else if (!d.a.n0.k1.o.k.b.a(bgColor)) {
             this.s.setBackgroundColor(bgColor);
         } else {
@@ -153,7 +153,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             return;
         }
         LegoListFragment.V.add(buttonCard.toString());
-        x.p().m().d(buttonCard.getShowExtra(), this.f17906e);
+        x.p().m().d(buttonCard.getShowExtra(), this.f17982e);
     }
 
     public void L() {

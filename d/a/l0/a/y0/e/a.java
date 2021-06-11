@@ -9,52 +9,52 @@ import d.a.l0.a.y0.e.d.e;
 public class a extends d.a.l0.a.y0.b<c> {
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.f f45782h;
+    public final c.f f49456h;
 
     /* renamed from: d.a.l0.a.y0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0907a implements c.f {
-        public C0907a() {
+    public class C0963a implements c.f {
+        public C0963a() {
         }
 
         @Override // d.a.l0.a.y0.e.c.f
         public void a() {
-            if (a.this.f45774b != null) {
-                a.this.f45774b.onCallback(a.this, "onCustomKeyboardHide", null);
+            if (a.this.f49448b != null) {
+                a.this.f49448b.onCallback(a.this, "onCustomKeyboardHide", null);
             }
         }
 
         @Override // d.a.l0.a.y0.e.c.f
         public void b(int i2) {
-            if (a.this.f45774b != null) {
-                a.this.f45774b.onCallback(a.this, "onCustomKeyboardShow", Integer.valueOf(i2));
+            if (a.this.f49448b != null) {
+                a.this.f49448b.onCallback(a.this, "onCustomKeyboardShow", Integer.valueOf(i2));
             }
         }
 
         @Override // d.a.l0.a.y0.e.c.f
         public void c(String str) {
-            if (a.this.f45774b != null) {
-                a.this.f45774b.onCallback(a.this, "committext", str);
+            if (a.this.f49448b != null) {
+                a.this.f49448b.onCallback(a.this, "committext", str);
             }
         }
 
         @Override // d.a.l0.a.y0.e.c.f
         public void d() {
-            if (a.this.f45774b != null) {
-                a.this.f45774b.onCallback(a.this, "deletebutton", new KeyEvent(0, 67));
+            if (a.this.f49448b != null) {
+                a.this.f49448b.onCallback(a.this, "deletebutton", new KeyEvent(0, 67));
             }
         }
     }
 
     public a(@NonNull c cVar) {
         super(cVar);
-        C0907a c0907a = new C0907a();
-        this.f45782h = c0907a;
-        cVar.G0(c0907a);
-        this.f45773a.a(new e());
-        this.f45773a.a(new d.a.l0.a.y0.e.d.a());
-        this.f45773a.a(new d());
-        this.f45773a.a(new d.a.l0.a.y0.e.d.c());
-        this.f45773a.a(new d.a.l0.a.y0.e.d.b());
+        C0963a c0963a = new C0963a();
+        this.f49456h = c0963a;
+        cVar.D0(c0963a);
+        this.f49447a.a(new e());
+        this.f49447a.a(new d.a.l0.a.y0.e.d.a());
+        this.f49447a.a(new d());
+        this.f49447a.a(new d.a.l0.a.y0.e.d.c());
+        this.f49447a.a(new d.a.l0.a.y0.e.d.b());
     }
 }

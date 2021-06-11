@@ -16,10 +16,10 @@ import java.util.List;
 public class SearchMajorModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18127e;
+    public b f18203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f18128f;
+    public HttpMessageListener f18204f;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -45,10 +45,10 @@ public class SearchMajorModel extends BdBaseModel {
             errorData.setError_code(SearchMajorModel.this.mErrorCode);
             errorData.setError_msg(str);
             SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
-            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f58319a)) {
-                SearchMajorModel.this.f18127e.onSuccess(searchMajorHttpResponsedMessage.getData().f58319a);
+            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f62010a)) {
+                SearchMajorModel.this.f18203e.onSuccess(searchMajorHttpResponsedMessage.getData().f62010a);
             } else {
-                SearchMajorModel.this.f18127e.onError(errorData);
+                SearchMajorModel.this.f18203e.onError(errorData);
             }
         }
     }
@@ -63,10 +63,10 @@ public class SearchMajorModel extends BdBaseModel {
     public SearchMajorModel(f fVar, b bVar) {
         super(fVar);
         a aVar = new a(CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f18128f = aVar;
+        this.f18204f = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f18128f);
-        this.f18127e = bVar;
+        registerListener(this.f18204f);
+        this.f18203e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

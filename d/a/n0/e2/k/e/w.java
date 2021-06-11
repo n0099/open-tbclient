@@ -18,66 +18,66 @@ import java.util.ArrayList;
 public class w extends d.a.m0.w.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public PbEditorData.ThreadData f53531a;
+    public PbEditorData.ThreadData f57220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.m0.w.b f53532b;
+    public d.a.m0.w.b f57221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53533c = false;
+    public boolean f57222c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f53534d = false;
+    public boolean f57223d = false;
 
     /* loaded from: classes5.dex */
     public class a implements d.a.m0.w.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v f53535e;
+        public final /* synthetic */ v f57224e;
 
         public a(v vVar) {
-            this.f53535e = vVar;
+            this.f57224e = vVar;
         }
 
         @Override // d.a.m0.w.b
         public void onAction(d.a.m0.w.a aVar) {
-            v vVar = this.f53535e;
+            v vVar = this.f57224e;
             if (vVar == null || vVar.a() == null || aVar == null) {
                 return;
             }
-            if (w.this.f53532b != null) {
-                w.this.f53532b.onAction(aVar);
+            if (w.this.f57221b != null) {
+                w.this.f57221b.onAction(aVar);
             }
-            int i2 = aVar.f50841a;
+            int i2 = aVar.f54518a;
             if (i2 == 16) {
-                if (w.this.h(this.f53535e.f().getPageContext(), 11025)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f53535e.f().getActivity(), 12004, true)));
+                if (w.this.h(this.f57224e.f().getPageContext(), 11025)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f57224e.f().getActivity(), 12004, true)));
                 }
             } else if (i2 == 18) {
-                if (aVar.f50843c != null) {
-                    this.f53535e.m();
+                if (aVar.f54520c != null) {
+                    this.f57224e.m();
                     return;
                 }
-                int g2 = this.f53535e.g();
+                int g2 = this.f57224e.g();
                 if (g2 == 0) {
-                    this.f53535e.l();
+                    this.f57224e.l();
                 } else if (g2 != 2) {
                 } else {
-                    this.f53535e.i();
+                    this.f57224e.i();
                 }
             } else if (i2 == 20) {
                 d.a.n0.e3.m0.b.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i2 == 32) {
-                this.f53535e.a().A(new d.a.m0.w.a(1, 11, null));
+                this.f57224e.a().A(new d.a.m0.w.a(1, 11, null));
             } else if (i2 == 36) {
-                if (w.this.h(this.f53535e.f().getPageContext(), 11040)) {
-                    this.f53535e.n();
+                if (w.this.h(this.f57224e.f().getPageContext(), 11040)) {
+                    this.f57224e.n();
                 }
-            } else if (i2 == 43 && !d.a.m0.p0.b.c(this.f53535e.f().getPageContext(), true, false)) {
-                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.f53535e.f().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
-                if (w.this.f53531a != null) {
-                    hotSelectActivityConfig.setForumExtra(d.a.c.e.m.b.f(w.this.f53531a.getForumId(), 0L), w.this.f53531a.getFirstDir(), w.this.f53531a.getSecondDir());
+            } else if (i2 == 43 && !d.a.m0.p0.b.c(this.f57224e.f().getPageContext(), true, false)) {
+                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.f57224e.f().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
+                if (w.this.f57220a != null) {
+                    hotSelectActivityConfig.setForumExtra(d.a.c.e.m.b.f(w.this.f57220a.getForumId(), 0L), w.this.f57220a.getFirstDir(), w.this.f57220a.getSecondDir());
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
             }
@@ -89,9 +89,9 @@ public class w extends d.a.m0.w.c {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setIsFromPb(true);
         editorTools.setBarMaxLauCount(5);
-        if (this.f53533c) {
+        if (this.f57222c) {
             editorTools.setBarLauncherType(2);
-        } else if (this.f53534d) {
+        } else if (this.f57223d) {
             editorTools.setBarLauncherType(5);
         } else {
             editorTools.setBarLauncherType(3);
@@ -132,21 +132,21 @@ public class w extends d.a.m0.w.c {
         EditorTools a2 = eVar.a();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        if (!this.f53533c) {
+        if (!this.f57222c) {
             arrayList.add(10);
             a2.d(new d.a.m0.w.r.d(a2.getContext(), 1));
         }
-        if (!this.f53534d) {
+        if (!this.f57223d) {
             arrayList.add(6);
             arrayList.add(9);
-            PbEditorData.ThreadData threadData = this.f53531a;
+            PbEditorData.ThreadData threadData = this.f57220a;
             String forumName = threadData != null ? threadData.getForumName() : "";
             if (d.a.n0.e3.p0.c.a() && d.a.n0.e3.u.a(forumName, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), d.a.m0.w.m.class)) != null && (mVar = (d.a.m0.w.m) runTask.getData()) != null) {
                 mVar.j = 2;
                 a2.d(mVar);
             }
             a2.d(new d.a.m0.w.o.a(a2.getContext(), 4));
-            if (!this.f53533c) {
+            if (!this.f57222c) {
                 CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), d.a.m0.w.m.class);
                 if (runTask2 != null && runTask2.getData() != null) {
                     d.a.m0.w.m mVar2 = (d.a.m0.w.m) runTask2.getData();
@@ -160,23 +160,23 @@ public class w extends d.a.m0.w.c {
                     a2.d(mVar3);
                 }
             }
-            if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName()) && !this.f53533c) {
+            if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName()) && !this.f57222c) {
                 a2.d(new d.a.m0.w.q.a(a2.getContext(), 5));
             }
         }
-        if (!this.f53533c && !this.f53534d) {
+        if (!this.f57222c && !this.f57223d) {
             arrayList.add(8);
         }
         a2.h(arrayList);
         d.a.m0.w.m n = a2.n(5);
         if (n != null) {
             n.j = 3;
-            if (this.f53534d) {
+            if (this.f57223d) {
                 n.f(false);
             }
         }
         a2.f();
-        if (this.f53533c || this.f53534d) {
+        if (this.f57222c || this.f57223d) {
             a2.A(new d.a.m0.w.a(35, 5, Boolean.FALSE));
         }
     }
@@ -191,18 +191,18 @@ public class w extends d.a.m0.w.c {
     }
 
     public void i(boolean z) {
-        this.f53534d = z;
+        this.f57223d = z;
     }
 
     public void j(boolean z) {
-        this.f53533c = z;
+        this.f57222c = z;
     }
 
     public void k(d.a.m0.w.b bVar) {
-        this.f53532b = bVar;
+        this.f57221b = bVar;
     }
 
     public void l(PbEditorData.ThreadData threadData) {
-        this.f53531a = threadData;
+        this.f57220a = threadData;
     }
 }

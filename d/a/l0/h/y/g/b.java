@@ -28,20 +28,20 @@ public class b extends d.a.l0.h.y.a {
     public class a implements Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47756a;
+        public final /* synthetic */ String f51430a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.h.y.b f47757b;
+        public final /* synthetic */ d.a.l0.h.y.b f51431b;
 
         public a(String str, d.a.l0.h.y.b bVar) {
-            this.f47756a = str;
-            this.f47757b = bVar;
+            this.f51430a = str;
+            this.f51431b = bVar;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
-            this.f47757b.cancelTag(b.this.f47722g);
-            b.this.Y(this.f47756a, 0, iOException.getMessage());
+            this.f51431b.cancelTag(b.this.f51396g);
+            b.this.Y(this.f51430a, 0, iOException.getMessage());
         }
 
         /* JADX WARN: Removed duplicated region for block: B:19:0x0078  */
@@ -57,59 +57,59 @@ public class b extends d.a.l0.h.y.a {
                     b.this.dispatchEvent(jSEvent);
                 } catch (JSONException e2) {
                     try {
-                        if (d.a.l0.h.y.a.f47719i) {
+                        if (d.a.l0.h.y.a.f51393i) {
                             e2.printStackTrace();
                         }
                     } catch (JSONException e3) {
                         e = e3;
-                        if (d.a.l0.h.y.a.f47719i) {
+                        if (d.a.l0.h.y.a.f51393i) {
                             Log.d("UploadFileTask", Log.getStackTraceString(e));
                         }
-                        b.this.E(this.f47756a, -1, e.getMessage());
+                        b.this.E(this.f51430a, -1, e.getMessage());
                     }
                 }
                 d.a.l0.h.y.g.a aVar = new d.a.l0.h.y.g.a();
                 aVar.statusCode = response.code();
                 aVar.header = b.this.K(response.headers());
                 aVar.data = b.this.Z(response.body());
-                if (d.a.l0.h.y.a.f47719i) {
+                if (d.a.l0.h.y.a.f51393i) {
                     Log.d("UploadFileTask", "onResponse = " + aVar.data);
                 }
                 b.this.F(aVar);
             } catch (IOException e4) {
                 e = e4;
-                if (d.a.l0.h.y.a.f47719i) {
+                if (d.a.l0.h.y.a.f51393i) {
                 }
-                b.this.E(this.f47756a, -1, e.getMessage());
+                b.this.E(this.f51430a, -1, e.getMessage());
             }
         }
     }
 
     /* renamed from: d.a.l0.h.y.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1059b implements d.a.l0.a.n1.p.a {
+    public class C1115b implements d.a.l0.a.n1.p.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f47759a;
+        public final /* synthetic */ long f51433a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f47760b;
+        public final /* synthetic */ String f51434b;
 
-        public C1059b(long j, String str) {
-            this.f47759a = j;
-            this.f47760b = str;
+        public C1115b(long j, String str) {
+            this.f51433a = j;
+            this.f51434b = str;
         }
 
         @Override // d.a.l0.a.n1.p.a
         public void a(long j) {
-            b.this.X(this.f47759a, j, this.f47760b);
+            b.this.X(this.f51433a, j, this.f51434b);
         }
     }
 
     public b(d.a.l0.a.l0.c cVar, d.a.l0.a.y.b.a aVar) {
         super(cVar, aVar);
         this.l = 0L;
-        this.f47720e = 3;
+        this.f51394e = 3;
     }
 
     public static void a0(MultipartBody.Builder builder, d.a.l0.a.y.b.a aVar) {
@@ -135,28 +135,28 @@ public class b extends d.a.l0.h.y.a {
     public final Request V() {
         String B = B();
         if (!TextUtils.isEmpty(B)) {
-            String C = this.f47721f.C("filePath");
+            String C = this.f51395f.C("filePath");
             if (TextUtils.isEmpty(C)) {
                 E(B, -1, "uploadFile:filePath is empty or invalid");
                 return null;
             } else if (d.w(C)) {
                 E(B, -1, "uploadFile:filePath is empty or invalid");
                 return null;
-            } else if (this.f47721f.b("header") && this.f47721f.i("header") != 9) {
+            } else if (this.f51395f.b("header") && this.f51395f.i("header") != 9) {
                 E(B, -1, "uploadFile:header is invalid");
                 return null;
             } else {
                 File W = W(B, C);
                 if (W != null) {
-                    d.a.l0.a.y.b.a x = this.f47721f.x("formData");
+                    d.a.l0.a.y.b.a x = this.f51395f.x("formData");
                     Request.Builder builder = new Request.Builder();
-                    d.a.l0.a.n1.c cVar = new d.a.l0.a.n1.c(W, IMAudioTransRequest.CONTENT_TYPE, new C1059b(W.length(), B));
+                    d.a.l0.a.n1.c cVar = new d.a.l0.a.n1.c(W, IMAudioTransRequest.CONTENT_TYPE, new C1115b(W.length(), B));
                     MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
                     a0(type, x);
-                    type.addFormDataPart(this.f47721f.C("name"), W.getName(), cVar);
+                    type.addFormDataPart(this.f51395f.C("name"), W.getName(), cVar);
                     MultipartBody build = type.build();
-                    I(builder, this.f47721f.x("header"), new HashMap(), false);
-                    return builder.url(B).tag(this.f47722g).post(build).build();
+                    I(builder, this.f51395f.x("header"), new HashMap(), false);
+                    return builder.url(B).tag(this.f51396g).post(build).build();
                 }
             }
         }
@@ -171,10 +171,10 @@ public class b extends d.a.l0.h.y.a {
                 if (file.length() > 26214400) {
                     E(str, -1, "request:file size > 25 MB");
                     return null;
-                } else if (TextUtils.isEmpty(this.f47721f.C("name"))) {
+                } else if (TextUtils.isEmpty(this.f51395f.C("name"))) {
                     E(str, -1, "uploadFile:name is invalid");
                     return null;
-                } else if (!this.f47721f.b("formData") || this.f47721f.i("formData") == 9) {
+                } else if (!this.f51395f.b("formData") || this.f51395f.i("formData") == 9) {
                     return file;
                 } else {
                     E(str, -1, "uploadFile:formData is invalid");
@@ -202,7 +202,7 @@ public class b extends d.a.l0.h.y.a {
     }
 
     public final void Y(String str, int i2, String str2) {
-        if (d.a.l0.h.y.a.f47719i) {
+        if (d.a.l0.h.y.a.f51393i) {
             Log.d("UploadFileTask", "onFailure: " + str2);
         }
         E(str, i2, ("Socket is closed".equalsIgnoreCase(str2) || ResponseException.CANCELED.equalsIgnoreCase(str2)) ? "uploadFile:fail abort" : "uploadFile:fail abort");
@@ -225,7 +225,7 @@ public class b extends d.a.l0.h.y.a {
 
     public void start() {
         Request V;
-        if (this.f47721f == null || (V = V()) == null) {
+        if (this.f51395f == null || (V = V()) == null) {
             return;
         }
         if (d.a.l0.a.a2.e.i() == null) {

@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f54451a;
+    public static g f58140a;
 
     /* loaded from: classes4.dex */
     public static class a implements a.c {
@@ -29,10 +29,10 @@ public class g {
     public static synchronized g b() {
         g gVar;
         synchronized (g.class) {
-            if (f54451a == null) {
-                f54451a = new g();
+            if (f58140a == null) {
+                f58140a = new g();
             }
-            gVar = f54451a;
+            gVar = f58140a;
         }
         return gVar;
     }

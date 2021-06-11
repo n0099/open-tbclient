@@ -8,22 +8,22 @@ import com.baidu.tieba.im.chat.officialBar.SingleImageTextView;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c.e.k.b<MultiImageTextTopView> f54398a;
+    public d.a.c.e.k.b<MultiImageTextTopView> f58087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.e.k.b<MultiImageTextBottomView> f54399b;
+    public d.a.c.e.k.b<MultiImageTextBottomView> f58088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.c.e.k.b<SingleImageTextView> f54400c;
+    public d.a.c.e.k.b<SingleImageTextView> f58089c;
 
     /* loaded from: classes4.dex */
     public class a implements d.a.c.e.k.c<MultiImageTextTopView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f54401a;
+        public final /* synthetic */ Context f58090a;
 
         public a(c cVar, Context context) {
-            this.f54401a = context;
+            this.f58090a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -61,7 +61,7 @@ public class c {
         @Override // d.a.c.e.k.c
         /* renamed from: g */
         public MultiImageTextTopView d() {
-            return new MultiImageTextTopView(this.f54401a);
+            return new MultiImageTextTopView(this.f58090a);
         }
 
         public MultiImageTextTopView h(MultiImageTextTopView multiImageTextTopView) {
@@ -81,13 +81,13 @@ public class c {
 
     /* renamed from: d.a.n0.f1.f.j.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1308c implements d.a.c.e.k.c<MultiImageTextBottomView> {
+    public class C1364c implements d.a.c.e.k.c<MultiImageTextBottomView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f54402a;
+        public final /* synthetic */ Context f58091a;
 
-        public C1308c(c cVar, Context context) {
-            this.f54402a = context;
+        public C1364c(c cVar, Context context) {
+            this.f58091a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -125,7 +125,7 @@ public class c {
         @Override // d.a.c.e.k.c
         /* renamed from: g */
         public MultiImageTextBottomView d() {
-            return new MultiImageTextBottomView(this.f54402a);
+            return new MultiImageTextBottomView(this.f58091a);
         }
 
         public MultiImageTextBottomView h(MultiImageTextBottomView multiImageTextBottomView) {
@@ -147,10 +147,10 @@ public class c {
     public class e implements d.a.c.e.k.c<SingleImageTextView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f54403a;
+        public final /* synthetic */ Context f58092a;
 
         public e(c cVar, Context context) {
-            this.f54403a = context;
+            this.f58092a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -188,7 +188,7 @@ public class c {
         @Override // d.a.c.e.k.c
         /* renamed from: g */
         public SingleImageTextView d() {
-            return new SingleImageTextView(this.f54403a);
+            return new SingleImageTextView(this.f58092a);
         }
 
         public SingleImageTextView h(SingleImageTextView singleImageTextView) {
@@ -200,35 +200,35 @@ public class c {
     }
 
     public final void a(Context context) {
-        this.f54399b = new d(this, new C1308c(this, context), 9, 0);
+        this.f58088b = new d(this, new C1364c(this, context), 9, 0);
     }
 
     public final void b(Context context) {
-        this.f54400c = new d.a.c.e.k.b<>(new e(this, context), 1, 0);
+        this.f58089c = new d.a.c.e.k.b<>(new e(this, context), 1, 0);
     }
 
     public final void c(Context context) {
-        this.f54398a = new b(this, new a(this, context), 1, 0);
+        this.f58087a = new b(this, new a(this, context), 1, 0);
     }
 
     public d.a.c.e.k.b<MultiImageTextBottomView> d(Context context) {
-        if (this.f54399b == null) {
+        if (this.f58088b == null) {
             a(context);
         }
-        return this.f54399b;
+        return this.f58088b;
     }
 
     public d.a.c.e.k.b<SingleImageTextView> e(Context context) {
-        if (this.f54400c == null) {
+        if (this.f58089c == null) {
             b(context);
         }
-        return this.f54400c;
+        return this.f58089c;
     }
 
     public d.a.c.e.k.b<MultiImageTextTopView> f(Context context) {
-        if (this.f54398a == null) {
+        if (this.f58087a == null) {
             c(context);
         }
-        return this.f54398a;
+        return this.f58087a;
     }
 }

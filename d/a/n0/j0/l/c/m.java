@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import d.a.c.j.e.n;
-import d.a.c.j.e.s;
-import d.a.c.j.e.w;
+import d.a.c.k.e.n;
+import d.a.c.k.e.s;
+import d.a.c.k.e.w;
 import d.a.m0.r.q.u1;
 /* loaded from: classes4.dex */
-public class m extends d.a.c.j.e.a<u1, CardViewHolder<b>> {
+public class m extends d.a.c.k.e.a<u1, CardViewHolder<b>> {
     public TbPageContext<?> m;
     public String n;
 
@@ -26,18 +26,18 @@ public class m extends d.a.c.j.e.a<u1, CardViewHolder<b>> {
     public class a implements w {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f56067e;
+        public final /* synthetic */ b f59756e;
 
         public a(b bVar) {
-            this.f56067e = bVar;
+            this.f59756e = bVar;
         }
 
-        @Override // d.a.c.j.e.w
+        @Override // d.a.c.k.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
-            this.f56067e.s();
+            this.f59756e.t();
             StatisticItem statisticItem = new StatisticItem("c13647");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", m.this.B(i2) + 1);
+            statisticItem.param("obj_id", m.this.F(i2) + 1);
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, m.this.n);
             TiebaStatic.log(statisticItem);
         }
@@ -52,7 +52,7 @@ public class m extends d.a.c.j.e.a<u1, CardViewHolder<b>> {
         public b(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
             this.m = tbPageContext;
-            TbImageView tbImageView = (TbImageView) l().findViewById(R.id.image);
+            TbImageView tbImageView = (TbImageView) m().findViewById(R.id.image);
             this.n = tbImageView;
             tbImageView.setOnClickListener(this);
             this.n.setConrers(15);
@@ -64,22 +64,22 @@ public class m extends d.a.c.j.e.a<u1, CardViewHolder<b>> {
         }
 
         @Override // d.a.n0.z.b
-        public int g() {
+        public int h() {
             return R.layout.card_resources_item;
         }
 
         @Override // d.a.n0.z.b
-        public void n(TbPageContext<?> tbPageContext, int i2) {
+        public void o(TbPageContext<?> tbPageContext, int i2) {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == this.n) {
-                s();
+                t();
             }
         }
 
-        public void s() {
+        public void t() {
             if (TextUtils.isEmpty(this.o)) {
                 return;
             }
@@ -88,15 +88,15 @@ public class m extends d.a.c.j.e.a<u1, CardViewHolder<b>> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.n0.z.b
-        /* renamed from: t */
-        public void m(u1 u1Var) {
+        /* renamed from: u */
+        public void n(u1 u1Var) {
             if (u1Var != null) {
-                this.o = u1Var.f50134f;
+                this.o = u1Var.f53810f;
                 this.n.setScaleType(ImageView.ScaleType.FIT_XY);
                 this.n.setPlaceHolder(2);
-                this.n.V(u1Var.f50133e, 10, false);
+                this.n.U(u1Var.f53809e, 10, false);
             }
-            n(this.m, TbadkCoreApplication.getInst().getSkinType());
+            o(this.m, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -107,30 +107,30 @@ public class m extends d.a.c.j.e.a<u1, CardViewHolder<b>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public CardViewHolder<b> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public CardViewHolder<b> Q(ViewGroup viewGroup) {
         b bVar = new b(this.m, viewGroup);
-        Z(new a(bVar));
+        a0(new a(bVar));
         return new CardViewHolder<>(bVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public View W(int i2, View view, ViewGroup viewGroup, u1 u1Var, CardViewHolder<b> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, u1 u1Var, CardViewHolder<b> cardViewHolder) {
         if (u1Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
             return null;
         }
-        cardViewHolder.b().m(u1Var);
+        cardViewHolder.b().n(u1Var);
         StatisticItem statisticItem = new StatisticItem("c13646");
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.param("obj_id", B(i2) + 1);
+        statisticItem.param("obj_id", F(i2) + 1);
         statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.n);
         TiebaStatic.log(statisticItem);
-        return cardViewHolder.b().l();
+        return cardViewHolder.b().m();
     }
 
-    public void h0(s sVar) {
+    public void i0(s sVar) {
     }
 }

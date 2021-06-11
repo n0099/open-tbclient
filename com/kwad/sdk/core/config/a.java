@@ -6,7 +6,7 @@ import java.net.URI;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f32007a = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
+    public static final String[] f34055a = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
 
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -29,7 +29,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : f32007a) {
+        for (String str2 : f34055a) {
             if (str.contains(str2)) {
                 return true;
             }
@@ -41,7 +41,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : c.j()) {
+        for (String str2 : c.w()) {
             if (str.contains(str2)) {
                 return true;
             }

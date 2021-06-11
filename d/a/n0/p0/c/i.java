@@ -34,23 +34,23 @@ public class i extends d.a.n0.r0.k<j, FrsMemberTeamViewHolder> {
             String str = "";
             if (view.getTag() instanceof BawuRoleInfoPub) {
                 BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view.getTag();
-                i.this.o.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(i.this.f39228e, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
+                i.this.o.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(i.this.f42909e, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
             } else if (view.getId() == R.id.title_text_view) {
                 Object tag = view.getTag();
                 if (tag instanceof Integer) {
                     Integer num = (Integer) tag;
-                    if (i.this.y(num.intValue()) instanceof j) {
-                        jVar = (j) i.this.y(num.intValue());
-                        if (jVar != null || jVar.e() == null) {
+                    if (i.this.z(num.intValue()) instanceof j) {
+                        jVar = (j) i.this.z(num.intValue());
+                        if (jVar != null || jVar.c() == null) {
                         }
-                        String[] split = StringUtils.isNull(jVar.e().member_group_type) ? null : jVar.e().member_group_type.split("_");
+                        String[] split = StringUtils.isNull(jVar.c().member_group_type) ? null : jVar.c().member_group_type.split("_");
                         if (split != null && split.length == 2) {
                             str = split[0];
                         }
                         if (StringUtils.isNull(str) || !str.equalsIgnoreCase("1")) {
                             return;
                         }
-                        i.this.o.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(i.this.f39228e, d.a.c.e.m.b.f(jVar.c(), 0L))));
+                        i.this.o.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(i.this.f42909e, d.a.c.e.m.b.f(jVar.b(), 0L))));
                         return;
                     }
                 }
@@ -66,31 +66,31 @@ public class i extends d.a.n0.r0.k<j, FrsMemberTeamViewHolder> {
         this.w = new a();
     }
 
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x0(i2, view, viewGroup, (j) obj, (FrsMemberTeamViewHolder) viewHolder);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        y0(i2, view, viewGroup, (j) obj, (FrsMemberTeamViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: w0 */
-    public FrsMemberTeamViewHolder P(ViewGroup viewGroup) {
-        return new FrsMemberTeamViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.forum_member_team_user_view, (ViewGroup) null), this.w);
+    @Override // d.a.c.k.e.a
+    /* renamed from: x0 */
+    public FrsMemberTeamViewHolder Q(ViewGroup viewGroup) {
+        return new FrsMemberTeamViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.forum_member_team_user_view, (ViewGroup) null), this.w);
     }
 
-    public View x0(int i2, View view, ViewGroup viewGroup, j jVar, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {
-        MemberGroupInfo e2;
+    public View y0(int i2, View view, ViewGroup viewGroup, j jVar, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {
+        MemberGroupInfo c2;
         List<BawuRoleInfoPub> list;
-        super.W(i2, view, viewGroup, jVar, frsMemberTeamViewHolder);
-        if (jVar != null && jVar.e() != null && (list = (e2 = jVar.e()).member_group_list) != null && list.size() > 0 && !StringUtils.isNull(e2.member_group_type)) {
-            frsMemberTeamViewHolder.f14979a.setTag(Integer.valueOf(i2));
-            String[] split = !StringUtils.isNull(e2.member_group_type) ? e2.member_group_type.split("_") : null;
+        super.X(i2, view, viewGroup, jVar, frsMemberTeamViewHolder);
+        if (jVar != null && jVar.c() != null && (list = (c2 = jVar.c()).member_group_list) != null && list.size() > 0 && !StringUtils.isNull(c2.member_group_type)) {
+            frsMemberTeamViewHolder.f15036a.setTag(Integer.valueOf(i2));
+            String[] split = !StringUtils.isNull(c2.member_group_type) ? c2.member_group_type.split("_") : null;
             String str = (split == null || split.length != 2) ? "" : split[1];
-            TextView textView = frsMemberTeamViewHolder.f14979a;
-            textView.setText(str + "(" + e2.member_group_num + SmallTailInfo.EMOTION_SUFFIX);
+            TextView textView = frsMemberTeamViewHolder.f15036a;
+            textView.setText(str + "(" + c2.member_group_num + SmallTailInfo.EMOTION_SUFFIX);
             int i3 = 0;
-            for (BawuRoleInfoPub bawuRoleInfoPub : e2.member_group_list) {
+            for (BawuRoleInfoPub bawuRoleInfoPub : c2.member_group_list) {
                 if (i3 > 3) {
                     break;
                 } else if (bawuRoleInfoPub != null) {
@@ -100,12 +100,12 @@ public class i extends d.a.n0.r0.k<j, FrsMemberTeamViewHolder> {
             }
             frsMemberTeamViewHolder.c(this.r == 1);
             SkinManager.setBackgroundColor(frsMemberTeamViewHolder.n, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(frsMemberTeamViewHolder.f14979a, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(frsMemberTeamViewHolder.f15036a, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(frsMemberTeamViewHolder.j, R.color.CAM_X0106, 1);
             SkinManager.setViewTextColor(frsMemberTeamViewHolder.k, R.color.CAM_X0106, 1);
             SkinManager.setViewTextColor(frsMemberTeamViewHolder.l, R.color.CAM_X0106, 1);
             SkinManager.setViewTextColor(frsMemberTeamViewHolder.m, R.color.CAM_X0106, 1);
-            frsMemberTeamViewHolder.f14979a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            frsMemberTeamViewHolder.f15036a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
         }
         return view;
     }

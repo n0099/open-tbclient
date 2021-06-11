@@ -5,24 +5,24 @@ import android.net.NetworkInfo;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7950a;
+    public String f7993a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7951b;
+    public int f7994b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7952c;
+    public int f7995c;
 
     public c(NetworkInfo networkInfo) {
-        this.f7950a = networkInfo.getTypeName();
-        this.f7951b = networkInfo.getType();
-        int i2 = d.f7953a[networkInfo.getState().ordinal()];
+        this.f7993a = networkInfo.getTypeName();
+        this.f7994b = networkInfo.getType();
+        int i2 = d.f7996a[networkInfo.getState().ordinal()];
         if (i2 == 1) {
-            this.f7952c = 2;
+            this.f7995c = 2;
         } else if (i2 != 2) {
-            this.f7952c = 0;
+            this.f7995c = 0;
         } else {
-            this.f7952c = 1;
+            this.f7995c = 1;
         }
     }
 }

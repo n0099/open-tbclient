@@ -11,7 +11,7 @@ public interface a extends d {
 
     /* renamed from: d.a.l0.a.y0.k.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0920a {
+    public interface InterfaceC0976a {
         void a(int i2);
 
         void b(int i2);
@@ -33,43 +33,39 @@ public interface a extends d {
         void onRelease(String str);
     }
 
-    void C(boolean z);
+    void B(boolean z);
 
-    void D();
+    void C();
 
-    int G();
+    void G(int i2);
 
-    boolean I();
+    void H();
 
-    void J(int i2);
+    void L(int i2, int i3, int i4, int i5);
 
-    void K();
+    void N(ZeusPluginFactory.Invoker invoker);
 
-    void O(int i2, int i3, int i4, int i5);
+    boolean O(String str, String str2, String str3, boolean z);
 
-    void Q(ZeusPluginFactory.Invoker invoker);
+    boolean P();
 
-    boolean R(String str, String str2, String str3, boolean z);
+    InterfaceC0976a Q();
 
-    boolean S();
+    void U(Map map);
 
-    InterfaceC0920a T();
+    void V();
 
-    void X(Map map);
-
-    void Y();
+    void X();
 
     int a();
 
-    void a0();
-
     String c();
 
-    void f0(String str);
+    void c0(String str);
 
-    int g();
+    void d0();
 
-    void g0();
+    ZeusPluginFactory.Invoker g0();
 
     Context getContext();
 
@@ -79,21 +75,25 @@ public interface a extends d {
 
     int getVideoHeight();
 
+    int getVideoSarDen();
+
+    int getVideoSarNum();
+
     int getVideoWidth();
+
+    void h0(int i2);
+
+    void i0(@NonNull InterfaceC0976a interfaceC0976a);
 
     boolean isPlaying();
 
-    ZeusPluginFactory.Invoker j0();
+    void k(boolean z);
 
-    void k0(int i2);
-
-    void l(boolean z);
-
-    void l0(@NonNull InterfaceC0920a interfaceC0920a);
+    void n0();
 
     void pause();
 
-    void q0();
+    boolean prepareAsync();
 
     void release();
 

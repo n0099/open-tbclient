@@ -15,15 +15,15 @@ import d.a.m0.r.d0.b;
 public class PushStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f22187a = new a(0);
+    public static CustomMessageListener f22290a = new a(0);
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0219a implements Runnable {
-            public RunnableC0219a(a aVar) {
+        public class RunnableC0221a implements Runnable {
+            public RunnableC0221a(a aVar) {
             }
 
             @Override // java.lang.Runnable
@@ -40,13 +40,13 @@ public class PushStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                new Thread(new RunnableC0219a(this)).start();
+                new Thread(new RunnableC0221a(this)).start();
             }
         }
     }
 
     static {
-        MessageManager.getInstance().registerListener(2007015, f22187a);
+        MessageManager.getInstance().registerListener(2007015, f22290a);
     }
 
     public static void b() {

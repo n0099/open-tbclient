@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends c {
     static {
-        boolean z = k.f43199a;
+        boolean z = k.f46875a;
     }
 
     public a(String str) {
@@ -21,7 +21,7 @@ public class a extends c {
 
     @Override // d.a.l0.a.i1.h.d.c
     public boolean a(d.a.l0.a.i1.h.a aVar, d.a.l0.a.i1.h.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        d.a.l0.a.e0.d.g("vrvideo", "open, video id:" + cVar.n + " slave id: " + cVar.f40846g);
+        d.a.l0.a.e0.d.g("vrvideo", "open, video id:" + cVar.n + " slave id: " + cVar.f44522g);
         d(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }

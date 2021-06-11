@@ -19,19 +19,19 @@ import java.util.TimerTask;
 public class MediaController extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageButton f11899e;
+    public ImageButton f11961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f11900f;
+    public View f11962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f11901g;
+    public View f11963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f11902h;
+    public TextView f11964h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SeekBar f11903i;
+    public SeekBar f11965i;
     public TextView j;
     public long k;
     public Timer l;
@@ -53,12 +53,12 @@ public class MediaController extends RelativeLayout {
                 return;
             }
             if (MediaController.this.o.v()) {
-                MediaController.this.f11899e.setBackgroundResource(d.a.l0.v.c.btn_play);
+                MediaController.this.f11961e.setBackgroundResource(d.a.l0.v.c.btn_play);
                 MediaController.this.o.x();
                 return;
             }
             Log.d("SimpleMediaController", "mPlayButton clicked : to resume");
-            MediaController.this.f11899e.setBackgroundResource(d.a.l0.v.c.btn_pause);
+            MediaController.this.f11961e.setBackgroundResource(d.a.l0.v.c.btn_pause);
             MediaController.this.o.C();
         }
     }
@@ -107,16 +107,16 @@ public class MediaController extends RelativeLayout {
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f11907e;
+        public boolean f11969e;
 
         public d() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f11907e = !this.f11907e;
+            this.f11969e = !this.f11969e;
             if (MediaController.this.r != null) {
-                MediaController.this.r.b(this.f11907e);
+                MediaController.this.r.b(this.f11969e);
             }
         }
     }
@@ -191,7 +191,7 @@ public class MediaController extends RelativeLayout {
         if (this.q) {
             return;
         }
-        SeekBar seekBar = this.f11903i;
+        SeekBar seekBar = this.f11965i;
         if (seekBar != null) {
             seekBar.setMax(i2);
         }
@@ -231,21 +231,21 @@ public class MediaController extends RelativeLayout {
     public final void j() {
         View inflate = LayoutInflater.from(getContext()).inflate(d.a.l0.v.e.media_controller, this);
         ImageButton imageButton = (ImageButton) inflate.findViewById(d.a.l0.v.d.btn_play);
-        this.f11899e = imageButton;
+        this.f11961e = imageButton;
         imageButton.setOnClickListener(new a());
-        this.f11902h = (TextView) inflate.findViewById(d.a.l0.v.d.tv_position);
-        this.f11903i = (SeekBar) inflate.findViewById(d.a.l0.v.d.seekbar);
+        this.f11964h = (TextView) inflate.findViewById(d.a.l0.v.d.tv_position);
+        this.f11965i = (SeekBar) inflate.findViewById(d.a.l0.v.d.seekbar);
         this.j = (TextView) inflate.findViewById(d.a.l0.v.d.tv_duration);
-        this.f11903i.setOnSeekBarChangeListener(new b());
-        this.f11901g = inflate.findViewById(d.a.l0.v.d.btn_mute);
+        this.f11965i.setOnSeekBarChangeListener(new b());
+        this.f11963g = inflate.findViewById(d.a.l0.v.d.btn_mute);
         SwanVideoView swanVideoView = this.o;
-        this.f11901g.setBackgroundResource(swanVideoView != null && swanVideoView.u() ? d.a.l0.v.c.mute_on : d.a.l0.v.c.mute_off);
-        this.f11901g.setOnClickListener(new c());
+        this.f11963g.setBackgroundResource(swanVideoView != null && swanVideoView.u() ? d.a.l0.v.c.mute_on : d.a.l0.v.c.mute_off);
+        this.f11963g.setOnClickListener(new c());
         View findViewById = inflate.findViewById(d.a.l0.v.d.btn_toggle_screen);
-        this.f11900f = findViewById;
+        this.f11962f = findViewById;
         findViewById.setOnClickListener(new d());
-        this.f11903i.setEnabled(false);
-        this.f11899e.setEnabled(false);
+        this.f11965i.setEnabled(false);
+        this.f11961e.setEnabled(false);
     }
 
     public void k() {
@@ -265,15 +265,15 @@ public class MediaController extends RelativeLayout {
     }
 
     public void l(int i2) {
-        SeekBar seekBar = this.f11903i;
+        SeekBar seekBar = this.f11965i;
         if (seekBar == null || i2 == seekBar.getSecondaryProgress()) {
             return;
         }
-        this.f11903i.setSecondaryProgress(i2);
+        this.f11965i.setSecondaryProgress(i2);
     }
 
     public void m(boolean z) {
-        this.f11900f.setBackgroundResource(z ? d.a.l0.v.c.btn_halfscreen : d.a.l0.v.c.btn_fullscreen);
+        this.f11962f.setBackgroundResource(z ? d.a.l0.v.c.btn_halfscreen : d.a.l0.v.c.btn_fullscreen);
     }
 
     public final void n() {
@@ -311,7 +311,7 @@ public class MediaController extends RelativeLayout {
     }
 
     public final void r(int i2) {
-        TextView textView = this.f11902h;
+        TextView textView = this.f11964h;
         if (textView != null) {
             textView.setText(g(i2));
         }
@@ -324,45 +324,45 @@ public class MediaController extends RelativeLayout {
             case -1:
             case 0:
                 p();
-                this.f11899e.setEnabled(true);
-                this.f11899e.setBackgroundResource(d.a.l0.v.c.btn_play);
-                this.f11903i.setEnabled(false);
+                this.f11961e.setEnabled(true);
+                this.f11961e.setBackgroundResource(d.a.l0.v.c.btn_play);
+                this.f11965i.setEnabled(false);
                 SwanVideoView swanVideoView = this.o;
                 r(swanVideoView == null ? 0 : swanVideoView.getCurrentPosition());
                 SwanVideoView swanVideoView2 = this.o;
                 q(swanVideoView2 != null ? swanVideoView2.getDuration() : 0);
                 return;
             case 1:
-                this.f11899e.setEnabled(false);
-                this.f11903i.setEnabled(false);
+                this.f11961e.setEnabled(false);
+                this.f11965i.setEnabled(false);
                 return;
             case 2:
-                this.f11899e.setEnabled(true);
-                this.f11899e.setBackgroundResource(d.a.l0.v.c.btn_play);
-                this.f11903i.setEnabled(true);
+                this.f11961e.setEnabled(true);
+                this.f11961e.setBackgroundResource(d.a.l0.v.c.btn_play);
+                this.f11965i.setEnabled(true);
                 SwanVideoView swanVideoView3 = this.o;
                 q(swanVideoView3 == null ? 0 : swanVideoView3.getDuration());
-                SeekBar seekBar = this.f11903i;
+                SeekBar seekBar = this.f11965i;
                 SwanVideoView swanVideoView4 = this.o;
                 seekBar.setMax(swanVideoView4 != null ? swanVideoView4.getDuration() : 0);
                 return;
             case 3:
                 o();
-                this.f11903i.setEnabled(true);
-                this.f11899e.setEnabled(true);
-                this.f11899e.setBackgroundResource(d.a.l0.v.c.btn_pause);
+                this.f11965i.setEnabled(true);
+                this.f11961e.setEnabled(true);
+                this.f11961e.setBackgroundResource(d.a.l0.v.c.btn_pause);
                 return;
             case 4:
-                this.f11899e.setEnabled(true);
-                this.f11899e.setBackgroundResource(d.a.l0.v.c.btn_play);
+                this.f11961e.setEnabled(true);
+                this.f11961e.setBackgroundResource(d.a.l0.v.c.btn_play);
                 return;
             case 5:
                 p();
-                SeekBar seekBar2 = this.f11903i;
+                SeekBar seekBar2 = this.f11965i;
                 seekBar2.setProgress(seekBar2.getMax());
-                this.f11903i.setEnabled(false);
-                this.f11899e.setEnabled(true);
-                this.f11899e.setBackgroundResource(d.a.l0.v.c.btn_play);
+                this.f11965i.setEnabled(false);
+                this.f11961e.setEnabled(true);
+                this.f11961e.setBackgroundResource(d.a.l0.v.c.btn_play);
                 return;
             default:
                 return;
@@ -370,14 +370,14 @@ public class MediaController extends RelativeLayout {
     }
 
     public void setMute(boolean z) {
-        View view = this.f11901g;
+        View view = this.f11963g;
         if (view != null) {
             view.setBackgroundResource(z ? d.a.l0.v.c.mute_on : d.a.l0.v.c.mute_off);
         }
     }
 
     public void setProgress(int i2) {
-        SeekBar seekBar = this.f11903i;
+        SeekBar seekBar = this.f11965i;
         if (seekBar != null) {
             seekBar.setProgress(i2);
         }

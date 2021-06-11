@@ -77,7 +77,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            EmotionEditActivity.this.mModel.H(true);
+            EmotionEditActivity.this.mModel.L(true);
             EmotionEditActivity.this.recycleTextBitmap();
             EmotionEditActivity.this.hideProgress();
         }
@@ -112,13 +112,13 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     /* loaded from: classes5.dex */
-    public class d extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class d extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public d() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             if (aVar != null) {
                 EmotionEditActivity.this.mIsGif = aVar.t();
                 if (EmotionEditActivity.this.mIsGif) {
@@ -154,7 +154,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     private void checkTextUeg() {
-        this.mModel.A(this.mEditText.getText());
+        this.mModel.E(this.mEditText.getText());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -163,7 +163,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         this.mProgressDialog.h(false);
         this.isSending = false;
         if (this.mIsGif) {
-            ((GifView) this.mImageView).u0();
+            ((GifView) this.mImageView).t0();
         }
     }
 
@@ -193,7 +193,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             this.mImageView = tbImageView;
             tbImageView.setGifIconSupport(false);
             ((TbImageView) this.mImageView).setAutoChangeStyle(false);
-            ((TbImageView) this.mImageView).V(this.mEmotionImageData.getPicUrl(), 10, true);
+            ((TbImageView) this.mImageView).U(this.mEmotionImageData.getPicUrl(), 10, true);
             d.a.c.e.l.d.h().m(this.mEmotionImageData.getPicUrl(), 10, new d(), getUniqueId());
         }
         this.mImageWidth = this.mEmotionImageData.getWidth();
@@ -242,7 +242,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     private void processEmotion() {
-        if (this.mModel.B()) {
+        if (this.mModel.F()) {
             return;
         }
         this.mEditText.getTextView().setBackgroundColor(getPageContext().getResources().getColor(R.color.transparent));
@@ -250,21 +250,21 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             ImageView imageView = this.mImageView;
             if (imageView instanceof GifView) {
                 ((GifView) imageView).pause();
-                this.mModel.D(((GifView) this.mImageView).getGif());
+                this.mModel.H(((GifView) this.mImageView).getGif());
                 return;
             }
             return;
         }
         ImageView imageView2 = this.mImageView;
         if (imageView2 instanceof TbImageView) {
-            d.a.c.j.d.a bdImage = ((TbImageView) imageView2).getBdImage();
+            d.a.c.k.d.a bdImage = ((TbImageView) imageView2).getBdImage();
             if (bdImage != null) {
-                if (this.mModel.B()) {
+                if (this.mModel.F()) {
                     return;
                 }
                 Bitmap addTextToImage = addTextToImage(bdImage.p());
                 if (addTextToImage != null) {
-                    this.mModel.E(addTextToImage, f.f38858b + "/" + TbConfig.getTempDirName() + "/emotion.png");
+                    this.mModel.I(addTextToImage, f.f42511b + "/" + TbConfig.getTempDirName() + "/emotion.png");
                     return;
                 }
                 showToast(R.string.upload_error);
@@ -302,7 +302,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         if (this.mPermissionJudgement.startRequestPermission(pageActivity) || this.isSending) {
             return;
         }
-        this.mModel.H(false);
+        this.mModel.L(false);
         this.isSending = true;
         this.startSendTime = System.currentTimeMillis();
         this.mProgressDialog.h(true);
@@ -329,7 +329,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     private void sendEmotion() {
-        if (this.mModel.B()) {
+        if (this.mModel.F()) {
             return;
         }
         this.mSendInStep = 0;
@@ -357,7 +357,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         if (TextUtils.isEmpty(this.mImageFilePath)) {
             hideProgress();
         } else {
-            this.mModel.I(this.mImageFilePath, true);
+            this.mModel.M(this.mImageFilePath, true);
         }
     }
 

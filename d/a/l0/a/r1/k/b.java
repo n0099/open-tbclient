@@ -13,34 +13,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements d {
-    public static final boolean k = k.f43199a;
+    public static final boolean k = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f44464a;
+    public c f48138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDateFormat f44465b;
+    public SimpleDateFormat f48139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, List<d.a.l0.a.r1.k.a>> f44466c;
+    public HashMap<String, List<d.a.l0.a.r1.k.a>> f48140c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f44467d = new Object();
+    public final Object f48141d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44468e;
+    public String f48142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44469f;
+    public boolean f48143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44470g;
+    public boolean f48144g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f44471h;
+    public long f48145h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f44472i;
+    public long f48146i;
     public volatile d.a.l0.a.r1.k.j.c j;
 
     /* loaded from: classes3.dex */
@@ -64,23 +64,23 @@ public class b implements d {
     public void b(long j) {
         p();
         u();
-        this.f44471h = j;
+        this.f48145h = j;
         q("launch start time-" + j);
     }
 
     @Override // d.a.l0.a.r1.k.e
     public void c(long j) {
-        this.f44470g = true;
-        this.f44472i = j;
+        this.f48144g = true;
+        this.f48146i = j;
         v(k());
-        q("launch end time-" + (this.f44471h + this.f44472i));
+        q("launch end time-" + (this.f48145h + this.f48146i));
     }
 
     @Override // d.a.l0.a.r1.k.d
     public void d(JSONObject jSONObject) {
         if (f.j().m()) {
             p();
-            if (this.f44469f) {
+            if (this.f48143f) {
                 q("aiapp start finish");
                 return;
             }
@@ -96,9 +96,9 @@ public class b implements d {
                     if (l != null && l.length() > 0) {
                         JSONObject optJSONObject = l.optJSONObject("ext");
                         if (optJSONObject != null && optJSONObject.length() > 0) {
-                            if (TextUtils.isEmpty(this.f44468e)) {
-                                this.f44468e = optJSONObject.optString("swan");
-                                q("current swan version " + this.f44468e);
+                            if (TextUtils.isEmpty(this.f48142e)) {
+                                this.f48142e = optJSONObject.optString("swan");
+                                q("current swan version " + this.f48142e);
                             }
                             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -125,35 +125,35 @@ public class b implements d {
     public String k() {
         int i2;
         int i3;
-        if (this.f44470g && this.f44465b != null) {
+        if (this.f48144g && this.f48139b != null) {
             StringBuilder sb = new StringBuilder();
             sb.append("----- ");
             sb.append("launch start time ");
-            sb.append(this.f44465b.format(Long.valueOf(this.f44471h)));
+            sb.append(this.f48139b.format(Long.valueOf(this.f48145h)));
             sb.append("\n");
             sb.append("----- ");
             sb.append("launch end time ");
-            sb.append(this.f44465b.format(Long.valueOf(this.f44471h + this.f44472i)));
+            sb.append(this.f48139b.format(Long.valueOf(this.f48145h + this.f48146i)));
             sb.append("\n");
             sb.append("----- ");
             sb.append("swan js version ");
-            sb.append(this.f44468e);
+            sb.append(this.f48142e);
             sb.append("\n");
-            synchronized (this.f44467d) {
+            synchronized (this.f48141d) {
                 i2 = 0;
                 i3 = 0;
-                for (Map.Entry<String, List<d.a.l0.a.r1.k.a>> entry : this.f44466c.entrySet()) {
+                for (Map.Entry<String, List<d.a.l0.a.r1.k.a>> entry : this.f48140c.entrySet()) {
                     List<d.a.l0.a.r1.k.a> value = entry.getValue();
                     if (value != null && value.size() > 0) {
                         StringBuilder sb2 = new StringBuilder();
                         int i4 = 0;
                         for (d.a.l0.a.r1.k.a aVar : value) {
-                            if (this.f44464a == null || this.f44464a.a(aVar)) {
+                            if (this.f48138a == null || this.f48138a.a(aVar)) {
                                 sb2.append("----- start time ");
-                                sb2.append(this.f44465b.format(Long.valueOf(aVar.e())));
+                                sb2.append(this.f48139b.format(Long.valueOf(aVar.e())));
                                 sb2.append("\n");
                                 sb2.append("----- end time ");
-                                sb2.append(this.f44465b.format(Long.valueOf(aVar.d())));
+                                sb2.append(this.f48139b.format(Long.valueOf(aVar.d())));
                                 sb2.append("\n");
                                 sb2.append("----- cost time ");
                                 sb2.append(aVar.c());
@@ -199,7 +199,7 @@ public class b implements d {
 
     public final void n(JSONObject jSONObject) {
         if (this.j == null) {
-            synchronized (this.f44467d) {
+            synchronized (this.f48141d) {
                 if (this.j == null) {
                     this.j = jSONObject.has("caller") ? new d.a.l0.a.r1.k.j.b() : new d.a.l0.a.r1.k.j.a();
                 }
@@ -208,19 +208,19 @@ public class b implements d {
     }
 
     public final boolean o(long j) {
-        long j2 = this.f44471h;
-        return j >= j2 && j <= j2 + this.f44472i;
+        long j2 = this.f48145h;
+        return j >= j2 && j <= j2 + this.f48146i;
     }
 
     public final void p() {
-        if (this.f44466c != null) {
+        if (this.f48140c != null) {
             return;
         }
-        synchronized (this.f44467d) {
-            if (this.f44466c == null) {
-                this.f44466c = new HashMap<>();
-                this.f44465b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
-                this.f44464a = new a();
+        synchronized (this.f48141d) {
+            if (this.f48140c == null) {
+                this.f48140c = new HashMap<>();
+                this.f48139b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
+                this.f48138a = new a();
             }
         }
     }
@@ -232,7 +232,7 @@ public class b implements d {
     }
 
     public final boolean r(long j) {
-        return this.f44470g && j > this.f44471h + this.f44472i;
+        return this.f48144g && j > this.f48145h + this.f48146i;
     }
 
     public final void s(JSONArray jSONArray) {
@@ -245,8 +245,8 @@ public class b implements d {
                 z &= !t(optJSONObject);
             }
         }
-        this.f44469f = z;
-        q("start done " + this.f44469f);
+        this.f48143f = z;
+        q("start done " + this.f48143f);
     }
 
     public final boolean t(JSONObject jSONObject) {
@@ -257,11 +257,11 @@ public class b implements d {
             return true;
         }
         boolean z = a2.size() > 0;
-        synchronized (this.f44467d) {
-            List<d.a.l0.a.r1.k.a> list = this.f44466c.get(optString);
+        synchronized (this.f48141d) {
+            List<d.a.l0.a.r1.k.a> list = this.f48140c.get(optString);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f44466c.put(optString, list);
+                this.f48140c.put(optString, list);
             }
             list.addAll(a2);
             for (d.a.l0.a.r1.k.a aVar : a2) {
@@ -275,16 +275,16 @@ public class b implements d {
     }
 
     public final void u() {
-        if (this.f44466c.size() > 0) {
-            synchronized (this.f44467d) {
-                this.f44466c.clear();
+        if (this.f48140c.size() > 0) {
+            synchronized (this.f48141d) {
+                this.f48140c.clear();
             }
         }
-        this.f44469f = false;
-        this.f44470g = false;
-        this.f44472i = 0L;
-        this.f44471h = 0L;
-        this.f44468e = null;
+        this.f48143f = false;
+        this.f48144g = false;
+        this.f48146i = 0L;
+        this.f48145h = 0L;
+        this.f48142e = null;
         v("===== loading... =====");
     }
 

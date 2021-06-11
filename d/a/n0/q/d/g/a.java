@@ -10,65 +10,65 @@ import d.a.n0.q.d.g.b;
 public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final VIEW f58223a;
+    public final VIEW f61914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MODEL f58224b;
+    public MODEL f61915b;
 
     /* renamed from: d.a.n0.q.d.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1475a implements View.OnClickListener {
-        public View$OnClickListenerC1475a() {
+    public class View$OnClickListenerC1531a implements View.OnClickListener {
+        public View$OnClickListenerC1531a() {
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: d.a.n0.q.d.g.a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.f58223a.b(view)) {
+            if (a.this.f61914a.b(view)) {
                 return;
             }
             a aVar = a.this;
-            aVar.j(aVar.f58224b);
+            aVar.j(aVar.f61915b);
         }
     }
 
     public a(@NonNull VIEW view, @NonNull MODEL model) {
-        this.f58223a = view;
+        this.f61914a = view;
         k(model);
-        this.f58224b = model;
-        View actionBar = this.f58223a.getActionBar();
+        this.f61915b = model;
+        View actionBar = this.f61914a.getActionBar();
         if (actionBar != null) {
-            actionBar.setOnClickListener(new View$OnClickListenerC1475a());
+            actionBar.setOnClickListener(new View$OnClickListenerC1531a());
         }
     }
 
     public MODEL c() {
-        return this.f58224b;
+        return this.f61915b;
     }
 
     public VIEW d() {
-        return this.f58223a;
+        return this.f61914a;
     }
 
     @CallSuper
     public void e(@NonNull MODEL model) {
-        this.f58224b = model;
-        if (this.f58223a == null) {
+        this.f61915b = model;
+        if (this.f61914a == null) {
             return;
         }
         i();
-        this.f58223a.d(model.getCurrentState(), model.getPercent());
+        this.f61914a.d(model.getCurrentState(), model.getPercent());
     }
 
     public void f(int i2) {
-        this.f58223a.a(Math.max(this.f58224b.getPercent(), i2));
+        this.f61914a.a(Math.max(this.f61915b.getPercent(), i2));
     }
 
     @CallSuper
     public void g(int i2) {
-        this.f58223a.a(Math.max(this.f58224b.getPercent(), i2));
-        MODEL model = this.f58224b;
+        this.f61914a.a(Math.max(this.f61915b.getPercent(), i2));
+        MODEL model = this.f61915b;
         if (model != null) {
             model.getCurrentState();
         }
@@ -77,11 +77,11 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
 
     @CallSuper
     public void h(@NonNull DownloadStatus downloadStatus) {
-        MODEL model = this.f58224b;
+        MODEL model = this.f61915b;
         if (model == null) {
             return;
         }
-        this.f58223a.c(downloadStatus);
+        this.f61914a.c(downloadStatus);
         if (downloadStatus != DownloadStatus.STATUS_NONE) {
             i();
         }
@@ -91,10 +91,10 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     }
 
     public void i() {
-        if (this.f58223a.getRealView().getVisibility() == 0) {
+        if (this.f61914a.getRealView().getVisibility() == 0) {
             return;
         }
-        this.f58223a.getRealView().setVisibility(0);
+        this.f61914a.getRealView().setVisibility(0);
     }
 
     public abstract void j(MODEL model);

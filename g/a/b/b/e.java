@@ -1,5 +1,5 @@
 package g.a.b.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends a implements g.a.a.c.a {
     public Class k;
 
@@ -12,10 +12,10 @@ public class e extends a implements g.a.a.c.a {
     public String a(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(hVar.e(i()));
-        if (hVar.f68307b) {
+        if (hVar.f71563b) {
             stringBuffer.append(hVar.g(n()));
         }
-        if (hVar.f68307b) {
+        if (hVar.f71563b) {
             stringBuffer.append(" ");
         }
         stringBuffer.append(hVar.f(f(), g()));

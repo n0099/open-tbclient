@@ -24,27 +24,27 @@ import java.util.List;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f63607b;
+    public static volatile c f67325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f63608c = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
+    public static final String f67326c = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f63609a = new Handler(Looper.getMainLooper());
+    public Handler f67327a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.z1.e.b f63610e;
+        public final /* synthetic */ d.a.n0.z1.e.b f67328e;
 
         public a(c cVar, d.a.n0.z1.e.b bVar) {
-            this.f63610e = bVar;
+            this.f67328e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f63610e.a("url null");
+            this.f67328e.onFail("url null");
         }
     }
 
@@ -52,73 +52,73 @@ public class c {
     public class b implements d.a.m0.v.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f63611a;
+        public final /* synthetic */ String f67329a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.a.n0.z1.e.b f63612b;
+        public final /* synthetic */ d.a.n0.z1.e.b f67330b;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f63614e;
+            public final /* synthetic */ String f67332e;
 
             public a(String str) {
-                this.f63614e = str;
+                this.f67332e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f63612b.onSuccess(this.f63614e);
+                b.this.f67330b.onSuccess(this.f67332e);
             }
         }
 
         /* renamed from: d.a.n0.z1.c$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1757b implements Runnable {
-            public RunnableC1757b() {
+        public class RunnableC1815b implements Runnable {
+            public RunnableC1815b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f63612b.a("rename failed");
+                b.this.f67330b.onFail("rename failed");
             }
         }
 
         /* renamed from: d.a.n0.z1.c$b$c  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1758c implements Runnable {
-            public RunnableC1758c() {
+        public class RunnableC1816c implements Runnable {
+            public RunnableC1816c() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f63612b.a("download failed");
+                b.this.f67330b.onFail("download failed");
             }
         }
 
         public b(String str, d.a.n0.z1.e.b bVar) {
-            this.f63611a = str;
-            this.f63612b = bVar;
+            this.f67329a = str;
+            this.f67330b = bVar;
         }
 
         @Override // d.a.m0.v.c
         public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
-            if (this.f63612b != null) {
-                c.this.f63609a.post(new RunnableC1758c());
+            if (this.f67330b != null) {
+                c.this.f67327a.post(new RunnableC1816c());
             }
         }
 
         @Override // d.a.m0.v.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            String str = downloadData.getPath() + (FileHelper.isGif(null, this.f63611a) ? ".gif" : ".jpg");
+            String str = downloadData.getPath() + (FileHelper.isGif(null, this.f67329a) ? ".gif" : ".jpg");
             if (FileHelper.renameTo(downloadData.getPath(), str)) {
                 new MediaScannerClient(TbadkApplication.getInst().getContext()).saveImage(str);
-                if (this.f63612b != null) {
-                    c.this.f63609a.post(new a(str));
+                if (this.f67330b != null) {
+                    c.this.f67327a.post(new a(str));
                 }
-            } else if (this.f63612b != null) {
-                c.this.f63609a.post(new RunnableC1757b());
+            } else if (this.f67330b != null) {
+                c.this.f67327a.post(new RunnableC1815b());
             }
         }
 
@@ -139,8 +139,8 @@ public class c {
 
     /* renamed from: d.a.n0.z1.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1759c extends BdAsyncTask<Void, Void, List<String>> {
-        public C1759c() {
+    public class C1817c extends BdAsyncTask<Void, Void, List<String>> {
+        public C1817c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -159,20 +159,20 @@ public class c {
             }
             NewFaceGroupDownloadModel newFaceGroupDownloadModel = new NewFaceGroupDownloadModel();
             for (String str : list) {
-                newFaceGroupDownloadModel.s(str, Boolean.FALSE, null);
+                newFaceGroupDownloadModel.w(str, Boolean.FALSE, null);
             }
         }
     }
 
     public static c i() {
-        if (f63607b == null) {
+        if (f67325b == null) {
             synchronized (c.class) {
-                if (f63607b == null) {
-                    f63607b = new c();
+                if (f67325b == null) {
+                    f67325b = new c();
                 }
             }
         }
-        return f63607b;
+        return f67325b;
     }
 
     public boolean b(boolean z) {
@@ -194,7 +194,7 @@ public class c {
                 myEmotionGroupData.setGroupId(str);
                 myEmotionGroupData.setUid(TbadkCoreApplication.getCurrentAccount());
                 if (d.a.n0.m0.a.c().b(myEmotionGroupData)) {
-                    FileHelper.deleteFileOrDir(new File(f63608c + str));
+                    FileHelper.deleteFileOrDir(new File(f67326c + str));
                     g.k().h(str);
                     i2++;
                 }
@@ -214,7 +214,7 @@ public class c {
     public void d(String str, d.a.n0.z1.e.b bVar) {
         if (TextUtils.isEmpty(str)) {
             if (bVar != null) {
-                this.f63609a.post(new a(this, bVar));
+                this.f67327a.post(new a(this, bVar));
                 return;
             }
             return;
@@ -226,7 +226,7 @@ public class c {
     }
 
     public void e() {
-        new C1759c().execute(new Void[0]);
+        new C1817c().execute(new Void[0]);
     }
 
     public List<MyEmotionGroupData> f() {
@@ -253,7 +253,7 @@ public class c {
     public List<String> h() {
         ArrayList arrayList = new ArrayList();
         for (MyEmotionGroupData myEmotionGroupData : f()) {
-            File file = new File(f63608c + myEmotionGroupData.getGroupId());
+            File file = new File(f67326c + myEmotionGroupData.getGroupId());
             BdLog.e("getFileUnExistList Called:" + file.getName() + "   Exsists:" + file.exists());
             if (!file.exists()) {
                 arrayList.add(myEmotionGroupData.getGroupId());

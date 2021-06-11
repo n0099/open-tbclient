@@ -11,22 +11,22 @@ import com.baidu.tieba.memberCenter.memberprivilege.MemberPrivilegeActivity;
 public class d extends d.a.c.a.d<MemberPrivilegeActivity> {
 
     /* renamed from: a  reason: collision with root package name */
-    public MemberPrivilegeActivity f60612a;
+    public MemberPrivilegeActivity f64303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f60613b;
+    public View f64304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f60614c;
+    public NavigationBar f64305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f60615d;
+    public NoNetworkView f64306d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f60616e;
+    public BdListView f64307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f60617f;
+    public c f64308f;
 
     /* loaded from: classes3.dex */
     public class a implements NoNetworkView.b {
@@ -36,47 +36,47 @@ public class d extends d.a.c.a.d<MemberPrivilegeActivity> {
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             if (z) {
-                d.this.f60612a.requestMemberPrivilegeData();
+                d.this.f64303a.requestMemberPrivilegeData();
             }
         }
     }
 
     public d(MemberPrivilegeActivity memberPrivilegeActivity) {
         super(memberPrivilegeActivity.getPageContext());
-        this.f60612a = memberPrivilegeActivity;
-        g();
+        this.f64303a = memberPrivilegeActivity;
+        h();
     }
 
     public c e() {
-        return this.f60617f;
+        return this.f64308f;
     }
 
     public View f() {
-        return this.f60613b;
+        return this.f64304b;
     }
 
-    public final void g() {
-        this.f60612a.setContentView(R.layout.memberprivilege_activity);
-        View findViewById = this.f60612a.findViewById(R.id.root);
-        this.f60613b = findViewById;
+    public final void h() {
+        this.f64303a.setContentView(R.layout.memberprivilege_activity);
+        View findViewById = this.f64303a.findViewById(R.id.root);
+        this.f64304b = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.navigationbar);
-        this.f60614c = navigationBar;
+        this.f64305c = navigationBar;
         navigationBar.setTitleText(R.string.member_center);
-        this.f60614c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        NoNetworkView noNetworkView = (NoNetworkView) this.f60613b.findViewById(R.id.nonetworkview);
-        this.f60615d = noNetworkView;
+        this.f64305c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        NoNetworkView noNetworkView = (NoNetworkView) this.f64304b.findViewById(R.id.nonetworkview);
+        this.f64306d = noNetworkView;
         noNetworkView.a(new a());
-        this.f60616e = (BdListView) this.f60613b.findViewById(R.id.listview);
-        c cVar = new c(this.f60612a);
-        this.f60617f = cVar;
-        this.f60616e.setAdapter((ListAdapter) cVar);
-        this.f60616e.setOnItemClickListener(this.f60612a);
+        this.f64307e = (BdListView) this.f64304b.findViewById(R.id.listview);
+        c cVar = new c(this.f64303a);
+        this.f64308f = cVar;
+        this.f64307e.setAdapter((ListAdapter) cVar);
+        this.f64307e.setOnItemClickListener(this.f64303a);
     }
 
     public void onChangeSkinType(int i2) {
-        this.f60612a.getLayoutMode().k(i2 == 1);
-        this.f60612a.getLayoutMode().j(this.f60613b);
-        this.f60614c.onChangeSkinType(this.f60612a.getPageContext(), i2);
-        this.f60615d.c(this.f60612a.getPageContext(), i2);
+        this.f64303a.getLayoutMode().k(i2 == 1);
+        this.f64303a.getLayoutMode().j(this.f64304b);
+        this.f64305c.onChangeSkinType(this.f64303a.getPageContext(), i2);
+        this.f64306d.c(this.f64303a.getPageContext(), i2);
     }
 }

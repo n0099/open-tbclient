@@ -36,10 +36,6 @@ public interface KsSplashScreenAd {
         void onSkippedAd();
     }
 
-    @KsAdSdkApi
-    @Keep
-    int getECPM();
-
     @Nullable
     @KsAdSdkApi
     @Keep
@@ -56,8 +52,4 @@ public interface KsSplashScreenAd {
     @KsAdSdkApi
     @Keep
     boolean isVideo();
-
-    @KsAdSdkApi
-    @Keep
-    void setBidEcpm(int i2);
 }

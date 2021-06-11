@@ -32,21 +32,21 @@ public class l0 extends o<d1, PbRecommendNovelHolder> {
         this.t = new a();
     }
 
-    @Override // d.a.n0.e2.k.e.o, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        i0(i2, view, viewGroup, (d1) obj, (PbRecommendNovelHolder) viewHolder);
+    @Override // d.a.n0.e2.k.e.o, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        j0(i2, view, viewGroup, (d1) obj, (PbRecommendNovelHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: h0 */
-    public PbRecommendNovelHolder P(ViewGroup viewGroup) {
-        return new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f39228e).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.t);
+    @Override // d.a.c.k.e.a
+    /* renamed from: i0 */
+    public PbRecommendNovelHolder Q(ViewGroup viewGroup) {
+        return new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f42909e).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.t);
     }
 
-    public View i0(int i2, View view, ViewGroup viewGroup, d1 d1Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
-        super.W(i2, view, viewGroup, d1Var, pbRecommendNovelHolder);
+    public View j0(int i2, View view, ViewGroup viewGroup, d1 d1Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        super.X(i2, view, viewGroup, d1Var, pbRecommendNovelHolder);
         if (d1Var == null) {
             return view;
         }
@@ -56,7 +56,7 @@ public class l0 extends o<d1, PbRecommendNovelHolder> {
         return view;
     }
 
-    public void s(d.a.n0.e2.h.e eVar) {
+    public void t(d.a.n0.e2.h.e eVar) {
         this.s = eVar;
     }
 }

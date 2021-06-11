@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class a implements c {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44513b = "boxjs.";
+    public String f48187b = "boxjs.";
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f44514c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
+    public Set<String> f48188c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
 
     @Override // d.a.l0.a.r1.k.j.c
     public List<d.a.l0.a.r1.k.a> a(JSONObject jSONObject) {
@@ -44,7 +44,7 @@ public class a implements c {
                 aVar.i(optJSONArray.optLong(i2));
                 aVar.h(optJSONArray2.optLong(i2));
                 arrayList.add(aVar);
-                if (c.f44515a) {
+                if (c.f48189a) {
                     c(aVar.toString());
                 }
             }
@@ -59,11 +59,11 @@ public class a implements c {
         if (TextUtils.isEmpty(a2)) {
             return 0;
         }
-        return (a2.startsWith(this.f44513b) || this.f44514c.contains(a2)) ? 1 : 0;
+        return (a2.startsWith(this.f48187b) || this.f48188c.contains(a2)) ? 1 : 0;
     }
 
     public final void c(String str) {
-        if (c.f44515a) {
+        if (c.f48189a) {
             Log.d("Api-Parser", str);
         }
     }

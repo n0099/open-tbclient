@@ -16,55 +16,55 @@ import okhttp3.Response;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f64347c = null;
+    public static volatile a f68065c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f64348d = 1;
+    public static int f68066d = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public final OkHttpClient f64349a = new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build();
+    public final OkHttpClient f68067a = new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f64350b;
+    public Context f68068b;
 
     /* renamed from: d.a.r.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC1799a implements Runnable {
+    public class RunnableC1857a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f64351e;
+        public final /* synthetic */ b f68069e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ byte[] f64352f;
+        public final /* synthetic */ byte[] f68070f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f64353g;
+        public final /* synthetic */ c f68071g;
 
-        public RunnableC1799a(b bVar, byte[] bArr, c cVar) {
-            this.f64351e = bVar;
-            this.f64352f = bArr;
-            this.f64353g = cVar;
+        public RunnableC1857a(b bVar, byte[] bArr, c cVar) {
+            this.f68069e = bVar;
+            this.f68070f = bArr;
+            this.f68071g = cVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            a.this.e(this.f64351e.b(), this.f64351e.a(), this.f64352f, this.f64351e.d(), this.f64351e.c(), this.f64353g);
+            a.this.e(this.f68069e.b(), this.f68069e.a(), this.f68070f, this.f68069e.d(), this.f68069e.c(), this.f68071g);
         }
     }
 
     public a(Context context) {
-        this.f64350b = context;
+        this.f68068b = context;
     }
 
     public static a a(Context context) {
-        if (f64347c == null) {
+        if (f68065c == null) {
             synchronized (a.class) {
-                if (f64347c == null) {
-                    f64347c = new a(context);
+                if (f68065c == null) {
+                    f68065c = new a(context);
                 }
             }
         }
-        return f64347c;
+        return f68065c;
     }
 
     public static Headers c(Map<String, String> map) {
@@ -93,7 +93,7 @@ public class a {
         int i2;
         if (Build.VERSION.SDK_INT >= 17) {
             try {
-                defaultUserAgent = WebSettings.getDefaultUserAgent(this.f64350b);
+                defaultUserAgent = WebSettings.getDefaultUserAgent(this.f68068b);
             } catch (Exception unused) {
             }
             StringBuffer stringBuffer = new StringBuffer();
@@ -129,14 +129,14 @@ public class a {
             } else {
                 addHeader = new Request.Builder().url(str2).headers(c(map)).removeHeader("User-Agent").addHeader("User-Agent", b());
             }
-            Response execute = this.f64349a.newCall(addHeader.build()).execute();
+            Response execute = this.f68067a.newCall(addHeader.build()).execute();
             byte[] bytes = execute.body().bytes();
             d.a.r.a.e.c.c("HttpExecutor", "requestUrl:" + str2 + "\nrequest method: " + str + "\nrequest contentType: " + str3 + "\nresponse : " + new String(bytes));
             cVar.a(execute.code(), bytes);
         } catch (Exception e2) {
             e2.printStackTrace();
             if (cVar != null) {
-                cVar.b(f64348d, "Http Unknown exception".getBytes());
+                cVar.b(f68066d, "Http Unknown exception".getBytes());
             }
         }
     }

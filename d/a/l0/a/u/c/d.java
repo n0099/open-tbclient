@@ -21,33 +21,33 @@ import org.json.JSONObject;
 public abstract class d implements d.a.l0.a.u.c.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44812c = k.f43199a;
+    public static final boolean f48486c = k.f46875a;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.a.u.c.b f44813a;
+    public d.a.l0.a.u.c.b f48487a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public CallbackHandler f44814b;
+    public CallbackHandler f48488b;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44815e;
+        public final /* synthetic */ String f48489e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.u.h.b f44816f;
+        public final /* synthetic */ d.a.l0.a.u.h.b f48490f;
 
         public a(String str, d.a.l0.a.u.h.b bVar) {
-            this.f44815e = str;
-            this.f44816f = bVar;
+            this.f48489e = str;
+            this.f48490f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.q(this.f44815e, this.f44816f);
+            d.this.q(this.f48489e, this.f48490f);
         }
     }
 
@@ -57,8 +57,8 @@ public abstract class d implements d.a.l0.a.u.c.a {
     }
 
     public d(@NonNull d.a.l0.a.u.c.b bVar) {
-        this.f44813a = bVar;
-        this.f44814b = bVar.h();
+        this.f48487a = bVar;
+        this.f48488b = bVar.h();
     }
 
     @Nullable
@@ -69,7 +69,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
         try {
             return new JSONObject(str);
         } catch (JSONException e2) {
-            if (f44812c) {
+            if (f48486c) {
                 e2.printStackTrace();
             }
             return null;
@@ -78,11 +78,11 @@ public abstract class d implements d.a.l0.a.u.c.a {
 
     @NonNull
     public static Pair<d.a.l0.a.u.h.a, JSONObject> n(JsObject jsObject) {
-        if (f44812c) {
+        if (f48486c) {
             Log.d("Api-Base", "parseParams(JsObject): JsObject");
         }
         if (jsObject == null) {
-            if (!f44812c) {
+            if (!f48486c) {
                 return new Pair<>(new d.a.l0.a.u.h.b(202, "parseParams(JsObject): jsObject cannot be null"), null);
             }
             throw new RuntimeException("parseParams(JsObject): jsObject cannot be null");
@@ -91,7 +91,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
         int length = jsObject.length();
         if (type != 9) {
             String str = "parseParams(JsObject): jsObject cannot be " + JsObject.typeToString(type) + " ,length " + length;
-            if (!f44812c) {
+            if (!f48486c) {
                 jsObject.release();
                 return new Pair<>(new d.a.l0.a.u.h.b(202, str), null);
             }
@@ -117,7 +117,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
                             jSONObject.put(propertyName, jsObject.toDouble(i2));
                             break;
                         } catch (JSONException e2) {
-                            if (f44812c) {
+                            if (f48486c) {
                                 e2.printStackTrace();
                                 Log.e("Api-Base", "parseParams(JsObject) JDOUBLE : with json exception ", e2);
                                 break;
@@ -128,7 +128,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
                     case 6:
                         JsObject[] objectArray = jsObject.toObjectArray(i2);
                         if (objectArray == null) {
-                            if (f44812c) {
+                            if (f48486c) {
                                 throw new RuntimeException("parseParams(JsObject): jsObjects cannot be null");
                             }
                             break;
@@ -152,7 +152,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
             } catch (Exception e3) {
                 e3.printStackTrace();
                 String str2 = "parseParams(JsObject): with exception " + e3.getMessage();
-                if (!f44812c) {
+                if (!f48486c) {
                     jsObject.release();
                     return new Pair<>(new d.a.l0.a.u.h.b(202, str2), null);
                 }
@@ -165,11 +165,11 @@ public abstract class d implements d.a.l0.a.u.c.a {
 
     @NonNull
     public static Pair<d.a.l0.a.u.h.a, JSONObject> o(String str) {
-        if (f44812c) {
+        if (f48486c) {
             Log.d("Api-Base", "parseParams(String): String");
         }
         if (TextUtils.isEmpty(str)) {
-            if (f44812c) {
+            if (f48486c) {
                 Log.e("Api-Base", "parseParams(String): json string cannot be empty");
             }
             return new Pair<>(new d.a.l0.a.u.h.b(202, "parseParams(String): json string cannot be empty"), null);
@@ -177,7 +177,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
         try {
             return new Pair<>(new d.a.l0.a.u.h.b(0), new JSONObject(str));
         } catch (JSONException e2) {
-            if (f44812c) {
+            if (f48486c) {
                 e2.printStackTrace();
                 Log.e("Api-Base", "parseParams(String): with json exception ", e2);
             }
@@ -193,13 +193,13 @@ public abstract class d implements d.a.l0.a.u.c.a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static JSONArray p(@NonNull JsObject[] jsObjectArr) {
-        if (f44812c) {
+        if (f48486c) {
             Log.d("Api-Base", "parseParams(JsObject[]): JsObject[]");
         }
         JSONArray jSONArray = new JSONArray();
         for (JsObject jsObject : jsObjectArr) {
             if (jsObject == null) {
-                if (!f44812c) {
+                if (!f48486c) {
                     jSONArray.put((Object) null);
                 } else {
                     throw new RuntimeException("parseParams(JsObject[]): jsObject cannot be null");
@@ -207,7 +207,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
             } else {
                 switch (jsObject.getType()) {
                     case 0:
-                        if (!f44812c) {
+                        if (!f48486c) {
                             jSONArray.put((Object) null);
                             continue;
                         } else {
@@ -227,7 +227,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
                             jSONArray.put(jsObject.toDouble(0));
                             continue;
                         } catch (JSONException e2) {
-                            if (f44812c) {
+                            if (f48486c) {
                                 e2.printStackTrace();
                                 Log.e("Api-Base", "parseParams(JsObject[]) JDOUBLE : with json exception ", e2);
                             }
@@ -237,7 +237,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
                     case 6:
                         JsObject[] objectArray = jsObject.toObjectArray(0);
                         if (objectArray == null) {
-                            if (!f44812c) {
+                            if (!f48486c) {
                                 jSONArray.put((Object) null);
                                 continue;
                             } else {
@@ -274,28 +274,28 @@ public abstract class d implements d.a.l0.a.u.c.a {
     @Override // d.a.l0.a.u.c.a
     @NonNull
     public final d.a.l0.a.u.c.b a() {
-        return this.f44813a;
+        return this.f48487a;
     }
 
     @Override // d.a.l0.a.u.c.a
     public final void d(String str, d.a.l0.a.u.h.b bVar) {
-        if (f44812c) {
+        if (f48486c) {
             Log.d("Api-Base", "invokeCallback: " + str);
         }
         if (TextUtils.isEmpty(str)) {
-            if (f44812c) {
+            if (f48486c) {
                 Log.e("Api-Base", "invokeCallback: do callback with a empty callback");
                 throw new RuntimeException("invokeCallback: do callback with a empty callback");
             }
         } else if (bVar == null) {
-            if (f44812c) {
+            if (f48486c) {
                 Log.e("Api-Base", "invokeCallback: do callback with a null result");
                 throw new RuntimeException("invokeCallback: do callback with a null result");
             }
         } else if (Looper.myLooper() == Looper.getMainLooper()) {
             q(str, bVar);
         } else {
-            if (f44812c) {
+            if (f48486c) {
                 Log.d("Api-Base", "invokeCallback: other thread " + Thread.currentThread().getName());
             }
             if (d.a.l0.a.r1.l.e.a()) {
@@ -308,7 +308,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
 
     @NonNull
     public final Context i() {
-        return this.f44813a.getContext();
+        return this.f48487a.getContext();
     }
 
     public d.a.l0.a.u.h.b j(String str, boolean z, b bVar) {
@@ -318,7 +318,7 @@ public abstract class d implements d.a.l0.a.u.c.a {
         }
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar2 = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar2.a()) {
+        if (!bVar2.isSuccess()) {
             d.a.l0.a.e0.d.b("Api-Base", "parse fail");
             return bVar2;
         }
@@ -337,8 +337,8 @@ public abstract class d implements d.a.l0.a.u.c.a {
     public d.a.l0.a.u.h.b k(@Nullable String str, @NonNull c cVar) {
         Pair<d.a.l0.a.u.h.b, JSONObject> b2 = d.a.l0.a.u.i.b.b("Api-Base", str);
         d.a.l0.a.u.h.b bVar = (d.a.l0.a.u.h.b) b2.first;
-        if (!bVar.a()) {
-            if (f44812c) {
+        if (!bVar.isSuccess()) {
+            if (f48486c) {
                 d.a.l0.a.e0.d.b("Api-Base", "parse fail");
             }
             return bVar;
@@ -362,16 +362,16 @@ public abstract class d implements d.a.l0.a.u.c.a {
 
     @UiThread
     public final void q(@NonNull String str, @NonNull d.a.l0.a.u.h.b bVar) {
-        if (TextUtils.isEmpty(str) && !(this.f44814b instanceof NullableCallbackHandler)) {
-            if (f44812c) {
+        if (TextUtils.isEmpty(str) && !(this.f48488b instanceof NullableCallbackHandler)) {
+            if (f48486c) {
                 Log.e("Api-Base", "realInvokeCallback: callback check fail: " + str);
                 return;
             }
             return;
         }
-        if (f44812c) {
+        if (f48486c) {
             Log.d("Api-Base", "realInvokeCallback: invoke 【" + str + "】 with 【" + bVar + "】");
         }
-        this.f44814b.handleSchemeDispatchCallback(str, bVar.b());
+        this.f48488b.handleSchemeDispatchCallback(str, bVar.a());
     }
 }

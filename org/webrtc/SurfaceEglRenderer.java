@@ -4,7 +4,7 @@ import android.view.SurfaceHolder;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Callback {
     public static final String TAG = "SurfaceEglRenderer";
     public int frameRotation;

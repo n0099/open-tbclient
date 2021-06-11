@@ -20,17 +20,17 @@ public class b {
         String c3 = d.o.a.e.a.h.b.c(jSONObject, "as", str);
         if (k.I(n.a(), c2)) {
             e eVar = new e();
-            eVar.f35758b = c2;
-            eVar.f35759c = c2;
-            eVar.f35760d = 100300000;
-            eVar.f35757a = 2;
+            eVar.f39437b = c2;
+            eVar.f39438c = c2;
+            eVar.f39439d = 100300000;
+            eVar.f39436a = 2;
             return eVar;
         } else if (k.I(n.a(), c3)) {
             e eVar2 = new e();
-            eVar2.f35758b = c3;
-            eVar2.f35759c = c3;
-            eVar2.f35760d = 100300000;
-            eVar2.f35757a = 2;
+            eVar2.f39437b = c3;
+            eVar2.f39438c = c3;
+            eVar2.f39439d = 100300000;
+            eVar2.f39436a = 2;
             return eVar2;
         } else {
             return null;
@@ -43,20 +43,20 @@ public class b {
         if (k.I(n.a(), c2)) {
             String c4 = d.o.a.e.a.h.b.c(jSONObject, "at", str2);
             f fVar = new f();
-            fVar.f35761a = str;
-            fVar.f35762b = c4;
-            fVar.f35764d = 0;
-            fVar.f35765e = 2;
-            fVar.f35763c = c4;
+            fVar.f39440a = str;
+            fVar.f39441b = c4;
+            fVar.f39443d = 0;
+            fVar.f39444e = 2;
+            fVar.f39442c = c4;
             return fVar;
         } else if (k.I(n.a(), c3)) {
             String c5 = d.o.a.e.a.h.b.c(jSONObject, ActVideoSetting.ACT_URL, str2);
             f fVar2 = new f();
-            fVar2.f35761a = str;
-            fVar2.f35762b = c5;
-            fVar2.f35764d = 0;
-            fVar2.f35765e = 0;
-            fVar2.f35763c = c5;
+            fVar2.f39440a = str;
+            fVar2.f39441b = c5;
+            fVar2.f39443d = 0;
+            fVar2.f39444e = 0;
+            fVar2.f39442c = c5;
             return fVar2;
         } else {
             return null;
@@ -76,9 +76,9 @@ public class b {
             e a2 = a(jSONObject, str3);
             f b2 = b(str, jSONObject, str3);
             if (a2 != null && b2 != null) {
-                gVar.f35767b = a2;
-                gVar.f35766a = d.o.a.e.a.h.b.c(jSONObject, "aq", str3);
-                gVar.f35768c = b2;
+                gVar.f39446b = a2;
+                gVar.f39445a = d.o.a.e.a.h.b.c(jSONObject, "aq", str3);
+                gVar.f39447c = b2;
                 arrayList.add(gVar);
                 dVar.putParcelableArrayListExtra(d.o.a.e.a.h.b.c(jSONObject, com.alipay.sdk.sys.a.k, str3), arrayList);
                 dVar.addFlags(268468224);

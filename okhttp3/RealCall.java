@@ -13,7 +13,7 @@ import okhttp3.internal.http.CallServerInterceptor;
 import okhttp3.internal.http.RealInterceptorChain;
 import okhttp3.internal.http.RetryAndFollowUpInterceptor;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RealCall implements Call {
     public final OkHttpClient client;
     public EventListener eventListener;
@@ -22,7 +22,7 @@ public final class RealCall implements Call {
     public final Request originalRequest;
     public final RetryAndFollowUpInterceptor retryAndFollowUpInterceptor;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class AsyncCall extends NamedRunnable {
         public final Callback responseCallback;
 

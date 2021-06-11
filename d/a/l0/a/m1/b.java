@@ -30,163 +30,163 @@ import java.util.Random;
 public class b extends HandlerThread implements d.a.l0.a.m1.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f43437f = d.a.l0.a.a2.e.y;
+    public static final boolean f47113f = d.a.l0.a.a2.e.y;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f43438e;
+    public a f47114e;
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public d f43439a;
+        public d f47115a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Deque<d> f43440b;
+        public Deque<d> f47116b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f43441c;
+        public boolean f47117c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.a.l0.a.m1.i.a f43442d;
+        public d.a.l0.a.m1.i.a f47118d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f43443e;
+        public int f47119e;
 
         /* renamed from: f  reason: collision with root package name */
-        public HashMap<String, Integer> f43444f;
+        public HashMap<String, Integer> f47120f;
 
         /* renamed from: g  reason: collision with root package name */
-        public d.a.l0.a.m1.i.b f43445g;
+        public d.a.l0.a.m1.i.b f47121g;
 
         /* renamed from: d.a.l0.a.m1.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0738a implements Runnable {
+        public class RunnableC0794a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f43447e;
+            public final /* synthetic */ d f47123e;
 
-            public RunnableC0738a(d dVar) {
-                this.f43447e = dVar;
+            public RunnableC0794a(d dVar) {
+                this.f47123e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.w(this.f43447e.f43459a);
+                a.this.w(this.f47123e.f47135a);
                 Bitmap p = n0.p();
                 if (p != null) {
-                    d dVar = this.f43447e;
-                    Message.obtain(a.this, 8, new d.a.l0.a.m1.h.d(dVar.f43459a, p, dVar.f43467i)).sendToTarget();
+                    d dVar = this.f47123e;
+                    Message.obtain(a.this, 8, new d.a.l0.a.m1.h.d(dVar.f47135a, p, dVar.f47143i)).sendToTarget();
                 }
             }
         }
 
         /* renamed from: d.a.l0.a.m1.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0739b implements Runnable {
+        public class RunnableC0795b implements Runnable {
 
             /* renamed from: d.a.l0.a.m1.b$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class RunnableC0740a implements Runnable {
+            public class RunnableC0796a implements Runnable {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Bitmap f43450e;
+                public final /* synthetic */ Bitmap f47126e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ SwanAppActivity f43451f;
+                public final /* synthetic */ SwanAppActivity f47127f;
 
                 /* renamed from: d.a.l0.a.m1.b$a$b$a$a  reason: collision with other inner class name */
                 /* loaded from: classes3.dex */
-                public class RunnableC0741a implements Runnable {
+                public class RunnableC0797a implements Runnable {
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ SwanAppActivity f43453e;
+                    public final /* synthetic */ SwanAppActivity f47129e;
 
-                    public RunnableC0741a(RunnableC0740a runnableC0740a, SwanAppActivity swanAppActivity) {
-                        this.f43453e = swanAppActivity;
+                    public RunnableC0797a(RunnableC0796a runnableC0796a, SwanAppActivity swanAppActivity) {
+                        this.f47129e = swanAppActivity;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (b.f43437f) {
+                        if (b.f47113f) {
                             Log.d("SwanAppPageMonitor", "recheckAndExit call activity finish.");
                         }
-                        this.f43453e.finish();
+                        this.f47129e.finish();
                     }
                 }
 
-                public RunnableC0740a(Bitmap bitmap, SwanAppActivity swanAppActivity) {
-                    this.f43450e = bitmap;
-                    this.f43451f = swanAppActivity;
+                public RunnableC0796a(Bitmap bitmap, SwanAppActivity swanAppActivity) {
+                    this.f47126e = bitmap;
+                    this.f47127f = swanAppActivity;
                 }
 
                 public final void a(SwanAppActivity swanAppActivity) {
-                    q0.X(new RunnableC0741a(this, swanAppActivity));
+                    q0.X(new RunnableC0797a(this, swanAppActivity));
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.f43442d.a(this.f43450e, a.this.f43439a.f43466h)) {
-                        e.c(a.this.f43439a, 33, false, a.this.f43440b.size());
+                    if (a.this.f47118d.a(this.f47126e, a.this.f47115a.f47142h)) {
+                        e.c(a.this.f47115a, 33, false, a.this.f47116b.size());
                         d.a.l0.a.h0.i.f.a("exit_whiteScreen_L1");
-                        a(this.f43451f);
+                        a(this.f47127f);
                         return;
                     }
-                    double d2 = a.this.f43445g.d(this.f43450e, a.this.f43439a.f43466h);
-                    if (d2 >= 0.7d && a.this.f43443e == 0) {
+                    double d2 = a.this.f47121g.d(this.f47126e, a.this.f47115a.f47142h);
+                    if (d2 >= 0.7d && a.this.f47119e == 0) {
                         d.a.l0.a.h0.i.f.a("exit_whiteScreen_L2");
-                        a(this.f43451f);
+                        a(this.f47127f);
                     } else if (d2 < 0.5d || !c.g()) {
                     } else {
                         d.a.l0.a.h0.i.f.a("exit_whiteScreen_L3");
-                        a(this.f43451f);
+                        a(this.f47127f);
                     }
                 }
             }
 
-            public RunnableC0739b() {
+            public RunnableC0795b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 SwanAppActivity activity = d.a.l0.a.g1.f.V().getActivity();
-                if (activity == null || activity.isFinishing() || activity.isDestroyed() || a.this.f43439a == null) {
+                if (activity == null || activity.isFinishing() || activity.isDestroyed() || a.this.f47115a == null) {
                     return;
                 }
-                q.e().execute(new RunnableC0740a(n0.p(), activity), "SwanPageMonitorRecheck");
+                q.e().execute(new RunnableC0796a(n0.p(), activity), "SwanPageMonitorRecheck");
             }
         }
 
         public a(Looper looper) {
             super(looper);
-            this.f43440b = new ArrayDeque();
-            this.f43441c = true;
-            this.f43443e = 0;
-            this.f43442d = a.C0743a.a("simple_parser");
-            this.f43445g = (d.a.l0.a.m1.i.b) a.C0743a.a("hsv_parser");
+            this.f47116b = new ArrayDeque();
+            this.f47117c = true;
+            this.f47119e = 0;
+            this.f47118d = a.C0799a.a("simple_parser");
+            this.f47121g = (d.a.l0.a.m1.i.b) a.C0799a.a("hsv_parser");
         }
 
         public final void g(d dVar) {
-            if (dVar == null || !j(dVar.f43459a)) {
+            if (dVar == null || !j(dVar.f47135a)) {
                 return;
             }
-            q0.b0(new RunnableC0738a(dVar));
+            q0.b0(new RunnableC0794a(dVar));
         }
 
         public int h() {
-            return this.f43443e;
+            return this.f47119e;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (b.f43437f) {
+            if (b.f47113f) {
                 Log.d("SwanAppPageMonitor", "get message " + message.what);
             }
             switch (message.what) {
                 case 1:
                     removeMessages(9);
                     removeMessages(10);
-                    if (h.f43129e) {
+                    if (h.f46805e) {
                         r((d.a.l0.a.m1.h.c) message.obj);
                         return;
                     } else {
@@ -212,10 +212,10 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
                     d.a.l0.a.m1.h.a aVar = (d.a.l0.a.m1.h.a) message.obj;
                     if (aVar != null) {
                         if (aVar.e()) {
-                            this.f43443e++;
+                            this.f47119e++;
                             return;
                         } else {
-                            this.f43443e--;
+                            this.f47119e--;
                             return;
                         }
                     }
@@ -251,42 +251,42 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
         }
 
         public final boolean i() {
-            d dVar = this.f43439a;
-            return dVar != null && dVar.f43467i;
+            d dVar = this.f47115a;
+            return dVar != null && dVar.f47143i;
         }
 
         public final boolean j(String str) {
-            d dVar = this.f43439a;
-            return (dVar == null || str == null || !TextUtils.equals(str, dVar.f43459a)) ? false : true;
+            d dVar = this.f47115a;
+            return (dVar == null || str == null || !TextUtils.equals(str, dVar.f47135a)) ? false : true;
         }
 
         public final void k() {
-            this.f43441c = true;
-            d dVar = this.f43439a;
+            this.f47117c = true;
+            d dVar = this.f47115a;
             if (dVar == null || dVar.c()) {
                 return;
             }
-            if (b.this.f43438e != null) {
-                b.this.f43438e.removeMessages(2);
+            if (b.this.f47114e != null) {
+                b.this.f47114e.removeMessages(2);
             }
-            this.f43439a.d();
-            if (b.f43437f) {
-                Log.d("SwanAPPPageMonitor-Route", "**************** onBackground, isNewLaunch=" + this.f43439a.f43467i);
+            this.f47115a.d();
+            if (b.f47113f) {
+                Log.d("SwanAPPPageMonitor-Route", "**************** onBackground, isNewLaunch=" + this.f47115a.f47143i);
             }
         }
 
         public final void l(d.a.l0.a.m1.h.c cVar) {
-            b.this.f43438e.removeMessages(2);
-            d dVar = this.f43439a;
-            String str = dVar != null ? dVar.f43459a : StringUtil.NULL_STRING;
-            if (b.f43437f) {
+            b.this.f47114e.removeMessages(2);
+            d dVar = this.f47115a;
+            String str = dVar != null ? dVar.f47135a : StringUtil.NULL_STRING;
+            if (b.f47113f) {
                 Log.d("SwanAPPPageMonitor-Route", "**************** cancel route monitor finished webViewId=" + str + " isNewLaunch=" + cVar.a());
             }
         }
 
         public final void m() {
-            d dVar = this.f43439a;
-            if (dVar != null && dVar.c() && this.f43439a.f43461c && i()) {
+            d dVar = this.f47115a;
+            if (dVar != null && dVar.c() && this.f47115a.f47137c && i()) {
                 u();
             }
             if (i()) {
@@ -295,18 +295,18 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
         }
 
         public final void n() {
-            this.f43441c = false;
-            d dVar = this.f43439a;
-            if (dVar == null || !dVar.f43467i || dVar.c()) {
+            this.f47117c = false;
+            d dVar = this.f47115a;
+            if (dVar == null || !dVar.f47143i || dVar.c()) {
                 return;
             }
-            this.f43439a.e();
-            long b2 = this.f43439a.b();
+            this.f47115a.e();
+            long b2 = this.f47115a.b();
             if (b2 >= 0) {
-                b.this.f43438e.sendMessageDelayed(Message.obtain(b.this.f43438e, 2, this.f43439a), b2);
+                b.this.f47114e.sendMessageDelayed(Message.obtain(b.this.f47114e, 2, this.f47115a), b2);
             }
-            if (b.f43437f) {
-                Log.d("SwanAPPPageMonitor-Route", "**************** onForeground, isNewLaunch=" + this.f43439a.f43467i);
+            if (b.f47113f) {
+                Log.d("SwanAPPPageMonitor-Route", "**************** onForeground, isNewLaunch=" + this.f47115a.f47143i);
             }
         }
 
@@ -317,8 +317,8 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
                 return;
             }
             d.a.l0.a.w2.e loadingView = activity.getLoadingView();
-            boolean z = (loadingView == null || (view = loadingView.f45667a) == null || view.getVisibility() != 0) ? false : true;
-            if (b.f43437f) {
+            boolean z = (loadingView == null || (view = loadingView.f49341a) == null || view.getVisibility() != 0) ? false : true;
+            if (b.f47113f) {
                 Log.d("SwanAppPageMonitor", "Loading check result: " + z);
             }
             if (z) {
@@ -332,7 +332,7 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
                 dVar.r(N);
                 dVar.q(k.m(d.a.l0.a.a2.d.g().l()));
                 dVar.m(d.a.l0.a.a2.d.g().getAppId());
-                dVar.s(String.valueOf(this.f43440b.size()));
+                dVar.s(String.valueOf(this.f47116b.size()));
                 dVar.n(false);
                 k.L(dVar);
             }
@@ -342,10 +342,10 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
             if (cVar.c() >= 0) {
                 d.a.l0.a.h0.g.g W = d.a.l0.a.g1.f.V().W();
                 if (W == null || W.k() <= 0) {
-                    if (b.f43437f) {
+                    if (b.f47113f) {
                         Log.d("SwanAppPageMonitor", "start loading check: remainTime=" + cVar.c());
                     }
-                    b.this.f43438e.sendMessageDelayed(Message.obtain(b.this.f43438e, 10, cVar), cVar.c());
+                    b.this.f47114e.sendMessageDelayed(Message.obtain(b.this.f47114e, 10, cVar), cVar.c());
                 }
             }
         }
@@ -355,24 +355,24 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
             if (f2 != null) {
                 String g3 = f2.g3();
                 d.a.l0.a.p.e.b b3 = f2.b3();
-                if (b.f43437f && b3 == null) {
+                if (b.f47113f && b3 == null) {
                     Log.d("SwanAppPageMonitor", "webview manager is null for id " + g3);
                 }
                 if (b3 == null || j(g3)) {
                     return;
                 }
-                d dVar = new d(g3, f2.Z2().f43357e, cVar.c(), cVar.a());
-                this.f43440b.addLast(dVar);
-                this.f43439a = dVar;
+                d dVar = new d(g3, f2.Z2().f47033e, cVar.c(), cVar.a());
+                this.f47116b.addLast(dVar);
+                this.f47115a = dVar;
                 b3.v(g.f());
-                HashMap<String, Integer> hashMap = this.f43444f;
+                HashMap<String, Integer> hashMap = this.f47120f;
                 if (hashMap != null && hashMap.containsKey(g3)) {
-                    this.f43439a.f43465g = this.f43444f.remove(g3).intValue();
+                    this.f47115a.f47141g = this.f47120f.remove(g3).intValue();
                 }
-                if (this.f43441c || dVar.b() < 0) {
+                if (this.f47117c || dVar.b() < 0) {
                     return;
                 }
-                b.this.f43438e.sendMessageDelayed(Message.obtain(b.this.f43438e, 2, dVar), this.f43439a.b());
+                b.this.f47114e.sendMessageDelayed(Message.obtain(b.this.f47114e, 2, dVar), this.f47115a.b());
             }
         }
 
@@ -383,22 +383,22 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
                 return;
             }
             String g3 = f2.g3();
-            d dVar = new d(g3, f2.Z2().f43357e, cVar.c(), cVar.a());
+            d dVar = new d(g3, f2.Z2().f47033e, cVar.c(), cVar.a());
             if (!j(g3)) {
-                this.f43440b.addLast(dVar);
+                this.f47116b.addLast(dVar);
                 b3.v(g.f());
             }
-            this.f43439a = dVar;
-            HashMap<String, Integer> hashMap = this.f43444f;
+            this.f47115a = dVar;
+            HashMap<String, Integer> hashMap = this.f47120f;
             if (hashMap != null && hashMap.containsKey(g3)) {
-                this.f43439a.f43465g = this.f43444f.get(g3).intValue();
+                this.f47115a.f47141g = this.f47120f.get(g3).intValue();
             }
-            if (this.f43441c || dVar.b() < 0) {
+            if (this.f47117c || dVar.b() < 0) {
                 return;
             }
-            b.this.f43438e.sendMessageDelayed(Message.obtain(b.this.f43438e, 2, dVar), this.f43439a.b());
-            if (b.f43437f) {
-                Log.d("SwanAPPPageMonitor-Route", "**************** start countdown webViewId=" + g3 + " time=" + this.f43439a.b() + " isNewLaunch=" + this.f43439a.f43467i);
+            b.this.f47114e.sendMessageDelayed(Message.obtain(b.this.f47114e, 2, dVar), this.f47115a.b());
+            if (b.f47113f) {
+                Log.d("SwanAPPPageMonitor-Route", "**************** start countdown webViewId=" + g3 + " time=" + this.f47115a.b() + " isNewLaunch=" + this.f47115a.f47143i);
             }
         }
 
@@ -409,35 +409,35 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
             }
             String d2 = eVar.d();
             d dVar = null;
-            Iterator<d> it = this.f43440b.iterator();
+            Iterator<d> it = this.f47116b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 d next = it.next();
-                if (TextUtils.equals(next.f43459a, d2)) {
+                if (TextUtils.equals(next.f47135a, d2)) {
                     dVar = next;
                     break;
                 }
             }
             if (eVar.e()) {
                 if (dVar != null) {
-                    dVar.f43465g++;
+                    dVar.f47141g++;
                     return;
                 }
-                if (this.f43444f == null) {
-                    this.f43444f = new HashMap<>();
+                if (this.f47120f == null) {
+                    this.f47120f = new HashMap<>();
                 }
-                Integer num2 = this.f43444f.get(d2);
-                this.f43444f.put(d2, Integer.valueOf(num2 != null ? 1 + num2.intValue() : 1));
+                Integer num2 = this.f47120f.get(d2);
+                this.f47120f.put(d2, Integer.valueOf(num2 != null ? 1 + num2.intValue() : 1));
             } else if (dVar != null) {
-                dVar.f43465g--;
+                dVar.f47141g--;
             } else {
-                HashMap<String, Integer> hashMap = this.f43444f;
+                HashMap<String, Integer> hashMap = this.f47120f;
                 if (hashMap == null || (num = hashMap.get(d2)) == null || num.intValue() <= 0) {
                     return;
                 }
-                this.f43444f.put(d2, Integer.valueOf(num.intValue() - 1));
+                this.f47120f.put(d2, Integer.valueOf(num.intValue() - 1));
             }
         }
 
@@ -452,78 +452,78 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
                 return;
             }
             Rect b2 = c.b(e2, f2, C);
-            this.f43442d.c(c.d(f2));
-            this.f43439a.g();
+            this.f47118d.c(c.d(f2));
+            this.f47115a.g();
             boolean a2 = dVar.a();
-            if (!c.h() && this.f43443e <= 0) {
-                this.f43439a.f43461c = this.f43442d.a(e2, b2);
-                d dVar2 = this.f43439a;
-                if (dVar2.f43461c) {
+            if (!c.h() && this.f47119e <= 0) {
+                this.f47115a.f47137c = this.f47118d.a(e2, b2);
+                d dVar2 = this.f47115a;
+                if (dVar2.f47137c) {
                     if (a2) {
                         dVar2.f(e2);
-                        this.f43439a.f43466h = b2;
+                        this.f47115a.f47142h = b2;
                     }
                     c.i(a2);
                     int i2 = 19;
-                    if (h.f43129e && !a2) {
+                    if (h.f46805e && !a2) {
                         i2 = 55;
                     }
-                    e.c(this.f43439a, i2, a2, this.f43440b.size());
+                    e.c(this.f47115a, i2, a2, this.f47116b.size());
                 }
             } else {
-                this.f43439a.f43461c = false;
+                this.f47115a.f47137c = false;
             }
-            this.f43439a.a();
-            if (b.f43437f) {
-                Log.d("SwanAPPPageMonitor-Route", "**************** detected finished, webViewId=" + dVar.d() + " isWhite=" + this.f43439a.f43461c + " isNewLaunch=" + a2);
+            this.f47115a.a();
+            if (b.f47113f) {
+                Log.d("SwanAPPPageMonitor-Route", "**************** detected finished, webViewId=" + dVar.d() + " isWhite=" + this.f47115a.f47137c + " isNewLaunch=" + a2);
             }
-            if (this.f43439a.f43461c) {
+            if (this.f47115a.f47137c) {
                 return;
             }
-            double d2 = this.f43445g.d(e2, b2);
+            double d2 = this.f47121g.d(e2, b2);
             int i3 = (d2 > 0.5d ? 1 : (d2 == 0.5d ? 0 : -1));
             if (i3 >= 0) {
                 int i4 = 28;
-                if (h.f43129e && !a2) {
+                if (h.f46805e && !a2) {
                     i4 = 56;
                 }
-                e.d(this.f43439a, i4, x(), e2, a2, this.f43440b.size());
+                e.d(this.f47115a, i4, x(), e2, a2, this.f47116b.size());
             }
             if (a2) {
                 if (c.g()) {
                     if (i3 >= 0) {
-                        c.j("whiteScreen_L3", d.a.l0.a.h0.i.c.f42164c);
-                        this.f43439a.f43461c = true;
+                        c.j("whiteScreen_L3", d.a.l0.a.h0.i.c.f45840c);
+                        this.f47115a.f47137c = true;
                     }
-                } else if (this.f43443e != 0 || d2 < 0.7d) {
+                } else if (this.f47119e != 0 || d2 < 0.7d) {
                 } else {
-                    c.j("whiteScreen_L2", d.a.l0.a.h0.i.c.f42163b);
-                    this.f43439a.f43461c = true;
+                    c.j("whiteScreen_L2", d.a.l0.a.h0.i.c.f45839b);
+                    this.f47115a.f47137c = true;
                 }
             }
         }
 
         public final void u() {
-            if (b.f43437f) {
+            if (b.f47113f) {
                 Log.d("SwanAppPageMonitor", "recheckAndExit");
             }
-            q0.X(new RunnableC0739b());
+            q0.X(new RunnableC0795b());
         }
 
         public final void v() {
-            this.f43440b.clear();
-            HashMap<String, Integer> hashMap = this.f43444f;
+            this.f47116b.clear();
+            HashMap<String, Integer> hashMap = this.f47120f;
             if (hashMap != null) {
                 hashMap.clear();
             }
-            this.f43439a = null;
+            this.f47115a = null;
         }
 
         public final void w(String str) {
             if (i()) {
                 d.a.l0.a.g1.f.V().v(d.a.l0.a.i2.b.a(new d.a.l0.a.i2.b()));
                 d.a.l0.a.g1.f.V().m(str, d.a.l0.a.i2.b.a(new d.a.l0.a.i2.b()));
-                if (b.f43437f) {
+                if (b.f47113f) {
                     Log.d("SwanAppPageMonitor", "Send master/slave white screen event to fe, done");
                 }
             }
@@ -531,7 +531,7 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
 
         public final boolean x() {
             String string = d.a.l0.a.k2.g.h.a().getString("screenshot_upload_switch", "1");
-            if (b.f43437f) {
+            if (b.f47113f) {
                 Log.d("SwanAppPageMonitor", "Screenshot upload cloud switch: status = " + string);
             }
             return TextUtils.equals(string, "1") && new Random().nextInt(10) % 3 == 0;
@@ -546,7 +546,7 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
     @Override // d.a.l0.a.m1.a
     public void a(d.a.l0.a.m1.h.c cVar) {
         if (!isAlive()) {
-            if (f43437f) {
+            if (f47113f) {
                 Log.d("SwanAppPageMonitor", "thread is not alive");
             }
             try {
@@ -557,12 +557,12 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
             }
         }
         if (cVar != null) {
-            Message.obtain(this.f43438e, cVar.b(), cVar).sendToTarget();
+            Message.obtain(this.f47114e, cVar.b(), cVar).sendToTarget();
         }
     }
 
     public int d() {
-        a aVar = this.f43438e;
+        a aVar = this.f47114e;
         if (aVar != null) {
             return aVar.h();
         }
@@ -571,6 +571,6 @@ public class b extends HandlerThread implements d.a.l0.a.m1.a {
 
     public final void e() {
         start();
-        this.f43438e = new a(getLooper());
+        this.f47114e = new a(getLooper());
     }
 }

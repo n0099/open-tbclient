@@ -1,24 +1,24 @@
 package d.a.n0.c2.b;
 
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52370a;
+    public String f56059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52371b;
+    public String f56060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52372c;
+    public String f56061c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52373d;
+    public String f56062d;
 
     public int a() {
         char c2;
-        String str = this.f52371b;
+        String str = this.f56060b;
         int hashCode = str.hashCode();
         if (hashCode == 2154) {
             if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {

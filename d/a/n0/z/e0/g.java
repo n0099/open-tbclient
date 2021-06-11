@@ -3,19 +3,19 @@ package d.a.n0.z.e0;
 public class g implements d.a.n0.c1.b.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f63468a;
+    public int f67186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63469b;
+    public String f67187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63470c;
+    public String f67188c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63471d;
+    public long f67189d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f63472e;
+    public boolean f67190e;
 
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -23,12 +23,12 @@ public class g implements d.a.n0.c1.b.c {
         }
         if (obj instanceof d.a.m0.b1.g.a) {
             d.a.m0.b1.g.a aVar = (d.a.m0.b1.g.a) obj;
-            return aVar.f49025d == this.f63471d && aVar.f49024c.equals(this.f63470c) && aVar.f49023b.equals(this.f63469b) && aVar.f49026e == this.f63472e && aVar.f49022a == this.f63468a;
+            return aVar.f52699d == this.f67189d && aVar.f52698c.equals(this.f67188c) && aVar.f52697b.equals(this.f67187b) && aVar.f52700e == this.f67190e && aVar.f52696a == this.f67186a;
         }
         return false;
     }
 
     public String toString() {
-        return "[HotForumInfoData:rank=" + this.f63468a + ",forumAvatar=" + this.f63469b + ",forumName=" + this.f63470c + ",forumId=" + this.f63471d + ",isLiked=" + this.f63472e + ",]";
+        return "[HotForumInfoData:rank=" + this.f67186a + ",forumAvatar=" + this.f67187b + ",forumName=" + this.f67188c + ",forumId=" + this.f67189d + ",isLiked=" + this.f67190e + ",]";
     }
 }

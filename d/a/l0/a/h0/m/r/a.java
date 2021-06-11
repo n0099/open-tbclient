@@ -28,14 +28,14 @@ import java.nio.channels.ReadableByteChannel;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42412a = k.f43199a;
+    public static final boolean f46088a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42413b = false;
+    public static boolean f46089b = false;
 
     /* renamed from: d.a.l0.a.h0.m.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class RunnableC0685a implements Runnable {
+    public static class RunnableC0741a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
             File[] listFiles;
@@ -58,13 +58,13 @@ public final class a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42414a = 0;
+        public int f46090a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f42415b = false;
+        public boolean f46091b = false;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42416c = "";
+        public String f46092c = "";
     }
 
     public static d.a.l0.a.q2.a a(ReadableByteChannel readableByteChannel, String str, d.a.l0.n.f.d dVar) throws IOException {
@@ -74,7 +74,7 @@ public final class a {
             aVar.h(2300L);
             aVar.e("empty source");
             e.a().f(aVar);
-            if (f42412a) {
+            if (f46088a) {
                 Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + aVar);
             }
             return aVar;
@@ -91,36 +91,36 @@ public final class a {
         aVar2.h(2300L);
         aVar2.e("check zip file sign fail.");
         e.a().f(aVar2);
-        if (f42412a) {
+        if (f46088a) {
             Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + aVar2);
         }
         return aVar2;
     }
 
     public static boolean b(@Nullable d.a.l0.n.h.e eVar) {
-        if (eVar == null || TextUtils.isEmpty(eVar.f48006a)) {
+        if (eVar == null || TextUtils.isEmpty(eVar.f51680a)) {
             return false;
         }
-        File file = new File(eVar.f48006a);
+        File file = new File(eVar.f51680a);
         return file.exists() && file.isFile() && file.delete();
     }
 
     @AnyThread
     public static void c() {
-        if (f42413b) {
+        if (f46089b) {
             return;
         }
         synchronized (a.class) {
-            if (f42413b) {
+            if (f46089b) {
                 return;
             }
-            f42413b = true;
-            q.j(new RunnableC0685a(), "deleteHistoryZipFile");
+            f46089b = true;
+            q.j(new RunnableC0741a(), "deleteHistoryZipFile");
         }
     }
 
     public static String d() {
-        return e.C0561e.h().getPath();
+        return e.C0617e.h().getPath();
     }
 
     public static String e() {
@@ -132,11 +132,11 @@ public final class a {
     }
 
     public static String g() {
-        return e.C0561e.h().getPath();
+        return e.C0617e.h().getPath();
     }
 
     public static String h() {
-        return e.C0561e.h().getPath();
+        return e.C0617e.h().getPath();
     }
 
     public static String i() {
@@ -148,8 +148,8 @@ public final class a {
             return;
         }
         pMSAppInfo.c(fVar);
-        if (fVar.f48013h == 1) {
-            pMSAppInfo.n(d.a.l0.a.c1.b.i().v(fVar.f48012g, fVar.f48014i));
+        if (fVar.f51687h == 1) {
+            pMSAppInfo.n(d.a.l0.a.c1.b.i().v(fVar.f51686g, fVar.f51688i));
         } else {
             pMSAppInfo.n(0);
         }
@@ -160,7 +160,7 @@ public final class a {
             return;
         }
         pMSAppInfo.d(gVar);
-        if (gVar.f48013h == 0) {
+        if (gVar.f51687h == 0) {
             pMSAppInfo.n(0);
         }
     }
@@ -175,10 +175,10 @@ public final class a {
             d.a.l0.a.q2.e.a().f(aVar);
             return aVar;
         }
-        File file = new File(eVar.f48006a);
-        int i3 = eVar.f48013h;
+        File file = new File(eVar.f51680a);
+        int i3 = eVar.f51687h;
         if (i3 == 1) {
-            i2 = d.a.l0.a.c1.b.g().a(eVar.f48012g, String.valueOf(eVar.f48014i));
+            i2 = d.a.l0.a.c1.b.g().a(eVar.f51686g, String.valueOf(eVar.f51688i));
             if (i2 == null) {
                 d.a.l0.a.q2.a aVar2 = new d.a.l0.a.q2.a();
                 aVar2.j(11L);
@@ -186,11 +186,11 @@ public final class a {
                 aVar2.e("获取解压目录失败");
                 d.a.l0.a.q2.e.a().f(aVar2);
                 return aVar2;
-            } else if (f42412a) {
+            } else if (f46088a) {
                 Log.e("PkgDownloadUtil", "bundleZipFile:" + file);
             }
         } else if (i3 == 0) {
-            i2 = e.C0561e.i(eVar.f48012g, String.valueOf(eVar.f48014i));
+            i2 = e.C0617e.i(eVar.f51686g, String.valueOf(eVar.f51688i));
         } else {
             d.a.l0.a.q2.a aVar3 = new d.a.l0.a.q2.a();
             aVar3.j(11L);
@@ -215,7 +215,7 @@ public final class a {
             d.a.l0.a.q2.e.a().f(aVar5);
             return aVar5;
         } else if (!i2.exists() && !i2.mkdirs()) {
-            if (f42412a) {
+            if (f46088a) {
                 Log.e("PkgDownloadUtil", "解压失败：解压文件夹创建失败 " + i2.getAbsolutePath());
             }
             d.a.l0.a.q2.a aVar6 = new d.a.l0.a.q2.a();
@@ -225,22 +225,22 @@ public final class a {
             d.a.l0.a.q2.e.a().f(aVar6);
             return aVar6;
         } else {
-            if (f42412a) {
+            if (f46088a) {
                 Log.i("PkgDownloadUtil", "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + i2.getPath());
             }
-            if (m(file, i2, dVar).f42415b) {
+            if (m(file, i2, dVar).f46091b) {
                 return null;
             }
             b m = m(file, i2, dVar);
-            if (m.f42415b) {
-                i.a(dVar, eVar.f48013h, true);
+            if (m.f46091b) {
+                i.a(dVar, eVar.f51687h, true);
                 return null;
             }
-            i.a(dVar, eVar.f48013h, false);
+            i.a(dVar, eVar.f51687h, false);
             d.a.l0.a.e0.d.h("PkgDownloadUtil", "解压失败后删除解压目录: " + i2.getAbsolutePath());
             d.K(i2);
             d.a.l0.a.q2.a aVar7 = new d.a.l0.a.q2.a();
-            int i4 = m.f42414a;
+            int i4 = m.f46090a;
             if (i4 == 0) {
                 aVar7.j(11L);
                 aVar7.h(2320L);
@@ -252,7 +252,7 @@ public final class a {
             } else {
                 aVar7.j(11L);
                 aVar7.h(2330L);
-                aVar7.e("decryt failed:" + m.f42416c + ", PkgType=" + m.f42414a);
+                aVar7.e("decryt failed:" + m.f46092c + ", PkgType=" + m.f46090a);
             }
             d.a.l0.a.q2.e.a().f(aVar7);
             return aVar7;
@@ -265,25 +265,25 @@ public final class a {
         long currentTimeMillis = System.currentTimeMillis();
         a.b i2 = d.a.l0.a.a1.h.a.i(file);
         int i3 = 0;
-        if (i2.f40715b != -1) {
+        if (i2.f44391b != -1) {
             dVar.n("670", "package_start_decrypt");
             dVar.n("770", "na_package_start_decrypt");
-            a.C0562a c2 = d.a.l0.a.a1.h.a.c(i2.f40714a, file2, i2.f40715b);
+            a.C0618a c2 = d.a.l0.a.a1.h.a.c(i2.f44390a, file2, i2.f44391b);
             dVar.n("670", "package_end_decrypt");
             dVar.n("770", "na_package_end_decrypt");
-            bVar.f42415b = c2.f40712a;
-            bVar.f42416c = c2.f40713b;
-            i3 = i2.f40715b;
-            bVar.f42414a = i3;
+            bVar.f46091b = c2.f44388a;
+            bVar.f46092c = c2.f44389b;
+            i3 = i2.f44391b;
+            bVar.f46090a = i3;
         } else {
-            bVar.f42414a = 0;
+            bVar.f46090a = 0;
             dVar.n("670", "package_start_unzip");
             dVar.n("770", "na_package_start_unzip");
             boolean T = d.T(file.getPath(), file2.getPath());
-            bVar.f42415b = T;
+            bVar.f46091b = T;
             if (T) {
                 boolean A = d.A(file.getAbsolutePath(), file2.getAbsolutePath());
-                bVar.f42415b = A;
+                bVar.f46091b = A;
                 if (!A) {
                     d.a.l0.a.j2.p.d dVar2 = new d.a.l0.a.j2.p.d();
                     d.a.l0.a.q2.a aVar = new d.a.l0.a.q2.a();
@@ -292,7 +292,7 @@ public final class a {
                     dVar2.p(aVar);
                     dVar2.l("path", file2.getAbsolutePath());
                     dVar2.l("eMsg", "unzip files not match zip content");
-                    dVar2.l("decryptType", String.valueOf(i2.f40715b));
+                    dVar2.l("decryptType", String.valueOf(i2.f44391b));
                     dVar2.l("stack", q0.z(30));
                     d.a.l0.a.j2.k.L(dVar2);
                 }
@@ -301,7 +301,7 @@ public final class a {
             dVar.n("770", "na_package_end_unzip");
         }
         long currentTimeMillis2 = System.currentTimeMillis();
-        if (f42412a) {
+        if (f46088a) {
             d.a.l0.a.a1.h.a.g((int) (currentTimeMillis2 - currentTimeMillis));
         }
         Bundle bundle = new Bundle();

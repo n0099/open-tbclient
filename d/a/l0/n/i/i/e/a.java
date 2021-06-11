@@ -8,29 +8,29 @@ import java.util.List;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<T> f48032a = new ArrayList();
+    public final List<T> f51706a = new ArrayList();
 
     public synchronized T c() {
-        if (this.f48032a.isEmpty()) {
+        if (this.f51706a.isEmpty()) {
             return null;
         }
-        T t = this.f48032a.get(0);
-        this.f48032a.remove(0);
+        T t = this.f51706a.get(0);
+        this.f51706a.remove(0);
         return t;
     }
 
     public synchronized T d() {
-        if (this.f48032a.isEmpty()) {
+        if (this.f51706a.isEmpty()) {
             return null;
         }
-        return this.f48032a.get(0);
+        return this.f51706a.get(0);
     }
 
     public T e(T t) {
         if (t != null) {
-            for (int size = this.f48032a.size() - 1; size >= 0; size--) {
-                if (t.equals(this.f48032a.get(size))) {
-                    return this.f48032a.get(size);
+            for (int size = this.f51706a.size() - 1; size >= 0; size--) {
+                if (t.equals(this.f51706a.get(size))) {
+                    return this.f51706a.get(size);
                 }
             }
             return null;
@@ -40,15 +40,15 @@ public class a<T> {
 
     @NonNull
     public Iterator<T> f() {
-        return this.f48032a.iterator();
+        return this.f51706a.iterator();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(",Queue Size:" + this.f48032a.size());
+        sb.append(",Queue Size:" + this.f51706a.size());
         synchronized (this) {
             int i2 = 0;
-            for (T t : this.f48032a) {
+            for (T t : this.f51706a) {
                 sb.append(":[" + i2 + "]" + t);
                 i2++;
             }

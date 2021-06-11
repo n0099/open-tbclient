@@ -34,8 +34,8 @@ public class c {
         eVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
         eVar.b().c("", bArr);
         new d.a.c.e.j.a.c(eVar).n(3, -1, -1);
-        int i2 = eVar.c().f38642b;
-        byte[] bArr2 = eVar.c().f38648h;
+        int i2 = eVar.c().f42295b;
+        byte[] bArr2 = eVar.c().f42301h;
         if (bArr2 == null || i2 != 200) {
             return false;
         }

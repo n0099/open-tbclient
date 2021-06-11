@@ -1,48 +1,49 @@
 package i.a.a.a;
 
-import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
-import d.r.b.a.a.f.d.d;
+import com.yy.mobile.framework.revenuesdk.baseapi.data.DataSenderConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.ArrayList;
-import tv.athena.revenue.adapter.DataSenderAdapterFactory;
+import tv.athena.revenue.http.HttpDataSenderAdapter;
 /* loaded from: classes8.dex */
-public class a implements d.r.b.a.a.f.c.b {
+public class a implements IDataSenderAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.r.b.a.a.f.c.b f68764a;
+    public IDataSenderAdapter f72020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.r.b.a.a.f.c.b f68765b;
+    public IDataSenderAdapter f72021b;
 
-    public a(d.r.b.a.a.f.c.b bVar) {
-        d.b("DataSenderAdapter", "DataSenderAdapter construct");
-        this.f68764a = bVar;
+    public a(IDataSenderAdapter iDataSenderAdapter) {
+        RLog.debug("DataSenderAdapter", "DataSenderAdapter construct");
+        this.f72020a = iDataSenderAdapter;
     }
 
-    @Override // d.r.b.a.a.f.c.b
-    public void init(String str, String str2, String str3, String str4, ProtocolType protocolType, int i2) {
-        d.b("DataSenderAdapter", "DataSenderAdapter init");
-        d.r.b.a.a.f.c.b bVar = this.f68764a;
-        if (bVar == null) {
-            d.r.b.a.a.f.c.b valueOf = DataSenderAdapterFactory.valueOf(protocolType);
-            this.f68765b = valueOf;
-            valueOf.init(str, str2, str3, str4, protocolType, i2);
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter
+    public void init(DataSenderConfig dataSenderConfig) {
+        RLog.debug("DataSenderAdapter", "DataSenderAdapter init");
+        IDataSenderAdapter iDataSenderAdapter = this.f72020a;
+        if (iDataSenderAdapter == null) {
+            HttpDataSenderAdapter httpDataSenderAdapter = new HttpDataSenderAdapter();
+            this.f72021b = httpDataSenderAdapter;
+            httpDataSenderAdapter.init(dataSenderConfig);
             return;
         }
-        bVar.init(str, str2, str3, str4, protocolType, i2);
+        iDataSenderAdapter.init(dataSenderConfig);
     }
 
-    @Override // d.r.b.a.a.f.c.d
-    public void sendData(int i2, String str, ArrayList<Integer> arrayList, byte[] bArr) {
-        d.r.b.a.a.f.c.b bVar = this.f68764a;
-        if (bVar != null) {
-            bVar.sendData(i2, str, arrayList, bArr);
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
+    public void sendData(int i2, int i3, String str, ArrayList<Integer> arrayList, byte[] bArr) {
+        IDataSenderAdapter iDataSenderAdapter = this.f72020a;
+        if (iDataSenderAdapter != null) {
+            iDataSenderAdapter.sendData(i2, i3, str, arrayList, bArr);
             return;
         }
-        d.r.b.a.a.f.c.b bVar2 = this.f68765b;
-        if (bVar2 != null) {
-            bVar2.sendData(i2, str, arrayList, bArr);
+        IDataSenderAdapter iDataSenderAdapter2 = this.f72021b;
+        if (iDataSenderAdapter2 != null) {
+            iDataSenderAdapter2.sendData(i2, i3, str, arrayList, bArr);
         } else {
-            d.e("DataSenderAdapter", "sendData senderAdapter is null ", new Object[0]);
+            RLog.error("DataSenderAdapter", "sendData senderAdapter is null ", new Object[0]);
         }
     }
 }

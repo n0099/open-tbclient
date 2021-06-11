@@ -268,26 +268,14 @@ public class h {
 
     public static int a(String str) {
         if ("shareToQQ".equals(str)) {
-            return Constants.REQUEST_QQ_SHARE;
+            return 10103;
         }
         if ("shareToQzone".equals(str)) {
-            return Constants.REQUEST_QZONE_SHARE;
+            return 10104;
         }
         if ("addToQQFavorites".equals(str)) {
-            return Constants.REQUEST_QQ_FAVORITES;
+            return 10105;
         }
-        if ("sendToMyComputer".equals(str)) {
-            return Constants.REQUEST_SEND_TO_MY_COMPUTER;
-        }
-        if ("shareToTroopBar".equals(str)) {
-            return Constants.REQUEST_SHARE_TO_TROOP_BAR;
-        }
-        if ("action_login".equals(str)) {
-            return Constants.REQUEST_LOGIN;
-        }
-        if ("action_request".equals(str)) {
-            return Constants.REQUEST_API;
-        }
-        return -1;
+        return "sendToMyComputer".equals(str) ? Constants.REQUEST_SEND_TO_MY_COMPUTER : "shareToTroopBar".equals(str) ? Constants.REQUEST_SHARE_TO_TROOP_BAR : "action_login".equals(str) ? Constants.REQUEST_LOGIN : "action_request".equals(str) ? 10100 : -1;
     }
 }

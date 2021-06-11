@@ -41,7 +41,7 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.AtSelectFriendList;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 import d.a.n0.w3.u.a;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -621,10 +621,10 @@ public class AtListActivity extends SuspendedActivity implements d.a.m0.t0.a, Ad
     public class l extends BdAsyncTask<String, Integer, d.a.n0.w3.l.b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f21965a;
+        public NetWork f22068a;
 
         public l() {
-            this.f21965a = null;
+            this.f22068a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -632,19 +632,19 @@ public class AtListActivity extends SuspendedActivity implements d.a.m0.t0.a, Ad
         /* renamed from: b */
         public d.a.n0.w3.l.b doInBackground(String... strArr) {
             NetWork netWork = new NetWork();
-            this.f21965a = netWork;
+            this.f22068a = netWork;
             netWork.setUrl(TbConfig.SERVER_ADDRESS + "c/u/follow/list");
             if (!AtListActivity.this.isForChat) {
                 if (AtListActivity.this.isForBjh) {
-                    this.f21965a.addPostData("from", "2");
+                    this.f22068a.addPostData("from", "2");
                 } else {
-                    this.f21965a.addPostData("from", "0");
+                    this.f22068a.addPostData("from", "0");
                 }
             } else {
-                this.f21965a.addPostData("from", "1");
+                this.f22068a.addPostData("from", "1");
             }
-            String postNetData = this.f21965a.postNetData();
-            if (this.f21965a.getNetContext().getResponse().isRequestSuccess()) {
+            String postNetData = this.f22068a.postNetData();
+            if (this.f22068a.getNetContext().getResponse().isRequestSuccess()) {
                 d.a.n0.w3.l.b bVar = new d.a.n0.w3.l.b();
                 bVar.b(postNetData);
                 return bVar;
@@ -664,7 +664,7 @@ public class AtListActivity extends SuspendedActivity implements d.a.m0.t0.a, Ad
             if (AtListActivity.this.mCandidateContainer != null && AtListActivity.this.mCandidateContainer.getVisibility() == 0) {
                 AtListActivity.this.mDivLine.setVisibility(0);
             }
-            if (this.f21965a.getNetContext().getResponse().isRequestSuccess()) {
+            if (this.f22068a.getNetContext().getResponse().isRequestSuccess()) {
                 AtListActivity.this.mModel.b(bVar);
                 if (AtListActivity.this.mAdapter == null) {
                     return;
@@ -681,7 +681,7 @@ public class AtListActivity extends SuspendedActivity implements d.a.m0.t0.a, Ad
                 AtListActivity.this.mAdapter.notifyDataSetInvalidated();
                 AtListActivity.this.mListView.setSelection(0);
             } else {
-                AtListActivity.this.showToast(this.f21965a.getErrorString());
+                AtListActivity.this.showToast(this.f22068a.getErrorString());
                 AtListActivity atListActivity3 = AtListActivity.this;
                 atListActivity3.showNetRefreshView(atListActivity3.mContainer, AtListActivity.this.getString(R.string.refresh_view_title_text), null, AtListActivity.this.getString(R.string.refresh_view_button_text), true, AtListActivity.this.getNetRefreshListener());
             }
@@ -690,7 +690,7 @@ public class AtListActivity extends SuspendedActivity implements d.a.m0.t0.a, Ad
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f21965a;
+            NetWork netWork = this.f22068a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }

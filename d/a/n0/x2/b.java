@@ -13,11 +13,11 @@ import d.a.m0.s.g.d;
 public class b implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f63298a;
+    public Context f67013a;
 
     public b(Context context, d.a.m0.s.g.c cVar) {
-        this.f63298a = null;
-        this.f63298a = context;
+        this.f67013a = null;
+        this.f67013a = context;
     }
 
     @Override // d.a.m0.s.g.d
@@ -26,10 +26,10 @@ public class b implements d {
     }
 
     public final void b(ShareItem shareItem, int i2) {
-        if (this.f63298a == null || shareItem == null) {
+        if (this.f67013a == null || shareItem == null) {
             return;
         }
-        IntentConfig intentConfig = new IntentConfig(this.f63298a);
+        IntentConfig intentConfig = new IntentConfig(this.f67013a);
         ShareEntity shareEntity = new ShareEntity();
         shareEntity.E(shareItem.r);
         shareEntity.s(shareItem.s);

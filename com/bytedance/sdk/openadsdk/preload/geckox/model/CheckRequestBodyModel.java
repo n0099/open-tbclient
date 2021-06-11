@@ -13,7 +13,7 @@ public class CheckRequestBodyModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f30095common;
+    public Common f30198common;
     @c(a = SchedulerSupport.CUSTOM)
     public Map<String, Map<String, Object>> custom;
     @c(a = "deployment")
@@ -126,7 +126,7 @@ public class CheckRequestBodyModel {
     }
 
     public void setCommon(Common common2) {
-        this.f30095common = common2;
+        this.f30198common = common2;
     }
 
     public void setCustom(Map<String, Map<String, Object>> map) {

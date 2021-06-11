@@ -9,7 +9,7 @@ import com.baidu.swan.menu.BaseMenuView;
 public class b implements d.a.l0.k.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f45726a = null;
+    public FrameLayout f49400a = null;
 
     @Override // d.a.l0.k.a
     public void a(BaseMenuView baseMenuView) {
@@ -25,22 +25,22 @@ public class b implements d.a.l0.k.a {
 
     public final void b(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.f45726a == null) {
+            if (this.f49400a == null) {
                 FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-                this.f45726a = frameLayout;
+                this.f49400a = frameLayout;
                 frameLayout.setBackgroundResource(d.a.l0.a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.f45726a);
-            viewGroup.addView(this.f45726a, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.f49400a);
+            viewGroup.addView(this.f49400a, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public final void c(ViewGroup viewGroup) {
         FrameLayout frameLayout;
-        if (viewGroup == null || (frameLayout = this.f45726a) == null) {
+        if (viewGroup == null || (frameLayout = this.f49400a) == null) {
             return;
         }
         viewGroup.removeView(frameLayout);
-        this.f45726a = null;
+        this.f49400a = null;
     }
 }

@@ -10,13 +10,13 @@ import org.json.JSONArray;
 public class e extends i {
 
     /* renamed from: g  reason: collision with root package name */
-    public BdMultiPicker f46071g;
+    public BdMultiPicker f49745g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f46072h;
+    public JSONArray f49746h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONArray f46073i;
+    public JSONArray f49747i;
     public BdMultiPicker.b j;
     public boolean k;
 
@@ -24,16 +24,16 @@ public class e extends i {
     public static class a extends i.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONArray f46074e;
+        public JSONArray f49748e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONArray f46075f;
+        public JSONArray f49749f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f46076g;
+        public boolean f49750g;
 
         /* renamed from: h  reason: collision with root package name */
-        public BdMultiPicker.b f46077h;
+        public BdMultiPicker.b f49751h;
 
         public a(Context context) {
             super(context);
@@ -42,10 +42,10 @@ public class e extends i {
         @Override // d.a.l0.a.z1.b.b.i.a
         public i a() {
             e eVar = (e) super.a();
-            eVar.g(this.f46074e);
-            eVar.h(this.f46075f);
-            eVar.j(this.f46076g);
-            eVar.i(this.f46077h);
+            eVar.g(this.f49748e);
+            eVar.h(this.f49749f);
+            eVar.j(this.f49750g);
+            eVar.i(this.f49751h);
             return eVar;
         }
 
@@ -55,22 +55,22 @@ public class e extends i {
         }
 
         public a l(JSONArray jSONArray) {
-            this.f46074e = jSONArray;
+            this.f49748e = jSONArray;
             return this;
         }
 
         public a m(JSONArray jSONArray) {
-            this.f46075f = jSONArray;
+            this.f49749f = jSONArray;
             return this;
         }
 
         public a n(BdMultiPicker.b bVar) {
-            this.f46077h = bVar;
+            this.f49751h = bVar;
             return this;
         }
 
         public a o(boolean z) {
-            this.f46076g = z;
+            this.f49750g = z;
             return this;
         }
     }
@@ -80,27 +80,27 @@ public class e extends i {
     }
 
     public final void e() {
-        this.f46071g = new BdMultiPicker(getContext());
+        this.f49745g = new BdMultiPicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.f46071g.setLayoutParams(layoutParams);
-        this.f46071g.setMultiWheelData(this.f46072h, this.f46073i);
+        this.f49745g.setLayoutParams(layoutParams);
+        this.f49745g.setMultiWheelData(this.f49746h, this.f49747i);
         if (this.k) {
             return;
         }
-        this.f46071g.setMultiSelectedListener(this.j);
+        this.f49745g.setMultiSelectedListener(this.j);
     }
 
     public JSONArray f() {
-        return this.f46071g.getCurrentIndex();
+        return this.f49745g.getCurrentIndex();
     }
 
     public void g(JSONArray jSONArray) {
-        this.f46072h = jSONArray;
+        this.f49746h = jSONArray;
     }
 
     public void h(JSONArray jSONArray) {
-        this.f46073i = jSONArray;
+        this.f49747i = jSONArray;
     }
 
     public void i(BdMultiPicker.b bVar) {
@@ -112,12 +112,12 @@ public class e extends i {
     }
 
     public void k(int i2, JSONArray jSONArray, int i3) {
-        this.f46071g.j(i2, jSONArray, i3);
+        this.f49745g.j(i2, jSONArray, i3);
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         e();
-        b().j(this.f46071g);
+        b().j(this.f49745g);
     }
 }

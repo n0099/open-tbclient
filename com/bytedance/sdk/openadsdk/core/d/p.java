@@ -5,43 +5,43 @@ import androidx.annotation.Nullable;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f27928a;
+    public l f28031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f27929b;
+    public byte[] f28032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f27930c;
+    public a f28033c;
 
     public p(a aVar, l lVar, byte[] bArr) {
-        this.f27930c = aVar;
-        this.f27928a = lVar;
-        this.f27929b = bArr;
+        this.f28033c = aVar;
+        this.f28031a = lVar;
+        this.f28032b = bArr;
     }
 
     @Nullable
     public l a() {
-        return this.f27928a;
+        return this.f28031a;
     }
 
     @Nullable
     public byte[] b() {
-        return this.f27929b;
+        return this.f28032b;
     }
 
     @Nullable
     public a c() {
-        return this.f27930c;
+        return this.f28033c;
     }
 
     public void a(l lVar) {
-        this.f27928a = lVar;
+        this.f28031a = lVar;
         if (lVar != null) {
             lVar.c(true);
         }
     }
 
     public void a(byte[] bArr) {
-        this.f27929b = bArr;
+        this.f28032b = bArr;
     }
 }

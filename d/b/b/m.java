@@ -1,6 +1,8 @@
 package d.b.b;
 
 import android.content.Context;
+import com.kwai.video.player.KsMediaMeta;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -9,16 +11,16 @@ import org.json.JSONObject;
 public class m extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65065e;
+    public final Context f68796e;
 
     public m(Context context) {
         super(true, true);
-        this.f65065e = context;
+        this.f68796e = context;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
-        j.f(jSONObject, "language", this.f65065e.getResources().getConfiguration().locale.getLanguage());
+        j.f(jSONObject, KsMediaMeta.KSM_KEY_LANGUAGE, this.f68796e.getResources().getConfiguration().locale.getLanguage());
         int rawOffset = TimeZone.getDefault().getRawOffset() / 3600000;
         if (rawOffset < -12) {
             rawOffset = -12;
@@ -26,7 +28,7 @@ public class m extends h2 {
         if (rawOffset > 12) {
             rawOffset = 12;
         }
-        jSONObject.put("timezone", rawOffset);
+        jSONObject.put(BaseStatisContent.TIMEZONE, rawOffset);
         j.f(jSONObject, "region", Locale.getDefault().getCountry());
         TimeZone timeZone = Calendar.getInstance().getTimeZone();
         j.f(jSONObject, "tz_name", timeZone.getID());

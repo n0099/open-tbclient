@@ -17,7 +17,7 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.f.a {
-    public static final boolean DEBUG = d.a.l0.a.k.f43199a;
+    public static final boolean DEBUG = d.a.l0.a.k.f46875a;
     public static final int INVALID_DURATION = -1;
     public static final int INVALID_ERROR_CODE = -1;
     public static final String TAG = "SwanAppAudioService";
@@ -122,15 +122,15 @@ public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.
     public class b implements u {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10838a;
+        public final /* synthetic */ String f10900a;
 
         public b(String str) {
-            this.f10838a = str;
+            this.f10900a = str;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.u
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onChangeSrc(this.f10838a);
+            iAudioListener.onChangeSrc(this.f10900a);
         }
     }
 
@@ -149,15 +149,15 @@ public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.
     public class d implements u {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f10841a;
+        public final /* synthetic */ int f10903a;
 
         public d(int i2) {
-            this.f10841a = i2;
+            this.f10903a = i2;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.u
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onError(this.f10841a);
+            iAudioListener.onError(this.f10903a);
         }
     }
 
@@ -165,19 +165,19 @@ public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.
     public class e implements u {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f10843a;
+        public final /* synthetic */ int f10905a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f10844b;
+        public final /* synthetic */ int f10906b;
 
         public e(int i2, int i3) {
-            this.f10843a = i2;
-            this.f10844b = i3;
+            this.f10905a = i2;
+            this.f10906b = i3;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.u
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onTimeUpdate(this.f10843a, this.f10844b);
+            iAudioListener.onTimeUpdate(this.f10905a, this.f10906b);
         }
     }
 
@@ -185,15 +185,15 @@ public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.
     public class f implements u {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f10846a;
+        public final /* synthetic */ int f10908a;
 
         public f(int i2) {
-            this.f10846a = i2;
+            this.f10908a = i2;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.u
         public void a(IAudioListener iAudioListener) throws RemoteException {
-            iAudioListener.onDownloadProgress(this.f10846a);
+            iAudioListener.onDownloadProgress(this.f10908a);
         }
     }
 
@@ -245,15 +245,15 @@ public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10852e;
+        public final /* synthetic */ String f10914e;
 
         public k(String str) {
-            this.f10852e = str;
+            this.f10914e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.a.c1.a.e().a(this.f10852e, SwanAppAudioService.this);
+            d.a.l0.a.c1.a.e().a(this.f10914e, SwanAppAudioService.this);
         }
     }
 
@@ -261,41 +261,41 @@ public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.
     public static /* synthetic */ class l {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10854a;
+        public static final /* synthetic */ int[] f10916a;
 
         static {
             int[] iArr = new int[BgMusicPlayState.values().length];
-            f10854a = iArr;
+            f10916a = iArr;
             try {
                 iArr[BgMusicPlayState.READY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10854a[BgMusicPlayState.PLAY.ordinal()] = 2;
+                f10916a[BgMusicPlayState.PLAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f10854a[BgMusicPlayState.REPLAY.ordinal()] = 3;
+                f10916a[BgMusicPlayState.REPLAY.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f10854a[BgMusicPlayState.PAUSE.ordinal()] = 4;
+                f10916a[BgMusicPlayState.PAUSE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f10854a[BgMusicPlayState.STOP.ordinal()] = 5;
+                f10916a[BgMusicPlayState.STOP.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f10854a[BgMusicPlayState.END.ordinal()] = 6;
+                f10916a[BgMusicPlayState.END.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f10854a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
+                f10916a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f10854a[BgMusicPlayState.LOADING.ordinal()] = 8;
+                f10916a[BgMusicPlayState.LOADING.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -338,15 +338,15 @@ public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.
     public class p implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f10858e;
+        public final /* synthetic */ int f10920e;
 
         public p(int i2) {
-            this.f10858e = i2;
+            this.f10920e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.a.c1.a.e().seek(this.f10858e);
+            d.a.l0.a.c1.a.e().seek(this.f10920e);
         }
     }
 
@@ -439,7 +439,7 @@ public final class SwanAppAudioService extends Service implements d.a.l0.a.i1.c.
     }
 
     private void handleStateChanged(BgMusicPlayState bgMusicPlayState) {
-        int i2 = l.f10854a[bgMusicPlayState.ordinal()];
+        int i2 = l.f10916a[bgMusicPlayState.ordinal()];
         if (i2 == 1) {
             notifyEventOnCanPlay();
         } else if (i2 == 2) {

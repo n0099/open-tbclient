@@ -10,7 +10,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.FrsGameSubPbActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.r0.w1.c;
 import d.a.n0.r0.w1.d.a;
 import java.util.List;
@@ -31,7 +31,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     public class a implements c.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f15509a = false;
+        public boolean f15571a = false;
 
         public a() {
         }
@@ -39,7 +39,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         @Override // d.a.n0.r0.w1.c.e
         public void a() {
             FrsGameSubPbActivity.this.mSubPbView.P(false);
-            this.f15509a = true;
+            this.f15571a = true;
         }
 
         @Override // d.a.n0.r0.w1.c.e
@@ -48,10 +48,10 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
 
         @Override // d.a.n0.r0.w1.c.e
         public boolean c() {
-            if (!this.f15509a) {
+            if (!this.f15571a) {
                 return FrsGameSubPbActivity.this.mSubPbView.y() != null && FrsGameSubPbActivity.this.mSubPbView.y().getTop() == 0;
             }
-            this.f15509a = false;
+            this.f15571a = false;
             return false;
         }
     }
@@ -88,7 +88,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                 }
                 n nVar = list.get(list.size() - 1);
                 if (nVar instanceof d.a.n0.r0.w1.d.d) {
-                    FrsGameSubPbActivity.this.mSubPbModel.m(((d.a.n0.r0.w1.d.d) nVar).f59773e);
+                    FrsGameSubPbActivity.this.mSubPbModel.m(((d.a.n0.r0.w1.d.d) nVar).f63464e);
                 }
             } else if (z3) {
             } else {

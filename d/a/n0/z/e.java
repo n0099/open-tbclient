@@ -30,22 +30,22 @@ public class e extends b<d.a.n0.e0.b> {
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        s(l());
+        t(m());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_frs_game_common_small_view_item;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
-            SkinManager.setBackgroundResource(l(), R.color.CAM_X0201);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
+            SkinManager.setBackgroundResource(m(), R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0101, 1);
             d.a.n0.e3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.d(this.w.h().o0())) {
+            if (readThreadHistory != null && readThreadHistory.d(this.w.c().o0())) {
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0108);
             } else {
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0105);
@@ -53,17 +53,17 @@ public class e extends b<d.a.n0.e0.b> {
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0109, 1);
         }
-        this.f63440e = i2;
+        this.f67158e = i2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (h() != null) {
-            h().a(l(), this.w);
+        if (i() != null) {
+            i().a(m(), this.w);
         }
     }
 
-    public final void s(View view) {
+    public final void t(View view) {
         this.m = (LinearLayout) view.findViewById(R.id.card_frs_game_thread_layout);
         this.n = (RelativeLayout) view.findViewById(R.id.card_frs_game_thread_content);
         this.o = (TbImageView) view.findViewById(R.id.img_thumbnail);
@@ -75,7 +75,7 @@ public class e extends b<d.a.n0.e0.b> {
         this.u = (TextView) view.findViewById(R.id.card_frs_game_publish_time);
         this.v = view.findViewById(R.id.card_frs_game_bottom_divider);
         this.o.setDefaultBgResource(R.drawable.icon_morenpic);
-        int dimensionPixelSize = this.f63442g.getResources().getDimensionPixelSize(R.dimen.tbds326);
+        int dimensionPixelSize = this.f67160g.getResources().getDimensionPixelSize(R.dimen.tbds326);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
         layoutParams.width = dimensionPixelSize;
         layoutParams.height = (dimensionPixelSize * 9) / 16;
@@ -85,75 +85,75 @@ public class e extends b<d.a.n0.e0.b> {
         this.s.setIsRound(true);
         this.s.setDrawBorder(true);
         this.s.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-        this.s.setBorderWidth(this.f63442g.getResources().getDimensionPixelSize(R.dimen.tbds1));
-        l().setOnClickListener(this);
+        this.s.setBorderWidth(this.f67160g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        m().setOnClickListener(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(d.a.n0.e0.b bVar) {
-        if (bVar == null || bVar.h() == null) {
+    /* renamed from: u */
+    public void n(d.a.n0.e0.b bVar) {
+        if (bVar == null || bVar.c() == null) {
             return;
         }
         this.w = bVar;
         String str = null;
-        if (bVar.h().C2()) {
+        if (bVar.c().D2()) {
             this.p.setVisibility(0);
             this.q.setVisibility(0);
-            if (bVar.h().w1() != null) {
-                this.q.setText(StringHelper.stringForVideoTime(bVar.h().w1().video_duration.intValue() * 1000));
-                str = bVar.h().w1().thumbnail_url;
+            if (bVar.c().x1() != null) {
+                this.q.setText(StringHelper.stringForVideoTime(bVar.c().x1().video_duration.intValue() * 1000));
+                str = bVar.c().x1().thumbnail_url;
             }
         } else {
             this.p.setVisibility(8);
             this.q.setVisibility(8);
-            if (bVar.h().L0() != null && bVar.h().L0().size() >= 1) {
-                str = bVar.h().L0().get(0).origin_pic;
+            if (bVar.c().L0() != null && bVar.c().L0().size() >= 1) {
+                str = bVar.c().L0().get(0).origin_pic;
             }
         }
-        this.o.V(str, 10, false);
-        this.r.setText(bVar.h().z1());
+        this.o.U(str, 10, false);
+        this.r.setText(bVar.c().A1());
         d.a.n0.e3.n0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.d(bVar.h().o0())) {
+        if (readThreadHistory != null && readThreadHistory.d(bVar.c().o0())) {
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0108);
         } else {
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0105);
         }
-        this.s.setData(bVar.h(), false);
-        this.u.setText(StringHelper.getFormatTimeShort(bVar.h().S()));
-        if ("news".equals(bVar.h().k0())) {
+        this.s.setData(bVar.c(), false);
+        this.u.setText(StringHelper.getFormatTimeShort(bVar.c().S()));
+        if ("news".equals(bVar.c().k0())) {
             this.s.setVisibility(8);
-            this.t.setText(this.f63441f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.h().I1())));
+            this.t.setText(this.f67159f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.c().J1())));
             return;
         }
         this.s.setVisibility(0);
-        y(bVar.h());
+        z(bVar.c());
     }
 
-    public String u(String str) {
+    public String v(String str) {
         return StringHelper.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 
-    public void v(int i2) {
+    public void w(int i2) {
         View view = this.v;
         if (view != null) {
             view.setVisibility(i2);
         }
     }
 
-    public void w(int i2, int i3, int i4, int i5) {
+    public void x(int i2, int i3, int i4, int i5) {
         LinearLayout linearLayout = this.m;
         if (linearLayout != null) {
             linearLayout.setPadding(i2, i3, i4, i5);
         }
     }
 
-    public void x(int i2) {
+    public void y(int i2) {
         this.s.setVisibility(i2);
     }
 
-    public final void y(a2 a2Var) {
+    public final void z(a2 a2Var) {
         TextView textView = this.t;
         if (textView == null || a2Var == null) {
             return;
@@ -162,6 +162,6 @@ public class e extends b<d.a.n0.e0.b> {
         if (StringUtils.isNull(a2Var.T().getName_show())) {
             return;
         }
-        this.t.setText(u(a2Var.T().getName_show()));
+        this.t.setText(v(a2Var.T().getName_show()));
     }
 }

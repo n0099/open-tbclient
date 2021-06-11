@@ -1,0 +1,15 @@
+package com.yy.mobile.framework.revenuesdk.payapi.bean;
+/* loaded from: classes7.dex */
+public class AccountDelayMessage {
+    public long amount;
+    public int appid;
+    public long currencyAmount;
+    public int currencyType;
+    public String expand;
+    public long uid;
+    public int usedChannel;
+
+    public String toString() {
+        return "CurrencyChargeMessage{appid=" + this.appid + ", uid=" + this.uid + ", usedChannel=" + this.usedChannel + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", expand='" + this.expand + "'}";
+    }
+}

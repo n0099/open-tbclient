@@ -8,124 +8,124 @@ import org.json.JSONObject;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f67277a;
+    public final long f71063a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicLong f67278b;
+    public final AtomicLong f71064b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f67279c;
+    public volatile long f71065c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f67280d;
+    public long f71066d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67281e;
+    public int f71067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile l f67282f;
+    public volatile l f71068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67283g;
+    public int f71069g;
 
     public i(long j, long j2) {
         AtomicLong atomicLong = new AtomicLong();
-        this.f67278b = atomicLong;
-        this.f67283g = 0;
-        this.f67277a = j;
+        this.f71064b = atomicLong;
+        this.f71069g = 0;
+        this.f71063a = j;
         atomicLong.set(j);
-        this.f67279c = j;
+        this.f71065c = j;
         if (j2 >= j) {
-            this.f67280d = j2;
+            this.f71066d = j2;
         } else {
-            this.f67280d = -1L;
+            this.f71066d = -1L;
         }
     }
 
     public long a() {
-        return this.f67278b.get() - this.f67277a;
+        return this.f71064b.get() - this.f71063a;
     }
 
     public void b(int i2) {
-        this.f67281e = i2;
+        this.f71067e = i2;
     }
 
     public void c(long j) {
-        if (j >= this.f67277a) {
-            this.f67278b.set(j);
+        if (j >= this.f71063a) {
+            this.f71064b.set(j);
         }
     }
 
     public long d() {
-        long j = this.f67280d;
-        if (j >= this.f67277a) {
+        long j = this.f71066d;
+        if (j >= this.f71063a) {
             return (j - k()) + 1;
         }
         return -1L;
     }
 
     public void e(int i2) {
-        this.f67283g = i2;
+        this.f71069g = i2;
     }
 
     public void f(long j) {
-        this.f67278b.addAndGet(j);
+        this.f71064b.addAndGet(j);
     }
 
     public long g() {
-        return this.f67277a;
+        return this.f71063a;
     }
 
     public void h(long j) {
-        if (j >= this.f67277a) {
-            this.f67280d = j;
+        if (j >= this.f71063a) {
+            this.f71066d = j;
             return;
         }
         Log.w("Segment", "setEndOffset: endOffset = " + j + ", segment = " + this);
         if (j == -1) {
-            this.f67280d = j;
+            this.f71066d = j;
         }
     }
 
     public long i() {
-        return this.f67278b.get();
+        return this.f71064b.get();
     }
 
     public void j(long j) {
-        if (j >= this.f67278b.get()) {
-            this.f67279c = j;
+        if (j >= this.f71064b.get()) {
+            this.f71065c = j;
         }
     }
 
     public long k() {
-        l lVar = this.f67282f;
+        l lVar = this.f71068f;
         if (lVar != null) {
             long s = lVar.s();
-            if (s > this.f67279c) {
+            if (s > this.f71065c) {
                 return s;
             }
         }
-        return this.f67279c;
+        return this.f71065c;
     }
 
     public long l() {
-        return this.f67280d;
+        return this.f71066d;
     }
 
     public int m() {
-        return this.f67281e;
+        return this.f71067e;
     }
 
     public void n() {
-        this.f67283g++;
+        this.f71069g++;
     }
 
     public void o() {
-        this.f67283g--;
+        this.f71069g--;
     }
 
     public int p() {
-        return this.f67283g;
+        return this.f71069g;
     }
 
     public JSONObject q() throws JSONException {
@@ -137,24 +137,24 @@ public final class i {
     }
 
     public String toString() {
-        return "Segment{startOffset=" + this.f67277a + ",\t currentOffset=" + this.f67278b + ",\t currentOffsetRead=" + k() + ",\t endOffset=" + this.f67280d + '}';
+        return "Segment{startOffset=" + this.f71063a + ",\t currentOffset=" + this.f71064b + ",\t currentOffsetRead=" + k() + ",\t endOffset=" + this.f71066d + '}';
     }
 
     public i(i iVar) {
         AtomicLong atomicLong = new AtomicLong();
-        this.f67278b = atomicLong;
-        this.f67283g = 0;
-        this.f67277a = iVar.f67277a;
-        atomicLong.set(iVar.f67278b.get());
-        this.f67279c = this.f67278b.get();
-        this.f67280d = iVar.f67280d;
-        this.f67281e = iVar.f67281e;
+        this.f71064b = atomicLong;
+        this.f71069g = 0;
+        this.f71063a = iVar.f71063a;
+        atomicLong.set(iVar.f71064b.get());
+        this.f71065c = this.f71064b.get();
+        this.f71066d = iVar.f71066d;
+        this.f71067e = iVar.f71067e;
     }
 
     public i(JSONObject jSONObject) {
-        this.f67278b = new AtomicLong();
-        this.f67283g = 0;
-        this.f67277a = jSONObject.optLong("st");
+        this.f71064b = new AtomicLong();
+        this.f71069g = 0;
+        this.f71063a = jSONObject.optLong("st");
         h(jSONObject.optLong("en"));
         c(jSONObject.optLong("cu"));
         j(i());

@@ -9,23 +9,23 @@ import android.widget.TextView;
 public class ag extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f8478a;
+    public Paint f8540a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PaintFlagsDrawFilter f8479b;
+    public PaintFlagsDrawFilter f8541b;
 
     public ag(Context context) {
         super(context);
-        this.f8478a = new Paint();
-        this.f8479b = new PaintFlagsDrawFilter(0, 3);
-        this.f8478a.setColor(-1);
-        this.f8478a.setAntiAlias(true);
+        this.f8540a = new Paint();
+        this.f8541b = new PaintFlagsDrawFilter(0, 3);
+        this.f8540a.setColor(-1);
+        this.f8540a.setAntiAlias(true);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        canvas.setDrawFilter(this.f8479b);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f8478a);
+        canvas.setDrawFilter(this.f8541b);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f8540a);
         super.draw(canvas);
     }
 
@@ -38,6 +38,6 @@ public class ag extends TextView {
 
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
-        this.f8478a.setColor(i2);
+        this.f8540a.setColor(i2);
     }
 }

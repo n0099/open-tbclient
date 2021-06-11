@@ -26,46 +26,46 @@ import java.util.List;
 public class a extends PopupWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f56112a;
+    public Context f59801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f56113b;
+    public ViewGroup f59802b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f56114c;
+    public d f59803c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f56115d;
+    public View f59804d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f56116e;
+    public TextView f59805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f56117f;
+    public TextView f59806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56118g;
+    public int f59807g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f56119h;
+    public View.OnClickListener f59808h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View.OnClickListener f56120i;
+    public final View.OnClickListener f59809i;
 
     /* renamed from: d.a.n0.j0.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1384a implements View.OnClickListener {
-        public View$OnClickListenerC1384a() {
+    public class View$OnClickListenerC1440a implements View.OnClickListener {
+        public View$OnClickListenerC1440a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.f56116e) {
-                if (a.this.f56114c != null) {
-                    a.this.f56114c.onItemClick(1);
+            if (view == a.this.f59805e) {
+                if (a.this.f59803c != null) {
+                    a.this.f59803c.onItemClick(1);
                 }
-            } else if (view == a.this.f56117f && a.this.f56114c != null) {
-                a.this.f56114c.onItemClick(2);
+            } else if (view == a.this.f59806f && a.this.f59803c != null) {
+                a.this.f59803c.onItemClick(2);
             }
             a.this.i();
         }
@@ -108,9 +108,9 @@ public class a extends PopupWindow {
 
     public a(Context context) {
         super(context);
-        this.f56119h = new View$OnClickListenerC1384a();
-        this.f56120i = new b();
-        this.f56112a = context;
+        this.f59808h = new View$OnClickListenerC1440a();
+        this.f59809i = new b();
+        this.f59801a = context;
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -124,27 +124,27 @@ public class a extends PopupWindow {
     }
 
     public final void e() {
-        View inflate = LayoutInflater.from(this.f56112a).inflate(R.layout.layout_sort_select, (ViewGroup) null);
-        this.f56115d = inflate;
+        View inflate = LayoutInflater.from(this.f59801a).inflate(R.layout.layout_sort_select, (ViewGroup) null);
+        this.f59804d = inflate;
         TextView textView = (TextView) inflate.findViewById(R.id.sort_type_level_text);
-        this.f56116e = textView;
+        this.f59805e = textView;
         d.a.m0.r.u.c.d(textView).x(R.string.F_X01);
-        TextView textView2 = (TextView) this.f56115d.findViewById(R.id.sort_type_update_text);
-        this.f56117f = textView2;
+        TextView textView2 = (TextView) this.f59804d.findViewById(R.id.sort_type_update_text);
+        this.f59806f = textView2;
         d.a.m0.r.u.c.d(textView2).x(R.string.F_X01);
-        this.f56116e.setOnClickListener(this.f56119h);
-        this.f56117f.setOnClickListener(this.f56119h);
+        this.f59805e.setOnClickListener(this.f59808h);
+        this.f59806f.setOnClickListener(this.f59808h);
     }
 
     public final View f() {
         e();
-        FrameLayout frameLayout = new FrameLayout(this.f56112a);
-        FrameLayout frameLayout2 = new FrameLayout(this.f56112a);
-        this.f56113b = frameLayout2;
+        FrameLayout frameLayout = new FrameLayout(this.f59801a);
+        FrameLayout frameLayout2 = new FrameLayout(this.f59801a);
+        this.f59802b = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.f56115d);
-        this.f56113b.setOnClickListener(this.f56120i);
-        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f56112a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(l.g(this.f56112a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f56112a, R.dimen.tbds4)).into(this.f56115d);
+        frameLayout.addView(this.f59804d);
+        this.f59802b.setOnClickListener(this.f59809i);
+        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f59801a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(l.g(this.f59801a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f59801a, R.dimen.tbds4)).into(this.f59804d);
         return frameLayout;
     }
 
@@ -164,8 +164,8 @@ public class a extends PopupWindow {
         alphaAnimation.setDuration(240L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
         alphaAnimation.setAnimationListener(new c());
-        this.f56115d.startAnimation(translateAnimation);
-        this.f56113b.startAnimation(alphaAnimation);
+        this.f59804d.startAnimation(translateAnimation);
+        this.f59802b.startAnimation(alphaAnimation);
     }
 
     public void i() {
@@ -173,41 +173,41 @@ public class a extends PopupWindow {
     }
 
     public void j() {
-        if (this.f56118g == 1) {
-            SkinManager.setViewTextColor(this.f56116e, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f56117f, R.color.CAM_X0108);
+        if (this.f59807g == 1) {
+            SkinManager.setViewTextColor(this.f59805e, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f59806f, R.color.CAM_X0108);
         } else {
-            SkinManager.setViewTextColor(this.f56117f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f56116e, R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.f59806f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f59805e, R.color.CAM_X0108);
         }
-        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f56112a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(l.g(this.f56112a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f56112a, R.dimen.tbds4)).into(this.f56115d);
+        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f59801a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(l.g(this.f59801a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f59801a, R.dimen.tbds4)).into(this.f59804d);
     }
 
     public void k(List<h> list, int i2) {
         if (list == null) {
             return;
         }
-        this.f56118g = i2;
+        this.f59807g = i2;
         View f2 = f();
         for (h hVar : list) {
-            if (hVar.f55854b == 1) {
-                this.f56116e.setText(hVar.f55853a);
+            if (hVar.f59543b == 1) {
+                this.f59805e.setText(hVar.f59542a);
             } else {
-                this.f56117f.setText(hVar.f55853a);
+                this.f59806f.setText(hVar.f59542a);
             }
             if (i2 == 1) {
-                SkinManager.setViewTextColor(this.f56116e, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f56117f, R.color.CAM_X0108);
+                SkinManager.setViewTextColor(this.f59805e, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f59806f, R.color.CAM_X0108);
             } else {
-                SkinManager.setViewTextColor(this.f56117f, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f56116e, R.color.CAM_X0108);
+                SkinManager.setViewTextColor(this.f59806f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f59805e, R.color.CAM_X0108);
             }
         }
         setContentView(f2);
     }
 
     public void l(d dVar) {
-        this.f56114c = dVar;
+        this.f59803c = dVar;
     }
 
     public void m(int i2) {
@@ -220,8 +220,8 @@ public class a extends PopupWindow {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.f56115d.startAnimation(translateAnimation);
-        this.f56113b.startAnimation(alphaAnimation);
+        this.f59804d.startAnimation(translateAnimation);
+        this.f59802b.startAnimation(alphaAnimation);
     }
 
     public void o(View view) {
@@ -237,7 +237,7 @@ public class a extends PopupWindow {
         }
         int[] iArr = new int[2];
         view.getLocationInWindow(iArr);
-        if (g.m(this, view, 0, iArr[0] - this.f56112a.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view.getHeight() + this.f56112a.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
+        if (g.m(this, view, 0, iArr[0] - this.f59801a.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view.getHeight() + this.f59801a.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
             n();
         }
     }

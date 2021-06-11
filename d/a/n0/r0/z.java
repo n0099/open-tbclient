@@ -24,31 +24,31 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f59854a;
+    public TbPageContext f63545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f59855b;
+    public TextView f63546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59856c;
+    public TextView f63547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59857d;
+    public TextView f63548d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f59858e;
+    public TextView f63549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f59859f;
+    public TextView f63550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f59860g;
+    public TextView f63551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PermissionJudgePolicy f59861h;
+    public PermissionJudgePolicy f63552h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.e2.k.e.x0 f59862i;
+    public d.a.n0.e2.k.e.x0 f63553i;
     public Bitmap j;
     public e k;
     public View l;
@@ -66,17 +66,17 @@ public class z {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Bitmap m = z.this.m();
-            if (view.getId() == z.this.f59855b.getId()) {
+            if (view.getId() == z.this.f63546b.getId()) {
                 z.this.p(m);
-            } else if (view.getId() == z.this.f59856c.getId()) {
+            } else if (view.getId() == z.this.f63547c.getId()) {
                 z.this.u(m, 3);
-            } else if (view.getId() == z.this.f59857d.getId()) {
+            } else if (view.getId() == z.this.f63548d.getId()) {
                 z.this.u(m, 2);
-            } else if (view.getId() == z.this.f59858e.getId()) {
+            } else if (view.getId() == z.this.f63549e.getId()) {
                 z.this.u(m, 4);
-            } else if (view.getId() == z.this.f59859f.getId()) {
+            } else if (view.getId() == z.this.f63550f.getId()) {
                 z.this.u(m, 8);
-            } else if (view.getId() == z.this.f59860g.getId()) {
+            } else if (view.getId() == z.this.f63551g.getId()) {
                 z.this.u(m, 6);
             }
         }
@@ -86,21 +86,21 @@ public class z {
     public class b extends d.a.m0.z0.f0<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f59864a;
+        public final /* synthetic */ Bitmap f63555a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f59865b;
+        public final /* synthetic */ int f63556b;
 
         public b(Bitmap bitmap, int i2) {
-            this.f59864a = bitmap;
-            this.f59865b = i2;
+            this.f63555a = bitmap;
+            this.f63556b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public ShareItem doInBackground() {
-            return z.this.l(this.f59864a, this.f59865b);
+            return z.this.l(this.f63555a, this.f63556b);
         }
     }
 
@@ -108,17 +108,17 @@ public class z {
     public class c implements d.a.m0.z0.n<ShareItem> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f59867a;
+        public final /* synthetic */ int f63558a;
 
         public c(int i2) {
-            this.f59867a = i2;
+            this.f63558a = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
-            MessageManager.getInstance().sendMessage(new ImplicitShareMessage(z.this.f59854a.getPageActivity(), this.f59867a, shareItem, false));
+            MessageManager.getInstance().sendMessage(new ImplicitShareMessage(z.this.f63545a.getPageActivity(), this.f63558a, shareItem, false));
         }
     }
 
@@ -135,16 +135,16 @@ public class z {
     }
 
     public z(TbPageContext tbPageContext) {
-        this.f59854a = tbPageContext;
+        this.f63545a = tbPageContext;
     }
 
     public final boolean k() {
-        if (this.f59861h == null) {
-            this.f59861h = new PermissionJudgePolicy();
+        if (this.f63552h == null) {
+            this.f63552h = new PermissionJudgePolicy();
         }
-        this.f59861h.clearRequestPermissionList();
-        this.f59861h.appendRequestPermission(this.f59854a.getPageActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
-        return this.f59861h.startRequestPermission(this.f59854a.getPageActivity());
+        this.f63552h.clearRequestPermissionList();
+        this.f63552h.appendRequestPermission(this.f63545a.getPageActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+        return this.f63552h.startRequestPermission(this.f63545a.getPageActivity());
     }
 
     public final ShareItem l(Bitmap bitmap, int i2) {
@@ -153,9 +153,9 @@ public class z {
         shareItem.b0 = false;
         shareItem.W = 1;
         if (i2 == 6) {
-            shareItem.r = this.f59854a.getString(R.string.come_on_look_forum) + "[" + this.n + this.f59854a.getString(R.string.core_bar) + "]@" + this.f59854a.getString(R.string.tieba_text) + "https://tieba.baidu.com/f?kw=" + d.a.c.e.p.k.getUrlEncode(this.n) + "&fr=frsshare";
+            shareItem.r = this.f63545a.getString(R.string.come_on_look_forum) + "[" + this.n + this.f63545a.getString(R.string.core_bar) + "]@" + this.f63545a.getString(R.string.tieba_text) + "https://tieba.baidu.com/f?kw=" + d.a.c.e.p.k.getUrlEncode(this.n) + "&fr=frsshare";
         } else {
-            shareItem.r = this.f59854a.getString(R.string.app_name);
+            shareItem.r = this.f63545a.getString(R.string.app_name);
         }
         shareItem.s = "";
         shareItem.i(bitmap);
@@ -181,12 +181,12 @@ public class z {
 
     public final int n() {
         int k;
-        int g2 = d.a.c.e.p.l.g(this.f59854a.getPageActivity(), R.dimen.tbds44);
-        int g3 = d.a.c.e.p.l.g(this.f59854a.getPageActivity(), R.dimen.tbds54);
-        if (UtilHelper.getRealScreenOrientation(this.f59854a.getPageActivity()) == 2) {
-            k = d.a.c.e.p.l.i(this.f59854a.getPageActivity());
+        int g2 = d.a.c.e.p.l.g(this.f63545a.getPageActivity(), R.dimen.tbds44);
+        int g3 = d.a.c.e.p.l.g(this.f63545a.getPageActivity(), R.dimen.tbds54);
+        if (UtilHelper.getRealScreenOrientation(this.f63545a.getPageActivity()) == 2) {
+            k = d.a.c.e.p.l.i(this.f63545a.getPageActivity());
         } else {
-            k = d.a.c.e.p.l.k(this.f59854a.getPageActivity());
+            k = d.a.c.e.p.l.k(this.f63545a.getPageActivity());
         }
         return ((k - (g2 * 2)) - g3) / 6;
     }
@@ -196,29 +196,29 @@ public class z {
             return;
         }
         TextView textView = (TextView) view.findViewById(R.id.frs_private_share_download);
-        this.f59855b = textView;
+        this.f63546b = textView;
         t(textView, new SvgMaskType(R.drawable.icon_mask_frs_private_share_download40_svg));
-        this.f59855b.setOnClickListener(this.q);
+        this.f63546b.setOnClickListener(this.q);
         TextView textView2 = (TextView) view.findViewById(R.id.frs_private_share_wechat);
-        this.f59856c = textView2;
+        this.f63547c = textView2;
         t(textView2, new SvgMaskType(R.drawable.icon_mask_share_wechat40_svg));
-        this.f59856c.setOnClickListener(this.q);
+        this.f63547c.setOnClickListener(this.q);
         TextView textView3 = (TextView) view.findViewById(R.id.frs_private_share_moment);
-        this.f59857d = textView3;
+        this.f63548d = textView3;
         t(textView3, new SvgMaskType(R.drawable.icon_mask_share_circle40_svg));
-        this.f59857d.setOnClickListener(this.q);
+        this.f63548d.setOnClickListener(this.q);
         TextView textView4 = (TextView) view.findViewById(R.id.frs_private_share_qzone);
-        this.f59858e = textView4;
+        this.f63549e = textView4;
         t(textView4, new SvgMaskType(R.drawable.icon_mask_share_qqzone40_svg));
-        this.f59858e.setOnClickListener(this.q);
+        this.f63549e.setOnClickListener(this.q);
         TextView textView5 = (TextView) view.findViewById(R.id.frs_private_share_qq);
-        this.f59859f = textView5;
+        this.f63550f = textView5;
         t(textView5, new SvgMaskType(R.drawable.icon_mask_share_qq40_svg));
-        this.f59859f.setOnClickListener(this.q);
+        this.f63550f.setOnClickListener(this.q);
         TextView textView6 = (TextView) view.findViewById(R.id.frs_private_share_weibo);
-        this.f59860g = textView6;
+        this.f63551g = textView6;
         t(textView6, new SvgMaskType(R.drawable.icon_mask_share_weibo40_svg));
-        this.f59860g.setOnClickListener(this.q);
+        this.f63551g.setOnClickListener(this.q);
         this.l = view2;
         this.o = dVar;
     }
@@ -235,10 +235,10 @@ public class z {
         statisticItem.param("obj_type", 1);
         statisticItem.param("obj_source", this.p);
         TiebaStatic.log(statisticItem);
-        if (this.f59862i == null) {
-            this.f59862i = new d.a.n0.e2.k.e.x0(this.f59854a);
+        if (this.f63553i == null) {
+            this.f63553i = new d.a.n0.e2.k.e.x0(this.f63545a);
         }
-        this.f59862i.b(this.m, BitmapHelper.Bitmap2Bytes(bitmap, 100));
+        this.f63553i.b(this.m, BitmapHelper.Bitmap2Bytes(bitmap, 100));
     }
 
     public void q(String str, String str2) {
@@ -255,11 +255,11 @@ public class z {
     }
 
     public final void t(TextView textView, AbsSvgType absSvgType) {
-        if (absSvgType == null) {
+        Drawable drawable;
+        if (absSvgType == null || (drawable = absSvgType.getDrawable()) == null) {
             return;
         }
-        Drawable drawable = absSvgType.getDrawable();
-        int g2 = d.a.c.e.p.l.g(this.f59854a.getPageActivity(), R.dimen.tbds88);
+        int g2 = d.a.c.e.p.l.g(this.f63545a.getPageActivity(), R.dimen.tbds88);
         drawable.setBounds(0, 0, g2, g2);
         textView.setCompoundDrawables(null, drawable, null, null);
         SkinManager.setViewTextColor(textView, R.color.CAM_X0106);

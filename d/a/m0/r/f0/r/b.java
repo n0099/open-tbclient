@@ -6,18 +6,18 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 /* loaded from: classes3.dex */
 public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f49807a;
+    public Context f53482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a<T, V> f49808b;
+    public a<T, V> f53483b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f49809c;
+    public BdUniqueId f53484c;
 
     /* loaded from: classes3.dex */
     public interface a<T extends n, V extends BdBaseViewPagerAdapter.a> {
@@ -25,16 +25,16 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
     }
 
     public b(Context context, BdUniqueId bdUniqueId) {
-        this.f49807a = context;
-        this.f49809c = bdUniqueId;
+        this.f53482a = context;
+        this.f53484c = bdUniqueId;
     }
 
     public a<T, V> a() {
-        return this.f49808b;
+        return this.f53483b;
     }
 
     public BdUniqueId b() {
-        return this.f49809c;
+        return this.f53484c;
     }
 
     public abstract V c(ViewGroup viewGroup);
@@ -45,6 +45,6 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
     public abstract View e(ViewGroup viewGroup, V v, T t);
 
     public void f(a<T, V> aVar) {
-        this.f49808b = aVar;
+        this.f53483b = aVar;
     }
 }

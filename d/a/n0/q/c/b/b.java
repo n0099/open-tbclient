@@ -14,22 +14,22 @@ import d.a.c.e.m.g;
 public class b extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public AdWebViewActivity f58183a;
+    public AdWebViewActivity f61874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.e3.l0.c f58184b;
+    public d.a.n0.e3.l0.c f61875b;
 
     public b(AdWebViewActivity adWebViewActivity) {
-        this.f58183a = adWebViewActivity;
+        this.f61874a = adWebViewActivity;
     }
 
     public void a(d.a.n0.e3.l0.c cVar) {
-        this.f58184b = cVar;
+        this.f61875b = cVar;
     }
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        FrameLayout frameLayout = new FrameLayout(this.f58183a.getPageContext().getPageActivity());
+        FrameLayout frameLayout = new FrameLayout(this.f61874a.getPageContext().getPageActivity());
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         return frameLayout;
     }
@@ -42,7 +42,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        AdWebViewActivity adWebViewActivity = this.f58183a;
+        AdWebViewActivity adWebViewActivity = this.f61874a;
         if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
             return true;
         }
@@ -51,7 +51,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        AdWebViewActivity adWebViewActivity = this.f58183a;
+        AdWebViewActivity adWebViewActivity = this.f61874a;
         if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
             return true;
         }
@@ -60,7 +60,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        AdWebViewActivity adWebViewActivity = this.f58183a;
+        AdWebViewActivity adWebViewActivity = this.f61874a;
         if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
             return true;
         }
@@ -70,8 +70,8 @@ public class b extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         AdWebViewActivity adWebViewActivity;
-        d.a.n0.e3.l0.c cVar = this.f58184b;
-        if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.f58183a) != null && g.f(adWebViewActivity.getPageContext())) {
+        d.a.n0.e3.l0.c cVar = this.f61875b;
+        if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.f61874a) != null && g.f(adWebViewActivity.getPageContext())) {
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
         return true;

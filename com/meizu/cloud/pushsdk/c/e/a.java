@@ -6,42 +6,42 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34867a = "a";
+    public static String f38546a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34868b;
+    public String f38547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34869c;
+    public String f38548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34870d;
+    public String f38549d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34871e;
+    public int f38550e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34872f = "SQLITE";
+    public String f38551f = "SQLITE";
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicBoolean f34873g = new AtomicBoolean(false);
+    public AtomicBoolean f38552g = new AtomicBoolean(false);
 
     /* renamed from: h  reason: collision with root package name */
-    public long f34874h;
+    public long f38553h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f34875i;
+    public long f38554i;
     public long j;
     public Context k;
 
     public a(long j, long j2, TimeUnit timeUnit, Context context) {
-        this.f34869c = null;
-        this.f34871e = 0;
-        this.f34875i = timeUnit.toMillis(j);
+        this.f38548c = null;
+        this.f38550e = 0;
+        this.f38554i = timeUnit.toMillis(j);
         this.j = timeUnit.toMillis(j2);
         this.k = context;
         Map f2 = f();
@@ -50,30 +50,30 @@ public class a {
                 String obj = f2.get("userId").toString();
                 String obj2 = f2.get("sessionId").toString();
                 int intValue = ((Integer) f2.get("sessionIndex")).intValue();
-                this.f34868b = obj;
-                this.f34871e = intValue;
-                this.f34869c = obj2;
+                this.f38547b = obj;
+                this.f38550e = intValue;
+                this.f38548c = obj2;
             } catch (Exception e2) {
-                com.meizu.cloud.pushsdk.c.f.c.a(f34867a, "Exception occurred retrieving session info from file: %s", e2.getMessage());
+                com.meizu.cloud.pushsdk.c.f.c.a(f38546a, "Exception occurred retrieving session info from file: %s", e2.getMessage());
             }
             d();
             g();
-            com.meizu.cloud.pushsdk.c.f.c.c(f34867a, "Tracker Session Object created.", new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.c(f38546a, "Tracker Session Object created.", new Object[0]);
         }
-        this.f34868b = e.b();
+        this.f38547b = e.b();
         d();
         g();
-        com.meizu.cloud.pushsdk.c.f.c.c(f34867a, "Tracker Session Object created.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(f38546a, "Tracker Session Object created.", new Object[0]);
     }
 
     private void d() {
-        this.f34870d = this.f34869c;
-        this.f34869c = e.b();
-        this.f34871e++;
-        com.meizu.cloud.pushsdk.c.f.c.b(f34867a, "Session information is updated:", new Object[0]);
-        com.meizu.cloud.pushsdk.c.f.c.b(f34867a, " + Session ID: %s", this.f34869c);
-        com.meizu.cloud.pushsdk.c.f.c.b(f34867a, " + Previous Session ID: %s", this.f34870d);
-        com.meizu.cloud.pushsdk.c.f.c.b(f34867a, " + Session Index: %s", Integer.valueOf(this.f34871e));
+        this.f38549d = this.f38548c;
+        this.f38548c = e.b();
+        this.f38550e++;
+        com.meizu.cloud.pushsdk.c.f.c.b(f38546a, "Session information is updated:", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.b(f38546a, " + Session ID: %s", this.f38548c);
+        com.meizu.cloud.pushsdk.c.f.c.b(f38546a, " + Previous Session ID: %s", this.f38549d);
+        com.meizu.cloud.pushsdk.c.f.c.b(f38546a, " + Session Index: %s", Integer.valueOf(this.f38550e));
         e();
     }
 
@@ -86,18 +86,18 @@ public class a {
     }
 
     private void g() {
-        this.f34874h = System.currentTimeMillis();
+        this.f38553h = System.currentTimeMillis();
     }
 
     public com.meizu.cloud.pushsdk.c.a.b a() {
-        com.meizu.cloud.pushsdk.c.f.c.c(f34867a, "Getting session context...", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(f38546a, "Getting session context...", new Object[0]);
         g();
         return new com.meizu.cloud.pushsdk.c.a.b("client_session", c());
     }
 
     public void b() {
-        com.meizu.cloud.pushsdk.c.f.c.b(f34867a, "Checking and updating session information.", new Object[0]);
-        if (e.a(this.f34874h, System.currentTimeMillis(), this.f34873g.get() ? this.j : this.f34875i)) {
+        com.meizu.cloud.pushsdk.c.f.c.b(f38546a, "Checking and updating session information.", new Object[0]);
+        if (e.a(this.f38553h, System.currentTimeMillis(), this.f38552g.get() ? this.j : this.f38554i)) {
             return;
         }
         d();
@@ -106,11 +106,11 @@ public class a {
 
     public Map c() {
         HashMap hashMap = new HashMap();
-        hashMap.put("userId", this.f34868b);
-        hashMap.put("sessionId", this.f34869c);
-        hashMap.put("previousSessionId", this.f34870d);
-        hashMap.put("sessionIndex", Integer.valueOf(this.f34871e));
-        hashMap.put("storageMechanism", this.f34872f);
+        hashMap.put("userId", this.f38547b);
+        hashMap.put("sessionId", this.f38548c);
+        hashMap.put("previousSessionId", this.f38549d);
+        hashMap.put("sessionIndex", Integer.valueOf(this.f38550e));
+        hashMap.put("storageMechanism", this.f38551f);
         return hashMap;
     }
 }

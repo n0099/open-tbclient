@@ -24,33 +24,33 @@ import protobuf.NewpushGroupRepair;
 public class a {
 
     /* renamed from: h  reason: collision with root package name */
-    public static a f54645h;
+    public static a f58334h;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f54646a;
+    public Handler f58335a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f54647b;
+    public Handler f58336b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<Long, GroupMsgData> f54648c;
+    public ConcurrentHashMap<Long, GroupMsgData> f58337c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<Long, NewpushGroupRepair> f54649d;
+    public ConcurrentHashMap<Long, NewpushGroupRepair> f58338d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f54650e;
+    public ConcurrentHashMap<Long, Runnable> f58339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Vector<Long> f54651f;
+    public Vector<Long> f58340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f54652g = new c(2005016);
+    public final CustomMessageListener f58341g = new c(2005016);
 
     /* renamed from: d.a.n0.f1.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class HandlerC1321a extends Handler {
-        public HandlerC1321a(Looper looper) {
+    public class HandlerC1377a extends Handler {
+        public HandlerC1377a(Looper looper) {
             super(looper);
         }
 
@@ -61,13 +61,13 @@ public class a {
                     MessageUtils.updateGroupNotExist(message.getData());
                     return;
                 case 10002:
-                    MessageManager.getInstance().registerListener(a.this.f54652g);
+                    MessageManager.getInstance().registerListener(a.this.f58341g);
                     return;
                 case 10003:
                     if (message.getData() == null || !message.getData().containsKey(TbEnum.SystemMessage.KEY_GROUP_ID)) {
                         return;
                     }
-                    a.this.f54651f.remove(Long.valueOf(message.getData().getLong(TbEnum.SystemMessage.KEY_GROUP_ID)));
+                    a.this.f58340f.remove(Long.valueOf(message.getData().getLong(TbEnum.SystemMessage.KEY_GROUP_ID)));
                     return;
                 default:
                     return;
@@ -79,29 +79,29 @@ public class a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f54654e;
+        public final /* synthetic */ long f58343e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f54655f;
+        public final /* synthetic */ long f58344f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f54656g;
+        public final /* synthetic */ int f58345g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f54657h;
+        public final /* synthetic */ long f58346h;
 
         public b(long j, long j2, int i2, long j3) {
-            this.f54654e = j;
-            this.f54655f = j2;
-            this.f54656g = i2;
-            this.f54657h = j3;
+            this.f58343e = j;
+            this.f58344f = j2;
+            this.f58345g = i2;
+            this.f58346h = j3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            GroupMsgData groupMsgData = (GroupMsgData) a.this.f54648c.get(Long.valueOf(this.f54654e));
+            GroupMsgData groupMsgData = (GroupMsgData) a.this.f58337c.get(Long.valueOf(this.f58343e));
             if (groupMsgData == null) {
-                a.this.q(this.f54654e);
+                a.this.q(this.f58343e);
                 return;
             }
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
@@ -115,12 +115,12 @@ public class a {
                 listMessage.clear();
             }
             long j2 = j;
-            a.this.q(this.f54654e);
-            if (j2 > this.f54655f) {
-                a.this.f54649d.put(Long.valueOf(this.f54654e), MessageUtils.makeNewpushGroupRepair(this.f54654e, this.f54656g, this.f54655f, j2, this.f54657h));
-                d.a.n0.f1.m.b.l().s(this.f54654e, 1L, 0L, true);
-                a.this.f54651f.add(Long.valueOf(this.f54654e));
-                a.this.o(this.f54654e);
+            a.this.q(this.f58343e);
+            if (j2 > this.f58344f) {
+                a.this.f58338d.put(Long.valueOf(this.f58343e), MessageUtils.makeNewpushGroupRepair(this.f58343e, this.f58345g, this.f58344f, j2, this.f58346h));
+                d.a.n0.f1.m.b.l().s(this.f58343e, 1L, 0L, true);
+                a.this.f58340f.add(Long.valueOf(this.f58343e));
+                a.this.o(this.f58343e);
             }
         }
     }
@@ -142,40 +142,40 @@ public class a {
     }
 
     public a() {
-        this.f54646a = null;
-        this.f54647b = null;
-        this.f54648c = null;
-        this.f54649d = null;
-        this.f54650e = null;
-        this.f54651f = null;
-        this.f54646a = new HandlerC1321a(Looper.getMainLooper());
-        this.f54647b = new Handler(Looper.myLooper());
-        this.f54648c = new ConcurrentHashMap<>();
-        this.f54649d = new ConcurrentHashMap<>();
-        this.f54650e = new ConcurrentHashMap<>();
-        this.f54651f = new Vector<>();
-        this.f54646a.sendEmptyMessage(10002);
+        this.f58335a = null;
+        this.f58336b = null;
+        this.f58337c = null;
+        this.f58338d = null;
+        this.f58339e = null;
+        this.f58340f = null;
+        this.f58335a = new HandlerC1377a(Looper.getMainLooper());
+        this.f58336b = new Handler(Looper.myLooper());
+        this.f58337c = new ConcurrentHashMap<>();
+        this.f58338d = new ConcurrentHashMap<>();
+        this.f58339e = new ConcurrentHashMap<>();
+        this.f58340f = new Vector<>();
+        this.f58335a.sendEmptyMessage(10002);
     }
 
     public static a i() {
-        if (f54645h == null) {
+        if (f58334h == null) {
             synchronized (a.class) {
-                if (f54645h == null) {
-                    f54645h = new a();
+                if (f58334h == null) {
+                    f58334h = new a();
                 }
             }
         }
-        return f54645h;
+        return f58334h;
     }
 
     public final void g(long j, long j2, int i2, long j3) {
-        GroupMsgData groupMsgData = this.f54648c.get(Long.valueOf(j2));
+        GroupMsgData groupMsgData = this.f58337c.get(Long.valueOf(j2));
         if (groupMsgData == null) {
             return;
         }
         LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
         if (listMessage != null && listMessage.size() != 0) {
-            if (this.f54650e.containsKey(Long.valueOf(j2))) {
+            if (this.f58339e.containsKey(Long.valueOf(j2))) {
                 return;
             }
             p(j, j2, i2, j3);
@@ -185,40 +185,40 @@ public class a {
     }
 
     public void h() {
-        Handler handler = this.f54646a;
+        Handler handler = this.f58335a;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
-        Handler handler2 = this.f54647b;
+        Handler handler2 = this.f58336b;
         if (handler2 != null) {
             handler2.removeCallbacksAndMessages(null);
         }
-        ConcurrentHashMap<Long, Runnable> concurrentHashMap = this.f54650e;
+        ConcurrentHashMap<Long, Runnable> concurrentHashMap = this.f58339e;
         if (concurrentHashMap != null) {
             for (Map.Entry<Long, Runnable> entry : concurrentHashMap.entrySet()) {
                 q(entry.getKey().longValue());
             }
-            this.f54650e.clear();
+            this.f58339e.clear();
         }
-        ConcurrentHashMap<Long, GroupMsgData> concurrentHashMap2 = this.f54648c;
+        ConcurrentHashMap<Long, GroupMsgData> concurrentHashMap2 = this.f58337c;
         if (concurrentHashMap2 != null) {
             concurrentHashMap2.clear();
         }
-        Vector<Long> vector = this.f54651f;
+        Vector<Long> vector = this.f58340f;
         if (vector != null) {
             vector.clear();
         }
     }
 
     public NewpushGroupRepair j(long j) {
-        if (this.f54649d.containsKey(Long.valueOf(j))) {
-            return this.f54649d.remove(Long.valueOf(j));
+        if (this.f58338d.containsKey(Long.valueOf(j))) {
+            return this.f58338d.remove(Long.valueOf(j));
         }
         return null;
     }
 
     public final List<ChatMessage> k(long j) {
-        GroupMsgData groupMsgData = this.f54648c.get(Long.valueOf(j));
+        GroupMsgData groupMsgData = this.f58337c.get(Long.valueOf(j));
         LinkedList linkedList = null;
         if (groupMsgData == null) {
             return null;
@@ -283,7 +283,7 @@ public class a {
         long groupId = groupMsgData.getGroupInfo().getGroupId();
         ImMessageCenterPojo g2 = j.f().g(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
         if (!(g2 != null)) {
-            if (this.f54651f.contains(Long.valueOf(groupId))) {
+            if (this.f58340f.contains(Long.valueOf(groupId))) {
                 return;
             }
             n(groupMsgData, listMessage, groupId);
@@ -291,10 +291,10 @@ public class a {
         }
         long sid = g2.getSid();
         long c2 = d.a.n0.f1.w.b.c(g2.getPulled_msgId());
-        GroupMsgData groupMsgData2 = this.f54648c.get(Long.valueOf(groupId));
+        GroupMsgData groupMsgData2 = this.f58337c.get(Long.valueOf(groupId));
         if (groupMsgData2 == null) {
             groupMsgData2 = new GroupMsgData(groupMsgData.getCmd());
-            this.f54648c.put(Long.valueOf(groupId), groupMsgData2);
+            this.f58337c.put(Long.valueOf(groupId), groupMsgData2);
         }
         Iterator<ChatMessage> it = listMessage.iterator();
         while (it.hasNext()) {
@@ -314,9 +314,9 @@ public class a {
                 j2 = listMessage.get(listMessage.size() - 1).getMsgId();
                 j = sid2;
                 if (z) {
-                    this.f54651f.remove(Long.valueOf(groupId));
+                    this.f58340f.remove(Long.valueOf(groupId));
                 }
-                if (this.f54651f.contains(Long.valueOf(groupId))) {
+                if (this.f58340f.contains(Long.valueOf(groupId))) {
                     g(j, groupId, groupMsgData.getGroupInfo().getUserType(), j2);
                     return;
                 }
@@ -327,7 +327,7 @@ public class a {
         j2 = c2;
         if (z) {
         }
-        if (this.f54651f.contains(Long.valueOf(groupId))) {
+        if (this.f58340f.contains(Long.valueOf(groupId))) {
         }
     }
 
@@ -339,15 +339,15 @@ public class a {
         bundle.putLong(TbEnum.SystemMessage.KEY_GROUP_ID, j);
         bundle.putLong("lastMid", linkedList.get(0).getMsgId());
         if (linkedList.get(0).getSid() > 0) {
-            this.f54649d.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+            this.f58338d.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
         }
         bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
         Message message = new Message();
         message.what = 10001;
         message.setData(bundle);
-        this.f54646a.sendMessage(message);
+        this.f58335a.sendMessage(message);
         linkedList.clear();
-        this.f54651f.add(Long.valueOf(j));
+        this.f58340f.add(Long.valueOf(j));
         o(j);
     }
 
@@ -357,19 +357,19 @@ public class a {
         Bundle bundle = new Bundle();
         bundle.putLong(TbEnum.SystemMessage.KEY_GROUP_ID, j);
         message.setData(bundle);
-        this.f54646a.sendMessageDelayed(message, 3000L);
+        this.f58335a.sendMessageDelayed(message, 3000L);
     }
 
     public final void p(long j, long j2, int i2, long j3) {
         b bVar = new b(j2, j, i2, j3);
-        this.f54647b.postDelayed(bVar, d.a.n0.f1.o.b.a().b().b());
-        this.f54650e.put(Long.valueOf(j2), bVar);
+        this.f58336b.postDelayed(bVar, d.a.n0.f1.o.b.a().b().b());
+        this.f58339e.put(Long.valueOf(j2), bVar);
     }
 
     public final void q(long j) {
-        Runnable remove = this.f54650e.remove(Long.valueOf(j));
+        Runnable remove = this.f58339e.remove(Long.valueOf(j));
         if (remove != null) {
-            this.f54647b.removeCallbacks(remove);
+            this.f58336b.removeCallbacks(remove);
         }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.google.gson.JsonArray;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
     public List<Object> mOriginDatas;
 

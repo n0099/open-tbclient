@@ -16,7 +16,7 @@ public class b extends d.a.l0.a.v1.a.a.a {
         /* renamed from: a */
         public void onCallback(Bundle bundle) {
             if (bundle != null) {
-                b.this.f45272d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
+                b.this.f48946d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
             }
             b.this.c();
         }
@@ -24,23 +24,23 @@ public class b extends d.a.l0.a.v1.a.a.a {
 
     /* renamed from: d.a.l0.b.n.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0956b implements c {
+    public class C1012b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f46395a;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f50069a;
 
-        public C0956b(d.a.l0.a.v2.e1.b bVar) {
-            this.f46395a = bVar;
+        public C1012b(d.a.l0.a.v2.e1.b bVar) {
+            this.f50069a = bVar;
         }
 
         @Override // d.a.l0.b.n.g.c
         public void a(QuickLoginInfo quickLoginInfo) {
             if (quickLoginInfo == null) {
-                this.f46395a.onCallback(null);
+                this.f50069a.onCallback(null);
                 return;
             }
-            b.this.f45272d.putParcelable("quick_login_info_result", quickLoginInfo);
-            this.f46395a.onCallback(b.this.f45272d);
+            b.this.f48946d.putParcelable("quick_login_info_result", quickLoginInfo);
+            this.f50069a.onCallback(b.this.f48946d);
         }
     }
 
@@ -50,6 +50,6 @@ public class b extends d.a.l0.a.v1.a.a.a {
     }
 
     public void e(d.a.l0.a.v2.e1.b<Bundle> bVar) {
-        f.a(new C0956b(bVar));
+        f.a(new C1012b(bVar));
     }
 }

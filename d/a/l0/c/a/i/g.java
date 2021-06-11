@@ -10,31 +10,31 @@ import kotlin.jvm.internal.Intrinsics;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f46483a;
+    public int f50157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f46484b;
+    public volatile int f50158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f46485c;
+    public Integer f50159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Integer f46486d;
+    public Integer f50160d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Integer f46487e;
+    public Integer f50161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Integer f46488f;
+    public Integer f50162f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f46489g;
+    public byte[] f50163g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f46490h;
+    public byte[] f50164h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f46491i;
+    public long f50165i;
     public byte[] j;
 
     public g() {
@@ -42,44 +42,44 @@ public final class g {
     }
 
     public g(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3) {
-        this.f46485c = num;
-        this.f46486d = num2;
-        this.f46487e = num3;
-        this.f46488f = num4;
-        this.f46489g = bArr;
-        this.f46490h = bArr2;
-        this.f46491i = j;
+        this.f50159c = num;
+        this.f50160d = num2;
+        this.f50161e = num3;
+        this.f50162f = num4;
+        this.f50163g = bArr;
+        this.f50164h = bArr2;
+        this.f50165i = j;
         this.j = bArr3;
     }
 
     public final void a() {
-        if (k.f43199a) {
-            Log.d("BDTLS", "Recovery: add recoveryCount: " + this.f46484b);
+        if (k.f46875a) {
+            Log.d("BDTLS", "Recovery: add recoveryCount: " + this.f50158b);
         }
-        this.f46484b++;
+        this.f50158b++;
     }
 
     public final boolean b() {
-        return this.f46484b < 3;
+        return this.f50158b < 3;
     }
 
     public final byte[] c() {
-        return this.f46489g;
+        return this.f50163g;
     }
 
     public final Integer d() {
-        return this.f46485c;
+        return this.f50159c;
     }
 
     public final Integer e() {
-        return this.f46487e;
+        return this.f50161e;
     }
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                return Intrinsics.areEqual(this.f46485c, gVar.f46485c) && Intrinsics.areEqual(this.f46486d, gVar.f46486d) && Intrinsics.areEqual(this.f46487e, gVar.f46487e) && Intrinsics.areEqual(this.f46488f, gVar.f46488f) && Intrinsics.areEqual(this.f46489g, gVar.f46489g) && Intrinsics.areEqual(this.f46490h, gVar.f46490h) && this.f46491i == gVar.f46491i && Intrinsics.areEqual(this.j, gVar.j);
+                return Intrinsics.areEqual(this.f50159c, gVar.f50159c) && Intrinsics.areEqual(this.f50160d, gVar.f50160d) && Intrinsics.areEqual(this.f50161e, gVar.f50161e) && Intrinsics.areEqual(this.f50162f, gVar.f50162f) && Intrinsics.areEqual(this.f50163g, gVar.f50163g) && Intrinsics.areEqual(this.f50164h, gVar.f50164h) && this.f50165i == gVar.f50165i && Intrinsics.areEqual(this.j, gVar.j);
             }
             return false;
         }
@@ -87,78 +87,78 @@ public final class g {
     }
 
     public final Integer f() {
-        return this.f46486d;
+        return this.f50160d;
     }
 
     public final Integer g() {
-        return this.f46488f;
+        return this.f50162f;
     }
 
     public final int h() {
-        return this.f46483a;
+        return this.f50157a;
     }
 
     public int hashCode() {
-        Integer num = this.f46485c;
+        Integer num = this.f50159c;
         int hashCode = (num != null ? num.hashCode() : 0) * 31;
-        Integer num2 = this.f46486d;
+        Integer num2 = this.f50160d;
         int hashCode2 = (hashCode + (num2 != null ? num2.hashCode() : 0)) * 31;
-        Integer num3 = this.f46487e;
+        Integer num3 = this.f50161e;
         int hashCode3 = (hashCode2 + (num3 != null ? num3.hashCode() : 0)) * 31;
-        Integer num4 = this.f46488f;
+        Integer num4 = this.f50162f;
         int hashCode4 = (hashCode3 + (num4 != null ? num4.hashCode() : 0)) * 31;
-        byte[] bArr = this.f46489g;
+        byte[] bArr = this.f50163g;
         int hashCode5 = (hashCode4 + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31;
-        byte[] bArr2 = this.f46490h;
+        byte[] bArr2 = this.f50164h;
         int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-        long j = this.f46491i;
+        long j = this.f50165i;
         int i2 = (((hashCode5 + hashCode6) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
         byte[] bArr3 = this.j;
         return i2 + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
     }
 
     public final byte[] i() {
-        return this.f46490h;
+        return this.f50164h;
     }
 
     public final synchronized boolean j() {
         boolean z;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         z = false;
-        if (this.f46489g != null && this.f46490h != null && this.f46491i > currentTimeMillis && this.f46483a == 1) {
+        if (this.f50163g != null && this.f50164h != null && this.f50165i > currentTimeMillis && this.f50157a == 1) {
             z = true;
         }
-        if (d.a.l0.c.a.a.f46449a) {
-            Log.d("BDTLS", "isSessionEnable " + this.f46489g + ' ' + this.f46490h + ' ' + this.f46491i + ' ' + this.f46483a);
+        if (d.a.l0.c.a.a.f50123a) {
+            Log.d("BDTLS", "isSessionEnable " + this.f50163g + ' ' + this.f50164h + ' ' + this.f50165i + ' ' + this.f50157a);
         }
         return z;
     }
 
     public final void k() {
-        if (k.f43199a) {
-            Log.d("BDTLS", "Downgrade: reset downgrade count " + this.f46484b);
+        if (k.f46875a) {
+            Log.d("BDTLS", "Downgrade: reset downgrade count " + this.f50158b);
         }
-        this.f46484b = 0;
+        this.f50158b = 0;
     }
 
     public final void l(byte[] bArr) {
-        this.f46489g = bArr;
+        this.f50163g = bArr;
     }
 
     public final void m(Integer num) {
-        this.f46485c = num;
+        this.f50159c = num;
     }
 
     public final void n(Integer num) {
-        this.f46487e = num;
+        this.f50161e = num;
     }
 
     public final void o(Integer num) {
-        this.f46486d = num;
+        this.f50160d = num;
     }
 
     public final void p(Integer num) {
-        this.f46488f = num;
+        this.f50162f = num;
     }
 
     public final void q(byte[] bArr) {
@@ -166,19 +166,19 @@ public final class g {
     }
 
     public final void r(long j) {
-        this.f46491i = j;
+        this.f50165i = j;
     }
 
     public final void s(int i2) {
-        this.f46483a = i2;
+        this.f50157a = i2;
     }
 
     public final void t(byte[] bArr) {
-        this.f46490h = bArr;
+        this.f50164h = bArr;
     }
 
     public String toString() {
-        return "SessionParams(dhGroupId=" + this.f46485c + ", dhSecretKey=" + this.f46486d + ", dhPublicKey=" + this.f46487e + ", dhServerPublicKey=" + this.f46488f + ", aesSecretKey=" + Arrays.toString(this.f46489g) + ", sessionTicket=" + Arrays.toString(this.f46490h) + ", expireTime=" + this.f46491i + ", entryType=" + Arrays.toString(this.j) + SmallTailInfo.EMOTION_SUFFIX;
+        return "SessionParams(dhGroupId=" + this.f50159c + ", dhSecretKey=" + this.f50160d + ", dhPublicKey=" + this.f50161e + ", dhServerPublicKey=" + this.f50162f + ", aesSecretKey=" + Arrays.toString(this.f50163g) + ", sessionTicket=" + Arrays.toString(this.f50164h) + ", expireTime=" + this.f50165i + ", entryType=" + Arrays.toString(this.j) + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public /* synthetic */ g(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3, int i2, DefaultConstructorMarker defaultConstructorMarker) {

@@ -9,10 +9,10 @@ import d.a.j.f;
 public final class Util {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2564a = false;
+    public static final boolean f2583a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2565b = "Util";
+    public static final String f2584b = "Util";
 
     public static boolean hasOtherServiceRuninMyPid(Context context, String str) {
         for (ActivityManager.RunningServiceInfo runningServiceInfo : ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getRunningServices(100)) {

@@ -15,7 +15,7 @@ import com.baidu.tieba.faceshop.emotiondetail.message.EmotionDetailResponseMessa
 public class EmotionDetailModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f14855e = new a(CmdConfigHttp.CMD_EMOTION_DETAIL);
+    public HttpMessageListener f14912e = new a(CmdConfigHttp.CMD_EMOTION_DETAIL);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -38,9 +38,9 @@ public class EmotionDetailModel extends BdBaseModel {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.EMOTION_DETAIL);
         tbHttpMessageTask.setResponsedClass(EmotionDetailResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.f14855e.setTag(getUniqueId());
-        this.f14855e.setSelfListener(true);
-        registerListener(this.f14855e);
+        this.f14912e.setTag(getUniqueId());
+        this.f14912e.setSelfListener(true);
+        registerListener(this.f14912e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -51,11 +51,11 @@ public class EmotionDetailModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_DETAIL);
-        MessageManager.getInstance().unRegisterListener(this.f14855e);
+        MessageManager.getInstance().unRegisterListener(this.f14912e);
         return true;
     }
 
-    public void u(long j, int i2) {
+    public void y(long j, int i2) {
         if (j >= 0 || i2 >= 0) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_DETAIL);
             httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j);

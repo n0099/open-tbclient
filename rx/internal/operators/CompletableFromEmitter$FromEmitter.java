@@ -6,7 +6,7 @@ import h.n.d;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements k {
     public static final long serialVersionUID = 5539301318568668881L;
     public final c actual;

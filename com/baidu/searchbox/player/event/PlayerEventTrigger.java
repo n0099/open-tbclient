@@ -19,7 +19,7 @@ public class PlayerEventTrigger extends AbsEventTrigger {
     private void initAttentionArray() {
         this.mAttentionEventArray.add(904);
         this.mAttentionEventArray.add(701);
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BUFFERING_END));
+        this.mAttentionEventArray.add(702);
         this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_EXTEND_VIDEO_CACHE_PROGRESS));
         this.mAttentionEventArray.add(924);
         this.mAttentionEventArray.add(5000);

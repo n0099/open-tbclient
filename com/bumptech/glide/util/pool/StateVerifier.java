@@ -1,11 +1,11 @@
 package com.bumptech.glide.util.pool;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class StateVerifier {
     public static final boolean DEBUG = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class DebugStateVerifier extends StateVerifier {
         public volatile RuntimeException recycledAtStackTraceException;
 
@@ -30,7 +30,7 @@ public abstract class StateVerifier {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultStateVerifier extends StateVerifier {
         public volatile boolean isReleased;
 

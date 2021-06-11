@@ -14,38 +14,38 @@ import d.a.n0.t2.y;
 public class b extends e {
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f61176g;
+    public HeadImageView f64868g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f61177h;
+    public TextView f64869h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f61178i;
+    public TextView f64870i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f61179e;
+        public final /* synthetic */ f f64871e;
 
         public a(f fVar) {
-            this.f61179e = fVar;
+            this.f64871e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            Context context = b.this.f61190b.getContext();
-            f fVar = this.f61179e;
-            String str = fVar.f61080d;
-            String str2 = fVar.f61082f;
-            AdvertAppInfo advertAppInfo = b.this.f61192d;
-            y.d(context, str, str2, advertAppInfo != null ? advertAppInfo.N3 : "");
-            d.a.n0.t2.i0.c cVar = b.this.f61191c;
+            Context context = b.this.f64882b.getContext();
+            f fVar = this.f64871e;
+            String str = fVar.f64772d;
+            String str2 = fVar.f64774f;
+            AdvertAppInfo advertAppInfo = b.this.f64884d;
+            y.d(context, str, str2, advertAppInfo != null ? advertAppInfo.Q3 : "");
+            d.a.n0.t2.i0.c cVar = b.this.f64883c;
             if (cVar != null) {
                 cVar.i(302);
-                d.a.n0.t2.i0.e.b().d(b.this.f61191c);
+                d.a.n0.t2.i0.e.b().d(b.this.f64883c);
             }
-            d.a.n0.k1.o.h.b bVar = b.this.f61193e;
+            d.a.n0.k1.o.h.b bVar = b.this.f64885e;
             if (bVar != null) {
                 d.a.n0.k1.o.h.c.h(bVar);
             }
@@ -60,28 +60,28 @@ public class b extends e {
     @Override // d.a.n0.t2.j0.e
     public void c() {
         super.c();
-        SkinManager.setViewTextColor(this.f61177h, R.color.CAM_X0620, 1);
-        SkinManager.setViewTextColor(this.f61178i, R.color.CAM_X0101, 1);
-        SkinManager.setBackgroundResource(this.f61178i, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(this.f64869h, R.color.CAM_X0620, 1);
+        SkinManager.setViewTextColor(this.f64870i, R.color.CAM_X0101, 1);
+        SkinManager.setBackgroundResource(this.f64870i, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.t2.j0.e
     public void d(f fVar) {
         super.d(fVar);
-        this.f61176g.V(fVar.f61079c, 10, false);
-        this.f61177h.setText(fVar.f61078b);
-        this.f61178i.setText(fVar.f61081e);
-        this.f61190b.setOnClickListener(new a(fVar));
+        this.f64868g.U(fVar.f64771c, 10, false);
+        this.f64869h.setText(fVar.f64770b);
+        this.f64870i.setText(fVar.f64773e);
+        this.f64882b.setOnClickListener(new a(fVar));
         c();
     }
 
     public final void m() {
         HeadImageView headImageView = (HeadImageView) b(R.id.user_portrait);
-        this.f61176g = headImageView;
+        this.f64868g = headImageView;
         headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.f61176g.setDefaultBgResource(R.color.CAM_X0205);
-        this.f61176g.setIsRound(true);
-        this.f61177h = (TextView) b(R.id.user_name);
-        this.f61178i = (TextView) b(R.id.action);
+        this.f64868g.setDefaultBgResource(R.color.CAM_X0205);
+        this.f64868g.setIsRound(true);
+        this.f64869h = (TextView) b(R.id.user_name);
+        this.f64870i = (TextView) b(R.id.action);
     }
 }

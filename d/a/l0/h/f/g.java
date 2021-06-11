@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class g implements d.a.l0.a.p.b.a.f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47357a = k.f43199a;
+    public static final boolean f51031a = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f47358b = g.class.getSimpleName();
+    public static final String f51032b = g.class.getSimpleName();
 
     /* loaded from: classes3.dex */
     public class a extends d.a.l0.h.f.k.a {
@@ -43,8 +43,8 @@ public class g implements d.a.l0.a.p.b.a.f {
 
         @Override // d.a.l0.h.f.b
         public void a(boolean z) {
-            if (g.f47357a) {
-                String str = g.f47358b;
+            if (g.f51031a) {
+                String str = g.f51032b;
                 Log.d(str, "download sConsole result: " + z);
             }
         }

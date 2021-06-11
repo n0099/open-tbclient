@@ -5,7 +5,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import d.a.c.e.p.j;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.f0.f;
 import d.a.n0.p0.c.d;
 import d.a.n0.r0.c1;
@@ -48,7 +48,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 ForumMemberActivity.this.mView.f(ForumMemberActivity.this.mListViewData);
             } else if (!ListUtils.isEmpty(ForumMemberActivity.this.mListViewData) || c1Var == null) {
             } else {
-                ForumMemberActivity.this.mView.l(c1Var.f58408f);
+                ForumMemberActivity.this.mView.l(c1Var.f62099f);
             }
         }
     }
@@ -84,14 +84,14 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
         z0 z0Var = new z0();
         this.mPageInfo = z0Var;
-        z0Var.f59870b = this.mForumId;
-        z0Var.f59869a = this.mForumName;
+        z0Var.f63561b = this.mForumId;
+        z0Var.f63560a = this.mForumName;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startFirstTimeLoad() {
         this.mView.k();
-        this.mModel.m(3, 0, this.mPageInfo);
+        this.mModel.q(3, 0, this.mPageInfo);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -111,14 +111,14 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         this.mModel = dVar;
         dVar.E(getUniqueId());
         this.mModel.init();
-        this.mModel.p(this.mCallback);
+        this.mModel.t(this.mCallback);
         startFirstTimeLoad();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.mModel.e();
+        this.mModel.g();
         d.a.n0.p0.c.o.b bVar = this.mView;
         if (bVar != null) {
             bVar.i();
@@ -127,7 +127,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
 
     @Override // d.a.m0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
-        this.mModel.m(3, 0, this.mPageInfo);
+        this.mModel.q(3, 0, this.mPageInfo);
     }
 
     @Override // com.baidu.tbadk.BaseActivity

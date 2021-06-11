@@ -60,7 +60,7 @@ public class LiveNPSPluginManager {
     public static final String NEW_ON_DISK_CLEAR_CACHE_CHANGE = "NEW_ON_DISK_CLEAR_CACHE_CHANGE";
     public static final String NPS_PLUGIN_IMPL_CLASS_NAME = "com.baidu.searchbox.live.LiveNPSPluginImpl";
     public static final String NPS_PLUGIN_PKG_NAME = "com.baidu.searchbox.livenps";
-    public static final String[] NPS_PLUGIN_SUB_PKG_GROUP = {YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_1, YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_2, "com.baidu.searchbox.yylive.extlib"};
+    public static final String[] NPS_PLUGIN_SUB_PKG_GROUP = {YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_1, YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_2, "com.baidu.searchbox.yylive.extlib", "com.baidu.searchbox.bjhlivenps", "com.baidu.searchbox.yylive.createlive", "com.baidu.searchbox.yylive.game", "com.baidu.searchbox.yylive.yylib", "com.baidu.searchbox.yylive.audiolive", "com.baidu.searchbox.yylive.friends"};
     public static final String PAGE_SLOT_PAGE_PLUGIN_INSTALL = "plugin_install";
     public static final String PAGE_SLOT_PAGE_PLUGIN_LOAD = "plugin_load";
     public static final String TAG = "LiveNPSPluginManager";
@@ -132,7 +132,8 @@ public class LiveNPSPluginManager {
         Flow flow;
         Flow flow2;
         this.mCurrentCallback = pluginLoadCallback;
-        final IInvokeCallback iInvokeCallback = new IInvokeCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.27
+        Log.d(TAG, "NPS load from=" + str);
+        final IInvokeCallback iInvokeCallback = new IInvokeCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.28
             @Override // com.baidu.nps.main.invoke.IInvokeCallback
             public void onResult(final int i2, final String str2, final Object obj) {
                 if (LiveNPSPluginManager.this.ubcManager != null && LiveNPSPluginManager.this.pageFlow != null) {
@@ -145,7 +146,7 @@ public class LiveNPSPluginManager {
                 if (pluginLoadCallback != null) {
                     final String str3 = LiveNPSPluginManager.this.fromDownLoad ? "download" : "install";
                     if (Looper.myLooper() != Looper.getMainLooper()) {
-                        LiveNPSPluginManager.this.handler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.27.1
+                        LiveNPSPluginManager.this.handler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.28.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (LiveNPSPluginManager.this.mCurrentCallback != null) {
@@ -161,7 +162,7 @@ public class LiveNPSPluginManager {
                 }
             }
         };
-        IInvokeCallback iInvokeCallback2 = new IInvokeCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.28
+        IInvokeCallback iInvokeCallback2 = new IInvokeCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.29
             @Override // com.baidu.nps.main.invoke.IInvokeCallback
             public void onResult(final int i2, final String str2, final Object obj) {
                 if (LiveNPSPluginManager.this.ubcManager != null && LiveNPSPluginManager.this.pageFlow != null) {
@@ -173,7 +174,7 @@ public class LiveNPSPluginManager {
                 liveNPSPluginManager.logPluginEnd(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, pluginInstallVersion, z2, "load code" + i2, "nps_load", str);
                 if (pluginLoadCallback != null) {
                     if (Looper.myLooper() != Looper.getMainLooper()) {
-                        LiveNPSPluginManager.this.handler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.28.1
+                        LiveNPSPluginManager.this.handler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.29.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (LiveNPSPluginManager.this.mCurrentCallback != null) {
@@ -200,7 +201,7 @@ public class LiveNPSPluginManager {
             Log.d(TAG, "start load Class t=" + System.currentTimeMillis());
             NPSManager.getInstance().loadClazz(NPS_PLUGIN_PKG_NAME, NPS_PLUGIN_IMPL_CLASS_NAME, ILiveNPSPlugin.class, iInvokeCallback2);
             if (z) {
-                NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new a() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.29
+                NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new a() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.30
                     @Override // d.a.z.d.a.a
                     public void onProgress(long j, long j2) {
                     }
@@ -208,7 +209,7 @@ public class LiveNPSPluginManager {
                     @Override // d.a.z.d.a.a
                     public void onResult(int i2, String str2) {
                     }
-                }, new d.a.z.f.a() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.30
+                }, new d.a.z.f.a() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.31
                     @Override // d.a.z.f.a
                     public void checkAuthorization(IBundleInfo iBundleInfo, int i2, b bVar) {
                         if (bVar != null) {
@@ -230,7 +231,7 @@ public class LiveNPSPluginManager {
         }
         this.fromDownLoad = false;
         Log.d(TAG, "start install bundle t=" + System.currentTimeMillis());
-        NPSPackageManager.getInstance().installBundle(NPS_PLUGIN_PKG_NAME, new IInstallCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.31
+        NPSPackageManager.getInstance().installBundle(NPS_PLUGIN_PKG_NAME, new IInstallCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
             @Override // com.baidu.nps.main.install.IInstallCallback
             public void onProgress(long j, long j2) {
                 LiveNPSPluginManager.this.fromDownLoad = true;
@@ -294,7 +295,7 @@ public class LiveNPSPluginManager {
                 if (z) {
                     jSONObject.put("value", "suc");
                 } else {
-                    jSONObject.put("value", "fail");
+                    jSONObject.put("value", com.baidu.pass.biometrics.face.liveness.b.b.g0);
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("pkg", str);
@@ -345,7 +346,7 @@ public class LiveNPSPluginManager {
     public void showNormalToast(final int i2, final int i3) {
         ToastService toastService;
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            this.handler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.36
+            this.handler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.37
                 @Override // java.lang.Runnable
                 public void run() {
                     if (LiveNPSPluginManager.this.appService == null || LiveNPSPluginManager.this.toastService == null) {
@@ -378,7 +379,7 @@ public class LiveNPSPluginManager {
     public void checkArSdkLoadStatus(@NonNull Context context, @NonNull final LiveNpsArStatusCallback liveNpsArStatusCallback) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_CHECK_AR, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.19
+            loadNPSPluginImpl(true, LIVE_SHOW_CHECK_AR, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.20
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -410,7 +411,7 @@ public class LiveNPSPluginManager {
     public void clearResourceFile(@NonNull final Context context) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(false, NEW_CLEAR_RESOURCE_FILE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.34
+            loadNPSPluginImpl(false, NEW_CLEAR_RESOURCE_FILE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.35
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -454,10 +455,10 @@ public class LiveNPSPluginManager {
         checkHandler();
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, YY_LIVE_ROUTER, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.26
+            loadNPSPluginImpl(true, YY_LIVE_ROUTER, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.27
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(final int i2, String str2, final Object obj, String str3) {
-                    LiveNPSPluginManager.this.mMainHandler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.26.1
+                    LiveNPSPluginManager.this.mMainHandler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.27.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Log.d(LiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
@@ -487,7 +488,7 @@ public class LiveNPSPluginManager {
     public void getLiveResourceFileSize(@NonNull final Context context, @NonNull final ILiveFileSizeCallback iLiveFileSizeCallback) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(false, NEW_GET_RESOURCE_FILE_SIZE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33
+            loadNPSPluginImpl(false, NEW_GET_RESOURCE_FILE_SIZE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.34
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -516,7 +517,7 @@ public class LiveNPSPluginManager {
     public void getLiveRoomStatus(@NonNull final String str, @NonNull final LiveStatusDataCallback<String> liveStatusDataCallback) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(false, NEW_GET_LIVE_ROOM_STATUS, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.5
+            loadNPSPluginImpl(false, NEW_GET_LIVE_ROOM_STATUS, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.6
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str2, Object obj, String str3) {
                     if (i2 == 14) {
@@ -543,7 +544,7 @@ public class LiveNPSPluginManager {
     public void getLiveSdkFileSize(@NonNull final Context context, @NonNull final ILiveFileSizeCallback iLiveFileSizeCallback) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(false, NEW_GET_LIVE_SDK_FILE_SIZE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
+            loadNPSPluginImpl(false, NEW_GET_LIVE_SDK_FILE_SIZE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -668,7 +669,7 @@ public class LiveNPSPluginManager {
         Log.d(TAG, "start DiskClearCacheChange t=" + System.currentTimeMillis());
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(false, NEW_ON_DISK_CLEAR_CACHE_CHANGE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.35
+            loadNPSPluginImpl(false, NEW_ON_DISK_CLEAR_CACHE_CHANGE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.36
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i4, String str, Object obj, String str2) {
                     Log.d(LiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
@@ -700,7 +701,7 @@ public class LiveNPSPluginManager {
     public void startAdminListActivity(@NonNull final Context context) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_ADMIN_LIST, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.14
+            loadNPSPluginImpl(true, LIVE_SHOW_ADMIN_LIST, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.15
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -732,7 +733,7 @@ public class LiveNPSPluginManager {
     public void startArSdkLoad(@NonNull Context context, @NonNull final LiveNpsArLoadCallback liveNpsArLoadCallback) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(false, LIVE_SHOW_LOAD_AR, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.20
+            loadNPSPluginImpl(false, LIVE_SHOW_LOAD_AR, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.21
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -741,7 +742,7 @@ public class LiveNPSPluginManager {
                             if (LiveNPSPluginManager.this.isLoadingCanceled || LiveNPSPluginManager.this.mLiveNPSPlugin.getLiveShowMasterEntry() == null) {
                                 return;
                             }
-                            LiveNPSPluginManager.this.mLiveNPSPlugin.getLiveShowMasterEntry().loadArSdk(new ILiveShowMasterEntry.ArSdkLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.20.1
+                            LiveNPSPluginManager.this.mLiveNPSPlugin.getLiveShowMasterEntry().loadArSdk(new ILiveShowMasterEntry.ArSdkLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.21.1
                                 @Override // com.baidu.searchbox.live.interfaces.entry.ILiveShowMasterEntry.ArSdkLoadCallback
                                 public void onProgress(int i3, int i4) {
                                     liveNpsArLoadCallback.onProgress(i3, i4);
@@ -767,7 +768,7 @@ public class LiveNPSPluginManager {
                 }
             });
         } else if (iLiveNPSPlugin.getLiveShowMasterEntry() != null) {
-            this.mLiveNPSPlugin.getLiveShowMasterEntry().loadArSdk(new ILiveShowMasterEntry.ArSdkLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.21
+            this.mLiveNPSPlugin.getLiveShowMasterEntry().loadArSdk(new ILiveShowMasterEntry.ArSdkLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.22
                 @Override // com.baidu.searchbox.live.interfaces.entry.ILiveShowMasterEntry.ArSdkLoadCallback
                 public void onProgress(int i2, int i3) {
                     liveNpsArLoadCallback.onProgress(i2, i3);
@@ -816,7 +817,7 @@ public class LiveNPSPluginManager {
     public void startFansListActivity(@NonNull final Context context, @NonNull final String str, final int i2) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_FANS_LIST, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.10
+            loadNPSPluginImpl(true, LIVE_SHOW_FANS_LIST, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.11
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i3, String str2, Object obj, String str3) {
                     if (i3 == 14) {
@@ -846,7 +847,7 @@ public class LiveNPSPluginManager {
     public void startForbiddenListActivity(@NonNull final Context context) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_FORBIDDEN_LIST, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.15
+            loadNPSPluginImpl(true, LIVE_SHOW_FORBIDDEN_LIST, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.16
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -878,7 +879,7 @@ public class LiveNPSPluginManager {
     public void startGuardianListActivity(@NonNull final Context context, @NonNull final String str, @NonNull final String str2) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_GUARD_LIST, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.11
+            loadNPSPluginImpl(true, LIVE_SHOW_GUARD_LIST, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.12
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str3, Object obj, String str4) {
                     if (i2 == 14) {
@@ -910,7 +911,7 @@ public class LiveNPSPluginManager {
     public void startLiveExpActivity(@NonNull final Context context, final long j, final int i2) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_LIVE_EXP, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.12
+            loadNPSPluginImpl(true, LIVE_SHOW_LIVE_EXP, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.13
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i3, String str, Object obj, String str2) {
                     if (i3 == 14) {
@@ -974,7 +975,7 @@ public class LiveNPSPluginManager {
     public void startLiveShowActivity(@NonNull final Context context, @NonNull final String str) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_ENTER_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.6
+            loadNPSPluginImpl(true, LIVE_SHOW_ENTER_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.7
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str2, Object obj, String str3) {
                     if (i2 == 14) {
@@ -1030,10 +1031,37 @@ public class LiveNPSPluginManager {
         }
     }
 
+    public void startMasterActivityV2(@NonNull final Context context, @NonNull final String str, @NonNull final String str2) {
+        ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
+        if (iLiveNPSPlugin == null) {
+            loadNPSPluginImpl(true, NEW_CREATE_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.5
+                @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
+                public void onResult(int i2, String str3, Object obj, String str4) {
+                    if (i2 == 14) {
+                        try {
+                            LiveNPSPluginManager.this.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
+                            LiveNPSPluginManager.this.mLiveNPSPlugin.startMasterActivity(context, str, str2);
+                            return;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            return;
+                        }
+                    }
+                    LiveNPSPluginManager.this.showNormalToast(d.a.v.c.a.liveshow_plugin_impl_load_fail, 0);
+                    if (LiveNPSPluginManager.this.isDebug()) {
+                        Log.w(LiveNPSPluginManager.TAG, "load live nps plugin error=" + i2);
+                    }
+                }
+            });
+        } else {
+            iLiveNPSPlugin.startMasterActivity(context, str, str2);
+        }
+    }
+
     public void startPatronageActivity(@NonNull final Context context) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_START_PATRONAGE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.8
+            loadNPSPluginImpl(true, LIVE_SHOW_START_PATRONAGE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.9
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -1065,7 +1093,7 @@ public class LiveNPSPluginManager {
     public void startPatronsActivity(@NonNull final Context context, final String str) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_START_PATRONS, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.9
+            loadNPSPluginImpl(true, LIVE_SHOW_START_PATRONS, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.10
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str2, Object obj, String str3) {
                     if (i2 == 14) {
@@ -1097,7 +1125,7 @@ public class LiveNPSPluginManager {
     public void startPayActivity(@NonNull final Context context, @NonNull final String str) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_START_PAY, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.7
+            loadNPSPluginImpl(true, LIVE_SHOW_START_PAY, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.8
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str2, Object obj, String str3) {
                     if (i2 == 14) {
@@ -1129,7 +1157,7 @@ public class LiveNPSPluginManager {
     public void startRealAuthActivity(@NonNull final Context context, @NonNull final String str, @NonNull final String str2) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_REAL_AUTH, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.16
+            loadNPSPluginImpl(true, LIVE_SHOW_REAL_AUTH, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.17
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str3, Object obj, String str4) {
                     if (i2 == 14) {
@@ -1161,7 +1189,7 @@ public class LiveNPSPluginManager {
     public void startShowMasterActivity(@NonNull final Context context, final String str) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, LIVE_SHOW_CREATE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.13
+            loadNPSPluginImpl(true, LIVE_SHOW_CREATE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.14
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str2, Object obj, String str3) {
                     if (i2 == 14) {
@@ -1193,7 +1221,7 @@ public class LiveNPSPluginManager {
     public void startYYActivity(final Context context) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, YY_TEST_ENTER_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.22
+            loadNPSPluginImpl(true, YY_TEST_ENTER_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.23
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str, Object obj, String str2) {
                     if (i2 == 14) {
@@ -1227,10 +1255,10 @@ public class LiveNPSPluginManager {
         checkHandler();
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, YY_CUSTOMER_SERVICE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.25
+            loadNPSPluginImpl(true, YY_CUSTOMER_SERVICE, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.26
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(final int i2, String str2, final Object obj, String str3) {
-                    LiveNPSPluginManager.this.mMainHandler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.25.1
+                    LiveNPSPluginManager.this.mMainHandler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.26.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Log.d(LiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
@@ -1258,10 +1286,10 @@ public class LiveNPSPluginManager {
         checkHandler();
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, YY_FEED_BACK, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.24
+            loadNPSPluginImpl(true, YY_FEED_BACK, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.25
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(final int i2, String str2, final Object obj, String str3) {
-                    LiveNPSPluginManager.this.mMainHandler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.24.1
+                    LiveNPSPluginManager.this.mMainHandler.post(new Runnable() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.25.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Log.d(LiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
@@ -1292,7 +1320,7 @@ public class LiveNPSPluginManager {
         }
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, YY_ENTER_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.23
+            loadNPSPluginImpl(true, YY_ENTER_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.24
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str2, Object obj, String str3) {
                     Log.d(LiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
@@ -1345,7 +1373,7 @@ public class LiveNPSPluginManager {
     public void startYuYinActivity(@NonNull final Context context, @NonNull final String str, @NonNull final String str2, final Map<String, Object> map) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, YU_YIN_ENTER_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.17
+            loadNPSPluginImpl(true, YU_YIN_ENTER_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.18
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str3, Object obj, String str4) {
                     if (i2 == 14) {
@@ -1377,7 +1405,7 @@ public class LiveNPSPluginManager {
     public void startYuYinCreateLiveRoomActivity(@NonNull final Context context, final String str) {
         ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
         if (iLiveNPSPlugin == null) {
-            loadNPSPluginImpl(true, YU_YIN_CREATE_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.18
+            loadNPSPluginImpl(true, YU_YIN_CREATE_LIVE_ROOM, new PluginLoadCallback() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.19
                 @Override // com.baidu.searchbox.live.nps.LiveNPSPluginManager.PluginLoadCallback
                 public void onResult(int i2, String str2, Object obj, String str3) {
                     if (i2 == 14) {

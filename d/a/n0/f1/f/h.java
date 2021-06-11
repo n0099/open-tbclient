@@ -43,7 +43,7 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f54374a;
+    public static boolean f58063a;
 
     static {
         o.e();
@@ -137,7 +137,7 @@ public class h {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void d(Context context, View view, ChatImageWithTailView chatImageWithTailView, ChatMessage chatMessage, long j, String str) {
-        d.a.c.j.d.a m;
+        d.a.c.k.d.a m;
         String optString;
         String[] split;
         if (chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
@@ -153,14 +153,14 @@ public class h {
                 return;
             }
             if (g2.startsWith("http")) {
-                chatImageWithTailView.getImage().V(g2, 10, false);
+                chatImageWithTailView.getImage().U(g2, 10, false);
             } else {
                 try {
                     m = d.a.m0.a0.c.k().m(g2);
                     if (m == null) {
                         Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(d.a.c.e.p.d.d().c(g2));
                         if (reSizeBitmap != null) {
-                            d.a.c.j.d.a aVar = new d.a.c.j.d.a(reSizeBitmap, false);
+                            d.a.c.k.d.a aVar = new d.a.c.k.d.a(reSizeBitmap, false);
                             try {
                                 if (chatMessage.getWidth() < 1) {
                                     chatMessage.setWidth(aVar.r());
@@ -203,7 +203,7 @@ public class h {
                 if (m == null) {
                     chatImageWithTailView.getImage().Q();
                     if (chatImageWithTailView.getImage() instanceof ChatClipImageItemView) {
-                        chatImageWithTailView.getImage().e0();
+                        chatImageWithTailView.getImage().d0();
                     }
                     m.h(chatImageWithTailView.getImage());
                 } else {
@@ -221,7 +221,7 @@ public class h {
                         chatImageWithTailView.getTail().setLayoutParams(layoutParams2);
                     }
                     chatImageWithTailView.getIcon().setDefaultResource(R.drawable.tb_launcher_icon);
-                    chatImageWithTailView.getIcon().V(optString2, 10, false);
+                    chatImageWithTailView.getIcon().U(optString2, 10, false);
                     chatImageWithTailView.getFromSource().setText(optString3);
                     chatImageWithTailView.setVisibility(0);
                     chatImageWithTailView.getTail().setVisibility(0);
@@ -258,7 +258,7 @@ public class h {
                     chatImageWithTailView.getTail().setLayoutParams(layoutParams22);
                 }
                 chatImageWithTailView.getIcon().setDefaultResource(R.drawable.tb_launcher_icon);
-                chatImageWithTailView.getIcon().V(optString2, 10, false);
+                chatImageWithTailView.getIcon().U(optString2, 10, false);
                 chatImageWithTailView.getFromSource().setText(optString3);
                 chatImageWithTailView.setVisibility(0);
                 chatImageWithTailView.getTail().setVisibility(0);

@@ -13,7 +13,7 @@ import java.util.Map;
 public class c extends DataInputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final d.a.l0.a.b1.b<String, byte[]> f40805e = new a();
+    public static final d.a.l0.a.b1.b<String, byte[]> f44481e = new a();
 
     /* loaded from: classes3.dex */
     public static class a implements d.a.l0.a.b1.b<String, byte[]> {
@@ -103,7 +103,7 @@ public class c extends DataInputStream {
 
     public String s() {
         try {
-            return f40805e.call(o());
+            return f44481e.call(o());
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;
@@ -111,7 +111,7 @@ public class c extends DataInputStream {
     }
 
     public List<String> t() throws IOException {
-        return q(f40805e);
+        return q(f44481e);
     }
 
     public List<String> u(List<String> list) throws IOException {
@@ -120,6 +120,6 @@ public class c extends DataInputStream {
     }
 
     public Map<String, String> v() throws IOException {
-        return r(f40805e);
+        return r(f44481e);
     }
 }

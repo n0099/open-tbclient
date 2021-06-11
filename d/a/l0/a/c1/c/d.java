@@ -3,15 +3,15 @@ package d.a.l0.a.c1.c;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f40922a;
+    public static volatile c f44598a;
 
     public static synchronized c a() {
         c cVar;
         synchronized (d.class) {
-            if (f40922a == null) {
-                f40922a = new c();
+            if (f44598a == null) {
+                f44598a = new c();
             }
-            cVar = f40922a;
+            cVar = f44598a;
         }
         return cVar;
     }

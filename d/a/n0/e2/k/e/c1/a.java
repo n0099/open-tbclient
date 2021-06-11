@@ -7,11 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
@@ -32,27 +29,27 @@ import d.a.c.e.p.k;
 public class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f53193f = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
+    public static final String f56882f = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.a.n0.e2.k.a f53194a;
+    public final d.a.n0.e2.k.a f56883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View.OnClickListener f53195b = new View$OnClickListenerC1263a();
+    public final View.OnClickListener f56884b = new View$OnClickListenerC1319a();
 
     /* renamed from: c  reason: collision with root package name */
-    public final View.OnClickListener f53196c = new b(this);
+    public final View.OnClickListener f56885c = new b(this);
 
     /* renamed from: d  reason: collision with root package name */
-    public final View.OnClickListener f53197d = new c();
+    public final View.OnClickListener f56886d = new c();
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbRichTextView.w f53198e = new d();
+    public final TbRichTextView.w f56887e = new d();
 
     /* renamed from: d.a.n0.e2.k.e.c1.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1263a implements View.OnClickListener {
-        public View$OnClickListenerC1263a() {
+    public class View$OnClickListenerC1319a implements View.OnClickListener {
+        public View$OnClickListenerC1319a() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -123,35 +120,24 @@ public class a {
             if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                 String str6 = (String) view.getTag(R.id.tag_nick_name_activity);
                 if (!TextUtils.isEmpty(str6) && ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.f53194a.getPageContext().getPageActivity(), null, str6, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(a.this.f56883a.getPageContext().getPageActivity(), null, str6, true)));
                     return;
                 }
             }
             String str7 = view.getTag(R.id.tag_virtual_user_url) instanceof String ? (String) view.getTag(R.id.tag_virtual_user_url) : null;
             if (str7 != null) {
                 if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                    UrlManager.getInstance().dealOneLink(a.this.f53194a.getPageContext(), new String[]{str7});
+                    UrlManager.getInstance().dealOneLink(a.this.f56883a.getPageContext(), new String[]{str7});
                 }
             } else if (str2 != null) {
                 if (alaInfoData != null && (i2 == 1 || alaInfoData.live_status == 1)) {
                     if (alaInfoData.isLegalYYLiveData()) {
-                        YYLiveUtil.jumpYYLiveRoom(a.this.f53194a.getPageContext(), alaInfoData);
-                        return;
-                    } else if (alaInfoData.isChushou) {
-                        UrlManager urlManager = UrlManager.getInstance();
-                        TbPageContext pageContext = a.this.f53194a.getPageContext();
-                        urlManager.dealOneLink(pageContext, new String[]{"tiebachushou://liveroom?roomid=" + alaInfoData.thirdRoomId + "&livetype=" + alaInfoData.thirdLiveType});
-                        return;
-                    } else if (alaInfoData.live_id > 0) {
-                        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                        alaLiveInfoCoreData.liveID = alaInfoData.live_id;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_REPLY_PORTRAIT, null, false, "")));
-                        return;
-                    } else {
+                        YYLiveUtil.jumpYYLiveRoom(a.this.f56883a.getPageContext(), alaInfoData);
                         return;
                     }
+                    return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.f53194a.getPageContext().getPageActivity(), str2, str3, a.this.f53194a.getFromForumName(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(a.this.f56883a.getPageContext().getPageActivity(), str2, str3, a.this.f56883a.getFromForumName(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }
@@ -164,7 +150,7 @@ public class a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag(R.id.tag_user_id) instanceof String) {
-                d.a.m0.l.a.o(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.f53193f + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
+                d.a.m0.l.a.o(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.f56882f + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
             }
         }
@@ -180,9 +166,9 @@ public class a {
             if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                 String str = view.getTag() != null ? (String) view.getTag() : null;
                 if (str != null) {
-                    UrlManager.getInstance().dealOneLink(a.this.f53194a.getPageContext(), new String[]{str});
+                    UrlManager.getInstance().dealOneLink(a.this.f56883a.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(a.this.f53194a.getPageContext().getPageActivity(), "consume_2", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(a.this.f56883a.getPageContext().getPageActivity(), "consume_2", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             }
         }
     }
@@ -194,11 +180,11 @@ public class a {
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.w
         public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i2, int i3) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(a.this.f53194a.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i2, i3)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(a.this.f56883a.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i2, i3)));
         }
     }
 
     public a(d.a.n0.e2.k.a aVar) {
-        this.f53194a = aVar;
+        this.f56883a = aVar;
     }
 }

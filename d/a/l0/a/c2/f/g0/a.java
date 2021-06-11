@@ -8,15 +8,15 @@ import d.a.l0.a.a2.m;
 public abstract class a extends m implements d.a.l0.a.v2.e1.b<i.a> {
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41030f;
+    public int f44706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41031g;
+    public boolean f44707g;
 
     public a(h hVar) {
         super(hVar);
-        this.f41030f = 0;
-        this.f41031g = false;
+        this.f44706f = 0;
+        this.f44707g = false;
     }
 
     public static void g(String str) {
@@ -28,7 +28,7 @@ public abstract class a extends m implements d.a.l0.a.v2.e1.b<i.a> {
     public static void h(String str, int i2) {
         if (SwanAppProcessInfo.SERVICE.equals(SwanAppProcessInfo.current())) {
             a B = d.a.l0.a.a2.d.g().B();
-            B.f41030f = i2;
+            B.f44706f = i2;
             B.e(str);
             return;
         }
@@ -40,12 +40,12 @@ public abstract class a extends m implements d.a.l0.a.v2.e1.b<i.a> {
     public abstract void e(String str);
 
     public void f() {
-        if (this.f41031g) {
+        if (this.f44707g) {
             return;
         }
         d.a.l0.a.a2.b bVar = new d.a.l0.a.a2.b();
         bVar.e(this, "event_messenger_call");
         v(bVar);
-        this.f41031g = true;
+        this.f44707g = true;
     }
 }

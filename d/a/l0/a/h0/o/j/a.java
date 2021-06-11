@@ -5,15 +5,15 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f42507a;
+    public File f46183a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42508b;
+    public boolean f46184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42509c;
+    public String f46185c;
 
     public boolean a() {
-        return this.f42507a != null;
+        return this.f46183a != null;
     }
 }

@@ -59,7 +59,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     */
     private void doAgreeAndDisagree(boolean z, JSONObject jSONObject, String str) {
         a2 a2Var = new a2();
-        a2Var.T2(jSONObject);
+        a2Var.U2(jSONObject);
         AgreeData L = a2Var.L();
         int i2 = 1;
         if (z) {
@@ -114,7 +114,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
             sendMesage(i2, L);
         }
         e eVar = new e();
-        eVar.f53997b = L;
+        eVar.f57686b = L;
         if (a2Var.V() != null) {
             L.nid = a2Var.V().oriUgcNid;
         }
@@ -160,7 +160,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         final boolean[] zArr = {false};
         if (currentActivity instanceof TbPageContextSupport) {
             PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(((TbPageContextSupport) currentActivity).getPageContext());
-            pbHistoryCacheModel.K(new CacheModel.c<d.a.n0.x1.h.a>() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.1
+            pbHistoryCacheModel.O(new CacheModel.c<d.a.n0.x1.h.a>() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.1
                 @Override // com.baidu.tbadk.mvc.model.CacheModel.c
                 public void onCacheDataGet(ReadCacheRespMsg<List<d.a.n0.x1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.n0.x1.h.a> readCacheMessage) {
                     if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
@@ -180,7 +180,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.n0.x1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.n0.x1.h.a> writeCacheMessage) {
                 }
             });
-            pbHistoryCacheModel.H();
+            pbHistoryCacheModel.L();
         }
     }
 
@@ -221,8 +221,8 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         if (result2.get("item") != null) {
             JSONObject optJSONObject = new JSONObject((HashMap) result2.get("item")).optJSONObject("item");
             a2 a2Var = new a2();
-            a2Var.T2(optJSONObject);
-            v0 h2 = a2Var.h();
+            a2Var.U2(optJSONObject);
+            v0 c2 = a2Var.c();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
                 ViewGroup viewGroup = (ViewGroup) currentActivity.getWindow().getDecorView().findViewById(16908290);
@@ -254,7 +254,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     public void onNEGFeedbackWindowShow(v0 v0Var) {
                     }
                 });
-                this.mNegFeedBackItem.a(h2);
+                this.mNegFeedBackItem.a(c2);
                 int k = l.k(tbPageContextSupport.getPageContext().getPageActivity());
                 if (Build.VERSION.SDK_INT >= 11) {
                     this.mNegFeedBackItem.b().setY(round - l.e(tbPageContextSupport.getPageContext().getPageActivity(), 16.0f));

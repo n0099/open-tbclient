@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ExceptionCatchingInputStream extends InputStream {
     public static final Queue<ExceptionCatchingInputStream> QUEUE = Util.createQueue(0);
     public IOException exception;

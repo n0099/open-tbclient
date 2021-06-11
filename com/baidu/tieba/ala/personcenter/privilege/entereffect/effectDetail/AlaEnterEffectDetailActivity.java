@@ -32,20 +32,20 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public d.a.n0.v.j.g.d.b mPreViewController;
     public String mSelectedEffectId;
     public d.a.n0.v.j.g.b mTDouBuyController;
-    public b.InterfaceC1679b mModelCallback = new a();
+    public b.InterfaceC1736b mModelCallback = new a();
     public a.b mViewClickListener = new e();
 
     /* loaded from: classes4.dex */
-    public class a implements b.InterfaceC1679b {
+    public class a implements b.InterfaceC1736b {
         public a() {
         }
 
-        @Override // d.a.n0.v.j.g.d.e.b.InterfaceC1679b
+        @Override // d.a.n0.v.j.g.d.e.b.InterfaceC1736b
         public void a(String str) {
             AlaEnterEffectDetailActivity.this.showToast(str);
         }
 
-        @Override // d.a.n0.v.j.g.d.e.b.InterfaceC1679b
+        @Override // d.a.n0.v.j.g.d.e.b.InterfaceC1736b
         public void b(boolean z) {
             if (AlaEnterEffectDetailActivity.this.mData != null) {
                 AlaEnterEffectDetailActivity.this.showToast(R.string.operation_success);

@@ -19,68 +19,68 @@ public abstract class a extends BaseCardInfo implements d.a.m0.b.f.l {
     public SparseArray<String> feedBackReasonMap = null;
 
     @Override // d.a.m0.b.f.l
-    public void e(BdUniqueId bdUniqueId, d.a.m0.b.e eVar) {
+    public void b(BdUniqueId bdUniqueId, d.a.m0.b.e eVar) {
         if (bdUniqueId == null) {
             return;
         }
         this.mABTestMap.put(bdUniqueId, eVar);
     }
 
-    public abstract v0 h();
+    public abstract v0 c();
 
-    public String l() {
+    public String g() {
         return null;
     }
 
-    public abstract a2 m();
+    public abstract a2 i();
 
-    public boolean p() {
-        a2 m = m();
-        if (m == null) {
+    public boolean k() {
+        a2 i2 = i();
+        if (i2 == null) {
             return false;
         }
-        return m.p();
+        return i2.k();
     }
 
-    public boolean s() {
-        return ThreadCardUtils.isSelf(m());
+    public boolean o() {
+        return ThreadCardUtils.isSelf(i());
+    }
+
+    public boolean p() {
+        a2 i2 = i();
+        if (i2 == null) {
+            return false;
+        }
+        return i2.V1 || i2.W1 || i2.Z1 || i2.X1 || i2.a2 || i2.Y1;
+    }
+
+    public boolean q() {
+        a2 i2 = i();
+        if (i2 == null) {
+            return false;
+        }
+        return i2.W1 || i2.Z1 || i2.H2();
     }
 
     public boolean t() {
-        a2 m = m();
-        if (m == null) {
+        a2 i2 = i();
+        if (i2 == null) {
             return false;
         }
-        return m.U1 || m.V1 || m.X1 || m.W1 || m.Y1;
-    }
-
-    public boolean u() {
-        a2 m = m();
-        if (m == null) {
-            return false;
-        }
-        return m.V1 || m.X1 || (m.G2() && !m.U1);
-    }
-
-    public boolean v() {
-        a2 m = m();
-        if (m == null) {
-            return false;
-        }
-        return m.V1 || m.X1 || m.U1;
+        return i2.W1 || i2.Z1 || i2.V1;
     }
 
     public boolean w() {
-        a2 m = m();
-        if (m == null || m.T() == null || ThreadCardUtils.isSelf(m)) {
+        a2 i2 = i();
+        if (i2 == null || i2.T() == null || ThreadCardUtils.isSelf(i2)) {
             return false;
         }
-        boolean z = m.V1() || m.Q1() || m.T1();
-        if ((!m.U1 || (!z && !m.G2())) && (!m.W1 || (!z && !m.G2()))) {
-            if (!m.p()) {
+        boolean z = i2.W1() || i2.R1() || i2.U1();
+        if ((!i2.V1 || (!z && !i2.H2())) && ((!i2.X1 || (!z && !i2.H2())) && (!i2.k() || (!z && !i2.H2())))) {
+            if (!i2.Y1) {
                 return false;
             }
-            if (!z && !m.G2()) {
+            if (!z && !i2.H2()) {
                 return false;
             }
         }

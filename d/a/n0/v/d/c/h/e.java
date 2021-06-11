@@ -16,21 +16,21 @@ public class e extends d.a.n0.z.b<d.a.n0.v.d.c.e.e> {
         if (z) {
             this.m = new g(tbPageContext, i2);
             this.n = new g(tbPageContext, i2);
-            t();
+            u();
             return;
         }
         this.m = new f(tbPageContext, i2);
         this.n = new f(tbPageContext, i2);
-        s();
+        t();
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.tab_recommend_list_live_row;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         this.m.onChangeSkinType(tbPageContext, i2);
         this.n.onChangeSkinType(tbPageContext, i2);
     }
@@ -39,8 +39,8 @@ public class e extends d.a.n0.z.b<d.a.n0.v.d.c.e.e> {
     public void onClick(View view) {
     }
 
-    public final void s() {
-        this.o = (ViewGroup) l();
+    public final void t() {
+        this.o = (ViewGroup) m();
         View view = new View(b());
         this.o.setPadding(k().getResources().getDimensionPixelSize(R.dimen.tbds44), k().getResources().getDimensionPixelSize(R.dimen.tbds12), k().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
         this.o.addView(this.m.getView());
@@ -48,8 +48,8 @@ public class e extends d.a.n0.z.b<d.a.n0.v.d.c.e.e> {
         this.o.addView(this.n.getView());
     }
 
-    public final void t() {
-        this.o = (ViewGroup) l();
+    public final void u() {
+        this.o = (ViewGroup) m();
         View view = new View(b());
         this.o.setPadding(k().getResources().getDimensionPixelSize(R.dimen.tbds34), k().getResources().getDimensionPixelSize(R.dimen.tbds21), k().getResources().getDimensionPixelSize(R.dimen.tbds34), 0);
         this.o.addView(this.m.getView());
@@ -59,11 +59,11 @@ public class e extends d.a.n0.z.b<d.a.n0.v.d.c.e.e> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: u */
-    public void m(d.a.n0.v.d.c.e.e eVar) {
+    /* renamed from: v */
+    public void n(d.a.n0.v.d.c.e.e eVar) {
         if (eVar != null) {
-            this.m.a(eVar.f61504e);
-            this.n.a(eVar.f61505f);
+            this.m.a(eVar.f65217e);
+            this.n.a(eVar.f65218f);
         }
     }
 }

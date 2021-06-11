@@ -12,20 +12,20 @@ public class b {
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRewardDialogView f50687e;
+        public final /* synthetic */ NewUserRewardDialogView f54364e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f50688f;
+        public final /* synthetic */ d.a.m0.r.s.a f54365f;
 
         public a(NewUserRewardDialogView newUserRewardDialogView, d.a.m0.r.s.a aVar) {
-            this.f50687e = newUserRewardDialogView;
-            this.f50688f = aVar;
+            this.f54364e = newUserRewardDialogView;
+            this.f54365f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f50687e.d();
-            this.f50688f.dismiss();
+            this.f54364e.d();
+            this.f54365f.dismiss();
         }
     }
 

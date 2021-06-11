@@ -36,11 +36,11 @@ public class Static {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                absDelegateAdapterList.add(new d.a.n0.v.i.a.c(null, a2.i3, null));
-                absDelegateAdapterList.add(new f(null, a2.h3, null));
-                absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, a2.j3, null));
-                absDelegateAdapterList.add(new d.a.n0.v.i.a.a(null, g.f53972g, null));
-                absDelegateAdapterList.add(new d(null, h.f53984f, null));
+                absDelegateAdapterList.add(new d.a.n0.v.i.a.c(null, a2.l3, null));
+                absDelegateAdapterList.add(new f(null, a2.k3, null));
+                absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, a2.m3, null));
+                absDelegateAdapterList.add(new d.a.n0.v.i.a.a(null, g.f57661g, null));
+                absDelegateAdapterList.add(new d(null, h.f57673f, null));
             }
         }
     }
@@ -56,10 +56,10 @@ public class Static {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new d.a.n0.v.i.a.c(null, a2.i3, null));
-                absDelegateAdapterList.add(new e(null, a2.h3, null));
-                absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, a2.j3, null));
-                absDelegateAdapterList.add(new e(null, h.f53984f, null));
+                absDelegateAdapterList.add(new d.a.n0.v.i.a.c(null, a2.l3, null));
+                absDelegateAdapterList.add(new e(null, a2.k3, null));
+                absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, a2.m3, null));
+                absDelegateAdapterList.add(new e(null, h.f57673f, null));
             }
         }
     }
@@ -76,7 +76,7 @@ public class Static {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
                 d.a.n0.v.i.c.a aVar = new d.a.n0.v.i.c.a();
-                aVar.h(f0Var.f58554e);
+                aVar.h(f0Var.f62245e);
                 f0Var.a(49, aVar);
             }
         }

@@ -21,6 +21,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
@@ -33,25 +34,25 @@ public class f implements d.a.n0.v.d.c.b {
     public static final float[] z;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext<?> f61640c;
+    public TbPageContext<?> f65354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f61641d;
+    public View f65355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f61642e;
+    public TbImageView f65356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f61643f;
+    public EMTextView f65357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f61644g;
+    public TextView f65358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f61645h;
+    public EMTextView f65359h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f61646i;
+    public LinearLayout f65360i;
     public TbImageView j;
     public TbImageView k;
     public d.a.n0.v.d.a.a l;
@@ -61,10 +62,10 @@ public class f implements d.a.n0.v.d.c.b {
     public int t;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61638a = 3;
+    public int f65352a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f61639b = {TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha40)};
+    public int[] f65353b = {TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha40)};
     public boolean o = false;
     public boolean q = true;
     public boolean r = false;
@@ -95,7 +96,7 @@ public class f implements d.a.n0.v.d.c.b {
     public class b implements TbImageView.f {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f61648a;
+        public String f65362a;
 
         public b() {
         }
@@ -103,10 +104,10 @@ public class f implements d.a.n0.v.d.c.b {
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
             if (z && f.this.o && !f.this.r) {
-                if (StringUtils.isNull(this.f61648a) || !this.f61648a.equals(str)) {
+                if (StringUtils.isNull(this.f65362a) || !this.f65362a.equals(str)) {
                     f fVar = f.this;
-                    fVar.f61642e.startAnimation(fVar.p);
-                    this.f61648a = str;
+                    fVar.f65356e.startAnimation(fVar.p);
+                    this.f65362a = str;
                 }
             }
         }
@@ -145,7 +146,7 @@ public class f implements d.a.n0.v.d.c.b {
                 f fVar = f.this;
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(fVar.m(fVar.k.getLoadedHeight(), f.this.k.getLoadedWidth()), f.v);
                 layoutParams.addRule(11);
-                layoutParams.rightMargin = f.this.f61640c.getResources().getDimensionPixelOffset(R.dimen.M_W_X004);
+                layoutParams.rightMargin = f.this.f65354c.getResources().getDimensionPixelOffset(R.dimen.M_W_X004);
                 f.this.k.setLayoutParams(layoutParams);
             }
         }
@@ -164,29 +165,35 @@ public class f implements d.a.n0.v.d.c.b {
         public void onClick(View view) {
             String str;
             String str2;
+            String str3;
             boolean d2 = d.a.n0.v.d.c.c.d(f.this.m);
-            String str3 = TiebaStatic.YYValues.YY_LIVE;
+            String str4 = TiebaStatic.YYValues.YY_LIVE;
             if (d2) {
-                d.a.n0.v.d.c.c.j(f.this.f61640c, f.this.m);
+                if (f.this.l.f65123f) {
+                    str3 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_ + f.this.t;
+                } else {
+                    str3 = YYLiveUtil.SOURCE_HOME_LIVE_TAB_CARD_ + f.this.t;
+                }
+                d.a.n0.v.d.c.c.j(f.this.f65354c, f.this.m, str3);
                 if (!d.a.n0.v.d.c.c.d(f.this.m) || f.this.l == null) {
                     return;
                 }
-                if (f.this.l.f61410f) {
+                if (f.this.l.f65123f) {
                     f.this.o();
                     return;
                 }
                 StatisticItem statisticItem = new StatisticItem("c13557");
-                statisticItem.param("obj_locate", f.this.l.f61413i);
+                statisticItem.param("obj_locate", f.this.l.f65126i);
                 statisticItem.param("obj_param1", f.this.m.liveId);
                 if (f.this.m.liveInfo != null) {
                     int a2 = d.a.n0.v.d.c.c.a(f.this.m.liveInfo);
                     if (f.this.m.liveInfo.yyExt != null) {
                         TiebaStaticHelper.addYYParam(statisticItem, d.a.n0.v.d.c.c.k(f.this.m.liveInfo.yyExt));
                     } else {
-                        str3 = "";
+                        str4 = "";
                     }
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, a2);
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str4);
                 }
                 TiebaStatic.log(statisticItem);
             } else if (d.a.n0.v.d.c.c.c(f.this.m)) {
@@ -200,18 +207,18 @@ public class f implements d.a.n0.v.d.c.b {
                 } else {
                     str2 = AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MAIN;
                 }
-                d.a.n0.v.d.c.c.f(f.this.f61640c, f.this.m, str2);
+                d.a.n0.v.d.c.c.f(f.this.f65354c, f.this.m, str2);
             } else {
-                d.a.n0.v.d.c.c.h(f.this.f61640c.getPageActivity(), f.this.m);
+                d.a.n0.v.d.c.c.h(f.this.f65354c.getPageActivity(), f.this.m);
                 if (f.this.l == null || f.this.m == null) {
                     return;
                 }
-                if (f.this.l.f61410f) {
+                if (f.this.l.f65123f) {
                     StatisticItem statisticItem3 = new StatisticItem("c13611");
                     statisticItem3.param("obj_param1", f.this.m.liveId);
-                    statisticItem3.param("fid", f.this.l.f61411g);
-                    statisticItem3.param("fname", f.this.l.f61412h);
-                    statisticItem3.param("obj_locate", f.this.l.f61413i);
+                    statisticItem3.param("fid", f.this.l.f65124g);
+                    statisticItem3.param("fname", f.this.l.f65125h);
+                    statisticItem3.param("obj_locate", f.this.l.f65126i);
                     if (f.this.m != null && f.this.m.uiTransParam != null) {
                         statisticItem3.param("ab_tag", f.this.m.uiTransParam.abTag);
                         statisticItem3.param(TiebaStatic.Params.STAR_ID, f.this.m.uiTransParam.starId);
@@ -235,10 +242,10 @@ public class f implements d.a.n0.v.d.c.b {
                     if (f.this.m.liveInfo.yyExt != null) {
                         TiebaStaticHelper.addYYParam(statisticItem4, d.a.n0.v.d.c.c.k(f.this.m.liveInfo.yyExt));
                     } else {
-                        str3 = "";
+                        str4 = "";
                     }
                     statisticItem4.param(TiebaStatic.Params.OBJ_PARAM2, a3);
-                    statisticItem4.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+                    statisticItem4.param(TiebaStatic.Params.OBJ_PARAM3, str4);
                 }
                 statisticItem4.param("obj_param1", f.this.m.liveId);
                 statisticItem4.param(TiebaStatic.Params.ENTRY_NAME, str);
@@ -256,23 +263,23 @@ public class f implements d.a.n0.v.d.c.b {
     }
 
     public f(TbPageContext<?> tbPageContext, int i2) {
-        this.f61640c = tbPageContext;
+        this.f65354c = tbPageContext;
         this.t = i2;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.tab_live_item_view, (ViewGroup) null, false);
-        this.f61641d = inflate;
+        this.f65355d = inflate;
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.imgSquareView);
-        this.f61642e = tbImageView;
+        this.f65356e = tbImageView;
         tbImageView.setBorderSurroundContent(true);
-        this.f61642e.setDrawBorder(true);
-        this.f61642e.setPlaceHolder(2);
-        this.f61642e.setBorderWidth(l.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.f61643f = (EMTextView) this.f61641d.findViewById(R.id.tvLiveCount);
-        this.f61644g = (TextView) this.f61641d.findViewById(R.id.tvUserName);
-        this.f61646i = (LinearLayout) this.f61641d.findViewById(R.id.tvInfoWrapper);
-        this.j = (TbImageView) this.f61641d.findViewById(R.id.live_label);
-        this.k = (TbImageView) this.f61641d.findViewById(R.id.live_status_label);
-        this.f61645h = (EMTextView) this.f61641d.findViewById(R.id.tvLocation);
-        this.f61641d.setOnClickListener(this.u);
+        this.f65356e.setDrawBorder(true);
+        this.f65356e.setPlaceHolder(2);
+        this.f65356e.setBorderWidth(l.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.f65357f = (EMTextView) this.f65355d.findViewById(R.id.tvLiveCount);
+        this.f65358g = (TextView) this.f65355d.findViewById(R.id.tvUserName);
+        this.f65360i = (LinearLayout) this.f65355d.findViewById(R.id.tvInfoWrapper);
+        this.j = (TbImageView) this.f65355d.findViewById(R.id.live_label);
+        this.k = (TbImageView) this.f65355d.findViewById(R.id.live_status_label);
+        this.f65359h = (EMTextView) this.f65355d.findViewById(R.id.tvLocation);
+        this.f65355d.setOnClickListener(this.u);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         this.p = alphaAnimation;
         alphaAnimation.setDuration(200L);
@@ -286,7 +293,7 @@ public class f implements d.a.n0.v.d.c.b {
 
     @Override // d.a.n0.v.d.c.b
     public View getView() {
-        return this.f61641d;
+        return this.f65355d;
     }
 
     public final int m(int i2, int i3) {
@@ -295,10 +302,10 @@ public class f implements d.a.n0.v.d.c.b {
 
     public final void n() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.rightMargin = this.f61640c.getResources().getDimensionPixelOffset(R.dimen.M_W_X004);
-        layoutParams.bottomMargin = this.f61640c.getResources().getDimensionPixelOffset(R.dimen.M_H_X002);
-        this.f61645h.setGravity(16);
-        this.f61645h.setLayoutParams(layoutParams);
+        layoutParams.rightMargin = this.f65354c.getResources().getDimensionPixelOffset(R.dimen.M_W_X004);
+        layoutParams.bottomMargin = this.f65354c.getResources().getDimensionPixelOffset(R.dimen.M_H_X002);
+        this.f65359h.setGravity(16);
+        this.f65359h.setLayoutParams(layoutParams);
     }
 
     public final void o() {
@@ -308,7 +315,7 @@ public class f implements d.a.n0.v.d.c.b {
         SdkLiveInfoData sdkLiveInfoData = this.m;
         if (sdkLiveInfoData != null) {
             statisticItem.param("tid", sdkLiveInfoData.tid);
-            statisticItem.param("fid", this.l.f61411g);
+            statisticItem.param("fid", this.l.f65124g);
         }
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_locate", 6);
@@ -330,11 +337,11 @@ public class f implements d.a.n0.v.d.c.b {
 
     @Override // d.a.n0.v.d.c.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f61638a != i2) {
-            SkinManager.setViewTextColor(this.f61643f, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f61644g, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f61645h, R.color.CAM_X0101);
-            this.f61638a = i2;
+        if (this.f65352a != i2) {
+            SkinManager.setViewTextColor(this.f65357f, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f65358g, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f65359h, R.color.CAM_X0101);
+            this.f65352a = i2;
         }
     }
 
@@ -342,10 +349,10 @@ public class f implements d.a.n0.v.d.c.b {
         String str;
         SdkLiveInfoData.UiTransParam uiTransParam;
         String str2;
-        int k = l.k(this.f61641d.getContext());
+        int k = l.k(this.f65355d.getContext());
         if (k != this.s) {
-            ViewGroup.LayoutParams layoutParams = this.f61641d.getLayoutParams();
-            int k2 = (l.k(this.f61641d.getContext()) - this.f61641d.getContext().getResources().getDimensionPixelSize(R.dimen.tbds12)) - (this.f61641d.getContext().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+            ViewGroup.LayoutParams layoutParams = this.f65355d.getLayoutParams();
+            int k2 = (l.k(this.f65355d.getContext()) - this.f65355d.getContext().getResources().getDimensionPixelSize(R.dimen.tbds12)) - (this.f65355d.getContext().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             if (layoutParams == null) {
                 int i3 = k2 / 2;
                 layoutParams = new ViewGroup.LayoutParams(i3, i3);
@@ -354,14 +361,14 @@ public class f implements d.a.n0.v.d.c.b {
                 layoutParams.width = i4;
                 layoutParams.height = i4;
             }
-            this.f61641d.setLayoutParams(layoutParams);
+            this.f65355d.setLayoutParams(layoutParams);
             this.s = k;
         }
-        if (aVar != null && aVar.f61409e != null) {
+        if (aVar != null && aVar.f65122e != null) {
             getView().setVisibility(0);
             this.l = aVar;
-            this.m = aVar.f61409e;
-            Object tag = this.f61642e.getTag();
+            this.m = aVar.f65122e;
+            Object tag = this.f65356e.getTag();
             if (this.q) {
                 this.o = true;
                 this.q = false;
@@ -372,88 +379,92 @@ public class f implements d.a.n0.v.d.c.b {
             } else {
                 this.o = false;
             }
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.f61639b);
+            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.f65353b);
             String str3 = this.m.liveInfo.cover;
             this.n = str3;
-            this.f61642e.setTag(str3);
+            this.f65356e.setTag(str3);
             if (aVar.j) {
-                this.f61642e.setConrers(5);
+                this.f65356e.setConrers(5);
                 gradientDrawable.setCornerRadii(y);
-                this.f61642e.setPlaceHolder(2);
+                this.f65356e.setPlaceHolder(2);
             } else if (aVar.k) {
-                this.f61642e.setConrers(10);
+                this.f65356e.setConrers(10);
                 gradientDrawable.setCornerRadii(z);
-                this.f61642e.setPlaceHolder(2);
+                this.f65356e.setPlaceHolder(2);
             } else if (aVar.l) {
-                this.f61642e.setConrers(15);
+                this.f65356e.setConrers(15);
                 gradientDrawable.setCornerRadii(x);
-                this.f61642e.setPlaceHolder(2);
+                this.f65356e.setPlaceHolder(2);
             }
-            this.f61642e.setRadius((int) w);
-            this.f61642e.V(this.m.liveInfo.cover, 10, false);
-            this.f61646i.setBackgroundDrawable(gradientDrawable);
-            this.f61642e.setEvent(new b());
+            this.f65356e.setRadius((int) w);
+            this.f65356e.U(this.m.liveInfo.cover, 10, false);
+            this.f65360i.setBackgroundDrawable(gradientDrawable);
+            this.f65356e.setEvent(new b());
             long j = this.m.liveInfo.audienceCount;
             if (j <= 0) {
-                this.f61643f.setVisibility(8);
-                if (this.f61645h.getVisibility() == 0) {
+                this.f65357f.setVisibility(8);
+                if (this.f65359h.getVisibility() == 0) {
                     q();
                 }
             } else {
                 String numberUniformFormatExtraWithRound = StringHelper.numberUniformFormatExtraWithRound(j);
-                this.f61643f.setVisibility(0);
-                this.f61643f.setText(numberUniformFormatExtraWithRound);
+                this.f65357f.setVisibility(0);
+                this.f65357f.setText(numberUniformFormatExtraWithRound);
                 n();
             }
             if (103 == this.t) {
                 if (!StringUtils.isNull(this.m.title)) {
-                    this.f61644g.setText(this.m.title);
+                    this.f65358g.setText(this.m.title);
                 }
             } else if (!StringUtils.isNull(this.m.liveAuthor.nameShow)) {
-                this.f61644g.setText(this.m.liveAuthor.nameShow);
+                this.f65358g.setText(this.m.liveAuthor.nameShow);
             }
             if (!StringUtils.isNull(this.m.labelUrl)) {
                 this.j.setVisibility(0);
-                this.j.V(this.m.labelUrl, 10, false);
+                this.j.U(this.m.labelUrl, 10, false);
                 this.j.setEvent(new c());
             } else {
                 this.j.setVisibility(8);
             }
             if (!StringUtils.isNull(this.m.modeUrl)) {
                 this.k.setVisibility(0);
-                this.k.V(this.m.modeUrl, 10, false);
+                this.k.U(this.m.modeUrl, 10, false);
                 this.k.setEvent(new d());
             } else {
                 this.k.setVisibility(8);
             }
             if (!StringUtils.isNull(this.m.location)) {
-                this.f61645h.setVisibility(0);
+                this.f65359h.setVisibility(0);
                 if (this.m.location.length() <= 5) {
                     str2 = this.m.location;
                 } else {
                     str2 = this.m.location.substring(0, 5) + StringHelper.STRING_MORE;
                 }
-                this.f61645h.setText(str2);
+                this.f65359h.setText(str2);
             } else {
-                this.f61645h.setVisibility(8);
+                this.f65359h.setVisibility(8);
             }
             if (this.m != null) {
                 if (i2 == 2) {
-                    TiebaStatic.log(new StatisticItem("c12899").param("tid", this.m.tid));
+                    StatisticItem param = new StatisticItem("c12899").param("tid", this.m.tid);
+                    TiebaStaticHelper.addYYParam(param);
+                    TiebaStatic.log(param);
                 } else if (i2 == 1) {
-                    TiebaStatic.log(new StatisticItem("c12903").param("tid", this.m.tid));
+                    StatisticItem param2 = new StatisticItem("c12903").param("tid", this.m.tid);
+                    TiebaStaticHelper.addYYParam(param2);
+                    TiebaStatic.log(param2);
                 }
             }
-            onChangeSkinType(this.f61640c, TbadkCoreApplication.getInst().getSkinType());
-            boolean z2 = aVar.f61410f;
+            onChangeSkinType(this.f65354c, TbadkCoreApplication.getInst().getSkinType());
+            boolean z2 = aVar.f65123f;
             String str4 = TiebaStatic.YYValues.YY_LIVE;
             if (z2) {
                 StatisticItem statisticItem = new StatisticItem("c13610");
                 SdkLiveInfoData sdkLiveInfoData = this.m;
                 statisticItem.param("obj_param1", sdkLiveInfoData != null ? sdkLiveInfoData.liveId : "");
-                statisticItem.param("fid", aVar.f61411g);
-                statisticItem.param("fname", aVar.f61412h);
-                statisticItem.param("obj_locate", aVar.f61413i);
+                statisticItem.param("fid", aVar.f65124g);
+                statisticItem.param("fname", aVar.f65125h);
+                statisticItem.param("obj_locate", aVar.f65126i);
                 SdkLiveInfoData sdkLiveInfoData2 = this.m;
                 if (sdkLiveInfoData2 != null && (uiTransParam = sdkLiveInfoData2.uiTransParam) != null) {
                     statisticItem.param("ab_tag", uiTransParam.abTag);
@@ -466,7 +477,7 @@ public class f implements d.a.n0.v.d.c.b {
                 SdkLiveInfoData sdkLiveInfoData3 = this.m;
                 if (sdkLiveInfoData3 != null) {
                     statisticItem2.param("tid", sdkLiveInfoData3.tid);
-                    statisticItem2.param("fid", aVar.f61411g);
+                    statisticItem2.param("fid", aVar.f65124g);
                 }
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem2.param("obj_locate", 6);
@@ -526,9 +537,9 @@ public class f implements d.a.n0.v.d.c.b {
 
     public final void q() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.rightMargin = this.f61640c.getResources().getDimensionPixelOffset(R.dimen.M_W_X004);
+        layoutParams.rightMargin = this.f65354c.getResources().getDimensionPixelOffset(R.dimen.M_W_X004);
         layoutParams.bottomMargin = 0;
-        this.f61645h.setGravity(16);
-        this.f61645h.setLayoutParams(layoutParams);
+        this.f65359h.setGravity(16);
+        this.f65359h.setLayoutParams(layoutParams);
     }
 }

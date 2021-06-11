@@ -42,21 +42,21 @@ public class a extends d.a.m0.w.y.a {
 
     /* renamed from: d.a.n0.s1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1591a implements a.InterfaceC1170a {
+    public class C1647a implements a.InterfaceC1226a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f60408a;
+        public final /* synthetic */ Context f64099a;
 
-        public C1591a(Context context) {
-            this.f60408a = context;
+        public C1647a(Context context) {
+            this.f64099a = context;
         }
 
-        @Override // d.a.m0.w.y.a.InterfaceC1170a
+        @Override // d.a.m0.w.y.a.InterfaceC1226a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             BubbleView bubbleView;
             BubbleView bubbleView2;
             if (view == null) {
-                bubbleView2 = new BubbleView(this.f60408a);
+                bubbleView2 = new BubbleView(this.f64099a);
                 bubbleView = bubbleView2;
             } else {
                 bubbleView = view;
@@ -64,7 +64,7 @@ public class a extends d.a.m0.w.y.a {
             }
             BubbleListData.BubbleData P = a.this.P(i2);
             if (P != null) {
-                bubbleView2.setData(P, BubbleListModel.u(a.this.r.getB_info()));
+                bubbleView2.setData(P, BubbleListModel.y(a.this.r.getB_info()));
                 bubbleView2.setGravity(17);
                 bubbleView2.setTag(Integer.valueOf(i2));
                 bubbleView2.setOnClickListener(a.this.y);
@@ -106,21 +106,21 @@ public class a extends d.a.m0.w.y.a {
                 return;
             }
             a.this.r = bubbleListData.m26clone();
-            if (a.this.q.w() > 0) {
+            if (a.this.q.A() > 0) {
                 List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
                 if (b_info == null || b_info.size() == 0) {
                     return;
                 }
                 for (BubbleListData.BubbleData bubbleData : b_info) {
-                    if (bubbleData != null && bubbleData.getBcode() == a.this.q.w()) {
+                    if (bubbleData != null && bubbleData.getBcode() == a.this.q.A()) {
                         if (!bubbleData.canUse() && !bubbleData.isFree()) {
                             break;
                         }
-                        a.this.q.C(a.this.q.w());
-                        a.this.q.B(a.this.q.w(), l.k(a.this.s), l.i(a.this.s));
+                        a.this.q.G(a.this.q.A());
+                        a.this.q.F(a.this.q.A(), l.k(a.this.s), l.i(a.this.s));
                     }
                 }
-                a.this.q.D(-1);
+                a.this.q.H(-1);
             }
             a.this.Q();
             a.this.k().b(a.this);
@@ -137,8 +137,8 @@ public class a extends d.a.m0.w.y.a {
             if (setBubbleResultData != null && setBubbleResultData.getB_info() != null) {
                 a.this.u = setBubbleResultData.getB_info().getB_url();
                 TbadkCoreApplication.getInst().setDefaultBubble(a.this.u);
-                int v = a.this.q.v();
-                if (v == 0) {
+                int z = a.this.q.z();
+                if (z == 0) {
                     TbadkCoreApplication.getInst().setDefaultBubble("");
                     for (BubbleListData.BubbleData bubbleData : a.this.r.getB_info()) {
                         if (bubbleData.getBcode() != 0) {
@@ -151,12 +151,12 @@ public class a extends d.a.m0.w.y.a {
                     }
                 } else if (setBubbleResultData.getB_info().canUser()) {
                     for (BubbleListData.BubbleData bubbleData2 : a.this.r.getB_info()) {
-                        if (bubbleData2.getBcode() == v) {
+                        if (bubbleData2.getBcode() == z) {
                             bubbleData2.setIs_def(1);
                         } else if (bubbleData2.isDef()) {
                             bubbleData2.setIs_def(0);
                         }
-                        if (bubbleData2.getBcode() == v) {
+                        if (bubbleData2.getBcode() == z) {
                             bubbleData2.setCan_use(1);
                         }
                     }
@@ -220,7 +220,7 @@ public class a extends d.a.m0.w.y.a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.q.A(0, 50, 0, 0);
+            a.this.q.E(0, 50, 0, 0);
         }
     }
 
@@ -273,7 +273,7 @@ public class a extends d.a.m0.w.y.a {
 
         @Override // d.a.n0.s1.a.c.e
         public void a(int i2) {
-            a.this.q.D(i2);
+            a.this.q.H(i2);
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(a.this.s, true, 23004, "pop_unable");
             memberPayActivityConfig.setSceneId("4002001000");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
@@ -328,8 +328,8 @@ public class a extends d.a.m0.w.y.a {
     }
 
     public final void R(int i2) {
-        this.q.B(i2, l.k(this.s), l.i(this.s));
-        this.q.C(i2);
+        this.q.F(i2, l.k(this.s), l.i(this.s));
+        this.q.G(i2);
         if (k() != null) {
             k().a();
         }
@@ -340,7 +340,7 @@ public class a extends d.a.m0.w.y.a {
         BubbleListModel bubbleListModel = this.q;
         if (bubbleListModel != null) {
             bubbleListModel.unRegisterListener();
-            this.q.G(this.x);
+            this.q.K(this.x);
             this.q = null;
         }
     }
@@ -367,21 +367,21 @@ public class a extends d.a.m0.w.y.a {
         if (k() != null) {
             k().a();
         }
-        this.q.A(0, 50, l.k(this.s), l.i(this.s));
+        this.q.E(0, 50, l.k(this.s), l.i(this.s));
     }
 
     @Override // d.a.m0.w.y.a
     public void q(Context context) {
         this.s = context;
         a.b bVar = new a.b();
-        bVar.f50936a = R.drawable.icon_bubble;
-        bVar.f50937b = 0;
+        bVar.f54613a = R.drawable.icon_bubble;
+        bVar.f54614b = 0;
         z(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds26));
         t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30));
         u(bVar);
         r(2);
         y(2);
-        A(new C1591a(context));
+        A(new C1647a(context));
         this.u = TbadkCoreApplication.getInst().getDefaultBubble();
         if (this.q == null) {
             Context context2 = this.s;
@@ -391,14 +391,14 @@ public class a extends d.a.m0.w.y.a {
                 this.q = new BubbleListModel(null);
             }
         }
-        this.q.E(this.v);
-        this.q.F(this.w);
-        this.q.z(this.x);
-        this.q.x();
-        this.q.y();
+        this.q.I(this.v);
+        this.q.J(this.w);
+        this.q.D(this.x);
+        this.q.B();
+        this.q.C();
         if (k() != null) {
             k().a();
         }
-        this.q.A(0, 50, l.k(this.s), l.i(this.s));
+        this.q.E(0, 50, l.k(this.s), l.i(this.s));
     }
 }

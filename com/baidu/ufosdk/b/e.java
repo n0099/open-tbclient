@@ -7,26 +7,26 @@ import android.content.pm.PackageManager;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f22483a;
+    public static Context f22586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f22484b;
+    public static PackageManager f22587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PackageInfo f22485c;
+    public static PackageInfo f22588c;
 
     public static String a() {
-        Context context = f22483a;
+        Context context = f22586a;
         return context == null ? "N/A" : context.getPackageName();
     }
 
     public static void a(Context context) {
-        if (f22483a == null) {
-            f22483a = context;
+        if (f22586a == null) {
+            f22586a = context;
             PackageManager packageManager = context.getPackageManager();
-            f22484b = packageManager;
+            f22587b = packageManager;
             try {
-                f22485c = packageManager.getPackageInfo(f22483a.getPackageName(), 0);
+                f22588c = packageManager.getPackageInfo(f22586a.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e2) {
                 com.baidu.ufosdk.f.c.a("PackageCollector.init fail.", e2);
             }
@@ -34,7 +34,7 @@ public final class e {
     }
 
     public static String b() {
-        PackageInfo packageInfo = f22485c;
+        PackageInfo packageInfo = f22588c;
         return packageInfo == null ? "N/A" : packageInfo.versionName;
     }
 }

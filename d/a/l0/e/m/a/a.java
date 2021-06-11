@@ -56,23 +56,23 @@ public class a implements h0 {
 
     /* renamed from: d.a.l0.e.m.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0965a extends BaseBitmapDataSubscriber {
+    public class C1021a extends BaseBitmapDataSubscriber {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f46547a;
+        public final /* synthetic */ Context f50221a;
 
-        public C0965a(a aVar, Context context) {
-            this.f46547a = context;
+        public C1021a(a aVar, Context context) {
+            this.f50221a = context;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            e.f(this.f46547a, h.swan_app_img_menu_save_failed).u();
+            e.f(this.f50221a, h.swan_app_img_menu_save_failed).u();
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
         public void onNewResultImpl(Bitmap bitmap) {
-            a.i(this.f46547a, bitmap);
+            a.i(this.f50221a, bitmap);
         }
     }
 
@@ -80,24 +80,24 @@ public class a implements h0 {
     public static class b implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f46548a;
+        public final /* synthetic */ Context f50222a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f46549b;
+        public final /* synthetic */ Bitmap f50223b;
 
         public b(Context context, Bitmap bitmap) {
-            this.f46548a = context;
-            this.f46549b = bitmap;
+            this.f50222a = context;
+            this.f50223b = bitmap;
         }
 
         @Override // d.a.l0.a.s1.f
         public void a(String str) {
-            a.l(this.f46548a, this.f46549b);
+            a.l(this.f50222a, this.f50223b);
         }
 
         @Override // d.a.l0.a.s1.f
         public void b(int i2, String str) {
-            e.f(this.f46548a, h.swan_app_img_menu_save_failed).u();
+            e.f(this.f50222a, h.swan_app_img_menu_save_failed).u();
         }
     }
 
@@ -243,7 +243,7 @@ public class a implements h0 {
             hashMap.put(Config.LAUNCH_REFERER, optString2);
         }
         d.a.l0.a.c1.a.y().e(newBuilderWithSource, hashMap);
-        Fresco.getImagePipeline().fetchDecodedImage(newBuilderWithSource.build(), context).subscribe(new C0965a(this, context), UiThreadImmediateExecutorService.getInstance());
+        Fresco.getImagePipeline().fetchDecodedImage(newBuilderWithSource.build(), context).subscribe(new C1021a(this, context), UiThreadImmediateExecutorService.getInstance());
     }
 
     public final void j(Context context, ArrayList<MediaModel> arrayList, int i2) {

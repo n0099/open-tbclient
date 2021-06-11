@@ -8,15 +8,15 @@ import org.json.JSONArray;
 public class m0 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Path f40643a;
+    public Path f44319a;
 
     @Override // d.a.l0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
-        if (this.f40643a != null) {
-            int alpha = bVar.f40588g.getAlpha();
-            bVar.d(bVar.f40588g);
-            canvas.drawPath(this.f40643a, bVar.f40588g);
-            bVar.f40588g.setAlpha(alpha);
+        if (this.f44319a != null) {
+            int alpha = bVar.f44264g.getAlpha();
+            bVar.d(bVar.f44264g);
+            canvas.drawPath(this.f44319a, bVar.f44264g);
+            bVar.f44264g.setAlpha(alpha);
         }
     }
 
@@ -29,11 +29,11 @@ public class m0 extends a {
                 int g4 = d.a.l0.a.v2.n0.g((float) jSONArray.optDouble(2));
                 int g5 = d.a.l0.a.v2.n0.g((float) jSONArray.optDouble(3));
                 Path path = new Path();
-                this.f40643a = path;
+                this.f44319a = path;
                 path.addRect(new RectF(g2, g3, g2 + g4, g3 + g5), Path.Direction.CW);
             }
         } catch (Exception e2) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 e2.printStackTrace();
             }
         }

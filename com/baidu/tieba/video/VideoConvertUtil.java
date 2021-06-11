@@ -18,38 +18,38 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
 public class VideoConvertUtil {
-    public static final String n = c.f59995c;
+    public static final String n = c.f63686c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f21181a;
+    public Context f21259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IVideoConvertService f21182b;
+    public IVideoConvertService f21260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21183c;
+    public String f21261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21184d;
+    public String f21262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f21185e;
+    public File f21263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f21186f;
+    public File f21264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f21187g;
+    public d f21265g;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21189i = -3;
+    public int f21267i = -3;
     public boolean j = false;
     public boolean k = false;
     public int l = 1;
     public ServiceConnection m = new a();
 
     /* renamed from: h  reason: collision with root package name */
-    public IntenalConvertListener f21188h = new IntenalConvertListener(this, null);
+    public IntenalConvertListener f21266h = new IntenalConvertListener(this, null);
 
     /* loaded from: classes5.dex */
     public class IntenalConvertListener extends IVideoConvertListener.Stub {
@@ -58,24 +58,24 @@ public class VideoConvertUtil {
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertAborted() throws RemoteException {
-            if (VideoConvertUtil.this.f21187g != null) {
-                VideoConvertUtil.this.f21187g.onConvertAborted();
+            if (VideoConvertUtil.this.f21265g != null) {
+                VideoConvertUtil.this.f21265g.onConvertAborted();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertFailed() throws RemoteException {
-            if (VideoConvertUtil.this.f21187g != null) {
-                VideoConvertUtil.this.f21187g.onConvertFailed();
+            if (VideoConvertUtil.this.f21265g != null) {
+                VideoConvertUtil.this.f21265g.onConvertFailed();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertProgress(int i2) throws RemoteException {
-            if (VideoConvertUtil.this.f21187g != null) {
-                VideoConvertUtil.this.f21187g.onConvertProgress(i2);
+            if (VideoConvertUtil.this.f21265g != null) {
+                VideoConvertUtil.this.f21265g.onConvertProgress(i2);
             }
-            if ((VideoConvertUtil.this.f21185e == null || VideoConvertUtil.this.f21185e.exists()) && (VideoConvertUtil.this.f21186f == null || VideoConvertUtil.this.f21186f.exists())) {
+            if ((VideoConvertUtil.this.f21263e == null || VideoConvertUtil.this.f21263e.exists()) && (VideoConvertUtil.this.f21264f == null || VideoConvertUtil.this.f21264f.exists())) {
                 return;
             }
             VideoConvertUtil.this.a();
@@ -83,9 +83,9 @@ public class VideoConvertUtil {
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertSuccess() throws RemoteException {
-            VideoConvertUtil.this.f21189i = 1;
-            if (VideoConvertUtil.this.f21187g != null) {
-                VideoConvertUtil.this.f21187g.onConvertSuccess();
+            VideoConvertUtil.this.f21267i = 1;
+            if (VideoConvertUtil.this.f21265g != null) {
+                VideoConvertUtil.this.f21265g.onConvertSuccess();
             }
         }
 
@@ -101,7 +101,7 @@ public class VideoConvertUtil {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            VideoConvertUtil.this.f21182b = IVideoConvertService.Stub.asInterface(iBinder);
+            VideoConvertUtil.this.f21260b = IVideoConvertService.Stub.asInterface(iBinder);
             if (VideoConvertUtil.this.k) {
                 VideoConvertUtil.this.q();
             }
@@ -110,17 +110,17 @@ public class VideoConvertUtil {
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             if (VideoConvertUtil.this.k) {
-                if (!VideoConvertUtil.this.j && VideoConvertUtil.this.f21189i == -3 && VideoConvertUtil.this.f21187g != null) {
-                    VideoConvertUtil.this.f21187g.onConvertFailed();
+                if (!VideoConvertUtil.this.j && VideoConvertUtil.this.f21267i == -3 && VideoConvertUtil.this.f21265g != null) {
+                    VideoConvertUtil.this.f21265g.onConvertFailed();
                 }
                 VideoConvertUtil.this.k = false;
             }
-            VideoConvertUtil.this.f21182b = null;
+            VideoConvertUtil.this.f21260b = null;
         }
     }
 
     public VideoConvertUtil(Context context) {
-        this.f21181a = context;
+        this.f21259a = context;
     }
 
     public static boolean m() {
@@ -189,7 +189,7 @@ public class VideoConvertUtil {
     }
 
     public void a() {
-        IVideoConvertService iVideoConvertService = this.f21182b;
+        IVideoConvertService iVideoConvertService = this.f21260b;
         if (iVideoConvertService != null) {
             try {
                 iVideoConvertService.abortConvert();
@@ -200,22 +200,22 @@ public class VideoConvertUtil {
     }
 
     public final void l() {
-        if (this.f21181a != null) {
+        if (this.f21259a != null) {
             Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
             intent.setPackage("com.baidu.tieba");
-            this.f21181a.bindService(intent, this.m, 1);
+            this.f21259a.bindService(intent, this.m, 1);
         }
     }
 
     public void n(String str, String str2) {
         this.k = true;
         this.j = false;
-        this.f21189i = -3;
-        this.f21183c = str;
-        this.f21184d = str2;
-        this.f21185e = new File(this.f21183c);
-        this.f21186f = new File(this.f21184d);
-        if (this.f21182b == null) {
+        this.f21267i = -3;
+        this.f21261c = str;
+        this.f21262d = str2;
+        this.f21263e = new File(this.f21261c);
+        this.f21264f = new File(this.f21262d);
+        if (this.f21260b == null) {
             u();
             l();
             return;
@@ -232,14 +232,14 @@ public class VideoConvertUtil {
     public final void q() {
         int i2;
         try {
-            this.f21182b.setIVideoConvertListener(this.f21188h);
-            this.f21182b.setConvertType(this.l);
-            i2 = this.f21182b.doConvert(this.f21183c, this.f21184d);
+            this.f21260b.setIVideoConvertListener(this.f21266h);
+            this.f21260b.setConvertType(this.l);
+            i2 = this.f21260b.doConvert(this.f21261c, this.f21262d);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             i2 = -1;
         }
-        d dVar = this.f21187g;
+        d dVar = this.f21265g;
         if (dVar != null) {
             if (i2 == 0) {
                 dVar.b();
@@ -251,8 +251,8 @@ public class VideoConvertUtil {
 
     public boolean r() {
         try {
-            if (this.f21182b != null) {
-                return this.f21182b.isConvertRunning();
+            if (this.f21260b != null) {
+                return this.f21260b.isConvertRunning();
             }
             return false;
         } catch (RemoteException e2) {
@@ -266,20 +266,20 @@ public class VideoConvertUtil {
     }
 
     public void t(d dVar) {
-        this.f21187g = dVar;
+        this.f21265g = dVar;
     }
 
     public final void u() {
-        if (this.f21181a != null) {
+        if (this.f21259a != null) {
             Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
             intent.setPackage("com.baidu.tieba");
-            this.f21181a.startService(intent);
+            this.f21259a.startService(intent);
         }
     }
 
     public final void w() {
         Context context;
-        if (this.f21182b == null || (context = this.f21181a) == null) {
+        if (this.f21260b == null || (context = this.f21259a) == null) {
             return;
         }
         context.unbindService(this.m);

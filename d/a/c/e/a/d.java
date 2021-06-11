@@ -4,46 +4,45 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.tbadk.core.util.FieldBuilder;
 /* loaded from: classes.dex */
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdUniqueId f38425d = BdUniqueId.gen();
+    public static BdUniqueId f42078d = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdUniqueId f38426e = BdUniqueId.gen();
+    public static BdUniqueId f42079e = BdUniqueId.gen();
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f38427f = null;
+    public static d f42080f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f38428a;
+    public b f42081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallel f38429b;
+    public BdAsyncTaskParallel f42082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdAsyncTaskParallel f38430c;
+    public BdAsyncTaskParallel f42083c;
 
     public d() {
-        this.f38428a = null;
-        this.f38429b = null;
-        this.f38430c = null;
-        this.f38429b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.f38430c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.f38428a = new b();
+        this.f42081a = null;
+        this.f42082b = null;
+        this.f42083c = null;
+        this.f42082b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.f42083c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.f42081a = new b();
     }
 
     public static d g() {
-        if (f38427f == null) {
+        if (f42080f == null) {
             synchronized (d.class) {
-                if (f38427f == null) {
-                    f38427f = new d();
+                if (f42080f == null) {
+                    f42080f = new d();
                 }
             }
         }
-        return f38427f;
+        return f42080f;
     }
 
     public boolean a(DiskFileOperate diskFileOperate) {
@@ -51,13 +50,13 @@ public class d {
             return false;
         }
         if (diskFileOperate.isSdCard()) {
-            return f(diskFileOperate, f38425d, this.f38429b, 10);
+            return f(diskFileOperate, f42078d, this.f42082b, 10);
         }
-        return f(diskFileOperate, f38426e, this.f38430c, 5);
+        return f(diskFileOperate, f42079e, this.f42083c, 5);
     }
 
     public final boolean b(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel) {
-        c cVar = new c(this.f38428a, diskFileOperate);
+        c cVar = new c(this.f42081a, diskFileOperate);
         cVar.setTag(bdUniqueId);
         cVar.setParallel(bdAsyncTaskParallel);
         cVar.setPriority(4);
@@ -71,16 +70,16 @@ public class d {
             return null;
         }
         if (diskFileOperate.getPath() == null) {
-            return diskFileOperate.getName() + FieldBuilder.SE + diskFileOperate.hashCode();
+            return diskFileOperate.getName() + "|" + diskFileOperate.hashCode();
         }
-        return diskFileOperate.getPath() + "/" + diskFileOperate.getName() + FieldBuilder.SE + diskFileOperate.hashCode();
+        return diskFileOperate.getPath() + "/" + diskFileOperate.getName() + "|" + diskFileOperate.hashCode();
     }
 
     public boolean d(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        boolean b2 = new e(this.f38428a, diskFileOperate).b();
+        boolean b2 = new e(this.f42081a, diskFileOperate).b();
         diskFileOperate.callback(b2);
         return b2;
     }
@@ -88,8 +87,8 @@ public class d {
     public void e(DiskFileOperate diskFileOperate) {
         String c2 = c(diskFileOperate);
         if (c2 != null) {
-            BdAsyncTask.removeAllTask(f38425d, c2);
-            BdAsyncTask.removeAllTask(f38426e, c2);
+            BdAsyncTask.removeAllTask(f42078d, c2);
+            BdAsyncTask.removeAllTask(f42079e, c2);
         }
     }
 
@@ -104,6 +103,6 @@ public class d {
     }
 
     public void h(String str) {
-        this.f38428a.e(str);
+        this.f42081a.e(str);
     }
 }

@@ -23,8 +23,8 @@ public class u implements d.a.l0.a.p.d.q {
 
         @Override // d.a.l0.a.p.d.j
         @NonNull
-        public d.a.l0.a.e2.c.j.f b(Activity activity, c.C0832c c0832c, Bundle bundle) {
-            return new s(activity, c0832c, bundle);
+        public d.a.l0.a.e2.c.j.f b(Activity activity, c.C0888c c0888c, Bundle bundle) {
+            return new s(activity, c0888c, bundle);
         }
 
         @Override // d.a.l0.a.p.d.j
@@ -59,7 +59,7 @@ public class u implements d.a.l0.a.p.d.q {
     }
 
     static {
-        boolean z = d.a.l0.a.k.f43199a;
+        boolean z = d.a.l0.a.k.f46875a;
     }
 
     @Override // d.a.l0.a.p.d.q

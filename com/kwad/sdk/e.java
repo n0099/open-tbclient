@@ -8,14 +8,14 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ad;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     @Nullable
     public static AdDownloadProxy a(Context context, AdInstallProxy adInstallProxy, boolean z) {
         try {
-            return com.kwad.sdk.core.download.b.e.a(context, ae.c(context), adInstallProxy, z);
+            return com.kwad.sdk.core.download.b.e.a(context, ad.c(context), adInstallProxy, z);
         } catch (Throwable unused) {
             return null;
         }

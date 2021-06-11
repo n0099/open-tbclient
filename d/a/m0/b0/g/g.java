@@ -9,7 +9,7 @@ import d.a.c.e.p.l;
 public class g extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48944a = "";
+    public String f52618a = "";
 
     @Override // d.a.m0.b0.g.b
     public String a() {
@@ -22,7 +22,7 @@ public class g extends b {
             return null;
         }
         d.a.m0.a0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-        return BitmapHelper.loadResizedBitmap(this.f48944a, l.k(TbadkCoreApplication.getInst()), l.i(TbadkCoreApplication.getInst()));
+        return BitmapHelper.loadResizedBitmap(this.f52618a, l.k(TbadkCoreApplication.getInst()), l.i(TbadkCoreApplication.getInst()));
     }
 
     @Override // d.a.m0.b0.g.b
@@ -35,6 +35,6 @@ public class g extends b {
     }
 
     public void e(String str) {
-        this.f48944a = str;
+        this.f52618a = str;
     }
 }

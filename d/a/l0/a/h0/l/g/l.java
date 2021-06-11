@@ -10,36 +10,36 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class l implements b<a>, j {
-    public static final boolean k = d.a.l0.a.k.f43199a;
+    public static final boolean k = d.a.l0.a.k.f46875a;
     public static final int l = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f42269d;
+    public k f45945d;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<d.a.l0.a.o0.d.a> f42267b = new LinkedList<>();
+    public final LinkedList<d.a.l0.a.o0.d.a> f45943b = new LinkedList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<d<a>> f42268c = new LinkedList();
+    public final List<d<a>> f45944c = new LinkedList();
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f42266a = new g(l);
+    public final g f45942a = new g(l);
     public final Object j = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f42270e = false;
+    public volatile boolean f45946e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f42271f = false;
+    public volatile boolean f45947f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f42272g = false;
+    public volatile boolean f45948g = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42274i = false;
+    public boolean f45950i = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f42273h = false;
+    public volatile boolean f45949h = false;
 
     @Override // d.a.l0.a.h0.l.g.c
     public void b(d<a> dVar) {
@@ -47,15 +47,15 @@ public class l implements b<a>, j {
             return;
         }
         synchronized (this.j) {
-            if (this.f42271f) {
+            if (this.f45947f) {
                 if (k) {
                     Log.d("SwanAppMasterProvider", "app already start , call back immediately");
                 }
-                dVar.a(this.f42273h, this.f42269d);
+                dVar.a(this.f45949h, this.f45945d);
                 return;
             }
-            if (!this.f42268c.contains(dVar)) {
-                this.f42268c.add(dVar);
+            if (!this.f45944c.contains(dVar)) {
+                this.f45944c.add(dVar);
             }
         }
     }
@@ -78,40 +78,40 @@ public class l implements b<a>, j {
             if (k) {
                 Log.w("SwanAppMasterProvider", "prefetch appId is empty");
             }
-        } else if (this.f42271f) {
+        } else if (this.f45947f) {
             d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
             if (Q == null) {
                 return;
             }
             if (TextUtils.equals(str, Q.getAppId())) {
                 d.a.l0.a.e0.d.l(PrefetchEvent.MODULE, "prefetch after app start");
-                this.f42269d.r(cVar, pMSAppInfo);
+                this.f45945d.r(cVar, pMSAppInfo);
                 if (k) {
                     Log.w("SwanAppMasterProvider", "prefetch after app start - " + str);
                 }
             } else if (k) {
                 Log.w("SwanAppMasterProvider", "can not prefetch after swan app start");
             }
-        } else if (!this.f42270e) {
+        } else if (!this.f45946e) {
             if (k) {
                 Log.w("SwanAppMasterProvider", "can not prefetch before default mater ready");
             }
         } else {
             synchronized (this.j) {
-                if (this.f42271f) {
+                if (this.f45947f) {
                     return;
                 }
-                k d2 = this.f42266a.d(str);
+                k d2 = this.f45942a.d(str);
                 if (d2 == null) {
-                    d2 = k(false, this.f42274i);
-                    this.f42266a.f(d2);
+                    d2 = k(false, this.f45950i);
+                    this.f45942a.f(d2);
                 }
                 if (d2.w(pMSAppInfo, cVar)) {
-                    this.f42266a.c(str);
-                    d2 = k(false, this.f42274i);
-                    this.f42266a.f(d2);
+                    this.f45942a.c(str);
+                    d2 = k(false, this.f45950i);
+                    this.f45942a.f(d2);
                 }
-                this.f42266a.g(Collections.singletonList(d2));
+                this.f45942a.g(Collections.singletonList(d2));
                 d2.r(cVar, pMSAppInfo);
             }
         }
@@ -119,45 +119,45 @@ public class l implements b<a>, j {
 
     @Override // d.a.l0.a.h0.l.g.b
     public void d(d.a.l0.a.o0.d.a aVar) {
-        if (aVar == null || this.f42271f) {
+        if (aVar == null || this.f45947f) {
             return;
         }
         synchronized (this.j) {
-            this.f42267b.add(aVar);
+            this.f45943b.add(aVar);
         }
     }
 
     @Override // d.a.l0.a.h0.l.g.c
     public boolean f() {
-        return this.f42272g;
+        return this.f45948g;
     }
 
     @Override // d.a.l0.a.h0.l.g.c
     public boolean g() {
-        return this.f42271f;
+        return this.f45947f;
     }
 
     @Override // d.a.l0.a.h0.l.g.c
     public boolean h() {
-        return this.f42270e;
+        return this.f45946e;
     }
 
     @Override // d.a.l0.a.h0.l.g.b
     public boolean i() {
-        return this.f42274i;
+        return this.f45950i;
     }
 
     @Override // d.a.l0.a.h0.l.g.b
     public void j(boolean z, j jVar) {
-        if (!this.f42272g) {
+        if (!this.f45948g) {
             synchronized (this.j) {
-                if (!this.f42272g) {
-                    this.f42274i = z;
+                if (!this.f45948g) {
+                    this.f45950i = z;
                     k k2 = k(true, z);
                     k2.c(this);
                     k2.c(jVar);
-                    this.f42266a.f(k2);
-                    this.f42272g = true;
+                    this.f45942a.f(k2);
+                    this.f45948g = true;
                     return;
                 }
             }
@@ -165,7 +165,7 @@ public class l implements b<a>, j {
         if (k) {
             Log.w("SwanAppMasterProvider", "call prepareDefault repeat");
         }
-        k d2 = this.f42271f ? this.f42269d : this.f42266a.d("_default_id_");
+        k d2 = this.f45947f ? this.f45945d : this.f45942a.d("_default_id_");
         if (d2 != null) {
             d2.c(jVar);
         }
@@ -176,29 +176,29 @@ public class l implements b<a>, j {
     }
 
     public final void l() {
-        if (!this.f42267b.isEmpty() && this.f42271f) {
+        if (!this.f45943b.isEmpty() && this.f45947f) {
             synchronized (this.j) {
-                Iterator<d.a.l0.a.o0.d.a> it = this.f42267b.iterator();
+                Iterator<d.a.l0.a.o0.d.a> it = this.f45943b.iterator();
                 while (it.hasNext()) {
                     d.a.l0.a.o0.d.a next = it.next();
                     if (k) {
-                        Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.f43905a);
+                        Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.f47581a);
                     }
                     d.a.l0.a.h0.u.g.N().H0(next);
                 }
-                this.f42267b.clear();
+                this.f45943b.clear();
             }
         }
     }
 
     public final void m(boolean z, k kVar, PMSAppInfo pMSAppInfo) {
-        this.f42273h = z;
-        this.f42269d = kVar;
+        this.f45949h = z;
+        this.f45945d = kVar;
         kVar.p(pMSAppInfo);
-        this.f42271f = true;
+        this.f45947f = true;
         l();
         long currentTimeMillis = k ? System.currentTimeMillis() : 0L;
-        this.f42266a.a(Collections.singletonList(kVar));
+        this.f45942a.a(Collections.singletonList(kVar));
         if (k) {
             long currentTimeMillis2 = System.currentTimeMillis();
             Log.i("SwanAppMasterProvider", "clear useless master cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
@@ -210,7 +210,7 @@ public class l implements b<a>, j {
     @Override // d.a.l0.a.h0.l.g.c
     /* renamed from: n */
     public k a() {
-        if (!this.f42271f) {
+        if (!this.f45947f) {
             if (k) {
                 Log.w("SwanAppMasterProvider", "master not final confirmed, has default - " + f());
                 Log.w("SwanAppMasterProvider", Log.getStackTraceString(new RuntimeException("throw by debug")));
@@ -218,18 +218,18 @@ public class l implements b<a>, j {
             }
             return null;
         }
-        return this.f42269d;
+        return this.f45945d;
     }
 
     public final void o(boolean z, k kVar) {
-        if (this.f42268c.size() <= 0) {
+        if (this.f45944c.size() <= 0) {
             return;
         }
         synchronized (this.j) {
-            for (d<a> dVar : this.f42268c) {
+            for (d<a> dVar : this.f45944c) {
                 dVar.a(z, kVar);
             }
-            this.f42268c.clear();
+            this.f45944c.clear();
         }
         if (k) {
             Log.d("SwanAppMasterProvider", "is hit prefetch env - " + z);
@@ -238,7 +238,7 @@ public class l implements b<a>, j {
 
     @Override // d.a.l0.a.h0.l.g.j
     public void onReady() {
-        this.f42270e = true;
+        this.f45946e = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -253,26 +253,26 @@ public class l implements b<a>, j {
         if (k) {
             Log.w("SwanAppMasterProvider", "real start a swan app - " + pMSAppInfo);
         }
-        if (!this.f42270e && k) {
+        if (!this.f45946e && k) {
             throw new RuntimeException("should call startApp after preload finished");
         }
         String str = pMSAppInfo == null ? null : pMSAppInfo.appId;
-        if (this.f42271f) {
-            return this.f42269d;
+        if (this.f45947f) {
+            return this.f45945d;
         }
         synchronized (this.j) {
-            if (!this.f42271f) {
+            if (!this.f45947f) {
                 boolean z = false;
                 if (!TextUtils.isEmpty(str) && pMSAppInfo != null) {
-                    d2 = this.f42266a.d(str);
+                    d2 = this.f45942a.d(str);
                     if (d2 == null || !d2.n() || d2.w(pMSAppInfo, null)) {
-                        d2 = this.f42266a.d("_default_id_");
+                        d2 = this.f45942a.d("_default_id_");
                     } else {
                         z = true;
                     }
                     m(z, d2, pMSAppInfo);
                 }
-                d2 = this.f42266a.d("_default_id_");
+                d2 = this.f45942a.d("_default_id_");
                 m(z, d2, pMSAppInfo);
             }
         }
@@ -281,24 +281,24 @@ public class l implements b<a>, j {
             Log.i("SwanAppMasterProvider", "get right master cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
             StringBuilder sb = new StringBuilder();
             sb.append("final master id - ");
-            sb.append(this.f42269d.i().b());
+            sb.append(this.f45945d.i().b());
             Log.i("SwanAppMasterProvider", sb.toString());
         }
-        return this.f42269d;
+        return this.f45945d;
     }
 
     @Override // d.a.l0.a.h0.l.g.c
     public void reset() {
-        this.f42270e = false;
-        this.f42271f = false;
-        this.f42272g = false;
-        this.f42274i = false;
-        this.f42273h = false;
-        this.f42269d = null;
-        this.f42266a.a(null);
+        this.f45946e = false;
+        this.f45947f = false;
+        this.f45948g = false;
+        this.f45950i = false;
+        this.f45949h = false;
+        this.f45945d = null;
+        this.f45942a.a(null);
         synchronized (this.j) {
-            this.f42267b.clear();
-            this.f42268c.clear();
+            this.f45943b.clear();
+            this.f45944c.clear();
         }
         e.c();
         h.b().d();

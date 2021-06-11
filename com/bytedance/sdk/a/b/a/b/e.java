@@ -7,10 +7,10 @@ import java.lang.reflect.Method;
 public final class e extends RuntimeException {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Method f26849a;
+    public static final Method f26952a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IOException f26850b;
+    public IOException f26953b;
 
     static {
         Method method;
@@ -19,25 +19,25 @@ public final class e extends RuntimeException {
         } catch (Exception unused) {
             method = null;
         }
-        f26849a = method;
+        f26952a = method;
     }
 
     public e(IOException iOException) {
         super(iOException);
-        this.f26850b = iOException;
+        this.f26953b = iOException;
     }
 
     public IOException a() {
-        return this.f26850b;
+        return this.f26953b;
     }
 
     public void a(IOException iOException) {
-        a(iOException, this.f26850b);
-        this.f26850b = iOException;
+        a(iOException, this.f26953b);
+        this.f26953b = iOException;
     }
 
     private void a(IOException iOException, IOException iOException2) {
-        Method method = f26849a;
+        Method method = f26952a;
         if (method != null) {
             try {
                 method.invoke(iOException, iOException2);

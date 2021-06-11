@@ -88,25 +88,25 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public class a implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f17303e;
+        public final /* synthetic */ long f17379e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareFromGameCenterMsgData f17304f;
+        public final /* synthetic */ ShareFromGameCenterMsgData f17380f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f17305g;
+        public final /* synthetic */ Game2GroupShareDialogView f17381g;
 
         public a(long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f17303e = j;
-            this.f17304f = shareFromGameCenterMsgData;
-            this.f17305g = game2GroupShareDialogView;
+            this.f17379e = j;
+            this.f17380f = shareFromGameCenterMsgData;
+            this.f17381g = game2GroupShareDialogView;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            long t = d.a.n0.f1.k.b.o().t(String.valueOf(this.f17303e), 1);
-            MessageUtils.createGroupChatMessage(t, 9, this.f17304f.toChatMessageContent(), this.f17303e);
-            MessageUtils.createGroupChatMessage(t + 1, 1, this.f17305g.getLeaveMsg(), this.f17303e);
+            long t = d.a.n0.f1.k.b.o().t(String.valueOf(this.f17379e), 1);
+            MessageUtils.createGroupChatMessage(t, 9, this.f17380f.toChatMessageContent(), this.f17379e);
+            MessageUtils.createGroupChatMessage(t + 1, 1, this.f17381g.getLeaveMsg(), this.f17379e);
             aVar.dismiss();
             PersonGroupActivity.this.setResult(-1);
             if (!j.z()) {
@@ -121,16 +121,16 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Game2GroupShareDialogView f17307e;
+        public final /* synthetic */ Game2GroupShareDialogView f17383e;
 
         public b(Game2GroupShareDialogView game2GroupShareDialogView) {
-            this.f17307e = game2GroupShareDialogView;
+            this.f17383e = game2GroupShareDialogView;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            ((InputMethodManager) PersonGroupActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(this.f17307e.getWindowToken(), 2);
+            ((InputMethodManager) PersonGroupActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(this.f17383e.getWindowToken(), 2);
         }
     }
 
@@ -250,12 +250,12 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12151c = fragment;
-        bVar.f12149a = i2;
+        bVar.f12213c = fragment;
+        bVar.f12211a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12150b = fragmentTabIndicator;
+        bVar.f12212b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -263,15 +263,15 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         if (this.mPersonGroupAdapter != null) {
             char c2 = this.isHost ? (char) 1 : (char) 2;
             Fragment item = this.mPersonGroupAdapter.getItem(0);
-            int b2 = this.mPersonGroupAdapter.b(0);
+            int i2 = this.mPersonGroupAdapter.i(0);
             if (item != null) {
-                createAndAddTabSpec(item, b2, getPageContext().getContext().getString(R.string.person_group_no_personal_title));
+                createAndAddTabSpec(item, i2, getPageContext().getContext().getString(R.string.person_group_no_personal_title));
             }
             if (c2 == 2) {
                 Fragment item2 = this.mPersonGroupAdapter.getItem(1);
-                int b3 = this.mPersonGroupAdapter.b(1);
+                int i3 = this.mPersonGroupAdapter.i(1);
                 if (item2 != null) {
-                    createAndAddTabSpec(item2, b3, getPageContext().getContext().getString(R.string.commongroup));
+                    createAndAddTabSpec(item2, i3, getPageContext().getContext().getString(R.string.commongroup));
                 }
             }
             this.mTabHost.j();
@@ -317,7 +317,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         this.mTabHost.setTabWidgetViewHeight(l.g(getApplicationContext(), R.dimen.ds80));
         this.mTabHost.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
         this.mTabHost.setOnPageChangeListener(this);
-        this.mTabHost.p();
+        this.mTabHost.q();
         if (this.mTabHost.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ((ViewGroup.MarginLayoutParams) this.mTabHost.getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
@@ -331,7 +331,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     /* JADX INFO: Access modifiers changed from: private */
     public void sendUserPermissionMessage() {
         showProgressBar();
-        this.mModel.t(0L);
+        this.mModel.x(0L);
     }
 
     private void showConfirmShareToGroupDialog(ShareFromGameCenterMsgData shareFromGameCenterMsgData, long j, String str) {
@@ -396,7 +396,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSearchGroup, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, null);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mCreateGroup, R.drawable.icon_pure_topbar_establish44_svg, R.color.CAM_X0105, null);
-        this.mTabHost.o(i2);
+        this.mTabHost.p(i2);
         SkinManager.setBackgroundResource(this.mTabHost, R.color.common_color_10173);
         if (this.mPersonGroupAdapter != null) {
             int i3 = this.isHost ? 1 : 2;
@@ -539,13 +539,13 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         if (this.isHost || this.mPersonGroupAdapter == null) {
             return;
         }
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12150b;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12212b;
         if (i2 <= 0) {
             fragmentTabIndicator.setText(getPageContext().getContext().getString(R.string.person_group_no_personal_title));
         } else {
             fragmentTabIndicator.setText(String.format(getPageContext().getContext().getString(R.string.person_group_personal), Integer.valueOf(i2)));
         }
-        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12150b;
+        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12212b;
         if (i3 <= 0) {
             fragmentTabIndicator2.setText(getPageContext().getContext().getString(R.string.commongroup));
         } else {

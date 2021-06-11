@@ -3,23 +3,23 @@ package com.baidu.android.pushservice.c.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2794a;
+    public long f2813a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2795b;
+    public long f2814b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2796c;
+    public String f2815c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2797d;
+    public long f2816d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2798e;
+    public long f2817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2799f;
+    public String f2818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2800g;
+    public long f2819g;
 }

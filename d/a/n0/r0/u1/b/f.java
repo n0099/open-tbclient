@@ -13,7 +13,7 @@ import d.a.n0.e0.g;
 import d.a.n0.z.b0;
 import d.a.n0.z.h;
 /* loaded from: classes4.dex */
-public class f extends d.a.c.j.e.a<g, CardViewHolder<h>> {
+public class f extends d.a.c.k.e.a<g, CardViewHolder<h>> {
     public TbPageContext<?> m;
     public h n;
     public String o;
@@ -28,34 +28,34 @@ public class f extends d.a.c.j.e.a<g, CardViewHolder<h>> {
         /* renamed from: d */
         public void a(View view, g gVar) {
             TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", f.this.o));
-            UrlManager.getInstance().dealOneLink((TbPageContext) j.a(view.getContext()), new String[]{gVar.h().score_url}, true);
+            UrlManager.getInstance().dealOneLink((TbPageContext) j.a(view.getContext()), new String[]{gVar.c().score_url}, true);
         }
     }
 
     public f(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), g.f52774f);
+        super(tbPageContext.getPageActivity(), g.f56463f);
         this.m = tbPageContext;
         this.o = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public CardViewHolder<h> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public CardViewHolder<h> Q(ViewGroup viewGroup) {
         this.n = new h(this.m);
         return new CardViewHolder<>(this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public View W(int i2, View view, ViewGroup viewGroup, g gVar, CardViewHolder<h> cardViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, g gVar, CardViewHolder<h> cardViewHolder) {
         if (cardViewHolder.b() == null) {
             return null;
         }
-        cardViewHolder.b().m(gVar);
-        cardViewHolder.b().o(new a());
-        cardViewHolder.b().n(this.m, TbadkCoreApplication.getInst().getSkinType());
-        return cardViewHolder.b().l();
+        cardViewHolder.b().n(gVar);
+        cardViewHolder.b().p(new a());
+        cardViewHolder.b().o(this.m, TbadkCoreApplication.getInst().getSkinType());
+        return cardViewHolder.b().m();
     }
 }

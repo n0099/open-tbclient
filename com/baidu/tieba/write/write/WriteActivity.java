@@ -71,8 +71,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -174,6 +174,7 @@ import com.baidu.tieba.write.view.TitleTipView;
 import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
 import com.google.gson.Gson;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import com.kwai.video.player.PlayerPostEvent;
 import d.a.m0.r.f0.p.a;
 import d.a.m0.r.s.a;
 import d.a.m0.z0.q;
@@ -401,12 +402,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (customResponsedMessage instanceof ResponsedSelectLocation) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    WriteActivity.this.mLocationModel.H(false);
-                    WriteActivity.this.mLocationModel.G(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    WriteActivity.this.mLocationModel.L(false);
+                    WriteActivity.this.mLocationModel.K(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                     WriteActivity.this.sendLocaionAction(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                WriteActivity.this.mLocationModel.H(true);
+                WriteActivity.this.mLocationModel.L(true);
                 WriteActivity.this.sendLocaionAction(0, true, null);
             }
         }
@@ -531,8 +532,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
         public ImageSpan a(String str) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), d.a.c.j.d.a.class);
-            d.a.c.j.d.a aVar = runTask != null ? (d.a.c.j.d.a) runTask.getData() : null;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), d.a.c.k.d.a.class);
+            d.a.c.k.d.a aVar = runTask != null ? (d.a.c.k.d.a) runTask.getData() : null;
             if (aVar == null) {
                 return null;
             }
@@ -677,7 +678,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // java.lang.Runnable
         public void run() {
-            if (WriteActivity.this.mEditor == null || WriteActivity.this.mEditor.f12744e == null) {
+            if (WriteActivity.this.mEditor == null || WriteActivity.this.mEditor.f12809e == null) {
                 return;
             }
             String clipBoardContent = UtilHelper.getClipBoardContent();
@@ -689,7 +690,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 WriteActivity writeActivity = WriteActivity.this;
                 writeActivity.mFindNewLinkBubbleController = new WriteTipBubbleController(writeActivity.getPageContext(), WriteActivity.this.mOnNewLinkBubbleClickListener);
             }
-            View s = WriteActivity.this.mEditor.f12744e.s(31);
+            View s = WriteActivity.this.mEditor.f12809e.s(31);
             WriteTipBubbleController writeTipBubbleController = WriteActivity.this.mFindNewLinkBubbleController;
             writeTipBubbleController.d(s, WriteActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + clipBoardContent, clipBoardContent, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
         }
@@ -722,15 +723,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public class f1 implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f22048e;
+        public final /* synthetic */ d.a.m0.r.s.a f22151e;
 
         public f1(d.a.m0.r.s.a aVar) {
-            this.f22048e = aVar;
+            this.f22151e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.m0.r.s.a aVar = this.f22048e;
+            d.a.m0.r.s.a aVar = this.f22151e;
             if (aVar != null) {
                 aVar.dismiss();
                 d.a.m0.r.d0.b.j().t("commodity_goods_show_first_dialog", true);
@@ -754,9 +755,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void onClick(d.a.m0.r.s.a aVar) {
             if (d.a.c.e.p.j.z()) {
                 WriteActivity.this.sendLocaionAction(1, true, null);
-                WriteActivity.this.mLocationModel.F();
+                WriteActivity.this.mLocationModel.J();
             } else {
-                WriteActivity.this.mOnLocationCallBack.b();
+                WriteActivity.this.mOnLocationCallBack.a();
             }
             aVar.dismiss();
         }
@@ -838,9 +839,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (e1Var == null) {
                 return;
             }
-            WriteActivity.this.mCategoryView.setText(e1Var.f58448a);
-            WriteActivity.this.mData.setCategoryTo(e1Var.f58449b);
-            WriteActivity.this.mCategoryToID = e1Var.f58449b;
+            WriteActivity.this.mCategoryView.setText(e1Var.f62139a);
+            WriteActivity.this.mData.setCategoryTo(e1Var.f62140b);
+            WriteActivity.this.mCategoryToID = e1Var.f62140b;
             WriteActivity.this.mCategoryView.c();
         }
     }
@@ -1033,17 +1034,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     writeData.setVcodeUrl(i0Var.c());
                     writeData.setVcodeExtra(i0Var.a());
                     if (d.a.m0.a1.a.b(i0Var.d())) {
-                        NewVcodeActivityConfig newVcodeActivityConfig = new NewVcodeActivityConfig(WriteActivity.this.getPageContext().getPageActivity(), 12006, writeData, false, i0Var.d());
+                        NewVcodeActivityConfig newVcodeActivityConfig = new NewVcodeActivityConfig(WriteActivity.this.getPageContext().getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, i0Var.d());
                         if (WriteActivity.this.isVcodeFeedBack) {
                             newVcodeActivityConfig.setHideFeedBackButton();
                         }
                         WriteActivity.this.sendMessage(new CustomMessage(2002001, newVcodeActivityConfig));
                         return;
                     }
-                    WriteActivity.this.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(WriteActivity.this.getPageContext().getPageActivity(), writeData, 12006)));
+                    WriteActivity.this.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(WriteActivity.this.getPageContext().getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
                 } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
                 } else {
-                    WriteActivity.this.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(WriteActivity.this.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                    WriteActivity.this.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(WriteActivity.this.getActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
                 }
             }
         }
@@ -1094,28 +1095,28 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void a(String str) {
+        public void a() {
+            WriteActivity.this.showToast(R.string.no_network_guide);
+            WriteActivity.this.sendLocaionAction(0, true, null);
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void b(LocationData locationData) {
+            if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
+                WriteActivity.this.sendLocaionAction(2, true, locationData.getFormatted_address());
+            } else {
+                onFail(null);
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void onFail(String str) {
             WriteActivity writeActivity = WriteActivity.this;
             if (StringUtils.isNull(str)) {
                 str = WriteActivity.this.getPageContext().getString(R.string.location_fail);
             }
             writeActivity.showToast(str);
             WriteActivity.this.sendLocaionAction(0, true, null);
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void b() {
-            WriteActivity.this.showToast(R.string.no_network_guide);
-            WriteActivity.this.sendLocaionAction(0, true, null);
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void c(LocationData locationData) {
-            if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
-                WriteActivity.this.sendLocaionAction(2, true, locationData.getFormatted_address());
-            } else {
-                a(null);
-            }
         }
     }
 
@@ -1205,12 +1206,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 return;
             }
             FeedBackModel feedBackModel = (FeedBackModel) obj;
-            if (feedBackModel.w() != 0) {
+            if (feedBackModel.A() != 0) {
                 WriteActivity.this.mTopListView.setVisibility(8);
                 WriteActivity.this.feedback_divider.setVisibility(8);
                 return;
             }
-            WriteActivity.this.mTopListView.c(feedBackModel.x(), WriteActivity.this.getPageContext());
+            WriteActivity.this.mTopListView.c(feedBackModel.B(), WriteActivity.this.getPageContext());
         }
     }
 
@@ -1297,23 +1298,23 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // java.lang.Runnable
         public void run() {
-            if (WriteActivity.this.mEditor == null || WriteActivity.this.mEditor.f12744e == null) {
+            if (WriteActivity.this.mEditor == null || WriteActivity.this.mEditor.f12809e == null) {
                 return;
             }
             if (WriteActivity.this.mCommodityTipController == null) {
                 WriteActivity writeActivity = WriteActivity.this;
                 writeActivity.mCommodityTipController = new d.a.n0.w3.u.b(writeActivity.getPageContext());
             }
-            WriteActivity.this.mCommodityTipController.b(WriteActivity.this.mEditor.f12744e.s(2));
+            WriteActivity.this.mCommodityTipController.b(WriteActivity.this.mEditor.f12809e.s(2));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class o0 implements b.InterfaceC1718b {
+    public class o0 implements b.InterfaceC1775b {
         public o0() {
         }
 
-        @Override // d.a.n0.w3.r.b.InterfaceC1718b
+        @Override // d.a.n0.w3.r.b.InterfaceC1775b
         public void a() {
             d.a.c.e.p.l.M(TbadkCoreApplication.getInst(), String.format(WriteActivity.this.getString(R.string.write_post_title_max_length), 31));
         }
@@ -1330,7 +1331,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (aVar == null) {
                 return;
             }
-            int i2 = aVar.f50841a;
+            int i2 = aVar.f54518a;
             if (i2 == 16) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 9));
                 if (WriteActivity.this.isTextFull()) {
@@ -1342,7 +1343,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
                 WriteActivity.this.openImageActivity(aVar);
             } else if (i2 == 24) {
-                Object obj = aVar.f50843c;
+                Object obj = aVar.f54520c;
                 if (obj == null || !(obj instanceof d.a.m0.s.c.v)) {
                     return;
                 }
@@ -1377,7 +1378,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             } else if (i2 == 3) {
                 WriteActivity.this.deleteChar();
             } else if (i2 == 10) {
-                Object obj2 = aVar.f50843c;
+                Object obj2 = aVar.f54520c;
                 if (obj2 instanceof VoiceData$VoiceModel) {
                     WriteActivity.this.addVoice((VoiceData$VoiceModel) obj2);
                 }
@@ -1387,13 +1388,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 WriteActivity.this.refreshImageLauncher();
                 WriteActivity.this.refreshPostButton();
             } else if (i2 == 15 || i2 == 47) {
-                Object obj3 = aVar.f50843c;
+                Object obj3 = aVar.f54520c;
                 if (obj3 == null || !(obj3 instanceof Integer)) {
                     return;
                 }
                 WriteActivity.this.jumpToEditImageActivity(((Integer) obj3).intValue());
             } else if (i2 == 18) {
-                if (aVar.f50843c == null || WriteActivity.this.mAdditionData != null) {
+                if (aVar.f54520c == null || WriteActivity.this.mAdditionData != null) {
                     int i3 = WriteActivity.this.mLocationState;
                     if (i3 != 0) {
                         if (i3 != 2) {
@@ -1414,12 +1415,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 WriteActivity.this.requestLocationIfValid();
             } else if (i2 == 20) {
                 if (WriteActivity.this.mLocationModel != null) {
-                    WriteActivity.this.mLocationModel.H(true);
+                    WriteActivity.this.mLocationModel.L(true);
                 }
             } else {
                 WriteVoteData writeVoteData = null;
                 if (i2 == 25) {
-                    Object obj4 = aVar.f50843c;
+                    Object obj4 = aVar.f54520c;
                     if (obj4 == null || !(obj4 instanceof String)) {
                         WriteActivity.this.mBubbleUrl = null;
                     } else {
@@ -1503,13 +1504,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     }
                     WriteActivity.this.refreshPostButton();
                 } else if (i2 == 55) {
-                    Object obj5 = aVar.f50843c;
+                    Object obj5 = aVar.f54520c;
                     if (obj5 == null || !(obj5 instanceof Boolean)) {
                         return;
                     }
                     WriteActivity.this.isPrivacy = ((Boolean) obj5).booleanValue();
                 } else if (i2 == 58) {
-                    Object obj6 = aVar.f50843c;
+                    Object obj6 = aVar.f54520c;
                     if (obj6 == null || !(obj6 instanceof Boolean)) {
                         return;
                     }
@@ -1541,13 +1542,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public class p0 implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f22076e;
+        public int f22179e;
 
         /* renamed from: f  reason: collision with root package name */
-        public EditText f22077f = null;
+        public EditText f22180f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f22078g = null;
+        public TextView f22181g = null;
 
         public p0() {
         }
@@ -1556,10 +1557,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void afterTextChanged(Editable editable) {
             WriteActivity.this.refreshPostButton();
             if (WriteActivity.this.isLivePhotoType) {
-                int selectionStart = this.f22077f.getSelectionStart();
-                this.f22076e = selectionStart;
-                this.f22077f.setSelection(selectionStart);
-                WriteActivity.this.setLeftCount(this.f22078g, this.f22077f);
+                int selectionStart = this.f22180f.getSelectionStart();
+                this.f22179e = selectionStart;
+                this.f22180f.setSelection(selectionStart);
+                WriteActivity.this.setLeftCount(this.f22181g, this.f22180f);
             }
         }
 
@@ -1567,16 +1568,16 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             if (!WriteActivity.this.isLivePhotoType || !WriteActivity.this.isPhotoliveTitleHasFocus) {
                 if (WriteActivity.this.isLivePhotoType) {
-                    if (this.f22077f == WriteActivity.this.live_post_content && this.f22078g == WriteActivity.this.mContentOverPlusNumber) {
+                    if (this.f22180f == WriteActivity.this.live_post_content && this.f22181g == WriteActivity.this.mContentOverPlusNumber) {
                         return;
                     }
-                    this.f22077f = WriteActivity.this.live_post_content;
-                    this.f22078g = WriteActivity.this.mContentOverPlusNumber;
+                    this.f22180f = WriteActivity.this.live_post_content;
+                    this.f22181g = WriteActivity.this.mContentOverPlusNumber;
                 }
-            } else if (this.f22077f == WriteActivity.this.live_post_title && this.f22078g == WriteActivity.this.mTitleOverPlusNumber) {
+            } else if (this.f22180f == WriteActivity.this.live_post_title && this.f22181g == WriteActivity.this.mTitleOverPlusNumber) {
             } else {
-                this.f22077f = WriteActivity.this.live_post_title;
-                this.f22078g = WriteActivity.this.mTitleOverPlusNumber;
+                this.f22180f = WriteActivity.this.live_post_title;
+                this.f22181g = WriteActivity.this.mTitleOverPlusNumber;
             }
         }
 
@@ -1589,25 +1590,25 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public class q implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteVoteData f22080e;
+        public final /* synthetic */ WriteVoteData f22183e;
 
         public q(WriteVoteData writeVoteData) {
-            this.f22080e = writeVoteData;
+            this.f22183e = writeVoteData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            WriteActivity.this.jumpToVoteView(this.f22080e);
+            WriteActivity.this.jumpToVoteView(this.f22183e);
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 3));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class q0 implements a.InterfaceC1136a {
+    public class q0 implements a.InterfaceC1192a {
         public q0() {
         }
 
-        @Override // d.a.m0.r.f0.p.a.InterfaceC1136a
+        @Override // d.a.m0.r.f0.p.a.InterfaceC1192a
         public void a(int i2, boolean z) {
             WriteActivity.this.refreshListView();
         }
@@ -1648,7 +1649,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             d.a.m0.t.j jVar;
-            if (WriteActivity.this.mForumSelectedView == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.m0.t.j) || (jVar = (d.a.m0.t.j) customResponsedMessage.getData()) == null || StringUtils.isNull(jVar.f50785a) || StringUtils.isNull(jVar.f50787c)) {
+            if (WriteActivity.this.mForumSelectedView == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.m0.t.j) || (jVar = (d.a.m0.t.j) customResponsedMessage.getData()) == null || StringUtils.isNull(jVar.f54462a) || StringUtils.isNull(jVar.f54464c)) {
                 return;
             }
             WriteActivity.this.initSelectForumData(jVar);
@@ -1659,10 +1660,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public class s implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22085e = "";
+        public String f22188e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22086f;
+        public String f22189f;
 
         public s() {
         }
@@ -1675,10 +1676,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (editable == null || realTitleInstance == null || realTitleInstance.getText() == null) {
                 return;
             }
-            String str = this.f22085e;
+            String str = this.f22188e;
             if (str == null || !str.equals(editable.toString())) {
                 if (WriteActivity.this.mHighLightController != null) {
-                    this.f22085e = realTitleInstance.getText().toString();
+                    this.f22188e = realTitleInstance.getText().toString();
                     WriteActivity.this.mHighLightController.j(realTitleInstance, true);
                     return;
                 }
@@ -1689,12 +1690,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            this.f22086f = charSequence != null ? charSequence.toString() : "";
+            this.f22189f = charSequence != null ? charSequence.toString() : "";
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            String str = this.f22086f;
+            String str = this.f22189f;
             if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.length() : 0)) {
                 WriteActivity.this.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_title");
             }
@@ -1722,10 +1723,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public class t implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22089e = "";
+        public String f22192e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22090f;
+        public String f22193f;
 
         public t() {
         }
@@ -1737,10 +1738,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (editable == null || realContentEdittextInstance == null || realContentEdittextInstance.getText() == null) {
                 return;
             }
-            String str = this.f22089e;
+            String str = this.f22192e;
             if (str == null || !str.equals(editable.toString())) {
                 if (WriteActivity.this.mHighLightController != null) {
-                    this.f22089e = realContentEdittextInstance.getText().toString();
+                    this.f22192e = realContentEdittextInstance.getText().toString();
                     WriteActivity.this.mHighLightController.j(realContentEdittextInstance, false);
                 }
                 if (WriteActivity.this.isEvaluate) {
@@ -1754,12 +1755,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            this.f22090f = charSequence != null ? charSequence.toString() : "";
+            this.f22193f = charSequence != null ? charSequence.toString() : "";
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            String str = this.f22090f;
+            String str = this.f22193f;
             if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.length() : 0)) {
                 WriteActivity.this.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_content");
             }
@@ -1767,18 +1768,18 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class t0 extends d.a.c.e.l.c<d.a.c.j.d.a> {
+    public class t0 extends d.a.c.e.l.c<d.a.c.k.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f22092a;
+        public final /* synthetic */ boolean f22195a;
 
         public t0(boolean z) {
-            this.f22092a = z;
+            this.f22195a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
             super.onLoaded((t0) aVar, str, i2);
             if (aVar == null || aVar.p() == null || aVar.o() == null) {
                 return;
@@ -1792,7 +1793,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 ninePatchDrawable.getPaint().setAlpha(TbConfig.ALPHA_80);
             }
             WriteActivity.this.getRealContentEdittextInstance().setBackgroundDrawable(ninePatchDrawable);
-            if (this.f22092a) {
+            if (this.f22195a) {
                 d.a.n0.e3.g0.a.c(WriteActivity.this.getPageContext(), WriteActivity.this.getRealContentEdittextInstance(), true, WriteActivity.this.mBubbleTipRefreshCallback);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.TRUE));
@@ -1870,7 +1871,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 return;
             }
             d.a.m0.r.q.v vVar = (d.a.m0.r.q.v) WriteActivity.this.mAdapter.getItem(i2);
-            int i3 = vVar.f50137f;
+            int i3 = vVar.f53813f;
             if (i3 == 1) {
                 if (vVar.s == 1) {
                     UrlManager.getInstance().dealOneLink(WriteActivity.this.getPageContext(), new String[]{vVar.k});
@@ -1926,7 +1927,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         @Override // java.lang.Runnable
         public void run() {
             if (WriteActivity.this.fromErrorDialog) {
-                WriteActivity.this.mOnPostWriteCallback.callback(false, d.a.n0.e3.q0.c.f54213c, d.a.n0.e3.q0.c.f54214d, d.a.n0.e3.q0.c.f54215e, d.a.n0.e3.q0.c.f54216f);
+                WriteActivity.this.mOnPostWriteCallback.callback(false, d.a.n0.e3.q0.c.f57902c, d.a.n0.e3.q0.c.f57903d, d.a.n0.e3.q0.c.f57904e, d.a.n0.e3.q0.c.f57905f);
             }
         }
     }
@@ -2065,7 +2066,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.mData.setVoiceModel(voiceData$VoiceModel);
         this.mLayoutVoicePlay.setVisibility(0);
         this.mVoicePlayButton.setVoiceModel(voiceData$VoiceModel);
-        this.mVoicePlayButton.l();
+        this.mVoicePlayButton.m();
         refreshPostButton();
     }
 
@@ -2115,7 +2116,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.mEditor.setToolEnabled(false, 10);
                 this.mEditor.setToolEnabled(false, 6);
                 this.mEditor.setToolEnabled(false, 18);
-                this.mEditor.n(5).e(false);
+                d.a.m0.w.m n2 = this.mEditor.n(5);
+                if (n2 != null) {
+                    n2.e(false);
+                }
                 d.a.n0.w3.m.b bVar = this.mWriteTool;
                 if (bVar != null) {
                     bVar.n(true);
@@ -2126,7 +2130,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.mEditor.setToolEnabled(true, 26);
                 this.mEditor.setToolEnabled(true, 2);
                 this.mEditor.setToolEnabled(true, 30);
-                this.mEditor.n(5).e(true);
+                d.a.m0.w.m n3 = this.mEditor.n(5);
+                if (n3 != null) {
+                    n3.e(true);
+                }
                 d.a.n0.w3.m.b bVar2 = this.mWriteTool;
                 if (bVar2 != null) {
                     bVar2.n(true);
@@ -2233,7 +2240,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (TbadkCoreApplication.getCurrentAccountObj() == null) {
             return;
         }
-        sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(getPageContext().getPageActivity(), 12001, 12010, (Uri) null, TbadkCoreApplication.getCurrentAccountObj(), 1, 0.56f, "from_photo_live")));
+        sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(getPageContext().getPageActivity(), (int) PlayerPostEvent.MEDIA_REP_CHANGE_START, 12010, (Uri) null, TbadkCoreApplication.getCurrentAccountObj(), 1, 0.56f, "from_photo_live")));
     }
 
     private void dealLiveCoverFromImage(Intent intent) {
@@ -2244,7 +2251,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.liveCoverImageInfo.parseJson(stringExtra);
         this.liveCoverImageInfo.updateQuality();
         if (this.liveCoverImageInfo.getChosedFiles() != null && this.liveCoverImageInfo.getChosedFiles().size() > 0) {
-            sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(getPageContext().getPageActivity(), 12002, 12009, (Uri) null, TbadkCoreApplication.getCurrentAccountObj(), 1, this.liveCoverImageInfo.getChosedFiles().get(0).getFilePath(), 0.56f, "from_photo_live")));
+            sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(getPageContext().getPageActivity(), (int) PlayerPostEvent.MEDIA_REP_CHANGE_END, 12009, (Uri) null, TbadkCoreApplication.getCurrentAccountObj(), 1, this.liveCoverImageInfo.getChosedFiles().get(0).getFilePath(), 0.56f, "from_photo_live")));
         }
         this.liveCoverImageInfo.clear();
     }
@@ -2264,7 +2271,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteTempVideoFile() {
-        FileHelper.deleteFileOrDir(new File(d.a.n0.r3.c.f59995c));
+        FileHelper.deleteFileOrDir(new File(d.a.n0.r3.c.f63686c));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2277,7 +2284,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.mVoiceModel = null;
         this.mData.setVoiceModel(null);
         this.mLayoutVoicePlay.setVisibility(8);
-        this.mVoicePlayButton.m();
+        this.mVoicePlayButton.n();
         this.mVoicePlayButton.setVoiceModel(null);
         d.a.m0.w.m n2 = this.mEditor.n(6);
         if (n2 != null && (nVar = n2.k) != null) {
@@ -2317,7 +2324,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.mData.setContent(writeData.getContent());
         SpannableString l2 = TbFaceManager.e().l(getPageContext().getPageActivity(), this.mData.getContent(), this.mBigEmotionSpanHanlder);
         InputFilter[] filters = this.mPostContent.getFilters();
-        this.mPostContent.setFilters(new InputFilter[]{new InputFilter.LengthFilter(IMConstants.ERROR_BASE)});
+        this.mPostContent.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50000)});
         getRealContentEdittextInstance().setText(l2);
         EditText realContentEdittextInstance = getRealContentEdittextInstance();
         SpanGroupEditText spanGroupEditText = this.mPostContent;
@@ -2629,7 +2636,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.feedback_divider.setVisibility(0);
         FeedBackModel feedBackModel = new FeedBackModel(getPageContext());
         this.mFeedBackModel = feedBackModel;
-        feedBackModel.v(this.mData.getForumName());
+        feedBackModel.z(this.mData.getForumName());
         this.mFeedBackModel.setLoadDataCallBack(new m0());
     }
 
@@ -2745,23 +2752,23 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (b2 == null) {
             return;
         }
-        List<d.a.n0.r0.c0> list = b2.f58447b;
+        List<d.a.n0.r0.c0> list = b2.f62138b;
         this.mCategoryList = list;
         if (list == null || list.isEmpty() || this.mCategoryFromID < 0) {
             return;
         }
         d.a.n0.r0.c0 c0Var = new d.a.n0.r0.c0();
         this.mCategoryDefault = c0Var;
-        c0Var.f58406b = 0;
-        c0Var.f58405a = getPageContext().getResources().getString(R.string.category_auto);
+        c0Var.f62097b = 0;
+        c0Var.f62096a = getPageContext().getResources().getString(R.string.category_auto);
         d.a.n0.r0.c0 c0Var2 = this.mCategoryDefault;
-        this.mCategoryToID = c0Var2.f58406b;
-        this.mCategoryName = c0Var2.f58405a;
+        this.mCategoryToID = c0Var2.f62097b;
+        this.mCategoryName = c0Var2.f62096a;
         for (d.a.n0.r0.c0 c0Var3 : this.mCategoryList) {
-            int i2 = c0Var3.f58406b;
+            int i2 = c0Var3.f62097b;
             if (i2 == this.mCategoryFromID) {
                 this.mCategoryToID = i2;
-                this.mCategoryName = c0Var3.f58405a;
+                this.mCategoryName = c0Var3.f62096a;
                 return;
             }
         }
@@ -2829,7 +2836,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (runTask3 != null && (mVar2 = (d.a.m0.w.m) runTask3.getData()) != null) {
             mVar2.m = true;
             mVar2.j = 9;
-            mVar2.f50850d = 0;
+            mVar2.f54527d = 0;
             if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom)) {
                 this.mEditor.d(mVar2);
             }
@@ -2838,7 +2845,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (runTask4 != null && (mVar = (d.a.m0.w.m) runTask4.getData()) != null) {
             mVar.m = true;
             mVar.j = 10;
-            mVar.f50850d = 0;
+            mVar.f54527d = 0;
             if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom)) {
                 this.mEditor.d(mVar);
             }
@@ -2980,7 +2987,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.voteDataSerializable = intent.getSerializableExtra(IntentConfig.WRITE_VOTE_DATA);
             this.isVoiceEnable = intent.getBooleanExtra(WriteActivityConfig.ENABLE_AUDIO, true);
             this.mDisableAudioMessage = intent.getStringExtra(WriteActivityConfig.DISABLE_AUDIO_MESSAGE);
-            if (this.fromErrorDialog && (writeData = d.a.n0.e3.q0.c.f54215e) != null) {
+            if (this.fromErrorDialog && (writeData = d.a.n0.e3.q0.c.f57904e) != null) {
                 this.mData = writeData;
                 writeData.setType(9);
                 WriteData writeData3 = this.mData;
@@ -3401,17 +3408,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.mSelectForumData = jVar;
         WriteData writeData = this.mData;
         if (writeData != null) {
-            writeData.setForumId(jVar.f50785a);
-            this.mData.setForumName(this.mSelectForumData.f50787c);
+            writeData.setForumId(jVar.f54462a);
+            this.mData.setForumName(this.mSelectForumData.f54464c);
         }
-        this.mForumSelectedView.setSelectedForum(this.mSelectForumData.f50787c);
+        this.mForumSelectedView.setSelectedForum(this.mSelectForumData.f54464c);
         this.mFrsTabList = null;
-        if (!ListUtils.isEmpty(this.mSelectForumData.f50792h)) {
+        if (!ListUtils.isEmpty(this.mSelectForumData.f54469h)) {
             FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
             this.mFrsTabList = frsTabInfoData;
             frsTabInfoData.selectedTabId = -1;
             d.a.m0.t.j jVar2 = this.mSelectForumData;
-            List<FrsTabItemData> list = jVar2.f50792h;
+            List<FrsTabItemData> list = jVar2.f54469h;
             frsTabInfoData.tabList = list;
             if (jVar2.j && list != null) {
                 FrsTabItemData frsTabItemData = new FrsTabItemData();
@@ -3430,9 +3437,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mForumTabSelectedViewDivider.setVisibility(0);
         }
         this.mPrefixData = null;
-        PostPrefixData postPrefixData = this.mSelectForumData.f50793i;
+        PostPrefixData postPrefixData = this.mSelectForumData.f54470i;
         if (postPrefixData != null && !ListUtils.isEmpty(postPrefixData.getPrefixs())) {
-            PostPrefixData postPrefixData2 = this.mSelectForumData.f50793i;
+            PostPrefixData postPrefixData2 = this.mSelectForumData.f54470i;
             this.mPrefixData = postPrefixData2;
             postPrefixData2.getPrefixs().add(getPageContext().getString(R.string.write_no_prefix));
         }
@@ -3644,7 +3651,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         albumFloatActivityConfig.getIntent().putExtra("forum_id", this.mData.getForumId());
         albumFloatActivityConfig.getIntent().putExtra("forum_name", this.mData.getForumName());
         albumFloatActivityConfig.getIntent().putExtra("from", this.mFrom);
-        albumFloatActivityConfig.setRequestCode(12002);
+        albumFloatActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
         albumFloatActivityConfig.setAlbumThread(i2);
         albumFloatActivityConfig.setCanSelectVideo(canSelectVideo());
         albumFloatActivityConfig.setFromWrite(true);
@@ -3813,7 +3820,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         }
         WriteData writeData = this.mData;
         LocationModel locationModel = this.mLocationModel;
-        writeData.setHasLocationData(locationModel != null && locationModel.v());
+        writeData.setHasLocationData(locationModel != null && locationModel.z());
         WriteImagesInfo writeImagesInfo2 = this.writeImagesInfo;
         if (writeImagesInfo2 != null) {
             this.mWriteModel.p(writeImagesInfo2.size() > 0);
@@ -3948,7 +3955,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         }
     }
 
-    private void realInsert(SpannableStringBuilder spannableStringBuilder, int i2, d.a.c.j.d.a aVar, EmotionGroupType emotionGroupType) {
+    private void realInsert(SpannableStringBuilder spannableStringBuilder, int i2, d.a.c.k.d.a aVar, EmotionGroupType emotionGroupType) {
         if (spannableStringBuilder == null || getRealContentEdittextInstance() == null || getRealContentEdittextInstance().getText() == null) {
             return;
         }
@@ -4046,13 +4053,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     /* JADX INFO: Access modifiers changed from: private */
     public void requestLocationIfValid() {
-        if (this.mLocationModel.v()) {
-            if (this.mLocationModel.z()) {
+        if (this.mLocationModel.z()) {
+            if (this.mLocationModel.D()) {
                 sendLocaionAction(2, true, d.a.n0.e3.m0.b.a().b().getFormatted_address());
                 return;
             }
             sendLocaionAction(1, true, null);
-            this.mLocationModel.D();
+            this.mLocationModel.H();
             return;
         }
         sendLocaionAction(0, true, null);
@@ -4182,7 +4189,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         while (true) {
             if (!it.hasNext()) {
                 break;
-            } else if (it.next().f50137f == 2) {
+            } else if (it.next().f53813f == 2) {
                 z2 = true;
                 break;
             }
@@ -4472,7 +4479,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void deleteChar() {
         if (getRealContentEdittextInstance().getSelectionStart() > 0) {
             String substring = getRealContentEdittextInstance().getText().toString().substring(0, getRealContentEdittextInstance().getSelectionStart());
-            Matcher matcher = d.a.n0.l0.a.f57154b.matcher(substring);
+            Matcher matcher = d.a.n0.l0.a.f60843b.matcher(substring);
             if (matcher.find()) {
                 getRealContentEdittextInstance().getText().delete(getRealContentEdittextInstance().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getRealContentEdittextInstance().getSelectionStart());
                 return;
@@ -4654,7 +4661,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (!StringUtils.isNull(currentPortrait)) {
             String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(currentPortrait);
             this.mUserHeaderPortrait.setUrl(headPortraitFilter);
-            this.mUserHeaderPortrait.V(headPortraitFilter, 12, false);
+            this.mUserHeaderPortrait.U(headPortraitFilter, 12, false);
         }
         if (this.mData.isUserFeedback()) {
             this.mUserHeaderPortrait.setVisibility(0);
@@ -4873,7 +4880,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 }
                 StringBuilder sb2 = new StringBuilder();
                 if (this.needAddHotTopicSign) {
-                    sb2.append(d.a.m0.p0.b.f49626a);
+                    sb2.append(d.a.m0.p0.b.f53301a);
                     this.needAddHotTopicSign = false;
                 }
                 sb2.append(stringExtra);
@@ -4942,7 +4949,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             dVar.notifyDataSetChanged();
         }
         SkinManager.setViewTextColor(this.mName, R.color.CAM_X0105);
-        this.mWriteImageController.f63040d.notifyDataSetChanged();
+        this.mWriteImageController.f66755d.notifyDataSetChanged();
         updateHintTextColor();
         updateTitleStyle();
         refreshBubble(false);
@@ -5028,7 +5035,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         getTopList();
         LocationModel locationModel = new LocationModel(getPageContext());
         this.mLocationModel = locationModel;
-        locationModel.I(this.mOnLocationCallBack);
+        locationModel.M(this.mOnLocationCallBack);
         registerVideoPostClickUserCollectionToastTask();
         initEditor();
         initRecBubble();
@@ -5144,16 +5151,16 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 int categoryTo = writeData.getCategoryTo();
                 if (categoryTo >= 0 && this.mCategoryList != null) {
                     d.a.n0.r0.c0 c0Var = this.mCategoryDefault;
-                    this.mCategoryToID = c0Var.f58406b;
-                    this.mCategoryName = c0Var.f58405a;
+                    this.mCategoryToID = c0Var.f62097b;
+                    this.mCategoryName = c0Var.f62096a;
                     while (true) {
                         if (i2 == this.mCategoryList.size()) {
                             break;
                         }
                         d.a.n0.r0.c0 c0Var2 = this.mCategoryList.get(i2);
-                        if (categoryTo == c0Var2.f58406b) {
+                        if (categoryTo == c0Var2.f62097b) {
                             this.mCategoryToID = categoryTo;
-                            this.mCategoryName = c0Var2.f58405a;
+                            this.mCategoryName = c0Var2.f62096a;
                             this.mData.setCategoryTo(categoryTo);
                             break;
                         }
@@ -5229,12 +5236,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             sendLocaionAction(0, true, null);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             showLocPermissionDialog();
-        } else if (this.mLocationModel.z()) {
+        } else if (this.mLocationModel.D()) {
             goToSelectLocationActivity();
         } else {
-            this.mLocationModel.H(false);
+            this.mLocationModel.L(false);
             sendLocaionAction(1, true, null);
-            this.mLocationModel.D();
+            this.mLocationModel.H();
         }
     }
 
@@ -5584,9 +5591,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (locationModel == null) {
                 return;
             }
-            locationModel.H(false);
+            locationModel.L(false);
             sendLocaionAction(1, true, null);
-            this.mLocationModel.D();
+            this.mLocationModel.H();
         }
     }
 

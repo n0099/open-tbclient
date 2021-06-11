@@ -8,32 +8,32 @@ import java.io.File;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45464a = d.a.l0.a.k.f43199a;
+    public static final boolean f49138a = d.a.l0.a.k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f45465b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+    public static final String f49139b = "aiapps_folder" + File.separator + "feed_back_record.txt";
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45466e;
+        public final /* synthetic */ String f49140e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f45467f;
+        public final /* synthetic */ boolean f49141f;
 
         public a(String str, boolean z) {
-            this.f45466e = str;
-            this.f45467f = z;
+            this.f49140e = str;
+            this.f49141f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + r.f45465b;
-            if (r.f45464a) {
-                Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.f45466e);
+            String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + r.f49139b;
+            if (r.f49138a) {
+                Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.f49140e);
             }
-            d.a.l0.a.b1.a.b(str, this.f45466e, this.f45467f);
+            d.a.l0.a.b1.a.b(str, this.f49140e, this.f49141f);
         }
     }
 

@@ -15,7 +15,7 @@ public class d {
     public static class a extends c.b {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final boolean f41553b = k.f43199a;
+        public static final boolean f45229b = k.f46875a;
 
         public a(c.a aVar) {
             super(aVar);
@@ -27,9 +27,9 @@ public class d {
             hashMap.put("Upgrade", "websocket");
             hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
             try {
-                hashMap.put("Sec-WebSocket-Accept", d.a.l0.a.e0.h.d.a.g(this.f41552a.f41547a.get("sec-websocket-key")));
+                hashMap.put("Sec-WebSocket-Accept", d.a.l0.a.e0.h.d.a.g(this.f45228a.f45223a.get("sec-websocket-key")));
             } catch (NoSuchAlgorithmException e2) {
-                if (f41553b) {
+                if (f45229b) {
                     Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e2);
                 }
             }
@@ -46,7 +46,7 @@ public class d {
     public static class b extends c.b {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41554b;
+        public String f45230b;
 
         public b(c.a aVar) {
             super(aVar);
@@ -54,10 +54,10 @@ public class d {
 
         @Override // d.a.l0.a.e0.h.c.c.b
         public String a() {
-            if (this.f41554b == null) {
-                this.f41554b = new d.a.l0.a.e0.h.b().toString();
+            if (this.f45230b == null) {
+                this.f45230b = new d.a.l0.a.e0.h.b().toString();
             }
-            return this.f41554b;
+            return this.f45230b;
         }
 
         @Override // d.a.l0.a.e0.h.c.c.b
@@ -77,14 +77,14 @@ public class d {
 
     public static c.b a(c.a aVar) {
         Map<String, String> map;
-        if (aVar == null || (map = aVar.f41547a) == null || map.size() < 1) {
+        if (aVar == null || (map = aVar.f45223a) == null || map.size() < 1) {
             return null;
         }
-        if (d.a.l0.a.e0.h.d.a.f(aVar.f41547a)) {
-            aVar.f41551e = true;
+        if (d.a.l0.a.e0.h.d.a.f(aVar.f45223a)) {
+            aVar.f45227e = true;
             return new a(aVar);
         }
-        aVar.f41551e = false;
+        aVar.f45227e = false;
         return new b(aVar);
     }
 }

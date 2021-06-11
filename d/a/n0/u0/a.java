@@ -6,73 +6,73 @@ import tbclient.EsportUser;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61303a;
+    public String f65016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61304b;
+    public String f65017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61305c;
+    public String f65018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61306d;
+    public String f65019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61307e;
+    public String f65020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61308f;
+    public String f65021f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61309g;
+    public String f65022g;
 
     public String a() {
-        return this.f61305c;
+        return this.f65018c;
     }
 
     public String b() {
-        return this.f61308f;
+        return this.f65021f;
     }
 
     public String c() {
-        return this.f61309g;
+        return this.f65022g;
     }
 
     public String d() {
-        return this.f61304b;
+        return this.f65017b;
     }
 
     public String e() {
-        return this.f61306d;
+        return this.f65019d;
     }
 
     public String f() {
-        return this.f61307e;
+        return this.f65020e;
     }
 
     public String g() {
-        return this.f61303a;
+        return this.f65016a;
     }
 
     public void h(EsportRank esportRank) {
         if (esportRank != null) {
-            this.f61303a = esportRank.title;
-            this.f61304b = String.valueOf(esportRank.rank);
-            this.f61305c = esportRank.text;
-            this.f61309g = esportRank.url;
+            this.f65016a = esportRank.title;
+            this.f65017b = String.valueOf(esportRank.rank);
+            this.f65018c = esportRank.text;
+            this.f65022g = esportRank.url;
             EsportUser esportUser = esportRank.user;
             if (esportUser != null) {
-                this.f61306d = esportUser.steam_name;
-                this.f61307e = esportUser.steam_portrait;
+                this.f65019d = esportUser.steam_name;
+                this.f65020e = esportUser.steam_portrait;
             }
         }
     }
 
     public void i(String str) {
-        this.f61308f = str;
+        this.f65021f = str;
     }
 
     public void j(String str) {
-        this.f61309g = str;
+        this.f65022g = str;
     }
 }

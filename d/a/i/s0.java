@@ -33,9 +33,9 @@ public class s0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var = s0.this;
-            a.InterfaceC0542a interfaceC0542a = s0Var.f40011i;
-            if (interfaceC0542a != null) {
-                interfaceC0542a.a(s0Var.p);
+            a.InterfaceC0598a interfaceC0598a = s0Var.f43692i;
+            if (interfaceC0598a != null) {
+                interfaceC0598a.a(s0Var.p);
             }
         }
     }
@@ -118,7 +118,7 @@ public class s0 extends h {
             this.r = k;
         }
         this.p = aVar;
-        if (aVar != null && aVar.m() != null && this.p.m().s1 != null && !this.p.m().s1.m) {
+        if (aVar != null && aVar.i() != null && this.p.i().t1 != null && !this.p.i().t1.m) {
             this.q.setVisibility(0);
             this.q.a(aVar);
             ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
@@ -126,8 +126,8 @@ public class s0 extends h {
             int i3 = layoutParams.width;
             int i4 = layoutParams.height;
             boolean z = true;
-            if (this.p.m().s1.r.is_vertical.intValue() == 1) {
-                VideoInfo videoInfo = this.p.m().s1.r;
+            if (this.p.i().t1.r.is_vertical.intValue() == 1) {
+                VideoInfo videoInfo = this.p.i().t1.r;
                 if (videoInfo == null) {
                     return;
                 }
@@ -177,8 +177,8 @@ public class s0 extends h {
         this.s = str;
     }
 
-    public void w(a.InterfaceC0542a interfaceC0542a) {
-        this.f40011i = interfaceC0542a;
+    public void w(a.InterfaceC0598a interfaceC0598a) {
+        this.f43692i = interfaceC0598a;
     }
 
     public void x(d.a.i.w0.a aVar) {

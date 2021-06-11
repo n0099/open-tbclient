@@ -3,9 +3,9 @@ package d.a.m0.b;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48828a;
+    public String f52502a;
 
     public e(String str) {
-        this.f48828a = str;
+        this.f52502a = str;
     }
 }

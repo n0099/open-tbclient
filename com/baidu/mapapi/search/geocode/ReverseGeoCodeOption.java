@@ -5,47 +5,47 @@ import com.baidu.mapapi.model.LatLng;
 public class ReverseGeoCodeOption {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7205a = 10;
+    public int f7248a = 10;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7206b = 0;
+    public int f7249b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7207c = null;
+    public LatLng f7250c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7208d = 0;
+    public int f7251d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7209e = 1000;
+    public int f7252e = 1000;
 
     public int getLatestAdmin() {
-        return this.f7208d;
+        return this.f7251d;
     }
 
     public LatLng getLocation() {
-        return this.f7207c;
+        return this.f7250c;
     }
 
     public int getPageNum() {
-        return this.f7206b;
+        return this.f7249b;
     }
 
     public int getPageSize() {
-        return this.f7205a;
+        return this.f7248a;
     }
 
     public int getRadius() {
-        return this.f7209e;
+        return this.f7252e;
     }
 
     public ReverseGeoCodeOption location(LatLng latLng) {
-        this.f7207c = latLng;
+        this.f7250c = latLng;
         return this;
     }
 
     public ReverseGeoCodeOption newVersion(int i2) {
-        this.f7208d = i2;
+        this.f7251d = i2;
         return this;
     }
 
@@ -53,7 +53,7 @@ public class ReverseGeoCodeOption {
         if (i2 < 0) {
             i2 = 0;
         }
-        this.f7206b = i2;
+        this.f7249b = i2;
         return this;
     }
 
@@ -61,10 +61,10 @@ public class ReverseGeoCodeOption {
         if (i2 <= 0) {
             i2 = 10;
         } else if (i2 > 100) {
-            this.f7205a = 100;
+            this.f7248a = 100;
             return this;
         }
-        this.f7205a = i2;
+        this.f7248a = i2;
         return this;
     }
 
@@ -72,10 +72,10 @@ public class ReverseGeoCodeOption {
         if (i2 < 0) {
             i2 = 0;
         } else if (i2 > 1000) {
-            this.f7209e = 1000;
+            this.f7252e = 1000;
             return this;
         }
-        this.f7209e = i2;
+        this.f7252e = i2;
         return this;
     }
 }

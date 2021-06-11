@@ -1,27 +1,29 @@
 package com.kwad.sdk.core.c.a;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class af implements com.kwad.sdk.core.c<AdStyleInfo.FeedAdInfo> {
+public class af implements com.kwad.sdk.core.c<WebCardVideoPositionHandler.VideoPosition> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(AdStyleInfo.FeedAdInfo feedAdInfo, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        feedAdInfo.templateConfig = jSONObject.optString("templateConfig");
-        feedAdInfo.heightRatio = jSONObject.optDouble("heightRatio");
+    public JSONObject a(WebCardVideoPositionHandler.VideoPosition videoPosition) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, "leftMarginRation", videoPosition.leftMarginRation);
+        com.kwad.sdk.utils.o.a(jSONObject, "topMarginRation", videoPosition.topMarginRation);
+        com.kwad.sdk.utils.o.a(jSONObject, "widthRation", videoPosition.widthRation);
+        com.kwad.sdk.utils.o.a(jSONObject, "heightWidthRation", videoPosition.heightWidthRation);
+        return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject b(AdStyleInfo.FeedAdInfo feedAdInfo, JSONObject jSONObject) {
+    public void a(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
         if (jSONObject == null) {
-            jSONObject = new JSONObject();
+            return;
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "templateConfig", feedAdInfo.templateConfig);
-        com.kwad.sdk.utils.o.a(jSONObject, "heightRatio", feedAdInfo.heightRatio);
-        return jSONObject;
+        videoPosition.leftMarginRation = jSONObject.optDouble("leftMarginRation");
+        videoPosition.topMarginRation = jSONObject.optDouble("topMarginRation");
+        videoPosition.widthRation = jSONObject.optDouble("widthRation");
+        videoPosition.heightWidthRation = jSONObject.optDouble("heightWidthRation");
     }
 }

@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static void a(Closeable closeable) {
         if (closeable != null) {
@@ -51,7 +51,7 @@ public class c {
         try {
             byte[] a2 = a(file);
             if (a2 != null && a2.length != 0) {
-                return r.a(a2, 0, a2.length);
+                return t.a(a2, 0, a2.length);
             }
             return null;
         } catch (IOException | NoSuchAlgorithmException e2) {

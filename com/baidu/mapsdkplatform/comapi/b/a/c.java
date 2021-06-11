@@ -28,26 +28,26 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7520a = "";
+    public static String f7563a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f7521b = "";
+    public static String f7564b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7522c = "";
+    public static String f7565c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f7523d;
+    public Context f7566d;
 
     /* loaded from: classes2.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f7524a = new c();
+        public static final c f7567a = new c();
     }
 
     public static c a() {
-        return a.f7524a;
+        return a.f7567a;
     }
 
     private void a(InputStream inputStream, OutputStream outputStream) throws Exception {
@@ -299,7 +299,7 @@ public class c {
         sb.append(Part.CRLF);
         sb.append("Content-Disposition: form-data; name=\"phoneinfo\"\r\n");
         sb.append(Part.CRLF);
-        sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f7522c));
+        sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f7565c));
         sb.append(Part.CRLF);
         sb.append("--bd_map_sdk_cc");
         sb.append(Part.CRLF);
@@ -347,25 +347,25 @@ public class c {
         String str = b2 + File.separator + "crash";
         File file = new File(str);
         if (file.exists() || file.mkdir()) {
-            f7520a = str;
+            f7563a = str;
         } else {
-            f7520a = b2;
+            f7563a = b2;
         }
     }
 
     private void e() {
         String str;
-        String str2 = f7520a;
-        if (str2 == null || str2.isEmpty() || (str = f7521b) == null || str.isEmpty()) {
+        String str2 = f7563a;
+        if (str2 == null || str2.isEmpty() || (str = f7564b) == null || str.isEmpty()) {
             return;
         }
-        String str3 = f7520a + File.separator + f7521b;
+        String str3 = f7563a + File.separator + f7564b;
         com.baidu.mapsdkplatform.comapi.b.a.a.a().a(str3);
         JNIHandler.registerNativeHandler(str3);
     }
 
     private void f() {
-        if (NetworkUtil.isNetworkAvailable(this.f7523d)) {
+        if (NetworkUtil.isNetworkAvailable(this.f7566d)) {
             new Thread(new d(this)).start();
         }
     }
@@ -393,9 +393,9 @@ public class c {
         }
         String[] strArr = Build.SUPPORTED_ABIS;
         if (strArr.length > 0) {
-            f7522c = strArr[0];
+            f7565c = strArr[0];
         }
-        this.f7523d = context;
+        this.f7566d = context;
         String n = i.n();
         if (n.isEmpty()) {
             return;
@@ -403,7 +403,7 @@ public class c {
         if (n.contains("_")) {
             n = n.replaceAll("_", "");
         }
-        f7521b = n + "_" + i.i() + "_";
+        f7564b = n + "_" + i.i() + "_";
         d();
         e();
         f();

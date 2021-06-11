@@ -9,7 +9,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MemorySizeCalculator {
     @VisibleForTesting
     public static final int BYTES_PER_ARGB_8888_PIXEL = 4;
@@ -20,7 +20,7 @@ public final class MemorySizeCalculator {
     public final Context context;
     public final int memoryCacheSize;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         public static final int ARRAY_POOL_SIZE_BYTES = 4194304;
         public static final int BITMAP_POOL_TARGET_SCREENS;
@@ -98,7 +98,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class DisplayMetricsScreenDimensions implements ScreenDimensions {
         public final DisplayMetrics displayMetrics;
 
@@ -117,7 +117,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface ScreenDimensions {
         int getHeightPixels();
 

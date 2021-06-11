@@ -10,7 +10,7 @@ import d.a.m0.r.q.g1;
 import d.a.m0.r.r.a;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public g1 data;
     public int mErrCode;

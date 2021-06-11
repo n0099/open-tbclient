@@ -20,59 +20,59 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f63078a = 1;
+    public int f66793a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f63079b;
+    public BdUniqueId f66794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f63080c;
+    public final String f66795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f63081d;
+    public b f66796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f63082e;
+    public List<String> f66797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f63083f;
+    public HttpMessageListener f66798f;
 
     /* renamed from: d.a.n0.w3.u.m.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1723a extends HttpMessageListener {
-        public C1723a(int i2) {
+    public class C1780a extends HttpMessageListener {
+        public C1780a(int i2) {
             super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || a.this.f63081d == null) {
+            if (httpResponsedMessage == null || a.this.f66796d == null) {
                 return;
             }
-            if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == a.this.f63079b) {
+            if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == a.this.f66794b) {
                 RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
                 if (responseData != null && responseData.getData() != null) {
-                    if (!ListUtils.equalList(a.this.f63082e, responseData.getData().getTab_option())) {
-                        a.this.f63082e = responseData.getData().getTab_option();
-                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(a.this.f63082e));
+                    if (!ListUtils.equalList(a.this.f66797e, responseData.getData().getTab_option())) {
+                        a.this.f66797e = responseData.getData().getTab_option();
+                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(a.this.f66797e));
                     }
                     if (httpResponsedMessage.getError() != 0) {
-                        a.this.f63081d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        a.this.f66796d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         a.this.l();
                         return;
                     } else if (ListUtils.isEmpty(responseData.getData().getItem_list())) {
-                        if (a.this.f63078a == 1) {
-                            a.this.f63081d.a();
+                        if (a.this.f66793a == 1) {
+                            a.this.f66796d.a();
                             return;
                         } else {
-                            a.this.f63081d.d();
+                            a.this.f66796d.d();
                             return;
                         }
                     } else if (responseData != null) {
-                        a.this.f63081d.c(responseData);
-                        if (a.this.f63078a == 1 && responseData.getData().getItem_list().size() < 20) {
-                            a.this.f63081d.d();
+                        a.this.f66796d.c(responseData);
+                        if (a.this.f66793a == 1 && responseData.getData().getItem_list().size() < 20) {
+                            a.this.f66796d.d();
                         }
                         a.f(a.this);
                         return;
@@ -81,7 +81,7 @@ public class a {
                     }
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                a.this.f63081d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                a.this.f66796d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                 a.this.l();
             }
         }
@@ -99,18 +99,18 @@ public class a {
     }
 
     public a(BdUniqueId bdUniqueId, String str) {
-        C1723a c1723a = new C1723a(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-        this.f63083f = c1723a;
-        this.f63079b = bdUniqueId;
-        this.f63080c = str;
-        c1723a.setTag(bdUniqueId);
+        C1780a c1780a = new C1780a(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+        this.f66798f = c1780a;
+        this.f66794b = bdUniqueId;
+        this.f66795c = str;
+        c1780a.setTag(bdUniqueId);
         k();
-        MessageManager.getInstance().registerListener(this.f63083f);
+        MessageManager.getInstance().registerListener(this.f66798f);
     }
 
     public static /* synthetic */ int f(a aVar) {
-        int i2 = aVar.f63078a;
-        aVar.f63078a = i2 + 1;
+        int i2 = aVar.f66793a;
+        aVar.f66793a = i2 + 1;
         return i2;
     }
 
@@ -121,26 +121,26 @@ public class a {
 
     public void h() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-        httpMessage.addParam("tab_name", this.f63080c);
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f63078a);
+        httpMessage.addParam("tab_name", this.f66795c);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f66793a);
         httpMessage.addParam("rn", 20);
-        httpMessage.setTag(this.f63079b);
+        httpMessage.setTag(this.f66794b);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public final void i(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-        httpMessage.addParam("tab_name", this.f63080c);
+        httpMessage.addParam("tab_name", this.f66795c);
         httpMessage.addParam("keyword", str);
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f63078a);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f66793a);
         httpMessage.addParam("rn", 20);
-        httpMessage.setTag(this.f63079b);
+        httpMessage.setTag(this.f66794b);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void j() {
-        MessageManager.getInstance().removeMessage(this.f63079b);
-        MessageManager.getInstance().unRegisterListener(this.f63079b);
+        MessageManager.getInstance().removeMessage(this.f66794b);
+        MessageManager.getInstance().unRegisterListener(this.f66794b);
     }
 
     public final void k() {
@@ -152,10 +152,10 @@ public class a {
     }
 
     public void l() {
-        this.f63078a = 1;
+        this.f66793a = 1;
     }
 
     public void m(b bVar) {
-        this.f63081d = bVar;
+        this.f66796d = bVar;
     }
 }

@@ -8,7 +8,7 @@ import d.a.n0.t2.n;
 public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     /* renamed from: e  reason: collision with root package name */
-    public n f20141e;
+    public n f20218e;
 
     public FrsAppLegoViewHolder(d.a.n0.k1.o.l.e<?> eVar) {
         super((View) eVar);
@@ -20,19 +20,19 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     }
 
     public void b() {
-        n nVar = this.f20141e;
+        n nVar = this.f20218e;
         if (nVar != null) {
             nVar.release();
         }
     }
 
     public void c(n nVar) {
-        this.f20141e = nVar;
+        this.f20218e = nVar;
     }
 
     @Override // d.a.n0.k2.e
     public int getCurrentPosition() {
-        n nVar = this.f20141e;
+        n nVar = this.f20218e;
         if (nVar == null) {
             return 0;
         }
@@ -41,13 +41,13 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public String getPlayUrl() {
-        n nVar = this.f20141e;
+        n nVar = this.f20218e;
         return nVar == null ? "" : nVar.getPlayUrl();
     }
 
     @Override // d.a.n0.k2.e
     public View getVideoContainer() {
-        n nVar = this.f20141e;
+        n nVar = this.f20218e;
         if (nVar == null) {
             return null;
         }
@@ -56,7 +56,7 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public boolean isPlayStarted() {
-        n nVar = this.f20141e;
+        n nVar = this.f20218e;
         if (nVar == null) {
             return false;
         }
@@ -65,7 +65,7 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public boolean isPlaying() {
-        n nVar = this.f20141e;
+        n nVar = this.f20218e;
         if (nVar == null) {
             return false;
         }
@@ -74,7 +74,7 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public void startPlay() {
-        n nVar = this.f20141e;
+        n nVar = this.f20218e;
         if (nVar != null) {
             nVar.startPlay();
         }
@@ -82,7 +82,7 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
 
     @Override // d.a.n0.k2.e
     public void stopPlay() {
-        n nVar = this.f20141e;
+        n nVar = this.f20218e;
         if (nVar != null) {
             nVar.stopPlay();
         }

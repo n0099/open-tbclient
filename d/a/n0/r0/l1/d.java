@@ -3,7 +3,7 @@ package d.a.n0.r0.l1;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Message;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.g0.b.h;
 import d.a.m0.r.q.a2;
 import java.util.ArrayList;
@@ -21,13 +21,13 @@ import tbclient.User;
 public class d implements h {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58881e;
+    public boolean f62572e;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58884h;
+    public int f62575h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f58885i;
+    public String f62576i;
     public String j;
     public boolean k;
     public SportScheduleInfo l;
@@ -35,17 +35,17 @@ public class d implements h {
     public List<App> o;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, MetaData> f58882f = new HashMap<>();
+    public HashMap<String, MetaData> f62573f = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<n> f58883g = new ArrayList<>();
+    public ArrayList<n> f62574g = new ArrayList<>();
     public int m = 1;
 
     public void a(DataRes dataRes) {
         if (dataRes == null) {
             return;
         }
-        this.f58881e = dataRes.has_more.intValue() == 1;
+        this.f62572e = dataRes.has_more.intValue() == 1;
         if (!ListUtils.isEmpty(dataRes.user_list)) {
             for (User user : dataRes.user_list) {
                 if (user != null) {
@@ -53,7 +53,7 @@ public class d implements h {
                     metaData.parserProtobuf(user);
                     String userId = metaData.getUserId();
                     if (userId != null && !"0".equals(userId)) {
-                        this.f58882f.put(userId, metaData);
+                        this.f62573f.put(userId, metaData);
                     }
                 }
             }
@@ -62,21 +62,21 @@ public class d implements h {
             for (ThreadInfo threadInfo : dataRes.general_list) {
                 if (threadInfo != null) {
                     a2 a2Var = new a2();
-                    a2Var.t4(this.f58882f);
-                    a2Var.B2 = true;
-                    a2Var.U2(threadInfo);
-                    a2Var.Y2();
-                    a2Var.L1();
-                    this.f58883g.add(a2Var);
+                    a2Var.u4(this.f62573f);
+                    a2Var.D2 = true;
+                    a2Var.V2(threadInfo);
+                    a2Var.Z2();
+                    a2Var.M1();
+                    this.f62574g.add(a2Var);
                 }
             }
         }
         this.o = dataRes.app_list;
-        d.a.m0.b.f.a.d(this.f58883g);
-        this.f58884h = dataRes.new_thread_num.intValue();
+        d.a.m0.b.f.a.d(this.f62574g);
+        this.f62575h = dataRes.new_thread_num.intValue();
         SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
         if (sportPageHeadInfo != null) {
-            this.f58885i = sportPageHeadInfo.head_url;
+            this.f62576i = sportPageHeadInfo.head_url;
             this.j = sportPageHeadInfo.jump_url;
             this.k = sportPageHeadInfo.is_ad.intValue() == 1;
         }

@@ -2,7 +2,7 @@ package com.bumptech.glide.util;
 
 import androidx.collection.ArrayMap;
 import androidx.collection.SimpleArrayMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CachedHashCodeArrayMap<K, V> extends ArrayMap<K, V> {
     public int hashCode;
 

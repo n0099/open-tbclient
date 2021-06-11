@@ -9,18 +9,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d extends d.a.n0.c2.b.a {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends OneKeyLoginCallback {
         public a() {
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void onFail(OneKeyLoginResult oneKeyLoginResult) {
-            d.this.f52349b.closeLoadingDialog();
-            BaseActivity baseActivity = d.this.f52349b;
+            d.this.f56038b.closeLoadingDialog();
+            BaseActivity baseActivity = d.this.f56038b;
             baseActivity.showToast(String.format(baseActivity.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
         }
 
@@ -41,7 +41,7 @@ public class d extends d.a.n0.c2.b.a {
 
     @Override // d.a.n0.c2.b.a
     public void j(c cVar) {
-        this.f52352e = cVar;
+        this.f56041e = cVar;
     }
 
     @Override // d.a.n0.c2.b.a
@@ -59,38 +59,38 @@ public class d extends d.a.n0.c2.b.a {
     }
 
     public final void r() {
-        BaseActivity baseActivity = this.f52349b;
+        BaseActivity baseActivity = this.f56038b;
         new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
     }
 
     public void s() {
         l();
         PassportSDK passportSDK = PassportSDK.getInstance();
-        BaseActivity baseActivity = this.f52349b;
-        passportSDK.loadOneKeyLogin(baseActivity, d.a.n0.c2.c.b.h(baseActivity, this.f52352e.f52372c), new a());
+        BaseActivity baseActivity = this.f56038b;
+        passportSDK.loadOneKeyLogin(baseActivity, d.a.n0.c2.c.b.i(baseActivity, this.f56041e.f56061c), new a());
     }
 
     public final void t() {
-        c cVar = this.f52352e;
+        c cVar = this.f56041e;
         if (cVar == null) {
             return;
         }
         int a2 = cVar.a();
         if (a2 == 1) {
-            BaseActivity baseActivity = this.f52349b;
+            BaseActivity baseActivity = this.f56038b;
             new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
         } else if (a2 == 2) {
-            BaseActivity baseActivity2 = this.f52349b;
+            BaseActivity baseActivity2 = this.f56038b;
             new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
         } else if (a2 != 3) {
         } else {
-            BaseActivity baseActivity3 = this.f52349b;
+            BaseActivity baseActivity3 = this.f56038b;
             new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
         }
     }
 
     public final void u() {
-        BaseActivity baseActivity = this.f52349b;
+        BaseActivity baseActivity = this.f56038b;
         new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
     }
 }

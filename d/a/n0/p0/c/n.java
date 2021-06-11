@@ -3,50 +3,50 @@ package d.a.n0.p0.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes4.dex */
-public class n implements d.a.c.j.e.n {
+public class n implements d.a.c.k.e.n {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f58014h = BdUniqueId.gen();
+    public static final BdUniqueId f61705h = BdUniqueId.gen();
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58016f;
+    public String f61707f;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58015e = -1;
+    public int f61706e = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58017g = -1;
+    public int f61708g = -1;
 
-    public int c() {
-        return this.f58017g;
+    public int b() {
+        return this.f61708g;
     }
 
-    public String e() {
-        return this.f58016f;
+    public String c() {
+        return this.f61707f;
     }
 
-    public int f() {
-        return this.f58015e;
+    public int e() {
+        return this.f61706e;
     }
 
-    @Override // d.a.c.j.e.n
+    public boolean g() {
+        return StringUtils.isNull(this.f61707f) || this.f61706e < 0;
+    }
+
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f58014h;
+        return f61705h;
     }
 
-    public boolean h() {
-        return StringUtils.isNull(this.f58016f) || this.f58015e < 0;
+    public void h(int i2) {
+        this.f61708g = i2;
     }
 
-    public void i(int i2) {
-        this.f58017g = i2;
+    public void i(String str) {
+        this.f61707f = str;
     }
 
-    public void k(String str) {
-        this.f58016f = str;
-    }
-
-    public void l(int i2) {
-        this.f58015e = i2;
+    public void k(int i2) {
+        this.f61706e = i2;
     }
 }

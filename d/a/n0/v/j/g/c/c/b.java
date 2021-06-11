@@ -1,5 +1,6 @@
 package d.a.n0.v.j.g.c.c;
 
+import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -8,31 +9,31 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62118a;
+    public String f65833a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62119b;
+    public int f65834b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62120c;
+    public int f65835c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62121d;
+    public int f65836d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62122e;
+    public String f65837e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62123f;
+    public String f65838f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62124g;
+    public String f65839g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f62125h;
+    public int f65840h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f62126i;
+    public int f65841i;
     public String j;
     public String k;
     public long n;
@@ -40,7 +41,7 @@ public class b {
     public List<d> l = new ArrayList();
 
     public String a() {
-        return this.f62124g;
+        return this.f65839g;
     }
 
     public String b() {
@@ -55,23 +56,23 @@ public class b {
     }
 
     public int d() {
-        return this.f62121d;
+        return this.f65836d;
     }
 
     public String e() {
-        return this.f62122e;
+        return this.f65837e;
     }
 
     public String f() {
-        return this.f62123f;
+        return this.f65838f;
     }
 
     public int g() {
-        return this.f62125h;
+        return this.f65840h;
     }
 
     public String h() {
-        return this.f62118a;
+        return this.f65833a;
     }
 
     public String i() {
@@ -79,29 +80,29 @@ public class b {
     }
 
     public int j() {
-        return this.f62126i;
+        return this.f65841i;
     }
 
     public boolean k() {
-        return this.f62119b == 1;
+        return this.f65834b == 1;
     }
 
     public boolean l() {
-        return this.f62120c == 9;
+        return this.f65835c == 9;
     }
 
     public boolean m() {
-        return this.f62120c == 10;
+        return this.f65835c == 10;
     }
 
     public void n(JSONObject jSONObject) {
-        this.f62120c = jSONObject.optInt("type");
-        this.f62121d = jSONObject.optInt("mark_id");
-        this.f62122e = jSONObject.optString("mark_name");
-        this.f62124g = jSONObject.optString("description");
-        this.f62126i = jSONObject.optInt("wear_status");
-        this.f62123f = jSONObject.optString("mark_pic");
-        this.f62125h = jSONObject.optInt("mark_rank");
+        this.f65835c = jSONObject.optInt("type");
+        this.f65836d = jSONObject.optInt("mark_id");
+        this.f65837e = jSONObject.optString("mark_name");
+        this.f65839g = jSONObject.optString("description");
+        this.f65841i = jSONObject.optInt("wear_status");
+        this.f65838f = jSONObject.optString("mark_pic");
+        this.f65840h = jSONObject.optInt("mark_rank");
         jSONObject.optInt("width");
         jSONObject.optInt("height");
         jSONObject.optInt("weight");
@@ -109,7 +110,7 @@ public class b {
         jSONObject.optString("mark_dir_level");
         this.k = jSONObject.optString("expire_text");
         jSONObject.optString("begin_time");
-        jSONObject.optString("end_time");
+        jSONObject.optString(ResultTB.ENDTIME);
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
         if (optJSONArray != null) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -133,14 +134,14 @@ public class b {
     }
 
     public void o(String str) {
-        this.f62118a = str;
+        this.f65833a = str;
     }
 
     public void p(int i2) {
-        this.f62119b = i2;
+        this.f65834b = i2;
     }
 
     public void q(int i2) {
-        this.f62126i = i2;
+        this.f65841i = i2;
     }
 }

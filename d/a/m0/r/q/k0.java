@@ -6,29 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.BannerImage;
 /* loaded from: classes3.dex */
-public class k0 extends BaseCardInfo implements d.a.c.j.e.n {
+public class k0 extends BaseCardInfo implements d.a.c.k.e.n {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f50061f = BdUniqueId.gen();
+    public static final BdUniqueId f53737f = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<l> f50062e = new ArrayList();
+    public List<l> f53738e = new ArrayList();
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f50061f;
+        return f53737f;
     }
 
     public void parserProtobuf(List<BannerImage> list) {
         if (list == null) {
             return;
         }
-        this.f50062e.clear();
+        this.f53738e.clear();
         int min = Math.min(list.size(), 10);
         for (int i2 = 0; i2 < min; i2++) {
             l lVar = new l();
             lVar.f(list.get(i2));
-            this.f50062e.add(lVar);
+            this.f53738e.add(lVar);
         }
     }
 }

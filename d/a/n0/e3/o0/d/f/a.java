@@ -17,29 +17,29 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f54181a;
+    public e f57870a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f54182b;
+    public final String f57871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f54183c;
+    public final int f57872c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f54184d;
+    public final long f57873d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f54185e;
+    public final String f57874e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f54186f;
+    public final int f57875f;
 
     public a(String str, int i2, int i3, long j, String str2) {
-        this.f54182b = str;
-        this.f54183c = i3;
-        this.f54184d = j;
-        this.f54185e = str2;
-        this.f54186f = i2;
+        this.f57871b = str;
+        this.f57872c = i3;
+        this.f57873d = j;
+        this.f57874e = str2;
+        this.f57875f = i2;
     }
 
     public abstract void a();
@@ -47,15 +47,15 @@ public abstract class a {
     public byte[] b(RandomAccessFile randomAccessFile, int i2) {
         int i3;
         if (randomAccessFile != null && i2 >= 0) {
-            if (i2 == this.f54183c) {
-                i3 = (int) (this.f54184d - ((i2 - 1) * this.f54186f));
+            if (i2 == this.f57872c) {
+                i3 = (int) (this.f57873d - ((i2 - 1) * this.f57875f));
             } else {
-                i3 = this.f54186f;
+                i3 = this.f57875f;
             }
             byte[] bArr = new byte[i3];
             try {
                 synchronized (randomAccessFile) {
-                    randomAccessFile.seek((i2 - 1) * this.f54186f);
+                    randomAccessFile.seek((i2 - 1) * this.f57875f);
                     r3 = randomAccessFile.read(bArr, 0, i3) != -1;
                 }
             } catch (IOException e2) {
@@ -71,7 +71,7 @@ public abstract class a {
     public abstract boolean c();
 
     public void d(int i2) {
-        e eVar = this.f54181a;
+        e eVar = this.f57870a;
         if (eVar != null) {
             eVar.onProgressUpdate(i2 / 100.0f);
         }
@@ -93,7 +93,7 @@ public abstract class a {
     }
 
     public void f(e eVar) {
-        this.f54181a = eVar;
+        this.f57870a = eVar;
     }
 
     public abstract d g(ArrayList<Integer> arrayList, String str, int i2);
@@ -102,18 +102,18 @@ public abstract class a {
         byte[] b2 = b(randomAccessFile, i2);
         if (b2 == null) {
             d dVar = new d();
-            dVar.f54198b = -1;
-            dVar.f54199c = "上传文件不存在";
+            dVar.f57887b = -1;
+            dVar.f57888c = "上传文件不存在";
             return dVar;
         } else if (c()) {
             return null;
         } else {
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             netWork.addPostData("chunk_no", String.valueOf(i2));
-            netWork.addPostData("chunk_sum", String.valueOf(this.f54183c));
+            netWork.addPostData("chunk_sum", String.valueOf(this.f57872c));
             netWork.addPostData("chunk_size", String.valueOf(b2.length));
-            netWork.addPostData("video_size", String.valueOf(this.f54184d));
-            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f54185e);
+            netWork.addPostData("video_size", String.valueOf(this.f57873d));
+            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f57874e);
             netWork.addPostData("video_len", String.valueOf(j));
             netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
             netWork.addPostData("video_chunk", b2);
@@ -127,14 +127,14 @@ public abstract class a {
             }
             d dVar2 = new d();
             if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                dVar2.f54197a = e(postMultiNetData);
+                dVar2.f57886a = e(postMultiNetData);
             } else {
                 if (netWork.getNetContext().getResponse().isNetSuccess()) {
-                    dVar2.f54198b = netWork.getNetContext().getResponse().mServerErrorCode;
+                    dVar2.f57887b = netWork.getNetContext().getResponse().mServerErrorCode;
                 } else {
-                    dVar2.f54198b = netWork.getNetContext().getResponse().mNetErrorCode;
+                    dVar2.f57887b = netWork.getNetContext().getResponse().mNetErrorCode;
                 }
-                dVar2.f54199c = netWork.getNetContext().getResponse().mErrorString;
+                dVar2.f57888c = netWork.getNetContext().getResponse().mErrorString;
             }
             return dVar2;
         }

@@ -23,7 +23,7 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class d {
     public static boolean A() {
-        return d(n.f48862c, "12_3_pb_outer_item_a");
+        return d(n.f52536c, "12_3_pb_outer_item_a");
     }
 
     @Modify(description = "是否命中PB页Banner位小熊广告sdk小流量abtest")
@@ -43,21 +43,21 @@ public class d {
 
     @Modify(description = "吧推荐卡片是否显示hottext字段")
     public static boolean E() {
-        return d(q.f48871c, "11_9_discover_hot_card_hot_text");
+        return d(q.f52545c, "11_9_discover_hot_card_hot_text");
     }
 
     @Modify(description = "吧推荐卡片是否显示slogan字段")
     public static boolean F() {
-        return d(q.f48871c, "11_9_discover_hot_card_slogan");
+        return d(q.f52545c, "11_9_discover_hot_card_slogan");
     }
 
     public static boolean G() {
-        return d(d.a.m0.b.f.d.f48835c, "12_5_emoji_b");
+        return d(d.a.m0.b.f.d.f52509c, "12_5_emoji_b");
     }
 
     @Modify(description = "isSearchLoginTestA")
     public static boolean H() {
-        return d(r.f48874c, "12_3_search_login_a");
+        return d(r.f52548c, "12_3_search_login_a");
     }
 
     @Modify(description = "是否命中发贴显示标题小流量abtest")
@@ -66,11 +66,11 @@ public class d {
     }
 
     public static boolean J() {
-        return d(s.f48877c, "12_3_staticopt_a");
+        return d(s.f52551c, "12_3_staticopt_a");
     }
 
     public static boolean K() {
-        return d(u.f48883c, "12_3_video_release_a");
+        return d(u.f52557c, "12_3_video_release_a");
     }
 
     public static boolean L() {
@@ -78,7 +78,7 @@ public class d {
     }
 
     public static boolean M() {
-        return d(u.f48883c, "12_3_video_release_b");
+        return d(u.f52557c, "12_3_video_release_b");
     }
 
     public static boolean N() {
@@ -86,15 +86,15 @@ public class d {
     }
 
     public static boolean O() {
-        return d(u.f48883c, "12_3_video_release_c");
+        return d(u.f52557c, "12_3_video_release_c");
     }
 
     public static boolean P() {
-        return d(u.f48883c, "12_3_video_release_d");
+        return d(u.f52557c, "12_3_video_release_d");
     }
 
     public static boolean Q() {
-        return d(u.f48883c, "12_3_video_release_e");
+        return d(u.f52557c, "12_3_video_release_e");
     }
 
     @Modify(description = "是否命中视频号自动播放小流量abtest")
@@ -108,7 +108,7 @@ public class d {
 
     @Modify(description = "是否需要显示frs引导弹窗")
     public static boolean T() {
-        return d(f.f48841c, "11_9_frs_page_guide_a");
+        return d(f.f52515c, "11_9_frs_page_guide_a");
     }
 
     @Modify(description = "是否需要显示吧推荐卡片")
@@ -126,7 +126,7 @@ public class d {
     }
 
     public static boolean a() {
-        return d(p.f48868c, "12_4_profile_a");
+        return d(p.f52542c, "12_4_profile_a");
     }
 
     public static e b(BdUniqueId bdUniqueId) {
@@ -142,9 +142,9 @@ public class d {
     }
 
     public static boolean e(e eVar, String... strArr) {
-        if (eVar != null && !TextUtils.isEmpty(eVar.f48828a)) {
+        if (eVar != null && !TextUtils.isEmpty(eVar.f52502a)) {
             for (String str : strArr) {
-                if (eVar.f48828a.equalsIgnoreCase(str)) {
+                if (eVar.f52502a.equalsIgnoreCase(str)) {
                     return true;
                 }
             }
@@ -153,7 +153,7 @@ public class d {
     }
 
     public static boolean f() {
-        return d(d.a.m0.b.f.b.f48829c, "11_9_backuser_a");
+        return d(d.a.m0.b.f.b.f52503c, "11_9_backuser_a");
     }
 
     @Modify(description = "是否命中12.0b UI通栏小流量")
@@ -163,7 +163,7 @@ public class d {
 
     @Modify(description = "关注是否使用新样式")
     public static boolean h() {
-        return d(d.a.m0.b.f.c.f48832c, "11_10_user_like_tab_a") || d(d.a.m0.b.f.c.f48832c, "11_10_user_like_tab_b");
+        return d(d.a.m0.b.f.c.f52506c, "11_10_user_like_tab_a") || d(d.a.m0.b.f.c.f52506c, "11_10_user_like_tab_b");
     }
 
     @Modify(description = "是否命中PB、FRS和大图页命中小熊广告去重策略ABTest")
@@ -173,15 +173,15 @@ public class d {
 
     public static boolean j(String str) {
         e b2 = c.d().b(str);
-        return (b2 == null || TextUtils.isEmpty(b2.f48828a) || !b2.f48828a.equalsIgnoreCase(str)) ? false : true;
+        return (b2 == null || TextUtils.isEmpty(b2.f52502a) || !b2.f52502a.equalsIgnoreCase(str)) ? false : true;
     }
 
     public static boolean k() {
-        return d(d.a.m0.b.f.e.f48838c, "12_4_launch_login_a");
+        return d(d.a.m0.b.f.e.f52512c, "12_4_launch_login_a");
     }
 
     public static boolean l() {
-        return d(d.a.m0.b.f.e.f48838c, "12_4_launch_login_b");
+        return d(d.a.m0.b.f.e.f52512c, "12_4_launch_login_b");
     }
 
     @Modify(description = "是否命中frs页小熊广告sdk小流量abtest")
@@ -190,7 +190,7 @@ public class d {
     }
 
     public static boolean n() {
-        return d(g.f48844c, "12_2_frs_default_sort_a");
+        return d(g.f52518c, "12_2_frs_default_sort_a");
     }
 
     public static boolean o() {
@@ -198,15 +198,15 @@ public class d {
     }
 
     public static boolean p() {
-        return d(h.f48847c, "12_2_frs_default_tab_a");
+        return d(h.f52521c, "12_2_frs_default_tab_a");
     }
 
     public static boolean q() {
-        return d(h.f48847c, "12_2_frs_default_tab_b");
+        return d(h.f52521c, "12_2_frs_default_tab_b");
     }
 
     public static boolean r() {
-        return d(h.f48847c, "12_2_frs_default_tab_c");
+        return d(h.f52521c, "12_2_frs_default_tab_c");
     }
 
     public static boolean s() {
@@ -214,33 +214,33 @@ public class d {
     }
 
     public static boolean t() {
-        return d(j.f48853c, "12_4_promote_login_a");
+        return d(j.f52527c, "12_4_promote_login_a");
     }
 
     public static boolean u() {
-        return d(k.f48856c, "11_8_hot_b");
+        return d(k.f52530c, "11_8_hot_b");
     }
 
     public static boolean v() {
-        return d(m.f48859c, "12_2_pb_picpage_a");
+        return d(m.f52533c, "12_2_pb_picpage_a");
     }
 
     public static boolean w() {
-        return d(m.f48859c, "12_2_pb_picpage_b");
+        return d(m.f52533c, "12_2_pb_picpage_b");
     }
 
     @Modify(description = "pb操作区, 策略a, 出右上角点点点，弹框网格")
     public static boolean x() {
-        return d(o.f48865c, "12_4_pb_a");
+        return d(o.f52539c, "12_4_pb_a");
     }
 
     @Modify(description = "pb操作区, 策略b, 出右上角点点点，强制出回复,弹框网格,发帖时间下移")
     public static boolean y() {
-        return d(o.f48865c, "12_4_pb_b");
+        return d(o.f52539c, "12_4_pb_b");
     }
 
     @Modify(description = "pb操作区, 策略c, 整个操作区左移，回复修改")
     public static boolean z() {
-        return d(o.f48865c, "12_4_pb_c");
+        return d(o.f52539c, "12_4_pb_c");
     }
 }

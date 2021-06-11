@@ -8,5 +8,5 @@ public interface c extends d {
 
     void onRelease();
 
-    boolean q();
+    boolean p();
 }

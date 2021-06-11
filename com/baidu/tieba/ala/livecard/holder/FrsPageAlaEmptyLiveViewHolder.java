@@ -6,10 +6,10 @@ import d.a.n0.v.i.e.b;
 public class FrsPageAlaEmptyLiveViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f14001a;
+    public b f14058a;
 
     public FrsPageAlaEmptyLiveViewHolder(b bVar) {
-        super(bVar.l());
-        this.f14001a = bVar;
+        super(bVar.m());
+        this.f14058a = bVar;
     }
 }

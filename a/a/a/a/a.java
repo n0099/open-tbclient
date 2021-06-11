@@ -1,10 +1,9 @@
 package a.a.a.a;
 
-import a.a.a.a.j;
+import a.a.a.a.k;
 import android.text.TextUtils;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.google.gson.Gson;
 import com.kwad.sdk.core.response.model.AdInfo;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -20,18 +19,22 @@ public final class a {
     /* renamed from: a  reason: collision with root package name */
     public static String f998a;
 
-    public static <T extends p> T a(Random random, Collection<T> collection, r<T> rVar) {
+    public static int a(int i2, int i3, int i4) {
+        return i2 <= i3 ? i3 : Math.min(i2, i4);
+    }
+
+    public static <T extends q> T a(Random random, Collection<T> collection, s<T> sVar) {
         Object obj;
         if (random == null || collection == null || collection.isEmpty()) {
             return null;
         }
-        a.a.a.a.x.d.c("Start select for class:%s with size:%d", collection.iterator().next().getClass().getSimpleName(), Integer.valueOf(collection.size()));
+        a.a.a.a.y.d.c("Start select for class:%s with size:%d", collection.iterator().next().getClass().getSimpleName(), Integer.valueOf(collection.size()));
         ArrayList arrayList = new ArrayList();
         long j = 0;
         long j2 = 0;
         for (T t : collection) {
-            if (rVar != null) {
-                if (((j.b) rVar).a(t)) {
+            if (sVar != null) {
+                if (((k.b) sVar).a(t)) {
                     j2 += t.b();
                     arrayList.add(t);
                 }
@@ -40,29 +43,29 @@ public final class a {
                 arrayList.add(t);
             }
         }
-        a.a.a.a.x.d.c("%d of them isSelectable.", Integer.valueOf(arrayList.size()));
+        a.a.a.a.y.d.c("%d of them isSelectable.", Integer.valueOf(arrayList.size()));
         if (arrayList.isEmpty()) {
-            a.a.a.a.x.d.c("No one is selected", new Object[0]);
+            a.a.a.a.y.d.c("No one is selected", new Object[0]);
             return null;
         }
         if (arrayList.size() == 1) {
-            a.a.a.a.x.d.c("Select the only one", new Object[0]);
+            a.a.a.a.y.d.c("Select the only one", new Object[0]);
             obj = arrayList.get(0);
         } else if (j2 != 0) {
-            Collections.sort(arrayList, new q());
+            Collections.sort(arrayList, new r());
             long nextFloat = j2 > 2147483647L ? random.nextFloat() * ((float) j2) : random.nextInt((int) j2);
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 T t2 = (T) it.next();
                 j += t2.b();
                 if (nextFloat <= j) {
-                    a.a.a.a.x.d.c("Select the weight:%d one with sample:%d weightOffset:%d totalWeight:%d", Integer.valueOf(t2.b()), Long.valueOf(nextFloat), Long.valueOf(j), Long.valueOf(j2));
+                    a.a.a.a.y.d.c("Select the weight:%d one with sample:%d weightOffset:%d totalWeight:%d", Integer.valueOf(t2.b()), Long.valueOf(nextFloat), Long.valueOf(j), Long.valueOf(j2));
                     return t2;
                 }
             }
             throw new IllegalStateException();
         } else {
-            a.a.a.a.x.d.c("Select the random one by totalWeight:0", new Object[0]);
+            a.a.a.a.y.d.c("Select the random one by totalWeight:0", new Object[0]);
             obj = arrayList.get(random.nextInt(arrayList.size()));
         }
         return (T) obj;
@@ -97,15 +100,11 @@ public final class a {
         return null;
     }
 
-    public static <T> String a(T t) {
-        return new Gson().toJson(t);
-    }
-
     public static void a(String str) {
-        a.a.a.a.x.d.b(str, new Object[0]);
+        a.a.a.a.y.d.b(str, new Object[0]);
     }
 
-    public static a.a.a.a.w.p a(JSONObject jSONObject) {
+    public static a.a.a.a.x.p a(JSONObject jSONObject) {
         String str;
         String str2;
         String str3;
@@ -121,10 +120,10 @@ public final class a {
             str2 = null;
             str3 = null;
         }
-        return new a.a.a.a.w.p(jSONObject.optString("corporation_name"), jSONObject.optString(DocumentOpenUtil.TXT), jSONObject.optString("desc"), jSONObject.optString("img2"), str, str2, str3, jSONObject.optString("img"), null, jSONObject.optString("video"), jSONObject.optString("rl"), jSONObject.optString("customized_invoke_url"), null);
+        return new a.a.a.a.x.p(jSONObject.optString("corporation_name"), jSONObject.optString(DocumentOpenUtil.TXT), jSONObject.optString("desc"), jSONObject.optString("img2"), str, str2, str3, jSONObject.optString("img"), null, jSONObject.optString("video"), jSONObject.optString("rl"), jSONObject.optString("customized_invoke_url"), null);
     }
 
-    public static a.a.a.a.w.p a(AdInfo adInfo) {
+    public static a.a.a.a.x.p a(AdInfo adInfo) {
         String str;
         String str2;
         List<AdInfo.AdMaterialInfo.MaterialFeature> list;
@@ -164,6 +163,6 @@ public final class a {
             }
             str3 = sb.toString();
         }
-        return new a.a.a.a.w.p(str5, str6, str7, str11, str8, str9, str10, str3, str, str2, adBaseInfo.clickUrl, adConversionInfo.deeplinkUrl, adBaseInfo.convUrl);
+        return new a.a.a.a.x.p(str5, str6, str7, str11, str8, str9, str10, str3, str, str2, adBaseInfo.clickUrl, adConversionInfo.deeplinkUrl, adBaseInfo.convUrl);
     }
 }

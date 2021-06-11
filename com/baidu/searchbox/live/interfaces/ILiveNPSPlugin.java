@@ -33,10 +33,13 @@ public interface ILiveNPSPlugin {
 
     void getLiveSdkSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback);
 
+    @Deprecated
     ILiveShowEntry getLiveShowEntry();
 
+    @Deprecated
     ILiveShowMasterEntry getLiveShowMasterEntry();
 
+    @Deprecated
     ILiveYuYinEntry getLiveYuYinEntry();
 
     IYYLiveNPSPlugin getYYLiveEntry();
@@ -46,4 +49,6 @@ public interface ILiveNPSPlugin {
     void onDiskClearCacheChange(long j, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
 
     void startMasterActivity(Context context, String str);
+
+    void startMasterActivity(Context context, String str, @NonNull String str2);
 }

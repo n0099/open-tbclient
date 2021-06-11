@@ -20,40 +20,40 @@ public abstract class e {
     public static String p = "exps";
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f46792b;
+    public Context f50466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46793c;
+    public String f50467c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f46794d;
+    public String f50468d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f46795e;
+    public String f50469e;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f46799i;
+    public c f50473i;
     public String j;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46791a = "https://mobads.baidu.com/cpro/ui/mads.php";
+    public String f50465a = "https://mobads.baidu.com/cpro/ui/mads.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46796f = "1";
+    public String f50470f = "1";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46797g = "2";
+    public String f50471g = "2";
 
     /* renamed from: h  reason: collision with root package name */
-    public String f46798h = "8.800201";
+    public String f50472h = "8.800201";
 
     public e(Context context, c cVar) {
-        this.f46792b = context;
-        this.f46799i = cVar;
+        this.f50466b = context;
+        this.f50473i = cVar;
         if (cVar != null) {
-            this.f46793c = cVar.b();
-            this.f46794d = this.f46799i.e();
-            this.f46795e = this.f46799i.g();
+            this.f50467c = cVar.b();
+            this.f50468d = this.f50473i.e();
+            this.f50469e = this.f50473i.g();
         }
         if (h.o()) {
             return;
@@ -68,20 +68,20 @@ public abstract class e {
         JSONObject jSONObject;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
-            hashMap.put(IAdRequestParam.QUERY_WIDTH, String.valueOf(Math.round(h.i(this.f46792b) / h.d(this.f46792b))));
-            hashMap.put(IAdRequestParam.QUERY_HEIGHT, String.valueOf(Math.round(h.h(this.f46792b) / h.d(this.f46792b))));
+            hashMap.put(IAdRequestParam.QUERY_WIDTH, String.valueOf(Math.round(h.i(this.f50466b) / h.d(this.f50466b))));
+            hashMap.put(IAdRequestParam.QUERY_HEIGHT, String.valueOf(Math.round(h.h(this.f50466b) / h.d(this.f50466b))));
             StringBuilder sb = new StringBuilder();
             sb.append("");
             sb.append(NetworkUtils.c(false));
             hashMap.put("net", sb.toString());
-            hashMap.put("n", this.f46796f);
-            hashMap.put("pk", this.f46795e);
-            hashMap.put("appid", this.f46794d);
-            hashMap.put("sw", "" + h.i(this.f46792b));
-            hashMap.put(IAdRequestParam.SCREEN_HEIGHT, "" + h.h(this.f46792b));
+            hashMap.put("n", this.f50470f);
+            hashMap.put("pk", this.f50469e);
+            hashMap.put("appid", this.f50468d);
+            hashMap.put("sw", "" + h.i(this.f50466b));
+            hashMap.put(IAdRequestParam.SCREEN_HEIGHT, "" + h.h(this.f50466b));
             hashMap.put(IAdRequestParam.SN, "" + f());
             hashMap.put(IAdRequestParam.OS, "android");
-            hashMap.put("apid", "" + this.f46793c);
+            hashMap.put("apid", "" + this.f50467c);
             hashMap.put(IAdRequestParam.CHID, "0");
             String t = d.a.l0.f.i.m.a.b().t();
             if (t.equals("0")) {
@@ -94,8 +94,8 @@ public abstract class e {
             hashMap.put(IAdRequestParam.APV, h.l());
             String c2 = h.c(d(), "BAIDUID");
             hashMap.put("baiduid", (TextUtils.isEmpty(c2) || c2.split(":").length <= 0) ? "" : c2.split(":")[0]);
-            hashMap.put("p_ver", this.f46798h);
-            hashMap.put(IAdRequestParam.RPT, this.f46797g);
+            hashMap.put("p_ver", this.f50472h);
+            hashMap.put(IAdRequestParam.RPT, this.f50471g);
             hashMap.put("tab", "2");
             hashMap.put(IAdRequestParam.REQ_ID, "");
             hashMap.put("scene", d.a.l0.f.i.m.a.b().k());
@@ -160,7 +160,7 @@ public abstract class e {
     public final String f() {
         try {
             String t = d.a.l0.f.i.m.a.b().t();
-            return TextUtils.isEmpty(t) ? NetworkUtils.e(this.f46792b) : t;
+            return TextUtils.isEmpty(t) ? NetworkUtils.e(this.f50466b) : t;
         } catch (Exception unused) {
             return "";
         }
@@ -169,6 +169,6 @@ public abstract class e {
     public String g() {
         HashMap<String, String> b2 = b();
         b2.putAll(a());
-        return d.a.l0.f.i.r.e.a(this.f46791a, b2);
+        return d.a.l0.f.i.r.e.a(this.f50465a, b2);
     }
 }

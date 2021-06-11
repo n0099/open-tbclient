@@ -3,23 +3,23 @@ package com.bun.miitmdid.supplier.e;
 import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f26792a;
+    public a f26895a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SupplierListener f26793b;
+    public SupplierListener f26896b;
 
     public b(Context context, SupplierListener supplierListener) {
-        this.f26793b = supplierListener;
-        this.f26792a = new a(context, this);
+        this.f26896b = supplierListener;
+        this.f26895a = new a(context, this);
     }
 
     @Override // com.bun.miitmdid.supplier.c.a
     public void a() {
-        SupplierListener supplierListener = this.f26793b;
+        SupplierListener supplierListener = this.f26896b;
         if (supplierListener != null) {
             supplierListener.OnSupport(isSupported(), this);
         }
@@ -31,7 +31,7 @@ public class b implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
 
     @Override // com.bun.miitmdid.supplier.c.a
     public void a(boolean z) {
-        SupplierListener supplierListener = this.f26793b;
+        SupplierListener supplierListener = this.f26896b;
         if (supplierListener != null) {
             supplierListener.OnSupport(isSupported(), this);
         }
@@ -45,30 +45,30 @@ public class b implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         String e2;
-        return (isSupported() && (e2 = this.f26792a.e()) != null) ? e2 : "";
+        return (isSupported() && (e2 = this.f26895a.e()) != null) ? e2 : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         String a2;
-        return (isSupported() && (a2 = this.f26792a.a()) != null) ? a2 : "";
+        return (isSupported() && (a2 = this.f26895a.a()) != null) ? a2 : "";
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         String b2;
-        return (isSupported() && (b2 = this.f26792a.b()) != null) ? b2 : "";
+        return (isSupported() && (b2 = this.f26895a.b()) != null) ? b2 : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         String d2;
-        return (isSupported() && (d2 = this.f26792a.d()) != null) ? d2 : "";
+        return (isSupported() && (d2 = this.f26895a.d()) != null) ? d2 : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        a aVar = this.f26792a;
+        a aVar = this.f26895a;
         if (aVar != null) {
             return aVar.c();
         }
@@ -77,7 +77,7 @@ public class b implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
-        a aVar = this.f26792a;
+        a aVar = this.f26895a;
         if (aVar != null) {
             aVar.f();
         }

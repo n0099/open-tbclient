@@ -17,30 +17,30 @@ public class h extends d.a.p0.a {
     public class a extends c0 {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Response f63965a;
+        public final /* synthetic */ Response f67683a;
 
         public a(h hVar, Response response) {
-            this.f63965a = response;
+            this.f67683a = response;
         }
 
         @Override // d.a.p0.c0
         public void a() {
-            this.f63965a.body().close();
+            this.f67683a.body().close();
         }
 
         @Override // d.a.p0.c0
         public String b() throws IOException {
-            return this.f63965a.body().string();
+            return this.f67683a.body().string();
         }
 
         @Override // d.a.p0.c0
         public String c() {
-            return this.f63965a.message();
+            return this.f67683a.message();
         }
 
         @Override // d.a.p0.c0
         public boolean d() {
-            return this.f63965a.isSuccessful();
+            return this.f67683a.isSuccessful();
         }
     }
 

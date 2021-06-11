@@ -49,15 +49,15 @@ public class c extends d.a.m0.g0.f.a<tinfo, d.a.m0.g0.d.b> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f51132e;
+        public final /* synthetic */ tinfo f54809e;
 
         public b(tinfo tinfoVar) {
-            this.f51132e = tinfoVar;
+            this.f54809e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            String str = this.f51132e.forum_name;
+            String str = this.f54809e.forum_name;
             if (k.isForumName(str)) {
                 TiebaStatic.eventStat(c.this.a(), "kantie_6", null, 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(c.this.a()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
@@ -104,17 +104,17 @@ public class c extends d.a.m0.g0.f.a<tinfo, d.a.m0.g0.d.b> {
                     }
                     String str = tinfoVar.pics.get(2).small_pic;
                     this.r.setVisibility(0);
-                    this.r.V(str, 10, false);
+                    this.r.U(str, 10, false);
                     this.r.setTag(2);
                 }
                 String str2 = tinfoVar.pics.get(1).small_pic;
                 this.q.setVisibility(0);
-                this.q.V(str2, 10, false);
+                this.q.U(str2, 10, false);
                 this.q.setTag(1);
             }
             String str3 = tinfoVar.pics.get(0).small_pic;
             this.p.setVisibility(0);
-            this.p.V(str3, 10, false);
+            this.p.U(str3, 10, false);
             this.p.setTag(0);
             return;
         }

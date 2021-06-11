@@ -11,7 +11,7 @@ import d.o.a.e.b.g.d;
 public class DownloadReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35985a = DownloadReceiver.class.getSimpleName();
+    public static final String f39664a = DownloadReceiver.class.getSimpleName();
 
     private void a(Context context, String str) {
         if (d.f()) {
@@ -46,7 +46,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         }
         if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
             if (a.e()) {
-                a.c(f35985a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
+                a.c(f39664a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {

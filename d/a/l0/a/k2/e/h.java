@@ -24,11 +24,11 @@ public class h extends a0 {
                 return false;
             }
             String M = d.a.l0.a.k2.b.M(optParamsAsJo.optString("filePath"), d.a.l0.a.a2.e.V());
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
                 Log.d("SaveFileAction", "——> handle: filePath " + M);
             }
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("RemoveSavedFileAction", "——> handle: filePath " + M);
             }
             if (TextUtils.isEmpty(M)) {
@@ -37,7 +37,7 @@ public class h extends a0 {
                 return false;
             }
             int a2 = eVar.U().a(M);
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("RemoveSavedFileAction", "——> handle: statusCode " + a2);
             }
             if (a2 > 2000) {
@@ -47,7 +47,7 @@ public class h extends a0 {
             } else if (d.a.l0.t.d.j(M)) {
                 d.a.l0.a.e0.d.g("removeSavedFile", "file delete success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("RemoveSavedFileAction", "——> handle:  delete OK ");
                     return true;
                 }
@@ -55,7 +55,7 @@ public class h extends a0 {
             } else {
                 d.a.l0.a.e0.d.b("removeSavedFile", "file delete fail");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, d.a.l0.a.c2.b.a(2004)));
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     Log.d("RemoveSavedFileAction", "——> handle:  delete fail ");
                 }
                 return false;

@@ -19,32 +19,32 @@ import java.util.ArrayList;
 public class b extends Dialog implements d.a.n0.i3.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55763e;
+    public Context f59452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55764f;
+    public TextView f59453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55765g;
+    public TextView f59454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f55766h;
+    public View f59455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f55767i;
+    public LinearLayout f59456i;
     public View.OnClickListener j;
     public View k;
     public LinearLayout l;
 
     public b(Context context, int i2) {
         super(context, i2);
-        this.f55763e = context;
+        this.f59452e = context;
         f();
     }
 
     @Override // d.a.n0.i3.a
     public void a(int i2) {
-        View findViewWithTag = this.f55767i.findViewWithTag(Integer.valueOf(i2));
+        View findViewWithTag = this.f59456i.findViewWithTag(Integer.valueOf(i2));
         if (findViewWithTag == null || !(findViewWithTag instanceof LinearLayout)) {
             return;
         }
@@ -53,7 +53,7 @@ public class b extends Dialog implements d.a.n0.i3.a {
 
     @Override // d.a.n0.i3.a
     public void b(int i2) {
-        View findViewWithTag = this.f55767i.findViewWithTag(Integer.valueOf(i2));
+        View findViewWithTag = this.f59456i.findViewWithTag(Integer.valueOf(i2));
         if (findViewWithTag == null || !(findViewWithTag instanceof LinearLayout)) {
             return;
         }
@@ -62,22 +62,22 @@ public class b extends Dialog implements d.a.n0.i3.a {
 
     @Override // d.a.n0.i3.a
     public void c(InterestFrsData.Tag tag) {
-        this.f55764f.setText(tag.getBname());
-        this.f55765g.setText(tag.getBdesc());
+        this.f59453f.setText(tag.getBname());
+        this.f59454g.setText(tag.getBdesc());
         ArrayList<InterestFrsData.Card> card_list = tag.getCard_list();
         int i2 = 0;
         while (i2 < card_list.size()) {
             InterestFrsData.Card card = card_list.get(i2);
             View a2 = new a(card, this.j).a();
-            this.f55767i.addView(a2);
+            this.f59456i.addView(a2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a2.getLayoutParams();
-            int dimensionPixelSize = this.f55763e.getResources().getDimensionPixelSize(R.dimen.ds20);
-            layoutParams.setMargins(0, i2 == 0 ? this.f55763e.getResources().getDimensionPixelSize(R.dimen.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
+            int dimensionPixelSize = this.f59452e.getResources().getDimensionPixelSize(R.dimen.ds20);
+            layoutParams.setMargins(0, i2 == 0 ? this.f59452e.getResources().getDimensionPixelSize(R.dimen.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
             a2.setLayoutParams(layoutParams);
             if (i2 != card_list.size() - 1) {
-                this.f55767i.addView(LayoutInflater.from(this.f55763e).inflate(R.layout.new_user_line_item, (ViewGroup) null));
+                this.f59456i.addView(LayoutInflater.from(this.f59452e).inflate(R.layout.new_user_line_item, (ViewGroup) null));
             }
-            ((TbImageView) this.f55767i.findViewWithTag(card.getAvatar())).V(card.getAvatar(), 10, false);
+            ((TbImageView) this.f59456i.findViewWithTag(card.getAvatar())).U(card.getAvatar(), 10, false);
             i2++;
         }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -95,16 +95,16 @@ public class b extends Dialog implements d.a.n0.i3.a {
     }
 
     public final void f() {
-        View inflate = View.inflate(this.f55763e, R.layout.new_user_box, null);
+        View inflate = View.inflate(this.f59452e, R.layout.new_user_box, null);
         this.k = inflate;
         setContentView(inflate);
         setCanceledOnTouchOutside(true);
         this.l = (LinearLayout) this.k.findViewById(R.id.box_close_layout);
-        this.f55764f = (TextView) this.k.findViewById(R.id.prompt_title);
-        this.f55765g = (TextView) this.k.findViewById(R.id.prompt_sub_title);
-        this.f55766h = this.k.findViewById(R.id.view_layout);
-        this.f55767i = (LinearLayout) findViewById(R.id.layout_content);
-        this.f55766h.setBackgroundDrawable(this.f55763e.getResources().getDrawable(R.drawable.bg_startpage2_card_purple_up));
+        this.f59453f = (TextView) this.k.findViewById(R.id.prompt_title);
+        this.f59454g = (TextView) this.k.findViewById(R.id.prompt_sub_title);
+        this.f59455h = this.k.findViewById(R.id.view_layout);
+        this.f59456i = (LinearLayout) findViewById(R.id.layout_content);
+        this.f59455h.setBackgroundDrawable(this.f59452e.getResources().getDrawable(R.drawable.bg_startpage2_card_purple_up));
     }
 
     @Override // d.a.n0.i3.a
@@ -114,7 +114,7 @@ public class b extends Dialog implements d.a.n0.i3.a {
 
     @Override // android.app.Dialog, d.a.n0.i3.a
     public void hide() {
-        Context context = this.f55763e;
+        Context context = this.f59452e;
         if (context instanceof Activity) {
             g.a(this, (Activity) context);
         } else {
@@ -126,67 +126,67 @@ public class b extends Dialog implements d.a.n0.i3.a {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f55768a;
+        public View f59457a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f55769b;
+        public TextView f59458b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f55770c;
+        public TextView f59459c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f55771d;
+        public TextView f59460d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ImageView f55772e;
+        public ImageView f59461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbImageView f55773f;
+        public TbImageView f59462f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f55774g;
+        public LinearLayout f59463g;
 
         public a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
-            View inflate = LayoutInflater.from(b.this.f55763e).inflate(R.layout.new_user_rich_item, (ViewGroup) null);
-            this.f55768a = inflate;
+            View inflate = LayoutInflater.from(b.this.f59452e).inflate(R.layout.new_user_rich_item, (ViewGroup) null);
+            this.f59457a = inflate;
             inflate.setTag(Integer.valueOf(card.getFid()));
             b(card, onClickListener);
         }
 
         public View a() {
-            return this.f55768a;
+            return this.f59457a;
         }
 
         public final void b(InterestFrsData.Card card, View.OnClickListener onClickListener) {
             c();
-            this.f55774g.setOnClickListener(onClickListener);
-            this.f55774g.setTag(card);
-            this.f55769b.setText(card.getFname());
-            this.f55770c.setText(card.getCdesc());
-            this.f55771d.setText(card.getSlogan());
-            this.f55773f.setTag(card.getAvatar());
+            this.f59463g.setOnClickListener(onClickListener);
+            this.f59463g.setTag(card);
+            this.f59458b.setText(card.getFname());
+            this.f59459c.setText(card.getCdesc());
+            this.f59460d.setText(card.getSlogan());
+            this.f59462f.setTag(card.getAvatar());
             d(card.getIs_like() != 0);
         }
 
         public void c() {
-            this.f55769b = (TextView) this.f55768a.findViewById(R.id.tv_fname);
-            this.f55770c = (TextView) this.f55768a.findViewById(R.id.tv_cdesc);
-            this.f55772e = (ImageView) this.f55768a.findViewById(R.id.iv_like);
-            this.f55771d = (TextView) this.f55768a.findViewById(R.id.tv_slogan);
-            this.f55773f = (TbImageView) this.f55768a.findViewById(R.id.img);
-            this.f55774g = (LinearLayout) this.f55768a.findViewById(R.id.ll_like);
+            this.f59458b = (TextView) this.f59457a.findViewById(R.id.tv_fname);
+            this.f59459c = (TextView) this.f59457a.findViewById(R.id.tv_cdesc);
+            this.f59461e = (ImageView) this.f59457a.findViewById(R.id.iv_like);
+            this.f59460d = (TextView) this.f59457a.findViewById(R.id.tv_slogan);
+            this.f59462f = (TbImageView) this.f59457a.findViewById(R.id.img);
+            this.f59463g = (LinearLayout) this.f59457a.findViewById(R.id.ll_like);
         }
 
         public void d(boolean z) {
             if (!z) {
-                this.f55772e.setBackgroundDrawable(b.this.f55763e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
+                this.f59461e.setBackgroundDrawable(b.this.f59452e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
             } else {
-                this.f55772e.setBackgroundDrawable(b.this.f55763e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+                this.f59461e.setBackgroundDrawable(b.this.f59452e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
             }
         }
 
         public a(View view) {
-            this.f55768a = view;
+            this.f59457a = view;
             c();
         }
     }

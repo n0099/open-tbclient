@@ -9,20 +9,20 @@ import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
-import com.kwai.video.ksvodplayerkit.KSVodPlayerCoreInitConfig;
+import com.kwai.video.ksvodplayerkit.j;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f32669a = new AtomicBoolean(false);
+    public static final AtomicBoolean f34761a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicBoolean f32670b;
+    public static AtomicBoolean f34762b;
 
     public static void a(Context context) {
-        com.kwad.sdk.core.d.a.a("kp init");
-        KSVodPlayerCoreInitConfig.updatePlayerConfig(com.kwad.sdk.core.config.c.f());
+        com.kwad.sdk.core.d.a.b("KwaiPlayHelper", "initConfigSync()");
+        j.a(com.kwad.sdk.core.config.c.o());
         if (!b()) {
             d(context);
         }
@@ -30,27 +30,24 @@ public class e {
     }
 
     public static boolean a() {
-        AtomicBoolean atomicBoolean = f32670b;
+        AtomicBoolean atomicBoolean = f34762b;
         if (atomicBoolean != null) {
             return atomicBoolean.get();
         }
-        f32670b = new AtomicBoolean(true);
-        if (com.kwad.sdk.d.f33038a == 2) {
-            try {
-                if (Class.forName("com.kwai.video.player.KsMediaMeta") != null) {
-                    f32670b = new AtomicBoolean(true);
-                    return true;
-                }
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.b(th);
-                f32670b = new AtomicBoolean(false);
+        try {
+            if (Class.forName("com.kwai.video.player.KsMediaMeta") != null) {
+                f34762b = new AtomicBoolean(true);
+                return true;
             }
+        } catch (Throwable th) {
+            com.kwad.sdk.core.d.a.b(th);
         }
-        return f32670b.get();
+        f34762b = new AtomicBoolean(false);
+        return false;
     }
 
     public static boolean b() {
-        return f32669a.get() || KsAdSDKImpl.get().getIsExternal();
+        return f34761a.get() || KsAdSDKImpl.get().getIsExternal();
     }
 
     public static void c(Context context) {
@@ -62,18 +59,18 @@ public class e {
     }
 
     public static void d(final Context context) {
-        final String t;
+        final String Z;
         final String str;
         if (AbiUtil.b()) {
-            t = com.kwad.sdk.core.config.c.u();
-            if (TextUtils.isEmpty(t)) {
-                t = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-kwaiPlayerArm64v8aRelease-3.3.10.3.apk";
+            Z = com.kwad.sdk.core.config.c.aa();
+            if (TextUtils.isEmpty(Z)) {
+                Z = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-kwaiPlayerArm64v8aRelease-3.3.9.apk";
             }
             str = "kwaiplayer-v8a";
         } else {
-            t = com.kwad.sdk.core.config.c.t();
-            if (TextUtils.isEmpty(t)) {
-                t = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-kwaiPlayerArmeabiv7aRelease-3.3.10.3.apk";
+            Z = com.kwad.sdk.core.config.c.Z();
+            if (TextUtils.isEmpty(Z)) {
+                Z = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-kwaiPlayerArmeabiv7aRelease-3.3.9.apk";
             }
             str = "kwaiplayer-v7a";
         }
@@ -82,11 +79,11 @@ public class e {
             @Override // com.kwai.sodler.lib.a.b.a
             public com.kwai.sodler.lib.b.b a(String str2) {
                 com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-                bVar.f34428c = t;
-                bVar.f34430e = true;
-                bVar.f34426a = str;
-                bVar.f34427b = "3.2";
-                bVar.f34432g = true;
+                bVar.f37912c = Z;
+                bVar.f37914e = true;
+                bVar.f37910a = str;
+                bVar.f37911b = "3.0";
+                bVar.f37916g = true;
                 return bVar;
             }
         });
@@ -95,19 +92,19 @@ public class e {
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar) {
                 super.a(hVar);
-                e.f32669a.set(false);
+                e.f34761a.set(false);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar, PluginError pluginError) {
-                e.f32669a.set(false);
+                e.f34761a.set(false);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar, g gVar) {
-                e.f32669a.set(true);
+                e.f34761a.set(true);
                 e.c(context);
                 e.e();
             }

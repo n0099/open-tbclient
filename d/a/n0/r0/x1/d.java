@@ -30,19 +30,19 @@ public class d {
     public static class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f59836e;
+        public final /* synthetic */ TbPageContext f63527e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f59837f;
+        public final /* synthetic */ BlockPopInfoData f63528f;
 
         public b(TbPageContext tbPageContext, BlockPopInfoData blockPopInfoData) {
-            this.f59836e = tbPageContext;
-            this.f59837f = blockPopInfoData;
+            this.f63527e = tbPageContext;
+            this.f63528f = blockPopInfoData;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            UrlManager.getInstance().dealOneLink(this.f59836e, new String[]{this.f59837f.ahead_url});
+            UrlManager.getInstance().dealOneLink(this.f63527e, new String[]{this.f63528f.ahead_url});
             if (aVar == null) {
                 return;
             }

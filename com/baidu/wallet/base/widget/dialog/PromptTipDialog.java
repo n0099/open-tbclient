@@ -9,15 +9,15 @@ import com.baidu.wallet.base.widget.dialog.view.TipDialogAdapter;
 public class PromptTipDialog extends WalletDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public TipDialogModel f23634a;
+    public TipDialogModel f23737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f23635b;
+    public View.OnClickListener f23738b;
 
     public PromptTipDialog(Context context) {
         super(context, ResUtils.style(context, "EbpayPromptDialog"));
-        this.f23634a = new TipDialogModel();
-        this.f23635b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
+        this.f23737a = new TipDialogModel();
+        this.f23738b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptTipDialog.this.dismiss();
@@ -27,17 +27,17 @@ public class PromptTipDialog extends WalletDialog {
     }
 
     private void a() {
-        TipDialogModel tipDialogModel = this.f23634a;
-        tipDialogModel.defaultClickListener = this.f23635b;
+        TipDialogModel tipDialogModel = this.f23737a;
+        tipDialogModel.defaultClickListener = this.f23738b;
         setAdapter(new TipDialogAdapter(tipDialogModel));
     }
 
     public void setButtonMessage(int i2) {
-        this.f23634a.btnTextId = i2;
+        this.f23737a.btnTextId = i2;
     }
 
     public void setDefaultBtnListener(final View.OnClickListener onClickListener) {
-        this.f23634a.defaultClickListener = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.2
+        this.f23737a.defaultClickListener = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptTipDialog.this.dismiss();
@@ -50,29 +50,29 @@ public class PromptTipDialog extends WalletDialog {
     }
 
     public void setMessage(int i2) {
-        this.f23634a.messageId = i2;
+        this.f23737a.messageId = i2;
     }
 
     public void setTitleMessage(int i2) {
-        this.f23634a.titleId = i2;
+        this.f23737a.titleId = i2;
     }
 
     public void setButtonMessage(String str) {
-        this.f23634a.btnText = str;
+        this.f23737a.btnText = str;
     }
 
     public void setMessage(String str) {
-        this.f23634a.message = str;
+        this.f23737a.message = str;
     }
 
     public void setTitleMessage(String str) {
-        this.f23634a.titleText = str;
+        this.f23737a.titleText = str;
     }
 
     public PromptTipDialog(Context context, int i2) {
         super(context, i2);
-        this.f23634a = new TipDialogModel();
-        this.f23635b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
+        this.f23737a = new TipDialogModel();
+        this.f23738b = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PromptTipDialog.this.dismiss();

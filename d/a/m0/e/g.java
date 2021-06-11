@@ -7,11 +7,11 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f49330a;
+    public List<a> f53004a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<MediaFileInfo> f49331b;
+    public List<MediaFileInfo> f53005b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<VideoFileInfo> f49332c;
+    public List<VideoFileInfo> f53006c;
 }

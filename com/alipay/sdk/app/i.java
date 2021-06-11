@@ -10,31 +10,31 @@ import java.util.List;
 public class i {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1788b = "";
+    public static String f1801b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a.C0015a f1789c = new a.C0015a(n.f1978a, 73, com.alipay.sdk.cons.a.f1822h);
+    public static final a.C0016a f1802c = new a.C0016a(n.f1991a, 73, com.alipay.sdk.cons.a.f1835h);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a.C0015a f1790d = new a.C0015a(PayResultActivity.f1746c, 40, "e6b1bdcb890370f2f2419fe06d0fdf7628ad0083d52da1ecfe991164711bbf9297e75353de96f1740695d07610567b1240549af9cbd87d06919ac31c859ad37ab6907c311b4756e1e208775989a4f691bff4bbbc58174d2a96b1d0d970a05114d7ee57dfc33b1bafaf6e0d820e838427018b6435f903df04ba7fd34d73f843df9434b164e0220baabb10c8978c3f4c6b7da79d8220a968356d15090dea07df9606f665cbec14d218dd3d691cce2866a58840971b6a57b76af88b1a65fdffd2c080281a6ab20be5879e0330eb7ff70871ce684e7174ada5dc3159c461375a0796b17ce7beca83cf34f65976d237aee993db48d34a4e344f4d8b7e99119168bdd7");
+    public static final a.C0016a f1803d = new a.C0016a(PayResultActivity.f1759c, 40, "e6b1bdcb890370f2f2419fe06d0fdf7628ad0083d52da1ecfe991164711bbf9297e75353de96f1740695d07610567b1240549af9cbd87d06919ac31c859ad37ab6907c311b4756e1e208775989a4f691bff4bbbc58174d2a96b1d0d970a05114d7ee57dfc33b1bafaf6e0d820e838427018b6435f903df04ba7fd34d73f843df9434b164e0220baabb10c8978c3f4c6b7da79d8220a968356d15090dea07df9606f665cbec14d218dd3d691cce2866a58840971b6a57b76af88b1a65fdffd2c080281a6ab20be5879e0330eb7ff70871ce684e7174ada5dc3159c461375a0796b17ce7beca83cf34f65976d237aee993db48d34a4e344f4d8b7e99119168bdd7");
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<a.C0015a> f1787a = Collections.singletonList(f1789c);
+    public static List<a.C0016a> f1800a = Collections.singletonList(f1802c);
 
     public static void a(String str) {
-        f1788b = str;
+        f1801b = str;
         if (((str.hashCode() == 3331 && str.equals("hk")) ? (char) 0 : (char) 65535) != 0) {
-            f1787a = Collections.singletonList(f1789c);
+            f1800a = Collections.singletonList(f1802c);
         } else {
-            f1787a = Collections.singletonList(f1790d);
+            f1800a = Collections.singletonList(f1803d);
         }
     }
 
     public static boolean b() {
-        return TextUtils.isEmpty(f1788b) || TextUtils.equals(AdvanceSetting.CLEAR_NOTIFICATION, f1788b);
+        return TextUtils.isEmpty(f1801b) || TextUtils.equals(AdvanceSetting.CLEAR_NOTIFICATION, f1801b);
     }
 
     public static String a() {
-        return f1788b;
+        return f1801b;
     }
 }

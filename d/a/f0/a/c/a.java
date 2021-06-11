@@ -18,36 +18,36 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f39760g = null;
+    public static volatile a f43441g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f39761h = 30000000;
+    public static int f43442h = 30000000;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f39762i = 50000000;
+    public static int f43443i = 50000000;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LruCache<String, d.a.f0.a.c.c<?>> f39763a = new LruCache<>(6);
+    public final LruCache<String, d.a.f0.a.c.c<?>> f43444a = new LruCache<>(6);
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.f0.a.c.d f39764b;
+    public final d.a.f0.a.c.d f43445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.f0.a.c.d f39765c;
+    public final d.a.f0.a.c.d f43446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, d.a.f0.a.c.d> f39766d;
+    public final Map<String, d.a.f0.a.c.d> f43447d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f39767e;
+    public final String f43448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f39768f;
+    public final String f43449f;
 
     /* renamed from: d.a.f0.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0526a implements d<Bitmap> {
-        public C0526a(a aVar) {
+    public class C0582a implements d<Bitmap> {
+        public C0582a(a aVar) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,18 +87,18 @@ public class a {
     public class b implements d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f39769a;
+        public final /* synthetic */ String f43450a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f39770b;
+        public final /* synthetic */ c f43451b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.f0.a.c.d f39771c;
+        public final /* synthetic */ d.a.f0.a.c.d f43452c;
 
         public b(a aVar, String str, c cVar, d.a.f0.a.c.d dVar) {
-            this.f39769a = str;
-            this.f39770b = cVar;
-            this.f39771c = dVar;
+            this.f43450a = str;
+            this.f43451b = cVar;
+            this.f43452c = dVar;
         }
 
         @Override // d.a.f0.a.c.d.e
@@ -107,17 +107,17 @@ public class a {
 
         @Override // d.a.f0.a.c.d.e
         public void b(String str, d.a.f0.a.c.c<File> cVar) {
-            if (this.f39769a.equals(str)) {
-                this.f39770b.onCacheFailed();
-                this.f39771c.q(this);
+            if (this.f43450a.equals(str)) {
+                this.f43451b.onCacheFailed();
+                this.f43452c.q(this);
             }
         }
 
         @Override // d.a.f0.a.c.d.e
         public void c(String str, d.a.f0.a.c.c<File> cVar) {
-            if (this.f39769a.equals(str)) {
-                this.f39770b.onCacheComplete();
-                this.f39771c.q(this);
+            if (this.f43450a.equals(str)) {
+                this.f43451b.onCacheComplete();
+                this.f43452c.q(this);
             }
         }
     }
@@ -138,11 +138,11 @@ public class a {
 
     public a(Context context) {
         String d2 = i.d(context);
-        this.f39767e = d2 + MaterialLoader.IMAGE_CACHE_PATH;
-        this.f39768f = d2 + MaterialLoader.VIDEO_CACHE_PATH;
-        this.f39764b = d.a.f0.a.c.d.o(this.f39767e, f39761h);
-        this.f39765c = d.a.f0.a.c.d.o(this.f39768f, f39762i);
-        this.f39766d = new ConcurrentHashMap();
+        this.f43448e = d2 + MaterialLoader.IMAGE_CACHE_PATH;
+        this.f43449f = d2 + MaterialLoader.VIDEO_CACHE_PATH;
+        this.f43445b = d.a.f0.a.c.d.o(this.f43448e, f43442h);
+        this.f43446c = d.a.f0.a.c.d.o(this.f43449f, f43443i);
+        this.f43447d = new ConcurrentHashMap();
     }
 
     public static String a(String str) {
@@ -150,14 +150,14 @@ public class a {
     }
 
     public static a e(Context context) {
-        if (f39760g == null) {
+        if (f43441g == null) {
             synchronized (a.class) {
-                if (f39760g == null && context != null) {
-                    f39760g = new a(context.getApplicationContext());
+                if (f43441g == null && context != null) {
+                    f43441g = new a(context.getApplicationContext());
                 }
             }
         }
-        return f39760g;
+        return f43441g;
     }
 
     public final String b(String str, d.a.f0.a.c.d dVar) {
@@ -167,9 +167,9 @@ public class a {
 
     public final d.a.f0.a.c.d c(MaterialLoader.MaterialCacheType materialCacheType) {
         if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
-            return this.f39765c;
+            return this.f43446c;
         }
-        return this.f39764b;
+        return this.f43445b;
     }
 
     public String d(String str, MaterialLoader.MaterialCacheType materialCacheType) {
@@ -183,7 +183,7 @@ public class a {
     public boolean f(String str, MaterialLoader.MaterialCacheType materialCacheType) {
         boolean z = g(a(str), materialCacheType) != null;
         d.a.f0.a.c.d c2 = c(materialCacheType);
-        return (z || c2.f39778e) ? z : new File(b(str, c2)).exists();
+        return (z || c2.f43459e) ? z : new File(b(str, c2)).exists();
     }
 
     public d.a.f0.a.c.c<?> g(String str, MaterialLoader.MaterialCacheType materialCacheType) {
@@ -196,11 +196,11 @@ public class a {
     }
 
     public final d.a.f0.a.c.c<?> i(String str) {
-        return this.f39763a.get(str);
+        return this.f43444a.get(str);
     }
 
     public Bitmap j(String str) {
-        return (Bitmap) k(str, MaterialLoader.MaterialCacheType.PICTURE, new C0526a(this));
+        return (Bitmap) k(str, MaterialLoader.MaterialCacheType.PICTURE, new C0582a(this));
     }
 
     public final <T> T k(String str, MaterialLoader.MaterialCacheType materialCacheType, d<T> dVar) {
@@ -214,7 +214,7 @@ public class a {
             }
             return dVar.rawGet(g2.a());
         }
-        if (!c(materialCacheType).f39778e) {
+        if (!c(materialCacheType).f43459e) {
             File file = new File(b(str, c(materialCacheType)));
             if (file.exists()) {
                 return dVar.parseFromBytes(new d.a.f0.a.c.c(file).b());
@@ -224,14 +224,14 @@ public class a {
     }
 
     public void l(String str, Bitmap bitmap, boolean z) {
-        m(str, new d.a.f0.a.c.c<>(bitmap), this.f39764b, z, null);
+        m(str, new d.a.f0.a.c.c<>(bitmap), this.f43445b, z, null);
     }
 
     public final void m(String str, d.a.f0.a.c.c<?> cVar, d.a.f0.a.c.d dVar, boolean z, c cVar2) {
         try {
             String a2 = a(str);
             if (z) {
-                this.f39763a.put(a2, cVar);
+                this.f43444a.put(a2, cVar);
             }
             File file = new File(dVar.k() + a2);
             if (cVar2 != null) {
@@ -245,19 +245,19 @@ public class a {
 
     public void n(String str, byte[] bArr, MaterialLoader.MaterialCacheType materialCacheType, boolean z, c cVar) {
         d.a.f0.a.c.c<?> cVar2 = new d.a.f0.a.c.c<>(bArr);
-        d.a.f0.a.c.d dVar = this.f39764b;
+        d.a.f0.a.c.d dVar = this.f43445b;
         if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
-            dVar = this.f39765c;
+            dVar = this.f43446c;
         }
         m(str, cVar2, dVar, z, cVar);
     }
 
     public void o(String str, byte[] bArr, String str2, int i2, boolean z, c cVar) {
         d.a.f0.a.c.c<?> cVar2 = new d.a.f0.a.c.c<>(bArr);
-        d.a.f0.a.c.d dVar = this.f39766d.get(str2);
+        d.a.f0.a.c.d dVar = this.f43447d.get(str2);
         if (dVar == null) {
             dVar = d.a.f0.a.c.d.o(str2, i2);
-            this.f39766d.put(str2, dVar);
+            this.f43447d.put(str2, dVar);
         } else if (dVar.l() != i2) {
             dVar.trimToSize(i2);
         }

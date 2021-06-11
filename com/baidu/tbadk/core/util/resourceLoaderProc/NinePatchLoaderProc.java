@@ -7,7 +7,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import d.a.c.e.a.f.b;
 import d.a.c.e.a.f.c;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 /* loaded from: classes3.dex */
 public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public int procType;

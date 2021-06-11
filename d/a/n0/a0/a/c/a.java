@@ -29,18 +29,18 @@ public class a extends d.a.m0.g0.f.a<tinfo, d.a.m0.g0.d.b> {
 
     /* renamed from: d.a.n0.a0.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1176a implements View.OnClickListener {
+    public class View$OnClickListenerC1232a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f51127e;
+        public final /* synthetic */ tinfo f54804e;
 
-        public View$OnClickListenerC1176a(tinfo tinfoVar) {
-            this.f51127e = tinfoVar;
+        public View$OnClickListenerC1232a(tinfo tinfoVar) {
+            this.f54804e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            String str = this.f51127e.forum_name;
+            String str = this.f54804e.forum_name;
             if (k.isForumName(str)) {
                 TiebaStatic.eventStat(a.this.a(), "kantie_6", null, 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.a()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
@@ -71,14 +71,14 @@ public class a extends d.a.m0.g0.f.a<tinfo, d.a.m0.g0.d.b> {
         if (list != null && list.size() > 0) {
             str = tinfoVar.pics.get(0).small_pic;
         }
-        this.k.V(str, 10, false);
+        this.k.U(str, 10, false);
         this.l.setText(tinfoVar.title);
         if (StringUtils.isNull(tinfoVar.forum_name)) {
             this.m.setVisibility(8);
         } else {
             this.m.setVisibility(0);
             this.m.setText(UtilHelper.getFixedText(b().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.m.setOnClickListener(new View$OnClickListenerC1176a(tinfoVar));
+            this.m.setOnClickListener(new View$OnClickListenerC1232a(tinfoVar));
         }
         Integer num = tinfoVar.zan_num;
         if (num != null) {

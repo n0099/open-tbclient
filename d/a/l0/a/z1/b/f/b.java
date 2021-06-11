@@ -7,5 +7,5 @@ public class b {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f46186a = Color.parseColor("#FFFFFF");
+    public static final int f49860a = Color.parseColor("#FFFFFF");
 }

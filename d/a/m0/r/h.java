@@ -3,8 +3,8 @@ package d.a.m0.r;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f49853a = (-100000000) - 2002;
+    public static final int f53528a = (-100000000) - 2002;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f49854b = (-100000000) - 3000;
+    public static final int f53529b = (-100000000) - 3000;
 }

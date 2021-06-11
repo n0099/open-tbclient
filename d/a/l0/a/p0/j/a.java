@@ -18,22 +18,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44108a = k.f43199a;
+    public static final boolean f47782a = k.f46875a;
 
     /* renamed from: d.a.l0.a.p0.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0799a implements FilenameFilter {
+    /* loaded from: classes3.dex */
+    public static class C0855a implements FilenameFilter {
         @Override // java.io.FilenameFilter
         public boolean accept(File file, String str) {
             return TextUtils.isDigitsOnly(str);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Comparator<File> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -86,12 +86,12 @@ public class a {
             }
             arrayList.addAll(e());
             arrayList.addAll(d(file, 3));
-            if (f44108a) {
+            if (f47782a) {
                 Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
             }
             for (File file2 : file.listFiles()) {
                 if (!g(file2, arrayList)) {
-                    if (f44108a) {
+                    if (f47782a) {
                         Log.d("ExtCore-Utils", "deleteOldExtensionCores deleteFolder: " + file2);
                     }
                     d.K(file2);
@@ -108,7 +108,7 @@ public class a {
     public static List<Long> d(File file, int i2) {
         File[] listFiles;
         ArrayList arrayList = new ArrayList();
-        if (i2 <= 0 || file == null || !file.exists() || !file.isDirectory() || (listFiles = file.listFiles(new C0799a())) == null) {
+        if (i2 <= 0 || file == null || !file.exists() || !file.isDirectory() || (listFiles = file.listFiles(new C0855a())) == null) {
             return arrayList;
         }
         Arrays.sort(listFiles, new b());
@@ -132,7 +132,7 @@ public class a {
                 arrayList.add(Long.valueOf(a2.extensionCoreVersionCode));
             }
         }
-        if (f44108a) {
+        if (f47782a) {
             Log.d("ExtCore-Utils", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
         }
         return arrayList;

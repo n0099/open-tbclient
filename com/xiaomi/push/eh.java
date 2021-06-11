@@ -69,7 +69,7 @@ public class eh implements ed {
     @Override // com.xiaomi.push.ed
     public void a(Context context, dz dzVar) {
         if (dzVar != null) {
-            a(context, dzVar.m266a(), dzVar.c(), dzVar.d());
+            a(context, dzVar.m265a(), dzVar.c(), dzVar.d());
         }
     }
 }

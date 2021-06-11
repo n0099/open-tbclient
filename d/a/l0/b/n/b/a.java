@@ -21,30 +21,30 @@ public class a extends i {
 
     /* renamed from: d.a.l0.b.n.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0950a implements Runnable {
+    public class RunnableC1006a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f46358e;
+        public final /* synthetic */ e f50032e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f46359f;
+        public final /* synthetic */ UnitedSchemeEntity f50033f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46360g;
+        public final /* synthetic */ CallbackHandler f50034g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f46361h;
+        public final /* synthetic */ String f50035h;
 
-        public RunnableC0950a(e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-            this.f46358e = eVar;
-            this.f46359f = unitedSchemeEntity;
-            this.f46360g = callbackHandler;
-            this.f46361h = str;
+        public RunnableC1006a(e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+            this.f50032e = eVar;
+            this.f50033f = unitedSchemeEntity;
+            this.f50034g = callbackHandler;
+            this.f50035h = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.this.C(this.f46358e, this.f46359f, this.f46360g, this.f46361h);
+            a.this.C(this.f50032e, this.f50033f, this.f50034g, this.f50035h);
         }
     }
 
@@ -54,7 +54,7 @@ public class a extends i {
 
     @Override // d.a.l0.a.n1.i
     public boolean A(@NonNull e eVar, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        q.i(new RunnableC0950a(eVar, unitedSchemeEntity, callbackHandler, str), "execRequest");
+        q.i(new RunnableC1006a(eVar, unitedSchemeEntity, callbackHandler, str), "execRequest");
         return true;
     }
 
@@ -94,7 +94,7 @@ public class a extends i {
         } else {
             str2 = "";
         }
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("AdRequestAction", "appendUrlQueryAndHeader: isBaiduDomain=" + z + ", cookie=" + str2);
         }
         HttpUrl.Builder newBuilder = parse.newBuilder();

@@ -16,11 +16,11 @@ public class a extends d.a.m0.w.y.a {
 
     /* renamed from: d.a.n0.s1.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1600a implements a.InterfaceC1170a {
-        public C1600a() {
+    public class C1656a implements a.InterfaceC1226a {
+        public C1656a() {
         }
 
-        @Override // d.a.m0.w.y.a.InterfaceC1170a
+        @Override // d.a.m0.w.y.a.InterfaceC1226a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             DLauncher D = a.this.D(i2);
             if (D.getLayoutParams() == null) {
@@ -70,7 +70,7 @@ public class a extends d.a.m0.w.y.a {
         t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
         w(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
         x(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-        A(new C1600a());
+        A(new C1656a());
         k().b(this);
     }
 }

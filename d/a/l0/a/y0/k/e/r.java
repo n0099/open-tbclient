@@ -14,7 +14,7 @@ public class r extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
     @Override // d.a.l0.a.y0.a
     /* renamed from: e */
     public void a(@NonNull ZeusPlugin.Command command, @NonNull d.a.l0.a.y0.k.g.a aVar) {
-        aVar.C(command.arg1 == 1);
+        aVar.B(command.arg1 == 1);
         d(aVar, command.what, null, false);
     }
 }

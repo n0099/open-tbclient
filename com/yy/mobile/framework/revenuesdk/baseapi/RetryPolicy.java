@@ -32,5 +32,9 @@ public interface RetryPolicy {
         }
     }
 
-    void d();
+    void cancel();
+
+    void retry();
+
+    void retryCountExhaust();
 }

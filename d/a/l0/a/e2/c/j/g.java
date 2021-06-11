@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g extends h<JSONObject> {
-    public static final boolean r = k.f43199a;
+    public static final boolean r = k.f46875a;
     public final Activity m;
     public final String n;
     public final String o;

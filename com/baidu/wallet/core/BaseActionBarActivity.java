@@ -24,33 +24,33 @@ public abstract class BaseActionBarActivity extends BeanActivity {
     public class ErrorViewDelegate implements IErrorViewDelegate {
 
         /* renamed from: a  reason: collision with root package name */
-        public WalletBaseEmptyView f23805a;
+        public WalletBaseEmptyView f23908a;
 
         public ErrorViewDelegate() {
             WalletBaseEmptyView walletBaseEmptyView = new WalletBaseEmptyView(BaseActionBarActivity.this.getActivity());
-            this.f23805a = walletBaseEmptyView;
+            this.f23908a = walletBaseEmptyView;
             walletBaseEmptyView.setVisibility(8);
-            BaseActionBarActivity.this.mContentLayout.addView(this.f23805a);
+            BaseActionBarActivity.this.mContentLayout.addView(this.f23908a);
         }
 
         @Override // com.baidu.wallet.core.BaseActionBarActivity.IErrorViewDelegate
         public void showContentView() {
             BaseActionBarActivity.this.mContentView.setVisibility(0);
-            this.f23805a.setVisibility(8);
+            this.f23908a.setVisibility(8);
         }
 
         @Override // com.baidu.wallet.core.BaseActionBarActivity.IErrorViewDelegate
         public void showLocalNetError(WalletBaseEmptyView.EmptyBtnClickListener emptyBtnClickListener) {
-            this.f23805a.setVisibility(0);
+            this.f23908a.setVisibility(0);
             BaseActionBarActivity.this.mContentView.setVisibility(8);
-            this.f23805a.showTip1_Tip2_NextBtn(ResUtils.drawable(BaseActionBarActivity.this.mAct, "wallet_base_no_net"), ResUtils.getString(BaseActionBarActivity.this.mAct, "wallet_base_no_network"), ResUtils.getString(BaseActionBarActivity.this.mAct, "wallet_base_no_network_reason"), ResUtils.getString(BaseActionBarActivity.this.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
+            this.f23908a.showTip1_Tip2_NextBtn(ResUtils.drawable(BaseActionBarActivity.this.mAct, "wallet_base_no_net"), ResUtils.getString(BaseActionBarActivity.this.mAct, "wallet_base_no_network"), ResUtils.getString(BaseActionBarActivity.this.mAct, "wallet_base_no_network_reason"), ResUtils.getString(BaseActionBarActivity.this.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
         }
 
         @Override // com.baidu.wallet.core.BaseActionBarActivity.IErrorViewDelegate
         public void showServerNetError(String str, WalletBaseEmptyView.EmptyBtnClickListener emptyBtnClickListener) {
-            this.f23805a.setVisibility(0);
+            this.f23908a.setVisibility(0);
             BaseActionBarActivity.this.mContentView.setVisibility(8);
-            this.f23805a.showTip1_NextBtn(ResUtils.drawable(BaseActionBarActivity.this.mAct, "wallet_base_no_net"), ResUtils.getString(BaseActionBarActivity.this.mAct, "wallet_base_no_network"), ResUtils.getString(BaseActionBarActivity.this.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
+            this.f23908a.showTip1_NextBtn(ResUtils.drawable(BaseActionBarActivity.this.mAct, "wallet_base_no_net"), ResUtils.getString(BaseActionBarActivity.this.mAct, "wallet_base_no_network"), ResUtils.getString(BaseActionBarActivity.this.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
         }
     }
 

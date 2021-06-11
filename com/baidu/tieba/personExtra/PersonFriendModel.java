@@ -14,29 +14,33 @@ import d.a.m0.r.q.f1;
 public class PersonFriendModel extends BdBaseModel {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f19793g;
+    public static final String f19870g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f19794h;
+    public static TbHttpMessageTask f19871h;
 
     /* renamed from: e  reason: collision with root package name */
-    public f1 f19795e;
+    public f1 f19872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19796f;
+    public String f19873f;
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f19793g = str;
+        f19870g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f19794h = tbHttpMessageTask;
+        f19871h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f19794h);
+        MessageManager.getInstance().registerTask(f19871h);
     }
 
     public PersonFriendModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.f19795e = new f1();
+        this.f19872e = new f1();
+    }
+
+    public void A(String str) {
+        this.f19873f = str;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -50,21 +54,21 @@ public class PersonFriendModel extends BdBaseModel {
     }
 
     public String getId() {
-        return this.f19796f;
-    }
-
-    public f1 s() {
-        return this.f19795e;
+        return this.f19873f;
     }
 
     public void setSex(int i2) {
     }
 
-    public void t() {
+    public f1 w() {
+        return this.f19872e;
+    }
+
+    public void x() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 
-    public void u(boolean z, String str, int i2, int i3) {
+    public void y(boolean z, String str, int i2, int i3) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_FRIEND_CMD);
         if (!z) {
             httpMessage.addParam(TiebaStatic.Params.FRIEND_UID, str);
@@ -76,11 +80,7 @@ public class PersonFriendModel extends BdBaseModel {
         super.sendMessage(httpMessage);
     }
 
-    public void v(f1 f1Var) {
-        this.f19795e = f1Var;
-    }
-
-    public void w(String str) {
-        this.f19796f = str;
+    public void z(f1 f1Var) {
+        this.f19872e = f1Var;
     }
 }

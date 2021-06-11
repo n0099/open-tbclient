@@ -7,12 +7,12 @@ public class b extends l {
     }
 
     @Override // d.a.n0.g1.b.l, d.a.m0.g0.b.d
-    public boolean i() {
+    public boolean l() {
         return false;
     }
 
     @Override // d.a.n0.g1.b.l, d.a.m0.g0.b.d
-    public String r() {
+    public String v() {
         return "tb_user_atme";
     }
 }

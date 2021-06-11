@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
 /* loaded from: classes5.dex */
-public abstract class o<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a<T, V> {
+public abstract class o<T, V extends TypeAdapter.ViewHolder> extends d.a.c.k.e.a<T, V> {
     public d.a.n0.e2.o.i m;
     public PbFragment n;
     public VideoPbFragment o;
@@ -20,18 +20,18 @@ public abstract class o<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a
     public SparseIntArray r;
 
     public o(d.a.n0.e2.o.i iVar, BdUniqueId bdUniqueId) {
-        super(iVar == null ? null : iVar.A(), bdUniqueId);
+        super(iVar == null ? null : iVar.B(), bdUniqueId);
         this.p = 3;
         this.q = false;
         new SparseArray();
         this.r = new SparseIntArray();
-        f0(iVar);
+        g0(iVar);
     }
 
-    @Override // d.a.c.j.e.a
-    public View W(int i2, View view, ViewGroup viewGroup, T t, V v) {
+    @Override // d.a.c.k.e.a
+    public View X(int i2, View view, ViewGroup viewGroup, T t, V v) {
         this.p = TbadkCoreApplication.getInst().getSkinType();
-        d.a.c.j.e.p pVar = (d.a.c.j.e.p) viewGroup;
+        d.a.c.k.e.p pVar = (d.a.c.k.e.p) viewGroup;
         return null;
     }
 
@@ -45,19 +45,19 @@ public abstract class o<T, V extends TypeAdapter.ViewHolder> extends d.a.c.j.e.a
         return dimensionPixelSize;
     }
 
-    public void f0(d.a.n0.e2.o.i iVar) {
+    public void g0(d.a.n0.e2.o.i iVar) {
         if (iVar != null) {
             this.m = iVar;
-            this.n = iVar.z0();
-            VideoPbFragment w = iVar.w();
-            this.o = w;
+            this.n = iVar.C0();
+            VideoPbFragment x = iVar.x();
+            this.o = x;
             PbFragment pbFragment = this.n;
             if (pbFragment != null) {
-                this.f39228e = pbFragment.getActivity();
-            } else if (w != null) {
-                this.f39228e = w.getActivity();
+                this.f42909e = pbFragment.getActivity();
+            } else if (x != null) {
+                this.f42909e = x.getActivity();
             } else {
-                this.f39228e = null;
+                this.f42909e = null;
             }
         }
     }

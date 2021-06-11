@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FramerateBitrateAdjuster extends BaseBitrateAdjuster {
     public static final int INITIAL_FPS = 30;
 

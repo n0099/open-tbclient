@@ -4,75 +4,75 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.kwad.sdk.R;
-import com.kwad.sdk.contentalliance.detail.video.d;
 import com.kwad.sdk.contentalliance.detail.video.e;
+import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f33061b;
+    public ImageView f35185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.response.model.c f33062c;
+    public com.kwad.sdk.core.response.model.c f35186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f33063d = new e() { // from class: com.kwad.sdk.draw.b.a.1
-        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+    public e f35187d = new f() { // from class: com.kwad.sdk.draw.b.a.1
+        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
             super.d();
-            if (a.this.f33061b.getVisibility() == 0) {
-                a.this.f33061b.setVisibility(8);
+            if (a.this.f35185b.getVisibility() == 0) {
+                a.this.f35185b.setVisibility(8);
             }
         }
     };
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f33064e = new Runnable() { // from class: com.kwad.sdk.draw.b.a.2
+    public Runnable f35188e = new Runnable() { // from class: com.kwad.sdk.draw.b.a.2
         @Override // java.lang.Runnable
         public void run() {
-            int width = a.this.i().getWidth();
-            ViewGroup.LayoutParams layoutParams = a.this.f33061b.getLayoutParams();
-            int c2 = a.this.f33062c.c();
-            int b2 = a.this.f33062c.b();
+            int width = a.this.l().getWidth();
+            ViewGroup.LayoutParams layoutParams = a.this.f35185b.getLayoutParams();
+            int c2 = a.this.f35186c.c();
+            int b2 = a.this.f35186c.b();
             if (c2 == 0 || b2 == 0 || b2 > c2) {
                 layoutParams.width = -1;
                 layoutParams.height = -1;
-                a.this.f33061b.setLayoutParams(layoutParams);
+                a.this.f35185b.setLayoutParams(layoutParams);
             } else {
                 layoutParams.width = width;
                 layoutParams.height = (int) ((b2 / (c2 * 1.0f)) * width);
-                a.this.f33061b.setLayoutParams(layoutParams);
-                a.this.f33061b.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                a.this.f35185b.setLayoutParams(layoutParams);
+                a.this.f35185b.setScaleType(ImageView.ScaleType.FIT_CENTER);
             }
-            a.this.f33061b.setImageDrawable(null);
-            KSImageLoader.loadImage(a.this.f33061b, a.this.f33062c.a(), ((com.kwad.sdk.draw.a.a) a.this).f33049a.f33052c);
+            a.this.f35185b.setImageDrawable(null);
+            KSImageLoader.loadImage(a.this.f35185b, a.this.f35186c.a(), ((com.kwad.sdk.draw.a.a) a.this).f35173a.f35176c);
         }
     };
 
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.core.response.model.c Q = com.kwad.sdk.core.response.b.a.Q(com.kwad.sdk.core.response.b.c.g(((com.kwad.sdk.draw.a.a) this).f33049a.f33052c));
-        this.f33062c = Q;
-        if (TextUtils.isEmpty(Q.a())) {
+        com.kwad.sdk.core.response.model.c U = com.kwad.sdk.core.response.b.a.U(com.kwad.sdk.core.response.b.c.j(((com.kwad.sdk.draw.a.a) this).f35173a.f35176c));
+        this.f35186c = U;
+        if (TextUtils.isEmpty(U.a())) {
             return;
         }
-        i().post(this.f33064e);
-        this.f33061b.setVisibility(0);
-        ((com.kwad.sdk.draw.a.a) this).f33049a.f33054e.a(this.f33063d);
+        l().post(this.f35188e);
+        this.f35185b.setVisibility(0);
+        ((com.kwad.sdk.draw.a.a) this).f35173a.f35178e.a(this.f35187d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b() {
-        super.b();
-        this.f33061b = (ImageView) a(R.id.ksad_video_first_frame);
+    public void b_() {
+        super.b_();
+        l().removeCallbacks(this.f35188e);
+        ((com.kwad.sdk.draw.a.a) this).f35173a.f35178e.b(this.f35187d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        i().removeCallbacks(this.f33064e);
-        ((com.kwad.sdk.draw.a.a) this).f33049a.f33054e.b(this.f33063d);
+        this.f35185b = (ImageView) b(R.id.ksad_video_first_frame);
     }
 }

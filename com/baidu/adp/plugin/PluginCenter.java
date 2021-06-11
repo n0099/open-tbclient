@@ -97,12 +97,12 @@ public class PluginCenter {
                             j = System.currentTimeMillis() - value.getLastLaunchTime();
                             if (j > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                                 cVar = value.initWithBroadcast(key);
-                                if (cVar.f2195a) {
+                                if (cVar.f2208a) {
                                     if (PluginPackageManager.O().c0()) {
                                         d.a.c.h.h.a.b().g("plugin_load_retry_succ");
                                     }
                                 } else if (PluginPackageManager.O().c0()) {
-                                    d.a.c.h.h.a.b().p("plugin_loaded_failed", key, cVar.f2196b, cVar.f2197c);
+                                    d.a.c.h.h.a.b().p("plugin_loaded_failed", key, cVar.f2209b, cVar.f2210c);
                                 }
                             }
                         }
@@ -142,9 +142,9 @@ public class PluginCenter {
                                     }
                                     if (cVar != null) {
                                         sb.append("-");
-                                        sb.append(cVar.f2196b);
+                                        sb.append(cVar.f2209b);
                                         sb.append("-");
-                                        sb.append(cVar.f2197c);
+                                        sb.append(cVar.f2210c);
                                     } else {
                                         sb.append("-ret==null");
                                     }
@@ -199,7 +199,7 @@ public class PluginCenter {
                     }
                     if (value != null && !value.isLoaded() && System.currentTimeMillis() - value.getLastLaunchTime() > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                         Plugin.c initWithBroadcast = value.initWithBroadcast(key);
-                        if (initWithBroadcast.f2195a) {
+                        if (initWithBroadcast.f2208a) {
                             if (PluginPackageManager.O().c0()) {
                                 d.a.c.h.h.a.b().g("plugin_load_retry_succ");
                             }
@@ -235,9 +235,9 @@ public class PluginCenter {
                                     sb.append(value.getPluginApkFilePath());
                                 }
                                 sb.append("-");
-                                sb.append(initWithBroadcast.f2196b);
+                                sb.append(initWithBroadcast.f2209b);
                                 sb.append("-");
-                                sb.append(initWithBroadcast.f2197c);
+                                sb.append(initWithBroadcast.f2210c);
                             }
                         }
                     }
@@ -427,20 +427,20 @@ public class PluginCenter {
         Plugin.c cVar = new Plugin.c();
         if (TextUtils.isEmpty(str)) {
             if (!BdBaseApplication.getInst().isDebugMode()) {
-                cVar.f2196b = "pluginName_is_null";
-                cVar.f2195a = false;
+                cVar.f2209b = "pluginName_is_null";
+                cVar.f2208a = false;
                 return cVar;
             }
             throw new IllegalArgumentException("plugincenter launch args exception!");
         }
         PluginSetting h2 = d.k().h(str);
         if (h2 == null) {
-            cVar.f2196b = "pluginSetting_is_null";
-            cVar.f2195a = false;
+            cVar.f2209b = "pluginSetting_is_null";
+            cVar.f2208a = false;
             return cVar;
         } else if (h2.versionCode < PluginPackageManager.L()) {
-            cVar.f2196b = "launch_lowversion";
-            cVar.f2195a = false;
+            cVar.f2209b = "launch_lowversion";
+            cVar.f2208a = false;
             d.a.c.h.h.a.b().i("plugincenter_launch_lowversion", str);
             d.a.c.h.h.a b2 = d.a.c.h.h.a.b();
             b2.o("plugin_load", "plugincenter_load_lowversion", str, h2.apkPath + "-" + h2.versionCode + "-" + h2.forbidden + "-" + h2.tempVersionCode + "-" + h2.installStatus);
@@ -450,13 +450,13 @@ public class PluginCenter {
             }
             return cVar;
         } else if (this.mPluginsMap.containsKey(str)) {
-            cVar.f2195a = false;
+            cVar.f2208a = false;
             return cVar;
         } else {
             Plugin plugin2 = new Plugin();
             this.mPluginsMap.put(str, plugin2);
             Plugin.c initWithBroadcast = plugin2.initWithBroadcast(str);
-            if (!initWithBroadcast.f2195a) {
+            if (!initWithBroadcast.f2208a) {
                 this.mHandler.removeCallbacks(this.mRunnable);
                 this.mHandler.postDelayed(this.mRunnable, 10000L);
             }

@@ -14,24 +14,24 @@ import java.util.Queue;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public abstract class d extends d.a.l0.a.a2.a {
-    public static final boolean m = d.a.l0.a.k.f43199a;
+    public static final boolean m = d.a.l0.a.k.f46875a;
     public static volatile d n;
     public static Handler o;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.a.p.a f40736e;
+    public d.a.l0.a.p.a f44412e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<d.a.l0.a.v2.e1.b<i.a>> f40737f;
+    public final Set<d.a.l0.a.v2.e1.b<i.a>> f44413f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f40738g;
+    public volatile int f44414g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Queue<Runnable> f40739h;
+    public final Queue<Runnable> f44415h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f40740i;
+    public Runnable f44416i;
     public d.a.l0.n.i.g j;
     public d.a.l0.a.c2.f.g0.a k;
     public boolean l;
@@ -40,37 +40,37 @@ public abstract class d extends d.a.l0.a.a2.a {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.a f40741e;
+        public final /* synthetic */ i.a f44417e;
 
         /* renamed from: d.a.l0.a.a2.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0565a implements Runnable {
+        public class RunnableC0621a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d.a.l0.a.v2.e1.b f40743e;
+            public final /* synthetic */ d.a.l0.a.v2.e1.b f44419e;
 
-            public RunnableC0565a(d.a.l0.a.v2.e1.b bVar) {
-                this.f40743e = bVar;
+            public RunnableC0621a(d.a.l0.a.v2.e1.b bVar) {
+                this.f44419e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.f40743e.onCallback(a.this.f40741e);
+                this.f44419e.onCallback(a.this.f44417e);
             }
         }
 
         public a(i.a aVar) {
-            this.f40741e = aVar;
+            this.f44417e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             boolean z = Looper.getMainLooper() == Looper.myLooper();
-            for (d.a.l0.a.v2.e1.b bVar : d.this.f40737f) {
-                if (z && !this.f40741e.e("event_flag_force_post", false)) {
-                    bVar.onCallback(this.f40741e);
+            for (d.a.l0.a.v2.e1.b bVar : d.this.f44413f) {
+                if (z && !this.f44417e.e("event_flag_force_post", false)) {
+                    bVar.onCallback(this.f44417e);
                 } else {
-                    d.i().post(new RunnableC0565a(bVar));
+                    d.i().post(new RunnableC0621a(bVar));
                 }
             }
         }
@@ -80,15 +80,15 @@ public abstract class d extends d.a.l0.a.a2.a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f40745e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f44421e;
 
         public b(d.a.l0.a.v2.e1.b bVar) {
-            this.f40745e = bVar;
+            this.f44421e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f40737f.add(this.f40745e);
+            d.this.f44413f.add(this.f44421e);
         }
     }
 
@@ -96,24 +96,24 @@ public abstract class d extends d.a.l0.a.a2.a {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.v2.e1.b f40747e;
+        public final /* synthetic */ d.a.l0.a.v2.e1.b f44423e;
 
         public c(d.a.l0.a.v2.e1.b bVar) {
-            this.f40747e = bVar;
+            this.f44423e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.f40737f.remove(this.f40747e);
+            d.this.f44413f.remove(this.f44423e);
         }
     }
 
     public d() {
         new c.a();
-        this.f40737f = new HashSet();
-        this.f40738g = 0;
-        this.f40739h = new ArrayDeque();
-        this.f40740i = null;
+        this.f44413f = new HashSet();
+        this.f44414g = 0;
+        this.f44415h = new ArrayDeque();
+        this.f44416i = null;
         this.l = false;
     }
 
@@ -161,7 +161,7 @@ public abstract class d extends d.a.l0.a.a2.a {
     @Override // d.a.l0.a.a2.h
     public void A(i.a aVar) {
         if (m) {
-            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.f40737f.size());
+            Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.f44413f.size());
         }
         if (aVar != null) {
             E(new a(aVar));
@@ -184,15 +184,15 @@ public abstract class d extends d.a.l0.a.a2.a {
     }
 
     public final synchronized void E(@NonNull Runnable runnable) {
-        this.f40739h.offer(runnable);
-        if (this.f40740i == null) {
-            while (!this.f40739h.isEmpty()) {
-                Runnable poll = this.f40739h.poll();
-                this.f40740i = poll;
+        this.f44415h.offer(runnable);
+        if (this.f44416i == null) {
+            while (!this.f44415h.isEmpty()) {
+                Runnable poll = this.f44415h.poll();
+                this.f44416i = poll;
                 if (poll != null) {
                     poll.run();
                 }
-                this.f40740i = null;
+                this.f44416i = null;
             }
         }
     }
@@ -244,9 +244,9 @@ public abstract class d extends d.a.l0.a.a2.a {
 
     @Override // d.a.l0.a.a2.h
     public d.a.l0.a.p.a y() {
-        if (this.f40736e == null) {
-            this.f40736e = new d.a.l0.a.p.a();
+        if (this.f44412e == null) {
+            this.f44412e = new d.a.l0.a.p.a();
         }
-        return this.f40736e;
+        return this.f44412e;
     }
 }

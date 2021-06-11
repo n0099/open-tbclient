@@ -18,66 +18,66 @@ import kotlin.jvm.internal.Intrinsics;
 public final class HomePageBrowseModelTipView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f16476e;
+    public final TextView f16544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TBSpecificationBtn f16477f;
+    public final TBSpecificationBtn f16545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final View f16478g;
+    public final View f16546g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LinearLayout f16479h;
+    public final LinearLayout f16547h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f16480i;
+    public View.OnClickListener f16548i;
 
     public HomePageBrowseModelTipView(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        c d2 = c.d(this.f16479h);
+        c d2 = c.d(this.f16547h);
         d2.m(R.string.J_X06);
         d2.f(R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f16476e, R.color.CAM_X0105);
-        this.f16477f.k();
+        SkinManager.setViewTextColor(this.f16544e, R.color.CAM_X0105);
+        this.f16545f.k();
     }
 
     public final View.OnClickListener getListener() {
-        return this.f16480i;
+        return this.f16548i;
     }
 
     public final void setListener(View.OnClickListener onClickListener) {
-        this.f16480i = onClickListener;
+        this.f16548i = onClickListener;
         if (onClickListener != null) {
-            this.f16477f.setOnClickListener(onClickListener);
+            this.f16545f.setOnClickListener(onClickListener);
         }
     }
 
     public HomePageBrowseModelTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f16476e = new TextView(getContext());
-        this.f16477f = new TBSpecificationBtn(getContext());
-        this.f16478g = new View(getContext());
-        this.f16479h = new LinearLayout(getContext());
+        this.f16544e = new TextView(getContext());
+        this.f16545f = new TBSpecificationBtn(getContext());
+        this.f16546g = new View(getContext());
+        this.f16547h = new LinearLayout(getContext());
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
         Context context2 = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context2, "context");
-        this.f16478g.setLayoutParams(new LinearLayout.LayoutParams(-1, context2.getResources().getDimensionPixelSize(R.dimen.M_H_X003)));
-        addView(this.f16478g);
-        addView(this.f16479h);
-        ViewGroup.LayoutParams layoutParams = this.f16479h.getLayoutParams();
+        this.f16546g.setLayoutParams(new LinearLayout.LayoutParams(-1, context2.getResources().getDimensionPixelSize(R.dimen.M_H_X003)));
+        addView(this.f16546g);
+        addView(this.f16547h);
+        ViewGroup.LayoutParams layoutParams = this.f16547h.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
-        this.f16479h.setLayoutParams(layoutParams);
-        this.f16479h.setOrientation(0);
-        c d2 = c.d(this.f16479h);
+        this.f16547h.setLayoutParams(layoutParams);
+        this.f16547h.setOrientation(0);
+        c d2 = c.d(this.f16547h);
         d2.m(R.string.J_X06);
         d2.f(R.color.CAM_X0201);
-        this.f16479h.addView(this.f16476e);
-        this.f16479h.addView(this.f16477f);
+        this.f16547h.addView(this.f16544e);
+        this.f16547h.addView(this.f16545f);
         Context context3 = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context3, "context");
         int dimensionPixelSize = context3.getResources().getDimensionPixelSize(R.dimen.tbds174);
@@ -94,12 +94,12 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         Intrinsics.checkExpressionValueIsNotNull(context7, "context");
         layoutParams2.rightMargin = context7.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams2.gravity = 16;
-        this.f16477f.setLayoutParams(layoutParams2);
+        this.f16545f.setLayoutParams(layoutParams2);
         d.a.m0.r.f0.m.c cVar = new d.a.m0.r.f0.m.c();
         cVar.o(R.color.CAM_X0304);
-        this.f16477f.setConfig(cVar);
-        this.f16477f.setText(getContext().getString(R.string.browse_mode_tip_view_btn_text));
-        this.f16477f.setTextSize(R.dimen.T_X08);
+        this.f16545f.setConfig(cVar);
+        this.f16545f.setText(getContext().getString(R.string.browse_mode_tip_view_btn_text));
+        this.f16545f.setTextSize(R.dimen.T_X08);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
         Context context8 = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context8, "context");
@@ -109,12 +109,12 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams3.rightMargin = context9.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams3.gravity = 16;
         layoutParams3.weight = 1.0f;
-        this.f16476e.setLayoutParams(layoutParams3);
-        c d3 = c.d(this.f16476e);
+        this.f16544e.setLayoutParams(layoutParams3);
+        c d3 = c.d(this.f16544e);
         d3.w(R.dimen.T_X06);
         d3.s(R.color.CAM_X0105);
-        this.f16476e.setText(getContext().getString(R.string.browse_mode_tip_view_tip_text));
-        this.f16476e.setSingleLine();
-        this.f16476e.setEllipsize(TextUtils.TruncateAt.END);
+        this.f16544e.setText(getContext().getString(R.string.browse_mode_tip_view_tip_text));
+        this.f16544e.setSingleLine();
+        this.f16544e.setEllipsize(TextUtils.TruncateAt.END);
     }
 }

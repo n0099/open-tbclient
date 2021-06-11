@@ -4,141 +4,164 @@ import android.app.Activity;
 import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import d.r.b.a.a.i.c.j;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.api.pay.IMiddlePayService;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
 /* loaded from: classes8.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f68766a;
+    public Activity f72022a;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f68768c;
+    public long f72024c;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f68770e;
+    public ProductInfo f72026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f68771f;
+    public int f72027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68772g;
+    public int f72028g;
     public Map<String, Object> k;
     public IPayCallback<String> l;
     public IToken m;
+    public AppCustomExpand n;
+    public String o;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayType f68767b = PayType.ALI_PAY;
+    public PayType f72023b = PayType.ALI_PAY;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68769d = "";
+    public String f72025d = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public IMiddlePayService.SubscriptType f68773h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
+    public IMiddlePayService.SubscriptType f72029h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
 
     /* renamed from: i  reason: collision with root package name */
-    public IMiddlePayService.ChargeSource f68774i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
+    public IMiddlePayService.ChargeSource f72030i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
     public String j = "";
 
+    public final void A(long j) {
+        this.f72024c = j;
+    }
+
+    public final void B(int i2) {
+        this.f72027f = i2;
+    }
+
     public final Activity a() {
-        Activity activity = this.f68766a;
+        Activity activity = this.f72022a;
         if (activity == null) {
             Intrinsics.throwUninitializedPropertyAccessException("activity");
         }
         return activity;
     }
 
-    public final IPayCallback<String> b() {
+    public final AppCustomExpand b() {
+        return this.n;
+    }
+
+    public final IPayCallback<String> c() {
         return this.l;
     }
 
-    public final IMiddlePayService.ChargeSource c() {
-        return this.f68774i;
+    public final IMiddlePayService.ChargeSource d() {
+        return this.f72030i;
     }
 
-    public final int d() {
-        return this.f68772g;
+    public final int e() {
+        return this.f72028g;
     }
 
-    public final Map<String, Object> e() {
+    public final Map<String, Object> f() {
         return this.k;
     }
 
-    public final j f() {
-        j jVar = this.f68770e;
-        if (jVar == null) {
+    public final ProductInfo g() {
+        ProductInfo productInfo = this.f72026e;
+        if (productInfo == null) {
             Intrinsics.throwUninitializedPropertyAccessException("info");
         }
-        return jVar;
+        return productInfo;
     }
 
-    public final PayType g() {
-        return this.f68767b;
+    public final PayType h() {
+        return this.f72023b;
     }
 
-    public final String h() {
+    public final String i() {
         return this.j;
     }
 
-    public final IMiddlePayService.SubscriptType i() {
-        return this.f68773h;
+    public final IMiddlePayService.SubscriptType j() {
+        return this.f72029h;
     }
 
-    public final String j() {
-        return this.f68769d;
+    public final String k() {
+        return this.f72025d;
     }
 
-    public final IToken k() {
+    public final IToken l() {
         return this.m;
     }
 
-    public final long l() {
-        return this.f68768c;
+    public final String m() {
+        return this.o;
     }
 
-    public final int m() {
-        return this.f68771f;
+    public final long n() {
+        return this.f72024c;
     }
 
-    public final void n(Activity activity) {
-        this.f68766a = activity;
+    public final int o() {
+        return this.f72027f;
     }
 
-    public final void o(IPayCallback<String> iPayCallback) {
+    public final void p(Activity activity) {
+        this.f72022a = activity;
+    }
+
+    public final void q(AppCustomExpand appCustomExpand) {
+        this.n = appCustomExpand;
+    }
+
+    public final void r(IPayCallback<String> iPayCallback) {
         this.l = iPayCallback;
     }
 
-    public final void p(int i2) {
-        this.f68772g = i2;
+    public final void s(int i2) {
+        this.f72028g = i2;
     }
 
-    public final void q(Map<String, Object> map) {
+    public final void t(Map<String, Object> map) {
         this.k = map;
     }
 
-    public final void r(j jVar) {
-        this.f68770e = jVar;
+    public final void u(ProductInfo productInfo) {
+        this.f72026e = productInfo;
     }
 
-    public final void s(PayType payType) {
-        this.f68767b = payType;
+    public final void v(PayType payType) {
+        this.f72023b = payType;
     }
 
-    public final void t(String str) {
-        this.f68769d = str;
+    public final void w(String str) {
+        this.j = str;
     }
 
-    public final void u(IToken iToken) {
+    public final void x(String str) {
+        this.f72025d = str;
+    }
+
+    public final void y(IToken iToken) {
         this.m = iToken;
     }
 
-    public final void v(long j) {
-        this.f68768c = j;
-    }
-
-    public final void w(int i2) {
-        this.f68771f = i2;
+    public final void z(String str) {
+        this.o = str;
     }
 }

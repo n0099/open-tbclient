@@ -14,11 +14,11 @@ import java.util.List;
 public class TransferSmsVerifyBean extends BaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TransfRecvRequest f26222a;
+    public TransfRecvRequest f26325a;
 
     public TransferSmsVerifyBean(Context context) {
         super(context);
-        this.f26222a = (TransfRecvRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_TRANSFER_RECV);
+        this.f26325a = (TransfRecvRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_TRANSFER_RECV);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -29,13 +29,13 @@ public class TransferSmsVerifyBean extends BaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        TransfRecvRequest transfRecvRequest = this.f26222a;
+        TransfRecvRequest transfRecvRequest = this.f26325a;
         if (transfRecvRequest == null) {
             return arrayList;
         }
         arrayList.add(new RestNameValuePair("idt", transfRecvRequest.idt));
-        arrayList.add(new RestNameValuePair("recv_card_num", this.f26222a.recv_card_num));
-        arrayList.add(new RestNameValuePair("sms_code", this.f26222a.sms_code));
+        arrayList.add(new RestNameValuePair("recv_card_num", this.f26325a.recv_card_num));
+        arrayList.add(new RestNameValuePair("sms_code", this.f26325a.sms_code));
         arrayList.add(new RestNameValuePair("token", AccountManager.getInstance(this.mContext).getBfbToken()));
         return arrayList;
     }

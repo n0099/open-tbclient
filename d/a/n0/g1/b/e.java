@@ -99,19 +99,19 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
     public final CustomMessageListener d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ChatAggregationFragment f55020e;
+    public final ChatAggregationFragment f58709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImMessageCenterModel f55021f;
+    public ImMessageCenterModel f58710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImMessageCenterShowItemData f55022g;
+    public ImMessageCenterShowItemData f58711g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdSwipeRefreshLayout f55023h;
+    public BdSwipeRefreshLayout f58712h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.m0.r.f0.g f55024i;
+    public d.a.m0.r.f0.g f58713i;
     public BdListView j;
     public NavigationBarShadowView k;
     public MessageAggregationListAdapter l;
@@ -147,10 +147,10 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
             } else if (customResponsedMessage.getCmd() == 2016004) {
                 e.this.Z(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016007) {
-                e.this.d0(customResponsedMessage);
-                e.this.q0(false);
+                e.this.c0(customResponsedMessage);
+                e.this.p0(false);
             } else if (customResponsedMessage.getCmd() == 2016001) {
-                e.this.f55021f.setData(null, e.this.a0);
+                e.this.f58710f.setData(null, e.this.a0);
             } else if (customResponsedMessage.getCmd() == 2016010) {
                 if (e.this.l != null) {
                     e.this.l.notifyDataSetChanged();
@@ -201,8 +201,8 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
 
     /* renamed from: d.a.n0.g1.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1347e implements d.a.n0.f1.f.i.b {
-        public C1347e() {
+    public class C1403e implements d.a.n0.f1.f.i.b {
+        public C1403e() {
         }
 
         @Override // d.a.n0.f1.f.i.b
@@ -213,7 +213,7 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         @Override // d.a.n0.f1.f.i.b
         public void onPostExecute() {
             e.this.B();
-            e.this.f55020e.showToast(R.string.delete_success, false);
+            e.this.f58709e.showToast(R.string.delete_success, false);
             e.this.O();
         }
 
@@ -283,14 +283,14 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         @Override // d.a.m0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (!d.a.c.e.p.j.z()) {
-                if (e.this.f55023h != null) {
-                    e.this.f55023h.setRefreshing(false);
+                if (e.this.f58712h != null) {
+                    e.this.f58712h.setRefreshing(false);
                     return;
                 }
                 return;
             }
-            e.this.q0(true);
-            e.this.e0(false);
+            e.this.p0(true);
+            e.this.d0(false);
         }
     }
 
@@ -302,8 +302,8 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.a.m0.r.d0.b.j().t("is_shut_down_validate", true);
-            e.this.u0(false);
-            e.this.v0(false);
+            e.this.s0(false);
+            e.this.t0(false);
         }
     }
 
@@ -328,22 +328,22 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         public class a implements CustomMessageTask.CustomRunnable<String> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ImMessageCenterShowItemData f55036e;
+            public final /* synthetic */ ImMessageCenterShowItemData f58725e;
 
             public a(k kVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-                this.f55036e = imMessageCenterShowItemData;
+                this.f58725e = imMessageCenterShowItemData;
             }
 
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                 ImMessageCenterShowItemData imMessageCenterShowItemData;
-                if (customMessage == null || (imMessageCenterShowItemData = this.f55036e) == null) {
+                if (customMessage == null || (imMessageCenterShowItemData = this.f58725e) == null) {
                     return null;
                 }
                 imMessageCenterShowItemData.setUnReadCount(0);
-                if (this.f55036e.getOwnerName().equals("2")) {
+                if (this.f58725e.getOwnerName().equals("2")) {
                     d.a.n0.f1.h.d.f().k("apply_join_group");
-                } else if (this.f55036e.getOwnerName().equals("3")) {
+                } else if (this.f58725e.getOwnerName().equals("3")) {
                     d.a.n0.f1.h.d.f().k("group_intro_change");
                     d.a.n0.f1.h.d.f().k("group_name_change");
                     d.a.n0.f1.h.d.f().k("group_notice_change");
@@ -368,7 +368,7 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
                 long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
                 TiebaStatic.log("tab_msg_personal_chat_click");
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(e.this.f55020e.getPageContext().getPageActivity(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(e.this.f58709e.getPageContext().getPageActivity(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -388,7 +388,7 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
                 return;
             }
             ImMessageCenterShowItemData item = e.this.l.getItem(i2);
-            TiebaStatic.eventStat(e.this.f55020e.getPageContext().getPageActivity(), "list_to_chat", "chatlistclick", 1, new Object[0]);
+            TiebaStatic.eventStat(e.this.f58709e.getPageContext().getPageActivity(), "list_to_chat", "chatlistclick", 1, new Object[0]);
             StatisticItem statisticItem = new StatisticItem("c13720");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             String ownerName = item.getOwnerName();
@@ -396,13 +396,13 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
                 a(item);
                 statisticItem.param("obj_type", 6);
             } else if (ownerName.equals("1")) {
-                if (!d.a.n0.g1.a.b.a.a.b(e.this.f55020e.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
+                if (!d.a.n0.g1.a.b.a.a.b(e.this.f58709e.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
                     return;
                 }
-                TiebaStatic.eventStat(e.this.f55020e.getPageContext().getContext(), "chat_list_to_group", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(e.this.f55020e.getPageContext().getPageActivity(), d.a.c.e.m.b.f(item.getFriendId(), 0L), item.getFriendName(), 0L, "msg_lstb")));
+                TiebaStatic.eventStat(e.this.f58709e.getPageContext().getContext(), "chat_list_to_group", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(e.this.f58709e.getPageContext().getPageActivity(), d.a.c.e.m.b.f(item.getFriendId(), 0L), item.getFriendName(), 0L, "msg_lstb")));
             } else if (item.getOwnerName().equals("2")) {
-                if (!d.a.n0.g1.a.b.a.a.a(e.this.f55020e.getPageContext().getOrignalPage(), 2008021)) {
+                if (!d.a.n0.g1.a.b.a.a.a(e.this.f58709e.getPageContext().getOrignalPage(), 2008021)) {
                     return;
                 }
                 b(item);
@@ -410,25 +410,25 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
                 if (d.a.m0.s.d.b.g0().F() != null) {
                     d.a.m0.s.d.b.g0().F().Q(0);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008021, new ValidateActivityConfig(e.this.f55020e.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008021, new ValidateActivityConfig(e.this.f58709e.getPageContext().getPageActivity())));
             } else if (item.getOwnerName().equals("3")) {
-                if (!d.a.n0.g1.a.b.a.a.a(e.this.f55020e.getPageContext().getOrignalPage(), 2008013)) {
+                if (!d.a.n0.g1.a.b.a.a.a(e.this.f58709e.getPageContext().getOrignalPage(), 2008013)) {
                     return;
                 }
                 b(item);
                 if (d.a.m0.s.d.b.g0().F() != null) {
                     d.a.m0.s.d.b.g0().F().O(0);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008013, new UpdatesActivityConfig(e.this.f55020e.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008013, new UpdatesActivityConfig(e.this.f58709e.getPageContext().getPageActivity())));
             } else if (ownerName.equals("5")) {
                 TiebaStatic.log("c12931");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialBarFeedActivityConfig(e.this.f55020e.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialBarFeedActivityConfig(e.this.f58709e.getPageContext().getPageActivity())));
             } else if (ownerName.equals("8")) {
-                if (!d.a.n0.g1.a.b.a.a.a(e.this.f55020e.getPageContext().getOrignalPage(), 2002006)) {
+                if (!d.a.n0.g1.a.b.a.a.a(e.this.f58709e.getPageContext().getOrignalPage(), 2002006)) {
                     return;
                 }
                 long f2 = d.a.c.e.m.b.f(item.getFriendId(), 0L);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(e.this.f55020e.getPageContext().getPageActivity(), f2, item.getFriendNameShow(), item.getFriendPortrait(), 0, item.getUserType())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(e.this.f58709e.getPageContext().getPageActivity(), f2, item.getFriendNameShow(), item.getFriendPortrait(), 0, item.getUserType())));
                 if ("801001117".equals(String.valueOf(f2))) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SITE_SERVICE_ENTRANCE).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 } else if ("3222425470".equals(String.valueOf(f2))) {
@@ -436,7 +436,7 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
                 }
             } else if (ownerName.equals("7")) {
                 TiebaStatic.log(new StatisticItem("c12614"));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(e.this.f55020e.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(e.this.f58709e.getPageContext().getPageActivity())));
                 statisticItem.param("obj_type", 6);
                 return;
             } else {
@@ -468,17 +468,17 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
             e eVar = e.this;
-            eVar.f55022g = eVar.l.getItem(i2);
+            eVar.f58711g = eVar.l.getItem(i2);
             e eVar2 = e.this;
-            eVar2.Y(eVar2.f55022g);
+            eVar2.Y(eVar2.f58711g);
             if (e.this.n != null) {
                 TiebaStatic.log("c12932");
                 e.this.n.l();
-                if (e.this.f55020e == null || e.this.f55020e.getActivity() == null) {
+                if (e.this.f58709e == null || e.this.f58709e.getActivity() == null) {
                     return true;
                 }
                 long uptimeMillis = SystemClock.uptimeMillis();
-                e.this.f55020e.getActivity().getWindow().getDecorView().dispatchTouchEvent(MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0));
+                e.this.f58709e.getActivity().getWindow().getDecorView().dispatchTouchEvent(MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0));
                 return true;
             }
             return true;
@@ -489,15 +489,15 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
     public class m implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f55038e;
+        public final /* synthetic */ ImMessageCenterShowItemData f58727e;
 
         public m(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-            this.f55038e = imMessageCenterShowItemData;
+            this.f58727e = imMessageCenterShowItemData;
         }
 
         @Override // d.a.m0.r.s.l.e
         public void onItemClick(d.a.m0.r.s.l lVar, int i2, View view) {
-            if (e.this.n != null && e.this.n.isShowing() && e.this.f55020e != null) {
+            if (e.this.n != null && e.this.n.isShowing() && e.this.f58709e != null) {
                 e.this.n.dismiss();
             }
             if (i2 != 0) {
@@ -505,14 +505,14 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
                 return;
             }
             TiebaStatic.log("c12933");
-            e.this.f55021f.asyncDeleteItem(this.f55038e, e.this.c0);
+            e.this.f58710f.asyncDeleteItem(this.f58727e, e.this.c0);
         }
     }
 
     public e(ChatAggregationFragment chatAggregationFragment) {
         super((TbPageContext) d.a.c.a.j.a(chatAggregationFragment.getPageContext().getPageActivity()));
-        this.f55021f = null;
-        this.f55022g = null;
+        this.f58710f = null;
+        this.f58711g = null;
         this.j = null;
         this.l = null;
         this.n = null;
@@ -530,9 +530,9 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         this.Z = new a(0);
         this.a0 = new b();
         this.b0 = new d(2001120);
-        this.c0 = new C1347e();
+        this.c0 = new C1403e();
         this.d0 = new f(2001120);
-        this.f55020e = chatAggregationFragment;
+        this.f58709e = chatAggregationFragment;
     }
 
     public void A() {
@@ -577,8 +577,8 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
     }
 
     public final void F() {
-        this.f55021f = new ImMessageCenterModel();
-        u0(!d.a.m0.r.d0.b.j().g("is_shut_down_validate", false));
+        this.f58710f = new ImMessageCenterModel();
+        s0(!d.a.m0.r.d0.b.j().g("is_shut_down_validate", false));
     }
 
     public final void G(View view) {
@@ -591,7 +591,7 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         BdListView bdListView = (BdListView) view.findViewById(R.id.chat_list_content);
         this.j = bdListView;
         bdListView.setDividerHeight(0);
-        MessageAggregationListAdapter messageAggregationListAdapter = new MessageAggregationListAdapter(this.f55020e.getPageContext().getPageActivity());
+        MessageAggregationListAdapter messageAggregationListAdapter = new MessageAggregationListAdapter(this.f58709e.getPageContext().getPageActivity());
         this.l = messageAggregationListAdapter;
         messageAggregationListAdapter.q(this);
         this.j.setAdapter((ListAdapter) this.l);
@@ -629,16 +629,16 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         this.L.setOnClickListener(this);
         this.j.addHeaderView(this.y);
         A();
-        this.f55023h = (BdSwipeRefreshLayout) view.findViewById(R.id.reply_me_pull_refresh_layout);
-        if (this.f55024i == null) {
-            d.a.m0.r.f0.g gVar = new d.a.m0.r.f0.g(this.f55020e.getPageContext());
-            this.f55024i = gVar;
+        this.f58712h = (BdSwipeRefreshLayout) view.findViewById(R.id.reply_me_pull_refresh_layout);
+        if (this.f58713i == null) {
+            d.a.m0.r.f0.g gVar = new d.a.m0.r.f0.g(this.f58709e.getPageContext());
+            this.f58713i = gVar;
             gVar.a(this.V);
         }
-        this.f55024i.Z(getPageContext().getUniqueId());
-        this.f55023h.setProgressView(this.f55024i);
-        this.x = new View(this.f55020e.getFragmentActivity());
-        this.x.setLayoutParams(new AbsListView.LayoutParams(-1, d.a.c.e.p.l.g(this.f55020e.getFragmentActivity(), R.dimen.ds150)));
+        this.f58713i.Z(getPageContext().getUniqueId());
+        this.f58712h.setProgressView(this.f58713i);
+        this.x = new View(this.f58709e.getFragmentActivity());
+        this.x.setLayoutParams(new AbsListView.LayoutParams(-1, d.a.c.e.p.l.g(this.f58709e.getFragmentActivity(), R.dimen.ds150)));
         this.j.addFooterView(this.x);
     }
 
@@ -673,10 +673,10 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         }
     }
 
-    public boolean N(TbPageContext<?> tbPageContext, int i2) {
+    public boolean M(TbPageContext<?> tbPageContext, int i2) {
         NoDataView noDataView = this.p;
         if (noDataView != null) {
-            noDataView.f(this.f55020e.getPageContext(), i2);
+            noDataView.f(this.f58709e.getPageContext(), i2);
         }
         ShutDownValidateTipView shutDownValidateTipView = this.m;
         if (shutDownValidateTipView != null) {
@@ -689,12 +689,12 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         if (tbPageContext != null) {
             tbPageContext.getLayoutMode().j(this.r);
         }
-        d.a.m0.r.f0.g gVar = this.f55024i;
+        d.a.m0.r.f0.g gVar = this.f58713i;
         if (gVar != null) {
             gVar.I(i2);
         }
         SkinManager.setBackgroundColor(this.r, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f55023h, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f58712h, R.color.CAM_X0205);
         SkinManager.setViewTextColor(this.B, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.F, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.J, R.color.CAM_X0105);
@@ -729,12 +729,12 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
 
     public final void O() {
         BdListView bdListView = this.j;
-        if (bdListView == null || this.f55021f == null) {
+        if (bdListView == null || this.f58710f == null) {
             return;
         }
         bdListView.A(0L);
-        if (this.f55021f.getData() != null) {
-            this.l.n(this.f55021f.getData());
+        if (this.f58710f.getData() != null) {
+            this.l.n(this.f58710f.getData());
         } else {
             w0(H(), true);
         }
@@ -745,8 +745,8 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         F();
         G(this.s);
         TiebaStatic.eventStat(getActivity(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
-        n0();
-        X();
+        l0();
+        V();
         return this.s;
     }
 
@@ -757,9 +757,9 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         this.Q = newsNotifyMessage.getMsgAtme();
         this.R = newsNotifyMessage.getMsgAgree();
         g0(this.Q);
-        f0(this.R);
+        e0(this.R);
         i0(newsNotifyMessage.getMsgFans());
-        m0(newsNotifyMessage.getMsgReplyme());
+        k0(newsNotifyMessage.getMsgReplyme());
     }
 
     public void R(boolean z) {
@@ -776,7 +776,7 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
             if (intExtra == -1) {
                 return;
             }
-            t0(true);
+            q0(true);
             T();
         }
     }
@@ -784,30 +784,30 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
     public void T() {
         MessageAggregationListAdapter messageAggregationListAdapter = this.l;
         if (messageAggregationListAdapter != null && messageAggregationListAdapter.getCount() == 0) {
-            t0(true);
+            q0(true);
         }
         if (this.v || this.u) {
             this.v = false;
             this.u = false;
-            e0(false);
+            d0(false);
         }
         boolean H = H();
         if (this.t != H) {
             this.t = H;
-            W(H);
+            U(H);
         }
         NoDataView noDataView = this.p;
         if (noDataView != null) {
-            noDataView.d(this.f55020e.getPageContext());
+            noDataView.d(this.f58709e.getPageContext());
         }
         A();
     }
 
-    public void W(boolean z) {
+    public void U(boolean z) {
         w0(z, true);
     }
 
-    public void X() {
+    public void V() {
         this.j.F();
         boolean H = H();
         this.t = H;
@@ -819,8 +819,8 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
 
     public final void Y(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         this.o = new m(imMessageCenterShowItemData);
-        String string = this.f55020e.getPageContext().getPageActivity().getString(R.string.delete_user_chat);
-        d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(this.f55020e.getPageContext());
+        String string = this.f58709e.getPageContext().getPageActivity().getString(R.string.delete_user_chat);
+        d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(this.f58709e.getPageContext());
         this.n = jVar;
         jVar.i(null, new String[]{string}, this.o);
     }
@@ -831,11 +831,11 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                ImMessageCenterModel imMessageCenterModel2 = this.f55021f;
+                ImMessageCenterModel imMessageCenterModel2 = this.f58710f;
                 if (imMessageCenterModel2 != null) {
                     imMessageCenterModel2.insertOrUpdate(data, this.a0);
                 }
-            } else if (memoryChangedMessage.getType() != 2 || (imMessageCenterModel = this.f55021f) == null) {
+            } else if (memoryChangedMessage.getType() != 2 || (imMessageCenterModel = this.f58710f) == null) {
             } else {
                 imMessageCenterModel.remove(data, this.a0);
             }
@@ -859,19 +859,19 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         }
     }
 
-    public final void d0(CustomResponsedMessage<?> customResponsedMessage) {
+    public final void c0(CustomResponsedMessage<?> customResponsedMessage) {
         ImMessageCenterModel imMessageCenterModel;
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() != 1 || (imMessageCenterModel = this.f55021f) == null) {
+            if (responsedMemoryListMessage.getType() != 1 || (imMessageCenterModel = this.f58710f) == null) {
                 return;
             }
             imMessageCenterModel.setData(data, this.a0);
         }
     }
 
-    public boolean e0(boolean z) {
+    public boolean d0(boolean z) {
         if (!z) {
             MessageManager.getInstance().sendMessage(new RequestMemoryListMessage(1));
         } else {
@@ -880,7 +880,7 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         return true;
     }
 
-    public final void f0(int i2) {
+    public final void e0(int i2) {
         if (i2 > 0) {
             if (d.a.m0.s.d.d.d().e() == 0) {
                 i2 = 0;
@@ -913,7 +913,7 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
     }
 
     public Activity getActivity() {
-        return this.f55020e.getPageContext().getPageActivity();
+        return this.f58709e.getPageContext().getPageActivity();
     }
 
     public final void h0() {
@@ -941,14 +941,14 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
     }
 
     public void j0() {
-        BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f55023h;
+        BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f58712h;
         if (bdSwipeRefreshLayout == null || bdSwipeRefreshLayout.r()) {
             return;
         }
-        q0(true);
+        p0(true);
     }
 
-    public final void m0(int i2) {
+    public final void k0(int i2) {
         if (i2 > 0) {
             if (d.a.m0.s.d.d.d().e() == 0) {
                 i2 = 0;
@@ -964,15 +964,19 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
         this.K.setVisibility(8);
     }
 
-    public final void n0() {
-        this.f55020e.registerListener(2016004, this.Z);
-        this.f55020e.registerListener(2016001, this.Z);
-        this.f55020e.registerListener(2016010, this.Z);
-        this.f55020e.registerListener(2016007, this.Z);
-        this.f55020e.registerListener(2016011, this.Z);
-        this.f55020e.registerListener(2016002, this.Z);
-        this.f55020e.registerListener(this.b0);
-        this.f55020e.registerListener(this.d0);
+    public final void l0() {
+        this.f58709e.registerListener(2016004, this.Z);
+        this.f58709e.registerListener(2016001, this.Z);
+        this.f58709e.registerListener(2016010, this.Z);
+        this.f58709e.registerListener(2016007, this.Z);
+        this.f58709e.registerListener(2016011, this.Z);
+        this.f58709e.registerListener(2016002, this.Z);
+        this.f58709e.registerListener(this.b0);
+        this.f58709e.registerListener(this.d0);
+    }
+
+    public void m0(boolean z) {
+        this.v = z;
     }
 
     @Override // android.view.View.OnClickListener
@@ -993,14 +997,14 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
             d.a.m0.s.d.b.g0().i();
             d.a.m0.s.d.b.g0().Y(0);
             this.R = 0;
-            f0(0);
+            e0(0);
             TiebaStatic.log("c12926");
             statisticItem.param("obj_type", 2);
         } else if (view == this.H) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ReplyMeActivityConfig(getPageContext().getPageActivity())));
             d.a.m0.s.d.b.g0().p();
             d.a.m0.s.d.b.g0().e0(0);
-            m0(0);
+            k0(0);
         } else if (view == this.L) {
             d.a.n0.u2.a.v().L(2, false, true);
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
@@ -1017,28 +1021,24 @@ public class e extends d.a.c.a.d<ChatAggregationFragment> implements f.g, View.O
     }
 
     public void p0(boolean z) {
-        this.v = z;
-    }
-
-    public void q0(boolean z) {
         BdListView bdListView;
-        if (this.f55023h != null) {
+        if (this.f58712h != null) {
             if (z && (bdListView = this.j) != null && bdListView.getFirstVisiblePosition() != 0) {
                 this.j.setSelection(0);
             }
-            this.f55023h.setRefreshing(z);
+            this.f58712h.setRefreshing(z);
         }
     }
 
-    public void t0(boolean z) {
+    public void q0(boolean z) {
         this.u = z;
     }
 
-    public void u0(boolean z) {
+    public void s0(boolean z) {
         this.q = z;
     }
 
-    public void v0(boolean z) {
+    public void t0(boolean z) {
         if (z) {
             if (!I() || this.m.getVisibility() == 0) {
                 return;

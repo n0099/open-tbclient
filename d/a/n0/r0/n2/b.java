@@ -9,13 +9,13 @@ import com.baidu.tieba.R;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f59138a;
+    public TbPageContext<BaseFragmentActivity> f62829a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f59139b;
+    public Animation f62830b;
 
     public b(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        this.f59138a = tbPageContext;
-        this.f59139b = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.frs_like);
+        this.f62829a = tbPageContext;
+        this.f62830b = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.frs_like);
     }
 }

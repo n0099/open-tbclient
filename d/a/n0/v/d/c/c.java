@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
@@ -60,7 +60,7 @@ public class c {
         boolean z;
         if (!j.z()) {
             l.J(context, context.getString(R.string.no_network_guide));
-        } else if (context == null || a2Var == null || a2Var.T() == null || a2Var.r1() == null) {
+        } else if (context == null || a2Var == null || a2Var.T() == null || a2Var.s1() == null) {
         } else {
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 String userId = a2Var.T().getUserId();
@@ -72,7 +72,7 @@ public class c {
                 z = false;
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(a2Var.r1());
+            alaLiveInfoCoreData.fillWithInfoData(a2Var.s1());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
         }
     }
@@ -106,13 +106,14 @@ public class c {
         g(context, a2Var, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
     }
 
-    public static void j(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData) {
+    public static void j(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData, String str) {
         SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
         SdkLiveInfoData.YYExt yYExt;
         if (sdkLiveInfoData == null || (alaLiveInfo = sdkLiveInfoData.liveInfo) == null || (yYExt = alaLiveInfo.yyExt) == null || k.isEmpty(yYExt.sid) || k.isEmpty(sdkLiveInfoData.liveInfo.yyExt.ssid)) {
             return;
         }
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX + "sid=" + sdkLiveInfoData.liveInfo.yyExt.sid + "&ssid=" + sdkLiveInfoData.liveInfo.yyExt.ssid + "&templateId=" + sdkLiveInfoData.liveInfo.yyExt.templateId + "&roomId=" + sdkLiveInfoData.roomId});
+        SdkLiveInfoData.YYExt yYExt2 = sdkLiveInfoData.liveInfo.yyExt;
+        YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yYExt2.sid, yYExt2.ssid, yYExt2.templateId, sdkLiveInfoData.roomId, str);
     }
 
     public static YyExtData k(SdkLiveInfoData.YYExt yYExt) {

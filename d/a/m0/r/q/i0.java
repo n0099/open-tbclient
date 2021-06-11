@@ -3,31 +3,31 @@ package d.a.m0.r.q;
 public class i0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50043a;
+    public int f53719a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50044b;
+    public String f53720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f50045c;
+    public long f53721c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50046d;
+    public String f53722d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50047e;
+    public String f53723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50048f;
+    public int f53724f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50049g;
+    public String f53725g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f50050h;
+    public long f53726h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f50051i;
+    public long f53727i;
     public long j;
     public int k;
     public int l;
@@ -44,6 +44,6 @@ public class i0 {
     }
 
     public long b() {
-        return this.f50045c;
+        return this.f53721c;
     }
 }

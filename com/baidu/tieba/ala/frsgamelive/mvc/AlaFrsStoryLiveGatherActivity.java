@@ -79,7 +79,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                 alaFrsStoryLiveGatherActivity.hideLoadingView(alaFrsStoryLiveGatherActivity.mLiveView.g());
                 AlaFrsStoryLiveGatherActivity.this.mLiveView.e();
             }
-            if (ListUtils.getCount(AlaFrsStoryLiveGatherActivity.this.liveModel.G()) > 0 && AlaFrsStoryLiveGatherActivity.this.mLiveView != null) {
+            if (ListUtils.getCount(AlaFrsStoryLiveGatherActivity.this.liveModel.K()) > 0 && AlaFrsStoryLiveGatherActivity.this.mLiveView != null) {
                 AlaFrsStoryLiveGatherActivity.this.showToast(str);
                 return;
             }
@@ -97,9 +97,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity = AlaFrsStoryLiveGatherActivity.this;
             alaFrsStoryLiveGatherActivity.hideLoadingView(alaFrsStoryLiveGatherActivity.mLiveView.g());
             AlaFrsStoryLiveGatherActivity.this.mLiveView.e();
-            AlaFrsStoryLiveGatherActivity.this.mLiveView.t(AlaFrsStoryLiveGatherActivity.this.liveModel.G(), AlaFrsStoryLiveGatherActivity.this.liveModel.M(), z);
-            AlaFrsStoryLiveGatherActivity.this.mLiveView.o(AlaFrsStoryLiveGatherActivity.this.liveModel.H());
-            if (ListUtils.getCount(AlaFrsStoryLiveGatherActivity.this.liveModel.G()) == 0) {
+            AlaFrsStoryLiveGatherActivity.this.mLiveView.t(AlaFrsStoryLiveGatherActivity.this.liveModel.K(), AlaFrsStoryLiveGatherActivity.this.liveModel.Q(), z);
+            AlaFrsStoryLiveGatherActivity.this.mLiveView.o(AlaFrsStoryLiveGatherActivity.this.liveModel.L());
+            if (ListUtils.getCount(AlaFrsStoryLiveGatherActivity.this.liveModel.K()) == 0) {
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = AlaFrsStoryLiveGatherActivity.this;
                 alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.ds160));
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = AlaFrsStoryLiveGatherActivity.this;
@@ -131,7 +131,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         @Override // d.a.m0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (AlaFrsStoryLiveGatherActivity.this.liveModel != null) {
-                AlaFrsStoryLiveGatherActivity.this.liveModel.O();
+                AlaFrsStoryLiveGatherActivity.this.liveModel.S();
             }
         }
     }
@@ -143,9 +143,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
-            boolean N = AlaFrsStoryLiveGatherActivity.this.liveModel != null ? AlaFrsStoryLiveGatherActivity.this.liveModel.N() : false;
+            boolean R = AlaFrsStoryLiveGatherActivity.this.liveModel != null ? AlaFrsStoryLiveGatherActivity.this.liveModel.R() : false;
             if (AlaFrsStoryLiveGatherActivity.this.mLiveView != null) {
-                if (N) {
+                if (R) {
                     AlaFrsStoryLiveGatherActivity.this.mLiveView.w();
                 } else {
                     AlaFrsStoryLiveGatherActivity.this.mLiveView.x();
@@ -161,7 +161,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
 
         @Override // d.a.n0.v.e.c.d
         public void a(int i2) {
-            if (AlaFrsStoryLiveGatherActivity.this.liveModel == null || AlaFrsStoryLiveGatherActivity.this.liveModel.J() == i2) {
+            if (AlaFrsStoryLiveGatherActivity.this.liveModel == null || AlaFrsStoryLiveGatherActivity.this.liveModel.N() == i2) {
                 return;
             }
             AlaFrsStoryLiveGatherActivity.this.liveModel.setSortType(i2);
@@ -174,9 +174,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     private void initModel() {
         AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel = new AlaFrsStoryLiveGatherModel(getPageContext());
         this.liveModel = alaFrsStoryLiveGatherModel;
-        alaFrsStoryLiveGatherModel.P(this.modelCallback);
+        alaFrsStoryLiveGatherModel.T(this.modelCallback);
         this.liveModel.setForumId(this.forumId);
-        this.liveModel.O();
+        this.liveModel.S();
     }
 
     private View onCreateView() {
@@ -218,7 +218,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
 
     private AlaLiveInfoCoreData parseThreadToLiveCoreData(a2 a2Var) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(a2Var.r1());
+        alaLiveInfoCoreData.fillWithInfoData(a2Var.s1());
         alaLiveInfoCoreData.userName = a2Var.T().getUserName();
         return alaLiveInfoCoreData;
     }
@@ -226,7 +226,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     public void jumpToLiveRoom(TbPageContext<?> tbPageContext, a2 a2Var) {
         String str;
         boolean z;
-        if (tbPageContext == null || a2Var == null || a2Var.T() == null || a2Var.r1() == null) {
+        if (tbPageContext == null || a2Var == null || a2Var.T() == null || a2Var.s1() == null) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -240,10 +240,10 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         }
         TiebaStatic.log(new StatisticItem("c12550").param("obj_param1", a2Var.T().getUserId()));
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(a2Var.r1());
+        alaLiveInfoCoreData.fillWithInfoData(a2Var.s1());
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-        for (a2 a2Var2 : this.liveModel.I()) {
+        for (a2 a2Var2 : this.liveModel.M()) {
             alaLiveInfoListCoreData.mLiveInfoList.add(parseThreadToLiveCoreData(a2Var2));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_SUB_LIVE, str, z, null, null)));

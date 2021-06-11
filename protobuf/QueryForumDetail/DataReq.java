@@ -2,7 +2,7 @@ package protobuf.QueryForumDetail;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataReq extends Message {
     public static final Integer DEFAULT_FORUMID = 0;
     public static final String DEFAULT_FORUMNAME = "";
@@ -11,7 +11,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String forumName;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer forumId;
         public String forumName;

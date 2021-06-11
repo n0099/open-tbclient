@@ -1,16 +1,16 @@
 package d.a.n0.s1.c.a;
 
 import com.baidu.adp.BdUniqueId;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import tbclient.GetVipInfo.DataRes;
 import tbclient.GetVipInfo.VipUpgrade;
 /* loaded from: classes3.dex */
 public class a implements n {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f60416e = BdUniqueId.gen();
+    public static final BdUniqueId f64107e = BdUniqueId.gen();
 
-    public void c(DataRes dataRes) {
+    public void b(DataRes dataRes) {
         VipUpgrade vipUpgrade;
         if (dataRes == null || (vipUpgrade = dataRes.upgrade) == null) {
             return;
@@ -26,8 +26,8 @@ public class a implements n {
         String str6 = vipUpgrade2.expire;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f60416e;
+        return f64107e;
     }
 }

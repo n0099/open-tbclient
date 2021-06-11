@@ -230,15 +230,15 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public class e implements View.OnLongClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.c f16954e;
+        public final /* synthetic */ b.c f17030e;
 
         public e(b.c cVar) {
-            this.f16954e = cVar;
+            this.f17030e = cVar;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            AbsMsgImageActivity.this.createListMenu(new String[]{AbsMsgImageActivity.this.getPageContext().getString(R.string.save)}, this.f16954e);
+            AbsMsgImageActivity.this.createListMenu(new String[]{AbsMsgImageActivity.this.getPageContext().getString(R.string.save)}, this.f17030e);
             AbsMsgImageActivity.this.showListMenu();
             return false;
         }
@@ -304,16 +304,16 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public class g extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f16957a;
+        public String f17033a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f16958b;
+        public byte[] f17034b;
 
         public g(String str, byte[] bArr) {
-            this.f16957a = null;
-            this.f16958b = null;
-            this.f16957a = str;
-            this.f16958b = bArr;
+            this.f17033a = null;
+            this.f17034b = null;
+            this.f17033a = str;
+            this.f17034b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -331,7 +331,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f16957a, this.f16958b, AbsMsgImageActivity.this.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f17033a, this.f17034b, AbsMsgImageActivity.this.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
                     return AbsMsgImageActivity.this.getPageContext().getString(R.string.save_fail);

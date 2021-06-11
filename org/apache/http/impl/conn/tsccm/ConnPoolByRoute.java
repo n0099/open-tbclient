@@ -9,7 +9,7 @@ import org.apache.http.conn.ConnectionPoolTimeoutException;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ConnPoolByRoute extends AbstractConnPool {
     public Queue<BasicPoolEntry> freeConnections;
     public final int maxTotalConnections;

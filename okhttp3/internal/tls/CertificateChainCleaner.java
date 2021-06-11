@@ -6,7 +6,7 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class CertificateChainCleaner {
     public static CertificateChainCleaner get(X509TrustManager x509TrustManager) {
         return Platform.get().buildCertificateChainCleaner(x509TrustManager);

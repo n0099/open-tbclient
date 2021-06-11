@@ -47,46 +47,46 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BdUniqueId f54211a = BdUniqueId.gen();
+    public static final BdUniqueId f57900a = BdUniqueId.gen();
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<d.a.m0.r.f0.a> f54212b;
+    public static WeakReference<d.a.m0.r.f0.a> f57901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PostWriteCallBackData f54213c;
+    public static PostWriteCallBackData f57902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static i0 f54214d;
+    public static i0 f57903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static WriteData f54215e;
+    public static WriteData f57904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AntiData f54216f;
+    public static AntiData f57905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Intent f54217g;
+    public static Intent f57906g;
 
     /* loaded from: classes5.dex */
     public static class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f54218e;
+        public final /* synthetic */ Activity f57907e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarCoverTip f54219f;
+        public final /* synthetic */ NavigationBarCoverTip f57908f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f54220g;
+        public final /* synthetic */ long f57909g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f54221h;
+        public final /* synthetic */ long f57910h;
 
         public a(Activity activity, NavigationBarCoverTip navigationBarCoverTip, long j, long j2) {
-            this.f54218e = activity;
-            this.f54219f = navigationBarCoverTip;
-            this.f54220g = j;
-            this.f54221h = j2;
+            this.f57907e = activity;
+            this.f57908f = navigationBarCoverTip;
+            this.f57909g = j;
+            this.f57910h = j2;
         }
 
         @Override // android.view.View.OnClickListener
@@ -94,22 +94,22 @@ public class c {
             d.a.n0.e3.q0.b.a("发帖-成功： 开始分享 -- start");
             view.setOnClickListener(null);
             if (!j.z()) {
-                l.L(this.f54218e, R.string.neterror);
-                this.f54219f.e();
+                l.L(this.f57907e, R.string.neterror);
+                this.f57908f.e();
                 d.a.n0.e3.q0.b.a("发帖-成功： 开始分享 -- 失败 -- 无网");
                 return;
             }
             int k = l.k(TbadkCoreApplication.getInst());
             int i2 = l.i(TbadkCoreApplication.getInst());
-            float f2 = this.f54218e.getResources().getDisplayMetrics().density;
+            float f2 = this.f57907e.getResources().getDisplayMetrics().density;
             int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(c.f54211a);
-            requestGetMyPostNetMessage.setParams(this.f54220g, this.f54221h, 0L, k, i2, f2, i3);
+            requestGetMyPostNetMessage.setTag(c.f57900a);
+            requestGetMyPostNetMessage.setParams(this.f57909g, this.f57910h, 0L, k, i2, f2, i3);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             d.a.n0.e3.q0.b.a("发帖-成功： 开始分享 -- 发送GetMyPost");
-            c.j(this.f54218e);
-            this.f54219f.e();
+            c.j(this.f57907e);
+            this.f57908f.e();
             d.a.n0.e3.q0.b.a("发帖-成功： 开始分享 -- 关闭成功弹框");
         }
     }
@@ -118,18 +118,18 @@ public class c {
     public static class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f54222e;
+        public final /* synthetic */ Activity f57911e;
 
         public b(Activity activity) {
-            this.f54222e = activity;
+            this.f57911e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.a.n0.e3.q0.b.a("发帖-失败： 重新编辑 -- start");
             view.setOnClickListener(null);
-            WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f54222e);
-            Intent intent = c.f54217g;
+            WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f57911e);
+            Intent intent = c.f57906g;
             if (intent != null) {
                 newInstance.setIntent(intent);
             }
@@ -142,8 +142,8 @@ public class c {
 
     /* renamed from: d.a.n0.e3.q0.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1301c extends d.a.c.c.g.a {
-        public C1301c(int i2, int i3) {
+    public static class C1357c extends d.a.c.c.g.a {
+        public C1357c(int i2, int i3) {
             super(i2, i3);
         }
 
@@ -187,13 +187,13 @@ public class c {
 
     public static int f(a2 a2Var) {
         if (a2Var != null) {
-            if (a2Var.q2()) {
+            if (a2Var.r2()) {
                 return 4;
             }
             if (a2Var.s0() == 1) {
                 return 3;
             }
-            return a2Var.r2() ? 2 : 1;
+            return a2Var.s2() ? 2 : 1;
         }
         return 0;
     }
@@ -206,7 +206,7 @@ public class c {
             d.a.n0.e3.q0.b.a("发帖-成功： 分享进行 -- 处理GetMyPost -- 失败 -- ACT为NULL");
         } else if (i2 == 0 && getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
             a2 a2Var = new a2();
-            a2Var.U2(getMyPostResIdl.data.thread_info);
+            a2Var.V2(getMyPostResIdl.data.thread_info);
             k(a2Var, currentActivity);
         } else {
             l.L(currentActivity, R.string.neterror);
@@ -217,26 +217,26 @@ public class c {
     public static void h() {
         d.a.m0.r.f0.a aVar;
         d.a.n0.e3.q0.b.a("发帖-成功： 开始分享 -- 隐藏loading -- start");
-        WeakReference<d.a.m0.r.f0.a> weakReference = f54212b;
+        WeakReference<d.a.m0.r.f0.a> weakReference = f57901b;
         if (weakReference == null || (aVar = weakReference.get()) == null) {
             return;
         }
         aVar.h(false);
         d.a.n0.e3.q0.b.a("发帖-成功： 开始分享 -- 隐藏loading -- end");
-        f54212b.clear();
+        f57901b.clear();
     }
 
     public static void i() {
-        C1301c c1301c = new C1301c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        c1301c.setTag(f54211a);
-        c1301c.getHttpMessageListener().setSelfListener(true);
-        c1301c.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(c1301c);
+        C1357c c1357c = new C1357c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        c1357c.setTag(f57900a);
+        c1357c.getHttpMessageListener().setSelfListener(true);
+        c1357c.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(c1357c);
     }
 
     public static void j(Activity activity) {
         d.a.m0.r.f0.a aVar = new d.a.m0.r.f0.a(activity);
-        f54212b = new WeakReference<>(aVar);
+        f57901b = new WeakReference<>(aVar);
         aVar.h(true);
         d.a.n0.e3.q0.b.a("发帖-成功： 开始分享 -- 显示loading");
     }
@@ -248,29 +248,29 @@ public class c {
         }
         String valueOf = String.valueOf(a2Var.c0());
         String i0 = a2Var.i0();
-        String z1 = a2Var.z1();
-        if (TextUtils.isEmpty(z1)) {
-            z1 = a2Var.C();
+        String A1 = a2Var.A1();
+        if (TextUtils.isEmpty(A1)) {
+            A1 = a2Var.C();
         }
-        String y1 = a2Var.y1();
-        String str = "http://tieba.baidu.com/p/" + y1 + "?share=9105&fr=share";
+        String z1 = a2Var.z1();
+        String str = "http://tieba.baidu.com/p/" + z1 + "?share=9105&fr=share";
         String e2 = e(a2Var);
         Uri parse = e2 == null ? null : Uri.parse(e2);
         String C = a2Var.C();
-        String format = MessageFormat.format(activity.getResources().getString(R.string.share_content_tpl), z1, C);
+        String format = MessageFormat.format(activity.getResources().getString(R.string.share_content_tpl), A1, C);
         ShareItem shareItem = new ShareItem();
-        shareItem.r = z1;
+        shareItem.r = A1;
         shareItem.s = format;
         shareItem.R = 0L;
         shareItem.D = C;
         shareItem.t = str;
         shareItem.o = 5;
-        shareItem.q = y1;
+        shareItem.q = z1;
         shareItem.F = 3;
         shareItem.J = valueOf;
         shareItem.p = i0;
-        shareItem.K = y1;
-        shareItem.f12600f = true;
+        shareItem.K = z1;
+        shareItem.f12662f = true;
         shareItem.E = 15;
         shareItem.M = f(a2Var);
         if (parse != null) {
@@ -279,7 +279,7 @@ public class c {
         shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(a2Var);
         shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(a2Var);
         TbadkCoreApplication.getInst().setShareItem(shareItem);
-        shareItem.e0 = a2Var.f1();
+        shareItem.e0 = a2Var.g1();
         Bundle bundle = new Bundle();
         bundle.putInt("obj_param1", shareItem.F);
         bundle.putInt("obj_type", shareItem.M);
@@ -296,10 +296,10 @@ public class c {
             d.a.n0.e3.q0.b.a("发帖-失败： 失败弹框 -- 无backData");
             return;
         }
-        f54213c = postWriteCallBackData;
-        f54214d = i0Var;
-        f54215e = writeData;
-        f54216f = antiData;
+        f57902c = postWriteCallBackData;
+        f57903d = i0Var;
+        f57904e = writeData;
+        f57905f = antiData;
         d.a.n0.e3.q0.b.a("发帖-失败： 失败弹框 -- start");
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity == null) {

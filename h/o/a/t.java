@@ -3,91 +3,91 @@ package h.o.a;
 import h.g;
 import h.o.a.u;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class t<T> extends u<T> {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements u.a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f68538a;
+        public final /* synthetic */ long f71794a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f68539b;
+        public final /* synthetic */ TimeUnit f71795b;
 
         /* renamed from: h.o.a.t$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1927a implements h.n.a {
+        /* loaded from: classes8.dex */
+        public class C1976a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ u.c f68540e;
+            public final /* synthetic */ u.c f71796e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f68541f;
+            public final /* synthetic */ Long f71797f;
 
-            public C1927a(a aVar, u.c cVar, Long l) {
-                this.f68540e = cVar;
-                this.f68541f = l;
+            public C1976a(a aVar, u.c cVar, Long l) {
+                this.f71796e = cVar;
+                this.f71797f = l;
             }
 
             @Override // h.n.a
             public void call() {
-                this.f68540e.b(this.f68541f.longValue());
+                this.f71796e.b(this.f71797f.longValue());
             }
         }
 
         public a(long j, TimeUnit timeUnit) {
-            this.f68538a = j;
-            this.f68539b = timeUnit;
+            this.f71794a = j;
+            this.f71795b = timeUnit;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.h
         /* renamed from: b */
         public h.k a(u.c<T> cVar, Long l, g.a aVar) {
-            return aVar.c(new C1927a(this, cVar, l), this.f68538a, this.f68539b);
+            return aVar.c(new C1976a(this, cVar, l), this.f71794a, this.f71795b);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements u.b<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f68542a;
+        public final /* synthetic */ long f71798a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f68543b;
+        public final /* synthetic */ TimeUnit f71799b;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ u.c f68544e;
+            public final /* synthetic */ u.c f71800e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f68545f;
+            public final /* synthetic */ Long f71801f;
 
             public a(b bVar, u.c cVar, Long l) {
-                this.f68544e = cVar;
-                this.f68545f = l;
+                this.f71800e = cVar;
+                this.f71801f = l;
             }
 
             @Override // h.n.a
             public void call() {
-                this.f68544e.b(this.f68545f.longValue());
+                this.f71800e.b(this.f71801f.longValue());
             }
         }
 
         public b(long j, TimeUnit timeUnit) {
-            this.f68542a = j;
-            this.f68543b = timeUnit;
+            this.f71798a = j;
+            this.f71799b = timeUnit;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.i
         /* renamed from: b */
         public h.k a(u.c<T> cVar, Long l, T t, g.a aVar) {
-            return aVar.c(new a(this, cVar, l), this.f68542a, this.f68543b);
+            return aVar.c(new a(this, cVar, l), this.f71798a, this.f71799b);
         }
     }
 

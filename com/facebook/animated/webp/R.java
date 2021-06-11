@@ -34,22 +34,22 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f0404c8;
+        public static final int svgImage = 0x7f040503;
         public static final int viewAspectRatio = 0x7f040489;
     }
 
     /* loaded from: classes6.dex */
     public static final class id {
-        public static final int center = 0x7f09067f;
-        public static final int centerCrop = 0x7f090683;
-        public static final int centerInside = 0x7f090684;
-        public static final int fitBottomStart = 0x7f090b5e;
-        public static final int fitCenter = 0x7f090b5f;
-        public static final int fitEnd = 0x7f090b60;
-        public static final int fitStart = 0x7f090b61;
-        public static final int fitXY = 0x7f090b63;
-        public static final int focusCrop = 0x7f090b8c;
-        public static final int none = 0x7f091632;
+        public static final int center = 0x7f090682;
+        public static final int centerCrop = 0x7f090686;
+        public static final int centerInside = 0x7f090687;
+        public static final int fitBottomStart = 0x7f090b63;
+        public static final int fitCenter = 0x7f090b64;
+        public static final int fitEnd = 0x7f090b65;
+        public static final int fitStart = 0x7f090b66;
+        public static final int fitXY = 0x7f090b68;
+        public static final int focusCrop = 0x7f090b91;
+        public static final int none = 0x7f09175a;
     }
 
     /* loaded from: classes6.dex */

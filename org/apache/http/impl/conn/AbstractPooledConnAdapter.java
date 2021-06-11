@@ -7,7 +7,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractPooledConnAdapter extends AbstractClientConnAdapter {
     public volatile AbstractPoolEntry poolEntry;
 

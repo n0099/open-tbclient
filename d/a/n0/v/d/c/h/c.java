@@ -21,17 +21,17 @@ public class c extends d.a.n0.z.b<d.a.n0.v.d.c.e.f> {
     public c(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         this.o = 0;
-        s();
+        t();
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.tab_live_stage_item_view;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setBackgroundColor(l(), R.color.CAM_X0201);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        SkinManager.setBackgroundColor(m(), R.color.CAM_X0201);
         TabLiveStageLiveView tabLiveStageLiveView = this.n;
         if (tabLiveStageLiveView != null) {
             tabLiveStageLiveView.c();
@@ -42,8 +42,8 @@ public class c extends d.a.n0.z.b<d.a.n0.v.d.c.e.f> {
     public void onClick(View view) {
     }
 
-    public final void s() {
-        this.m = l();
+    public final void t() {
+        this.m = m();
         int[] b2 = d.a.n0.v.d.c.c.b(b());
         int i2 = b2[0];
         int i3 = b2[1];
@@ -62,15 +62,15 @@ public class c extends d.a.n0.z.b<d.a.n0.v.d.c.e.f> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(d.a.n0.v.d.c.e.f fVar) {
+    /* renamed from: u */
+    public void n(d.a.n0.v.d.c.e.f fVar) {
         SdkLiveInfoData sdkLiveInfoData;
         SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
         String str;
-        if (fVar == null || fVar.f61507e == null) {
+        if (fVar == null || fVar.f65220e == null) {
             return;
         }
-        int k = l.k(this.f63442g);
+        int k = l.k(this.f67160g);
         if (k != this.o) {
             int[] b2 = d.a.n0.v.d.c.c.b(b());
             int i2 = b2[0];
@@ -81,12 +81,12 @@ public class c extends d.a.n0.z.b<d.a.n0.v.d.c.e.f> {
             this.n.setLayoutParams(layoutParams);
             this.o = k;
         }
-        this.n.setData(fVar.f61507e.f61508a, 101);
+        this.n.setData(fVar.f65220e.f65221a, 101);
         StatisticItem statisticItem = new StatisticItem("c13551");
-        d.a.n0.v.d.c.e.g gVar = fVar.f61507e;
-        if (gVar != null && (sdkLiveInfoData = gVar.f61508a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
+        d.a.n0.v.d.c.e.g gVar = fVar.f65220e;
+        if (gVar != null && (sdkLiveInfoData = gVar.f65221a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
             int a2 = d.a.n0.v.d.c.c.a(alaLiveInfo);
-            SdkLiveInfoData.YYExt yYExt = fVar.f61507e.f61508a.liveInfo.yyExt;
+            SdkLiveInfoData.YYExt yYExt = fVar.f65220e.f65221a.liveInfo.yyExt;
             if (yYExt != null) {
                 TiebaStaticHelper.addYYParam(statisticItem, d.a.n0.v.d.c.c.k(yYExt));
                 str = TiebaStatic.YYValues.YY_LIVE;

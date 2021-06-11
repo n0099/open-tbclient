@@ -1,6 +1,4 @@
 package com.baidu.pass.common;
-
-import com.baidu.tbadk.core.util.FieldBuilder;
 /* loaded from: classes2.dex */
 public class Log implements com.baidu.pass.a {
     public static final String TAG = "PASSPORT";
@@ -18,7 +16,7 @@ public class Log implements com.baidu.pass.a {
                     Object obj = objArr[i2];
                     if (obj != null) {
                         if (i2 != 0) {
-                            stringBuffer.append(FieldBuilder.SE);
+                            stringBuffer.append("|");
                         }
                         try {
                             if (obj instanceof Throwable) {

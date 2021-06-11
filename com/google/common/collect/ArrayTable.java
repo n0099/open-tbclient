@@ -42,33 +42,33 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
     public class b extends Tables.b<R, C, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f30925e;
+        public final int f31016e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f30926f;
+        public final int f31017f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f30927g;
+        public final /* synthetic */ int f31018g;
 
         public b(int i2) {
-            this.f30927g = i2;
-            this.f30925e = this.f30927g / ArrayTable.this.columnList.size();
-            this.f30926f = this.f30927g % ArrayTable.this.columnList.size();
+            this.f31018g = i2;
+            this.f31016e = this.f31018g / ArrayTable.this.columnList.size();
+            this.f31017f = this.f31018g % ArrayTable.this.columnList.size();
         }
 
         @Override // d.g.c.c.y0.a
         public C getColumnKey() {
-            return (C) ArrayTable.this.columnList.get(this.f30926f);
+            return (C) ArrayTable.this.columnList.get(this.f31017f);
         }
 
         @Override // d.g.c.c.y0.a
         public R getRowKey() {
-            return (R) ArrayTable.this.rowList.get(this.f30925e);
+            return (R) ArrayTable.this.rowList.get(this.f31016e);
         }
 
         @Override // d.g.c.c.y0.a
         public V getValue() {
-            return (V) ArrayTable.this.at(this.f30925e, this.f30926f);
+            return (V) ArrayTable.this.at(this.f31016e, this.f31017f);
         }
     }
 
@@ -88,31 +88,31 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
     public static abstract class d<K, V> extends Maps.l<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final ImmutableMap<K, Integer> f30930e;
+        public final ImmutableMap<K, Integer> f31021e;
 
         /* loaded from: classes6.dex */
         public class a extends d.g.c.c.b<K, V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f30931e;
+            public final /* synthetic */ int f31022e;
 
             public a(int i2) {
-                this.f30931e = i2;
+                this.f31022e = i2;
             }
 
             @Override // d.g.c.c.b, java.util.Map.Entry
             public K getKey() {
-                return (K) d.this.c(this.f30931e);
+                return (K) d.this.c(this.f31022e);
             }
 
             @Override // d.g.c.c.b, java.util.Map.Entry
             public V getValue() {
-                return (V) d.this.e(this.f30931e);
+                return (V) d.this.e(this.f31022e);
             }
 
             @Override // d.g.c.c.b, java.util.Map.Entry
             public V setValue(V v) {
-                return (V) d.this.f(this.f30931e, v);
+                return (V) d.this.f(this.f31022e, v);
             }
         }
 
@@ -145,7 +145,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         }
 
         public K c(int i2) {
-            return this.f30930e.keySet().asList().get(i2);
+            return this.f31021e.keySet().asList().get(i2);
         }
 
         @Override // com.google.common.collect.Maps.l, java.util.AbstractMap, java.util.Map
@@ -155,7 +155,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean containsKey(Object obj) {
-            return this.f30930e.containsKey(obj);
+            return this.f31021e.containsKey(obj);
         }
 
         public abstract String d();
@@ -166,7 +166,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
 
         @Override // java.util.AbstractMap, java.util.Map
         public V get(Object obj) {
-            Integer num = this.f30930e.get(obj);
+            Integer num = this.f31021e.get(obj);
             if (num == null) {
                 return null;
             }
@@ -175,21 +175,21 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean isEmpty() {
-            return this.f30930e.isEmpty();
+            return this.f31021e.isEmpty();
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public Set<K> keySet() {
-            return this.f30930e.keySet();
+            return this.f31021e.keySet();
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public V put(K k, V v) {
-            Integer num = this.f30930e.get(k);
+            Integer num = this.f31021e.get(k);
             if (num != null) {
                 return f(num.intValue(), v);
             }
-            throw new IllegalArgumentException(d() + " " + k + " not in " + this.f30930e.keySet());
+            throw new IllegalArgumentException(d() + " " + k + " not in " + this.f31021e.keySet());
         }
 
         @Override // java.util.AbstractMap, java.util.Map
@@ -199,11 +199,11 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
 
         @Override // java.util.AbstractMap, java.util.Map
         public int size() {
-            return this.f30930e.size();
+            return this.f31021e.size();
         }
 
         public d(ImmutableMap<K, Integer> immutableMap) {
-            this.f30930e = immutableMap;
+            this.f31021e = immutableMap;
         }
     }
 
@@ -211,11 +211,11 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
     public class e extends d<R, V> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f30934f;
+        public final int f31025f;
 
         public e(int i2) {
             super(ArrayTable.this.rowKeyToIndex, null);
-            this.f30934f = i2;
+            this.f31025f = i2;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
@@ -225,12 +225,12 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
 
         @Override // com.google.common.collect.ArrayTable.d
         public V e(int i2) {
-            return (V) ArrayTable.this.at(i2, this.f30934f);
+            return (V) ArrayTable.this.at(i2, this.f31025f);
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public V f(int i2, V v) {
-            return (V) ArrayTable.this.set(i2, this.f30934f, v);
+            return (V) ArrayTable.this.set(i2, this.f31025f, v);
         }
     }
 
@@ -281,11 +281,11 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
     public class g extends d<C, V> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f30937f;
+        public final int f31028f;
 
         public g(int i2) {
             super(ArrayTable.this.columnKeyToIndex, null);
-            this.f30937f = i2;
+            this.f31028f = i2;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
@@ -295,12 +295,12 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
 
         @Override // com.google.common.collect.ArrayTable.d
         public V e(int i2) {
-            return (V) ArrayTable.this.at(this.f30937f, i2);
+            return (V) ArrayTable.this.at(this.f31028f, i2);
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public V f(int i2, V v) {
-            return (V) ArrayTable.this.set(this.f30937f, i2, v);
+            return (V) ArrayTable.this.set(this.f31028f, i2, v);
         }
     }
 

@@ -20,7 +20,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends d.a.n0.z.c<n> {
     public RelateForumHorizonalListView x;
-    public List<d.a.c.j.e.n> y;
+    public List<d.a.c.k.e.n> y;
     public TbPageContext<?> z;
 
     public a(TbPageContext<?> tbPageContext) {
@@ -28,17 +28,17 @@ public class a extends d.a.n0.z.c<n> {
         this.z = tbPageContext;
         this.x = new RelateForumHorizonalListView(b());
         this.y = new ArrayList();
-        this.x.setTag(i());
+        this.x.setTag(j());
         this.x.setLoadMoreClickListener(this);
         this.u.addView(this.x);
         this.m.setOnClickListener(this);
-        w(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
-        v(false);
+        x(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
+        w(false);
     }
 
     @Override // d.a.n0.z.c, d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        super.n(tbPageContext, i2);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        super.o(tbPageContext, i2);
         RelateForumHorizonalListView relateForumHorizonalListView = this.x;
         if (relateForumHorizonalListView != null) {
             relateForumHorizonalListView.l(i2);
@@ -57,11 +57,11 @@ public class a extends d.a.n0.z.c<n> {
     }
 
     @Override // d.a.n0.z.b
-    public void p(BdUniqueId bdUniqueId) {
-        super.p(bdUniqueId);
+    public void q(BdUniqueId bdUniqueId) {
+        super.q(bdUniqueId);
         RelateForumHorizonalListView relateForumHorizonalListView = this.x;
         if (relateForumHorizonalListView != null) {
-            relateForumHorizonalListView.setTag(i());
+            relateForumHorizonalListView.setTag(j());
         }
     }
 
@@ -71,12 +71,12 @@ public class a extends d.a.n0.z.c<n> {
         this.x.setFrom(str);
     }
 
-    public final List<d.a.m0.b1.g.a> x(List<d.a.c.j.e.n> list) {
+    public final List<d.a.m0.b1.g.a> y(List<d.a.c.k.e.n> list) {
         if (list == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (d.a.c.j.e.n nVar : list) {
+        for (d.a.c.k.e.n nVar : list) {
             if (nVar instanceof RelateForumItemData) {
                 RelateForumItemData relateForumItemData = (RelateForumItemData) nVar;
                 long j = relateForumItemData.forumId;
@@ -85,10 +85,10 @@ public class a extends d.a.n0.z.c<n> {
                 boolean z = relateForumItemData.isLiked;
                 if (j >= 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                     d.a.m0.b1.g.a aVar = new d.a.m0.b1.g.a();
-                    aVar.f49023b = str2;
-                    aVar.f49025d = j;
-                    aVar.f49024c = str;
-                    aVar.f49026e = z;
+                    aVar.f52697b = str2;
+                    aVar.f52699d = j;
+                    aVar.f52698c = str;
+                    aVar.f52700e = z;
                     arrayList.add(aVar);
                 }
             }
@@ -98,30 +98,30 @@ public class a extends d.a.n0.z.c<n> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: y */
-    public void m(n nVar) {
-        super.u(nVar);
+    /* renamed from: z */
+    public void n(n nVar) {
+        super.v(nVar);
         if (nVar == null) {
-            l().setVisibility(8);
+            m().setVisibility(8);
             return;
         }
         this.y.clear();
-        List<d.a.c.j.e.n> list = nVar.f52604e;
+        List<d.a.c.k.e.n> list = nVar.f56293e;
         if (list != null) {
             this.y.addAll(list);
         }
-        List<d.a.m0.b1.g.a> x = x(this.y);
-        int count = ListUtils.getCount(x);
+        List<d.a.m0.b1.g.a> y = y(this.y);
+        int count = ListUtils.getCount(y);
         if (count <= 0) {
-            l().setVisibility(8);
+            m().setVisibility(8);
             return;
         }
-        l().setVisibility(0);
+        m().setVisibility(0);
         if (count > 10) {
-            this.x.setData(x.subList(0, 10), k(), true);
+            this.x.setData(y.subList(0, 10), k(), true);
         } else {
-            this.x.setData(x, k(), false);
+            this.x.setData(y, k(), false);
         }
-        n(k(), TbadkCoreApplication.getInst().getSkinType());
+        o(k(), TbadkCoreApplication.getInst().getSkinType());
     }
 }

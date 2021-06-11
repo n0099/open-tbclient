@@ -39,6 +39,7 @@ import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.Security;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.ThirdPartyUtil;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
@@ -1110,7 +1111,7 @@ public class SapiJsInterpreters {
                         }
                         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
                         if (currentAccount != null) {
-                            sapiAccountResponseToAccount.addSocialInfo(currentAccount.getSocialType(), currentAccount.getSocialPortrait());
+                            sapiAccountResponseToAccount.addSocialInfo(currentAccount.getSocialType(), currentAccount.getSocialPortrait(), currentAccount.getSocialNickname());
                         }
                         SapiAccountManager.getInstance().removeLoginAccount(currentAccount);
                         SapiAccountManager.getInstance().validate(sapiAccountResponseToAccount);
@@ -1342,16 +1343,16 @@ public class SapiJsInterpreters {
             super();
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0033, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:11:0x0032, code lost:
             if (r4.this$0.configuration.supportFaceLogin != false) goto L11;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0035, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x0034, code lost:
             r0 = true;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x0065, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x0060, code lost:
             if (r4.this$0.jsCallBacks.invokeScAppCallback != null) goto L11;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x007a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x0075, code lost:
             if (r4.this$0.configuration.supportFaceLogin != false) goto L11;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
@@ -1501,13 +1502,36 @@ public class SapiJsInterpreters {
                 jSONObject.put("errno", "0");
                 if (SapiJsInterpreters.this.configuration != null) {
                     jSONObject.put("textZoom", SapiJsInterpreters.this.configuration.textZoom);
+                    jSONObject.put("browseModeState", SapiJsInterpreters.this.configuration.browseModeState);
                 } else {
                     jSONObject.put("textZoom", 100);
+                    jSONObject.put("browseModeState", 1);
                 }
                 return jSONObject.toString();
             } catch (Exception unused) {
                 Log.e(this.TAG, "get na ui config error");
                 return "";
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class SapiActionGetSecurityZid extends AbstractInterpreter {
+        public SapiActionGetSecurityZid() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            try {
+                int optInt = new JSONObject(command.getActionParams().get(0)).optInt(TbEnum.SystemMessage.KEY_EVENT_ID);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("errno", "0");
+                jSONObject.put("zid", Security.getZid(ServiceManager.getInstance().getIsAccountManager().getConfignation().context, optInt));
+                return jSONObject.toString();
+            } catch (JSONException e2) {
+                Log.e(e2);
+                return null;
             }
         }
     }
@@ -1580,6 +1604,43 @@ public class SapiJsInterpreters {
                 return null;
             }
             return null;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class SapiActionMakeVibrate extends AbstractInterpreter {
+        public SapiActionMakeVibrate() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            if (SapiJsInterpreters.this.jsCallBacks.makeVibrateCallBack == null) {
+                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                JSONArray optJSONArray = jSONObject.optJSONArray("pattern");
+                int optInt = jSONObject.optInt("repeat", -1);
+                if (optJSONArray == null || optJSONArray.length() == 0) {
+                    SapiJsInterpreters.this.jsCallBacks.makeVibrateCallBack.presetVibrate();
+                    return null;
+                }
+                long[] jArr = new long[optJSONArray.length()];
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    jArr[i2] = optJSONArray.getLong(i2);
+                }
+                SapiJsInterpreters.this.jsCallBacks.makeVibrateCallBack.vibrate(jArr, optInt);
+                return null;
+            } catch (JSONException e2) {
+                Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                if (SapiJsInterpreters.this.jsCallBacks == null || SapiJsInterpreters.this.jsCallBacks.promptResult == null) {
+                    return null;
+                }
+                SapiJsInterpreters.this.jsCallBacks.promptResult.cancel();
+                return null;
+            }
         }
     }
 
@@ -2600,7 +2661,7 @@ public class SapiJsInterpreters {
                 } else if (fingerPrintState == 101 || fingerPrintState == 102) {
                     str = fingerPrintState + "";
                 } else if (contains) {
-                    str = TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY;
+                    str = "103";
                 } else if (!SapiJsInterpreters.this.sapiWebView.supportTouchGuide) {
                     str = TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT;
                 } else if (z) {

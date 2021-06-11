@@ -12,16 +12,16 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f49592a = 604800000;
+    public static long f53267a = 604800000;
 
     /* renamed from: d.a.m0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1129a extends CustomMessageListener {
+    public static class C1185a extends CustomMessageListener {
 
         /* renamed from: d.a.m0.o.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1130a extends Thread {
-            public C1130a(C1129a c1129a) {
+        public class C1186a extends Thread {
+            public C1186a(C1185a c1185a) {
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
@@ -35,7 +35,7 @@ public class a {
             }
         }
 
-        public C1129a(int i2) {
+        public C1185a(int i2) {
             super(i2);
         }
 
@@ -48,8 +48,8 @@ public class a {
                 b.j().w("key_clear_resource", currentTimeMillis);
                 l = currentTimeMillis;
             }
-            if (currentTimeMillis - l > a.f49592a) {
-                new C1130a(this).start();
+            if (currentTimeMillis - l > a.f53267a) {
+                new C1186a(this).start();
                 b.j().w("key_clear_resource", currentTimeMillis);
             }
         }
@@ -81,6 +81,6 @@ public class a {
     }
 
     public static void d() {
-        MessageManager.getInstance().registerListener(new C1129a(2005016));
+        MessageManager.getInstance().registerListener(new C1185a(2005016));
     }
 }

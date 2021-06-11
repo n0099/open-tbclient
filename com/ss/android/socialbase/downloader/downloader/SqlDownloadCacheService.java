@@ -14,7 +14,7 @@ import d.o.a.e.b.g.s;
 public class SqlDownloadCacheService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35992a = SqlDownloadCacheService.class.getSimpleName();
+    public static final String f39671a = SqlDownloadCacheService.class.getSimpleName();
 
     public static void a(Context context, ServiceConnection serviceConnection) {
         if (context != null) {
@@ -25,7 +25,7 @@ public class SqlDownloadCacheService extends Service {
                 }
                 context.startService(intent);
             } catch (Throwable th) {
-                Log.w(f35992a, "startServiceAndBind fail", th);
+                Log.w(f39671a, "startServiceAndBind fail", th);
             }
         }
     }

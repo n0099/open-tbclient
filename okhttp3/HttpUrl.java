@@ -20,7 +20,7 @@ import kotlin.text.Typography;
 import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class HttpUrl {
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     public static final String FRAGMENT_ENCODE_SET = "";
@@ -101,7 +101,7 @@ public final class HttpUrl {
             }
             sb.append(str);
             if (str2 != null) {
-                sb.append(a.f1873h);
+                sb.append(a.f1886h);
                 sb.append(str2);
             }
         }
@@ -389,7 +389,7 @@ public final class HttpUrl {
         return this.username;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static final String INVALID_HOST = "Invalid URL host";
         @Nullable

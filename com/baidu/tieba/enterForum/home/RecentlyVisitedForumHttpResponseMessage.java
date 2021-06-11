@@ -57,8 +57,8 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
         for (HistoryForumInfo historyForumInfo2 : getHistoryForumResIdl.data.history_forum) {
             if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
                 VisitedForumData visitedForumData = new VisitedForumData();
-                visitedForumData.E(historyForumInfo2);
-                visitedForumData.F(hashMap.containsKey(historyForumInfo2.forum_id));
+                visitedForumData.I(historyForumInfo2);
+                visitedForumData.J(hashMap.containsKey(historyForumInfo2.forum_id));
                 this.mForumData.add(visitedForumData);
             }
         }

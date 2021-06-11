@@ -45,7 +45,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     public static final String KEY_DATA = "data";
     public static final String TAG = "SwanAppLocalService";
     public Messenger mMessenger;
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static boolean sFlagPreloaded = false;
 
     /* loaded from: classes3.dex */
@@ -64,7 +64,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             d.a.l0.a.r1.n.a.a().c(d.a.l0.a.g.aiapps_fragment, d.a.l0.a.g.aiapps_pull_to_load_footer);
             d.a.l0.a.c1.a.Q().a(d.a.l0.a.c1.a.l0().a());
             if (d.a.l0.a.r1.l.e.j()) {
-                boolean z = d.a.l0.a.w2.d.b.f45658i;
+                boolean z = d.a.l0.a.w2.d.b.f49332i;
                 d.a.l0.a.f1.c.b.c().d("screenSize", g0.b());
             }
             SwanAppLocalService.this.preloadActivityClass();

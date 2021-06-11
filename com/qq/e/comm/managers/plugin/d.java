@@ -7,13 +7,13 @@ import java.io.File;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35443a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
+    public static String f39122a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35444b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
+    public static String f39123b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
 
     public static File a(Context context) {
-        return context.getDir(f35444b, 0);
+        return context.getDir(f39123b, 0);
     }
 
     public static File b(Context context) {
@@ -45,6 +45,6 @@ public final class d {
     }
 
     public static File i(Context context) {
-        return context.getDir(f35443a, 0);
+        return context.getDir(f39122a, 0);
     }
 }

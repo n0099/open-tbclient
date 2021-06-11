@@ -15,19 +15,19 @@ import tbclient.VideoInfo;
 public class PbVideoWifiTipLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f19927e;
+    public TextView f20004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19928f;
+    public TextView f20005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19929g;
+    public TextView f20006g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19930h;
+    public TextView f20007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f19931i;
+    public TextView f20008i;
     public View.OnClickListener j;
 
     /* loaded from: classes5.dex */
@@ -51,21 +51,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public final void b() {
         LinearLayout.inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-        this.f19927e = (TextView) findViewById(R.id.tv_video_duration);
-        this.f19928f = (TextView) findViewById(R.id.tv_video_data);
-        this.f19929g = (TextView) findViewById(R.id.tv_play);
-        this.f19930h = (TextView) findViewById(R.id.tv_divider);
+        this.f20004e = (TextView) findViewById(R.id.tv_video_duration);
+        this.f20005f = (TextView) findViewById(R.id.tv_video_data);
+        this.f20006g = (TextView) findViewById(R.id.tv_play);
+        this.f20007h = (TextView) findViewById(R.id.tv_divider);
         TextView textView = (TextView) findViewById(R.id.tv_open_free_data);
-        this.f19931i = textView;
+        this.f20008i = textView;
         textView.setOnClickListener(new a());
     }
 
     public TextView getTvOpenFreeData() {
-        return this.f19931i;
+        return this.f20008i;
     }
 
     public TextView getTvPlay() {
-        return this.f19929g;
+        return this.f20006g;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -80,23 +80,23 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.f19929g.setOnClickListener(onClickListener);
+        this.f20006g.setOnClickListener(onClickListener);
     }
 
     public void setData(int i2, int i3) {
         if (i2 > 0) {
-            this.f19927e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+            this.f20004e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
         } else {
-            this.f19927e.setVisibility(8);
-            this.f19930h.setVisibility(8);
+            this.f20004e.setVisibility(8);
+            this.f20007h.setVisibility(8);
         }
         if (i3 > 0) {
-            this.f19928f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).format(i3 / 1048576.0f)));
+            this.f20005f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).format(i3 / 1048576.0f)));
         } else {
-            this.f19928f.setVisibility(8);
-            this.f19930h.setVisibility(8);
+            this.f20005f.setVisibility(8);
+            this.f20007h.setVisibility(8);
         }
-        this.f19931i.setVisibility(0);
+        this.f20008i.setVisibility(0);
     }
 
     public PbVideoWifiTipLayout(Context context, AttributeSet attributeSet) {

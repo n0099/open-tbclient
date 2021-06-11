@@ -6,12 +6,12 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class m extends d.a.l0.a.y0.a<d.a.l0.a.y0.k.g.a> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f45883b = "release";
+    public static String f49557b = "release";
 
     @Override // d.a.l0.a.y0.a
     @NonNull
     public String b() {
-        return f45883b;
+        return f49557b;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

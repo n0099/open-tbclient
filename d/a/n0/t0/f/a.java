@@ -12,33 +12,33 @@ import d.a.n0.e3.h0.n;
 public class a implements TTAppDownloadListener, ChannelNativeAds_6.GdtADStatusChangeListener, KsAppDownloadListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final FunAdButton f60871a;
+    public final FunAdButton f64563a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final n f60872b;
+    public final n f64564b;
 
     public a(FunAdButton funAdButton, n nVar) {
-        this.f60871a = funAdButton;
-        this.f60872b = nVar;
+        this.f64563a = funAdButton;
+        this.f64564b = nVar;
     }
 
     public void a(int i2) {
-        FunAdButton funAdButton = this.f60871a;
-        if (funAdButton != null && funAdButton.getTag() == this.f60872b) {
-            this.f60871a.setText(i2);
+        FunAdButton funAdButton = this.f64563a;
+        if (funAdButton != null && funAdButton.getTag() == this.f64564b) {
+            this.f64563a.setText(i2);
         }
-        n nVar = this.f60872b;
+        n nVar = this.f64564b;
         if (nVar != null) {
             nVar.i(TbadkApplication.getInst().getString(i2));
         }
     }
 
     public void b(int i2) {
-        FunAdButton funAdButton = this.f60871a;
-        if (funAdButton == null || funAdButton.getTag() != this.f60872b) {
+        FunAdButton funAdButton = this.f64563a;
+        if (funAdButton == null || funAdButton.getTag() != this.f64564b) {
             return;
         }
-        this.f60871a.setProgress(i2);
+        this.f64563a.setProgress(i2);
     }
 
     @Override // com.fun.ad.sdk.ChannelNativeAds_6.GdtADStatusChangeListener

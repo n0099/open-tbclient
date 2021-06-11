@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f47475a = k.f43199a;
+    public static final boolean f51149a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public static class a extends StringResponseCallback {
@@ -29,7 +29,7 @@ public class e {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(str);
-                    if (!e.f47475a || jSONObject.optInt("errno") == 0) {
+                    if (!e.f51149a || jSONObject.optInt("errno") == 0) {
                         return;
                     }
                     Log.e("SwanGameNowUtils", "report game history error");

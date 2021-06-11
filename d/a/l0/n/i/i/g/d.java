@@ -3,22 +3,22 @@ package d.a.l0.n.i.i.g;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f48050b;
+    public static d f51724b;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.n.i.i.e.b f48051a = new d.a.l0.n.i.i.e.b();
+    public d.a.l0.n.i.i.e.b f51725a = new d.a.l0.n.i.i.e.b();
 
     public static d b() {
-        d dVar = f48050b;
+        d dVar = f51724b;
         if (dVar != null) {
             return dVar;
         }
         synchronized (d.class) {
-            if (f48050b == null) {
-                f48050b = new d();
+            if (f51724b == null) {
+                f51724b = new d();
             }
         }
-        return f48050b;
+        return f51724b;
     }
 
     public d.a.l0.n.i.i.b a(f fVar) {
@@ -29,23 +29,23 @@ public class d {
     }
 
     public synchronized boolean c(String str) {
-        return this.f48051a.e(str);
+        return this.f51725a.e(str);
     }
 
     public synchronized boolean d(String str) {
-        return this.f48051a.f(str);
+        return this.f51725a.f(str);
     }
 
     public synchronized void e(b bVar) {
-        this.f48051a.c(bVar);
+        this.f51725a.c(bVar);
     }
 
     public synchronized <T> void f(f<T> fVar) {
         fVar.r(false);
-        this.f48051a.h(fVar);
+        this.f51725a.h(fVar);
     }
 
     public synchronized void g(b bVar) {
-        this.f48051a.i(bVar);
+        this.f51725a.i(bVar);
     }
 }

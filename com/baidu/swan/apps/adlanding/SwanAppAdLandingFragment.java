@@ -30,9 +30,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SwanAppAdLandingFragment extends k {
-    public static final boolean A1 = d.a.l0.a.k.f43199a;
+    public static final boolean A1 = d.a.l0.a.k.f46875a;
     public String E0;
-    public d.a.l0.a.i1.g.a L0;
+    public d.a.l0.a.i1.g.a G0;
     public d.a.l0.f.i.q.c M0;
     public FrameLayout N0;
     public d.a.l0.f.i.k.f.f R0;
@@ -64,7 +64,7 @@ public class SwanAppAdLandingFragment extends k {
     public int w1;
     public String x1;
     public d.a.l0.a.q.e.b y1;
-    public LandingType K0 = LandingType.NORMAL;
+    public LandingType F0 = LandingType.NORMAL;
     public String O0 = "";
     public String P0 = "";
     public String Q0 = "";
@@ -105,15 +105,15 @@ public class SwanAppAdLandingFragment extends k {
         public class RunnableC0150a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f10374e;
+            public final /* synthetic */ String f10436e;
 
             public RunnableC0150a(String str) {
-                this.f10374e = str;
+                this.f10436e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                SwanAppAdLandingFragment.this.i0.setTitle(TextUtils.isEmpty(this.f10374e) ? "" : this.f10374e);
+                SwanAppAdLandingFragment.this.i0.setTitle(TextUtils.isEmpty(this.f10436e) ? "" : this.f10436e);
             }
         }
 
@@ -232,10 +232,10 @@ public class SwanAppAdLandingFragment extends k {
     public class e implements d.a.l0.f.i.k.f.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f10379a;
+        public final /* synthetic */ ViewGroup f10441a;
 
         public e(ViewGroup viewGroup) {
-            this.f10379a = viewGroup;
+            this.f10441a = viewGroup;
         }
 
         @Override // d.a.l0.f.i.k.f.a
@@ -278,17 +278,17 @@ public class SwanAppAdLandingFragment extends k {
         public String e() {
             SwanAppAdLandingFragment.this.X3("appinstallopen");
             SwanAppAdLandingFragment swanAppAdLandingFragment = SwanAppAdLandingFragment.this;
-            return swanAppAdLandingFragment.G3(swanAppAdLandingFragment.T0.f11534a);
+            return swanAppAdLandingFragment.G3(swanAppAdLandingFragment.T0.f11596a);
         }
 
         @Override // d.a.l0.f.i.k.f.a
         public void f(boolean z) {
             if (z) {
-                this.f10379a.removeView(SwanAppAdLandingFragment.this.R0.getRealView());
-                this.f10379a.addView(SwanAppAdLandingFragment.this.R0.getRealView());
+                this.f10441a.removeView(SwanAppAdLandingFragment.this.R0.getRealView());
+                this.f10441a.addView(SwanAppAdLandingFragment.this.R0.getRealView());
                 return;
             }
-            this.f10379a.removeView(SwanAppAdLandingFragment.this.R0.getRealView());
+            this.f10441a.removeView(SwanAppAdLandingFragment.this.R0.getRealView());
         }
     }
 
@@ -296,19 +296,19 @@ public class SwanAppAdLandingFragment extends k {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f10381e;
+        public final /* synthetic */ View f10443e;
 
         public f(View view) {
-            this.f10381e = view;
+            this.f10443e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int height = SwanAppAdLandingFragment.this.N0.getHeight();
             if (SwanAppAdLandingFragment.this.R3() || SwanAppAdLandingFragment.this.P3()) {
-                ViewGroup.LayoutParams layoutParams = this.f10381e.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f10443e.getLayoutParams();
                 layoutParams.height = height;
-                this.f10381e.setLayoutParams(layoutParams);
+                this.f10443e.setLayoutParams(layoutParams);
             }
             if (SwanAppAdLandingFragment.this.R3()) {
                 ViewGroup.LayoutParams layoutParams2 = SwanAppAdLandingFragment.this.j1.getLayoutParams();
@@ -326,15 +326,15 @@ public class SwanAppAdLandingFragment extends k {
     public class g implements d.a.l0.a.h0.j.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CustomerAdScrollView f10383a;
+        public final /* synthetic */ CustomerAdScrollView f10445a;
 
         public g(CustomerAdScrollView customerAdScrollView) {
-            this.f10383a = customerAdScrollView;
+            this.f10445a = customerAdScrollView;
         }
 
         @Override // d.a.l0.a.h0.j.c
         public void onScrollChanged(int i2, int i3, int i4, int i5) {
-            this.f10383a.setIsWebViewOnBottom(((((float) SwanAppAdLandingFragment.this.y0.getContentHeight()) * SwanAppAdLandingFragment.this.y0.getScale()) - ((float) SwanAppAdLandingFragment.this.y0.covertToView().getHeight())) - ((float) SwanAppAdLandingFragment.this.y0.getWebViewScrollY()) < 10.0f);
+            this.f10445a.setIsWebViewOnBottom(((((float) SwanAppAdLandingFragment.this.y0.getContentHeight()) * SwanAppAdLandingFragment.this.y0.getScale()) - ((float) SwanAppAdLandingFragment.this.y0.covertToView().getHeight())) - ((float) SwanAppAdLandingFragment.this.y0.getWebViewScrollY()) < 10.0f);
         }
     }
 
@@ -342,19 +342,19 @@ public class SwanAppAdLandingFragment extends k {
     public class h extends d.a.l0.a.h0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CustomerAdScrollView f10385a;
+        public final /* synthetic */ CustomerAdScrollView f10447a;
 
         public h(CustomerAdScrollView customerAdScrollView) {
-            this.f10385a = customerAdScrollView;
+            this.f10447a = customerAdScrollView;
         }
 
         @Override // d.a.l0.a.h0.b
         public void a(String str) {
             super.a(str);
             if (Math.abs((SwanAppAdLandingFragment.this.y0.getContentHeight() * SwanAppAdLandingFragment.this.y0.getScale()) - SwanAppAdLandingFragment.this.y0.covertToView().getHeight()) < 10.0f) {
-                this.f10385a.setIsWebViewOnBottom(true);
+                this.f10447a.setIsWebViewOnBottom(true);
             } else {
-                this.f10385a.setIsWebViewOnBottom(false);
+                this.f10447a.setIsWebViewOnBottom(false);
             }
         }
     }
@@ -363,15 +363,15 @@ public class SwanAppAdLandingFragment extends k {
     public class i implements d.a.l0.a.q.e.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CustomerAdScrollView f10387a;
+        public final /* synthetic */ CustomerAdScrollView f10449a;
 
         public i(CustomerAdScrollView customerAdScrollView) {
-            this.f10387a = customerAdScrollView;
+            this.f10449a = customerAdScrollView;
         }
 
         @Override // d.a.l0.a.q.e.a
         public void onScrollChanged(int i2, int i3, int i4, int i5) {
-            CustomerAdScrollView customerAdScrollView = this.f10387a;
+            CustomerAdScrollView customerAdScrollView = this.f10449a;
             SwanAppAdLandingFragment swanAppAdLandingFragment = SwanAppAdLandingFragment.this;
             customerAdScrollView.setIsFooterLayoutShow(swanAppAdLandingFragment.S3(swanAppAdLandingFragment.k1));
         }
@@ -494,7 +494,7 @@ public class SwanAppAdLandingFragment extends k {
     @Override // d.a.l0.a.h0.g.k, d.a.l0.a.h0.g.d
     public boolean K() {
         d.a.l0.a.i1.g.a aVar;
-        if (Q3() && (aVar = this.L0) != null) {
+        if (Q3() && (aVar = this.G0) != null) {
             return aVar.onBackPressed();
         }
         X3("lpout");
@@ -548,14 +548,14 @@ public class SwanAppAdLandingFragment extends k {
         }
         d.a.l0.a.q.c cVar = new d.a.l0.a.q.c(this.d1, this.e1, this.x0.b(), this.m1.booleanValue() ? 0 : this.X0, this.m1.booleanValue() ? 0 : this.W0, this.g1, this.m1.booleanValue());
         d.a.l0.a.i1.g.a aVar = new d.a.l0.a.i1.g.a(q(), cVar.a());
-        this.L0 = aVar;
+        this.G0 = aVar;
         this.y1.p(aVar);
-        this.L0.u(new c());
+        this.G0.u(new c());
         if (this.m1.booleanValue()) {
-            this.L0.w(this.t1);
+            this.G0.w(this.t1);
         }
-        this.L0.o(cVar.a());
-        this.L0.v(false);
+        this.G0.o(cVar.a());
+        this.G0.v(false);
     }
 
     @Override // d.a.l0.a.h0.g.k
@@ -591,7 +591,7 @@ public class SwanAppAdLandingFragment extends k {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         View covertToView = this.y0.covertToView();
         d.a.l0.a.a2.n.g gVar = new d.a.l0.a.a2.n.g();
-        gVar.f40796e = SwanAppConfigData.s("#FFFFFF");
+        gVar.f44472e = SwanAppConfigData.s("#FFFFFF");
         this.x0.B(frameLayout, gVar);
         this.x0.Q(frameLayout, gVar);
         this.x0.l(frameLayout, covertToView);
@@ -636,7 +636,7 @@ public class SwanAppAdLandingFragment extends k {
     }
 
     public final boolean R3() {
-        return this.K0 == LandingType.VIDEO;
+        return this.F0 == LandingType.VIDEO;
     }
 
     public final boolean S3(View view) {
@@ -689,32 +689,32 @@ public class SwanAppAdLandingFragment extends k {
             }
         }
         if (!TextUtils.isEmpty(this.e1)) {
-            this.K0 = LandingType.VIDEO;
+            this.F0 = LandingType.VIDEO;
         }
         this.m1 = Boolean.valueOf(TextUtils.equals("ad-video-portrait", this.O0));
     }
 
     public final void U3() {
-        d.a.l0.a.i1.g.a aVar = this.L0;
+        d.a.l0.a.i1.g.a aVar = this.G0;
         if (aVar == null || !aVar.n()) {
             return;
         }
-        this.L0.p();
+        this.G0.p();
     }
 
     public final void V3(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        d.a.l0.a.k2.g.h.a().putString(this.T0.f11534a, str);
+        d.a.l0.a.k2.g.h.a().putString(this.T0.f11596a, str);
     }
 
     public final void W3() {
-        d.a.l0.a.i1.g.a aVar = this.L0;
-        if (aVar == null || aVar.n() || this.L0.m()) {
+        d.a.l0.a.i1.g.a aVar = this.G0;
+        if (aVar == null || aVar.n() || this.G0.m()) {
             return;
         }
-        this.L0.r();
+        this.G0.r();
     }
 
     @Override // d.a.l0.a.h0.g.k, d.a.l0.a.h0.g.d
@@ -724,7 +724,7 @@ public class SwanAppAdLandingFragment extends k {
 
     public final void X3(String str) {
         HashMap<String, String> hashMap = new HashMap<>();
-        d.a.l0.a.i1.g.a aVar = this.L0;
+        d.a.l0.a.i1.g.a aVar = this.G0;
         if (aVar != null) {
             hashMap.put("cur_time", String.valueOf(aVar.e() / 1000));
         }
@@ -745,19 +745,19 @@ public class SwanAppAdLandingFragment extends k {
                     Log.d("SwanAppAdLandFragment", "onDownloadStart: url=" + str + ", userAgent=" + str2 + ", mimeType=" + str4);
                 }
                 SwanAppAdLandingFragment.this.R0.f();
-                if (TextUtils.isEmpty(SwanAppAdLandingFragment.this.T0.f11535b)) {
+                if (TextUtils.isEmpty(SwanAppAdLandingFragment.this.T0.f11597b)) {
                     String G3 = SwanAppAdLandingFragment.this.G3(str);
-                    SwanAppAdLandingFragment.this.T0.f11535b = G3;
+                    SwanAppAdLandingFragment.this.T0.f11597b = G3;
                     SwanAppAdLandingFragment.this.R0.a(G3);
                 }
-                if (q0.F(SwanAppAdLandingFragment.this.q(), SwanAppAdLandingFragment.this.T0.f11535b)) {
+                if (q0.F(SwanAppAdLandingFragment.this.q(), SwanAppAdLandingFragment.this.T0.f11597b)) {
                     SwanAppAdLandingFragment.this.j1.removeView(SwanAppAdLandingFragment.this.R0.getRealView());
                     SwanAppAdLandingFragment.this.j1.addView(SwanAppAdLandingFragment.this.R0.getRealView());
                     SwanAppAdLandingFragment.this.R0.b(DownloadState.INSTALLED);
                     return;
                 }
-                if (TextUtils.isEmpty(SwanAppAdLandingFragment.this.T0.f11534a)) {
-                    SwanAppAdLandingFragment.this.T0.f11534a = str;
+                if (TextUtils.isEmpty(SwanAppAdLandingFragment.this.T0.f11596a)) {
+                    SwanAppAdLandingFragment.this.T0.f11596a = str;
                 }
                 d.a.l0.a.c1.a.c().b(SwanAppAdLandingFragment.this.q(), SwanAppAdLandingFragment.this.T0.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, SwanAppAdLandingFragment.this.S0);
             }
@@ -791,7 +791,7 @@ public class SwanAppAdLandingFragment extends k {
         if (R3()) {
             X3("vplayend");
         }
-        d.a.l0.a.i1.g.a aVar = this.L0;
+        d.a.l0.a.i1.g.a aVar = this.G0;
         if (aVar != null) {
             aVar.onDestroy();
         }
@@ -811,7 +811,7 @@ public class SwanAppAdLandingFragment extends k {
     public void onResume() {
         super.onResume();
         d.a.l0.a.q.e.b bVar = this.y1;
-        if (bVar == null || !bVar.l() || q0()) {
+        if (bVar == null || !bVar.l() || p0()) {
             return;
         }
         W3();

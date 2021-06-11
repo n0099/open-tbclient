@@ -8,7 +8,7 @@ import java.util.Map;
 public class FTOSPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f37212a = 0;
+    public static long f40891a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile boolean f42a = false;
@@ -16,7 +16,7 @@ public class FTOSPushHelper {
     public static void a(Context context) {
         AbstractPushManager a2 = f.a(context).a(e.ASSEMBLE_PUSH_FTOS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("ASSEMBLE_PUSH :  register fun touch os when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m56a("ASSEMBLE_PUSH :  register fun touch os when network change!");
             a2.register();
         }
     }
@@ -24,9 +24,9 @@ public class FTOSPushHelper {
     public static void doInNetworkChange(Context context) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (getNeedRegister()) {
-            long j = f37212a;
+            long j = f40891a;
             if (j <= 0 || j + 300000 <= elapsedRealtime) {
-                f37212a = elapsedRealtime;
+                f40891a = elapsedRealtime;
                 a(context);
             }
         }
@@ -37,7 +37,7 @@ public class FTOSPushHelper {
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.m119a(context);
+        return i.m118a(context);
     }
 
     public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {

@@ -39,50 +39,50 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1978a = "com.eg.android.AlipayGphone";
+    public static final String f1991a = "com.eg.android.AlipayGphone";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1979b = 125;
+    public static final int f1992b = 125;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1980c = "com.alipay.android.app";
+    public static final String f1993c = "com.alipay.android.app";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1981d = "com.eg.android.AlipayGphoneRC";
+    public static final String f1994d = "com.eg.android.AlipayGphoneRC";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1982e = 99;
+    public static final int f1995e = 99;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f1983f = {"10.1.5.1013151", "10.1.5.1013148"};
+    public static final String[] f1996f = {"10.1.5.1013151", "10.1.5.1013148"};
 
     /* loaded from: classes.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PackageInfo f1984a;
+        public final PackageInfo f1997a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f1985b;
+        public final int f1998b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f1986c;
+        public final String f1999c;
 
         public a(PackageInfo packageInfo, int i2, String str) {
-            this.f1984a = packageInfo;
-            this.f1985b = i2;
-            this.f1986c = str;
+            this.f1997a = packageInfo;
+            this.f1998b = i2;
+            this.f1999c = str;
         }
 
         public boolean a() {
-            Signature[] signatureArr = this.f1984a.signatures;
+            Signature[] signatureArr = this.f1997a.signatures;
             if (signatureArr == null || signatureArr.length == 0) {
                 return false;
             }
             for (Signature signature : signatureArr) {
                 String b2 = n.b(signature.toByteArray());
-                if (b2 != null && !TextUtils.equals(b2, this.f1986c)) {
-                    com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.w, String.format("Got %s, expected %s", b2, this.f1986c));
+                if (b2 != null && !TextUtils.equals(b2, this.f1999c)) {
+                    com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.w, String.format("Got %s, expected %s", b2, this.f1999c));
                     return true;
                 }
             }
@@ -90,7 +90,7 @@ public class n {
         }
 
         public boolean b() {
-            return this.f1984a.versionCode < this.f1985b;
+            return this.f1997a.versionCode < this.f1998b;
         }
     }
 
@@ -159,12 +159,12 @@ public class n {
 
     public static String a() {
         if (EnvUtils.isSandBox()) {
-            return f1981d;
+            return f1994d;
         }
         try {
-            return com.alipay.sdk.app.i.f1787a.get(0).f1851a;
+            return com.alipay.sdk.app.i.f1800a.get(0).f1864a;
         } catch (Throwable unused) {
-            return f1978a;
+            return f1991a;
         }
     }
 
@@ -193,7 +193,7 @@ public class n {
     }
 
     public static String a(String str) {
-        return (EnvUtils.isSandBox() && TextUtils.equals(str, f1981d)) ? "com.eg.android.AlipayGphoneRC.IAlixPay" : "com.eg.android.AlipayGphone.IAlixPay";
+        return (EnvUtils.isSandBox() && TextUtils.equals(str, f1994d)) ? "com.eg.android.AlipayGphoneRC.IAlixPay" : "com.eg.android.AlipayGphone.IAlixPay";
     }
 
     public static String a(String str, String str2, String str3) {
@@ -226,13 +226,13 @@ public class n {
         }
     }
 
-    public static a a(Context context, List<a.C0015a> list) {
+    public static a a(Context context, List<a.C0016a> list) {
         a a2;
         if (list == null) {
             return null;
         }
-        for (a.C0015a c0015a : list) {
-            if (c0015a != null && (a2 = a(context, c0015a.f1851a, c0015a.f1852b, c0015a.f1853c)) != null && !a2.a() && !a2.b()) {
+        for (a.C0016a c0016a : list) {
+            if (c0016a != null && (a2 = a(context, c0016a.f1864a, c0016a.f1865b, c0016a.f1866c)) != null && !a2.a() && !a2.b()) {
                 return a2;
             }
         }
@@ -253,8 +253,8 @@ public class n {
 
     public static a a(Context context, String str, int i2, String str2) {
         PackageInfo packageInfo;
-        if (EnvUtils.isSandBox() && f1978a.equals(str)) {
-            str = f1981d;
+        if (EnvUtils.isSandBox() && f1991a.equals(str)) {
+            str = f1994d;
         }
         try {
             packageInfo = b(context, str);
@@ -298,7 +298,7 @@ public class n {
 
     public static boolean a(Context context) {
         try {
-            return context.getPackageManager().getPackageInfo(f1980c, 128) != null;
+            return context.getPackageManager().getPackageInfo(f1993c, 128) != null;
         } catch (PackageManager.NameNotFoundException unused) {
             return false;
         }
@@ -323,8 +323,8 @@ public class n {
         }
         try {
             String str = packageInfo.versionName;
-            if (!TextUtils.equals(str, f1983f[0])) {
-                if (!TextUtils.equals(str, f1983f[1])) {
+            if (!TextUtils.equals(str, f1996f[0])) {
+                if (!TextUtils.equals(str, f1996f[1])) {
                     return false;
                 }
             }
@@ -354,13 +354,13 @@ public class n {
         return sb.toString();
     }
 
-    public static boolean b(Context context, List<a.C0015a> list) {
+    public static boolean b(Context context, List<a.C0016a> list) {
         try {
-            for (a.C0015a c0015a : list) {
-                if (c0015a != null) {
-                    String str = c0015a.f1851a;
-                    if (EnvUtils.isSandBox() && f1978a.equals(str)) {
-                        str = f1981d;
+            for (a.C0016a c0016a : list) {
+                if (c0016a != null) {
+                    String str = c0016a.f1864a;
+                    if (EnvUtils.isSandBox() && f1991a.equals(str)) {
+                        str = f1994d;
                     }
                     try {
                         if (context.getPackageManager().getPackageInfo(str, 128) != null) {
@@ -481,7 +481,7 @@ public class n {
             return true;
         }
         try {
-            a a2 = a(activity, com.alipay.sdk.app.i.f1787a);
+            a a2 = a(activity, com.alipay.sdk.app.i.f1800a);
             if (a2 != null && !a2.b() && !a2.a()) {
                 if (str.startsWith("intent://platformapi/startapp")) {
                     str = str.replaceFirst("intent://platformapi/startapp\\?", com.alipay.sdk.cons.a.j);

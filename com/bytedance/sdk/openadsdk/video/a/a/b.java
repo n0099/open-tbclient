@@ -16,37 +16,37 @@ import java.io.RandomAccessFile;
 public class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f30244a;
+    public File f30347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile long f30245b = -2147483648L;
+    public volatile long f30348b = -2147483648L;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f30246c = new Object();
+    public final Object f30349c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30247d = 0;
+    public long f30350d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f30248e = false;
+    public volatile boolean f30351e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f30249f = false;
+    public volatile boolean f30352f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public RandomAccessFile f30250g;
+    public RandomAccessFile f30353g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.video.b.a f30251h;
+    public final com.bytedance.sdk.openadsdk.video.b.a f30354h;
 
     public b(Context context, com.bytedance.sdk.openadsdk.video.b.a aVar) {
-        this.f30250g = null;
-        this.f30251h = aVar;
+        this.f30353g = null;
+        this.f30354h = aVar;
         try {
             File a2 = c.a(context, aVar.b());
-            this.f30244a = a2;
+            this.f30347a = a2;
             boolean a3 = c.a(a2);
-            this.f30250g = new RandomAccessFile(this.f30244a, a3 ? r.f7672a : "rw");
+            this.f30353g = new RandomAccessFile(this.f30347a, a3 ? r.f7715a : "rw");
             if (a3) {
                 return;
             }
@@ -58,22 +58,22 @@ public class b implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() throws IOException {
-        synchronized (this.f30246c) {
-            if (c.a(this.f30244a)) {
-                com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "complete: isCompleted ", this.f30251h.a(), this.f30251h.b());
+        synchronized (this.f30349c) {
+            if (c.a(this.f30347a)) {
+                com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "complete: isCompleted ", this.f30354h.a(), this.f30354h.b());
                 return;
             }
-            File file = new File(this.f30244a.getParentFile(), this.f30244a.getName().substring(0, this.f30244a.getName().length() - 9));
-            if (this.f30244a.renameTo(file)) {
-                this.f30244a = file;
-                if (this.f30250g != null) {
-                    this.f30250g.close();
+            File file = new File(this.f30347a.getParentFile(), this.f30347a.getName().substring(0, this.f30347a.getName().length() - 9));
+            if (this.f30347a.renameTo(file)) {
+                this.f30347a = file;
+                if (this.f30353g != null) {
+                    this.f30353g.close();
                 }
-                this.f30250g = new RandomAccessFile(this.f30244a, "rw");
-                com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "complete: rename ", this.f30251h.b(), this.f30251h.a());
+                this.f30353g = new RandomAccessFile(this.f30347a, "rw");
+                com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "complete: rename ", this.f30354h.b(), this.f30354h.a());
                 return;
             }
-            throw new IOException("Error renaming file " + this.f30244a + " to " + file + " for completion!");
+            throw new IOException("Error renaming file " + this.f30347a + " to " + file + " for completion!");
         }
     }
 
@@ -92,20 +92,20 @@ public class b implements a {
                 InputStream inputStream = null;
                 try {
                     try {
-                        b.this.f30247d = b.this.f30244a.length();
+                        b.this.f30350d = b.this.f30347a.length();
                         y yVar = new y();
-                        com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "RANGE, bytes=", Long.valueOf(b.this.f30247d), " file hash=", b.this.f30251h.b());
+                        com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "RANGE, bytes=", Long.valueOf(b.this.f30350d), " file hash=", b.this.f30354h.b());
                         a0.a aVar = new a0.a();
-                        aVar.g("RANGE", "bytes=" + b.this.f30247d + "-");
-                        aVar.e(b.this.f30251h.a());
+                        aVar.g("RANGE", "bytes=" + b.this.f30350d + "-");
+                        aVar.e(b.this.f30354h.a());
                         aVar.a();
                         cVar = yVar.c(aVar.p()).a();
                         try {
-                            b.this.f30249f = cVar.s();
+                            b.this.f30352f = cVar.s();
                             dVar = cVar.x();
                             try {
-                                if (b.this.f30249f && dVar != null) {
-                                    b.this.f30245b = dVar.o() + b.this.f30247d;
+                                if (b.this.f30352f && dVar != null) {
+                                    b.this.f30348b = dVar.o() + b.this.f30350d;
                                     inputStream = dVar.q();
                                 }
                                 if (inputStream == null) {
@@ -123,14 +123,14 @@ public class b implements a {
                                     if (cVar != null) {
                                         cVar.close();
                                     }
-                                    if (b.this.f30249f && b.this.f30244a.length() == b.this.f30245b) {
+                                    if (b.this.f30352f && b.this.f30347a.length() == b.this.f30348b) {
                                         b.this.d();
                                         return;
                                     }
                                     return;
                                 }
                                 byte[] bArr = new byte[16384];
-                                long j = b.this.f30247d;
+                                long j = b.this.f30350d;
                                 long j2 = 0;
                                 long j3 = 0;
                                 int i2 = 0;
@@ -141,12 +141,12 @@ public class b implements a {
                                     }
                                     i2 += read;
                                     j3 += read;
-                                    if (j3 % 16384 != j2 && j3 != b.this.f30245b - b.this.f30247d) {
+                                    if (j3 % 16384 != j2 && j3 != b.this.f30348b - b.this.f30350d) {
                                         z = false;
-                                        com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "Write segment,execAppend =", Boolean.valueOf(z), " offset=", Integer.valueOf(i2), " totalLength = ", Long.valueOf(b.this.f30245b), " saveSize =", Long.valueOf(j3), " startSaved=", Long.valueOf(b.this.f30247d), " fileHash=", b.this.f30251h.b(), " url=", b.this.f30251h.a());
+                                        com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "Write segment,execAppend =", Boolean.valueOf(z), " offset=", Integer.valueOf(i2), " totalLength = ", Long.valueOf(b.this.f30348b), " saveSize =", Long.valueOf(j3), " startSaved=", Long.valueOf(b.this.f30350d), " fileHash=", b.this.f30354h.b(), " url=", b.this.f30354h.a());
                                         if (!z) {
-                                            synchronized (b.this.f30246c) {
-                                                c.a(b.this.f30250g, bArr, Long.valueOf(j).intValue(), i2, b.this.f30251h.b());
+                                            synchronized (b.this.f30349c) {
+                                                c.a(b.this.f30353g, bArr, Long.valueOf(j).intValue(), i2, b.this.f30354h.b());
                                             }
                                             j += i2;
                                             i2 = 0;
@@ -154,22 +154,22 @@ public class b implements a {
                                         j2 = 0;
                                     }
                                     z = true;
-                                    com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "Write segment,execAppend =", Boolean.valueOf(z), " offset=", Integer.valueOf(i2), " totalLength = ", Long.valueOf(b.this.f30245b), " saveSize =", Long.valueOf(j3), " startSaved=", Long.valueOf(b.this.f30247d), " fileHash=", b.this.f30251h.b(), " url=", b.this.f30251h.a());
+                                    com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "Write segment,execAppend =", Boolean.valueOf(z), " offset=", Integer.valueOf(i2), " totalLength = ", Long.valueOf(b.this.f30348b), " saveSize =", Long.valueOf(j3), " startSaved=", Long.valueOf(b.this.f30350d), " fileHash=", b.this.f30354h.b(), " url=", b.this.f30354h.a());
                                     if (!z) {
                                     }
                                     j2 = 0;
                                 }
                                 Object[] objArr = new Object[10];
                                 objArr[0] = "Write segment,Write over, startIndex =";
-                                objArr[1] = Long.valueOf(b.this.f30247d);
+                                objArr[1] = Long.valueOf(b.this.f30350d);
                                 objArr[2] = " totalLength = ";
-                                objArr[3] = Long.valueOf(b.this.f30245b);
+                                objArr[3] = Long.valueOf(b.this.f30348b);
                                 objArr[4] = " saveSize = ";
                                 objArr[5] = Long.valueOf(j3);
                                 objArr[6] = " writeEndSegment =";
-                                objArr[7] = Boolean.valueOf(j3 == b.this.f30245b - b.this.f30247d);
+                                objArr[7] = Boolean.valueOf(j3 == b.this.f30348b - b.this.f30350d);
                                 objArr[8] = " url=";
-                                objArr[9] = b.this.f30251h.a();
+                                objArr[9] = b.this.f30354h.a();
                                 com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", objArr);
                                 if (inputStream != null) {
                                     inputStream.close();
@@ -180,7 +180,7 @@ public class b implements a {
                                 if (cVar != null) {
                                     cVar.close();
                                 }
-                                if (b.this.f30249f && b.this.f30244a.length() == b.this.f30245b) {
+                                if (b.this.f30352f && b.this.f30347a.length() == b.this.f30348b) {
                                     b.this.d();
                                 }
                             } catch (Throwable th) {
@@ -196,7 +196,7 @@ public class b implements a {
                                     if (cVar != null) {
                                         cVar.close();
                                     }
-                                    if (b.this.f30249f && b.this.f30244a.length() == b.this.f30245b) {
+                                    if (b.this.f30352f && b.this.f30347a.length() == b.this.f30348b) {
                                         b.this.d();
                                     }
                                 } catch (Throwable th2) {
@@ -214,7 +214,7 @@ public class b implements a {
                                     if (cVar != null) {
                                         cVar.close();
                                     }
-                                    if (b.this.f30249f && b.this.f30244a.length() == b.this.f30245b) {
+                                    if (b.this.f30352f && b.this.f30347a.length() == b.this.f30348b) {
                                         b.this.d();
                                     }
                                     throw th2;
@@ -238,17 +238,17 @@ public class b implements a {
 
     @Override // com.bytedance.sdk.openadsdk.video.a.a.a
     public long b() throws IOException {
-        if (c.a(this.f30244a)) {
-            this.f30245b = this.f30244a.length();
+        if (c.a(this.f30347a)) {
+            this.f30348b = this.f30347a.length();
         } else {
-            synchronized (this.f30246c) {
+            synchronized (this.f30349c) {
                 int i2 = 0;
                 do {
-                    if (this.f30245b == -2147483648L) {
+                    if (this.f30348b == -2147483648L) {
                         try {
                             com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "totalLength: wait");
                             i2 += 15;
-                            this.f30246c.wait(5L);
+                            this.f30349c.wait(5L);
                         } catch (InterruptedException e2) {
                             e2.printStackTrace();
                             throw new IOException("total length InterruptException");
@@ -258,8 +258,8 @@ public class b implements a {
                 return -1L;
             }
         }
-        com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "totalLength= ", Long.valueOf(this.f30245b));
-        return this.f30245b;
+        com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", "totalLength= ", Long.valueOf(this.f30348b));
+        return this.f30348b;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0084, code lost:
@@ -288,21 +288,21 @@ public class b implements a {
         int i4 = 1;
         try {
             try {
-                if (j == this.f30245b) {
+                if (j == this.f30348b) {
                     return -1;
                 }
                 int i5 = 0;
                 int i6 = 0;
-                while (!this.f30248e) {
-                    synchronized (this.f30246c) {
+                while (!this.f30351e) {
+                    synchronized (this.f30349c) {
                         try {
-                            if (j < this.f30244a.length()) {
+                            if (j < this.f30347a.length()) {
                                 Object[] objArr = new Object[i4];
                                 objArr[0] = "read:  read " + j + " success";
                                 com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", objArr);
-                                this.f30250g.seek(j);
+                                this.f30353g.seek(j);
                                 try {
-                                    i6 = this.f30250g.read(bArr, i2, i3);
+                                    i6 = this.f30353g.read(bArr, i2, i3);
                                 } catch (Throwable th) {
                                     th = th;
                                 }
@@ -311,10 +311,10 @@ public class b implements a {
                                 objArr2[0] = "read: wait at ";
                                 objArr2[i4] = Long.valueOf(j);
                                 objArr2[c2] = "  file size = ";
-                                objArr2[3] = Long.valueOf(this.f30244a.length());
+                                objArr2[3] = Long.valueOf(this.f30347a.length());
                                 com.bytedance.sdk.openadsdk.video.d.a.b("VideoCacheImpl", objArr2);
                                 i5 += 33;
-                                this.f30246c.wait(33L);
+                                this.f30349c.wait(33L);
                             }
                         } catch (Throwable th2) {
                             th = th2;
@@ -324,7 +324,7 @@ public class b implements a {
                         throw th;
                     } catch (IOException e2) {
                         e = e2;
-                        throw new IOException(String.format("Error reading %d bytes with offset %d from file[%d bytes] to buffer[%d bytes]", Integer.valueOf(i3), Integer.valueOf(i2), Long.valueOf(this.f30244a.length()), Integer.valueOf(bArr.length)), e);
+                        throw new IOException(String.format("Error reading %d bytes with offset %d from file[%d bytes] to buffer[%d bytes]", Integer.valueOf(i3), Integer.valueOf(i2), Long.valueOf(this.f30347a.length()), Integer.valueOf(bArr.length)), e);
                     }
                 }
                 return -1;
@@ -340,12 +340,12 @@ public class b implements a {
     @Override // com.bytedance.sdk.openadsdk.video.a.a.a
     public void a() {
         try {
-            if (!this.f30248e) {
-                this.f30250g.close();
+            if (!this.f30351e) {
+                this.f30353g.close();
             }
         } finally {
-            this.f30248e = true;
+            this.f30351e = true;
         }
-        this.f30248e = true;
+        this.f30351e = true;
     }
 }

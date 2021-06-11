@@ -2,7 +2,7 @@ package com.baidu.crabsdk.lite.a;
 
 import android.os.Environment;
 import android.os.StatFs;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class p {
     public static String a() {
         StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());

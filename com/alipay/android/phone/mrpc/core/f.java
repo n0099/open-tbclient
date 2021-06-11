@@ -7,10 +7,10 @@ import org.apache.http.protocol.HttpContext;
 public final class f implements ConnectionKeepAliveStrategy {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f1622a;
+    public final /* synthetic */ d f1635a;
 
     public f(d dVar) {
-        this.f1622a = dVar;
+        this.f1635a = dVar;
     }
 
     @Override // org.apache.http.conn.ConnectionKeepAliveStrategy

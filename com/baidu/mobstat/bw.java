@@ -29,7 +29,6 @@ import com.baidu.apollon.statusbar.ImmersiveOSUtils;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.io.BufferedReader;
@@ -50,16 +49,16 @@ import org.json.JSONObject;
 public class bw {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8726a;
+    public static String f8788a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8727b;
+    public static String f8789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8728c;
+    public static String f8790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f8729d = Pattern.compile("\\s*|\t|\r|\n");
+    public static final Pattern f8791d = Pattern.compile("\\s*|\t|\r|\n");
 
     public static String a(Context context, String str) {
         try {
@@ -266,15 +265,15 @@ public class bw {
                     ScanResult scanResult = list.get(i2);
                     StringBuilder sb = new StringBuilder();
                     sb.append(scanResult.BSSID);
-                    sb.append(FieldBuilder.SE);
+                    sb.append("|");
                     String replaceAll = scanResult.SSID.replaceAll("\\|", "");
                     if (replaceAll.length() > 30) {
                         replaceAll = replaceAll.substring(0, 30);
                     }
                     sb.append(replaceAll);
-                    sb.append(FieldBuilder.SE);
+                    sb.append("|");
                     sb.append(scanResult.level);
-                    sb.append(FieldBuilder.SE);
+                    sb.append("|");
                     if (wifiInfo == null || !scanResult.BSSID.equals(wifiInfo.getBSSID())) {
                         i3 = 0;
                     }
@@ -291,9 +290,9 @@ public class bw {
             try {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(System.currentTimeMillis());
-                sb2.append(FieldBuilder.SE);
+                sb2.append("|");
                 sb2.append(z ? 1 : 0);
-                sb2.append(FieldBuilder.SE);
+                sb2.append("|");
                 sb2.append(j(context));
                 jSONObject.put("ap-list", jSONArray);
                 jSONObject.put("meta-data", sb2.toString());
@@ -379,7 +378,7 @@ public class bw {
     }
 
     public static String u(Context context) {
-        String str = f8727b;
+        String str = f8789b;
         if (str == null) {
             String y = y(context);
             String b2 = b(context, y);
@@ -387,7 +386,7 @@ public class bw {
                 b2 = c(context, y);
             }
             str = b2 == null ? "" : b2;
-            f8727b = str;
+            f8789b = str;
         }
         return str;
     }
@@ -464,7 +463,7 @@ public class bw {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String y(Context context) {
-        String str = f8726a;
+        String str = f8788a;
         if (str == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -484,7 +483,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f8726a = str;
+            f8788a = str;
         }
         return str;
     }
@@ -604,7 +603,7 @@ public class bw {
 
     public static String b() {
         String str;
-        String str2 = f8728c;
+        String str2 = f8790c;
         if (str2 != null) {
             return str2;
         }
@@ -625,7 +624,7 @@ public class bw {
                 str = ImmersiveOSUtils.FLYME;
             }
         }
-        f8728c = str;
+        f8790c = str;
         return str;
     }
 
@@ -642,7 +641,7 @@ public class bw {
     }
 
     public static String a(Context context) {
-        return f8729d.matcher(bx.a(context)).replaceAll("");
+        return f8791d.matcher(bx.a(context)).replaceAll("");
     }
 
     public static Boolean c() {

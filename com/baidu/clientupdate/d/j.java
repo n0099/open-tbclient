@@ -21,14 +21,14 @@ import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f4608a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f4627a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4609b = "";
+    public static String f4628b = "";
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
         Object obj2 = null;
@@ -66,8 +66,8 @@ public final class j {
         try {
             if (Build.VERSION.SDK_INT >= 24) {
                 intent.setFlags(RouterCallback.CODE_ERROR);
-                String str = f4609b;
-                if (TextUtils.isEmpty(f4609b)) {
+                String str = f4628b;
+                if (TextUtils.isEmpty(f4628b)) {
                     str = context.getPackageName() + ".fileprovider";
                 }
                 intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -86,7 +86,7 @@ public final class j {
     }
 
     public static void a(String str) {
-        f4609b = str;
+        f4628b = str;
     }
 
     public static boolean a(Context context) {

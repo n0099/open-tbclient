@@ -52,7 +52,7 @@ public class b extends n {
             str = "2G";
         } else if (j.u()) {
             i2 = 4;
-            str = g.f3966b;
+            str = g.f3985b;
         } else if (j.v()) {
             i2 = 5;
             str = "4G";

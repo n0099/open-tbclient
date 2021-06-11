@@ -16,26 +16,26 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f44110c;
+    public static volatile a f47784c;
 
     /* renamed from: a  reason: collision with root package name */
-    public b<SwanAppPageInfo> f44112a;
+    public b<SwanAppPageInfo> f47786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44109b = k.f43199a;
+    public static final boolean f47783b = k.f46875a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f44111d = d.a.l0.a.c1.a.m().a() + "_";
+    public static final String f47785d = d.a.l0.a.c1.a.m().a() + "_";
 
     public static a a() {
-        if (f44110c == null) {
+        if (f47784c == null) {
             synchronized (a.class) {
-                if (f44110c == null) {
-                    f44110c = new a();
+                if (f47784c == null) {
+                    f47784c = new a();
                 }
             }
         }
-        return f44110c;
+        return f47784c;
     }
 
     public final d.a.l0.a.f1.e.b b() {
@@ -48,7 +48,7 @@ public class a {
 
     public void c(JSONObject jSONObject) {
         String optString = jSONObject.optString("type");
-        if (TextUtils.isEmpty(optString) || !optString.startsWith(f44111d)) {
+        if (TextUtils.isEmpty(optString) || !optString.startsWith(f47785d)) {
             return;
         }
         d.a.l0.a.f1.e.b b2 = b();
@@ -58,13 +58,13 @@ public class a {
                 jSONObject.put("iconUrl", b2.Q());
                 jSONObject.put("appDesc", b2.c1());
             } catch (JSONException e2) {
-                if (f44109b) {
+                if (f47783b) {
                     e2.printStackTrace();
                 }
             }
         }
-        jSONObject.put("type", optString.substring(f44111d.length()));
-        b<SwanAppPageInfo> bVar = this.f44112a;
+        jSONObject.put("type", optString.substring(f47785d.length()));
+        b<SwanAppPageInfo> bVar = this.f47786a;
         if (bVar != null) {
             bVar.onCallback(new SwanAppPageInfo(jSONObject));
         }
@@ -73,15 +73,15 @@ public class a {
             Bundle bundle = new Bundle();
             bundle.putString("page_info", jSONObject.toString());
             d.a.l0.a.v1.c.a.e().h(new c(24, bundle));
-            if (f44109b) {
+            if (f47783b) {
                 Log.d("SwanAppPageInfoHelper", "postPageInfo: post to main process");
             }
         }
     }
 
     public final void d() {
-        if (this.f44112a != null) {
-            this.f44112a = null;
+        if (this.f47786a != null) {
+            this.f47786a = null;
         }
     }
 }

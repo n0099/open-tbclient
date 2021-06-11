@@ -12,10 +12,10 @@ import d.a.m0.w.m;
 public class a extends m {
     public a(Context context) {
         super(context, (String) null, 6);
-        this.f50848b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.f50850d = R.drawable.icon_pure_post_speak24;
-        this.f50853g = false;
-        this.f50854h = true;
+        this.f54525b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
+        this.f54527d = R.drawable.icon_pure_post_speak24;
+        this.f54530g = false;
+        this.f54531h = true;
         this.m = true;
         this.l = 5;
         this.k = new SendVoiceView(context);

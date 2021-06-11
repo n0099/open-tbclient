@@ -1,21 +1,21 @@
 package d.a.n0.e2.h;
 
 import tbclient.PbPage.ForumHeadlineImgInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52936a = "";
+    public String f56625a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52937b = "";
+    public String f56626b = "";
 
     public String a() {
-        return this.f52936a;
+        return this.f56625a;
     }
 
     public String b() {
-        return this.f52937b;
+        return this.f56626b;
     }
 
     public void c(ForumHeadlineImgInfo forumHeadlineImgInfo) {
@@ -24,9 +24,9 @@ public class i {
         }
         forumHeadlineImgInfo.img_user_id.longValue();
         String str = forumHeadlineImgInfo.img_user_name;
-        this.f52936a = forumHeadlineImgInfo.img_url;
+        this.f56625a = forumHeadlineImgInfo.img_url;
         forumHeadlineImgInfo.rank_num.intValue();
         String str2 = forumHeadlineImgInfo.rank_up_info;
-        this.f52937b = forumHeadlineImgInfo.rank_url;
+        this.f56626b = forumHeadlineImgInfo.rank_url;
     }
 }

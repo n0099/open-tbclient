@@ -15,19 +15,19 @@ public class MoreButton extends TextView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f18029e;
+        public final /* synthetic */ TbPageContext f18105e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f18030f;
+        public final /* synthetic */ c f18106f;
 
         public a(TbPageContext tbPageContext, c cVar) {
-            this.f18029e = tbPageContext;
-            this.f18030f = cVar;
+            this.f18105e = tbPageContext;
+            this.f18106f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            v.c(this.f18029e, this.f18030f.d());
+            v.c(this.f18105e, this.f18106f.d());
         }
     }
 

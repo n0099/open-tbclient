@@ -22,27 +22,27 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<?> f57399b;
+    public TbPageContext<?> f61088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f57400c;
+    public View f61089c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Pattern f57398a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    public Pattern f61087a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
     /* renamed from: d  reason: collision with root package name */
-    public CoverFlowView<d.a.m0.r.w.b.a> f57401d = null;
+    public CoverFlowView<d.a.m0.r.w.b.a> f61090d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f57402e = null;
+    public c f61091e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public d<d.a.m0.r.w.b.a> f57403f = new b();
+    public d<d.a.m0.r.w.b.a> f61092f = new b();
 
     /* renamed from: d.a.n0.m0.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1434a extends d.a.m0.r.w.b.b {
-        public C1434a() {
+    public class C1490a extends d.a.m0.r.w.b.b {
+        public C1490a() {
         }
 
         @Override // d.a.m0.r.w.b.b, d.a.m0.r.w.a
@@ -58,7 +58,7 @@ public class a {
         @Override // d.a.m0.r.w.b.b, d.a.m0.r.w.a
         public e c() {
             e eVar = new e();
-            eVar.a((int) (l.k(a.this.f57399b.getPageActivity()) / 2.5714285f));
+            eVar.a((int) (l.k(a.this.f61088b.getPageActivity()) / 2.5714285f));
             return eVar;
         }
 
@@ -86,50 +86,50 @@ public class a {
 
         @Override // d.a.m0.r.w.b.d
         public void b(int i2, String str) {
-            c.a aVar = (c.a) a.this.f57401d.n(i2);
+            c.a aVar = (c.a) a.this.f61090d.n(i2);
             if (aVar == null) {
                 return;
             }
-            Matcher matcher = a.this.f57398a.matcher(aVar.b());
+            Matcher matcher = a.this.f61087a.matcher(aVar.b());
             if (matcher.find()) {
-                a.this.f57399b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(a.this.f57399b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
+                a.this.f61088b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(a.this.f61088b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
             }
         }
     }
 
     public a(TbPageContext<?> tbPageContext) {
-        this.f57399b = null;
-        this.f57399b = tbPageContext;
+        this.f61088b = null;
+        this.f61088b = tbPageContext;
         d();
     }
 
     public View c() {
-        return this.f57400c;
+        return this.f61089c;
     }
 
     public final void d() {
-        TbPageContext<?> tbPageContext = this.f57399b;
+        TbPageContext<?> tbPageContext = this.f61088b;
         if (tbPageContext == null) {
             return;
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.square_banner_layout, (ViewGroup) null);
-        this.f57400c = inflate;
+        this.f61089c = inflate;
         if (inflate == null) {
             return;
         }
-        this.f57401d = (CoverFlowView) inflate.findViewById(R.id.square_banner_cover_flow_view);
-        C1434a c1434a = new C1434a();
-        this.f57401d.setDisableParentEvent(false);
-        this.f57401d.setCoverFlowFactory(c1434a);
-        this.f57401d.setCallback(this.f57403f);
+        this.f61090d = (CoverFlowView) inflate.findViewById(R.id.square_banner_cover_flow_view);
+        C1490a c1490a = new C1490a();
+        this.f61090d.setDisableParentEvent(false);
+        this.f61090d.setCoverFlowFactory(c1490a);
+        this.f61090d.setCallback(this.f61092f);
     }
 
     public void e(c cVar) {
-        if (cVar == null || cVar == this.f57402e) {
+        if (cVar == null || cVar == this.f61091e) {
             return;
         }
-        this.f57401d.setData(cVar.a());
-        this.f57402e = cVar;
+        this.f61090d.setData(cVar.a());
+        this.f61091e = cVar;
     }
 
     public void f(BdUniqueId bdUniqueId) {
@@ -138,7 +138,7 @@ public class a {
     }
 
     public void g() {
-        CoverFlowView<d.a.m0.r.w.b.a> coverFlowView = this.f57401d;
+        CoverFlowView<d.a.m0.r.w.b.a> coverFlowView = this.f61090d;
         if (coverFlowView != null) {
             coverFlowView.v();
         }

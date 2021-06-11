@@ -427,9 +427,9 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             mvcNetMessage.setNeedCache(isNeedCache());
             mvcNetMessage.setResponseDataClass(getResponseDataClass());
             mvcNetMessage.setTag(this.unique_id);
-            HashMap<String, String> q = this.data.q();
-            if (q != null) {
-                for (Map.Entry<String, String> entry : q.entrySet()) {
+            HashMap<String, String> u = this.data.u();
+            if (u != null) {
+                for (Map.Entry<String, String> entry : u.entrySet()) {
                     mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
                 }
             }
@@ -476,15 +476,15 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             checkListener();
             MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.data, getHttpCmd());
             mvcHttpMessage.setResponseDataClass(getResponseDataClass());
-            HashMap<String, Object> o = this.data.o();
-            if (o != null) {
-                for (Map.Entry<String, Object> entry2 : o.entrySet()) {
+            HashMap<String, Object> s = this.data.s();
+            if (s != null) {
+                for (Map.Entry<String, Object> entry2 : s.entrySet()) {
                     mvcHttpMessage.addParam(entry2.getKey(), entry2.getValue());
                 }
             }
-            HashMap<String, String> q2 = this.data.q();
-            if (q2 != null) {
-                for (Map.Entry<String, String> entry3 : q2.entrySet()) {
+            HashMap<String, String> u2 = this.data.u();
+            if (u2 != null) {
+                for (Map.Entry<String, String> entry3 : u2.entrySet()) {
                     mvcHttpMessage.addHeader(entry3.getKey(), entry3.getValue());
                 }
             }

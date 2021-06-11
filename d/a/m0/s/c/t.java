@@ -32,36 +32,36 @@ import org.json.JSONObject;
 public class t {
 
     /* renamed from: i  reason: collision with root package name */
-    public long f50524i;
+    public long f54200i;
     public HashMap<String, Integer> k;
     public String p;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50521f = true;
+    public boolean f54197f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50522g = true;
+    public boolean f54198g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50523h = 100000;
+    public int f54199h = 100000;
     public int j = 100;
     public boolean m = false;
     public int o = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50517b = null;
+    public String f54193b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50518c = null;
+    public String f54194c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50519d = null;
+    public String f54195d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50520e = null;
+    public String f54196e = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BannerData f50516a = new BannerData();
+    public final BannerData f54192a = new BannerData();
     public d.a.m0.r.q.r l = new d.a.m0.r.q.r();
     public h0 n = new h0();
 
@@ -90,11 +90,11 @@ public class t {
     }
 
     public long c() {
-        return this.f50524i;
+        return this.f54200i;
     }
 
     public int d() {
-        return this.f50523h;
+        return this.f54199h;
     }
 
     public h0 e() {
@@ -107,14 +107,14 @@ public class t {
             return;
         }
         try {
-            this.f50516a.parserJson(jSONObject.optJSONObject("banner"));
-            this.f50517b = jSONObject.optString("big_head_image_host");
-            this.f50518c = jSONObject.optString("small_head_image_host");
-            this.f50519d = jSONObject.optString("yijianfankui_fname");
-            this.f50520e = jSONObject.optString("yijianfankui_fid");
+            this.f54192a.parserJson(jSONObject.optJSONObject("banner"));
+            this.f54193b = jSONObject.optString("big_head_image_host");
+            this.f54194c = jSONObject.optString("small_head_image_host");
+            this.f54195d = jSONObject.optString("yijianfankui_fname");
+            this.f54196e = jSONObject.optString("yijianfankui_fid");
             this.j = jSONObject.optInt("crash_limit_count", 100);
             int optInt = jSONObject.optInt("app_recommend", -1);
-            this.f50524i = jSONObject.optLong("vip_new_task", 0L);
+            this.f54200i = jSONObject.optLong("vip_new_task", 0L);
             this.n.b(jSONObject.optJSONObject("webview_checkurl"));
             JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
             if (optJSONObject != null) {
@@ -122,7 +122,7 @@ public class t {
                 d.a.m0.u.a.k().v(optJSONObject.optInt("items_num", 10));
                 d.a.m0.u.a.k().w(1 == optJSONObject.optInt("ad_show", 1));
             }
-            TbadkCoreApplication.getInst().setYijianfankuiFname(this.f50519d);
+            TbadkCoreApplication.getInst().setYijianfankuiFname(this.f54195d);
             if (this.l == null) {
                 this.l = new d.a.m0.r.q.r();
             }
@@ -232,14 +232,14 @@ public class t {
             }
             d.a.m0.r.d0.b.j().v("force_update_auto_play_video", optInt2);
             CustomPlayerSwitch.setSwitchStatus(SwitchManager.getInstance().findType(CustomPlayerSwitch.CUSTOM_PLAYER_SWITCH));
-            this.f50522g = jSONObject.optInt("is_pushservice_open", 1) == 1;
-            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.f50522g);
-            if (!this.f50522g) {
+            this.f54198g = jSONObject.optInt("is_pushservice_open", 1) == 1;
+            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.f54198g);
+            if (!this.f54198g) {
                 UtilHelper.stopPushService(TbadkCoreApplication.getInst().getApp().getApplicationContext());
             }
             TbadkCoreApplication.getInst().setFeatureCrashAutoCloseLimit(jSONObject.optInt("feature_crash_auto_close_limit", 3));
-            this.f50521f = jSONObject.optInt("gpu_open", 1) == 1;
-            TbadkCoreApplication.getInst().setGpuOpen(this.f50521f);
+            this.f54197f = jSONObject.optInt("gpu_open", 1) == 1;
+            TbadkCoreApplication.getInst().setGpuOpen(this.f54197f);
             TbadkCoreApplication.getInst().setHttpClientOpen(jSONObject.optInt("http_client", 1) == 1);
             TbadkCoreApplication.getInst().setHttpAutoSwitch(jSONObject.optInt("http_client_auto", 1) == 1);
             boolean z = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
@@ -257,7 +257,7 @@ public class t {
             } else if (optInt == 0) {
                 TbadkCoreApplication.getInst().setIsAppOn(false);
             }
-            this.f50523h = jSONObject.optInt("perform_sample_param", 100000);
+            this.f54199h = jSONObject.optInt("perform_sample_param", 100000);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("keepalive");
             if (optJSONObject3 != null) {
                 JSONObject optJSONObject4 = optJSONObject3.optJSONObject("wifi");
@@ -295,9 +295,9 @@ public class t {
                 TbSingleton.getInstance().setAnimAverageFpsThreshold(optInt5);
             }
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008017));
-            TbConfig.setBigPhotoAdress(this.f50517b);
-            TbConfig.setSmallPhotoAdress(this.f50518c);
-            TbConfig.setFeedBack(this.f50519d, this.f50520e);
+            TbConfig.setBigPhotoAdress(this.f54193b);
+            TbConfig.setSmallPhotoAdress(this.f54194c);
+            TbConfig.setFeedBack(this.f54195d, this.f54196e);
             PreLoadVideoSwitchManager.getInstance().setSyncSwitchJson(jSONObject.optString("android_preload_conf"));
             JSONObject optJSONObject10 = jSONObject.optJSONObject("duxiaoman_url");
             if (optJSONObject10 != null) {

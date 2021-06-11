@@ -7,30 +7,30 @@ import android.content.ContentProvider;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Service f49628a;
+    public static Service f53303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ContentProvider f49629b;
+    public static ContentProvider f53304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BroadcastReceiver f49630c;
+    public static BroadcastReceiver f53305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BroadcastReceiver f49631d;
+    public static BroadcastReceiver f53306d;
 
     public static BroadcastReceiver a() {
-        return f49631d;
+        return f53306d;
     }
 
     public static ContentProvider b() {
-        return f49629b;
+        return f53304b;
     }
 
     public static BroadcastReceiver c() {
-        return f49630c;
+        return f53305c;
     }
 
     public static Service d() {
-        return f49628a;
+        return f53303a;
     }
 }

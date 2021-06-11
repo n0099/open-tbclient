@@ -11,7 +11,7 @@ import d.a.n0.k2.e;
 import d.a.n0.z.b0;
 import d.a.n0.z.e0.l;
 /* loaded from: classes4.dex */
-public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThreadViewHolder> {
+public class HomePageVideoThreadAdapter extends d.a.c.k.e.a<l, HomePageVideoThreadViewHolder> {
     public BdUniqueId m;
     public TbPageContext<HotTopicActivity> n;
     public d.a.n0.z.l o;
@@ -21,11 +21,11 @@ public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThre
     public static class HomePageVideoThreadViewHolder extends TypeAdapter.ViewHolder implements e {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.n0.z.l f16730e;
+        public d.a.n0.z.l f16806e;
 
         public HomePageVideoThreadViewHolder(d.a.n0.z.l lVar) {
-            super(lVar.l());
-            this.f16730e = lVar;
+            super(lVar.m());
+            this.f16806e = lVar;
         }
 
         @Override // d.a.n0.k2.e
@@ -35,7 +35,7 @@ public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThre
 
         @Override // d.a.n0.k2.e
         public int getCurrentPosition() {
-            d.a.n0.z.l lVar = this.f16730e;
+            d.a.n0.z.l lVar = this.f16806e;
             if (lVar == null) {
                 return 0;
             }
@@ -44,16 +44,7 @@ public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThre
 
         @Override // d.a.n0.k2.e
         public String getPlayUrl() {
-            d.a.n0.z.l lVar = this.f16730e;
-            if (lVar == null) {
-                return null;
-            }
-            return lVar.O();
-        }
-
-        @Override // d.a.n0.k2.e
-        public View getVideoContainer() {
-            d.a.n0.z.l lVar = this.f16730e;
+            d.a.n0.z.l lVar = this.f16806e;
             if (lVar == null) {
                 return null;
             }
@@ -61,17 +52,26 @@ public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThre
         }
 
         @Override // d.a.n0.k2.e
+        public View getVideoContainer() {
+            d.a.n0.z.l lVar = this.f16806e;
+            if (lVar == null) {
+                return null;
+            }
+            return lVar.Q();
+        }
+
+        @Override // d.a.n0.k2.e
         public boolean isPlayStarted() {
-            d.a.n0.z.l lVar = this.f16730e;
+            d.a.n0.z.l lVar = this.f16806e;
             if (lVar == null) {
                 return false;
             }
-            return lVar.b0();
+            return lVar.c0();
         }
 
         @Override // d.a.n0.k2.e
         public boolean isPlaying() {
-            d.a.n0.z.l lVar = this.f16730e;
+            d.a.n0.z.l lVar = this.f16806e;
             if (lVar == null) {
                 return false;
             }
@@ -80,7 +80,7 @@ public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThre
 
         @Override // d.a.n0.k2.e
         public void startPlay() {
-            d.a.n0.z.l lVar = this.f16730e;
+            d.a.n0.z.l lVar = this.f16806e;
             if (lVar != null) {
                 lVar.startPlay();
             }
@@ -88,7 +88,7 @@ public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThre
 
         @Override // d.a.n0.k2.e
         public void stopPlay() {
-            d.a.n0.z.l lVar = this.f16730e;
+            d.a.n0.z.l lVar = this.f16806e;
             if (lVar != null) {
                 lVar.stopPlay();
             }
@@ -104,7 +104,7 @@ public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThre
         @Override // d.a.n0.z.b0
         /* renamed from: d */
         public void a(View view, l lVar) {
-            if (lVar == null || lVar.m() == null || StringUtils.isNull(lVar.m().y1()) || StringUtils.isNull(lVar.M()) || HomePageVideoThreadAdapter.this.n == null || !(HomePageVideoThreadAdapter.this.n.getOrignalPage() instanceof d.a.n0.d1.b.a)) {
+            if (lVar == null || lVar.i() == null || StringUtils.isNull(lVar.i().z1()) || StringUtils.isNull(lVar.M()) || HomePageVideoThreadAdapter.this.n == null || !(HomePageVideoThreadAdapter.this.n.getOrignalPage() instanceof d.a.n0.d1.b.a)) {
                 return;
             }
             ((HotTopicActivity) HomePageVideoThreadAdapter.this.n.getOrignalPage()).businessStatisticForTopicClick(lVar);
@@ -119,27 +119,27 @@ public class HomePageVideoThreadAdapter extends d.a.c.j.e.a<l, HomePageVideoThre
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public HomePageVideoThreadViewHolder P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public HomePageVideoThreadViewHolder Q(ViewGroup viewGroup) {
         d.a.n0.z.l lVar = new d.a.n0.z.l(this.n);
         this.o = lVar;
-        lVar.j0(false);
-        this.o.f0(this.m);
+        lVar.k0(false);
+        this.o.g0(this.m);
         this.o.setFrom("hottopic");
         return new HomePageVideoThreadViewHolder(this.o);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public View W(int i2, View view, ViewGroup viewGroup, l lVar, HomePageVideoThreadViewHolder homePageVideoThreadViewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public View X(int i2, View view, ViewGroup viewGroup, l lVar, HomePageVideoThreadViewHolder homePageVideoThreadViewHolder) {
         if (lVar != null) {
             lVar.U(i2 + 1);
             lVar.V = 1;
         }
-        homePageVideoThreadViewHolder.f16730e.m(lVar);
-        homePageVideoThreadViewHolder.f16730e.o(this.p);
+        homePageVideoThreadViewHolder.f16806e.n(lVar);
+        homePageVideoThreadViewHolder.f16806e.p(this.p);
         TbPageContext<HotTopicActivity> tbPageContext = this.n;
         if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof d.a.n0.d1.b.a)) {
             this.n.getOrignalPage().businessStatisticForTopic(lVar);

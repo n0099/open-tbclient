@@ -14,14 +14,14 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<EncodeHintType, Object> f58345a;
+    public static final Map<EncodeHintType, Object> f62036a;
 
     static {
         EnumMap enumMap = new EnumMap(EncodeHintType.class);
-        f58345a = enumMap;
+        f62036a = enumMap;
         enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) "utf-8");
-        f58345a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        f58345a.put(EncodeHintType.MARGIN, 0);
+        f62036a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        f62036a.put(EncodeHintType.MARGIN, 0);
     }
 
     public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
@@ -53,7 +53,7 @@ public class b {
 
     public static Bitmap c(String str, int i2, int i3, int i4, Bitmap bitmap) {
         try {
-            BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i2, i2, f58345a);
+            BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i2, i2, f62036a);
             int[] iArr = new int[i2 * i2];
             for (int i5 = 0; i5 < i2; i5++) {
                 for (int i6 = 0; i6 < i2; i6++) {

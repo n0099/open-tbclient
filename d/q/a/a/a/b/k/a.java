@@ -11,32 +11,32 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f67602f = "com.mdid.msa";
+    public static String f71388f = "com.mdid.msa";
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f67604b;
+    public com.yxcorp.kuaishou.addfp.a.b.b f71390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f67605c;
+    public Context f71391c;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.j.a f67603a = null;
+    public com.yxcorp.kuaishou.addfp.a.b.j.a f71389a = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f67606d = new CountDownLatch(1);
+    public CountDownLatch f71392d = new CountDownLatch(1);
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f67607e = new b(this);
+    public ServiceConnection f71393e = new b(this);
 
     public static a f() {
         a aVar;
-        aVar = c.f67609a;
+        aVar = c.f71395a;
         return aVar;
     }
 
     public static boolean g(Context context) {
         try {
-            context.getPackageManager().getPackageInfo(f67602f, 0);
+            context.getPackageManager().getPackageInfo(f71388f, 0);
             return true;
         } catch (PackageManager.NameNotFoundException unused) {
             return false;
@@ -45,8 +45,8 @@ public final class a {
 
     public final String a() {
         try {
-            if (this.f67603a != null) {
-                return this.f67603a.a();
+            if (this.f71389a != null) {
+                return this.f71389a.a();
             }
             return null;
         } catch (RemoteException unused) {
@@ -56,11 +56,11 @@ public final class a {
 
     public final void c(Context context) {
         try {
-            if (this.f67607e != null && context != null) {
-                context.unbindService(this.f67607e);
+            if (this.f71393e != null && context != null) {
+                context.unbindService(this.f71393e);
             }
-            if (this.f67603a != null) {
-                this.f67603a.c();
+            if (this.f71389a != null) {
+                this.f71389a.c();
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
@@ -69,12 +69,12 @@ public final class a {
 
     public final void d(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.f67604b = bVar;
-            this.f67605c = context;
+            this.f71390b = bVar;
+            this.f71391c = context;
             if (g(context)) {
                 String packageName = context.getPackageName();
                 Intent intent = new Intent();
-                intent.setClassName(f67602f, "com.mdid.msa.service.MsaKlService");
+                intent.setClassName(f71388f, "com.mdid.msa.service.MsaKlService");
                 intent.setAction("com.bun.msa.action.start.service");
                 intent.putExtra("com.bun.msa.param.pkgname", packageName);
                 try {
@@ -88,13 +88,13 @@ public final class a {
             intent2.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
             intent2.setAction("com.bun.msa.action.bindto.service");
             intent2.putExtra("com.bun.msa.param.pkgname", context.getPackageName());
-            if (!context.bindService(intent2, this.f67607e, 1)) {
+            if (!context.bindService(intent2, this.f71393e, 1)) {
                 d.q.a.a.c.b.b.e("zte off");
                 e(false);
                 return;
             }
-            this.f67606d.await(2000L, TimeUnit.MILLISECONDS);
-            if (this.f67603a != null) {
+            this.f71392d.await(2000L, TimeUnit.MILLISECONDS);
+            if (this.f71389a != null) {
                 e(true);
             } else {
                 e(false);
@@ -108,9 +108,9 @@ public final class a {
     public final void e(boolean z) {
         try {
             if (z) {
-                this.f67604b.a(this.f67603a);
+                this.f71390b.a(this.f71389a);
             } else {
-                this.f67604b.e();
+                this.f71390b.e();
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
@@ -119,10 +119,10 @@ public final class a {
 
     public final boolean h() {
         try {
-            if (this.f67603a == null) {
+            if (this.f71389a == null) {
                 return false;
             }
-            return this.f67603a.b();
+            return this.f71389a.b();
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
             return false;

@@ -1,67 +1,29 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.location.Location;
-import android.location.LocationManager;
+import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-/* loaded from: classes6.dex */
+import com.kwad.sdk.glide.load.DataSource;
+import com.kwad.sdk.glide.load.engine.GlideException;
+/* loaded from: classes7.dex */
 public class m {
-    @Nullable
-    public static Location a(Context context) {
-        if (context == null || com.kwad.sdk.core.config.c.a(64L)) {
-            return null;
-        }
+    public static void a(Context context, String str) {
+        com.kwad.sdk.core.d.a.a("GlideUtils", "preloadImage imageUrl=" + str);
         try {
-            LocationManager locationManager = (LocationManager) context.getSystemService("location");
-            Location a2 = locationManager.isProviderEnabled("gps") ? a(context, locationManager) : null;
-            if (a2 == null && locationManager.isProviderEnabled("network")) {
-                a2 = b(context, locationManager);
-            }
-            return (a2 == null && locationManager.isProviderEnabled("passive")) ? c(context, locationManager) : a2;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            return null;
-        }
-    }
+            com.kwad.sdk.glide.c.b(context).a(str).b(new com.kwad.sdk.glide.request.e<Drawable>() { // from class: com.kwad.sdk.utils.m.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.glide.request.e
+                public boolean a(Drawable drawable, Object obj, com.kwad.sdk.glide.request.a.j<Drawable> jVar, DataSource dataSource, boolean z) {
+                    return false;
+                }
 
-    @SuppressLint({"MissingPermission"})
-    public static Location a(Context context, LocationManager locationManager) {
-        try {
-            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0) {
-                return locationManager.getLastKnownLocation("gps");
-            }
-            return null;
+                @Override // com.kwad.sdk.glide.request.e
+                public boolean a(@Nullable GlideException glideException, Object obj, com.kwad.sdk.glide.request.a.j<Drawable> jVar, boolean z) {
+                    return false;
+                }
+            }).b();
         } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            return null;
-        }
-    }
-
-    @SuppressLint({"MissingPermission"})
-    public static Location b(Context context, LocationManager locationManager) {
-        try {
-            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0 || ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
-                return locationManager.getLastKnownLocation("network");
-            }
-            return null;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            return null;
-        }
-    }
-
-    @SuppressLint({"MissingPermission"})
-    public static Location c(Context context, LocationManager locationManager) {
-        try {
-            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
-                return locationManager.getLastKnownLocation("passive");
-            }
-            return null;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            return null;
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 }

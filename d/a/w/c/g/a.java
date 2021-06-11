@@ -4,17 +4,19 @@ import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.view.Surface;
+import com.kwai.video.player.KsMediaMeta;
+import com.kwai.video.player.misc.IMediaFormat;
 /* loaded from: classes2.dex */
 public class a extends b {
     public long l = 0;
 
     @Override // d.a.w.c.g.b
     public void j() {
-        if (this.f64828h == 0) {
-            this.f64828h = this.f64825e.presentationTimeUs;
+        if (this.f68546h == 0) {
+            this.f68546h = this.f68543e.presentationTimeUs;
         }
-        MediaCodec.BufferInfo bufferInfo = this.f64825e;
-        long j = bufferInfo.presentationTimeUs - this.f64828h;
+        MediaCodec.BufferInfo bufferInfo = this.f68543e;
+        long j = bufferInfo.presentationTimeUs - this.f68546h;
         bufferInfo.presentationTimeUs = j;
         long j2 = this.l;
         if (j < j2) {
@@ -22,7 +24,7 @@ public class a extends b {
             this.l = j3;
             bufferInfo.presentationTimeUs = j3;
         }
-        MediaCodec.BufferInfo bufferInfo2 = this.f64825e;
+        MediaCodec.BufferInfo bufferInfo2 = this.f68543e;
         long j4 = bufferInfo2.presentationTimeUs;
         long j5 = b.j;
         if (j4 > j5 + 500000) {
@@ -33,38 +35,38 @@ public class a extends b {
                 bufferInfo2.presentationTimeUs = j6 + 5000;
             }
         }
-        if (b.j > this.f64825e.presentationTimeUs + 500000) {
+        if (b.j > this.f68543e.presentationTimeUs + 500000) {
             b.k = 1200;
         }
-        this.l = this.f64825e.presentationTimeUs;
+        this.l = this.f68543e.presentationTimeUs;
     }
 
     public void k(d dVar, e eVar) {
         boolean z = false;
         if (dVar != null && eVar != null) {
-            this.f64823c = eVar;
+            this.f68541c = eVar;
             MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString("mime", dVar.c());
+            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.c());
             mediaFormat.setInteger("aac-profile", 2);
             mediaFormat.setInteger("sample-rate", dVar.e());
             mediaFormat.setInteger("channel-count", dVar.b());
-            mediaFormat.setInteger("bitrate", dVar.a());
+            mediaFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, dVar.a());
             mediaFormat.setInteger("max-input-size", dVar.d());
             try {
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.c());
-                this.f64824d = createEncoderByType;
+                this.f68542d = createEncoderByType;
                 createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                 if (!dVar.p()) {
-                    this.f64827g = true;
+                    this.f68545g = true;
                 } else {
-                    this.f64827g = false;
+                    this.f68545g = false;
                 }
                 z = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        c cVar = this.f64826f;
+        c cVar = this.f68544f;
         if (cVar != null) {
             cVar.b(z);
         }

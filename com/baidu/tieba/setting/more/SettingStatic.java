@@ -57,22 +57,22 @@ import protobuf.MaskInfo;
 public class SettingStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static MaskInfo f20454a = null;
+    public static MaskInfo f20531a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f20455b = false;
+    public static boolean f20532b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f20456c = false;
+    public static boolean f20533c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d.a.c.c.g.c f20457d = new a(1001);
+    public static final d.a.c.c.g.c f20534d = new a(1001);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f20458e = new b(2005016);
+    public static final CustomMessageListener f20535e = new b(2005016);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final CustomMessageListener f20459f = new c(2001311);
+    public static final CustomMessageListener f20536f = new c(2001311);
 
     /* loaded from: classes5.dex */
     public static class a extends d.a.c.c.g.c {
@@ -87,7 +87,7 @@ public class SettingStatic {
             if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) || !(socketResponsedMessage instanceof ResponseOnlineMessage) || (maskInfo = ((ResponseOnlineMessage) socketResponsedMessage).getMaskInfo()) == null) {
                 return;
             }
-            MaskInfo unused = SettingStatic.f20454a = maskInfo;
+            MaskInfo unused = SettingStatic.f20531a = maskInfo;
             SettingStatic.k();
         }
     }
@@ -101,9 +101,9 @@ public class SettingStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.f20456c = false;
-            MaskInfo unused2 = SettingStatic.f20454a = null;
-            boolean unused3 = SettingStatic.f20455b = false;
+            boolean unused = SettingStatic.f20533c = false;
+            MaskInfo unused2 = SettingStatic.f20531a = null;
+            boolean unused3 = SettingStatic.f20532b = false;
             d.a.m0.z.b.a().d();
         }
     }
@@ -117,7 +117,7 @@ public class SettingStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.f20455b = true;
+            boolean unused = SettingStatic.f20532b = true;
             SettingStatic.k();
         }
     }
@@ -210,9 +210,9 @@ public class SettingStatic {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, d.a.n0.e3.d0.a.a(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(f20458e);
-        MessageManager.getInstance().registerListener(f20457d);
-        MessageManager.getInstance().registerListener(f20459f);
+        MessageManager.getInstance().registerListener(f20535e);
+        MessageManager.getInstance().registerListener(f20534d);
+        MessageManager.getInstance().registerListener(f20536f);
         d.a.n0.e3.d0.a.f(104101, ResponseUpdateMaskMessage.class, false);
         d.a.n0.e3.d0.a.f(104106, ResponseUpdateForumMask.class, false);
         e();
@@ -280,16 +280,16 @@ public class SettingStatic {
         String[] split;
         String[] split2;
         String[] split3;
-        if (!f20455b || f20454a == null || f20456c) {
+        if (!f20532b || f20531a == null || f20533c) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
             return;
         }
-        MaskInfo maskInfo = f20454a;
+        MaskInfo maskInfo = f20531a;
         Integer num2 = maskInfo.remindMask;
-        if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && f20454a.shieldStatus.intValue() == 0) {
+        if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && f20531a.shieldStatus.intValue() == 0) {
             if (!d.a.m0.r.d0.b.j().g("had_sync_setting_switch" + currentAccount, false)) {
                 z = true;
                 if (!z) {
@@ -317,14 +317,14 @@ public class SettingStatic {
                         }
                     }
                 } else {
-                    Integer num3 = f20454a.remindMask;
+                    Integer num3 = f20531a.remindMask;
                     if (num3 != null) {
                         if (num3.intValue() == 0) {
                             d.a.m0.s.d.d.d().B(true);
-                        } else if (f20454a.remindMask.intValue() == 1) {
+                        } else if (f20531a.remindMask.intValue() == 1) {
                             d.a.m0.s.d.d.d().B(false);
                             z2 = false;
-                            num = f20454a.shieldStatus;
+                            num = f20531a.shieldStatus;
                             if (num != null) {
                                 int intValue = num.intValue();
                                 boolean z3 = (intValue & 16) == 0;
@@ -348,45 +348,45 @@ public class SettingStatic {
                         }
                     }
                     z2 = true;
-                    num = f20454a.shieldStatus;
+                    num = f20531a.shieldStatus;
                     if (num != null) {
                     }
                     d.a.c.e.m.h.a().b(new d());
                 }
-                if (!TextUtils.isEmpty(f20454a.maskFids) && (split3 = f20454a.maskFids.split(",")) != null && split3.length > 0) {
+                if (!TextUtils.isEmpty(f20531a.maskFids) && (split3 = f20531a.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
                         d.a.n0.f1.t.d.j().g(currentAccount, str, false, null);
                     }
                 }
-                if (!TextUtils.isEmpty(f20454a.maskGids) && (split2 = f20454a.maskGids.split(",")) != null && split2.length > 0) {
+                if (!TextUtils.isEmpty(f20531a.maskGids) && (split2 = f20531a.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
                         d.a.n0.f1.t.b.k().g(currentAccount, str2, false, null);
                     }
                 }
-                if (!TextUtils.isEmpty(f20454a.maskUids) && (split = f20454a.maskUids.split(",")) != null && split.length > 0) {
+                if (!TextUtils.isEmpty(f20531a.maskUids) && (split = f20531a.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
                         d.a.n0.f1.t.e.j().g(currentAccount, str3, false, null);
                     }
                 }
-                f20456c = true;
+                f20533c = true;
             }
         }
         z = false;
         if (!z) {
         }
-        if (!TextUtils.isEmpty(f20454a.maskFids)) {
+        if (!TextUtils.isEmpty(f20531a.maskFids)) {
             while (r7 < r6) {
             }
         }
-        if (!TextUtils.isEmpty(f20454a.maskGids)) {
+        if (!TextUtils.isEmpty(f20531a.maskGids)) {
             while (r7 < r6) {
             }
         }
-        if (!TextUtils.isEmpty(f20454a.maskUids)) {
+        if (!TextUtils.isEmpty(f20531a.maskUids)) {
             while (r6 < r3) {
             }
         }
-        f20456c = true;
+        f20533c = true;
     }
 
     public static final void l(int i2, boolean z) {

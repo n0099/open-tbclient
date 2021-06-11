@@ -19,16 +19,16 @@ public class ForumEmotionModel extends BdBaseModel {
     public static final int PAGE_START = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14898e;
+    public int f14955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14899f;
+    public boolean f14956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.n0.m0.z.b.b f14900g;
+    public final d.a.n0.m0.z.b.b f14957g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HttpMessageListener f14901h;
+    public final HttpMessageListener f14958h;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -48,15 +48,15 @@ public class ForumEmotionModel extends BdBaseModel {
                 ForumEmotionCenterResponseMessage forumEmotionCenterResponseMessage = (ForumEmotionCenterResponseMessage) httpResponsedMessage;
                 ForumEmotionModel forumEmotionModel = ForumEmotionModel.this;
                 ForumEmotionData forumEmotionData = forumEmotionCenterResponseMessage.data;
-                forumEmotionModel.f14899f = forumEmotionData != null && forumEmotionData.has_more == 1;
+                forumEmotionModel.f14956f = forumEmotionData != null && forumEmotionData.has_more == 1;
                 if (bVar != null) {
                     if (forumEmotionCenterResponseMessage.getStatusCode() == 200) {
                         if (forumEmotionCenterResponseMessage.getError() == 0 && forumEmotionCenterResponseMessage.data != null) {
-                            if (ForumEmotionModel.this.f14898e == 1) {
-                                bVar.v0(forumEmotionCenterResponseMessage.data);
+                            if (ForumEmotionModel.this.f14955e == 1) {
+                                bVar.y0(forumEmotionCenterResponseMessage.data);
                                 return;
                             } else {
-                                bVar.S(forumEmotionCenterResponseMessage.data);
+                                bVar.U(forumEmotionCenterResponseMessage.data);
                                 return;
                             }
                         }
@@ -71,23 +71,44 @@ public class ForumEmotionModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void S(ForumEmotionData forumEmotionData);
+        void U(ForumEmotionData forumEmotionData);
 
         void onFailed(String str);
 
-        void v0(ForumEmotionData forumEmotionData);
+        void y0(ForumEmotionData forumEmotionData);
     }
 
     public ForumEmotionModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.f14898e = 1;
-        this.f14899f = true;
-        this.f14900g = new d.a.n0.m0.z.b.b();
-        this.f14901h = new a(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
+        this.f14955e = 1;
+        this.f14956f = true;
+        this.f14957g = new d.a.n0.m0.z.b.b();
+        this.f14958h = new a(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
         registerTask();
-        this.f14901h.setTag(getUniqueId());
-        this.f14901h.setSelfListener(true);
-        registerListener(this.f14901h);
+        this.f14958h.setTag(getUniqueId());
+        this.f14958h.setSelfListener(true);
+        registerListener(this.f14958h);
+    }
+
+    public void A(b bVar) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
+        int i2 = this.f14955e + 1;
+        this.f14955e = i2;
+        httpMessage.addParam(Config.PACKAGE_NAME, i2);
+        httpMessage.addParam("rn", 10);
+        httpMessage.addParam("forum_type", this.f14957g.a() == 1 ? "like_forum" : "all_forum");
+        httpMessage.setExtra(bVar);
+        sendMessage(httpMessage);
+    }
+
+    public void B(b bVar) {
+        this.f14955e = 1;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f14955e);
+        httpMessage.addParam("rn", 10);
+        httpMessage.addParam("forum_type", this.f14957g.a() == 1 ? "like_forum" : "all_forum");
+        httpMessage.setExtra(bVar);
+        sendMessage(httpMessage);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,32 +128,11 @@ public class ForumEmotionModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public d.a.n0.m0.z.b.b u() {
-        return this.f14900g;
+    public d.a.n0.m0.z.b.b y() {
+        return this.f14957g;
     }
 
-    public boolean v() {
-        return this.f14899f;
-    }
-
-    public void w(b bVar) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
-        int i2 = this.f14898e + 1;
-        this.f14898e = i2;
-        httpMessage.addParam(Config.PACKAGE_NAME, i2);
-        httpMessage.addParam("rn", 10);
-        httpMessage.addParam("forum_type", this.f14900g.a() == 1 ? "like_forum" : "all_forum");
-        httpMessage.setExtra(bVar);
-        sendMessage(httpMessage);
-    }
-
-    public void x(b bVar) {
-        this.f14898e = 1;
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f14898e);
-        httpMessage.addParam("rn", 10);
-        httpMessage.addParam("forum_type", this.f14900g.a() == 1 ? "like_forum" : "all_forum");
-        httpMessage.setExtra(bVar);
-        sendMessage(httpMessage);
+    public boolean z() {
+        return this.f14956f;
     }
 }

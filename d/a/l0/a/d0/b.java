@@ -8,24 +8,24 @@ import java.util.zip.CRC32;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f41305a;
+    public final long f44981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f41306b;
+    public final long f44982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f41307c;
+    public final String f44983c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, String> f41308d = new HashMap();
+    public final Map<String, String> f44984d = new HashMap();
 
     public b(long j) {
-        this.f41306b = TimeUnit.MILLISECONDS.toSeconds(j);
-        this.f41305a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.f41307c = Long.toHexString(a(this.f41305a + "#" + this.f41306b));
-        this.f41308d.put("timestamp", Long.toString(this.f41305a));
-        this.f41308d.put("delta", Long.toString(this.f41306b));
-        this.f41308d.put("rasign", this.f41307c);
+        this.f44982b = TimeUnit.MILLISECONDS.toSeconds(j);
+        this.f44981a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
+        this.f44983c = Long.toHexString(a(this.f44981a + "#" + this.f44982b));
+        this.f44984d.put("timestamp", Long.toString(this.f44981a));
+        this.f44984d.put("delta", Long.toString(this.f44982b));
+        this.f44984d.put("rasign", this.f44983c);
     }
 
     public static b b() {
@@ -48,6 +48,6 @@ public class b {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.f41305a + " delta:" + this.f41306b + " rasign:" + this.f41307c;
+        return super.toString() + " serverTime:" + this.f44981a + " delta:" + this.f44982b + " rasign:" + this.f44983c;
     }
 }

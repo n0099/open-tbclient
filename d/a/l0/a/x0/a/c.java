@@ -14,11 +14,11 @@ public class c {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f45747a = new c();
+        public static final c f49421a = new c();
     }
 
     public static c c() {
-        return b.f45747a;
+        return b.f49421a;
     }
 
     public final boolean a(File file, File file2) {
@@ -96,7 +96,7 @@ public class c {
         if (file == null || !file.exists()) {
             return false;
         }
-        return a(new File(file, d.a.l0.a.x0.a.d.a.f45755h), d.a.l0.a.x0.a.d.a.f45748a);
+        return a(new File(file, d.a.l0.a.x0.a.d.a.f49429h), d.a.l0.a.x0.a.d.a.f49422a);
     }
 
     public boolean f(String str, File file) {
@@ -114,7 +114,7 @@ public class c {
         if (file == null || !file.exists()) {
             return false;
         }
-        return a(new File(file, d.a.l0.a.x0.a.d.a.f45756i), AppRuntime.getAppContext().getFilesDir());
+        return a(new File(file, d.a.l0.a.x0.a.d.a.f49430i), AppRuntime.getAppContext().getFilesDir());
     }
 
     public boolean h(String str, File file) {
@@ -140,7 +140,7 @@ public class c {
             }
             File a3 = d.a.l0.a.x0.a.b.a(d.F(file), a2);
             if (a3 != null && a3.exists()) {
-                File file2 = new File(d.a.l0.a.x0.a.d.a.f45751d);
+                File file2 = new File(d.a.l0.a.x0.a.d.a.f49425d);
                 if (file2.exists()) {
                     d.K(file2);
                 }
@@ -148,13 +148,13 @@ public class c {
                     d.a.l0.a.x0.a.a.n().p("installSwanApp root cache dir create fail");
                     return false;
                 }
-                boolean z = d.V(a3.getAbsolutePath(), d.a.l0.a.x0.a.d.a.f45751d) == null;
+                boolean z = d.V(a3.getAbsolutePath(), d.a.l0.a.x0.a.d.a.f49425d) == null;
                 if (z) {
                     d.i(file);
                     d.i(a3);
                 }
                 d.a.l0.a.x0.a.a.n().p("unzip file status = " + z);
-                File file3 = new File(d.a.l0.a.x0.a.d.a.f45751d);
+                File file3 = new File(d.a.l0.a.x0.a.d.a.f49425d);
                 String[] list = file3.list();
                 if (list != null && list.length != 0) {
                     int length = list.length;
@@ -166,15 +166,15 @@ public class c {
                             break;
                         }
                         String str4 = list[i2];
-                        if (!TextUtils.isEmpty(str4) && str4.startsWith(d.a.l0.a.x0.a.d.a.f45752e)) {
-                            str2 = str4.substring(d.a.l0.a.x0.a.d.a.f45752e.length());
+                        if (!TextUtils.isEmpty(str4) && str4.startsWith(d.a.l0.a.x0.a.d.a.f49426e)) {
+                            str2 = str4.substring(d.a.l0.a.x0.a.d.a.f49426e.length());
                             str3 = str4;
                             break;
                         }
                         i2++;
                     }
                     if (TextUtils.equals(str, str2) && !TextUtils.isEmpty(str3)) {
-                        File file4 = new File(d.a.l0.a.x0.a.d.a.f45751d, str3);
+                        File file4 = new File(d.a.l0.a.x0.a.d.a.f49425d, str3);
                         boolean j = j(str, file4);
                         boolean e2 = e(str, file4);
                         boolean h2 = h(str, file4);
@@ -199,7 +199,7 @@ public class c {
         if (file == null || !file.exists()) {
             return false;
         }
-        return a(new File(file, d.a.l0.a.x0.a.d.a.f45754g), d.a.l0.a.x0.a.d.a.f45748a);
+        return a(new File(file, d.a.l0.a.x0.a.d.a.f49428g), d.a.l0.a.x0.a.d.a.f49422a);
     }
 
     public c() {

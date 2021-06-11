@@ -146,9 +146,9 @@ public class AdInfo implements Serializable {
 
     public boolean shouldDownloadVideo() {
         b b2 = b.b(a.d());
-        if (TextUtils.isEmpty(b2.f60805d)) {
+        if (TextUtils.isEmpty(b2.f64496d)) {
             return true;
         }
-        return TextUtils.isEmpty(b2.f60804c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f60804c.equals(this.adVideoUrl);
+        return TextUtils.isEmpty(b2.f64495c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f64495c.equals(this.adVideoUrl);
     }
 }

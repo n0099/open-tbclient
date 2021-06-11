@@ -7,11 +7,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import com.xiaomi.push.gq;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 /* loaded from: classes7.dex */
 public class TrafficProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final UriMatcher f37999a;
+    public static final UriMatcher f41678a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Uri f821a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
@@ -21,9 +22,9 @@ public class TrafficProvider extends ContentProvider {
 
     static {
         UriMatcher uriMatcher = new UriMatcher(-1);
-        f37999a = uriMatcher;
+        f41678a = uriMatcher;
         uriMatcher.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
-        f37999a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
+        f41678a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
     }
 
     @Override // android.content.ContentProvider
@@ -38,7 +39,7 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        if (f37999a.match(uri) == 1) {
+        if (f41678a.match(uri) == 1) {
             return "vnd.android.cursor.dir/vnd.xiaomi.push.traffic";
         }
         throw new IllegalArgumentException("Unknown URI " + uri);
@@ -59,7 +60,7 @@ public class TrafficProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
         synchronized (a.f823a) {
-            if (f37999a.match(uri) != 1) {
+            if (f41678a.match(uri) != 1) {
                 throw new IllegalArgumentException("Unknown URI " + uri);
             }
             query = this.f822a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
@@ -69,8 +70,8 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        if (f37999a.match(uri) == 2 && contentValues != null && contentValues.containsKey("imsi")) {
-            gq.m347a(contentValues.getAsString("imsi"));
+        if (f41678a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
+            gq.m346a(contentValues.getAsString(BaseStatisContent.IMSI));
             return 0;
         }
         return 0;

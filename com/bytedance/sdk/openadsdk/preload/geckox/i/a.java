@@ -14,22 +14,22 @@ import java.util.concurrent.TimeUnit;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public y f30080a;
+    public y f30183a;
 
     /* renamed from: b  reason: collision with root package name */
-    public y f30081b;
+    public y f30184b;
 
     public a() {
         y.b bVar = new y.b();
         bVar.a(10L, TimeUnit.SECONDS);
         bVar.d(10L, TimeUnit.SECONDS);
         bVar.f(10L, TimeUnit.SECONDS);
-        this.f30080a = bVar.c();
+        this.f30183a = bVar.c();
         y.b bVar2 = new y.b();
         bVar2.a(10L, TimeUnit.SECONDS);
         bVar2.d(30L, TimeUnit.SECONDS);
         bVar2.f(30L, TimeUnit.SECONDS);
-        this.f30081b = bVar2.c();
+        this.f30184b = bVar2.c();
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
@@ -38,7 +38,7 @@ public class a implements b {
         a0.a aVar = new a0.a();
         aVar.e(str);
         aVar.d(b2);
-        d.b.c.a.b.c a2 = this.f30080a.c(aVar.p()).a();
+        d.b.c.a.b.c a2 = this.f30183a.c(aVar.p()).a();
         return new c(a(a2.w()), a2.r() == 200 ? a2.x().s() : null, a2.r(), a2.t());
     }
 
@@ -53,7 +53,7 @@ public class a implements b {
                 a0.a aVar = new a0.a();
                 aVar.a();
                 aVar.e(str);
-                d.b.c.a.b.c a2 = this.f30081b.c(aVar.p()).a();
+                d.b.c.a.b.c a2 = this.f30184b.c(aVar.p()).a();
                 i2 = a2.r();
                 try {
                     bufferedInputStream = new BufferedInputStream(a2.x().q());

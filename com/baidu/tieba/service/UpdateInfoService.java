@@ -28,13 +28,13 @@ public class UpdateInfoService extends BdBaseService {
             } else if (i2 >= 32400) {
                 i2 = 32400;
             }
-            UpdateInfoService.this.mModel.x(i2 * 1000);
+            UpdateInfoService.this.mModel.B(i2 * 1000);
         }
 
         @Override // com.baidu.tieba.model.ReportUserInfoModel.b
         public void onError(int i2, String str) {
             BdLog.i("location_errorCode&errorCode=" + i2 + "&errorMsg" + str);
-            UpdateInfoService.this.mModel.x(600000L);
+            UpdateInfoService.this.mModel.B(600000L);
         }
     }
 
@@ -51,9 +51,9 @@ public class UpdateInfoService extends BdBaseService {
                 d.a.n0.t2.g0.a.e().j(String.valueOf(longitude));
                 d.a.n0.t2.g0.a.e().i(String.valueOf(latitude));
                 d.a.n0.t2.g0.a.e().k(System.currentTimeMillis());
-                if (UpdateInfoService.this.mModel.t() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    UpdateInfoService.this.mModel.v(1, longitude, latitude);
-                    UpdateInfoService.this.mModel.w();
+                if (UpdateInfoService.this.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    UpdateInfoService.this.mModel.z(1, longitude, latitude);
+                    UpdateInfoService.this.mModel.A();
                 }
             }
         }
@@ -77,9 +77,9 @@ public class UpdateInfoService extends BdBaseService {
         super.onCreate();
         ReportUserInfoModel reportUserInfoModel = new ReportUserInfoModel(null);
         this.mModel = reportUserInfoModel;
-        reportUserInfoModel.u();
-        this.mModel.x(540000L);
-        this.mModel.y(new a());
+        reportUserInfoModel.y();
+        this.mModel.B(540000L);
+        this.mModel.C(new a());
     }
 
     @Override // android.app.Service
@@ -92,7 +92,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i2) {
         super.onStart(intent, i2);
-        if (this.mModel.t()) {
+        if (this.mModel.x()) {
             findLocationFromLocal();
         }
     }

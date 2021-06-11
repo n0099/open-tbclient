@@ -3,18 +3,18 @@ package d.a.l0.a.h2;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f42706a;
+    public final boolean f46382a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f42707b;
+    public final boolean f46383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f42708c;
+    public final boolean f46384c;
 
     public f(boolean z, boolean z2) {
-        this.f42706a = true;
-        this.f42707b = z;
-        this.f42708c = z2;
+        this.f46382a = true;
+        this.f46383b = z;
+        this.f46384c = z2;
     }
 
     public static f c(boolean z) {
@@ -30,16 +30,16 @@ public class f {
     }
 
     public boolean a() {
-        return (this.f42706a && this.f42707b) ? false : true;
+        return (this.f46382a && this.f46383b) ? false : true;
     }
 
     public boolean b() {
-        return this.f42706a ? this.f42707b && this.f42708c : this.f42708c;
+        return this.f46382a ? this.f46383b && this.f46384c : this.f46384c;
     }
 
     public f(boolean z) {
-        this.f42706a = false;
-        this.f42707b = true;
-        this.f42708c = z;
+        this.f46382a = false;
+        this.f46383b = true;
+        this.f46384c = z;
     }
 }

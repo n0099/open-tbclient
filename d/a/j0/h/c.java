@@ -4,34 +4,34 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.swan.apps.so.SoUtils;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.tencent.connect.common.Constants;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40422a;
+    public static String f44101a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40423b;
+    public static String f44102b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40424c;
+    public static String f44103c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40425d;
+    public static String f44104d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40426e;
+    public static String f44105e;
 
     public static String b(Context context) {
         try {
-            if (TextUtils.isEmpty(f40422a)) {
-                f40422a = d.a.j0.l.c.e(context);
+            if (TextUtils.isEmpty(f44101a)) {
+                f44101a = d.a.j0.l.c.e(context);
             }
-            return TextUtils.isEmpty(f40422a) ? "" : f40422a;
+            return TextUtils.isEmpty(f44101a) ? "" : f44101a;
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
             return "";
@@ -48,13 +48,13 @@ public class c {
             jSONObject.put("5", str);
             jSONObject.put("6", System.currentTimeMillis());
             jSONObject.put("7", "0");
-            jSONObject.put("8", d.a.j0.a.f40249b);
-            jSONObject.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-            jSONObject.put("10", "1.0.5");
-            jSONObject.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, d.a.j0.l.c.j(context));
+            jSONObject.put("8", d.a.j0.a.f43930b);
+            jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
+            jSONObject.put("10", "1.0.7");
+            jSONObject.put("14", d.a.j0.l.c.j(context));
             jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, e(context));
             jSONObject.put(SoUtils.SO_EVENT_ID_V8_SO, d.a.j0.g.a.a(context));
-            jSONObject.put("31", d.a.j0.b.a.g(context).H());
+            jSONObject.put(EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, d.a.j0.b.a.h(context).J());
             return jSONObject;
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
@@ -64,10 +64,10 @@ public class c {
 
     public static String d(Context context) {
         try {
-            if (TextUtils.isEmpty(f40423b)) {
-                f40423b = d.a.j0.l.c.h(context);
+            if (TextUtils.isEmpty(f44102b)) {
+                f44102b = d.a.j0.l.c.h(context);
             }
-            return TextUtils.isEmpty(f40423b) ? "" : f40423b;
+            return TextUtils.isEmpty(f44102b) ? "" : f44102b;
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
             return "";
@@ -76,11 +76,11 @@ public class c {
 
     public static String e(Context context) {
         try {
-            if (!TextUtils.isEmpty(f40426e)) {
-                return f40426e;
+            if (!TextUtils.isEmpty(f44105e)) {
+                return f44105e;
             }
-            String b2 = d.a.j0.g.a.b(context);
-            f40426e = b2;
+            String b2 = d.a.j0.g.a.b(context, true, false);
+            f44105e = b2;
             return b2;
         } catch (Throwable unused) {
             return "";
@@ -89,10 +89,10 @@ public class c {
 
     public static String f(Context context) {
         try {
-            if (TextUtils.isEmpty(f40424c)) {
-                f40424c = context.getPackageName();
+            if (TextUtils.isEmpty(f44103c)) {
+                f44103c = context.getPackageName();
             }
-            return TextUtils.isEmpty(f40424c) ? "" : f40424c;
+            return TextUtils.isEmpty(f44103c) ? "" : f44103c;
         } catch (Throwable th) {
             d.a.j0.l.c.d(th);
             return "";
@@ -101,12 +101,12 @@ public class c {
 
     public static String g(Context context) {
         try {
-            if (!TextUtils.isEmpty(f40425d)) {
-                return f40425d;
+            if (!TextUtils.isEmpty(f44104d)) {
+                return f44104d;
             }
-            String l = d.a.j0.l.d.l(context);
-            f40425d = l;
-            return l;
+            String j = d.a.j0.l.d.j(context);
+            f44104d = j;
+            return j;
         } catch (Throwable unused) {
             return "";
         }

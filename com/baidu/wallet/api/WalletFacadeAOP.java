@@ -10,10 +10,10 @@ import kotlin.jvm.internal.ShortCompanionObject;
 public class WalletFacadeAOP implements NoProguard, InvocationHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final IWalletFacade f23060a;
+    public final IWalletFacade f23163a;
 
     public WalletFacadeAOP(IWalletFacade iWalletFacade) {
-        this.f23060a = iWalletFacade;
+        this.f23163a = iWalletFacade;
     }
 
     private boolean a() {
@@ -41,7 +41,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 th.printStackTrace();
             }
         }
-        Object invoke = method.invoke(this.f23060a, objArr);
+        Object invoke = method.invoke(this.f23163a, objArr);
         if (method != null && a(method.getName())) {
             try {
                 c();

@@ -6,31 +6,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernTitleView;
 /* loaded from: classes4.dex */
-public class g extends d.a.c.j.e.a<d.a.n0.v.d.f.c.g, LiveTabConcernTitleView.ViewHolder> {
+public class g extends d.a.c.k.e.a<d.a.n0.v.d.f.c.g, LiveTabConcernTitleView.ViewHolder> {
     public TbPageContext m;
 
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.a.n0.v.d.f.c.g.f61729g);
+        super(tbPageContext.getPageActivity(), d.a.n0.v.d.f.c.g.f65443g);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public LiveTabConcernTitleView.ViewHolder P(ViewGroup viewGroup) {
+    public LiveTabConcernTitleView.ViewHolder Q(ViewGroup viewGroup) {
         return new LiveTabConcernTitleView.ViewHolder(new LiveTabConcernTitleView(this.m, viewGroup));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.v.d.f.c.g gVar, LiveTabConcernTitleView.ViewHolder viewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.v.d.f.c.g gVar, LiveTabConcernTitleView.ViewHolder viewHolder) {
         LiveTabConcernTitleView liveTabConcernTitleView;
-        if (viewHolder == null || (liveTabConcernTitleView = viewHolder.f13761a) == null) {
+        if (viewHolder == null || (liveTabConcernTitleView = viewHolder.f13826a) == null) {
             return null;
         }
-        liveTabConcernTitleView.m(gVar);
-        viewHolder.f13761a.n(this.m, TbadkCoreApplication.getInst().getSkinType());
+        liveTabConcernTitleView.n(gVar);
+        viewHolder.f13826a.o(this.m, TbadkCoreApplication.getInst().getSkinType());
         return viewHolder.a();
     }
 }

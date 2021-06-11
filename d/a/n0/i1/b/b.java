@@ -10,24 +10,24 @@ import tbclient.GetTagList.ResponseTagInfo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f55687a;
+    public List<a> f59376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f55688b;
+    public List<a> f59377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<Integer> f55689c;
+    public List<Integer> f59378c;
 
     public List<Integer> a() {
-        return this.f55689c;
+        return this.f59378c;
     }
 
     public List<a> b() {
-        return this.f55688b;
+        return this.f59377b;
     }
 
     public List<a> c() {
-        return this.f55687a;
+        return this.f59376a;
     }
 
     public void d(DataRes dataRes) {
@@ -36,15 +36,15 @@ public class b {
         }
         if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
             ArrayList arrayList = new ArrayList();
-            this.f55687a = arrayList;
+            this.f59376a = arrayList;
             e(arrayList, dataRes.sex_taglist);
         }
         if (ListUtils.isEmpty(dataRes.taglist)) {
             return;
         }
-        this.f55688b = new ArrayList();
-        this.f55689c = new ArrayList();
-        e(this.f55688b, dataRes.taglist);
+        this.f59377b = new ArrayList();
+        this.f59378c = new ArrayList();
+        e(this.f59377b, dataRes.taglist);
     }
 
     public final void e(List<a> list, List<ResponseTagInfo> list2) {
@@ -56,9 +56,9 @@ public class b {
                 a aVar = new a();
                 aVar.a(responseTagInfo);
                 list.add(aVar);
-                List<Integer> list3 = this.f55689c;
-                if (list3 != null && aVar.f55686c) {
-                    list3.add(Integer.valueOf(aVar.f55684a));
+                List<Integer> list3 = this.f59378c;
+                if (list3 != null && aVar.f59375c) {
+                    list3.add(Integer.valueOf(aVar.f59373a));
                 }
             }
         }

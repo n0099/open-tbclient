@@ -2,7 +2,7 @@ package org.apache.http.auth;
 
 import java.security.Principal;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NTUserPrincipal implements Principal {
     public NTUserPrincipal(String str, String str2) {
         throw new RuntimeException("Stub!");

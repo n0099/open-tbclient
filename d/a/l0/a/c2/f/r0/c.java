@@ -17,18 +17,18 @@ public class c extends e {
     public class a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f41258e;
+        public final /* synthetic */ CallbackHandler f44934e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f41259f;
+        public final /* synthetic */ d f44935f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.p.e.b f41260g;
+        public final /* synthetic */ d.a.l0.a.p.e.b f44936g;
 
         public a(CallbackHandler callbackHandler, d dVar, d.a.l0.a.p.e.b bVar) {
-            this.f41258e = callbackHandler;
-            this.f41259f = dVar;
-            this.f41260g = bVar;
+            this.f44934e = callbackHandler;
+            this.f44935f = dVar;
+            this.f44936g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,18 +36,18 @@ public class c extends e {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (!d.a.l0.a.e2.c.d.h(iVar)) {
-                d.a.l0.a.e2.c.d.p(iVar, this.f41258e, this.f41259f.f40848i);
-                this.f41259f.o = null;
+                d.a.l0.a.e2.c.d.p(iVar, this.f44934e, this.f44935f.f44524i);
+                this.f44935f.o = null;
             } else {
-                d dVar = this.f41259f;
+                d dVar = this.f44935f;
                 dVar.q = false;
-                c.this.m(this.f41258e, (SwanAppSlaveManager) this.f41260g, dVar);
+                c.this.m(this.f44934e, (SwanAppSlaveManager) this.f44936g, dVar);
             }
-            if (this.f41260g.X(this.f41259f)) {
+            if (this.f44936g.X(this.f44935f)) {
                 return;
             }
             d.a.l0.a.e0.d.b("updateWebView", "update webview widget fail");
-            this.f41258e.handleSchemeDispatchCallback(this.f41259f.f40848i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            this.f44934e.handleSchemeDispatchCallback(this.f44935f.f44524i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
         }
     }
 
@@ -57,7 +57,7 @@ public class c extends e {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("UpdateWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         d h2 = d.h(unitedSchemeEntity);
@@ -70,7 +70,7 @@ public class c extends e {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            d.a.l0.a.p.e.b bVar = (d.a.l0.a.p.e.b) d.a.l0.a.g1.f.V().B(h2.f40846g);
+            d.a.l0.a.p.e.b bVar = (d.a.l0.a.p.e.b) d.a.l0.a.g1.f.V().B(h2.f44522g);
             if (bVar == null) {
                 d.a.l0.a.e0.d.b("updateWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

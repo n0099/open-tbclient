@@ -17,7 +17,7 @@ import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ConnectionPool {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final Executor executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));

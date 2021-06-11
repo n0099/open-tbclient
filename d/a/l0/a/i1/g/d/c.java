@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends g {
     static {
-        boolean z = d.a.l0.a.k.f43199a;
+        boolean z = d.a.l0.a.k.f46875a;
     }
 
     public c(String str) {
@@ -20,7 +20,7 @@ public class c extends g {
 
     @Override // d.a.l0.a.i1.g.d.g
     public boolean a(d.a.l0.a.i1.g.a aVar, d.a.l0.a.i1.g.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        d.a.l0.a.e0.d.g("video", "open, video id:" + cVar.n + " slave id: " + cVar.f40846g);
+        d.a.l0.a.e0.d.g("video", "open, video id:" + cVar.n + " slave id: " + cVar.f44522g);
         aVar.l();
         d(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;

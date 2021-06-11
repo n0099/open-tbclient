@@ -11,10 +11,10 @@ import d.a.m0.w.m;
 public class b extends m {
     public b(Context context) {
         super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
-        this.f50850d = R.drawable.icon_pure_post_voice24;
-        this.f50851e = R.drawable.icon_pure_post_voice24_selection;
-        this.f50853g = false;
-        this.f50854h = true;
+        this.f54527d = R.drawable.icon_pure_post_voice24;
+        this.f54528e = R.drawable.icon_pure_post_voice24_selection;
+        this.f54530g = false;
+        this.f54531h = true;
         this.l = 6;
         this.m = true;
         this.k = new NewVoiceRecordButton(context);

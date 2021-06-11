@@ -3,42 +3,32 @@ package com.kwad.sdk.core.g.a;
 import android.content.Context;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.utils.ai;
+import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f32223a;
+    public String f34258a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32224b;
+    public String f34259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32225c;
+    public String f34260c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32226d;
+    public String f34261d;
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f32227e;
-
-    public static JSONObject a() {
-        if (f32223a == null) {
-            f32223a = b().toJson();
-        }
-        return f32223a;
-    }
-
-    public static b b() {
+    public static b a() {
         b bVar = new b();
-        bVar.f32224b = KsAdSDKImpl.get().getAppId();
-        bVar.f32225c = KsAdSDKImpl.get().getAppName();
+        bVar.f34258a = KsAdSDKImpl.get().getAppId();
+        bVar.f34259b = KsAdSDKImpl.get().getAppName();
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null) {
-            bVar.f32226d = context.getPackageName();
-            bVar.f32227e = ai.n(context);
+            bVar.f34260c = context.getPackageName();
+            bVar.f34261d = ah.l(context);
         }
         return bVar;
     }
@@ -46,10 +36,10 @@ public class b implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f32224b);
-        o.a(jSONObject, "name", this.f32225c);
-        o.a(jSONObject, "packageName", this.f32226d);
-        o.a(jSONObject, "version", this.f32227e);
+        o.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f34258a);
+        o.a(jSONObject, "name", this.f34259b);
+        o.a(jSONObject, "packageName", this.f34260c);
+        o.a(jSONObject, "version", this.f34261d);
         return jSONObject;
     }
 }

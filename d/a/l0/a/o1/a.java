@@ -24,13 +24,13 @@ import org.json.JSONObject;
 public class a implements l {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43928c = k.f43199a;
+    public static final boolean f47604c = k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f43930b = null;
+    public Boolean f47606b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43929a = AppRuntime.getAppContext();
+    public Context f47605a = AppRuntime.getAppContext();
 
     @Override // d.a.l0.r.l
     public String a() {
@@ -84,13 +84,18 @@ public class a implements l {
     @Override // d.a.l0.r.l
     public String getAppId() {
         e F = f.V().F();
-        return F != null ? F.f40749f : "";
+        return F != null ? F.f44425f : "";
     }
 
     @Override // d.a.l0.r.l
     public String getAppVersion() {
         e F = f.V().F();
         return F != null ? F.N().u1() : "";
+    }
+
+    @Override // d.a.l0.r.l
+    public String getDeviceId(Context context) {
+        return d.a.l0.a.c1.a.a0().i(d.a.l0.a.c1.a.b());
     }
 
     @Override // d.a.l0.r.l
@@ -142,30 +147,25 @@ public class a implements l {
 
     @Override // d.a.l0.r.l
     public boolean q() {
-        if (this.f43930b == null) {
+        if (this.f47606b == null) {
             d.a.l0.a.c1.a.Z().getSwitch("swan_ceres_add_counter", false);
-            this.f43930b = false;
+            this.f47606b = false;
         }
-        return this.f43930b.booleanValue();
+        return this.f47606b.booleanValue();
     }
 
     @Override // d.a.l0.r.l
     public boolean r() {
-        return d.a.l0.a.u1.a.a.V() && (s() || k.f43200b);
+        return d.a.l0.a.u1.a.a.V() && (s() || k.f46876b);
     }
 
     @Override // d.a.l0.r.l
     public boolean s() {
-        return f43928c && PreferenceManager.getDefaultSharedPreferences(d.a.l0.a.c1.a.b()).getBoolean("KEY_UBC_DEBUG", true);
+        return f47604c && PreferenceManager.getDefaultSharedPreferences(d.a.l0.a.c1.a.b()).getBoolean("KEY_UBC_DEBUG", true);
     }
 
     @Override // d.a.l0.r.l
-    public String t(Context context) {
-        return d.a.l0.a.c1.a.a0().i(d.a.l0.a.c1.a.b());
-    }
-
-    @Override // d.a.l0.r.l
-    public String u() {
+    public String t() {
         String b2 = d.a.l0.a.c1.a.m().b();
         if (q0.G() || TextUtils.isEmpty(b2)) {
             return null;
@@ -174,12 +174,12 @@ public class a implements l {
     }
 
     @Override // d.a.l0.r.l
-    public String v() {
+    public String u() {
         return d.a.l0.a.d0.a.b();
     }
 
     @Override // d.a.l0.r.l
-    public String w(Context context) {
+    public String v(Context context) {
         return d.a.l0.a.c1.a.a0().h(d.a.l0.a.c1.a.b());
     }
 }

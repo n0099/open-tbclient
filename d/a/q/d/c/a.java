@@ -28,15 +28,15 @@ import org.json.JSONObject;
 public class a extends d.a.q.d.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f64053g;
+    public Context f67771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile e f64054h;
+    public volatile e f67772h;
 
     /* renamed from: d.a.q.d.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class CallableC1777a implements Callable<Boolean> {
-        public CallableC1777a() {
+    public class CallableC1835a implements Callable<Boolean> {
+        public CallableC1835a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class a extends d.a.q.d.a {
         /* renamed from: a */
         public Boolean call() {
             a aVar = a.this;
-            aVar.i(aVar.f64054h);
+            aVar.i(aVar.f67772h);
             return Boolean.TRUE;
         }
     }
@@ -53,19 +53,19 @@ public class a extends d.a.q.d.a {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.c f64056e;
+        public final /* synthetic */ a.c f67774e;
 
         public b(a.c cVar) {
-            this.f64056e = cVar;
+            this.f67774e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f64054h.f64068g == null) {
-                this.f64056e.b(-1, null, null);
+            if (a.this.f67772h.f67786g == null) {
+                this.f67774e.b(-1, null, null);
                 return;
             }
-            this.f64056e.a(a.this.f64054h.f64068g.a(), null);
+            this.f67774e.a(a.this.f67772h.f67786g.a(), null);
         }
     }
 
@@ -73,15 +73,15 @@ public class a extends d.a.q.d.a {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.c f64058e;
+        public final /* synthetic */ a.c f67776e;
 
         public c(a aVar, a.c cVar) {
-            this.f64058e = cVar;
+            this.f67776e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f64058e.b(-1, null, null);
+            this.f67776e.b(-1, null, null);
         }
     }
 
@@ -89,26 +89,26 @@ public class a extends d.a.q.d.a {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, C1778a> f64059a = new HashMap();
+        public Map<String, C1836a> f67777a = new HashMap();
 
         /* renamed from: d.a.q.d.c.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C1778a {
+        public static class C1836a {
 
             /* renamed from: a  reason: collision with root package name */
-            public boolean f64060a;
+            public boolean f67778a;
 
             /* renamed from: b  reason: collision with root package name */
-            public long f64061b;
+            public long f67779b;
 
-            public C1778a(boolean z, long j) {
-                this.f64060a = z;
-                this.f64061b = j;
+            public C1836a(boolean z, long j) {
+                this.f67778a = z;
+                this.f67779b = j;
             }
         }
 
-        public C1778a a(String str) {
-            return this.f64059a.get(str);
+        public C1836a a(String str) {
+            return this.f67777a.get(str);
         }
 
         public void b(TrustSubject trustSubject) {
@@ -122,7 +122,7 @@ public class a extends d.a.q.d.a {
                 while (keys.hasNext()) {
                     String next = keys.next();
                     JSONObject jSONObject = optJSONObject.getJSONObject(next);
-                    this.f64059a.put(next, new C1778a(jSONObject.optBoolean(com.baidu.fsg.face.base.b.c.l, true), jSONObject.optLong("priority", -1L)));
+                    this.f67777a.put(next, new C1836a(jSONObject.optBoolean(com.baidu.fsg.face.base.b.c.l, true), jSONObject.optLong("priority", -1L)));
                 }
             } catch (Exception unused) {
             }
@@ -133,51 +133,51 @@ public class a extends d.a.q.d.a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile d.a.q.h.b f64062a;
+        public volatile d.a.q.h.b f67780a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile d.a.q.e.b f64063b;
+        public volatile d.a.q.e.b f67781b;
 
         /* renamed from: c  reason: collision with root package name */
-        public volatile TrustSubjectManager f64064c;
+        public volatile TrustSubjectManager f67782c;
 
         /* renamed from: d  reason: collision with root package name */
-        public volatile TrustSubjectManager.d f64065d;
+        public volatile TrustSubjectManager.d f67783d;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile Future<Boolean> f64066e;
+        public volatile Future<Boolean> f67784e;
 
         /* renamed from: f  reason: collision with root package name */
-        public volatile d.a.q.g.d.a f64067f;
+        public volatile d.a.q.g.d.a f67785f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile j f64068g;
+        public volatile j f67786g;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile Map<String, d.a.q.e.a> f64069h = new HashMap();
+        public volatile Map<String, d.a.q.e.a> f67787h = new HashMap();
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile Map<String, d.a.q.h.a> f64070i = new HashMap();
+        public volatile Map<String, d.a.q.h.a> f67788i = new HashMap();
     }
 
     /* loaded from: classes2.dex */
     public static class f<T> implements a.d<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public a.c<T> f64071a;
+        public a.c<T> f67789a;
 
         public f(a.c<T> cVar) {
-            this.f64071a = cVar;
+            this.f67789a = cVar;
         }
 
         @Override // d.a.q.h.a.d
         public void a(T t, Bundle bundle) {
-            this.f64071a.a(t, bundle);
+            this.f67789a.a(t, bundle);
         }
 
         @Override // d.a.q.h.a.d
         public void b(int i2, Exception exc, Bundle bundle) {
-            this.f64071a.b(i2, exc, bundle);
+            this.f67789a.b(i2, exc, bundle);
         }
     }
 
@@ -185,22 +185,22 @@ public class a extends d.a.q.d.a {
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, C1779a> f64072a = new HashMap();
+        public Map<String, C1837a> f67790a = new HashMap();
 
         /* renamed from: d.a.q.d.c.a$g$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C1779a {
+        public static class C1837a {
 
             /* renamed from: a  reason: collision with root package name */
-            public boolean f64073a;
+            public boolean f67791a;
 
-            public C1779a(boolean z) {
-                this.f64073a = z;
+            public C1837a(boolean z) {
+                this.f67791a = z;
             }
         }
 
-        public C1779a a(String str) {
-            return this.f64072a.get(str);
+        public C1837a a(String str) {
+            return this.f67790a.get(str);
         }
 
         public void b(TrustSubject trustSubject) {
@@ -213,7 +213,7 @@ public class a extends d.a.q.d.a {
                 Iterator<String> keys = optJSONObject.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    this.f64072a.put(next, new C1779a(optJSONObject.getJSONObject(next).optBoolean(com.baidu.fsg.face.base.b.c.l, true)));
+                    this.f67790a.put(next, new C1837a(optJSONObject.getJSONObject(next).optBoolean(com.baidu.fsg.face.base.b.c.l, true)));
                 }
             } catch (Exception unused) {
             }
@@ -224,24 +224,24 @@ public class a extends d.a.q.d.a {
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public a.C1788a f64074a;
+        public a.C1846a f67792a;
 
         /* renamed from: b  reason: collision with root package name */
-        public FileOutputStream f64075b;
+        public FileOutputStream f67793b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FileLock f64076c;
+        public FileLock f67794c;
 
-        public h(a.C1788a c1788a) {
-            this.f64074a = c1788a;
+        public h(a.C1846a c1846a) {
+            this.f67792a = c1846a;
         }
 
         public boolean a() {
-            this.f64074a.a();
+            this.f67792a.a();
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream(this.f64074a.d("lock"));
-                this.f64075b = fileOutputStream;
-                this.f64076c = fileOutputStream.getChannel().lock();
+                FileOutputStream fileOutputStream = new FileOutputStream(this.f67792a.d("lock"));
+                this.f67793b = fileOutputStream;
+                this.f67794c = fileOutputStream.getChannel().lock();
                 return true;
             } catch (IOException unused) {
                 return false;
@@ -250,32 +250,32 @@ public class a extends d.a.q.d.a {
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IPUT, INVOKE, IPUT, IPUT, IF] complete} */
         public boolean b() {
-            FileLock fileLock = this.f64076c;
+            FileLock fileLock = this.f67794c;
             if (fileLock != null) {
                 try {
                     fileLock.release();
-                    FileOutputStream fileOutputStream = this.f64075b;
+                    FileOutputStream fileOutputStream = this.f67793b;
                     if (fileOutputStream != null) {
                         d.a.q.g.c.a.c.b(fileOutputStream);
-                        this.f64075b = null;
+                        this.f67793b = null;
                     }
-                    this.f64076c = null;
+                    this.f67794c = null;
                     return true;
                 } catch (IOException unused) {
-                    FileOutputStream fileOutputStream2 = this.f64075b;
+                    FileOutputStream fileOutputStream2 = this.f67793b;
                     if (fileOutputStream2 != null) {
                         d.a.q.g.c.a.c.b(fileOutputStream2);
-                        this.f64075b = null;
+                        this.f67793b = null;
                     }
-                    this.f64076c = null;
+                    this.f67794c = null;
                     return false;
                 } catch (Throwable th) {
-                    FileOutputStream fileOutputStream3 = this.f64075b;
+                    FileOutputStream fileOutputStream3 = this.f67793b;
                     if (fileOutputStream3 != null) {
                         d.a.q.g.c.a.c.b(fileOutputStream3);
-                        this.f64075b = null;
+                        this.f67793b = null;
                     }
-                    this.f64076c = null;
+                    this.f67794c = null;
                     throw th;
                 }
             }
@@ -287,18 +287,18 @@ public class a extends d.a.q.d.a {
     public static class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f64077a;
+        public String f67795a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f64078b;
+        public String f67796b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f64079c;
+        public long f67797c;
 
         public i(String str, String str2, long j) {
-            this.f64077a = str;
-            this.f64078b = str2;
-            this.f64079c = j;
+            this.f67795a = str;
+            this.f67796b = str2;
+            this.f67797c = j;
         }
     }
 
@@ -306,16 +306,16 @@ public class a extends d.a.q.d.a {
     public static class j {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<i> f64080a = new ArrayList();
+        public List<i> f67798a = new ArrayList();
 
         public String a() {
             JSONArray jSONArray = new JSONArray();
             try {
-                for (i iVar : this.f64080a) {
+                for (i iVar : this.f67798a) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("pkg", iVar.f64077a);
-                    jSONObject.put("aid", iVar.f64078b);
-                    jSONObject.put("priority", iVar.f64079c);
+                    jSONObject.put("pkg", iVar.f67795a);
+                    jSONObject.put("aid", iVar.f67796b);
+                    jSONObject.put("priority", iVar.f67797c);
                     jSONArray.put(jSONObject);
                 }
             } catch (Exception unused) {
@@ -324,7 +324,7 @@ public class a extends d.a.q.d.a {
         }
 
         public void b(String str, String str2, long j) {
-            this.f64080a.add(new i(str, str2, j));
+            this.f67798a.add(new i(str, str2, j));
         }
     }
 
@@ -333,16 +333,16 @@ public class a extends d.a.q.d.a {
         ExecutorService executorService;
         Runnable cVar2;
         h();
-        d.a.q.h.a aVar = this.f64054h.f64070i.get(str);
+        d.a.q.h.a aVar = this.f67772h.f67788i.get(str);
         if (aVar != null) {
             aVar.g(new f(cVar));
             return;
         }
         if ("sids".equals(str)) {
-            executorService = this.f64043e.f64048d;
+            executorService = this.f67761e.f67766d;
             cVar2 = new b(cVar);
         } else {
-            executorService = this.f64043e.f64048d;
+            executorService = this.f67761e.f67766d;
             cVar2 = new c(this, cVar);
         }
         executorService.submit(cVar2);
@@ -351,10 +351,10 @@ public class a extends d.a.q.d.a {
     @Override // d.a.q.d.a
     public boolean d(String str) {
         h();
-        List<TrustSubject> list = this.f64054h.f64065d.f6268a;
+        List<TrustSubject> list = this.f67772h.f67783d.f6311a;
         if (list != null) {
             for (TrustSubject trustSubject : list) {
-                if (trustSubject.f6247a.equals(str)) {
+                if (trustSubject.f6290a.equals(str)) {
                     return true;
                 }
             }
@@ -365,21 +365,21 @@ public class a extends d.a.q.d.a {
 
     @Override // d.a.q.d.a
     public void e(a.b bVar) {
-        this.f64053g = this.f64043e.f64047c;
-        this.f64054h = new e();
-        this.f64054h.f64066e = this.f64043e.f64048d.submit(new CallableC1777a());
+        this.f67771g = this.f67761e.f67765c;
+        this.f67772h = new e();
+        this.f67772h.f67784e = this.f67761e.f67766d.submit(new CallableC1835a());
     }
 
     @Override // d.a.q.d.a
     public a.d f(String str, Bundle bundle) {
         h();
-        d.a.q.h.a aVar = this.f64054h.f64070i.get(str);
+        d.a.q.h.a aVar = this.f67772h.f67788i.get(str);
         return aVar != null ? a.d.c(aVar.c()) : a.d.a(-1, null);
     }
 
     public final void h() {
         try {
-            this.f64054h.f64066e.get();
+            this.f67772h.f67784e.get();
         } catch (InterruptedException e2) {
             throw new RuntimeException(e2);
         } catch (ExecutionException e3) {
@@ -389,86 +389,86 @@ public class a extends d.a.q.d.a {
 
     public final void i(e eVar) {
         g gVar;
-        d.a.q.g.d.a aVar = new d.a.q.g.d.a(this.f64053g);
-        eVar.f64067f = aVar;
+        d.a.q.g.d.a aVar = new d.a.q.g.d.a(this.f67771g);
+        eVar.f67785f = aVar;
         h hVar = new h(aVar.d().f("init"));
         try {
             hVar.a();
             TrustSubjectManager.a aVar2 = new TrustSubjectManager.a();
-            aVar2.f6265a = this.f64053g;
-            aVar2.f6266b = aVar;
+            aVar2.f6308a = this.f67771g;
+            aVar2.f6309b = aVar;
             TrustSubjectManager trustSubjectManager = new TrustSubjectManager();
-            eVar.f64064c = trustSubjectManager;
+            eVar.f67782c = trustSubjectManager;
             trustSubjectManager.f(aVar2);
             trustSubjectManager.i(new TrustSubjectManager.b());
-            eVar.f64065d = trustSubjectManager.j(new TrustSubjectManager.c());
-            d.a.q.h.b bVar = new d.a.q.h.b(this.f64043e.f64045a);
-            eVar.f64062a = bVar;
+            eVar.f67783d = trustSubjectManager.j(new TrustSubjectManager.c());
+            d.a.q.h.b bVar = new d.a.q.h.b(this.f67761e.f67763a);
+            eVar.f67780a = bVar;
             a.b bVar2 = new a.b();
-            bVar2.f64255a = this.f64053g;
-            bVar2.f64256b = aVar;
-            bVar2.f64257c = eVar.f64065d;
-            bVar2.f64258d = this.f64043e.f64048d;
-            bVar2.f64259e = this.f64043e.f64049e;
+            bVar2.f67973a = this.f67771g;
+            bVar2.f67974b = aVar;
+            bVar2.f67975c = eVar.f67783d;
+            bVar2.f67976d = this.f67761e.f67766d;
+            bVar2.f67977e = this.f67761e.f67767e;
             a.c cVar = new a.c();
-            cVar.f64260a = false;
+            cVar.f67978a = false;
             List<d.a.q.h.a> b2 = bVar.b();
             ArrayList<d.a.q.h.a> arrayList = b2 == null ? new ArrayList() : new ArrayList(b2);
-            if (eVar.f64065d.f6269b != null) {
+            if (eVar.f67783d.f6312b != null) {
                 gVar = new g();
-                gVar.b(eVar.f64065d.f6269b);
+                gVar.b(eVar.f67783d.f6312b);
             } else {
                 gVar = null;
             }
             if (arrayList.size() > 0 && gVar != null) {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    g.C1779a a2 = gVar.a(((d.a.q.h.a) it.next()).e());
-                    if (a2 != null && !a2.f64073a) {
+                    g.C1837a a2 = gVar.a(((d.a.q.h.a) it.next()).e());
+                    if (a2 != null && !a2.f67791a) {
                         it.remove();
                     }
                 }
             }
             for (d.a.q.h.a aVar3 : arrayList) {
-                eVar.f64070i.put(aVar3.e(), aVar3);
+                eVar.f67788i.put(aVar3.e(), aVar3);
                 aVar3.a(bVar2);
                 aVar3.f(cVar);
             }
-            d.a.q.e.b bVar3 = new d.a.q.e.b(this.f64043e.f64046b);
-            eVar.f64063b = bVar3;
+            d.a.q.e.b bVar3 = new d.a.q.e.b(this.f67761e.f67764b);
+            eVar.f67781b = bVar3;
             a.b bVar4 = new a.b();
-            bVar4.f64095a = this.f64053g;
-            bVar4.f64097c = bVar;
-            bVar4.f64096b = aVar;
+            bVar4.f67813a = this.f67771g;
+            bVar4.f67815c = bVar;
+            bVar4.f67814b = aVar;
             List<d.a.q.e.a> a3 = bVar3.a();
             ArrayList arrayList2 = a3 == null ? new ArrayList() : new ArrayList(a3);
-            if (arrayList2.size() > 0 && eVar.f64065d.f6269b != null) {
+            if (arrayList2.size() > 0 && eVar.f67783d.f6312b != null) {
                 d dVar = new d();
-                dVar.b(eVar.f64065d.f6269b);
+                dVar.b(eVar.f67783d.f6312b);
                 Iterator<d.a.q.e.a> it2 = arrayList2.iterator();
                 while (it2.hasNext()) {
                     d.a.q.e.a next = it2.next();
-                    d.C1778a a4 = dVar.a(next.c());
+                    d.C1836a a4 = dVar.a(next.c());
                     if (a4 != null) {
-                        if (!a4.f64060a) {
+                        if (!a4.f67778a) {
                             it2.remove();
-                        } else if (a4.f64061b > -1) {
-                            next.g(a4.f64061b);
+                        } else if (a4.f67779b > -1) {
+                            next.g(a4.f67779b);
                         }
                     }
                 }
             }
-            Collections.sort(arrayList2, d.a.q.e.a.f64090e);
+            Collections.sort(arrayList2, d.a.q.e.a.f67808e);
             a.d dVar2 = new a.d();
             a.e eVar2 = new a.e();
             for (d.a.q.e.a aVar4 : arrayList2) {
-                eVar.f64069h.put(aVar4.c(), aVar4);
+                eVar.f67787h.put(aVar4.c(), aVar4);
                 aVar4.a(bVar4);
                 aVar4.e(dVar2);
                 aVar4.f(eVar2);
             }
-            g.C1779a a5 = gVar != null ? gVar.a("sids") : null;
-            if (a5 == null || a5.f64073a) {
+            g.C1837a a5 = gVar != null ? gVar.a("sids") : null;
+            if (a5 == null || a5.f67791a) {
                 j(eVar, arrayList2);
             }
         } finally {
@@ -477,10 +477,10 @@ public class a extends d.a.q.d.a {
     }
 
     public final void j(e eVar, List<d.a.q.e.a> list) {
-        List<TrustSubject> list2 = eVar.f64065d.f6268a;
+        List<TrustSubject> list2 = eVar.f67783d.f6311a;
         a.g gVar = new a.g();
-        gVar.f64101a = true;
-        eVar.f64068g = new j();
+        gVar.f67819a = true;
+        eVar.f67786g = new j();
         if (list2 != null) {
             for (TrustSubject trustSubject : list2) {
                 Iterator<d.a.q.e.a> it = list.iterator();
@@ -488,9 +488,9 @@ public class a extends d.a.q.d.a {
                     if (!it.hasNext()) {
                         break;
                     }
-                    a.h b2 = it.next().b(trustSubject.f6247a, gVar);
+                    a.h b2 = it.next().b(trustSubject.f6290a, gVar);
                     if (b2 != null && b2.d()) {
-                        eVar.f64068g.b(trustSubject.f6247a, b2.f64102a, trustSubject.o());
+                        eVar.f67786g.b(trustSubject.f6290a, b2.f67820a, trustSubject.o());
                         break;
                     }
                 }

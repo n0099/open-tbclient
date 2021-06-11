@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43502a = k.f43199a;
+    public static final boolean f47178a = k.f46875a;
 
     public static void a() {
         File c2 = c();
@@ -26,7 +26,7 @@ public final class a {
     }
 
     public static File c() {
-        return new File(d.a.l0.a.f1.c.a.d().get(0).f45423a, "/aiapps_debug_swan_core/");
+        return new File(d.a.l0.a.f1.c.a.d().get(0).f49097a, "/aiapps_debug_swan_core/");
     }
 
     public static File d() {
@@ -44,7 +44,7 @@ public final class a {
             try {
                 jSONObject = new JSONObject(d.D(file));
             } catch (JSONException e2) {
-                if (f43502a) {
+                if (f47178a) {
                     e2.printStackTrace();
                 }
             }

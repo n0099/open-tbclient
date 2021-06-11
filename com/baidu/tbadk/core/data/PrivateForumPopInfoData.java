@@ -7,60 +7,60 @@ import tbclient.PrivatePopInfo;
 public class PrivateForumPopInfoData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12042e = null;
+    public String f12104e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12043f = null;
+    public String f12105f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12044g = null;
+    public String f12106g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public Integer f12045h = null;
+    public Integer f12107h = null;
 
-    public void A(String str) {
-        this.f12044g = str;
-    }
-
-    public String s() {
-        return this.f12043f;
-    }
-
-    public Integer t() {
-        return this.f12045h;
-    }
-
-    public String u() {
-        return this.f12042e;
-    }
-
-    public String v() {
-        return this.f12044g;
-    }
-
-    public void w(PrivatePopInfo privatePopInfo) {
+    public void A(PrivatePopInfo privatePopInfo) {
         if (privatePopInfo == null) {
             return;
         }
         try {
-            this.f12042e = privatePopInfo.pop_type;
-            this.f12043f = privatePopInfo.pop_content;
-            this.f12044g = privatePopInfo.pop_url;
-            this.f12045h = privatePopInfo.pop_forum_id;
+            this.f12104e = privatePopInfo.pop_type;
+            this.f12105f = privatePopInfo.pop_content;
+            this.f12106g = privatePopInfo.pop_url;
+            this.f12107h = privatePopInfo.pop_forum_id;
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }
     }
 
-    public void x(String str) {
-        this.f12043f = str;
+    public void B(String str) {
+        this.f12105f = str;
     }
 
-    public void y(Integer num) {
-        this.f12045h = num;
+    public void C(Integer num) {
+        this.f12107h = num;
     }
 
-    public void z(String str) {
-        this.f12042e = str;
+    public void D(String str) {
+        this.f12104e = str;
+    }
+
+    public void E(String str) {
+        this.f12106g = str;
+    }
+
+    public String w() {
+        return this.f12105f;
+    }
+
+    public Integer x() {
+        return this.f12107h;
+    }
+
+    public String y() {
+        return this.f12104e;
+    }
+
+    public String z() {
+        return this.f12106g;
     }
 }

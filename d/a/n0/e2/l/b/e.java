@@ -10,71 +10,71 @@ import tbclient.ExcPbPage.ExcContent;
 public class e implements d, PreLoadImageProvider {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53666e;
+    public String f57355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53667f;
+    public int f57356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53668g;
+    public int f57357g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<PreLoadImageInfo> f53669h;
+    public ArrayList<PreLoadImageInfo> f57358h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f53670i;
+    public String f57359i;
 
     public e(ExcContent excContent) {
         Long l;
         if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
             return;
         }
-        this.f53669h = new ArrayList<>(1);
-        this.f53666e = excContent.src;
+        this.f57358h = new ArrayList<>(1);
+        this.f57355e = excContent.src;
         String str = excContent.bsize;
-        this.f53670i = str;
+        this.f57359i = str;
         if (str != null) {
             try {
                 String[] split = str.split(",");
-                this.f53667f = d.a.c.e.m.b.d(split[0], 0);
-                this.f53668g = d.a.c.e.m.b.d(split[1], 0);
+                this.f57356f = d.a.c.e.m.b.d(split[0], 0);
+                this.f57357g = d.a.c.e.m.b.d(split[1], 0);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f53667f <= 0) {
-            this.f53667f = 1;
+        if (this.f57356f <= 0) {
+            this.f57356f = 1;
         }
-        if (this.f53668g <= 0) {
-            this.f53668g = 1;
+        if (this.f57357g <= 0) {
+            this.f57357g = 1;
         }
         String str2 = excContent.cdn_src;
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
         preLoadImageInfo.procType = 17;
-        preLoadImageInfo.height = this.f53668g;
-        preLoadImageInfo.width = this.f53667f;
+        preLoadImageInfo.height = this.f57357g;
+        preLoadImageInfo.width = this.f57356f;
         if (StringUtils.isNull(str2)) {
-            preLoadImageInfo.imgUrl = this.f53666e;
+            preLoadImageInfo.imgUrl = this.f57355e;
         } else {
             preLoadImageInfo.imgUrl = str2;
         }
-        this.f53669h.add(preLoadImageInfo);
+        this.f57358h.add(preLoadImageInfo);
     }
 
     public int c(int i2) {
         if (i2 <= 0) {
             return 0;
         }
-        return (i2 * this.f53668g) / this.f53667f;
+        return (i2 * this.f57357g) / this.f57356f;
     }
 
     public String d() {
-        return this.f53666e;
+        return this.f57355e;
     }
 
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.f53669h;
+        return this.f57358h;
     }
 
     @Override // d.a.n0.e2.l.b.d

@@ -5,14 +5,14 @@ import android.os.Bundle;
 public abstract class b<ValueT> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ValueT f41850a;
+    public final ValueT f45526a;
 
     public b() {
         this(null);
     }
 
     public ValueT a(c cVar, String str) {
-        return b(cVar, str, this.f41850a);
+        return b(cVar, str, this.f45526a);
     }
 
     public ValueT b(c cVar, String str, ValueT valuet) {
@@ -28,6 +28,6 @@ public abstract class b<ValueT> {
     public abstract void e(Bundle bundle, String str, ValueT valuet);
 
     public b(ValueT valuet) {
-        this.f41850a = valuet;
+        this.f45526a = valuet;
     }
 }

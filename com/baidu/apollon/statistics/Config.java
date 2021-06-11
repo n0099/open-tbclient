@@ -4,31 +4,31 @@ public class Config {
     public static final String LOG_TYPE_NORMAL = "normal_log";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3905a = "wallet_stastics";
+    public static final String f3924a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f3906b = false;
+    public static final boolean f3925b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3907c = 204800;
+    public static final int f3926c = 204800;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3908d = 51200;
+    public static final int f3927d = 51200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f3909e = 604800000;
+    public static final long f3928e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f3910f = 86400000;
+    public static final long f3929f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3911g = "publish_data";
+    public static final String f3930g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3912h = "sign";
+    public static final String f3931h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f3913i = "mk";
+    public static final String f3932i = "mk";
     public static final String j = "array";
     public static final String k = "exception";
     public static final String l = "dim_excep_time";

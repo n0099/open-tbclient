@@ -16,7 +16,7 @@ import d.a.l0.a.v2.n0;
 import d.a.l0.a.v2.v;
 /* loaded from: classes2.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final int INVALID_ANIM = 0;
     public static final String TAG = "ScopeDetailActivity";
     public int mEnterAnimWhenFinishing = 0;

@@ -46,15 +46,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f16106e;
+        public final /* synthetic */ d.a.m0.r.s.a f16168e;
 
         public b(d.a.m0.r.s.a aVar) {
-            this.f16106e = aVar;
+            this.f16168e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f16106e.dismiss();
+            this.f16168e.dismiss();
             CreateBarGuideActivity.this.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(CreateBarGuideActivity.this.getPageContext().getPageActivity())));
         }
     }
@@ -63,15 +63,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.a f16108e;
+        public final /* synthetic */ d.a.m0.r.s.a f16170e;
 
         public c(d.a.m0.r.s.a aVar) {
-            this.f16108e = aVar;
+            this.f16170e = aVar;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            this.f16108e.dismiss();
+            this.f16170e.dismiss();
         }
     }
 
@@ -107,7 +107,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         }
         BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
         this.mModel = bfbInfoModel;
-        bfbInfoModel.w(this.mCallback);
+        bfbInfoModel.A(this.mCallback);
         d.a.n0.z0.a aVar = new d.a.n0.z0.a(this);
         this.mView = aVar;
         aVar.e();
@@ -120,6 +120,6 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public void onDestroy() {
         super.onDestroy();
         this.mView = null;
-        this.mModel.s();
+        this.mModel.w();
     }
 }

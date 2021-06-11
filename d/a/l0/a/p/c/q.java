@@ -1,44 +1,40 @@
 package d.a.l0.a.p.c;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.alibaba.fastjson.asm.Label;
-import d.a.l0.a.c2.f.o;
-import d.a.l0.a.v2.s0;
+import android.graphics.Bitmap;
+import d.a.l0.a.p.d.e0;
 import java.io.File;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class q implements d.a.l0.a.p.d.d0 {
-    @Override // d.a.l0.a.p.d.d0
-    public boolean a(Activity activity, String str, o.b bVar) {
-        return false;
+public class q implements d.a.l0.a.p.d.e0 {
+    @Override // d.a.l0.a.p.d.e0
+    public void a(HashMap<String, String> hashMap, File file, e0.a aVar, String str) {
+        e(aVar);
     }
 
-    @Override // d.a.l0.a.p.d.d0
-    public boolean b(Context context, String str) {
-        return true;
+    @Override // d.a.l0.a.p.d.e0
+    public void b(Context context, String str, String str2, String str3) {
     }
 
-    @Override // d.a.l0.a.p.d.d0
-    public boolean c(Activity activity, Uri uri, String str) {
-        if (activity == null || uri == null || uri.getPath() == null || TextUtils.isEmpty(str)) {
-            return false;
+    @Override // d.a.l0.a.p.d.e0
+    public void c(HashMap<String, String> hashMap, File file, e0.a aVar) {
+        e(aVar);
+    }
+
+    @Override // d.a.l0.a.p.d.e0
+    public void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, e0.a aVar) {
+        e(aVar);
+    }
+
+    public final void e(e0.a aVar) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("result", "success");
+            aVar.onResult(jSONObject.toString());
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        if (d.a.l0.a.v2.d.i()) {
-            uri = s0.a(activity, new File(uri.getPath()));
-        }
-        d(activity, uri, str);
-        return true;
-    }
-
-    public final void d(Activity activity, Uri uri, String str) {
-        Intent intent = new Intent("android.intent.action.VIEW");
-        intent.addCategory("android.intent.category.DEFAULT");
-        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-        intent.addFlags(1);
-        intent.setDataAndType(uri, str);
-        d.a.l0.a.v2.f.f(activity, intent);
     }
 }

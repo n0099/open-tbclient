@@ -14,39 +14,39 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f46880i = k.f43199a;
+    public static final boolean f50554i = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46881a;
+    public String f50555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46882b;
+    public String f50556b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f46883c;
+    public String f50557c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f46884d;
+    public String f50558d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f46885e;
+    public String f50559e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f46886f;
+    public String f50560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f46887g;
+    public long f50561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Download f46888h;
+    public Download f50562h;
 
     public a() {
-        this.f46881a = "";
-        this.f46883c = "";
-        this.f46884d = "";
-        this.f46885e = "";
-        this.f46886f = "";
-        this.f46887g = System.currentTimeMillis();
+        this.f50555a = "";
+        this.f50557c = "";
+        this.f50558d = "";
+        this.f50559e = "";
+        this.f50560f = "";
+        this.f50561g = System.currentTimeMillis();
     }
 
     public static String g() {
@@ -62,23 +62,23 @@ public class a {
     }
 
     public a a(String str) {
-        this.f46883c = str;
+        this.f50557c = str;
         return this;
     }
 
     public Download b() {
         Download download = new Download();
-        download.setUrl(this.f46881a);
-        download.setKeyByUser(this.f46882b);
+        download.setUrl(this.f50555a);
+        download.setKeyByUser(this.f50556b);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.f46883c);
-            jSONObject.put("download_time", this.f46887g);
-            jSONObject.put("from_view", this.f46884d);
-            jSONObject.put("from_value", this.f46885e);
-            jSONObject.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f46886f);
+            jSONObject.put("apk_id", this.f50557c);
+            jSONObject.put("download_time", this.f50561g);
+            jSONObject.put("from_view", this.f50558d);
+            jSONObject.put("from_value", this.f50559e);
+            jSONObject.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f50560f);
         } catch (JSONException e2) {
-            if (f46880i) {
+            if (f50554i) {
                 e2.printStackTrace();
             }
         }
@@ -94,26 +94,26 @@ public class a {
     }
 
     public a c(String str) {
-        this.f46886f = str;
+        this.f50560f = str;
         return this;
     }
 
     public a d(String str) {
-        this.f46885e = str;
+        this.f50559e = str;
         return this;
     }
 
     public a e(String str) {
-        this.f46884d = str;
+        this.f50558d = str;
         return this;
     }
 
     public String f() {
-        return this.f46883c;
+        return this.f50557c;
     }
 
     public String h() {
-        Download download = this.f46888h;
+        Download download = this.f50562h;
         if (download == null) {
             return null;
         }
@@ -121,24 +121,24 @@ public class a {
     }
 
     public long i() {
-        return this.f46887g;
+        return this.f50561g;
     }
 
     public String j() {
-        return this.f46881a;
+        return this.f50555a;
     }
 
     public String k() {
-        return this.f46882b;
+        return this.f50556b;
     }
 
     public a l(String str) {
-        this.f46882b = str;
+        this.f50556b = str;
         return this;
     }
 
     public <T> void m(String str, T t) {
-        Download download = this.f46888h;
+        Download download = this.f50562h;
         if (download == null) {
             return;
         }
@@ -149,40 +149,40 @@ public class a {
         try {
             JSONObject jSONObject = new JSONObject(fromParam);
             jSONObject.put(str, t);
-            this.f46888h.setFromParam(jSONObject.toString());
+            this.f50562h.setFromParam(jSONObject.toString());
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
     }
 
     public a n(String str) {
-        this.f46881a = str;
+        this.f50555a = str;
         return this;
     }
 
     public a(@NonNull Download download) {
-        this.f46881a = "";
-        this.f46883c = "";
-        this.f46884d = "";
-        this.f46885e = "";
-        this.f46886f = "";
-        this.f46887g = System.currentTimeMillis();
-        this.f46888h = download;
-        this.f46881a = download.getUrl();
-        this.f46882b = download.getKeyByUser();
+        this.f50555a = "";
+        this.f50557c = "";
+        this.f50558d = "";
+        this.f50559e = "";
+        this.f50560f = "";
+        this.f50561g = System.currentTimeMillis();
+        this.f50562h = download;
+        this.f50555a = download.getUrl();
+        this.f50556b = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (TextUtils.isEmpty(fromParam)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(fromParam);
-            this.f46883c = jSONObject.optString("apk_id");
-            this.f46884d = jSONObject.optString("from_view");
-            this.f46885e = jSONObject.optString("from_value");
-            this.f46886f = jSONObject.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
-            this.f46887g = jSONObject.optLong("download_time", System.currentTimeMillis());
+            this.f50557c = jSONObject.optString("apk_id");
+            this.f50558d = jSONObject.optString("from_view");
+            this.f50559e = jSONObject.optString("from_value");
+            this.f50560f = jSONObject.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
+            this.f50561g = jSONObject.optLong("download_time", System.currentTimeMillis());
         } catch (JSONException e2) {
-            if (f46880i) {
+            if (f50554i) {
                 e2.printStackTrace();
             }
         }

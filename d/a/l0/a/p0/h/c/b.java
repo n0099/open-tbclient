@@ -4,11 +4,11 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import d.a.l0.a.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends a {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f44104e = k.f43199a;
+    public static final boolean f47778e = k.f46875a;
 
     @Override // d.a.l0.a.p0.h.b
     public void f() {
@@ -16,7 +16,7 @@ public class b extends a {
 
     @Override // d.a.l0.a.p0.h.b
     public <T extends d.a.l0.a.p0.g.a> Exception g(@NonNull T t) {
-        if (f44104e) {
+        if (f47778e) {
             Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
             return null;
         }
@@ -46,7 +46,7 @@ public class b extends a {
 
     @Override // d.a.l0.a.p0.h.c.a, d.a.l0.a.p0.h.b
     public boolean k() {
-        if (f44104e) {
+        if (f47778e) {
             Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
             return false;
         }

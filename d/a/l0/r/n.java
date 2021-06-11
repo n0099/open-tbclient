@@ -18,28 +18,28 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile n f48417h;
+    public static volatile n f52091h;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48418a;
+    public Context f52092a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f48419b;
+    public ExecutorService f52093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f48420c;
+    public ExecutorService f52094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.a.l0.r.d f48421d;
+    public d.a.l0.r.d f52095d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.l0.r.c f48422e;
+    public d.a.l0.r.c f52096e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48423f;
+    public int f52097f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48424g = false;
+    public boolean f52098g = false;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -48,7 +48,7 @@ public class n {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
@@ -60,23 +60,23 @@ public class n {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f48426e;
+        public final /* synthetic */ JSONArray f52100e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48427f;
+        public final /* synthetic */ String f52101f;
 
         public b(JSONArray jSONArray, String str) {
-            this.f48426e = jSONArray;
-            this.f48427f = str;
+            this.f52100e = jSONArray;
+            this.f52101f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
-            cVar.u(this.f48426e, this.f48427f);
+            cVar.u(this.f52100e, this.f52101f);
         }
     }
 
@@ -84,19 +84,19 @@ public class n {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f48429e;
+        public final /* synthetic */ JSONArray f52103e;
 
         public c(JSONArray jSONArray) {
-            this.f48429e = jSONArray;
+            this.f52103e = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
-            cVar.w(this.f48429e);
+            cVar.w(this.f52103e);
         }
     }
 
@@ -107,7 +107,7 @@ public class n {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
@@ -119,26 +119,26 @@ public class n {
     public class e implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f48432e;
+        public final /* synthetic */ boolean f52106e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48433f;
+        public final /* synthetic */ String f52107f;
 
         public e(boolean z, String str) {
-            this.f48432e = z;
-            this.f48433f = str;
+            this.f52106e = z;
+            this.f52107f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
-            if (this.f48432e) {
-                cVar.y(this.f48433f);
+            if (this.f52106e) {
+                cVar.y(this.f52107f);
             } else {
-                cVar.x(this.f48433f);
+                cVar.x(this.f52107f);
             }
         }
     }
@@ -147,19 +147,19 @@ public class n {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public q f48435e;
+        public q f52109e;
 
         public f(q qVar) {
-            this.f48435e = qVar;
+            this.f52109e = qVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
-            cVar.r(this.f48435e);
+            cVar.r(this.f52109e);
         }
     }
 
@@ -167,23 +167,23 @@ public class n {
     public class h implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f48439e;
+        public String f52113e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f48440f;
+        public int f52114f;
 
         public h(String str, int i2) {
-            this.f48439e = str;
-            this.f48440f = i2;
+            this.f52113e = str;
+            this.f52114f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
-            cVar.a(this.f48439e, this.f48440f);
+            cVar.a(this.f52113e, this.f52114f);
         }
     }
 
@@ -191,18 +191,18 @@ public class n {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.l0.r.k f48442e;
+        public d.a.l0.r.k f52116e;
 
         public i(Flow flow, String str) {
             d.a.l0.r.k kVar = new d.a.l0.r.k(flow.g(), flow.f(), str, flow.h(), flow.k());
-            this.f48442e = kVar;
-            kVar.f48412e = flow.i();
-            this.f48442e.f48415h = "1";
-            n.this.f48423f++;
+            this.f52116e = kVar;
+            kVar.f52086e = flow.i();
+            this.f52116e.f52089h = "1";
+            n.this.f52097f++;
         }
 
         public void a(boolean z) {
-            d.a.l0.r.k kVar = this.f48442e;
+            d.a.l0.r.k kVar = this.f52116e;
             if (kVar != null) {
                 kVar.l = z;
             }
@@ -210,15 +210,15 @@ public class n {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.f48422e == null) {
+            if (n.this.f52096e == null) {
                 return;
             }
-            this.f48442e.a();
-            if (!TextUtils.isEmpty(n.this.f48421d.d(this.f48442e.f48408a))) {
-                d.a.l0.r.k kVar = this.f48442e;
-                kVar.j = n.this.f48421d.d(kVar.f48408a);
+            this.f52116e.a();
+            if (!TextUtils.isEmpty(n.this.f52095d.d(this.f52116e.f52082a))) {
+                d.a.l0.r.k kVar = this.f52116e;
+                kVar.j = n.this.f52095d.d(kVar.f52082a);
             }
-            n.this.f48422e.p(this.f48442e);
+            n.this.f52096e.p(this.f52116e);
         }
     }
 
@@ -226,30 +226,30 @@ public class n {
     public class j implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f48444e;
+        public String f52118e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f48445f;
+        public int f52119f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f48446g = System.currentTimeMillis();
+        public long f52120g = System.currentTimeMillis();
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONArray f48447h;
+        public JSONArray f52121h;
 
         public j(String str, int i2, JSONArray jSONArray) {
-            this.f48444e = str;
-            this.f48445f = i2;
-            this.f48447h = jSONArray;
+            this.f52118e = str;
+            this.f52119f = i2;
+            this.f52121h = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
-            cVar.d(this.f48444e, this.f48445f, this.f48446g, this.f48447h);
+            cVar.d(this.f52118e, this.f52119f, this.f52120g, this.f52121h);
         }
     }
 
@@ -257,27 +257,27 @@ public class n {
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f48449e;
+        public String f52123e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f48450f;
+        public int f52124f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f48451g;
+        public String f52125g;
 
         public k(String str, int i2, String str2) {
-            this.f48449e = str;
-            this.f48450f = i2;
-            this.f48451g = str2;
+            this.f52123e = str;
+            this.f52124f = i2;
+            this.f52125g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.l0.r.c cVar = n.this.f48422e;
+            d.a.l0.r.c cVar = n.this.f52096e;
             if (cVar == null) {
                 return;
             }
-            cVar.s(this.f48449e, this.f48450f, this.f48451g);
+            cVar.s(this.f52123e, this.f52124f, this.f52125g);
         }
     }
 
@@ -289,10 +289,10 @@ public class n {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            n.this.f48421d = d.a.l0.r.d.g();
+            n.this.f52095d = d.a.l0.r.d.g();
             n nVar = n.this;
-            nVar.f48422e = new d.a.l0.r.c(nVar.f48418a);
-            n.this.f48422e.o();
+            nVar.f52096e = new d.a.l0.r.c(nVar.f52092a);
+            n.this.f52096e.o();
         }
     }
 
@@ -301,14 +301,14 @@ public class n {
     }
 
     public static n f() {
-        if (f48417h == null) {
+        if (f52091h == null) {
             synchronized (n.class) {
-                if (f48417h == null) {
-                    f48417h = new n();
+                if (f52091h == null) {
+                    f52091h = new n();
                 }
             }
         }
-        return f48417h;
+        return f52091h;
     }
 
     public synchronized Flow a(String str, String str2, int i2) {
@@ -316,10 +316,10 @@ public class n {
         d2 = d(str, i2);
         if (d2 != null && d2.j()) {
             i iVar = new i(d2, str2);
-            if (this.f48421d != null && this.f48421d.m(str)) {
+            if (this.f52095d != null && this.f52095d.m(str)) {
                 iVar.a(true);
             }
-            this.f48419b.execute(iVar);
+            this.f52093b.execute(iVar);
         }
         return d2;
     }
@@ -328,17 +328,17 @@ public class n {
         if (i2 <= 0) {
             return;
         }
-        this.f48419b.execute(new d.a.l0.p.a(i2));
-        this.f48420c.execute(new d.a.l0.p.a(i2));
+        this.f52093b.execute(new d.a.l0.p.a(i2));
+        this.f52094c.execute(new d.a.l0.p.a(i2));
     }
 
     public void c(String str, int i2) {
-        this.f48419b.execute(new h(str, i2));
+        this.f52093b.execute(new h(str, i2));
     }
 
     public Flow d(String str, int i2) {
-        Flow flow = new Flow(str, this.f48423f, i2);
-        d.a.l0.r.d dVar = this.f48421d;
+        Flow flow = new Flow(str, this.f52097f, i2);
+        d.a.l0.r.d dVar = this.f52095d;
         if (dVar != null && !dVar.c(str, i2)) {
             flow.m(false);
             return flow;
@@ -346,14 +346,14 @@ public class n {
             flow.m(false);
             return flow;
         } else {
-            d.a.l0.r.d dVar2 = this.f48421d;
+            d.a.l0.r.d dVar2 = this.f52095d;
             if (dVar2 != null && dVar2.i(str) > 0) {
-                if (new Random().nextInt(100) >= this.f48421d.i(str)) {
+                if (new Random().nextInt(100) >= this.f52095d.i(str)) {
                     flow.l(true);
                     return flow;
                 }
             }
-            d.a.l0.r.d dVar3 = this.f48421d;
+            d.a.l0.r.d dVar3 = this.f52095d;
             if (dVar3 != null && dVar3.l(str)) {
                 flow.m(false);
             }
@@ -362,29 +362,29 @@ public class n {
     }
 
     public void e(String str, int i2, JSONArray jSONArray) {
-        this.f48419b.execute(new j(str, i2, jSONArray));
+        this.f52093b.execute(new j(str, i2, jSONArray));
     }
 
     public final void g(Context context) {
-        if (this.f48418a != null || context == null) {
+        if (this.f52092a != null || context == null) {
             return;
         }
         if (context instanceof Application) {
-            this.f48418a = context;
+            this.f52092a = context;
         } else {
-            this.f48418a = context.getApplicationContext();
+            this.f52092a = context.getApplicationContext();
         }
         int i2 = d.a.l0.d.b.g().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
-        this.f48423f = i2;
+        this.f52097f = i2;
         if (i2 > 1073741823) {
-            this.f48423f = i2 - LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
+            this.f52097f = i2 - LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
         } else {
-            this.f48423f = i2 + LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
+            this.f52097f = i2 + LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
         }
         ExecutorService h2 = h();
-        this.f48419b = h2;
+        this.f52093b = h2;
         h2.execute(new l());
-        this.f48420c = Executors.newSingleThreadExecutor();
+        this.f52094c = Executors.newSingleThreadExecutor();
     }
 
     public final ExecutorService h() {
@@ -406,11 +406,11 @@ public class n {
             return;
         }
         g gVar = new g(str, str2, i2);
-        d.a.l0.r.d dVar = this.f48421d;
+        d.a.l0.r.d dVar = this.f52095d;
         if (dVar != null && dVar.m(str)) {
             gVar.a(true);
         }
-        this.f48419b.execute(gVar);
+        this.f52093b.execute(gVar);
     }
 
     public void k(String str, JSONObject jSONObject, int i2) {
@@ -418,67 +418,67 @@ public class n {
             return;
         }
         g gVar = new g(str, jSONObject, i2);
-        d.a.l0.r.d dVar = this.f48421d;
+        d.a.l0.r.d dVar = this.f52095d;
         if (dVar != null && dVar.m(str)) {
             gVar.a(true);
         }
-        this.f48419b.execute(gVar);
+        this.f52093b.execute(gVar);
     }
 
     public void l() {
-        this.f48419b.execute(new d());
+        this.f52093b.execute(new d());
     }
 
     public void m(String str, String str2, int i2, String str3, int i3) {
-        this.f48419b.execute(new g(str, str2, i2, str3, i3));
+        this.f52093b.execute(new g(str, str2, i2, str3, i3));
     }
 
     public void n(String str, String str2, int i2, String str3, long j2, int i3) {
-        this.f48419b.execute(new g(str, str2, i2, str3, j2, i3));
+        this.f52093b.execute(new g(str, str2, i2, str3, j2, i3));
     }
 
     public void o(q qVar) {
-        this.f48419b.execute(new f(qVar));
+        this.f52093b.execute(new f(qVar));
     }
 
     public void p(String str, int i2, String str2) {
-        this.f48419b.execute(new k(str, i2, str2));
+        this.f52093b.execute(new k(str, i2, str2));
     }
 
     public void q() {
-        if (this.f48424g) {
+        if (this.f52098g) {
             return;
         }
-        this.f48424g = true;
-        this.f48419b.execute(new a());
+        this.f52098g = true;
+        this.f52093b.execute(new a());
     }
 
     public void r(JSONArray jSONArray, String str) {
         r.d(jSONArray);
-        this.f48420c.execute(new b(jSONArray, str));
+        this.f52094c.execute(new b(jSONArray, str));
     }
 
     public void s(JSONArray jSONArray) {
         r.d(jSONArray);
-        this.f48420c.execute(new c(jSONArray));
+        this.f52094c.execute(new c(jSONArray));
     }
 
     public void t(String str, boolean z) {
-        this.f48419b.execute(new e(z, str));
+        this.f52093b.execute(new e(z, str));
     }
 
     /* loaded from: classes3.dex */
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.l0.r.i f48437e;
+        public d.a.l0.r.i f52111e;
 
         public g(String str, String str2, int i2) {
-            this.f48437e = new d.a.l0.r.i(str, str2, i2);
+            this.f52111e = new d.a.l0.r.i(str, str2, i2);
         }
 
         public void a(boolean z) {
-            d.a.l0.r.i iVar = this.f48437e;
+            d.a.l0.r.i iVar = this.f52111e;
             if (iVar != null) {
                 iVar.j = z;
             }
@@ -486,32 +486,32 @@ public class n {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.f48422e == null) {
+            if (n.this.f52096e == null) {
                 return;
             }
-            this.f48437e.b();
-            if (!TextUtils.isEmpty(n.this.f48421d.d(this.f48437e.f48398a))) {
-                d.a.l0.r.i iVar = this.f48437e;
-                iVar.f48406i = n.this.f48421d.d(iVar.f48398a);
+            this.f52111e.b();
+            if (!TextUtils.isEmpty(n.this.f52095d.d(this.f52111e.f52072a))) {
+                d.a.l0.r.i iVar = this.f52111e;
+                iVar.f52080i = n.this.f52095d.d(iVar.f52072a);
             }
-            d.a.l0.r.i iVar2 = this.f48437e;
-            if ((iVar2.f48404g & 8) != 0) {
-                n.this.f48422e.l(iVar2);
+            d.a.l0.r.i iVar2 = this.f52111e;
+            if ((iVar2.f52078g & 8) != 0) {
+                n.this.f52096e.l(iVar2);
             } else {
-                n.this.f48422e.k(iVar2);
+                n.this.f52096e.k(iVar2);
             }
         }
 
         public g(String str, JSONObject jSONObject, int i2) {
-            this.f48437e = new d.a.l0.r.i(str, jSONObject, i2);
+            this.f52111e = new d.a.l0.r.i(str, jSONObject, i2);
         }
 
         public g(String str, String str2, int i2, String str3, int i3) {
-            this.f48437e = new d.a.l0.r.i(str, str2, i2, str3, i3);
+            this.f52111e = new d.a.l0.r.i(str, str2, i2, str3, i3);
         }
 
         public g(String str, String str2, int i2, String str3, long j, int i3) {
-            this.f48437e = new d.a.l0.r.i(str, str2, i2, str3, j, i3);
+            this.f52111e = new d.a.l0.r.i(str, str2, i2, str3, j, i3);
         }
     }
 }

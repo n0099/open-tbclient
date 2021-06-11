@@ -9,6 +9,8 @@ public interface i {
 
     /* loaded from: classes2.dex */
     public interface a {
+        void a(int i2, int i3);
+
         void a(int i2, int i3, Buffer buffer);
 
         void a(long j);

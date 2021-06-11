@@ -21,19 +21,19 @@ import d.a.m0.r.s.a;
 public class b extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f60696e;
+    public Context f64387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.n0.s1.h.e.g f60697f;
+    public d.a.n0.s1.h.e.g f64388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f60698g;
+    public View.OnClickListener f64389g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f60699h = new a();
+    public View.OnClickListener f64390h = new a();
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f60700i = new View$OnClickListenerC1601b();
+    public View.OnClickListener f64391i = new View$OnClickListenerC1657b();
     public View.OnClickListener j = new c();
     public d.a.n0.s1.h.f.a<Integer> k = new f();
     public d.a.n0.s1.h.f.a<Void> l = new g();
@@ -46,20 +46,20 @@ public class b extends BaseAdapter {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TailManagementActivityConfig tailManagementActivityConfig = new TailManagementActivityConfig(view.getContext());
-            tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(b.this.f60697f.i()));
+            tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(b.this.f64388f.i()));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tailManagementActivityConfig));
         }
     }
 
     /* renamed from: d.a.n0.s1.h.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1601b implements View.OnClickListener {
-        public View$OnClickListenerC1601b() {
+    public class View$OnClickListenerC1657b implements View.OnClickListener {
+        public View$OnClickListenerC1657b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.f60696e, 1, false, 6);
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.f64387e, 1, false, 6);
             memberPayActivityConfig.setSceneId("4009001001");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -76,13 +76,13 @@ public class b extends BaseAdapter {
             if (view.getTag() == null) {
                 return;
             }
-            if (!b.this.f60697f.g()) {
+            if (!b.this.f64388f.g()) {
                 b bVar = b.this;
-                bVar.i(bVar.f60696e.getString(R.string.become_member_to_use));
+                bVar.i(bVar.f64387e.getString(R.string.become_member_to_use));
                 return;
             }
             TailData b2 = ((d.a.n0.s1.h.e.e) view.getTag()).b();
-            b.this.f60697f.o(b2.getId(), !b2.isSelected());
+            b.this.f64388f.o(b2.getId(), !b2.isSelected());
         }
     }
 
@@ -94,7 +94,7 @@ public class b extends BaseAdapter {
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.f60696e, 1, false, 6);
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(b.this.f64387e, 1, false, 6);
             memberPayActivityConfig.setSceneId("4009001001");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -122,9 +122,9 @@ public class b extends BaseAdapter {
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             if (z) {
-                l.M(b.this.f60696e, str);
-            } else if (num != null && b.this.f60697f.i() != null && b.this.f60697f.i().size() != 0) {
-                for (TailData tailData : b.this.f60697f.i()) {
+                l.M(b.this.f64387e, str);
+            } else if (num != null && b.this.f64388f.i() != null && b.this.f64388f.i().size() != 0) {
+                for (TailData tailData : b.this.f64388f.i()) {
                     if (tailData.getId() == num.intValue()) {
                         tailData.setSelected(!tailData.isSelected());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001344, Boolean.valueOf(tailData.isSelected())));
@@ -147,7 +147,7 @@ public class b extends BaseAdapter {
         /* renamed from: b */
         public void a(boolean z, String str, Void r3) {
             if (z) {
-                l.M(b.this.f60696e, str);
+                l.M(b.this.f64387e, str);
             } else {
                 b.this.notifyDataSetChanged();
             }
@@ -155,11 +155,11 @@ public class b extends BaseAdapter {
     }
 
     public b(Context context, d.a.n0.s1.h.e.g gVar, View.OnClickListener onClickListener) {
-        this.f60696e = context;
-        this.f60698g = onClickListener;
-        this.f60697f = gVar;
+        this.f64387e = context;
+        this.f64389g = onClickListener;
+        this.f64388f = gVar;
         gVar.n(this.k);
-        this.f60697f.p(this.l);
+        this.f64388f.p(this.l);
     }
 
     public final View d(View view) {
@@ -168,8 +168,8 @@ public class b extends BaseAdapter {
             cVar = (d.a.n0.s1.h.e.c) view.getTag();
         } else {
             cVar = new d.a.n0.s1.h.e.c();
-            view = cVar.a(this.f60696e);
-            cVar.c(this.f60698g);
+            view = cVar.a(this.f64387e);
+            cVar.c(this.f64389g);
             cVar.b();
         }
         cVar.d(3);
@@ -179,8 +179,8 @@ public class b extends BaseAdapter {
     public final View e(View view) {
         if (view == null || !(view.getTag() instanceof d.a.n0.s1.h.e.d)) {
             d.a.n0.s1.h.e.d dVar = new d.a.n0.s1.h.e.d();
-            View a2 = dVar.a(this.f60696e);
-            dVar.c(this.f60699h);
+            View a2 = dVar.a(this.f64387e);
+            dVar.c(this.f64390h);
             dVar.b();
             return a2;
         }
@@ -191,10 +191,10 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: f */
     public TailData getItem(int i2) {
-        if (i2 >= this.f60697f.i().size()) {
+        if (i2 >= this.f64388f.i().size()) {
             return null;
         }
-        return this.f60697f.i().get(i2);
+        return this.f64388f.i().get(i2);
     }
 
     public final View g(TailData tailData, View view) {
@@ -206,7 +206,7 @@ public class b extends BaseAdapter {
             eVar = (d.a.n0.s1.h.e.e) view.getTag();
         } else {
             eVar = new d.a.n0.s1.h.e.e();
-            view = eVar.a(this.f60696e);
+            view = eVar.a(this.f64387e);
             eVar.e(this.j);
             eVar.c();
         }
@@ -217,7 +217,7 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f60697f.i().size() + 1;
+        return this.f64388f.i().size() + 1;
     }
 
     @Override // android.widget.Adapter
@@ -227,10 +227,10 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i2) {
-        if (this.f60697f.i().size() == 0) {
+        if (this.f64388f.i().size() == 0) {
             return 2;
         }
-        return i2 == this.f60697f.i().size() ? 1 : 0;
+        return i2 == this.f64388f.i().size() ? 1 : 0;
     }
 
     @Override // android.widget.Adapter
@@ -258,8 +258,8 @@ public class b extends BaseAdapter {
     public final View h(View view) {
         if (view == null || !(view.getTag() instanceof d.a.n0.s1.h.e.f)) {
             d.a.n0.s1.h.e.f fVar = new d.a.n0.s1.h.e.f();
-            View a2 = fVar.a(this.f60696e);
-            fVar.c(this.f60700i);
+            View a2 = fVar.a(this.f64387e);
+            fVar.c(this.f64391i);
             fVar.b();
             return a2;
         }
@@ -268,12 +268,12 @@ public class b extends BaseAdapter {
 
     @SuppressLint({"ResourceAsColor"})
     public final void i(String str) {
-        d.a.c.a.f<?> a2 = j.a(this.f60696e);
+        d.a.c.a.f<?> a2 = j.a(this.f64387e);
         if (a2 == null) {
             return;
         }
         d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(a2.getPageActivity());
         aVar.setButtonTextColor(R.color.CAM_X0305);
-        aVar.setMessage(str).setNegativeButton(this.f60696e.getString(R.string.cancel), new e(this)).setPositiveButton(this.f60696e.getString(R.string.open_now), new d()).create(a2).show();
+        aVar.setMessage(str).setNegativeButton(this.f64387e.getString(R.string.cancel), new e(this)).setPositiveButton(this.f64387e.getString(R.string.open_now), new d()).create(a2).show();
     }
 }

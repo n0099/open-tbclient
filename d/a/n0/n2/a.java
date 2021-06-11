@@ -19,24 +19,24 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import tbclient.BaijiahaoInfo;
 /* loaded from: classes5.dex */
 public class a implements View.OnClickListener {
-    public static d.a.c.j.d.a t;
+    public static d.a.c.k.d.a t;
     public static String u;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinearLayout f57688e;
+    public final LinearLayout f61377e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final LinearLayout f57689f;
+    public final LinearLayout f61378f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final LinearLayout f57690g;
+    public final LinearLayout f61379g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ColumnLayout f57691h;
+    public final ColumnLayout f61380h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ColumnLayout f57692i;
-    public InterfaceC1445a j;
+    public final ColumnLayout f61381i;
+    public InterfaceC1501a j;
     public int k;
     public LinearLayout l;
     public HeadImageView m;
@@ -49,7 +49,7 @@ public class a implements View.OnClickListener {
 
     /* renamed from: d.a.n0.n2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1445a {
+    public interface InterfaceC1501a {
         void a(View view);
     }
 
@@ -61,14 +61,14 @@ public class a implements View.OnClickListener {
         this.o = (TextView) view.findViewById(R.id.reply_time);
         this.p = (TextView) view.findViewById(R.id.forum_name);
         this.q = (TextView) view.findViewById(R.id.reply_count);
-        this.f57690g = (LinearLayout) view.findViewById(R.id.item_content);
-        this.f57691h = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.f57692i = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.f57688e = (LinearLayout) view.findViewById(R.id.person_thread);
-        this.f57689f = (LinearLayout) view.findViewById(R.id.person_child);
+        this.f61379g = (LinearLayout) view.findViewById(R.id.item_content);
+        this.f61380h = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.f61381i = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.f61377e = (LinearLayout) view.findViewById(R.id.person_thread);
+        this.f61378f = (LinearLayout) view.findViewById(R.id.person_child);
         this.r = (ImageView) view.findViewById(R.id.comment_icon);
         this.k = d.a.c.e.p.l.e(view.getContext(), 42.0f);
-        LinearLayout linearLayout = this.f57690g;
+        LinearLayout linearLayout = this.f61379g;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
         }
@@ -76,8 +76,8 @@ public class a implements View.OnClickListener {
         this.n.setOnClickListener(this);
         this.p.setOnClickListener(this);
         this.q.setOnClickListener(this);
-        this.f57691h.setOnClickListener(this);
-        this.f57692i.setOnClickListener(this);
+        this.f61380h.setOnClickListener(this);
+        this.f61381i.setOnClickListener(this);
         this.q.setText(R.string.reply_me);
     }
 
@@ -85,8 +85,8 @@ public class a implements View.OnClickListener {
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0109, 1);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0106, 1);
-        SkinManager.setBackgroundResource(this.f57688e, R.color.CAM_X0204);
-        SkinManager.setBackgroundResource(this.f57689f, R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.f61377e, R.color.CAM_X0204);
+        SkinManager.setBackgroundResource(this.f61378f, R.color.CAM_X0201);
         TbadkCoreApplication.getInst().getSkinType();
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
         WebPManager.setPureDrawable(this.r, R.drawable.icon_pure_card_comment22, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -97,7 +97,7 @@ public class a implements View.OnClickListener {
         if (str2 != null && !str2.equals(str)) {
             t = null;
         }
-        d.a.c.j.d.a aVar = t;
+        d.a.c.k.d.a aVar = t;
         if (aVar != null) {
             this.m.setImageBitmap(aVar.p());
             u = str;
@@ -108,8 +108,8 @@ public class a implements View.OnClickListener {
         headImageView.R(str, 12, i2, i2, false);
     }
 
-    public void c(InterfaceC1445a interfaceC1445a) {
-        this.j = interfaceC1445a;
+    public void c(InterfaceC1501a interfaceC1501a) {
+        this.j = interfaceC1501a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0009 */
@@ -242,12 +242,12 @@ public class a implements View.OnClickListener {
             } else {
                 b(str);
             }
-            LinearLayout linearLayout = this.f57690g;
+            LinearLayout linearLayout = this.f61379g;
             if (linearLayout != null) {
                 linearLayout.setTag(strArr);
             }
-            this.f57691h.setTag(strArr);
-            this.f57692i.setTag(strArr);
+            this.f61380h.setTag(strArr);
+            this.f61381i.setTag(strArr);
         }
     }
 
@@ -261,9 +261,9 @@ public class a implements View.OnClickListener {
             }
             return;
         }
-        InterfaceC1445a interfaceC1445a = this.j;
-        if (interfaceC1445a != null) {
-            interfaceC1445a.a(view);
+        InterfaceC1501a interfaceC1501a = this.j;
+        if (interfaceC1501a != null) {
+            interfaceC1501a.a(view);
         }
     }
 }

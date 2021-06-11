@@ -1,66 +1,67 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.yy.gslbsdk.db.ResultTB;
 import org.json.JSONObject;
 import tbclient.PayMemberInfo;
 /* loaded from: classes3.dex */
 public class PayMemberInfoData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12717e;
+    public int f12782e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12718f;
+    public int f12783f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12719g;
+    public String f12784g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12720h;
+    public String f12785h;
+
+    public void A(String str) {
+        this.f12785h = str;
+    }
 
     public String getUrl() {
-        return this.f12719g;
+        return this.f12784g;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f12717e = jSONObject.optInt("props_id");
-        this.f12718f = jSONObject.optInt("end_time", 0);
-        this.f12719g = jSONObject.optString(this.f12719g, "");
-        this.f12720h = jSONObject.optString("expire_remind");
+        this.f12782e = jSONObject.optInt("props_id");
+        this.f12783f = jSONObject.optInt(ResultTB.ENDTIME, 0);
+        this.f12784g = jSONObject.optString(this.f12784g, "");
+        this.f12785h = jSONObject.optString("expire_remind");
     }
 
-    public int s() {
-        return this.f12718f;
+    public int w() {
+        return this.f12783f;
     }
 
-    public String t() {
-        return this.f12720h;
+    public String x() {
+        return this.f12785h;
     }
 
-    public int u() {
-        return this.f12717e;
+    public int y() {
+        return this.f12782e;
     }
 
-    public void v(PayMemberInfo payMemberInfo) {
+    public void z(PayMemberInfo payMemberInfo) {
         if (payMemberInfo == null) {
             return;
         }
         Integer num = payMemberInfo.props_id;
         if (num != null) {
-            this.f12717e = num.intValue();
+            this.f12782e = num.intValue();
         }
         Integer num2 = payMemberInfo.end_time;
         if (num2 != null) {
-            this.f12718f = num2.intValue();
+            this.f12783f = num2.intValue();
         }
-        this.f12719g = payMemberInfo.url;
-        this.f12720h = payMemberInfo.expire_remind;
-    }
-
-    public void w(String str) {
-        this.f12720h = str;
+        this.f12784g = payMemberInfo.url;
+        this.f12785h = payMemberInfo.expire_remind;
     }
 }

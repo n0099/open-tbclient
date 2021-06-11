@@ -17,13 +17,13 @@ import java.util.List;
 public class e {
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f54474c;
+    public static e f58163c;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f54475a;
+    public b f58164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final DialogInterface.OnCancelListener f54476b = new a();
+    public final DialogInterface.OnCancelListener f58165b = new a();
 
     /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -40,13 +40,13 @@ public class e {
     public class b extends BdAsyncTask<Object, d, Integer> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.a.n0.f1.f.i.b f54478a;
+        public final d.a.n0.f1.f.i.b f58167a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f54479b;
+        public final int f58168b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f54480c = new a();
+        public c f58169c = new a();
 
         /* loaded from: classes4.dex */
         public class a implements c {
@@ -60,9 +60,9 @@ public class e {
                     return;
                 }
                 d dVar = new d();
-                dVar.f54489a = str;
-                dVar.f54490b = i3;
-                dVar.f54491c = i2;
+                dVar.f58178a = str;
+                dVar.f58179b = i3;
+                dVar.f58180c = i2;
                 b.this.publishProgress(dVar);
             }
 
@@ -74,28 +74,28 @@ public class e {
 
         /* renamed from: d.a.n0.f1.h.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1312b implements Runnable {
+        public class RunnableC1368b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f54483e;
+            public final /* synthetic */ int f58172e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f54484f;
+            public final /* synthetic */ String f58173f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f54485g;
+            public final /* synthetic */ int f58174g;
 
-            public RunnableC1312b(int i2, String str, int i3) {
-                this.f54483e = i2;
-                this.f54484f = str;
-                this.f54485g = i3;
+            public RunnableC1368b(int i2, String str, int i3) {
+                this.f58172e = i2;
+                this.f58173f = str;
+                this.f58174g = i3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.f54478a != null) {
-                    b.this.f54478a.onProgressUpdate(this.f54483e, this.f54484f, this.f54485g);
-                    b.this.f54478a.onCanceled();
+                if (b.this.f58167a != null) {
+                    b.this.f58167a.onProgressUpdate(this.f58172e, this.f58173f, this.f58174g);
+                    b.this.f58167a.onCanceled();
                 }
             }
         }
@@ -104,30 +104,30 @@ public class e {
         public class c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ List f54487e;
+            public final /* synthetic */ List f58176e;
 
             public c(List list) {
-                this.f54487e = list;
+                this.f58176e = list;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                if (this.f54487e == null || b.this.f54478a == null) {
+                if (this.f58176e == null || b.this.f58167a == null) {
                     return;
                 }
-                for (d dVar : this.f54487e) {
+                for (d dVar : this.f58176e) {
                     if (dVar != null) {
-                        b.this.f54478a.onProgressUpdate(dVar.f54491c, dVar.f54489a, dVar.f54490b);
+                        b.this.f58167a.onProgressUpdate(dVar.f58180c, dVar.f58178a, dVar.f58179b);
                     }
                 }
-                b.this.f54478a.onCanceled();
-                this.f54487e.clear();
+                b.this.f58167a.onCanceled();
+                this.f58176e.clear();
             }
         }
 
         public b(int i2, d.a.n0.f1.f.i.b bVar) {
-            this.f54479b = i2;
-            this.f54478a = bVar;
+            this.f58168b = i2;
+            this.f58167a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,14 +141,14 @@ public class e {
                 Object obj = objArr[0];
                 if (obj instanceof ArrayList) {
                     List<ImMessageCenterShowItemData> list = (List) obj;
-                    int i2 = this.f54479b;
+                    int i2 = this.f58168b;
                     if (i2 == 4) {
-                        e.this.d(list, this.f54480c);
+                        e.this.d(list, this.f58169c);
                     } else if (i2 == 2) {
-                        e.this.f(list, this.f54480c);
+                        e.this.f(list, this.f58169c);
                     }
                 } else if (obj instanceof ImMessageCenterShowItemData) {
-                    e.this.s(((ImMessageCenterShowItemData) obj).getFriendId(), this.f54479b, this.f54480c);
+                    e.this.s(((ImMessageCenterShowItemData) obj).getFriendId(), this.f58168b, this.f58169c);
                 }
                 return 0;
             }
@@ -161,15 +161,15 @@ public class e {
         public void onProgressUpdate(d... dVarArr) {
             d.a.n0.f1.f.i.b bVar;
             super.onProgressUpdate(dVarArr);
-            if (dVarArr == null || dVarArr.length <= 0 || dVarArr[0] == null || (bVar = this.f54478a) == null) {
+            if (dVarArr == null || dVarArr.length <= 0 || dVarArr[0] == null || (bVar = this.f58167a) == null) {
                 return;
             }
             d dVar = dVarArr[0];
-            bVar.onProgressUpdate(dVar.f54491c, dVar.f54489a, dVar.f54490b);
+            bVar.onProgressUpdate(dVar.f58180c, dVar.f58178a, dVar.f58179b);
         }
 
         public final void h(int i2, String str, int i3) {
-            d.a.c.e.m.e.a().post(new RunnableC1312b(i2, str, i3));
+            d.a.c.e.m.e.a().post(new RunnableC1368b(i2, str, i3));
         }
 
         public final void i(List<d> list) {
@@ -179,7 +179,7 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            d.a.n0.f1.f.i.b bVar = this.f54478a;
+            d.a.n0.f1.f.i.b bVar = this.f58167a;
             if (bVar != null) {
                 bVar.onCanceled();
             }
@@ -188,7 +188,7 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            d.a.n0.f1.f.i.b bVar = this.f54478a;
+            d.a.n0.f1.f.i.b bVar = this.f58167a;
             if (bVar != null) {
                 bVar.onPreExecute();
             }
@@ -198,11 +198,11 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.f54478a != null) {
+            if (this.f58167a != null) {
                 if (isCancelled()) {
-                    this.f54478a.onCanceled();
+                    this.f58167a.onCanceled();
                 } else {
-                    this.f54478a.onPostExecute();
+                    this.f58167a.onPostExecute();
                 }
             }
         }
@@ -219,48 +219,48 @@ public class e {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f54489a;
+        public String f58178a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54490b;
+        public int f58179b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f54491c;
+        public int f58180c;
     }
 
     public static e m() {
-        if (f54474c == null) {
+        if (f58163c == null) {
             synchronized (e.class) {
-                if (f54474c == null) {
-                    f54474c = new e();
+                if (f58163c == null) {
+                    f58163c = new e();
                 }
             }
         }
-        return f54474c;
+        return f58163c;
     }
 
     public void a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i2, d.a.n0.f1.f.i.b bVar) {
         b bVar2 = new b(i2, bVar);
-        this.f54475a = bVar2;
+        this.f58164a = bVar2;
         bVar2.setParallel(TiebaIMConfig.getParallel());
-        this.f54475a.setPriority(3);
-        this.f54475a.execute(imMessageCenterShowItemData);
+        this.f58164a.setPriority(3);
+        this.f58164a.execute(imMessageCenterShowItemData);
     }
 
     public void b(List<ImMessageCenterShowItemData> list, int i2, d.a.n0.f1.f.i.b bVar) {
         b bVar2 = new b(i2, bVar);
-        this.f54475a = bVar2;
+        this.f58164a = bVar2;
         bVar2.setParallel(TiebaIMConfig.getParallel());
-        this.f54475a.setPriority(3);
-        this.f54475a.execute(list);
+        this.f58164a.setPriority(3);
+        this.f58164a.execute(list);
     }
 
     public boolean c() {
-        b bVar = this.f54475a;
+        b bVar = this.f58164a;
         if (bVar != null && bVar.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-            this.f54475a.cancel(true);
+            this.f58164a.cancel(true);
         }
-        this.f54475a = null;
+        this.f58164a = null;
         return true;
     }
 
@@ -479,9 +479,9 @@ public class e {
             m.t().d(str);
             if (o()) {
                 d dVar = new d();
-                dVar.f54489a = str;
-                dVar.f54490b = 2;
-                dVar.f54491c = i2;
+                dVar.f58178a = str;
+                dVar.f58179b = 2;
+                dVar.f58180c = i2;
                 arrayList.add(dVar);
             } else {
                 cVar.a(i2, str, 2);
@@ -510,7 +510,7 @@ public class e {
     }
 
     public boolean o() {
-        b bVar = this.f54475a;
+        b bVar = this.f58164a;
         if (bVar != null) {
             return bVar != null && bVar.isCancelled();
         }
@@ -522,7 +522,7 @@ public class e {
         cVar.a(context.getString(R.string.delete_msg_loading));
         cVar.setCanceledOnTouchOutside(false);
         cVar.setCancelable(true);
-        cVar.setOnCancelListener(this.f54476b);
+        cVar.setOnCancelListener(this.f58165b);
         return cVar;
     }
 

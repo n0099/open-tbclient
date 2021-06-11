@@ -23,7 +23,7 @@ import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.c.j.d.a;
+import d.a.c.k.d.a;
 import d.a.m0.z0.o;
 import java.io.File;
 import java.io.InputStream;
@@ -66,7 +66,7 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
         if (d.g().a(newDiskPicOperate)) {
             int i2 = j.H() ? 500 : 2000;
@@ -178,7 +178,7 @@ public class BigImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(newDiskPicOperate);
-            bVar.f38695a = diskCancelWorker;
+            bVar.f42348a = diskCancelWorker;
         }
         d.g().a(newDiskPicOperate);
     }
@@ -284,7 +284,7 @@ public class BigImageLoaderProc implements e<a> {
                     z = true;
                     webClient = new WebClient();
                     if (bVar != null) {
-                        bVar.f38695a = webClient;
+                        bVar.f42348a = webClient;
                     }
                     downloadImageBytes = webClient.downloadImageBytes(str4, !booleanValue);
                     needCache = webClient.needCache();

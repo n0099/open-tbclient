@@ -3,17 +3,17 @@ package com.baidu.pass.http;
 public /* synthetic */ class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f9183a;
+    public static final /* synthetic */ int[] f9240a;
 
     static {
         int[] iArr = new int[Method.values().length];
-        f9183a = iArr;
+        f9240a = iArr;
         try {
             iArr[Method.GET.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f9183a[Method.POST.ordinal()] = 2;
+            f9240a[Method.POST.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
     }

@@ -139,7 +139,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     d.a.n0.g.a("2", "2");
                     if (LogoActivity.this.mPrivacyPolicyDialogGuideTwo == null) {
                         LogoActivity logoActivity2 = LogoActivity.this;
-                        logoActivity2.mPrivacyPolicyDialogGuideTwo = d.a.n0.j.a(logoActivity2.getPageContext(), LogoActivity.this.mListener, R.string.privacy_policy_guide_two, R.string.secret_hint_browser);
+                        logoActivity2.mPrivacyPolicyDialogGuideTwo = d.a.n0.j.a(logoActivity2.getPageContext(), LogoActivity.this.mListener, R.string.privacy_policy_guide_two, R.string.secret_hint_browser_exit);
                         LogoActivity.this.mPrivacyPolicyDialogGuideTwo.show();
                         d.a.n0.g.b("3");
                     }
@@ -147,14 +147,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 if (LogoActivity.this.mPrivacyPolicyDialogGuideTwo.isShowing() && LogoActivity.this.mPrivacyPolicyDialogGuideClickTimes == 2) {
                     LogoActivity.this.mPrivacyPolicyDialogGuideTwo.dismiss();
                     d.a.n0.g.a("3", "2");
-                    TbSingleton.getInstance().setBrowseMode(true);
-                    MessageManager.getInstance().registerStickyMode(2921562);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921562, Boolean.TRUE));
-                    if (LogoActivity.this.isLocationRequestDialogShow() || PermissionUtil.checkLocationForGoogle(LogoActivity.this.getActivity())) {
-                        LogoActivity.this.goToNextPage();
-                    } else {
-                        LogoActivity.this.showLocationRequestDialog();
-                    }
+                    LogoActivity.this.finish();
                 }
             }
         }
@@ -901,7 +894,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             this.mTbAdController.getView().setLayoutParams(layoutParams);
         }
         d.a.m0.k.d dVar = this.besAdData;
-        if (dVar == null || (bVar = dVar.f49435c) == null) {
+        if (dVar == null || (bVar = dVar.f53109c) == null) {
             return;
         }
         bVar.a();

@@ -18,7 +18,7 @@ import java.util.List;
 public class Static {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f12916a = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] f12981a = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
@@ -53,7 +53,7 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f12916a;
+            String[] strArr = Static.f12981a;
             int length = strArr.length;
             int i2 = 0;
             while (true) {

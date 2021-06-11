@@ -3,11 +3,11 @@ package d.o.a.e.b.e;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.kwai.video.player.KsMediaMeta;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.xiaomi.mipush.sdk.Constants;
@@ -63,7 +63,7 @@ public class a {
                 jSONObject2.put(Constants.APP_ID, str4);
                 jSONObject2.put(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, str2);
                 jSONObject2.put("device_id_postfix", str3);
-                jSONObject2.put(PackageTable.UPDATE_VERSION, i3);
+                jSONObject2.put("update_version", i3);
                 jSONObject2.put("download_status", i2);
                 jSONObject2.put("setting_tag", d.o.a.e.b.j.a.d(downloadInfo.c0()).t("setting_tag"));
                 if (downloadInfo != null) {
@@ -72,7 +72,7 @@ public class a {
                     jSONObject2.put("url", downloadInfo.T0());
                     jSONObject2.put("download_time", downloadInfo.M());
                     jSONObject2.put("cur_bytes", downloadInfo.E());
-                    jSONObject2.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.Q0());
+                    jSONObject2.put("total_bytes", downloadInfo.Q0());
                     jSONObject2.put("network_quality", downloadInfo.r0());
                     int i4 = 1;
                     jSONObject2.put("only_wifi", downloadInfo.K1() ? 1 : 0);
@@ -301,7 +301,7 @@ public class a {
                     if (errorMessage != null) {
                         jSONObject.put(PmsConstant.Statistic.STATISTIC_ERRMSG, e.j(errorMessage, d2.b("exception_msg_length", 500)));
                     }
-                    jSONObject.put("connect_time", j);
+                    jSONObject.put(KsMediaMeta.KSM_KEY_HTTP_CONNECT_TIME, j);
                     jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.v0());
                     jSONObject.put("name", downloadInfo.P0());
                     if ((b2 != 1 || b2 == 3) && (p0 = d.p0()) != null) {
@@ -341,7 +341,7 @@ public class a {
         jSONObject.put("status_code", i3);
         if (errorMessage != null) {
         }
-        jSONObject.put("connect_time", j);
+        jSONObject.put(KsMediaMeta.KSM_KEY_HTTP_CONNECT_TIME, j);
         jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.v0());
         jSONObject.put("name", downloadInfo.P0());
         if (b2 != 1) {

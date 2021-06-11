@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import d.a.m0.a.w;
+import d.a.m0.a.x;
 import d.a.m0.e0.c;
 import d.a.n0.x1.b;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
     public d.a.n0.x1.a mController;
     public CustomMessageListener mEditorEnableListener = new a(2022209);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public a(int i2) {
             super(i2);
@@ -63,7 +63,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Map<String, String> paramPair = UrlManager.getParamPair(decode);
         if (paramPair != null) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            w.b(param, paramPair);
+            x.b(param, paramPair);
             TiebaStatic.log(param);
         }
     }
@@ -82,7 +82,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
             if (fragmentTabStructure == null) {
                 return;
             }
-            fragmentTabStructure.f49334a.setArguments(new Bundle());
+            fragmentTabStructure.f53008a.setArguments(new Bundle());
         }
         this.mController.h(aVar.c());
     }

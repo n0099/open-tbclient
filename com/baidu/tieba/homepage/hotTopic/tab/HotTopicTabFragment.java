@@ -17,31 +17,31 @@ import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.google.android.material.tabs.TabLayout;
 import d.a.c.e.p.j;
-import d.a.c.j.e.n;
-import d.a.c.j.e.t;
-import d.a.c.j.e.v;
+import d.a.c.k.e.n;
+import d.a.c.k.e.t;
+import d.a.c.k.e.v;
 import d.a.m0.m.f;
 import d.a.m0.z0.b0;
 import d.a.n0.r0.o0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class HotTopicTabFragment extends BaseFragment implements o0, d.a.n0.b1.e.a.b {
+public class HotTopicTabFragment extends BaseFragment implements o0, d.a.n0.b1.f.a.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public HotTopicTabModel f16324e;
+    public HotTopicTabModel f16392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HotTopicTabView f16325f;
+    public HotTopicTabView f16393f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsTabItemData f16326g;
+    public FrsTabItemData f16394g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TabLayout.OnTabSelectedListener f16327h = new a();
+    public TabLayout.OnTabSelectedListener f16395h = new a();
 
     /* renamed from: i  reason: collision with root package name */
-    public f<Object> f16328i = new b();
+    public f<Object> f16396i = new b();
 
     /* loaded from: classes4.dex */
     public class a implements TabLayout.OnTabSelectedListener {
@@ -58,31 +58,31 @@ public class HotTopicTabFragment extends BaseFragment implements o0, d.a.n0.b1.e
                 return;
             }
             FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
-            if (HotTopicTabFragment.this.f16326g != null && HotTopicTabFragment.this.f16326g.tabId != frsTabItemData.tabId) {
+            if (HotTopicTabFragment.this.f16394g != null && HotTopicTabFragment.this.f16394g.tabId != frsTabItemData.tabId) {
                 String str = frsTabItemData.tabCode;
-                HotTopicTabFragment.this.f16324e.C(str);
-                if (HotTopicTabFragment.this.f16324e.LoadData()) {
-                    HotTopicTabFragment.this.f16325f.y();
-                    HotTopicTabFragment.this.f16325f.h();
-                    HotTopicTabFragment.this.f16325f.j();
-                    HotTopicTabFragment.this.O0();
+                HotTopicTabFragment.this.f16392e.G(str);
+                if (HotTopicTabFragment.this.f16392e.LoadData()) {
+                    HotTopicTabFragment.this.f16393f.y();
+                    HotTopicTabFragment.this.f16393f.h();
+                    HotTopicTabFragment.this.f16393f.i();
+                    HotTopicTabFragment.this.R0();
                 } else {
-                    HotTopicTabFragment.this.f16325f.y();
-                    HotTopicTabFragment.this.f16325f.h();
-                    List<n> y = HotTopicTabFragment.this.f16324e.y(str);
-                    if (!ListUtils.isEmpty(y)) {
-                        HotTopicTabFragment.this.f16325f.setListData(y);
+                    HotTopicTabFragment.this.f16393f.y();
+                    HotTopicTabFragment.this.f16393f.h();
+                    List<n> C = HotTopicTabFragment.this.f16392e.C(str);
+                    if (!ListUtils.isEmpty(C)) {
+                        HotTopicTabFragment.this.f16393f.setListData(C);
                     } else {
-                        HotTopicTabFragment.this.L0();
+                        HotTopicTabFragment.this.O0();
                     }
                 }
             }
-            HotTopicTabFragment.this.f16326g = frsTabItemData;
+            HotTopicTabFragment.this.f16394g = frsTabItemData;
         }
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
         public void onTabUnselected(TabLayout.Tab tab) {
-            HotTopicTabFragment.this.f16325f.y();
+            HotTopicTabFragment.this.f16393f.y();
         }
     }
 
@@ -96,7 +96,7 @@ public class HotTopicTabFragment extends BaseFragment implements o0, d.a.n0.b1.e
             if (obj == null) {
                 return;
             }
-            d.a.n0.b1.e.a.a.a(view, obj, i2 + 1, HotTopicTabFragment.this.J0());
+            d.a.n0.b1.f.a.a.a(view, obj, i2 + 1, HotTopicTabFragment.this.M0());
         }
 
         @Override // d.a.m0.m.f
@@ -104,7 +104,7 @@ public class HotTopicTabFragment extends BaseFragment implements o0, d.a.n0.b1.e
             if (obj == null) {
                 return;
             }
-            d.a.n0.b1.e.a.a.b(view, obj, HotTopicTabFragment.this.J0());
+            d.a.n0.b1.f.a.a.b(view, obj, HotTopicTabFragment.this.M0());
         }
     }
 
@@ -112,73 +112,73 @@ public class HotTopicTabFragment extends BaseFragment implements o0, d.a.n0.b1.e
     }
 
     @Override // d.a.n0.r0.o0
-    public void G() {
+    public void H() {
     }
 
     @Override // d.a.n0.r0.o0
-    public void H() {
+    public void I() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final String J0() {
-        HotTopicTabModel hotTopicTabModel = this.f16324e;
-        return hotTopicTabModel != null ? hotTopicTabModel.z() : "";
+    public final String M0() {
+        HotTopicTabModel hotTopicTabModel = this.f16392e;
+        return hotTopicTabModel != null ? hotTopicTabModel.D() : "";
     }
 
-    public void K0(ScrollFragmentTabHost scrollFragmentTabHost) {
-        HotTopicTabView hotTopicTabView = this.f16325f;
+    public void N0(ScrollFragmentTabHost scrollFragmentTabHost) {
+        HotTopicTabView hotTopicTabView = this.f16393f;
         if (hotTopicTabView != null) {
             hotTopicTabView.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
-    public final void L0() {
-        if (this.f16325f.p()) {
-            this.f16325f.j();
-            N0();
+    public final void O0() {
+        if (this.f16393f.p()) {
+            this.f16393f.i();
+            Q0();
             return;
         }
-        this.f16325f.v(false);
+        this.f16393f.v(false);
     }
 
-    public final void M0() {
-        if (this.f16325f.p()) {
-            this.f16325f.h();
-            O0();
+    public final void P0() {
+        if (this.f16393f.p()) {
+            this.f16393f.h();
+            R0();
             return;
         }
-        this.f16325f.u(false);
+        this.f16393f.u(false);
     }
 
-    public void N0() {
+    public void Q0() {
         ArrayList arrayList = new ArrayList();
         v vVar = new v();
-        vVar.f39326f = R.drawable.new_pic_emotion_05;
-        vVar.f39325e = getString(R.string.no_data_common_txt);
+        vVar.f43007f = R.drawable.new_pic_emotion_05;
+        vVar.f43006e = getString(R.string.no_data_common_txt);
         arrayList.add(vVar);
-        this.f16325f.k();
-        this.f16325f.setListData(arrayList);
+        this.f16393f.k();
+        this.f16393f.setListData(arrayList);
     }
 
-    public void O0() {
+    public void R0() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new t());
-        this.f16325f.k();
-        this.f16325f.setListData(arrayList);
+        this.f16393f.k();
+        this.f16393f.setListData(arrayList);
     }
 
-    @Override // d.a.n0.b1.e.a.b
-    public void X(int i2, d.a.n0.b1.e.a.f.a aVar) {
-        this.f16325f.h();
-        this.f16325f.j();
-        this.f16325f.y();
+    @Override // d.a.n0.b1.f.a.b
+    public void Z(int i2, d.a.n0.b1.f.a.f.a aVar) {
+        this.f16393f.h();
+        this.f16393f.i();
+        this.f16393f.y();
         if (aVar != null && i2 == 0 && !ListUtils.isEmpty(aVar.getDataList())) {
-            this.f16325f.setData(aVar);
-            this.f16325f.w();
-        } else if (ListUtils.isEmpty(this.f16324e.x())) {
-            L0();
+            this.f16393f.setData(aVar);
+            this.f16393f.w();
+        } else if (ListUtils.isEmpty(this.f16392e.B())) {
+            O0();
         } else {
-            this.f16325f.setListData(this.f16324e.x());
+            this.f16393f.setListData(this.f16392e.B());
         }
     }
 
@@ -201,58 +201,58 @@ public class HotTopicTabFragment extends BaseFragment implements o0, d.a.n0.b1.e
         return arrayList;
     }
 
-    @Override // d.a.n0.b1.e.a.b
+    @Override // d.a.n0.b1.f.a.b
     public void loadData() {
-        boolean LoadData = this.f16324e.LoadData();
-        HotTopicTabModel hotTopicTabModel = this.f16324e;
-        List<n> y = hotTopicTabModel.y(hotTopicTabModel.z());
+        boolean LoadData = this.f16392e.LoadData();
+        HotTopicTabModel hotTopicTabModel = this.f16392e;
+        List<n> C = hotTopicTabModel.C(hotTopicTabModel.D());
         if (LoadData) {
-            if (!ListUtils.isEmpty(y) || this.f16325f.p()) {
+            if (!ListUtils.isEmpty(C) || this.f16393f.p()) {
                 return;
             }
-            this.f16325f.y();
-            this.f16325f.j();
-            M0();
+            this.f16393f.y();
+            this.f16393f.i();
+            P0();
             return;
         }
-        this.f16325f.y();
-        this.f16325f.h();
-        if (!ListUtils.isEmpty(y)) {
-            this.f16325f.setListData(y);
+        this.f16393f.y();
+        this.f16393f.h();
+        if (!ListUtils.isEmpty(C)) {
+            this.f16393f.setListData(C);
         } else if (j.A()) {
         } else {
-            L0();
+            O0();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
-        this.f16325f.q();
+        this.f16393f.q();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f16324e.B(this);
-        this.f16324e.setUniqueId(getUniqueId());
-        this.f16325f.setPresenter(this);
-        this.f16325f.setUniqueId(getUniqueId());
+        this.f16392e.F(this);
+        this.f16392e.setUniqueId(getUniqueId());
+        this.f16393f.setPresenter(this);
+        this.f16393f.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f16325f.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.f16325f.getParent()).removeView(this.f16325f);
+        if (this.f16393f.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.f16393f.getParent()).removeView(this.f16393f);
         }
-        return this.f16325f;
+        return this.f16393f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.f16325f.g();
-        this.f16324e.onDestroy();
+        this.f16393f.g();
+        this.f16392e.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -264,34 +264,34 @@ public class HotTopicTabFragment extends BaseFragment implements o0, d.a.n0.b1.e
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.f16325f.setViewForeground();
+            this.f16393f.setViewForeground();
         }
     }
 
     @Override // d.a.n0.r0.o0
-    public void p() {
-        this.f16325f.s();
+    public void r() {
+        this.f16393f.s();
     }
 
     @Override // d.a.n0.r0.o0
-    public void s() {
+    public void t() {
     }
 
     @Override // d.a.n0.r0.o0
-    public void u() {
+    public void v() {
     }
 
     @Override // d.a.n0.r0.o0
-    public void y(b0 b0Var) {
+    public void z(b0 b0Var) {
     }
 
     @SuppressLint({"ValidFragment"})
     public HotTopicTabFragment(Context context) {
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.f16324e = new HotTopicTabModel(pageContext);
+        this.f16392e = new HotTopicTabModel(pageContext);
         HotTopicTabView hotTopicTabView = new HotTopicTabView(pageContext);
-        this.f16325f = hotTopicTabView;
-        hotTopicTabView.setOnTabSelectedListener(this.f16327h);
-        this.f16325f.setOnItemCoverListener(this.f16328i);
+        this.f16393f = hotTopicTabView;
+        hotTopicTabView.setOnTabSelectedListener(this.f16395h);
+        this.f16393f.setOnItemCoverListener(this.f16396i);
     }
 }

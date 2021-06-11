@@ -1,7 +1,7 @@
 package d.l.a.g;
 
 import com.opensource.svgaplayer.proto.ShapeEntity;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final /* synthetic */ class d {
     public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static final /* synthetic */ int[] $EnumSwitchMapping$1;

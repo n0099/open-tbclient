@@ -4,7 +4,7 @@ import h.f;
 import h.j;
 import h.m.a;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SingleProducer<T> extends AtomicBoolean implements f {
     public static final long serialVersionUID = -3353584923995471404L;
     public final j<? super T> child;

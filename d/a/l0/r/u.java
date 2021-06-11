@@ -8,62 +8,62 @@ import org.json.JSONObject;
 public class u {
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48487g = false;
+    public boolean f52161g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f48481a = new JSONArray();
+    public JSONArray f52155a = new JSONArray();
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseIntArray f48482b = new SparseIntArray();
+    public SparseIntArray f52156b = new SparseIntArray();
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f48483c = new ArrayList<>();
+    public ArrayList<String> f52157c = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public long f48484d = 0;
+    public long f52158d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48485e = 0;
+    public long f52159e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48486f = "0";
+    public String f52160f = "0";
 
     public final void a(JSONObject jSONObject) {
-        this.f48481a.put(jSONObject);
+        this.f52155a.put(jSONObject);
     }
 
     public boolean b(int i2) {
-        return this.f48481a.toString().getBytes().length >= i2;
+        return this.f52155a.toString().getBytes().length >= i2;
     }
 
     public void c() {
-        this.f48482b.clear();
-        this.f48483c.clear();
-        this.f48481a = null;
+        this.f52156b.clear();
+        this.f52157c.clear();
+        this.f52155a = null;
     }
 
     public boolean d() {
-        return this.f48481a.length() == 0;
+        return this.f52155a.length() == 0;
     }
 
     public final void e(String str) {
-        if (this.f48483c.contains(str)) {
+        if (this.f52157c.contains(str)) {
             return;
         }
-        this.f48483c.add(str);
+        this.f52157c.add(str);
     }
 
     public final void f(int i2, int i3) {
-        this.f48482b.put(i2, i3);
+        this.f52156b.put(i2, i3);
     }
 
     public final void g(long j, long j2) {
-        long j3 = this.f48484d;
+        long j3 = this.f52158d;
         if ((j < j3 || j3 == 0) && j != 0) {
-            this.f48484d = j;
+            this.f52158d = j;
         }
-        if (j2 > this.f48485e) {
-            this.f48485e = j2;
+        if (j2 > this.f52159e) {
+            this.f52159e = j2;
         }
     }
 }

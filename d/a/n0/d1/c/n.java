@@ -12,25 +12,25 @@ import tbclient.Hottopic.RelateForum;
 public class n extends d.a.n0.z.e0.a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f52603g = BdUniqueId.gen();
+    public static final BdUniqueId f56292g = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.a.c.j.e.n> f52604e = null;
+    public List<d.a.c.k.e.n> f56293e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f52605f;
+    public boolean f56294f;
 
     public int getCount() {
-        List<d.a.c.j.e.n> list = this.f52604e;
+        List<d.a.c.k.e.n> list = this.f56293e;
         if (list == null || list.size() == 0) {
             return 0;
         }
-        return this.f52604e.size();
+        return this.f56293e.size();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
-        return f52603g;
+        return f56292g;
     }
 
     public void parserProtobuf(List<RelateForum> list) {
@@ -39,12 +39,12 @@ public class n extends d.a.n0.z.e0.a {
         }
         this.showTopDivider = true;
         this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
-        this.f52604e = new ArrayList();
+        this.f56293e = new ArrayList();
         for (RelateForum relateForum : list) {
             if (!StringUtils.isNull(relateForum.forum_name)) {
                 RelateForumItemData relateForumItemData = new RelateForumItemData();
                 relateForumItemData.parserProtobuf(relateForum);
-                this.f52604e.add(relateForumItemData);
+                this.f56293e.add(relateForumItemData);
             }
         }
     }

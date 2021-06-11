@@ -72,11 +72,11 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             agreeData.agreeNum = a.a(25, 1000);
             nVar.h(agreeData);
         }
-        this.y.setText(this.f15942e);
+        this.y.setText(this.f16004e);
         AgreeData a2 = nVar.a();
         this.z.setAgreeAlone(true);
         this.z.setData(a2);
-        this.w.V(funNativeAd.getIconUrl(), 10, false);
+        this.w.U(funNativeAd.getIconUrl(), 10, false);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -95,16 +95,16 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         this.C = (TextView) findViewById(R.id.share_num);
         this.G = (ViewGroup) findViewById(R.id.layout_card_top);
         this.H = (ImageView) findViewById(R.id.fun_ad_feedback);
-        this.f15977g.setVisibility(8);
+        this.f16039g.setVisibility(8);
         m(this.w);
         l();
-        RelativeLayout relativeLayout = this.f15976f;
-        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f15976f.getPaddingTop(), this.f15976f.getPaddingRight(), 0);
+        RelativeLayout relativeLayout = this.f16038f;
+        relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16038f.getPaddingTop(), this.f16038f.getPaddingRight(), 0);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
     public List<View> getClickViews() {
-        return Arrays.asList(this, this.f15976f, this.k, this.n, this.t, this.s, this.G);
+        return Arrays.asList(this, this.f16038f, this.k, this.n, this.t, this.s, this.G);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -118,7 +118,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public a.d getLogItem() {
+    public a.e getLogItem() {
         return d.a.n0.s0.a.a("frs", d.m() ? "1" : "0");
     }
 

@@ -2,7 +2,6 @@ package androidx.core.util;
 
 import androidx.annotation.RestrictTo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class PatternsCompat {
@@ -53,7 +52,7 @@ public final class PatternsCompat {
         StringBuilder sb3 = new StringBuilder();
         sb3.append("(");
         sb3.append(WEB_URL_WITH_PROTOCOL);
-        sb3.append(FieldBuilder.SE);
+        sb3.append("|");
         sb3.append(WEB_URL_WITHOUT_PROTOCOL);
         sb3.append(SmallTailInfo.EMOTION_SUFFIX);
         AUTOLINK_WEB_URL = Pattern.compile(sb3.toString());

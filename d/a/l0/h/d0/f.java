@@ -10,35 +10,35 @@ import d.a.l0.a.k;
 public class f extends EventTargetImpl implements d.a.w.c.c {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f47283h = k.f43199a;
+    public static final boolean f50957h = k.f46875a;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47284e;
+    public int f50958e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f47285f;
+    public c f50959f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47286g;
+    public String f50960g;
 
     public f(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.f47284e = -1;
-        this.f47285f = new c();
+        this.f50958e = -1;
+        this.f50959f = new c();
         g.a().b().s(this);
     }
 
     public void A(int i2) {
-        this.f47284e = i2;
+        this.f50958e = i2;
     }
 
     public void B(String str) {
-        this.f47286g = str;
+        this.f50960g = str;
     }
 
     @Override // d.a.w.c.c
     public void onError(int i2) {
-        if (f47283h) {
+        if (f50957h) {
             Log.d("GameRecorderApi", "onError:" + i2);
         }
         z("error", new b("internal error"));
@@ -46,43 +46,43 @@ public class f extends EventTargetImpl implements d.a.w.c.c {
 
     @Override // d.a.w.c.c
     public void onPause() {
-        z("pause", this.f47285f);
+        z("pause", this.f50959f);
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = "pause";
+        eVar.f46862b = "pause";
         d.a.l0.a.j2.k.h(eVar);
     }
 
     @Override // d.a.w.c.c
     public void onResume() {
-        z("resume", this.f47285f);
+        z("resume", this.f50959f);
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = "resume";
+        eVar.f46862b = "resume";
         d.a.l0.a.j2.k.h(eVar);
     }
 
     @Override // d.a.w.c.c
     public void onStart() {
-        int i2 = this.f47284e;
-        z(IntentConfig.START, i2 == -1 ? this.f47285f : new d(i2));
+        int i2 = this.f50958e;
+        z(IntentConfig.START, i2 == -1 ? this.f50959f : new d(i2));
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = IntentConfig.START;
+        eVar.f46862b = IntentConfig.START;
         d.a.l0.a.j2.k.h(eVar);
     }
 
     @Override // d.a.w.c.c
     public void y(int i2, String str) {
-        if (f47283h) {
-            Log.d("GameRecorderApi", "schemeVideoPath:" + this.f47286g);
+        if (f50957h) {
+            Log.d("GameRecorderApi", "schemeVideoPath:" + this.f50960g);
         }
-        z(IntentConfig.STOP, new e(this.f47286g));
+        z(IntentConfig.STOP, new e(this.f50960g));
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43186b = IntentConfig.STOP;
+        eVar.f46862b = IntentConfig.STOP;
         eVar.a("dura", String.valueOf(i2 / 1000.0f));
         d.a.l0.a.j2.k.h(eVar);
     }
 
     public final void z(String str, Object obj) {
-        if (f47283h) {
+        if (f50957h) {
             Log.i("GameRecorderApi", "dispatchEvent:" + str);
         }
         dispatchEvent(new JSEvent(str, obj));

@@ -161,7 +161,7 @@ public class f extends SQLiteOpenHelper {
                 Iterator<String> it = g2.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.f54506e) || next.startsWith(l.f54504e))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(m.f58195e) || next.startsWith(l.f58193e))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
                         } catch (Exception e2) {
@@ -430,7 +430,7 @@ public class f extends SQLiteOpenHelper {
             Iterator<String> it = g2.iterator();
             while (it.hasNext()) {
                 String next = it.next();
-                if (!TextUtils.isEmpty(next) && (next.startsWith(m.f54506e) || next.startsWith(l.f54504e))) {
+                if (!TextUtils.isEmpty(next) && (next.startsWith(m.f58195e) || next.startsWith(l.f58193e))) {
                     try {
                         sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD read_count LONG default -1;");
                     } catch (Exception e2) {
@@ -479,13 +479,13 @@ public class f extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    HashMap<String, SQLiteDatabase> hashMap = g.f54494c;
+                    HashMap<String, SQLiteDatabase> hashMap = g.f58183c;
                     hashMap.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
                     k.b();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    HashMap<String, SQLiteDatabase> hashMap2 = g.f54494c;
+                    HashMap<String, SQLiteDatabase> hashMap2 = g.f58183c;
                     hashMap2.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {

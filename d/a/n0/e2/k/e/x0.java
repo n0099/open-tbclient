@@ -8,22 +8,22 @@ import com.baidu.tieba.R;
 public class x0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f53537a;
+    public TbPageContext f57226a;
 
     /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53538a;
+        public String f57227a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f53539b;
+        public byte[] f57228b;
 
         public a(String str, byte[] bArr) {
-            this.f53538a = null;
-            this.f53539b = null;
-            this.f53538a = str;
-            this.f53539b = bArr;
+            this.f57227a = null;
+            this.f57228b = null;
+            this.f57227a = str;
+            this.f57228b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -39,12 +39,12 @@ public class x0 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f53538a, this.f53539b, x0.this.f53537a.getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f57227a, this.f57228b, x0.this.f57226a.getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
-                    return x0.this.f53537a.getString(R.string.save_fail);
+                    return x0.this.f57226a.getString(R.string.save_fail);
                 }
-                return x0.this.f53537a.getString(R.string.save_image_to_album);
+                return x0.this.f57226a.getString(R.string.save_image_to_album);
             }
             return FileHelper.getSdErrorString();
         }
@@ -53,12 +53,12 @@ public class x0 {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            x0.this.f53537a.showToast(str);
+            x0.this.f57226a.showToast(str);
         }
     }
 
     public x0(TbPageContext tbPageContext) {
-        this.f53537a = tbPageContext;
+        this.f57226a = tbPageContext;
     }
 
     public void b(String str, byte[] bArr) {

@@ -15,19 +15,19 @@ import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes3.dex */
 public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
-    public static final boolean p = k.f43199a;
+    public static final boolean p = k.f46875a;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f45285f;
+    public final c f48959f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f45286g;
+    public final String f48960g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Set<d.a.l0.a.v2.e1.b<i.a>> f45287h = new HashSet();
+    public final Set<d.a.l0.a.v2.e1.b<i.a>> f48961h = new HashSet();
 
     /* renamed from: i  reason: collision with root package name */
-    public final Set<d.a.l0.a.v2.e1.b<b>> f45288i = new HashSet();
+    public final Set<d.a.l0.a.v2.e1.b<b>> f48962i = new HashSet();
     public final Set<String> j = new HashSet();
     public final Set<Integer> k = new HashSet();
     public Exception l = null;
@@ -42,32 +42,32 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
 
         @Override // java.lang.Runnable
         public void run() {
-            synchronized (b.this.f45285f) {
-                b.this.f45285f.P(b.this, new TimeoutException("timeout"));
+            synchronized (b.this.f48959f) {
+                b.this.f48959f.P(b.this, new TimeoutException("timeout"));
             }
         }
     }
 
     public b(@NonNull c cVar, String str) {
-        this.f45285f = cVar;
-        this.f45286g = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
+        this.f48959f = cVar;
+        this.f48960g = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
         if (p) {
-            V("IpcSession", "host=" + cVar + " id=" + str + " mId=" + this.f45286g);
+            V("IpcSession", "host=" + cVar + " id=" + str + " mId=" + this.f48960g);
         }
     }
 
     public b F(d.a.l0.a.v2.e1.b<b> bVar) {
-        H(this.f45288i, bVar);
+        H(this.f48962i, bVar);
         return this;
     }
 
     public b G(d.a.l0.a.v2.e1.b<i.a> bVar) {
-        H(this.f45287h, bVar);
+        H(this.f48961h, bVar);
         return this;
     }
 
     public final <CallBackT> b H(@NonNull Set<CallBackT> set, CallBackT callbackt) {
-        synchronized (this.f45285f) {
+        synchronized (this.f48959f) {
             if (Z() && callbackt != null) {
                 set.add(callbackt);
             }
@@ -76,7 +76,7 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
     }
 
     public b I(int i2) {
-        synchronized (this.f45285f) {
+        synchronized (this.f48959f) {
             this.k.add(Integer.valueOf(i2));
             Y();
         }
@@ -84,7 +84,7 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
     }
 
     public b J(String str) {
-        synchronized (this.f45285f) {
+        synchronized (this.f48959f) {
             this.j.add(str);
             Y();
         }
@@ -92,7 +92,7 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
     }
 
     public b K(boolean z) {
-        synchronized (this.f45285f) {
+        synchronized (this.f48959f) {
             this.n = z;
             Y();
         }
@@ -100,12 +100,12 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
     }
 
     public b L() {
-        M(d.a.l0.a.v1.b.a.H0);
+        M(d.a.l0.a.v1.b.a.J0);
         return this;
     }
 
     public b M(long j) {
-        synchronized (this.f45285f) {
+        synchronized (this.f48959f) {
             if (p) {
                 V(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j);
             }
@@ -117,7 +117,7 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
                 d.a.l0.a.v1.c.a.e().h(N());
                 b();
             } else {
-                this.f45285f.P(this, new IllegalStateException("invalid session call"));
+                this.f48959f.P(this, new IllegalStateException("invalid session call"));
             }
             Y();
         }
@@ -126,10 +126,10 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
 
     public final d.a.l0.a.v1.c.c N() {
         Bundle C = C();
-        C.putString("ipc_session_id", this.f45286g);
+        C.putString("ipc_session_id", this.f48960g);
         C.putLong("ipc_session_timeout", this.m);
         C.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
-        C.putString("ipc_topic", this.f45285f.L(this));
+        C.putString("ipc_topic", this.f48959f.L(this));
         d.a.l0.a.v1.c.c cVar = new d.a.l0.a.v1.c.c(W(), C);
         cVar.p(true);
         cVar.f(!SwanAppProcessInfo.current().isSwanService || this.n);
@@ -151,16 +151,16 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
     }
 
     public b O(Exception exc) {
-        synchronized (this.f45285f) {
+        synchronized (this.f48959f) {
             if (!S()) {
                 d.a.l0.a.a2.d.i().removeCallbacks(this.o);
                 this.m = -1L;
                 this.l = exc;
-                this.f45287h.clear();
-                for (d.a.l0.a.v2.e1.b<b> bVar : this.f45288i) {
+                this.f48961h.clear();
+                for (d.a.l0.a.v2.e1.b<b> bVar : this.f48962i) {
                     bVar.onCallback(this);
                 }
-                this.f45288i.clear();
+                this.f48962i.clear();
                 this.n = false;
                 this.j.clear();
                 this.k.clear();
@@ -179,7 +179,7 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
     }
 
     public String R() {
-        return this.f45286g;
+        return this.f48960g;
     }
 
     public boolean S() {
@@ -188,9 +188,9 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
 
     public long T(long j) {
         long j2;
-        synchronized (this.f45285f) {
+        synchronized (this.f48959f) {
             if (Z()) {
-                this.m = Math.max(Math.max(j, d.a.l0.a.v1.b.a.H0), this.m);
+                this.m = Math.max(Math.max(j, d.a.l0.a.v1.b.a.J0), this.m);
                 Handler i2 = d.a.l0.a.a2.d.i();
                 if (this.m > 0) {
                     i2.removeCallbacks(this.o);
@@ -223,10 +223,10 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
 
     public boolean X(i.a aVar) {
         boolean z;
-        synchronized (this.f45285f) {
-            z = (!Z() || this.f45287h.isEmpty() || aVar == null) ? false : true;
+        synchronized (this.f48959f) {
+            z = (!Z() || this.f48961h.isEmpty() || aVar == null) ? false : true;
             if (z) {
-                for (d.a.l0.a.v2.e1.b<i.a> bVar : this.f45287h) {
+                for (d.a.l0.a.v2.e1.b<i.a> bVar : this.f48961h) {
                     bVar.onCallback(aVar);
                 }
             }
@@ -240,10 +240,10 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
 
     public boolean Z() {
         boolean z;
-        synchronized (this.f45285f) {
-            z = (S() || Q() || TextUtils.isEmpty(this.f45286g)) ? false : true;
+        synchronized (this.f48959f) {
+            z = (S() || Q() || TextUtils.isEmpty(this.f48960g)) ? false : true;
             if (p) {
-                V("valid", z + " isFinished=" + S() + " hasException=" + this.l + " id=" + this.f45286g);
+                V("valid", z + " isFinished=" + S() + " hasException=" + this.l + " id=" + this.f48960g);
             }
         }
         return z;
@@ -257,6 +257,6 @@ public final class b extends d.a.l0.a.f1.e.f.c<b> implements d.a.l0.a.v1.b.a {
 
     @Override // d.a.l0.a.f1.e.f.c
     public synchronized String toString() {
-        return "IpcSession: id=" + this.f45286g + " timeout=" + this.m;
+        return "IpcSession: id=" + this.f48960g + " timeout=" + this.m;
     }
 }

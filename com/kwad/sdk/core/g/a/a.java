@@ -6,20 +6,20 @@ import org.json.JSONObject;
 public class a implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f32220a;
+    public int f34255a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32221b;
+    public String f34256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32222c;
+    public String f34257c;
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "level", this.f32220a);
-        o.a(jSONObject, "ssid", this.f32221b);
-        o.a(jSONObject, "bssid", this.f32222c);
+        o.a(jSONObject, "level", this.f34255a);
+        o.a(jSONObject, "ssid", this.f34256b);
+        o.a(jSONObject, "bssid", this.f34257c);
         return jSONObject;
     }
 }

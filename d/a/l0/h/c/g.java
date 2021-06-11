@@ -2,7 +2,6 @@ package d.a.l0.h.c;
 
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
@@ -23,13 +22,13 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
     public long duration;
 
     /* renamed from: e  reason: collision with root package name */
-    public AudioPlayer f47188e;
+    public AudioPlayer f50862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47189f;
+    public String f50863f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.l0.a.l0.c f47190g;
+    public d.a.l0.a.l0.c f50864g;
     @V8JavascriptField
     public boolean loop;
     @V8JavascriptField
@@ -47,19 +46,19 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f47191e;
+        public final /* synthetic */ boolean f50865e;
 
         public a(boolean z) {
-            this.f47191e = z;
+            this.f50865e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.f47191e || g.this.f47188e.I()) {
-                g.this.f47188e.N(d.a.l0.h.c.f.c(g.this));
+            if (!this.f50865e || g.this.f50862e.I()) {
+                g.this.f50862e.N(d.a.l0.h.c.f.c(g.this));
                 g gVar = g.this;
                 if (gVar.autoplay) {
-                    gVar.f47188e.Q();
+                    gVar.f50862e.Q();
                 }
             }
         }
@@ -72,7 +71,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.f47188e.Q();
+            g.this.f50862e.Q();
         }
     }
 
@@ -83,7 +82,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.f47188e.O();
+            g.this.f50862e.O();
         }
     }
 
@@ -91,15 +90,15 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f47195e;
+        public final /* synthetic */ float f50869e;
 
         public d(float f2) {
-            this.f47195e = f2;
+            this.f50869e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.f47188e.U(this.f47195e);
+            g.this.f50862e.U(this.f50869e);
         }
     }
 
@@ -110,7 +109,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.f47188e.Y();
+            g.this.f50862e.Y();
         }
     }
 
@@ -121,41 +120,41 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
 
         @Override // java.lang.Runnable
         public void run() {
-            g.this.f47188e.T();
+            g.this.f50862e.T();
         }
     }
 
     /* renamed from: d.a.l0.h.c.g$g  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1012g implements a.b {
+    public class C1068g implements a.b {
 
         /* renamed from: d.a.l0.h.c.g$g$a */
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f47200e;
+            public final /* synthetic */ String f50874e;
 
             public a(String str) {
-                this.f47200e = str;
+                this.f50874e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                g.this.src = d.a.l0.a.g1.f.V().I().g(this.f47200e);
-                if (k.f43199a) {
+                g.this.src = d.a.l0.a.g1.f.V().I().g(this.f50874e);
+                if (k.f46875a) {
                     Log.d("Aigame AudioContext", "prepare path: " + g.this.src + " autoPlay: " + g.this.autoplay + " class: " + toString());
                 }
                 g.this.G(true);
             }
         }
 
-        public C1012g() {
+        public C1068g() {
         }
 
         @Override // d.a.l0.h.c.j.a.b
         public void a(String str) {
-            g.this.f47190g.runOnJSThread(new a(str));
+            g.this.f50864g.runOnJSThread(new a(str));
         }
 
         @Override // d.a.l0.h.c.j.a.b
@@ -169,7 +168,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
         this.volume = 1.0f;
         this.obeyMuteSwitch = true;
         this.paused = true;
-        this.f47190g = cVar;
+        this.f50864g = cVar;
         C();
     }
 
@@ -179,13 +178,13 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
 
     public final void C() {
         String valueOf = String.valueOf(d.a.l0.h.c.c.a());
-        this.f47189f = valueOf;
-        this.f47188e = E(valueOf);
+        this.f50863f = valueOf;
+        this.f50862e = E(valueOf);
         F();
     }
 
     public int D() {
-        AudioPlayer audioPlayer = this.f47188e;
+        AudioPlayer audioPlayer = this.f50862e;
         if (audioPlayer != null) {
             return audioPlayer.y();
         }
@@ -193,35 +192,35 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
     }
 
     public final void F() {
-        if (this.f47188e != null) {
+        if (this.f50862e != null) {
             d.a.l0.h.c.e eVar = new d.a.l0.h.c.e(this, d.a.l0.h.c.f.i());
             eVar.e(this);
-            this.f47188e.V(eVar);
+            this.f50862e.V(eVar);
         }
     }
 
     public final void G(boolean z) {
-        if (this.f47188e == null) {
+        if (this.f50862e == null) {
             return;
         }
         d.a.l0.h.c.j.b.h().e().post(new a(z));
     }
 
     public final void H(d.a.l0.h.c.d dVar) {
-        this.f47188e.Z(dVar);
+        this.f50862e.Z(dVar);
     }
 
     @Override // d.a.l0.h.c.a
     @JavascriptInterface
     public void destroy() {
-        if (this.f47188e != null) {
+        if (this.f50862e != null) {
             d.a.l0.h.c.j.b.h().e().post(new f());
         }
     }
 
     @Override // d.a.l0.h.c.a
     public int getDuration() {
-        AudioPlayer audioPlayer = this.f47188e;
+        AudioPlayer audioPlayer = this.f50862e;
         if (audioPlayer != null) {
             return (int) audioPlayer.A();
         }
@@ -230,7 +229,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
 
     @JavascriptInterface
     public void onFieldChangedCallback(String str) {
-        if (k.f43199a) {
+        if (k.f46875a) {
             Log.d("Aigame AudioContext", str);
         }
         char c2 = 65535;
@@ -248,7 +247,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
                 }
                 break;
             case 114148:
-                if (str.equals(UserAccountActionItem.KEY_SRC)) {
+                if (str.equals("src")) {
                     c2 = 3;
                     break;
                 }
@@ -272,7 +271,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
             if (d.a.l0.h.c.f.b(this.volume)) {
                 H(d.a.l0.h.c.f.c(this));
             } else {
-                this.volume = this.f47188e.D();
+                this.volume = this.f50862e.D();
             }
         } else if (c2 != 3) {
             if (c2 == 4 && this.autoplay) {
@@ -286,7 +285,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
     @Override // d.a.l0.h.c.a
     @JavascriptInterface
     public void pause() {
-        if (this.f47188e != null) {
+        if (this.f50862e != null) {
             d.a.l0.h.c.j.b.h().e().post(new c());
         }
     }
@@ -294,7 +293,7 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
     @Override // d.a.l0.h.c.a
     @JavascriptInterface
     public void play() {
-        if (this.f47188e != null) {
+        if (this.f50862e != null) {
             d.a.l0.h.c.j.b.h().e().post(new b());
         }
     }
@@ -395,27 +394,27 @@ public class g extends EventTargetImpl implements d.a.l0.h.c.a, d.a.l0.h.c.b {
     @Override // d.a.l0.h.c.a
     @JavascriptInterface
     public void seek(float f2) {
-        if (this.f47188e != null) {
+        if (this.f50862e != null) {
             d.a.l0.h.c.j.b.h().e().post(new d(f2));
         }
     }
 
     @JavascriptInterface
     public void setDataBuffer(JsArrayBuffer jsArrayBuffer) {
-        d.a.l0.h.c.j.b.h().m(jsArrayBuffer, new C1012g());
+        d.a.l0.h.c.j.b.h().m(jsArrayBuffer, new C1068g());
     }
 
     @Override // d.a.l0.h.c.a
     @JavascriptInterface
     public void stop() {
-        if (this.f47188e != null) {
+        if (this.f50862e != null) {
             d.a.l0.h.c.j.b.h().e().post(new e());
         }
     }
 
     @Override // d.a.l0.h.c.a
     public int x() {
-        AudioPlayer audioPlayer = this.f47188e;
+        AudioPlayer audioPlayer = this.f50862e;
         if (audioPlayer != null) {
             return audioPlayer.z();
         }

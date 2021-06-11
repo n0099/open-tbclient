@@ -14,31 +14,31 @@ import com.baidu.apollon.utils.DisplayUtils;
 public class GridHasFocusLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f23410a = 3;
+    public static final int f23513a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f23411b = 1;
+    public static final int f23514b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f23412c = 1;
+    public static final int f23515c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23413d;
+    public int f23516d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23414e;
+    public int f23517e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23415f;
+    public int f23518f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f23416g;
+    public RectF f23519g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f23417h;
+    public Paint f23520h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Integer f23418i;
+    public Integer f23521i;
     public int j;
     public boolean k;
     public Paint l;
@@ -47,10 +47,10 @@ public class GridHasFocusLayout extends ViewGroup {
     public static class LayoutParams extends ViewGroup.LayoutParams {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f23419a;
+        public int f23522a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23420b;
+        public int f23523b;
 
         public LayoutParams(int i2, int i3) {
             super(i2, i3);
@@ -67,7 +67,7 @@ public class GridHasFocusLayout extends ViewGroup {
 
     public GridHasFocusLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23418i = null;
+        this.f23521i = null;
         this.j = -1;
         this.k = true;
         this.l = new Paint();
@@ -75,11 +75,11 @@ public class GridHasFocusLayout extends ViewGroup {
     }
 
     private void a() {
-        this.f23413d = 3;
-        this.f23414e = DisplayUtils.dip2px(getContext(), 1.0f);
-        this.f23415f = DisplayUtils.dip2px(getContext(), 1.0f);
-        this.f23416g = new RectF();
-        this.f23417h = new Paint();
+        this.f23516d = 3;
+        this.f23517e = DisplayUtils.dip2px(getContext(), 1.0f);
+        this.f23518f = DisplayUtils.dip2px(getContext(), 1.0f);
+        this.f23519g = new RectF();
+        this.f23520h = new Paint();
         this.l.setColor(SupportMenu.CATEGORY_MASK);
     }
 
@@ -99,13 +99,13 @@ public class GridHasFocusLayout extends ViewGroup {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         a(canvas);
-        if (getChildCount() % this.f23413d == 0 || this.f23418i == null) {
+        if (getChildCount() % this.f23516d == 0 || this.f23521i == null) {
             return;
         }
         View childAt = getChildAt(getChildCount() - 1);
-        this.f23416g.set(childAt.getLeft() + childAt.getWidth() + this.f23414e, childAt.getTop(), getLeft() + getWidth(), getTop() + getHeight());
-        this.f23417h.setColor(this.f23418i.intValue());
-        canvas.drawRect(this.f23416g, this.f23417h);
+        this.f23519g.set(childAt.getLeft() + childAt.getWidth() + this.f23517e, childAt.getTop(), getLeft() + getWidth(), getTop() + getHeight());
+        this.f23520h.setColor(this.f23521i.intValue());
+        canvas.drawRect(this.f23519g, this.f23520h);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -115,8 +115,8 @@ public class GridHasFocusLayout extends ViewGroup {
             View childAt = getChildAt(i6);
             if (childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                int i7 = layoutParams.f23419a;
-                int i8 = layoutParams.f23420b;
+                int i7 = layoutParams.f23522a;
+                int i8 = layoutParams.f23523b;
                 childAt.layout(i7, i8, ((ViewGroup.LayoutParams) layoutParams).width + i7, ((ViewGroup.LayoutParams) layoutParams).height + i8);
             }
         }
@@ -129,9 +129,9 @@ public class GridHasFocusLayout extends ViewGroup {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3), 0);
         int size = (View.MeasureSpec.getSize(i2) - getPaddingLeft()) - getPaddingRight();
         int childCount = getChildCount();
-        int i4 = size - (this.k ? this.f23414e * 2 : 0);
-        int i5 = this.f23414e;
-        int i6 = this.f23413d;
+        int i4 = size - (this.k ? this.f23517e * 2 : 0);
+        int i5 = this.f23517e;
+        int i6 = this.f23516d;
         int i7 = (i4 - (i5 * (i6 - 1))) / i6;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
@@ -143,15 +143,15 @@ public class GridHasFocusLayout extends ViewGroup {
                 measureChild(childAt, i2, makeMeasureSpec);
                 i9 = childAt.getMeasuredHeight();
                 childAt.measure(View.MeasureSpec.makeMeasureSpec(i7, 1073741824), View.MeasureSpec.makeMeasureSpec(i9, 1073741824));
-                if ((i10 - i8) % this.f23413d == 0) {
-                    paddingLeft = getPaddingLeft() + (this.k ? this.f23414e : 0);
+                if ((i10 - i8) % this.f23516d == 0) {
+                    paddingLeft = getPaddingLeft() + (this.k ? this.f23517e : 0);
                     if (i10 != 0) {
-                        paddingTop += this.f23415f + i9;
+                        paddingTop += this.f23518f + i9;
                     } else {
-                        paddingTop = this.k ? this.f23415f : 0;
+                        paddingTop = this.k ? this.f23518f : 0;
                     }
                 } else {
-                    paddingLeft += this.f23414e + i7;
+                    paddingLeft += this.f23517e + i7;
                 }
                 if (childAt.getLayoutParams() != null && (childAt.getLayoutParams() instanceof LayoutParams)) {
                     layoutParams = (LayoutParams) childAt.getLayoutParams();
@@ -160,8 +160,8 @@ public class GridHasFocusLayout extends ViewGroup {
                     childAt.setLayoutParams(layoutParams2);
                     layoutParams = layoutParams2;
                 }
-                layoutParams.f23419a = paddingLeft;
-                layoutParams.f23420b = paddingTop;
+                layoutParams.f23522a = paddingLeft;
+                layoutParams.f23523b = paddingTop;
                 ((ViewGroup.LayoutParams) layoutParams).width = i7;
                 ((ViewGroup.LayoutParams) layoutParams).height = i9;
             } else {
@@ -169,22 +169,22 @@ public class GridHasFocusLayout extends ViewGroup {
             }
         }
         int i11 = childCount - i8;
-        int i12 = this.f23413d;
+        int i12 = this.f23516d;
         int i13 = (i11 / i12) + (i11 % i12 == 0 ? 0 : 1);
-        int i14 = this.f23415f;
+        int i14 = this.f23518f;
         setMeasuredDimension(View.MeasureSpec.getSize(i2), (i9 * i13) + ((i13 - 1) * i14) + (this.k ? i14 * 2 : 0));
     }
 
     public void setColumnCount(int i2) {
-        this.f23413d = i2;
+        this.f23516d = i2;
     }
 
     public void setEmptyAreaColor(int i2) {
-        this.f23418i = Integer.valueOf(i2);
+        this.f23521i = Integer.valueOf(i2);
     }
 
     public void setHorizontalSpacing(int i2) {
-        this.f23414e = i2;
+        this.f23517e = i2;
     }
 
     public void setSelection(int i2) {
@@ -193,7 +193,7 @@ public class GridHasFocusLayout extends ViewGroup {
     }
 
     public void setVerticalSpacing(int i2) {
-        this.f23415f = i2;
+        this.f23518f = i2;
     }
 
     public void showSideLine(boolean z) {
@@ -202,7 +202,7 @@ public class GridHasFocusLayout extends ViewGroup {
 
     public GridHasFocusLayout(Context context) {
         super(context);
-        this.f23418i = null;
+        this.f23521i = null;
         this.j = -1;
         this.k = true;
         this.l = new Paint();
@@ -210,15 +210,15 @@ public class GridHasFocusLayout extends ViewGroup {
     }
 
     private void a(Canvas canvas) {
-        this.l.setStrokeWidth(this.f23414e);
+        this.l.setStrokeWidth(this.f23517e);
         int i2 = this.j;
         if (i2 < 0 || i2 >= getChildCount()) {
             return;
         }
         View childAt = getChildAt(this.j);
-        float left = childAt.getLeft() - (this.k ? this.f23415f : 0);
-        float top = childAt.getTop() - (this.k ? this.f23414e : 0);
-        float left2 = ((childAt.getLeft() + childAt.getWidth()) + (this.k ? this.f23415f : 0)) - 1;
+        float left = childAt.getLeft() - (this.k ? this.f23518f : 0);
+        float top = childAt.getTop() - (this.k ? this.f23517e : 0);
+        float left2 = ((childAt.getLeft() + childAt.getWidth()) + (this.k ? this.f23518f : 0)) - 1;
         float top2 = ((childAt.getTop() + childAt.getHeight()) + 0) - 1;
         canvas.drawLine(left, top, left, top2, this.l);
         canvas.drawLine(left, top2, left2, top2, this.l);

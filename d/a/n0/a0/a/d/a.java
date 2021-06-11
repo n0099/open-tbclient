@@ -11,16 +11,16 @@ import tbclient.HotThread.HotThreadReqIdl;
 public class a implements g, d {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51139e;
+    public int f54816e;
 
     public void a() {
-        this.f51139e++;
+        this.f54816e++;
     }
 
     @Override // d.a.m0.g0.b.i
-    public Object c(boolean z) {
+    public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.pn = Integer.valueOf(this.f51139e);
+        builder.pn = Integer.valueOf(this.f54816e);
         HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
         DataReq build = builder.build(false);
         builder2.data = build;
@@ -34,27 +34,27 @@ public class a implements g, d {
     }
 
     @Override // d.a.m0.g0.b.d
-    public boolean i() {
-        return true;
-    }
-
-    @Override // d.a.m0.g0.b.d
     public boolean isNeedUid() {
         return false;
     }
 
+    @Override // d.a.m0.g0.b.d
+    public boolean l() {
+        return true;
+    }
+
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, Object> o() {
+    public HashMap<String, Object> s() {
         return null;
     }
 
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, String> q() {
+    public HashMap<String, String> u() {
         return null;
     }
 
     @Override // d.a.m0.g0.b.d
-    public String r() {
+    public String v() {
         return "tb.pb_normal";
     }
 }

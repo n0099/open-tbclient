@@ -20,26 +20,26 @@ public class f extends a0 {
     public class a implements d.a.l0.a.v2.e1.b<d.a.l0.a.e2.c.f> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46334e;
+        public final /* synthetic */ CallbackHandler f50008e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46335f;
+        public final /* synthetic */ String f50009f;
 
         public a(CallbackHandler callbackHandler, String str) {
-            this.f46334e = callbackHandler;
-            this.f46335f = str;
+            this.f50008e = callbackHandler;
+            this.f50009f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v2.e1.b
         /* renamed from: a */
         public void onCallback(d.a.l0.a.e2.c.f fVar) {
-            if (fVar == null || fVar.f41697d) {
-                f.this.n(false, null, this.f46334e, this.f46335f, 10005, "system deny");
+            if (fVar == null || fVar.f45373d) {
+                f.this.n(false, null, this.f50008e, this.f50009f, 10005, "system deny");
                 k.p(10005, fVar);
                 return;
             }
-            f.this.p(fVar, this.f46334e, this.f46335f);
+            f.this.p(fVar, this.f50008e, this.f50009f);
         }
     }
 
@@ -47,31 +47,31 @@ public class f extends a0 {
     public class b implements d.a.l0.a.m.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.e2.c.f f46337e;
+        public final /* synthetic */ d.a.l0.a.e2.c.f f50011e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46338f;
+        public final /* synthetic */ CallbackHandler f50012f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46339g;
+        public final /* synthetic */ String f50013g;
 
         public b(d.a.l0.a.e2.c.f fVar, CallbackHandler callbackHandler, String str) {
-            this.f46337e = fVar;
-            this.f46338f = callbackHandler;
-            this.f46339g = str;
+            this.f50011e = fVar;
+            this.f50012f = callbackHandler;
+            this.f50013g = str;
         }
 
         @Override // d.a.l0.a.m.a
         public void onResult(int i2) {
-            if (a0.f40949b) {
+            if (a0.f44625b) {
                 Log.d("LoginAndGetMobileAction", "onResult: loginStatusCode = " + i2);
             }
             if (i2 == -2) {
-                f.this.n(false, null, this.f46338f, this.f46339g, 20050002, "user did cancel login");
+                f.this.n(false, null, this.f50012f, this.f50013g, 20050002, "user did cancel login");
             } else if (i2 != 0) {
-                f.this.n(false, null, this.f46338f, this.f46339g, 20050003, "user fail to login");
+                f.this.n(false, null, this.f50012f, this.f50013g, 20050003, "user fail to login");
             } else {
-                f.this.o(this.f46337e.f41696c, d.a.l0.a.g1.f.V().getActivity(), this.f46338f, this.f46339g);
+                f.this.o(this.f50011e.f45372c, d.a.l0.a.g1.f.V().getActivity(), this.f50012f, this.f50013g);
             }
         }
     }
@@ -80,14 +80,14 @@ public class f extends a0 {
     public class c implements d.a.l0.a.v2.e1.b<i<a.b>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f46341e;
+        public final /* synthetic */ CallbackHandler f50015e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46342f;
+        public final /* synthetic */ String f50016f;
 
         public c(CallbackHandler callbackHandler, String str) {
-            this.f46341e = callbackHandler;
-            this.f46342f = str;
+            this.f50015e = callbackHandler;
+            this.f50016f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,15 +95,15 @@ public class f extends a0 {
         /* renamed from: a */
         public void onCallback(i<a.b> iVar) {
             a.b bVar;
-            if (iVar == null || !iVar.c() || (bVar = iVar.f41736a) == null || bVar.f41741c == null) {
-                f.this.n(true, null, this.f46341e, this.f46342f, 20050004, "user fail to get mobile information");
+            if (iVar == null || !iVar.c() || (bVar = iVar.f45412a) == null || bVar.f45417c == null) {
+                f.this.n(true, null, this.f50015e, this.f50016f, 20050004, "user fail to get mobile information");
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("data", iVar.f41736a.f41741c.optString("data"));
-                jSONObject.put("iv", iVar.f41736a.f41741c.optString("iv"));
-                f.this.n(true, jSONObject, this.f46341e, this.f46342f, 0, "success");
+                jSONObject.put("data", iVar.f45412a.f45417c.optString("data"));
+                jSONObject.put("iv", iVar.f45412a.f45417c.optString("iv"));
+                f.this.n(true, jSONObject, this.f50015e, this.f50016f, 0, "success");
             } catch (JSONException unused) {
             }
         }

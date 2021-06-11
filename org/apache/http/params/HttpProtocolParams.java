@@ -2,7 +2,7 @@ package org.apache.http.params;
 
 import org.apache.http.ProtocolVersion;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class HttpProtocolParams implements CoreProtocolPNames {
     public HttpProtocolParams() {
         throw new RuntimeException("Stub!");

@@ -18,28 +18,28 @@ import d.a.n0.j0.i.c.c;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f55950a;
+    public TbPageContext f59639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f55951b;
+    public View f59640b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RankListViewController.RankListViewHolder f55952c;
+    public RankListViewController.RankListViewHolder f59641c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f55953d;
+    public TextView f59642d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f55954e;
+    public TextView f59643e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55955f;
+    public String f59644f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55956g;
+    public int f59645g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f55957h = new a();
+    public View.OnClickListener f59646h = new a();
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -48,16 +48,16 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.f55955f)) {
-                b.this.f55950a.showToast(R.string.load_error_retry);
+            if (TextUtils.isEmpty(b.this.f59644f)) {
+                b.this.f59639a.showToast(R.string.load_error_retry);
                 return;
             }
-            UrlManager.getInstance().dealOneLink(b.this.f55950a, new String[]{b.this.f55955f});
-            if (b.this.f55956g == 0) {
+            UrlManager.getInstance().dealOneLink(b.this.f59639a, new String[]{b.this.f59644f});
+            if (b.this.f59645g == 0) {
                 return;
             }
-            if (b.this.f55956g != 2) {
-                if (b.this.f55956g == 1) {
+            if (b.this.f59645g != 2) {
+                if (b.this.f59645g == 1) {
                     StatisticItem statisticItem = new StatisticItem("c13669");
                     statisticItem.param("obj_locate", 2);
                     TiebaStatic.log(statisticItem);
@@ -73,38 +73,38 @@ public class b {
     }
 
     public b(TbPageContext tbPageContext, View view) {
-        this.f55950a = tbPageContext;
-        this.f55951b = view;
+        this.f59639a = tbPageContext;
+        this.f59640b = view;
         RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
-        this.f55952c = rankListViewHolder;
+        this.f59641c = rankListViewHolder;
         rankListViewHolder.i(1);
-        this.f55953d = (TextView) view.findViewById(R.id.get_influence);
+        this.f59642d = (TextView) view.findViewById(R.id.get_influence);
         TextView textView = (TextView) view.findViewById(R.id.rank_num);
-        this.f55954e = textView;
-        textView.setTextSize(0, l.g(this.f55950a.getPageActivity(), R.dimen.tbfontsize46));
-        this.f55953d.setOnClickListener(this.f55957h);
+        this.f59643e = textView;
+        textView.setTextSize(0, l.g(this.f59639a.getPageActivity(), R.dimen.tbfontsize46));
+        this.f59642d.setOnClickListener(this.f59646h);
     }
 
     public void d(int i2) {
-        this.f55952c.f(i2);
-        SkinManager.setBackgroundColor(this.f55952c.itemView, R.color.CAM_X0207);
-        SkinManager.setViewTextColor(this.f55953d, R.color.CAM_X0302);
+        this.f59641c.f(i2);
+        SkinManager.setBackgroundColor(this.f59641c.itemView, R.color.CAM_X0207);
+        SkinManager.setViewTextColor(this.f59642d, R.color.CAM_X0302);
     }
 
     public void e(c cVar) {
         d.a.n0.j0.i.c.b bVar;
         MetaData metaData;
-        if (cVar != null && (bVar = cVar.f55975c) != null && (metaData = bVar.f55970f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-            this.f55951b.setVisibility(0);
-            this.f55952c.c(cVar.f55975c);
-            this.f55952c.e();
-            this.f55955f = cVar.f55977e;
+        if (cVar != null && (bVar = cVar.f59664c) != null && (metaData = bVar.f59659f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
+            this.f59640b.setVisibility(0);
+            this.f59641c.c(cVar.f59664c);
+            this.f59641c.e();
+            this.f59644f = cVar.f59666e;
             return;
         }
-        this.f55951b.setVisibility(8);
+        this.f59640b.setVisibility(8);
     }
 
     public void f(int i2) {
-        this.f55956g = i2;
+        this.f59645g = i2;
     }
 }

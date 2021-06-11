@@ -3,31 +3,31 @@ package com.baidu.fsg.face.liveness.beans;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5846a = "https://passport.baidu.com";
+    public static String f5889a = "https://passport.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5847b = "https://passport.qatest.baidu.com";
+    public static String f5890b = "https://passport.qatest.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f5848c = "http://passport.rdtest.baidu.com";
+    public static String f5891c = "http://passport.rdtest.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f5849d = "http://wappass.baidu.com";
+    public static String f5892d = "http://wappass.baidu.com";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f5850e = "http://wappass.qatest.baidu.com";
+    public static String f5893e = "http://wappass.qatest.baidu.com";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f5851f = "http://wappass.rdtest.baidu.com";
+    public static String f5894f = "http://wappass.rdtest.baidu.com";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f5852g = "https://gss0.bdstatic.com";
+    public static String f5895g = "https://gss0.bdstatic.com";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f5853h = "https://passport.baidu.com";
+    public static String f5896h = "https://passport.baidu.com";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f5854i = "https://passport.qatest.baidu.com";
+    public static String f5897i = "https://passport.qatest.baidu.com";
     public static String j = "https://voiceprint.baidu.com/echo.fcgi";
     public static String k = "https://voiceprint.baidu.com/echo.fcgi";
     public static String l = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt";

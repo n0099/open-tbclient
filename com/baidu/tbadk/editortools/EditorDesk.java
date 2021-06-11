@@ -19,16 +19,16 @@ import java.util.LinkedList;
 public class EditorDesk extends KPSwitchFSPanelFrameLayout {
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<h> f12739f;
+    public LinkedList<h> f12804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<n> f12740g;
+    public LinkedList<n> f12805g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12741h;
+    public int f12806h;
 
     /* renamed from: i  reason: collision with root package name */
-    public n f12742i;
+    public n f12807i;
     public boolean j;
     public boolean k;
     public EditorTools l;
@@ -41,34 +41,34 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (EditorDesk.this.f12742i != null) {
-                EditorDesk.this.f12742i.b();
+            if (EditorDesk.this.f12807i != null) {
+                EditorDesk.this.f12807i.b();
             }
         }
     }
 
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
-        this.f12741h = R.color.CAM_X0206;
-        this.f12742i = null;
+        this.f12806h = R.color.CAM_X0206;
+        this.f12807i = null;
         this.j = true;
         this.k = false;
         this.m = new a();
-        this.f12739f = new LinkedList<>();
-        this.f12740g = new LinkedList<>();
+        this.f12804f = new LinkedList<>();
+        this.f12805g = new LinkedList<>();
         this.l = editorTools;
     }
 
     public void d(h hVar) {
-        this.f12739f.add(hVar);
+        this.f12804f.add(hVar);
     }
 
     public void e(n nVar) {
-        this.f12740g.add(nVar);
+        this.f12805g.add(nVar);
     }
 
     public void f() {
-        Iterator<n> it = this.f12740g.iterator();
+        Iterator<n> it = this.f12805g.iterator();
         while (it.hasNext()) {
             n next = it.next();
             if (next.getToolId() == 2) {
@@ -85,11 +85,11 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     public void g() {
-        n nVar = this.f12742i;
+        n nVar = this.f12807i;
         if (nVar != null) {
             nVar.hide();
         }
-        this.f12742i = null;
+        this.f12807i = null;
     }
 
     public void h(int i2) {
@@ -100,7 +100,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
                 this.j = false;
             }
             boolean z = this.k;
-            Iterator<n> it = this.f12740g.iterator();
+            Iterator<n> it = this.f12805g.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -111,7 +111,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
                     this.k = true;
                 }
                 if (next.getToolId() == i2) {
-                    this.f12742i = next;
+                    this.f12807i = next;
                     if (this.j) {
                         next.b();
                     }
@@ -133,9 +133,9 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     public void i() {
-        this.f12742i = null;
-        this.f12739f.clear();
-        this.f12740g.clear();
+        this.f12807i = null;
+        this.f12804f.clear();
+        this.f12805g.clear();
     }
 
     public void j() {
@@ -144,13 +144,13 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
 
     public final void k(n nVar) {
         if (nVar instanceof MoreDeskView) {
-            ((MoreDeskView) nVar).p(this.f12739f);
+            ((MoreDeskView) nVar).p(this.f12804f);
             nVar.init();
         }
     }
 
     public h l(int i2) {
-        Iterator<h> it = this.f12739f.iterator();
+        Iterator<h> it = this.f12804f.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next.getToolId() == i2) {
@@ -161,7 +161,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     public final boolean m(int i2) {
-        Iterator<n> it = this.f12740g.iterator();
+        Iterator<n> it = this.f12805g.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i2) {
                 return true;
@@ -171,16 +171,16 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     public void n() {
-        n nVar = this.f12742i;
+        n nVar = this.f12807i;
         if (nVar != null) {
             nVar.hide();
         }
-        this.f12742i = null;
+        this.f12807i = null;
         setVisibility(8);
     }
 
     public void o() {
-        if (this.f12742i != null) {
+        if (this.f12807i != null) {
             return;
         }
         setVisibility(8);
@@ -198,7 +198,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     public final boolean p() {
-        Iterator<n> it = this.f12740g.iterator();
+        Iterator<n> it = this.f12805g.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;
@@ -212,15 +212,15 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     public void r(int i2) {
-        int i3 = this.f12741h;
+        int i3 = this.f12806h;
         if (i3 > 0) {
             SkinManager.setBackgroundColor(this, i3, i2);
         }
-        Iterator<h> it = this.f12739f.iterator();
+        Iterator<h> it = this.f12804f.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i2);
         }
-        Iterator<n> it2 = this.f12740g.iterator();
+        Iterator<n> it2 = this.f12805g.iterator();
         while (it2.hasNext()) {
             n next = it2.next();
             if (next != null) {
@@ -245,11 +245,11 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
 
     public void setBackgroundColorId(int i2) {
         super.setBackgroundColor(getContext().getResources().getColor(i2));
-        this.f12741h = i2;
+        this.f12806h = i2;
     }
 
     public void setDeskLauncherEnabled(boolean z) {
-        Iterator<h> it = this.f12739f.iterator();
+        Iterator<h> it = this.f12804f.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next != null && (next instanceof View)) {
@@ -259,7 +259,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     public boolean t(boolean z, int i2) {
-        Iterator<h> it = this.f12739f.iterator();
+        Iterator<h> it = this.f12804f.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof View) {

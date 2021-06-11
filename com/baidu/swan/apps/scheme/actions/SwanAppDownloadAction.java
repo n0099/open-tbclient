@@ -52,26 +52,26 @@ public class SwanAppDownloadAction extends a0 {
     public class a implements b<i<b.e>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f11300e;
+        public final /* synthetic */ CallbackHandler f11362e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f11301f;
+        public final /* synthetic */ UnitedSchemeEntity f11363f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f11302g;
+        public final /* synthetic */ Context f11364g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f11303h;
+        public final /* synthetic */ JSONObject f11365h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ SwanAppDownloadType f11304i;
+        public final /* synthetic */ SwanAppDownloadType f11366i;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
-            this.f11300e = callbackHandler;
-            this.f11301f = unitedSchemeEntity;
-            this.f11302g = context;
-            this.f11303h = jSONObject;
-            this.f11304i = swanAppDownloadType;
+            this.f11362e = callbackHandler;
+            this.f11363f = unitedSchemeEntity;
+            this.f11364g = context;
+            this.f11365h = jSONObject;
+            this.f11366i = swanAppDownloadType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,13 +79,13 @@ public class SwanAppDownloadAction extends a0 {
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             if (d.h(iVar)) {
-                if (SwanAppDownloadAction.this.k(this.f11302g, this.f11301f, this.f11300e, this.f11303h, this.f11304i)) {
+                if (SwanAppDownloadAction.this.k(this.f11364g, this.f11363f, this.f11362e, this.f11365h, this.f11366i)) {
                     return;
                 }
-                UnitedSchemeUtility.callCallback(this.f11300e, this.f11301f, UnitedSchemeUtility.wrapCallbackParams(1001));
+                UnitedSchemeUtility.callCallback(this.f11362e, this.f11363f, UnitedSchemeUtility.wrapCallbackParams(1001));
                 return;
             }
-            d.o(iVar, this.f11300e, this.f11301f);
+            d.o(iVar, this.f11362e, this.f11363f);
         }
     }
 

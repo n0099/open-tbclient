@@ -1,42 +1,15 @@
 package com.kwad.sdk.plugin;
 
-import androidx.annotation.Nullable;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
-public final class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class, d> f33331a = new ConcurrentHashMap();
-
-    @Nullable
-    public static <T extends d> T a(Class<T> cls) {
-        T t = (T) f33331a.get(cls);
-        if (t != null) {
-            return t;
-        }
-        try {
-            if (DevelopMangerPlugin.class.isAssignableFrom(cls)) {
-                T t2 = (T) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler() { // from class: com.kwad.sdk.plugin.f.1
-                    @Override // java.lang.reflect.InvocationHandler
-                    public Object invoke(Object obj, Method method, Object[] objArr) {
-                        return null;
-                    }
-                });
-                f33331a.put(cls, t2);
-                return t2;
-            }
-            return null;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return null;
-        }
-    }
-
-    public static void a(Class cls, d dVar) {
-        f33331a.put(cls, dVar);
+import android.content.Context;
+import com.kwad.sdk.api.SdkConfig;
+/* loaded from: classes7.dex */
+public class f {
+    public static void a(Context context, SdkConfig sdkConfig) {
+        e eVar = (e) c.class.newInstance();
+        g.a(eVar.b(), eVar);
+        eVar.a(context, sdkConfig);
+        e eVar2 = (e) com.kwad.sdk.contentalliance.d.class.newInstance();
+        g.a(eVar2.b(), eVar2);
+        eVar2.a(context, sdkConfig);
     }
 }

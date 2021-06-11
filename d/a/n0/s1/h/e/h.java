@@ -10,16 +10,16 @@ import com.baidu.tieba.R;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f60733a;
+    public BdListView f64424a;
 
     public h(ViewGroup viewGroup) {
-        this.f60733a = (BdListView) viewGroup.findViewById(R.id.tail_tool_listview);
+        this.f64424a = (BdListView) viewGroup.findViewById(R.id.tail_tool_listview);
         View view = new View(viewGroup.getContext());
         view.setLayoutParams(new AbsListView.LayoutParams(-1, (int) viewGroup.getContext().getResources().getDimension(R.dimen.ds30)));
-        this.f60733a.addHeaderView(view);
+        this.f64424a.addHeaderView(view);
     }
 
     public void a(b bVar) {
-        this.f60733a.setAdapter((ListAdapter) bVar);
+        this.f64424a.setAdapter((ListAdapter) bVar);
     }
 }

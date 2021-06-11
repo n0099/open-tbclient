@@ -3,32 +3,32 @@ package d.a.n0.e2.k.e;
 public class g0 {
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53338c;
+    public boolean f57027c;
     public boolean r;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f53336a = false;
+    public boolean f57025a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f53337b = false;
+    public boolean f57026b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f53339d = false;
+    public boolean f57028d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f53340e = false;
+    public boolean f57029e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f53341f = false;
+    public boolean f57030f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f53342g = false;
+    public boolean f57031g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f53343h = false;
+    public boolean f57032h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f53344i = false;
+    public boolean f57033i = false;
     public boolean j = false;
     public boolean k = false;
     public boolean l = false;

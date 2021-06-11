@@ -10,13 +10,13 @@ import protobuf.CommitInviteMsg.DataReq;
 public class e extends BdBaseModel<InviteFriendListActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public RequestCommitInviteMessage f54976e;
+    public RequestCommitInviteMessage f58665e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f54977f;
+    public long f58666f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f54978g;
+    public long f58667g;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -36,19 +36,19 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         if (bundle == null) {
             return;
         }
-        this.f54977f = bundle.getLong("gid", -1L);
-        this.f54978g = bundle.getLong("groupid", -1L);
+        this.f58666f = bundle.getLong("gid", -1L);
+        this.f58667g = bundle.getLong("groupid", -1L);
     }
 
     public void initWithIntent(Intent intent) {
         if (intent == null) {
             return;
         }
-        this.f54977f = intent.getLongExtra("gid", -1L);
-        this.f54978g = intent.getLongExtra("groupid", -1L);
+        this.f58666f = intent.getLongExtra("gid", -1L);
+        this.f58667g = intent.getLongExtra("groupid", -1L);
     }
 
-    public final RequestCommitInviteMessage s(long j, long j2, String str) {
+    public final RequestCommitInviteMessage w(long j, long j2, String str) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.groupId = Long.valueOf(j);
         builder.msgType = 5;
@@ -59,14 +59,14 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         return requestCommitInviteMessage;
     }
 
-    public void t(Bundle bundle) {
-        bundle.putLong("gid", this.f54977f);
-        bundle.putLong("groupid", this.f54978g);
+    public void x(Bundle bundle) {
+        bundle.putLong("gid", this.f58666f);
+        bundle.putLong("groupid", this.f58667g);
     }
 
-    public void u(String str) {
-        RequestCommitInviteMessage s = s(this.f54977f, this.f54978g, str);
-        this.f54976e = s;
-        super.sendMessage(s);
+    public void y(String str) {
+        RequestCommitInviteMessage w = w(this.f58666f, this.f58667g, str);
+        this.f58665e = w;
+        super.sendMessage(w);
     }
 }

@@ -3,31 +3,31 @@ package d.a.n0.r3;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59979a;
+    public int f63670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f59980b;
+    public float f63671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f59981c;
+    public float f63672c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f59982d;
+    public float f63673d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f59983e;
+    public float f63674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f59984f;
+    public float f63675f;
 
     public static a a(int i2, float f2, float f3, float f4, float f5, float f6) {
         a aVar = new a();
-        aVar.f59979a = i2;
-        aVar.f59980b = f2;
-        aVar.f59981c = f3;
-        aVar.f59982d = f4;
-        aVar.f59983e = f5;
-        aVar.f59984f = f6;
+        aVar.f63670a = i2;
+        aVar.f63671b = f2;
+        aVar.f63672c = f3;
+        aVar.f63673d = f4;
+        aVar.f63674e = f5;
+        aVar.f63675f = f6;
         return aVar;
     }
 

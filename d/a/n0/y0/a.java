@@ -12,7 +12,7 @@ public class a {
 
     /* renamed from: d.a.n0.y0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class RunnableC1745a implements Runnable {
+    public static class RunnableC1802a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
             a.e();
@@ -44,7 +44,7 @@ public class a {
 
     public static void d() {
         if (!l.C()) {
-            TbadkCoreApplication.getInst().handler.post(new RunnableC1745a());
+            TbadkCoreApplication.getInst().handler.post(new RunnableC1802a());
         } else {
             e();
         }

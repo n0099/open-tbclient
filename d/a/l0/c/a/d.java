@@ -6,10 +6,10 @@ import com.baidu.swan.bdtls.BdtlsController;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f46454b;
+    public static volatile d f50128b;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.l0.c.a.a f46455a = new d.a.l0.c.a.a();
+    public d.a.l0.c.a.a f50129a = new d.a.l0.c.a.a();
 
     /* loaded from: classes3.dex */
     public static class a implements BdtlsController.a {
@@ -20,19 +20,19 @@ public class d {
     }
 
     static {
-        boolean z = d.a.l0.c.a.a.f46449a;
+        boolean z = d.a.l0.c.a.a.f50123a;
         BdtlsController.a(new a());
     }
 
     public static d b() {
-        if (f46454b == null) {
+        if (f50128b == null) {
             synchronized (d.class) {
-                if (f46454b == null) {
-                    f46454b = new d();
+                if (f50128b == null) {
+                    f50128b = new d();
                 }
             }
         }
-        return f46454b;
+        return f50128b;
     }
 
     public void a(String str, d.a.l0.c.a.k.c cVar) {
@@ -44,7 +44,7 @@ public class d {
     }
 
     public boolean d() {
-        d.a.l0.c.a.a aVar = this.f46455a;
+        d.a.l0.c.a.a aVar = this.f50129a;
         if (aVar == null) {
             return false;
         }
@@ -52,7 +52,7 @@ public class d {
     }
 
     public boolean e(String str) {
-        d.a.l0.c.a.a aVar = this.f46455a;
+        d.a.l0.c.a.a aVar = this.f50129a;
         return aVar != null && aVar.b(str);
     }
 

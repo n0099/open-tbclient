@@ -6,31 +6,31 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f52286a;
+    public String f55975a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f52287b;
+    public long f55976b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52288c;
+    public int f55977c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f52289d;
+    public long f55978d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f52290e;
+    public long f55979e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52291f;
+    public String f55980f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f52292g;
+    public long f55981g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f52293h;
+    public String f55982h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f52294i;
+    public String f55983i;
     public String j;
     public String k;
     public String l;
@@ -42,15 +42,15 @@ public class a {
     }
 
     public String b() {
-        return this.f52293h;
+        return this.f55982h;
     }
 
     public String c() {
-        return this.f52294i;
+        return this.f55983i;
     }
 
     public long d() {
-        return this.f52289d;
+        return this.f55978d;
     }
 
     public int e() {
@@ -58,15 +58,15 @@ public class a {
     }
 
     public long f() {
-        return this.f52290e;
+        return this.f55979e;
     }
 
     public long g() {
-        return this.f52292g;
+        return this.f55981g;
     }
 
     public String h() {
-        return this.f52286a;
+        return this.f55975a;
     }
 
     public double i() {
@@ -78,34 +78,34 @@ public class a {
     }
 
     public int k() {
-        return this.f52288c;
+        return this.f55977c;
     }
 
     public String l() {
-        return this.f52291f;
+        return this.f55980f;
     }
 
     public long m() {
-        return this.f52287b;
+        return this.f55976b;
     }
 
     public void n(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f52286a = jSONObject.optString("order_id");
+        this.f55975a = jSONObject.optString("order_id");
         jSONObject.optLong("scene_id");
-        this.f52287b = jSONObject.optLong("scores");
-        this.f52288c = jSONObject.optInt("status");
-        this.f52289d = jSONObject.optLong("create_time");
-        this.f52290e = jSONObject.optLong("finish_time");
-        this.f52291f = jSONObject.optString("title");
-        this.f52292g = jSONObject.optLong("money");
+        this.f55976b = jSONObject.optLong("scores");
+        this.f55977c = jSONObject.optInt("status");
+        this.f55978d = jSONObject.optLong("create_time");
+        this.f55979e = jSONObject.optLong("finish_time");
+        this.f55980f = jSONObject.optString("title");
+        this.f55981g = jSONObject.optLong("money");
         jSONObject.optString("preg_field");
         this.k = jSONObject.optString("user_name");
         this.l = jSONObject.optString("user_nickname");
-        this.f52293h = jSONObject.optString("activity_desc");
-        this.f52294i = jSONObject.optString("activity_url");
+        this.f55982h = jSONObject.optString("activity_desc");
+        this.f55983i = jSONObject.optString("activity_url");
         this.j = jSONObject.optString("button_name");
         this.m = jSONObject.optInt("price_type", 0);
         this.n = jSONObject.optDouble("order_yy_amount", 0.0d);

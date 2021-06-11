@@ -81,7 +81,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void e0(AdCard adCard) {
+    public void d0(AdCard adCard) {
         if (adCard == null || adCard.videoInfo == null) {
             return;
         }
@@ -96,11 +96,11 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         this.i0.updateTailFrameView(advertAppInfo);
         if (advertAppInfo != null) {
             int i2 = -1;
-            String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.Q3) ? getPageTypeByBusiness() : advertAppInfo.Q3;
-            d dVar = advertAppInfo.P3;
+            String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.T3) ? getPageTypeByBusiness() : advertAppInfo.T3;
+            d dVar = advertAppInfo.S3;
             if (dVar != null) {
-                i2 = dVar.f49980b;
-                pageTypeByBusiness = dVar.f49979a;
+                i2 = dVar.f53656b;
+                pageTypeByBusiness = dVar.f53655a;
             }
             this.i0.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
         }
@@ -123,13 +123,13 @@ public class AdCardVideoView extends AdCardBaseView implements r {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void m0(View view) {
+    public void k0(View view) {
         if (view == null) {
             return;
         }
-        float f0 = f0(R.string.J_X05);
+        float e0 = e0(R.string.J_X05);
         XfremodeRoundLayout xfremodeRoundLayout = (XfremodeRoundLayout) view;
-        xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f0, f0, f0, f0, f0, f0, f0, f0});
+        xfremodeRoundLayout.setRoundLayoutRadius(new float[]{e0, e0, e0, e0, e0, e0, e0, e0});
         xfremodeRoundLayout.setLayerType(2, null);
         DistributeVideoView distributeVideoView = (DistributeVideoView) view.findViewById(R.id.advert_video);
         this.i0 = distributeVideoView;

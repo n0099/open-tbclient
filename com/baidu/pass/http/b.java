@@ -20,25 +20,25 @@ import java.util.Random;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9184a = "HttpStack";
+    public static final String f9241a = "HttpStack";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9185b = "Set-Cookie";
+    public static final String f9242b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f9186c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    public static final char[] f9243c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9187d = "User-Agent";
+    public static final String f9244d = "User-Agent";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9188e = 15000;
+    public static final int f9245e = 15000;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9189f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+    public String f9246f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9190g = false;
+    public boolean f9247g = false;
 
     private HttpURLConnection b(PassHttpParamDTO passHttpParamDTO) throws IOException {
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(passHttpParamDTO.url).openConnection();
@@ -47,21 +47,34 @@ public class b {
         return httpURLConnection;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0078, code lost:
+        if (r2 != null) goto L31;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0081, code lost:
+        if (r2 == null) goto L11;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0083, code lost:
+        r2.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void a(PassHttpClientRequest passHttpClientRequest) throws IOException, IllegalArgumentException {
         HttpURLConnection a2;
+        byte[] bArr;
         HttpResponseHandler httpResponseHandler;
         if (passHttpClientRequest == null || passHttpClientRequest.cancelRequest) {
             return;
         }
         a();
-        byte[] bArr = null;
-        int i2 = a.f9183a[passHttpClientRequest.method.ordinal()];
+        int i2 = a.f9240a[passHttpClientRequest.method.ordinal()];
+        OutputStream outputStream = null;
         if (i2 == 1) {
             a2 = a(passHttpClientRequest.paramDTO);
+            bArr = null;
         } else if (i2 == 2) {
-            HttpURLConnection b2 = b(passHttpClientRequest.paramDTO);
-            a2 = b2;
-            bArr = a(b2, passHttpClientRequest.paramDTO);
+            a2 = b(passHttpClientRequest.paramDTO);
+            bArr = a(a2, passHttpClientRequest.paramDTO);
         } else {
             throw new IllegalArgumentException(passHttpClientRequest.method + " method not support");
         }
@@ -70,15 +83,31 @@ public class b {
         a(a2, passHttpClientRequest.paramDTO.headers);
         d.b(passHttpClientRequest.context, a2, passHttpClientRequest.paramDTO);
         if (bArr != null) {
-            OutputStream outputStream = a2.getOutputStream();
-            outputStream.write(bArr);
-            outputStream.flush();
-            outputStream.close();
+            try {
+                outputStream = a2.getOutputStream();
+                if (outputStream != null) {
+                    outputStream.write(bArr);
+                    outputStream.flush();
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                if (outputStream != null) {
+                    try {
+                        outputStream.close();
+                    } catch (Exception unused2) {
+                    }
+                }
+                throw th;
+            }
         }
         InputStream inputStream = a2.getInputStream();
         int responseCode = a2.getResponseCode();
         HashMap<String, String> a3 = a(a2);
         byte[] a4 = a(inputStream);
+        try {
+            inputStream.close();
+        } catch (Exception unused3) {
+        }
         d.a(passHttpClientRequest.context, a2, passHttpClientRequest.paramDTO);
         if (passHttpClientRequest.cancelRequest || (httpResponseHandler = passHttpClientRequest.responseHandler) == null) {
             return;
@@ -112,7 +141,7 @@ public class b {
     private byte[] a(HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) throws IOException {
         HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
         if (httpHashMap instanceof MultipartHashMap) {
-            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9189f);
+            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9246f);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
             if (httpHashMap2 != null) {
@@ -123,7 +152,7 @@ public class b {
                 }
             }
             MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-            a(byteArrayOutputStream, aVar.f9170a, aVar.f9171b, aVar.f9173d, aVar.f9172c);
+            a(byteArrayOutputStream, aVar.f9227a, aVar.f9228b, aVar.f9230d, aVar.f9229c);
             a(byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } else if (httpHashMap instanceof HttpHashMap) {
@@ -219,23 +248,23 @@ public class b {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i2 = 0; i2 < 30; i2++) {
-            char[] cArr = f9186c;
+            char[] cArr = f9243c;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        this.f9189f = sb.toString();
+        this.f9246f = sb.toString();
     }
 
     private void a(ByteArrayOutputStream byteArrayOutputStream) throws IOException {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i2 = 0; i2 < 30; i2++) {
-            char[] cArr = f9186c;
+            char[] cArr = f9243c;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        byte[] bytes = ("\r\n--" + this.f9189f + Part.CRLF).getBytes();
-        if (!this.f9190g) {
-            this.f9190g = true;
-            byteArrayOutputStream.write(("--" + this.f9189f + Part.CRLF).getBytes());
+        byte[] bytes = ("\r\n--" + this.f9246f + Part.CRLF).getBytes();
+        if (!this.f9247g) {
+            this.f9247g = true;
+            byteArrayOutputStream.write(("--" + this.f9246f + Part.CRLF).getBytes());
             return;
         }
         byteArrayOutputStream.write(bytes);

@@ -45,7 +45,7 @@ import d.a.l0.a.z1.b.c.a;
 import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
-public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResultDispatcherHolder, a.InterfaceC0935a, d.a.l0.a.n2.h.e, ServiceConnection {
+public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResultDispatcherHolder, a.InterfaceC0991a, d.a.l0.a.n2.h.e, ServiceConnection {
     public static final int BACK_TYPE_SLIDE = 3;
     public static final int BACK_TYPE_SYSTEM = 1;
     public static final int BACK_TYPE_TITLE_BAR = 2;
@@ -72,7 +72,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     public d.a.l0.a.v2.e mSlideHelper;
     @Nullable
     public d.a.l0.a.v2.c mTaskManager;
-    public static final boolean DEBUG = d.a.l0.a.k.f43199a;
+    public static final boolean DEBUG = d.a.l0.a.k.f46875a;
     public static final String COMPONENT_NAME = SwanAppActivity.class.getName();
     public static final long DELAY_TIME_FOR_LAUNCH_FAIL = TimeUnit.SECONDS.toMillis(1);
     public FrameLifeState mLifeStatus = FrameLifeState.INACTIVATED;
@@ -155,7 +155,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
 
             @Override // android.view.OrientationEventListener
             public void onOrientationChanged(int i2) {
-                d.a.l0.a.a2.d.g().f40738g = i2;
+                d.a.l0.a.a2.d.g().f44414g = i2;
             }
         }
 
@@ -352,7 +352,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         if (r != null) {
             String V = r.N().V();
             d.a.l0.a.f1.g.a d2 = d.a.l0.a.f1.g.a.d(r.N().V());
-            d2.f("appId: " + r.f40749f + "  launchId: " + V).e();
+            d2.f("appId: " + r.f44425f + "  launchId: " + V).e();
             d2.h();
         }
     }
@@ -379,7 +379,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             aVar.j(5L);
             aVar.h(11L);
             aVar.c("can not buildFramework");
-            d.a.l0.a.f1.d.a.d(this, aVar, eVar.l(), eVar.f40749f);
+            d.a.l0.a.f1.d.a.d(this, aVar, eVar.l(), eVar.f44425f);
             tryFinishAndRemoveTask();
             return false;
         }
@@ -505,7 +505,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         return cVar == null ? "" : cVar.n;
     }
 
-    @Override // d.a.l0.a.z1.b.c.a.InterfaceC0935a
+    @Override // d.a.l0.a.z1.b.c.a.InterfaceC0991a
     @NonNull
     public d.a.l0.a.z1.b.c.a getFloatLayer() {
         if (this.mFloatLayer == null) {
@@ -696,7 +696,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         if (DEBUG) {
             Log.i(TAG, "onCreate: bindService");
         }
-        if (!a.C0694a.c()) {
+        if (!a.C0750a.c()) {
             try {
                 bindService(new Intent(this, getProcessInfo().service), this, 1);
             } catch (Exception e2) {

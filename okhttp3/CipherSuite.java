@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CipherSuite {
     public final String javaName;
     public static final Comparator<String> ORDER_BY_NAME = new Comparator<String>() { // from class: okhttp3.CipherSuite.1

@@ -16,19 +16,19 @@ import java.util.ArrayList;
 public class h extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f57961e;
+    public TbPageContext<?> f61652e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<i> f57962f = new ArrayList<>();
+    public ArrayList<i> f61653f = new ArrayList<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public l f57963g;
+    public l f61654g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57964h;
+    public int f61655h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57965i;
+    public int f61656i;
     public d j;
 
     /* loaded from: classes4.dex */
@@ -39,7 +39,7 @@ public class h extends BaseAdapter {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (h.this.j != null) {
-                h.this.j.a(h.this.f57963g.c());
+                h.this.j.a(h.this.f61654g.b());
             }
         }
     }
@@ -52,7 +52,7 @@ public class h extends BaseAdapter {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (h.this.j != null) {
-                h.this.j.a(h.this.f57963g.c());
+                h.this.j.a(h.this.f61654g.b());
             }
         }
     }
@@ -61,7 +61,7 @@ public class h extends BaseAdapter {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f57968a;
+        public View f61659a;
 
         public c(h hVar) {
         }
@@ -76,19 +76,19 @@ public class h extends BaseAdapter {
     public class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public RelativeLayout f57969a;
+        public RelativeLayout f61660a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BawuMemberInfoView f57970b;
+        public BawuMemberInfoView f61661b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BawuMemberInfoView f57971c;
+        public BawuMemberInfoView f61662c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BawuManagerApplyInfoView f57972d;
+        public BawuManagerApplyInfoView f61663d;
 
         /* renamed from: e  reason: collision with root package name */
-        public BawuManagerApplyInfoView f57973e;
+        public BawuManagerApplyInfoView f61664e;
 
         public e(h hVar) {
         }
@@ -98,37 +98,37 @@ public class h extends BaseAdapter {
     public class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f57974a;
+        public TextView f61665a;
 
         public f(h hVar) {
         }
     }
 
     public h(TbPageContext<?> tbPageContext) {
-        this.f57964h = 0;
-        this.f57965i = 0;
-        this.f57961e = tbPageContext;
-        this.f57964h = d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds31);
-        this.f57965i = d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds0);
+        this.f61655h = 0;
+        this.f61656i = 0;
+        this.f61652e = tbPageContext;
+        this.f61655h = d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds31);
+        this.f61656i = d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: c */
     public i getItem(int i2) {
-        ArrayList<i> arrayList = this.f57962f;
+        ArrayList<i> arrayList = this.f61653f;
         if (arrayList == null || i2 >= arrayList.size()) {
             return null;
         }
-        return this.f57962f.get(i2);
+        return this.f61653f.get(i2);
     }
 
     public void d(ArrayList<i> arrayList) {
-        this.f57962f = arrayList;
+        this.f61653f = arrayList;
     }
 
     public void e(l lVar) {
-        this.f57963g = lVar;
+        this.f61654g = lVar;
     }
 
     public void f(d dVar) {
@@ -137,7 +137,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<i> arrayList = this.f57962f;
+        ArrayList<i> arrayList = this.f61653f;
         if (arrayList != null) {
             return arrayList.size();
         }
@@ -162,86 +162,86 @@ public class h extends BaseAdapter {
             if (view != null && (view.getTag() instanceof f)) {
                 fVar = (f) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f57961e.getPageActivity()).inflate(R.layout.bawu_item_title_view, viewGroup, false);
+                view = LayoutInflater.from(this.f61652e.getPageActivity()).inflate(R.layout.bawu_item_title_view, viewGroup, false);
                 fVar = new f(this);
-                fVar.f57974a = (TextView) view.findViewById(R.id.text_view_title);
+                fVar.f61665a = (TextView) view.findViewById(R.id.text_view_title);
                 view.setTag(fVar);
             }
-            fVar.f57974a.setText(((d.a.n0.p0.a.c) getItem(i2)).b());
-            this.f57961e.getLayoutMode().j(view);
+            fVar.f61665a.setText(((d.a.n0.p0.a.c) getItem(i2)).b());
+            this.f61652e.getLayoutMode().j(view);
         } else if (getItemViewType(i2) == 1) {
             if (view != null && (view.getTag() instanceof e)) {
                 eVar = (e) view.getTag();
-                eVar.f57970b.setVisibility(0);
-                eVar.f57971c.setVisibility(8);
-                eVar.f57972d.setVisibility(8);
-                eVar.f57973e.setVisibility(8);
+                eVar.f61661b.setVisibility(0);
+                eVar.f61662c.setVisibility(8);
+                eVar.f61663d.setVisibility(8);
+                eVar.f61664e.setVisibility(8);
             } else {
-                view = LayoutInflater.from(this.f57961e.getPageActivity()).inflate(R.layout.bawu_item_member, viewGroup, false);
+                view = LayoutInflater.from(this.f61652e.getPageActivity()).inflate(R.layout.bawu_item_member, viewGroup, false);
                 eVar = new e(this);
-                eVar.f57969a = (RelativeLayout) view.findViewById(R.id.bawu_item_member_root);
-                eVar.f57970b = (BawuMemberInfoView) view.findViewById(R.id.left_member);
-                eVar.f57971c = (BawuMemberInfoView) view.findViewById(R.id.right_member);
-                eVar.f57972d = (BawuManagerApplyInfoView) view.findViewById(R.id.left_manager_apply);
-                eVar.f57973e = (BawuManagerApplyInfoView) view.findViewById(R.id.right_manager_apply);
+                eVar.f61660a = (RelativeLayout) view.findViewById(R.id.bawu_item_member_root);
+                eVar.f61661b = (BawuMemberInfoView) view.findViewById(R.id.left_member);
+                eVar.f61662c = (BawuMemberInfoView) view.findViewById(R.id.right_member);
+                eVar.f61663d = (BawuManagerApplyInfoView) view.findViewById(R.id.left_manager_apply);
+                eVar.f61664e = (BawuManagerApplyInfoView) view.findViewById(R.id.right_manager_apply);
                 view.setTag(eVar);
             }
             d.a.n0.p0.a.b bVar = (d.a.n0.p0.a.b) getItem(i2);
             if (bVar != null && bVar.c() != null && bVar.c().size() > 0) {
                 if (bVar.e() && bVar.b()) {
-                    RelativeLayout relativeLayout = eVar.f57969a;
-                    int i3 = this.f57964h;
-                    relativeLayout.setPadding(i3, 0, i3, this.f57965i);
-                    l lVar = this.f57963g;
-                    if (lVar != null && !lVar.f()) {
+                    RelativeLayout relativeLayout = eVar.f61660a;
+                    int i3 = this.f61655h;
+                    relativeLayout.setPadding(i3, 0, i3, this.f61656i);
+                    l lVar = this.f61654g;
+                    if (lVar != null && !lVar.e()) {
                         if (bVar.c().size() == 2) {
-                            if (bVar.d().equals(this.f57961e.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                                eVar.f57973e.setVisibility(8);
-                                eVar.f57972d.setVisibility(8);
-                            } else if (bVar.d().equals(this.f57961e.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                                eVar.f57973e.setVisibility(8);
-                                eVar.f57972d.setVisibility(0);
-                                eVar.f57972d.a(this.f57961e.getResources().getString(R.string.tip_assist_apply), this.f57963g.e());
-                                eVar.f57972d.setOnClickListener(new a());
+                            if (bVar.d().equals(this.f61652e.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                                eVar.f61664e.setVisibility(8);
+                                eVar.f61663d.setVisibility(8);
+                            } else if (bVar.d().equals(this.f61652e.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                                eVar.f61664e.setVisibility(8);
+                                eVar.f61663d.setVisibility(0);
+                                eVar.f61663d.a(this.f61652e.getResources().getString(R.string.tip_assist_apply), this.f61654g.c());
+                                eVar.f61663d.setOnClickListener(new a());
                             }
-                        } else if (bVar.d().equals(this.f57961e.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                            eVar.f57971c.setVisibility(8);
-                            eVar.f57973e.setVisibility(8);
-                            eVar.f57972d.setVisibility(8);
-                        } else if (bVar.d().equals(this.f57961e.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                            eVar.f57971c.setVisibility(8);
-                            eVar.f57973e.setVisibility(0);
-                            eVar.f57972d.setVisibility(8);
-                            eVar.f57973e.a(this.f57961e.getResources().getString(R.string.tip_assist_apply), this.f57963g.e());
-                            eVar.f57973e.setOnClickListener(new b());
+                        } else if (bVar.d().equals(this.f61652e.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                            eVar.f61662c.setVisibility(8);
+                            eVar.f61664e.setVisibility(8);
+                            eVar.f61663d.setVisibility(8);
+                        } else if (bVar.d().equals(this.f61652e.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                            eVar.f61662c.setVisibility(8);
+                            eVar.f61664e.setVisibility(0);
+                            eVar.f61663d.setVisibility(8);
+                            eVar.f61664e.a(this.f61652e.getResources().getString(R.string.tip_assist_apply), this.f61654g.c());
+                            eVar.f61664e.setOnClickListener(new b());
                         }
                     }
                 } else {
-                    RelativeLayout relativeLayout2 = eVar.f57969a;
-                    int i4 = this.f57964h;
+                    RelativeLayout relativeLayout2 = eVar.f61660a;
+                    int i4 = this.f61655h;
                     relativeLayout2.setPadding(i4, 0, i4, 0);
-                    eVar.f57972d.setVisibility(8);
-                    eVar.f57973e.setVisibility(8);
+                    eVar.f61663d.setVisibility(8);
+                    eVar.f61664e.setVisibility(8);
                 }
-                eVar.f57970b.c(bVar.c().get(0));
+                eVar.f61661b.c(bVar.c().get(0));
                 if (bVar.c().size() >= 2) {
-                    eVar.f57971c.c(bVar.c().get(1));
-                    eVar.f57971c.setVisibility(0);
+                    eVar.f61662c.c(bVar.c().get(1));
+                    eVar.f61662c.setVisibility(0);
                 } else {
-                    eVar.f57971c.setVisibility(8);
+                    eVar.f61662c.setVisibility(8);
                 }
-                this.f57961e.getLayoutMode().j(view);
+                this.f61652e.getLayoutMode().j(view);
             }
         } else if (getItemViewType(i2) == 2) {
             if (view != null && (view.getTag() instanceof c)) {
                 c cVar = (c) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f57961e.getPageActivity()).inflate(R.layout.bawu_item_divider_view, viewGroup, false);
+                view = LayoutInflater.from(this.f61652e.getPageActivity()).inflate(R.layout.bawu_item_divider_view, viewGroup, false);
                 c cVar2 = new c(this);
-                cVar2.f57968a = view.findViewById(R.id.divider_view);
+                cVar2.f61659a = view.findViewById(R.id.divider_view);
                 view.setTag(cVar2);
             }
-            this.f57961e.getLayoutMode().j(view);
+            this.f61652e.getLayoutMode().j(view);
         }
         return view;
     }

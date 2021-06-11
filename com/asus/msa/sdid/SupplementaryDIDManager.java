@@ -29,7 +29,7 @@ public class SupplementaryDIDManager {
             if (SupplementaryDIDManager.DEBUG) {
                 Log.i(SupplementaryDIDManager.TAG, "did service binded");
             }
-            SupplementaryDIDManager.this.mDidService = a.AbstractBinderC0018a.a(iBinder);
+            SupplementaryDIDManager.this.mDidService = a.AbstractBinderC0019a.a(iBinder);
             SupplementaryDIDManager.this.notifyAllListeners(true);
         }
 

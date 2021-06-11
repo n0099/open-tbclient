@@ -18,7 +18,7 @@ public class b {
             File file = new File(str);
             if (file.exists()) {
                 if (c(file)) {
-                    d.a.c.j.d.a aVar = a.C0480a.b().get(str);
+                    d.a.c.k.d.a aVar = a.C0536a.b().get(str);
                     if (aVar != null) {
                         bitmap = aVar.p();
                     }
@@ -37,7 +37,7 @@ public class b {
     public static Bitmap b(ImageFileInfo imageFileInfo) {
         Bitmap f2;
         d.a.m0.b0.b bVar = new d.a.m0.b0.b();
-        d.a.c.j.d.a c2 = bVar.c(imageFileInfo, true);
+        d.a.c.k.d.a c2 = bVar.c(imageFileInfo, true);
         if (c2 != null) {
             f2 = c2.p();
         } else {

@@ -20,47 +20,47 @@ import d.a.l0.n.c;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f47993b = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+    public static final String f51667b = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f47994c = Uri.parse("content://" + f47993b + "/framework");
+    public static final Uri f51668c = Uri.parse("content://" + f51667b + "/framework");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f47995d = Uri.parse("content://" + f47993b + "/swan_app");
+    public static final Uri f51669d = Uri.parse("content://" + f51667b + "/swan_app");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Uri f47996e = Uri.parse("content://" + f47993b + "/pkg_main");
+    public static final Uri f51670e = Uri.parse("content://" + f51667b + "/pkg_main");
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Uri f47997f = Uri.parse("content://" + f47993b + "/pkg_sub");
+    public static final Uri f51671f = Uri.parse("content://" + f51667b + "/pkg_sub");
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Uri f47998g = Uri.parse("content://" + f47993b + "/" + ETAG.KEY_EXTENSION);
+    public static final Uri f51672g = Uri.parse("content://" + f51667b + "/" + ETAG.KEY_EXTENSION);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Uri f47999h = Uri.parse("content://" + f47993b + "/swan_plugin");
+    public static final Uri f51673h = Uri.parse("content://" + f51667b + "/swan_plugin");
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Uri f48000i = Uri.parse("content://" + f47993b + "/so_lib");
+    public static final Uri f51674i = Uri.parse("content://" + f51667b + "/so_lib");
     public static UriMatcher j;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48001a;
+    public Context f51675a;
 
     static {
         UriMatcher uriMatcher = new UriMatcher(-1);
         j = uriMatcher;
-        uriMatcher.addURI(f47993b, "framework", 2);
-        j.addURI(f47993b, "pkg_main", 0);
-        j.addURI(f47993b, "pkg_sub", 1);
-        j.addURI(f47993b, ETAG.KEY_EXTENSION, 3);
-        j.addURI(f47993b, "swan_app", 4);
-        j.addURI(f47993b, "swan_plugin", 5);
-        j.addURI(f47993b, "so_lib", 7);
+        uriMatcher.addURI(f51667b, "framework", 2);
+        j.addURI(f51667b, "pkg_main", 0);
+        j.addURI(f51667b, "pkg_sub", 1);
+        j.addURI(f51667b, ETAG.KEY_EXTENSION, 3);
+        j.addURI(f51667b, "swan_app", 4);
+        j.addURI(f51667b, "swan_plugin", 5);
+        j.addURI(f51667b, "so_lib", 7);
     }
 
     public b(Context context) {
-        this.f48001a = context;
+        this.f51675a = context;
     }
 
     public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
@@ -68,17 +68,17 @@ public class b {
         if (TextUtils.isEmpty(c2)) {
             return 0;
         }
-        if (c.f47984a) {
+        if (c.f51658a) {
             Log.e("PMSDBProvider", "delete");
         }
         try {
             int delete = b().getWritableDatabase().delete(c2, str, strArr);
             if (delete > 0) {
-                this.f48001a.getContentResolver().notifyChange(uri, null);
+                this.f51675a.getContentResolver().notifyChange(uri, null);
             }
             return delete;
         } catch (SQLException e2) {
-            if (c.f47984a) {
+            if (c.f51658a) {
                 e2.printStackTrace();
                 return 0;
             }
@@ -126,19 +126,19 @@ public class b {
         Log.e("PMSDBProvider", "name:" + Thread.currentThread().getName());
         String c2 = c(uri);
         if (!TextUtils.isEmpty(c2) && contentValues != null) {
-            if (c.f47984a) {
+            if (c.f51658a) {
                 Log.e("PMSDBProvider", "insert:" + contentValues.toString());
             }
             try {
                 long insertWithOnConflict = b().getWritableDatabase().insertWithOnConflict(c2, null, contentValues, 5);
                 if (insertWithOnConflict > 0) {
                     Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
-                    this.f48001a.getContentResolver().notifyChange(withAppendedId, null);
+                    this.f51675a.getContentResolver().notifyChange(withAppendedId, null);
                     return withAppendedId;
                 }
                 return uri;
             } catch (SQLException e2) {
-                if (c.f47984a) {
+                if (c.f51658a) {
                     e2.printStackTrace();
                 }
             }
@@ -155,13 +155,13 @@ public class b {
         if (TextUtils.isEmpty(c2)) {
             return null;
         }
-        if (c.f47984a) {
+        if (c.f51658a) {
             Log.e("PMSDBProvider", "query");
         }
         try {
             return b().getReadableDatabase().query(c2, strArr, str, strArr2, null, null, str2, null);
         } catch (SQLException e2) {
-            if (c.f47984a) {
+            if (c.f51658a) {
                 e2.printStackTrace();
                 return null;
             }
@@ -172,13 +172,13 @@ public class b {
     @Nullable
     public Cursor g(@NonNull Uri uri, @Nullable String str) {
         if (!TextUtils.isEmpty(c(uri))) {
-            if (c.f47984a) {
+            if (c.f51658a) {
                 Log.e("PMSDBProvider", "query");
             }
             try {
                 return b().getReadableDatabase().rawQuery(str, null);
             } catch (SQLException e2) {
-                if (c.f47984a) {
+                if (c.f51658a) {
                     e2.printStackTrace();
                 }
             }
@@ -191,17 +191,17 @@ public class b {
         if (TextUtils.isEmpty(c2)) {
             return 0;
         }
-        if (c.f47984a) {
+        if (c.f51658a) {
             Log.e("PMSDBProvider", IMTrack.DbBuilder.ACTION_UPDATE);
         }
         try {
             int update = b().getWritableDatabase().update(c2, contentValues, str, strArr);
             if (update > 0) {
-                this.f48001a.getContentResolver().notifyChange(uri, null);
+                this.f51675a.getContentResolver().notifyChange(uri, null);
             }
             return update;
         } catch (SQLException e2) {
-            if (c.f47984a) {
+            if (c.f51658a) {
                 e2.printStackTrace();
                 return 0;
             }

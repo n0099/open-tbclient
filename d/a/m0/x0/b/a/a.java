@@ -6,20 +6,20 @@ import com.baidu.tbadk.template.adapter.stats.StatsType;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public StatsType f50961a;
+    public StatsType f54638a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f50962b;
+    public BdUniqueId f54639b;
 
     public BdUniqueId a() {
-        return this.f50962b;
+        return this.f54639b;
     }
 
     public boolean b() {
-        return this.f50961a == StatsType.CLICK;
+        return this.f54638a == StatsType.CLICK;
     }
 
     public boolean c() {
-        return this.f50961a == StatsType.SHOW;
+        return this.f54638a == StatsType.SHOW;
     }
 }

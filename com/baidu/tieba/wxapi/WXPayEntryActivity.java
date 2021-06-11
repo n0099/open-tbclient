@@ -54,9 +54,9 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
                 e2.printStackTrace();
             }
             e eVar = new e();
-            eVar.f49506g = true;
-            eVar.f49501b = baseResp.getType();
-            eVar.f49502c = str;
+            eVar.f53180g = true;
+            eVar.f53175b = baseResp.getType();
+            eVar.f53176c = str;
             Intent intent = new Intent("WXPayResult");
             intent.putExtra("errorCode", baseResp.errCode);
             intent.putExtra("errorMsg", baseResp.errStr);

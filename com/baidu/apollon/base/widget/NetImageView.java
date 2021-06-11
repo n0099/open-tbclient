@@ -21,7 +21,7 @@ import java.util.HashMap;
 public class NetImageView extends ImageView {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3611b = "NetImageView";
+    public static final String f3630b = "NetImageView";
     public static Handler k;
     public static HashMap<String, Integer> l;
     public String m;
@@ -36,43 +36,43 @@ public class NetImageView extends ImageView {
     public ImageLoader.OnGetBitmapListener v;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3610a = ApollonConstants.DEBUG & true;
+    public static final boolean f3629a = ApollonConstants.DEBUG & true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3612c = "ldpi";
+    public static String f3631c = "ldpi";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3613d = "mdpi";
+    public static String f3632d = "mdpi";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f3614e = "hdpi";
+    public static String f3633e = "hdpi";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f3615f = "xhdpi";
+    public static String f3634f = "xhdpi";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f3616g = "xxhdpi";
+    public static String f3635g = "xxhdpi";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f3617h = "xxxhdpi";
+    public static String f3636h = "xxxhdpi";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f3618i = "tvdpi";
+    public static String f3637i = "tvdpi";
     public static String j = "density";
 
     /* loaded from: classes.dex */
     public static class a implements ImageLoader.OnGetBitmapListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<NetImageView> f3619a;
+        public WeakReference<NetImageView> f3638a;
 
         public a(NetImageView netImageView) {
-            this.f3619a = new WeakReference<>(netImageView);
+            this.f3638a = new WeakReference<>(netImageView);
         }
 
         @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
         public boolean needCancel(String str, Object obj) {
-            WeakReference<NetImageView> weakReference = this.f3619a;
+            WeakReference<NetImageView> weakReference = this.f3638a;
             boolean z = false;
             if (weakReference != null) {
                 NetImageView netImageView = weakReference.get();
@@ -80,8 +80,8 @@ public class NetImageView extends ImageView {
                     return false;
                 }
                 z = (netImageView.o == null && TextUtils.equals(str, netImageView.m)) ? true : true;
-                if (NetImageView.f3610a && z) {
-                    Log.i(NetImageView.f3611b, "Canceled   url: " + str);
+                if (NetImageView.f3629a && z) {
+                    Log.i(NetImageView.f3630b, "Canceled   url: " + str);
                 }
             }
             return z;
@@ -90,9 +90,9 @@ public class NetImageView extends ImageView {
         @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
         public void onError(final String str, Object obj) {
             final NetImageView netImageView;
-            if (NetImageView.f3610a) {
-                Log.d(NetImageView.f3611b, "getImage error: " + str);
-                WeakReference<NetImageView> weakReference = this.f3619a;
+            if (NetImageView.f3629a) {
+                Log.d(NetImageView.f3630b, "getImage error: " + str);
+                WeakReference<NetImageView> weakReference = this.f3638a;
                 if (weakReference == null || (netImageView = weakReference.get()) == null) {
                     return;
                 }
@@ -109,7 +109,7 @@ public class NetImageView extends ImageView {
 
         @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
         public void onGetBitmap(final String str, Object obj, final Bitmap bitmap) {
-            WeakReference<NetImageView> weakReference = this.f3619a;
+            WeakReference<NetImageView> weakReference = this.f3638a;
             if (weakReference != null) {
                 final NetImageView netImageView = weakReference.get();
                 if (NetImageView.k == null || netImageView == null) {
@@ -128,13 +128,13 @@ public class NetImageView extends ImageView {
     static {
         HashMap<String, Integer> hashMap = new HashMap<>();
         l = hashMap;
-        hashMap.put(f3612c, 120);
-        l.put(f3613d, 160);
-        l.put(f3618i, 213);
-        l.put(f3614e, 240);
-        l.put(f3615f, Integer.valueOf((int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP));
-        l.put(f3616g, 480);
-        l.put(f3617h, 640);
+        hashMap.put(f3631c, 120);
+        l.put(f3632d, 160);
+        l.put(f3637i, 213);
+        l.put(f3633e, 240);
+        l.put(f3634f, Integer.valueOf((int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP));
+        l.put(f3635g, 480);
+        l.put(f3636h, 640);
     }
 
     public NetImageView(Context context, AttributeSet attributeSet, int i2) {
@@ -271,8 +271,8 @@ public class NetImageView extends ImageView {
             BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
             this.o = bitmapDrawable;
             callRealSetImageDrawable(bitmapDrawable, false);
-            if (f3610a) {
-                Log.d(f3611b, "getImage ok: " + this.o.getIntrinsicWidth() + "x" + this.o.getIntrinsicHeight() + " url: " + str);
+            if (f3629a) {
+                Log.d(f3630b, "getImage ok: " + this.o.getIntrinsicWidth() + "x" + this.o.getIntrinsicHeight() + " url: " + str);
             }
         }
     }
@@ -282,8 +282,8 @@ public class NetImageView extends ImageView {
             this.m = null;
         } else if (TextUtils.equals(this.m, str)) {
         } else {
-            if (f3610a) {
-                Log.d(f3611b, "req: " + z + " img url: " + str);
+            if (f3629a) {
+                Log.d(f3630b, "req: " + z + " img url: " + str);
             }
             this.m = str;
             this.o = null;

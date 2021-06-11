@@ -20,11 +20,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     public void O(AdCard adCard) {
         c cVar;
-        if (adCard != null && (cVar = adCard.picInfo) != null && a.k(cVar.f61067c) >= 1) {
-            String str = (String) a.d(adCard.picInfo.f61067c, 0);
+        if (adCard != null && (cVar = adCard.picInfo) != null && a.k(cVar.f64759c) >= 1) {
+            String str = (String) a.d(adCard.picInfo.f64759c, 0);
             if (!TextUtils.isEmpty(str)) {
                 this.t.setVisibility(0);
-                this.A.V(str, 17, false);
+                this.A.U(str, 17, false);
                 return;
             }
             this.t.setVisibility(8);

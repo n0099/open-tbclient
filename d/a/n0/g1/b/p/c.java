@@ -63,10 +63,10 @@ public class c extends d.a.n0.z.b<d.a.n0.g1.b.p.a> {
                 }
                 TiebaStatic.log(param);
             }
-            if (c.this.h() != null) {
-                b0<d.a.n0.g1.b.p.a> h2 = c.this.h();
+            if (c.this.i() != null) {
+                b0<d.a.n0.g1.b.p.a> i2 = c.this.i();
                 c cVar = c.this;
-                h2.a(cVar.v, cVar.A);
+                i2.a(cVar.v, cVar.A);
             }
         }
     }
@@ -78,19 +78,19 @@ public class c extends d.a.n0.z.b<d.a.n0.g1.b.p.a> {
         this.y = tbPageContext;
         this.B = l.g(tbPageContext.getContext(), R.dimen.tbds42);
         this.C = l.g(this.y.getContext(), R.dimen.tbds48);
-        u();
+        v();
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_message_layout;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         if (this.z != i2) {
             this.z = i2;
-            l().setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
+            m().setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0106);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
             SkinManager.setBackgroundResource(this.o, R.drawable.btn_rounded_corner_gray_frame_transparent_thin);
@@ -118,21 +118,21 @@ public class c extends d.a.n0.z.b<d.a.n0.g1.b.p.a> {
             return;
         }
         if (view == this.m || view == this.n) {
-            if (this.A.v() == null) {
+            if (this.A.t() == null) {
                 return;
             }
-            String userId = this.A.v().getUserId();
-            String userName = this.A.v().getUserName();
+            String userId = this.A.t().getUserId();
+            String userName = this.A.t().getUserName();
             if (userId != null && userId.length() > 0) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.y.getContext(), userId, userName)));
             }
         }
-        if (h() != null) {
-            h().a(view, this.A);
+        if (i() != null) {
+            i().a(view, this.A);
         }
     }
 
-    public final CharSequence t(TextView textView, SpannableString spannableString) {
+    public final CharSequence u(TextView textView, SpannableString spannableString) {
         TbPageContext tbPageContext;
         if (textView == null || spannableString == null || (tbPageContext = this.y) == null) {
             return null;
@@ -140,20 +140,20 @@ public class c extends d.a.n0.z.b<d.a.n0.g1.b.p.a> {
         return TextUtils.ellipsize(spannableString, textView.getPaint(), ((l.k(tbPageContext.getPageActivity()) - (this.y.getResources().getDimensionPixelSize(R.dimen.ds30) * 2)) - textView.getCompoundPaddingLeft()) * 2.0f, TextUtils.TruncateAt.END);
     }
 
-    public final void u() {
-        View l = l();
-        this.m = (HeadImageView) l.findViewById(R.id.photo);
-        this.n = (TextView) l.findViewById(R.id.user_name);
-        this.o = (TextView) l.findViewById(R.id.fans_reply);
-        this.p = (TextView) l.findViewById(R.id.post_from);
-        this.q = l.findViewById(R.id.divider_between_time_and_post_from);
-        this.r = (TextView) l.findViewById(R.id.time);
-        this.s = (TextView) l.findViewById(R.id.card_message_title);
-        this.t = l.findViewById(R.id.card_message_divider_line);
-        this.u = (TextView) l.findViewById(R.id.card_message_post_title);
-        this.v = (OriginalThreadCardView) l.findViewById(R.id.original_thread_view);
-        this.w = (MessageCardBottomView) l.findViewById(R.id.card_message_bottom_layout);
-        this.x = l.findViewById(R.id.new_message);
+    public final void v() {
+        View m = m();
+        this.m = (HeadImageView) m.findViewById(R.id.photo);
+        this.n = (TextView) m.findViewById(R.id.user_name);
+        this.o = (TextView) m.findViewById(R.id.fans_reply);
+        this.p = (TextView) m.findViewById(R.id.post_from);
+        this.q = m.findViewById(R.id.divider_between_time_and_post_from);
+        this.r = (TextView) m.findViewById(R.id.time);
+        this.s = (TextView) m.findViewById(R.id.card_message_title);
+        this.t = m.findViewById(R.id.card_message_divider_line);
+        this.u = (TextView) m.findViewById(R.id.card_message_post_title);
+        this.v = (OriginalThreadCardView) m.findViewById(R.id.original_thread_view);
+        this.w = (MessageCardBottomView) m.findViewById(R.id.card_message_bottom_layout);
+        this.x = m.findViewById(R.id.new_message);
         this.v.setUsePlaceHolder(false);
         this.m.setOnClickListener(this);
         this.n.setOnClickListener(this);
@@ -162,31 +162,31 @@ public class c extends d.a.n0.z.b<d.a.n0.g1.b.p.a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: v */
-    public void m(d.a.n0.g1.b.p.a aVar) {
-        if (aVar == null || aVar.v() == null) {
+    /* renamed from: w */
+    public void n(d.a.n0.g1.b.p.a aVar) {
+        if (aVar == null || aVar.t() == null) {
             return;
         }
         this.A = aVar;
-        MetaData v = aVar.v();
+        MetaData t = aVar.t();
         this.m.setVisibility(0);
         boolean z = true;
         this.m.setPlaceHolder(1);
         this.m.setIsRound(true);
-        UtilHelper.showHeadImageViewBigV(this.m, v, 0);
+        UtilHelper.showHeadImageViewBigV(this.m, t, 0);
         this.m.setTag(null);
         this.m.setPageId(this.y.getUniqueId());
-        this.m.V(aVar.v().getAvater(), 12, false);
-        this.n.setText(StringHelper.cutChineseAndEnglishWithSuffix(UtilHelper.getUserName(v), 14, StringHelper.STRING_MORE));
-        if (aVar.v().getIsMyFans() == 1) {
+        this.m.U(aVar.t().getAvater(), 12, false);
+        this.n.setText(StringHelper.cutChineseAndEnglishWithSuffix(UtilHelper.getUserName(t), 14, StringHelper.STRING_MORE));
+        if (aVar.t().getIsMyFans() == 1) {
             this.o.setVisibility(0);
         } else {
             this.o.setVisibility(8);
         }
-        if (!k.isEmpty(aVar.s())) {
+        if (!k.isEmpty(aVar.o())) {
             this.q.setVisibility(0);
             this.p.setVisibility(0);
-            this.p.setText(aVar.s());
+            this.p.setText(aVar.o());
         } else {
             this.q.setVisibility(8);
             this.p.setVisibility(8);
@@ -197,7 +197,7 @@ public class c extends d.a.n0.z.b<d.a.n0.g1.b.p.a> {
         Context applicationContext = this.y.getPageActivity().getApplicationContext();
         String B = aVar.B();
         int i2 = this.C;
-        textView.setText(t(textView, e2.k(applicationContext, B, i2, i2)));
+        textView.setText(u(textView, e2.k(applicationContext, B, i2, i2)));
         if (k.isEmpty(aVar.x())) {
             this.t.setVisibility(8);
             this.u.setVisibility(8);
@@ -207,18 +207,18 @@ public class c extends d.a.n0.z.b<d.a.n0.g1.b.p.a> {
             Context applicationContext2 = this.y.getPageActivity().getApplicationContext();
             String x = aVar.x();
             int i3 = this.B;
-            textView2.setText(t(textView2, e3.k(applicationContext2, x, i3, i3)));
+            textView2.setText(u(textView2, e3.k(applicationContext2, x, i3, i3)));
             this.u.setVisibility(0);
             this.t.setVisibility(0);
         }
-        this.v.f(aVar.p());
+        this.v.f(aVar.k());
         this.v.setSubClickListener(this.D);
-        this.w.setData(aVar.l(), (aVar.getType() == d.a.n0.g1.b.p.a.x || aVar.getType() == d.a.n0.g1.b.p.a.y) ? false : false);
+        this.w.setData(aVar.g(), (aVar.getType() == d.a.n0.g1.b.p.a.x || aVar.getType() == d.a.n0.g1.b.p.a.y) ? false : false);
         if (aVar.D()) {
             this.x.setVisibility(0);
         } else {
             this.x.setVisibility(8);
         }
-        n(this.y, TbadkCoreApplication.getInst().getSkinType());
+        o(this.y, TbadkCoreApplication.getInst().getSkinType());
     }
 }

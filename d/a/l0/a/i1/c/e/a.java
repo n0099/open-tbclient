@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42750c = k.f43199a;
+    public static final boolean f46426c = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public CallbackHandler f42751a;
+    public CallbackHandler f46427a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f42752b;
+    public JSONObject f46428b;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.f42751a = callbackHandler;
-        this.f42752b = jSONObject;
+        this.f46427a = callbackHandler;
+        this.f46428b = jSONObject;
     }
 
     public void a(String str) {
@@ -29,32 +29,32 @@ public class a {
     }
 
     public void b(String str, JSONObject jSONObject) {
-        if (this.f42752b == null) {
+        if (this.f46428b == null) {
             return;
         }
         JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-        this.f42751a.handleSchemeDispatchCallback(this.f42752b.optString(str), wrapCallbackParamsWithEncode.toString());
-        if (f42750c) {
+        this.f46427a.handleSchemeDispatchCallback(this.f46428b.optString(str), wrapCallbackParamsWithEncode.toString());
+        if (f46426c) {
             Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
         }
     }
 
     public boolean c() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.f42751a);
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.f46427a);
     }
 
     public void d(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (f42750c) {
+            if (f46426c) {
                 Log.d("AudioStatusCallBack", "Audio Callback is Null");
                 return;
             }
             return;
         }
         try {
-            this.f42752b = new JSONObject(str);
+            this.f46428b = new JSONObject(str);
         } catch (JSONException unused) {
-            if (f42750c) {
+            if (f46426c) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
             }
         }

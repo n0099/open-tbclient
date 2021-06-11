@@ -11,30 +11,30 @@ import com.baidu.swan.apps.res.widget.floatlayer.Container;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ViewGroup f46142a;
+    public final ViewGroup f49816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46143b;
+    public int f49817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f46144c;
+    public boolean f49818c;
 
     /* renamed from: d.a.l0.a.z1.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0935a {
+    public interface InterfaceC0991a {
         a getFloatLayer();
     }
 
-    public a(@NonNull InterfaceC0935a interfaceC0935a, @NonNull ViewGroup viewGroup, int i2) {
-        this.f46142a = viewGroup;
-        this.f46143b = i2;
+    public a(@NonNull InterfaceC0991a interfaceC0991a, @NonNull ViewGroup viewGroup, int i2) {
+        this.f49816a = viewGroup;
+        this.f49817b = i2;
     }
 
     @Nullable
     public final Container a() {
-        synchronized (this.f46142a) {
-            for (int i2 = 0; i2 < this.f46142a.getChildCount(); i2++) {
-                View childAt = this.f46142a.getChildAt(i2);
+        synchronized (this.f49816a) {
+            for (int i2 = 0; i2 < this.f49816a.getChildCount(); i2++) {
+                View childAt = this.f49816a.getChildAt(i2);
                 if (childAt instanceof Container) {
                     return (Container) childAt;
                 }
@@ -46,34 +46,34 @@ public class a {
     @NonNull
     public final Container b() {
         Container a2;
-        synchronized (this.f46142a) {
+        synchronized (this.f49816a) {
             a2 = a();
             if (a2 == null) {
                 a2 = new Container(c());
-                int height = this.f46142a.getHeight() - this.f46143b;
-                int i2 = this.f46142a instanceof LinearLayout ? -height : this.f46143b;
+                int height = this.f49816a.getHeight() - this.f49817b;
+                int i2 = this.f49816a instanceof LinearLayout ? -height : this.f49817b;
                 if (height <= 0) {
                     height = -1;
                     i2 = 0;
                 }
-                if (!(this.f46142a instanceof LinearLayout) && this.f46143b == 0) {
+                if (!(this.f49816a instanceof LinearLayout) && this.f49817b == 0) {
                     height = -1;
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, height);
                 layoutParams.setMargins(0, i2, 0, 0);
                 a2.setLayoutParams(layoutParams);
-                this.f46142a.addView(a2);
+                this.f49816a.addView(a2);
             }
         }
         return a2;
     }
 
     public final Context c() {
-        return this.f46142a.getContext();
+        return this.f49816a.getContext();
     }
 
     public boolean d() {
-        return this.f46144c;
+        return this.f49818c;
     }
 
     @Nullable
@@ -105,11 +105,11 @@ public class a {
     }
 
     public void h(boolean z) {
-        synchronized (this.f46142a) {
+        synchronized (this.f49816a) {
             Container a2 = a();
             if (!z || a2 == null || a2.getChildCount() <= 0) {
                 if (a2 != null) {
-                    this.f46142a.removeView(a2);
+                    this.f49816a.removeView(a2);
                 }
             }
         }
@@ -123,8 +123,8 @@ public class a {
     }
 
     public void j(boolean z) {
-        this.f46144c = z;
-        this.f46143b = 0;
+        this.f49818c = z;
+        this.f49817b = 0;
     }
 
     public void k(@NonNull View view) {

@@ -2,11 +2,11 @@ package rx.internal.operators;
 
 import h.e;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class NotificationLite {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f69067a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    public static final Object f72376a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         public static final long serialVersionUID = 1;
 
         public String toString() {
@@ -15,7 +15,7 @@ public final class NotificationLite {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f69068b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    public static final Object f72377b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         public static final long serialVersionUID = 2;
 
         public String toString() {
@@ -23,32 +23,32 @@ public final class NotificationLite {
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class OnErrorSentinel implements Serializable {
         public static final long serialVersionUID = 3;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f69069e;
+        public final Throwable f72378e;
 
         public OnErrorSentinel(Throwable th) {
-            this.f69069e = th;
+            this.f72378e = th;
         }
 
         public String toString() {
-            return "Notification=>Error:" + this.f69069e;
+            return "Notification=>Error:" + this.f72378e;
         }
     }
 
     public static <T> boolean a(e<? super T> eVar, Object obj) {
-        if (obj == f69067a) {
+        if (obj == f72376a) {
             eVar.onCompleted();
             return true;
-        } else if (obj == f69068b) {
+        } else if (obj == f72377b) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
             if (obj.getClass() == OnErrorSentinel.class) {
-                eVar.onError(((OnErrorSentinel) obj).f69069e);
+                eVar.onError(((OnErrorSentinel) obj).f72378e);
                 return true;
             }
             eVar.onNext(obj);
@@ -59,7 +59,7 @@ public final class NotificationLite {
     }
 
     public static Object b() {
-        return f69067a;
+        return f72376a;
     }
 
     public static Object c(Throwable th) {
@@ -67,20 +67,20 @@ public final class NotificationLite {
     }
 
     public static Throwable d(Object obj) {
-        return ((OnErrorSentinel) obj).f69069e;
+        return ((OnErrorSentinel) obj).f72378e;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T e(Object obj) {
-        if (obj == f69068b) {
+        if (obj == f72377b) {
             return null;
         }
         return obj;
     }
 
     public static boolean f(Object obj) {
-        return obj == f69067a;
+        return obj == f72376a;
     }
 
     public static boolean g(Object obj) {
@@ -88,6 +88,6 @@ public final class NotificationLite {
     }
 
     public static <T> Object h(T t) {
-        return t == null ? f69068b : t;
+        return t == null ? f72377b : t;
     }
 }

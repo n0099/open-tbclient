@@ -35,7 +35,7 @@ public class f extends e {
     public JSONObject f() {
         try {
             d.a.l0.a.a2.e F = d.a.l0.a.g1.f.V().F();
-            String i2 = d.a.l0.a.m2.b.i(this.k, TextUtils.equals(this.f43185a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+            String i2 = d.a.l0.a.m2.b.i(this.k, TextUtils.equals(this.f46861a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
             if (F != null && F.N() != null) {
                 b.a N = F.N();
                 if (TextUtils.isEmpty(this.l)) {
@@ -52,7 +52,7 @@ public class f extends e {
                     this.p = N.W();
                 }
                 this.p = j.a(this.p);
-                if (TextUtils.isEmpty(this.f43191g) && !TextUtils.isEmpty(N.e0())) {
+                if (TextUtils.isEmpty(this.f46867g) && !TextUtils.isEmpty(N.e0())) {
                     this.s = N.e0();
                 }
                 String a2 = j.a(this.s);
@@ -65,28 +65,28 @@ public class f extends e {
                 }
             }
             this.n = SwanAppNetworkUtils.f().type;
-            if (this.f43192h == null) {
-                this.f43192h = new JSONObject();
+            if (this.f46868h == null) {
+                this.f46868h = new JSONObject();
             }
-            this.f43192h.put("swan", i2);
-            this.f43192h.put("appversion", this.l);
-            this.f43192h.put("thirdversion", this.m);
-            this.f43192h.put("net", this.n);
-            this.f43192h.put("needdown", this.o);
-            this.f43192h.put("scheme", this.p);
-            this.f43192h.put("page", this.s);
-            this.f43192h.put("launchid", this.u);
+            this.f46868h.put("swan", i2);
+            this.f46868h.put("appversion", this.l);
+            this.f46868h.put("thirdversion", this.m);
+            this.f46868h.put("net", this.n);
+            this.f46868h.put("needdown", this.o);
+            this.f46868h.put("scheme", this.p);
+            this.f46868h.put("page", this.s);
+            this.f46868h.put("launchid", this.u);
             if (!TextUtils.isEmpty(this.t)) {
-                this.f43192h.put("error_code", this.t);
+                this.f46868h.put("error_code", this.t);
             }
             if (!TextUtils.isEmpty(this.q)) {
-                this.f43192h.put("canceltime", this.q);
+                this.f46868h.put("canceltime", this.q);
             }
             if (!TextUtils.isEmpty(this.r)) {
-                this.f43192h.put("successtime", this.r);
+                this.f46868h.put("successtime", this.r);
             }
             if (e.j) {
-                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.f43192h + "\t " + Thread.currentThread().getId());
+                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.f46868h + "\t " + Thread.currentThread().getId());
             }
         } catch (JSONException e2) {
             if (e.j) {
@@ -108,8 +108,8 @@ public class f extends e {
             }
             return;
         }
-        this.f43190f = eVar.H();
-        this.f43187c = eVar.T();
+        this.f46866f = eVar.H();
+        this.f46863c = eVar.T();
         this.o = eVar.r0().getString("aiapp_extra_need_download", "");
         this.p = eVar.W();
         this.s = eVar.e0();

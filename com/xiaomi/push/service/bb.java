@@ -15,17 +15,17 @@ public class bb implements ee {
     @Override // com.xiaomi.push.ee
     public void a(Context context, HashMap<String, String> hashMap) {
         ie ieVar = new ie();
-        ieVar.b(ea.a(context).m271a());
+        ieVar.b(ea.a(context).m270a());
         ieVar.d(ea.a(context).b());
         ieVar.c(hp.AwakeAppResponse.f506a);
         ieVar.a(at.a());
         ieVar.f647a = hashMap;
         byte[] a2 = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.Notification));
         if (!(context instanceof XMPushService)) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("MoleInfo : context is not correct in pushLayer " + ieVar.m452a());
+            com.xiaomi.channel.commonutils.logger.b.m56a("MoleInfo : context is not correct in pushLayer " + ieVar.m451a());
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m57a("MoleInfo : send data directly in pushLayer " + ieVar.m452a());
+        com.xiaomi.channel.commonutils.logger.b.m56a("MoleInfo : send data directly in pushLayer " + ieVar.m451a());
         ((XMPushService) context).a(context.getPackageName(), a2, true);
     }
 
@@ -39,6 +39,6 @@ public class bb implements ee {
 
     @Override // com.xiaomi.push.ee
     public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m57a("MoleInfo：\u3000" + dv.b(hashMap));
+        com.xiaomi.channel.commonutils.logger.b.m56a("MoleInfo：\u3000" + dv.b(hashMap));
     }
 }

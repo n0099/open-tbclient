@@ -19,39 +19,39 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f62882e;
+    public final Context f66597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HotTopicChangeFourmActivity f62883f;
+    public HotTopicChangeFourmActivity f66598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<HotTopicBussinessData> f62884g;
+    public List<HotTopicBussinessData> f66599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f62885h = null;
+    public ViewGroup f66600h = null;
 
     /* loaded from: classes5.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f62886a;
+        public View f66601a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f62887b;
+        public TbImageView f66602b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f62888c;
+        public TextView f66603c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f62889d;
+        public View f66604d;
 
         public b(a aVar) {
         }
     }
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.f62883f = hotTopicChangeFourmActivity;
-        this.f62882e = hotTopicChangeFourmActivity.getPageContext().getContext();
+        this.f66598f = hotTopicChangeFourmActivity;
+        this.f66597e = hotTopicChangeFourmActivity.getPageContext().getContext();
     }
 
     public final b a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
@@ -61,27 +61,27 @@ public class a extends BaseAdapter {
         } else {
             bVar = (b) obj;
         }
-        bVar.f62888c.setText(d(hotTopicBussinessData.mForumName));
-        bVar.f62887b.V(hotTopicBussinessData.mForumAvatar, 10, false);
-        SkinManager.setBackgroundResource(bVar.f62886a, R.drawable.select_forum_item_bg);
-        SkinManager.setViewTextColor(bVar.f62888c, R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(bVar.f62889d, R.color.CAM_X0205);
+        bVar.f66603c.setText(d(hotTopicBussinessData.mForumName));
+        bVar.f66602b.U(hotTopicBussinessData.mForumAvatar, 10, false);
+        SkinManager.setBackgroundResource(bVar.f66601a, R.drawable.select_forum_item_bg);
+        SkinManager.setViewTextColor(bVar.f66603c, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(bVar.f66604d, R.color.CAM_X0205);
         return bVar;
     }
 
     public final b b() {
         b bVar = new b();
-        View inflate = LayoutInflater.from(this.f62882e).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
-        bVar.f62886a = inflate;
+        View inflate = LayoutInflater.from(this.f66597e).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
+        bVar.f66601a = inflate;
         SkinManager.setBackgroundResource(inflate, R.drawable.select_forum_item_bg);
-        SkinManager.setViewTextColor(bVar.f62888c, R.color.CAM_X0105);
-        bVar.f62888c = (TextView) bVar.f62886a.findViewById(R.id.fourm_tv);
-        bVar.f62889d = bVar.f62886a.findViewById(R.id.line_view);
-        TbImageView tbImageView = (TbImageView) bVar.f62886a.findViewById(R.id.icon_img);
-        bVar.f62887b = tbImageView;
+        SkinManager.setViewTextColor(bVar.f66603c, R.color.CAM_X0105);
+        bVar.f66603c = (TextView) bVar.f66601a.findViewById(R.id.fourm_tv);
+        bVar.f66604d = bVar.f66601a.findViewById(R.id.line_view);
+        TbImageView tbImageView = (TbImageView) bVar.f66601a.findViewById(R.id.icon_img);
+        bVar.f66602b = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        bVar.f62887b.setDefaultResource(R.drawable.transparent_bg);
-        bVar.f62886a.setTag(bVar);
+        bVar.f66602b.setDefaultResource(R.drawable.transparent_bg);
+        bVar.f66601a.setTag(bVar);
         return bVar;
     }
 
@@ -89,9 +89,9 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: c */
     public HotTopicBussinessData getItem(int i2) {
-        List<HotTopicBussinessData> list = this.f62884g;
+        List<HotTopicBussinessData> list = this.f66599g;
         if (list != null && i2 < list.size()) {
-            return this.f62884g.get(i2);
+            return this.f66599g.get(i2);
         }
         return null;
     }
@@ -107,15 +107,15 @@ public class a extends BaseAdapter {
     }
 
     public void e(List<HotTopicBussinessData> list) {
-        this.f62884g = list;
+        this.f66599g = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (ListUtils.isEmpty(this.f62884g)) {
+        if (ListUtils.isEmpty(this.f66599g)) {
             return 0;
         }
-        return this.f62884g.size();
+        return this.f66599g.size();
     }
 
     @Override // android.widget.Adapter
@@ -126,8 +126,8 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         b bVar;
-        if (this.f62885h == null) {
-            this.f62885h = viewGroup;
+        if (this.f66600h == null) {
+            this.f66600h = viewGroup;
         }
         HotTopicBussinessData item = getItem(i2);
         if (item != null) {
@@ -136,7 +136,7 @@ public class a extends BaseAdapter {
             bVar = null;
         }
         if (bVar != null) {
-            return bVar.f62886a;
+            return bVar.f66601a;
         }
         return null;
     }

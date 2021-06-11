@@ -29,17 +29,17 @@ public class s extends b<d.a.n0.z.e0.o> {
     public s(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.u = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds70);
-        s(l());
+        t(m());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.card_promotion_item;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        if (this.f63440e != i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        if (this.f67158e != i2) {
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setBackgroundResource(this.r, R.drawable.label_bg_gray);
             SkinManager.setBackgroundResource(this.s, R.color.CAM_X0204);
@@ -49,21 +49,21 @@ public class s extends b<d.a.n0.z.e0.o> {
             this.n.setPlaceHolder(1);
             this.q.setPlaceHolder(2);
         }
-        this.f63440e = i2;
+        this.f67158e = i2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view == this.n || view == this.o || view == this.r) && !StringUtils.isNull(this.t.f63493h)) {
-            TiebaStatic.log(new StatisticItem(this.v).param("obj_id", String.valueOf(this.t.f63490e)));
-            UrlManager.getInstance().dealOneLink(k(), new String[]{this.t.f63493h});
+        if ((view == this.n || view == this.o || view == this.r) && !StringUtils.isNull(this.t.f67211h)) {
+            TiebaStatic.log(new StatisticItem(this.v).param("obj_id", String.valueOf(this.t.f67208e)));
+            UrlManager.getInstance().dealOneLink(k(), new String[]{this.t.f67211h});
         } else if ((view == this.m || view == this.p || view == this.q) && !StringUtils.isNull(this.t.k)) {
-            TiebaStatic.log(new StatisticItem(this.w).param("obj_id", String.valueOf(this.t.f63490e)));
+            TiebaStatic.log(new StatisticItem(this.w).param("obj_id", String.valueOf(this.t.f67208e)));
             UrlManager.getInstance().dealOneLink(k(), new String[]{this.t.k});
         }
     }
 
-    public final void s(View view) {
+    public final void t(View view) {
         this.m = view.findViewById(R.id.root_view);
         this.n = (HeadImageView) view.findViewById(R.id.promotion_head_img);
         this.o = (TextView) view.findViewById(R.id.promotion_name);
@@ -85,8 +85,8 @@ public class s extends b<d.a.n0.z.e0.o> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: t */
-    public void m(d.a.n0.z.e0.o oVar) {
+    /* renamed from: u */
+    public void n(d.a.n0.z.e0.o oVar) {
         if (oVar == null) {
             this.m.setVisibility(8);
             return;
@@ -95,24 +95,24 @@ public class s extends b<d.a.n0.z.e0.o> {
             this.m.setVisibility(0);
         }
         this.t = oVar;
-        this.n.V(oVar.f63492g, 10, false);
-        this.o.setText(UtilHelper.getFixedText(oVar.f63491f, 7, true));
+        this.n.U(oVar.f67210g, 10, false);
+        this.o.setText(UtilHelper.getFixedText(oVar.f67209f, 7, true));
         if (StringUtils.isNull(oVar.m)) {
             this.r.setVisibility(8);
         } else {
             this.r.setVisibility(0);
             this.r.setText(oVar.m);
         }
-        this.p.setText(oVar.f63494i);
+        this.p.setText(oVar.f67212i);
         if (d.a.m0.r.k.c().g()) {
             this.q.setVisibility(0);
-            this.q.V(oVar.j, 10, false);
+            this.q.U(oVar.j, 10, false);
             return;
         }
         this.q.setVisibility(8);
     }
 
-    public void u(String str, String str2, String str3) {
+    public void v(String str, String str2, String str3) {
         this.v = str2;
         this.w = str3;
     }

@@ -6,7 +6,7 @@ import android.util.Base64;
 import com.android.internal.http.multipart.Part;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.n;
+import com.baidu.cyberplayer.sdk.o;
 import com.baidu.mobstat.Config;
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,23 +19,23 @@ import java.util.concurrent.locks.ReentrantLock;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4990a = null;
+    public String f5006a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4991b = null;
+    public String f5007b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4992c;
+    public String f5008c;
 
     public d() {
-        this.f4992c = null;
-        this.f4992c = "video_session";
+        this.f5008c = null;
+        this.f5008c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
     public d(String str) {
-        this.f4992c = null;
-        this.f4992c = str;
+        this.f5008c = null;
+        this.f5008c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -47,19 +47,19 @@ public class d {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0061 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:76:0x0018 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0063 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:91:0x0018 */
     /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.nio.channels.FileLock */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.nio.channels.FileLock */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: java.nio.channels.FileLock */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: java.nio.channels.FileLock */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x008f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r3v1, types: [java.io.RandomAccessFile, java.nio.channels.FileLock] */
-    /* JADX WARN: Type inference failed for: r3v3 */
-    /* JADX WARN: Type inference failed for: r3v4, types: [java.nio.channels.FileLock] */
-    /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:48:0x007e -> B:63:0x0081). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX WARN: Type inference failed for: r3v4 */
+    /* JADX WARN: Type inference failed for: r3v6, types: [java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v8 */
+    /* JADX WARN: Type inference failed for: r3v9 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:61:0x0097 -> B:83:0x009a). Please submit an issue!!! */
     public static void a(String str, byte[] bArr, String str2) {
         RandomAccessFile randomAccessFile;
         if (bArr == null || TextUtils.isEmpty(str)) {
@@ -67,64 +67,78 @@ public class d {
         }
         FileLock fileLock = 0;
         fileLock = 0;
+        fileLock = 0;
+        fileLock = 0;
+        try {
+        } catch (Throwable th) {
+            th = th;
+        }
         try {
             try {
-                try {
-                    randomAccessFile = new RandomAccessFile(str, "rw");
-                    try {
-                    } catch (Exception e2) {
-                        e = e2;
-                        CyberLog.e("DpStatFileWriter", "FileWriter invoke write fail:", e);
-                        if (fileLock != 0) {
-                            try {
-                                fileLock.release();
-                            } catch (Exception e3) {
-                                CyberLog.e("DpStatFileWriter", "file lock release fail", e3);
-                            }
-                        }
-                        if (randomAccessFile != null) {
-                            randomAccessFile.close();
-                        }
-                        return;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        try {
-                            fileLock.release();
-                        } catch (Exception e4) {
-                            CyberLog.e("DpStatFileWriter", "file lock release fail", e4);
-                        }
-                    }
-                    if (0 != 0) {
-                        try {
-                            fileLock.close();
-                        } catch (Exception e5) {
-                            CyberLog.e("DpStatFileWriter", "file close fail", e5);
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e6) {
-                e = e6;
-                randomAccessFile = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (0 != 0) {
-                }
-                if (0 != 0) {
-                }
-                throw th;
+                randomAccessFile = new RandomAccessFile(str, "rw");
+            } catch (Exception e2) {
+                CyberLog.e("DpStatFileWriter", "file close fail", e2);
             }
-        } catch (Exception e7) {
-            CyberLog.e("DpStatFileWriter", "file close fail", e7);
+            try {
+            } catch (Error e3) {
+                e = e3;
+                CyberLog.e("DpStatFileWriter", "FileWriter invoke write error:", e);
+                if (fileLock != 0) {
+                    try {
+                        fileLock.release();
+                    } catch (Exception e4) {
+                        CyberLog.e("DpStatFileWriter", "file lock release fail", e4);
+                    }
+                }
+                if (randomAccessFile != null) {
+                    randomAccessFile.close();
+                }
+                return;
+            } catch (Exception e5) {
+                e = e5;
+                CyberLog.e("DpStatFileWriter", "FileWriter invoke write exception:", e);
+                if (fileLock != 0) {
+                    try {
+                        fileLock.release();
+                    } catch (Exception e6) {
+                        CyberLog.e("DpStatFileWriter", "file lock release fail", e6);
+                    }
+                }
+                if (randomAccessFile != null) {
+                    randomAccessFile.close();
+                }
+                return;
+            }
+        } catch (Error e7) {
+            e = e7;
+            randomAccessFile = null;
+        } catch (Exception e8) {
+            e = e8;
+            randomAccessFile = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (0 != 0) {
+                try {
+                    fileLock.release();
+                } catch (Exception e9) {
+                    CyberLog.e("DpStatFileWriter", "file lock release fail", e9);
+                }
+            }
+            if (0 != 0) {
+                try {
+                    fileLock.close();
+                } catch (Exception e10) {
+                    CyberLog.e("DpStatFileWriter", "file close fail", e10);
+                }
+            }
+            throw th;
         }
         if (randomAccessFile.length() > Config.FULL_TRACE_LOG_LIMIT) {
             try {
                 randomAccessFile.close();
                 return;
-            } catch (Exception e8) {
-                CyberLog.e("DpStatFileWriter", "file close fail", e8);
+            } catch (Exception e11) {
+                CyberLog.e("DpStatFileWriter", "file close fail", e11);
                 return;
             }
         }
@@ -139,8 +153,8 @@ public class d {
         if (fileLock != 0) {
             try {
                 fileLock.release();
-            } catch (Exception e9) {
-                CyberLog.e("DpStatFileWriter", "file lock release fail", e9);
+            } catch (Exception e12) {
+                CyberLog.e("DpStatFileWriter", "file lock release fail", e12);
             }
         }
         randomAccessFile.close();
@@ -160,15 +174,15 @@ public class d {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.f4990a) || TextUtils.isEmpty(this.f4991b)) {
+        if (TextUtils.isEmpty(this.f5006a) || TextUtils.isEmpty(this.f5007b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f4990a;
+            String str = this.f5006a;
             if (b(str)) {
-                String str2 = this.f4991b;
+                String str2 = this.f5007b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -185,24 +199,24 @@ public class d {
 
     public void a(Context context) {
         String b2;
-        if (context == null || (b2 = n.b(context)) == null) {
+        if (context == null || (b2 = o.b(context)) == null) {
             return;
         }
         new File(b2).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f4990a = b2 + File.separator + this.f4992c + "_" + coreVersion + ".bak";
-        this.f4991b = b2 + File.separator + this.f4992c + "_log_" + coreVersion + ".tmp";
+        this.f5006a = b2 + File.separator + this.f5008c + "_" + coreVersion + ".bak";
+        this.f5007b = b2 + File.separator + this.f5008c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
-        if (bArr == null || TextUtils.isEmpty(this.f4990a)) {
+        if (bArr == null || TextUtils.isEmpty(this.f5006a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f4990a, bArr, Part.CRLF);
+                a(this.f5006a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -218,7 +232,7 @@ public class d {
             FileInputStream fileInputStream = new FileInputStream(str);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f4992c.equals("live_show_session") ? 24 : 1);
+            String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f5008c.equals("live_show_session") ? 24 : 1);
             if (TextUtils.isEmpty(a2)) {
                 z = true;
             } else {

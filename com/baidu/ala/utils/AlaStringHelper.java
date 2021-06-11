@@ -3,7 +3,6 @@ package com.baidu.ala.utils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.webkit.sdk.VideoCloudSetting;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -41,14 +40,14 @@ public class AlaStringHelper {
             return TbadkCoreApplication.getInst().getResources().getString(R.string.ala_time_limited_gift_last_one_minute);
         }
         StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_left_prefix));
-        if (j3 < VideoCloudSetting.HOUR_MILLISECOND) {
+        if (j3 < 3600000) {
             String string = TbadkCoreApplication.getInst().getResources().getString(R.string.time_minute);
             sb.append((int) (j3 / 60000));
             sb.append(string);
             return sb.toString();
         } else if (j3 < 86400000) {
             String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.time_hour);
-            sb.append(j3 / VideoCloudSetting.HOUR_MILLISECOND);
+            sb.append(j3 / 3600000);
             sb.append(string2);
             return sb.toString();
         } else {

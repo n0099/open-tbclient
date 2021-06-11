@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class u implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38495a;
+    public String f42148a;
 
     public u(String str) {
-        this.f38495a = str;
+        this.f42148a = str;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
@@ -38,59 +38,59 @@ public class u implements h {
                                 if (a2 != Character.class && a2 != Character.TYPE) {
                                     if (a2 != Boolean.class && a2 != Boolean.TYPE) {
                                         if (a2 == String.class) {
-                                            return this.f38495a;
+                                            return this.f42148a;
                                         }
                                         if (a2 == char[].class) {
-                                            return this.f38495a.toCharArray();
+                                            return this.f42148a.toCharArray();
                                         }
                                         if (a2 == byte[].class) {
                                             try {
-                                                return d.a.c.e.p.c.e(this.f38495a, 0);
+                                                return d.a.c.e.p.c.e(this.f42148a, 0);
                                             } catch (IOException e3) {
                                                 e3.printStackTrace();
                                                 return null;
                                             }
                                         } else if (d.a.c.e.b.a.a.g(a2, OrmObject.class)) {
-                                            return OrmObject.objectWithJsonStr(this.f38495a, a2);
+                                            return OrmObject.objectWithJsonStr(this.f42148a, a2);
                                         } else {
                                             if (d.a.c.e.b.a.a.g(a2, List.class)) {
                                                 try {
-                                                    return new j(new JSONArray(this.f38495a)).a(cVar);
+                                                    return new j(new JSONArray(this.f42148a)).a(cVar);
                                                 } catch (JSONException e4) {
                                                     e4.printStackTrace();
                                                     return null;
                                                 }
                                             } else if (a2.isArray()) {
                                                 try {
-                                                    return new j(new JSONArray(this.f38495a)).a(cVar);
+                                                    return new j(new JSONArray(this.f42148a)).a(cVar);
                                                 } catch (JSONException e5) {
                                                     e5.printStackTrace();
                                                     return null;
                                                 }
                                             } else if (d.a.c.e.b.a.a.g(a2, Queue.class)) {
                                                 try {
-                                                    return new j(new JSONArray(this.f38495a)).a(cVar);
+                                                    return new j(new JSONArray(this.f42148a)).a(cVar);
                                                 } catch (JSONException e6) {
                                                     e6.printStackTrace();
                                                     return null;
                                                 }
                                             } else if (d.a.c.e.b.a.a.g(a2, Set.class)) {
                                                 try {
-                                                    return new j(new JSONArray(this.f38495a)).a(cVar);
+                                                    return new j(new JSONArray(this.f42148a)).a(cVar);
                                                 } catch (JSONException e7) {
                                                     e7.printStackTrace();
                                                     return null;
                                                 }
                                             } else if (d.a.c.e.b.a.a.g(a2, Map.class)) {
                                                 try {
-                                                    return new k(new JSONObject(this.f38495a)).a(cVar);
+                                                    return new k(new JSONObject(this.f42148a)).a(cVar);
                                                 } catch (JSONException e8) {
                                                     e8.printStackTrace();
                                                     return null;
                                                 }
                                             } else if (d.a.c.e.b.a.a.g(a2, SparseArray.class)) {
                                                 try {
-                                                    return new k(new JSONObject(this.f38495a)).a(cVar);
+                                                    return new k(new JSONObject(this.f42148a)).a(cVar);
                                                 } catch (JSONException e9) {
                                                     e9.printStackTrace();
                                                     return null;
@@ -102,20 +102,20 @@ public class u implements h {
                                         e2.printStackTrace();
                                         return null;
                                     }
-                                    return Boolean.valueOf(Boolean.parseBoolean(this.f38495a));
+                                    return Boolean.valueOf(Boolean.parseBoolean(this.f42148a));
                                 }
-                                return Character.valueOf(this.f38495a.charAt(0));
+                                return Character.valueOf(this.f42148a.charAt(0));
                             }
-                            return Double.valueOf(Double.parseDouble(this.f38495a));
+                            return Double.valueOf(Double.parseDouble(this.f42148a));
                         }
-                        return Float.valueOf(Float.parseFloat(this.f38495a));
+                        return Float.valueOf(Float.parseFloat(this.f42148a));
                     }
-                    return Long.valueOf(Long.parseLong(this.f38495a));
+                    return Long.valueOf(Long.parseLong(this.f42148a));
                 }
-                return Integer.valueOf(Integer.parseInt(this.f38495a));
+                return Integer.valueOf(Integer.parseInt(this.f42148a));
             }
-            return Short.valueOf(Short.parseShort(this.f38495a));
+            return Short.valueOf(Short.parseShort(this.f42148a));
         }
-        return Byte.valueOf(Byte.parseByte(this.f38495a));
+        return Byte.valueOf(Byte.parseByte(this.f42148a));
     }
 }

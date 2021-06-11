@@ -24,26 +24,26 @@ public class o extends com.baidu.location.e.e {
     public static o q;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6559a = null;
+    public String f6602a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6560b = null;
+    public String f6603b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6561c = null;
+    public String f6604c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6562d = null;
+    public String f6605d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6563e = 1;
+    public int f6606e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f6564f;
+    public Handler f6607f;
 
     public o() {
-        this.f6564f = null;
-        this.f6564f = new Handler();
+        this.f6607f = null;
+        this.f6607f = new Handler();
     }
 
     public static void a(File file, File file2) throws IOException {
@@ -95,7 +95,7 @@ public class o extends com.baidu.location.e.e {
                 return false;
             }
             String a2 = com.baidu.location.c.d.a(com.baidu.location.c.b.a().e());
-            if (a2.equals(com.baidu.apollon.statistics.g.f3966b)) {
+            if (a2.equals(com.baidu.apollon.statistics.g.f3985b)) {
                 return true;
             }
             return a2.equals("4G");
@@ -144,14 +144,14 @@ public class o extends com.baidu.location.e.e {
     }
 
     private Handler d() {
-        return this.f6564f;
+        return this.f6607f;
     }
 
     private void e() {
         try {
             File file = new File(com.baidu.location.e.k.j() + "/grtcfrsa.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.e.j.f6717a);
+                File file2 = new File(com.baidu.location.e.j.f6760a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
@@ -174,13 +174,13 @@ public class o extends com.baidu.location.e.e {
             RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(200L);
             randomAccessFile2.writeBoolean(true);
-            if (this.f6563e == 1) {
+            if (this.f6606e == 1) {
                 randomAccessFile2.writeBoolean(true);
             } else {
                 randomAccessFile2.writeBoolean(false);
             }
-            if (this.f6562d != null) {
-                byte[] bytes2 = this.f6562d.getBytes();
+            if (this.f6605d != null) {
+                byte[] bytes2 = this.f6605d.getBytes();
                 randomAccessFile2.writeInt(bytes2.length);
                 randomAccessFile2.write(bytes2);
             } else if (Math.abs(com.baidu.location.f.getFrameVersion() - 7.93f) < 1.0E-8f) {
@@ -193,7 +193,7 @@ public class o extends com.baidu.location.e.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f6559a == null) {
+        if (this.f6602a == null) {
             return;
         }
         new s(this).start();
@@ -201,27 +201,27 @@ public class o extends com.baidu.location.e.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g() {
-        if (this.f6561c == null) {
+        if (this.f6604c == null) {
             return true;
         }
-        if (new File(com.baidu.location.e.k.j() + File.separator + this.f6561c).exists()) {
+        if (new File(com.baidu.location.e.k.j() + File.separator + this.f6604c).exists()) {
             return true;
         }
-        return a("http://" + this.f6559a + "/" + this.f6561c, this.f6561c);
+        return a("http://" + this.f6602a + "/" + this.f6604c, this.f6604c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.f6560b == null) {
+        if (this.f6603b == null) {
             return;
         }
-        File file = new File(com.baidu.location.e.k.j() + File.separator + this.f6560b);
+        File file = new File(com.baidu.location.e.k.j() + File.separator + this.f6603b);
         if (file.exists()) {
             return;
         }
-        if (a("http://" + this.f6559a + "/" + this.f6560b, this.f6560b)) {
+        if (a("http://" + this.f6602a + "/" + this.f6603b, this.f6603b)) {
             String a2 = com.baidu.location.e.k.a(file, "SHA-256");
-            String str = this.f6562d;
+            String str = this.f6605d;
             if (str == null || a2 == null || !com.baidu.location.e.k.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                 return;
             }
@@ -248,12 +248,12 @@ public class o extends com.baidu.location.e.e {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.e.b.a().f6683c == null) {
+        if (com.baidu.location.e.b.a().f6726c == null) {
             stringBuffer.append("&im=");
-            str = com.baidu.location.e.b.a().f6681a;
+            str = com.baidu.location.e.b.a().f6724a;
         } else {
             stringBuffer.append("&cu=");
-            str = com.baidu.location.e.b.a().f6683c;
+            str = com.baidu.location.e.b.a().f6726c;
         }
         stringBuffer.append(str);
         stringBuffer.append("&mb=");
@@ -283,8 +283,8 @@ public class o extends com.baidu.location.e.e {
             stringBuffer.append(str3);
         }
         stringBuffer.append("&pack=");
-        stringBuffer.append(com.baidu.location.e.b.f6676e);
-        this.f6707h = com.baidu.location.e.k.f() + "?&it=" + Jni.en1(stringBuffer.toString());
+        stringBuffer.append(com.baidu.location.e.b.f6719e);
+        this.f6750h = com.baidu.location.e.k.f() + "?&it=" + Jni.en1(stringBuffer.toString());
     }
 
     @Override // com.baidu.location.e.e
@@ -293,20 +293,20 @@ public class o extends com.baidu.location.e.e {
             try {
                 JSONObject jSONObject = new JSONObject(this.j);
                 if ("up".equals(jSONObject.getString(UriUtil.LOCAL_RESOURCE_SCHEME))) {
-                    this.f6559a = jSONObject.getString("upath");
+                    this.f6602a = jSONObject.getString("upath");
                     if (jSONObject.has("u1")) {
-                        this.f6560b = jSONObject.getString("u1");
+                        this.f6603b = jSONObject.getString("u1");
                     }
                     if (jSONObject.has("u2")) {
-                        this.f6561c = jSONObject.getString("u2");
+                        this.f6604c = jSONObject.getString("u2");
                     }
                     if (jSONObject.has("u1_rsa")) {
-                        this.f6562d = jSONObject.getString("u1_rsa");
+                        this.f6605d = jSONObject.getString("u1_rsa");
                     }
                     d().post(new r(this));
                 }
                 if (jSONObject.has("ison")) {
-                    this.f6563e = jSONObject.getInt("ison");
+                    this.f6606e = jSONObject.getInt("ison");
                 }
                 e();
             } catch (Exception unused) {

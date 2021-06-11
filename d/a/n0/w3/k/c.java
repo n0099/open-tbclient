@@ -14,53 +14,53 @@ import java.util.List;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a.c.a.f f62815b;
+    public final d.a.c.a.f f66530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WriteImagesInfo f62816c;
+    public WriteImagesInfo f66531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoFileInfo f62817d;
+    public VideoFileInfo f66532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62818e;
+    public String f66533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageFileInfo f62819f;
+    public ImageFileInfo f66534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<ImageFileInfo> f62820g;
+    public List<ImageFileInfo> f66535g;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f62814a = 9;
+    public int f66529a = 9;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<d.a.m0.e.a> f62821h = new ArrayList();
+    public final List<d.a.m0.e.a> f66536h = new ArrayList();
 
     public c(d.a.c.a.f fVar) {
-        this.f62815b = fVar;
+        this.f66530b = fVar;
     }
 
     public void A(String str) {
-        if (this.f62816c == null) {
-            this.f62816c = new WriteImagesInfo(this.f62814a);
+        if (this.f66531c == null) {
+            this.f66531c = new WriteImagesInfo(this.f66529a);
         }
-        this.f62816c.setLastAlbumId(str);
+        this.f66531c.setLastAlbumId(str);
     }
 
     public void B(boolean z) {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo != null) {
             writeImagesInfo.setOriginalImg(z);
         }
     }
 
     public void C(WriteImagesInfo writeImagesInfo) {
-        this.f62816c = writeImagesInfo;
+        this.f66531c = writeImagesInfo;
     }
 
     public int D() {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo == null) {
             return 0;
         }
@@ -68,14 +68,14 @@ public class c {
     }
 
     public void a(ImageFileInfo imageFileInfo) {
-        if (this.f62816c == null) {
-            this.f62816c = new WriteImagesInfo(this.f62814a);
+        if (this.f66531c == null) {
+            this.f66531c = new WriteImagesInfo(this.f66529a);
         }
-        this.f62816c.addChooseFile(imageFileInfo);
+        this.f66531c.addChooseFile(imageFileInfo);
     }
 
     public void b() {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo == null) {
             return;
         }
@@ -83,7 +83,7 @@ public class c {
     }
 
     public void c(ImageFileInfo imageFileInfo) {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo == null) {
             return;
         }
@@ -91,8 +91,8 @@ public class c {
     }
 
     public List<MediaFileInfo> d(String str) {
-        if (this.f62821h != null && !StringUtils.isNull(str)) {
-            for (d.a.m0.e.a aVar : this.f62821h) {
+        if (this.f66536h != null && !StringUtils.isNull(str)) {
+            for (d.a.m0.e.a aVar : this.f66536h) {
                 if (aVar != null && TextUtils.equals(str, aVar.b())) {
                     return aVar.d();
                 }
@@ -102,15 +102,15 @@ public class c {
     }
 
     public List<d.a.m0.e.a> e() {
-        return this.f62821h;
+        return this.f66536h;
     }
 
     public VideoFileInfo f() {
-        return this.f62817d;
+        return this.f66532d;
     }
 
     public List<ImageFileInfo> g() {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo != null) {
             return writeImagesInfo.getChosedFiles();
         }
@@ -118,21 +118,21 @@ public class c {
     }
 
     public String h() {
-        return this.f62818e;
+        return this.f66533e;
     }
 
     public List<ImageFileInfo> i() {
-        return this.f62820g;
+        return this.f66535g;
     }
 
     public int j() {
         List<ImageFileInfo> list;
-        ImageFileInfo imageFileInfo = this.f62819f;
-        if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath()) && (list = this.f62820g) != null && list.size() != 0) {
-            int size = this.f62820g.size();
+        ImageFileInfo imageFileInfo = this.f66534f;
+        if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath()) && (list = this.f66535g) != null && list.size() != 0) {
+            int size = this.f66535g.size();
             for (int i2 = 0; i2 < size; i2++) {
-                ImageFileInfo imageFileInfo2 = this.f62820g.get(i2);
-                if (imageFileInfo2 != null && this.f62819f.getFilePath().equals(imageFileInfo2.getFilePath())) {
+                ImageFileInfo imageFileInfo2 = this.f66535g.get(i2);
+                if (imageFileInfo2 != null && this.f66534f.getFilePath().equals(imageFileInfo2.getFilePath())) {
                     return i2;
                 }
             }
@@ -141,7 +141,7 @@ public class c {
     }
 
     public String k() {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo != null) {
             return writeImagesInfo.getLastAlbumId();
         }
@@ -149,7 +149,7 @@ public class c {
     }
 
     public int l() {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo != null) {
             return writeImagesInfo.getMaxImagesAllowed();
         }
@@ -157,11 +157,11 @@ public class c {
     }
 
     public WriteImagesInfo m() {
-        return this.f62816c;
+        return this.f66531c;
     }
 
     public boolean n(ImageFileInfo imageFileInfo) {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo == null) {
             return false;
         }
@@ -173,20 +173,20 @@ public class c {
     }
 
     public boolean p() {
-        return this.f62817d != null;
+        return this.f66532d != null;
     }
 
     public boolean q(VideoFileInfo videoFileInfo) {
-        VideoFileInfo videoFileInfo2 = this.f62817d;
+        VideoFileInfo videoFileInfo2 = this.f66532d;
         return (videoFileInfo2 == null || videoFileInfo == null || videoFileInfo2.videoId != videoFileInfo.videoId) ? false : true;
     }
 
     public boolean r() {
-        return ListUtils.isEmpty(d(d.a.m0.e.a.f49299f));
+        return ListUtils.isEmpty(d(d.a.m0.e.a.f52973f));
     }
 
     public boolean s() {
-        WriteImagesInfo writeImagesInfo = this.f62816c;
+        WriteImagesInfo writeImagesInfo = this.f66531c;
         if (writeImagesInfo != null) {
             return writeImagesInfo.isOriginalImg();
         }
@@ -195,8 +195,8 @@ public class c {
 
     public d.a.m0.e.a t(List<MediaFileInfo> list) {
         d.a.m0.e.a aVar = new d.a.m0.e.a();
-        aVar.h(d.a.m0.e.a.f49299f);
-        aVar.l(this.f62815b.getString(R.string.album_all_media));
+        aVar.h(d.a.m0.e.a.f52973f);
+        aVar.l(this.f66530b.getString(R.string.album_all_media));
         int count = ListUtils.getCount(list);
         aVar.j(list);
         aVar.i(String.valueOf(count));
@@ -211,8 +211,8 @@ public class c {
 
     public d.a.m0.e.a u(List<VideoFileInfo> list) {
         d.a.m0.e.a aVar = new d.a.m0.e.a();
-        aVar.h(d.a.m0.e.a.f49300g);
-        aVar.l(this.f62815b.getString(R.string.album_all_video));
+        aVar.h(d.a.m0.e.a.f52974g);
+        aVar.l(this.f66530b.getString(R.string.album_all_video));
         int count = ListUtils.getCount(list);
         aVar.i(String.valueOf(count));
         ArrayList arrayList = new ArrayList();
@@ -228,10 +228,10 @@ public class c {
     }
 
     public final void v(String str) {
-        if (this.f62821h == null || StringUtils.isNull(str)) {
+        if (this.f66536h == null || StringUtils.isNull(str)) {
             return;
         }
-        for (d.a.m0.e.a aVar : this.f62821h) {
+        for (d.a.m0.e.a aVar : this.f66536h) {
             if (aVar != null && TextUtils.equals(str, aVar.b())) {
                 ArrayList arrayList = new ArrayList();
                 if (aVar.d() != null) {
@@ -241,38 +241,38 @@ public class c {
                         }
                     }
                 }
-                this.f62820g = arrayList;
+                this.f66535g = arrayList;
             }
         }
     }
 
     public void w(VideoFileInfo videoFileInfo) {
-        this.f62817d = videoFileInfo;
+        this.f66532d = videoFileInfo;
     }
 
     public void x(String str) {
-        this.f62818e = str;
+        this.f66533e = str;
         v(str);
     }
 
     public void y(ImageFileInfo imageFileInfo) {
-        this.f62819f = imageFileInfo;
+        this.f66534f = imageFileInfo;
     }
 
     public void z(d.a.m0.e.g gVar) {
         if (gVar == null) {
             return;
         }
-        List<MediaFileInfo> list = gVar.f49331b;
+        List<MediaFileInfo> list = gVar.f53005b;
         ArrayList arrayList = new ArrayList();
         arrayList.add(t(list));
-        if (!ListUtils.isEmpty(gVar.f49332c)) {
-            arrayList.add(u(gVar.f49332c));
+        if (!ListUtils.isEmpty(gVar.f53006c)) {
+            arrayList.add(u(gVar.f53006c));
         }
-        if (!ListUtils.isEmpty(gVar.f49330a)) {
-            arrayList.addAll(gVar.f49330a);
+        if (!ListUtils.isEmpty(gVar.f53004a)) {
+            arrayList.addAll(gVar.f53004a);
         }
-        this.f62821h.clear();
-        this.f62821h.addAll(arrayList);
+        this.f66536h.clear();
+        this.f66536h.addAll(arrayList);
     }
 }

@@ -7,7 +7,7 @@ import d.a.c.e.d.l;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public l<byte[]> f57942a;
+    public l<byte[]> f61633a;
 
     public d() {
         b();
@@ -15,17 +15,17 @@ public class d {
 
     public byte[] a(String str) {
         byte[] bArr;
-        l<byte[]> lVar = this.f57942a;
+        l<byte[]> lVar = this.f61633a;
         l.b<byte[]> h2 = (lVar == null || str == null) ? null : lVar.h(str);
-        if (h2 == null || (bArr = h2.f38542b) == null) {
+        if (h2 == null || (bArr = h2.f42195b) == null) {
             return null;
         }
         return bArr;
     }
 
     public void b() {
-        if (this.f57942a == null) {
-            this.f57942a = d.a.m0.r.r.a.f().d("tb.bawu_team_info");
+        if (this.f61633a == null) {
+            this.f61633a = d.a.m0.r.r.a.f().d("tb.bawu_team_info");
         }
     }
 
@@ -34,6 +34,6 @@ public class d {
             return;
         }
         b();
-        this.f57942a.e(str, bArr, TbConfig.MILLS_7DAYS);
+        this.f61633a.e(str, bArr, TbConfig.MILLS_7DAYS);
     }
 }

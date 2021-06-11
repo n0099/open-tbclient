@@ -5,40 +5,40 @@ import java.io.Serializable;
 public class RestNameValuePair implements Serializable {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f8965c = 847806714499261896L;
+    public static final long f9027c = 847806714499261896L;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8966a;
+    public String f9028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8967b;
+    public String f9029b;
 
     public RestNameValuePair() {
         this(null, null);
     }
 
     public String getName() {
-        return this.f8966a;
+        return this.f9028a;
     }
 
     public String getValue() {
-        return this.f8967b;
+        return this.f9029b;
     }
 
     public void setName(String str) {
-        this.f8966a = str;
+        this.f9028a = str;
     }
 
     public void setValue(String str) {
-        this.f8967b = str;
+        this.f9029b = str;
     }
 
     public String toString() {
-        return "name = " + this.f8966a + ", value = " + this.f8967b;
+        return "name = " + this.f9028a + ", value = " + this.f9029b;
     }
 
     public RestNameValuePair(String str, String str2) {
-        this.f8966a = str;
-        this.f8967b = str2;
+        this.f9028a = str;
+        this.f9029b = str2;
     }
 }

@@ -7,16 +7,16 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class a {
-    public static void d(List<d.a.c.j.e.n> list) {
+    public static void d(List<d.a.c.k.e.n> list) {
         if (list == null) {
             return;
         }
         HashMap hashMap = new HashMap(d.a.m0.b.d.c());
-        for (d.a.c.j.e.n nVar : list) {
+        for (d.a.c.k.e.n nVar : list) {
             if (nVar instanceof d.a.m0.r.q.a) {
                 d.a.m0.r.q.a aVar = (d.a.m0.r.q.a) nVar;
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    aVar.e((BdUniqueId) entry.getKey(), (d.a.m0.b.e) entry.getValue());
+                    aVar.b((BdUniqueId) entry.getKey(), (d.a.m0.b.e) entry.getValue());
                 }
             }
         }
@@ -30,7 +30,7 @@ public abstract class a {
         for (l lVar : lVarArr) {
             if (lVar != null) {
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    lVar.e((BdUniqueId) entry.getKey(), (d.a.m0.b.e) entry.getValue());
+                    lVar.b((BdUniqueId) entry.getKey(), (d.a.m0.b.e) entry.getValue());
                 }
             }
         }

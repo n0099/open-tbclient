@@ -2,6 +2,7 @@ package d.a.l0.e.n.b;
 
 import android.text.TextUtils;
 import android.util.Base64;
+import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -35,7 +36,7 @@ public class b {
             try {
                 if (i2 > 0) {
                     try {
-                        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
                         cipher.init(1, key);
                         byteArrayOutputStream = new ByteArrayOutputStream();
                         try {

@@ -3,14 +3,14 @@ package protobuf.GetGroupMsg;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class GetGroupMsgResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<GetGroupMsgResIdl> {
         public DataRes data;
         public Error error;

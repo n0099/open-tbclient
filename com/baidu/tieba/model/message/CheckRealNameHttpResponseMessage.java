@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CheckRealName.CheckRealNameResIdl;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CheckRealNameHttpResponseMessage extends TbHttpResponsedMessage {
     public CheckRealNameHttpResponseMessage(int i2) {
         super(i2);

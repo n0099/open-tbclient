@@ -262,7 +262,7 @@ public class SpeechRecognitionDialog extends Dialog {
                     setStopSpeechLayout(0);
                     setActualTimeWord(getContext().getString(R.string.sapi_sdk_speech_recognition_tips_text));
                     return;
-                case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_NET_TIME_OUT /* -505 */:
+                case -505:
                     textView.setText(R.string.sapi_sdk_speech_recognition_error_net_time_out_title);
                     textView2.setText(R.string.sapi_sdk_speech_recognition_error_net_time_out_content);
                     break;

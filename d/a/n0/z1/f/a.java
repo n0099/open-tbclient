@@ -5,17 +5,17 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63637a;
+    public String f67355a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63638b;
+    public String f67356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63639c;
+    public String f67357c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63640d;
+    public String f67358d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f63641e;
+    public List<b> f67359e;
 }

@@ -12,7 +12,7 @@ import tbclient.StarTrends.StarTrendsReqIdl;
 public class FrsDynamicRequestData extends OrmObject implements g, d {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f15282common;
+    public CommonReq f15344common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -21,7 +21,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
     public int scrW;
 
     @Override // d.a.m0.g0.b.i
-    public Object c(boolean z) {
+    public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         builder.scr_w = Integer.valueOf(this.scrW);
@@ -42,27 +42,27 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
     }
 
     @Override // d.a.m0.g0.b.d
-    public boolean i() {
-        return false;
-    }
-
-    @Override // d.a.m0.g0.b.d
     public boolean isNeedUid() {
         return false;
     }
 
+    @Override // d.a.m0.g0.b.d
+    public boolean l() {
+        return false;
+    }
+
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, Object> o() {
+    public HashMap<String, Object> s() {
         return null;
     }
 
     @Override // d.a.m0.g0.b.f
-    public HashMap<String, String> q() {
+    public HashMap<String, String> u() {
         return null;
     }
 
     @Override // d.a.m0.g0.b.d
-    public String r() {
+    public String v() {
         return null;
     }
 }

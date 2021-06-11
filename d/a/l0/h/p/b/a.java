@@ -10,7 +10,7 @@ import d.a.l0.a.v2.e1.b;
 import d.a.l0.n.h.d;
 /* loaded from: classes3.dex */
 public class a extends l {
-    public static final boolean o = k.f43199a;
+    public static final boolean o = k.f46875a;
 
     public a(b<Exception> bVar) {
         super(bVar);
@@ -46,10 +46,10 @@ public class a extends l {
             return aVar;
         }
         d.a.l0.a.p0.g.a aVar2 = new d.a.l0.a.p0.g.a();
-        aVar2.f44089b = bVar.f48014i;
-        aVar2.f44088a = bVar.j;
-        aVar2.f44090c = bVar.f48006a;
-        aVar2.f44091d = bVar.m;
+        aVar2.f47763b = bVar.f51688i;
+        aVar2.f47762a = bVar.j;
+        aVar2.f47764c = bVar.f51680a;
+        aVar2.f47765d = bVar.m;
         if (d.a.l0.a.p0.b.b(1, aVar2) == null) {
             if (o) {
                 Log.i("SwanGameUpdateCore", "小游戏Extension包解压成功");
@@ -77,7 +77,7 @@ public class a extends l {
             return aVar;
         }
         a.b c2 = d.a.l0.a.m2.f.a.c(dVar, 1);
-        d.a.l0.t.d.j(dVar.f48006a);
+        d.a.l0.t.d.j(dVar.f51680a);
         if (c2.c()) {
             if (o) {
                 Log.d("SwanGameUpdateCore", "小游戏GameCore解压成功");

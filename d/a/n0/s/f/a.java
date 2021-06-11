@@ -10,16 +10,16 @@ import tbclient.GetAddressList.robotsList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<e> f60370a;
+    public List<e> f64059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f60371b;
+    public List<e> f64060b;
 
     public List<e> a() {
-        if (this.f60370a == null) {
-            this.f60370a = new ArrayList();
+        if (this.f64059a == null) {
+            this.f64059a = new ArrayList();
         }
-        return this.f60370a;
+        return this.f64059a;
     }
 
     public final boolean b(List<e> list, d.a.m0.s.f.a aVar) {
@@ -44,7 +44,7 @@ public class a {
         if (dataRes == null || dataRes.robots_list == null) {
             z = false;
         } else {
-            this.f60371b = new ArrayList();
+            this.f64060b = new ArrayList();
             z = false;
             for (robotsList robotslist : dataRes.robots_list) {
                 if (TextUtils.isEmpty(robotslist.key)) {
@@ -52,12 +52,12 @@ public class a {
                 } else {
                     e eVar = new e();
                     eVar.d(robotslist);
-                    this.f60371b.add(eVar);
+                    this.f64060b.add(eVar);
                 }
             }
         }
         if (dataRes != null && dataRes.address_list != null) {
-            this.f60370a = new ArrayList();
+            this.f64059a = new ArrayList();
             for (listData listdata : dataRes.address_list) {
                 if (TextUtils.isEmpty(listdata.key)) {
                     z = true;
@@ -66,14 +66,14 @@ public class a {
                     eVar2.c(listdata);
                     if (eVar2.a() != null) {
                         for (d.a.m0.s.f.a aVar : eVar2.a()) {
-                            if (b(this.f60371b, aVar)) {
+                            if (b(this.f64060b, aVar)) {
                                 aVar.r(1);
                             } else {
                                 aVar.r(0);
                             }
                         }
                     }
-                    this.f60370a.add(eVar2);
+                    this.f64059a.add(eVar2);
                 }
             }
         }

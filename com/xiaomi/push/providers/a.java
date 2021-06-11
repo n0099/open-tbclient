@@ -6,20 +6,21 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.xiaomi.channel.commonutils.logger.b;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 /* loaded from: classes7.dex */
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f38000a = 1;
+    public static int f41679a = 1;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Object f823a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f824a = {"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", PmsConstant.Statistic.STATISTIC_NETWORK, " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", "imsi", "TEXT"};
+    public static final String[] f824a = {"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", PmsConstant.Statistic.STATISTIC_NETWORK, " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", BaseStatisContent.IMSI, "TEXT"};
 
     public a(Context context) {
-        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f38000a);
+        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f41679a);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase) {

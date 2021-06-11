@@ -6,14 +6,14 @@ import java.util.concurrent.Executor;
 public class we implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Handler f1442a;
+    public final /* synthetic */ Handler f1455a;
 
     public we(trw trwVar, Handler handler) {
-        this.f1442a = handler;
+        this.f1455a = handler;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.f1442a.post(runnable);
+        this.f1455a.post(runnable);
     }
 }

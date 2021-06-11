@@ -20,7 +20,7 @@ public class d extends d.a.n0.z.b<k> {
         super(tbPageContext, viewGroup);
         this.m = new c(tbPageContext);
         this.n = new c(tbPageContext);
-        ViewGroup viewGroup2 = (ViewGroup) l();
+        ViewGroup viewGroup2 = (ViewGroup) m();
         this.p = viewGroup2;
         this.o = (LinearLayout) viewGroup2.findViewById(R.id.id_tab_live_sub_row);
         this.q = this.p.findViewById(R.id.id_tab_live_sub_line_divider);
@@ -29,16 +29,16 @@ public class d extends d.a.n0.z.b<k> {
         this.o.addView(this.m.h());
         this.o.addView(view, new LinearLayout.LayoutParams(k().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
         this.o.addView(this.n.h());
-        n(this.f63441f, TbadkCoreApplication.getInst().getSkinType());
+        o(this.f67159f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.tab_sub_list_live_row;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         SkinManager.setBackgroundColor(this.p, R.color.CAM_X0201);
         this.m.k(tbPageContext, i2);
         this.n.k(tbPageContext, i2);
@@ -51,12 +51,12 @@ public class d extends d.a.n0.z.b<k> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(k kVar) {
+    /* renamed from: t */
+    public void n(k kVar) {
         if (kVar != null) {
-            this.m.i(kVar.f61518e);
-            this.n.i(kVar.f61519f);
-            if (kVar.f61520g) {
+            this.m.i(kVar.f65231e);
+            this.n.i(kVar.f65232f);
+            if (kVar.f65233g) {
                 this.q.setVisibility(0);
             } else {
                 this.q.setVisibility(8);
@@ -64,7 +64,7 @@ public class d extends d.a.n0.z.b<k> {
         }
     }
 
-    public void t(i iVar) {
+    public void u(i iVar) {
         this.m.l(iVar);
         this.n.l(iVar);
     }

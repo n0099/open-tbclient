@@ -1,37 +1,42 @@
 package com.kwad.sdk.core.c.a;
 
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.heytap.mcssdk.PushManager;
+import com.kwad.sdk.core.webview.jshandler.l;
+import com.vivo.push.PushClientConstants;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i implements com.kwad.sdk.core.c<AdInfo.AdSplashInfo> {
+public class i implements com.kwad.sdk.core.c<l.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(AdInfo.AdSplashInfo adSplashInfo, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        adSplashInfo.logoPosition = jSONObject.optInt("logoPosition", new Integer("1").intValue());
-        adSplashInfo.skipSecond = jSONObject.optInt("skipSecond");
-        adSplashInfo.mute = jSONObject.optInt("mute", new Integer("1").intValue());
-        adSplashInfo.skipTips = jSONObject.optString("skipTips");
-        adSplashInfo.speakerMuteIconUrl = jSONObject.optString("speakerMuteIconUrl");
-        adSplashInfo.speakerIconUrl = jSONObject.optString("speakerIconUrl");
-        adSplashInfo.imageDisplaySecond = jSONObject.optInt("imageDisplaySecond", new Integer("5").intValue());
+    public JSONObject a(l.b bVar) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f35028a);
+        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f35029b);
+        com.kwad.sdk.utils.o.a(jSONObject, "version", bVar.f35030c);
+        com.kwad.sdk.utils.o.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f35031d);
+        com.kwad.sdk.utils.o.a(jSONObject, "appSize", bVar.f35032e);
+        com.kwad.sdk.utils.o.a(jSONObject, PackageTable.MD5, bVar.f35033f);
+        com.kwad.sdk.utils.o.a(jSONObject, "url", bVar.f35034g);
+        com.kwad.sdk.utils.o.a(jSONObject, "icon", bVar.f35035h);
+        com.kwad.sdk.utils.o.a(jSONObject, "desc", bVar.f35036i);
+        return jSONObject;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject b(AdInfo.AdSplashInfo adSplashInfo, JSONObject jSONObject) {
+    public void a(l.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
-            jSONObject = new JSONObject();
+            return;
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "logoPosition", adSplashInfo.logoPosition);
-        com.kwad.sdk.utils.o.a(jSONObject, "skipSecond", adSplashInfo.skipSecond);
-        com.kwad.sdk.utils.o.a(jSONObject, "mute", adSplashInfo.mute);
-        com.kwad.sdk.utils.o.a(jSONObject, "skipTips", adSplashInfo.skipTips);
-        com.kwad.sdk.utils.o.a(jSONObject, "speakerMuteIconUrl", adSplashInfo.speakerMuteIconUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "speakerIconUrl", adSplashInfo.speakerIconUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "imageDisplaySecond", adSplashInfo.imageDisplaySecond);
-        return jSONObject;
+        bVar.f35028a = jSONObject.optString("appName");
+        bVar.f35029b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        bVar.f35030c = jSONObject.optString("version");
+        bVar.f35031d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        bVar.f35032e = jSONObject.optLong("appSize");
+        bVar.f35033f = jSONObject.optString(PackageTable.MD5);
+        bVar.f35034g = jSONObject.optString("url");
+        bVar.f35035h = jSONObject.optString("icon");
+        bVar.f35036i = jSONObject.optString("desc");
     }
 }

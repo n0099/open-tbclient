@@ -9,13 +9,13 @@ import java.util.Map;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f58930c;
+    public static d f62621c;
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, String> f58931a = new LruCache<>(10);
+    public LruCache<String, String> f62622a = new LruCache<>(10);
 
     /* renamed from: b  reason: collision with root package name */
-    public l<String> f58932b = d.a.m0.r.r.a.f().g("tb.recently_vistited_forum_animation");
+    public l<String> f62623b = d.a.m0.r.r.a.f().g("tb.recently_vistited_forum_animation");
 
     /* loaded from: classes4.dex */
     public class a extends d.a.m0.m.g {
@@ -28,7 +28,7 @@ public class d {
                 return;
             }
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry : d.this.f58931a.snapshot().entrySet()) {
+            for (Map.Entry entry : d.this.f62622a.snapshot().entrySet()) {
                 sb.append((String) entry.getKey());
                 sb.append("=");
                 sb.append((String) entry.getValue());
@@ -38,7 +38,7 @@ public class d {
                 return;
             }
             sb.deleteCharAt(sb.length() - 1);
-            d.this.f58932b.a("transition_cache_key", sb.toString());
+            d.this.f62623b.a("transition_cache_key", sb.toString());
         }
     }
 
@@ -57,7 +57,7 @@ public class d {
             for (String str3 : str2.split(",")) {
                 String[] split = str3.split("=");
                 if (split != null && split.length == 2) {
-                    d.this.f58931a.put(split[0], split[1]);
+                    d.this.f62622a.put(split[0], split[1]);
                 }
             }
         }
@@ -65,28 +65,28 @@ public class d {
 
     public d() {
         TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a());
-        this.f58932b.f("transition_cache_key", new b());
+        this.f62623b.f("transition_cache_key", new b());
     }
 
     public static d d() {
-        if (f58930c == null) {
+        if (f62621c == null) {
             synchronized (d.class) {
-                if (f58930c == null) {
-                    f58930c = new d();
+                if (f62621c == null) {
+                    f62621c = new d();
                 }
             }
         }
-        return f58930c;
+        return f62621c;
     }
 
     public e c(String str) {
         if (str == null) {
             return new e(null);
         }
-        return new e(this.f58931a.get(str));
+        return new e(this.f62622a.get(str));
     }
 
     public void e(String str, e eVar) {
-        this.f58931a.put(str, eVar.toString());
+        this.f62622a.put(str, eVar.toString());
     }
 }

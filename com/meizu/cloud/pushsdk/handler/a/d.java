@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d extends a<String> {
     public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

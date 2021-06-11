@@ -57,6 +57,8 @@ public final class SapiContext implements NoProguard {
     public static final String KEY_SHARE_INTERNAL_GRAY = "share_internal";
     public static final String KEY_SHARE_MODELS_FROM_CLOUD_CACHE = "key_share_models_cloud_cache";
     public static long KEY_SHARE_MODELS_FROM_CLOUD_TIME_SECOND = 0;
+    public static final String KEY_SHARE_MODEL_CACHE = "key_share_model_cache";
+    public static final String KEY_SHARE_MODEL_CACHE_TIME = "key_share_model_cache_time";
     public static final String KEY_SHARE_STORAGE = "share_storage";
     public static final String KEY_TOUCHID_ACCOUNTS = "touchid_accounts";
     public static final String KEY_TOUCHID_LOGIN_RECORD = "touchid_login_record";
@@ -70,7 +72,7 @@ public final class SapiContext implements NoProguard {
 
     public SapiContext(Context context) {
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f9158c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f9215c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {
@@ -415,6 +417,10 @@ public final class SapiContext implements NoProguard {
 
     public String getSearchBoxSid() {
         return getString("sid");
+    }
+
+    public long getShareCacheValidTime() {
+        return getSapiOptions().shareCacheValidTime;
     }
 
     public boolean getShareCommonStorageEnabel() {

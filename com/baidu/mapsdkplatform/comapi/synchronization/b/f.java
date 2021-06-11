@@ -10,41 +10,41 @@ import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7738a = "f";
+    public static final String f7781a = "f";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f7739c = true;
+    public static boolean f7782c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f7740d = 1;
+    public static int f7783d = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f7741b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
+    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f7784b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
 
     public f(HistoryTraceQueryOptions historyTraceQueryOptions) {
         a(historyTraceQueryOptions);
     }
 
     public static void a(int i2) {
-        f7740d = i2;
+        f7783d = i2;
     }
 
     private void a(HistoryTraceQueryOptions historyTraceQueryOptions) {
-        this.f7741b.a("order_id", b(historyTraceQueryOptions));
-        this.f7741b.a("original_order_id", historyTraceQueryOptions.getOrderId().toLowerCase());
-        this.f7741b.a("company", historyTraceQueryOptions.getUserId());
-        this.f7741b.a("order_attr", historyTraceQueryOptions.getDriverId());
-        this.f7741b.a("track_status", String.valueOf(historyTraceQueryOptions.getQueryOrderState()));
-        this.f7741b.a("status", String.valueOf(historyTraceQueryOptions.getCurrentOrderState()));
+        this.f7784b.a("order_id", b(historyTraceQueryOptions));
+        this.f7784b.a("original_order_id", historyTraceQueryOptions.getOrderId().toLowerCase());
+        this.f7784b.a("company", historyTraceQueryOptions.getUserId());
+        this.f7784b.a("order_attr", historyTraceQueryOptions.getDriverId());
+        this.f7784b.a("track_status", String.valueOf(historyTraceQueryOptions.getQueryOrderState()));
+        this.f7784b.a("status", String.valueOf(historyTraceQueryOptions.getCurrentOrderState()));
         if (CoordType.BD09LL != SDKInitializer.getCoordType() && CoordType.GCJ02 == SDKInitializer.getCoordType()) {
-            this.f7741b.a("coord_type", "gcj02");
+            this.f7784b.a("coord_type", "gcj02");
         } else {
-            this.f7741b.a("coord_type", "bd09ll");
+            this.f7784b.a("coord_type", "bd09ll");
         }
-        this.f7741b.a("page_index", String.valueOf(f7740d));
-        f7740d = 1;
-        this.f7741b.a("page_size", "5000");
-        this.f7741b.a("is_processed", "1");
+        this.f7784b.a("page_index", String.valueOf(f7783d));
+        f7783d = 1;
+        this.f7784b.a("page_size", "5000");
+        this.f7784b.a("is_processed", "1");
         b();
     }
 
@@ -56,7 +56,7 @@ public class f {
         stringBuffer.append("-");
         stringBuffer.append("9sc87244121ip32590fq234mn6641tx7".toLowerCase());
         String a2 = com.baidu.mapsdkplatform.comapi.synchronization.d.c.a(stringBuffer.toString());
-        String str = f7738a;
+        String str = f7781a;
         com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(str, "The orderId = " + stringBuffer.toString() + "; result = " + a2);
         return a2;
     }
@@ -64,24 +64,24 @@ public class f {
     private void b() {
         String authToken = SyncSysInfo.getAuthToken();
         if (authToken == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7738a, "Token is null, permission check again");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7781a, "Token is null, permission check again");
             int permissionCheck = PermissionCheck.permissionCheck();
             if (permissionCheck != 0) {
-                String str = f7738a;
+                String str = f7781a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Permission check result is: " + permissionCheck);
                 return;
             }
             authToken = SyncSysInfo.getAuthToken();
         }
-        this.f7741b.a("token", authToken);
+        this.f7784b.a("token", authToken);
     }
 
     private String c() {
-        return f7739c ? g.a() : g.b();
+        return f7782c ? g.a() : g.b();
     }
 
     public String a() {
-        StringBuffer stringBuffer = new StringBuffer(this.f7741b.a());
+        StringBuffer stringBuffer = new StringBuffer(this.f7784b.a());
         stringBuffer.append(SyncSysInfo.getPhoneInfo());
         String signMD5String = AppMD5.getSignMD5String(stringBuffer.toString());
         stringBuffer.append("&sign=");

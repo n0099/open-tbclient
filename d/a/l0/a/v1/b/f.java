@@ -5,13 +5,13 @@ import android.os.Bundle;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f45297a;
+    public Bundle f48971a;
 
     public f(Bundle bundle) {
-        this.f45297a = bundle;
+        this.f48971a = bundle;
     }
 
     public boolean a() {
-        return this.f45297a != null;
+        return this.f48971a != null;
     }
 }

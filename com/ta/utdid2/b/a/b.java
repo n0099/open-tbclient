@@ -25,14 +25,14 @@ public interface b {
 
     /* renamed from: com.ta.utdid2.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0455b {
+    public interface InterfaceC0506b {
         void a(b bVar, String str);
     }
 
     a a();
 
     /* renamed from: a  reason: collision with other method in class */
-    boolean m45a();
+    boolean m44a();
 
     Map<String, ?> getAll();
 

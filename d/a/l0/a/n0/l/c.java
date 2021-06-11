@@ -22,13 +22,13 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.C0763b f43684e;
+    public final b.C0819b f47360e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -39,8 +39,8 @@ public final class c implements b {
         }
     }
 
-    public c(b.C0763b c0763b) {
-        this.f43684e = c0763b == null ? new b.C0763b() : c0763b;
+    public c(b.C0819b c0819b) {
+        this.f47360e = c0819b == null ? new b.C0819b() : c0819b;
     }
 
     public static boolean d(b.a aVar) {
@@ -51,30 +51,30 @@ public final class c implements b {
         return m(null);
     }
 
-    public static c m(b.C0763b c0763b) {
-        return new c(c0763b);
+    public static c m(b.C0819b c0819b) {
+        return new c(c0819b);
     }
 
     public c b(@Nullable String str) {
-        if (e() && !TextUtils.isEmpty(str) && !d(this.f43684e.f43680a.get(str))) {
+        if (e() && !TextUtils.isEmpty(str) && !d(this.f47360e.f47356a.get(str))) {
             d.a.l0.a.n0.l.a c2 = d.a.l0.a.n0.l.a.c(str);
             if (d(c2)) {
-                this.f43684e.f43680a.put(c2.a(), c2);
+                this.f47360e.f47356a.put(c2.a(), c2);
             }
         }
         return this;
     }
 
     public int c() {
-        b.C0763b c0763b = this.f43684e;
-        int i2 = c0763b.f43683d;
-        return i2 == 0 ? c0763b.f43682c : i2;
+        b.C0819b c0819b = this.f47360e;
+        int i2 = c0819b.f47359d;
+        return i2 == 0 ? c0819b.f47358c : i2;
     }
 
     public boolean e() {
         boolean z;
-        synchronized (this.f43684e) {
-            z = this.f43684e.f43681b;
+        synchronized (this.f47360e) {
+            z = this.f47360e.f47357b;
         }
         return z;
     }
@@ -82,16 +82,16 @@ public final class c implements b {
     public final void f() {
         String str;
         b.a value;
-        synchronized (this.f43684e) {
+        synchronized (this.f47360e) {
             if (e()) {
-                this.f43684e.f43681b = false;
+                this.f47360e.f47357b = false;
                 e eVar = new e();
-                eVar.f43185a = "swan";
-                eVar.f43187c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
+                eVar.f46861a = "swan";
+                eVar.f46863c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
                 int c2 = c();
-                eVar.f43186b = String.valueOf(c2);
+                eVar.f46862b = String.valueOf(c2);
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.f43684e.f43680a.entrySet()) {
+                for (Map.Entry<String, b.a> entry : this.f47360e.f47356a.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                         jSONArray.put(value.b());
                     }
@@ -101,7 +101,7 @@ public final class c implements b {
                     eVar.a("history_list", h());
                     eVar.a("disk_size", g());
                 }
-                if (b.G0) {
+                if (b.I0) {
                     JSONObject f2 = eVar.f();
                     if (f2 == null) {
                         str = StringUtil.NULL_STRING;
@@ -148,7 +148,7 @@ public final class c implements b {
             jSONObject.put("app_pkg", b2);
             jSONObject.put("app_third", k);
         } catch (JSONException e2) {
-            if (b.G0) {
+            if (b.I0) {
                 e2.printStackTrace();
                 Log.i("PurgerStatistic", "queryDiskSize: e=" + e2);
             }
@@ -172,14 +172,14 @@ public final class c implements b {
                     jSONArray.put(jSONObject);
                 }
             }
-            if (b.G0) {
+            if (b.I0) {
                 Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
             }
             if (l != null) {
                 l.close();
             }
         } catch (JSONException e2) {
-            if (b.G0) {
+            if (b.I0) {
                 e2.printStackTrace();
                 Log.i("PurgerStatistic", "queryHisList: e=" + e2);
             }
@@ -188,30 +188,30 @@ public final class c implements b {
     }
 
     public c i(int i2) {
-        b.C0763b c0763b;
+        b.C0819b c0819b;
         int i3;
-        if (e() && i2 != (i3 = (c0763b = this.f43684e).f43683d) && (i3 == 0 || i3 == c0763b.f43682c)) {
-            this.f43684e.f43683d = i2;
+        if (e() && i2 != (i3 = (c0819b = this.f47360e).f47359d) && (i3 == 0 || i3 == c0819b.f47358c)) {
+            this.f47360e.f47359d = i2;
         }
         return this;
     }
 
     public void j() {
-        if (b.G0) {
-            Log.i("PurgerStatistic", "performReport: " + this.f43684e);
+        if (b.I0) {
+            Log.i("PurgerStatistic", "performReport: " + this.f47360e);
         }
         if (e()) {
             ExecutorUtilsExt.postOnElastic(new a(), "PurgerStatistic", 3);
         }
     }
 
-    public b.C0763b k() {
-        return this.f43684e;
+    public b.C0819b k() {
+        return this.f47360e;
     }
 
     public c n(int i2) {
         if (e()) {
-            this.f43684e.f43682c = i2;
+            this.f47360e.f47358c = i2;
         }
         return this;
     }

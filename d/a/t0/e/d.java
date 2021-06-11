@@ -6,33 +6,33 @@ import android.util.Log;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64662b = "UnionIDFactory";
+    public static String f68380b = "UnionIDFactory";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f64663c = a.e();
+    public static boolean f68381c = a.e();
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.t0.e.f.c f64664a;
+    public d.a.t0.e.f.c f68382a;
 
     public d(Context context) {
         int a2 = b.a();
-        if (f64663c) {
-            String str = f64662b;
+        if (f68381c) {
+            String str = f68380b;
             Log.e(str, "UnionIDFactory manufacturer:" + a2);
         }
         if (a2 == 10001) {
-            this.f64664a = new d.a.t0.e.g.a(context);
+            this.f68382a = new d.a.t0.e.g.a(context);
         } else if (a2 != 10002) {
-            this.f64664a = new d.a.t0.e.g.b(context);
+            this.f68382a = new d.a.t0.e.g.b(context);
         } else {
-            if (f64663c) {
-                Log.e(f64662b, "UnionIDFactory XMUnionID");
+            if (f68381c) {
+                Log.e(f68380b, "UnionIDFactory XMUnionID");
             }
-            this.f64664a = new d.a.t0.e.g.c(context);
+            this.f68382a = new d.a.t0.e.g.c(context);
         }
     }
 
     public d.a.t0.e.f.c a() {
-        return this.f64664a;
+        return this.f68382a;
     }
 }

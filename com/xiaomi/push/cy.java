@@ -18,7 +18,7 @@ public class cy {
 
     public static int a(iq iqVar, hf hfVar) {
         int a2;
-        switch (cz.f37419a[hfVar.ordinal()]) {
+        switch (cz.f41098a[hfVar.ordinal()]) {
             case 1:
             case 2:
             case 3:
@@ -36,17 +36,17 @@ public class cy {
                     try {
                         if (iqVar instanceof hw) {
                             String str = ((hw) iqVar).f591d;
-                            if (!TextUtils.isEmpty(str) && ek.a(ek.m272a(str)) != -1) {
-                                a2 = ek.a(ek.m272a(str));
+                            if (!TextUtils.isEmpty(str) && ek.a(ek.m271a(str)) != -1) {
+                                a2 = ek.a(ek.m271a(str));
                                 break;
                             }
                         } else if (iqVar instanceof ie) {
                             String str2 = ((ie) iqVar).f652d;
                             if (!TextUtils.isEmpty(str2)) {
-                                if (ek.a(ek.m272a(str2)) != -1) {
-                                    a2 = ek.a(ek.m272a(str2));
+                                if (ek.a(ek.m271a(str2)) != -1) {
+                                    a2 = ek.a(ek.m271a(str2));
                                 }
-                                if (hp.UploadTinyData.equals(ek.m272a(str2))) {
+                                if (hp.UploadTinyData.equals(ek.m271a(str2))) {
                                     return -1;
                                 }
                             }
@@ -121,7 +121,7 @@ public class cy {
             ip.a(ibVar, bArr);
             a(str, context, ibVar, bArr.length);
         } catch (iv unused) {
-            com.xiaomi.channel.commonutils.logger.b.m57a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m56a("fail to convert bytes to container");
         }
     }
 }

@@ -35,7 +35,7 @@ public class e extends a0 {
 
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 Toast.makeText(context, d.a.l0.f.g.aiapps_debug_game_core_params_empty, 1).show();

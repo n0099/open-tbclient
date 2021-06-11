@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.a.m0.z0.w;
 import tbclient.GetStoreRemindTime.DataReq;
 import tbclient.GetStoreRemindTime.GetStoreRemindTimeReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetStoreRemindTimeRequestMessage extends NetMessage {
     public GetStoreRemindTimeRequestMessage() {
         super(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117);

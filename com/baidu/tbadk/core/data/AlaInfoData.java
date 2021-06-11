@@ -97,10 +97,10 @@ public class AlaInfoData implements Serializable {
             this.description = alaLiveInfo.description;
             AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
             this.user_info = alaUserInfoData;
-            alaUserInfoData.s(alaLiveInfo.user_info);
+            alaUserInfoData.w(alaLiveInfo.user_info);
             AlaShareInfoData alaShareInfoData = new AlaShareInfoData();
             this.share_info = alaShareInfoData;
-            alaShareInfoData.s(alaLiveInfo.share_info);
+            alaShareInfoData.w(alaLiveInfo.share_info);
             this.live_status = alaLiveInfo.live_status.intValue();
             this.duration = alaLiveInfo.duration.intValue();
             this.audience_count = alaLiveInfo.audience_count.intValue();

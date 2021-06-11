@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public final class o0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45437a = d.a.l0.a.k.f43199a;
+    public static final boolean f49111a = d.a.l0.a.k.f46875a;
 
     public static String a(String str, String str2, String str3) {
         StringBuilder sb;
@@ -122,8 +122,8 @@ public final class o0 {
                 arrayList.add(str2);
             }
         } catch (Exception unused) {
-            if (f45437a) {
-                Log.d("addQueryList", "fail");
+            if (f49111a) {
+                Log.d("addQueryList", com.baidu.pass.biometrics.face.liveness.b.b.g0);
             }
         }
         return arrayList;
@@ -330,7 +330,7 @@ public final class o0 {
                 try {
                     encode = URLEncoder.encode(str, "UTF-8");
                 } catch (UnsupportedEncodingException e2) {
-                    if (f45437a) {
+                    if (f49111a) {
                         throw new RuntimeException("This method requires UTF-8 encoding support", e2);
                     }
                 }

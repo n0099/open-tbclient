@@ -43,31 +43,31 @@ public class c extends d<MyGiftListActivity> {
     public View.OnClickListener B;
 
     /* renamed from: a  reason: collision with root package name */
-    public MyGiftListActivity f62264a;
+    public MyGiftListActivity f65979a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f62265b;
+    public NavigationBar f65980b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NoNetworkView f62266c;
+    public NoNetworkView f65981c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f62267d;
+    public h f65982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f62268e;
+    public BdListView f65983e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f62269f;
+    public View f65984f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f62270g;
+    public View f65985g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f62271h;
+    public View f65986h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f62272i;
+    public View f65987i;
     public View j;
     public g k;
     public BdListView.p l;
@@ -105,24 +105,24 @@ public class c extends d<MyGiftListActivity> {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            a.C1683a item = c.this.t.getItem(i2);
-            if (item == null || item.f62235a <= 0 || StringUtils.isNull(item.f62236b)) {
+            a.C1740a item = c.this.t.getItem(i2);
+            if (item == null || item.f65950a <= 0 || StringUtils.isNull(item.f65951b)) {
                 return;
             }
             if (c.this.u) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(c.this.f62264a.getPageContext().getPageActivity(), item.f62235a, item.f62236b, item.k, GiftTabActivityConfig.FROM_PERSON_CENTER)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(c.this.f65979a.getPageContext().getPageActivity(), item.f65950a, item.f65951b, item.k, GiftTabActivityConfig.FROM_PERSON_CENTER)));
             } else if (!j.z()) {
-                c.this.f62264a.showToast(R.string.neterror);
+                c.this.f65979a.showToast(R.string.neterror);
             } else {
-                c.this.f62264a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.f62235a), item.f62236b)));
+                c.this.f65979a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.f65950a), item.f65951b)));
             }
         }
     }
 
     /* renamed from: d.a.n0.v0.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1685c implements View.OnClickListener {
-        public View$OnClickListenerC1685c() {
+    public class View$OnClickListenerC1742c implements View.OnClickListener {
+        public View$OnClickListenerC1742c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -134,11 +134,11 @@ public class c extends d<MyGiftListActivity> {
                 if (view != c.this.r || StringUtils.isNull(c.this.v)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(c.this.f62264a.getPageContext(), new String[]{c.this.v});
+                UrlManager.getInstance().dealOneLink(c.this.f65979a.getPageContext(), new String[]{c.this.v});
             } else if (l.D()) {
-                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(c.this.f62264a.getPageContext().getPageActivity());
+                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(c.this.f65979a.getPageContext().getPageActivity());
             } else {
-                UtilHelper.showToast(c.this.f62264a.getPageContext().getPageActivity(), c.this.f62264a.getResources().getString(R.string.neterror));
+                UtilHelper.showToast(c.this.f65979a.getPageContext().getPageActivity(), c.this.f65979a.getResources().getString(R.string.neterror));
             }
         }
     }
@@ -147,8 +147,8 @@ public class c extends d<MyGiftListActivity> {
         super(myGiftListActivity.getPageContext());
         this.k = null;
         this.A = new b();
-        this.B = new View$OnClickListenerC1685c();
-        this.f62264a = myGiftListActivity;
+        this.B = new View$OnClickListenerC1742c();
+        this.f65979a = myGiftListActivity;
         this.u = z;
         this.l = pVar;
         q();
@@ -161,7 +161,7 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public void k(NoNetworkView.b bVar) {
-        this.f62266c.a(bVar);
+        this.f65981c.a(bVar);
     }
 
     public final SpannableString l(int i2, String str, int i3) {
@@ -182,14 +182,14 @@ public class c extends d<MyGiftListActivity> {
         d.a.m0.b1.d dVar = new d.a.m0.b1.d(drawable);
         dVar.c(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
         UtilHelper.setSpan(spannableString, str2, "[icon]", dVar);
-        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(l.g(this.f62264a.getPageContext().getPageActivity(), R.dimen.fontsize22));
-        UtilHelper.setSpan(spannableString, str2, this.f62264a.getResources().getString(R.string.unit_wan), absoluteSizeSpan);
-        UtilHelper.setSpan(spannableString, str2, this.f62264a.getResources().getString(R.string.unit_yi), absoluteSizeSpan);
+        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(l.g(this.f65979a.getPageContext().getPageActivity(), R.dimen.fontsize22));
+        UtilHelper.setSpan(spannableString, str2, this.f65979a.getResources().getString(R.string.unit_wan), absoluteSizeSpan);
+        UtilHelper.setSpan(spannableString, str2, this.f65979a.getResources().getString(R.string.unit_yi), absoluteSizeSpan);
         return spannableString;
     }
 
     public void m() {
-        this.f62268e.A(0L);
+        this.f65983e.A(0L);
     }
 
     public View n() {
@@ -197,22 +197,22 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public void o() {
-        h hVar = this.f62267d;
+        h hVar = this.f65982d;
         if (hVar != null) {
-            hVar.dettachView(this.f62269f);
-            this.f62267d = null;
-            this.f62268e.setVisibility(0);
+            hVar.dettachView(this.f65984f);
+            this.f65982d = null;
+            this.f65983e.setVisibility(0);
         }
     }
 
     public void onChangeSkinType(int i2) {
-        this.f62264a.getLayoutMode().k(i2 == 1);
-        this.f62264a.getLayoutMode().j(this.f62269f);
-        this.f62264a.getLayoutMode().j(this.f62270g);
-        this.f62264a.getLayoutMode().j(this.f62271h);
-        this.f62264a.getLayoutMode().j(this.f62272i);
-        this.f62265b.onChangeSkinType(getPageContext(), i2);
-        this.f62266c.c(this.f62264a.getPageContext(), i2);
+        this.f65979a.getLayoutMode().k(i2 == 1);
+        this.f65979a.getLayoutMode().j(this.f65984f);
+        this.f65979a.getLayoutMode().j(this.f65985g);
+        this.f65979a.getLayoutMode().j(this.f65986h);
+        this.f65979a.getLayoutMode().j(this.f65987i);
+        this.f65980b.onChangeSkinType(getPageContext(), i2);
+        this.f65981c.c(this.f65979a.getPageContext(), i2);
         this.k.I(i2);
         d.a.n0.v0.c.b bVar = this.t;
         if (bVar != null) {
@@ -225,44 +225,44 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public final void p() {
-        this.w = (LinearLayout) this.f62264a.findViewById(R.id.gift_relation_ll);
-        this.y = (TextView) this.f62264a.findViewById(R.id.gift_relation_text);
-        this.w.setOnClickListener(this.f62264a.getSendGiftClickListener());
-        this.x = this.f62264a.findViewById(R.id.gift_send_gift_top_line);
-        this.z = (ImageView) this.f62264a.findViewById(R.id.gift_send_gift_icon);
+        this.w = (LinearLayout) this.f65979a.findViewById(R.id.gift_relation_ll);
+        this.y = (TextView) this.f65979a.findViewById(R.id.gift_relation_text);
+        this.w.setOnClickListener(this.f65979a.getSendGiftClickListener());
+        this.x = this.f65979a.findViewById(R.id.gift_send_gift_top_line);
+        this.z = (ImageView) this.f65979a.findViewById(R.id.gift_send_gift_icon);
     }
 
     public final void q() {
-        this.f62264a.setContentView(R.layout.my_gift_list_activity);
-        View findViewById = this.f62264a.findViewById(R.id.root);
-        this.f62269f = findViewById;
-        this.f62268e = (BdListView) findViewById.findViewById(R.id.list_view);
-        NavigationBar navigationBar = (NavigationBar) this.f62269f.findViewById(R.id.navigation_bar);
-        this.f62265b = navigationBar;
-        MyGiftListActivity myGiftListActivity = this.f62264a;
+        this.f65979a.setContentView(R.layout.my_gift_list_activity);
+        View findViewById = this.f65979a.findViewById(R.id.root);
+        this.f65984f = findViewById;
+        this.f65983e = (BdListView) findViewById.findViewById(R.id.list_view);
+        NavigationBar navigationBar = (NavigationBar) this.f65984f.findViewById(R.id.navigation_bar);
+        this.f65980b = navigationBar;
+        MyGiftListActivity myGiftListActivity = this.f65979a;
         if (myGiftListActivity.userType == 1) {
             navigationBar.setCenterTextTitle(myGiftListActivity.getPageContext().getString(R.string.forum_gift_list));
         } else {
-            String format = String.format(this.f62264a.getPageContext().getString(R.string.he_gift_title), myGiftListActivity.getUserSex());
+            String format = String.format(this.f65979a.getPageContext().getString(R.string.he_gift_title), myGiftListActivity.getUserSex());
             if (this.u) {
-                this.f62265b.setCenterTextTitle(this.f62264a.getPageContext().getString(R.string.my_gift_list));
+                this.f65980b.setCenterTextTitle(this.f65979a.getPageContext().getString(R.string.my_gift_list));
             } else {
-                this.f62265b.setTitleText(format);
+                this.f65980b.setTitleText(format);
             }
         }
-        this.f62265b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f62266c = (NoNetworkView) this.f62269f.findViewById(R.id.no_networkview);
-        View inflate = LayoutInflater.from(this.f62264a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
-        this.f62271h = inflate;
+        this.f65980b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f65981c = (NoNetworkView) this.f65984f.findViewById(R.id.no_networkview);
+        View inflate = LayoutInflater.from(this.f65979a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
+        this.f65986h = inflate;
         inflate.setVisibility(8);
-        View inflate2 = LayoutInflater.from(this.f62264a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
-        this.f62270g = inflate2;
+        View inflate2 = LayoutInflater.from(this.f65979a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
+        this.f65985g = inflate2;
         inflate2.setVisibility(8);
-        this.s = (LinearLayout) this.f62270g.findViewById(R.id.view_link_info);
-        this.m = (TextView) this.f62270g.findViewById(R.id.textview_gift_number);
-        this.n = (TextView) this.f62270g.findViewById(R.id.textview_tdou_number);
-        this.p = (TextView) this.f62270g.findViewById(R.id.textview_tdou_number_title);
-        this.o = (TextView) this.f62270g.findViewById(R.id.view_get_tdou);
+        this.s = (LinearLayout) this.f65985g.findViewById(R.id.view_link_info);
+        this.m = (TextView) this.f65985g.findViewById(R.id.textview_gift_number);
+        this.n = (TextView) this.f65985g.findViewById(R.id.textview_tdou_number);
+        this.p = (TextView) this.f65985g.findViewById(R.id.textview_tdou_number_title);
+        this.o = (TextView) this.f65985g.findViewById(R.id.view_get_tdou);
         if (CurrencySwitchUtil.isYyIsConvert()) {
             this.p.setText(R.string.my_ybean);
             this.o.setText(R.string.get_ybean);
@@ -270,53 +270,53 @@ public class c extends d<MyGiftListActivity> {
             this.p.setText(R.string.my_tdou);
             this.o.setText(R.string.get_tdou);
         }
-        this.q = (TextView) this.f62270g.findViewById(R.id.textview_blue_number);
-        TextView textView = (TextView) this.f62270g.findViewById(R.id.view_get_blue);
+        this.q = (TextView) this.f65985g.findViewById(R.id.textview_blue_number);
+        TextView textView = (TextView) this.f65985g.findViewById(R.id.view_get_blue);
         this.r = textView;
         textView.setOnClickListener(this.B);
         this.o.setOnClickListener(this.B);
-        View inflate3 = LayoutInflater.from(this.f62264a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
-        this.f62272i = inflate3;
+        View inflate3 = LayoutInflater.from(this.f65979a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
+        this.f65987i = inflate3;
         this.j = inflate3.findViewById(R.id.gift_footer_lay);
         if (this.u) {
-            this.f62268e.addHeaderView(this.f62270g);
+            this.f65983e.addHeaderView(this.f65985g);
         } else {
-            if (this.f62264a.userType == 1) {
-                this.f62271h.setVisibility(0);
-                this.f62268e.addHeaderView(this.f62271h);
+            if (this.f65979a.userType == 1) {
+                this.f65986h.setVisibility(0);
+                this.f65983e.addHeaderView(this.f65986h);
             }
             if (TbadkApplication.getInst().isGiftSwitchOn()) {
-                this.f62272i.setPadding(0, 0, 0, l.g(this.f62264a.getPageContext().getPageActivity(), R.dimen.ds156));
+                this.f65987i.setPadding(0, 0, 0, l.g(this.f65979a.getPageContext().getPageActivity(), R.dimen.ds156));
             }
         }
-        this.f62268e.addFooterView(this.f62272i);
-        d.a.n0.v0.c.b bVar = new d.a.n0.v0.c.b(this.f62264a, this.u);
+        this.f65983e.addFooterView(this.f65987i);
+        d.a.n0.v0.c.b bVar = new d.a.n0.v0.c.b(this.f65979a, this.u);
         this.t = bVar;
-        this.f62268e.setAdapter((ListAdapter) bVar);
-        g gVar = new g(this.f62264a.getPageContext());
+        this.f65983e.setAdapter((ListAdapter) bVar);
+        g gVar = new g(this.f65979a.getPageContext());
         this.k = gVar;
-        this.f62268e.setPullRefresh(gVar);
-        this.f62268e.setOnSrollToBottomListener(this.l);
-        this.f62268e.setOnItemClickListener(this.A);
+        this.f65983e.setPullRefresh(gVar);
+        this.f65983e.setOnSrollToBottomListener(this.l);
+        this.f65983e.setOnItemClickListener(this.A);
     }
 
     public final void r(d.a.n0.v0.c.a aVar) {
         String formatOverBaiwanNum;
         if (aVar != null && this.u) {
-            this.f62270g.setVisibility(0);
-            String str = aVar.d().f62248b;
-            String str2 = aVar.d().f62247a;
-            this.v = aVar.f62233g.f50057b;
+            this.f65985g.setVisibility(0);
+            String str = aVar.d().f65963b;
+            String str2 = aVar.d().f65962a;
+            this.v = aVar.f65948g.f53733b;
             this.m.setText(l(R.drawable.icon_gift_my_gift, StringHelper.formatOverBaiwanNum(aVar.b()), 0));
-            if (CurrencySwitchUtil.isYyIsConvert(aVar.f62234h)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(aVar.f62234h, aVar.e());
+            if (CurrencySwitchUtil.isYyIsConvert(aVar.f65949h)) {
+                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(aVar.f65949h, aVar.e());
             } else {
                 formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(aVar.e());
             }
-            this.q.setText(l(R.drawable.icon_gift_bluedrill, StringHelper.formatOverBaiwanNum(aVar.f62232f), 2));
-            this.r.setText(aVar.f62233g.f50056a);
-            this.n.setText(l(CurrencySwitchUtil.getGiftMoneyIconResId(aVar.f62234h), formatOverBaiwanNum, 1));
-            if (CurrencySwitchUtil.isYyIsConvert(aVar.f62234h)) {
+            this.q.setText(l(R.drawable.icon_gift_bluedrill, StringHelper.formatOverBaiwanNum(aVar.f65947f), 2));
+            this.r.setText(aVar.f65948g.f53732a);
+            this.n.setText(l(CurrencySwitchUtil.getGiftMoneyIconResId(aVar.f65949h), formatOverBaiwanNum, 1));
+            if (CurrencySwitchUtil.isYyIsConvert(aVar.f65949h)) {
                 this.p.setText(R.string.my_ybean);
                 this.o.setText(R.string.get_ybean);
                 return;
@@ -325,22 +325,22 @@ public class c extends d<MyGiftListActivity> {
             this.o.setText(R.string.get_tdou);
             return;
         }
-        this.f62270g.setVisibility(8);
+        this.f65985g.setVisibility(8);
     }
 
     public final void s(d.a.n0.v0.c.a aVar) {
         if (aVar != null && aVar.a() != null && aVar.a().size() > 0) {
             if (aVar.c() != null) {
-                if (aVar.c().f62245b == 1) {
-                    this.f62272i.setVisibility(0);
+                if (aVar.c().f65960b == 1) {
+                    this.f65987i.setVisibility(0);
                 } else {
-                    this.f62272i.setVisibility(8);
+                    this.f65987i.setVisibility(8);
                 }
             }
-            this.t.e(aVar.a(), aVar.f62234h);
+            this.t.e(aVar.a(), aVar.f65949h);
             return;
         }
-        this.f62272i.setVisibility(8);
+        this.f65987i.setVisibility(8);
         this.w.setVisibility(8);
         this.t.e(null, -1);
     }
@@ -364,18 +364,18 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public void v(String str, boolean z) {
-        if (this.f62267d == null) {
-            this.f62267d = new h(this.mContext.getContext(), new a());
+        if (this.f65982d == null) {
+            this.f65982d = new h(this.mContext.getContext(), new a());
         }
-        this.f62267d.j(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
-        this.f62267d.attachView(this.f62269f, z);
-        this.f62267d.o();
+        this.f65982d.j(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
+        this.f65982d.attachView(this.f65984f, z);
+        this.f65982d.o();
         this.w.setVisibility(8);
-        this.f62268e.setVisibility(8);
+        this.f65983e.setVisibility(8);
     }
 
     public void w() {
-        this.f62268e.setVisibility(0);
-        this.f62268e.F();
+        this.f65983e.setVisibility(0);
+        this.f65983e.F();
     }
 }

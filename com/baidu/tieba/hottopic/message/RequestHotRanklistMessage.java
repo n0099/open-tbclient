@@ -11,7 +11,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16827common;
+    public CommonReq f16903common;
     public long fid;
     public String list_type;
     public String need_tab_list;
@@ -24,7 +24,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f69570common = getCommon();
+            builder.f72881common = getCommon();
             builder.call_from = getCallFrom();
             builder.list_type = getListType();
             builder.need_tab_list = getNeedTabList();
@@ -45,7 +45,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f16827common;
+        return this.f16903common;
     }
 
     public String getListType() {
@@ -61,7 +61,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f16827common = commonReq;
+        this.f16903common = commonReq;
     }
 
     public void setFid(long j) {

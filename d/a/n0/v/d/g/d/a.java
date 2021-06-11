@@ -14,22 +14,22 @@ public class a extends d.a.n0.z.b<d.a.n0.v.d.g.b.a> {
         super(tbPageContext);
         this.m = new b(k(), z);
         this.n = new b(k(), z);
-        ViewGroup viewGroup = (ViewGroup) l();
+        ViewGroup viewGroup = (ViewGroup) m();
         View view = new View(b());
-        viewGroup.addView(this.m.l());
+        viewGroup.addView(this.m.m());
         viewGroup.addView(view, new LinearLayout.LayoutParams(k().getResources().getDimensionPixelSize(R.dimen.ds4), -1));
-        viewGroup.addView(this.n.l());
+        viewGroup.addView(this.n.m());
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.ala_new_square_sub_list_live_row;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
-        this.m.n(tbPageContext, i2);
-        this.n.n(tbPageContext, i2);
+    public void o(TbPageContext<?> tbPageContext, int i2) {
+        this.m.o(tbPageContext, i2);
+        this.n.o(tbPageContext, i2);
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,16 +38,16 @@ public class a extends d.a.n0.z.b<d.a.n0.v.d.g.b.a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.v.d.g.b.a aVar) {
+    /* renamed from: t */
+    public void n(d.a.n0.v.d.g.b.a aVar) {
         if (aVar != null) {
-            this.m.m(aVar.f61784e);
-            this.n.m(aVar.f61785f);
+            this.m.n(aVar.f65499e);
+            this.n.n(aVar.f65500f);
         }
     }
 
-    public void t(f fVar) {
-        this.m.z(fVar);
-        this.n.z(fVar);
+    public void u(f fVar) {
+        this.m.A(fVar);
+        this.n.A(fVar);
     }
 }

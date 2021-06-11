@@ -6,10 +6,10 @@ import androidx.annotation.Nullable;
 public abstract class e {
 
     /* renamed from: e  reason: collision with root package name */
-    public Exception f41690e;
+    public Exception f45366e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f41691f;
+    public c f45367f;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -36,16 +36,16 @@ public abstract class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            e.this.f41691f.m(e.this);
+            e.this.f45367f.m(e.this);
         }
     }
 
     public Exception b() {
-        return this.f41690e;
+        return this.f45366e;
     }
 
     public boolean c() {
-        return this.f41690e == null;
+        return this.f45366e == null;
     }
 
     public void d() {
@@ -53,7 +53,7 @@ public abstract class e {
     }
 
     public void e(@Nullable Exception exc) {
-        this.f41690e = exc;
+        this.f45366e = exc;
         d.k(new b());
     }
 
@@ -65,7 +65,7 @@ public abstract class e {
     }
 
     public e h(c cVar) {
-        this.f41691f = cVar;
+        this.f45367f = cVar;
         return this;
     }
 }

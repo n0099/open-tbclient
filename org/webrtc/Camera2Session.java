@@ -21,7 +21,7 @@ import org.webrtc.Camera2Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Camera2Session implements CameraSession {
     public static final String TAG = "Camera2Session";
     public final Context applicationContext;
@@ -52,7 +52,7 @@ public class Camera2Session implements CameraSession {
     public static final Histogram camera2StopTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera2.StopTimeMs", 1, 10000, 50);
     public static final Histogram camera2ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera2.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
         public CameraCaptureCallback() {
         }
@@ -63,7 +63,7 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class CameraStateCallback extends CameraDevice.StateCallback {
         public CameraStateCallback() {
         }
@@ -129,7 +129,7 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class CaptureSessionCallback extends CameraCaptureSession.StateCallback {
         public CaptureSessionCallback() {
         }
@@ -237,7 +237,7 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum SessionState {
         RUNNING,
         STOPPED

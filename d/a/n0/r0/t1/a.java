@@ -23,8 +23,8 @@ public class a extends k<d.a.n0.u0.b, GameRankListViewHolder> implements d {
 
     /* renamed from: d.a.n0.r0.t1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1552a implements GameRankHorizontalLayout.b {
-        public C1552a() {
+    public class C1608a implements GameRankHorizontalLayout.b {
+        public C1608a() {
         }
 
         @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
@@ -33,7 +33,7 @@ public class a extends k<d.a.n0.u0.b, GameRankListViewHolder> implements d {
                 return;
             }
             if (a.this.w != null) {
-                TiebaStatic.log(new StatisticItem("c12105").param("fid", a.this.w.f58776c).param("obj_locate", i2 + 1));
+                TiebaStatic.log(new StatisticItem("c12105").param("fid", a.this.w.f62467c).param("obj_locate", i2 + 1));
             }
             if (StringUtils.isNull(aVar.c())) {
                 return;
@@ -62,35 +62,35 @@ public class a extends k<d.a.n0.u0.b, GameRankListViewHolder> implements d {
     }
 
     @Override // d.a.n0.r0.j2.d
-    public d.a.n0.r0.j2.b i() {
+    public d.a.n0.r0.j2.b j() {
         return this.w;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: u0 */
-    public GameRankListViewHolder P(ViewGroup viewGroup) {
-        return new GameRankListViewHolder(LayoutInflater.from(this.f39228e).inflate(R.layout.game_rank_list_item, (ViewGroup) null));
+    @Override // d.a.c.k.e.a
+    /* renamed from: v0 */
+    public GameRankListViewHolder Q(ViewGroup viewGroup) {
+        return new GameRankListViewHolder(LayoutInflater.from(this.f42909e).inflate(R.layout.game_rank_list_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: v0 */
-    public View W(int i2, View view, ViewGroup viewGroup, d.a.n0.u0.b bVar, GameRankListViewHolder gameRankListViewHolder) {
-        super.W(i2, view, viewGroup, bVar, gameRankListViewHolder);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: w0 */
+    public View X(int i2, View view, ViewGroup viewGroup, d.a.n0.u0.b bVar, GameRankListViewHolder gameRankListViewHolder) {
+        super.X(i2, view, viewGroup, bVar, gameRankListViewHolder);
         if (bVar == null) {
             return null;
         }
         SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
         if (this.w != null) {
-            TiebaStatic.log(new StatisticItem("c12104").param("fid", this.w.f58776c));
+            TiebaStatic.log(new StatisticItem("c12104").param("fid", this.w.f62467c));
         }
-        GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.f15454a;
+        GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.f15516a;
         if (gameRankHorizontalLayout != null) {
             gameRankHorizontalLayout.setData(bVar);
-            gameRankListViewHolder.f15454a.setOnCardClickListener(new C1552a());
+            gameRankListViewHolder.f15516a.setOnCardClickListener(new C1608a());
         }
-        TextView textView = gameRankListViewHolder.f15455b;
+        TextView textView = gameRankListViewHolder.f15517b;
         if (textView != null) {
             textView.setOnClickListener(new b(this));
         }

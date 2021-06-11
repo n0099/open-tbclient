@@ -9,59 +9,59 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f47370c;
+    public static volatile b f51044c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47371a;
+    public int f51045a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ArrayList<a> f47372b = new ArrayList<>(20);
+    public volatile ArrayList<a> f51046b = new ArrayList<>(20);
 
     public static b c() {
-        if (f47370c == null) {
+        if (f51044c == null) {
             synchronized (b.class) {
-                if (f47370c == null) {
-                    f47370c = new b();
+                if (f51044c == null) {
+                    f51044c = new b();
                 }
             }
         }
-        return f47370c;
+        return f51044c;
     }
 
     public synchronized void a(a aVar) {
         if (aVar == null) {
             return;
         }
-        if (this.f47372b.size() < 20) {
-            this.f47372b.add(aVar);
+        if (this.f51046b.size() < 20) {
+            this.f51046b.add(aVar);
         } else {
-            this.f47371a++;
+            this.f51045a++;
         }
     }
 
     public synchronized void b() {
-        this.f47372b.clear();
-        this.f47371a = 0;
+        this.f51046b.clear();
+        this.f51045a = 0;
     }
 
     public synchronized JSONObject d() {
-        int size = this.f47372b.size();
+        int size = this.f51046b.size();
         if (size == 0) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("dropcnt", this.f47371a);
+            jSONObject.put("dropcnt", this.f51045a);
             jSONObject.put("errorcnt", size);
             JSONArray jSONArray = new JSONArray();
             jSONObject.put("errors", jSONArray);
-            Iterator<a> it = this.f47372b.iterator();
+            Iterator<a> it = this.f51046b.iterator();
             while (it.hasNext()) {
                 jSONArray.put(it.next().a());
             }
         } catch (JSONException unused) {
         }
-        this.f47372b.clear();
+        this.f51046b.clear();
         return jSONObject;
     }
 }

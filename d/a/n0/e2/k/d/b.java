@@ -3,7 +3,7 @@ package d.a.n0.e2.k.d;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b extends PbListView {
     public TbPageContext<?> E;
 

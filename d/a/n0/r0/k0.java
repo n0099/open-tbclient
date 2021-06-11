@@ -7,61 +7,61 @@ import java.util.List;
 public class k0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<d.a.m0.e0.b> f58792a = new LinkedList();
+    public final List<d.a.m0.e0.b> f62483a = new LinkedList();
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f58793b;
+    public Context f62484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58794c;
+    public String f62485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58795d;
+    public String f62486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58796e;
+    public String f62487e;
 
     public k0(Context context) {
-        this.f58793b = context;
+        this.f62484b = context;
     }
 
     public void a(d.a.m0.e0.b bVar) {
         if (bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        for (d.a.m0.e0.b bVar2 : this.f58792a) {
-            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f49338e == bVar.getFragmentTabStructure().f49338e) {
+        for (d.a.m0.e0.b bVar2 : this.f62483a) {
+            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f53012e == bVar.getFragmentTabStructure().f53012e) {
                 return;
             }
         }
-        this.f58792a.add(bVar);
+        this.f62483a.add(bVar);
     }
 
     public String b() {
-        return this.f58796e;
+        return this.f62487e;
     }
 
     public String c() {
-        return this.f58794c;
+        return this.f62485c;
     }
 
     public String d() {
-        return this.f58795d;
+        return this.f62486d;
     }
 
     public List<d.a.m0.e0.b> e() {
-        return this.f58792a;
+        return this.f62483a;
     }
 
     public void f(String str) {
-        this.f58796e = str;
+        this.f62487e = str;
     }
 
     public void g(String str) {
-        this.f58794c = str;
+        this.f62485c = str;
     }
 
     public void h(String str) {
-        this.f58795d = str;
+        this.f62486d = str;
     }
 }

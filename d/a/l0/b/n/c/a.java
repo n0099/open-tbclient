@@ -26,17 +26,17 @@ public class a extends d {
 
     /* renamed from: d.a.l0.b.n.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0951a extends c {
+    public class C1007a extends c {
 
         /* renamed from: d.a.l0.b.n.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0952a implements d.a.l0.a.v2.e1.b<i<b.e>> {
+        public class C1008a implements d.a.l0.a.v2.e1.b<i<b.e>> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f46364e;
+            public final /* synthetic */ c.b f50038e;
 
-            public C0952a(c.b bVar) {
-                this.f46364e = bVar;
+            public C1008a(c.b bVar) {
+                this.f50038e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -44,19 +44,19 @@ public class a extends d {
             /* renamed from: a */
             public void onCallback(i<b.e> iVar) {
                 if (d.a.l0.a.e2.c.d.h(iVar)) {
-                    this.f46364e.a(a.this.t());
+                    this.f50038e.a(a.this.t());
                     return;
                 }
                 int b2 = iVar.b();
                 String f2 = d.a.l0.a.e2.c.d.f(b2);
-                if (d.f44812c) {
+                if (d.f48486c) {
                     Log.e("Api-getCommonSysInfo", "getCommonSysInfo failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                this.f46364e.a(new d.a.l0.a.u.h.b(b2, f2));
+                this.f50038e.a(new d.a.l0.a.u.h.b(b2, f2));
             }
         }
 
-        public C0951a(String str) {
+        public C1007a(String str) {
             super(str);
         }
 
@@ -65,12 +65,12 @@ public class a extends d {
         public d.a.l0.a.u.h.b d(@NonNull JSONObject jSONObject, @NonNull c.b bVar) {
             e Q = e.Q();
             if (Q == null) {
-                if (d.f44812c) {
+                if (d.f48486c) {
                     Log.e("Api-getCommonSysInfo", "getCommonSysInfo failed: null swan runtime");
                 }
                 return new d.a.l0.a.u.h.b(1001, "null swan runtime");
             }
-            Q.T().g(d.a.l0.a.a2.d.g(), "mapp_i_get_common_sys_info", new C0952a(bVar));
+            Q.T().g(d.a.l0.a.a2.d.g(), "mapp_i_get_common_sys_info", new C1008a(bVar));
             return new d.a.l0.a.u.h.b(0);
         }
 
@@ -105,7 +105,7 @@ public class a extends d {
 
     @SuppressLint({"SwanBindApiNote"})
     public d.a.l0.a.u.h.b s(String str) {
-        return k(str, new C0951a("getCommonSysInfo"));
+        return k(str, new C1007a("getCommonSysInfo"));
     }
 
     @NonNull
@@ -131,7 +131,7 @@ public class a extends d {
         String l = o0.l(str3, "BAIDUID");
         String l2 = o0.l(str3, "H_WISE_SIDS");
         String a2 = d.a.l0.u.b.b(AppRuntime.getAppContext()).a();
-        if (d.f44812c) {
+        if (d.f48486c) {
             Log.d("Api-getCommonSysInfo", "cuid = " + i2 + ", imei = " + r + ", zid = " + str + ", uid = " + str2 + ", baiduId = " + l + ", sid = " + l2 + ", uuid = " + a2);
         }
         try {
@@ -143,12 +143,12 @@ public class a extends d {
             jSONObject.put("baidu_id", l);
             jSONObject.put("sid", l2);
             jSONObject.put("uuid", a2);
-            if (d.f44812c) {
+            if (d.f48486c) {
                 Log.d("Api-getCommonSysInfo", "getCommonSysInfo success: " + jSONObject.toString());
             }
             return new d.a.l0.a.u.h.b(0, jSONObject);
         } catch (JSONException e2) {
-            if (d.f44812c) {
+            if (d.f48486c) {
                 Log.e("Api-getCommonSysInfo", "getCommonSysInfo failed: JsonException");
                 e2.printStackTrace();
             }

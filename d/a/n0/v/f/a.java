@@ -14,10 +14,10 @@ import d.a.n0.r0.j0;
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaGameFrsLiveTabFragment f61939a = new AlaGameFrsLiveTabFragment();
+    public AlaGameFrsLiveTabFragment f65654a = new AlaGameFrsLiveTabFragment();
 
     public a() {
-        getFragmentTabStructure().f49334a = this.f61939a;
+        getFragmentTabStructure().f53008a = this.f65654a;
     }
 
     public void a(j0 j0Var) {
@@ -27,32 +27,32 @@ public class a extends b {
     }
 
     public void b(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment = this.f61939a;
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment = this.f65654a;
         if (alaGameFrsLiveTabFragment != null) {
-            alaGameFrsLiveTabFragment.N0(str);
+            alaGameFrsLiveTabFragment.Q0(str);
         }
     }
 
     public void c(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment = this.f61939a;
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment = this.f65654a;
         if (alaGameFrsLiveTabFragment != null) {
-            alaGameFrsLiveTabFragment.O0(str);
+            alaGameFrsLiveTabFragment.R0(str);
         }
     }
 
     @Override // d.a.m0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
-        cVar.f49338e = 2;
-        cVar.f49335b = R.string.ala_live;
-        cVar.f49342i = c.k;
+        cVar.f53012e = 2;
+        cVar.f53009b = R.string.ala_live;
+        cVar.f53016i = c.k;
         return cVar;
     }
 
     public void d(String str) {
-        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment = this.f61939a;
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment = this.f65654a;
         if (alaGameFrsLiveTabFragment != null) {
-            alaGameFrsLiveTabFragment.P0(str);
+            alaGameFrsLiveTabFragment.S0(str);
         }
     }
 

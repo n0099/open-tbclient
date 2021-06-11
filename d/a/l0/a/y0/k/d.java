@@ -10,7 +10,7 @@ import d.a.l0.a.v2.q;
 public class d implements ZeusPluginFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45882a;
+    public String f49556a;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
@@ -18,18 +18,18 @@ public class d implements ZeusPluginFactory {
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
             d.a.l0.a.y0.k.g.a b2 = d.a.l0.a.c1.a.z().b(null, null);
-            b2.q0();
-            b2.Y();
-            b2.D();
+            b2.n0();
+            b2.V();
+            b2.C();
             k.e().s(b2);
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 Log.d("【InlineFactory】", "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
     public d(@NonNull String str) {
-        this.f45882a = str;
+        this.f49556a = str;
     }
 
     public static void a() {
@@ -51,13 +51,13 @@ public class d implements ZeusPluginFactory {
             d.a.l0.a.e0.d.g("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
             b2 = k.e().d();
             k.e().r();
-            b2.Q(invoker);
+            b2.N(invoker);
         } else {
             d.a.l0.a.e0.d.g("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
-            b2 = d.a.l0.a.c1.a.z().b(invoker, this.f45882a);
-            b2.K();
+            b2 = d.a.l0.a.c1.a.z().b(invoker, this.f49556a);
+            b2.H();
         }
-        if (d.a.l0.a.k.f43199a) {
+        if (d.a.l0.a.k.f46875a) {
             Log.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b2.hashCode() + "」");
         }
         k.e().b(b2);

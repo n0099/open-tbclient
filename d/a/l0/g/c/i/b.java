@@ -175,14 +175,14 @@ public class b extends f {
 
     @Override // d.a.l0.a.j2.p.f, d.a.l0.a.j2.p.e
     public JSONObject f() {
-        this.k = d.a.l0.a.m2.b.e(TextUtils.equals(this.f43185a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+        this.k = d.a.l0.a.m2.b.e(TextUtils.equals(this.f46861a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
         this.n = SwanAppNetworkUtils.f().type;
-        if (this.f43192h == null) {
-            this.f43192h = new JSONObject();
+        if (this.f46868h == null) {
+            this.f46868h = new JSONObject();
         }
         try {
-            this.f43192h.put("host", d.a.l0.a.c1.a.m().a());
-            this.f43192h.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.v);
+            this.f46868h.put("host", d.a.l0.a.c1.a.m().a());
+            this.f46868h.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.v);
         } catch (JSONException e2) {
             if (e.j) {
                 e2.printStackTrace();
@@ -198,14 +198,14 @@ public class b extends f {
         if (e.j) {
             Log.d("SwanAppUBCEvent", "setCommonData: " + aVar.a());
         }
-        this.f43185a = aVar.f47061a;
-        this.f43190f = aVar.f47063c;
-        this.f43187c = aVar.f47062b;
-        this.o = aVar.f47066f;
-        this.p = aVar.f47067g;
-        this.s = aVar.f47068h;
-        this.u = aVar.f47069i;
-        this.l = aVar.f47064d;
-        this.m = aVar.f47065e;
+        this.f46861a = aVar.f50735a;
+        this.f46866f = aVar.f50737c;
+        this.f46863c = aVar.f50736b;
+        this.o = aVar.f50740f;
+        this.p = aVar.f50741g;
+        this.s = aVar.f50742h;
+        this.u = aVar.f50743i;
+        this.l = aVar.f50738d;
+        this.m = aVar.f50739e;
     }
 }

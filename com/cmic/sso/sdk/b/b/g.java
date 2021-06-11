@@ -5,9 +5,11 @@ import org.json.JSONObject;
 public abstract class g {
     public abstract String a();
 
+    public abstract String a(String str);
+
     public abstract JSONObject b();
 
-    public String n(String str) {
-        return com.cmic.sso.sdk.d.d.a(str);
+    public String w(String str) {
+        return com.cmic.sso.sdk.d.d.a(a(str)).toLowerCase();
     }
 }

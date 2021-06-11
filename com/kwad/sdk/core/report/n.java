@@ -6,12 +6,12 @@ import com.kwad.sdk.core.network.BaseResultData;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class n extends com.kwad.sdk.core.network.a<o> {
     private void a(o oVar) {
         try {
             for (String str : oVar.g()) {
-                KsAdSDKImpl.get().getProxyForHttp().doGetWithoutResponse(str, null);
+                KsAdSDKImpl.get().getProxyForHttp().doGet(str, null);
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
@@ -24,32 +24,32 @@ public abstract class n extends com.kwad.sdk.core.network.a<o> {
     }
 
     @Override // com.kwad.sdk.core.network.a
-    public void c() {
+    public void d() {
         if (com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
-            super.c();
+            super.d();
         } else {
-            com.kwad.sdk.core.d.a.e("ReportNetwork", "no network while report log");
+            com.kwad.sdk.core.d.a.d("ReportNetwork", "no network while report log");
         }
     }
 
     @Override // com.kwad.sdk.core.network.a
-    public void d() {
+    public void f() {
         String str;
         o b2 = b();
         com.kwad.sdk.core.network.c cVar = null;
         try {
             cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(b2.a(), (Map<String, String>) null, b2.d());
-            if (cVar == null || cVar.f32392a != 200) {
+            if (cVar == null || cVar.f34494a != 200) {
                 str = "report fail result is null";
             } else {
-                str = "report success actionType:" + b2.f32597b;
+                str = "report success actionType:" + b2.f34688b;
             }
             com.kwad.sdk.core.d.a.a("ReportNetwork", str);
             a(b2);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
-        if (com.kwad.sdk.b.f31819b.booleanValue()) {
+        if (com.kwad.sdk.a.f32184b.booleanValue()) {
             BaseResultData baseResultData = new BaseResultData() { // from class: com.kwad.sdk.core.report.ReportNetwork$1
                 @Override // com.kwad.sdk.core.network.BaseResultData
                 public void parseJson(@Nullable JSONObject jSONObject) {
@@ -58,7 +58,7 @@ public abstract class n extends com.kwad.sdk.core.network.a<o> {
             };
             if (cVar != null) {
                 try {
-                    baseResultData.parseJson(new JSONObject(cVar.f32393b));
+                    baseResultData.parseJson(new JSONObject(cVar.f34495b));
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }

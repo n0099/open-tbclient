@@ -15,24 +15,23 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import org.webrtc.MediaStreamTrack;
 /* loaded from: classes5.dex */
 public class VideoGestureView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f19975e;
+    public ViewGroup f20052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f19976f;
+    public ImageView f20053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f19977g;
+    public ProgressBar f20054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f19978h;
+    public ViewGroup f20055h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f19979i;
+    public ImageView f20056i;
     public TextView j;
     public AudioManager k;
     public int l;
@@ -53,9 +52,9 @@ public class VideoGestureView extends RelativeLayout {
     public void a(Context context, boolean z) {
         int i2;
         if (this.q != 2) {
-            this.f19978h.setVisibility(8);
-            this.f19975e.setVisibility(0);
-            this.f19977g.setMax(255);
+            this.f20055h.setVisibility(8);
+            this.f20052e.setVisibility(0);
+            this.f20054g.setMax(255);
             setBackgroundDrawable(null);
             this.p = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
             this.q = 2;
@@ -79,23 +78,23 @@ public class VideoGestureView extends RelativeLayout {
         } else {
             i2 = R.drawable.ic_icon_pure_video_highlight16_svg;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19976f, i2, R.color.CAM_X0622, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20053f, i2, R.color.CAM_X0622, null);
         Window window = ((Activity) context).getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
         attributes.screenBrightness = this.p / 255.0f;
         window.setAttributes(attributes);
-        this.f19977g.setProgress(this.p);
+        this.f20054g.setProgress(this.p);
     }
 
     public void b(boolean z, String str) {
         if (this.q != 3) {
-            this.f19978h.setVisibility(0);
-            this.f19975e.setVisibility(8);
+            this.f20055h.setVisibility(0);
+            this.f20052e.setVisibility(8);
             setBackgroundResource(R.color.CAM_X0605);
             this.q = 3;
         }
         this.j.setText(str);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19979i, z ? R.drawable.ic_icon_pure_video_rewind44_svg : R.drawable.ic_icon_pure_video_forward44_svg, R.color.CAM_X0622, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20056i, z ? R.drawable.ic_icon_pure_video_rewind44_svg : R.drawable.ic_icon_pure_video_forward44_svg, R.color.CAM_X0622, null);
     }
 
     public void c(Context context, boolean z) {
@@ -107,9 +106,9 @@ public class VideoGestureView extends RelativeLayout {
         int i4;
         int i5;
         if (this.q != 1) {
-            this.f19978h.setVisibility(8);
-            this.f19975e.setVisibility(0);
-            this.f19977g.setMax(100);
+            this.f20055h.setVisibility(8);
+            this.f20052e.setVisibility(0);
+            this.f20054g.setMax(100);
             setBackgroundDrawable(null);
             this.m = this.k.getStreamVolume(3);
             this.q = 1;
@@ -135,26 +134,29 @@ public class VideoGestureView extends RelativeLayout {
         } else {
             i3 = R.drawable.ic_icon_pure_video_sound_big16_svg;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f19976f, i3, R.color.CAM_X0622, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20053f, i3, R.color.CAM_X0622, null);
         this.k.setStreamVolume(3, this.m, 0);
-        this.f19977g.setProgress(this.o);
+        this.f20054g.setProgress(this.o);
     }
 
     public final void e() {
         RelativeLayout.inflate(getContext(), R.layout.operable_video_gesture, this);
-        this.f19975e = (ViewGroup) findViewById(R.id.video_gesture_progress_zone);
-        this.f19976f = (ImageView) findViewById(R.id.video_gesture_progress_icon);
-        this.f19977g = (ProgressBar) findViewById(R.id.video_gesture_progress_bar);
-        this.f19978h = (ViewGroup) findViewById(R.id.video_gesture_ffrew_zone);
-        this.f19979i = (ImageView) findViewById(R.id.video_gesture_ffrew_icon);
+        this.f20052e = (ViewGroup) findViewById(R.id.video_gesture_progress_zone);
+        this.f20053f = (ImageView) findViewById(R.id.video_gesture_progress_icon);
+        this.f20054g = (ProgressBar) findViewById(R.id.video_gesture_progress_bar);
+        this.f20055h = (ViewGroup) findViewById(R.id.video_gesture_ffrew_zone);
+        this.f20056i = (ImageView) findViewById(R.id.video_gesture_ffrew_icon);
         this.j = (TextView) findViewById(R.id.video_gesture_ffrew_txt);
-        this.f19975e.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
-        AudioManager audioManager = (AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.f20052e.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
+        AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
         this.k = audioManager;
         if (audioManager != null) {
             this.l = audioManager.getStreamMaxVolume(3);
-            this.m = this.k.getStreamVolume(3);
-            this.n = 100 / this.l;
+            int streamVolume = this.k.getStreamVolume(3);
+            this.m = streamVolume;
+            int i2 = this.l;
+            this.n = 100 / i2;
+            this.o = (streamVolume * 100) / i2;
         }
     }
 

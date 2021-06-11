@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class h extends d.a.l0.f.j.q.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f46931d = k.f43199a;
+    public static final boolean f50605d = k.f46875a;
 
     public h(int i2) {
         super("onSuccess", 0, f(null, i2, false));
@@ -38,7 +38,7 @@ public class h extends d.a.l0.f.j.q.a {
             jSONObject.put("total", download.getTotalbytes());
             jSONObject.put("fileExist", b.c(download) ? "1" : "0");
         } catch (JSONException e2) {
-            if (f46931d) {
+            if (f50605d) {
                 e2.printStackTrace();
             }
         }
@@ -54,7 +54,7 @@ public class h extends d.a.l0.f.j.q.a {
             }
             jSONObject.put("installed", z);
         } catch (JSONException e2) {
-            if (f46931d) {
+            if (f50605d) {
                 e2.printStackTrace();
             }
         }

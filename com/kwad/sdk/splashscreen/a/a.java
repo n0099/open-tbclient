@@ -5,16 +5,16 @@ import android.view.ViewGroup;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.mvp.Presenter;
-import com.kwad.sdk.utils.an;
+import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.c f33920a;
+    public com.kwad.sdk.splashscreen.c f37351a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f33921b;
+    public KsLogoView f37352b;
 
     private void a(ViewGroup viewGroup) {
         DisplayMetrics displayMetrics = viewGroup.getContext().getResources().getDisplayMetrics();
@@ -22,8 +22,8 @@ public class a extends Presenter {
             ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.leftMargin = an.a(viewGroup.getContext(), 12.0f);
-                marginLayoutParams.topMargin = an.a(viewGroup.getContext(), 12.0f);
+                marginLayoutParams.leftMargin = ao.a(viewGroup.getContext(), 12.0f);
+                marginLayoutParams.topMargin = ao.a(viewGroup.getContext(), 12.0f);
             }
         }
     }
@@ -32,24 +32,24 @@ public class a extends Presenter {
     public void a() {
         AdInfo.AdSplashInfo adSplashInfo;
         super.a();
-        com.kwad.sdk.splashscreen.c cVar = (com.kwad.sdk.splashscreen.c) k();
-        this.f33920a = cVar;
-        KsLogoView ksLogoView = (KsLogoView) cVar.f33988d.findViewById(R.id.ksad_splash_logo_container);
-        this.f33921b = ksLogoView;
+        com.kwad.sdk.splashscreen.c cVar = (com.kwad.sdk.splashscreen.c) n();
+        this.f37351a = cVar;
+        KsLogoView ksLogoView = (KsLogoView) cVar.f37416d.findViewById(R.id.ksad_splash_logo_container);
+        this.f37352b = ksLogoView;
         a((ViewGroup) ksLogoView);
-        if (this.f33920a.f33987c.adInfoList.isEmpty() || (adSplashInfo = this.f33920a.f33987c.adInfoList.get(0).adSplashInfo) == null) {
+        if (this.f37351a.f37415c.adInfoList.isEmpty() || (adSplashInfo = this.f37351a.f37415c.adInfoList.get(0).adSplashInfo) == null) {
             return;
         }
         if (adSplashInfo.logoPosition == 0) {
-            this.f33921b.setVisibility(8);
+            this.f37352b.setVisibility(8);
             return;
         }
-        this.f33921b.setVisibility(0);
-        this.f33921b.a(this.f33920a.f33987c);
+        this.f37352b.setVisibility(0);
+        this.f37352b.a(this.f37351a.f37415c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b() {
-        super.b();
+    public void c() {
+        super.c();
     }
 }

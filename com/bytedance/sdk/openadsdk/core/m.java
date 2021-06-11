@@ -18,6 +18,7 @@ import com.bytedance.sdk.openadsdk.utils.ae;
 import com.bytedance.sdk.openadsdk.utils.ah;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.al;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Field;
@@ -31,22 +32,22 @@ import java.util.UUID;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f28188a = false;
+    public static volatile boolean f28291a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f28189b = null;
+    public static volatile TTCustomController f28292b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f28190c = false;
+    public static volatile boolean f28293c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f28191d = -1;
+    public static int f28294d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f28192e;
+    public static HandlerThread f28295e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f28193f;
+    public static Handler f28296f;
 
     public static void a() {
         Context a2;
@@ -83,13 +84,13 @@ public class m {
 
     public static Handler b() {
         HandlerThread handlerThread;
-        if (f28193f == null || ((handlerThread = f28192e) != null && !handlerThread.isAlive())) {
+        if (f28296f == null || ((handlerThread = f28295e) != null && !handlerThread.isAlive())) {
             HandlerThread handlerThread2 = new HandlerThread("tt_pangle_thread_init", 10);
-            f28192e = handlerThread2;
+            f28295e = handlerThread2;
             handlerThread2.start();
-            f28193f = new Handler(f28192e.getLooper());
+            f28296f = new Handler(f28295e.getLooper());
         }
-        return f28193f;
+        return f28296f;
     }
 
     public static void a(Context context) {
@@ -138,7 +139,7 @@ public class m {
                 hashMap.put(Config.ROM, ae.a());
                 hashMap.put(PmsConstant.EnvParam.Key.CPU_ABI, Build.CPU_ABI);
                 hashMap.put("device_brand", Build.BRAND);
-                hashMap.put("language", Locale.getDefault().getLanguage());
+                hashMap.put(KsMediaMeta.KSM_KEY_LANGUAGE, Locale.getDefault().getLanguage());
                 hashMap.put("os_api", String.valueOf(Build.VERSION.SDK_INT));
                 try {
                     String str = Build.VERSION.RELEASE;

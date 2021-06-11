@@ -28,13 +28,13 @@ import d.a.n0.t2.y;
 public class a extends d.a.n0.t2.j0.e {
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f61166g;
+    public HeadImageView f64858g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f61167h;
+    public TextView f64859h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ApkDownloadView f61168i;
+    public ApkDownloadView f64860i;
     public d.a.n0.k1.o.c j;
     public String k;
     public DownloadCacheKey l;
@@ -45,13 +45,13 @@ public class a extends d.a.n0.t2.j0.e {
 
     /* renamed from: d.a.n0.t2.j0.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1622a implements b.a {
-        public C1622a() {
+    public class C1678a implements b.a {
+        public C1678a() {
         }
 
         @Override // d.a.n0.q.d.g.b.a
         public boolean b(View view) {
-            d.a.n0.k1.o.h.c.h(a.this.f61193e);
+            d.a.n0.k1.o.h.c.h(a.this.f64885e);
             return false;
         }
     }
@@ -60,21 +60,21 @@ public class a extends d.a.n0.t2.j0.e {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo f61170e;
+        public final /* synthetic */ AdvertAppInfo f64862e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f61171f;
+        public final /* synthetic */ int f64863f;
 
         public b(AdvertAppInfo advertAppInfo, int i2) {
-            this.f61170e = advertAppInfo;
-            this.f61171f = i2;
+            this.f64862e = advertAppInfo;
+            this.f64863f = i2;
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
-            a.this.r(this.f61170e, this.f61171f);
-            if (a.this.f61168i != null) {
-                a.this.f61168i.v(a.this.A(this.f61170e, this.f61171f));
+            a.this.r(this.f64862e, this.f64863f);
+            if (a.this.f64860i != null) {
+                a.this.f64860i.v(a.this.A(this.f64862e, this.f64863f));
             }
             aVar.dismiss();
         }
@@ -104,7 +104,7 @@ public class a extends d.a.n0.t2.j0.e {
             if (customResponsedMessage == null || (downloadData = (DownloadData) customResponsedMessage.getData()) == null || TextUtils.isEmpty(a.this.k) || !a.this.k.equals(downloadData.getId())) {
                 return;
             }
-            a.this.f61168i.r(downloadData);
+            a.this.f64860i.r(downloadData);
         }
     }
 
@@ -112,36 +112,36 @@ public class a extends d.a.n0.t2.j0.e {
     public class e implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AdvertAppInfo f61174e;
+        public AdvertAppInfo f64866e;
 
         public e(AdvertAppInfo advertAppInfo) {
-            this.f61174e = advertAppInfo;
+            this.f64866e = advertAppInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.A()) {
-                boolean z = view == a.this.f61168i;
-                d.a.n0.k1.o.h.c.h(a.this.f61193e);
+                boolean z = view == a.this.f64860i;
+                d.a.n0.k1.o.h.c.h(a.this.f64885e);
                 if (a.this.v()) {
-                    a.this.f61168i.performClick();
+                    a.this.f64860i.performClick();
                     return;
                 }
-                AdvertAppInfo advertAppInfo = this.f61174e;
+                AdvertAppInfo advertAppInfo = this.f64866e;
                 if (advertAppInfo != null) {
-                    int d2 = d.a.c.e.m.b.d(advertAppInfo.M3, -1);
-                    int m = ApkDownloadView.m(a.this.A(this.f61174e, d2));
+                    int d2 = d.a.c.e.m.b.d(advertAppInfo.P3, -1);
+                    int m = ApkDownloadView.m(a.this.A(this.f64866e, d2));
                     if ((6 == m || 7 == m) && j.z() && !j.H()) {
-                        a.this.z(this.f61174e, d2, true, null);
+                        a.this.z(this.f64866e, d2, true, null);
                         return;
                     }
                     a aVar = a.this;
-                    aVar.s(this.f61174e, d2, aVar.f61168i, z);
+                    aVar.s(this.f64866e, d2, aVar.f64860i, z);
                     return;
                 }
                 return;
             }
-            a.this.f61194f.showToast(R.string.neterror);
+            a.this.f64886f.showToast(R.string.neterror);
         }
     }
 
@@ -155,10 +155,10 @@ public class a extends d.a.n0.t2.j0.e {
 
     public final DownloadData A(AdvertAppInfo advertAppInfo, int i2) {
         DownloadData downloadData = new DownloadData(advertAppInfo.getDownloadId());
-        downloadData.setUrl(advertAppInfo.X3);
-        downloadData.setName(advertAppInfo.T3);
+        downloadData.setUrl(advertAppInfo.a4);
+        downloadData.setName(advertAppInfo.W3);
         downloadData.setPosition(i2);
-        downloadData.setNotifyId(d.a.c.e.m.b.d(advertAppInfo.G3, 0));
+        downloadData.setNotifyId(d.a.c.e.m.b.d(advertAppInfo.J3, 0));
         return downloadData;
     }
 
@@ -172,49 +172,49 @@ public class a extends d.a.n0.t2.j0.e {
     @Override // d.a.n0.t2.j0.e
     public void c() {
         super.c();
-        SkinManager.setViewTextColor(this.f61167h, R.color.CAM_X0101, 1);
-        this.f61168i.setTextColorInitSkin(R.color.CAM_X0101);
-        this.f61168i.setBackgroundSkin(R.drawable.tail_frame_action_btn_bg);
-        this.f61168i.i();
+        SkinManager.setViewTextColor(this.f64859h, R.color.CAM_X0101, 1);
+        this.f64860i.setTextColorInitSkin(R.color.CAM_X0101);
+        this.f64860i.setBackgroundSkin(R.drawable.tail_frame_action_btn_bg);
+        this.f64860i.i();
     }
 
     @Override // d.a.n0.t2.j0.e
     public void d(f fVar) {
         super.d(fVar);
         int i2 = 0;
-        this.f61166g.V(fVar.f61079c, 10, false);
-        this.f61167h.setText(fVar.f61078b);
-        this.f61168i.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
-        this.f61168i.setInitText(fVar.f61081e);
-        d.a.n0.k1.o.h.b bVar = this.f61193e;
+        this.f64858g.U(fVar.f64771c, 10, false);
+        this.f64859h.setText(fVar.f64770b);
+        this.f64860i.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
+        this.f64860i.setInitText(fVar.f64773e);
+        d.a.n0.k1.o.h.b bVar = this.f64885e;
         if (bVar instanceof AdCard) {
             this.n = ((AdCard) bVar).isDirectDownload();
         }
-        AdvertAppInfo advertAppInfo = this.f61192d;
+        AdvertAppInfo advertAppInfo = this.f64884d;
         if (advertAppInfo != null) {
             e eVar = new e(advertAppInfo);
-            this.f61190b.setOnClickListener(eVar);
+            this.f64882b.setOnClickListener(eVar);
             if (v()) {
-                this.f61168i.setOnClickInterceptListener(new C1622a());
+                this.f64860i.setOnClickInterceptListener(new C1678a());
             } else {
-                this.f61168i.setOnClickListener(eVar);
+                this.f64860i.setOnClickListener(eVar);
             }
             try {
-                if (!TextUtils.isEmpty(this.f61192d.M3)) {
-                    i2 = Integer.valueOf(this.f61192d.M3).intValue();
+                if (!TextUtils.isEmpty(this.f64884d.P3)) {
+                    i2 = Integer.valueOf(this.f64884d.P3).intValue();
                 }
             } catch (NumberFormatException unused) {
             }
-            AdvertAppInfo advertAppInfo2 = this.f61192d;
-            this.k = advertAppInfo2.Y3;
+            AdvertAppInfo advertAppInfo2 = this.f64884d;
+            this.k = advertAppInfo2.b4;
             DownloadData A = A(advertAppInfo2, i2);
             x(A);
-            this.f61168i.setData(A);
+            this.f64860i.setData(A);
         }
         if (!v()) {
-            this.f61168i.j(this.f61194f.getUniqueId());
+            this.f64860i.j(this.f64886f.getUniqueId());
         }
-        this.p.setTag(this.f61194f.getUniqueId());
+        this.p.setTag(this.f64886f.getUniqueId());
         u();
         c();
     }
@@ -232,18 +232,18 @@ public class a extends d.a.n0.t2.j0.e {
         B();
         AdDownloadData b2 = d.a.n0.q.d.e.c().b(downloadCacheKey);
         if (b2 != null) {
-            this.f61168i.c(b2.getCurrentState());
+            this.f64860i.c(b2.getCurrentState());
         } else {
-            this.f61168i.c(DownloadStatus.STATUS_NONE);
+            this.f64860i.c(DownloadStatus.STATUS_NONE);
         }
-        AdvertAppInfo advertAppInfo = this.f61192d;
-        String str = advertAppInfo != null ? advertAppInfo.Q3 : "";
-        AdvertAppInfo advertAppInfo2 = this.f61192d;
-        b2.setExtInfo(advertAppInfo2 != null ? advertAppInfo2.N3 : "");
+        AdvertAppInfo advertAppInfo = this.f64884d;
+        String str = advertAppInfo != null ? advertAppInfo.T3 : "";
+        AdvertAppInfo advertAppInfo2 = this.f64884d;
+        b2.setExtInfo(advertAppInfo2 != null ? advertAppInfo2.Q3 : "");
         b2.setPage(str);
-        AdvertAppInfo advertAppInfo3 = this.f61192d;
-        b2.setDeeplinkUrl(advertAppInfo3 != null ? advertAppInfo3.W3 : "");
-        d.a.n0.q.c.b.d.a aVar = new d.a.n0.q.c.b.d.a(this.f61168i, b2);
+        AdvertAppInfo advertAppInfo3 = this.f64884d;
+        b2.setDeeplinkUrl(advertAppInfo3 != null ? advertAppInfo3.Z3 : "");
+        d.a.n0.q.c.b.d.a aVar = new d.a.n0.q.c.b.d.a(this.f64860i, b2);
         this.m = new d.a.n0.q.d.h.b(aVar);
         if (b2.extra().getPercent() > 0) {
             aVar.e(b2);
@@ -255,8 +255,8 @@ public class a extends d.a.n0.t2.j0.e {
         if (advertAppInfo == null) {
             return;
         }
-        if (!y.c(this.f61194f.getPageActivity())) {
-            l.L(this.f61194f.getPageActivity(), R.string.write_external_storage_permission_denied_fun_disable);
+        if (!y.c(this.f64886f.getPageActivity())) {
+            l.L(this.f64886f.getPageActivity(), R.string.write_external_storage_permission_denied_fun_disable);
             return;
         }
         d.a.n0.k1.o.c cVar = this.j;
@@ -274,7 +274,7 @@ public class a extends d.a.n0.t2.j0.e {
         Log.e("guoqiangxiang", "status: " + m + " id: " + A.getId());
         if (m != 1) {
             if (m == 3) {
-                h.d(this.f61194f.getPageActivity(), advertAppInfo.Y3);
+                h.d(this.f64886f.getPageActivity(), advertAppInfo.b4);
                 return;
             } else if (m != 5) {
                 if (m == 6 || m == 7) {
@@ -291,25 +291,25 @@ public class a extends d.a.n0.t2.j0.e {
 
     public final void t() {
         HeadImageView headImageView = (HeadImageView) b(R.id.user_portrait);
-        this.f61166g = headImageView;
+        this.f64858g = headImageView;
         headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.f61166g.setDefaultBgResource(R.color.CAM_X0205);
-        this.f61166g.setIsRound(true);
-        this.f61167h = (TextView) b(R.id.user_name);
-        this.f61168i = (ApkDownloadView) b(R.id.download_view);
+        this.f64858g.setDefaultBgResource(R.color.CAM_X0205);
+        this.f64858g.setIsRound(true);
+        this.f64859h = (TextView) b(R.id.user_name);
+        this.f64860i = (ApkDownloadView) b(R.id.download_view);
         MessageManager.getInstance().registerListener(this.p);
     }
 
     public final void u() {
         AdvertAppInfo advertAppInfo;
-        if (!v() || (advertAppInfo = this.f61192d) == null) {
+        if (!v() || (advertAppInfo = this.f64884d) == null) {
             return;
         }
         String downloadId = advertAppInfo.getDownloadId();
         DownloadCacheKey g2 = !TextUtils.isEmpty(downloadId) ? d.a.n0.q.d.e.c().g(downloadId) : null;
         if (g2 == null) {
-            AdvertAppInfo advertAppInfo2 = this.f61192d;
-            g2 = DownloadCacheKey.create(downloadId, advertAppInfo2.X3, advertAppInfo2.Y3);
+            AdvertAppInfo advertAppInfo2 = this.f64884d;
+            g2 = DownloadCacheKey.create(downloadId, advertAppInfo2.a4, advertAppInfo2.b4);
             d.a.n0.q.d.e.c().i(g2, null);
         }
         q(g2);
@@ -328,7 +328,7 @@ public class a extends d.a.n0.t2.j0.e {
 
     public final void x(DownloadData downloadData) {
         if (v()) {
-            ApkDownloadView apkDownloadView = this.f61168i;
+            ApkDownloadView apkDownloadView = this.f64860i;
             if (apkDownloadView == null) {
                 return;
             }
@@ -347,16 +347,16 @@ public class a extends d.a.n0.t2.j0.e {
             return;
         }
         if (!j.A()) {
-            l.L(this.f61194f.getPageActivity(), R.string.neterror);
-        } else if (advertAppInfo.E4()) {
+            l.L(this.f64886f.getPageActivity(), R.string.neterror);
+        } else if (advertAppInfo.F4()) {
             if (TextUtils.isEmpty(str)) {
-                str = this.f61194f.getString(R.string.frs_network_tips);
+                str = this.f64886f.getString(R.string.frs_network_tips);
             }
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f61194f.getPageActivity());
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f64886f.getPageActivity());
             aVar.setMessage(str);
             aVar.setPositiveButton(R.string.alert_yes_button, new b(advertAppInfo, i2));
             aVar.setNegativeButton(R.string.cancel, new c(this));
-            aVar.create(this.f61194f).show();
+            aVar.create(this.f64886f).show();
         }
     }
 }

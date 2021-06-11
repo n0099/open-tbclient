@@ -1,0 +1,67 @@
+package com.yy.mobile.framework.revenuesdk.baseapi;
+
+import com.alipay.security.mobile.module.http.model.c;
+import kotlin.Metadata;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000:\u0001\u0003B\u0007¢\u0006\u0004\b\u0001\u0010\u0002¨\u0006\u0004"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/baseapi/ServiceFailResult;", "<init>", "()V", "Code", "paybaseapi_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes7.dex */
+public final class ServiceFailResult {
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b$\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b#\u0010$R\u001c\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005R\u001c\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u0006\u0010\u0003\u001a\u0004\b\u0007\u0010\u0005R\u001c\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\b\u0010\u0003\u001a\u0004\b\t\u0010\u0005R\u001c\u0010\n\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\n\u0010\u0003\u001a\u0004\b\u000b\u0010\u0005R\u001c\u0010\f\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\f\u0010\u0003\u001a\u0004\b\r\u0010\u0005R\u001c\u0010\u000e\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u000e\u0010\u0003\u001a\u0004\b\u000f\u0010\u0005R\u001c\u0010\u0010\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u0010\u0010\u0003\u001a\u0004\b\u0011\u0010\u0005R\u0016\u0010\u0012\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0003R\u0016\u0010\u0013\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0003R\u0016\u0010\u0014\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0014\u0010\u0003R\u0016\u0010\u0015\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0015\u0010\u0003R\u0016\u0010\u0016\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0016\u0010\u0003R\u0016\u0010\u0017\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0017\u0010\u0003R\u0016\u0010\u0018\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0018\u0010\u0003R\u0016\u0010\u0019\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0019\u0010\u0003R\u0016\u0010\u001a\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001a\u0010\u0003R\u0016\u0010\u001b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001b\u0010\u0003R\u0016\u0010\u001c\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001c\u0010\u0003R\u0016\u0010\u001d\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001d\u0010\u0003R\u0016\u0010\u001e\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001e\u0010\u0003R\u0016\u0010\u001f\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001f\u0010\u0003R\u0016\u0010 \u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b \u0010\u0003R\u0016\u0010!\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b!\u0010\u0003R\u0016\u0010\"\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\"\u0010\u0003¨\u0006%"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/baseapi/ServiceFailResult$Code;", "", "ARCH_PARSE_ERROR", "I", "getARCH_PARSE_ERROR", "()I", "BIND_LOAD_FULL", "getBIND_LOAD_FULL", "BIND_NOTREADY_TORETRY", "getBIND_NOTREADY_TORETRY", "BIND_OTP_FAIL", "getBIND_OTP_FAIL", "BIND_OTP_TIMEOUT", "getBIND_OTP_TIMEOUT", "BIND_RESOURCE_CONFLICT", "getBIND_RESOURCE_CONFLICT", "BIND_SUCCESS", "getBIND_SUCCESS", "SDK_NEED_BIND", "SDK_NO_CONNECTED", "SDK_TIMEOUT", "SDK_TIMEOUT_CONNECT_FAIL", "SDK_UNKNOW", c.f2099g, "SVR_BADGATEWAY", "SVR_BADREQUEST", "SVR_FAIL", "SVR_GATEWAYTIMEOUT", "SVR_INTERNALSERVERERROR", "SVR_NOTFOUND", "SVR_PAYMENTREQUIRED", "SVR_SERVICEUNAVAILABLE", "SVR_SUCCESS", "SVR_TIMEOUT", "SVR_UNAUTHORIZED", "<init>", "()V", "paybaseapi_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes7.dex */
+    public static final class Code {
+        public static final int SDK_NEED_BIND = 110002;
+        public static final int SDK_NO_CONNECTED = 110001;
+        public static final int SDK_TIMEOUT = 110003;
+        public static final int SDK_TIMEOUT_CONNECT_FAIL = 110004;
+        public static final int SDK_UNKNOW = 110255;
+        public static final int SUCCESS = 0;
+        public static final int SVR_BADGATEWAY = 200502;
+        public static final int SVR_BADREQUEST = 200400;
+        public static final int SVR_FAIL = 200403;
+        public static final int SVR_GATEWAYTIMEOUT = 200504;
+        public static final int SVR_INTERNALSERVERERROR = 200500;
+        public static final int SVR_NOTFOUND = 200404;
+        public static final int SVR_PAYMENTREQUIRED = 200402;
+        public static final int SVR_SERVICEUNAVAILABLE = 200503;
+        public static final int SVR_SUCCESS = 200200;
+        public static final int SVR_TIMEOUT = 200408;
+        public static final int SVR_UNAUTHORIZED = 200401;
+        public static final Code INSTANCE = new Code();
+        public static final int BIND_SUCCESS = 200200;
+        public static final int BIND_NOTREADY_TORETRY = 200300;
+        public static final int BIND_OTP_FAIL = 200403;
+        public static final int BIND_OTP_TIMEOUT = 200408;
+        public static final int BIND_LOAD_FULL = 200406;
+        public static final int BIND_RESOURCE_CONFLICT = 200409;
+        public static final int ARCH_PARSE_ERROR = ARCH_PARSE_ERROR;
+        public static final int ARCH_PARSE_ERROR = ARCH_PARSE_ERROR;
+
+        public final int getARCH_PARSE_ERROR() {
+            return ARCH_PARSE_ERROR;
+        }
+
+        public final int getBIND_LOAD_FULL() {
+            return BIND_LOAD_FULL;
+        }
+
+        public final int getBIND_NOTREADY_TORETRY() {
+            return BIND_NOTREADY_TORETRY;
+        }
+
+        public final int getBIND_OTP_FAIL() {
+            return BIND_OTP_FAIL;
+        }
+
+        public final int getBIND_OTP_TIMEOUT() {
+            return BIND_OTP_TIMEOUT;
+        }
+
+        public final int getBIND_RESOURCE_CONFLICT() {
+            return BIND_RESOURCE_CONFLICT;
+        }
+
+        public final int getBIND_SUCCESS() {
+            return BIND_SUCCESS;
+        }
+    }
+}

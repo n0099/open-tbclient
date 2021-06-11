@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailBottomVH;
 /* loaded from: classes4.dex */
-public class b extends d.a.c.j.e.a<d.a.n0.r0.q1.c.a, ForumRuleDetailBottomVH> {
+public class b extends d.a.c.k.e.a<d.a.n0.r0.q1.c.a, ForumRuleDetailBottomVH> {
     public Context m;
     public String n;
 
@@ -22,9 +22,9 @@ public class b extends d.a.c.j.e.a<d.a.n0.r0.q1.c.a, ForumRuleDetailBottomVH> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, d.a.n0.r0.q1.c.a aVar, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
-        h0(i2, view, viewGroup, aVar, forumRuleDetailBottomVH);
+    @Override // d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, d.a.n0.r0.q1.c.a aVar, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+        i0(i2, view, viewGroup, aVar, forumRuleDetailBottomVH);
         return view;
     }
 
@@ -32,24 +32,24 @@ public class b extends d.a.c.j.e.a<d.a.n0.r0.q1.c.a, ForumRuleDetailBottomVH> {
         if (forumRuleDetailBottomVH == null) {
             return;
         }
-        forumRuleDetailBottomVH.f15347b.setDefaultBgResource(R.drawable.img_default_100);
-        forumRuleDetailBottomVH.f15347b.V(aVar.c(), 10, false);
+        forumRuleDetailBottomVH.f15409b.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.f15409b.U(aVar.b(), 10, false);
         String string = TbadkApplication.getInst().getResources().getString(R.string.forum_rules_bar_management_group);
-        EMTextView eMTextView = forumRuleDetailBottomVH.f15349d;
-        eMTextView.setText(aVar.e() + string);
-        forumRuleDetailBottomVH.f15351f.setDefaultBgResource(R.drawable.img_default_100);
-        forumRuleDetailBottomVH.f15351f.V(aVar.h(), 12, false);
-        forumRuleDetailBottomVH.f15352g.setText(aVar.f());
+        EMTextView eMTextView = forumRuleDetailBottomVH.f15411d;
+        eMTextView.setText(aVar.c() + string);
+        forumRuleDetailBottomVH.f15413f.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.f15413f.U(aVar.g(), 12, false);
+        forumRuleDetailBottomVH.f15414g.setText(aVar.e());
         if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.n)) {
             forumRuleDetailBottomVH.b(String.valueOf(System.currentTimeMillis() / 1000));
         } else {
-            forumRuleDetailBottomVH.f15353h.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.i()));
-            forumRuleDetailBottomVH.f15350e.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.i()));
+            forumRuleDetailBottomVH.f15415h.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.h()));
+            forumRuleDetailBottomVH.f15412e.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.h()));
         }
         forumRuleDetailBottomVH.c(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void f0(ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+    public void g0(ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
         if (forumRuleDetailBottomVH == null) {
             return;
         }
@@ -57,16 +57,16 @@ public class b extends d.a.c.j.e.a<d.a.n0.r0.q1.c.a, ForumRuleDetailBottomVH> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: g0 */
-    public ForumRuleDetailBottomVH P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: h0 */
+    public ForumRuleDetailBottomVH Q(ViewGroup viewGroup) {
         ForumRuleDetailBottomVH forumRuleDetailBottomVH = new ForumRuleDetailBottomVH(LayoutInflater.from(this.m).inflate(R.layout.forum_rules_bottom, viewGroup, false));
-        f0(forumRuleDetailBottomVH);
+        g0(forumRuleDetailBottomVH);
         this.k = forumRuleDetailBottomVH;
         return forumRuleDetailBottomVH;
     }
 
-    public View h0(int i2, View view, ViewGroup viewGroup, d.a.n0.r0.q1.c.a aVar, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+    public View i0(int i2, View view, ViewGroup viewGroup, d.a.n0.r0.q1.c.a aVar, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
         if (aVar != null) {
             e0(forumRuleDetailBottomVH, aVar);
         }

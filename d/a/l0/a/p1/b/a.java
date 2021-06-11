@@ -25,7 +25,7 @@ public class a extends a0 {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
             return false;
         }
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("PostPageInfoAction", "joParams" + optParamsAsJo.toString());
         }
         d.a.l0.a.c1.a.M().a(eVar, optParamsAsJo);

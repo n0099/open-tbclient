@@ -18,6 +18,7 @@ import com.baidu.sofire.g.r;
 import com.baidu.sofire.g.s;
 import com.baidu.sofire.g.t;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.yy.gslbsdk.db.DelayTB;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.concurrent.CountDownLatch;
@@ -27,16 +28,16 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10133a = "";
+    public static String f10195a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f10134b = false;
+    public static boolean f10196b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f10135c = false;
+    public static boolean f10197c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f10136d = false;
+    public static boolean f10198d = false;
 
     public static synchronized void b(final Context context) {
         synchronized (d.class) {
@@ -44,8 +45,8 @@ public final class d {
                 return;
             }
             try {
-                if (f10135c) {
-                    f10135c = false;
+                if (f10197c) {
+                    f10197c = false;
                     new Thread() { // from class: com.baidu.sofire.core.d.2
                         @Override // java.lang.Thread, java.lang.Runnable
                         public final void run() {
@@ -110,12 +111,12 @@ public final class d {
             com.baidu.sofire.g.d.a();
         }
         if (!TextUtils.isEmpty(a2)) {
-            f10133a = a2;
+            f10195a = a2;
             return a2;
         }
         String b2 = gVar.b();
         if (!TextUtils.isEmpty(b2)) {
-            f10133a = b2;
+            f10195a = b2;
             return b2;
         }
         String b3 = com.baidu.sofire.g.f.b(context);
@@ -125,25 +126,25 @@ public final class d {
                 if (F.getInstance().re(split[1].getBytes(), split[0].getBytes()) != null) {
                     String str = split[0] + com.baidu.sofire.g.d.a(re);
                     gVar.a(str);
-                    f10133a = str;
+                    f10195a = str;
                     return str;
                 }
             }
-            f10133a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+            f10195a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
         }
-        f10133a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+        f10195a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
         return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
     }
 
     public static synchronized void a(final Context context, final int i2, final String str, final String str2, final int... iArr) {
         synchronized (d.class) {
             try {
-                if (f10134b) {
+                if (f10196b) {
                     return;
                 }
-                f10134b = true;
-                c.f10116b = context;
+                f10196b = true;
+                c.f10178b = context;
                 new Thread(new Runnable() { // from class: com.baidu.sofire.core.d.1
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -166,7 +167,7 @@ public final class d {
                                     Bundle bundle = new Bundle();
                                     bundle.putStringArray("appkey", new String[]{str, str2});
                                     bundle.putIntArray("key", iArr);
-                                    bundle.putInt("delay", i2);
+                                    bundle.putInt(DelayTB.DELAY, i2);
                                     intent.putExtra("bundle", bundle);
                                     context.startService(intent);
                                     com.baidu.sofire.mutiprocess.b.b(context);
@@ -181,11 +182,11 @@ public final class d {
                             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                                 String str3 = str;
                                 String str4 = str2;
-                                if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && (!com.baidu.sofire.g.d.f10212e.equals(str3) || !com.baidu.sofire.g.d.f10213f.equals(str4))) {
-                                    com.baidu.sofire.e eVar = a3.f10121a;
-                                    SharedPreferences.Editor editor = eVar.f10191c;
+                                if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4) && (!com.baidu.sofire.g.d.f10274e.equals(str3) || !com.baidu.sofire.g.d.f10275f.equals(str4))) {
+                                    com.baidu.sofire.e eVar = a3.f10183a;
+                                    SharedPreferences.Editor editor = eVar.f10253c;
                                     editor.putString("svi", str3 + "-" + str4);
-                                    eVar.f10191c.commit();
+                                    eVar.f10253c.commit();
                                 }
                             }
                             if (i2 > 0) {
@@ -193,7 +194,7 @@ public final class d {
                             }
                             new com.baidu.sofire.e(context).a(iArr);
                             if (!s.a(context)) {
-                                boolean unused = d.f10135c = true;
+                                boolean unused = d.f10197c = true;
                                 return;
                             }
                             c.a(1);
@@ -225,34 +226,34 @@ public final class d {
         ApkInfo d2 = a2.d("com.baidu.sofire.x0");
         if (d2 != null) {
             Class<?> a3 = ((e) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-            return new Pair<>(0, com.baidu.sofire.g.d.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, c.f10116b), str, clsArr, objArr));
+            return new Pair<>(0, com.baidu.sofire.g.d.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, c.f10178b), str, clsArr, objArr));
         }
         return new Pair<>(3, null);
     }
 
     public static Pair<Integer, Object> a(int i2, String str, Class<?>[] clsArr, Object... objArr) {
         try {
-            Context context = c.f10116b;
+            Context context = c.f10178b;
             if (context == null) {
                 return new Pair<>(4, null);
             }
-            if (!s.a(c.f10116b)) {
+            if (!s.a(c.f10178b)) {
                 return new Pair<>(12, null);
             }
-            if (!com.baidu.sofire.g.d.a(c.f10116b, false)) {
+            if (!com.baidu.sofire.g.d.a(c.f10178b, false)) {
                 com.baidu.sofire.b.a();
                 return new Pair<>(11, null);
             }
-            String c2 = com.baidu.sofire.g.d.c(c.f10116b);
+            String c2 = com.baidu.sofire.g.d.c(c.f10178b);
             if (TextUtils.isEmpty(c2)) {
-                if (com.baidu.sofire.g.d.b(c.f10116b.getPackageName())) {
+                if (com.baidu.sofire.g.d.b(c.f10178b.getPackageName())) {
                     return new Pair<>(5, null);
                 }
                 com.baidu.sofire.b.a();
                 return c.a(context).a(i2, str, clsArr, objArr);
             } else if (com.baidu.sofire.g.d.b(c2)) {
                 com.baidu.sofire.b.a();
-                return b(c.f10116b, i2, str, clsArr, objArr);
+                return b(c.f10178b, i2, str, clsArr, objArr);
             } else {
                 com.baidu.sofire.b.a();
                 return c.a(context).a(i2, str, clsArr, objArr);
@@ -301,14 +302,14 @@ public final class d {
                 if (b2 == 1) {
                     com.baidu.sofire.g.d.a(context, ".ffnpp", z ? 0 : 1);
                     com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-                    eVar.f10192d.putBoolean("s_a_pl", z);
+                    eVar.f10254d.putBoolean("s_a_pl", z);
                     if (Build.VERSION.SDK_INT >= 9) {
-                        eVar.f10192d.apply();
+                        eVar.f10254d.apply();
                     } else {
-                        eVar.f10192d.commit();
+                        eVar.f10254d.commit();
                     }
-                    if (z && !f10136d) {
-                        f10136d = true;
+                    if (z && !f10198d) {
+                        f10198d = true;
                         b(context);
                     }
                 }
@@ -320,22 +321,22 @@ public final class d {
 
     public static Pair<Integer, Object> a(String str, Class<?>[] clsArr, Object... objArr) {
         try {
-            Context context = c.f10116b;
+            Context context = c.f10178b;
             if (context == null) {
                 return new Pair<>(4, null);
             }
-            if (!com.baidu.sofire.g.d.a(c.f10116b, false)) {
+            if (!com.baidu.sofire.g.d.a(c.f10178b, false)) {
                 return new Pair<>(11, null);
             }
-            String c2 = com.baidu.sofire.g.d.c(c.f10116b);
+            String c2 = com.baidu.sofire.g.d.c(c.f10178b);
             if (TextUtils.isEmpty(c2)) {
-                if (com.baidu.sofire.g.d.b(c.f10116b.getPackageName())) {
+                if (com.baidu.sofire.g.d.b(c.f10178b.getPackageName())) {
                     return new Pair<>(5, null);
                 }
                 c.a(context);
                 return b(str, clsArr, objArr);
             } else if (com.baidu.sofire.g.d.b(c2)) {
-                return b(c.f10116b, 1, str, clsArr, objArr);
+                return b(c.f10178b, 1, str, clsArr, objArr);
             } else {
                 c.a(context);
                 return b(str, clsArr, objArr);
@@ -350,11 +351,11 @@ public final class d {
         try {
             if (s.a(context)) {
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-                eVar.f10192d.putString("s_h_d_id", str);
+                eVar.f10254d.putString("s_h_d_id", str);
                 if (Build.VERSION.SDK_INT >= 9) {
-                    eVar.f10192d.apply();
+                    eVar.f10254d.apply();
                 } else {
-                    eVar.f10192d.commit();
+                    eVar.f10254d.commit();
                 }
             }
         } catch (Throwable unused) {
@@ -364,11 +365,11 @@ public final class d {
 
     public static boolean a(final int i2, final String str, final Callback callback, final Class<?>[] clsArr, final Object... objArr) {
         try {
-            t.a(c.f10116b).a(new Runnable() { // from class: com.baidu.sofire.core.d.3
+            t.a(c.f10178b).a(new Runnable() { // from class: com.baidu.sofire.core.d.3
                 @Override // java.lang.Runnable
                 public final void run() {
                     try {
-                        Context context = c.f10116b;
+                        Context context = c.f10178b;
                         if (context == null) {
                             for (int i3 = 0; i3 < 20; i3++) {
                                 try {
@@ -376,7 +377,7 @@ public final class d {
                                 } catch (InterruptedException unused) {
                                     com.baidu.sofire.g.d.a();
                                 }
-                                context = c.f10116b;
+                                context = c.f10178b;
                                 if (context != null) {
                                     break;
                                 }
@@ -393,17 +394,17 @@ public final class d {
                     } catch (Throwable unused2) {
                         com.baidu.sofire.g.d.a();
                     }
-                    if (!s.a(c.f10116b)) {
+                    if (!s.a(c.f10178b)) {
                         Callback.this.onError(12);
-                    } else if (!com.baidu.sofire.g.d.a(c.f10116b, false)) {
+                    } else if (!com.baidu.sofire.g.d.a(c.f10178b, false)) {
                         com.baidu.sofire.b.a();
                         if (Callback.this != null) {
                             Callback.this.onError(11);
                         }
                     } else {
-                        String c2 = com.baidu.sofire.g.d.c(c.f10116b);
+                        String c2 = com.baidu.sofire.g.d.c(c.f10178b);
                         if (TextUtils.isEmpty(c2)) {
-                            if (com.baidu.sofire.g.d.b(c.f10116b.getPackageName())) {
+                            if (com.baidu.sofire.g.d.b(c.f10178b.getPackageName())) {
                                 if (Callback.this != null) {
                                     Callback.this.onError(5);
                                     return;
@@ -436,7 +437,7 @@ public final class d {
                             return;
                         } else if (com.baidu.sofire.g.d.b(c2)) {
                             com.baidu.sofire.b.a();
-                            d.a(c.f10116b, i2, str, Callback.this, clsArr, objArr);
+                            d.a(c.f10178b, i2, str, Callback.this, clsArr, objArr);
                             return;
                         } else {
                             com.baidu.sofire.b.a();
@@ -480,7 +481,7 @@ public final class d {
             if (!s.a(context)) {
                 return c(context);
             }
-            if (!TextUtils.isEmpty(f10133a)) {
+            if (!TextUtils.isEmpty(f10195a)) {
                 if (i2 != 0) {
                     if (TextUtils.isEmpty(str2)) {
                         a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i2));
@@ -488,7 +489,7 @@ public final class d {
                         a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE, String.class}, str, Integer.valueOf(i2), str2);
                     }
                 }
-                return f10133a;
+                return f10195a;
             } else if (!com.baidu.sofire.g.d.a(context, false)) {
                 com.baidu.sofire.b.a();
                 return "";
@@ -526,8 +527,8 @@ public final class d {
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
         }
-        if (!TextUtils.isEmpty(f10133a)) {
-            return f10133a;
+        if (!TextUtils.isEmpty(f10195a)) {
+            return f10195a;
         }
         if (!s.a(context)) {
             return c(context);
@@ -549,7 +550,7 @@ public final class d {
             if (b2 != null) {
                 return ((Integer) b2.first).intValue() == 0 ? (String) b2.second : "";
             }
-            f10133a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+            f10195a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
             return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
         } else {
             com.baidu.sofire.b.a();
@@ -639,9 +640,9 @@ public final class d {
                     bundle.setClassLoader(MyProvider.class.getClassLoader());
                     CallArgs callArgs2 = (CallArgs) bundle.getParcelable("args");
                     if (callArgs2 != null) {
-                        if (callArgs2.f10104e.length == 2) {
-                            String str4 = (String) callArgs2.f10104e[0];
-                            num = (Integer) callArgs2.f10104e[1];
+                        if (callArgs2.f10166e.length == 2) {
+                            String str4 = (String) callArgs2.f10166e[0];
+                            num = (Integer) callArgs2.f10166e[1];
                             StringBuilder sb = new StringBuilder("args ");
                             sb.append(str4);
                             sb.append(" ");
@@ -649,17 +650,17 @@ public final class d {
                             com.baidu.sofire.b.a();
                             str3 = str4;
                             str2 = null;
-                        } else if (callArgs2.f10104e.length == 3) {
-                            str3 = (String) callArgs2.f10104e[0];
-                            Integer num2 = (Integer) callArgs2.f10104e[1];
-                            str2 = (String) callArgs2.f10104e[2];
+                        } else if (callArgs2.f10166e.length == 3) {
+                            str3 = (String) callArgs2.f10166e[0];
+                            Integer num2 = (Integer) callArgs2.f10166e[1];
+                            str2 = (String) callArgs2.f10166e[2];
                             num = num2;
                         }
                         b2 = b(context, str3, num != null ? 0 : num.intValue(), str2);
                         if (!TextUtils.isEmpty(b2)) {
                             bundle2.putInt("status", 8);
                         } else {
-                            callArgs.f10105f = b2;
+                            callArgs.f10167f = b2;
                             bundle2.putParcelable("result", callArgs);
                             bundle2.putInt("status", 0);
                         }
@@ -679,7 +680,7 @@ public final class d {
                         bundle2.putInt("status", 8);
                     } else {
                         CallArgs callArgs3 = new CallArgs();
-                        callArgs3.f10105f = d2;
+                        callArgs3.f10167f = d2;
                         bundle2.putParcelable("result", callArgs3);
                         bundle2.putInt("status", 0);
                     }
@@ -691,10 +692,10 @@ public final class d {
                 final CallArgs callArgs4 = new CallArgs();
                 bundle.setClassLoader(MyProvider.class.getClassLoader());
                 CallArgs callArgs5 = (CallArgs) bundle.getParcelable("args");
-                int i2 = callArgs5.f10100a;
-                int i3 = callArgs5.f10101b;
-                final String str5 = callArgs5.f10102c;
-                Object[] objArr = callArgs5.f10103d;
+                int i2 = callArgs5.f10162a;
+                int i3 = callArgs5.f10163b;
+                final String str5 = callArgs5.f10164c;
+                Object[] objArr = callArgs5.f10165d;
                 if (objArr != null) {
                     clsArr = new Class[objArr.length];
                     for (int i4 = 0; i4 < objArr.length; i4++) {
@@ -711,7 +712,7 @@ public final class d {
                         }
                     }
                 }
-                Object[] objArr2 = callArgs5.f10104e;
+                Object[] objArr2 = callArgs5.f10166e;
                 if (i3 == 1) {
                     if (i2 == 1 && "xgz".equals(str5)) {
                         a2 = b(str5, clsArr, objArr2);
@@ -720,7 +721,7 @@ public final class d {
                     }
                     bundle2.putInt("status", ((Integer) a2.first).intValue());
                     if (((Integer) a2.first).intValue() == 0) {
-                        callArgs4.f10105f = a2.second;
+                        callArgs4.f10167f = a2.second;
                     }
                 } else if (i3 == 0) {
                     final CountDownLatch countDownLatch = new CountDownLatch(1);
@@ -730,7 +731,7 @@ public final class d {
                             try {
                                 try {
                                     bundle2.putInt("status", 0);
-                                    callArgs4.f10105f = objArr3[0];
+                                    callArgs4.f10167f = objArr3[0];
                                 } catch (Throwable unused) {
                                     com.baidu.sofire.g.d.a();
                                 }
@@ -796,9 +797,9 @@ public final class d {
             if (!"gzfi".equals(str) && !"gz".equals(str)) {
                 str2 = "invokeMethod";
                 CallArgs callArgs = new CallArgs();
-                callArgs.f10100a = i2;
-                callArgs.f10102c = str;
-                callArgs.f10101b = i3;
+                callArgs.f10162a = i2;
+                callArgs.f10164c = str;
+                callArgs.f10163b = i3;
                 if (clsArr != null) {
                     Object[] objArr2 = new Object[clsArr.length];
                     for (int i4 = 0; i4 < clsArr.length; i4++) {
@@ -811,9 +812,9 @@ public final class d {
                             objArr2[i4] = clsArr[i4].getName();
                         }
                     }
-                    callArgs.f10103d = objArr2;
+                    callArgs.f10165d = objArr2;
                 }
-                callArgs.f10104e = objArr;
+                callArgs.f10166e = objArr;
                 Bundle bundle2 = new Bundle();
                 bundle2.putParcelable("args", callArgs);
                 Uri parse = Uri.parse("content://" + context.getPackageName() + ".sofire.ac.provider");
@@ -866,16 +867,16 @@ public final class d {
                 bundle.setClassLoader(CallArgs.class.getClassLoader());
                 int i5 = bundle.getInt("status");
                 CallArgs callArgs2 = i5 == 0 ? (CallArgs) bundle.getParcelable("result") : null;
-                return Pair.create(Integer.valueOf(i5), callArgs2 == null ? null : callArgs2.f10105f);
+                return Pair.create(Integer.valueOf(i5), callArgs2 == null ? null : callArgs2.f10167f);
             }
             str2 = str;
             CallArgs callArgs3 = new CallArgs();
-            callArgs3.f10100a = i2;
-            callArgs3.f10102c = str;
-            callArgs3.f10101b = i3;
+            callArgs3.f10162a = i2;
+            callArgs3.f10164c = str;
+            callArgs3.f10163b = i3;
             if (clsArr != null) {
             }
-            callArgs3.f10104e = objArr;
+            callArgs3.f10166e = objArr;
             Bundle bundle22 = new Bundle();
             bundle22.putParcelable("args", callArgs3);
             Uri parse2 = Uri.parse("content://" + context.getPackageName() + ".sofire.ac.provider");

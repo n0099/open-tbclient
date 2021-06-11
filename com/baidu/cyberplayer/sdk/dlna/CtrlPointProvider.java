@@ -25,6 +25,8 @@ public abstract class CtrlPointProvider {
 
     public abstract int getPlaybackVolume();
 
+    public abstract int getUrlPlayStatus(String str);
+
     public abstract void pause();
 
     public abstract void play();
@@ -39,7 +41,10 @@ public abstract class CtrlPointProvider {
 
     public abstract void setPlaybackVolume(int i2);
 
+    @Deprecated
     public abstract void shutdown();
+
+    public abstract void shutdown(boolean z);
 
     public abstract void stop();
 }

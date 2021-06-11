@@ -9,17 +9,17 @@ import com.alipay.sdk.widget.WebViewWindow;
 public class t extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2038a;
+    public final /* synthetic */ WebViewWindow f2051a;
 
     public t(WebViewWindow webViewWindow) {
-        this.f2038a = webViewWindow;
+        this.f2051a = webViewWindow;
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         WebViewWindow.b bVar;
-        bVar = this.f2038a.f1995h;
-        if (bVar.c(this.f2038a, str)) {
+        bVar = this.f2051a.f2008h;
+        if (bVar.c(this.f2051a, str)) {
             return;
         }
         super.onPageFinished(webView, str);
@@ -28,8 +28,8 @@ public class t extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, int i2, String str, String str2) {
         WebViewWindow.b bVar;
-        bVar = this.f2038a.f1995h;
-        if (bVar.a(this.f2038a, i2, str, str2)) {
+        bVar = this.f2051a.f2008h;
+        if (bVar.a(this.f2051a, i2, str, str2)) {
             return;
         }
         super.onReceivedError(webView, i2, str, str2);
@@ -38,8 +38,8 @@ public class t extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
         WebViewWindow.b bVar;
-        bVar = this.f2038a.f1995h;
-        if (bVar.a(this.f2038a, sslErrorHandler, sslError)) {
+        bVar = this.f2051a.f2008h;
+        if (bVar.a(this.f2051a, sslErrorHandler, sslError)) {
             return;
         }
         super.onReceivedSslError(webView, sslErrorHandler, sslError);
@@ -48,8 +48,8 @@ public class t extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         WebViewWindow.b bVar;
-        bVar = this.f2038a.f1995h;
-        if (bVar.b(this.f2038a, str)) {
+        bVar = this.f2051a.f2008h;
+        if (bVar.b(this.f2051a, str)) {
             return true;
         }
         return super.shouldOverrideUrlLoading(webView, str);

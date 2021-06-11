@@ -13,7 +13,7 @@ import com.baidu.tbadk.plugins.MotuPlugin;
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48937a = "";
+    public String f52611a = "";
 
     @Override // d.a.m0.b0.g.b
     public String a() {
@@ -35,7 +35,7 @@ public class a extends b {
             return null;
         }
         d.a.m0.a0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if ("normal".equals(this.f48937a)) {
+        if ("normal".equals(this.f52611a)) {
             return bitmap;
         }
         MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
@@ -49,7 +49,7 @@ public class a extends b {
                 try {
                     if (motuPlugin != null) {
                         try {
-                            bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.f48937a, copy);
+                            bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.f52611a, copy);
                         } catch (IllegalStateException e2) {
                             BdLog.e(e2.toString());
                             e2.printStackTrace();
@@ -70,7 +70,7 @@ public class a extends b {
             }
         } else if (motuPlugin != null) {
             try {
-                bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.f48937a, bitmap);
+                bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.f52611a, bitmap);
             } catch (Throwable th2) {
                 TiebaStatic.imgError(-1008, "motou filter failed: " + th2.toString(), "");
                 if (BdLog.isDebugMode()) {
@@ -92,6 +92,6 @@ public class a extends b {
         if (str == null) {
             return;
         }
-        this.f48937a = str;
+        this.f52611a = str;
     }
 }

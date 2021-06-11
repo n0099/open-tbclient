@@ -14,7 +14,7 @@ public class d extends d.a.n0.z.b<d.a.n0.v.d.g.b.b> {
         super(tbPageContext);
         this.m = new e(k(), z);
         this.n = new e(k(), z);
-        ViewGroup viewGroup = (ViewGroup) l();
+        ViewGroup viewGroup = (ViewGroup) m();
         View view = new View(b());
         viewGroup.addView(this.m.g());
         viewGroup.addView(view, new LinearLayout.LayoutParams(k().getResources().getDimensionPixelSize(R.dimen.tbds4), -1));
@@ -22,12 +22,12 @@ public class d extends d.a.n0.z.b<d.a.n0.v.d.g.b.b> {
     }
 
     @Override // d.a.n0.z.b
-    public int g() {
+    public int h() {
         return R.layout.ala_new_square_sub_list_live_row;
     }
 
     @Override // d.a.n0.z.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    public void o(TbPageContext<?> tbPageContext, int i2) {
         this.m.i(tbPageContext, i2);
         this.n.i(tbPageContext, i2);
     }
@@ -38,15 +38,15 @@ public class d extends d.a.n0.z.b<d.a.n0.v.d.g.b.b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.n0.z.b
-    /* renamed from: s */
-    public void m(d.a.n0.v.d.g.b.b bVar) {
+    /* renamed from: t */
+    public void n(d.a.n0.v.d.g.b.b bVar) {
         if (bVar != null) {
-            this.m.h(bVar.f61787e);
-            this.n.h(bVar.f61788f);
+            this.m.h(bVar.f65502e);
+            this.n.h(bVar.f65503f);
         }
     }
 
-    public void t(f fVar) {
+    public void u(f fVar) {
         this.m.j(fVar);
         this.n.j(fVar);
     }

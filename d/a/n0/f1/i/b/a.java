@@ -35,31 +35,31 @@ public class a extends d<ForumDetailActivity> {
     public static final int p = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds364);
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumDetailActivity f54546a;
+    public ForumDetailActivity f58235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54547b;
+    public View f58236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f54548c;
+    public LinearLayout f58237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f54549d;
+    public NavigationBar f58238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f54550e;
+    public NoNetworkView f58239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f54551f;
+    public NoDataView f58240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomScrollView f54552g;
+    public CustomScrollView f58241g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemHeaderView f54553h;
+    public ItemHeaderView f58242h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemInfoView f54554i;
+    public ItemInfoView f58243i;
     public ItemMsgManage j;
     public ItemEmotionView k;
     public ItemHotThreadView l;
@@ -69,14 +69,14 @@ public class a extends d<ForumDetailActivity> {
 
     /* renamed from: d.a.n0.f1.i.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1314a implements a.e {
-        public C1314a() {
+    public class C1370a implements a.e {
+        public C1370a() {
         }
 
         @Override // d.a.m0.r.s.a.e
         public void onClick(d.a.m0.r.s.a aVar) {
             a.this.n.dismiss();
-            a.this.f54546a.clearHistory();
+            a.this.f58235a.clearHistory();
         }
     }
 
@@ -109,130 +109,130 @@ public class a extends d<ForumDetailActivity> {
             return false;
         }
 
-        public /* synthetic */ c(a aVar, C1314a c1314a) {
+        public /* synthetic */ c(a aVar, C1370a c1370a) {
             this();
         }
     }
 
     public a(ForumDetailActivity forumDetailActivity) {
         super(forumDetailActivity.getPageContext());
-        this.f54546a = forumDetailActivity;
+        this.f58235a = forumDetailActivity;
         initUI();
     }
 
-    public NoNetworkView g() {
-        return this.f54550e;
+    public NoNetworkView h() {
+        return this.f58239e;
     }
 
-    public void h() {
-        this.f54546a.hideLoadingView(this.f54547b);
+    public void i() {
+        this.f58235a.hideLoadingView(this.f58236b);
     }
 
     public final void initUI() {
-        this.f54548c = (LinearLayout) this.f54546a.findViewById(R.id.scoll_view_ll);
-        TextView textView = new TextView(this.f54546a.getActivity());
+        this.f58237c = (LinearLayout) this.f58235a.findViewById(R.id.scoll_view_ll);
+        TextView textView = new TextView(this.f58235a.getActivity());
         textView.setLayoutParams(new LinearLayout.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.f54548c.addView(textView, 0);
-        NavigationBar navigationBar = (NavigationBar) this.f54546a.findViewById(R.id.view_navigation_bar);
-        this.f54549d = navigationBar;
-        navigationBar.setCenterTextTitle(this.f54546a.getPageContext().getString(R.string.forum_detail_title));
-        this.f54549d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f54549d.showBottomLine();
-        this.f54550e = (NoNetworkView) this.f54546a.findViewById(R.id.no_network_view);
-        CustomScrollView customScrollView = (CustomScrollView) this.f54546a.findViewById(R.id.scoll_view);
-        this.f54552g = customScrollView;
+        this.f58237c.addView(textView, 0);
+        NavigationBar navigationBar = (NavigationBar) this.f58235a.findViewById(R.id.view_navigation_bar);
+        this.f58238d = navigationBar;
+        navigationBar.setCenterTextTitle(this.f58235a.getPageContext().getString(R.string.forum_detail_title));
+        this.f58238d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f58238d.showBottomLine();
+        this.f58239e = (NoNetworkView) this.f58235a.findViewById(R.id.no_network_view);
+        CustomScrollView customScrollView = (CustomScrollView) this.f58235a.findViewById(R.id.scoll_view);
+        this.f58241g = customScrollView;
         customScrollView.setOnTouchListener(new c(this, null));
-        this.f54553h = (ItemHeaderView) this.f54546a.findViewById(R.id.item_header);
-        this.f54554i = (ItemInfoView) this.f54546a.findViewById(R.id.item_info);
-        this.j = (ItemMsgManage) this.f54546a.findViewById(R.id.item_msg_manage);
-        this.k = (ItemEmotionView) this.f54546a.findViewById(R.id.item_emotion_manage);
-        this.l = (ItemHotThreadView) this.f54546a.findViewById(R.id.item_hot_thread);
-        ItemFootNavView itemFootNavView = (ItemFootNavView) this.f54546a.findViewById(R.id.item_foot_nav);
+        this.f58242h = (ItemHeaderView) this.f58235a.findViewById(R.id.item_header);
+        this.f58243i = (ItemInfoView) this.f58235a.findViewById(R.id.item_info);
+        this.j = (ItemMsgManage) this.f58235a.findViewById(R.id.item_msg_manage);
+        this.k = (ItemEmotionView) this.f58235a.findViewById(R.id.item_emotion_manage);
+        this.l = (ItemHotThreadView) this.f58235a.findViewById(R.id.item_hot_thread);
+        ItemFootNavView itemFootNavView = (ItemFootNavView) this.f58235a.findViewById(R.id.item_foot_nav);
         this.m = itemFootNavView;
         itemFootNavView.setClickable(true);
-        this.f54547b = this.f54546a.findViewById(R.id.root_rl);
-        this.j.setMsgOnClickListener(this.f54546a);
-        this.k.setEmotionOnClickListener(this.f54546a);
-        this.j.setSwitchChangeListener(this.f54546a);
+        this.f58236b = this.f58235a.findViewById(R.id.root_rl);
+        this.j.setMsgOnClickListener(this.f58235a);
+        this.k.setEmotionOnClickListener(this.f58235a);
+        this.j.setSwitchChangeListener(this.f58235a);
     }
 
-    public void j() {
-        NoDataView noDataView = this.f54551f;
+    public void k() {
+        NoDataView noDataView = this.f58240f;
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }
     }
 
-    public void k() {
-        this.m.n(this.f54546a);
+    public void l() {
+        this.m.n(this.f58235a);
     }
 
-    public void l(BarEmotionResponseMessage.ForumEmotionData forumEmotionData) {
+    public void m(BarEmotionResponseMessage.ForumEmotionData forumEmotionData) {
         this.k.setEmotionData(forumEmotionData);
     }
 
-    public void m(RecommendForumInfo recommendForumInfo, boolean z, boolean z2, ManagerApplyInfo managerApplyInfo, PriManagerApplyInfo priManagerApplyInfo, ManagerElectionTab managerElectionTab, BzApplySwitch bzApplySwitch) {
-        this.f54553h.setData(recommendForumInfo);
-        this.f54554i.setData(recommendForumInfo);
+    public void n(RecommendForumInfo recommendForumInfo, boolean z, boolean z2, ManagerApplyInfo managerApplyInfo, PriManagerApplyInfo priManagerApplyInfo, ManagerElectionTab managerElectionTab, BzApplySwitch bzApplySwitch) {
+        this.f58242h.setData(recommendForumInfo);
+        this.f58243i.setData(recommendForumInfo);
         this.j.setData(recommendForumInfo, z, z2, managerApplyInfo, priManagerApplyInfo, managerElectionTab);
-        this.m.setData(recommendForumInfo, this.f54546a);
+        this.m.setData(recommendForumInfo, this.f58235a);
     }
 
-    public void n(RecommendForumInfo recommendForumInfo, boolean z) {
+    public void o(RecommendForumInfo recommendForumInfo, boolean z) {
         this.j.setShowState(recommendForumInfo, z);
     }
 
-    public void o(View.OnClickListener onClickListener) {
+    public void onChangeSkinType(int i2) {
+        this.f58235a.getLayoutMode().k(i2 == 1);
+        this.f58235a.getLayoutMode().j(this.f58236b);
+        this.f58238d.onChangeSkinType(getPageContext(), i2);
+        this.f58239e.c(getPageContext(), i2);
+        this.f58242h.b(this.f58235a, i2);
+        this.f58243i.b(this.f58235a, i2);
+        this.j.b(this.f58235a, i2);
+        this.l.d(this.f58235a, i2);
+        this.m.m(this.f58235a, i2);
+    }
+
+    public void p(View.OnClickListener onClickListener) {
         this.o = onClickListener;
     }
 
-    public void onChangeSkinType(int i2) {
-        this.f54546a.getLayoutMode().k(i2 == 1);
-        this.f54546a.getLayoutMode().j(this.f54547b);
-        this.f54549d.onChangeSkinType(getPageContext(), i2);
-        this.f54550e.c(getPageContext(), i2);
-        this.f54553h.b(this.f54546a, i2);
-        this.f54554i.b(this.f54546a, i2);
-        this.j.b(this.f54546a, i2);
-        this.l.d(this.f54546a, i2);
-        this.m.m(this.f54546a, i2);
-    }
-
-    public void p(boolean z) {
+    public void q(boolean z) {
         this.j.setSwitch(z);
     }
 
-    public void q(List<SimpleThreadInfo> list) {
+    public void r(List<SimpleThreadInfo> list) {
         this.l.setData(list);
     }
 
-    public void r() {
+    public void s() {
         if (this.n == null) {
-            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f54546a.getPageContext().getPageActivity());
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.f58235a.getPageContext().getPageActivity());
             this.n = aVar;
             aVar.setMessageId(R.string.officical_bar_info_clean_alert);
-            this.n.setPositiveButton(R.string.alert_yes_button, new C1314a());
+            this.n.setPositiveButton(R.string.alert_yes_button, new C1370a());
             this.n.setNegativeButton(R.string.cancel, new b());
         }
         this.n.create(getPageContext()).show();
     }
 
-    public void s() {
-        this.f54546a.showLoadingView(this.f54547b);
+    public void t() {
+        this.f58235a.showLoadingView(this.f58236b);
     }
 
-    public void t(int i2) {
-        if (this.f54551f == null) {
-            NoDataView a2 = NoDataViewFactory.a(this.f54546a.getPageContext().getPageActivity(), this.f54548c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, p), NoDataViewFactory.e.d(null, this.f54546a.getResources().getString(i2)), null);
-            this.f54551f = a2;
+    public void u(int i2) {
+        if (this.f58240f == null) {
+            NoDataView a2 = NoDataViewFactory.a(this.f58235a.getPageContext().getPageActivity(), this.f58237c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, p), NoDataViewFactory.e.d(null, this.f58235a.getResources().getString(i2)), null);
+            this.f58240f = a2;
             a2.setOnClickListener(this.o);
         }
-        this.f54551f.setTextOption(NoDataViewFactory.e.d(null, this.f54546a.getResources().getString(i2)));
-        this.f54551f.f(this.f54546a.getPageContext(), TbadkApplication.getInst().getSkinType());
-        this.f54551f.setVisibility(0);
+        this.f58240f.setTextOption(NoDataViewFactory.e.d(null, this.f58235a.getResources().getString(i2)));
+        this.f58240f.f(this.f58235a.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.f58240f.setVisibility(0);
     }
 
-    public void u(RecommendForumInfo recommendForumInfo, boolean z) {
+    public void v(RecommendForumInfo recommendForumInfo, boolean z) {
         this.m.r(z);
         this.j.setShowState(recommendForumInfo, z);
     }

@@ -12,7 +12,7 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadManager f47008a;
+    public DownloadManager f50682a;
 
     /* loaded from: classes3.dex */
     public class a implements DownloadManager.DownloadItemFilter {
@@ -38,8 +38,8 @@ public class c {
 
     /* renamed from: d.a.l0.g.c.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0998c implements DownloadManager.DownloadItemFilter {
-        public C0998c() {
+    public class C1054c implements DownloadManager.DownloadItemFilter {
+        public C1054c() {
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
@@ -63,15 +63,15 @@ public class c {
     public class e implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47011a;
+        public final /* synthetic */ String f50685a;
 
         public e(c cVar, String str) {
-            this.f47011a = str;
+            this.f50685a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return download != null && TextUtils.equals(download.getKeyByUser(), this.f47011a);
+            return download != null && TextUtils.equals(download.getKeyByUser(), this.f50685a);
         }
     }
 
@@ -79,15 +79,15 @@ public class c {
     public class f implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47012a;
+        public final /* synthetic */ String f50686a;
 
         public f(c cVar, String str) {
-            this.f47012a = str;
+            this.f50686a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return download != null && TextUtils.equals(download.getKeyByUser(), this.f47012a) && download.getState() == Download.DownloadState.FINISH;
+            return download != null && TextUtils.equals(download.getKeyByUser(), this.f50686a) && download.getState() == Download.DownloadState.FINISH;
         }
     }
 
@@ -95,15 +95,15 @@ public class c {
     public class g implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47013a;
+        public final /* synthetic */ String f50687a;
 
         public g(c cVar, String str) {
-            this.f47013a = str;
+            this.f50687a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return download != null && TextUtils.equals(download.getKeyByUser(), this.f47013a) && download.getState() == Download.DownloadState.FINISH;
+            return download != null && TextUtils.equals(download.getKeyByUser(), this.f50687a) && download.getState() == Download.DownloadState.FINISH;
         }
     }
 
@@ -111,15 +111,15 @@ public class c {
     public class h implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47014a;
+        public final /* synthetic */ String f50688a;
 
         public h(String str) {
-            this.f47014a = str;
+            this.f50688a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return (download == null || !TextUtils.equals(download.getUrl(), this.f47014a) || c.this.k(download)) ? false : true;
+            return (download == null || !TextUtils.equals(download.getUrl(), this.f50688a) || c.this.k(download)) ? false : true;
         }
     }
 
@@ -127,15 +127,15 @@ public class c {
     public class i implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47016a;
+        public final /* synthetic */ String f50690a;
 
         public i(c cVar, String str) {
-            this.f47016a = str;
+            this.f50690a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return download != null && TextUtils.equals(download.getKeyByUser(), this.f47016a);
+            return download != null && TextUtils.equals(download.getKeyByUser(), this.f50690a);
         }
     }
 
@@ -143,15 +143,15 @@ public class c {
     public class j implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47017a;
+        public final /* synthetic */ String f50691a;
 
         public j(c cVar, String str) {
-            this.f47017a = str;
+            this.f50691a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return download != null && download.getState() == Download.DownloadState.FINISH && download.getKeyByUser().contains(this.f47017a);
+            return download != null && download.getState() == Download.DownloadState.FINISH && download.getKeyByUser().contains(this.f50691a);
         }
     }
 
@@ -159,15 +159,15 @@ public class c {
     public class k implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f47018a;
+        public final /* synthetic */ String f50692a;
 
         public k(c cVar, String str) {
-            this.f47018a = str;
+            this.f50692a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return download != null && TextUtils.equals(download.getUrl(), this.f47018a);
+            return download != null && TextUtils.equals(download.getUrl(), this.f50692a);
         }
     }
 
@@ -175,20 +175,20 @@ public class c {
     public class l implements DownloadManager.DownloadItemFilter {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f47019a;
+        public final /* synthetic */ Context f50693a;
 
         public l(c cVar, Context context) {
-            this.f47019a = context;
+            this.f50693a = context;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
-            return (download == null || download.getState() != Download.DownloadState.FINISH || d.a.l0.g.c.e.a.h(this.f47019a, download.getKeyByUser())) ? false : true;
+            return (download == null || download.getState() != Download.DownloadState.FINISH || d.a.l0.g.c.e.a.h(this.f50693a, download.getKeyByUser())) ? false : true;
         }
     }
 
     public c(DownloadManager downloadManager) {
-        this.f47008a = downloadManager;
+        this.f50682a = downloadManager;
     }
 
     public static boolean j(Download download) {
@@ -206,7 +206,7 @@ public class c {
 
     public synchronized boolean b(String str) {
         boolean z;
-        Collection<Download> downloadListByFilter = this.f47008a.getDownloadListByFilter(new i(this, str));
+        Collection<Download> downloadListByFilter = this.f50682a.getDownloadListByFilter(new i(this, str));
         if (downloadListByFilter != null) {
             z = downloadListByFilter.size() > 0;
         }
@@ -215,7 +215,7 @@ public class c {
 
     public synchronized boolean c(String str) {
         boolean z;
-        Collection<Download> downloadListByFilter = this.f47008a.getDownloadListByFilter(new j(this, str));
+        Collection<Download> downloadListByFilter = this.f50682a.getDownloadListByFilter(new j(this, str));
         if (downloadListByFilter != null) {
             z = downloadListByFilter.size() > 0;
         }
@@ -223,7 +223,7 @@ public class c {
     }
 
     public synchronized void d() {
-        Collection<Download> downloadListByFilter = this.f47008a.getDownloadListByFilter(new b(this));
+        Collection<Download> downloadListByFilter = this.f50682a.getDownloadListByFilter(new b(this));
         if (downloadListByFilter == null) {
             return;
         }
@@ -237,18 +237,18 @@ public class c {
                 return;
             }
             if (download != null) {
-                this.f47008a.cancel(download.getId().longValue());
+                this.f50682a.cancel(download.getId().longValue());
             }
             i2++;
         }
     }
 
     public synchronized void e() {
-        h(this.f47008a.getDownloadListByFilter(new C0998c()));
+        h(this.f50682a.getDownloadListByFilter(new C1054c()));
     }
 
     public synchronized void f() {
-        Collection<Download> downloadListByFilter = this.f47008a.getDownloadListByFilter(new a(this));
+        Collection<Download> downloadListByFilter = this.f50682a.getDownloadListByFilter(new a(this));
         if (downloadListByFilter == null) {
             return;
         }
@@ -262,7 +262,7 @@ public class c {
                 return;
             }
             if (download != null) {
-                this.f47008a.cancel(download.getId().longValue());
+                this.f50682a.cancel(download.getId().longValue());
             }
             i2++;
         }
@@ -281,7 +281,7 @@ public class c {
         }
         for (Download download : collection) {
             if (download != null) {
-                this.f47008a.cancel(download.getId().longValue());
+                this.f50682a.cancel(download.getId().longValue());
             }
         }
     }
@@ -318,19 +318,19 @@ public class c {
         }
         for (Download download : n) {
             if (download != null && (download.getState() == Download.DownloadState.WAITING || download.getState() == Download.DownloadState.DOWNLOADING)) {
-                this.f47008a.pause(download.getId().longValue());
+                this.f50682a.pause(download.getId().longValue());
             }
         }
     }
 
     public Collection<Download> n() {
-        return this.f47008a.getDownloadListByFilter(new d());
+        return this.f50682a.getDownloadListByFilter(new d());
     }
 
     public Download o(String str) {
         Collection<Download> downloadListByFilter;
         Download download = null;
-        if (TextUtils.isEmpty(str) || (downloadListByFilter = this.f47008a.getDownloadListByFilter(new e(this, str))) == null) {
+        if (TextUtils.isEmpty(str) || (downloadListByFilter = this.f50682a.getDownloadListByFilter(new e(this, str))) == null) {
             return null;
         }
         for (Download download2 : downloadListByFilter) {
@@ -342,32 +342,32 @@ public class c {
     }
 
     public synchronized Collection<Download> p(String str) {
-        return this.f47008a.getDownloadListByFilter(new g(this, str));
+        return this.f50682a.getDownloadListByFilter(new g(this, str));
     }
 
     public synchronized Collection<Download> q(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.f47008a.getDownloadListByFilter(new h(str));
+        return this.f50682a.getDownloadListByFilter(new h(str));
     }
 
     public synchronized Collection<Download> r(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.f47008a.getDownloadListByFilter(new k(this, str));
+        return this.f50682a.getDownloadListByFilter(new k(this, str));
     }
 
     public Collection<Download> s(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.f47008a.getDownloadListByFilter(new f(this, str));
+        return this.f50682a.getDownloadListByFilter(new f(this, str));
     }
 
     public synchronized Collection<Download> t() {
-        return this.f47008a.getDownloadListByFilter(new l(this, AppRuntime.getAppContext()));
+        return this.f50682a.getDownloadListByFilter(new l(this, AppRuntime.getAppContext()));
     }
 
     public Download u(String str, String str2) {
@@ -408,7 +408,7 @@ public class c {
         }
         for (Download download : n) {
             if (download != null && (download.getState() == Download.DownloadState.WAITING || download.getState() == Download.DownloadState.PAUSE)) {
-                this.f47008a.resume(download.getId().longValue());
+                this.f50682a.resume(download.getId().longValue());
             }
         }
         return n;

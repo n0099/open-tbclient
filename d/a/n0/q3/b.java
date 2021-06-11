@@ -15,32 +15,32 @@ import d.a.c.e.p.l;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public KeyguardManager f58350a;
+    public KeyguardManager f62041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PowerManager f58351b;
+    public PowerManager f62042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PowerManager.WakeLock f58352c;
+    public PowerManager.WakeLock f62043c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KeyguardManager.KeyguardLock f58353d;
+    public KeyguardManager.KeyguardLock f62044d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58354e;
+    public Context f62045e;
 
     public b() {
         try {
             Application app = TbadkCoreApplication.getInst().getApp();
-            this.f58354e = app;
+            this.f62045e = app;
             PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.f58351b = powerManager;
+            this.f62042b = powerManager;
             PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.f58352c = newWakeLock;
+            this.f62043c = newWakeLock;
             newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.f58354e.getSystemService("keyguard");
-            this.f58350a = keyguardManager;
-            this.f58353d = keyguardManager.newKeyguardLock("ScreenLockUtils");
+            KeyguardManager keyguardManager = (KeyguardManager) this.f62045e.getSystemService("keyguard");
+            this.f62041a = keyguardManager;
+            this.f62044d = keyguardManager.newKeyguardLock("ScreenLockUtils");
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -72,7 +72,7 @@ public class b {
 
     public boolean b() {
         try {
-            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.f58350a, new Object[0])).booleanValue();
+            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.f62041a, new Object[0])).booleanValue();
         } catch (Throwable th) {
             th.printStackTrace();
             return false;
@@ -80,15 +80,15 @@ public class b {
     }
 
     public boolean c() {
-        return this.f58351b.isScreenOn();
+        return this.f62042b.isScreenOn();
     }
 
     public void d() {
         try {
-            this.f58353d.reenableKeyguard();
-            if (this.f58352c != null) {
-                this.f58352c.release();
-                this.f58352c = null;
+            this.f62044d.reenableKeyguard();
+            if (this.f62043c != null) {
+                this.f62043c.release();
+                this.f62043c = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -97,14 +97,14 @@ public class b {
 
     public void e() {
         try {
-            if (this.f58352c == null) {
-                PowerManager.WakeLock newWakeLock = this.f58351b.newWakeLock(268435462, "ScreenLockNotify");
-                this.f58352c = newWakeLock;
+            if (this.f62043c == null) {
+                PowerManager.WakeLock newWakeLock = this.f62042b.newWakeLock(268435462, "ScreenLockNotify");
+                this.f62043c = newWakeLock;
                 newWakeLock.setReferenceCounted(false);
             }
-            if (this.f58352c != null) {
-                this.f58352c.acquire(10000L);
-                this.f58353d.disableKeyguard();
+            if (this.f62043c != null) {
+                this.f62043c.acquire(10000L);
+                this.f62044d.disableKeyguard();
             }
         } catch (Throwable th) {
             th.printStackTrace();

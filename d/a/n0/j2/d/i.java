@@ -33,7 +33,8 @@ import com.baidu.tieba.person.SetUserPicsResponse;
 import com.baidu.tieba.person.holder.PersonInfoAddUserPicViewHolder;
 import com.baidu.tieba.person.holder.PersonInfoUserPicViewHolder;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.c.j.e.n;
+import com.kwai.video.player.PlayerPostEvent;
+import d.a.c.k.e.n;
 import d.a.m0.r.s.l;
 import d.a.m0.t.o;
 import java.util.ArrayList;
@@ -42,16 +43,16 @@ import java.util.List;
 public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f56356f;
+    public TbPageContext f60045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final WriteImagesInfo f56357g;
+    public final WriteImagesInfo f60046g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f56358h;
+    public boolean f60047h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.n0.j2.e.a f56359i;
+    public d.a.n0.j2.e.a f60048i;
     public PersonChangeData j;
     public PermissionJudgePolicy k;
     public HttpMessageListener l;
@@ -63,22 +64,22 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
     public class a implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.j f56360e;
+        public final /* synthetic */ d.a.m0.r.s.j f60049e;
 
         public a(d.a.m0.r.s.j jVar) {
-            this.f56360e = jVar;
+            this.f60049e = jVar;
         }
 
         @Override // d.a.m0.r.s.l.e
         public void onItemClick(l lVar, int i2, View view) {
-            i.this.f56358h = false;
+            i.this.f60047h = false;
             if (i2 == 0) {
                 i.this.t();
             } else if (i2 == 1) {
                 i.this.v();
             }
-            if (this.f56360e.isShowing()) {
-                this.f56360e.dismiss();
+            if (this.f60049e.isShowing()) {
+                this.f60049e.dismiss();
             }
         }
     }
@@ -87,34 +88,34 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
     public class b implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f56362e;
+        public final /* synthetic */ o f60051e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f56363f;
+        public final /* synthetic */ List f60052f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f56364g;
+        public final /* synthetic */ int f60053g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.j f56365h;
+        public final /* synthetic */ d.a.m0.r.s.j f60054h;
 
         public b(o oVar, List list, int i2, d.a.m0.r.s.j jVar) {
-            this.f56362e = oVar;
-            this.f56363f = list;
-            this.f56364g = i2;
-            this.f56365h = jVar;
+            this.f60051e = oVar;
+            this.f60052f = list;
+            this.f60053g = i2;
+            this.f60054h = jVar;
         }
 
         @Override // d.a.m0.r.s.l.e
         public void onItemClick(l lVar, int i2, View view) {
-            i.this.f56358h = true;
+            i.this.f60047h = true;
             if (i2 == 0) {
-                i.this.w(this.f56362e, this.f56363f, this.f56364g);
+                i.this.w(this.f60051e, this.f60052f, this.f60053g);
             } else if (i2 == 1) {
                 i iVar = i.this;
-                if (iVar.f56325e && iVar.f56359i != null && i.this.f56359i.j() != null && !i.this.f56359i.j().canModifyAvatar()) {
-                    if (!StringUtils.isNull(i.this.f56359i.j().getCantModifyAvatarDesc())) {
-                        d.a.c.e.p.l.J(TbadkCoreApplication.getInst(), i.this.f56359i.j().getCantModifyAvatarDesc());
+                if (iVar.f60014e && iVar.f60048i != null && i.this.f60048i.j() != null && !i.this.f60048i.j().canModifyAvatar()) {
+                    if (!StringUtils.isNull(i.this.f60048i.j().getCantModifyAvatarDesc())) {
+                        d.a.c.e.p.l.J(TbadkCoreApplication.getInst(), i.this.f60048i.j().getCantModifyAvatarDesc());
                     } else {
                         d.a.c.e.p.l.I(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
                     }
@@ -123,9 +124,9 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
                 }
             } else if (i2 == 2) {
                 i iVar2 = i.this;
-                if (iVar2.f56325e && iVar2.f56359i != null && i.this.f56359i.j() != null && !i.this.f56359i.j().canModifyAvatar()) {
-                    if (!StringUtils.isNull(i.this.f56359i.j().getCantModifyAvatarDesc())) {
-                        d.a.c.e.p.l.J(TbadkCoreApplication.getInst(), i.this.f56359i.j().getCantModifyAvatarDesc());
+                if (iVar2.f60014e && iVar2.f60048i != null && i.this.f60048i.j() != null && !i.this.f60048i.j().canModifyAvatar()) {
+                    if (!StringUtils.isNull(i.this.f60048i.j().getCantModifyAvatarDesc())) {
+                        d.a.c.e.p.l.J(TbadkCoreApplication.getInst(), i.this.f60048i.j().getCantModifyAvatarDesc());
                     } else {
                         d.a.c.e.p.l.I(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
                     }
@@ -136,8 +137,8 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
                 TiebaStatic.log(new StatisticItem("c11616").param("obj_type", 1));
                 i.this.u();
             }
-            if (this.f56365h.isShowing()) {
-                this.f56365h.dismiss();
+            if (this.f60054h.isShowing()) {
+                this.f60054h.dismiss();
             }
         }
     }
@@ -146,35 +147,35 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
     public class c implements l.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f56367e;
+        public final /* synthetic */ o f60056e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f56368f;
+        public final /* synthetic */ List f60057f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f56369g;
+        public final /* synthetic */ int f60058g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d.a.m0.r.s.j f56370h;
+        public final /* synthetic */ d.a.m0.r.s.j f60059h;
 
         public c(o oVar, List list, int i2, d.a.m0.r.s.j jVar) {
-            this.f56367e = oVar;
-            this.f56368f = list;
-            this.f56369g = i2;
-            this.f56370h = jVar;
+            this.f60056e = oVar;
+            this.f60057f = list;
+            this.f60058g = i2;
+            this.f60059h = jVar;
         }
 
         @Override // d.a.m0.r.s.l.e
         public void onItemClick(l lVar, int i2, View view) {
             if (i2 == 0) {
-                i.this.w(this.f56367e, this.f56368f, this.f56369g);
+                i.this.w(this.f60056e, this.f60057f, this.f60058g);
             } else if (i2 == 1) {
-                j.d(this.f56367e, i.this.f56356f.getUniqueId());
+                j.d(this.f60056e, i.this.f60045f.getUniqueId());
             } else if (i2 == 2) {
-                j.b(this.f56367e, this.f56368f);
+                j.b(this.f60056e, this.f60057f);
             }
-            if (this.f56370h.isShowing()) {
-                this.f56370h.dismiss();
+            if (this.f60059h.isShowing()) {
+                this.f60059h.dismiss();
             }
         }
     }
@@ -208,7 +209,7 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
             }
             SetUserPicsResponse setUserPicsResponse = (SetUserPicsResponse) httpResponsedMessage;
             if (setUserPicsResponse.getErrCode() != 0) {
-                i.this.f56356f.showToast(setUserPicsResponse.getErrorString());
+                i.this.f60045f.showToast(setUserPicsResponse.getErrorString());
             } else {
                 i.this.z();
             }
@@ -244,61 +245,61 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
 
     public i(TbPageContext tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(z);
-        this.f56357g = new WriteImagesInfo(1);
-        this.f56358h = true;
+        this.f60046g = new WriteImagesInfo(1);
+        this.f60047h = true;
         this.l = new d(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
         this.m = new e(CmdConfigHttp.CMD_SET_USER_PICS);
         this.n = new f(this);
         g gVar = new g(2001380);
         this.o = gVar;
-        this.f56356f = tbPageContext;
+        this.f60045f = tbPageContext;
         gVar.setTag(bdUniqueId);
         this.m.setTag(bdUniqueId);
         this.l.setTag(bdUniqueId);
-        this.f56356f.registerListener(this.o);
-        this.f56356f.registerListener(this.m);
-        this.f56356f.registerListener(this.l);
+        this.f60045f.registerListener(this.o);
+        this.f60045f.registerListener(this.m);
+        this.f60045f.registerListener(this.l);
     }
 
     public void A(d.a.n0.j2.e.a aVar) {
-        this.f56359i = aVar;
+        this.f60048i = aVar;
     }
 
     public final void B() {
-        TbPageContext tbPageContext = this.f56356f;
+        TbPageContext tbPageContext = this.f60045f;
         if (tbPageContext == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(R.string.choose_local_photo), this.f56356f.getString(R.string.change_system_photo)};
-        d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(this.f56356f);
+        String[] strArr = {tbPageContext.getString(R.string.choose_local_photo), this.f60045f.getString(R.string.change_system_photo)};
+        d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(this.f60045f);
         jVar.i(null, strArr, new a(jVar));
         jVar.l();
     }
 
     public final void F(o oVar, List<n> list, int i2) {
-        TbPageContext tbPageContext = this.f56356f;
+        TbPageContext tbPageContext = this.f60045f;
         if (tbPageContext == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(R.string.hd_photo), this.f56356f.getString(R.string.change_photo), this.f56356f.getString(R.string.change_system_photo), this.f56356f.getString(R.string.check_headpendant)};
-        d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(this.f56356f);
+        String[] strArr = {tbPageContext.getString(R.string.hd_photo), this.f60045f.getString(R.string.change_photo), this.f60045f.getString(R.string.change_system_photo), this.f60045f.getString(R.string.check_headpendant)};
+        d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(this.f60045f);
         jVar.i(null, strArr, new b(oVar, list, i2, jVar));
         jVar.l();
     }
 
     public final void G(o oVar, List<n> list, int i2) {
-        String[] strArr = {this.f56356f.getString(R.string.look_big_photo), this.f56356f.getString(R.string.set_as_portrait_photo), this.f56356f.getString(R.string.delete)};
-        d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(this.f56356f);
+        String[] strArr = {this.f60045f.getString(R.string.look_big_photo), this.f60045f.getString(R.string.set_as_portrait_photo), this.f60045f.getString(R.string.delete)};
+        d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(this.f60045f);
         jVar.i(null, strArr, new c(oVar, list, i2, jVar));
         jVar.l();
     }
 
     public void o() {
-        d.a.n0.j2.e.a aVar = this.f56359i;
+        d.a.n0.j2.e.a aVar = this.f60048i;
         if (aVar == null || aVar.j() == null) {
             return;
         }
-        d.a.m0.a0.c.k().g(this.f56359i.j().getPortrait());
+        d.a.m0.a0.c.k().g(this.f60048i.j().getPortrait());
     }
 
     @Override // android.view.View.OnClickListener
@@ -324,16 +325,16 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
         if (intent == null || (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
             return;
         }
-        this.f56357g.parseJson(stringExtra);
-        this.f56357g.updateQuality();
-        if (!ListUtils.isEmpty(this.f56357g.getChosedFiles())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(this.f56356f.getPageActivity(), 12002, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, this.f56357g.getChosedFiles().get(0).getFilePath(), 1.0f, this.f56358h)));
+        this.f60046g.parseJson(stringExtra);
+        this.f60046g.updateQuality();
+        if (!ListUtils.isEmpty(this.f60046g.getChosedFiles())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(this.f60045f.getPageActivity(), (int) PlayerPostEvent.MEDIA_REP_CHANGE_END, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, this.f60046g.getChosedFiles().get(0).getFilePath(), 1.0f, this.f60047h)));
         }
-        this.f56357g.clear();
+        this.f60046g.clear();
     }
 
     public List<n> q() {
-        d.a.n0.j2.e.a aVar = this.f56359i;
+        d.a.n0.j2.e.a aVar = this.f60048i;
         if (aVar == null) {
             return null;
         }
@@ -355,13 +356,13 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
             }
             return;
         }
-        d.a.n0.j2.e.a aVar = this.f56359i;
+        d.a.n0.j2.e.a aVar = this.f60048i;
         if (aVar != null) {
-            this.f56325e = aVar.m();
+            this.f60014e = aVar.m();
         }
         if (!d.a.c.e.p.l.D()) {
-            this.f56356f.showToast(R.string.neterror);
-        } else if (!this.f56325e) {
+            this.f60045f.showToast(R.string.neterror);
+        } else if (!this.f60014e) {
             if (nVar instanceof o) {
                 w((o) nVar, list, i2);
             }
@@ -369,7 +370,7 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
             B();
         } else if (nVar instanceof o) {
             o oVar = (o) nVar;
-            if (oVar.f()) {
+            if (oVar.e()) {
                 F(oVar, list, i2);
             } else {
                 G(oVar, list, i2);
@@ -378,7 +379,7 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
     }
 
     public void t() {
-        TbPageContext tbPageContext = this.f56356f;
+        TbPageContext tbPageContext = this.f60045f;
         if (tbPageContext == null) {
             return;
         }
@@ -391,39 +392,39 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
         if (this.k.startRequestPermission(pageActivity)) {
             return;
         }
-        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f56356f.getPageActivity(), this.f56357g.toJsonString(), true);
-        albumActivityConfig.setRequestCode(12002);
+        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f60045f.getPageActivity(), this.f60046g.toJsonString(), true);
+        albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
         albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
         albumActivityConfig.setResourceType(2);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
     }
 
     public void u() {
-        if (this.f56356f == null) {
+        if (this.f60045f == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.f56356f.getPageActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.f60045f.getPageActivity())));
     }
 
     public void v() {
-        if (this.f56356f == null) {
+        if (this.f60045f == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f56356f.getPageActivity(), 12014, this.f56358h)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f60045f.getPageActivity(), 12014, this.f60047h)));
     }
 
     public final void w(o oVar, List<n> list, int i2) {
-        if (this.f56356f == null || oVar == null || list == null || StringUtils.isNull(oVar.c())) {
+        if (this.f60045f == null || oVar == null || list == null || StringUtils.isNull(oVar.b())) {
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
         for (n nVar : list) {
             if (nVar instanceof o) {
                 o oVar2 = (o) nVar;
-                if (oVar2.f() && !oVar2.c().startsWith("http")) {
-                    arrayList.add(j.c(this.f56356f, oVar2.c()));
+                if (oVar2.e() && !oVar2.b().startsWith("http")) {
+                    arrayList.add(j.c(this.f60045f, oVar2.b()));
                 } else {
-                    arrayList.add(oVar2.c());
+                    arrayList.add(oVar2.b());
                 }
             }
         }
@@ -436,14 +437,14 @@ public class i extends d.a.n0.j2.d.e implements View.OnClickListener {
         bVar.J(str);
         bVar.F(true);
         bVar.I(false);
-        ImageViewerConfig v = bVar.v(this.f56356f.getPageActivity());
+        ImageViewerConfig v = bVar.v(this.f60045f.getPageActivity());
         v.getIntent().putExtra("from", "portrait");
-        this.f56356f.sendMessage(new CustomMessage(2010000, v));
+        this.f60045f.sendMessage(new CustomMessage(2010000, v));
     }
 
     public final void x(PersonChangeData personChangeData) {
         d.a.n0.j2.e.a aVar;
-        if (personChangeData == null || (aVar = this.f56359i) == null || aVar.j() == null || !this.f56359i.m() || !personChangeData.getPhotoChanged()) {
+        if (personChangeData == null || (aVar = this.f60048i) == null || aVar.j() == null || !this.f60048i.m() || !personChangeData.getPhotoChanged()) {
             return;
         }
         if (this.j == null) {

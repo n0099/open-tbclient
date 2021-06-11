@@ -23,7 +23,7 @@ public class d extends a0 {
     @Override // d.a.l0.a.c2.f.a0
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.a.l0.a.a2.e eVar) {
         int optInt;
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         String uuid = UUID.randomUUID().toString();
@@ -35,7 +35,7 @@ public class d extends a0 {
             try {
                 optInt = new JSONObject(str).optInt("delta", 1);
             } catch (JSONException e2) {
-                if (a0.f40949b) {
+                if (a0.f44625b) {
                     e2.printStackTrace();
                 }
                 d.a.l0.a.e0.d.b("navigateBack", "params parse fail");
@@ -50,7 +50,7 @@ public class d extends a0 {
             return false;
         }
         int k = W.k();
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("NavigateBackAction", "back delta: " + optInt);
         }
         if (k == 1) {
@@ -61,7 +61,7 @@ public class d extends a0 {
         if (optInt >= k) {
             optInt = k - 1;
         }
-        if (a0.f40949b) {
+        if (a0.f44625b) {
             Log.d("NavigateBackAction", "real back delta: " + optInt);
         }
         d.a.l0.a.h0.g.d j = W.j((k - optInt) - 1);
@@ -69,7 +69,7 @@ public class d extends a0 {
         d.a.l0.a.r1.i.c(1, uuid);
         d.a.l0.a.v2.g.a(W, context);
         g.b i2 = W.i("navigateBack");
-        i2.n(d.a.l0.a.h0.g.g.f42078i, d.a.l0.a.h0.g.g.f42077h);
+        i2.n(d.a.l0.a.h0.g.g.f45754i, d.a.l0.a.h0.g.g.f45753h);
         i2.h(optInt);
         i2.a();
         d.a.l0.a.h0.g.f o = W.o();

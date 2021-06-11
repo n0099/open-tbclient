@@ -17,39 +17,39 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f62184e;
+    public Context f65899e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GiftCommonList.GiftItem> f62185f;
+    public List<GiftCommonList.GiftItem> f65900f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62186g = -1;
+    public int f65901g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout.LayoutParams f62187h;
+    public RelativeLayout.LayoutParams f65902h;
 
     /* loaded from: classes4.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f62188a;
+        public TbImageView f65903a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f62189b;
+        public View f65904b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f62190c;
+        public TextView f65905c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f62191d;
+        public TextView f65906d;
 
         public b(a aVar) {
         }
     }
 
     public a(Context context) {
-        this.f62184e = context;
-        this.f62187h = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(R.dimen.ds450) - 8) / 2);
+        this.f65899e = context;
+        this.f65902h = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(R.dimen.ds450) - 8) / 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,25 +59,25 @@ public class a extends BaseAdapter {
         if (i2 < 0 || i2 >= getCount()) {
             return null;
         }
-        return this.f62185f.get(i2);
+        return this.f65900f.get(i2);
     }
 
     public int b() {
-        return this.f62186g;
+        return this.f65901g;
     }
 
     public void c(List<GiftCommonList.GiftItem> list) {
-        this.f62185f = list;
+        this.f65900f = list;
         notifyDataSetChanged();
     }
 
     public void d(int i2) {
-        this.f62186g = i2;
+        this.f65901g = i2;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<GiftCommonList.GiftItem> list = this.f62185f;
+        List<GiftCommonList.GiftItem> list = this.f65900f;
         if (list == null) {
             return 0;
         }
@@ -95,28 +95,28 @@ public class a extends BaseAdapter {
         if (view != null && view.getTag() != null) {
             bVar = (b) view.getTag();
         } else {
-            view = LayoutInflater.from(this.f62184e).inflate(R.layout.gift_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f65899e).inflate(R.layout.gift_list_item, (ViewGroup) null);
             bVar = new b();
-            bVar.f62188a = (TbImageView) view.findViewById(R.id.image);
-            bVar.f62189b = view.findViewById(R.id.mask);
-            bVar.f62190c = (TextView) view.findViewById(R.id.name);
-            bVar.f62191d = (TextView) view.findViewById(R.id.price);
+            bVar.f65903a = (TbImageView) view.findViewById(R.id.image);
+            bVar.f65904b = view.findViewById(R.id.mask);
+            bVar.f65905c = (TextView) view.findViewById(R.id.name);
+            bVar.f65906d = (TextView) view.findViewById(R.id.price);
             view.setTag(bVar);
         }
-        bVar.f62189b.setLayoutParams(this.f62187h);
+        bVar.f65904b.setLayoutParams(this.f65902h);
         SkinManager.setBackgroundResource(view, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(bVar.f62190c, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(bVar.f62191d, R.color.CAM_X0301, 1);
-        if (i2 == this.f62186g) {
-            SkinManager.setBackgroundResource(bVar.f62189b, R.drawable.chx_box_gift_s);
+        SkinManager.setViewTextColor(bVar.f65905c, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(bVar.f65906d, R.color.CAM_X0301, 1);
+        if (i2 == this.f65901g) {
+            SkinManager.setBackgroundResource(bVar.f65904b, R.drawable.chx_box_gift_s);
         } else {
-            bVar.f62189b.setBackgroundResource(R.color.common_color_10022);
+            bVar.f65904b.setBackgroundResource(R.color.common_color_10022);
         }
         GiftCommonList.GiftItem item = getItem(i2);
         if (item != null) {
-            bVar.f62190c.setText(item.getName());
-            bVar.f62191d.setText(String.format(this.f62184e.getString(R.string.tdou_price_format), Integer.valueOf(item.getPrice())));
-            bVar.f62188a.V(item.getThumbnailUrl(), 10, false);
+            bVar.f65905c.setText(item.getName());
+            bVar.f65906d.setText(String.format(this.f65899e.getString(R.string.tdou_price_format), Integer.valueOf(item.getPrice())));
+            bVar.f65903a.U(item.getThumbnailUrl(), 10, false);
         }
         return view;
     }

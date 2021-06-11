@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f41963a = k.f43199a;
+    public static final boolean f45639a = k.f46875a;
 
     @NonNull
     public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
@@ -23,12 +23,12 @@ public final class b {
             codeCacheSetting.maxCount = 20;
             codeCacheSetting.sizeLimit = 102400;
         } else {
-            a.C0645a a2 = a.b.a();
-            codeCacheSetting.maxCount = a2.f41959a;
-            codeCacheSetting.sizeLimit = a2.f41960b;
-            codeCacheSetting.diskCodeCacheSizeThreshold = a2.f41961c;
+            a.C0701a a2 = a.b.a();
+            codeCacheSetting.maxCount = a2.f45635a;
+            codeCacheSetting.sizeLimit = a2.f45636b;
+            codeCacheSetting.diskCodeCacheSizeThreshold = a2.f45637c;
         }
-        if (f41963a) {
+        if (f45639a) {
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
             Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);

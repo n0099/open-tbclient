@@ -108,5 +108,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(FollowListSwitch.class);
         SwitchManager.getInstance().registerSwitch(SplashDealyTimeoutSwitch.class);
         SwitchManager.getInstance().registerSwitch(IColorSDKSwitch.class);
+        SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
     }
 }

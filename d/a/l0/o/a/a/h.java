@@ -170,18 +170,10 @@ public class h extends Fragment implements DialogInterface.OnCancelListener, Dia
         dialog.requestWindowFeature(1);
     }
 
-    public void t1(l lVar, String str) {
-        this.m0 = false;
-        this.n0 = true;
-        n a2 = lVar.a();
-        a2.c(this, str);
-        a2.d();
-    }
-
     @Override // com.baidu.swan.support.v4.app.Fragment
-    public void u0(Bundle bundle) {
+    public void t0(Bundle bundle) {
         Bundle bundle2;
-        super.u0(bundle);
+        super.t0(bundle);
         if (this.i0) {
             View b0 = b0();
             if (b0 != null) {
@@ -200,6 +192,14 @@ public class h extends Fragment implements DialogInterface.OnCancelListener, Dia
             }
             this.k0.onRestoreInstanceState(bundle2);
         }
+    }
+
+    public void t1(l lVar, String str) {
+        this.m0 = false;
+        this.n0 = true;
+        n a2 = lVar.a();
+        a2.c(this, str);
+        a2.d();
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment

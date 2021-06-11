@@ -63,7 +63,7 @@ public class c extends PayBaseBean<PollingResponse> {
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
-        return BankSignFactory.BEAN_ID_POLLING;
+        return 769;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean

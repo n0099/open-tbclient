@@ -6,7 +6,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.StatusLine;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BasicLineFormatter implements LineFormatter {
     public static final BasicLineFormatter DEFAULT = null;
 

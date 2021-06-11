@@ -16,10 +16,10 @@ public class b extends m {
             BdLog.e(e2.getMessage());
             i2 = 0;
         }
-        this.f50850d = i2;
-        this.f50852f = R.drawable.icon_pure_post_more_bubble64;
-        this.f50853g = false;
-        this.f50854h = true;
+        this.f54527d = i2;
+        this.f54529f = R.drawable.icon_pure_post_more_bubble64;
+        this.f54530g = false;
+        this.f54531h = true;
         this.m = true;
         CommonTabHost commonTabHost = new CommonTabHost(context);
         this.k = commonTabHost;

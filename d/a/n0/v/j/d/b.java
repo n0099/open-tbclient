@@ -5,13 +5,13 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public abstract class b extends BaseCardInfo {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f62051e;
+    public c f65766e;
 
-    public c h() {
-        return this.f62051e;
+    public c c() {
+        return this.f65766e;
     }
 
-    public void l(c cVar) {
-        this.f62051e = cVar;
+    public void g(c cVar) {
+        this.f65766e = cVar;
     }
 }

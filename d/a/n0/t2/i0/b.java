@@ -16,13 +16,13 @@ import tbclient.User;
 public class b {
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f61140c;
+    public static b f64832c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, List<JSONObject>> f61141a = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, List<JSONObject>> f64833a = new ConcurrentHashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f61142b = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, Integer> f64834b = new ConcurrentHashMap<>();
 
     public static JSONObject b(ThreadInfo threadInfo) {
         if (threadInfo == null) {
@@ -75,26 +75,26 @@ public class b {
     }
 
     public static b f() {
-        if (f61140c == null) {
+        if (f64832c == null) {
             synchronized (b.class) {
-                if (f61140c == null) {
-                    f61140c = new b();
+                if (f64832c == null) {
+                    f64832c = new b();
                 }
             }
         }
-        return f61140c;
+        return f64832c;
     }
 
     public void a(String str) {
-        this.f61141a.put(str, new ArrayList());
+        this.f64833a.put(str, new ArrayList());
     }
 
     public String d(String str) {
-        return g(this.f61141a.get(str));
+        return g(this.f64833a.get(str));
     }
 
     public int e(String str) {
-        Integer num = this.f61142b.get(str);
+        Integer num = this.f64834b.get(str);
         if (num == null) {
             return 0;
         }
@@ -121,10 +121,10 @@ public class b {
     public void h(String str, List<JSONObject> list) {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list);
-        this.f61141a.put(str, arrayList);
+        this.f64833a.put(str, arrayList);
     }
 
     public void i(String str, int i2) {
-        this.f61142b.put(str, Integer.valueOf(i2));
+        this.f64834b.put(str, Integer.valueOf(i2));
     }
 }

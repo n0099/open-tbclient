@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class SwanAppNetworkUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10973a = k.f43199a;
+    public static final boolean f11035a = k.f46875a;
 
     /* loaded from: classes3.dex */
     public enum NetType {
@@ -44,17 +44,17 @@ public class SwanAppNetworkUtils {
     public static class a extends d.a.l0.a.v1.a.b.c.b {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f10974c;
+        public final /* synthetic */ b f11036c;
 
         public a(b bVar) {
-            this.f10974c = bVar;
+            this.f11036c = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.l0.a.v1.a.b.c.b, d.a.l0.a.v1.a.b.c.c, d.a.l0.a.v1.a.b.c.a
         public void onEvent(@NonNull d.a.l0.a.v1.a.b.a.b bVar) {
             int i2 = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-            b bVar2 = this.f10974c;
+            b bVar2 = this.f11036c;
             if (bVar2 != null) {
                 bVar2.onResult(i2);
             }
@@ -99,7 +99,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static String d(int i2, String str) {
-        if (f10973a) {
+        if (f11035a) {
             Log.d("NetWorkUtils", "——> getNetworkType: netType " + i2 + " subTypeName " + str);
         }
         switch (i2) {
@@ -230,16 +230,16 @@ public class SwanAppNetworkUtils {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
-            if (f10973a) {
+            if (f11035a) {
                 Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
             }
         } catch (JSONException e3) {
-            if (f10973a) {
+            if (f11035a) {
                 e3.printStackTrace();
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        if (f10973a) {
+        if (f11035a) {
             Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: post success ");
         }
     }

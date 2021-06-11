@@ -23,10 +23,10 @@ import d.a.n0.e3.w;
 public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumDetailActivity f17181e;
+    public ForumDetailActivity f17257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f17182f;
+    public f f17258f;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -40,7 +40,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof w)) {
                 return;
             }
-            ForumDetailModel.this.f17181e.updateLikeAndMsgStatus(((w) customResponsedMessage.getData()).l() == 1);
+            ForumDetailModel.this.f17257e.updateLikeAndMsgStatus(((w) customResponsedMessage.getData()).l() == 1);
         }
     }
 
@@ -53,19 +53,19 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
-                if (ForumDetailModel.this.f17182f != null) {
-                    ForumDetailModel.this.f17182f.onNetError(null);
+                if (ForumDetailModel.this.f17258f != null) {
+                    ForumDetailModel.this.f17258f.onNetError(null);
                 }
             } else if (responsedMessage.hasError()) {
-                if (ForumDetailModel.this.f17182f != null) {
-                    ForumDetailModel.this.f17182f.onNetError(responsedMessage.getErrorString());
+                if (ForumDetailModel.this.f17258f != null) {
+                    ForumDetailModel.this.f17258f.onNetError(responsedMessage.getErrorString());
                 }
             } else {
                 if (responsedMessage instanceof ForumDetailHttpResponse) {
-                    ForumDetailModel.this.f17182f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
+                    ForumDetailModel.this.f17258f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
                 }
                 if (responsedMessage instanceof ForumDetailSocketResponse) {
-                    ForumDetailModel.this.f17182f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
+                    ForumDetailModel.this.f17258f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
                 }
             }
         }
@@ -91,20 +91,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            errorString = ForumDetailModel.this.f17181e.getResources().getString(R.string.neterror);
+                            errorString = ForumDetailModel.this.f17257e.getResources().getString(R.string.neterror);
                         } else {
                             errorString = responseUpdateMaskInfoMessage.getErrorString();
                         }
-                        ForumDetailModel.this.f17181e.showToast(errorString);
+                        ForumDetailModel.this.f17257e.showToast(errorString);
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            ForumDetailModel.this.f17182f.onSubscrib(false);
+                            ForumDetailModel.this.f17258f.onSubscrib(false);
                         } else {
-                            ForumDetailModel.this.f17182f.onUnSubscrib(false);
+                            ForumDetailModel.this.f17258f.onUnSubscrib(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        ForumDetailModel.this.f17182f.onSubscrib(true);
+                        ForumDetailModel.this.f17258f.onSubscrib(true);
                     } else {
-                        ForumDetailModel.this.f17182f.onUnSubscrib(true);
+                        ForumDetailModel.this.f17258f.onUnSubscrib(true);
                     }
                 }
             }
@@ -123,7 +123,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001151) {
                 return;
             }
-            ForumDetailModel.this.f17181e.showToast(R.string.delete_success);
+            ForumDetailModel.this.f17257e.showToast(R.string.delete_success);
         }
     }
 
@@ -139,11 +139,11 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             boolean z;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && ((z = httpResponsedMessage instanceof BarEmotionResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    if (ForumDetailModel.this.f17182f != null) {
-                        ForumDetailModel.this.f17182f.onNetError(httpResponsedMessage.getErrorString());
+                    if (ForumDetailModel.this.f17258f != null) {
+                        ForumDetailModel.this.f17258f.onNetError(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    ForumDetailModel.this.f17182f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
+                    ForumDetailModel.this.f17258f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }
@@ -166,17 +166,35 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     public ForumDetailModel(ForumDetailActivity forumDetailActivity) {
         super(forumDetailActivity.getPageContext());
-        this.f17181e = forumDetailActivity;
-        this.f17182f = forumDetailActivity;
-        x();
+        this.f17257e = forumDetailActivity;
+        this.f17258f = forumDetailActivity;
+        B();
+        C();
         y();
-        u();
+        D();
         z();
-        v();
-        w();
+        A();
     }
 
-    public void A(String str) {
+    public final void A() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_EMOTION_CMD, TbConfig.SERVER_ADDRESS + "c/e/meme/checkForumPkg");
+        tbHttpMessageTask.setResponsedClass(BarEmotionResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public final void B() {
+        registerListener(new b(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, 303021));
+    }
+
+    public final void C() {
+        registerListener(new c(104102));
+    }
+
+    public final void D() {
+        registerListener(new a(2001266));
+    }
+
+    public void E(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -185,7 +203,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         sendMessage(httpMessage);
     }
 
-    public void B(String str) {
+    public void F(String str) {
         ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
         forumDetailRequestMessage.setForumId(d.a.c.e.m.b.f(str, 0L));
         sendMessage(forumDetailRequestMessage);
@@ -214,29 +232,11 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public final void u() {
+    public final void y() {
         registerListener(new d(2001151));
     }
 
-    public final void v() {
-        registerListener(new e(CmdConfigHttp.MSG_FORUM_EMOTION_CMD));
-    }
-
-    public final void w() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_EMOTION_CMD, TbConfig.SERVER_ADDRESS + "c/e/meme/checkForumPkg");
-        tbHttpMessageTask.setResponsedClass(BarEmotionResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public final void x() {
-        registerListener(new b(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, 303021));
-    }
-
-    public final void y() {
-        registerListener(new c(104102));
-    }
-
     public final void z() {
-        registerListener(new a(2001266));
+        registerListener(new e(CmdConfigHttp.MSG_FORUM_EMOTION_CMD));
     }
 }

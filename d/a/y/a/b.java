@@ -7,32 +7,32 @@ import java.lang.reflect.Method;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f64856a = null;
+    public static Object f68574a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f64857b = null;
+    public static Method f68575b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f64858c = null;
+    public static Method f68576c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f64859d = null;
+    public static Method f68577d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f64860e = null;
+    public static Method f68578e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f64861f = false;
+    public static boolean f68579f = false;
 
     static {
         try {
-            f64856a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
+            f68574a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
             Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
-            f64857b = a.a(cls, "doInit", Context.class, String[].class);
-            f64859d = a.a(cls, "setStatisticParam", String.class);
-            f64858c = a.a(cls, "setEnabled", Boolean.TYPE);
-            f64860e = a.a(cls, "setCrashKeyValue", String.class, String.class);
-            f64861f = true;
+            f68575b = a.a(cls, "doInit", Context.class, String[].class);
+            f68577d = a.a(cls, "setStatisticParam", String.class);
+            f68576c = a.a(cls, "setEnabled", Boolean.TYPE);
+            f68578e = a.a(cls, "setCrashKeyValue", String.class, String.class);
+            f68579f = true;
         } catch (Error e2) {
             e2.printStackTrace();
         } catch (Exception e3) {
@@ -42,8 +42,8 @@ public class b {
 
     public static void a(Context context, String[] strArr) {
         try {
-            if (f64861f) {
-                f64857b.invoke(f64856a, context, strArr);
+            if (f68579f) {
+                f68575b.invoke(f68574a, context, strArr);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -52,8 +52,8 @@ public class b {
 
     public static void b(String str) {
         try {
-            if (f64861f) {
-                f64859d.invoke(f64856a, str);
+            if (f68579f) {
+                f68577d.invoke(f68574a, str);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -62,8 +62,8 @@ public class b {
 
     public static void c(String str, String str2) {
         try {
-            if (f64861f) {
-                f64860e.invoke(f64856a, str, str2);
+            if (f68579f) {
+                f68578e.invoke(f68574a, str, str2);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -72,8 +72,8 @@ public class b {
 
     public static void d(boolean z) {
         try {
-            if (f64861f) {
-                f64858c.invoke(f64856a, Boolean.valueOf(z));
+            if (f68579f) {
+                f68576c.invoke(f68574a, Boolean.valueOf(z));
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -81,6 +81,6 @@ public class b {
     }
 
     public static boolean e() {
-        return f64861f;
+        return f68579f;
     }
 }

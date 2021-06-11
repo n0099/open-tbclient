@@ -14,17 +14,17 @@ import javax.net.ssl.SSLHandshakeException;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64573a;
+    public Context f68291a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f64574b = null;
+    public e f68292b = null;
 
     public d(Context context) {
-        this.f64573a = context;
+        this.f68291a = context;
     }
 
     public e a() {
-        return this.f64574b;
+        return this.f68292b;
     }
 
     public abstract InputStream b() throws Exception;

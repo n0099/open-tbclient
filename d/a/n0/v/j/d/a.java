@@ -6,16 +6,16 @@ import org.json.JSONObject;
 public class a extends d.a.m0.r.q.o {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62050a;
+    public String f65765a;
 
     public String a() {
-        return this.f62050a;
+        return this.f65765a;
     }
 
     @Override // d.a.m0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f62050a = jSONObject.optString(LoginConstants.QQ_LOGIN, "");
+            this.f65765a = jSONObject.optString(LoginConstants.QQ_LOGIN, "");
         }
     }
 }

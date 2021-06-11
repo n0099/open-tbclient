@@ -402,12 +402,12 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     private int getKeyline(int i2) {
         int[] iArr = this.mKeylines;
         if (iArr == null) {
-            Log.e(TAG, "No keylines defined for " + this + " - attempted index lookup " + i2);
+            Log.e("CoordinatorLayout", "No keylines defined for " + this + " - attempted index lookup " + i2);
             return 0;
         } else if (i2 >= 0 && i2 < iArr.length) {
             return iArr[i2];
         } else {
-            Log.e(TAG, "Keyline index " + i2 + " out of range for " + this);
+            Log.e("CoordinatorLayout", "Keyline index " + i2 + " out of range for " + this);
             return 0;
         }
     }
@@ -912,7 +912,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             if (view instanceof AttachedBehavior) {
                 Behavior behavior = ((AttachedBehavior) view).getBehavior();
                 if (behavior == null) {
-                    Log.e(TAG, "Attached behavior class is null");
+                    Log.e("CoordinatorLayout", "Attached behavior class is null");
                 }
                 layoutParams.setBehavior(behavior);
                 layoutParams.mBehaviorResolved = true;
@@ -928,7 +928,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     try {
                         layoutParams.setBehavior(defaultBehavior.value().getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
                     } catch (Exception e2) {
-                        Log.e(TAG, "Default behavior class " + defaultBehavior.value().getName() + " could not be instantiated. Did you forget a default constructor?", e2);
+                        Log.e("CoordinatorLayout", "Default behavior class " + defaultBehavior.value().getName() + " could not be instantiated. Did you forget a default constructor?", e2);
                     }
                 }
                 layoutParams.mBehaviorResolved = true;

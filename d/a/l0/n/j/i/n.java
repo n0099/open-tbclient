@@ -8,27 +8,27 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile n f48158b;
+    public static volatile n f51832b;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f48159a;
+    public String f51833a;
 
     public static n b() {
-        if (f48158b == null) {
+        if (f51832b == null) {
             synchronized (n.class) {
-                if (f48158b == null) {
-                    f48158b = new n();
+                if (f51832b == null) {
+                    f51832b = new n();
                 }
             }
         }
-        return f48158b;
+        return f51832b;
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f48159a)) {
-            this.f48159a = d.a.l0.n.c.b().j().getString("extract_js_url", null);
+        if (TextUtils.isEmpty(this.f51833a)) {
+            this.f51833a = d.a.l0.n.c.b().j().getString("extract_js_url", null);
         }
-        return this.f48159a;
+        return this.f51833a;
     }
 
     public String c() {
@@ -37,7 +37,7 @@ public class n {
 
     public void d(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (d.a.l0.n.c.f47984a) {
+        if (d.a.l0.n.c.f51658a) {
             Log.d("TTSConfigManager", WebGLImageLoader.DATA_URL + jSONObject);
         }
         if (jSONObject == null) {

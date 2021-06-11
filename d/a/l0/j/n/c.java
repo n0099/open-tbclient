@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends d.a.l0.a.c0.b.a<TextureMapView, d.a.l0.a.h1.c.c> {
 
     /* renamed from: i  reason: collision with root package name */
-    public String f47892i;
+    public String f51566i;
     public String j;
     public boolean k;
     @NonNull
@@ -27,9 +27,9 @@ public class c extends d.a.l0.a.c0.b.a<TextureMapView, d.a.l0.a.h1.c.c> {
         super(context, cVar);
         this.n = new ArrayList();
         this.o = new ArrayList();
-        this.f47892i = cVar.f40846g;
-        this.j = cVar.f40845f;
-        String str = cVar.f40847h;
+        this.f51566i = cVar.f44522g;
+        this.j = cVar.f44521f;
+        String str = cVar.f44523h;
         this.m = context;
         this.l = new TextureMapView(context);
         this.k = cVar.v;
@@ -44,11 +44,11 @@ public class c extends d.a.l0.a.c0.b.a<TextureMapView, d.a.l0.a.h1.c.c> {
 
     public void H() {
         for (b bVar : this.n) {
-            this.l.removeView(bVar.f47885e);
+            this.l.removeView(bVar.f51559e);
         }
         this.n.clear();
         for (a aVar : this.o) {
-            this.l.removeView(aVar.f47879b);
+            this.l.removeView(aVar.f51553b);
         }
         this.o.clear();
         this.l.getMap().clear();
@@ -56,7 +56,7 @@ public class c extends d.a.l0.a.c0.b.a<TextureMapView, d.a.l0.a.h1.c.c> {
 
     public a I(View view) {
         for (a aVar : this.o) {
-            if (aVar.f47879b == view) {
+            if (aVar.f51553b == view) {
                 return aVar;
             }
         }
@@ -66,7 +66,7 @@ public class c extends d.a.l0.a.c0.b.a<TextureMapView, d.a.l0.a.h1.c.c> {
     @Nullable
     public b J(Marker marker) {
         for (b bVar : this.n) {
-            if (marker == bVar.f47882b) {
+            if (marker == bVar.f51556b) {
                 return bVar;
             }
         }
@@ -76,8 +76,8 @@ public class c extends d.a.l0.a.c0.b.a<TextureMapView, d.a.l0.a.h1.c.c> {
     public List<b> K(String str) {
         ArrayList arrayList = new ArrayList(1);
         for (b bVar : this.n) {
-            d dVar = bVar.f47881a;
-            if (dVar != null && TextUtils.equals(str, dVar.f42675e)) {
+            d dVar = bVar.f51555a;
+            if (dVar != null && TextUtils.equals(str, dVar.f46351e)) {
                 arrayList.add(bVar);
             }
         }

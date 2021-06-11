@@ -19,7 +19,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.tencent.connect.common.Constants;
 import d.a.c.e.m.e;
 import d.a.m0.i0.c;
 import java.util.ArrayList;
@@ -30,19 +29,19 @@ import java.util.Stack;
 public class TbPageExtraHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12896a;
+    public static String f12961a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f12897b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
+    public static HashMap<String, String> f12962b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
         {
-            put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "a028");
+            put("12", "a028");
             put("52", "a075");
             put(SoUtils.SO_EVENT_ID_DEFAULT, "a025");
             put("18", "a075");
             put("7", "a028");
             put("1", "a075");
             put("2", "a028");
-            put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "a075");
+            put("14", "a075");
             put("54", "a085");
         }
     };
@@ -51,15 +50,15 @@ public class TbPageExtraHelper {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12898e;
+        public final /* synthetic */ String f12963e;
 
         public a(String str) {
-            this.f12898e = str;
+            this.f12963e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String unused = TbPageExtraHelper.f12896a = (String) TbPageExtraHelper.f12897b.get(this.f12898e);
+            String unused = TbPageExtraHelper.f12961a = (String) TbPageExtraHelper.f12962b.get(this.f12963e);
         }
     }
 
@@ -212,7 +211,7 @@ public class TbPageExtraHelper {
     }
 
     public static String m() {
-        return f12896a;
+        return f12961a;
     }
 
     public static boolean n() {
@@ -289,11 +288,11 @@ public class TbPageExtraHelper {
     }
 
     public static void u(String str) {
-        f12896a = str;
+        f12961a = str;
     }
 
     public static void v(String str) {
-        if (!StringUtil.isEmpty(str) && f12897b.containsKey(str)) {
+        if (!StringUtil.isEmpty(str) && f12962b.containsKey(str)) {
             e.a().postDelayed(new a(str), 100L);
         }
     }

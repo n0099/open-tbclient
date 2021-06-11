@@ -201,13 +201,13 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             } else {
                 this.mTransmitHotSearchInfo.setName(stringExtra2);
             }
-            this.mTransmitHotSearchInfo.v(stringExtra);
+            this.mTransmitHotSearchInfo.z(stringExtra);
         }
     }
 
     private void loadHotSearch() {
         HotSearchInfoData hotSearchInfoData = this.mTransmitHotSearchInfo;
-        if (hotSearchInfoData != null && !TextUtils.isEmpty(hotSearchInfoData.s()) && !TextUtils.isEmpty(this.mTransmitHotSearchInfo.getName())) {
+        if (hotSearchInfoData != null && !TextUtils.isEmpty(hotSearchInfoData.w()) && !TextUtils.isEmpty(this.mTransmitHotSearchInfo.getName())) {
             this.mViewController.z(this.mTransmitHotSearchInfo);
             return;
         }
@@ -217,10 +217,10 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             BdLog.e(e2);
         }
         HotSearchInfoData hotSearchInfoData2 = this.mHotSearchInfo;
-        if (hotSearchInfoData2 != null && !TextUtils.isEmpty(hotSearchInfoData2.s()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
+        if (hotSearchInfoData2 != null && !TextUtils.isEmpty(hotSearchInfoData2.w()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
             this.mViewController.z(this.mHotSearchInfo);
         } else {
-            this.mHotForumModel.D();
+            this.mHotForumModel.H();
         }
     }
 

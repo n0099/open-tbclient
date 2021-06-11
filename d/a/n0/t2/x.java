@@ -15,18 +15,18 @@ import tbclient.App;
 public class x implements v {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<v> f61195a = new AtomicReference<>(null);
+    public static final AtomicReference<v> f64887a = new AtomicReference<>(null);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final v f61196b = new x();
+    public static final v f64888b = new x();
 
     public static v p() {
-        v vVar = f61195a.get();
-        return vVar == null ? f61196b : vVar;
+        v vVar = f64887a.get();
+        return vVar == null ? f64888b : vVar;
     }
 
     @Override // d.a.n0.t2.v
-    public d.a.c.j.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+    public d.a.c.k.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
@@ -67,7 +67,7 @@ public class x implements v {
     }
 
     @Override // d.a.n0.t2.v
-    public d.a.c.j.e.a<?, ?> h(u uVar, BdUniqueId bdUniqueId) {
+    public d.a.c.k.e.a<?, ?> h(u uVar, BdUniqueId bdUniqueId) {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
@@ -89,7 +89,7 @@ public class x implements v {
     }
 
     @Override // d.a.n0.t2.v
-    public d.a.c.j.e.a<?, ?> l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+    public d.a.c.k.e.a<?, ?> l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
         BdLog.e("recapp plugin install failed!");
         return null;
     }

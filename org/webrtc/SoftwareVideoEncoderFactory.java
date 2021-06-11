@@ -4,7 +4,7 @@ import com.baidu.rtc.PeerConnectionClient;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SoftwareVideoEncoderFactory implements VideoEncoderFactory {
     public static VideoCodecInfo[] supportedCodecs() {
         ArrayList arrayList = new ArrayList();

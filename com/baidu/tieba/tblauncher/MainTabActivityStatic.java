@@ -36,10 +36,10 @@ import java.util.Map;
 public class MainTabActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f21000a = 0;
+    public static int f21078a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f21001b = false;
+    public static boolean f21079b = false;
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
@@ -255,11 +255,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == f21000a && c2 == f21001b) {
+        if (b2 == f21078a && c2 == f21079b) {
             return;
         }
-        f21000a = b2;
-        f21001b = c2;
+        f21078a = b2;
+        f21079b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

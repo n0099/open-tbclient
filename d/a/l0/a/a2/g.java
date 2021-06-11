@@ -7,32 +7,32 @@ import java.util.Map;
 public class g extends f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f40753b = d.a.l0.a.k.f43199a;
+    public static final boolean f44429b = d.a.l0.a.k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f40754a;
+    public Map<String, Object> f44430a;
 
     public g(e eVar) {
         super(eVar);
-        this.f40754a = new HashMap();
+        this.f44430a = new HashMap();
     }
 
     public void a() {
-        this.f40754a.clear();
+        this.f44430a.clear();
     }
 
     public boolean b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.f40754a.containsKey(str);
+        return this.f44430a.containsKey(str);
     }
 
     public Boolean c(String str, Boolean bool) {
         try {
             return (Boolean) f(str, bool);
         } catch (ClassCastException e2) {
-            if (f40753b) {
+            if (f44429b) {
                 e2.printStackTrace();
             }
             return bool;
@@ -43,7 +43,7 @@ public class g extends f {
         try {
             return (Integer) f(str, num);
         } catch (ClassCastException e2) {
-            if (f40753b) {
+            if (f44429b) {
                 e2.printStackTrace();
             }
             return num;
@@ -54,7 +54,7 @@ public class g extends f {
         try {
             return (String) f(str, str2);
         } catch (ClassCastException e2) {
-            if (f40753b) {
+            if (f44429b) {
                 e2.printStackTrace();
             }
             return str2;
@@ -63,13 +63,13 @@ public class g extends f {
 
     public final <V> V f(String str, V v) {
         if (b(str)) {
-            if (this.f40754a.get(str) == null) {
+            if (this.f44430a.get(str) == null) {
                 return null;
             }
             try {
-                return (V) this.f40754a.get(str);
+                return (V) this.f44430a.get(str);
             } catch (Exception e2) {
-                if (f40753b) {
+                if (f44429b) {
                     e2.printStackTrace();
                     return v;
                 }
@@ -96,6 +96,6 @@ public class g extends f {
     }
 
     public final <V> void k(String str, V v) {
-        this.f40754a.put(str, v);
+        this.f44430a.put(str, v);
     }
 }

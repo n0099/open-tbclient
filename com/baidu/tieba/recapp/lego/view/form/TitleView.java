@@ -35,13 +35,13 @@ public class TitleView extends FormItemBaseView {
     public boolean g(FormCard.b bVar) {
         if (super.g(bVar)) {
             this.x.setTextSize(0, this.p);
-            this.x.setText(bVar.f20148b);
+            this.x.setText(bVar.f20225b);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.A.getLayoutParams();
-            int i2 = this.f20228g;
+            int i2 = this.f20305g;
             marginLayoutParams.leftMargin = i2;
             marginLayoutParams.rightMargin = i2;
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.B.getLayoutParams();
-            int i3 = this.f20228g;
+            int i3 = this.f20305g;
             marginLayoutParams2.leftMargin = i3;
             marginLayoutParams2.rightMargin = i3;
             return true;
@@ -55,11 +55,11 @@ public class TitleView extends FormItemBaseView {
     }
 
     public final void h() {
-        this.x = new TextView(this.f20226e);
-        this.y = new ImageView(this.f20226e);
-        this.z = new ImageView(this.f20226e);
-        this.A = new ImageView(this.f20226e);
-        this.B = new ImageView(this.f20226e);
+        this.x = new TextView(this.f20303e);
+        this.y = new ImageView(this.f20303e);
+        this.z = new ImageView(this.f20303e);
+        this.A = new ImageView(this.f20303e);
+        this.B = new ImageView(this.f20303e);
         k();
         i(this.A, true, 2);
         i(this.B, false, 3);
@@ -78,14 +78,14 @@ public class TitleView extends FormItemBaseView {
             imageView.setImageResource(R.drawable.form_title_icon_right);
             layoutParams.addRule(1, this.x.getId());
         }
-        int i3 = this.f20228g;
+        int i3 = this.f20305g;
         layoutParams.leftMargin = i3;
         layoutParams.rightMargin = i3;
         addView(imageView, layoutParams);
     }
 
     public final void j(ImageView imageView, boolean z) {
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.f20227f.getDimension(R.dimen.ds1));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.f20304f.getDimension(R.dimen.ds1));
         layoutParams.addRule(15);
         if (z) {
             layoutParams.addRule(0, this.A.getId());

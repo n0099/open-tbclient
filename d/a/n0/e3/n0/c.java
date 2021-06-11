@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class c extends d {
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile HashMap<String, Long> f54141d;
+    public volatile HashMap<String, Long> f57830d;
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
@@ -33,21 +33,21 @@ public class c extends d {
 
     public c(int i2) {
         super(i2);
-        this.f54141d = new HashMap<>();
+        this.f57830d = new HashMap<>();
     }
 
     public void e() {
         synchronized (this) {
-            this.f54144c.clear();
-            this.f54141d.clear();
+            this.f57833c.clear();
+            this.f57830d.clear();
         }
     }
 
     public long f(String str) {
         try {
             synchronized (this) {
-                if (this.f54141d.get(str) != null) {
-                    return this.f54141d.get(str).longValue();
+                if (this.f57830d.get(str) != null) {
+                    return this.f57830d.get(str).longValue();
                 }
                 return 0L;
             }

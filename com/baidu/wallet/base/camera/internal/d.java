@@ -9,31 +9,31 @@ import com.baidu.wallet.core.utils.LogUtil;
 public class d implements Camera.PreviewCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23156a = d.class.getSimpleName();
+    public static final String f23259a = d.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f23157b = null;
+    public static d f23260b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f23158c = new byte[0];
+    public static final byte[] f23261c = new byte[0];
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CameraCtrl f23159d = CameraCtrl.getInstance();
+    public static final CameraCtrl f23262d = CameraCtrl.getInstance();
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile c f23160e;
+    public volatile c f23263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f23161f;
+    public final int f23264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f23162g;
+    public final int f23265g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23163h;
+    public int f23266h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23164i;
+    public int f23267i;
     public final int j;
     public final int k;
     public final int l;
@@ -42,15 +42,15 @@ public class d implements Camera.PreviewCallback {
     public long o = 0;
 
     public d(int i2, int i3, int i4, int i5, int i6, int i7, c cVar) {
-        this.f23160e = null;
+        this.f23263e = null;
         i7 = i7 == 0 ? 15 : i7;
         this.l = i2;
-        this.f23161f = i3;
-        this.f23162g = i4;
+        this.f23264f = i3;
+        this.f23265g = i4;
         this.j = i6;
         this.k = i7;
         this.m = 1000 / i7;
-        this.f23160e = cVar;
+        this.f23263e = cVar;
         if (i5 % 90 == 0) {
             this.n = (i5 + 360) % 360;
         } else {
@@ -59,45 +59,45 @@ public class d implements Camera.PreviewCallback {
     }
 
     public static d a(int i2, int i3, int i4, int i5, int i6, int i7, c cVar) {
-        synchronized (f23158c) {
+        synchronized (f23261c) {
             d dVar = new d(i2, i3, i4, i5, i6, i7, cVar);
-            if (f23157b != null) {
-                if (dVar.equals(f23157b)) {
-                    LogUtil.i(f23156a, "a TPreviewCallback object is already created");
-                    return f23157b;
+            if (f23260b != null) {
+                if (dVar.equals(f23260b)) {
+                    LogUtil.i(f23259a, "a TPreviewCallback object is already created");
+                    return f23260b;
                 }
-                f23159d.destroy();
-                f23157b.f23160e.destroyCamera();
+                f23262d.destroy();
+                f23260b.f23263e.destroyCamera();
             }
             try {
-                if (!f23159d.init(i2, i3, i4, dVar.n, i6, i7)) {
-                    LogUtil.errord(f23156a, "can not initialize camera");
-                    f23157b = null;
+                if (!f23262d.init(i2, i3, i4, dVar.n, i6, i7)) {
+                    LogUtil.errord(f23259a, "can not initialize camera");
+                    f23260b = null;
                     return null;
                 }
-                dVar.f23163h = f23159d.getPreviewWidht();
-                dVar.f23164i = f23159d.getPreviewHeight();
-                f23157b = dVar;
+                dVar.f23266h = f23262d.getPreviewWidht();
+                dVar.f23267i = f23262d.getPreviewHeight();
+                f23260b = dVar;
                 dVar.a(cVar);
-                return f23157b;
+                return f23260b;
             } catch (Exception e2) {
                 e2.printStackTrace();
-                f23157b = null;
+                f23260b = null;
                 return null;
             }
         }
     }
 
     public synchronized int b() {
-        return this.f23163h;
+        return this.f23266h;
     }
 
     public void c() {
-        f23159d.pause();
+        f23262d.pause();
     }
 
     public b d() {
-        return f23159d.camera();
+        return f23262d.camera();
     }
 
     public boolean equals(Object obj) {
@@ -106,8 +106,8 @@ public class d implements Camera.PreviewCallback {
         }
         if (obj instanceof d) {
             d dVar = (d) obj;
-            c cVar = dVar.f23160e;
-            return (cVar == null || this.f23160e != null) && dVar.l == this.l && dVar.f23162g == this.f23162g && dVar.f23161f == this.f23161f && dVar.n == this.n && dVar.j == this.j && dVar.k == this.k && cVar.equals(this.f23160e);
+            c cVar = dVar.f23263e;
+            return (cVar == null || this.f23263e != null) && dVar.l == this.l && dVar.f23265g == this.f23265g && dVar.f23264f == this.f23264f && dVar.n == this.n && dVar.j == this.j && dVar.k == this.k && cVar.equals(this.f23263e);
         }
         return false;
     }
@@ -115,12 +115,12 @@ public class d implements Camera.PreviewCallback {
     public int hashCode() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.l);
-        sb.append(this.f23162g);
-        sb.append(this.f23161f);
+        sb.append(this.f23265g);
+        sb.append(this.f23264f);
         sb.append(this.n);
         sb.append(this.j);
         sb.append(this.k);
-        sb.append(this.f23160e.hashCode());
+        sb.append(this.f23263e.hashCode());
         return sb.hashCode();
     }
 
@@ -132,9 +132,9 @@ public class d implements Camera.PreviewCallback {
             this.o = currentTimeMillis;
         } else if (currentTimeMillis - j > this.m) {
             this.o = currentTimeMillis;
-            if (this.f23160e != null) {
+            if (this.f23263e != null) {
                 try {
-                    this.f23160e.processImage(bArr);
+                    this.f23263e.processImage(bArr);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -144,48 +144,48 @@ public class d implements Camera.PreviewCallback {
     }
 
     public void b(SurfaceHolder surfaceHolder) {
-        f23159d.setPreviewDisplay(surfaceHolder);
+        f23262d.setPreviewDisplay(surfaceHolder);
     }
 
     public synchronized int a() {
-        return this.f23164i;
+        return this.f23267i;
     }
 
     public void a(c cVar) {
-        synchronized (f23158c) {
+        synchronized (f23261c) {
             if (cVar != null) {
-                if (this.f23160e != null && cVar != this.f23160e) {
-                    LogUtil.w(f23156a, "VideoRequestor new ImageHandler is to add.");
-                    this.f23160e.destroyCamera();
+                if (this.f23263e != null && cVar != this.f23263e) {
+                    LogUtil.w(f23259a, "VideoRequestor new ImageHandler is to add.");
+                    this.f23263e.destroyCamera();
                 }
-                cVar.initCamera(this.f23163h, this.f23164i, this.j, this.k);
-                this.f23160e = cVar;
+                cVar.initCamera(this.f23266h, this.f23267i, this.j, this.k);
+                this.f23263e = cVar;
             } else {
-                if (this.f23160e != null) {
-                    this.f23160e.destroyCamera();
+                if (this.f23263e != null) {
+                    this.f23263e.destroyCamera();
                 }
-                this.f23160e = null;
+                this.f23263e = null;
             }
         }
     }
 
     public boolean a(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
-            LogUtil.errord(f23156a, "The camera preview surface is null");
+            LogUtil.errord(f23259a, "The camera preview surface is null");
             return false;
         }
-        f23159d.start(this, surfaceHolder);
+        f23262d.start(this, surfaceHolder);
         return true;
     }
 
     public void a(boolean z) {
-        synchronized (f23158c) {
-            f23159d.destroy();
-            if (!z && this.f23160e != null) {
-                this.f23160e.destroyCamera();
+        synchronized (f23261c) {
+            f23262d.destroy();
+            if (!z && this.f23263e != null) {
+                this.f23263e.destroyCamera();
             }
-            this.f23160e = null;
-            f23157b = null;
+            this.f23263e = null;
+            f23260b = null;
         }
     }
 

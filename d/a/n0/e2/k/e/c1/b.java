@@ -18,31 +18,31 @@ import com.baidu.tieba.R;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public h f53202a;
+    public h f56891a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animator f53203b;
+    public Animator f56892b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Animator f53204c;
+    public Animator f56893c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ValueAnimator f53205d;
+    public ValueAnimator f56894d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValueAnimator f53206e;
+    public ValueAnimator f56895e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AnimatorSet f53207f;
+    public AnimatorSet f56896f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AnimatorSet f53208g;
+    public AnimatorSet f56897g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f53209h;
+    public View f56898h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f53210i;
+    public View f56899i;
     public View j;
     public View k;
     public int l = UtilHelper.getLightStatusBarHeight();
@@ -88,8 +88,8 @@ public class b {
 
     /* renamed from: d.a.n0.e2.k.e.c1.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1264b implements Animator.AnimatorListener {
-        public C1264b() {
+    public class C1320b implements Animator.AnimatorListener {
+        public C1320b() {
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -98,17 +98,17 @@ public class b {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (b.this.f53209h == null) {
+            if (b.this.f56898h == null) {
                 return;
             }
-            b.this.f53209h.clearAnimation();
+            b.this.f56898h.clearAnimation();
             if (b.this.s) {
                 b.this.v(false);
             } else {
                 b.this.v(true);
             }
-            if (b.this.f53202a != null) {
-                b.this.f53202a.a(false);
+            if (b.this.f56891a != null) {
+                b.this.f56891a.a(false);
             }
             b.this.j.clearAnimation();
         }
@@ -186,14 +186,14 @@ public class b {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (b.this.f53209h == null) {
+            if (b.this.f56898h == null) {
                 return;
             }
-            b.this.f53209h.clearAnimation();
-            b.this.f53209h.setVisibility(0);
+            b.this.f56898h.clearAnimation();
+            b.this.f56898h.setVisibility(0);
             b.this.v(false);
-            if (b.this.f53202a != null) {
-                b.this.f53202a.a(true);
+            if (b.this.f56891a != null) {
+                b.this.f56891a.a(true);
             }
         }
 
@@ -265,8 +265,8 @@ public class b {
     }
 
     public b(Context context, View view, View view2, View view3) {
-        this.f53209h = view;
-        this.f53210i = view2;
+        this.f56898h = view;
+        this.f56899i = view2;
         this.j = view3;
         this.k = view3.findViewById(R.id.sticky_view);
         j();
@@ -274,12 +274,12 @@ public class b {
     }
 
     public void A(boolean z, boolean z2) {
-        View view = this.f53209h;
+        View view = this.f56898h;
         if (view == null || view.getY() != 0.0f || o()) {
             return;
         }
         if (z2) {
-            this.f53209h.setVisibility(8);
+            this.f56898h.setVisibility(8);
             if (this.s) {
                 v(false);
                 return;
@@ -288,14 +288,14 @@ public class b {
                 return;
             }
         }
-        this.f53209h.setVisibility(0);
-        if (this.f53208g == null) {
+        this.f56898h.setVisibility(0);
+        if (this.f56897g == null) {
             m();
         }
-        AnimatorSet animatorSet = this.f53208g;
+        AnimatorSet animatorSet = this.f56897g;
         if (animatorSet != null) {
             animatorSet.cancel();
-            this.f53208g.setDuration(300L).start();
+            this.f56897g.setDuration(300L).start();
         }
     }
 
@@ -308,18 +308,18 @@ public class b {
     }
 
     public void D() {
-        View view = this.f53209h;
+        View view = this.f56898h;
         if (view == null || view.getY() >= 0.0f || o()) {
             return;
         }
-        this.f53209h.setVisibility(0);
-        if (this.f53207f == null) {
+        this.f56898h.setVisibility(0);
+        if (this.f56896f == null) {
             n();
         }
-        AnimatorSet animatorSet = this.f53207f;
+        AnimatorSet animatorSet = this.f56896f;
         if (animatorSet != null) {
             animatorSet.cancel();
-            this.f53207f.setDuration(300L).start();
+            this.f56896f.setDuration(300L).start();
         }
     }
 
@@ -331,14 +331,14 @@ public class b {
     }
 
     public final void j() {
-        View view = this.f53210i;
+        View view = this.f56899i;
         if (view == null) {
             return;
         }
         if (this.n && view.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams = this.f53210i.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f56899i.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
-            this.f53210i.setLayoutParams(layoutParams);
+            this.f56899i.setLayoutParams(layoutParams);
             v(true);
             return;
         }
@@ -353,7 +353,7 @@ public class b {
         if (this.u) {
             if (this.o) {
                 v(true);
-            } else if (this.f53209h == null || this.q || this.r || !p()) {
+            } else if (this.f56898h == null || this.q || this.r || !p()) {
             } else {
                 Log.i("PbView", "hideFloatingView: startDragDown");
                 y();
@@ -362,48 +362,48 @@ public class b {
     }
 
     public final void m() {
-        View view = this.f53209h;
+        View view = this.f56898h;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", (-view.getMeasuredHeight()) + this.j.getMeasuredHeight());
-        this.f53203b = ofFloat;
+        this.f56892b = ofFloat;
         ofFloat.setInterpolator(new LinearInterpolator());
-        this.f53203b.addListener(new C1264b());
+        this.f56892b.addListener(new C1320b());
         ValueAnimator ofInt = ValueAnimator.ofInt(0, this.l);
-        this.f53206e = ofInt;
+        this.f56895e = ofInt;
         ofInt.setInterpolator(new LinearInterpolator());
-        this.f53206e.addListener(new c());
-        this.f53206e.addUpdateListener(new d());
+        this.f56895e.addListener(new c());
+        this.f56895e.addUpdateListener(new d());
         AnimatorSet animatorSet = new AnimatorSet();
-        this.f53208g = animatorSet;
-        animatorSet.play(this.f53203b).with(this.f53206e);
+        this.f56897g = animatorSet;
+        animatorSet.play(this.f56892b).with(this.f56895e);
     }
 
     public final void n() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f53209h, "translationY", 0.0f);
-        this.f53204c = ofFloat;
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f56898h, "translationY", 0.0f);
+        this.f56893c = ofFloat;
         ofFloat.setInterpolator(new LinearInterpolator());
-        this.f53204c.addListener(new e());
+        this.f56893c.addListener(new e());
         ValueAnimator ofInt = ValueAnimator.ofInt(this.l, 0);
-        this.f53205d = ofInt;
+        this.f56894d = ofInt;
         ofInt.setInterpolator(new LinearInterpolator());
-        this.f53205d.addListener(new f());
-        this.f53205d.addUpdateListener(new g());
+        this.f56894d.addListener(new f());
+        this.f56894d.addUpdateListener(new g());
         AnimatorSet animatorSet = new AnimatorSet();
-        this.f53207f = animatorSet;
-        animatorSet.play(this.f53204c).with(this.f53205d);
+        this.f56896f = animatorSet;
+        animatorSet.play(this.f56893c).with(this.f56894d);
     }
 
     public boolean o() {
         AnimatorSet animatorSet;
-        AnimatorSet animatorSet2 = this.f53207f;
-        return (animatorSet2 != null && animatorSet2.isRunning()) || ((animatorSet = this.f53208g) != null && animatorSet.isRunning());
+        AnimatorSet animatorSet2 = this.f56896f;
+        return (animatorSet2 != null && animatorSet2.isRunning()) || ((animatorSet = this.f56897g) != null && animatorSet.isRunning());
     }
 
     public boolean p() {
-        return this.f53209h.getVisibility() == 0 && this.f53209h.getY() >= 0.0f;
+        return this.f56898h.getVisibility() == 0 && this.f56898h.getY() >= 0.0f;
     }
 
     public void q(AbsListView absListView, int i2, int i3, int i4) {
-        if (!this.u || this.f53209h == null || this.q || this.r || !this.m) {
+        if (!this.u || this.f56898h == null || this.q || this.r || !this.m) {
             return;
         }
         if (i2 > this.p && p()) {
@@ -454,7 +454,7 @@ public class b {
     }
 
     public void t(h hVar) {
-        this.f53202a = hVar;
+        this.f56891a = hVar;
     }
 
     public void u(boolean z) {
@@ -462,15 +462,15 @@ public class b {
     }
 
     public final void v(boolean z) {
-        View view = this.f53210i;
+        View view = this.f56899i;
         if (view == null) {
             return;
         }
         if (this.n && z && view.getVisibility() != 0) {
-            this.f53210i.setVisibility(0);
-        } else if (z || this.f53210i.getVisibility() == 8) {
+            this.f56899i.setVisibility(0);
+        } else if (z || this.f56899i.getVisibility() == 8) {
         } else {
-            this.f53210i.setVisibility(8);
+            this.f56899i.setVisibility(8);
         }
     }
 
@@ -482,7 +482,7 @@ public class b {
         if (this.u) {
             if (this.o) {
                 v(true);
-            } else if (this.f53209h == null || p()) {
+            } else if (this.f56898h == null || p()) {
             } else {
                 Log.i("PbView", "showFloatingView: startDragUp");
                 z();

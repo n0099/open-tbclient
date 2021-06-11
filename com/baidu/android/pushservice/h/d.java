@@ -5,25 +5,25 @@ import java.util.concurrent.TimeUnit;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f3135a;
+    public static a f3154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f3136b;
+    public static d f3155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3137c;
+    public static final int f3156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3138d;
+    public static final int f3157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3139e;
+    public static final int f3158e;
 
     static {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f3137c = availableProcessors;
-        f3138d = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f3139e = f3137c << 3;
+        f3156c = availableProcessors;
+        f3157d = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f3158e = f3156c << 3;
     }
 
     public d() {
@@ -33,27 +33,27 @@ public class d {
                 d.this.b();
             }
         });
-        a aVar = new a(f3138d, f3139e, 2L, TimeUnit.MINUTES, new b());
-        f3135a = aVar;
+        a aVar = new a(f3157d, f3158e, 2L, TimeUnit.MINUTES, new b());
+        f3154a = aVar;
         aVar.allowCoreThreadTimeOut(true);
     }
 
     public static d a() {
         a aVar;
-        if (f3136b == null || (aVar = f3135a) == null || aVar.isShutdown() || f3135a.isTerminated()) {
-            f3136b = new d();
+        if (f3155b == null || (aVar = f3154a) == null || aVar.isShutdown() || f3154a.isTerminated()) {
+            f3155b = new d();
         }
-        return f3136b;
+        return f3155b;
     }
 
     public boolean a(c cVar) {
         try {
-            f3135a.submit(cVar);
+            f3154a.submit(cVar);
             return true;
         } catch (Exception unused) {
-            a aVar = f3135a;
-            if (aVar == null || aVar.getCorePoolSize() == 0 || f3135a.getPoolSize() == 0) {
-                f3135a = new a(f3138d, f3139e, 2L, TimeUnit.MINUTES, new b());
+            a aVar = f3154a;
+            if (aVar == null || aVar.getCorePoolSize() == 0 || f3154a.getPoolSize() == 0) {
+                f3154a = new a(f3157d, f3158e, 2L, TimeUnit.MINUTES, new b());
                 return false;
             }
             return false;
@@ -61,11 +61,11 @@ public class d {
     }
 
     public void b() {
-        a aVar = f3135a;
+        a aVar = f3154a;
         if (aVar != null) {
             try {
                 aVar.getQueue().clear();
-                f3135a.shutdown();
+                f3154a.shutdown();
             } catch (Exception unused) {
             }
         }

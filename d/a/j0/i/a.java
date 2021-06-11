@@ -12,13 +12,13 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f40447c;
+    public static volatile a f44126c;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f40448a;
+    public b f44127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f40449b;
+    public Context f44128b;
 
     /* loaded from: classes2.dex */
     public class b extends SQLiteOpenHelper {
@@ -41,19 +41,19 @@ public class a {
     }
 
     public a(Context context) {
-        this.f40449b = context;
-        this.f40448a = new b(this.f40449b);
+        this.f44128b = context;
+        this.f44127a = new b(this.f44128b);
     }
 
     public static a a(Context context) {
-        if (f40447c == null) {
+        if (f44126c == null) {
             synchronized (a.class) {
-                if (f40447c == null) {
-                    f40447c = new a(context);
+                if (f44126c == null) {
+                    f44126c = new a(context);
                 }
             }
         }
-        return f40447c;
+        return f44126c;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -61,7 +61,7 @@ public class a {
         Throwable th;
         Cursor cursor;
         try {
-            SQLiteDatabase writableDatabase = this.f40448a.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f44127a.getWritableDatabase();
             StringBuilder sb = new StringBuilder();
             sb.append("SELECT * FROM rp_tb WHERE c IN (");
             sb.append(str);
@@ -74,7 +74,7 @@ public class a {
                         while (cursor.moveToNext()) {
                             d.a.j0.j.a aVar = new d.a.j0.j.a();
                             aVar.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            aVar.c(e.a(this.f40449b, cursor.getString(cursor.getColumnIndex("a"))));
+                            aVar.c(e.a(this.f44128b, cursor.getString(cursor.getColumnIndex("a"))));
                             aVar.g(cursor.getInt(cursor.getColumnIndex("c")));
                             aVar.e(cursor.getInt(cursor.getColumnIndex("d")));
                             arrayList.add(aVar);
@@ -130,10 +130,10 @@ public class a {
         }
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("a", e.b(this.f40449b, aVar.d().getBytes()));
+            contentValues.put("a", e.b(this.f44128b, aVar.d().getBytes()));
             contentValues.put("c", Integer.valueOf(aVar.h()));
             contentValues.put("d", Integer.valueOf(aVar.f()));
-            this.f40448a.getWritableDatabase().insert("rp_tb", null, contentValues);
+            this.f44127a.getWritableDatabase().insert("rp_tb", null, contentValues);
         } catch (Throwable th) {
             c.d(th);
         }
@@ -159,7 +159,7 @@ public class a {
         Throwable th;
         Cursor cursor;
         try {
-            SQLiteDatabase writableDatabase = this.f40448a.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f44127a.getWritableDatabase();
             StringBuilder sb = new StringBuilder();
             sb.append("SELECT * FROM rp_tb WHERE c IN (");
             sb.append(str);
@@ -176,7 +176,7 @@ public class a {
                         while (cursor.moveToNext()) {
                             d.a.j0.j.a aVar = new d.a.j0.j.a();
                             aVar.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            aVar.c(e.a(this.f40449b, cursor.getString(cursor.getColumnIndex("a"))));
+                            aVar.c(e.a(this.f44128b, cursor.getString(cursor.getColumnIndex("a"))));
                             aVar.g(cursor.getInt(cursor.getColumnIndex("c")));
                             aVar.e(cursor.getInt(cursor.getColumnIndex("d")));
                             arrayList.add(aVar);
@@ -228,7 +228,7 @@ public class a {
 
     public final void f(d.a.j0.j.a aVar) {
         try {
-            this.f40448a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(aVar.a())});
+            this.f44127a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(aVar.a())});
         } catch (Throwable th) {
             System.currentTimeMillis();
             c.d(th);

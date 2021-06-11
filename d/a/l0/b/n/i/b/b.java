@@ -3,11 +3,11 @@ package d.a.l0.b.n.i.b;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46440a;
+    public String f50114a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f46441b;
+    public double f50115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f46442c;
+    public double f50116c;
 }

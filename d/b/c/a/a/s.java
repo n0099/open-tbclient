@@ -6,7 +6,7 @@ import kotlin.UShort;
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f65201a = Charset.forName("UTF-8");
+    public static final Charset f68932a = Charset.forName("UTF-8");
 
     public static int a(int i2) {
         return ((i2 & 255) << 24) | (((-16777216) & i2) >>> 24) | ((16711680 & i2) >>> 8) | ((65280 & i2) << 8);

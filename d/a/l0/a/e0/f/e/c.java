@@ -13,31 +13,31 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f41442e = k.f43199a;
+    public static final boolean f45118e = k.f46875a;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41443a;
+    public String f45119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f41444b;
+    public JSONArray f45120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41445c;
+    public String f45121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41446d;
+    public String f45122d;
 
     public static c b(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.f41444b = jSONObject.getJSONArray("host");
-            cVar.f41443a = jSONObject.getString("appKey");
+            cVar.f45120b = jSONObject.getJSONArray("host");
+            cVar.f45119a = jSONObject.getString("appKey");
             jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            cVar.f41445c = jSONObject.getString(ClientCookie.PORT_ATTR);
-            cVar.f41446d = Uri.decode(jSONObject.optString("url"));
+            cVar.f45121c = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.f45122d = Uri.decode(jSONObject.optString("url"));
             return cVar;
         } catch (JSONException unused) {
-            if (f41442e) {
+            if (f45118e) {
                 Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
                 return null;
             }
@@ -46,7 +46,7 @@ public class c {
     }
 
     public String a(int i2) {
-        JSONArray jSONArray = this.f41444b;
+        JSONArray jSONArray = this.f45120b;
         if (jSONArray == null) {
             return "";
         }
@@ -54,6 +54,6 @@ public class c {
         if (TextUtils.isEmpty(optString)) {
             return "";
         }
-        return "http://" + optString + ":" + this.f41445c;
+        return "http://" + optString + ":" + this.f45121c;
     }
 }

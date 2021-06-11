@@ -24,31 +24,31 @@ import d.a.n0.e2.k.e.i0;
 public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f19107a;
+    public LinearLayout f19184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19108b;
+    public View f19185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f19109c;
+    public RelativeLayout f19186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f19110d;
+    public TbImageView f19187d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f19111e;
+    public TextView f19188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19112f;
+    public TextView f19189f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19113g;
+    public TextView f19190g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f19114h;
+    public LinearLayout f19191h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f19115i;
+    public ImageView f19192i;
     public TextView j;
     public LinearLayout k;
     public ImageView l;
@@ -75,23 +75,23 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
                     PbPageNewsInfoHolder.this.u.a(PbPageNewsInfoHolder.this.t);
                 }
                 PbPageNewsInfoHolder pbPageNewsInfoHolder = PbPageNewsInfoHolder.this;
-                if (view == pbPageNewsInfoHolder.f19109c) {
-                    if (pbPageNewsInfoHolder.o == null || TextUtils.isEmpty(PbPageNewsInfoHolder.this.o.f49965a)) {
+                if (view == pbPageNewsInfoHolder.f19186c) {
+                    if (pbPageNewsInfoHolder.o == null || TextUtils.isEmpty(PbPageNewsInfoHolder.this.o.f53641a)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(PbPageNewsInfoHolder.this.r.getPageActivity()), new String[]{PbPageNewsInfoHolder.this.o.f49965a});
-                    TiebaStatic.log(new StatisticItem("c11410").param("obj_source", PbPageNewsInfoHolder.this.o.f49965a));
-                } else if (view == pbPageNewsInfoHolder.f19114h) {
-                    BdLog.e("link: " + PbPageNewsInfoHolder.this.p.f49965a);
-                    if (PbPageNewsInfoHolder.this.p == null || TextUtils.isEmpty(PbPageNewsInfoHolder.this.p.f49965a)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(PbPageNewsInfoHolder.this.r.getPageActivity()), new String[]{PbPageNewsInfoHolder.this.o.f53641a});
+                    TiebaStatic.log(new StatisticItem("c11410").param("obj_source", PbPageNewsInfoHolder.this.o.f53641a));
+                } else if (view == pbPageNewsInfoHolder.f19191h) {
+                    BdLog.e("link: " + PbPageNewsInfoHolder.this.p.f53641a);
+                    if (PbPageNewsInfoHolder.this.p == null || TextUtils.isEmpty(PbPageNewsInfoHolder.this.p.f53641a)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(PbPageNewsInfoHolder.this.r.getPageActivity()), new String[]{PbPageNewsInfoHolder.this.p.f49965a});
-                    TiebaStatic.log(new StatisticItem("c11409").param("obj_source", PbPageNewsInfoHolder.this.p.f49965a));
-                } else if (view != pbPageNewsInfoHolder.k || pbPageNewsInfoHolder.q == null || TextUtils.isEmpty(PbPageNewsInfoHolder.this.q.f49965a)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(PbPageNewsInfoHolder.this.r.getPageActivity()), new String[]{PbPageNewsInfoHolder.this.p.f53641a});
+                    TiebaStatic.log(new StatisticItem("c11409").param("obj_source", PbPageNewsInfoHolder.this.p.f53641a));
+                } else if (view != pbPageNewsInfoHolder.k || pbPageNewsInfoHolder.q == null || TextUtils.isEmpty(PbPageNewsInfoHolder.this.q.f53641a)) {
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(PbPageNewsInfoHolder.this.r.getPageActivity()), new String[]{PbPageNewsInfoHolder.this.q.f49965a});
-                    TiebaStatic.log(new StatisticItem("c11408").param("obj_source", PbPageNewsInfoHolder.this.q.f49965a));
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(PbPageNewsInfoHolder.this.r.getPageActivity()), new String[]{PbPageNewsInfoHolder.this.q.f53641a});
+                    TiebaStatic.log(new StatisticItem("c11408").param("obj_source", PbPageNewsInfoHolder.this.q.f53641a));
                 }
             }
         }
@@ -108,15 +108,15 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.v = new a();
         this.r = tbPageContext;
         this.u = bVar;
-        this.f19107a = (LinearLayout) view.findViewById(R.id.pb_news_info_layout);
-        this.f19108b = view.findViewById(R.id.pb_list_item_top_line);
-        this.f19109c = (RelativeLayout) view.findViewById(R.id.pb_top_code);
-        this.f19110d = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.f19111e = (TextView) view.findViewById(R.id.top_code_get_btn);
-        this.f19112f = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.f19113g = (TextView) view.findViewById(R.id.top_code_detail_subtitle_text);
-        this.f19114h = (LinearLayout) view.findViewById(R.id.news_info);
-        this.f19115i = (ImageView) view.findViewById(R.id.news_info_img);
+        this.f19184a = (LinearLayout) view.findViewById(R.id.pb_news_info_layout);
+        this.f19185b = view.findViewById(R.id.pb_list_item_top_line);
+        this.f19186c = (RelativeLayout) view.findViewById(R.id.pb_top_code);
+        this.f19187d = (TbImageView) view.findViewById(R.id.top_code_img);
+        this.f19188e = (TextView) view.findViewById(R.id.top_code_get_btn);
+        this.f19189f = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.f19190g = (TextView) view.findViewById(R.id.top_code_detail_subtitle_text);
+        this.f19191h = (LinearLayout) view.findViewById(R.id.news_info);
+        this.f19192i = (ImageView) view.findViewById(R.id.news_info_img);
         this.j = (TextView) view.findViewById(R.id.news_info_text);
         this.k = (LinearLayout) view.findViewById(R.id.game_info);
         this.l = (ImageView) view.findViewById(R.id.game_info_img);
@@ -135,34 +135,34 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.p = i0Var.y0;
         this.q = i0Var.z0;
         if (c1Var != null) {
-            this.f19110d.V(c1Var.f49968d, 10, false);
-            this.f19112f.setText(this.o.f49966b);
-            this.f19113g.setText(this.o.f49969e);
-            this.f19111e.setText(this.o.f49970f);
-            SkinManager.setBackgroundResource(this.f19111e, R.drawable.selector_star_btn_like);
-            SkinManager.setViewTextColor(this.f19111e, R.drawable.news_text_color_selector);
+            this.f19187d.U(c1Var.f53644d, 10, false);
+            this.f19189f.setText(this.o.f53642b);
+            this.f19190g.setText(this.o.f53645e);
+            this.f19188e.setText(this.o.f53646f);
+            SkinManager.setBackgroundResource(this.f19188e, R.drawable.selector_star_btn_like);
+            SkinManager.setViewTextColor(this.f19188e, R.drawable.news_text_color_selector);
         } else {
-            this.f19109c.setVisibility(8);
+            this.f19186c.setVisibility(8);
         }
         c1 c1Var2 = this.p;
         if (c1Var2 != null) {
-            this.j.setText(c1Var2.f49966b);
-            SkinManager.setBackgroundResource(this.f19115i, R.drawable.icon_frs_news);
+            this.j.setText(c1Var2.f53642b);
+            SkinManager.setBackgroundResource(this.f19192i, R.drawable.icon_frs_news);
         } else {
-            this.f19114h.setVisibility(8);
+            this.f19191h.setVisibility(8);
             this.j.setVisibility(8);
-            this.f19115i.setVisibility(8);
+            this.f19192i.setVisibility(8);
         }
         c1 c1Var3 = this.q;
         if (c1Var3 != null) {
-            this.m.setText(c1Var3.f49966b);
+            this.m.setText(c1Var3.f53642b);
             SkinManager.setBackgroundResource(this.l, R.drawable.icon_frs_game);
         } else {
             this.k.setVisibility(8);
             this.m.setVisibility(8);
             this.m.setVisibility(8);
         }
-        this.f19107a.setTag(i0Var);
+        this.f19184a.setTag(i0Var);
     }
 
     public void i(int i2) {
@@ -174,8 +174,8 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     }
 
     public void j(View.OnClickListener onClickListener) {
-        this.f19109c.setOnClickListener(onClickListener);
-        this.f19114h.setOnClickListener(onClickListener);
+        this.f19186c.setOnClickListener(onClickListener);
+        this.f19191h.setOnClickListener(onClickListener);
         this.k.setOnClickListener(onClickListener);
     }
 }

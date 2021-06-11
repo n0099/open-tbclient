@@ -26,30 +26,30 @@ import java.util.List;
 public class EmojiBagLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewPager f11019e;
+    public ViewPager f11081e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CircleIndicator f11020f;
+    public CircleIndicator f11082f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f11021g;
+    public List<String> f11083g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<GridView> f11022h;
+    public List<GridView> f11084h;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11023e;
+        public final /* synthetic */ b f11085e;
 
         public a(b bVar) {
-            this.f11023e = bVar;
+            this.f11085e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f11023e.notifyDataSetChanged();
+            this.f11085e.notifyDataSetChanged();
         }
     }
 
@@ -57,26 +57,26 @@ public class EmojiBagLayout extends LinearLayout {
     public class b extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<String> f11025e;
+        public List<String> f11087e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LayoutInflater f11026f;
+        public LayoutInflater f11088f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Context f11027g;
+        public Context f11089g;
 
         public b(Context context, List<String> list) {
-            this.f11025e = list;
-            this.f11026f = LayoutInflater.from(context);
-            this.f11027g = context;
+            this.f11087e = list;
+            this.f11088f = LayoutInflater.from(context);
+            this.f11089g = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
         public String getItem(int i2) {
-            if (i2 < this.f11025e.size()) {
-                return this.f11025e.get(i2);
+            if (i2 < this.f11087e.size()) {
+                return this.f11087e.get(i2);
             }
             return null;
         }
@@ -95,7 +95,7 @@ public class EmojiBagLayout extends LinearLayout {
         public View getView(int i2, View view, ViewGroup viewGroup) {
             LinearLayout linearLayout;
             if (view == null) {
-                linearLayout = (LinearLayout) this.f11026f.inflate(g.swanapp_emotion_grid_item, viewGroup, false);
+                linearLayout = (LinearLayout) this.f11088f.inflate(g.swanapp_emotion_grid_item, viewGroup, false);
                 ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
                 layoutParams.height = EmojiBagLayout.this.getResources().getDimensionPixelSize(d.aiapps_emoji_row_height);
                 linearLayout.setLayoutParams(layoutParams);
@@ -105,8 +105,8 @@ public class EmojiBagLayout extends LinearLayout {
             ImageView imageView = (ImageView) linearLayout.findViewById(f.img_item);
             if (i2 == getCount() - 1) {
                 imageView.setImageResource(e.swanapp_publisher_delete);
-            } else if (i2 < this.f11025e.size()) {
-                imageView.setImageBitmap(d.a.l0.a.w1.h.b.c().a(this.f11025e.get(i2)));
+            } else if (i2 < this.f11087e.size()) {
+                imageView.setImageBitmap(d.a.l0.a.w1.h.b.c().a(this.f11087e.get(i2)));
             }
             return linearLayout;
         }
@@ -116,26 +116,26 @@ public class EmojiBagLayout extends LinearLayout {
     public class c extends PagerAdapter {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<GridView> f11029a;
+        public List<GridView> f11091a;
 
         public c(List<GridView> list) {
-            this.f11029a = list;
+            this.f11091a = list;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
-            viewGroup.removeView(this.f11029a.get(i2));
+            viewGroup.removeView(this.f11091a.get(i2));
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return this.f11029a.size();
+            return this.f11091a.size();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i2) {
-            viewGroup.addView(this.f11029a.get(i2));
-            return this.f11029a.get(i2);
+            viewGroup.addView(this.f11091a.get(i2));
+            return this.f11091a.get(i2);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -150,10 +150,10 @@ public class EmojiBagLayout extends LinearLayout {
 
     public final List<String> a(int i2) {
         int i3 = i2 * 20;
-        int min = Math.min(i3 + 20, this.f11021g.size());
+        int min = Math.min(i3 + 20, this.f11083g.size());
         ArrayList arrayList = new ArrayList();
         while (i3 < min) {
-            arrayList.add(this.f11021g.get(i3));
+            arrayList.add(this.f11083g.get(i3));
             i3++;
         }
         return arrayList;
@@ -162,23 +162,23 @@ public class EmojiBagLayout extends LinearLayout {
     public final void b(Context context) {
         setBackgroundColor(-1);
         setOrientation(1);
-        this.f11019e = new ViewPager(context);
-        this.f11020f = new CircleIndicator(context);
+        this.f11081e = new ViewPager(context);
+        this.f11082f = new CircleIndicator(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
         layoutParams.weight = 1.0f;
-        this.f11019e.setLayoutParams(layoutParams);
+        this.f11081e.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(d.aiapps_emoji_indicator_height));
         layoutParams2.weight = 0.0f;
-        this.f11020f.setLayoutParams(layoutParams2);
-        this.f11019e.setOverScrollMode(2);
-        addView(this.f11019e);
-        addView(this.f11020f);
+        this.f11082f.setLayoutParams(layoutParams2);
+        this.f11081e.setOverScrollMode(2);
+        addView(this.f11081e);
+        addView(this.f11082f);
     }
 
     public final void c() {
-        int size = this.f11022h.size();
+        int size = this.f11084h.size();
         for (int i2 = 0; i2 < size; i2++) {
-            this.f11022h.get(i2).setAdapter((ListAdapter) new b(getContext(), a(i2)));
+            this.f11084h.get(i2).setAdapter((ListAdapter) new b(getContext(), a(i2)));
         }
     }
 
@@ -190,26 +190,26 @@ public class EmojiBagLayout extends LinearLayout {
         int measuredHeight = getChildAt(0).getMeasuredHeight() - (resources.getDimensionPixelSize(d.aiapps_emoji_row_height) * 3);
         int g2 = (measuredHeight / 4) + n0.g(8.0f);
         int i6 = (measuredHeight - (g2 * 2)) / 2;
-        int size = this.f11022h.size();
+        int size = this.f11084h.size();
         for (int i7 = 0; i7 < size; i7++) {
-            GridView gridView = this.f11022h.get(i7);
+            GridView gridView = this.f11084h.get(i7);
             int dimensionPixelSize = resources.getDimensionPixelSize(d.aiapps_emoji_left_right_padding);
             gridView.setPadding(dimensionPixelSize, g2, dimensionPixelSize, g2);
             gridView.setVerticalSpacing(i6);
             gridView.setHorizontalSpacing(resources.getDimensionPixelSize(d.aiapps_emoji_grid_space));
             b bVar = (b) gridView.getAdapter();
-            if (bVar != null && (viewPager = this.f11019e) != null) {
+            if (bVar != null && (viewPager = this.f11081e) != null) {
                 viewPager.post(new a(bVar));
             }
         }
     }
 
     public void setEmotionList(List<String> list) {
-        this.f11021g = list;
+        this.f11083g = list;
         if (list == null || list.size() <= 0) {
             return;
         }
-        int size = this.f11021g.size();
+        int size = this.f11083g.size();
         int i2 = size % 20;
         int i3 = size / 20;
         if (i2 != 0) {
@@ -227,11 +227,11 @@ public class EmojiBagLayout extends LinearLayout {
             noScrollGridView.setOnItemLongClickListener(g2.i());
             noScrollGridView.setOnTouchListener(g2.j());
             noScrollGridView.setSelector(new ColorDrawable(0));
-            this.f11022h.add(noScrollGridView);
+            this.f11084h.add(noScrollGridView);
         }
         c();
-        this.f11019e.setAdapter(new c(this.f11022h));
-        this.f11020f.setViewPager(this.f11019e);
+        this.f11081e.setAdapter(new c(this.f11084h));
+        this.f11082f.setViewPager(this.f11081e);
     }
 
     public EmojiBagLayout(Context context, @Nullable AttributeSet attributeSet) {
@@ -240,7 +240,7 @@ public class EmojiBagLayout extends LinearLayout {
 
     public EmojiBagLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11022h = new ArrayList();
+        this.f11084h = new ArrayList();
         b(context);
     }
 }

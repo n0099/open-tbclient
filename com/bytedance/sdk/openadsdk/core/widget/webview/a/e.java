@@ -19,14 +19,14 @@ public class e {
         
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28757e;
+        public String f28860e;
 
         a(String str) {
-            this.f28757e = str;
+            this.f28860e = str;
         }
 
         public String a() {
-            return this.f28757e;
+            return this.f28860e;
         }
     }
 

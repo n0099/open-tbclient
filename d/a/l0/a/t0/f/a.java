@@ -36,19 +36,19 @@ import org.json.JSONObject;
 @Autowired
 /* loaded from: classes3.dex */
 public class a extends d.a.l0.a.t0.c {
-    public static final boolean v = k.f43199a;
+    public static final boolean v = k.f46875a;
 
     /* renamed from: d.a.l0.a.t0.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0823a implements Runnable {
-        public RunnableC0823a() {
+    public class RunnableC0879a implements Runnable {
+        public RunnableC0879a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.a.l0.a.v2.f.d(a.this.f44717f)) {
+            if (d.a.l0.a.v2.f.d(a.this.f48391f)) {
                 d.a.l0.a.d2.d.g();
-                d.a.l0.a.g1.f.V().E(a.this.f44717f);
+                d.a.l0.a.g1.f.V().E(a.this.f48391f);
             }
         }
     }
@@ -73,10 +73,10 @@ public class a extends d.a.l0.a.t0.c {
         @Override // d.a.l0.a.h0.j.b
         /* renamed from: b */
         public void a(Boolean bool) {
-            if (a.this.f44717f == null || !bool.booleanValue()) {
+            if (a.this.f48391f == null || !bool.booleanValue()) {
                 return;
             }
-            a.this.f44717f.onBackPressed();
+            a.this.f48391f.onBackPressed();
         }
     }
 
@@ -87,8 +87,8 @@ public class a extends d.a.l0.a.t0.c {
 
         @Override // d.a.l0.a.v0.c.b
         public void a() {
-            if (a.this.f44717f != null) {
-                a.this.f44717f.moveTaskToBack(true);
+            if (a.this.f48391f != null) {
+                a.this.f48391f.moveTaskToBack(true);
                 x0.b().e(1);
             }
         }
@@ -118,7 +118,7 @@ public class a extends d.a.l0.a.t0.c {
             } else if (i2 == 129) {
                 int p = d.a.l0.a.v2.c.m().p();
                 d.a.l0.a.e0.d.g("SwanAppFrame", "resetCore: client receive msg topTaskId = " + p);
-                if (a.this.f44717f != null && a.this.f44717f.isBackground() && p != -1 && a.this.f44717f.getTaskId() != p) {
+                if (a.this.f48391f != null && a.this.f48391f.isBackground() && p != -1 && a.this.f48391f.getTaskId() != p) {
                     d.a.l0.a.e0.d.g("SwanAppFrame", "resetCore: purgeSwanApp");
                     d.a.l0.a.a2.d.g().t();
                 }
@@ -126,8 +126,8 @@ public class a extends d.a.l0.a.t0.c {
             } else if (i2 == 102) {
                 boolean a3 = d.a.l0.a.c1.a.H().a();
                 d.a.l0.a.c1.a.H().d(a3);
-                if (a.this.f44717f != null) {
-                    a.this.f44717f.onNightModeCoverChanged(a3, false);
+                if (a.this.f48391f != null) {
+                    a.this.f48391f.onNightModeCoverChanged(a3, false);
                 }
                 return true;
             } else if (i2 == 103) {
@@ -190,9 +190,9 @@ public class a extends d.a.l0.a.t0.c {
 
     @Override // d.a.l0.a.t0.c
     public void a0(int i2) {
-        d.a.l0.a.e0.d.g("SwanApp", "onBackPressed back stack count:" + this.f44718g.k());
+        d.a.l0.a.e0.d.g("SwanApp", "onBackPressed back stack count:" + this.f48392g.k());
         e1(i2);
-        d.a.l0.a.h0.g.d m = this.f44718g.m();
+        d.a.l0.a.h0.g.d m = this.f48392g.m();
         if (m == null || !m.K()) {
             if (T()) {
                 d.a.l0.a.a2.e i3 = d.a.l0.a.a2.e.i();
@@ -203,13 +203,13 @@ public class a extends d.a.l0.a.t0.c {
                 hashMap.put("lcType", "onClose");
                 hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, d.a.l0.a.a2.e.V());
                 d.a.l0.a.g1.f.V().v(new d.a.l0.a.o0.d.c(hashMap));
-                d.a.l0.a.e0.d.g("SwanAppFrame", j.f2016c);
+                d.a.l0.a.e0.d.g("SwanAppFrame", j.f2029c);
                 g.a().d(false);
                 return;
             }
-            d.a.l0.a.v2.g.a(R(), this.f44717f);
-            g.b i4 = this.f44718g.i("navigateBack");
-            i4.n(d.a.l0.a.h0.g.g.f42078i, d.a.l0.a.h0.g.g.f42077h);
+            d.a.l0.a.v2.g.a(R(), this.f48391f);
+            g.b i4 = this.f48392g.i("navigateBack");
+            i4.n(d.a.l0.a.h0.g.g.f45754i, d.a.l0.a.h0.g.g.f45753h);
             i4.g();
             i4.a();
         }
@@ -217,8 +217,8 @@ public class a extends d.a.l0.a.t0.c {
 
     @Override // d.a.l0.a.t0.c
     public void b0() {
-        this.f44717f.setRequestedOrientation(1);
-        d.a.l0.a.v2.f.a(this.f44717f);
+        this.f48391f.setRequestedOrientation(1);
+        d.a.l0.a.v2.f.a(this.f48391f);
         if (d.a.l0.a.h0.a.d()) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
@@ -251,7 +251,7 @@ public class a extends d.a.l0.a.t0.c {
         d.a.l0.a.d2.d.h();
         d.a.l0.a.m1.g.f().q();
         d.a.l0.a.c1.a.U().a();
-        d.a.l0.a.g1.f.V().k(this.f44717f);
+        d.a.l0.a.g1.f.V().k(this.f48391f);
         d.a.l0.a.n2.h.b.n();
     }
 
@@ -269,7 +269,7 @@ public class a extends d.a.l0.a.t0.c {
                     Log.i("SwanAppFrame", "checkSyncLegal error : none configData");
                 }
                 return false;
-            } else if (!e.C0561e.i(bVar.H(), bVar.u1()).exists()) {
+            } else if (!e.C0617e.i(bVar.H(), bVar.u1()).exists()) {
                 if (v) {
                     Log.i("SwanAppFrame", "checkSyncLegal error : unzip foldr is not exist");
                 }
@@ -287,11 +287,11 @@ public class a extends d.a.l0.a.t0.c {
     public final void e1(int i2) {
         String str = i2 != 2 ? i2 != 3 ? "virtual" : "gesture" : PrefetchEvent.STATE_CLICK;
         d.a.l0.a.j2.p.e eVar = new d.a.l0.a.j2.p.e();
-        eVar.f43189e = j.j;
-        d.a.l0.a.h0.g.g gVar = this.f44718g;
+        eVar.f46865e = j.j;
+        d.a.l0.a.h0.g.g gVar = this.f48392g;
         boolean z = true;
-        eVar.f43191g = (gVar == null || gVar.k() <= 1) ? false : false ? "1" : "0";
-        eVar.f43186b = str;
+        eVar.f46867g = (gVar == null || gVar.k() <= 1) ? false : false ? "1" : "0";
+        eVar.f46862b = str;
         d.a.l0.a.j2.d.a(eVar, O());
         d.a.l0.a.j2.d.c(eVar);
     }
@@ -308,15 +308,15 @@ public class a extends d.a.l0.a.t0.c {
     public boolean g0(int i2, KeyEvent keyEvent) {
         if (i2 == 4) {
             if (d.a.l0.a.v0.a.b().c()) {
-                d.a.l0.a.v0.a.b().f(this.f44717f, new c());
+                d.a.l0.a.v0.a.b().f(this.f48391f, new c());
                 return true;
             }
-            d.a.l0.a.h0.g.g gVar = this.f44718g;
+            d.a.l0.a.h0.g.g gVar = this.f48392g;
             if (gVar != null && gVar.k() == 1) {
                 d.a.l0.a.v0.b bVar = new d.a.l0.a.v0.b();
                 bVar.h();
                 if (bVar.k()) {
-                    d.a.l0.a.v0.c.c().j(this.f44717f, bVar.f(), bVar.e(), bVar, f1());
+                    d.a.l0.a.v0.c.c().j(this.f48391f, bVar.f(), bVar.e(), bVar, f1());
                     return true;
                 }
                 d.a.l0.a.m1.g.f().i();
@@ -333,7 +333,7 @@ public class a extends d.a.l0.a.t0.c {
     public void h0() {
         super.h0();
         if (d.a.l0.a.h0.u.g.N().P() != null) {
-            d.a.l0.a.h0.u.g.N().P().e(this.f44717f);
+            d.a.l0.a.h0.u.g.N().P().e(this.f48391f);
         }
     }
 
@@ -419,7 +419,7 @@ public class a extends d.a.l0.a.t0.c {
 
     @Override // d.a.l0.a.t0.c
     public void l0() {
-        ExecutorUtilsExt.postOnElastic(new RunnableC0823a(), "registerScreenshotEvent", 2);
+        ExecutorUtilsExt.postOnElastic(new RunnableC0879a(), "registerScreenshotEvent", 2);
     }
 
     public final void l1() {

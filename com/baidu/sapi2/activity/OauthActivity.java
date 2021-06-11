@@ -83,7 +83,7 @@ public class OauthActivity extends BaseActivity {
         }
         String stringExtra = intent.getStringExtra(L);
         this.z = stringExtra;
-        if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.3.1") <= 0) {
+        if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.3.2.5") <= 0) {
             return;
         }
         setResult(0, a(S));
@@ -97,6 +97,7 @@ public class OauthActivity extends BaseActivity {
         try {
             setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             if (b()) {
+                this.configuration = SapiAccountManager.getInstance().getConfignation();
                 init();
                 if (this.D) {
                     return;

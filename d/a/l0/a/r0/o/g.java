@@ -1,25 +1,25 @@
 package d.a.l0.a.r0.o;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f44424a;
+    public int f48098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44425b = 0;
+    public int f48099b = 0;
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
     public String savedFilePath;
 
     public g() {
-        this.f44424a = 0;
-        this.f44424a = 0 + 1;
+        this.f48098a = 0;
+        this.f48098a = 0 + 1;
     }
 
     public String toString() {
-        return "SaveFileCallBack" + this.f44425b;
+        return "SaveFileCallBack" + this.f48099b;
     }
 }

@@ -65,19 +65,19 @@ public class SubPbModel extends DataModel {
     public d.a.c.c.g.a Z;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19326e;
+    public int f19403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19327f;
+    public String f19404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19328g;
+    public String f19405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19329h;
+    public String f19406h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19330i;
+    public boolean f19407i;
     public String j;
     public String k;
     public String l;
@@ -224,23 +224,23 @@ public class SubPbModel extends DataModel {
                         }
                     }
                     if (rVar2.i() != null) {
-                        SubPbModel.this.f19328g = rVar2.i().E();
+                        SubPbModel.this.f19405g = rVar2.i().E();
                     }
                     if (rVar2.l() != null) {
-                        SubPbModel.this.f19327f = rVar2.l().o0();
+                        SubPbModel.this.f19404f = rVar2.l().o0();
                         SubPbModel.this.q = rVar2.f();
                         SubPbModel.this.s = rVar2.l().K0();
                     }
-                    if (SubPbModel.this.s != null && SubPbModel.this.f19328g != null && SubPbModel.this.s.equals(SubPbModel.this.f19328g)) {
+                    if (SubPbModel.this.s != null && SubPbModel.this.f19405g != null && SubPbModel.this.s.equals(SubPbModel.this.f19405g)) {
                         SubPbModel.this.q = true;
                     }
                     if (SubPbModel.this.F) {
-                        SubPbModel.this.A0(rVar2);
+                        SubPbModel.this.E0(rVar2);
                     } else {
-                        SubPbModel.this.B0(rVar2);
+                        SubPbModel.this.F0(rVar2);
                     }
                     if (SubPbModel.this.v != null) {
-                        SubPbModel.this.v.a(SubPbModel.this.m0(), error, str, SubPbModel.this.u);
+                        SubPbModel.this.v.a(SubPbModel.this.q0(), error, str, SubPbModel.this.u);
                     }
                 }
             }
@@ -254,11 +254,11 @@ public class SubPbModel extends DataModel {
 
     public SubPbModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.f19326e = 0;
-        this.f19327f = null;
-        this.f19328g = null;
-        this.f19329h = null;
-        this.f19330i = false;
+        this.f19403e = 0;
+        this.f19404f = null;
+        this.f19405g = null;
+        this.f19406h = null;
+        this.f19407i = false;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -289,8 +289,41 @@ public class SubPbModel extends DataModel {
         registerListener(this.Z);
     }
 
-    public final void A0(r rVar) {
-        int i2 = this.f19326e;
+    public boolean A0() {
+        return C0(1);
+    }
+
+    public boolean B0() {
+        return C0(3);
+    }
+
+    public boolean C0(int i2) {
+        if (this.C) {
+            return false;
+        }
+        cancelMessage();
+        if (this.f19404f != null && this.f19405g != null) {
+            T();
+            this.f19403e = i2;
+            SubPbRequestMessage R = R();
+            this.Y = R;
+            sendMessage(R);
+            return true;
+        }
+        this.C = false;
+        return false;
+    }
+
+    public final void D0() {
+        d.a.n0.e3.j0.b bVar = this.D;
+        if (bVar != null) {
+            bVar.a();
+            this.D = null;
+        }
+    }
+
+    public final void E0(r rVar) {
+        int i2 = this.f19403e;
         if (i2 == 1) {
             this.u = rVar;
             rVar.H();
@@ -303,12 +336,12 @@ public class SubPbModel extends DataModel {
         }
     }
 
-    public final void B0(r rVar) {
+    public final void F0(r rVar) {
         ArrayList<PostData> k = rVar.k();
         if (k == null || k.size() == 0) {
             rVar.z(this.u.b());
         }
-        int i2 = this.f19326e;
+        int i2 = this.f19403e;
         if (i2 == 1) {
             this.u = rVar;
         } else if (i2 == 2) {
@@ -320,16 +353,16 @@ public class SubPbModel extends DataModel {
         }
     }
 
-    public int C0() {
+    public int G0() {
         int i2;
         int j;
         int b2 = this.u.b();
-        if (b2 == 0 || (i2 = this.f19326e) == 0 || (i2 == 2 && this.u.k().size() != 0 && this.u.k().size() % this.u.g() == 0)) {
+        if (b2 == 0 || (i2 = this.f19403e) == 0 || (i2 == 2 && this.u.k().size() != 0 && this.u.k().size() % this.u.g() == 0)) {
             return b2 + 1;
         }
-        if (this.f19326e == 3 && this.F) {
+        if (this.f19403e == 3 && this.F) {
             j = this.u.h();
-        } else if (this.f19326e != 3 || b2 <= 0) {
+        } else if (this.f19403e != 3 || b2 <= 0) {
             return b2;
         } else {
             j = this.u.j();
@@ -337,14 +370,14 @@ public class SubPbModel extends DataModel {
         return j - 1;
     }
 
-    public void D0(Bundle bundle) {
+    public void H0(Bundle bundle) {
         if (bundle == null) {
             return;
         }
-        bundle.putString("thread_id", this.f19327f);
-        bundle.putString("post_id", this.f19328g);
-        bundle.putString("st_type", this.f19329h);
-        bundle.putBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, this.f19330i);
+        bundle.putString("thread_id", this.f19404f);
+        bundle.putString("post_id", this.f19405g);
+        bundle.putString("st_type", this.f19406h);
+        bundle.putBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, this.f19407i);
         bundle.putString(SubPbActivityConfig.KEY_REPLAY_NAME, this.j);
         bundle.putString(SubPbActivityConfig.KEY_REPLAY_POST_ID, this.k);
         bundle.putBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, this.p);
@@ -373,27 +406,19 @@ public class SubPbModel extends DataModel {
         bundle.putBoolean(SubPbActivityConfig.KEY_MAIN_POST_MASK_VISIBLE, this.X);
     }
 
-    public void E0(PbFakeFloorModel.b bVar) {
+    public void I0(PbFakeFloorModel.b bVar) {
     }
 
-    public void F0(boolean z) {
+    public void J0(boolean z) {
         this.L = z;
     }
 
-    public void G0(boolean z) {
+    public void K0(boolean z) {
         this.q = z;
     }
 
-    public void H0(String str) {
+    public void L0(String str) {
         this.s = str;
-    }
-
-    public void I0(b bVar) {
-        this.v = bVar;
-    }
-
-    public boolean J0() {
-        return y0(2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -401,12 +426,20 @@ public class SubPbModel extends DataModel {
         return false;
     }
 
-    public final SubPbRequestMessage N() {
-        this.C = true;
-        return O(null);
+    public void M0(b bVar) {
+        this.v = bVar;
     }
 
-    public final SubPbRequestMessage O(Integer num) {
+    public boolean N0() {
+        return C0(2);
+    }
+
+    public final SubPbRequestMessage R() {
+        this.C = true;
+        return S(null);
+    }
+
+    public final SubPbRequestMessage S(Integer num) {
         long f2;
         long j;
         long j2;
@@ -416,35 +449,35 @@ public class SubPbModel extends DataModel {
         float f3 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int k = l.k(TbadkCoreApplication.getInst().getApp());
         int i4 = l.i(TbadkCoreApplication.getInst().getApp());
-        if (1 != this.f19326e) {
-            j2 = d.a.c.e.m.b.f(this.f19328g, 0L);
+        if (1 != this.f19403e) {
+            j2 = d.a.c.e.m.b.f(this.f19405g, 0L);
             j = 0;
         } else if (!k.isEmpty(this.M)) {
-            long f4 = d.a.c.e.m.b.f(this.f19328g, 0L);
+            long f4 = d.a.c.e.m.b.f(this.f19405g, 0L);
             j = d.a.c.e.m.b.f(this.k, 0L);
             j2 = f4;
         } else {
             if (!TextUtils.isEmpty(this.k)) {
                 f2 = d.a.c.e.m.b.f(this.k, 0L);
             } else {
-                f2 = d.a.c.e.m.b.f(this.f19328g, 0L);
+                f2 = d.a.c.e.m.b.f(this.f19405g, 0L);
             }
             j = f2;
             j2 = 0;
         }
         if (num == null) {
-            intValue = C0();
+            intValue = G0();
         } else {
             intValue = num.intValue();
         }
-        if (this.F && this.f19326e == 0) {
+        if (this.F && this.f19403e == 0) {
             i2 = 1;
             i3 = 1;
         } else {
             i2 = intValue;
             i3 = 0;
         }
-        SubPbRequestMessage subPbRequestMessage = new SubPbRequestMessage(this.t.getPageActivity(), Long.parseLong(this.f19327f), j2, j, i2, k, i4, f3, this.f19329h, i3);
+        SubPbRequestMessage subPbRequestMessage = new SubPbRequestMessage(this.t.getPageActivity(), Long.parseLong(this.f19404f), j2, j, i2, k, i4, f3, this.f19406h, i3);
         subPbRequestMessage.setOriUgcNid(this.M);
         subPbRequestMessage.setOriUgcTid(this.N);
         subPbRequestMessage.setOriUgcType(this.O);
@@ -456,23 +489,23 @@ public class SubPbModel extends DataModel {
         return subPbRequestMessage;
     }
 
-    public void P() {
+    public void T() {
         r rVar;
         int g2;
         if (this.w > 0 && (rVar = this.u) != null && (g2 = rVar.g()) > 0) {
             int i2 = ((this.w + g2) - 1) / g2;
             int b2 = this.u.b();
             for (int i3 = i2 - 1; i3 >= 0; i3--) {
-                SubPbRequestMessage O = O(Integer.valueOf(b2 - i3));
-                this.Y = O;
-                O.setTreatDelPage(true);
+                SubPbRequestMessage S = S(Integer.valueOf(b2 - i3));
+                this.Y = S;
+                S.setTreatDelPage(true);
                 sendMessage(this.Y);
             }
         }
         this.w = 0;
     }
 
-    public void Q(String str) {
+    public void U(String str) {
         r rVar;
         r rVar2;
         if (TextUtils.isEmpty(str) || (rVar = this.u) == null || rVar.k() == null) {
@@ -490,11 +523,11 @@ public class SubPbModel extends DataModel {
         }
     }
 
-    public AntiData R() {
+    public AntiData V() {
         return this.y;
     }
 
-    public AttentionHostData S() {
+    public AttentionHostData W() {
         if (this.z == null) {
             this.z = new AttentionHostData();
             r rVar = this.u;
@@ -505,53 +538,28 @@ public class SubPbModel extends DataModel {
         return this.z;
     }
 
-    public r T() {
+    public r X() {
         return this.u;
     }
 
-    public int U() {
+    public int Y() {
         return this.U;
     }
 
-    public int V() {
+    public int Z() {
         return this.T;
     }
 
-    public String W() {
+    public String a0() {
         return this.V;
     }
 
-    public int X() {
+    public int b0() {
         return this.R;
     }
 
-    public String Y() {
+    public String c0() {
         return this.l;
-    }
-
-    public int Z() {
-        return this.S;
-    }
-
-    public MarkData a0(PostData postData) {
-        MarkData markData = new MarkData();
-        Date date = new Date();
-        markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.f19327f);
-        markData.setPostId(postData.E());
-        markData.setTime(date.getTime());
-        markData.setHostMode(false);
-        markData.setId(this.f19327f);
-        markData.setFloor(postData.A());
-        return markData;
-    }
-
-    public String b0() {
-        return this.s;
-    }
-
-    public int c0() {
-        return this.J;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -561,7 +569,7 @@ public class SubPbModel extends DataModel {
     }
 
     public int d0() {
-        return this.pageFromType;
+        return this.S;
     }
 
     public void destory() {
@@ -571,19 +579,28 @@ public class SubPbModel extends DataModel {
         if (pbFakeFloorModel != null) {
             pbFakeFloorModel.unRegisterListener();
         }
-        z0();
+        D0();
     }
 
-    public String e0() {
-        return this.k;
+    public MarkData e0(PostData postData) {
+        MarkData markData = new MarkData();
+        Date date = new Date();
+        markData.setAccount(TbadkCoreApplication.getCurrentAccount());
+        markData.setThreadId(this.f19404f);
+        markData.setPostId(postData.E());
+        markData.setTime(date.getTime());
+        markData.setHostMode(false);
+        markData.setId(this.f19404f);
+        markData.setFloor(postData.A());
+        return markData;
     }
 
-    public SmallTailInfo f0() {
-        return this.E;
+    public String f0() {
+        return this.s;
     }
 
-    public String g0() {
-        return this.f19327f;
+    public int g0() {
+        return this.J;
     }
 
     public String getFromForumId() {
@@ -591,18 +608,15 @@ public class SubPbModel extends DataModel {
     }
 
     public String getStType() {
-        return this.f19329h;
+        return this.f19406h;
     }
 
-    public String h0() {
-        if (!StringUtils.isNull(this.f19327f) && !"0".equals(this.f19327f)) {
-            return this.f19327f;
-        }
-        return this.M;
+    public int h0() {
+        return this.pageFromType;
     }
 
-    public ArrayList<String> i0() {
-        return this.G;
+    public String i0() {
+        return this.k;
     }
 
     public void initWithBundle(Bundle bundle) {
@@ -610,12 +624,12 @@ public class SubPbModel extends DataModel {
             return;
         }
         this.pageFromType = bundle.getInt(SubPbActivityConfig.KEY_PAGE_START_FROM, 0);
-        this.f19327f = bundle.getString("thread_id");
-        this.f19328g = bundle.getString("post_id");
-        this.f19329h = bundle.getString("st_type");
+        this.f19404f = bundle.getString("thread_id");
+        this.f19405g = bundle.getString("post_id");
+        this.f19406h = bundle.getString("st_type");
         this.n = bundle.getString("from_forum_id");
         this.o = bundle.getString(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID);
-        this.f19330i = bundle.getBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
+        this.f19407i = bundle.getBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
         this.j = bundle.getString(SubPbActivityConfig.KEY_REPLAY_NAME);
         this.p = bundle.getBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
         this.k = bundle.getString(SubPbActivityConfig.KEY_REPLAY_POST_ID);
@@ -664,12 +678,12 @@ public class SubPbModel extends DataModel {
             return;
         }
         this.pageFromType = intent.getIntExtra(SubPbActivityConfig.KEY_PAGE_START_FROM, 0);
-        this.f19327f = intent.getStringExtra("thread_id");
-        this.f19328g = intent.getStringExtra("post_id");
-        this.f19329h = intent.getStringExtra("st_type");
+        this.f19404f = intent.getStringExtra("thread_id");
+        this.f19405g = intent.getStringExtra("post_id");
+        this.f19406h = intent.getStringExtra("st_type");
         this.n = intent.getStringExtra("from_forum_id");
         this.o = intent.getStringExtra(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID);
-        this.f19330i = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
+        this.f19407i = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
         this.j = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_NAME);
         this.p = intent.getBooleanExtra(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
         this.k = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_POST_ID);
@@ -715,54 +729,73 @@ public class SubPbModel extends DataModel {
         this.X = intent.getBooleanExtra(SubPbActivityConfig.KEY_MAIN_POST_MASK_VISIBLE, false);
     }
 
-    public ConcurrentHashMap<String, ImageUrlData> j0() {
+    public SmallTailInfo j0() {
+        return this.E;
+    }
+
+    public String k0() {
+        return this.f19404f;
+    }
+
+    public String l0() {
+        if (!StringUtils.isNull(this.f19404f) && !"0".equals(this.f19404f)) {
+            return this.f19404f;
+        }
+        return this.M;
+    }
+
+    public ArrayList<String> m0() {
+        return this.G;
+    }
+
+    public ConcurrentHashMap<String, ImageUrlData> n0() {
         return this.H;
     }
 
-    public int k0() {
+    public int o0() {
         return this.r;
     }
 
-    public int l0() {
+    public int p0() {
         return this.W;
     }
 
-    public boolean m0() {
+    public boolean q0() {
         r rVar = this.u;
         return (rVar == null || rVar.i() == null) ? false : true;
     }
 
-    public boolean n0() {
+    public boolean r0() {
         return this.I;
     }
 
-    public boolean o0() {
+    public boolean s0() {
         return "hot_topic".equals(getStType());
     }
 
-    public boolean p0() {
-        return this.f19330i;
+    public boolean t0() {
+        return this.f19407i;
     }
 
-    public boolean q0() {
+    public boolean u0() {
         return this.X;
     }
 
-    public boolean r0() {
+    public boolean v0() {
         return this.q;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public String s() {
-        return this.f19328g;
+    public String w() {
+        return this.f19405g;
     }
 
-    public boolean s0() {
+    public boolean w0() {
         return this.L;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData t(String str) {
+    public WriteData x(String str) {
         r rVar = this.u;
         if (rVar == null || rVar.d() == null || this.u.l() == null || this.u.i() == null) {
             return null;
@@ -779,54 +812,21 @@ public class SubPbModel extends DataModel {
         return writeData;
     }
 
-    public boolean t0() {
+    public boolean x0() {
         return this.A;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public boolean u() {
-        J0();
+    public boolean y() {
+        N0();
         return true;
     }
 
-    public boolean u0() {
+    public boolean y0() {
         return this.m;
     }
 
-    public boolean v0() {
-        return y0(0);
-    }
-
-    public boolean w0() {
-        return y0(1);
-    }
-
-    public boolean x0() {
-        return y0(3);
-    }
-
-    public boolean y0(int i2) {
-        if (this.C) {
-            return false;
-        }
-        cancelMessage();
-        if (this.f19327f != null && this.f19328g != null) {
-            P();
-            this.f19326e = i2;
-            SubPbRequestMessage N = N();
-            this.Y = N;
-            sendMessage(N);
-            return true;
-        }
-        this.C = false;
-        return false;
-    }
-
-    public final void z0() {
-        d.a.n0.e3.j0.b bVar = this.D;
-        if (bVar != null) {
-            bVar.a();
-            this.D = null;
-        }
+    public boolean z0() {
+        return C0(0);
     }
 }

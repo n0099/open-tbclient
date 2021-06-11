@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TrendFeedResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "TrendsResultData";
     public static final long serialVersionUID = -1619392774105464372L;
@@ -39,14 +39,14 @@ public class TrendFeedResultData extends BaseResultData implements com.kwad.sdk.
                 str = "adInfo is null";
             }
         }
-        com.kwad.sdk.core.d.a.e(TAG, str);
+        com.kwad.sdk.core.d.a.d(TAG, str);
         return true;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
         if (this.adTemplateList.isEmpty()) {
-            com.kwad.sdk.core.d.a.e(TAG, "adTemplateList is empty");
+            com.kwad.sdk.core.d.a.d(TAG, "adTemplateList is empty");
             return true;
         }
         return false;

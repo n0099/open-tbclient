@@ -13,10 +13,10 @@ public class OfficialAccountPushModel extends BdBaseModel {
     public static int NET_SUCCESS;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20488e;
+    public b f20565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f20489f;
+    public d.a.c.c.g.a f20566f;
     public ArrayList<OfficialAccountPushInfo> list = new ArrayList<>();
     public List<OfficialList> official_list;
 
@@ -34,12 +34,12 @@ public class OfficialAccountPushModel extends BdBaseModel {
                 if (officialAccountPushSocketResponseMessage == null || officialAccountPushSocketResponseMessage.getList() == null) {
                     return;
                 }
-                OfficialAccountPushModel.this.f20488e.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
+                OfficialAccountPushModel.this.f20565e.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
             }
             if (!(responsedMessage instanceof OfficialAccountPushHttpResponseMessage) || (officialAccountPushHttpResponseMessage = (OfficialAccountPushHttpResponseMessage) responsedMessage) == null) {
                 return;
             }
-            OfficialAccountPushModel.this.f20488e.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
+            OfficialAccountPushModel.this.f20565e.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
         }
     }
 
@@ -50,8 +50,8 @@ public class OfficialAccountPushModel extends BdBaseModel {
 
     public OfficialAccountPushModel(b bVar) {
         a aVar = new a(CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620);
-        this.f20489f = aVar;
-        this.f20488e = bVar;
+        this.f20566f = aVar;
+        this.f20565e = bVar;
         registerListener(aVar);
         d.a.n0.e3.d0.a.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
         d.a.n0.e3.d0.a.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
@@ -69,10 +69,10 @@ public class OfficialAccountPushModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f20489f);
+        MessageManager.getInstance().unRegisterListener(this.f20566f);
     }
 
-    public void t() {
+    public void x() {
         sendMessage(new OfficialAccountPushRequestMessage());
     }
 }

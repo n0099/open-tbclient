@@ -2,7 +2,6 @@ package d.a.j0.l;
 
 import android.content.Context;
 import android.os.Build;
-import android.os.Process;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -15,43 +14,85 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40482a = "";
+    public static String f44160a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40483b = "";
+    public static String f44161b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static Pair<Integer, String[]> f40484c;
+    public static String f44162c = "";
 
-    public static String a(Context context) {
-        int checkPermission;
+    public static int a(Context context) {
         try {
-            if (d.a.j0.b.a.g(context).d()) {
-                if (!TextUtils.isEmpty(f40482a)) {
-                    return f40482a;
+            if (d.a.j0.b.a.h(context).e()) {
+                if (Build.VERSION.SDK_INT < 24) {
+                    return -1001;
                 }
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermission = context.checkSelfPermission("android.permission.READ_PHONE_STATE");
-                } else {
-                    checkPermission = context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid());
+                if (c.o(context)) {
+                    return SubscriptionManager.getDefaultDataSubscriptionId();
                 }
-                if (checkPermission != -1 && c.o(context)) {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        f40482a = telephonyManager.getSubscriberId();
-                    }
-                    return f40482a == null ? "" : f40482a;
-                }
-                return "";
+                return -1002;
             }
-            return "";
+            return -1000;
         } catch (Throwable th) {
             c.d(th);
-            return "";
+            return -1001;
         }
     }
 
-    public static Pair<Integer, Integer> b(Context context) {
+    public static String b(Context context, int i2, boolean z, boolean z2) {
+        try {
+            if (!d.a.j0.b.a.h(context).e()) {
+                return c(String.valueOf(-1000), z2);
+            }
+            if (z) {
+                if (i2 == 3 && !TextUtils.isEmpty(f44160a)) {
+                    return f44160a;
+                }
+                if (i2 == 1 && !TextUtils.isEmpty(f44162c)) {
+                    return f44162c;
+                }
+                if (i2 == 2 && !TextUtils.isEmpty(f44161b)) {
+                    return f44161b;
+                }
+            }
+            if (!h.a(context, "android.permission.READ_PHONE_STATE")) {
+                return c(String.valueOf(-1001), z2);
+            }
+            if (!c.o(context)) {
+                return c(String.valueOf(-1002), z2);
+            }
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            String str = null;
+            if (i2 == 3) {
+                str = telephonyManager.getSubscriberId();
+            } else if (i2 == 1) {
+                str = telephonyManager.getDeviceId();
+            } else if (i2 == 2) {
+                str = telephonyManager.getSimSerialNumber();
+            }
+            if (TextUtils.isEmpty(str)) {
+                return c(String.valueOf(-1003), z2);
+            }
+            if (i2 == 3) {
+                f44160a = str;
+            } else if (i2 == 1) {
+                f44162c = str;
+            } else if (i2 == 2) {
+                f44161b = str;
+            }
+            return str;
+        } catch (Throwable th) {
+            c.d(th);
+            return c(String.valueOf(-1001), z2);
+        }
+    }
+
+    public static String c(String str, boolean z) {
+        return z ? str : "";
+    }
+
+    public static Pair<Integer, Integer> d(Context context) {
         Pair<Integer, Integer> pair = new Pair<>(-1, -1);
         try {
             JSONObject networkType = AuthnHelper.getInstance(context).getNetworkType(context);
@@ -65,80 +106,67 @@ public class k {
         }
     }
 
-    public static Pair<Integer, String[]> c(Context context) {
-        int checkPermission;
+    public static Pair<Integer, String[]> e(Context context) {
         try {
-            if (!d.a.j0.b.a.g(context).d()) {
-                return new Pair<>(-1, new String[4]);
+            if (!d.a.j0.b.a.h(context).e()) {
+                return new Pair<>(-1, new String[]{String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000)});
             }
             if (Build.VERSION.SDK_INT < 22) {
-                return new Pair<>(-2, new String[4]);
+                return new Pair<>(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
             }
-            if (f40484c != null) {
-                return f40484c;
+            if (!h.a(context, "android.permission.READ_PHONE_STATE")) {
+                return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
             }
-            if (Build.VERSION.SDK_INT >= 23) {
-                checkPermission = context.checkSelfPermission("android.permission.READ_PHONE_STATE");
-            } else {
-                checkPermission = context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid());
+            if (!c.o(context)) {
+                return new Pair<>(-1, new String[]{String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002)});
             }
-            if (checkPermission != -1 && c.o(context)) {
-                List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
-                int i2 = 0;
-                if (activeSubscriptionInfoList == null) {
-                    return new Pair<>(0, new String[4]);
+            List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
+            if (activeSubscriptionInfoList == null) {
+                return new Pair<>(0, new String[]{String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003)});
+            }
+            String[] strArr = new String[4];
+            int i2 = 0;
+            for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
+                int i3 = i2 * 2;
+                int simSlotIndex = subscriptionInfo.getSimSlotIndex();
+                int subscriptionId = subscriptionInfo.getSubscriptionId();
+                String iccId = subscriptionInfo.getIccId();
+                if (TextUtils.isEmpty(iccId)) {
+                    iccId = String.valueOf(-1003);
                 }
-                String[] strArr = new String[4];
-                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                    int i3 = i2 * 2;
-                    int simSlotIndex = subscriptionInfo.getSimSlotIndex();
-                    int subscriptionId = subscriptionInfo.getSubscriptionId();
-                    strArr[i3] = simSlotIndex + "_" + subscriptionId + "_" + subscriptionInfo.getIccId();
-                    CharSequence carrierName = subscriptionInfo.getCarrierName();
-                    if (carrierName != null) {
-                        strArr[i3 + 1] = carrierName.toString();
-                    }
-                    i2++;
-                    if (i2 >= 2) {
-                        break;
-                    }
+                strArr[i3] = simSlotIndex + "_" + subscriptionId + "_" + iccId;
+                CharSequence carrierName = subscriptionInfo.getCarrierName();
+                if (carrierName != null) {
+                    strArr[i3 + 1] = carrierName.toString();
+                } else {
+                    strArr[i3 + 1] = String.valueOf(-1003);
                 }
-                Pair<Integer, String[]> pair = new Pair<>(Integer.valueOf(i2), strArr);
-                f40484c = pair;
-                return pair;
+                i2++;
+                if (i2 >= 2) {
+                    break;
+                }
             }
-            return new Pair<>(-1, new String[4]);
+            for (int i4 = 0; i4 < 4; i4++) {
+                if (TextUtils.isEmpty(strArr[i4])) {
+                    strArr[i4] = String.valueOf(-1003);
+                }
+            }
+            return new Pair<>(Integer.valueOf(i2), strArr);
         } catch (Throwable th) {
             c.d(th);
-            return new Pair<>(-1, new String[4]);
+            return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
         }
     }
 
-    public static String d(Context context) {
-        int checkPermission;
+    public static String f(Context context) {
         try {
-            if (d.a.j0.b.a.g(context).d()) {
-                if (!TextUtils.isEmpty(f40483b)) {
-                    return f40483b;
-                }
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermission = context.checkSelfPermission("android.permission.READ_PHONE_STATE");
-                } else {
-                    checkPermission = context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid());
-                }
-                if (checkPermission != -1 && c.o(context)) {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        f40483b = telephonyManager.getSimSerialNumber();
-                    }
-                    return f40483b == null ? "" : f40483b;
-                }
-                return "";
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            if (telephonyManager != null) {
+                return telephonyManager.getSimOperator();
             }
-            return "";
-        } catch (Throwable th) {
-            c.d(th);
-            return "";
+            return String.valueOf(-1003);
+        } catch (Throwable unused) {
+            return String.valueOf(-1003);
         }
     }
 }

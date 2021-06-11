@@ -3,14 +3,14 @@ package d.a.c.c.e.c.j;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f38367a;
+    public a f42020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f38368b;
+    public byte[] f42021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38369c;
+    public int f42022c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38370d;
+    public int f42023d;
 }

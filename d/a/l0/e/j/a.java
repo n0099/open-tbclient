@@ -8,10 +8,10 @@ import java.util.Map;
 public final class a implements RequestListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f46538a;
+    public d f50212a;
 
     public a(d dVar) {
-        this.f46538a = dVar;
+        this.f50212a = dVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
@@ -36,7 +36,7 @@ public final class a implements RequestListener {
 
     @Override // com.facebook.imagepipeline.listener.RequestListener
     public void onRequestCancellation(String str) {
-        d dVar = this.f46538a;
+        d dVar = this.f50212a;
         if (dVar != null) {
             dVar.onCancel(str);
         }
@@ -44,7 +44,7 @@ public final class a implements RequestListener {
 
     @Override // com.facebook.imagepipeline.listener.RequestListener
     public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        d dVar = this.f46538a;
+        d dVar = this.f50212a;
         if (dVar != null) {
             dVar.c(imageRequest, th);
         }
@@ -52,7 +52,7 @@ public final class a implements RequestListener {
 
     @Override // com.facebook.imagepipeline.listener.RequestListener
     public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        d dVar = this.f46538a;
+        d dVar = this.f50212a;
         if (dVar != null) {
             dVar.a(imageRequest);
         }
@@ -60,7 +60,7 @@ public final class a implements RequestListener {
 
     @Override // com.facebook.imagepipeline.listener.RequestListener
     public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
-        d dVar = this.f46538a;
+        d dVar = this.f50212a;
         if (dVar != null) {
             dVar.b(imageRequest);
         }

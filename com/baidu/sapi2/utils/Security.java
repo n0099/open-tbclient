@@ -1,16 +1,24 @@
 package com.baidu.sapi2.utils;
 
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.sofire.ac.FH;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class Security {
+    public static String getZid(Context context, int i2) {
+        String gzfi = FH.gzfi(context, null, i2);
+        return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
+    }
+
     @TargetApi(8)
     public String encryptSsoHash(Long l, String str, String str2) {
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();

@@ -12,9 +12,9 @@ import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
 public class c extends d.a.m0.e0.b {
     public c(int i2, String str) {
         d.a.m0.e0.c cVar = this.mFragement;
-        cVar.f49338e = i2;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) cVar.f49334a;
-        specialFrsWebFragment.w1(i2);
+        cVar.f53012e = i2;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) cVar.f53008a;
+        specialFrsWebFragment.z1(i2);
         if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
             if (str.contains("&ufanS=1")) {
                 str = str + "&_client_version=" + TbConfig.getVersion();
@@ -22,15 +22,15 @@ public class c extends d.a.m0.e0.b {
                 str = str + "&_client_version=" + TbConfig.getVersion();
             }
         }
-        specialFrsWebFragment.L0(str);
+        specialFrsWebFragment.O0(str);
     }
 
     @Override // d.a.m0.e0.b
     public d.a.m0.e0.c createFragmentTabStructure() {
         d.a.m0.e0.c cVar = new d.a.m0.e0.c();
-        cVar.f49334a = new SpecialFrsWebFragment();
-        cVar.f49338e = 101;
-        cVar.f49342i = d.a.m0.e0.c.k;
+        cVar.f53008a = new SpecialFrsWebFragment();
+        cVar.f53012e = 101;
+        cVar.f53016i = d.a.m0.e0.c.k;
         return cVar;
     }
 

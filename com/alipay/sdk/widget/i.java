@@ -8,10 +8,10 @@ import com.alibaba.fastjson.asm.Label;
 public class i implements DownloadListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ h f2014a;
+    public final /* synthetic */ h f2027a;
 
     public i(h hVar) {
-        this.f2014a = hVar;
+        this.f2027a = hVar;
     }
 
     @Override // android.webkit.DownloadListener
@@ -19,7 +19,7 @@ public class i implements DownloadListener {
         try {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            this.f2014a.f2011a.startActivity(intent);
+            this.f2027a.f2024a.startActivity(intent);
         } catch (Throwable unused) {
         }
     }

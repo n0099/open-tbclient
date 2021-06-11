@@ -3,9 +3,8 @@ package com.meizu.cloud.pushsdk.handler.a.d;
 import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<PushSwitchStatus> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -36,7 +35,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<PushSwitchStatus> {
     /* renamed from: j */
     public PushSwitchStatus c(Intent intent) {
         PushSwitchStatus pushSwitchStatus = (PushSwitchStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_STATUS);
-        if (BasicPushStatus.SUCCESS_CODE.equals(pushSwitchStatus.getCode())) {
+        if ("200".equals(pushSwitchStatus.getCode())) {
             String g2 = g(intent);
             d.j.a.a.a.b("AbstractMessageHandler", "PushSwitchStatusHandler update local " + g2 + " switch status " + pushSwitchStatus);
             com.meizu.cloud.pushsdk.util.b.a(c(), g2, pushSwitchStatus.isSwitchNotificationMessage());

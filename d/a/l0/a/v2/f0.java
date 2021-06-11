@@ -24,64 +24,64 @@ import java.util.List;
 public class f0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45406a = d.a.l0.a.k.f43199a;
+    public static final boolean f49080a = d.a.l0.a.k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f45407b = false;
+    public static boolean f49081b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f45408c;
+    public static String f49082c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f45409d;
+    public static String f49083d;
 
     public static boolean a(String str) {
-        String str2 = f45408c;
+        String str2 = f49082c;
         if (str2 != null) {
             return str2.equals(str);
         }
         String g2 = g("ro.miui.ui.version.name");
-        f45409d = g2;
+        f49083d = g2;
         if (!TextUtils.isEmpty(g2)) {
-            f45408c = "MIUI";
+            f49082c = "MIUI";
         } else {
             String g3 = g("ro.build.version.emui");
-            f45409d = g3;
+            f49083d = g3;
             if (!TextUtils.isEmpty(g3)) {
-                f45408c = "EMUI";
+                f49082c = "EMUI";
             } else {
                 String g4 = g("ro.build.version.opporom");
-                f45409d = g4;
+                f49083d = g4;
                 if (!TextUtils.isEmpty(g4)) {
-                    f45408c = "OPPO";
+                    f49082c = "OPPO";
                 } else {
                     String g5 = g("ro.vivo.os.version");
-                    f45409d = g5;
+                    f49083d = g5;
                     if (!TextUtils.isEmpty(g5)) {
-                        f45408c = "VIVO";
+                        f49082c = "VIVO";
                     } else {
                         String g6 = g("ro.smartisan.version");
-                        f45409d = g6;
+                        f49083d = g6;
                         if (!TextUtils.isEmpty(g6)) {
-                            f45408c = "SMARTISAN";
+                            f49082c = "SMARTISAN";
                         } else {
                             String g7 = g(RomUtils.KEY_VERSION_GIONEE);
-                            f45409d = g7;
+                            f49083d = g7;
                             if (!TextUtils.isEmpty(g7)) {
-                                f45408c = "SMARTISAN";
+                                f49082c = "SMARTISAN";
                             } else {
                                 String g8 = g(RomUtils.KEY_VERSION_NUBIA);
-                                f45409d = g8;
+                                f49083d = g8;
                                 if (!TextUtils.isEmpty(g8)) {
-                                    f45408c = RomUtils.ROM_NUBIA;
+                                    f49082c = RomUtils.ROM_NUBIA;
                                 } else {
                                     String str3 = Build.DISPLAY;
-                                    f45409d = str3;
+                                    f49083d = str3;
                                     if (str3.toUpperCase().contains("FLYME")) {
-                                        f45408c = "FLYME";
+                                        f49082c = "FLYME";
                                     } else {
-                                        f45409d = "unknown";
-                                        f45408c = Build.MANUFACTURER.toUpperCase();
+                                        f49083d = "unknown";
+                                        f49082c = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
                             }
@@ -90,7 +90,7 @@ public class f0 {
                 }
             }
         }
-        return f45408c.equals(str);
+        return f49082c.equals(str);
     }
 
     public static int b(Activity activity) {
@@ -112,7 +112,7 @@ public class f0 {
     }
 
     public static boolean d() {
-        return f45407b;
+        return f49081b;
     }
 
     public static int e(Context context) {
@@ -165,11 +165,11 @@ public class f0 {
                     return 0;
                 }
                 i2 = displayCutout.getSafeInsetTop();
-                if (f45406a) {
+                if (f49080a) {
                     Log.d("SwanAppRomUtils", "刘海屏高度:" + i2);
                 }
             } catch (Exception e2) {
-                if (f45406a) {
+                if (f49080a) {
                     Log.w("SwanAppRomUtils", e2);
                 }
             }
@@ -191,7 +191,7 @@ public class f0 {
                     return readLine;
                 } catch (IOException e2) {
                     e = e2;
-                    if (f45406a) {
+                    if (f49080a) {
                         Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
                     }
                     d.a.l0.t.d.d(bufferedReader);
@@ -238,7 +238,7 @@ public class f0 {
             Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
             return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
         } catch (Exception e2) {
-            if (f45406a) {
+            if (f49080a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -252,7 +252,7 @@ public class f0 {
             Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
             return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
         } catch (Exception e2) {
-            if (f45406a) {
+            if (f49080a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -270,7 +270,7 @@ public class f0 {
             Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
             return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
         } catch (Exception e2) {
-            if (f45406a) {
+            if (f49080a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -311,13 +311,13 @@ public class f0 {
             int i8 = iArr[1];
             int i9 = iArr[1] + height;
             if (((i9 <= i5 && i9 > i4) || (i8 < i5 && i8 >= i4)) && ((i7 > i2 && i7 <= i3) || ((i6 >= i2 && i7 <= i3) || ((i6 >= i2 && i6 < i3) || (i6 < i2 && i7 > i3))))) {
-                f45407b = true;
+                f49081b = true;
                 return true;
             } else if (((i6 >= i2 && i6 < i3) || (i7 > i2 && i7 <= i3)) && ((i9 > i4 && i9 <= i5) || ((i8 >= i4 && i9 <= i5) || ((i8 >= i4 && i8 < i5) || (i8 < i4 && i9 > i5))))) {
-                f45407b = true;
+                f49081b = true;
                 return true;
             } else if (i6 <= i2 && i7 >= i3 && i8 <= i4 && i9 >= i5) {
-                f45407b = true;
+                f49081b = true;
                 return true;
             }
         }

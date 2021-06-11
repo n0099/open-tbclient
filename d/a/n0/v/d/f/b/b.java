@@ -6,31 +6,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabLiveItemView;
 import d.a.n0.v.d.f.c.f;
 /* loaded from: classes4.dex */
-public class b extends d.a.c.j.e.a<f, ConcernTabLiveItemView.ViewHolder> {
+public class b extends d.a.c.k.e.a<f, ConcernTabLiveItemView.ViewHolder> {
     public TbPageContext m;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.f61725h);
+        super(tbPageContext.getPageActivity(), f.f65439h);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: e0 */
-    public ConcernTabLiveItemView.ViewHolder P(ViewGroup viewGroup) {
+    public ConcernTabLiveItemView.ViewHolder Q(ViewGroup viewGroup) {
         ConcernTabLiveItemView concernTabLiveItemView = new ConcernTabLiveItemView(this.m, viewGroup);
         concernTabLiveItemView.getClass();
         return new ConcernTabLiveItemView.ViewHolder(concernTabLiveItemView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: f0 */
-    public View W(int i2, View view, ViewGroup viewGroup, f fVar, ConcernTabLiveItemView.ViewHolder viewHolder) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: g0 */
+    public View X(int i2, View view, ViewGroup viewGroup, f fVar, ConcernTabLiveItemView.ViewHolder viewHolder) {
         if (viewHolder == null || fVar == null) {
             return null;
         }
-        viewHolder.f13876a.m(fVar);
+        viewHolder.f13933a.n(fVar);
         return viewHolder.a();
     }
 }

@@ -54,18 +54,18 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
     public class a extends f0<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11925a;
+        public final /* synthetic */ String f11987a;
 
         public a(SearchJsBridge searchJsBridge, String str) {
-            this.f11925a = str;
+            this.f11987a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public String doInBackground() {
-            d.a.n0.e3.n0.a.h(this.f11925a);
-            return this.f11925a;
+            d.a.n0.e3.n0.a.h(this.f11987a);
+            return this.f11987a;
         }
     }
 
@@ -121,11 +121,11 @@ public class SearchJsBridge implements d.a.n0.e3.l0.b {
         try {
             MercatorModel.MercatorData e2 = MercatorModel.d().e();
             if (e2 != null) {
-                addCookie(jSONObject, COOKIE_MERCATOR_LAT, e2.t());
-                addCookie(jSONObject, COOKIE_MERCATOR_LON, e2.u());
-                addCookie(jSONObject, COOKIE_MERCATOR_CITY, String.valueOf(e2.s()));
-                addCookie(jSONObject, COOKIE_MERCATOR_RADIUS, e2.v());
-                addCookie(jSONObject, COOKIE_MERCATOR_TIME, String.valueOf(e2.w()));
+                addCookie(jSONObject, COOKIE_MERCATOR_LAT, e2.x());
+                addCookie(jSONObject, COOKIE_MERCATOR_LON, e2.y());
+                addCookie(jSONObject, COOKIE_MERCATOR_CITY, String.valueOf(e2.w()));
+                addCookie(jSONObject, COOKIE_MERCATOR_RADIUS, e2.z());
+                addCookie(jSONObject, COOKIE_MERCATOR_TIME, String.valueOf(e2.A()));
             }
             addCookie(jSONObject, COOKIE_MOD, Build.MODEL);
             addCookie(jSONObject, COOKIE_OV, Build.VERSION.RELEASE);

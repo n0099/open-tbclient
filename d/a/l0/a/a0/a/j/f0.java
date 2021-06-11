@@ -6,19 +6,19 @@ import org.json.JSONArray;
 public class f0 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public k0 f40609a;
+    public k0 f44285a;
 
     @Override // d.a.l0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
-        k0 k0Var = this.f40609a;
+        k0 k0Var = this.f44285a;
         if (k0Var == null || !k0Var.b()) {
             return;
         }
-        bVar.m = this.f40609a;
+        bVar.m = this.f44285a;
     }
 
     @Override // d.a.l0.a.a0.a.j.a
     public void b(JSONArray jSONArray) {
-        this.f40609a = new k0(jSONArray);
+        this.f44285a = new k0(jSONArray);
     }
 }

@@ -9,18 +9,18 @@ import com.baidu.ufosdk.UfoSDK;
 public final class ai implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f22634a;
+    public final /* synthetic */ FeedbackFacePageActivity f22737a;
 
     public ai(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f22634a = feedbackFacePageActivity;
+        this.f22737a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         String str;
         if (UfoSDK.clientid.length() == 0) {
-            Toast.makeText(this.f22634a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
-            if (com.baidu.ufosdk.b.d.b(this.f22634a.getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(this.f22634a.getApplicationContext()).contains("NONE")) {
+            Toast.makeText(this.f22737a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
+            if (com.baidu.ufosdk.b.d.b(this.f22737a.getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(this.f22737a.getApplicationContext()).contains("NONE")) {
                 return;
             }
             new Thread(new aj(this)).start();
@@ -31,13 +31,13 @@ public final class ai implements View.OnClickListener {
                 return;
             }
             Intent intent = new Intent();
-            intent.setClass(this.f22634a, FeedbackEditActivity.class);
-            str = this.f22634a.t;
+            intent.setClass(this.f22737a, FeedbackEditActivity.class);
+            str = this.f22737a.t;
             intent.putExtra("msgid", str);
             intent.putExtra("fromlist", "no");
             intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
             intent.putExtra("come_from", 2);
-            this.f22634a.startActivity(intent);
+            this.f22737a.startActivity(intent);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

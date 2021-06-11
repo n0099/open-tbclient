@@ -16,10 +16,10 @@ import java.util.UUID;
 public class f implements b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f48506a;
+    public Context f52180a;
 
     public f(Context context) {
-        this.f48506a = context.getApplicationContext();
+        this.f52180a = context.getApplicationContext();
     }
 
     public static byte[] g(byte[]... bArr) {
@@ -62,7 +62,7 @@ public class f implements b<String> {
 
     @SuppressLint({"HardwareIds"})
     public final String d() {
-        String string = Settings.Secure.getString(this.f48506a.getContentResolver(), IAdRequestParam.ANDROID_ID);
+        String string = Settings.Secure.getString(this.f52180a.getContentResolver(), IAdRequestParam.ANDROID_ID);
         if (TextUtils.isEmpty(string)) {
             string = e();
         }

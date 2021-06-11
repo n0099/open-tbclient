@@ -3,10 +3,10 @@ package d.q.a.a.c.b;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f67629a = false;
+    public static boolean f71416a = false;
 
     public static String a() {
-        return "1.2.9.16.04262314";
+        return "1.2.6";
     }
 
     public static void b(String str) {
@@ -14,7 +14,7 @@ public final class b {
 
     public static void c(Throwable th) {
         try {
-            if (f67629a) {
+            if (f71416a) {
                 th.printStackTrace();
             }
         } catch (Exception unused) {

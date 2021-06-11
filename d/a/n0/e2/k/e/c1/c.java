@@ -25,10 +25,10 @@ import java.util.ArrayList;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f53218a;
+    public TbPageContext f56907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f53219b = new a();
+    public b f56908b = new a();
 
     /* loaded from: classes5.dex */
     public class a implements b {
@@ -38,15 +38,15 @@ public class c {
         @Override // d.a.n0.e2.k.e.c1.c.b
         public void a(e eVar, a2 a2Var, PostData postData, d.a.m0.b1.m.a aVar) {
             String e2;
-            String y1;
+            String z1;
             String str;
-            if ((eVar == null && a2Var == null) || postData == null || c.this.f53218a == null) {
+            if ((eVar == null && a2Var == null) || postData == null || c.this.f56907a == null) {
                 return;
             }
             if (eVar == null) {
                 e2 = c.this.e(a2Var);
             } else {
-                String str2 = eVar.K(c.this.f53218a.getPageActivity(), false)[0];
+                String str2 = eVar.K(c.this.f56907a.getPageActivity(), false)[0];
                 if (!StringUtils.isNull(str2) && str2.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                     str2 = str2.substring(37);
                 }
@@ -63,43 +63,43 @@ public class c {
             if (!StringUtils.isNull(e2)) {
                 mVar.k(e2);
             }
-            mVar.l(a2Var.u1());
+            mVar.l(a2Var.v1());
             mVar.g(aVar);
             mVar.i(postData);
-            String z1 = a2Var.z1();
-            if (StringUtils.isNull(z1)) {
-                z1 = a2Var.C();
+            String A1 = a2Var.A1();
+            if (StringUtils.isNull(A1)) {
+                A1 = a2Var.C();
             }
-            mVar.h(z1);
-            if (a2Var.B2()) {
-                y1 = a2Var.V().oriUgcTid;
+            mVar.h(A1);
+            if (a2Var.C2()) {
+                z1 = a2Var.V().oriUgcTid;
                 str = "?share=9105&fr=dshare&dtype=" + a2Var.V().oriUgcType + "&dvid=" + a2Var.V().oriUgcVid + "&nid=" + a2Var.V().oriUgcNid;
             } else {
-                y1 = a2Var.y1();
+                z1 = a2Var.z1();
                 str = "?share=9105&fr=share";
             }
-            mVar.j(c.this.d("http://tieba.baidu.com/p/" + y1 + (str + "&post_id=" + postData.E() + "&share_from=comment&post_sort=1")));
+            mVar.j(c.this.d("http://tieba.baidu.com/p/" + z1 + (str + "&post_id=" + postData.E() + "&share_from=comment&post_sort=1")));
             ShareItem shareItem = new ShareItem();
             shareItem.W = 1;
             shareItem.k = true;
-            shareItem.q = y1;
+            shareItem.q = z1;
             shareItem.V = postData.E();
             Bundle bundle = new Bundle();
-            bundle.putString("tid", y1);
+            bundle.putString("tid", z1);
             bundle.putString("pid", postData.E());
             bundle.putInt("source", 1);
             shareItem.k(bundle);
-            PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(c.this.f53218a.getPageActivity(), shareItem, true, mVar);
+            PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(c.this.f56907a.getPageActivity(), shareItem, true, mVar);
             pbPostShareDialogConfig.setIsCopyLink(false);
             pbPostShareDialogConfig.setHideMode(pbPostShareDialogConfig.hideMode | 32);
-            c.this.f53218a.sendMessage(new CustomMessage(2001276, pbPostShareDialogConfig));
+            c.this.f56907a.sendMessage(new CustomMessage(2001276, pbPostShareDialogConfig));
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-            statisticItem.param("tid", y1);
+            statisticItem.param("tid", z1);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             if (a2Var.h0() != null) {
-                statisticItem.param("fid", a2Var.h0().f50157a);
+                statisticItem.param("fid", a2Var.h0().f53833a);
             }
-            if (a2Var.B1() != null) {
+            if (a2Var.C1() != null) {
                 statisticItem.param("post_id", postData.E());
             }
             statisticItem.param("obj_locate", 21);
@@ -113,7 +113,7 @@ public class c {
     }
 
     public c(TbPageContext tbPageContext) {
-        this.f53218a = tbPageContext;
+        this.f56907a = tbPageContext;
     }
 
     public final Bitmap d(String str) {
@@ -129,8 +129,8 @@ public class c {
         if (a2Var == null) {
             return null;
         }
-        if (a2Var.r1() != null && !TextUtils.isEmpty(a2Var.r1().cover)) {
-            return a2Var.r1().cover;
+        if (a2Var.s1() != null && !TextUtils.isEmpty(a2Var.s1().cover)) {
+            return a2Var.s1().cover;
         }
         if (a2Var.L0() == null) {
             return null;
@@ -154,6 +154,6 @@ public class c {
             }
             i2++;
         }
-        return (str != null || a2Var.w1() == null || TextUtils.isEmpty(a2Var.w1().thumbnail_url)) ? str : a2Var.w1().thumbnail_url;
+        return (str != null || a2Var.x1() == null || TextUtils.isEmpty(a2Var.x1().thumbnail_url)) ? str : a2Var.x1().thumbnail_url;
     }
 }

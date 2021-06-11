@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
@@ -111,7 +111,7 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return this.portrait;
     }
 
-    @Override // d.a.c.j.e.n
+    @Override // d.a.c.k.e.n
     public BdUniqueId getType() {
         return TYPE_FRS_GROUP;
     }

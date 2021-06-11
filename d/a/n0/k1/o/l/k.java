@@ -3,7 +3,7 @@ package d.a.n0.k1.o.l;
 public interface k {
     boolean isPlaying();
 
-    void j();
+    void l();
 
     void onDestroy();
 

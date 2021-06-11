@@ -1,191 +1,326 @@
 package d.a.n0.r3.i.g;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
-import d.a.c.a.f;
-import d.a.c.e.p.l;
-import java.util.ArrayList;
-import java.util.List;
+import android.graphics.Matrix;
+import com.baidu.tieba.video.editvideo.scale.PivotPoint;
+import com.baidu.tieba.video.editvideo.scale.ScalableType;
 /* loaded from: classes5.dex */
-public class a extends BaseAdapter {
+public class a {
 
-    /* renamed from: e  reason: collision with root package name */
-    public f f60037e;
+    /* renamed from: a  reason: collision with root package name */
+    public b f63817a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public List<CloudMusicData.MusicTagList.MusicList> f60038f = new ArrayList();
-
-    /* renamed from: g  reason: collision with root package name */
-    public c f60039g;
+    /* renamed from: b  reason: collision with root package name */
+    public b f63818b;
 
     /* renamed from: d.a.n0.r3.i.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1569a implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f60040e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f60041f;
-
-        public View$OnClickListenerC1569a(CloudMusicData.MusicTagList.MusicList musicList, int i2) {
-            this.f60040e = musicList;
-            this.f60041f = i2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (a.this.f60039g != null) {
-                a.this.f60039g.x0(view, this.f60040e.resource, this.f60041f);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
+    public static /* synthetic */ class C1630a {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f60043a;
+        public static final /* synthetic */ int[] f63819a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f60044b;
+        public static final /* synthetic */ int[] f63820b;
 
-        /* renamed from: c  reason: collision with root package name */
-        public View f60045c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f60046d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public TextView f60047e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public TextView f60048f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public TextView f60049g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public View f60050h;
-
-        public void b(int i2) {
-            SkinManager.setViewTextColor(this.f60046d, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f60047e, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f60048f, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f60049g, R.color.common_color_10140);
-            SkinManager.setBackgroundResource(this.f60049g, R.drawable.bg_music_choose);
-            SkinManager.setBackgroundColor(this.f60050h, R.color.CAM_X0204);
-            SkinManager.setImageResource(this.f60044b, R.drawable.btn_icon_play_video_n);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void x0(View view, String str, int i2);
-    }
-
-    public a(f fVar) {
-        this.f60037e = fVar;
-    }
-
-    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
-        if (list == null) {
-            return;
-        }
-        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-            if (!this.f60038f.contains(musicList)) {
-                this.f60038f.add(musicList);
+        static {
+            int[] iArr = new int[PivotPoint.values().length];
+            f63820b = iArr;
+            try {
+                iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f63820b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f63820b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f63820b[PivotPoint.CENTER_TOP.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f63820b[PivotPoint.CENTER.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f63820b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                f63820b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                f63820b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                f63820b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            int[] iArr2 = new int[ScalableType.values().length];
+            f63819a = iArr2;
+            try {
+                iArr2[ScalableType.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                f63819a[ScalableType.FIT_XY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                f63819a[ScalableType.FIT_CENTER.ordinal()] = 3;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                f63819a[ScalableType.FIT_START.ordinal()] = 4;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                f63819a[ScalableType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused14) {
+            }
+            try {
+                f63819a[ScalableType.LEFT_TOP.ordinal()] = 6;
+            } catch (NoSuchFieldError unused15) {
+            }
+            try {
+                f63819a[ScalableType.LEFT_CENTER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused16) {
+            }
+            try {
+                f63819a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
+            } catch (NoSuchFieldError unused17) {
+            }
+            try {
+                f63819a[ScalableType.CENTER_TOP.ordinal()] = 9;
+            } catch (NoSuchFieldError unused18) {
+            }
+            try {
+                f63819a[ScalableType.CENTER.ordinal()] = 10;
+            } catch (NoSuchFieldError unused19) {
+            }
+            try {
+                f63819a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
+            } catch (NoSuchFieldError unused20) {
+            }
+            try {
+                f63819a[ScalableType.RIGHT_TOP.ordinal()] = 12;
+            } catch (NoSuchFieldError unused21) {
+            }
+            try {
+                f63819a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
+            } catch (NoSuchFieldError unused22) {
+            }
+            try {
+                f63819a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
+            } catch (NoSuchFieldError unused23) {
+            }
+            try {
+                f63819a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
+            } catch (NoSuchFieldError unused24) {
+            }
+            try {
+                f63819a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
+            } catch (NoSuchFieldError unused25) {
+            }
+            try {
+                f63819a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
+            } catch (NoSuchFieldError unused26) {
+            }
+            try {
+                f63819a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
+            } catch (NoSuchFieldError unused27) {
+            }
+            try {
+                f63819a[ScalableType.CENTER_CROP.ordinal()] = 19;
+            } catch (NoSuchFieldError unused28) {
+            }
+            try {
+                f63819a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
+            } catch (NoSuchFieldError unused29) {
+            }
+            try {
+                f63819a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
+            } catch (NoSuchFieldError unused30) {
+            }
+            try {
+                f63819a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
+            } catch (NoSuchFieldError unused31) {
+            }
+            try {
+                f63819a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
+            } catch (NoSuchFieldError unused32) {
+            }
+            try {
+                f63819a[ScalableType.START_INSIDE.ordinal()] = 24;
+            } catch (NoSuchFieldError unused33) {
+            }
+            try {
+                f63819a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
+            } catch (NoSuchFieldError unused34) {
+            }
+            try {
+                f63819a[ScalableType.END_INSIDE.ordinal()] = 26;
+            } catch (NoSuchFieldError unused35) {
             }
         }
-        notifyDataSetChanged();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public CloudMusicData.MusicTagList.MusicList getItem(int i2) {
-        return this.f60038f.get(i2);
+    public a(b bVar, b bVar2) {
+        this.f63817a = bVar;
+        this.f63818b = bVar2;
     }
 
-    public void d(c cVar) {
-        this.f60039g = cVar;
-    }
-
-    public void e(int i2, boolean z) {
-        getItem(i2).isLoading = z;
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.f60038f.size();
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        return i2;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        b bVar;
-        if (view == null) {
-            view = LayoutInflater.from(this.f60037e.getPageActivity()).inflate(R.layout.cloud_music_item, viewGroup, false);
-            bVar = new b();
-            bVar.f60044b = (TbImageView) view.findViewById(R.id.music_state);
-            TbImageView tbImageView = (TbImageView) view.findViewById(R.id.music_image);
-            bVar.f60043a = tbImageView;
-            tbImageView.setDrawerType(1);
-            bVar.f60043a.setIsRound(true);
-            bVar.f60043a.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            bVar.f60043a.setDefaultBgResource(R.color.transparent);
-            bVar.f60043a.setBorderWidth(l.g(this.f60037e.getPageActivity(), R.dimen.ds4));
-            bVar.f60043a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-            bVar.f60043a.setConrers(15);
-            bVar.f60045c = view.findViewById(R.id.music_loading);
-            bVar.f60046d = (TextView) view.findViewById(R.id.music_title);
-            bVar.f60047e = (TextView) view.findViewById(R.id.music_author_name);
-            bVar.f60048f = (TextView) view.findViewById(R.id.music_duration);
-            bVar.f60049g = (TextView) view.findViewById(R.id.music_choose);
-            bVar.f60050h = view.findViewById(R.id.line);
-            view.setTag(bVar);
-        } else {
-            bVar = (b) view.getTag();
+    public final Matrix a() {
+        if (this.f63818b.a() <= this.f63817a.b() && this.f63818b.a() <= this.f63817a.a()) {
+            return l(PivotPoint.CENTER);
         }
-        bVar.b(TbadkCoreApplication.getInst().getSkinType());
-        CloudMusicData.MusicTagList.MusicList musicList = this.f60038f.get(i2);
-        if (musicList != null) {
-            bVar.f60046d.setText(musicList.name);
-            bVar.f60043a.V(musicList.image, 10, false);
-            bVar.f60047e.setText(musicList.author);
-            bVar.f60048f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
-            if (musicList.isLoading) {
-                bVar.f60045c.setVisibility(0);
-            } else {
-                bVar.f60045c.setVisibility(4);
-            }
-            if (musicList.equals(d.a.n0.r3.i.h.a.b().a())) {
-                bVar.f60044b.setImageResource(R.drawable.btn_icon_stop_video);
-                bVar.f60043a.setDrawBorder(true);
-                bVar.f60049g.setVisibility(0);
-                bVar.f60045c.setVisibility(4);
-                musicList.isLoading = false;
-                bVar.f60049g.setOnClickListener(new View$OnClickListenerC1569a(musicList, i2));
-            } else {
-                bVar.f60044b.setImageResource(R.drawable.btn_icon_play_video_n);
-                bVar.f60043a.setDrawBorder(false);
-                bVar.f60049g.setVisibility(8);
-            }
+        return c();
+    }
+
+    public final Matrix b() {
+        if (this.f63818b.a() <= this.f63817a.b() && this.f63818b.a() <= this.f63817a.a()) {
+            return l(PivotPoint.RIGHT_BOTTOM);
         }
-        return view;
+        return d();
+    }
+
+    public final Matrix c() {
+        return h(PivotPoint.CENTER);
+    }
+
+    public final Matrix d() {
+        return h(PivotPoint.RIGHT_BOTTOM);
+    }
+
+    public final Matrix e() {
+        return h(PivotPoint.LEFT_TOP);
+    }
+
+    public final Matrix f() {
+        return j(1.0f, 1.0f, PivotPoint.LEFT_TOP);
+    }
+
+    public final Matrix g(PivotPoint pivotPoint) {
+        float b2 = this.f63817a.b() / this.f63818b.b();
+        float a2 = this.f63817a.a() / this.f63818b.a();
+        float max = Math.max(b2, a2);
+        return j(max / b2, max / a2, pivotPoint);
+    }
+
+    public final Matrix h(PivotPoint pivotPoint) {
+        float b2 = this.f63817a.b() / this.f63818b.b();
+        float a2 = this.f63817a.a() / this.f63818b.a();
+        float min = Math.min(b2, a2);
+        return j(min / b2, min / a2, pivotPoint);
+    }
+
+    public final Matrix i(float f2, float f3, float f4, float f5) {
+        Matrix matrix = new Matrix();
+        matrix.setScale(f2, f3, f4, f5);
+        return matrix;
+    }
+
+    public final Matrix j(float f2, float f3, PivotPoint pivotPoint) {
+        switch (C1630a.f63820b[pivotPoint.ordinal()]) {
+            case 1:
+                return i(f2, f3, 0.0f, 0.0f);
+            case 2:
+                return i(f2, f3, 0.0f, this.f63817a.a() / 2.0f);
+            case 3:
+                return i(f2, f3, 0.0f, this.f63817a.a());
+            case 4:
+                return i(f2, f3, this.f63817a.b() / 2.0f, 0.0f);
+            case 5:
+                return i(f2, f3, this.f63817a.b() / 2.0f, this.f63817a.a() / 2.0f);
+            case 6:
+                return i(f2, f3, this.f63817a.b() / 2.0f, this.f63817a.a());
+            case 7:
+                return i(f2, f3, this.f63817a.b(), 0.0f);
+            case 8:
+                return i(f2, f3, this.f63817a.b(), this.f63817a.a() / 2.0f);
+            case 9:
+                return i(f2, f3, this.f63817a.b(), this.f63817a.a());
+            default:
+                return null;
+        }
+    }
+
+    public final Matrix k() {
+        return j(this.f63818b.b() / this.f63817a.b(), this.f63818b.a() / this.f63817a.a(), PivotPoint.LEFT_TOP);
+    }
+
+    public final Matrix l(PivotPoint pivotPoint) {
+        return j(this.f63818b.b() / this.f63817a.b(), this.f63818b.a() / this.f63817a.a(), pivotPoint);
+    }
+
+    public Matrix m(ScalableType scalableType) {
+        switch (C1630a.f63819a[scalableType.ordinal()]) {
+            case 1:
+                return k();
+            case 2:
+                return f();
+            case 3:
+                return c();
+            case 4:
+                return e();
+            case 5:
+                return d();
+            case 6:
+                return l(PivotPoint.LEFT_TOP);
+            case 7:
+                return l(PivotPoint.LEFT_CENTER);
+            case 8:
+                return l(PivotPoint.LEFT_BOTTOM);
+            case 9:
+                return l(PivotPoint.CENTER_TOP);
+            case 10:
+                return l(PivotPoint.CENTER);
+            case 11:
+                return l(PivotPoint.CENTER_BOTTOM);
+            case 12:
+                return l(PivotPoint.RIGHT_TOP);
+            case 13:
+                return l(PivotPoint.RIGHT_CENTER);
+            case 14:
+                return l(PivotPoint.RIGHT_BOTTOM);
+            case 15:
+                return g(PivotPoint.LEFT_TOP);
+            case 16:
+                return g(PivotPoint.LEFT_CENTER);
+            case 17:
+                return g(PivotPoint.LEFT_BOTTOM);
+            case 18:
+                return g(PivotPoint.CENTER_TOP);
+            case 19:
+                return g(PivotPoint.CENTER);
+            case 20:
+                return g(PivotPoint.CENTER_BOTTOM);
+            case 21:
+                return g(PivotPoint.RIGHT_TOP);
+            case 22:
+                return g(PivotPoint.RIGHT_CENTER);
+            case 23:
+                return g(PivotPoint.RIGHT_BOTTOM);
+            case 24:
+                return n();
+            case 25:
+                return a();
+            case 26:
+                return b();
+            default:
+                return null;
+        }
+    }
+
+    public final Matrix n() {
+        if (this.f63818b.a() <= this.f63817a.b() && this.f63818b.a() <= this.f63817a.a()) {
+            return l(PivotPoint.LEFT_TOP);
+        }
+        return e();
     }
 }

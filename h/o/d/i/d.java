@@ -6,25 +6,25 @@ import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d<T> implements Queue<T> {
     public static final int m = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
     public static final Object n = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicLong f68693e;
+    public final AtomicLong f71949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f68694f;
+    public int f71950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f68695g;
+    public long f71951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68696h;
+    public int f71952h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicReferenceArray<Object> f68697i;
+    public AtomicReferenceArray<Object> f71953i;
     public int j;
     public AtomicReferenceArray<Object> k;
     public final AtomicLong l;
@@ -33,13 +33,13 @@ public final class d<T> implements Queue<T> {
         int b2 = i.b(i2);
         int i3 = b2 - 1;
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b2 + 1);
-        this.f68697i = atomicReferenceArray;
-        this.f68696h = i3;
+        this.f71953i = atomicReferenceArray;
+        this.f71952h = i3;
         a(b2);
         this.k = atomicReferenceArray;
         this.j = i3;
-        this.f68695g = i3 - 1;
-        this.f68693e = new AtomicLong();
+        this.f71951g = i3 - 1;
+        this.f71949e = new AtomicLong();
         this.l = new AtomicLong();
     }
 
@@ -62,7 +62,7 @@ public final class d<T> implements Queue<T> {
     }
 
     public final void a(int i2) {
-        this.f68694f = Math.min(i2 / 4, m);
+        this.f71950f = Math.min(i2 / 4, m);
     }
 
     @Override // java.util.Queue, java.util.Collection
@@ -99,7 +99,7 @@ public final class d<T> implements Queue<T> {
     }
 
     public final long e() {
-        return this.f68693e.get();
+        return this.f71949e.get();
     }
 
     @Override // java.util.Queue
@@ -118,7 +118,7 @@ public final class d<T> implements Queue<T> {
     }
 
     public final long i() {
-        return this.f68693e.get();
+        return this.f71949e.get();
     }
 
     @Override // java.util.Collection
@@ -149,9 +149,9 @@ public final class d<T> implements Queue<T> {
     }
 
     public boolean l(T t, T t2) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.f68697i;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.f71953i;
         long i2 = i();
-        int i3 = this.f68696h;
+        int i3 = this.f71952h;
         long j = 2 + i2;
         if (g(atomicReferenceArray, c(j, i3)) == null) {
             int c2 = c(i2, i3);
@@ -161,7 +161,7 @@ public final class d<T> implements Queue<T> {
             return true;
         }
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.f68697i = atomicReferenceArray2;
+        this.f71953i = atomicReferenceArray2;
         int c3 = c(i2, i3);
         o(atomicReferenceArray2, c3 + 1, t2);
         o(atomicReferenceArray2, c3, t);
@@ -173,8 +173,8 @@ public final class d<T> implements Queue<T> {
 
     public final void m(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i2, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.f68697i = atomicReferenceArray2;
-        this.f68695g = (j2 + j) - 1;
+        this.f71953i = atomicReferenceArray2;
+        this.f71951g = (j2 + j) - 1;
         o(atomicReferenceArray2, i2, t);
         p(atomicReferenceArray, atomicReferenceArray2);
         o(atomicReferenceArray, i2, n);
@@ -187,16 +187,16 @@ public final class d<T> implements Queue<T> {
 
     @Override // java.util.Queue
     public boolean offer(T t) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.f68697i;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.f71953i;
         long e2 = e();
-        int i2 = this.f68696h;
+        int i2 = this.f71952h;
         int c2 = c(e2, i2);
-        if (e2 < this.f68695g) {
+        if (e2 < this.f71951g) {
             return r(atomicReferenceArray, t, e2, c2);
         }
-        long j = this.f68694f + e2;
+        long j = this.f71950f + e2;
         if (g(atomicReferenceArray, c(j, i2)) == null) {
-            this.f68695g = j - 1;
+            this.f71951g = j - 1;
             return r(atomicReferenceArray, t, e2, c2);
         } else if (g(atomicReferenceArray, c(1 + e2, i2)) == null) {
             return r(atomicReferenceArray, t, e2, c2);
@@ -241,7 +241,7 @@ public final class d<T> implements Queue<T> {
     }
 
     public final void q(long j) {
-        this.f68693e.lazySet(j);
+        this.f71949e.lazySet(j);
     }
 
     public final boolean r(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j, int i2) {

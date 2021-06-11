@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.n0.z.e0.a;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class PostForumData extends a implements Serializable {
         return (n) ListUtils.getItem(this.mRelateForumDataList, i2);
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.j.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         return TYPE_POST_FORUM;
     }

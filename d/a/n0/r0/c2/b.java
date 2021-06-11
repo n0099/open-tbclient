@@ -15,23 +15,23 @@ import d.a.n0.z.z;
 public class b implements CustomMessageTask.CustomRunnable<a2>, z {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.n0.r0.j2.b f58426e;
+    public d.a.n0.r0.j2.b f62117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageTag f58427f;
+    public TbPageTag f62118f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f58428g;
+    public BdUniqueId f62119g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58429h;
+    public int f62120h;
 
     public b(d.a.n0.r0.j2.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.f58426e = null;
-        this.f58427f = null;
-        this.f58426e = bVar;
-        this.f58427f = tbPageTag;
-        this.f58428g = bdUniqueId;
+        this.f62117e = null;
+        this.f62118f = null;
+        this.f62117e = bVar;
+        this.f62118f = tbPageTag;
+        this.f62119g = bdUniqueId;
     }
 
     @Override // d.a.n0.z.z
@@ -39,21 +39,21 @@ public class b implements CustomMessageTask.CustomRunnable<a2>, z {
     }
 
     public final void b(a2 a2Var) {
-        if (a2Var == null || a2Var.T() == null || a2Var.r1() == null) {
+        if (a2Var == null || a2Var.T() == null || a2Var.s1() == null) {
             return;
         }
-        long j = a2Var.r1().user_info != null ? a2Var.r1().user_info.ala_id : 0L;
+        long j = a2Var.s1().user_info != null ? a2Var.s1().user_info.ala_id : 0L;
         StatisticItem statisticItem = new StatisticItem("c13615");
         statisticItem.param("uid", a2Var.T().getUserId());
         statisticItem.param("fid", a2Var.c0());
-        statisticItem.param("ab_tag", a2Var.U0);
-        statisticItem.param("obj_type", a2Var.r1().isChushou ? 2 : 1);
-        statisticItem.param("tid", a2Var.y1());
-        statisticItem.param(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, a2Var.r1().live_id);
+        statisticItem.param("ab_tag", a2Var.V0);
+        statisticItem.param("obj_type", a2Var.s1().isChushou ? 2 : 1);
+        statisticItem.param("tid", a2Var.z1());
+        statisticItem.param(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, a2Var.s1().live_id);
         statisticItem.param(TiebaStatic.Params.STAR_ID, j);
-        statisticItem.param("extra", a2Var.V0);
-        statisticItem.param("source_from", a2Var.S0);
-        int i2 = this.f58429h;
+        statisticItem.param("extra", a2Var.W0);
+        statisticItem.param("source_from", a2Var.T0);
+        int i2 = this.f62120h;
         if (i2 == 14) {
             statisticItem.param("obj_locate", 1);
         } else if (i2 == 13) {
@@ -63,21 +63,21 @@ public class b implements CustomMessageTask.CustomRunnable<a2>, z {
     }
 
     public final void c(a2 a2Var) {
-        if (a2Var == null || a2Var.T() == null || a2Var.r1() == null) {
+        if (a2Var == null || a2Var.T() == null || a2Var.s1() == null) {
             return;
         }
-        long j = a2Var.r1().user_info != null ? a2Var.r1().user_info.ala_id : 0L;
+        long j = a2Var.s1().user_info != null ? a2Var.s1().user_info.ala_id : 0L;
         StatisticItem statisticItem = new StatisticItem("c13614");
         statisticItem.param("uid", a2Var.T().getUserId());
         statisticItem.param("fid", a2Var.c0());
-        statisticItem.param("ab_tag", a2Var.U0);
-        statisticItem.param("obj_type", a2Var.r1().isChushou ? 2 : 1);
-        statisticItem.param("tid", a2Var.y1());
-        statisticItem.param(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, a2Var.r1().live_id);
+        statisticItem.param("ab_tag", a2Var.V0);
+        statisticItem.param("obj_type", a2Var.s1().isChushou ? 2 : 1);
+        statisticItem.param("tid", a2Var.z1());
+        statisticItem.param(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, a2Var.s1().live_id);
         statisticItem.param(TiebaStatic.Params.STAR_ID, j);
-        statisticItem.param("extra", a2Var.V0);
-        statisticItem.param("source_from", a2Var.S0);
-        int i2 = this.f58429h;
+        statisticItem.param("extra", a2Var.W0);
+        statisticItem.param("source_from", a2Var.T0);
+        int i2 = this.f62120h;
         if (i2 == 14) {
             statisticItem.param("obj_locate", 1);
         } else if (i2 == 13) {
@@ -87,11 +87,11 @@ public class b implements CustomMessageTask.CustomRunnable<a2>, z {
     }
 
     public void d(int i2) {
-        this.f58429h = i2;
+        this.f62120h = i2;
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
@@ -101,20 +101,20 @@ public class b implements CustomMessageTask.CustomRunnable<a2>, z {
             a2 data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 b(data);
-                d.a.n0.r0.j2.c.j().g(this.f58426e, data, 1);
-                d.a.n0.r0.j2.a.c(data, 1, this.f58428g, this.f58426e, this.f58427f);
+                d.a.n0.r0.j2.c.j().g(this.f62117e, data, 1);
+                d.a.n0.r0.j2.a.c(data, 1, this.f62119g, this.f62117e, this.f62118f);
             } else if (customMessage.getCmd() == 2921016) {
                 b(data);
-                d.a.n0.r0.j2.c.j().g(this.f58426e, data, 2);
-                d.a.n0.r0.j2.a.c(data, 2, this.f58428g, this.f58426e, this.f58427f);
+                d.a.n0.r0.j2.c.j().g(this.f62117e, data, 2);
+                d.a.n0.r0.j2.a.c(data, 2, this.f62119g, this.f62117e, this.f62118f);
             } else if (customMessage.getCmd() == 2921019) {
                 b(data);
-                d.a.n0.r0.j2.c.j().g(this.f58426e, data, 4);
-                d.a.n0.r0.j2.a.c(data, 1, this.f58428g, this.f58426e, this.f58427f);
+                d.a.n0.r0.j2.c.j().g(this.f62117e, data, 4);
+                d.a.n0.r0.j2.a.c(data, 1, this.f62119g, this.f62117e, this.f62118f);
             } else if (customMessage.getCmd() == 2921017) {
                 c(data);
-                d.a.n0.r0.j2.c.j().c(this.f58426e, data);
-                d.a.n0.r0.j2.a.j(data, this.f58428g, this.f58426e, this.f58427f);
+                d.a.n0.r0.j2.c.j().c(this.f62117e, data);
+                d.a.n0.r0.j2.a.j(data, this.f62119g, this.f62117e, this.f62118f);
             }
         }
         return null;

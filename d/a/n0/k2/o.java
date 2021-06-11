@@ -4,37 +4,36 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes5.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f56898a;
+    public String f60587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56899b;
+    public String f60588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56900c;
+    public String f60589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56901d;
+    public String f60590d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56902e;
+    public String f60591e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56903f;
+    public String f60592f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56904g;
+    public String f60593g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f56905h;
+    public String f60594h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f56906i;
+    public String f60595i;
     public int j;
     public String k;
     public String l;
@@ -60,52 +59,56 @@ public class o {
             if (hashCode != 54) {
                 if (hashCode != 1570) {
                     if (hashCode != 1576) {
-                        if (hashCode != 56) {
-                            if (hashCode != 57) {
-                                if (hashCode != 1567) {
-                                    if (hashCode != 1568) {
-                                        switch (hashCode) {
-                                            case 49:
-                                                if (str.equals("1")) {
-                                                    c2 = 0;
+                        if (hashCode != 1599) {
+                            if (hashCode != 56) {
+                                if (hashCode != 57) {
+                                    if (hashCode != 1567) {
+                                        if (hashCode != 1568) {
+                                            switch (hashCode) {
+                                                case 49:
+                                                    if (str.equals("1")) {
+                                                        c2 = 0;
+                                                        break;
+                                                    }
                                                     break;
-                                                }
-                                                break;
-                                            case 50:
-                                                if (str.equals("2")) {
-                                                    c2 = 1;
+                                                case 50:
+                                                    if (str.equals("2")) {
+                                                        c2 = 1;
+                                                        break;
+                                                    }
                                                     break;
-                                                }
-                                                break;
-                                            case 51:
-                                                if (str.equals("3")) {
-                                                    c2 = 3;
+                                                case 51:
+                                                    if (str.equals("3")) {
+                                                        c2 = 3;
+                                                        break;
+                                                    }
                                                     break;
-                                                }
-                                                break;
-                                            case 52:
-                                                if (str.equals("4")) {
-                                                    c2 = 2;
+                                                case 52:
+                                                    if (str.equals("4")) {
+                                                        c2 = 2;
+                                                        break;
+                                                    }
                                                     break;
-                                                }
-                                                break;
+                                            }
+                                        } else if (str.equals("11")) {
+                                            c2 = 5;
                                         }
-                                    } else if (str.equals(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE)) {
-                                        c2 = 5;
+                                    } else if (str.equals("10")) {
+                                        c2 = 4;
                                     }
-                                } else if (str.equals("10")) {
-                                    c2 = 4;
+                                } else if (str.equals("9")) {
+                                    c2 = '\b';
                                 }
-                            } else if (str.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9)) {
-                                c2 = '\b';
+                            } else if (str.equals("8")) {
+                                c2 = 7;
                             }
-                        } else if (str.equals("8")) {
-                            c2 = 7;
+                        } else if (str.equals(Constants.VIA_REPORT_TYPE_QQFAVORITES)) {
+                            c2 = 11;
                         }
                     } else if (str.equals(Constants.VIA_ACT_TYPE_NINETEEN)) {
                         c2 = '\t';
                     }
-                } else if (str.equals(Constants.VIA_REPORT_TYPE_JOININ_GROUP)) {
+                } else if (str.equals("13")) {
                     c2 = '\n';
                 }
             } else if (str.equals("6")) {
@@ -128,6 +131,8 @@ public class o {
                     return "a020";
                 case '\n':
                     return "a023";
+                case 11:
+                    return "a088";
                 default:
                     return "";
             }
@@ -136,34 +141,34 @@ public class o {
 
     public StatisticItem a(StatisticItem statisticItem) {
         if (statisticItem != null) {
-            if (!StringUtils.isNull(this.f56898a)) {
-                statisticItem.param("obj_locate", this.f56898a);
-                statisticItem.param("page_type", a.a(this.f56898a));
+            if (!StringUtils.isNull(this.f60587a)) {
+                statisticItem.param("obj_locate", this.f60587a);
+                statisticItem.param("page_type", a.a(this.f60587a));
             }
-            if (!StringUtils.isNull(this.f56900c)) {
-                statisticItem.param("tid", this.f56900c);
+            if (!StringUtils.isNull(this.f60589c)) {
+                statisticItem.param("tid", this.f60589c);
             }
-            if (!StringUtils.isNull(this.f56901d)) {
-                statisticItem.param("fid", this.f56901d);
+            if (!StringUtils.isNull(this.f60590d)) {
+                statisticItem.param("fid", this.f60590d);
             }
-            if (!StringUtils.isNull(this.f56902e)) {
-                statisticItem.param("uid", this.f56902e);
+            if (!StringUtils.isNull(this.f60591e)) {
+                statisticItem.param("uid", this.f60591e);
             }
-            if (!StringUtils.isNull(this.f56903f)) {
-                statisticItem.param("obj_source", this.f56903f);
+            if (!StringUtils.isNull(this.f60592f)) {
+                statisticItem.param("obj_source", this.f60592f);
             } else {
                 statisticItem.param("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.f56904g)) {
-                statisticItem.param("obj_param1", this.f56904g);
+            if (!StringUtils.isNull(this.f60593g)) {
+                statisticItem.param("obj_param1", this.f60593g);
             } else {
                 statisticItem.param("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.f56905h)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f56905h);
+            if (!StringUtils.isNull(this.f60594h)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f60594h);
             }
-            if (!StringUtils.isNull(this.f56906i)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.f56906i);
+            if (!StringUtils.isNull(this.f60595i)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.f60595i);
             }
             int i2 = this.j;
             if (i2 > 0) {
@@ -206,15 +211,15 @@ public class o {
 
     public o b() {
         o oVar = new o();
-        oVar.f56898a = this.f56898a;
-        oVar.f56899b = this.f56899b;
-        oVar.f56900c = this.f56900c;
-        oVar.f56901d = this.f56901d;
-        oVar.f56902e = this.f56902e;
-        oVar.f56903f = this.f56903f;
-        oVar.f56904g = this.f56904g;
-        oVar.f56905h = this.f56905h;
-        oVar.f56906i = this.f56906i;
+        oVar.f60587a = this.f60587a;
+        oVar.f60588b = this.f60588b;
+        oVar.f60589c = this.f60589c;
+        oVar.f60590d = this.f60590d;
+        oVar.f60591e = this.f60591e;
+        oVar.f60592f = this.f60592f;
+        oVar.f60593g = this.f60593g;
+        oVar.f60594h = this.f60594h;
+        oVar.f60595i = this.f60595i;
         oVar.k = this.k;
         oVar.l = this.l;
         oVar.m = this.m;

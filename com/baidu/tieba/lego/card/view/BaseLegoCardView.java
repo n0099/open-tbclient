@@ -33,19 +33,19 @@ import java.util.List;
 public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements e<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f17906e;
+    public String f17982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17907f;
+    public int f17983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17908g;
+    public int f17984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f17909h;
+    public View f17985h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f17910i;
+    public View f17986i;
     public View j;
     public View k;
     public ImageView l;
@@ -86,7 +86,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     public final void F() {
-        this.f17909h.setVisibility(0);
+        this.f17985h.setVisibility(0);
     }
 
     public final void G(TextView textView, boolean z, String str, String str2) {
@@ -125,59 +125,15 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     @Override // d.a.n0.k1.o.l.e
-    public void e() {
+    public void c(BdUniqueId bdUniqueId) {
     }
 
     @Override // d.a.n0.k1.o.l.e
     public void f() {
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.lego.card.view.BaseLegoCardView<T extends com.baidu.tieba.lego.card.model.BaseLegoCardInfo> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.a.n0.k1.o.l.e
-    public final void g(Object obj) {
-        ICardInfo updateCard;
-        ICardInfo iCardInfo = (ICardInfo) obj;
-        if (iCardInfo == null || (updateCard = iCardInfo.getUpdateCard()) == null) {
-            return;
-        }
-        BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) updateCard;
-        v(baseLegoCardInfo);
-        if (this.p) {
-            q();
-        }
-        if (this.n != TbadkCoreApplication.getInst().getSkinType()) {
-            this.n = TbadkCoreApplication.getInst().getSkinType();
-            m();
-            w(baseLegoCardInfo, this.n);
-        }
-        F();
-        x(baseLegoCardInfo);
-        l(baseLegoCardInfo);
-    }
-
-    public final int getBusinessType() {
-        return this.f17907f;
-    }
-
-    public final int getStatPosition() {
-        return this.f17908g + 1;
-    }
-
-    @Override // d.a.n0.k1.o.l.e
-    public void h() {
-    }
-
-    @Override // d.a.n0.k1.o.l.e
-    public void i() {
-    }
-
-    @Override // d.a.n0.k1.o.l.e
-    public void k(BdUniqueId bdUniqueId) {
-    }
-
-    public final void l(T t) {
-        this.f17910i.setVisibility(t.isShowCover() ? 0 : 8);
+    public final void g(T t) {
+        this.f17986i.setVisibility(t.isShowCover() ? 0 : 8);
         int showSpace = t.getShowSpace();
         H(showSpace != 0 ? -1 : t.getShowLine());
         if (showSpace == 0) {
@@ -196,10 +152,54 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
+    public final int getBusinessType() {
+        return this.f17983f;
+    }
+
+    public final int getStatPosition() {
+        return this.f17984g + 1;
+    }
+
+    @Override // d.a.n0.k1.o.l.e
+    public void h() {
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.lego.card.view.BaseLegoCardView<T extends com.baidu.tieba.lego.card.model.BaseLegoCardInfo> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // d.a.n0.k1.o.l.e
+    public final void i(Object obj) {
+        ICardInfo updateCard;
+        ICardInfo iCardInfo = (ICardInfo) obj;
+        if (iCardInfo == null || (updateCard = iCardInfo.getUpdateCard()) == null) {
+            return;
+        }
+        BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) updateCard;
+        v(baseLegoCardInfo);
+        if (this.p) {
+            q();
+        }
+        if (this.n != TbadkCoreApplication.getInst().getSkinType()) {
+            this.n = TbadkCoreApplication.getInst().getSkinType();
+            m();
+            w(baseLegoCardInfo, this.n);
+        }
+        F();
+        x(baseLegoCardInfo);
+        g(baseLegoCardInfo);
+    }
+
+    @Override // d.a.n0.k1.o.l.e
+    public void j() {
+    }
+
+    @Override // d.a.n0.k1.o.l.e
+    public void k() {
+    }
+
     public final void m() {
         SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
         SkinManager.setImageResource(this.l, R.color.CAM_X0204);
-        int i2 = this.f17907f;
+        int i2 = this.f17983f;
         if (i2 == 1) {
             this.j.setBackgroundColor(getResources().getColor(17170445));
             this.k.setBackgroundColor(getResources().getColor(17170445));
@@ -270,18 +270,18 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void s() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        if (this.f17907f == 4) {
+        if (this.f17983f == 4) {
             layoutParams.setMargins(0, 0, 0, 0);
         } else {
             layoutParams.setMargins(0, getResources().getDimensionPixelSize(R.dimen.M_H_X003), 0, 0);
         }
         View t = t();
-        this.f17909h = t;
+        this.f17985h = t;
         frameLayout.addView(t, r());
         View view = new View(getContext());
-        this.f17910i = view;
+        this.f17986i = view;
         SkinManager.setBackgroundColor(view, R.color.common_color_10205);
-        frameLayout.addView(this.f17910i, new ViewGroup.LayoutParams(-1, -1));
+        frameLayout.addView(this.f17986i, new ViewGroup.LayoutParams(-1, -1));
         this.l = new ImageView(getContext());
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds1));
         SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
@@ -289,7 +289,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         this.j = new View(getContext());
         this.k = new View(getContext());
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds16));
-        int i2 = this.f17907f;
+        int i2 = this.f17983f;
         if (i2 != 1) {
             if (i2 == 2) {
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
@@ -339,7 +339,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     @Override // d.a.n0.k1.o.l.e
     public final void setBusinessType(int i2) {
-        this.f17907f = i2;
+        this.f17983f = i2;
     }
 
     public final void setCardOnClickListener(View.OnClickListener onClickListener) {
@@ -361,7 +361,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     @Override // d.a.n0.k1.o.l.e
     public final void setPosition(int i2) {
-        this.f17908g = i2;
+        this.f17984g = i2;
     }
 
     public abstract View t();

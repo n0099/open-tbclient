@@ -20,13 +20,13 @@ import d.a.n0.e2.o.i;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f53571a;
+    public final i f57260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f53572b = new a(CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
+    public final HttpMessageListener f57261b = new a(CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f53573c = new b(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+    public final HttpMessageListener f57262c = new b(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -56,17 +56,17 @@ public class c {
 
     public c(i iVar) {
         if (iVar != null) {
-            this.f53571a = iVar;
+            this.f57260a = iVar;
             f();
             return;
         }
         throw new NullPointerException("PbActivity is NullPointerException");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x006d  */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0091  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x00a2  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x00ad  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x006e  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0092  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x00a3  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x00ae  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -92,7 +92,7 @@ public class c {
                 httpMessage.addParam("obj_type", agreeData.objType);
                 httpMessage.addParam("agree_type", agreeData.agreeType);
                 httpMessage.addParam("forum_id", agreeData.forumId);
-                k = TbPageExtraHelper.k(this.f53571a.A());
+                k = TbPageExtraHelper.k(this.f57260a.B());
                 if (k != null) {
                     httpMessage.addParam("obj_source", k.a());
                 }
@@ -114,12 +114,12 @@ public class c {
             agreeData.agreeType = 2;
             agreeData.hasAgree = true;
             agreeData.agreeNum++;
-            d.a.n0.s2.a.g().l(this.f53571a.getPageContext());
+            d.a.n0.s2.a.g().l(this.f57260a.getPageContext());
         } else {
             agreeData.agreeType = 2;
             agreeData.hasAgree = true;
             agreeData.agreeNum++;
-            d.a.n0.s2.a.g().l(this.f53571a.getPageContext());
+            d.a.n0.s2.a.g().l(this.f57260a.getPageContext());
         }
         i2 = 0;
         HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
@@ -131,7 +131,7 @@ public class c {
         httpMessage2.addParam("obj_type", agreeData.objType);
         httpMessage2.addParam("agree_type", agreeData.agreeType);
         httpMessage2.addParam("forum_id", agreeData.forumId);
-        k = TbPageExtraHelper.k(this.f53571a.A());
+        k = TbPageExtraHelper.k(this.f57260a.B());
         if (k != null) {
         }
         if (!TextUtils.isEmpty(agreeData.postId)) {
@@ -146,7 +146,7 @@ public class c {
     }
 
     public BdUniqueId c() {
-        TbPageContext pageContext = this.f53571a.getPageContext();
+        TbPageContext pageContext = this.f57260a.getPageContext();
         if (pageContext != null) {
             return pageContext.getUniqueId();
         }
@@ -159,27 +159,27 @@ public class c {
 
     public final void e(HttpResponsedMessage httpResponsedMessage, int i2) {
         PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
-        if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != i2 || !(httpResponsedMessage instanceof PbFloorAgreeResponseMessage) || (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) == null || pbFloorAgreeResponseMessage.hasError() || this.f53571a == null || pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
+        if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != i2 || !(httpResponsedMessage instanceof PbFloorAgreeResponseMessage) || (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) == null || pbFloorAgreeResponseMessage.hasError() || this.f57260a == null || pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
             return;
         }
         CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
         activityDialogData.type = 0;
-        d.a.n0.e2.j.c.a(this.f53571a.getPageContext(), activityDialogData).show();
+        d.a.n0.e2.j.c.a(this.f57260a.getPageContext(), activityDialogData).show();
     }
 
     public boolean f() {
-        i iVar = this.f53571a;
+        i iVar = this.f57260a;
         if (iVar != null) {
-            iVar.registerListener(this.f53572b);
-            this.f53571a.registerListener(this.f53573c);
+            iVar.registerListener(this.f57261b);
+            this.f57260a.registerListener(this.f57262c);
             return true;
         }
         return true;
     }
 
     public final boolean g() {
-        MessageManager.getInstance().unRegisterListener(this.f53572b);
-        MessageManager.getInstance().unRegisterListener(this.f53573c);
+        MessageManager.getInstance().unRegisterListener(this.f57261b);
+        MessageManager.getInstance().unRegisterListener(this.f57262c);
         return true;
     }
 }

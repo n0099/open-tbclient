@@ -6,26 +6,26 @@ import android.text.TextUtils;
 public final class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f2547b = null;
+    public static b f2566b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2548c = "";
+    public static String f2567c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile String f2549d = "";
+    public static volatile String f2568d = "";
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f2550a;
+    public final Context f2569a;
 
     public c(Context context) {
-        this.f2550a = context.getApplicationContext();
+        this.f2569a = context.getApplicationContext();
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f2548c)) {
-            f2548c = "0newiqr3mini0";
+        if (TextUtils.isEmpty(f2567c)) {
+            f2567c = "0newiqr3mini0";
         }
-        return f2548c;
+        return f2567c;
     }
 
     public static String a(Context context) {
@@ -37,8 +37,8 @@ public final class c {
             throw new IllegalArgumentException("expect src only letter or number , less than 6");
         }
         synchronized (b.class) {
-            if (TextUtils.isEmpty(f2549d)) {
-                f2549d = str;
+            if (TextUtils.isEmpty(f2568d)) {
+                f2568d = str;
                 int length = 5 - str.length();
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append("0newiqr3");
@@ -46,38 +46,38 @@ public final class c {
                 for (int i2 = 0; i2 < length; i2++) {
                     stringBuffer.append("0");
                 }
-                f2548c = stringBuffer.toString().trim();
+                f2567c = stringBuffer.toString().trim();
             }
         }
     }
 
     private b b() {
-        b b2 = b.b(this.f2550a);
+        b b2 = b.b(this.f2569a);
         boolean z = b2 == null;
         if (b2 == null) {
-            a b3 = a.b(this.f2550a);
+            a b3 = a.b(this.f2569a);
             if (b3 == null) {
-                b2 = b.a(this.f2550a, a());
+                b2 = b.a(this.f2569a, a());
             } else {
                 b3.c();
                 b2 = b.a(b3);
             }
         }
         if (z) {
-            b2.a(this.f2550a);
+            b2.a(this.f2569a);
         }
-        a.a(this.f2550a);
+        a.a(this.f2569a);
         return b2;
     }
 
     public static b b(Context context) {
-        if (f2547b == null) {
+        if (f2566b == null) {
             synchronized (b.class) {
-                if (f2547b == null) {
-                    f2547b = new c(context).b();
+                if (f2566b == null) {
+                    f2566b = new c(context).b();
                 }
             }
         }
-        return f2547b;
+        return f2566b;
     }
 }

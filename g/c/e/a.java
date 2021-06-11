@@ -25,7 +25,7 @@ import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends g.c.a implements Runnable, WebSocket {
     public CountDownLatch closeLatch;
     public CountDownLatch connectLatch;
@@ -40,7 +40,7 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
     public URI uri;
     public Thread writeThread;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -56,11 +56,11 @@ public abstract class a extends g.c.a implements Runnable, WebSocket {
                             if (Thread.interrupted()) {
                                 break;
                             }
-                            ByteBuffer take = a.this.engine.f68364e.take();
+                            ByteBuffer take = a.this.engine.f71620e.take();
                             a.this.ostream.write(take.array(), 0, take.limit());
                             a.this.ostream.flush();
                         } catch (InterruptedException unused) {
-                            for (ByteBuffer byteBuffer : a.this.engine.f68364e) {
+                            for (ByteBuffer byteBuffer : a.this.engine.f71620e) {
                                 a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                                 a.this.ostream.flush();
                             }

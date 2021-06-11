@@ -29,7 +29,7 @@ import d.a.l0.a.v2.n0;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPullLayout.c, View.OnClickListener {
-    public static final boolean p0 = k.f43199a;
+    public static final boolean p0 = k.f46875a;
     public static CloseStyle q0;
     public SwanAppActivity U;
     public final FrameLayout V;
@@ -117,10 +117,10 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
     public class c extends d.a.l0.a.h0.j.a {
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f11368c = false;
+        public boolean f11430c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.a.h0.j.d f11369d;
+        public final /* synthetic */ d.a.l0.a.h0.j.d f11431d;
 
         /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
@@ -138,13 +138,13 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         }
 
         public c(d.a.l0.a.h0.j.d dVar) {
-            this.f11369d = dVar;
+            this.f11431d = dVar;
         }
 
         @Override // d.a.l0.a.h0.j.a, d.a.l0.a.h0.j.d
         public void b(int i2) {
-            this.f11368c = true;
-            d.a.l0.a.h0.j.d dVar = this.f11369d;
+            this.f11430c = true;
+            d.a.l0.a.h0.j.d dVar = this.f11431d;
             if (dVar != null) {
                 dVar.b(i2);
             }
@@ -156,8 +156,8 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
 
         @Override // d.a.l0.a.h0.j.a, d.a.l0.a.h0.j.d
         public void d(int i2, String str, String str2) {
-            this.f11368c = true;
-            d.a.l0.a.h0.j.d dVar = this.f11369d;
+            this.f11430c = true;
+            d.a.l0.a.h0.j.d dVar = this.f11431d;
             if (dVar != null) {
                 dVar.d(i2, str, str2);
             }
@@ -165,11 +165,11 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
 
         @Override // d.a.l0.a.h0.j.a, d.a.l0.a.h0.j.d
         public void e(String str) {
-            if (this.f11368c) {
+            if (this.f11430c) {
                 return;
             }
-            this.f11368c = false;
-            d.a.l0.a.h0.j.d dVar = this.f11369d;
+            this.f11430c = false;
+            d.a.l0.a.h0.j.d dVar = this.f11431d;
             if (dVar != null) {
                 dVar.e(str);
             }
@@ -186,17 +186,17 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
     public static /* synthetic */ class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11372a;
+        public static final /* synthetic */ int[] f11434a;
 
         static {
             int[] iArr = new int[CloseStyle.values().length];
-            f11372a = iArr;
+            f11434a = iArr;
             try {
                 iArr[CloseStyle.CLOSE_AT_BOTTOM.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11372a[CloseStyle.CLOSE_AT_RIGHT.ordinal()] = 2;
+                f11434a[CloseStyle.CLOSE_AT_RIGHT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -255,7 +255,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
             this.U = d.a.l0.a.g1.f.V().getActivity();
         }
         View decorView = this.U.getWindow().getDecorView();
-        p0();
+        m0();
         if (this.e0) {
             I(false);
         }
@@ -301,6 +301,13 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         this.W.getBackground().setAlpha((int) ((1.0f - f2) * 153.0f));
     }
 
+    public void m0() {
+        d.a.l0.a.w2.h.c cVar = this.d0;
+        if (cVar != null) {
+            cVar.b(this.Y);
+        }
+    }
+
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
@@ -324,14 +331,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         }
     }
 
-    public void p0() {
-        d.a.l0.a.w2.h.c cVar = this.d0;
-        if (cVar != null) {
-            cVar.b(this.Y);
-        }
-    }
-
-    public final void q0() {
+    public final void p0() {
         if (x()) {
             ObjectAnimator b2 = d.a.l0.a.t.b.b(this.W);
             ObjectAnimator d2 = d.a.l0.a.t.b.d(this.X, this.Z);
@@ -342,20 +342,20 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         }
     }
 
-    @Override // com.baidu.swan.menu.PopupWindow
-    public void r() {
-        q0();
-    }
-
-    public final e s0(SwanAppActivity swanAppActivity) {
+    public final e q0(SwanAppActivity swanAppActivity) {
         return d.a.l0.a.h0.u.g.N().X().g(swanAppActivity);
     }
 
-    public final d.a.l0.a.h0.j.d t0(d.a.l0.a.h0.j.d dVar) {
+    @Override // com.baidu.swan.menu.PopupWindow
+    public void r() {
+        p0();
+    }
+
+    public final d.a.l0.a.h0.j.d s0(d.a.l0.a.h0.j.d dVar) {
         return new c(dVar);
     }
 
-    public final void u0() {
+    public final void t0() {
         ImageView imageView = (ImageView) this.V.findViewById(d.a.l0.a.f.left_back_view);
         this.i0 = imageView;
         imageView.setOnClickListener(this);
@@ -366,7 +366,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         TextView textView = (TextView) this.V.findViewById(d.a.l0.a.f.cancel_button);
         textView.setBackgroundColor(-1);
         textView.setOnClickListener(this);
-        int i2 = d.f11372a[q0.ordinal()];
+        int i2 = d.f11434a[q0.ordinal()];
         if (i2 == 1) {
             imageView2.setVisibility(8);
         } else if (i2 != 2) {
@@ -412,9 +412,9 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         }
         layoutParams2.height = dimensionPixelSize;
         this.a0.setLayoutParams(layoutParams2);
-        e s0 = s0(this.U);
-        this.b0 = s0;
-        s0.Z(t0(new d.a.l0.a.h0.j.a()));
+        e q02 = q0(this.U);
+        this.b0 = q02;
+        q02.Z(s0(new d.a.l0.a.h0.j.a()));
         this.c0 = this.b0.u();
         this.b0.loadUrl(this.g0);
         this.b0.l(this.a0, this.c0.covertToView());
@@ -427,7 +427,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         findViewById.getBackground().setAlpha(153);
         this.W.setOnClickListener(this);
         v0();
-        u0();
+        t0();
         return this;
     }
 

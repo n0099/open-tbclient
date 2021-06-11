@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRespMessage;
 import d.a.c.a.f;
-import d.a.c.j.e.n;
+import d.a.c.k.e.n;
 import d.a.m0.r.q.a2;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,19 +24,19 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
     public static final int SORT_TYPE_NEW = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13955e;
+    public String f14012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13956f;
+    public int f14013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13957g;
+    public int f14014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13958h;
+    public boolean f14015h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13959i;
+    public int f14016i;
     public boolean j;
     public int k;
     public List<a2> l;
@@ -70,27 +70,27 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                     }
                     List<a2> liveList = alaFrsStoryLiveGatherRespMessage.getLiveList();
                     List<a2> recommandList = alaFrsStoryLiveGatherRespMessage.getRecommandList();
-                    if (AlaFrsStoryLiveGatherModel.this.f13956f != 1 || ListUtils.getCount(liveList) > 10) {
+                    if (AlaFrsStoryLiveGatherModel.this.f14013f != 1 || ListUtils.getCount(liveList) > 10) {
                         AlaFrsStoryLiveGatherModel.this.q = 0;
                         AlaFrsStoryLiveGatherModel.this.j = alaFrsStoryLiveGatherRespMessage.hasMore();
-                        AlaFrsStoryLiveGatherModel.this.f13956f = alaFrsStoryLiveGatherRequestMessage.getPn();
+                        AlaFrsStoryLiveGatherModel.this.f14013f = alaFrsStoryLiveGatherRequestMessage.getPn();
                         AlaFrsStoryLiveGatherModel.this.k = alaFrsStoryLiveGatherRespMessage.getLiveCount();
-                        if (AlaFrsStoryLiveGatherModel.this.f13956f == 1 || ListUtils.getCount(AlaFrsStoryLiveGatherModel.this.l) == 0) {
+                        if (AlaFrsStoryLiveGatherModel.this.f14013f == 1 || ListUtils.getCount(AlaFrsStoryLiveGatherModel.this.l) == 0) {
                             AlaFrsStoryLiveGatherModel.this.l = liveList;
                         } else if (ListUtils.getCount(liveList) > 0) {
                             AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel = AlaFrsStoryLiveGatherModel.this;
-                            alaFrsStoryLiveGatherModel.l = alaFrsStoryLiveGatherModel.L(alaFrsStoryLiveGatherModel.l, liveList);
+                            alaFrsStoryLiveGatherModel.l = alaFrsStoryLiveGatherModel.P(alaFrsStoryLiveGatherModel.l, liveList);
                         }
                     } else {
                         AlaFrsStoryLiveGatherModel.this.j = false;
-                        AlaFrsStoryLiveGatherModel.this.f13956f = alaFrsStoryLiveGatherRequestMessage.getPn();
+                        AlaFrsStoryLiveGatherModel.this.f14013f = alaFrsStoryLiveGatherRequestMessage.getPn();
                         AlaFrsStoryLiveGatherModel.this.k = ListUtils.getCount(liveList);
                         AlaFrsStoryLiveGatherModel.this.l = liveList;
                         AlaFrsStoryLiveGatherModel.this.m = recommandList;
                         AlaFrsStoryLiveGatherModel.this.q = 1;
                     }
                     AlaFrsStoryLiveGatherModel alaFrsStoryLiveGatherModel2 = AlaFrsStoryLiveGatherModel.this;
-                    alaFrsStoryLiveGatherModel2.K(alaFrsStoryLiveGatherModel2.l, AlaFrsStoryLiveGatherModel.this.m);
+                    alaFrsStoryLiveGatherModel2.O(alaFrsStoryLiveGatherModel2.l, AlaFrsStoryLiveGatherModel.this.m);
                     if (AlaFrsStoryLiveGatherModel.this.r != null) {
                         AlaFrsStoryLiveGatherModel.this.r.b(AlaFrsStoryLiveGatherModel.this.j);
                     }
@@ -108,16 +108,16 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
 
     public AlaFrsStoryLiveGatherModel(f fVar) {
         super(fVar);
-        this.f13956f = 1;
-        this.f13957g = 30;
-        this.f13959i = 1;
+        this.f14013f = 1;
+        this.f14014g = 30;
+        this.f14016i = 1;
         this.q = 1;
         a aVar = new a(AlaCmdConfigHttp.CMD_ALA_FRS_STORY_LIVE_GATHER);
         this.s = aVar;
         registerListener(aVar);
     }
 
-    public List<n> F(List<a2> list) {
+    public List<n> J(List<a2> list) {
         if (list == null || ListUtils.isEmpty(list)) {
             return null;
         }
@@ -126,16 +126,16 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         for (int i2 = 0; i2 < size; i2 += 2) {
             d.a.n0.v.h.b.a aVar = new d.a.n0.v.h.b.a();
             a2 a2Var = list.get(i2);
-            aVar.f61966e = a2Var;
+            aVar.f65681e = a2Var;
             if (a2Var.T() != null) {
-                TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", aVar.f61966e.T().getUserId()));
+                TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", aVar.f65681e.T().getUserId()));
             }
             int i3 = i2 + 1;
             if (i3 < size) {
                 a2 a2Var2 = list.get(i3);
-                aVar.f61967f = a2Var2;
+                aVar.f65682f = a2Var2;
                 if (a2Var2.T() != null) {
-                    TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", aVar.f61967f.T().getUserId()));
+                    TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", aVar.f65682f.T().getUserId()));
                 }
             }
             linkedList.add(aVar);
@@ -143,25 +143,30 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         return linkedList;
     }
 
-    public List<n> G() {
+    public List<n> K() {
         return this.p;
     }
 
-    public int H() {
+    public int L() {
         return this.k;
     }
 
-    public List<a2> I() {
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
+    }
+
+    public List<a2> M() {
         return this.l;
     }
 
-    public int J() {
-        return this.f13959i;
+    public int N() {
+        return this.f14016i;
     }
 
-    public final void K(List<a2> list, List<a2> list2) {
-        this.n = F(list);
-        this.o = F(list2);
+    public final void O(List<a2> list, List<a2> list2) {
+        this.n = J(list);
+        this.o = J(list2);
         if (ListUtils.getCount(this.n) == 0 && ListUtils.getCount(this.o) == 0) {
             return;
         }
@@ -174,10 +179,10 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         List<n> list4 = this.n;
         if (list4 != null && list4.size() != 0) {
             this.p.addAll(this.n);
-            this.f13958h = true;
+            this.f14015h = true;
         } else {
             this.p.add(new d.a.n0.v.e.b.a());
-            this.f13958h = false;
+            this.f14015h = false;
         }
         if (ListUtils.getCount(this.o) <= 0 || this.j) {
             return;
@@ -190,18 +195,18 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         }
     }
 
-    public final List<a2> L(List<a2> list, List<a2> list2) {
+    public final List<a2> P(List<a2> list, List<a2> list2) {
         LinkedList linkedList = new LinkedList();
         linkedList.addAll(list);
         for (a2 a2Var : list2) {
-            if (a2Var != null && (a2Var.u1() == 49 || a2Var.u1() == 69)) {
-                String y1 = a2Var.y1();
-                if (!TextUtils.isEmpty(y1)) {
+            if (a2Var != null && (a2Var.v1() == 49 || a2Var.v1() == 69)) {
+                String z1 = a2Var.z1();
+                if (!TextUtils.isEmpty(z1)) {
                     boolean z = false;
                     Iterator<a2> it = list.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            if (y1.equals(it.next().y1())) {
+                            if (z1.equals(it.next().z1())) {
                                 z = true;
                                 break;
                             }
@@ -218,22 +223,17 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         return linkedList;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        return false;
+    public boolean Q() {
+        return this.f14015h;
     }
 
-    public boolean M() {
-        return this.f13958h;
-    }
-
-    public boolean N() {
+    public boolean R() {
         if (this.j) {
             AlaFrsStoryLiveGatherRequestMessage alaFrsStoryLiveGatherRequestMessage = new AlaFrsStoryLiveGatherRequestMessage();
-            alaFrsStoryLiveGatherRequestMessage.setForumId(this.f13955e);
-            alaFrsStoryLiveGatherRequestMessage.setPn(this.f13956f + 1);
-            alaFrsStoryLiveGatherRequestMessage.setPs(this.f13957g);
-            alaFrsStoryLiveGatherRequestMessage.setSortType(this.f13959i);
+            alaFrsStoryLiveGatherRequestMessage.setForumId(this.f14012e);
+            alaFrsStoryLiveGatherRequestMessage.setPn(this.f14013f + 1);
+            alaFrsStoryLiveGatherRequestMessage.setPs(this.f14014g);
+            alaFrsStoryLiveGatherRequestMessage.setSortType(this.f14016i);
             alaFrsStoryLiveGatherRequestMessage.setNeedRecommend(this.q);
             alaFrsStoryLiveGatherRequestMessage.setHttpParams();
             sendMessage(alaFrsStoryLiveGatherRequestMessage);
@@ -242,18 +242,18 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         return false;
     }
 
-    public void O() {
+    public void S() {
         AlaFrsStoryLiveGatherRequestMessage alaFrsStoryLiveGatherRequestMessage = new AlaFrsStoryLiveGatherRequestMessage();
-        alaFrsStoryLiveGatherRequestMessage.setForumId(this.f13955e);
+        alaFrsStoryLiveGatherRequestMessage.setForumId(this.f14012e);
         alaFrsStoryLiveGatherRequestMessage.setPn(1);
-        alaFrsStoryLiveGatherRequestMessage.setPs(this.f13957g);
-        alaFrsStoryLiveGatherRequestMessage.setSortType(this.f13959i);
+        alaFrsStoryLiveGatherRequestMessage.setPs(this.f14014g);
+        alaFrsStoryLiveGatherRequestMessage.setSortType(this.f14016i);
         alaFrsStoryLiveGatherRequestMessage.setNeedRecommend(this.q);
         alaFrsStoryLiveGatherRequestMessage.setHttpParams();
         sendMessage(alaFrsStoryLiveGatherRequestMessage);
     }
 
-    public void P(b bVar) {
+    public void T(b bVar) {
         this.r = bVar;
     }
 
@@ -263,10 +263,10 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
     }
 
     public void setForumId(String str) {
-        this.f13955e = str;
+        this.f14012e = str;
     }
 
     public void setSortType(int i2) {
-        this.f13959i = i2;
+        this.f14016i = i2;
     }
 }

@@ -8,7 +8,7 @@ import d.a.l0.a.k;
 import d.a.l0.a.v2.q0;
 /* loaded from: classes3.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final String TAG = "SwanAppErrorDialog";
     public TextView mMessage;
 

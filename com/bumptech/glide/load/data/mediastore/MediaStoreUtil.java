@@ -2,7 +2,7 @@ package com.bumptech.glide.load.data.mediastore;
 
 import android.net.Uri;
 import com.baidubce.services.vod.VodClient;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class MediaStoreUtil {
     public static final int MINI_THUMB_HEIGHT = 384;
     public static final int MINI_THUMB_WIDTH = 512;

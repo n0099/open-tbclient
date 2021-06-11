@@ -64,31 +64,31 @@ import org.json.JSONObject;
 public final class q0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45447a = d.a.l0.a.k.f43199a;
+    public static final boolean f49121a = d.a.l0.a.k.f46875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f45448b = new Handler(Looper.getMainLooper());
+    public static Handler f49122b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f45449c;
+    public static String f49123c;
 
     /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f45450e;
+        public final /* synthetic */ ImageView f49124e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f45451f;
+        public final /* synthetic */ int f49125f;
 
         public a(ImageView imageView, int i2) {
-            this.f45450e = imageView;
-            this.f45451f = i2;
+            this.f49124e = imageView;
+            this.f49125f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f45450e.setImageResource(this.f45451f);
+            this.f49124e.setImageResource(this.f49125f);
         }
     }
 
@@ -96,43 +96,43 @@ public final class q0 {
     public static class b implements d.a.l0.d.i.a<Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageView f45452a;
+        public final /* synthetic */ ImageView f49126a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f45453b;
+        public final /* synthetic */ int f49127b;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f45454e;
+            public final /* synthetic */ Bitmap f49128e;
 
             public a(Bitmap bitmap) {
-                this.f45454e = bitmap;
+                this.f49128e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f45452a.setImageBitmap(this.f45454e);
+                b.this.f49126a.setImageBitmap(this.f49128e);
             }
         }
 
         /* renamed from: d.a.l0.a.v2.q0$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0887b implements Runnable {
-            public RunnableC0887b() {
+        public class RunnableC0943b implements Runnable {
+            public RunnableC0943b() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar = b.this;
-                bVar.f45452a.setImageResource(bVar.f45453b);
+                bVar.f49126a.setImageResource(bVar.f49127b);
             }
         }
 
         public b(ImageView imageView, int i2) {
-            this.f45452a = imageView;
-            this.f45453b = i2;
+            this.f49126a = imageView;
+            this.f49127b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,14 +141,14 @@ public final class q0 {
         public void a(Bitmap bitmap) {
             if (bitmap != null) {
                 if (Looper.getMainLooper() == Looper.myLooper()) {
-                    this.f45452a.setImageBitmap(bitmap);
+                    this.f49126a.setImageBitmap(bitmap);
                     return;
                 } else {
                     q0.b0(new a(bitmap));
                     return;
                 }
             }
-            q0.b0(new RunnableC0887b());
+            q0.b0(new RunnableC0943b());
         }
     }
 
@@ -156,15 +156,15 @@ public final class q0 {
     public static class c implements t.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.l0.d.i.a f45457a;
+        public final /* synthetic */ d.a.l0.d.i.a f49131a;
 
         public c(d.a.l0.d.i.a aVar) {
-            this.f45457a = aVar;
+            this.f49131a = aVar;
         }
 
         @Override // d.a.l0.a.v2.t.b
         public void a(String str, Bitmap bitmap) {
-            this.f45457a.a(bitmap);
+            this.f49131a.a(bitmap);
         }
     }
 
@@ -172,25 +172,25 @@ public final class q0 {
     public static class d extends BaseBitmapDataSubscriber {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t.b f45458a;
+        public final /* synthetic */ t.b f49132a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f45459b;
+        public final /* synthetic */ String f49133b;
 
         public d(t.b bVar, String str) {
-            this.f45458a = bVar;
-            this.f45459b = str;
+            this.f49132a = bVar;
+            this.f49133b = str;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
         public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
             super.onCancellation(dataSource);
-            this.f45458a.a(this.f45459b, null);
+            this.f49132a.a(this.f49133b, null);
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            this.f45458a.a(this.f45459b, null);
+            this.f49132a.a(this.f49133b, null);
         }
 
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
@@ -203,14 +203,14 @@ public final class q0 {
                     } else {
                         copy = bitmap.copy(bitmap.getConfig(), true);
                     }
-                    this.f45458a.a(this.f45459b, copy);
+                    this.f49132a.a(this.f49133b, copy);
                     return;
                 } catch (Exception unused) {
-                    this.f45458a.a(this.f45459b, null);
+                    this.f49132a.a(this.f49133b, null);
                     return;
                 }
             }
-            this.f45458a.a(this.f45459b, null);
+            this.f49132a.a(this.f49133b, null);
         }
     }
 
@@ -218,24 +218,24 @@ public final class q0 {
     public static class e implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45460e;
+        public final /* synthetic */ Context f49134e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Intent f45461f;
+        public final /* synthetic */ Intent f49135f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f45462g;
+        public final /* synthetic */ g f49136g;
 
         public e(Context context, Intent intent, g gVar) {
-            this.f45460e = context;
-            this.f45461f = intent;
-            this.f45462g = gVar;
+            this.f49134e = context;
+            this.f49135f = intent;
+            this.f49136g = gVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            boolean g2 = d.a.l0.a.v2.f.g(this.f45460e, this.f45461f);
-            g gVar = this.f45462g;
+            boolean g2 = d.a.l0.a.v2.f.g(this.f49134e, this.f49135f);
+            g gVar = this.f49136g;
             if (gVar != null) {
                 gVar.a(g2);
             }
@@ -246,15 +246,15 @@ public final class q0 {
     public static class f implements DialogInterface.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f45463e;
+        public final /* synthetic */ g f49137e;
 
         public f(g gVar) {
-            this.f45463e = gVar;
+            this.f49137e = gVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            g gVar = this.f45463e;
+            g gVar = this.f49137e;
             if (gVar != null) {
                 gVar.onCancel();
             }
@@ -322,7 +322,7 @@ public final class q0 {
                     return true;
                 }
             } catch (PackageManager.NameNotFoundException unused) {
-                if (f45447a) {
+                if (f49121a) {
                     Log.e("SwanAppUtils", str + " is not found");
                 }
             }
@@ -352,7 +352,7 @@ public final class q0 {
             declaredMethod.setAccessible(true);
             return ((Boolean) declaredMethod.invoke(obj, new Object[0])).booleanValue();
         } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException e2) {
-            if (f45447a) {
+            if (f49121a) {
                 Log.e("SwanAppUtils", "isFixedOrientation reflect fail", e2);
                 return false;
             }
@@ -368,7 +368,7 @@ public final class q0 {
                     return locationManager.isProviderEnabled("gps");
                 }
             } catch (Exception e2) {
-                if (f45447a) {
+                if (f49121a) {
                     e2.printStackTrace();
                 }
             }
@@ -428,7 +428,7 @@ public final class q0 {
             obtainStyledAttributes.recycle();
             return z3 || z || z2;
         } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException e2) {
-            if (f45447a) {
+            if (f49121a) {
                 Log.e("SwanAppUtils", "isTranslucentOrFloating reflect fail", e2);
             }
             return false;
@@ -456,7 +456,7 @@ public final class q0 {
             }
             return false;
         } catch (URISyntaxException e2) {
-            if (f45447a) {
+            if (f49121a) {
                 Log.w("SwanAppUtils", Log.getStackTraceString(e2));
                 return false;
             }
@@ -475,7 +475,7 @@ public final class q0 {
     }
 
     public static void V() {
-        if (f45447a) {
+        if (f49121a) {
             Log.d("SwanAppSlavePool", "onPreloadNextEnv()");
         }
         SwanAppActivity activity = d.a.l0.a.g1.f.V().getActivity();
@@ -517,7 +517,7 @@ public final class q0 {
                 }
                 return false;
             } catch (PackageManager.NameNotFoundException | URISyntaxException e2) {
-                if (f45447a) {
+                if (f49121a) {
                     e2.printStackTrace();
                 }
             }
@@ -530,11 +530,11 @@ public final class q0 {
     }
 
     public static void Y(Runnable runnable, long j) {
-        f45448b.postDelayed(runnable, j);
+        f49122b.postDelayed(runnable, j);
     }
 
     public static int Z(Activity activity) {
-        if (f45447a) {
+        if (f49121a) {
             Log.d("ScreenOrientationCompat", "releaseFixedOrientation() called with: activity = [" + activity + "]");
         }
         int i2 = -1;
@@ -551,13 +551,13 @@ public final class q0 {
             if (i3 != -1) {
                 try {
                     declaredField2.setInt(obj, -1);
-                    if (f45447a) {
+                    if (f49121a) {
                         Log.d("ScreenOrientationCompat", "set " + activity.getComponentName() + " screenOrientation to UNSPECIFIED");
                     }
                 } catch (IllegalAccessException | NoSuchFieldException e2) {
                     e = e2;
                     i2 = i3;
-                    if (f45447a) {
+                    if (f49121a) {
                         Log.e("SwanAppUtils", "releaseFixedOrientation reflect fail", e);
                         return i2;
                     }
@@ -581,7 +581,7 @@ public final class q0 {
             str = str + File.separator;
         }
         String str4 = str + str2 + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
-        if (f45447a) {
+        if (f49121a) {
             Log.d("SwanAppUtils", "buildPageUrl pageUrl: " + str4);
         }
         if (TextUtils.isEmpty(str3)) {
@@ -591,14 +591,14 @@ public final class q0 {
         if (v == null) {
             return o0.w(str4);
         }
-        if (f45447a) {
+        if (f49121a) {
             Log.d("SwanAppUtils", "buildPageUrl pageUrl: " + str4 + str3);
         }
         return v.buildUpon().query(str3).build().toString();
     }
 
     public static void a0(Runnable runnable) {
-        f45448b.removeCallbacks(runnable);
+        f49122b.removeCallbacks(runnable);
     }
 
     public static boolean b(SwanAppConfigData swanAppConfigData, d.a.l0.a.l1.b bVar, boolean z) {
@@ -608,12 +608,12 @@ public final class q0 {
         if (d.a.l0.a.t1.b.a.e(bVar.f())) {
             return true;
         }
-        if (f45447a) {
-            Log.d("SwanAppUtils", "checkPageParam pageParam : " + bVar.f43357e);
-            Log.d("SwanAppUtils", "checkPageParam pageRouteParam : " + bVar.f43360h);
+        if (f49121a) {
+            Log.d("SwanAppUtils", "checkPageParam pageParam : " + bVar.f47033e);
+            Log.d("SwanAppUtils", "checkPageParam pageRouteParam : " + bVar.f47036h);
             Log.d("SwanAppUtils", "checkPageParam allowTab : " + z);
         }
-        return z ? swanAppConfigData.o(bVar.f43360h) || swanAppConfigData.q(bVar.f43360h) : swanAppConfigData.o(bVar.f43360h) && !swanAppConfigData.q(bVar.f43360h);
+        return z ? swanAppConfigData.o(bVar.f47036h) || swanAppConfigData.q(bVar.f47036h) : swanAppConfigData.o(bVar.f47036h) && !swanAppConfigData.q(bVar.f47036h);
     }
 
     public static void b0(Runnable runnable) {
@@ -621,12 +621,12 @@ public final class q0 {
     }
 
     public static boolean c(SwanAppConfigData swanAppConfigData, d.a.l0.a.l1.b bVar) {
-        return swanAppConfigData != null && swanAppConfigData.m() && swanAppConfigData.q(bVar.f43360h);
+        return swanAppConfigData != null && swanAppConfigData.m() && swanAppConfigData.q(bVar.f47036h);
     }
 
     public static void c0(Runnable runnable, long j) {
         if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            f45448b.postDelayed(runnable, j);
+            f49122b.postDelayed(runnable, j);
         } else {
             runnable.run();
         }
@@ -640,7 +640,7 @@ public final class q0 {
 
     public static void d0(Runnable runnable) {
         if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-            f45448b.postAtFrontOfQueue(runnable);
+            f49122b.postAtFrontOfQueue(runnable);
         } else {
             runnable.run();
         }
@@ -650,7 +650,7 @@ public final class q0 {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (f45447a) {
+        if (f49121a) {
             Log.i("SwanAppUtils", "downloadParams is " + str);
         }
         try {
@@ -660,7 +660,7 @@ public final class q0 {
             }
             return d.a.l0.a.c1.a.c().d(context, jSONObject);
         } catch (JSONException e2) {
-            if (f45447a) {
+            if (f49121a) {
                 e2.printStackTrace();
                 return false;
             }
@@ -687,7 +687,7 @@ public final class q0 {
     }
 
     public static void g(Activity activity, int i2) {
-        if (f45447a) {
+        if (f49121a) {
             Log.d("ScreenOrientationCompat", "fixedOrientation() called with: activity = [" + activity + "], orientation = [" + i2 + "]");
         }
         if (i2 == -1 || Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !R(activity) || J(activity)) {
@@ -701,12 +701,12 @@ public final class q0 {
             declaredField2.setAccessible(true);
             if (declaredField2.getInt(obj) == -1) {
                 declaredField2.setInt(obj, i2);
-                if (f45447a) {
+                if (f49121a) {
                     Log.d("ScreenOrientationCompat", "set " + activity.getComponentName() + " screenOrientation to " + i2);
                 }
             }
         } catch (IllegalAccessException | NoSuchFieldException e2) {
-            if (f45447a) {
+            if (f49121a) {
                 Log.e("SwanAppUtils", "isTranslucentOrFloating reflect fail", e2);
             }
         }
@@ -714,7 +714,7 @@ public final class q0 {
 
     public static String h(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            if (f45447a) {
+            if (f49121a) {
                 Log.w("SwanAppUtils", "openUrl && downloadUrl is empty");
                 return null;
             }
@@ -735,7 +735,7 @@ public final class q0 {
             sb.append("&params=");
             sb.append(URLEncoder.encode(jSONObject.toString(), "utf-8"));
         } catch (UnsupportedEncodingException | JSONException e2) {
-            if (f45447a) {
+            if (f49121a) {
                 Log.w("SwanAppUtils", Log.getStackTraceString(e2));
             }
         }
@@ -771,7 +771,7 @@ public final class q0 {
             try {
                 string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
             } catch (Exception e2) {
-                if (f45447a) {
+                if (f49121a) {
                     Log.e("SwanAppUtils", e2.toString());
                     return "";
                 }
@@ -792,8 +792,8 @@ public final class q0 {
 
     public static d.a.l0.a.l1.b n() {
         d.a.l0.a.l1.b bVar = new d.a.l0.a.l1.b();
-        bVar.f43358f = "";
-        bVar.f43357e = "";
+        bVar.f47034f = "";
+        bVar.f47033e = "";
         d.a.l0.a.h0.g.g W = d.a.l0.a.g1.f.V().W();
         return (W == null || W.o() == null) ? bVar : W.o().Z2();
     }
@@ -802,7 +802,7 @@ public final class q0 {
         try {
             return Integer.parseInt(str);
         } catch (NumberFormatException e2) {
-            if (f45447a) {
+            if (f49121a) {
                 e2.printStackTrace();
             }
             return -1;
@@ -827,22 +827,22 @@ public final class q0 {
     }
 
     public static Handler q() {
-        return f45448b;
+        return f49122b;
     }
 
     @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String r() {
         TelephonyManager telephonyManager;
         if (Build.VERSION.SDK_INT >= 29) {
-            if (f45447a) {
+            if (f49121a) {
                 Log.d("SwanAppUtils", "android 29 can not get imei");
             }
             return "";
-        } else if (!TextUtils.isEmpty(f45449c)) {
-            if (f45447a) {
+        } else if (!TextUtils.isEmpty(f49123c)) {
+            if (f49121a) {
                 Log.d("SwanAppUtils", "imei hit cache");
             }
-            return f45449c;
+            return f49123c;
         } else {
             Application b2 = d.a.l0.a.c1.a.b();
             if (ContextCompat.checkSelfPermission(b2, "android.permission.READ_PHONE_STATE") != 0) {
@@ -858,17 +858,17 @@ public final class q0 {
             }
             str = telephonyManager.getDeviceId();
             if (!TextUtils.isEmpty(str)) {
-                f45449c = str;
+                f49123c = str;
                 return str;
             }
             if (Build.VERSION.SDK_INT >= 26) {
                 String imei = telephonyManager.getImei();
                 if (!TextUtils.isEmpty(imei)) {
-                    f45449c = imei;
+                    f49123c = imei;
                     return imei;
                 }
                 str = telephonyManager.getMeid();
-                f45449c = str;
+                f49123c = str;
             }
             return TextUtils.isEmpty(str) ? "" : str;
         }
@@ -889,7 +889,7 @@ public final class q0 {
             try {
                 return context.getPackageManager().getPackageInfo(str, 64);
             } catch (PackageManager.NameNotFoundException e2) {
-                if (f45447a) {
+                if (f49121a) {
                     Log.w("SwanAppUtils", e2.getMessage());
                     return null;
                 }
@@ -910,8 +910,8 @@ public final class q0 {
     public static d.a.l0.a.l1.b v() {
         d.a.l0.a.l1.b e3;
         d.a.l0.a.l1.b bVar = new d.a.l0.a.l1.b();
-        bVar.f43358f = "";
-        bVar.f43357e = "";
+        bVar.f47034f = "";
+        bVar.f47033e = "";
         d.a.l0.a.h0.g.g W = d.a.l0.a.g1.f.V().W();
         return (W == null || W.o() == null || (e3 = W.o().e3()) == null) ? bVar : e3;
     }
@@ -935,7 +935,7 @@ public final class q0 {
         try {
             return new File(x, new File(parentFile, str).getCanonicalPath()).getPath();
         } catch (IOException e2) {
-            if (f45447a) {
+            if (f49121a) {
                 Log.d("SwanAppUtils", Log.getStackTraceString(e2));
             }
             return null;

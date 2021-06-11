@@ -10,14 +10,14 @@ import okhttp3.Response;
 import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CacheStrategy {
     @Nullable
     public final Response cacheResponse;
     @Nullable
     public final Request networkRequest;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Factory {
         public int ageSeconds;
         public final Response cacheResponse;

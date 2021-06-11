@@ -16,7 +16,6 @@ import com.airbnb.lottie.LottieCompositionFactory;
 import com.airbnb.lottie.LottieListener;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.searchbox.http.request.PostFormRequest;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
@@ -44,31 +43,31 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f46851a = 0;
+    public static long f50525a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f46852b = false;
+    public static boolean f50526b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f46853c = 0;
+    public static long f50527c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static GameGuideConfigInfo f46854d = null;
+    public static GameGuideConfigInfo f50528d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static GameGuideView f46855e = null;
+    public static GameGuideView f50529e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f46856f = "";
+    public static String f50530f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f46857g = "";
+    public static String f50531g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f46858h = 0;
+    public static int f50532h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static GameGuideViewContainer f46859i = null;
+    public static GameGuideViewContainer f50533i = null;
     public static String j = null;
     public static boolean k = false;
     public static boolean l = false;
@@ -89,18 +88,18 @@ public final class b {
                         if (string.equals("addCoins")) {
                             int i3 = bundle.getInt("coinsNum", 0);
                             b bVar = b.o;
-                            b.f46858h += i3;
+                            b.f50532h += i3;
                             GameGuideConfigInfo z = b.o.z();
                             if (z != null) {
                                 b bVar2 = b.o;
-                                int i4 = b.f46858h;
+                                int i4 = b.f50532h;
                                 int i5 = z.maxNums;
                                 if (i4 > i5) {
                                     b bVar3 = b.o;
-                                    b.f46858h = i5;
+                                    b.f50532h = i5;
                                 }
                             }
-                            b.o.S(b.f46858h);
+                            b.o.S(b.f50532h);
                             break;
                         }
                         break;
@@ -119,7 +118,7 @@ public final class b {
                     case -338307689:
                         if (string.equals("getPlayTime")) {
                             b bVar4 = b.o;
-                            bundle2.putLong("playTime", b.f46851a);
+                            bundle2.putLong("playTime", b.f50525a);
                             break;
                         }
                         break;
@@ -134,7 +133,7 @@ public final class b {
                             long F = b.o.F();
                             if (0 <= F && SapiWebView.DEFAULT_TIMEOUT_MILLIS >= F) {
                                 b bVar5 = b.o;
-                                b.f46851a = F;
+                                b.f50525a = F;
                             }
                             int J = b.o.J();
                             GameGuideConfigInfo z2 = b.o.z();
@@ -143,7 +142,7 @@ public final class b {
                                 J = i2;
                             }
                             b bVar6 = b.o;
-                            b.f46858h = J;
+                            b.f50532h = J;
                             break;
                         }
                         break;
@@ -156,7 +155,7 @@ public final class b {
                     case 1950665292:
                         if (string.equals("getCoins")) {
                             b bVar7 = b.o;
-                            bundle2.putInt("coinsNum", b.f46858h);
+                            bundle2.putInt("coinsNum", b.f50532h);
                             break;
                         }
                         break;
@@ -168,16 +167,16 @@ public final class b {
 
     /* renamed from: d.a.l0.f.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class RunnableC0989b implements Runnable {
+    public static final class RunnableC1045b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final RunnableC0989b f46860e = new RunnableC0989b();
+        public static final RunnableC1045b f50534e = new RunnableC1045b();
 
         @Override // java.lang.Runnable
         public final void run() {
             d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
             if (Q == null) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     Log.d("GamenowPlaytimeManager", "非法小游戏");
                 }
                 d.a.l0.f.j.r.b.n().a("小游戏非法");
@@ -192,7 +191,7 @@ public final class b {
                 b.o.R();
                 return;
             }
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 Log.d("GamenowPlaytimeManager", "展示缓存数据， 小游戏为  " + Q.O());
             }
             b bVar2 = b.o;
@@ -210,21 +209,21 @@ public final class b {
     public static final class c<T> implements LottieListener<LottieComposition> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameGuideConfigInfo f46861a;
+        public final /* synthetic */ GameGuideConfigInfo f50535a;
 
         public c(GameGuideConfigInfo gameGuideConfigInfo) {
-            this.f46861a = gameGuideConfigInfo;
+            this.f50535a = gameGuideConfigInfo;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.airbnb.lottie.LottieListener
         /* renamed from: a */
         public final void onResult(LottieComposition lottieComposition) {
-            GameGuideConfigInfo.ViewInfo viewInfo = this.f46861a.viewInfo;
+            GameGuideConfigInfo.ViewInfo viewInfo = this.f50535a.viewInfo;
             if (viewInfo != null) {
                 viewInfo.iconDoneLottie = lottieComposition;
             }
-            b.o.y(this.f46861a);
+            b.o.y(this.f50535a);
         }
     }
 
@@ -232,7 +231,7 @@ public final class b {
     public static final class d<T> implements LottieListener<Throwable> {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f46862a = new d();
+        public static final d f50536a = new d();
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.airbnb.lottie.LottieListener
@@ -241,7 +240,7 @@ public final class b {
             b.o.a0(false);
             d.a.l0.f.j.r.b n = d.a.l0.f.j.r.b.n();
             b bVar = b.o;
-            n.d("fail", b.k, "下发配置中导流view的资源不可用");
+            n.d(com.baidu.pass.biometrics.face.liveness.b.b.g0, b.k, "下发配置中导流view的资源不可用");
         }
     }
 
@@ -249,7 +248,7 @@ public final class b {
     public static final class e implements t.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameGuideConfigInfo f46863a;
+        public final /* synthetic */ GameGuideConfigInfo f50537a;
 
         /* loaded from: classes3.dex */
         public static final class a implements Runnable {
@@ -258,28 +257,28 @@ public final class b {
 
             @Override // java.lang.Runnable
             public final void run() {
-                b.o.c0(e.this.f46863a);
+                b.o.c0(e.this.f50537a);
             }
         }
 
         public e(GameGuideConfigInfo gameGuideConfigInfo) {
-            this.f46863a = gameGuideConfigInfo;
+            this.f50537a = gameGuideConfigInfo;
         }
 
         @Override // d.a.l0.a.v2.t.b
         public final void a(String str, Bitmap bitmap) {
             if (bitmap == null) {
                 b.o.a0(false);
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     Log.e("GamenowPlaytimeManager", "下载导流view的图片失败， url = " + str);
                 }
                 d.a.l0.f.j.r.b n = d.a.l0.f.j.r.b.n();
                 b bVar = b.o;
-                n.d("fail", b.k, "下发配置中导流view的资源不可用");
+                n.d(com.baidu.pass.biometrics.face.liveness.b.b.g0, b.k, "下发配置中导流view的资源不可用");
                 return;
             }
             bitmap.setDensity(480);
-            GameGuideConfigInfo.ViewInfo viewInfo = this.f46863a.viewInfo;
+            GameGuideConfigInfo.ViewInfo viewInfo = this.f50537a.viewInfo;
             if (viewInfo != null) {
                 viewInfo.iconNormalImg = bitmap;
             }
@@ -288,7 +287,7 @@ public final class b {
                 b.o.a0(false);
                 d.a.l0.f.j.r.b n2 = d.a.l0.f.j.r.b.n();
                 b bVar2 = b.o;
-                n2.d("fail", b.k, "小游戏非法");
+                n2.d(com.baidu.pass.biometrics.face.liveness.b.b.g0, b.k, "小游戏非法");
                 return;
             }
             SwanAppActivity x = Q.x();
@@ -297,21 +296,21 @@ public final class b {
                 b.o.a0(false);
                 d.a.l0.f.j.r.b n3 = d.a.l0.f.j.r.b.n();
                 b bVar3 = b.o;
-                n3.d("fail", b.k, "小游戏非法");
+                n3.d(com.baidu.pass.biometrics.face.liveness.b.b.g0, b.k, "小游戏非法");
                 return;
             }
             b.o.a0(true);
-            b.o.T(this.f46863a);
+            b.o.T(this.f50537a);
             b.o.K();
             q0.b0(new a());
             b bVar4 = b.o;
             String str2 = b.j;
             if (str2 != null) {
                 b bVar5 = b.o;
-                if (b.k || this.f46863a.expirationTime <= 0) {
+                if (b.k || this.f50537a.expirationTime <= 0) {
                     return;
                 }
-                d.a.l0.f.j.a.c().a(Q.D(), str2, SystemClock.elapsedRealtime() + this.f46863a.expirationTime);
+                d.a.l0.f.j.a.c().a(Q.D(), str2, SystemClock.elapsedRealtime() + this.f50537a.expirationTime);
             }
         }
     }
@@ -323,16 +322,16 @@ public final class b {
         /* renamed from: a */
         public void onSuccess(String str, int i2) {
             if (str == null || str.length() == 0) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     Log.e("GamenowPlaytimeManager", "配置信息下发异常，code = " + i2 + ",  response = " + str);
                 }
                 b.o.a0(false);
                 d.a.l0.f.j.r.b n = d.a.l0.f.j.r.b.n();
                 b bVar = b.o;
-                n.d("fail", b.k, "下发数据非法");
+                n.d(com.baidu.pass.biometrics.face.liveness.b.b.g0, b.k, "下发数据非法");
                 return;
             }
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 Log.d("GamenowPlaytimeManager", "配置信息 =   " + str);
             }
             b.o.O(str);
@@ -340,7 +339,7 @@ public final class b {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("请求配置信息失败，err = ");
                 sb.append(exc != null ? exc.getMessage() : null);
@@ -349,7 +348,7 @@ public final class b {
             b.o.a0(false);
             d.a.l0.f.j.r.b n = d.a.l0.f.j.r.b.n();
             b bVar = b.o;
-            n.d("fail", b.k, "网络请求失败");
+            n.d(com.baidu.pass.biometrics.face.liveness.b.b.g0, b.k, "网络请求失败");
         }
     }
 
@@ -357,7 +356,7 @@ public final class b {
     public static final class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final g f46865e = new g();
+        public static final g f50539e = new g();
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
@@ -370,11 +369,11 @@ public final class b {
         @Override // d.a.l0.a.w2.c
         public void f() {
             b bVar = b.o;
-            GameGuideView gameGuideView = b.f46855e;
+            GameGuideView gameGuideView = b.f50529e;
             if (gameGuideView != null) {
                 gameGuideView.p();
             }
-            d.a.l0.f.j.s.a.f46957f.k();
+            d.a.l0.f.j.s.a.f50631f.k();
         }
 
         @Override // d.a.l0.a.w2.c
@@ -384,11 +383,11 @@ public final class b {
 
         @Override // d.a.l0.a.w2.c
         public void n() {
-            d.a.l0.f.j.s.a.f46957f.j();
+            d.a.l0.f.j.s.a.f50631f.j();
             b bVar = b.o;
-            GameGuideView gameGuideView = b.f46855e;
+            GameGuideView gameGuideView = b.f50529e;
             if (gameGuideView != null) {
-                gameGuideView.o(d.a.l0.f.j.s.a.f46957f.f());
+                gameGuideView.o(d.a.l0.f.j.s.a.f50631f.f());
             }
             d.a.l0.a.g1.f.V().b();
             if (b.o.C()) {
@@ -399,7 +398,7 @@ public final class b {
 
     public final long A() {
         if (ProcessUtils.isMainProcess()) {
-            return f46851a;
+            return f50525a;
         }
         Bundle bundle = new Bundle();
         bundle.putString("type", "getPlayTime");
@@ -412,7 +411,7 @@ public final class b {
     }
 
     public final GameGuideViewContainer B() {
-        return f46859i;
+        return f50533i;
     }
 
     public final boolean C() {
@@ -437,7 +436,7 @@ public final class b {
 
     public final int G() {
         if (ProcessUtils.isMainProcess()) {
-            return f46858h;
+            return f50532h;
         }
         Bundle bundle = new Bundle();
         bundle.putString("type", "getCoins");
@@ -450,11 +449,11 @@ public final class b {
     }
 
     public final String H() {
-        return f46857g;
+        return f50531g;
     }
 
     public final String I() {
-        return f46856f;
+        return f50530f;
     }
 
     public final int J() {
@@ -466,15 +465,15 @@ public final class b {
         if (ProcessUtils.isMainProcess()) {
             long F = F();
             if (0 <= F && SapiWebView.DEFAULT_TIMEOUT_MILLIS >= F) {
-                f46851a = F;
+                f50525a = F;
             }
             int J = J();
-            GameGuideConfigInfo gameGuideConfigInfo = f46854d;
+            GameGuideConfigInfo gameGuideConfigInfo = f50528d;
             if (gameGuideConfigInfo != null && J > (i2 = gameGuideConfigInfo.maxNums)) {
                 o.S(i2);
                 J = i2;
             }
-            f46858h = J;
+            f50532h = J;
             return;
         }
         Bundle bundle = new Bundle();
@@ -483,12 +482,12 @@ public final class b {
     }
 
     public final boolean L() {
-        if (f46852b) {
+        if (f50526b) {
             return true;
         }
         if (ProcessUtils.isMainProcess()) {
             boolean E = E();
-            f46852b = E;
+            f50526b = E;
             return E;
         }
         Bundle bundle = new Bundle();
@@ -497,7 +496,7 @@ public final class b {
         Intrinsics.checkNotNullExpressionValue(callOnMainWithContentProvider, "DelegateUtils.callOnMain…tion::class.java, bundle)");
         if (callOnMainWithContentProvider.isOk()) {
             boolean z = callOnMainWithContentProvider.mResult.getBoolean("hasShowedTips", false);
-            f46852b = z;
+            f50526b = z;
             return z;
         }
         return false;
@@ -514,11 +513,11 @@ public final class b {
     }
 
     public final void N() {
-        GameGuideConfigInfo gameGuideConfigInfo = f46854d;
+        GameGuideConfigInfo gameGuideConfigInfo = f50528d;
         if (gameGuideConfigInfo != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f46853c < 500) {
-                if (d.a.l0.a.k.f43199a) {
+            if (currentTimeMillis - f50527c < 500) {
+                if (d.a.l0.a.k.f46875a) {
                     Log.d("GamenowPlaytimeManager", "快速点击");
                     return;
                 }
@@ -526,14 +525,14 @@ public final class b {
             }
             d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
             if (Q != null) {
-                f46853c = currentTimeMillis;
-                long f2 = d.a.l0.f.j.s.a.f46957f.f() / StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
+                f50527c = currentTimeMillis;
+                long f2 = d.a.l0.f.j.s.a.f50631f.f() / 30000;
                 if (f2 <= 0) {
-                    if (d.a.l0.a.k.f43199a) {
+                    if (d.a.l0.a.k.f46875a) {
                         Log.d("GamenowPlaytimeManager", "时长没有满足一个豆以上");
                     }
                 } else if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
-                    if (d.a.l0.a.k.f43199a) {
+                    if (d.a.l0.a.k.f46875a) {
                         Log.d("GamenowPlaytimeManager", "没有网络");
                     }
                     d.a.l0.a.z1.b.f.e.g(AppRuntime.getAppContext(), "网络异常，请稍后重试").F();
@@ -543,7 +542,7 @@ public final class b {
                     int i3 = gameGuideConfigInfo.perCoinNum * i2;
                     int G = G();
                     boolean z = G >= gameGuideConfigInfo.maxNums;
-                    if (d.a.l0.a.k.f43199a) {
+                    if (d.a.l0.a.k.f46875a) {
                         Log.d("GamenowPlaytimeManager", "before    expectedRewardCoins = " + i3 + " , currentRewardCoinsNum = " + G + ",  isMax = " + z);
                     }
                     int i4 = i3 + G;
@@ -551,12 +550,12 @@ public final class b {
                     if (i4 > i5) {
                         i3 = i5 - G;
                     }
-                    if (d.a.l0.a.k.f43199a) {
+                    if (d.a.l0.a.k.f46875a) {
                         Log.d("GamenowPlaytimeManager", "after    realRewardCoins = " + i3);
                     }
                     if (!z) {
-                        d.a.l0.f.j.s.a.f46957f.h();
-                        GameGuideView gameGuideView = f46855e;
+                        d.a.l0.f.j.s.a.f50631f.h();
+                        GameGuideView gameGuideView = f50529e;
                         if (gameGuideView != null) {
                             gameGuideView.r();
                         }
@@ -578,68 +577,68 @@ public final class b {
             JSONObject jSONObject = new JSONObject(str);
             int optInt = jSONObject.optInt("errno", -1);
             if (optInt != 0) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     Log.e("GamenowPlaytimeManager", "返回结果异常，errNo = " + optInt + "， response = " + str);
                 }
-                d.a.l0.f.j.r.b.n().d("fail", k, "下发数据非法");
+                d.a.l0.f.j.r.b.n().d(com.baidu.pass.biometrics.face.liveness.b.b.g0, k, "下发数据非法");
                 return;
             }
             GameGuideConfigInfo parseData = GameGuideConfigInfo.parseData(jSONObject.optJSONObject("data"));
             if (parseData == null) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     Log.d("GamenowPlaytimeManager", "配置信息下发异常");
                 }
-                d.a.l0.f.j.r.b.n().d("fail", k, "下发数据非法");
+                d.a.l0.f.j.r.b.n().d(com.baidu.pass.biometrics.face.liveness.b.b.g0, k, "下发数据非法");
                 return;
             }
             W(parseData.install_result);
             String str2 = parseData.targetAppPackageId;
             Intrinsics.checkNotNullExpressionValue(str2, "configInfo.targetAppPackageId");
-            f46856f = str2;
+            f50530f = str2;
             String str3 = parseData.targetAppDownloadUrl;
             Intrinsics.checkNotNullExpressionValue(str3, "configInfo.targetAppDownloadUrl");
-            f46857g = str3;
+            f50531g = str3;
             if (parseData.status == 0) {
-                if (d.a.l0.a.k.f43199a) {
+                if (d.a.l0.a.k.f46875a) {
                     Log.d("GamenowPlaytimeManager", "下发数据 status = 0，不展示");
                 }
                 d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
                 if (!k && parseData.expirationTime > 0 && Q != null) {
                     d.a.l0.f.j.a.c().a(Q.D(), str, SystemClock.elapsedRealtime() + parseData.expirationTime);
                 }
-                d.a.l0.f.j.r.b.n().d("fail", k, "配置下发不展示");
+                d.a.l0.f.j.r.b.n().d(com.baidu.pass.biometrics.face.liveness.b.b.g0, k, "配置下发不展示");
                 return;
             }
             j = str;
             if (parseData.popupSelection == 2) {
-                f46854d = parseData;
+                f50528d = parseData;
             } else if (C()) {
                 d.a.l0.f.j.r.b.n().a("hasClosedWithNotShow");
-                f46854d = parseData;
+                f50528d = parseData;
             } else {
                 x(parseData);
             }
             d.a.l0.f.j.r.b.n().d("success", k, "");
         } catch (Throwable th) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("解析配置信息失败，err = ");
                 th.printStackTrace();
                 sb.append(Unit.INSTANCE);
                 Log.e("GamenowPlaytimeManager", sb.toString());
             }
-            d.a.l0.f.j.r.b.n().d("fail", k, "下发数据非法");
+            d.a.l0.f.j.r.b.n().d(com.baidu.pass.biometrics.face.liveness.b.b.g0, k, "下发数据非法");
         }
     }
 
     public final void P() {
-        f46855e = null;
-        f46859i = null;
+        f50529e = null;
+        f50533i = null;
         k = false;
     }
 
     public final void Q() {
-        GameGuideViewContainer gameGuideViewContainer = f46859i;
+        GameGuideViewContainer gameGuideViewContainer = f50533i;
         if (gameGuideViewContainer != null) {
             d.a.l0.a.g1.f V = d.a.l0.a.g1.f.V();
             Intrinsics.checkNotNullExpressionValue(V, "SwanAppController.getInstance()");
@@ -659,7 +658,7 @@ public final class b {
     public final void R() {
         d.a.l0.a.a2.e i2 = d.a.l0.a.a2.e.i();
         if (i2 == null) {
-            d.a.l0.f.j.r.b.n().d("fail", k, "小游戏非法");
+            d.a.l0.f.j.r.b.n().d(com.baidu.pass.biometrics.face.liveness.b.b.g0, k, "小游戏非法");
             return;
         }
         String i3 = d.a.l0.a.c1.a.a0().i(AppRuntime.getAppContext());
@@ -680,7 +679,7 @@ public final class b {
     }
 
     public final void T(GameGuideConfigInfo gameGuideConfigInfo) {
-        f46854d = gameGuideConfigInfo;
+        f50528d = gameGuideConfigInfo;
     }
 
     public final void U(long j2) {
@@ -714,7 +713,7 @@ public final class b {
 
     public final void Z(long j2) {
         if (j2 < 0) {
-            if (d.a.l0.a.k.f43199a) {
+            if (d.a.l0.a.k.f46875a) {
                 Log.d("GamenowPlaytimeManager", "游戏时长不能为负数");
                 return;
             }
@@ -723,7 +722,7 @@ public final class b {
         if (j2 > SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
             j2 = 90000;
         }
-        f46851a = j2;
+        f50525a = j2;
         Y(j2);
     }
 
@@ -731,10 +730,10 @@ public final class b {
     }
 
     public final void b0() {
-        if (f46852b) {
+        if (f50526b) {
             return;
         }
-        f46852b = true;
+        f50526b = true;
         if (ProcessUtils.isMainProcess()) {
             X(true);
             return;
@@ -756,7 +755,7 @@ public final class b {
             layoutParams.gravity = 8388613;
             d.a.l0.a.a2.e Q = d.a.l0.a.a2.e.Q();
             if (Q != null) {
-                f46859i = new GameGuideViewContainer(d.a.l0.a.c1.a.b());
+                f50533i = new GameGuideViewContainer(d.a.l0.a.c1.a.b());
                 int e2 = f0.e(Q.x());
                 if (f0.d()) {
                     layoutParams.topMargin = dimensionPixelSize + e2;
@@ -767,7 +766,7 @@ public final class b {
                 Intrinsics.checkNotNullExpressionValue(V, "SwanAppController.getInstance()");
                 n Y = V.Y();
                 Intrinsics.checkNotNullExpressionValue(Y, "SwanAppController.getIns…swanGameNARootViewManager");
-                Y.getRootView().addView(f46859i, layoutParams);
+                Y.getRootView().addView(f50533i, layoutParams);
                 Context appContext2 = AppRuntime.getAppContext();
                 Intrinsics.checkNotNullExpressionValue(appContext2, "AppRuntime.getAppContext()");
                 LottieComposition lottieComposition = viewInfo.iconDoneLottie;
@@ -779,50 +778,50 @@ public final class b {
                 String str2 = viewInfo.tips;
                 Intrinsics.checkNotNullExpressionValue(str2, "it.tips");
                 GameGuideView gameGuideView = new GameGuideView(appContext2, lottieComposition, bitmap, str, str2);
-                f46855e = gameGuideView;
-                GameGuideViewContainer gameGuideViewContainer = f46859i;
+                f50529e = gameGuideView;
+                GameGuideViewContainer gameGuideViewContainer = f50533i;
                 if (gameGuideViewContainer != null) {
                     gameGuideViewContainer.addView(gameGuideView);
                 }
                 d.a.l0.a.g1.f V2 = d.a.l0.a.g1.f.V();
                 Intrinsics.checkNotNullExpressionValue(V2, "SwanAppController.getInstance()");
                 V2.Y().e(n);
-                GameGuideView gameGuideView2 = f46855e;
+                GameGuideView gameGuideView2 = f50529e;
                 if (gameGuideView2 != null) {
-                    gameGuideView2.setOnClickListener(g.f46865e);
+                    gameGuideView2.setOnClickListener(g.f50539e);
                 }
-                if (d.a.l0.f.j.s.a.f46957f.g()) {
+                if (d.a.l0.f.j.s.a.f50631f.g()) {
                     return;
                 }
-                d.a.l0.f.j.s.a.f46957f.j();
-                GameGuideView gameGuideView3 = f46855e;
+                d.a.l0.f.j.s.a.f50631f.j();
+                GameGuideView gameGuideView3 = f50529e;
                 if (gameGuideView3 != null) {
-                    gameGuideView3.o(d.a.l0.f.j.s.a.f46957f.f());
+                    gameGuideView3.o(d.a.l0.f.j.s.a.f50631f.f());
                 }
             }
         }
     }
 
     public final void d0() {
-        long j2 = f46851a;
-        if (j2 < StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+        long j2 = f50525a;
+        if (j2 < 30000) {
             return;
         }
-        long j3 = j2 % StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
-        f46851a = j3;
+        long j3 = j2 % 30000;
+        f50525a = j3;
         Y(j3);
     }
 
     public final void v(int i2) {
         int i3;
         if (ProcessUtils.isMainProcess()) {
-            int i4 = f46858h + i2;
-            f46858h = i4;
-            GameGuideConfigInfo gameGuideConfigInfo = f46854d;
+            int i4 = f50532h + i2;
+            f50532h = i4;
+            GameGuideConfigInfo gameGuideConfigInfo = f50528d;
             if (gameGuideConfigInfo != null && i4 > (i3 = gameGuideConfigInfo.maxNums)) {
-                f46858h = i3;
+                f50532h = i3;
             }
-            S(f46858h);
+            S(f50532h);
             return;
         }
         Bundle bundle = new Bundle();
@@ -832,13 +831,13 @@ public final class b {
     }
 
     public final void w() {
-        q.j(RunnableC0989b.f46860e, "thread_gamenowGuideInitAndCheck");
+        q.j(RunnableC1045b.f50534e, "thread_gamenowGuideInitAndCheck");
     }
 
     public final void x(GameGuideConfigInfo gameGuideConfigInfo) {
         Context appContext = AppRuntime.getAppContext();
         GameGuideConfigInfo.ViewInfo viewInfo = gameGuideConfigInfo.viewInfo;
-        LottieCompositionFactory.fromUrl(appContext, viewInfo != null ? viewInfo.iconDoneUrl : null).addListener(new c(gameGuideConfigInfo)).addFailureListener(d.f46862a);
+        LottieCompositionFactory.fromUrl(appContext, viewInfo != null ? viewInfo.iconDoneUrl : null).addListener(new c(gameGuideConfigInfo)).addFailureListener(d.f50536a);
     }
 
     public final void y(GameGuideConfigInfo gameGuideConfigInfo) {
@@ -847,6 +846,6 @@ public final class b {
     }
 
     public final GameGuideConfigInfo z() {
-        return f46854d;
+        return f50528d;
     }
 }

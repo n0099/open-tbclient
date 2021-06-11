@@ -39,10 +39,10 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
                 return;
             }
             if ("c13010".equals(c.this.x)) {
-                TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 4).param("fid", a2Var.c0()).param("tid", a2Var.y1()));
+                TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 4).param("fid", a2Var.c0()).param("tid", a2Var.z1()));
             }
             if (view.getId() == R.id.card_root_layout) {
-                TiebaStatic.log(new StatisticItem("c13020").param("fid", a2Var.c0()).param("obj_name", a2Var.T().getName_show()).param("tid", a2Var.y1()));
+                TiebaStatic.log(new StatisticItem("c13020").param("fid", a2Var.c0()).param("obj_name", a2Var.T().getName_show()).param("tid", a2Var.z1()));
             }
         }
     }
@@ -95,8 +95,8 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
 
     /* renamed from: d.a.n0.d1.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1240c implements d.a.c.e.k.c<TbImageView> {
-        public C1240c() {
+    public class C1296c implements d.a.c.e.k.c<TbImageView> {
+        public C1296c() {
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -151,7 +151,7 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
         super(tbPageContext, bdUniqueId);
         this.y = new a();
         this.z = new d.a.c.e.k.b<>(new b(), 6, 0);
-        this.A = new d.a.c.e.k.b<>(new C1240c(), 12, 0);
+        this.A = new d.a.c.e.k.b<>(new C1296c(), 12, 0);
         this.w = tbPageContext;
     }
 
@@ -161,11 +161,11 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
     }
 
     @Override // d.a.n0.r0.k, d.a.n0.z.y
-    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+    public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         if (tbPageContext != null) {
-            this.f39228e = tbPageContext.getPageActivity();
+            this.f42909e = tbPageContext.getPageActivity();
             this.w = tbPageContext;
-            this.f39232i = bdUniqueId;
+            this.f42913i = bdUniqueId;
         }
     }
 
@@ -175,27 +175,27 @@ public class c extends k<a2, CardViewHolder<w>> implements y {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: u0 */
-    public CardViewHolder<w> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: v0 */
+    public CardViewHolder<w> Q(ViewGroup viewGroup) {
         w wVar = new w(this.w, viewGroup);
-        wVar.u(this.A);
-        wVar.v(this.z);
+        wVar.v(this.A);
+        wVar.w(this.z);
         return new CardViewHolder<>(wVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: v0 */
-    public View W(int i2, View view, ViewGroup viewGroup, a2 a2Var, CardViewHolder<w> cardViewHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: w0 */
+    public View X(int i2, View view, ViewGroup viewGroup, a2 a2Var, CardViewHolder<w> cardViewHolder) {
         if (cardViewHolder == null || cardViewHolder.b() == null) {
             return null;
         }
-        cardViewHolder.b().o(this.y);
-        cardViewHolder.b().m(a2Var);
+        cardViewHolder.b().p(this.y);
+        cardViewHolder.b().n(a2Var);
         if (a2Var != null && a2Var.T() != null) {
             StatisticItem statisticItem = new StatisticItem("c13019");
-            statisticItem.param("tid", a2Var.y1()).param("fid", a2Var.c0()).param("obj_name", a2Var.T().getName_show());
+            statisticItem.param("tid", a2Var.z1()).param("fid", a2Var.c0()).param("obj_name", a2Var.T().getName_show());
             t.b().a(statisticItem);
         }
         return cardViewHolder.a();

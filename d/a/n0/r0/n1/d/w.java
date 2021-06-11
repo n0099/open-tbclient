@@ -19,7 +19,7 @@ import d.a.i.v0.a;
 import d.a.m0.r.q.a2;
 import d.a.m0.r.q.z1;
 /* loaded from: classes4.dex */
-public class w extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.n0.z.z, d.a.n0.r0.j2.d, d.a.n0.o.f, d.a.n0.z.a0, d.a.c.j.e.w {
+public class w extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.n0.z.z, d.a.n0.r0.j2.d, d.a.n0.o.f, d.a.n0.z.a0, d.a.c.k.e.w {
     public String w;
     public String x;
     public int y;
@@ -38,22 +38,22 @@ public class w extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
                 return;
             }
             if (w.this.u != null) {
-                w.this.u.b(view, a2Var, w.this.G());
+                w.this.u.b(view, a2Var, w.this.H());
             }
             if ("c13010".equals(w.this.w)) {
-                TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", a2Var.c0()).param("tid", a2Var.y1()));
+                TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", a2Var.c0()).param("tid", a2Var.z1()));
             }
-            d.a.n0.r0.j2.a.c(a2Var, 1, w.this.f39232i, d.a.n0.r0.j2.d.J0, w.this.f0());
-            if (view.getId() == R.id.thread_card_root && a2Var.C2()) {
-                w.this.z0(a2Var);
+            d.a.n0.r0.j2.a.c(a2Var, 1, w.this.f42913i, d.a.n0.r0.j2.d.L0, w.this.g0());
+            if (view.getId() == R.id.thread_card_root && a2Var.D2()) {
+                w.this.A0(a2Var);
             }
             if (!(view instanceof ThreadSmartAppLayout) && view.getId() != R.id.iv_thread_smart_app_head && view.getId() != R.id.tv_thread_smart_app_title && view.getId() != R.id.tv_thread_smart_app_abstract) {
-                d.a.n0.r0.j2.c.j().g(d.a.n0.r0.j2.d.J0, a2Var, 1);
+                d.a.n0.r0.j2.c.j().g(d.a.n0.r0.j2.d.L0, a2Var, 1);
                 return;
             }
-            d.a.n0.z.m.a(a2Var.y1());
-            if (a2Var.k1() != null) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", a2Var.c0()).param("obj_source", "frs_card").param("obj_id", a2Var.k1().swan_app_id.longValue()).param("obj_name", a2Var.k1().name).param("tid", a2Var.y1()).param("obj_param1", a2Var.k1().is_game.intValue()));
+            d.a.n0.z.m.a(a2Var.z1());
+            if (a2Var.l1() != null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", a2Var.c0()).param("obj_source", "frs_card").param("obj_id", a2Var.l1().swan_app_id.longValue()).param("obj_name", a2Var.l1().name).param("tid", a2Var.z1()).param("obj_param1", a2Var.l1().is_game.intValue()));
             }
         }
     }
@@ -63,15 +63,19 @@ public class w extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
         this.y = 3;
         this.z = new a();
         this.o = tbPageContext;
-        this.f39232i = bdUniqueId2;
+        this.f42913i = bdUniqueId2;
+    }
+
+    public final void A0(a2 a2Var) {
+        TiebaStatic.log(new StatisticItem("c12126").param("tid", a2Var.o0()).param("obj_locate", h0() ? 2 : 1).param("obj_id", a2Var.s1() == null ? -1L : a2Var.s1().live_id).param("obj_type", 1));
     }
 
     @Override // d.a.n0.z.z
     public void a(String str) {
     }
 
-    @Override // d.a.c.j.e.w
-    public void b(View view, d.a.c.j.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+    @Override // d.a.c.k.e.w
+    public void b(View view, d.a.c.k.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
         if ((nVar instanceof z1) && (view.getTag() instanceof ThreadCardViewHolder)) {
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
             a2 a2Var = ((z1) nVar).w;
@@ -81,7 +85,7 @@ public class w extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
                 b0Var.a(threadCardViewHolder.a(), a2Var);
             }
             ThreadCardUtils.jumpToPB((d.a.m0.r.q.a) a2Var, view.getContext(), this.y, false);
-            threadCardViewHolder.b().o(new a.C0544a(1));
+            threadCardViewHolder.b().o(new a.C0600a(1));
         }
     }
 
@@ -91,16 +95,16 @@ public class w extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
     }
 
     @Override // d.a.n0.r0.j2.d
-    public d.a.n0.r0.j2.b i() {
-        return d.a.n0.r0.j2.d.J0;
+    public d.a.n0.r0.j2.b j() {
+        return d.a.n0.r0.j2.d.L0;
     }
 
     @Override // d.a.n0.z.a0
-    public void k(boolean z) {
+    public void l(boolean z) {
     }
 
     @Override // d.a.n0.z.z
-    public void q(int i2) {
+    public void r(int i2) {
         this.y = i2;
     }
 
@@ -110,24 +114,24 @@ public class w extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
-    /* renamed from: x0 */
-    public ThreadCardViewHolder<a2> P(ViewGroup viewGroup) {
+    @Override // d.a.c.k.e.a
+    /* renamed from: y0 */
+    public ThreadCardViewHolder<a2> Q(ViewGroup viewGroup) {
         l0.b bVar = new l0.b(this.o.getPageActivity(), false);
         bVar.h(new j0(this.o.getPageActivity()));
         l0 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.q);
         k.r(3);
         ThreadCardViewHolder<a2> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-        threadCardViewHolder.j(this.f39232i);
-        Z(this);
+        threadCardViewHolder.k(this.f42913i);
+        a0(this);
         return threadCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    /* renamed from: y0 */
-    public View W(int i2, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder<a2> threadCardViewHolder) {
-        super.W(i2, view, viewGroup, z1Var, threadCardViewHolder);
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    /* renamed from: z0 */
+    public View X(int i2, View view, ViewGroup viewGroup, z1 z1Var, ThreadCardViewHolder<a2> threadCardViewHolder) {
+        super.X(i2, view, viewGroup, z1Var, threadCardViewHolder);
         if (z1Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
             return null;
         }
@@ -136,11 +140,7 @@ public class w extends d.a.n0.r0.k<z1, ThreadCardViewHolder<a2>> implements d.a.
         threadCardViewHolder.f(z1Var.w);
         threadCardViewHolder.b().onChangeSkinType(this.o, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.b().p(this.z);
-        z1Var.w.B4();
+        z1Var.w.C4();
         return threadCardViewHolder.a();
-    }
-
-    public final void z0(a2 a2Var) {
-        TiebaStatic.log(new StatisticItem("c12126").param("tid", a2Var.o0()).param("obj_locate", g0() ? 2 : 1).param("obj_id", a2Var.r1() == null ? -1L : a2Var.r1().live_id).param("obj_type", 1));
     }
 }

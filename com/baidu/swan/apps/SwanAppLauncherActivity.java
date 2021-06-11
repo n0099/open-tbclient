@@ -17,7 +17,7 @@ import d.a.l0.a.v2.v;
 @Autowired
 /* loaded from: classes2.dex */
 public class SwanAppLauncherActivity extends Activity {
-    public static final boolean DEBUG = k.f43199a;
+    public static final boolean DEBUG = k.f46875a;
     public static final String SWAN_APP_LAUNCH_ACTION = "com.baidu.searchbox.action.aiapps.LAUNCH";
     public static final String TAG = "SwanAppLauncherActivity";
     public Object mPermissionDialog;
@@ -52,7 +52,7 @@ public class SwanAppLauncherActivity extends Activity {
 
     @Inject(force = false)
     public d getPermissionDialogIOC() {
-        return d.f44684a;
+        return d.f48358a;
     }
 
     @Override // android.app.Activity

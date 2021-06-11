@@ -15,7 +15,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
     public static final Waiter DEFAULT_WAITER = new Waiter();
     public final boolean assertBackgroundThread;
@@ -34,7 +34,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     public final int width;
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Waiter {
         public void notifyAll(Object obj) {
             obj.notifyAll();

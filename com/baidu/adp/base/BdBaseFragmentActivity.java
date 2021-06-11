@@ -22,7 +22,7 @@ import d.a.c.a.h;
 import d.a.c.a.i;
 import d.a.c.e.l.d;
 import d.a.c.e.p.l;
-import d.a.c.j.e.q;
+import d.a.c.k.e.q;
 /* loaded from: classes.dex */
 public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, g<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i {
     public static final int PRELOAD_DELAY = 100;

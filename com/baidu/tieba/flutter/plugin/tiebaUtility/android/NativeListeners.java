@@ -213,7 +213,7 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f53997b) == null) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f57686b) == null) {
                 return;
             }
             HashMap hashMap = new HashMap();
@@ -350,7 +350,7 @@ public class NativeListeners {
             if (customResponsedMessage == null) {
                 return;
             }
-            b.f49637c = b.f49638d;
+            b.f53312c = b.f53313d;
             NativeListeners.this.notifyFlutter("AnimateToBarEntryForumSquare", null, null);
         }
     };
@@ -368,7 +368,7 @@ public class NativeListeners {
     };
 
     private void dealBeforeAttachNotification(String str) {
-        if ("AnimateToBarEntryForumSquare".equals(str) && b.f49637c == b.f49639e) {
+        if ("AnimateToBarEntryForumSquare".equals(str) && b.f53312c == b.f53314e) {
             d.a.c.e.m.e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.NativeListeners.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -698,8 +698,8 @@ public class NativeListeners {
             wVar.v(1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
             d.a.n0.e3.q0.e eVar = new d.a.n0.e3.q0.e();
-            eVar.f54223a = d.a.c.e.m.b.f(str2, 0L);
-            eVar.f54224b = true;
+            eVar.f57912a = d.a.c.e.m.b.f(str2, 0L);
+            eVar.f57913b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, eVar));
             return null;
         } else if (c2 == 1) {

@@ -5,28 +5,28 @@ import org.json.JSONObject;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f50501a;
+    public int f54177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public p f50502b;
+    public p f54178b;
 
     public int a() {
-        return this.f50501a;
+        return this.f54177a;
     }
 
     public p b() {
-        return this.f50502b;
+        return this.f54178b;
     }
 
     public void c(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("common");
         if (optJSONObject != null) {
-            this.f50501a = optJSONObject.optInt("version");
+            this.f54177a = optJSONObject.optInt("version");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
         if (optJSONObject2 != null) {
             p pVar = new p();
-            this.f50502b = pVar;
+            this.f54178b = pVar;
             pVar.f(optJSONObject2);
         }
     }

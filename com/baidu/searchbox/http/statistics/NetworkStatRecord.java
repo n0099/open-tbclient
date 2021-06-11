@@ -2,6 +2,7 @@ package com.baidu.searchbox.http.statistics;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.yy.gslbsdk.db.ProbeTB;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.InetAddress;
@@ -193,7 +194,7 @@ public class NetworkStatRecord {
                 jSONObject.put("url", this.url);
             }
             if (!TextUtils.isEmpty(this.protocol)) {
-                jSONObject.put("protocol", this.protocol);
+                jSONObject.put(ProbeTB.PROTOCOL, this.protocol);
             }
             if (!TextUtils.isEmpty(this.netType)) {
                 jSONObject.put("netType", this.netType);

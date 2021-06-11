@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.BaseFragment;
 public abstract class BaseTemplateFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.m0.x0.a f12943e;
+    public d.a.m0.x0.a f13008e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f12944f;
+    public ViewGroup f13009f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f12945g = new a(2001453);
+    public final CustomMessageListener f13010g = new a(2001453);
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -41,31 +41,31 @@ public abstract class BaseTemplateFragment extends BaseFragment {
                     return;
                 }
                 if (aVar.c()) {
-                    BaseTemplateFragment.this.H0(aVar);
+                    BaseTemplateFragment.this.K0(aVar);
                 } else if (aVar.b()) {
-                    BaseTemplateFragment.this.G0(aVar);
+                    BaseTemplateFragment.this.J0(aVar);
                 }
             }
         }
     }
 
-    public final String D0(Object obj) {
+    public final String G0(Object obj) {
         return obj != null ? obj.getClass().getSimpleName() : StringUtil.NULL_STRING;
     }
 
-    public abstract d.a.m0.x0.a E0(ViewGroup viewGroup);
+    public abstract d.a.m0.x0.a H0(ViewGroup viewGroup);
 
-    public abstract ViewGroup F0();
+    public abstract ViewGroup I0();
 
-    public void G0(d.a.m0.x0.b.a.a aVar) {
+    public void J0(d.a.m0.x0.b.a.a aVar) {
     }
 
-    public void H0(d.a.m0.x0.b.a.a aVar) {
+    public void K0(d.a.m0.x0.b.a.a aVar) {
     }
 
-    public void I0() {
+    public void L0() {
         d.a.m0.x0.d.a.b("BaseTemplateFragment-->sendReq----");
-        d.a.m0.x0.a aVar = this.f12943e;
+        d.a.m0.x0.a aVar = this.f13008e;
         if (aVar != null) {
             aVar.e();
         }
@@ -76,7 +76,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         d.a.m0.x0.d.a.b("BaseTemplateFragment-->onActivityCreated---- ");
         super.onActivityCreated(bundle);
         if (isPrimary()) {
-            I0();
+            L0();
         }
     }
 
@@ -88,9 +88,9 @@ public abstract class BaseTemplateFragment extends BaseFragment {
 
     @Override // androidx.fragment.app.Fragment
     public void onAttachFragment(Fragment fragment) {
-        d.a.m0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----parentFragment=" + D0(getParentFragment()));
-        d.a.m0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----currentFragment=" + D0(this));
-        d.a.m0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----childFragment=" + D0(fragment));
+        d.a.m0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----parentFragment=" + G0(getParentFragment()));
+        d.a.m0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----currentFragment=" + G0(this));
+        d.a.m0.x0.d.a.b("BaseTemplateFragment-->onAttachFragment----childFragment=" + G0(fragment));
         super.onAttachFragment(fragment);
     }
 
@@ -98,7 +98,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onChangeSkinType(int i2) {
         d.a.m0.x0.d.a.b("BaseTemplateFragment-->onChangeSkinType---- ");
         super.onChangeSkinType(i2);
-        d.a.m0.x0.a aVar = this.f12943e;
+        d.a.m0.x0.a aVar = this.f13008e;
         if (aVar != null) {
             aVar.a(i2);
         }
@@ -114,26 +114,26 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         d.a.m0.x0.d.a.b("BaseTemplateFragment-->onCreateView---- ");
-        ViewGroup viewGroup2 = this.f12944f;
+        ViewGroup viewGroup2 = this.f13009f;
         if (viewGroup2 != null && (viewGroup2.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.f12944f.getParent()).removeView(this.f12944f);
+            ((ViewGroup) this.f13009f.getParent()).removeView(this.f13009f);
         }
-        if (this.f12944f == null) {
-            this.f12944f = F0();
+        if (this.f13009f == null) {
+            this.f13009f = I0();
         }
-        if (this.f12943e == null) {
-            this.f12943e = E0(this.f12944f);
+        if (this.f13008e == null) {
+            this.f13008e = H0(this.f13009f);
         }
-        this.f12943e.f(getUniqueId());
-        registerListener(this.f12945g);
-        return this.f12944f;
+        this.f13008e.f(getUniqueId());
+        registerListener(this.f13010g);
+        return this.f13009f;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         d.a.m0.x0.d.a.b("BaseTemplateFragment-->onDestroy---- ");
         super.onDestroy();
-        d.a.m0.x0.a aVar = this.f12943e;
+        d.a.m0.x0.a aVar = this.f13008e;
         if (aVar != null) {
             aVar.b();
         }
@@ -155,7 +155,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onLazyLoad() {
         d.a.m0.x0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
         super.onLazyLoad();
-        I0();
+        L0();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -168,7 +168,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void onPause() {
         d.a.m0.x0.d.a.b("BaseTemplateFragment-->onPause---- ");
         super.onPause();
-        d.a.m0.x0.a aVar = this.f12943e;
+        d.a.m0.x0.a aVar = this.f13008e;
         if (aVar != null) {
             aVar.c();
         }
@@ -179,14 +179,14 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         d.a.m0.x0.d.a.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            d.a.m0.x0.a aVar = this.f12943e;
+            d.a.m0.x0.a aVar = this.f13008e;
             if (aVar != null) {
                 aVar.d();
                 return;
             }
             return;
         }
-        d.a.m0.x0.a aVar2 = this.f12943e;
+        d.a.m0.x0.a aVar2 = this.f13008e;
         if (aVar2 != null) {
             aVar2.c();
         }

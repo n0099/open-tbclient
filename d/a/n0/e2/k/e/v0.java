@@ -9,147 +9,147 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 public class v0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.n0.w3.c f53526a;
+    public d.a.n0.w3.c f57215a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.n0.w3.c f53527b;
+    public d.a.n0.w3.c f57216b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EditText f53528c;
+    public EditText f57217c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EditText f53529d;
+    public EditText f57218d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PostWriteCallBackData f53530e;
+    public PostWriteCallBackData f57219e;
 
     public v0() {
         d.a.n0.w3.c cVar = new d.a.n0.w3.c();
-        this.f53526a = cVar;
+        this.f57215a = cVar;
         cVar.j(R.color.CAM_X0101);
-        this.f53526a.h(R.color.cp_cont_h_alpha85);
+        this.f57215a.h(R.color.cp_cont_h_alpha85);
         d.a.n0.w3.c cVar2 = new d.a.n0.w3.c();
-        this.f53527b = cVar2;
+        this.f57216b = cVar2;
         cVar2.j(R.color.CAM_X0101);
-        this.f53527b.h(R.color.cp_cont_h_alpha85);
+        this.f57216b.h(R.color.cp_cont_h_alpha85);
     }
 
     public void a(boolean z) {
-        EditText editText = this.f53528c;
+        EditText editText = this.f57217c;
         if (editText == null || editText.getText() == null) {
             return;
         }
-        int selectionEnd = this.f53528c.getSelectionEnd();
-        SpannableStringBuilder f2 = this.f53526a.f(this.f53528c.getText());
+        int selectionEnd = this.f57217c.getSelectionEnd();
+        SpannableStringBuilder f2 = this.f57215a.f(this.f57217c.getText());
         if (f2 != null) {
-            this.f53526a.l(true);
-            this.f53528c.setText(f2);
-            if (z && this.f53526a.b() >= 0) {
-                this.f53528c.requestFocus();
-                this.f53528c.setSelection(this.f53526a.b());
+            this.f57215a.l(true);
+            this.f57217c.setText(f2);
+            if (z && this.f57215a.b() >= 0) {
+                this.f57217c.requestFocus();
+                this.f57217c.setSelection(this.f57215a.b());
             } else {
-                this.f53528c.setSelection(selectionEnd);
+                this.f57217c.setSelection(selectionEnd);
             }
-            d.a.n0.w3.c cVar = this.f53526a;
+            d.a.n0.w3.c cVar = this.f57215a;
             cVar.k(cVar.b() >= 0);
         }
     }
 
     public void b(boolean z) {
-        EditText editText = this.f53529d;
+        EditText editText = this.f57218d;
         if (editText == null || editText.getText() == null) {
             return;
         }
-        int selectionEnd = this.f53529d.getSelectionEnd();
-        SpannableStringBuilder f2 = this.f53527b.f(this.f53529d.getText());
+        int selectionEnd = this.f57218d.getSelectionEnd();
+        SpannableStringBuilder f2 = this.f57216b.f(this.f57218d.getText());
         if (f2 != null) {
-            this.f53527b.l(true);
-            this.f53529d.setText(f2);
-            if (z && this.f53527b.b() >= 0) {
-                this.f53529d.requestFocus();
-                this.f53529d.setSelection(this.f53527b.b());
+            this.f57216b.l(true);
+            this.f57218d.setText(f2);
+            if (z && this.f57216b.b() >= 0) {
+                this.f57218d.requestFocus();
+                this.f57218d.setSelection(this.f57216b.b());
             } else {
-                this.f53529d.setSelection(selectionEnd);
+                this.f57218d.setSelection(selectionEnd);
             }
-            d.a.n0.w3.c cVar = this.f53527b;
+            d.a.n0.w3.c cVar = this.f57216b;
             cVar.k(cVar.b() >= 0);
         }
     }
 
     public void c() {
-        this.f53526a.n(null);
-        this.f53526a.i(null);
-        this.f53526a.k(false);
+        this.f57215a.n(null);
+        this.f57215a.i(null);
+        this.f57215a.k(false);
     }
 
     public void d() {
-        this.f53527b.n(null);
-        this.f53527b.i(null);
-        this.f53527b.k(false);
+        this.f57216b.n(null);
+        this.f57216b.i(null);
+        this.f57216b.k(false);
     }
 
     public d.a.n0.w3.c e() {
-        return this.f53526a;
+        return this.f57215a;
     }
 
     public EditText f() {
-        return this.f53529d;
+        return this.f57218d;
     }
 
     public d.a.n0.w3.c g() {
-        return this.f53527b;
+        return this.f57216b;
     }
 
     public PostWriteCallBackData h() {
-        return this.f53530e;
+        return this.f57219e;
     }
 
     public void i() {
-        this.f53526a.g();
-        this.f53527b.g();
-        if (this.f53526a.d()) {
+        this.f57215a.g();
+        this.f57216b.g();
+        if (this.f57215a.d()) {
             a(false);
         }
-        if (this.f53527b.d()) {
+        if (this.f57216b.d()) {
             b(false);
         }
     }
 
     public void j() {
-        this.f53528c = null;
-        this.f53529d = null;
+        this.f57217c = null;
+        this.f57218d = null;
     }
 
     public void k(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData == null) {
             return;
         }
-        this.f53526a.i(postWriteCallBackData.getSensitiveWords());
-        this.f53526a.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.f53526a.a())) {
+        this.f57215a.i(postWriteCallBackData.getSensitiveWords());
+        this.f57215a.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.f57215a.a())) {
             return;
         }
         a(true);
-        this.f53530e = postWriteCallBackData;
+        this.f57219e = postWriteCallBackData;
     }
 
     public void l(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData == null) {
             return;
         }
-        this.f53527b.i(postWriteCallBackData.getSensitiveWords());
-        this.f53527b.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.f53527b.a())) {
+        this.f57216b.i(postWriteCallBackData.getSensitiveWords());
+        this.f57216b.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.f57216b.a())) {
             return;
         }
         b(true);
     }
 
     public void m(EditText editText) {
-        this.f53528c = editText;
+        this.f57217c = editText;
     }
 
     public void n(EditText editText) {
-        this.f53529d = editText;
+        this.f57218d = editText;
     }
 }

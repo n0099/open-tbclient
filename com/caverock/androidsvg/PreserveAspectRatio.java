@@ -3,16 +3,16 @@ package com.caverock.androidsvg;
 public class PreserveAspectRatio {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PreserveAspectRatio f30330c = new PreserveAspectRatio(Alignment.None, null);
+    public static final PreserveAspectRatio f30433c = new PreserveAspectRatio(Alignment.None, null);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PreserveAspectRatio f30331d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
+    public static final PreserveAspectRatio f30434d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
 
     /* renamed from: a  reason: collision with root package name */
-    public Alignment f30332a;
+    public Alignment f30435a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Scale f30333b;
+    public Scale f30436b;
 
     /* loaded from: classes6.dex */
     public enum Alignment {
@@ -50,16 +50,16 @@ public class PreserveAspectRatio {
     }
 
     public PreserveAspectRatio(Alignment alignment, Scale scale) {
-        this.f30332a = alignment;
-        this.f30333b = scale;
+        this.f30435a = alignment;
+        this.f30436b = scale;
     }
 
     public Alignment a() {
-        return this.f30332a;
+        return this.f30435a;
     }
 
     public Scale b() {
-        return this.f30333b;
+        return this.f30436b;
     }
 
     public boolean equals(Object obj) {
@@ -68,7 +68,7 @@ public class PreserveAspectRatio {
         }
         if (obj != null && PreserveAspectRatio.class == obj.getClass()) {
             PreserveAspectRatio preserveAspectRatio = (PreserveAspectRatio) obj;
-            return this.f30332a == preserveAspectRatio.f30332a && this.f30333b == preserveAspectRatio.f30333b;
+            return this.f30435a == preserveAspectRatio.f30435a && this.f30436b == preserveAspectRatio.f30436b;
         }
         return false;
     }

@@ -41,19 +41,19 @@ public class l extends Dialog {
     public View.OnClickListener K;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57143e;
+    public Context f60832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VersionData f57144f;
+    public VersionData f60833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CombineDownload f57145g;
+    public CombineDownload f60834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57146h;
+    public boolean f60835h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57147i;
+    public boolean f60836i;
     public boolean j;
     public boolean k;
     public LinearLayout l;
@@ -81,12 +81,12 @@ public class l extends Dialog {
         public void onClick(View view) {
             TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_IMMEDIATELY_CLICK);
             l.this.j = true;
-            if (l.this.f57147i) {
+            if (l.this.f60836i) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.btn_dailog_choose_d);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 l.this.q.setCompoundDrawables(drawable, null, null, null);
             }
-            l.this.F.a(l.this.f57147i);
+            l.this.F.a(l.this.f60836i);
         }
     }
 
@@ -103,7 +103,7 @@ public class l extends Dialog {
                 TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_SUPER_SPEED_CLICK);
             }
             l.this.w.setEnabled(false);
-            l.this.F.b(l.this.f57147i);
+            l.this.F.b(l.this.f60836i);
         }
     }
 
@@ -128,19 +128,19 @@ public class l extends Dialog {
             if (l.this.j) {
                 return;
             }
-            if (l.this.f57147i) {
+            if (l.this.f60836i) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.btn_dailog_choose_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 l.this.q.setCompoundDrawables(drawable, null, null, null);
-                l.this.f57146h = false;
-                l.this.f57147i = false;
+                l.this.f60835h = false;
+                l.this.f60836i = false;
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.btn_dailog_choose_s);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
             l.this.q.setCompoundDrawables(drawable2, null, null, null);
-            l.this.f57146h = true;
-            l.this.f57147i = true;
+            l.this.f60835h = true;
+            l.this.f60836i = true;
         }
     }
 
@@ -154,7 +154,7 @@ public class l extends Dialog {
             if (view.getId() == l.this.s.getId()) {
                 l.this.F.d();
                 l lVar = l.this;
-                lVar.n(lVar.f57143e);
+                lVar.n(lVar.f60832e);
             } else if (view.getId() == l.this.v.getId()) {
                 l.this.F.d();
             }
@@ -176,13 +176,13 @@ public class l extends Dialog {
 
     public l(Context context, int i2) {
         super(context, i2);
-        this.f57147i = true;
+        this.f60836i = true;
         this.j = false;
         this.k = false;
         this.I = true;
         this.J = true;
         this.K = new e();
-        this.f57143e = context;
+        this.f60832e = context;
     }
 
     public void m(TbPageContext<?> tbPageContext, int i2) {
@@ -265,11 +265,11 @@ public class l extends Dialog {
         } else {
             this.I = false;
         }
-        String size = this.f57144f.getSize();
-        String newVersion = this.f57144f.getNewVersion();
-        String newVersionDesc = this.f57144f.getNewVersionDesc();
+        String size = this.f60833f.getSize();
+        String newVersion = this.f60833f.getNewVersion();
+        String newVersionDesc = this.f60833f.getNewVersionDesc();
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f57143e.getString(R.string.new_version_format));
+        sb.append(this.f60832e.getString(R.string.new_version_format));
         if (!TextUtils.isEmpty(newVersion)) {
             sb.append(newVersion);
         }
@@ -278,24 +278,24 @@ public class l extends Dialog {
         }
         this.m.setText(sb.toString());
         this.n.setText(newVersionDesc);
-        if (this.f57144f.forceUpdate()) {
+        if (this.f60833f.forceUpdate()) {
             this.k = true;
-            this.r.setText(this.f57143e.getString(R.string.quit));
+            this.r.setText(this.f60832e.getString(R.string.quit));
             this.s.setVisibility(8);
             this.v.setVisibility(8);
-        } else if (this.f57144f.isOfficialVersion() && d.a.c.e.p.l.w(this.f57143e, "com.tencent.android.qqdownloader")) {
+        } else if (this.f60833f.isOfficialVersion() && d.a.c.e.p.l.w(this.f60832e, "com.tencent.android.qqdownloader")) {
             this.r.setVisibility(8);
         } else {
-            this.r.setText(this.f57143e.getString(R.string.update_after));
+            this.r.setText(this.f60832e.getString(R.string.update_after));
             this.s.setVisibility(8);
             this.v.setVisibility(8);
         }
-        CombineDownload combineDownload = this.f57145g;
-        if (combineDownload != null && combineDownload.showCombineDownload() && !TextUtils.isEmpty(this.f57145g.getApkMD5RSA())) {
-            this.q.setText(this.f57145g.getAppName());
-            if (!z.b(this.f57143e, this.f57145g.getAppProc()) && !TextUtils.isEmpty(this.f57145g.getAppUrl())) {
+        CombineDownload combineDownload = this.f60834g;
+        if (combineDownload != null && combineDownload.showCombineDownload() && !TextUtils.isEmpty(this.f60834g.getApkMD5RSA())) {
+            this.q.setText(this.f60834g.getAppName());
+            if (!z.b(this.f60832e, this.f60834g.getAppProc()) && !TextUtils.isEmpty(this.f60834g.getAppUrl())) {
                 this.q.setVisibility(0);
-                Drawable drawable = this.f57143e.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
+                Drawable drawable = this.f60832e.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.q.setCompoundDrawables(drawable, null, null, null);
             } else {
@@ -317,8 +317,8 @@ public class l extends Dialog {
     }
 
     public void q(VersionData versionData, CombineDownload combineDownload, f fVar) {
-        this.f57144f = versionData;
-        this.f57145g = combineDownload;
+        this.f60833f = versionData;
+        this.f60834g = combineDownload;
         this.F = fVar;
     }
 
@@ -328,14 +328,14 @@ public class l extends Dialog {
     }
 
     public void s(boolean z) {
-        if (n.c(this.f57143e.getPackageManager())) {
+        if (n.c(this.f60832e.getPackageManager())) {
             this.x.setVisibility(8);
         } else {
             this.x.setVisibility(0);
         }
         if (z) {
-            VersionData versionData = this.f57144f;
-            if (versionData != null && !TextUtils.isEmpty(versionData.getPatch()) && this.f57144f.getNewVersionCode() >= 0) {
+            VersionData versionData = this.f60833f;
+            if (versionData != null && !TextUtils.isEmpty(versionData.getPatch()) && this.f60833f.getNewVersionCode() >= 0) {
                 this.y.setVisibility(0);
                 this.w.setText(R.string.incremental_update);
                 SkinManager.setBackgroundResource(this.w, R.drawable.dialog_single_button_bg_selector);
@@ -354,8 +354,8 @@ public class l extends Dialog {
             TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_IMMEDIATELY_SHOW);
             return;
         }
-        VersionData versionData2 = this.f57144f;
-        if (versionData2 != null && !TextUtils.isEmpty(versionData2.getPatch()) && this.f57144f.getNewVersionCode() >= 0) {
+        VersionData versionData2 = this.f60833f;
+        if (versionData2 != null && !TextUtils.isEmpty(versionData2.getPatch()) && this.f60833f.getNewVersionCode() >= 0) {
             this.y.setVisibility(0);
             SkinManager.setBackgroundResource(this.w, R.drawable.dialog_middle_item_bg_selector);
             this.w.setText(R.string.incremental_update);

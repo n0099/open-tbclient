@@ -15,68 +15,68 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f62712a;
+    public ArrayList<String> f66427a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62713b;
+    public String f66428b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62714c;
+    public int f66429c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62715d;
+    public int f66430d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62716e;
+    public int f66431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62717f;
+    public int f66432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62718g = -1;
+    public int f66433g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62719h = false;
+    public boolean f66434h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f62720i = false;
+    public boolean f66435i = false;
 
     public ArrayList<String> a() {
-        return this.f62712a;
+        return this.f66427a;
     }
 
     public int b() {
-        return this.f62718g;
+        return this.f66433g;
     }
 
     public String c() {
-        return this.f62713b;
+        return this.f66428b;
     }
 
     public boolean d() {
-        return this.f62719h;
+        return this.f66434h;
     }
 
     public boolean e() {
-        return this.f62720i;
+        return this.f66435i;
     }
 
     public SpannableStringBuilder f(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.f62712a)) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.f66427a)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.f62718g >= 0;
-        this.f62718g = -1;
-        Iterator<String> it = this.f62712a.iterator();
+        boolean z = this.f66433g >= 0;
+        this.f66433g = -1;
+        Iterator<String> it = this.f66427a.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 m(spannableStringBuilder, obj, next);
             }
         }
-        if (this.f62718g >= 0 || z) {
+        if (this.f66433g >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -91,70 +91,70 @@ public class c {
     }
 
     public void g() {
-        int i2 = this.f62714c;
+        int i2 = this.f66429c;
         if (i2 != 0) {
-            this.f62716e = SkinManager.getColor(i2);
+            this.f66431e = SkinManager.getColor(i2);
         }
-        int i3 = this.f62715d;
+        int i3 = this.f66430d;
         if (i3 != 0) {
-            this.f62717f = SkinManager.getColor(i3);
+            this.f66432f = SkinManager.getColor(i3);
         }
     }
 
     public void h(int i2) {
-        this.f62715d = i2;
-        this.f62717f = SkinManager.getColor(i2);
+        this.f66430d = i2;
+        this.f66432f = SkinManager.getColor(i2);
     }
 
     public void i(ArrayList<String> arrayList) {
-        this.f62712a = arrayList;
+        this.f66427a = arrayList;
     }
 
     public void j(int i2) {
-        this.f62714c = i2;
-        this.f62716e = SkinManager.getColor(i2);
+        this.f66429c = i2;
+        this.f66431e = SkinManager.getColor(i2);
     }
 
     public void k(boolean z) {
-        this.f62719h = z;
+        this.f66434h = z;
     }
 
     public void l(boolean z) {
-        this.f62720i = z;
+        this.f66435i = z;
     }
 
     public final void m(SpannableStringBuilder spannableStringBuilder, String str, String str2) {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.f62716e == 0 && this.f62717f == 0) {
+        if (this.f66431e == 0 && this.f66432f == 0) {
             return;
         }
         int indexOf = str.indexOf(str2);
         int length = str2.length();
         if (indexOf >= 0) {
-            int i2 = this.f62718g;
+            int i2 = this.f66433g;
             if (i2 == -1) {
-                this.f62718g = indexOf + length;
+                this.f66433g = indexOf + length;
             } else {
                 int i3 = indexOf + length;
                 if (i3 < i2) {
-                    this.f62718g = i3;
+                    this.f66433g = i3;
                 }
             }
         }
         while (indexOf >= 0) {
-            if (this.f62716e != 0) {
-                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.f62716e), indexOf, indexOf + length, 33);
+            if (this.f66431e != 0) {
+                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.f66431e), indexOf, indexOf + length, 33);
             }
-            if (this.f62717f != 0) {
-                spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f62717f), indexOf, indexOf + length, 33);
+            if (this.f66432f != 0) {
+                spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f66432f), indexOf, indexOf + length, 33);
             }
             indexOf = str.indexOf(str2, indexOf + 1);
         }
     }
 
     public void n(String str) {
-        this.f62713b = str;
+        this.f66428b = str;
     }
 }

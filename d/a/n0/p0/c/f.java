@@ -12,23 +12,23 @@ public class f extends d.a.n0.r0.k<d.a.n0.r0.n, FrsEmpertyItemViewHolder> {
         super(tbPageContext, bdUniqueId);
     }
 
-    @Override // d.a.n0.r0.k, d.a.c.j.e.a
-    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+    @Override // d.a.n0.r0.k, d.a.c.k.e.a
+    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         t0(i2, view, viewGroup, (d.a.n0.r0.n) obj, (FrsEmpertyItemViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.j.e.a
+    @Override // d.a.c.k.e.a
     /* renamed from: s0 */
-    public FrsEmpertyItemViewHolder P(ViewGroup viewGroup) {
-        return new FrsEmpertyItemViewHolder(new View(this.f39228e));
+    public FrsEmpertyItemViewHolder Q(ViewGroup viewGroup) {
+        return new FrsEmpertyItemViewHolder(new View(this.f42909e));
     }
 
     public View t0(int i2, View view, ViewGroup viewGroup, d.a.n0.r0.n nVar, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
-        super.W(i2, view, viewGroup, nVar, frsEmpertyItemViewHolder);
-        frsEmpertyItemViewHolder.c(nVar.e());
-        frsEmpertyItemViewHolder.b(nVar.c());
+        super.X(i2, view, viewGroup, nVar, frsEmpertyItemViewHolder);
+        frsEmpertyItemViewHolder.c(nVar.c());
+        frsEmpertyItemViewHolder.b(nVar.b());
         return view;
     }
 }

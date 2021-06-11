@@ -12,27 +12,27 @@ import org.json.JSONObject;
 public class b0 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f63888b = AppConfig.isDebug();
+    public static final boolean f67606b = AppConfig.isDebug();
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b0 f63889c;
+    public static volatile b0 f67607c;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f63890a = d.a.e0.b.a.a.g();
+    public boolean f67608a = d.a.e0.b.a.a.g();
 
     public static b0 a() {
-        if (f63889c == null) {
+        if (f67607c == null) {
             synchronized (e.class) {
-                if (f63889c == null) {
-                    f63889c = new b0();
+                if (f67607c == null) {
+                    f67607c = new b0();
                 }
             }
         }
-        return f63889c;
+        return f67607c;
     }
 
     public void b(String str, int i2, String str2) {
-        if (!this.f63890a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i2 == 0) {
+        if (!this.f67608a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i2 == 0) {
             return;
         }
         try {
@@ -48,7 +48,7 @@ public class b0 {
 
     public final void c(String str, String str2, JSONObject jSONObject) {
         e0 e0Var = (e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        if (f63888b) {
+        if (f67606b) {
             String jSONObject2 = jSONObject != null ? jSONObject.toString() : "";
             Log.d("UBCQualityStatics", "Quality event: type=" + str + ", value=" + str2 + ",ext=" + jSONObject2);
         }
@@ -70,7 +70,7 @@ public class b0 {
     }
 
     public void d(String str, int i2) {
-        if (!this.f63890a || TextUtils.isEmpty(str) || i2 == 0) {
+        if (!this.f67608a || TextUtils.isEmpty(str) || i2 == 0) {
             return;
         }
         try {
@@ -84,7 +84,7 @@ public class b0 {
     }
 
     public void e(String str, int i2, int i3, int i4) {
-        if (this.f63890a && !TextUtils.isEmpty(str)) {
+        if (this.f67608a && !TextUtils.isEmpty(str)) {
             if (i2 == 0 && i3 == 0 && i4 == 0) {
                 return;
             }
@@ -108,7 +108,7 @@ public class b0 {
     }
 
     public void f(String str) {
-        if (this.f63890a && !TextUtils.isEmpty(str)) {
+        if (this.f67608a && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
@@ -120,7 +120,7 @@ public class b0 {
     }
 
     public void g(String str) {
-        if (this.f63890a && !TextUtils.isEmpty(str)) {
+        if (this.f67608a && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("exception", str);
@@ -132,7 +132,7 @@ public class b0 {
     }
 
     public void h(String str, String str2) {
-        if (this.f63890a) {
+        if (this.f67608a) {
             if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
                 return;
             }
@@ -152,7 +152,7 @@ public class b0 {
     }
 
     public void i(String str) {
-        if (this.f63890a && !TextUtils.isEmpty(str)) {
+        if (this.f67608a && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("exception", str);
@@ -164,7 +164,7 @@ public class b0 {
     }
 
     public void j(int i2) {
-        if (this.f63890a) {
+        if (this.f67608a) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("errno", i2);
